@@ -1,24 +1,17 @@
-export interface Post {
+export interface FrontMatter {
+  title: string;
   id: string;
-  Page: string;
-  Slug: string;
-  Image: string;
-  Date: number;
-  Authors: string[];
-  Published: "Yes" | "No";
+  wordCount: number;
 }
 
-export interface Block {
-  role: string;
-  value: {
-    id: string;
-    version: number;
-    type: string;
-    created_time: number;
-    last_edited_time: number;
-    properties: any;
-    parent_id: string;
-    file_ids?: string;
-    format?: any;
-  };
+export type SidebarContent = SidebarSection[];
+
+export interface Page {
+  title: string;
+  slug: string;
+}
+
+export interface SidebarSection {
+  title?: string;
+  pages: Page[];
 }
