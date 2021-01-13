@@ -16,19 +16,12 @@ const themes = {
 
 interface ThemeState {
   colorMode: ColorMode;
-}
-
-interface ThemeActions {
   setColorMode: (mode: string) => void;
 }
 
-const ThemeContext = createContext<[ThemeState, ThemeActions]>(
-  {} as [ThemeState, ThemeActions],
-);
+const ThemeContext = createContext<ThemeState>({} as ThemeState);
 
-export const useTheme = () => useContext(ThemeContext)[0];
-
-export const useSetColorMode = () => useContext(ThemeContext)[1].setColorMode;
+export const useTheme = () => useContext(ThemeContext);
 
 export const WrappedThemeProvider: React.FC = ({ children }) => {
   const { bodyCSS } = useMemo(
@@ -45,16 +38,13 @@ export const WrappedThemeProvider: React.FC = ({ children }) => {
 
   const themeState: ThemeState = {
     colorMode,
-  };
-
-  const themeActions: ThemeActions = {
     setColorMode: value => {
       setTheme(value);
     },
   };
 
   return (
-    <ThemeContext.Provider value={[themeState, themeActions]}>
+    <ThemeContext.Provider value={themeState}>
       <Head>
         <style>{bodyCSS}</style>
       </Head>

@@ -25,7 +25,7 @@ const customColors = {
 };
 
 const fontStack = [
-  "-apple-system",
+  "Inter",
   "BlinkMacSystemFont",
   "Segoe UI",
   "Roboto",
@@ -58,19 +58,19 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
-            color: theme("colors.gray-900"),
+            color: theme("colors.foreground"),
 
             a: {
-              color: theme("colors.gray-900"),
+              color: theme("colors.foreground"),
               textDecoration: "underline",
 
               "&:hover": {
-                color: theme("colors.pink-500"),
+                color: theme("colors.pink.500"),
               },
             },
 
             h1: {
-              color: theme("colors.pink.50"),
+              color: theme("colors.foreground"),
               fontWeight: theme("fontWeight.bold"),
             },
             h2: {
@@ -88,7 +88,7 @@ module.exports = {
             },
             code: {
               background: "transparent",
-              color: theme("colors.pink.500"),
+              color: theme("colors.foreground"),
               fontWeight: theme("fontWeight.normal"),
             },
           },

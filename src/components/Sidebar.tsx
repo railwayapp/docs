@@ -12,26 +12,34 @@ export const Sidebar: React.FC<Props> = props => {
 
   return (
     <Container className="sidebar" {...props}>
-      <div tw="pt-4 pb-12 px-4">
+      <div tw="py-4 px-4 mb-8 sticky top-0 bg-background">
         <Link tw="w-full flex items-center space-x-4" href="/">
           <Logo tw="w-4 h-4" /> <span tw="font-bold">Railway</span>
         </Link>
       </div>
 
-      {sidebarContent.map(section => (
-        <React.Fragment key={section}>
+      {sidebarContent.map((section, i) => (
+        <React.Fragment key={i}>
           {section.title != null && (
-            <SectionTitle>{section.title}</SectionTitle>
+            <h5 tw="px-4 my-2 text-foreground text-sm font-bold">
+              {section.title}
+            </h5>
           )}
           <ul tw="mb-8">
             {section.pages.map(page => (
               <li key={page.slug}>
-                <SidebarLink
+                <Link
                   href={page.slug}
-                  active={pathname === `/docs/${page.slug}`}
+                  css={[
+                    tw`text-gray-700 text-sm`,
+                    tw`block px-4 py-2`,
+                    tw`hover:bg-gray-100 hover:text-foreground`,
+                    pathname === `/docs/${page.slug}` &&
+                      tw`bg-pink-100 text-pink-900 hover:bg-pink-100`,
+                  ]}
                 >
                   {page.title}
-                </SidebarLink>
+                </Link>
               </li>
             ))}
           </ul>
@@ -43,6 +51,7 @@ export const Sidebar: React.FC<Props> = props => {
 
 const Container = styled.div`
   ${tw`h-screen sticky top-0 overflow-y-scroll`}
+
   min-width: 220px;
 
   /* width */
@@ -66,15 +75,3 @@ const Container = styled.div`
     ${tw`bg-gray-300`}
   }
 `;
-
-const SectionTitle = tw.h5`
-  px-4 my-2 text-foreground
-  text-sm font-semibold
-`;
-
-const SidebarLink = styled(Link)<{ active: boolean }>(props => [
-  tw`text-gray-700 text-sm`,
-  tw`block px-4 py-2`,
-  tw`hover:bg-gray-100`,
-  props.active && tw`bg-pink-100 text-pink-900 hover:bg-pink-100`,
-]);

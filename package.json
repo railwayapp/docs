@@ -20,6 +20,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-feather": "^2.0.9",
+    "react-syntax-highlighter": "^15.4.3",
     "styled-components": "^5.2.1",
     "theme-custom-properties": "^1.0.0",
     "twin.macro": "^2.0.8",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^14.14.11",
     "@types/react": "^17.0.0",
+    "@types/react-syntax-highlighter": "^13.5.0",
     "@types/styled-components": "^5.1.7",
     "autoprefixer": "^10.1.0",
     "next-compose-plugins": "^2.2.1",
