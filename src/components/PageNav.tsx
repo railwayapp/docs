@@ -5,18 +5,8 @@ export interface Props {}
 
 export const PageNav: React.FC<Props> = () => {
   return (
-    <Container>
-      <Aside>SIDE NAV</Aside>
-    </Container>
+    <div tw="flex-col bg-yellow-300 pt-10 px-8 pb-6 hidden lg:flex">
+      <aside tw="sticky top-28">SIDE NAV</aside>
+    </div>
   );
 };
-
-const Container = tw.div`
-  flex flex-col
-  bg-yellow-300
-  pt-10 px-8 pb-6
-`;
-
-const Aside = tw.aside`
-  sticky top-28
-`;

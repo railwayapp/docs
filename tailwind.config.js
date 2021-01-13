@@ -55,6 +55,9 @@ module.exports = {
       ...customColors,
     },
     extend: {
+      minWidth: {
+        sidebar: "220px",
+      },
       typography: theme => ({
         DEFAULT: {
           css: {

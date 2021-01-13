@@ -5,19 +5,40 @@ import { Link } from "./Link";
 import { Logo } from "./Logo";
 import React from "react";
 
-export interface Props {}
-
-export const Sidebar: React.FC<Props> = props => {
-  const { pathname } = useRouter();
-
+export const Sidebar: React.FC = ({ ...props }) => {
   return (
-    <Container className="sidebar" {...props}>
+    <Container
+      css={[
+        tw`hidden`,
+        tw`md:h-screen md:sticky md:top-0 md:block md:min-w-sidebar md:overflow-y-auto`,
+      ]}
+      className="sidebar"
+      {...props}
+    >
       <div tw="py-4 px-4 mb-8 sticky top-0 bg-background">
         <Link tw="w-full flex items-center space-x-4" href="/">
-          <Logo tw="w-4 h-4" /> <span tw="font-bold">Railway</span>
+          <Logo /> <span tw="font-bold">Railway</span>
         </Link>
       </div>
 
+      <SidebarContent />
+    </Container>
+  );
+};
+
+export const MobileNav: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
+  return (
+    <div css={[isOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}>
+      <SidebarContent />
+    </div>
+  );
+};
+
+const SidebarContent: React.FC = () => {
+  const { pathname } = useRouter();
+
+  return (
+    <>
       {sidebarContent.map((section, i) => (
         <React.Fragment key={i}>
           {section.title != null && (
@@ -45,15 +66,11 @@ export const Sidebar: React.FC<Props> = props => {
           </ul>
         </React.Fragment>
       ))}
-    </Container>
+    </>
   );
 };
 
 const Container = styled.div`
-  ${tw`h-screen sticky top-0 overflow-y-scroll`}
-
-  min-width: 220px;
-
   /* width */
   ::-webkit-scrollbar {
     width: 6px;

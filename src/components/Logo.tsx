@@ -1,13 +1,14 @@
 import React from "react";
 import "twin.macro";
 
-export const Logo: React.FC = () => (
+export const Logo: React.FC = props => (
   <svg
     data-v-423bf9ae=""
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 60 60"
     className="logo"
     tw="w-10 fill-current"
+    {...props}
   >
     <g
       data-v-423bf9ae=""

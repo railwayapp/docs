@@ -1,11 +1,11 @@
-import { Page, SidebarContent } from "../types";
+import { IPage, ISidebarContent } from "../types";
 
-const makePage = (title: string): Page => ({
+const makePage = (title: string): IPage => ({
   title,
   slug: title.toLowerCase().replace(/\s+/g, "-"),
 });
 
-export const sidebarContent: SidebarContent = [
+export const sidebarContent: ISidebarContent = [
   {
     title: "General",
     pages: [

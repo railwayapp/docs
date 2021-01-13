@@ -4,14 +4,14 @@ export interface FrontMatter {
   wordCount: number;
 }
 
-export type SidebarContent = SidebarSection[];
+export type ISidebarContent = ISidebarSection[];
 
-export interface Page {
+export interface IPage {
   title: string;
   slug: string;
 }
 
-export interface SidebarSection {
+export interface ISidebarSection {
   title?: string;
-  pages: Page[];
+  pages: IPage[];
 }
