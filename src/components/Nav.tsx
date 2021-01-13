@@ -12,5 +12,5 @@ export const Nav: React.FC = () => (
 const Header = tw.header`
   flex items-center justify-between
   px-3 py-3 text-center bg-pink-300
-  sticky top-0
+  sticky top-0 z-10
 `;

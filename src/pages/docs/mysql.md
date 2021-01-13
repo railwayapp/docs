@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL
+title: MySQL
 ---
 
 The Railway PostgreSQL plugin allows you to provision and connect to a

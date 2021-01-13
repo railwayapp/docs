@@ -58,43 +58,38 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
-            color: theme("colors.text"),
+            color: theme("colors.gray-900"),
 
             a: {
-              color: theme("colors.text"),
-              textDecoration: "none",
+              color: theme("colors.gray-900"),
+              textDecoration: "underline",
 
               "&:hover": {
-                color: theme("colors.primary"),
-              },
-            },
-
-            p: {
-              a: {
-                textDecoration: "underline",
+                color: theme("colors.pink-500"),
               },
             },
 
             h1: {
               color: theme("colors.pink.50"),
+              fontWeight: theme("fontWeight.bold"),
             },
             h2: {
-              color: theme("colors.text"),
+              color: theme("colors.foreground"),
+              fontWeight: theme("fontWeight.bold"),
             },
             h3: {
-              color: theme("colors.text"),
+              color: theme("colors.foreground"),
             },
             h4: {
-              color: theme("colors.text"),
+              color: theme("colors.foreground"),
             },
             img: {
               borderRadius: "10px",
             },
             code: {
-              background: theme("colors.gray.800"),
-              color: theme("colors.gray.200"),
-              padding: "2px",
-              borderRadius: "2px",
+              background: "transparent",
+              color: theme("colors.pink.500"),
+              fontWeight: theme("fontWeight.normal"),
             },
           },
         },

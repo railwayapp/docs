@@ -37,6 +37,7 @@ export const sidebarContent: SidebarContent = [
     title: "Plugins",
     pages: [
       makePage("PostgreSQL"),
+      makePage("MySQL"),
       makePage("Redis"),
       makePage("MongoDB"),
       makePage("Elasticsearch"),

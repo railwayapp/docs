@@ -1,8 +1,9 @@
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import tw, { styled } from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
+import React from "react";
 
 export interface Props {}
 
@@ -18,7 +19,7 @@ export const Sidebar: React.FC<Props> = props => {
       </div>
 
       {sidebarContent.map(section => (
-        <>
+        <React.Fragment key={section}>
           {section.title != null && (
             <SectionTitle>{section.title}</SectionTitle>
           )}
@@ -34,7 +35,7 @@ export const Sidebar: React.FC<Props> = props => {
               </li>
             ))}
           </ul>
-        </>
+        </React.Fragment>
       ))}
     </Container>
   );

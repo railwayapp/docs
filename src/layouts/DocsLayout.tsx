@@ -9,7 +9,11 @@ export interface Props extends PageProps {
   frontMatter: FrontMatter;
 }
 
-export const DocsLayout: React.FC<Props> = props => {
+export const DocsLayout: React.FC<Props> = ({
+  frontMatter,
+  children,
+  ...props
+}) => {
   return (
     <Page {...props}>
       <div tw="min-h-screen relative flex max-w-7xl mx-auto">
@@ -18,9 +22,11 @@ export const DocsLayout: React.FC<Props> = props => {
         <div tw="flex flex-col flex-1">
           <Nav />
 
-          <main tw="flex justify-between bg-red-200">
-            <div tw="max-w-prose flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16 bg-red-400">
-              {props.children}
+          <main tw="flex justify-between ">
+            <div tw="max-w-prose flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16 prose">
+              <h1>{frontMatter.title}</h1>
+
+              {children}
             </div>
 
             <PageNav />
