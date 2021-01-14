@@ -27,9 +27,9 @@ export const Nav: React.FC<Props> = () => {
           <Logo tw="md:hidden" />
         </div>
 
-        <div tw="flex items-center space-x-4">
+        <div tw="flex items-center space-x-6 md:space-x-4">
           <button
-            tw="md:hidden w-4 h-4 cursor-pointer focus:outline-none"
+            tw="md:hidden w-6 h-6 md:w-4 md:h-4 cursor-pointer focus:outline-none"
             onClick={() => setIsNavOpen(!isNavOpen)}
           >
             {isNavOpen ? (
@@ -40,7 +40,7 @@ export const Nav: React.FC<Props> = () => {
           </button>
 
           <button
-            tw="w-4 h-4 cursor-pointer focus:outline-none"
+            tw="w-5 h-5 md:w-4 md:h-4 cursor-pointer focus:outline-none"
             onClick={toggleColorMode}
           >
             {colorMode === "dark" ? (

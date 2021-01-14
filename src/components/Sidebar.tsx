@@ -15,7 +15,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
       className="sidebar"
       {...props}
     >
-      <div tw="py-4 px-4 mb-8 sticky top-0 bg-background">
+      <div tw="pt-6 pb-6 px-4 mb-8 sticky top-0 bg-background">
         <Link tw="w-full flex items-center space-x-6" href="/">
           <Logo /> <span tw="font-bold">Railway</span>
         </Link>

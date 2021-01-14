@@ -121,7 +121,7 @@ export const PageNav: React.FC<Props> = ({ title }) => {
   }
 
   return (
-    <div tw="flex-col pt-8 px-8 pb-6 min-w-pageNav hidden lg:flex">
+    <div tw="flex-col pt-8 pl-12 pr-8 pb-6 min-w-pageNav hidden lg:flex">
       <aside tw="sticky top-24">
         <h5 tw="text-sm text-gray-900 font-medium mb-3">On This Page</h5>
         <ul tw="space-y-3">

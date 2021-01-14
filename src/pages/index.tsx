@@ -1,17 +1,15 @@
 import { NextPage } from "next";
 import React from "react";
-import { DocsLayout } from "../layouts/DocsLayout";
-import { Page } from "../layouts/Page";
 import tw, { styled } from "twin.macro";
-import { Link } from "../components/Link";
-import { Twitter } from "react-feather";
 import { DiscordIcon, RssIcon, TwitterIcon } from "../components/Icons";
+import { Link } from "../components/Link";
+import { Page } from "../layouts/Page";
 
 const Home: NextPage = () => {
   return (
     <Page>
       <div>
-        <h1 tw="text-6xl font-bold mb-12">Railway Docs</h1>
+        <h1 tw="text-5xl md:text-6xl font-bold mb-12">Railway Docs</h1>
 
         <div tw="flex items-center space-x-4 mb-8">
           <ButtonLink
