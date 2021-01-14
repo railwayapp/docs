@@ -36,13 +36,12 @@ export const sidebarContent: ISidebarContent = [
       makePage("Serverless", "deployment"),
       makePage("Self Hosted Server", "deployment"),
       makePage("Project Tokens", "deployment"),
-      makePage("Procfiles", "deployment"),
     ],
   },
   {
     title: "Plugins",
     pages: [
-      makePage("EnvVars", "plugins"),
+      makePage("Env Vars", "plugins"),
       makePage("PostgreSQL", "plugins"),
       makePage("MySQL", "plugins"),
       makePage("Redis", "plugins"),

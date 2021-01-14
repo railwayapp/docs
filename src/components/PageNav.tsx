@@ -13,7 +13,7 @@ interface IHeader {
   subHeaders: IHeader[];
 }
 
-const nodeNameToLevel = { H1: 1, H2: 2, H3: 3 };
+const nodeNameToLevel = { H1: 1, H2: 2, H3: 3, H4: 4 };
 
 const nodeToHeader = (node: HTMLHeadingElement): IHeader => ({
   level: nodeNameToLevel[node.nodeName],
@@ -56,61 +56,12 @@ const buildHeaderTree = (nodes: HTMLHeadingElement[]): IHeader[] => {
   return buildHeaderTreeRec(nodes, h, h.level);
 };
 
-// const buildHeaderTree = (nodes: HTMLHeadingElement[], atLevel?: number) => {
-//   const headers: IHeader[] = [];
-
-//   console.log(nodes);
-
-// let curr: IHeader | null = null
-//   for (const node of nodes) {
-//     const h = nodeToHeader(node);
-//     console.log("VISITING", h);
-
-//     if (curr == null || h.level === curr.level) {
-//       atLevel = h.level;
-
-//       headers.push(h);
-//       curr = h
-//     } else if (h.level > curr.level) {
-
-//     }
-//   }
-
-//   console.log(headers);
-// };
-
-// const getHeaders = (): IHeader[] => {
-
-//   const headers: IHeader[] = [];
-//   let currentHeader: IHeader | null = null;
-
-//   for (const h of documentHeaders) {
-//     const currHeaderLevel = levelRank(currentHeader?.level);
-//     const headerRank = levelRank(h.nodeName);
-
-// if (currentHeader == null) {
-//   currentHeader = {
-//     title: (h as any).innerText,
-//     id: h.id,
-//     subHeaders: [],
-//     level: h.nodeName,
-//   };
-
-//   headers.push(currentHeader);
-// } else if (headerRank > currHeaderLevel) {
-//   // make this header a subheader of current one
-// }
-//   }
-
-//   return headers;
-// };
-
 export const PageNav: React.FC<Props> = ({ title }) => {
   const [headers, setHeaders] = useState<IHeader[]>([]);
 
   useEffect(() => {
     const documentHeaders = Array.from(
-      document.querySelectorAll(".docs-content h1, h2, h3"),
+      document.querySelectorAll(".docs-content h1, h2, h3, h4"),
     ) as HTMLHeadingElement[];
 
     setHeaders(buildHeaderTree(documentHeaders));

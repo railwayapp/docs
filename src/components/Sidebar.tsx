@@ -11,7 +11,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
     <Container
       css={[
         tw`hidden`,
-        tw`md:h-screen md:sticky md:top-0 md:block md:min-w-sidebar`,
+        tw`md:h-screen md:sticky md:top-0 md:block md:min-w-sidebar overflow-hidden`,
         tw`md:border-r md:border-gray-200`,
       ]}
       className="sidebar"
