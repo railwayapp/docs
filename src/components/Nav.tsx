@@ -5,6 +5,7 @@ import tw from "twin.macro";
 import { X, Sun, Moon, Menu } from "react-feather";
 import { useTheme } from "../styles/theme";
 import { MobileNav } from "./Sidebar";
+import { useIsMounted } from "../hooks/useIsMounted";
 
 export interface Props {}
 
@@ -14,6 +15,7 @@ export const Nav: React.FC<Props> = () => {
     setColorMode(colorMode === "dark" ? "light" : "dark");
 
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const isMounted = useIsMounted();
 
   return (
     <>
@@ -39,16 +41,18 @@ export const Nav: React.FC<Props> = () => {
             )}
           </button>
 
-          <button
-            tw="w-5 h-5 md:w-4 md:h-4 cursor-pointer focus:outline-none"
-            onClick={toggleColorMode}
-          >
-            {colorMode === "dark" ? (
-              <Sun width="100%" height="100%" />
-            ) : (
-              <Moon width="100%" height="100%" />
-            )}
-          </button>
+          {isMounted && (
+            <button
+              tw="w-5 h-5 md:w-4 md:h-4 cursor-pointer focus:outline-none"
+              onClick={toggleColorMode}
+            >
+              {colorMode === "dark" ? (
+                <Sun width="100%" height="100%" />
+              ) : (
+                <Moon width="100%" height="100%" />
+              )}
+            </button>
+          )}
         </div>
       </header>
 
