@@ -2,7 +2,7 @@ export type ColorMode = "light" | "dark";
 export const defaultColorMode: ColorMode = "dark";
 
 const lightColors = {
-  foreground: "#131126",
+  foreground: "#0b0d0e",
   background: "#ffffff",
   gray: {
     100: "#f4f4f6",
@@ -94,8 +94,8 @@ for (const [name, colors] of Object.entries(lightColors)) {
 
 darkColors = {
   ...darkColors,
-  foreground: "#ededee",
-  background: "#100f13",
+  foreground: "#fafbfc",
+  background: "#131415",
 };
 
 export const colorThemes: Record<ColorMode, any> = {

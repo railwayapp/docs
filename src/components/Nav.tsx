@@ -17,14 +17,16 @@ export const Nav: React.FC<Props> = () => {
 
   return (
     <>
-      <Header tw="bg-background">
+      <header
+        css={[tw`flex items-center justify-between`, tw`px-8 py-6 text-center`]}
+      >
         <div>
           <Logo tw="md:hidden" />
         </div>
 
         <div tw="flex items-center space-x-4">
           <button
-            tw="md:hidden w-5 h-5 cursor-pointer focus:outline-none"
+            tw="md:hidden w-4 h-4 cursor-pointer focus:outline-none"
             onClick={() => setIsNavOpen(!isNavOpen)}
           >
             {isNavOpen ? (
@@ -35,7 +37,7 @@ export const Nav: React.FC<Props> = () => {
           </button>
 
           <button
-            tw="w-5 h-5 cursor-pointer focus:outline-none"
+            tw="w-4 h-4 cursor-pointer focus:outline-none"
             onClick={toggleColorMode}
           >
             {colorMode === "dark" ? (
@@ -45,15 +47,9 @@ export const Nav: React.FC<Props> = () => {
             )}
           </button>
         </div>
-      </Header>
+      </header>
 
       <MobileNav isOpen={isNavOpen} />
     </>
   );
 };
-
-const Header = tw.header`
-  flex items-center justify-between
-  px-3 py-6 text-center
-  md:sticky md:top-0 md:z-10
-`;

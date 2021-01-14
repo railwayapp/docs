@@ -17,7 +17,7 @@ export const DocsLayout: React.FC<Props> = ({
 }) => {
   return (
     <Page {...props}>
-      <div tw="min-h-screen relative flex max-w-7xl mx-auto">
+      <div tw="min-h-screen relative flex max-w-6xl mx-auto">
         <Sidebar />
 
         <div tw="flex flex-col flex-1">
@@ -27,10 +27,10 @@ export const DocsLayout: React.FC<Props> = ({
             <div tw="max-w-prose flex-auto px-4 sm:px-6 xl:px-8 pt-8 pb-24 lg:pb-16 prose">
               <h1>{frontMatter.title}</h1>
 
-              {children}
+              <div className="docs-content">{children}</div>
             </div>
 
-            <PageNav />
+            <PageNav title={frontMatter.title} />
           </main>
         </div>
       </div>

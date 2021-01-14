@@ -2,4 +2,12 @@
 title: Getting Started
 ---
 
-Heyo! Let's get started
+Get setup with Railway quickly.
+
+## Create a Project
+
+## Install the CLI
+
+## Develop Locally
+
+## Deploy

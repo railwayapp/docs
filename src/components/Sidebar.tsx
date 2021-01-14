@@ -16,7 +16,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
       {...props}
     >
       <div tw="py-4 px-4 mb-8 sticky top-0 bg-background">
-        <Link tw="w-full flex items-center space-x-4" href="/">
+        <Link tw="w-full flex items-center space-x-6" href="/">
           <Logo /> <span tw="font-bold">Railway</span>
         </Link>
       </div>
@@ -50,7 +50,7 @@ const SidebarContent: React.FC = () => {
             {section.pages.map(page => (
               <li key={page.slug}>
                 <Link
-                  href={page.slug}
+                  href={`/docs/${page.slug}`}
                   css={[
                     tw`text-gray-700 text-sm`,
                     tw`block px-4 py-2`,

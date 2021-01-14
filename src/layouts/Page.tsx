@@ -13,7 +13,7 @@ export const Page: React.FC<Props> = props => {
   return (
     <>
       <SEO {...props.seo} />
-      <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+      <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
 
       {props.children}
     </>

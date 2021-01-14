@@ -7,6 +7,7 @@ import { darkCodeTheme, lightCodeTheme } from "../../styles/codeThemes";
 import { useTheme } from "../../styles/theme";
 import { normalize } from "./normalize";
 import tw from "twin.macro";
+import { useIsMounted } from "../../hooks/useIsMounted";
 
 SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("js", javascript);
@@ -48,6 +49,8 @@ export const CodeBlock: React.FC<Props> = ({
   className = children.props ? children.props.className : "",
   language,
 }) => {
+  const isMounted = useIsMounted();
+
   const { colorMode } = useTheme();
   const theme = colorMode === "light" ? lightCodeTheme : darkCodeTheme;
 
@@ -71,6 +74,10 @@ export const CodeBlock: React.FC<Props> = ({
       ),
     [children],
   );
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <Container>

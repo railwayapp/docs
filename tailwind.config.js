@@ -57,6 +57,7 @@ module.exports = {
     extend: {
       minWidth: {
         sidebar: "220px",
+        pageNav: "200px",
       },
       typography: theme => ({
         DEFAULT: {
@@ -68,7 +69,7 @@ module.exports = {
               textDecoration: "underline",
 
               "&:hover": {
-                color: theme("colors.pink.500"),
+                color: theme("colors.pink.600"),
               },
             },
 
@@ -91,7 +92,7 @@ module.exports = {
             },
             code: {
               background: "transparent",
-              color: theme("colors.foreground"),
+              color: theme("colors.pink.600"),
               fontWeight: theme("fontWeight.normal"),
             },
           },

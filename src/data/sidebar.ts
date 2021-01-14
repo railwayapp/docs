@@ -1,8 +1,10 @@
 import { IPage, ISidebarContent } from "../types";
 
-const makePage = (title: string): IPage => ({
+const makePage = (title: string, subPath?: string, slug?: string): IPage => ({
   title,
-  slug: title.toLowerCase().replace(/\s+/g, "-"),
+  slug: `${subPath != null ? subPath + "/" : ""}${
+    slug ?? title.toLowerCase().replace(/\s+/g, "-")
+  }`,
 });
 
 export const sidebarContent: ISidebarContent = [
@@ -17,30 +19,30 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "CLI",
     pages: [
-      makePage("Quick Start"),
-      makePage("Installation"),
-      makePage("API Reference"),
+      makePage("Quick Start", "cli"),
+      makePage("Installation", "cli"),
+      makePage("API Reference", "cli"),
     ],
   },
   {
-    title: "Deployment",
+    title: "Deployments",
     pages: [
-      makePage("Railway Up"),
-      makePage("GitHub Triggers"),
-      makePage("Vercel"),
-      makePage("Self Hosted Server"),
-      makePage("Serverless"),
-      makePage("Project Tokens"),
+      makePage("Railway Up", "deployment", "up"),
+      makePage("GitHub Triggers", "deployment"),
+      makePage("Builds", "deployment"),
+      makePage("Serverless", "deployment"),
+      makePage("Self Hosted Server", "deployment"),
+      makePage("Project Tokens", "deployment"),
     ],
   },
   {
     title: "Plugins",
     pages: [
-      makePage("PostgreSQL"),
-      makePage("MySQL"),
-      makePage("Redis"),
-      makePage("MongoDB"),
-      makePage("Elasticsearch"),
+      makePage("PostgreSQL", "plugins"),
+      makePage("MySQL", "plugins"),
+      makePage("Redis", "plugins"),
+      makePage("MongoDB", "plugins"),
+      makePage("Elasticsearch", "plugins"),
     ],
   },
   {
