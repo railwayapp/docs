@@ -10,6 +10,7 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
+    "@radix-ui/react-scroll-area": "^0.0.1",
     "@tailwindcss/typography": "^0.3.1",
     "dayjs": "^1.9.7",
     "next": "10.0.3",

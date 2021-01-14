@@ -4,24 +4,28 @@ import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
 import React from "react";
+import { ScrollArea } from "./ScrollArea";
 
 export const Sidebar: React.FC = ({ ...props }) => {
   return (
     <Container
       css={[
         tw`hidden`,
-        tw`md:h-screen md:sticky md:top-0 md:block md:min-w-sidebar md:overflow-y-auto`,
+        tw`md:h-screen md:sticky md:top-0 md:block md:min-w-sidebar`,
+        tw`md:border-r md:border-gray-200`,
       ]}
       className="sidebar"
       {...props}
     >
-      <div tw="pt-6 pb-6 px-4 mb-8 sticky top-0 bg-background">
-        <Link tw="w-full flex items-center space-x-6" href="/">
-          <Logo /> <span tw="font-bold">Railway</span>
-        </Link>
-      </div>
+      <ScrollArea>
+        <div tw="pt-6 pb-6 px-4 mb-8 sticky top-0 bg-background">
+          <Link tw="w-full flex items-center space-x-6" href="/">
+            <Logo /> <span tw="font-bold">Railway</span>
+          </Link>
+        </div>
 
-      <SidebarContent />
+        <SidebarContent />
+      </ScrollArea>
     </Container>
   );
 };

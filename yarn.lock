@@ -498,6 +498,33 @@
   resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.3.tgz#276bec60eae18768f96baf8a52f668f657f50ab4"
   integrity sha512-XtzzPX2R4+MIyu1waEQUo2tiNwWVEkmObA6pboRCDTPOs4Ri8ckaIE08lN5A5opyF6GVN+IEq/J8KQrgsePsZQ==
 
+"@radix-ui/react-polymorphic@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-polymorphic/-/react-polymorphic-0.0.1.tgz#52e1a22374eec05a34a902e112e081f36e7e2b3b"
+  integrity sha512-oKP9mx114Wr/UlSyo/wgsHdckfgq3+yKoIXmNThOGzzlN+cikppwxAZK+z6NriO0p5Hyka/8xSFqGZokiS9Lxw==
+
+"@radix-ui/react-scroll-area@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-scroll-area/-/react-scroll-area-0.0.1.tgz#ae6386a1595d3dc193aa091e7cffe89e1fa7f7fb"
+  integrity sha512-pfXtfMA15C3Ctp1t6daI+SVF6GPfftnY4964uyfk5bQfUNXkTrwPwVegFX7xxEtFdmrAmVAIuJHpSqnwp0SyXw==
+  dependencies:
+    "@radix-ui/react-polymorphic" "0.0.1"
+    "@radix-ui/react-utils" "0.0.1"
+    "@radix-ui/utils" "0.0.1"
+
+"@radix-ui/react-utils@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-utils/-/react-utils-0.0.1.tgz#5d9501699377d6cc5a5099088859d4e48fbceb3c"
+  integrity sha512-ntqLbwGaX3B3Cv4R9iQpy74LHfhR+0VlrFGt9k68gryFVZzyBFKXuDNwXImYcVBcNnVUmd0KZUPRxSG17es4WQ==
+  dependencies:
+    "@radix-ui/react-polymorphic" "0.0.1"
+    "@radix-ui/utils" "0.0.1"
+
+"@radix-ui/utils@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/utils/-/utils-0.0.1.tgz#d5dc98cb03f67ce2721526b347944628e44befb0"
+  integrity sha512-IaKIopbvaq9EgpZ0kUZCU1sCvUmZUMNaJBJxpG3zAaMzhPdf08xmwtn79yzI3Zs0vKjsu2zpGLoM1+d75esFuw==
+
 "@tailwindcss/typography@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.3.1.tgz#253ce580c8e06b6163d9a288edd24f25e1d0dfee"
