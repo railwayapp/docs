@@ -18,7 +18,10 @@ export const Nav: React.FC<Props> = () => {
   return (
     <>
       <header
-        css={[tw`flex items-center justify-between`, tw`px-8 py-6 text-center`]}
+        css={[
+          tw`flex items-center justify-between`,
+          tw`px-4 md:px-8 py-6 text-center`,
+        ]}
       >
         <div>
           <Logo tw="md:hidden" />

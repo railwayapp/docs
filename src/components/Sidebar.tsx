@@ -50,12 +50,12 @@ const SidebarContent: React.FC = () => {
             {section.pages.map(page => (
               <li key={page.slug}>
                 <Link
-                  href={`/docs/${page.slug}`}
+                  href={page.slug}
                   css={[
                     tw`text-gray-700 text-sm`,
                     tw`block px-4 py-2`,
                     tw`hover:bg-gray-100 hover:text-foreground`,
-                    pathname === `/docs/${page.slug}` &&
+                    pathname === page.slug &&
                       tw`bg-pink-100 text-pink-900 hover:bg-pink-100`,
                   ]}
                 >

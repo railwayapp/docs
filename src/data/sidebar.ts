@@ -2,16 +2,18 @@ import { IPage, ISidebarContent } from "../types";
 
 const makePage = (title: string, subPath?: string, slug?: string): IPage => ({
   title,
-  slug: `${subPath != null ? subPath + "/" : ""}${
-    slug ?? title.toLowerCase().replace(/\s+/g, "-")
-  }`,
+  slug:
+    slug ??
+    `/${subPath != null ? subPath + "/" : ""}${title
+      .toLowerCase()
+      .replace(/\s+/g, "-")}`,
 });
 
 export const sidebarContent: ISidebarContent = [
   {
     title: "General",
     pages: [
-      makePage("Introduction"),
+      makePage("Introduction", undefined, "/"),
       makePage("Getting Started"),
       makePage("Environments"),
     ],
@@ -27,12 +29,13 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Deployments",
     pages: [
-      makePage("Railway Up", "deployment", "up"),
+      makePage("Railway Up", "deployment", "/deployment/up"),
       makePage("GitHub Triggers", "deployment"),
       makePage("Builds", "deployment"),
       makePage("Serverless", "deployment"),
       makePage("Self Hosted Server", "deployment"),
       makePage("Project Tokens", "deployment"),
+      makePage("Procfiles", "deployment"),
     ],
   },
   {

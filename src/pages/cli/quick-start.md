@@ -32,6 +32,12 @@ infrastructure hosted on Railway by injecting environment variables.
 railway run CMD
 ```
 
+For example, to run your node project with Railway:
+
+```bash
+railway run npm start
+```
+
 ## Deploy
 
 Deploy current directory to Railway.
