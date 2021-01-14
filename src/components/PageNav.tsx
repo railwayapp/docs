@@ -123,7 +123,7 @@ export const PageNav: React.FC<Props> = ({ title }) => {
   return (
     <div tw="flex-col pt-8 px-8 pb-6 min-w-pageNav hidden lg:flex">
       <aside tw="sticky top-24">
-        <h5 tw="text-sm font-medium mb-3">On This Page</h5>
+        <h5 tw="text-sm font-bold mb-3">On This Page</h5>
         <ul tw="space-y-3">
           <HeaderList headers={headers} nesting={0} />
         </ul>

@@ -16,6 +16,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Introduction", undefined, "/"),
       makePage("Getting Started"),
       makePage("Environments"),
+      makePage("Projects"),
     ],
   },
   {
