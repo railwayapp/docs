@@ -42,16 +42,17 @@ const Home: NextPage = () => {
             <h3 tw="flex items-center space-x-4">
               <RssIcon /> <span>Changelog</span>
             </h3>
-            <p>Weekly update with features and improvements made to Railway.</p>
             <p>
+              Weekly update with features and improvements made to Railway.{" "}
+              <br />
               <Link href="https://railway.app/changelog">View Changelog</Link>
             </p>
 
             <h3 tw="flex items-center space-x-4">
               <TwitterIcon /> <span>Twitter</span>
             </h3>
-            <p>Keep up with the latest news and updates.</p>
             <p>
+              Keep up with the latest news and updates. <br />
               <Link href="https://twitter.com/Railway_App">
                 Follow @Railway_App
               </Link>
@@ -60,8 +61,9 @@ const Home: NextPage = () => {
             <h3 tw="flex items-center space-x-4">
               <DiscordIcon /> <span>Discord</span>
             </h3>
-            <p>Chat with our Railway members, ask questions, hang out.</p>
             <p>
+              Chat with our Railway members, ask questions, hang out.
+              <br />
               <Link href="https://discord.gg/xAm2w6g">Join Discord</Link>
             </p>
           </section>
