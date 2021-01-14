@@ -69,7 +69,7 @@ module.exports = {
               textDecoration: "underline",
 
               "&:hover": {
-                color: theme("colors.pink.600"),
+                color: theme("colors.pink.500"),
               },
             },
 
@@ -92,8 +92,15 @@ module.exports = {
             },
             code: {
               background: "transparent",
-              color: theme("colors.pink.600"),
+              color: theme("colors.pink.500"),
               fontWeight: theme("fontWeight.normal"),
+            },
+            pre: {
+              code: {
+                "&::after": {
+                  display: "none",
+                },
+              },
             },
           },
         },

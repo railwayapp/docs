@@ -46,6 +46,7 @@ const SidebarContent: React.FC = () => {
               {section.title}
             </h5>
           )}
+
           <ul tw="mb-8">
             {section.pages.map(page => (
               <li key={page.slug}>
@@ -55,8 +56,9 @@ const SidebarContent: React.FC = () => {
                     tw`text-gray-700 text-sm`,
                     tw`block px-4 py-2`,
                     tw`hover:bg-gray-100 hover:text-foreground`,
+                    tw`focus:outline-none focus:bg-pink-100`,
                     pathname === page.slug &&
-                      tw`bg-pink-100 text-pink-900 hover:bg-pink-100`,
+                      tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
                   ]}
                 >
                   {page.title}
