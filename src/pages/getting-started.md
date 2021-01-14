@@ -5,7 +5,7 @@ title: Getting Started
 Railway is an infrastructure platform where you can provision infrastructure,
 develop with that infrastructure locally, and deploy to the cloud.
 
-_TODO: Make ^ This should be better_
+_TODO: Make ^ This should be better_.
 
 ## Create a Project
 
