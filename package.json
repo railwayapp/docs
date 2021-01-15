@@ -10,9 +10,11 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^0.0.1",
     "@radix-ui/react-scroll-area": "^0.0.1",
     "@tailwindcss/typography": "^0.3.1",
     "dayjs": "^1.9.7",
+    "fuse.js": "^6.4.6",
     "next": "10.0.3",
     "next-seo": "^4.17.0",
     "next-themes": "^0.0.10",
@@ -23,6 +25,7 @@
     "react-syntax-highlighter": "^15.4.3",
     "styled-components": "^5.2.1",
     "theme-custom-properties": "^1.0.0",
+    "tinykeys": "^1.1.1",
     "twin.macro": "^2.0.8",
     "uuid": "^8.3.2"
   },

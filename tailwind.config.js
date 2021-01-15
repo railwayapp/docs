@@ -56,8 +56,17 @@ module.exports = {
     },
     extend: {
       minWidth: {
-        sidebar: "220px",
+        sidebar: "250px",
         pageNav: "200px",
+        "70vw": "70vw",
+        "80vw": "80vw",
+        "90vw": "90vw",
+        "100vw": "100vw",
+      },
+      minHeight: {
+        "70vh": "70vh",
+        "80vh": "80vh",
+        "90vh": "90vh",
       },
       typography: theme => ({
         DEFAULT: {
