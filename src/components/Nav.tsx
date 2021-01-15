@@ -35,10 +35,10 @@ export const MobileNav: React.FC = () => {
       <header
         css={[
           tw`flex items-center justify-between space-x-6 md:hidden`,
-          tw`px-4 md:px-8 py-6 text-center`,
+          tw`px-4 md:px-8 py-4 text-center`,
         ]}
       >
-        <Logo />
+        <Logo tw="w-14 h-14" />
 
         <div tw="w-full block">
           <Search />
