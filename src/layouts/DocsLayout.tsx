@@ -80,7 +80,7 @@ export const DocsLayout: React.FC<Props> = ({
 
           {nextPage != null && (
             <Link href={nextPage.slug} tw="hover:text-pink-500">
-              <div>
+              <div tw="text-right">
                 <div tw="text-gray-600 text-sm mb-1">Next</div>{" "}
                 <div tw="font-medium text-lg">{nextPage.title}</div>
               </div>
