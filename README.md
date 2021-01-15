@@ -6,7 +6,7 @@ Visit [docs.railway.app](https://docs.railway.app)
 
 ## Contributing
 
-Thi is a [NextJS](https://nextjs.org) project.
+This is a [NextJS](https://nextjs.org) project.
 
 Develop with
 
