@@ -3,7 +3,7 @@ title: Getting Started
 ---
 
 Railway is an infrastructure platform where you can provision infrastructure,
-develop with that infrastructure locally, and deploy to the cloud.
+develop with that infrastructure locally, and then deploy to the cloud.
 
 ## Create a Project
 
@@ -16,7 +16,8 @@ controlled from here.
 
 ## Install the CLI
 
-The Railway CLI allows you to connect your code to your infrastructure. After [installing it](/cli/installation), you can connect to your project with
+The Railway CLI allows you to connect your code to your infrastructure. After
+[installing it](/cli/installation), you can connect to your project with
 
 ```bash
 railway init

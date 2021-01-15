@@ -38,8 +38,6 @@ const Home: NextPage = () => {
 
         <div tw="prose mt-16">
           <section>
-            <h2>Connect with Us</h2>
-
             <h3 tw="flex items-center space-x-4">
               <RssIcon /> <span>Changelog</span>
             </h3>
@@ -73,7 +71,7 @@ const Home: NextPage = () => {
             <p>
               Each page footer contains an "Edit on GitHub Link". Change the
               markdown, make a pull request, and we'll merge it! Deploys will
-              happen automagically cause the blog is hosted on Railway.
+              happen automagically cause the docs are hosted on Railway.
               <br />
               <Link href="https://github.com/railwayapp/docs">Doc Source</Link>
             </p>
