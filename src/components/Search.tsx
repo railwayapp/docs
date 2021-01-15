@@ -1,71 +1,43 @@
 import Fuse from "fuse.js";
 import { useRouter } from "next/router";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ArrowRight, Search as SearchIcon } from "react-feather";
 import tinykeys from "tinykeys";
 import tw from "twin.macro";
-import { sidebarContent } from "../data/sidebar";
+import { useStore } from "../store";
 import { IPage } from "../types";
 import { Link } from "./Link";
-import { Modal, ModalContent, ModalTrigger } from "./Modal";
 
-export interface Props {}
-
-export const Search: React.FC<Props> = () => {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const fuse = useMemo(() => {
-    const pages = sidebarContent.map(section => section.pages).flat();
-    const fuse = new Fuse(pages, {
-      keys: ["title"],
-      includeScore: true,
-    });
-
-    return fuse;
-  }, [sidebarContent]);
-
-  useEffect(() => {
-    const unsubscribe = tinykeys(window, {
-      "$mod+K": () => setIsSearchOpen(open => !open),
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  console.log("OPEN", isSearchOpen);
+export const Search: React.FC = () => {
+  const { setIsSearchOpen } = useStore();
 
   return (
     <>
-      <Modal isOpen={isSearchOpen} onOpenChange={setIsSearchOpen}>
-        <ModalTrigger
-          onClick={() => setIsSearchOpen(true)}
-          css={[
-            tw`flex items-center justify-between space-x-4 w-full`,
-            tw`rounded border border-gray-200 cursor-pointer`,
-            tw`px-2 py-2 md:py-1 text-gray-300 text-left`,
-            tw`focus:outline-none hover:border-pink-300`,
-          ]}
-        >
-          <div tw="flex items-center space-x-2">
-            <SearchIcon tw="w-4 h-4" />
-            <span tw="text-sm">Search</span>
-          </div>
-          <div tw="text-gray-300 text-sm hidden md:block">⌘K</div>
-        </ModalTrigger>
-
-        <ModalContent>
-          <SearchModal fuse={fuse} closeModal={() => setIsSearchOpen(false)} />
-        </ModalContent>
-      </Modal>
+      <button
+        onClick={() => setIsSearchOpen(true)}
+        css={[
+          tw`flex items-center justify-between space-x-4 w-full`,
+          tw`rounded border border-gray-200 cursor-pointer`,
+          tw`px-2 py-2 md:py-1 text-gray-300 text-left`,
+          tw`focus:outline-none hover:border-pink-300`,
+        ]}
+      >
+        <div tw="flex items-center space-x-2">
+          <SearchIcon tw="w-4 h-4" />
+          <span tw="text-sm">Search</span>
+        </div>
+        <div tw="text-gray-300 text-sm hidden md:block">⌘K</div>
+      </button>
     </>
   );
 };
 
 const MAX_NUM_RESULTS = 5;
 
-const SearchModal: React.FC<{ fuse: Fuse<IPage>; closeModal: () => void }> = ({
-  fuse,
-  closeModal,
-}) => {
+export const SearchModal: React.FC<{
+  fuse: Fuse<IPage>;
+  closeModal: () => void;
+}> = ({ fuse, closeModal }) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<IPage[]>([]);
   const [selected, setSelected] = useState(0);
@@ -83,6 +55,7 @@ const SearchModal: React.FC<{ fuse: Fuse<IPage>; closeModal: () => void }> = ({
     const item = results[selected];
     if (item != null) {
       router.push(item.slug);
+      closeModal();
     }
   }, [selected, results]);
 
@@ -111,7 +84,7 @@ const SearchModal: React.FC<{ fuse: Fuse<IPage>; closeModal: () => void }> = ({
 
   return (
     <div
-      css={[tw`min-h-80vh min-w-100vw px-2 sm:px-4 md:px-0`]}
+      css={[tw`px-2 sm:px-4 md:px-0 mt-12 md:mt-28`]}
       onPointerDown={() => {
         closeModal();
       }}

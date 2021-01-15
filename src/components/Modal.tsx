@@ -1,35 +1,78 @@
-import * as Dialog from "@radix-ui/react-dialog";
-import React from "react";
-import tw, { styled } from "twin.macro";
+import { useDialog } from "@react-aria/dialog";
+import { FocusScope } from "@react-aria/focus";
+import {
+  OverlayContainer,
+  useModal,
+  useOverlay,
+  usePreventScroll,
+} from "@react-aria/overlays";
+import React, { useRef } from "react";
+import { VisuallyHidden } from "react-aria";
+import tw from "twin.macro";
 
 export interface Props {
+  title: string;
   isOpen: boolean;
-  onOpenChange: (value: boolean) => void;
+  onClose: () => void;
 }
 
-export const Modal: React.FC<Props> = ({ isOpen, onOpenChange, children }) => {
-  return (
-    <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
-      {/* <Dialog.Trigger>Open</Dialog.Trigger> */}
-      <StyledOverlay />
+const ModalDialog: React.FC<Props> = ({ title, isOpen, onClose, children }) => {
+  // Handle interacting outside the dialog and pressing
+  // the Escape key to close the modal.
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { overlayProps } = useOverlay(
+    {
+      isOpen,
+      onClose,
+      isDismissable: true,
+    },
+    ref,
+  );
 
-      {children}
-    </Dialog.Root>
+  // Prevent scrolling while the modal is open, and hide content
+  // outside the modal from screen readers.
+  usePreventScroll();
+  const { modalProps } = useModal();
+
+  // Get props for the dialog and its title
+  const { dialogProps, titleProps } = useDialog({}, ref);
+
+  return (
+    <div
+      css={[
+        tw`fixed top-0 right-0 bottom-0 left-0 select-none`,
+        tw`bg-black bg-opacity-50`,
+      ]}
+    >
+      <FocusScope contain restoreFocus autoFocus>
+        <div
+          {...overlayProps}
+          {...dialogProps}
+          {...modalProps}
+          ref={ref}
+          tw="focus:outline-none"
+        >
+          <VisuallyHidden>
+            <h3 {...titleProps} style={{ marginTop: 0 }}>
+              {title}
+            </h3>
+          </VisuallyHidden>
+
+          {children}
+        </div>
+      </FocusScope>
+    </div>
   );
 };
 
-export const ModalTrigger = Dialog.Trigger;
+export const Modal: React.FC<Props> = props => {
+  if (!props.isOpen) {
+    return null;
+  }
 
-const StyledOverlay = styled(Dialog.Overlay)`
-  ${tw`fixed top-0 right-0 bottom-0 left-0 select-none`}
-  ${tw`bg-black bg-opacity-50`}
-`;
-
-export const ModalContent = styled(Dialog.Content)`
-  ${tw`fixed`}
-  ${tw`focus:outline-none`}
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
+  return (
+    <OverlayContainer>
+      <ModalDialog {...props} />
+    </OverlayContainer>
+  );
+};

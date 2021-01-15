@@ -53,7 +53,7 @@ export const DocsLayout: React.FC<Props> = ({
   }, [pathname]);
 
   return (
-    <Page {...props} seo={{ title: `${frontMatter.title} - Railway` }}>
+    <Page {...props} seo={{ title: `${frontMatter.title} - Railway Docs` }}>
       <div>
         <div tw="max-w-prose flex-auto prose">
           <h1>{frontMatter.title}</h1>
