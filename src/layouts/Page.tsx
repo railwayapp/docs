@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useMemo } from "react";
 import tinykeys from "tinykeys";
 import "twin.macro";
+import { Footer } from "../components/Footer";
 import { Modal } from "../components/Modal";
 import { MobileNav, Nav } from "../components/Nav";
 import { SearchModal } from "../components/Search";
@@ -47,7 +48,7 @@ export const Page: React.FC<Props> = props => {
           <Nav />
           <MobileNav />
 
-          <main tw="flex justify-between px-4 md:px-8 pt-8 pb-24">
+          <main tw="flex justify-between px-4 md:px-8 pt-8 pb-12 md:pb-24">
             {props.children}
           </main>
         </div>

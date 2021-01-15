@@ -64,7 +64,7 @@ export const DocsLayout: React.FC<Props> = ({
         <hr tw="my-16" />
 
         <div
-          tw="flex items-center justify-between space-x-4 mb-16"
+          tw="flex items-center justify-between space-x-4 md:mb-16"
           className="prev-next-buttons"
         >
           {prevPage != null ? (
