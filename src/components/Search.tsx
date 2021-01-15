@@ -60,16 +60,21 @@ export const SearchModal: React.FC<{
   }, [selected, results]);
 
   useEffect(() => {
+    const preventDefault = (fn: () => void) => (e: KeyboardEvent) => {
+      e.preventDefault();
+      fn();
+    };
+
     const unsubscribe = tinykeys(window, {
       Enter: () => handleEnter(),
 
       ArrowUp: () => onPressUp(),
       "Control+k": () => onPressUp(),
-      "Control+p": () => onPressUp(),
+      "Control+p": preventDefault(() => onPressUp()),
 
       ArrowDown: () => onPressDown(),
-      "Control+j": () => onPressDown(),
-      "Control+n": () => onPressDown(),
+      "Control+j": preventDefault(() => onPressDown()),
+      "Control+n": preventDefault(() => onPressDown()),
     });
 
     return () => unsubscribe();
@@ -107,16 +112,21 @@ export const SearchModal: React.FC<{
         <div className="results">
           <ul>
             {results.map((item, index) => (
-              <li key={item.slug}>
+              <li key={item.slug} onMouseMove={() => setSelected(index)}>
                 <Link
                   href={item.slug}
                   css={[
-                    tw`block p-4`,
+                    tw`flex flex-col justify-center px-3 h-16 relative`,
                     index === selected
                       ? tw`text-pink-900 bg-pink-100`
                       : tw`text-gray-500`,
                   ]}
                 >
+                  {item.category != null && (
+                    <span tw="w-auto mb-1 text-xs font-medium opacity-50 rounded-sm">
+                      {item.category}
+                    </span>
+                  )}
                   <div tw="flex items-center justify-between space-x-4">
                     <span>{item.title}</span>
                     <ArrowRight tw="w-4 h-4" />

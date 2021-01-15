@@ -1,10 +1,17 @@
 import { IPage, ISidebarContent } from "../types";
 
-const makePage = (title: string, subPath?: string, slug?: string): IPage => ({
+const makePage = (
+  title: string,
+  category?: string,
+  tags?: string[],
+  slug?: string,
+): IPage => ({
   title,
+  tags,
+  category,
   slug:
     slug ??
-    `/${subPath != null ? subPath + "/" : ""}${title
+    `/${category != null ? category + "/" : ""}${title
       .toLowerCase()
       .replace(/\s+/g, "-")}`,
 });
@@ -13,9 +20,9 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "General",
     pages: [
-      makePage("Introduction", undefined, "/"),
-      makePage("Getting Started"),
-      makePage("Environments"),
+      makePage("Introduction", undefined, ["what", "railway"], "/"),
+      makePage("Getting Started", undefined, ["start"]),
+      makePage("Environments", undefined, ["plugins", "containers"]),
       makePage("Projects"),
     ],
   },
@@ -23,30 +30,41 @@ export const sidebarContent: ISidebarContent = [
     title: "CLI",
     pages: [
       makePage("Quick Start", "cli"),
-      makePage("Installation", "cli"),
+      makePage("Installation", "cli", ["install"]),
       makePage("API Reference", "cli"),
     ],
   },
   {
     title: "Deployments",
     pages: [
-      makePage("Railway Up", "deployment", "/deployment/up"),
-      makePage("GitHub Triggers", "deployment"),
-      makePage("Builds", "deployment"),
-      makePage("Serverless", "deployment"),
-      makePage("Self Hosted Server", "deployment"),
-      makePage("Project Tokens", "deployment"),
+      makePage("Railway Up", "deployment", ["deploy"], "/deployment/up"),
+      makePage("GitHub Triggers", "deployment", ["git"]),
+      makePage("Builds", "deployment", [
+        "node",
+        "python",
+        "ruby",
+        "golang",
+        "java",
+        "procfile",
+        "deploy",
+      ]),
+      makePage("Serverless", "deployment", ["vercel", "netlify"]),
+      makePage("Self Hosted Server", "deployment", [
+        "aws",
+        "digital ocean",
+        "gcp",
+      ]),
+      makePage("Project Tokens", "deployment", ["ci", "testing"]),
     ],
   },
   {
     title: "Plugins",
     pages: [
-      makePage("Env Vars", "plugins"),
-      makePage("PostgreSQL", "plugins"),
-      makePage("MySQL", "plugins"),
-      makePage("Redis", "plugins"),
-      makePage("MongoDB", "plugins"),
-      makePage("Elasticsearch", "plugins"),
+      makePage("Env Vars", "plugins", ["environment", "variables"]),
+      makePage("PostgreSQL", "plugins", ["database", "sql"]),
+      makePage("MySQL", "plugins", ["database", "sql"]),
+      makePage("Redis", "plugins", ["key", "value", "store", "cache"]),
+      makePage("MongoDB", "plugins", ["database", "nosql"]),
     ],
   },
   {

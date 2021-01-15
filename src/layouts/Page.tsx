@@ -33,7 +33,7 @@ export const Page: React.FC<Props> = props => {
   const fuse = useMemo(() => {
     const pages = sidebarContent.map(section => section.pages).flat();
     const fuse = new Fuse(pages, {
-      keys: ["title"],
+      keys: ["title", "tags", "category"],
       includeScore: true,
     });
 
