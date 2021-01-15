@@ -21,7 +21,10 @@ export const Page: React.FC<Props> = props => {
 
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
-      "$mod+K": () => setIsSearchOpen(!isSearchOpen),
+      "$mod+K": e => {
+        e.preventDefault();
+        setIsSearchOpen(!isSearchOpen);
+      },
     });
 
     return () => unsubscribe();
