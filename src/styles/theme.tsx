@@ -58,7 +58,7 @@ export const WrappedThemeProvider: React.FC = ({ children }) => {
 
 export const ThemeProvider: React.FC = props => (
   <NextThemeProvider
-    defaultTheme="system"
+    defaultTheme="light"
     enableSystem={true}
     disableTransitionOnChange={true}
     attribute="class"
