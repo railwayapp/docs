@@ -8,7 +8,7 @@ export const useFathom = (trackingCode: string, siteUrl: string) => {
   useEffect(() => {
     // Initialize Fathom when the app loads
     Fathom.load(trackingCode, {
-      url: "https://cdn.usefathom.com/script.js",
+      url: "https://hare.railway.app/script.js",
       includedDomains: [siteUrl],
     });
 
