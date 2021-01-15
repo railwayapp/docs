@@ -8,6 +8,10 @@ export const GlobalStyles = createGlobalStyle`
     ${tw`font-sans`}
   }
 
+  .sidebar ::-webkit-scrollbar {
+    display: none;
+  }
+
   * {
     box-sizing: border-box;
   }

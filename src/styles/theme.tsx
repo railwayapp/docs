@@ -34,7 +34,6 @@ export const WrappedThemeProvider: React.FC = ({ children }) => {
   );
 
   const { resolvedTheme, setTheme } = useNextTheme();
-  console.log(resolvedTheme);
   const colorMode = resolvedTheme as ColorMode;
 
   const themeState: ThemeState = {
