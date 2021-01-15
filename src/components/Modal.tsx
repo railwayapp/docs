@@ -21,7 +21,7 @@ export const Modal: React.FC<Props> = ({ isOpen, onOpenChange, children }) => {
 export const ModalTrigger = Dialog.Trigger;
 
 const StyledOverlay = styled(Dialog.Overlay)`
-  ${tw`fixed top-0 right-0 bottom-0 left-0`}
+  ${tw`fixed top-0 right-0 bottom-0 left-0 select-none`}
   ${tw`bg-black bg-opacity-50`}
 `;
 

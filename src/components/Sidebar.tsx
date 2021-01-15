@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
+import React from "react";
 import tw, { styled } from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
-import React from "react";
 import { ScrollArea } from "./ScrollArea";
 import { Search } from "./Search";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -21,13 +21,15 @@ export const Sidebar: React.FC = ({ ...props }) => {
     >
       <ScrollArea>
         <div tw="pt-6 pb-6 px-4 sticky top-0 bg-background">
-          <Link tw="w-full flex items-center justify-between" href="/">
-            <div tw="flex items-center">
-              <Logo tw="w-8 h-8 mr-4" /> <span tw="font-bold">Railway</span>
-            </div>
+          <div tw="flex items-center justify-between">
+            <Link tw="w-full flex items-center" href="/">
+              <div tw="flex items-center">
+                <Logo tw="w-8 h-8 mr-4" /> <span tw="font-bold">Railway</span>
+              </div>
+            </Link>
 
             <ThemeSwitcher />
-          </Link>
+          </div>
         </div>
 
         <div tw="mx-4 mb-6">
@@ -40,7 +42,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
   );
 };
 
-export const MobileNav: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
+export const MobileSidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
   return (
     <div css={[isOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}>
       <SidebarContent />

@@ -1,6 +1,6 @@
 import React from "react";
 import "twin.macro";
-import { Nav } from "../components/Nav";
+import { MobileNav, Nav } from "../components/Nav";
 import { Props as SEOProps, SEO } from "../components/SEO";
 import { Sidebar } from "../components/Sidebar";
 
@@ -18,6 +18,7 @@ export const Page: React.FC<Props> = props => {
 
         <div tw="flex flex-col flex-1">
           <Nav />
+          <MobileNav />
 
           <main tw="flex justify-between px-4 md:px-8 pt-8 pb-24">
             {props.children}

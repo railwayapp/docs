@@ -1,13 +1,13 @@
 import Fuse from "fuse.js";
+import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { ArrowRight, Search as SearchIcon } from "react-feather";
+import tinykeys from "tinykeys";
 import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { IPage } from "../types";
 import { Link } from "./Link";
 import { Modal, ModalContent, ModalTrigger } from "./Modal";
-import tinykeys from "tinykeys";
-import { useRouter } from "next/router";
 
 export interface Props {}
 
@@ -24,19 +24,14 @@ export const Search: React.FC<Props> = () => {
   }, [sidebarContent]);
 
   useEffect(() => {
-    console.log("RUNNING");
     const unsubscribe = tinykeys(window, {
-      "j k": () => {
-        console.log("JK");
-      },
-      "$mod+K": () => {
-        console.log("doop");
-        setIsSearchOpen(open => !open);
-      },
+      "$mod+K": () => setIsSearchOpen(open => !open),
     });
 
     return () => unsubscribe();
   }, []);
+
+  console.log("OPEN", isSearchOpen);
 
   return (
     <>
@@ -46,7 +41,7 @@ export const Search: React.FC<Props> = () => {
           css={[
             tw`flex items-center justify-between space-x-4 w-full`,
             tw`rounded border border-gray-200 cursor-pointer`,
-            tw`px-2 py-1 text-gray-300 text-left`,
+            tw`px-2 py-2 md:py-1 text-gray-300 text-left`,
             tw`focus:outline-none hover:border-pink-300`,
           ]}
         >
@@ -54,7 +49,7 @@ export const Search: React.FC<Props> = () => {
             <SearchIcon tw="w-4 h-4" />
             <span tw="text-sm">Search</span>
           </div>
-          <div tw="text-gray-300 text-sm">⌘K</div>
+          <div tw="text-gray-300 text-sm hidden md:block">⌘K</div>
         </ModalTrigger>
 
         <ModalContent>
@@ -116,13 +111,16 @@ const SearchModal: React.FC<{ fuse: Fuse<IPage>; closeModal: () => void }> = ({
 
   return (
     <div
-      css={[tw`min-h-80vh min-w-100vw`]}
+      css={[tw`min-h-80vh min-w-100vw px-2 sm:px-4 md:px-0`]}
       onPointerDown={() => {
         closeModal();
       }}
     >
       <div
-        tw="bg-background rounded w-1/2 mx-auto overflow-hidden"
+        css={[
+          tw`bg-background rounded w-full md:w-1/2 mx-auto overflow-hidden`,
+          `max-width: 550px`,
+        ]}
         onPointerDown={e => e.stopPropagation()}
       >
         <input
