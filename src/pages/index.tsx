@@ -4,6 +4,7 @@ import tw, { styled } from "twin.macro";
 import { DiscordIcon, RssIcon, TwitterIcon } from "../components/Icons";
 import { Link } from "../components/Link";
 import { Page } from "../layouts/Page";
+import { GitHub } from "react-feather";
 
 const Home: NextPage = () => {
   return (
@@ -65,6 +66,16 @@ const Home: NextPage = () => {
               Chat with our Railway members, ask questions, hang out.
               <br />
               <Link href="https://discord.gg/xAm2w6g">Join Discord</Link>
+            </p>
+            <h3 tw="flex items-center space-x-4">
+              <GitHub /> <span>Contributing</span>
+            </h3>
+            <p>
+              Each page footer contains an "Edit on GitHub Link". Change the
+              markdown, make a pull request, and we'll merge it! Deploys will
+              happen automagically cause the blog is hosted on Railway.
+              <br />
+              <Link href="https://github.com/railwayapp/docs">Doc Source</Link>
             </p>
           </section>
         </div>
