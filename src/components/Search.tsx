@@ -54,8 +54,8 @@ export const SearchModal: React.FC<{
   const handleEnter = useCallback(() => {
     const item = results[selected];
     if (item != null) {
-      router.push(item.slug);
       closeModal();
+      router.push(item.slug);
     }
   }, [selected, results]);
 
