@@ -5,7 +5,7 @@ import "../styles/fonts.css";
 import { useFathom } from "../hooks/useFathom";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  useFathom("JPJBANQN", "docs.railway.app");
+  useFathom(process.env.NEXT_PUBLIC_FATHOM_CODE ?? "", "docs.railway.app");
 
   return (
     <ThemeProvider>
