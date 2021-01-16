@@ -116,21 +116,22 @@ export const SearchModal: React.FC<{
                 <Link
                   href={item.slug}
                   css={[
-                    tw`flex flex-col justify-center px-3 h-16 relative`,
+                    tw`flex items-center justify-between px-3 h-16 relative`,
                     index === selected
                       ? tw`text-pink-900 bg-pink-100`
                       : tw`text-gray-500`,
                   ]}
                 >
-                  {item.category != null && (
-                    <span tw="w-auto mb-1 text-xs font-medium opacity-50 rounded-sm">
-                      {item.category}
-                    </span>
-                  )}
-                  <div tw="flex items-center justify-between space-x-4">
+                  <div tw="flex flex-col">
+                    {item.category != null && (
+                      <span tw="w-auto mb-1 text-xs font-medium opacity-50 rounded-sm">
+                        {item.category}
+                      </span>
+                    )}
                     <span>{item.title}</span>
-                    <ArrowRight tw="w-4 h-4" />
                   </div>
+
+                  <ArrowRight tw="w-4 h-4" />
                 </Link>
               </li>
             ))}
