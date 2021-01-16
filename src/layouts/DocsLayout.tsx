@@ -64,7 +64,7 @@ export const DocsLayout: React.FC<Props> = ({
         <hr tw="my-16" />
 
         <div
-          tw="flex items-center justify-between space-x-4 md:mb-16"
+          tw="flex items-center justify-between space-x-4 mb-8 md:mb-16"
           className="prev-next-buttons"
         >
           {prevPage != null ? (
@@ -90,7 +90,7 @@ export const DocsLayout: React.FC<Props> = ({
 
         <Link
           className="edit-github-link"
-          tw="text-gray-500 text-sm underline hover:text-pink-500 hidden md:inline-block"
+          tw="text-gray-500 text-sm underline hover:text-pink-500"
           href={gitHubFileLink}
         >
           Edit this file on GitHub
