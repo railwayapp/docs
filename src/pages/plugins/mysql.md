@@ -2,20 +2,20 @@
 title: MySQL
 ---
 
-The Railway PostgreSQL plugin allows you to provision and connect to a
-PostgreSQL database with zero configuration.
+The Railway MySQL plugin allows you to provision and connect to a
+MySQL database with zero configuration.
 
 ### Connect
 
-When you run `railway run` in a project with the Postgres plugin installed, we inject several environment variables.
+When you run `railway run` in a project with the MySQL plugin installed, we inject several environment variables.
 
-- PGHOST
-- PGPORT
-- PGUSER
-- PGPASSWORD
-- PGDATABASE
+- MYSQLHOST
+- MYSQLPORT
+- MYSQLUSER
+- MYSQLPASSWORD
+- MYSQLDATABASE
 - DATABASE_URL
 
 Many libraries will automatically look for the `DATABASE_URL` variable and use
-it to connect to Postgres. You can also manually use these variables however you
+it to connect to MySQL. You can also manually use these variables however you
 like.
