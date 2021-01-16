@@ -14,8 +14,8 @@ When you run `railway run` in a project with the MySQL plugin installed, we inje
 - MYSQLUSER
 - MYSQLPASSWORD
 - MYSQLDATABASE
-- DATABASE_URL
+- MYSQL_URL
 
-Many libraries will automatically look for the `DATABASE_URL` variable and use
+Many libraries will automatically look for the `MYSQL_URL` variable and use
 it to connect to MySQL. You can also manually use these variables however you
 like.
