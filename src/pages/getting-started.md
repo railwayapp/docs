@@ -20,10 +20,13 @@ The Railway CLI allows you to connect your code to your infrastructure. After
 [installing it](/cli/installation), you can connect to your project with
 
 ```bash
-railway init
+railway init [projectId]
 ```
 
-Select the project you just created in the dashboard.
+The `projectId` is available on your project dashboard. If you were logged in to
+the Railway dashboard when you created your project, you can run `railway login`
+before init which will allow you to select from all your existing projects.
+
 
 ## Develop Locally
 
