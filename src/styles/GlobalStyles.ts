@@ -12,6 +12,10 @@ export const GlobalStyles = createGlobalStyle`
     display: none;
   }
 
+  .sidebar * {
+    scrollbar-width: none;
+  }
+
   * {
     box-sizing: border-box;
   }
