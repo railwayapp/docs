@@ -8,6 +8,17 @@ export const GlobalStyles = createGlobalStyle`
     ${tw`font-sans`}
   }
 
+  html {
+    ::selection {
+      ${tw`bg-pink-200 dark:bg-pink-900`}
+    }
+
+    ::-moz-selection {
+      ${tw`bg-pink-200 dark:bg-pink-900`}
+    }
+  }
+
+
   .sidebar ::-webkit-scrollbar {
     display: none;
   }
