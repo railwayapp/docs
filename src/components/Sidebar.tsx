@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
-import tw, { styled } from "twin.macro";
+import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
@@ -10,10 +10,10 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export const Sidebar: React.FC = ({ ...props }) => {
   return (
-    <Container
+    <div
       css={[
         tw`hidden`,
-        tw`h-screen md:h-screen md:sticky md:top-0 md:overflow-hidden md:block md:min-w-sidebar`,
+        tw`md:h-screen md:sticky md:top-0 md:overflow-hidden md:block md:min-w-sidebar`,
         tw`md:border-r md:border-gray-200`,
       ]}
       className="sidebar"
@@ -38,7 +38,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
 
         <SidebarContent />
       </ScrollArea>
-    </Container>
+    </div>
   );
 };
 
@@ -87,26 +87,3 @@ const SidebarContent: React.FC = () => {
     </>
   );
 };
-
-const Container = styled.div`
-  /* width */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    ${tw`bg-background`}
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    ${tw`bg-gray-200 rounded-full`}
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    ${tw`bg-gray-300`}
-  }
-`;
