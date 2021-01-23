@@ -10,4 +10,4 @@ with the value of `world`. When you run your code with `railway run`, `HELLO`
 will be available as an environment variable.
 
 To view all the environment variables accessible in your Railway environment,
-run `railway run`.
+run `railway env`.
