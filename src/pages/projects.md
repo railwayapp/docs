@@ -2,6 +2,10 @@
 title: Projects
 ---
 
+A Railway project contains all of your plugins, environments, and deployments. If you are logged in all of your projects can be found on [your project dashboard](https://railway.app/dashboard).
+
+There are two types of projects.
+
 ## Temporary Projects
 
 Projects that are not created by a user that is logged in are considered temporary. These projects
