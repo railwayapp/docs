@@ -60,7 +60,6 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Plugins",
     pages: [
-      makePage("Env Vars", "plugins", ["environment", "variables"]),
       makePage("PostgreSQL", "plugins", ["database", "sql"]),
       makePage("MySQL", "plugins", ["database", "sql"]),
       makePage("Redis", "plugins", ["key", "value", "store", "cache"]),
