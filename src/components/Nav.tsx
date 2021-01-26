@@ -38,7 +38,9 @@ export const MobileNav: React.FC = () => {
           tw`px-4 md:px-8 py-4 text-center`,
         ]}
       >
-        <Logo tw="w-10 h-10" />
+        <Link href="/">
+          <Logo tw="w-10 h-10" />
+        </Link>
 
         {/* <div tw="w-full block">
           <Search />

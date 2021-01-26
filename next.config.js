@@ -19,7 +19,11 @@ module.exports = withPlugins([
         };
       },
     },
-  })({}),
+  })({
+    images: {
+      domains: ["user-images.githubusercontent.com", "railway.app"],
+    },
+  }),
 ]);
 
 function makeIdFromPath(resourcePath) {
