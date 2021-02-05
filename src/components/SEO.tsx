@@ -12,7 +12,7 @@ export interface Props extends NextSeoProps {
 const title = "Railway Docs";
 export const url = "https://docs.railway.app";
 const description = "Documentation for Railway";
-const image = "https://railway.app/og.png";
+const image = "https://docs.railway.app/og.png";
 
 const config: DefaultSeoProps = {
   title,
