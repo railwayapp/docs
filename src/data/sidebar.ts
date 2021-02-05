@@ -67,6 +67,6 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    pages: [makePage("Examples")],
+    pages: [makePage("Starters")],
   },
 ];
