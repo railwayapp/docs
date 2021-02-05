@@ -24,6 +24,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Getting Started", undefined, ["start"]),
       makePage("Environments", undefined, ["plugins", "containers"]),
       makePage("Projects"),
+      makePage("Starters"),
     ],
   },
   {
@@ -65,8 +66,5 @@ export const sidebarContent: ISidebarContent = [
       makePage("Redis", "plugins", ["key", "value", "store", "cache"]),
       makePage("MongoDB", "plugins", ["database", "nosql"]),
     ],
-  },
-  {
-    pages: [makePage("Starters")],
   },
 ];
