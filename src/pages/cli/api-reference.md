@@ -29,7 +29,7 @@ install in your project.
 ## Environment
 
 Change which environment you are using. View [environment
-docs](/docs/environments) for more information.
+docs](/environments) for more information.
 
 ```bash
 railway environment
@@ -73,7 +73,6 @@ This will open the browser to `https://railway.app/cli-login`.
 
 If you are in an environment where the terminal cannot open a web browser, (i.e.
 SSH session or [Codespaces](https://github.com/features/codespaces)), you can perform a _browserless_ login.
-
 
 ```bash
 railway login --browserless

@@ -2,7 +2,7 @@
 title: Railway Up
 ---
 
-Use the [Railway CLI](/docs/cli/quick-start) to deploy your project from the
+Use the [Railway CLI](/cli/quick-start) to deploy your project from the
 command line. In a [connected project](/cli/quick-start#connect) run
 
 ```bash
@@ -10,7 +10,7 @@ railway up
 ```
 
 The current directory will be deployed to the currently selected Railway project
-and environment. Run [`railway status`](/docs/cli/api-reference#status) to see
+and environment. Run [`railway status`](/cli/api-reference#status) to see
 which project and environment will be used.
 
 All deployments will appear in the deployments view on your project dashboard.
