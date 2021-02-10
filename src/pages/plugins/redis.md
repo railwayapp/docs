@@ -3,7 +3,7 @@ title: Redis
 ---
 
 The Railway Redis plugin allows you to provision and connect to a
-PostgreSQL database with zero configuration.
+Redis database with zero configuration.
 
 ### Connect
 
