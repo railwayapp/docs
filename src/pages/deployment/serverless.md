@@ -7,13 +7,13 @@ title: Serverless
 Use the [Railway Vercel
 integration](https://railway.app/changelog/2020-10-23#vercel-integration)
 to provide your production and preview deploys with access to your [Railway
-environments](/docs/environments).
+environments](/environments).
 
 Under Project Settings > Integrations in your project dashboard, you can connect
 to your Vercel account, specify a team, project, and production/preview
 environments. We will then provide your production and preview deploys on Vercel
 with all the environment variables needed to connect to your Railway
-environments. 
+environments.
 
 This allows you to keep production and preview deploy databases separate.
 
