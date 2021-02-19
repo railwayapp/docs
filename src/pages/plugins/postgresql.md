@@ -20,6 +20,10 @@ Many libraries will automatically look for the `DATABASE_URL` variable and use
 it to connect to PostgreSQL. You can also manually use these variables however you
 like.
 
+## Image
+
+The Postgres plugin uses [postgis/postgis:13-3.1](https://registry.hub.docker.com/r/postgis/postgis/) docker image.
+
 ## PostGIS
 
 All PostgreSQL containers have the [PostGIS](https://postgis.net/install/) family of extensions installed. However, you must enable PostGIS in every database you want to use it.
