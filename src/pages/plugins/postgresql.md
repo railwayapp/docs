@@ -22,7 +22,7 @@ like.
 
 ## Image
 
-The Postgres plugin uses [postgis/postgis:13-3.1](https://registry.hub.docker.com/r/postgis/postgis/) docker image.
+The Postgres plugin uses the [postgis/postgis:13-3.1](https://registry.hub.docker.com/r/postgis/postgis/) docker image.
 
 ## PostGIS
 
