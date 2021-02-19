@@ -4,9 +4,15 @@ title: Webhooks
 Webhooks can be used to notify your own application of deployment status changes.
 
 ## Setting up a webhook
-To setup a webhook, first navigate to an existing project.  Then click on the deploy menu and then the settings tab.
+Complete the following steps to setup a webhook:
 
-Here you will see a section titled "Build and Deploy Webhooks".  Under here you may input a URL.  This URL will receive a webhook payload when the current project's deploy status changes.  This will be executed across all environments in the project.
+1. Open an existing project on Railway.
+2. Click on the deployments menu.
+3. Navigate to the settings tab.
+4. Input your desired webhook URL into the input under "Build and Deploy Webhooks".
+5. Click the checkmark to the right of the input to save.
+
+The URL you provide will receive a webhook payload when the current project's deploy status changes.  This will be executed across all environments in the project.
 
 To see what payload will be transmitted to the URL, you can expand the "Example webhook payload" panel.
 
@@ -16,11 +22,18 @@ Webhooks contain Muxers which will automatically identify webhook URLs and trans
 - Discord
 
 ## Setting up a webhook for Discord
-On discord, open an existing text channel in a server you administer.
+Discord supports integrating directly with webhooks. To enable this on a server you will need to be an admin or otherwise have the appropriate permissions.
 
-Under the integrations tab, you will see an option for webhooks.  Click the webhook button, and then create a new webhook bot.
-
-Once created, you will have the option to copy the new webhook bot's URL.  Copy that URL, and paste it into your Railway project's webhook URL input.
+1. On Discord, open the settings for a server text channel.  This menu can be accessed via the cogwheel/gear icon where the channel is listed on the server.
+2. Click on the integrations tab.
+3. Click on the webhooks option.
+4. You will see an option to create a new webhook, click this button and fill out your preferred bot name and channel.
+5. Once created, you will have the option to copy the new webhook URL.  Copy that URL.
+6. Back in Railway, open the project you wish to integrate with.
+7. Click on the project's deployments menu.
+8. Navigate to the settings tab.
+9. Input the copied webhook URL into the input under "Build and Deploy Webhooks".
+10. Click the checkmark to the right of the input to save.
 
 At this point, the Discord Muxer will identify the URL and change the payload to accomodate the Discord integration.  You can see this if you expand the payload preview panel.
 
