@@ -1,6 +1,6 @@
 # Railway Documentation
 
-Visit [docs.railway.app](https://docs.railway.app)
+Visit [docs.railway.app](https://docs.railway.app).
 
 ![](https://railway.app/og.png)
 
