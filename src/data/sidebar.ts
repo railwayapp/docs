@@ -56,6 +56,7 @@ export const sidebarContent: ISidebarContent = [
         "gcp",
       ]),
       makePage("Project Tokens", "deployment", ["ci", "testing"]),
+      makePage("Webhooks", "deployment", ["deploy"]),
     ],
   },
   {
