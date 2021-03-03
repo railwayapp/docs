@@ -115,6 +115,9 @@ export const SearchModal: React.FC<{
               <li key={item.slug} onMouseMove={() => setSelected(index)}>
                 <Link
                   href={item.slug}
+                  onClick={e => {
+                    closeModal();
+                  }}
                   css={[
                     tw`flex items-center justify-between px-3 h-16 relative`,
                     index === selected
