@@ -24,7 +24,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Getting Started", undefined, ["start"]),
       makePage("Environments", undefined, ["plugins", "containers"]),
       makePage("Projects"),
-      makePage("Starters"),
+      makePage("Starters", undefined, ["button", "template", "example"]),
     ],
   },
   {
