@@ -23,6 +23,10 @@ npm i -g @railway/cli
 sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
 ```
 
+By default the script will install the `railway` binary to `/usr/local/bin`. You
+can override this by setting the `BINARY_NAME` and `INSTALL_DIR` environment
+variables, respectively.
+
 ## GitHub
 
 The source is available on [GitHub](https://github.com/railwayapp/cli). Pull

@@ -47,7 +47,7 @@ export const Page: React.FC<Props> = props => {
       <div tw="min-h-screen relative flex max-w-6xl mx-auto">
         <Sidebar />
 
-        <div tw="flex flex-col flex-1">
+        <div tw="flex flex-col flex-1 max-w-full">
           <Nav />
           <MobileNav />
 
