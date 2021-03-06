@@ -54,7 +54,7 @@ export const DocsLayout: React.FC<Props> = ({
 
   return (
     <Page {...props} seo={{ title: `${frontMatter.title} - Railway Docs` }}>
-      <div>
+      <div tw="max-w-full">
         <div tw="max-w-prose flex-auto prose">
           <h1>{frontMatter.title}</h1>
 
@@ -69,7 +69,7 @@ export const DocsLayout: React.FC<Props> = ({
         >
           {prevPage != null ? (
             <Link href={prevPage.slug} tw="hover:text-pink-500">
-              <div>
+              <div tw="max-w-full">
                 <div tw="text-gray-600 text-sm mb-1">Prev</div>{" "}
                 <div tw="font-medium text-lg">{prevPage.title}</div>
               </div>
