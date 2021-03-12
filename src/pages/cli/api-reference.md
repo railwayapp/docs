@@ -20,11 +20,12 @@ new project, or select an existing project.
 Run a command inside of the Railway environment.
 
 ```bash
-railway run <cmd>
+railway run [cmd]
 ```
 
 This injects all environment variables associated with the plugins you have
-install in your project.
+install in your project. If you run `railway run` without specifying a command,
+it will try to run the Dockerfile in the current directory, if it can find one.
 
 ## Environment
 
@@ -106,3 +107,29 @@ environment is used.
 ```bash
 railway up
 ```
+
+## Disconnect
+
+Disconnects the current directory from Railway. You will need to rerun
+`railway init` to use railway in this directory again 
+
+```bash
+railway disconnect
+```
+
+## Connect
+
+Lets you connect to your Railway plugins. 
+
+```bash
+railway connect [plugin]
+```
+
+If you don't specify a plugin, you will be prompted to select a plugin to
+connect to.
+
+Supported:
+- `postgresql`/`postgres`/`psql`
+- `mysql`
+- `redis`
+- `mongodb`/`mongo`
