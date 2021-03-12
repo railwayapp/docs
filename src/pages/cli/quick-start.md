@@ -39,7 +39,7 @@ railway run npm start
 ```
 
 If you have a Dockerfile in your project directory, you can just run
-`railway run` to build and run the Dockerfile.
+`railway run` with no arguments to build and run the Dockerfile.
 
 ## Deploy
 
