@@ -29,7 +29,7 @@ Run code inside your Railway environment. We connect your code to your
 infrastructure hosted on Railway by injecting environment variables.
 
 ```bash
-railway run CMD
+railway run <cmd>
 ```
 
 For example, to run your node project with Railway:
@@ -37,6 +37,9 @@ For example, to run your node project with Railway:
 ```bash
 railway run npm start
 ```
+
+If you have a Dockerfile in your project directory, you can just run
+`railway run` to build and run the Dockerfile.
 
 ## Deploy
 
