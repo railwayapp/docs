@@ -17,14 +17,14 @@ new project, or select an existing project.
 
 ## Run
 
-Run a command inside of the Railway environment.
+Run a command using of the Railway environment.
 
 ```bash
 railway run [cmd]
 ```
 
 This injects all environment variables associated with the plugins you have
-install in your project. If you run `railway run` without specifying a command,
+installed in your project. If you run `railway run` without specifying a command,
 it will try to run the Dockerfile in the current directory, if it can find one.
 
 ## Environment
