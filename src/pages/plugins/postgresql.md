@@ -26,9 +26,9 @@ The Postgres plugin uses the [timescale/timescaledb-postgis:latest-pg13](https:/
 
 ## Timescale and PostGIS
 
-All PostgreSQL containers have the [PostGIS](https://postgis.net/install/) and [Timescale](https://www.timescale.com/) family of extensions installed. However, you must enable the extensions in every database you want to use them.
+All PostgreSQL containers have the [PostGIS](https://postgis.net/install/) and [Timescale](https://www.timescale.com/) family of extensions installed. This means you can do both geo-spatial and time-series queries out of the box with Railway!
 
-For example
+You must enable the extensions in every database you want to use them. For example,
 
 ```
 CREATE EXTENSION IF NOT EXISTS postgis;
