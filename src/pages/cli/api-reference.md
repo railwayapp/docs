@@ -17,7 +17,7 @@ new project, or select an existing project.
 
 ## Run
 
-Run a command using of the Railway environment.
+Run a command using the Railway environment.
 
 ```bash
 railway run [cmd]
