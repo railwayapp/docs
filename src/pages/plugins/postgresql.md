@@ -22,12 +22,15 @@ like.
 
 ## Image
 
-The Postgres plugin uses the [postgis/postgis:13-3.1](https://registry.hub.docker.com/r/postgis/postgis/) docker image.
+The Postgres plugin uses the [timescale/timescaledb-postgis:latest-pg13](https://hub.docker.com/r/timescale/timescaledb) docker image.
 
-## PostGIS
+## Timescale and PostGIS
 
-All PostgreSQL containers have the [PostGIS](https://postgis.net/install/) family of extensions installed. However, you must enable PostGIS in every database you want to use it.
+All PostgreSQL containers have the [PostGIS](https://postgis.net/install/) and [Timescale](https://www.timescale.com/) family of extensions installed. However, you must enable the extensions in every database you want to use them.
+
+For example
 
 ```
-CREATE EXTENSION postgis;
+CREATE EXTENSION IF NOT EXISTS postgis;
+CREATE EXTENSION IF NOT EXISTS timescaledb;
 ```
