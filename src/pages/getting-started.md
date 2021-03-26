@@ -34,11 +34,14 @@ When developing locally, you can connect to your infrastructure by running your
 code with
 
 ```bash
-railway run CMD
+railway run <cmd>
 ```
 
 We will inject all the environment variables inside your current Railway
 [environment](/environments).
+
+If you have a Dockerfile in your project directory, you can use `railway run`
+with no arguments to build and run your Dockerfile.
 
 ## Deploy
 
