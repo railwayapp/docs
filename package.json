@@ -24,7 +24,7 @@
     "react-dom": "17.0.1",
     "react-feather": "^2.0.9",
     "react-syntax-highlighter": "^15.4.3",
-    "styled-components": "^5.2.1",
+    "styled-components": "5.2.1",
     "theme-custom-properties": "^1.0.0",
     "tinykeys": "^1.1.1",
     "twin.macro": "^2.0.8",
