@@ -17,10 +17,11 @@ controlled from here.
 ## Install the CLI
 
 The Railway CLI allows you to connect your code to your infrastructure. After
-[installing it](/cli/installation), you can connect to your project with
+[installing it](/cli/installation), you can link your project to a directory 
+with
 
 ```bash
-railway init [projectId]
+railway link [projectId]
 ```
 
 The `projectId` is available on your project dashboard. If you were logged in to

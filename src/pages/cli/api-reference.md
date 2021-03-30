@@ -6,14 +6,25 @@ The following commands are available in the CLI
 
 ## Init
 
-Connect to an existing project or create a new one
+Create a new Railway project.
 
 ```bash
-railway init [projectId]
+railway init
 ```
 
-Running init with no project ID will bring a menu that allows you to create a
-new project, or select an existing project.
+Running `init` will prompt you to create a new project or a select from one of
+our [Starter Templates](/starters).
+
+## Link
+
+Connect to an existing Railway project.
+
+```bash
+railway link [projectId]
+```
+
+Running `link` with no project ID will prompt you to select an existing project
+from your Railway account.
 
 ## Run
 
@@ -24,13 +35,14 @@ railway run [cmd]
 ```
 
 This injects all environment variables associated with the plugins you have
-installed in your project. If you run `railway run` without specifying a command,
-it will try to run the Dockerfile in the current directory, if it can find one.
+installed in your project. If you run `railway run` without specifying a
+command, it will try to run the Dockerfile in the current directory, if it can
+find one.
 
 ## Environment
 
-Change which environment you are using. View [environment
-docs](/environments) for more information.
+Change which environment you are using. View [environment docs](/environments)
+for more information.
 
 ```bash
 railway environment
@@ -44,12 +56,12 @@ View the status of your Railway project and user.
 railway status
 ```
 
-## Env
+## Variables
 
 View all the environment variables associated with your project and environment.
 
 ```bash
-railway env
+railway variables
 ```
 
 ## Open
@@ -73,7 +85,8 @@ This will open the browser to `https://railway.app/cli-login`.
 ### Browserless
 
 If you are in an environment where the terminal cannot open a web browser, (i.e.
-SSH session or [Codespaces](https://github.com/features/codespaces)), you can perform a _browserless_ login.
+SSH session or [Codespaces](https://github.com/features/codespaces)), you can
+perform a _browserless_ login.
 
 ```bash
 railway login --browserless
@@ -108,18 +121,18 @@ environment is used.
 railway up
 ```
 
-## Disconnect
+## Unlink
 
 Disconnects the current directory from Railway. You will need to rerun
-`railway init` to use railway in this directory again 
+`railway init` to use railway in this directory again.
 
 ```bash
-railway disconnect
+railway unlink
 ```
 
 ## Connect
 
-Lets you connect to your Railway plugins. 
+Lets you connect to your Railway plugins.
 
 ```bash
 railway connect [plugin]
@@ -129,6 +142,7 @@ If you don't specify a plugin, you will be prompted to select a plugin to
 connect to.
 
 Supported:
+
 - `postgresql`/`postgres`/`psql`
 - `mysql`
 - `redis`
