@@ -23,4 +23,4 @@ like.
 
 ## Image
 
-The MySQL plugin uses the [mysql:8]([mysql:8](https://hub.docker.com/_/mysql)) docker image.
+The MySQL plugin uses the [mysql:8](https://hub.docker.com/_/mysql) docker image.
