@@ -5881,7 +5881,7 @@ tiny-emitter@^2.0.0:
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
   integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
-tinykeys@^1.1.1:
+tinykeys@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/tinykeys/-/tinykeys-1.1.1.tgz#2535e8b24c8e2be447dd0ee1cff656ef435cd63d"
   integrity sha512-YEA1TGMlkMabXI0NGddRFti+c1eMO2QP7wefwibSz0Pip8sA+d99yX5Pp7pK7wUeTKmrF4ys4XZVz44YydlTYg==
