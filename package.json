@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port ${PORT-3001}",
     "build": "next build",
-    "start": "next start --port ${PORT-3000}",
+    "start": "next start --port ${PORT-3001}",
     "clean": "rm -rf .next",
     "tsc": "tsc -p ."
   },
