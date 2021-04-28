@@ -49,6 +49,7 @@ export const sidebarContent: ISidebarContent = [
         "procfile",
         "deploy",
       ]),
+      makePage("Environment Variables", "deployment", ["environment", "variables"]),
       makePage("Serverless", "deployment", ["vercel", "netlify"]),
       makePage("Self Hosted Server", "deployment", [
         "aws",
