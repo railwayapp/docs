@@ -29,3 +29,4 @@ If you're on CloudFlare, you MUST set your DNS settings to full or above. Otherw
             width={1205} 
             height={901}
             quality={100} />
+
