@@ -49,7 +49,10 @@ export const sidebarContent: ISidebarContent = [
         "procfile",
         "deploy",
       ]),
-      makePage("Environment Variables", "deployment", ["environment", "variables"]),
+      makePage("Environment Variables", "deployment", [
+        "environment",
+        "variables",
+      ]),
       makePage("Serverless", "deployment", ["vercel", "netlify"]),
       makePage("Self Hosted Server", "deployment", [
         "aws",
@@ -58,6 +61,11 @@ export const sidebarContent: ISidebarContent = [
       ]),
       makePage("Project Tokens", "deployment", ["ci", "testing"]),
       makePage("Webhooks", "deployment", ["deploy"]),
+      makePage("Custom Domains", "deployment", [
+        "custom",
+        "domain",
+        "cloudflare",
+      ]),
     ],
   },
   {
