@@ -2,9 +2,9 @@
 title: Custom Domains
 ---
 
-Custom domains can be configures inside of the Deployment -> Domains tab
+Custom domains can be configures inside of the Deployment -> Domains tab.
 
-Press edit, type in your domain, and we'll prompt you to update your CNAME
+Press edit, type in your domain, and we'll prompt you to update your CNAME.
 
 <NextImage  src="/images/domain.png" 
             alt="Screenshot of Custom Domain"
@@ -13,9 +13,9 @@ Press edit, type in your domain, and we'll prompt you to update your CNAME
             height={1806}
             quality={100} />
 
-Once the domain is set, head over to your favorite registrar and add the DNS record as directed
+Once the domain is set, head over to your favorite registrar and add the DNS record as directed.
 
-NOTE! Sometimes this takes a while due to DNS
+**NOTE!:** Sometimes this takes a while due to DNS. CloudFlare is fast (seconds), Namecheap is slow (hours).
 
 ## Provider Specific Instructions
 
