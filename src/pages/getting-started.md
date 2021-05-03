@@ -11,7 +11,7 @@ Create a new Railway project by visiting [dev.new](https://dev.new) and
 selecting what you want to do. Plugins can be added and removed at any time.
 Once the project is created you will land on your project dashboard. This is
 your _mission control_. Your projects infrastructure,
-[environments](/environments), and [deployment](/deployments/up) are all
+[environments](/environments), and [deployment](/deployment/up) are all
 controlled from here.
 
 ## Install the CLI
