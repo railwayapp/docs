@@ -2,7 +2,7 @@
 title: Custom Domains
 ---
 
-Custom domains can be configured inside of the Deployment -> Domains tab.
+Custom domains can be configured inside the Deployment -> Domains tab.
 
 Each Railway environment will automatically be configured with a public Railway
 domain, which looks like `*.up.railway.app`. This can be changed at any time if
