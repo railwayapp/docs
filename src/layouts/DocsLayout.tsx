@@ -11,6 +11,11 @@ export interface Props extends PageProps {
   frontMatter: FrontMatter;
 }
 
+const getOGImage = (title: string) =>
+  `https://og.railway.app/api/image?fileType=png&layoutName=Docs&Theme=Dark&URL=&Page=${encodeURIComponent(
+    title,
+  )}`;
+
 export const DocsLayout: React.FC<Props> = ({
   frontMatter,
   children,
@@ -53,7 +58,13 @@ export const DocsLayout: React.FC<Props> = ({
   }, [pathname]);
 
   return (
-    <Page {...props} seo={{ title: `${frontMatter.title} - Railway Docs` }}>
+    <Page
+      {...props}
+      seo={{
+        title: `${frontMatter.title} - Railway Docs`,
+        image: getOGImage(frontMatter.title),
+      }}
+    >
       <div tw="max-w-full">
         <div tw="max-w-prose flex-auto prose">
           <h1>{frontMatter.title}</h1>
