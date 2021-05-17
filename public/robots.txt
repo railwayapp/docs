@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://docs.railway.app/
-
-# Sitemaps
-Sitemap: https://docs.railway.app/sitemap.xml
