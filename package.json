@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --port ${PORT-3001}",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start --port ${PORT-3001}",
     "clean": "rm -rf .next",
     "tsc": "tsc -p ."
@@ -39,6 +40,7 @@
     "autoprefixer": "^10.2.5",
     "next-compose-plugins": "^2.2.1",
     "next-mdx-enhanced": "^5.0.0",
+    "next-sitemap": "^1.6.57",
     "postcss": "^8.2.10",
     "prettier": "^2.2.1",
     "remark-autolink-headings": "^6.0.1",
