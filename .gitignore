@@ -35,3 +35,7 @@ yarn-error.log*
 
 .blog_index_data
 .blog_index_data_previews
+
+# dynamically generated files
+public/sitemap.xml
+public/robots.txt
