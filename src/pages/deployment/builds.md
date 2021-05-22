@@ -5,14 +5,14 @@ title: Builds
 ## Buildpacks
 
 Railway uses [Cloudnative Buildpacks](https://buildpacks.io/) to attempt to
-build and deploy with zero configuration. Currently we support the following
+build and deploy with zero configuration. Currently, we support the following
 languages out of the box
 
 - NodeJS
 - Python
 - Go
 - Ruby
-- Java 
+- Java
 
 If you have a language that you want us to support, please don't hesitate to
 [reach out](https://discord.gg/xAm2w6g) and let us know.
@@ -28,8 +28,9 @@ npm install
 npm build
 ```
 
-If no [Procfile](/deployment/builds#procfile) is found, a [web
-process](/deployment/builds#web-process) will be started with `npm start`.
+If no [Procfile](/deployment/builds#procfile) is found,
+a [web process](/deployment/builds#web-process) will be started with `npm start`
+.
 
 ### Python
 
@@ -45,8 +46,9 @@ The [Go buildpack](https://github.com/heroku/heroku-buildpack-go) will detect
 your build is Go if you are using go modules, dep, govendor, glide, GB, or
 Godep. If detected, dependencies will be installed and the source compiled.
 
-If no [Procfile](/deployment/builds#procfile) is found, a [web
-process](/deployment/builds#web-process) will be started with `go run main.go`.
+If no [Procfile](/deployment/builds#procfile) is found,
+a [web process](/deployment/builds#web-process) will be started
+with `go run main.go`.
 
 ### Ruby
 
@@ -88,12 +90,30 @@ HTTP traffic. For example,
 web: npm start
 ```
 
+### Custom Buildpacks
+
+By default, the appropriate buildpacks are selected by inspecting the source
+files of a project. For more control, a
+[project.toml](https://buildpacks.io/docs/app-developer-guide/using-project-descriptor/)
+file can be used to achieve a more custom setup.
+
+Here is an example `project.toml` file that forces a NodeJS project to use Yarn
+instead of NPM.
+
+```toml
+[[build.buildpacks]]
+uri = "heroku/nodejs"
+
+[[build.buildpacks]]
+uri = "heroku/nodejs-yarn"
+```
 
 ## Dockerfiles
 
 We will look for and use a `Dockerfile` at the project root if it exists.
 
-If you need to use the environment variables that Railway injects at build time, you must specify them in the Dockerfile with
+If you need to use the environment variables that Railway injects at build time,
+you must specify them in the Dockerfile with
 
 ```
 ARG EnvironmentVariable
