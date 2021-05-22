@@ -94,7 +94,7 @@ web: npm start
 
 By default, the appropriate buildpacks are selected by inspecting the source
 files of a project. For more control, a
-[project.toml](https://buildpacks.io/docs/app-developer-guide/using-project-descriptor/)_
+[project.toml](https://buildpacks.io/docs/app-developer-guide/using-project-descriptor/)
 file can be used to achieve a more custom setup.
 
 Here is an example `project.toml` file that forces a NodeJS project to use Yarn
