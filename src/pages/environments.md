@@ -30,4 +30,4 @@ project variables page.
             quality={100} />
 
 
-You can view all variables for the current environment with `railway env` and change the environment with `railway environment`.
+You can view all variables for the current environment with `railway vars` and change the environment with `railway environment`.
