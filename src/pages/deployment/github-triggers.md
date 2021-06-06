@@ -2,8 +2,7 @@
 title: GitHub Triggers
 ---
 
-Configure Railway to deploy every push to a repo by going to Deployments > Auto
-Deploys in your project. Here you can select a GitHub repo and branch to deploy
+Configure Railway to deploy every push to a repo by going to Deployments > Triggerrs in your project. Here you can select a GitHub repo and branch to deploy
 from. If you have more than 1 [Railway environment](/environments), you can
 select which environment to use.
 
