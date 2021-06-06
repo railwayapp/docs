@@ -42,9 +42,11 @@ export const MobileNav: React.FC = () => {
           <Logo tw="w-10 h-10" />
         </Link>
 
-        {/* <div tw="w-full block">
+        {
+        <div tw="w-full block">
           <Search />
-        </div> */}
+        </div>
+        }
 
         <div tw="flex items-center space-x-4 md:space-x-4">
           <button
