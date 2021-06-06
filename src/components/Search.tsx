@@ -19,7 +19,7 @@ export const Search: React.FC = () => {
           tw`flex items-center justify-between space-x-4 w-full`,
           tw`rounded border border-gray-200 cursor-pointer`,
           tw`px-2 py-2 md:py-1 text-gray-300 text-left`,
-          tw`focus:outline-none md:hover:border-pink-300`,
+          tw`focus:outline-none md:hover:border-blue-300`,
         ]}
       >
         <div tw="flex items-center space-x-2">
@@ -121,7 +121,7 @@ export const SearchModal: React.FC<{
                   css={[
                     tw`flex items-center justify-between px-3 h-16 relative`,
                     index === selected
-                      ? tw`text-pink-900 bg-pink-100`
+                      ? tw`text-blue-900 bg-blue-100`
                       : tw`text-gray-500`,
                   ]}
                 >

@@ -64,6 +64,7 @@ export const Page: React.FC<Props> = props => {
       >
         <SearchModal fuse={fuse} closeModal={() => setIsSearchOpen(false)} />
       </Modal>
+      <Footer />
     </>
   );
 };

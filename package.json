@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port ${PORT-3001}",
+    "dev": "next dev",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "start": "next start --port ${PORT-3001}",
+    "start": "next start",
     "clean": "rm -rf .next",
     "tsc": "tsc -p ."
   },

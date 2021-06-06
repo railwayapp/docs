@@ -10,11 +10,11 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     ::selection {
-      ${tw`bg-pink-200 dark:bg-pink-900`}
+      ${tw`bg-blue-200 dark:bg-blue-900`}
     }
 
     ::-moz-selection {
-      ${tw`bg-pink-200 dark:bg-pink-900`}
+      ${tw`bg-blue-200 dark:bg-blue-900`}
     }
   }
 

@@ -79,7 +79,7 @@ export const DocsLayout: React.FC<Props> = ({
           className="prev-next-buttons"
         >
           {prevPage != null ? (
-            <Link href={prevPage.slug} tw="hover:text-pink-500">
+            <Link href={prevPage.slug} tw="hover:text-blue-500">
               <div tw="max-w-full">
                 <div tw="text-gray-600 text-sm mb-1">Prev</div>{" "}
                 <div tw="font-medium text-lg">{prevPage.title}</div>
@@ -90,7 +90,7 @@ export const DocsLayout: React.FC<Props> = ({
           )}
 
           {nextPage != null && (
-            <Link href={nextPage.slug} tw="hover:text-pink-500">
+            <Link href={nextPage.slug} tw="hover:text-blue-500">
               <div tw="text-right">
                 <div tw="text-gray-600 text-sm mb-1">Next</div>{" "}
                 <div tw="font-medium text-lg">{nextPage.title}</div>
@@ -101,7 +101,7 @@ export const DocsLayout: React.FC<Props> = ({
 
         <Link
           className="edit-github-link"
-          tw="text-gray-500 text-sm underline hover:text-pink-500"
+          tw="text-gray-500 text-sm underline hover:text-blue-500"
           href={gitHubFileLink}
         >
           Edit this file on GitHub

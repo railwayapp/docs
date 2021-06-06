@@ -18,7 +18,7 @@ const Home: NextPage = () => {
             css={[
               tw`bg-foreground border-2 border-foreground text-background`,
               tw`hover:bg-background hover:text-foreground`,
-              tw`focus:ring-2 focus:ring-pink-700`,
+              tw`focus:ring-2 focus:ring-blue-700`,
             ]}
           >
             Get Started
@@ -27,9 +27,9 @@ const Home: NextPage = () => {
           <ButtonLink
             href="https://railway.app"
             css={[
-              tw`bg-pink-500 text-white border-2 border-pink-500`,
-              tw`hover:bg-pink-400`,
-              tw`focus:ring-2 focus:ring-pink-700`,
+              tw`bg-blue-500 text-white border-2 border-blue-500`,
+              tw`hover:bg-blue-400`,
+              tw`focus:ring-2 focus:ring-blue-700`,
             ]}
           >
             Visit Railway

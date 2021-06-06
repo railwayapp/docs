@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
 import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
-import ruby from "react-syntax-highlighter/dist/cjs/languages/hljs/ruby";
+import java from "react-syntax-highlighter/dist/cjs/languages/hljs/java";
 import shell from "react-syntax-highlighter/dist/cjs/languages/hljs/shell";
 import { darkCodeTheme, lightCodeTheme } from "../../styles/codeThemes";
 import { useTheme } from "../../styles/theme";
@@ -11,10 +11,10 @@ import { useIsMounted } from "../../hooks/useIsMounted";
 
 SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("js", javascript);
-SyntaxHighlighter.registerLanguage("ruby", ruby);
+SyntaxHighlighter.registerLanguage("ruby", java);
 SyntaxHighlighter.registerLanguage("shell", shell);
 
-export type SupportedLanguage = "javascript" | "shell" | "ruby" | "json";
+export type SupportedLanguage = "javascript" | "shell" | "java" | "json";
 
 export interface Props {
   language?: string;

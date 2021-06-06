@@ -36,6 +36,39 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
+    title: "DDT",
+    pages: [
+      makePage("Railway Up", "ddt", ["deploy"], "/ddt/up"),
+      makePage("GitHub Triggers", "ddt", ["git"]),
+      makePage("Builds", "ddt", [
+        "node",
+        "python",
+        "ruby",
+        "golang",
+        "java",
+        "procfile",
+        "deploy",
+      ]),
+      makePage("Environment Variables", "ddt", [
+        "environment",
+        "variables",
+      ]),
+      makePage("Serverless", "ddt", ["vercel", "netlify"]),
+      makePage("Self Hosted Server", "ddt", [
+        "aws",
+        "digital ocean",
+        "gcp",
+      ]),
+      makePage("Project Tokens", "ddt", ["ci", "testing"]),
+      makePage("Webhooks", "ddt", ["deploy"]),
+      makePage("Custom Domains", "ddt", [
+        "custom",
+        "domain",
+        "cloudflare",
+      ]),
+    ],
+  },
+  {
     title: "Deployments",
     pages: [
       makePage("Railway Up", "deployment", ["deploy"], "/deployment/up"),
