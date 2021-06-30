@@ -12,7 +12,7 @@ builds and deployments.
 | `RAILWAY_GIT_AUTHOR`         | The user of the commit that triggered the deployment. Example `gschier` |
 | `RAILWAY_GIT_BRANCH`         | The branch that triggered the deployment. Example `main` |
 | `RAILWAY_GIT_REPO_NAME`      | The name of the repository that triggered the deployment. Example `myproject` |
-| `RAILWAY_GIT_REPO_OWNER`     | The name of the repository that triggered the deployment. Example `mycompany` |
+| `RAILWAY_GIT_REPO_OWNER`     | The name of the repository owner that triggered the deployment. Example `mycompany` |
 | `RAILWAY_GIT_COMMIT_MESSAGE` | The message of the commit that triggered the deployment. Example `Fixed a few bugs` |
 
 ## Templated Variables

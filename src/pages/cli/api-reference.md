@@ -45,8 +45,11 @@ Change which environment you are using. View [environment docs](/environments)
 for more information.
 
 ```bash
-railway environment
+railway environment [name]
 ```
+
+If you run `railway environment` without specifying a name, you will be prompted
+with an environment selector that lists all your environments for the project.
 
 ## Status
 
