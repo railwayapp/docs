@@ -54,7 +54,7 @@ You can customize the Python version by adding a `runtime.txt` file to the root 
 The contents of the file should include the version. For example,
 
 ```
-python-3.5.2
+python-3.9.6
 ```
 
 ### Go
