@@ -48,6 +48,8 @@ The [Python buildpack](https://github.com/heroku/heroku-buildpack-python)
 detects if your build is Python by looking for a `requirements.txt` file. If
 found, dependencies will be installed using `pip`.
 
+Please include a [Procfile](/deployment/builds#procfile) in the root folder of your repository. If no [Procfile](/deployment/builds#procfile) is found, your deploy might fail to start. 
+
 The default Python version is `3.6`.
 
 You can customize the Python version by adding a `runtime.txt` file to the root of your project.
@@ -92,8 +94,7 @@ process1: command
 process2: command
 ```
 
-When Railway deploys your build, all process will be started by running their
-respective command.
+When Railway deploys your build, all processes listed in the file will be started by running their respective command.
 
 _Note: some buildpacks specify a default start command_
 
