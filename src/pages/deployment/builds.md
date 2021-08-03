@@ -48,7 +48,11 @@ The [Python buildpack](https://github.com/heroku/heroku-buildpack-python)
 detects if your build is Python by looking for a `requirements.txt` file. If
 found, dependencies will be installed using `pip`.
 
-Please include a [Procfile](/deployment/builds#procfile) in the root folder of your repository. If no [Procfile](/deployment/builds#procfile) is found, your deploy might fail to start. 
+Please include a [Procfile](/deployment/builds#procfile) in the root folder of your repository. If no [Procfile](/deployment/builds#procfile) is found, your deploy might fail to start with the following error.
+
+```
+ERROR: failed to launch: determine start command: when there is no default process a command is required
+```
 
 The default Python version is `3.6`.
 
