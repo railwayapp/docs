@@ -94,11 +94,10 @@ the deployment starts.
 A Procfile is in the format of
 
 ```
-process1: command
-process2: command
+process: command
 ```
 
-When Railway deploys your build, all processes listed in the file will be started by running their respective command.
+When Railway deploys your build, the process listed in the file will be started by running the respective command. Note: Railway can only execute one process per Procfile.
 
 _Note: some buildpacks specify a default start command_
 
