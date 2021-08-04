@@ -36,10 +36,15 @@ via `https://`.
 ## Provider Specific Instructions
 
 If you have proxying enabled on Cloudflare (the orange cloud), you MUST set your
-SSL/TLS settings to full or above. Otherwise, Cloudflare will not be able to
-connect to Railway.
+SSL/TLS settings to full or above.
 
 <NextImage src="/images/cloudflare.png"
 alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1205} height={901} quality={100} />
+
+If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error.
+
+```
+ERR_TOO_MANY_REDIRECTS
+```
