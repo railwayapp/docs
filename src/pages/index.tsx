@@ -52,8 +52,8 @@ const Home: NextPage = () => {
             </h3>
             <p>
               Keep up with the latest news and updates. <br />
-              <Link href="https://twitter.com/Railway_App">
-                Follow @Railway_App
+              <Link href="https://twitter.com/Railway">
+                Follow @Railway
               </Link>
             </p>
 
