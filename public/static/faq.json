@@ -12,7 +12,7 @@
       "Free plan limits?",
       "What are the usage limits for the free plan?"
     ],
-    "answer": "Deploys on the free plan get 1GB memory and 1GB disk usage (soft limit, hard cap of 10 GB). For additional details, please visit: https://railway.app/legal/fair-use"
+    "answer": "Deploys on the free plan get 512 MB memory and 1GB of disk. For additional details, please visit: https://railway.app/legal/fair-use"
   },
   "db-backups": {
     "questions": [
@@ -61,7 +61,8 @@
   },
   "bad-gateway": {
     "questions": [
-      "My app works locally but says `Bad Gateway` when I deploy!?!"
+      "My app works locally but says `Bad Gateway` when I deploy!?!",
+      "Why am I seeing Bad Gateway?"
     ],
     "answer": "Did you configure the correct PORT variable? More information: https://docs.railway.app/deployment/up#port-variable"
   },
@@ -70,41 +71,73 @@
     "answer": "You can submit a feature request here: https://feedback.railway.app/"
   },
   "account-verification": {
-    "questions": ["Why am I seeing that my account needs to be verified?"],
+    "questions": [
+      "Why am I seeing that my account needs to be verified?",
+      "How do I verify my account?",
+      "Why do I need to verify?"
+    ],
     "answer": "We have determined that your account requires additional information to host on Railway. Make sure to link a GitHub account and wait 24 hours for the verification check to pass."
   },
   "fair-use": {
-    "questions": ["What am I allowed to host on Railway?"],
+    "questions": [
+      "What am I allowed to host on Railway?",
+      "How do I know what content is DMCA?",
+      "What can I host?",
+      "What repos are banned?"
+    ],
     "answer": "You can see our Fair Use policy to determine what you can host: https://railway.app/legal/fair-use"
   },
   "bug-reporting": {
-    "questions": ["I found a bug. Where can I report it?"],
+    "questions": [
+      "I found a bug. Where can I report it?",
+      "Where do I report a bug?",
+      ""
+    ],
     "answer": "You can report bugs here: https://feedback.railway.app/bug-reports"
   },
   "un-ban": {
-    "questions": ["Can you un-ban my account?"],
+    "questions": [
+      "Can you un-ban my account?",
+      "I was banned, unban me.",
+      "Help I was banned."
+    ],
     "answer": "No <3"
   },
   "free-plan-limits": {
     "questions": [
-      "I am reaching my free plan limits. How do I upgrade my account?"
+      "I am reaching my free plan limits. How do I upgrade my account?",
+      "How do I subscribe to the paid tier?",
+      "Where do I upgrade my account?",
+      "How do I add a credit card?"
     ],
     "answer": "You can upgrade on your Account Management portal under the Billing tab: https://railway.app/account/billing"
   },
   "two-factor": {
-    "questions": ["How do I configure Two-Factor Authentication?"],
+    "questions": [
+      "How do I configure Two-Factor Authentication?",
+      "Do you have Two-Factor auth?",
+      "Where can I set up 2FA?"
+    ],
     "answer": "You can! You can set up a TOTP tool under your Account Security page: https://railway.app/account/security"
   },
   "usage-calc": {
-    "questions": ["How does Railway calculate usage?"],
+    "questions": [
+      "How does Railway calculate usage?",
+      "How much is project usage?",
+      "What are the rates of usage?"
+    ],
     "answer": "We calculate RAM and CPU usage to the minute. Our rates are $0.000231 / GB / minute for RAM and $0.000463 / vCPU / minute for compute."
   },
   "account-email": {
-    "questions": ["Can I change my account email?"],
+    "questions": [
+      "Can I change my account email?",
+      "How do I change my account email?"
+    ],
     "answer": "Yes, you will need to contact us directly to do so. contact (at) railway (dot) app"
   },
   "hiring": {
-    "questions": ["Is Railway hiring?"],
+    "questions": ["Is Railway hiring?", "Do you have any jobs?"],
     "answer": "Yes! https://www.notion.so/railwayapp/Jobs-bdc641c4b72947f2ab1e09bea5362363"
   }
 }
+
