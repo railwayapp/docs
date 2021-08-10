@@ -12,7 +12,7 @@
       "Free plan limits?",
       "What are the usage limits for the free plan?"
     ],
-    "answer": "Deploys on the free plan get 512 MB memory and 1GB of disk. For additional details, please visit: https://railway.app/legal/fair-use"
+    "answer": "Deploys on the free plan get 512 MB memory and 1GB of disk. For additional details, please visit: https://railway.app/pricing"
   },
   "db-backups": {
     "questions": [
@@ -90,8 +90,7 @@
   "bug-reporting": {
     "questions": [
       "I found a bug. Where can I report it?",
-      "Where do I report a bug?",
-      ""
+      "Where do I report a bug?"
     ],
     "answer": "You can report bugs here: https://feedback.railway.app/bug-reports"
   },
@@ -99,9 +98,10 @@
     "questions": [
       "Can you un-ban my account?",
       "I was banned, unban me.",
-      "Help I was banned."
+      "Help I was banned.",
+      "Why does it say 'end of the line'?"
     ],
-    "answer": "No <3"
+    "answer": "No :heart:"
   },
   "free-plan-limits": {
     "questions": [
@@ -121,11 +121,7 @@
     "answer": "You can! You can set up a TOTP tool under your Account Security page: https://railway.app/account/security"
   },
   "usage-calc": {
-    "questions": [
-      "How does Railway calculate usage?",
-      "How much is project usage?",
-      "What are the rates of usage?"
-    ],
+    "questions": ["How does Railway calculate usage?"],
     "answer": "We calculate RAM and CPU usage to the minute. Our rates are $0.000231 / GB / minute for RAM and $0.000463 / vCPU / minute for compute."
   },
   "account-email": {
@@ -135,9 +131,26 @@
     ],
     "answer": "Yes, you will need to contact us directly to do so. contact (at) railway (dot) app"
   },
+  "server-restart": {
+    "questions": [
+      "Does Railway restart their servers?",
+      "Will Railway restart my application?"
+    ],
+    "answer": "No, we don't restart your server on your behalf. We will make sure to message any impact to your application."
+  },
+  "plugin-connection": {
+    "questions": [
+      "Why can't I connect to my plugin?",
+      "I can't seem to connect to Postgres?"
+    ],
+    "answer": "Make sure that you are using the correct connection URL. If you confirmed that you are- open a thread and tag Angelo to investigate. It could be an issue on our end."
+  },
+  "app-root-200": {
+    "questions": ["Why did my app root didn't return a 200?"],
+    "answer": "You might see this message when your PORT environment variable is incorrect. "
+  },
   "hiring": {
     "questions": ["Is Railway hiring?", "Do you have any jobs?"],
     "answer": "Yes! https://www.notion.so/railwayapp/Jobs-bdc641c4b72947f2ab1e09bea5362363"
   }
 }
-
