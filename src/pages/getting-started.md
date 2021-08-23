@@ -17,7 +17,7 @@ controlled from here.
 ## Install the CLI
 
 The Railway CLI allows you to connect your code to your infrastructure. After
-[installing it](/cli/installation), you can link your project to a directory 
+[installing it](/cli/installation), you can link your project to a directory
 with
 
 ```bash
@@ -27,7 +27,6 @@ railway link [projectId]
 The `projectId` is available on your project dashboard. If you were logged in to
 the Railway dashboard when you created your project, you can run `railway login`
 before init which will allow you to select from all your existing projects.
-
 
 ## Develop Locally
 
@@ -57,3 +56,11 @@ environment. Click the returned link to see the build and deploy logs.
 
 You can also setup [auto deploys](/deployment/github-triggers) so that a deploy
 is created everytime you push to a branch.
+
+### Exposing Your Application
+
+Before your application can say hello, Railway needs to know what PORT to listen on to expose your application to the internet. Railway does try to do it's best to do this automatically for you however there are cases when we can't.
+
+You can configure your application to use the `PORT` environment variable. You can add the `PORT` variable under your project's variables. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
+
+Keep in mind, when you publish your app, make sure that your application's IP is not set to `127.0.0.0`, Railway won't be able to expose your application if it's set to that IP.
