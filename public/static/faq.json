@@ -26,7 +26,7 @@
       "Does Railway support the EU region?",
       "Where are the Railway servers located?"
     ],
-    "answer": "Currently, our servers are located in the US-West regions. However, work is planned to add additional regions.",
+    "answer": "Currently, our servers are located in the US-West regions. However, we plan to add additional regions.",
     "link": "https://feedback.railway.app/feature-requests/p/eu-region-support"
   },
   "db-backups": {
@@ -44,7 +44,7 @@
       "Does Railway support custom domains?",
       "Can I use custom domains?"
     ],
-    "answer": "Yes, you can set up multiple custom domains per project and per environment!",
+    "answer": "Yes, you can set up multiple custom domains per project and environment!",
     "link": "https://docs.railway.app/deployment/custom-domains"
   },
   "ssh": {
