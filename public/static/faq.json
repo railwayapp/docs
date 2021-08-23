@@ -6,7 +6,8 @@
       "Why am I seeing Bad Gateway?",
       "Why did my app root didn't return a 200?"
     ],
-    "answer": "Did you configure the correct PORT variable? More information: https://docs.railway.app/deployment/up#port-variable"
+    "answer": "Did you configure the correct PORT variable?",
+    "link": "https://docs.railway.app/deployment/up#port-variable"
   },
   "account-verification": {
     "category": "security",
@@ -15,7 +16,8 @@
       "How do I verify my account?",
       "Why do I need to verify?"
     ],
-    "answer": "We have determined that your account requires additional information to use the Starter plan. Make sure to link a GitHub account and a Credit Card to pass the verification check. If you do not have a Credit Card- don't fret; we can manually verify you if you email verify (at) railway (dot) app."
+    "answer": "We have determined that your account requires additional information to use the Starter plan. Make sure to link a GitHub account and a Credit Card to pass the verification check. If you do not have a Credit Card- don't fret; we can manually verify you if you email verify (at) railway (dot) app.",
+    "link": ""
   },
   "region": {
     "category": "general",
@@ -24,7 +26,8 @@
       "Does Railway support the EU region?",
       "Where are the Railway servers located?"
     ],
-    "answer": "US West but we're working on adding other regions. Follow this ticket to stay updated: https://feedback.railway.app/feature-requests/p/eu-region-support"
+    "answer": "Currently, our servers are located in the US-West regions. However, we plan to add additional regions.",
+    "link": "https://feedback.railway.app/feature-requests/p/eu-region-support"
   },
   "db-backups": {
     "category": "general",
@@ -32,7 +35,8 @@
       "Are databases backed up?",
       "Can I download database backups?"
     ],
-    "answer": "We backup databases every 24 hours. Currently, there's no option in the UI to download a backup but if you reach out to us, we can get one for you."
+    "answer": "We backup databases every 24 hours. Currently, there's no option in the UI to download a backup but if you reach out to us, we can get one for you.",
+    "link": ""
   },
   "custom-domains": {
     "category": "general",
@@ -40,7 +44,8 @@
       "Does Railway support custom domains?",
       "Can I use custom domains?"
     ],
-    "answer": "Yes, you can set up multiple custom domains per project and per environment! Details: https://docs.railway.app/deployment/custom-domains"
+    "answer": "Yes, you can set up multiple custom domains per project and environment!",
+    "link": "https://docs.railway.app/deployment/custom-domains"
   },
   "ssh": {
     "category": "general",
@@ -48,7 +53,8 @@
       "How do I SSH into my application?",
       "Can I SSH into the server?"
     ],
-    "answer": "That's going to be a no from me, chief. We don't support nor encourage SSH-ing into the server."
+    "answer": "That's going to be a no from me, chief. We don't support nor encourage SSH-ing into the server.",
+    "link": ""
   },
   "monorepo": {
     "category": "general",
@@ -56,7 +62,8 @@
       "Does Railway support monorepos?",
       "Is there support for monorepos?"
     ],
-    "answer": "Not yet but it's in our roadmap. Follow this ticket to stay updated: https://feedback.railway.app/feature-requests/p/monorepo-root-directory-support"
+    "answer": "Monorepos are curently on our near term roadmap.",
+    "link": "https://feedback.railway.app/feature-requests/p/monorepo-root-directory-support"
   },
   "docker": {
     "category": "general",
@@ -66,7 +73,8 @@
       "Is docker compose supported?",
       "Can I use docker compose on Railway?"
     ],
-    "answer": "You can use a Dockerfile with Railway but we do not support using docker-compose at this moment. Details: https://docs.railway.app/deployment/builds#dockerfiles"
+    "answer": "You can use a Dockerfile with Railway but we do not support using docker-compose at this moment.",
+    "link": "https://docs.railway.app/deployment/builds#dockerfiles"
   },
   "plugin-connection": {
     "category": "general",
@@ -74,12 +82,14 @@
       "Why can't I connect to my plugin?",
       "I can't seem to connect to Postgres?"
     ],
-    "answer": "Ensure that you are using the correct connection URL. If you can't load the data panel on your plugin's dashboard  - it could be an issue on our end, be sure to reach out to the team on Discord if that is the case."
+    "answer": "Ensure that you are using the correct connection URL. If you can't load the data panel on your plugin's dashboard  - it could be an issue on our end, be sure to reach out to the team on Discord if that is the case.",
+    "link": ""
   },
   "feature-requests": {
     "category": "general",
     "questions": ["Where do I submit a feature request?"],
-    "answer": "Feature requests are greatly appreciated! You can submit a feature request here: https://feedback.railway.app/"
+    "answer": "Feature requests are greatly appreciated! You can submit a feature request on our feedback page.",
+    "link": "https://feedback.railway.app/"
   },
   "fair-use": {
     "category": "security",
@@ -89,15 +99,8 @@
       "What can I host?",
       "What repos are banned?"
     ],
-    "answer": "You can see our Fair Use policy to determine what you can host: https://railway.app/legal/fair-use"
-  },
-  "account-email": {
-    "category": "security",
-    "questions": [
-      "Can I change my account email?",
-      "How do I change my account email?"
-    ],
-    "answer": "Yes, you will need to contact us directly to do so. Reach out to us at contact (at) railway (dot) app"
+    "answer": "You can see our Fair Use policy to determine what you can host",
+    "link": "https://railway.app/legal/fair-use"
   },
   "server-restart": {
     "category": "security",
@@ -105,7 +108,8 @@
       "Does Railway restart their servers?",
       "Will Railway restart my application?"
     ],
-    "answer": "No, we don't restart your server on your behalf without ample warning."
+    "answer": "No, we don't restart your servers on your behalf without ample warning.",
+    "link": ""
   },
 
   "un-ban": {
@@ -116,7 +120,8 @@
       "Help I was banned.",
       "Why does it say 'end of the line'?"
     ],
-    "answer": "No, we do not review disciplinary actions on our platform."
+    "answer": "If you feel that your ban was a mistake, please email verify (at) railway (dot) app. We do not review disciplinary actions on our Discord.",
+    "link": ""
   },
   "two-factor": {
     "category": "security",
@@ -125,7 +130,8 @@
       "Do you have Two-Factor auth?",
       "Where can I set up 2FA?"
     ],
-    "answer": "You can! You can set up a TOTP tool under your Account Security page: https://railway.app/account/security"
+    "answer": "You can! You can set up a TOTP tool under your Account Security page.",
+    "link": "https://railway.app/account/security"
   },
   "free-plan-limits": {
     "category": "pricing",
@@ -135,12 +141,14 @@
       "Where do I upgrade my account?",
       "How do I add a credit card?"
     ],
-    "answer": "You can upgrade on your Account Management portal under the Billing tab: https://railway.app/account/billing"
+    "answer": "You can upgrade on your Account Management portal under the Billing page.",
+    "link": "https://railway.app/account/billing"
   },
   "usage-calc": {
     "category": "pricing",
     "questions": ["How does Railway calculate usage?"],
-    "answer": "We calculate RAM and CPU usage to the minute. Our rates are $0.000231 / GB / minute for RAM and $0.000463 / vCPU / minute for compute."
+    "answer": "We calculate RAM and CPU usage to the minute. Our rates are $0.000231 / GB / minute for RAM and $0.000463 / vCPU / minute for compute.",
+    "link": "https://railway.app/pricing"
   },
   "free-plan": {
     "category": "pricing",
@@ -148,17 +156,20 @@
       "What are the usage limits for the free plan?",
       "Free plan limits?"
     ],
-    "answer": "Deploys on the free plan get 512 MB memory and 1GB of disk. For additional details, please visit: https://railway.app/pricing"
+    "answer": "Deploys on the Starter plan get 512 MB memory and 1GB of disk, with up to $5 of usage per month.",
+    "link": "https://railway.app/pricing"
   },
   "no-credits": {
     "category": "pricing",
     "questions": ["What happens when I run out of credits?"],
-    "answer": "If you are on the Starter plan, your projects are put to rest until next month's credits. If you are on the Developer plan, you are charged for any usage above $10 for the month."
+    "answer": "If you are on the Starter plan, your projects are put to rest until next month's credits. If you are on the Developer plan, you are charged for any usage above $10 for the month.",
+    "link": ""
   },
   "see-usage": {
     "category": "pricing",
     "questions": ["How do I see my project's usage?"],
-    "answer": "Under the project usage tab under the Account dropdown menu. We also have a link for you here: https://railway.app/account/billing"
+    "answer": "Under the project usage tab under the Account dropdown menu.",
+    "link": "https://railway.app/account/billing"
   },
   "bug-reporting": {
     "category": "misc",
@@ -166,12 +177,14 @@
       "I found a bug. Where can I report it?",
       "Where do I report a bug?"
     ],
-    "answer": "Bug reports are happily accepted, you can report bugs at this link: https://feedback.railway.app/bug-reports"
+    "answer": "Bug reports are happily accepted!",
+    "link": "https://feedback.railway.app/bug-reports"
   },
   "hiring": {
     "category": "misc",
     "questions": ["Is Railway hiring?", "Do you have any jobs?"],
-    "answer": "Yes! https://www.notion.so/railwayapp/Jobs-bdc641c4b72947f2ab1e09bea5362363"
+    "answer": "Yes!",
+    "link": "https://www.notion.so/railwayapp/Jobs-bdc641c4b72947f2ab1e09bea5362363"
   },
   "intro": {
     "category": "misc",
@@ -180,6 +193,7 @@
       "What does Percy do?",
       "Why does Percy exist?"
     ],
-    "answer": "Percy is Railway's helpful Discord bot!"
+    "answer": "Percy is Railway's helpful Discord bot!",
+    "link": ""
   }
 }
