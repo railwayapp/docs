@@ -63,5 +63,5 @@ Before your application can say hello, Railway needs to know what PORT to listen
 
 You can configure your application to use the `PORT` environment variable. You can add the `PORT` variable under your project's variables. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
 
-Keep in mind, when you publish your app, make sure that your application's IP is set to `0.0.0.0`, Railway won't be able to expose your application if set to a local IP such as `127.0.0.0` or `localhost`.
+<b>A Note on Listening IPs</b>: It's best for your application to listen on 0.0.0.0:$PORT. While most things work with 127.0.0.1 and localhost, some do not (Django for example)
 
