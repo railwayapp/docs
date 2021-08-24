@@ -6,7 +6,7 @@
       "Why am I seeing Bad Gateway?",
       "Why did my app root didn't return a 200?"
     ],
-    "answer": "Did you configure the correct PORT variable?",
+    "answer": "Your application needs to have a PORT variable configured to tell Railway to expose the right port to the internet. You can configure a PORT variable under the variables pane in your project.",
     "link": "https://docs.railway.app/deployment/up#port-variable"
   },
   "account-verification": {
@@ -16,7 +16,7 @@
       "How do I verify my account?",
       "Why do I need to verify?"
     ],
-    "answer": "We have determined that your account requires additional information to use the Starter plan. Make sure to link a GitHub account and a Credit Card to pass the verification check. If you do not have a Credit Card- don't fret; we can manually verify you if you email verify (at) railway (dot) app.",
+    "answer": "Your account requires additional information to use the Starter plan. Make sure to link a GitHub account and a Credit Card to pass the verification check. If you do not have a Credit Card- don't fret; we can manually verify you if you email verify (at) railway (dot) app.",
     "link": ""
   },
   "region": {
@@ -26,7 +26,7 @@
       "Does Railway support the EU region?",
       "Where are the Railway servers located?"
     ],
-    "answer": "Currently, our servers are located in the US-West regions. However, we plan to add additional regions.",
+    "answer": "Currently, our servers are located in the US-West region. We plan to add additional regions.",
     "link": "https://feedback.railway.app/feature-requests/p/eu-region-support"
   },
   "db-backups": {
@@ -62,7 +62,7 @@
       "Does Railway support monorepos?",
       "Is there support for monorepos?"
     ],
-    "answer": "Monorepos are curently on our near term roadmap.",
+    "answer": "Not at the moment. However, monorepos are curently on our near term roadmap.",
     "link": "https://feedback.railway.app/feature-requests/p/monorepo-root-directory-support"
   },
   "docker": {
@@ -82,7 +82,7 @@
       "Why can't I connect to my plugin?",
       "I can't seem to connect to Postgres?"
     ],
-    "answer": "Ensure that you are using the correct connection URL. If you can't load the data panel on your plugin's dashboard  - it could be an issue on our end, be sure to reach out to the team on Discord if that is the case.",
+    "answer": "Ensure that you are using the correct connection URL. If you can't load the data panel on your plugin's dashboard - it could be an issue on our end, be sure to reach out to the team on Discord if that is the case.",
     "link": ""
   },
   "feature-requests": {
@@ -130,7 +130,7 @@
       "Do you have Two-Factor auth?",
       "Where can I set up 2FA?"
     ],
-    "answer": "You can! You can set up a TOTP tool under your Account Security page.",
+    "answer": "You can set up an TOTP (Time Based One Time Password) app under your Account Security page to enable Two-Factor Authentication.",
     "link": "https://railway.app/account/security"
   },
   "free-plan-limits": {
@@ -162,7 +162,7 @@
   "no-credits": {
     "category": "pricing",
     "questions": ["What happens when I run out of credits?"],
-    "answer": "If you are on the Starter plan, your projects are put to rest until next month's credits. If you are on the Developer plan, you are charged for any usage above $10 for the month.",
+    "answer": "If you are on the Starter plan, your projects are put to rest until next month's credits. You must redploy your projects after you get next month's credits. If you are on the Developer plan, you are charged for any usage above $10 for the month.",
     "link": ""
   },
   "see-usage": {
@@ -177,7 +177,7 @@
       "I found a bug. Where can I report it?",
       "Where do I report a bug?"
     ],
-    "answer": "Bug reports are happily accepted!",
+    "answer": "You can report a bug on our dedicated Bug Report Canny page. Bug reports are happily accepted!",
     "link": "https://feedback.railway.app/bug-reports"
   },
   "hiring": {
