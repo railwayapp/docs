@@ -16,6 +16,5 @@ COPY . .
 # Build
 RUN yarn build
 
-
 # Start
 CMD [ "yarn", "start" ]
