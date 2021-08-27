@@ -1,5 +1,7 @@
 FROM node:alpine
 
+ARG NEXT_PUBLIC_FATHOM_CODE
+
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -14,6 +16,6 @@ COPY . .
 # Build
 RUN yarn build
 
-ARG NEXT_PUBLIC_FATHOM_CODE
+
 # Start
 CMD [ "yarn", "start" ]
