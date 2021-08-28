@@ -118,3 +118,31 @@ you must specify them in the Dockerfile with
 ```
 ARG EnvironmentVariable
 ```
+
+## Experimental Builder
+
+By default Railway will attempt to build your app with the
+[heroku/buildpacks:18](https://devcenter.heroku.com/articles/heroku-18-stack)
+builder, which is based on how [Heroku](https://www.heroku.com/) builds apps. We
+are experimenting using a [custom
+builder](https://github.com/railwayapp/railway-builder) that will allow us to have more control and flexibility in how your source code gets built and deployed on the platform. The new builder has support for
+
+- NodeJS
+- Go
+- PHP
+- Ruby
+- Java
+- .NET
+- Nginx
+- Python
+
+You can opt-in to using this new builder by enabling it in your projects deployment settings.
+
+<NextImage  src="/images/experimental-builder.png" 
+            alt="Screenshot of enabling the experimental builder setting"
+            layout="responsive"
+            width={944} 
+            height={693}
+            quality={100} />
+
+Please note that this is still in development and may not be 100% backwards compatible with the previous builder. If you have any thoughts/concerns/questions/feedback, [we would love to hear from you](https://discord.gg/xAm2w6g)!
