@@ -36,10 +36,38 @@ via `https://`.
 ## Provider Specific Instructions
 
 If you have proxying enabled on Cloudflare (the orange cloud), you MUST set your
-SSL/TLS settings to full or above. Otherwise, Cloudflare will not be able to
-connect to Railway.
+SSL/TLS settings to full or above.
 
 <NextImage src="/images/cloudflare.png"
 alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1205} height={901} quality={100} />
+
+If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error.
+
+```
+ERR_TOO_MANY_REDIRECTS
+```
+
+### Redirecting a Root Domain from Google Domains
+
+Some domain registrars don't fully support CNAME records like Google Domains. As a result - when you add an `@` record for a CNAME, Google Domains won't link it to the Railway project.
+
+**Workaround 1 - Root Domain Forwarding**
+
+In Google Domains, you can create a record to forward your domain root to the Railway project. You can do this by creating a CNAME in the Custom Records section pointing to www to `yourapp.yourrailwayproject.com`
+
+<NextImage src="/images/gd-redirect.png"
+alt="Screenshot of Custom Domain"
+layout="responsive"
+width={1116} height={411} quality={100} />
+
+Then, under the Synthetic Records section, you can configure a Subdomain forward - enter `@` in the subdomain and then `www.yourdomain.com` under the Destination URL entry.
+
+Keep in mind, if Google's domain forwarding service is down, so is access to your project via that domain.
+
+**Workaround 2 - Cloudflare Proxy**
+
+You may also configure Cloudflare proxying for your domain to redirect your domain.
+
+After a custom domain is added to the Railway project follow [the instructions listed on Cloudflare's documentation to configure the proxy.](https://support.cloudflare.com/hc/en-us/articles/205893698-Configure-Cloudflare-and-Heroku-over-HTTPS)

@@ -24,7 +24,7 @@ const config: DefaultSeoProps = {
     images: [{ url: image }],
   },
   twitter: {
-    handle: "@Railway_App",
+    handle: "@Railway",
     cardType: "summary_large_image",
   },
 };

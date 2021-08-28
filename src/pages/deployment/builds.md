@@ -32,13 +32,36 @@ If no [Procfile](/deployment/builds#procfile) is found,
 a [web process](/deployment/builds#web-process) will be started with `npm start`
 .
 
+You can customize the node version using the [engines field](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#engines) of your `package.json`. For example
+
+```json
+{
+  "engines": {
+    "node": ">=0.10.3 <15"
+  }
+}
+```
+
 ### Python
 
 The [Python buildpack](https://github.com/heroku/heroku-buildpack-python)
 detects if your build is Python by looking for a `requirements.txt` file. If
 found, dependencies will be installed using `pip`.
 
+Please include a [Procfile](/deployment/builds#procfile) in the root folder of your repository. If no [Procfile](/deployment/builds#procfile) is found, your deploy might fail to start with the following error.
+
+```
+ERROR: failed to launch: determine start command: when there is no default process a command is required
+```
+
 The default Python version is `3.6`.
+
+You can customize the Python version by adding a `runtime.txt` file to the root of your project.
+The contents of the file should include the version. For example,
+
+```
+python-3.9.6
+```
 
 ### Go
 
@@ -71,12 +94,10 @@ the deployment starts.
 A Procfile is in the format of
 
 ```
-process1: command
-process2: command
+process: command
 ```
 
-When Railway deploys your build, all process will be started by running their
-respective command.
+When Railway deploys your build, the process listed in the file will be started by running the respective command. Note: Railway can only execute one process per Procfile.
 
 _Note: some buildpacks specify a default start command_
 
