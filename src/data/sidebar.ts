@@ -101,12 +101,10 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Reference",
     pages: [
-      makePage("CLI API"),
-      makePage("Limits"),
-      makePage("Starters"),
-      makePage("Usage"),
-      makePage("Guides"),
-      makePage("FAQ"),
+      makePage("CLI API", "reference", ["cli"]),
+      makePage("Starters", "reference", ["starters"]),
+      makePage("Usage", "reference", ["usage"]),
+      makePage("Guides", "reference", ["guides"]),
     ],
   },
 ];
