@@ -1,6 +1,9 @@
 ---
-title: Custom Domains
+title: Exposing Your App
 ---
+
+## Exposing Your App
+
 
 Custom domains can be configured inside the Deployment -> Domains tab.
 
