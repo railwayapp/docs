@@ -22,7 +22,11 @@ export const sidebarContent: ISidebarContent = [
     title: "Introduction",
     pages: [
       makePage("Home", undefined, ["home", "railway", "index"], "/"),
-      makePage("Getting Started", undefined, ["start"]),
+      makePage("Getting Started", undefined, [
+        "introduction",
+        "tutorial",
+        "getting started",
+      ]),
     ],
   },
   {

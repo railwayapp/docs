@@ -16,28 +16,46 @@ The following guide will get you up and running quickly by covering the followin
 
 ## Create a Project
 
-Create a new Railway project by visiting [dev.new](https://dev.new) and
-selecting what you want to do. Plugins can be added and removed at any time.
-Once the project is created you will land on your project dashboard. This is
-your _mission control_. Your projects infrastructure,
-[environments](develop/environments), and [deployments](deploy/railway-up) are all
+Create a new Railway project by visiting [dev.new](https://dev.new). We will deploy a starter to show how quick you can get up and running on Railway.
+
+Press Command + K and select "Deploy Starter"
+
+
+You will be prompted with a grid of starters. Railway supports a number of languages out of the box and can provision infrastructure like databases to extend your applications. These are what we call Plugins, they can be added and removed at any time.
+
+In the starter selection grid, select `NextJS Prisma`
+
+
+Once the project is created you will land on your project dashboard. 
+
+This is your _mission control_. Your projects infrastructure, [environments](develop/environments), and [deployments](deploy/railway-up) are all
 controlled from here.
 
-## Install the CLI
+### Install and Link the CLI
 
-The Railway CLI allows you to connect your code to your infrastructure. After
-[installing it](develop/cli#install), you can link your project to a directory
+The Railway CLI allows you to connect your code to your infrastructure. 
+
+Install with [Brew](https://brew.sh) or [NPM](https://www.npmjs.com/package/@railway/cli).
+
+```bash
+brew install railwayapp/railway/railway
+# or
+npm i -g @railway/cli
+```
+
+
+After [installing it](develop/cli#install), and signing in. You can link your project to a directory
 with
 
 ```bash
 railway link [projectId]
 ```
 
-The `projectId` is available on your project dashboard. If you were logged in to
+The `projectId` is available on your project dashboard under the Setup page. If you were logged in to
 the Railway dashboard when you created your project, you can run `railway login`
 before init which will allow you to select from all your existing projects.
 
-### Developing Locally
+## Developing Locally
 
 When developing locally, you can connect to your infrastructure by running your
 code with
@@ -47,10 +65,7 @@ railway run <cmd>
 ```
 
 We will inject all the environment variables inside your current Railway
-[environment](develop/environments).
-
-If you have a Dockerfile in your project directory, you can use `railway run`
-with no arguments to build and run your Dockerfile.
+[environment](develop/environments). This allows your application to take advantage of your plugins and any environment variables you wish to set up.
 
 ## Deploy
 
@@ -63,14 +78,22 @@ railway up
 This will create a [deployment](deploy/railway-up) using the current project and
 environment. Click the returned link to see the build and deploy logs.
 
-You can also setup [auto deploys](deploy/github-triggers) so that a deploy
-is created everytime you push to a branch.
+For projects based off of a GitHub repo like a starter, [auto deploys](deploy/github-triggers) are automatically enabled.
 
-### Exposing Your Application
+After your deployment completes: you can see your new deployment live at the deployment's URL. At this stage you can even add a custom domain to the Project and enable multiple environments to isolate your production environment.
 
-Before your application can say hello, Railway needs to know what PORT to listen on to expose your application to the internet. Railway does try to do it's best to do this automatically for you however there are cases when we can't.
+## Closing
 
-You can configure your application to use the `PORT` environment variable. You can add the `PORT` variable under your project's variables. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
+Railway aims to be the simplest way to develop, deploy, and diagnose issues with your application. There's additional features we haven't covered in this guide but are worth exploring.
 
-<b>A Note on Listening IPs</b>: It's best for your application to listen on 0.0.0.0:$PORT. While most things work with 127.0.0.1 and localhost, some do not (Django for example)
+1. Railway automagically manages your environment variables for plugins. Add Postgres -> that project instantly gets access.
+3. Railway let's you create parallel, identical environments for PRs/testing
+4. Railway let's you run as much (or as little) compute as you'd like with it's usage based pricing and a metrics dashboard included in every project.
 
+As your Project scales, Railway scales with you by supporting with multiple members per Project, Teams, and Autoscaling- leaving you to focus on what matters: your code.
+
+Happy Building!
+
+### Join the Community
+
+Chat with Railway members, ask questions, and hang out on our [community Discord](https://discord.gg/xAm2w6g) with fellow builders! We'd love to have you.

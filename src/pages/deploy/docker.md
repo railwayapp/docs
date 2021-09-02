@@ -14,6 +14,9 @@ Using detected Dockerfile!
 ==========================
 ```
 
+If you have a Dockerfile in your project directory, you can use `railway run`
+with no arguments to build and run your Dockerfile.
+
 ## Environment Variables
 
 If you need to use the environment variables that Railway injects at build time,

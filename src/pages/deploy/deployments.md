@@ -12,9 +12,9 @@ Deployments can be in the following states
 - Success
 - Failure 
 
-Railway lists all current deployments and historical deployments under the Deployments page on your Project dashboard.
-
-Successful deploys are assigned two addresses out of the box: a friendly name address and an address with a hash. They both point to the same live deployment.
+All deployments will appear in the deployments view on your project dashboard.
+Clicking on the build will bring up the build and deploy logs. Each deploy gets
+a pair of unique URLs and is considered immutable.
 
 If there happens to be an issue with the start command of your application, Railway will attempt to retry the deploy 3 times until timeout.
 
