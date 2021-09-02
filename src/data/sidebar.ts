@@ -59,7 +59,8 @@ export const sidebarContent: ISidebarContent = [
       makePage("Go", "deploy", ["go"]),
       makePage("Ruby", "deploy", ["ruby"]),
       makePage("Java", "deploy", ["java", "maven"]),
-      makePage("Docker", "deploy", ["docker"]),
+      makePage("Docker", "deploy", ["docker, compose"]),
+      makePage("Deployments", "deploy", ["logs", "singleton", "rollback"]),
       makePage("Exposing Your App", "deploy", [
         "port",
         "bad gateway",
@@ -67,19 +68,18 @@ export const sidebarContent: ISidebarContent = [
         "custom domain",
         "cloudflare",
       ]),
-      makePage("Github Triggers", "deploy", [
-        "github",
-        "actions",
-        "pull request",
-      ]),
-      makePage("Project Tokens", "deploy", [
+
+      makePage("Integrations", "deploy", [
+        "vercel",
+        "netlify",
         "project tokens",
         "ci",
-        "integration",
+        "continuous integration",
+        "aws",
+        "gcp",
+        "azure",
+        "digital ocean",
       ]),
-      makePage("Serverless", "deploy", ["vercel"]),
-      makePage("Deploys", "deploy"),
-      makePage("Self Hosted Server", "deploy", ["aws", "gcp", "azure", "ibm"]),
     ],
   },
   {
