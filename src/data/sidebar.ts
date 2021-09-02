@@ -78,6 +78,7 @@ export const sidebarContent: ISidebarContent = [
         "integration",
       ]),
       makePage("Serverless", "deploy", ["vercel"]),
+      makePage("Deploys", "deploy"),
       makePage("Self Hosted Server", "deploy", ["aws", "gcp", "azure", "ibm"]),
     ],
   },
@@ -101,9 +102,10 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Reference",
     pages: [
+      makePage("Accounts", "reference", ["accounts"]),
+      makePage("Teams", "reference", ["teams"]),
       makePage("CLI API", "reference", ["cli"]),
       makePage("Starters", "reference", ["starters"]),
-      makePage("Usage", "reference", ["usage"]),
       makePage("Guides", "reference", ["guides"]),
       makePage("FAQ", "reference", ["faq"]),
     ],

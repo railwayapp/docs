@@ -12,7 +12,7 @@ You can use them to
 Each environment has the same plugins. When a new plugin is added to the
 project, an instance of that plugin is created for each environment.
 
-Deploys are also scoped to a specific Railway environment. When you create a [GitHub Trigger](/deployment/github-triggers) you can specify which environment to use. When you [deploy with up](/deployment/up), the current environment will be used.
+Deploys are also scoped to a specific Railway environment. When you create a [GitHub Trigger](deploy/github-triggers) you can specify which environment to use. When you [deploy with up](deploy/railway-up), the current environment will be used.
 
 ## Variables
 

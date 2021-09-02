@@ -72,18 +72,6 @@ Unlike the starter and developer projects, team members within a team can access
 - Up to 96 vCPU / container
 - Up to 2 TB of Disk
 
-## Project Usage
-
-Projects on Railway are billed per minute and only for the resources projects use.
-
-**RAM**
-$0.000231 / GB / minute
-
-**CPU**
-$0.000463 / vCPU / minute
-
-Users can see the usage of their projects under [your billing page](https://railway.app/account/billing).
-
 ## Fair Use
 
 If we deem that projects violate the [fair use](https://railway.app/legal/fair-use) policy, Railway will shut down any violating projects.

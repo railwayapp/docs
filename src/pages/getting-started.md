@@ -5,19 +5,28 @@ title: Getting Started
 Railway is an infrastructure platform where you can provision infrastructure,
 develop with that infrastructure locally, and then deploy to the cloud.
 
+The following guide will get you up and running quickly by covering the following
+3 steps. 
+
+1. Creating a Project from a starter.
+2. Developing the Project locally.
+3. Deploying to the cloud.
+
+> You will need Node or Homebrew installed to install the Railway CLI.
+
 ## Create a Project
 
 Create a new Railway project by visiting [dev.new](https://dev.new) and
 selecting what you want to do. Plugins can be added and removed at any time.
 Once the project is created you will land on your project dashboard. This is
 your _mission control_. Your projects infrastructure,
-[environments](/environments), and [deployments](/deployment/up) are all
+[environments](develop/environments), and [deployments](deploy/railway-up) are all
 controlled from here.
 
 ## Install the CLI
 
 The Railway CLI allows you to connect your code to your infrastructure. After
-[installing it](/cli/installation), you can link your project to a directory
+[installing it](develop/cli#install), you can link your project to a directory
 with
 
 ```bash
@@ -28,7 +37,7 @@ The `projectId` is available on your project dashboard. If you were logged in to
 the Railway dashboard when you created your project, you can run `railway login`
 before init which will allow you to select from all your existing projects.
 
-## Develop Locally
+### Developing Locally
 
 When developing locally, you can connect to your infrastructure by running your
 code with
@@ -38,7 +47,7 @@ railway run <cmd>
 ```
 
 We will inject all the environment variables inside your current Railway
-[environment](/environments).
+[environment](develop/environments).
 
 If you have a Dockerfile in your project directory, you can use `railway run`
 with no arguments to build and run your Dockerfile.
@@ -51,10 +60,10 @@ To deploy your current directory, run
 railway up
 ```
 
-This will create a [deployment](/deployment/up) using the current project and
+This will create a [deployment](deploy/railway-up) using the current project and
 environment. Click the returned link to see the build and deploy logs.
 
-You can also setup [auto deploys](/deployment/github-triggers) so that a deploy
+You can also setup [auto deploys](deploy/github-triggers) so that a deploy
 is created everytime you push to a branch.
 
 ### Exposing Your Application

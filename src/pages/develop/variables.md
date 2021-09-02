@@ -1,5 +1,5 @@
 ---
-title: Environment Variables
+title: Variables
 ---
 
 Railway provides the following additional system environment variables to all

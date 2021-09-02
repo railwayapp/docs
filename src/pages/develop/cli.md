@@ -1,5 +1,5 @@
 ---
-title: CLI Quick Start
+title: CLI
 ---
 
 Use the Railway CLI to connect your code to your projects infrastructure without

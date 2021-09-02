@@ -2,8 +2,8 @@
 title: Railway Up
 ---
 
-Use the [Railway CLI](/cli/quick-start) to deploy your project from the
-command line. In a [connected project](/cli/quick-start#connect) run
+Use the [Railway CLI](/develop/cli) to deploy your project from the
+command line. In a [connected project](/develop/cli#connect) run
 
 ```bash
 railway up

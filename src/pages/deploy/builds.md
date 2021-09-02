@@ -8,11 +8,11 @@ Railway uses [Cloudnative Buildpacks](https://buildpacks.io/) to attempt to
 build and deploy with zero configuration. Currently, we support the following
 languages out of the box
 
-- NodeJS
-- Python
-- Go
-- Ruby
-- Java
+- [NodeJS]()
+- [Python]()
+- [Go]()
+- [Ruby]()
+- [Java]()
 
 If you have a language that you want us to support, please don't hesitate to
 [reach out](https://discord.gg/xAm2w6g) and let us know.
@@ -37,7 +37,7 @@ _Note: some buildpacks specify a default start command_
 #### Web process
 
 HTTP servers should use the `web` process type. This process should listen on
-the [PORT environment variable](/deployment/up#port-variable) and will receive
+the [PORT environment variable](/deploy/railway-up#port-variable) and will receive
 HTTP traffic. For example,
 
 ```
@@ -60,17 +60,6 @@ uri = "heroku/nodejs"
 
 [[build.buildpacks]]
 uri = "heroku/nodejs-yarn"
-```
-
-## Dockerfiles
-
-We will look for and use a `Dockerfile` at the project root if it exists.
-
-If you need to use the environment variables that Railway injects at build time,
-you must specify them in the Dockerfile with
-
-```
-ARG EnvironmentVariable
 ```
 
 ## Experimental Builder

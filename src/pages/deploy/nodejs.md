@@ -28,8 +28,8 @@ npm install
 npm build
 ```
 
-If no [Procfile](/deployment/builds#procfile) is found,
-a [web process](/deployment/builds#web-process) will be started with `npm start`
+If no [Procfile](/deploy/builds#procfile) is found,
+a [web process](/deploy/builds#web-process) will be started with `npm start`
 .
 
 You can customize the node version using the [engines field](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#engines) of your `package.json`. For example
