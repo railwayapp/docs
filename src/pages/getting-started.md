@@ -25,6 +25,7 @@ You will be prompted with a grid of starters. Railway supports a number of langu
 
 In the starter selection grid, select `NextJS Prisma`
 
+This will create a repo using the starter as a base on your linked GitHub account. If you don't have a linked GitHub account, you will be prompted to link an account to deploy.
 
 Once the project is created you will land on your project dashboard. 
 
@@ -32,6 +33,8 @@ This is your _mission control_. Your projects infrastructure, [environments](dev
 controlled from here.
 
 ### Install and Link the CLI
+
+Before we begin, clone the repo you created locally on your machine. (Tip: you can navigate directly to the Project's depo from the deployment pane.)
 
 The Railway CLI allows you to connect your code to your infrastructure. 
 
@@ -66,6 +69,8 @@ railway run <cmd>
 
 We will inject all the environment variables inside your current Railway
 [environment](develop/environments). This allows your application to take advantage of your plugins and any environment variables you wish to set up.
+
+Lets make a tiny change to our application. Open 
 
 ## Deploy
 
