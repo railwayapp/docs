@@ -34,7 +34,8 @@ controlled from here.
 
 ### Install and Link the CLI
 
-Before we begin, clone the repo you created locally on your machine. (Tip: you can navigate directly to the Project's depo from the deployment pane.)
+Before we begin, clone the repo you created locally on your machine. 
+(Tip: you can navigate directly to the Project's repo from the deployment pane.)
 
 The Railway CLI allows you to connect your code to your infrastructure. 
 
@@ -47,8 +48,7 @@ npm i -g @railway/cli
 ```
 
 
-After [installing it](develop/cli#install), and signing in. You can link your project to a directory
-with
+After [installing it](develop/cli#install), and signing in. If you are in your project's directory, you can link your project to a directory with
 
 ```bash
 railway link [projectId]
@@ -70,7 +70,10 @@ railway run <cmd>
 We will inject all the environment variables inside your current Railway
 [environment](develop/environments). This allows your application to take advantage of your plugins and any environment variables you wish to set up.
 
-Lets make a tiny change to our application. Open 
+
+Locally install the project dependencies. Then, lets make a tiny change to our application. Open `src/pages/index.tsx` in a text editor of your choice and change line 76 of the `<h1>` JSX tag to `My Todos`, for those running the dev server locally should see the change.
+
+Save the file, now we are ready to deploy.
 
 ## Deploy
 
@@ -83,7 +86,7 @@ railway up
 This will create a [deployment](deploy/railway-up) using the current project and
 environment. Click the returned link to see the build and deploy logs.
 
-For projects based off of a GitHub repo like a starter, [auto deploys](deploy/github-triggers) are automatically enabled.
+For projects based off of a GitHub repo like a starter, [auto deploys](deploy/github-triggers) are automatically enabled. Commits on main trigger a redeploy, you can also enable ephemeral deploy environments for PRs made in GitHub Repos.
 
 After your deployment completes: you can see your new deployment live at the deployment's URL. At this stage you can even add a custom domain to the Project and enable multiple environments to isolate your production environment.
 
@@ -92,8 +95,9 @@ After your deployment completes: you can see your new deployment live at the dep
 Railway aims to be the simplest way to develop, deploy, and diagnose issues with your application. There's additional features we haven't covered in this guide but are worth exploring.
 
 1. Railway automagically manages your environment variables for plugins. Add Postgres -> that project instantly gets access.
-3. Railway let's you create parallel, identical environments for PRs/testing
-4. Railway let's you run as much (or as little) compute as you'd like with it's usage based pricing and a metrics dashboard included in every project.
+2. Railway let's you create parallel, identical environments for PRs/testing
+3. Railway let's you run as much (or as little) compute as you'd like with it's usage based pricing and a metrics dashboard included in every project.
+4. Adding team members to your projects is as easy as sending them an invite link.
 
 As your Project scales, Railway scales with you by supporting with multiple members per Project, Teams, and Autoscaling- leaving you to focus on what matters: your code.
 

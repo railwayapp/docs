@@ -2,7 +2,7 @@
 title: Projects
 ---
 
-A Railway project contains all of your plugins, environments, and deployments. If you are logged in all of your projects can be found on [your project dashboard](https://railway.app/dashboard).
+A Railway project contains all of your plugins, environments, and deployments. If you are logged in, all of your projects can be found on [your project dashboard](https://railway.app/dashboard).
 
 All projects feature
 
@@ -30,48 +30,43 @@ Projects that are created by a user that is logged in or that have been claimed 
 - Are only accessible to members of the project
 - Are private and require permission to access
 
-## Project Limits
+## Project Dashboard 
 
-Projects have limits on usage depending on the pricing tier the owner of a project is on.
+The project dashboard is where you can perform administrative actions, view project metrics, set project variables, and view deployments.
 
-### Starter Plan Project Limits
+## Project Settings
 
-Stater plans are designed to help you evaluate Railway and are fit for hobbyist projects. You get access to all features on Railway and you have no limits to the amount of projects you can provision.
+You can manage project specific settings under the Settings page.
+### General Actions
 
-Starter plans get $5 of credits that do not accumulate.
+Under the Settings > General tab you can change the project's name and description as well as retrieve the `projectId`.
 
-**Limits**
+## Team Member Management
 
-- Limited to 512 MB of RAM
-- Limited vCPU capacity
-- Up to 1 GB of Disk (Shared between plugins)
-- Limited to $5 of monthly usage.
-- Project deploys are stood down if usage limit is reached.
-- Need to redeploy projects after the new monthly credit is applied to your account.
+Under the Members tab, you can invite members to access the project.
 
-### Developer Plan Project Limits
+There are three scopes for project members
+- Owner: full administration of the project
+- Editor: adminstration and can make deployments to the project, sans the ability to remove the Owner from the project
+- Viewer: Read only access to the project. Viewers can not make deploys.
 
-When you add a credit card to your account, we increase the amount of usage credits on your account to $10 of usage. These credits do not accumulate. You are billed for any usage above $10 on your account.
+Only project owners are charged for project usage.
 
-Developer plan projects auto-scale: limits are raised as projects approach them up to the hard cap listed here.
+### Project Invite Links
 
-**Limits**
+Each project generates a project invite link. To invite someone via a link:
+1. Select the desired invited member scope
+2. Copy link and send to the invitee
 
-- Limited to 32 GB of RAM
-- Limited to 100 GB of Disk
+### Transferring Projects
 
-### Team Plan Project Limits
+Users can transfer projects to other users. 
 
-Team plan projects are designed to provide the most resources for all your scaled needs. Team project usage is charged in addition to the number of seats the team pays for.
+Under the members list in the members tab- click the 3 dots menu at the end of the user you'd like to transfer the project to.
 
-Unlike the starter and developer projects, team members within a team can access all team projects.
+The transferee receives an email with the current owner requesting to transfer the project to the user. Once that user accepts the transfer, they become the new owner of the project. 
 
-**Limits**
 
-- Up to 240 GB RAM
-- Up to 96 vCPU / container
-- Up to 2 TB of Disk
 
-## Fair Use
 
-If we deem that projects violate the [fair use](https://railway.app/legal/fair-use) policy, Railway will shut down any violating projects.
+
