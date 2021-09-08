@@ -2,8 +2,6 @@
 title: Deployments
 ---
 
-## Deployments
-
 Project Deployments are attempts to build and deliver your application. 
 
 Deployments can be in the following states
@@ -24,7 +22,7 @@ If you get a Bad Gateway when you attempt to visit the deployment URL, it could 
 
 ## Deploy Triggers
 
-A new deploy is triggered when the command `railway up` is executed. Projects that are linked to a GitHub repo automatically deploy when new commits are detected in the `main` branch.
+A new deploy is triggered when the [command](railway-up.md) `railway up` is executed. Projects that are linked to a GitHub repo automatically deploy when new commits are detected in the `main` branch.
 
 You can configure additional deployment triggers such as when a new PR is created using the [GitHub Trigger's integration](integrations#github-integration).
 

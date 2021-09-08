@@ -2,23 +2,6 @@
 title: NodeJS Builds
 ---
 
-## Buildpacks
-
-Railway uses [Cloudnative Buildpacks](https://buildpacks.io/) to attempt to
-build and deploy with zero configuration. Currently, we support the following
-languages out of the box
-
-- NodeJS
-- Python
-- Go
-- Ruby
-- Java
-
-If you have a language that you want us to support, please don't hesitate to
-[reach out](https://discord.gg/xAm2w6g) and let us know.
-
-### NodeJS
-
 The [NodeJS buildpack](https://github.com/heroku/nodejs-npm-buildpack) detects
 if your build is Node by looking for a `package.json` file. If found, the build
 will execute the following NPM (or Yarn) commands.
@@ -41,3 +24,8 @@ You can customize the node version using the [engines field](https://docs.npmjs.
   }
 }
 ```
+
+## Sample Node Procfile
+
+If your project doesn't include a procfile, you can 
+

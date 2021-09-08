@@ -31,4 +31,4 @@ Be sure to declare your declare your environment variables at the start of the `
 
 ### Docker Compose
 
-At the moment, we don't support docker compose at the moment. 
+We don't support docker compose at the moment. 

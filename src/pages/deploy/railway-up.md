@@ -22,13 +22,3 @@ a unique URL and is considered immutable.
 If you are starting a server, you need to use the `PORT` environment variable.
 This is how Railway can expose your deployment. If you see a "Bad Gateway"
 error, you most likely are not listening on `PORT`.
-
-## Singleton Deploys
-
-If you only ever want a single deployment per environment live at a time, you
-can toggle the singleton deploy flag in your project deployment settings. When a
-new **successful** deploy goes live, we will spin down all older deploys that
-are connected to that environment.
-
-This is a useful setting for bots. If a new version of the bot is deployed, you
-want older bots to be taken offline so you don't get duplicated messages.

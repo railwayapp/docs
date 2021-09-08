@@ -52,6 +52,7 @@ export const sidebarContent: ISidebarContent = [
         "deploy",
         "up",
       ]),
+      makePage("Deployments", "deploy", ["logs", "singleton", "rollback"]),
       makePage("Builds", "deploy", [
         "builds",
         "procfile",
@@ -64,7 +65,6 @@ export const sidebarContent: ISidebarContent = [
       makePage("Ruby", "deploy", ["ruby"]),
       makePage("Java", "deploy", ["java", "maven"]),
       makePage("Docker", "deploy", ["docker, compose"]),
-      makePage("Deployments", "deploy", ["logs", "singleton", "rollback"]),
       makePage("Exposing Your App", "deploy", [
         "port",
         "bad gateway",
