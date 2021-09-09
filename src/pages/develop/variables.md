@@ -28,10 +28,11 @@ You can click the `Bulk Import` link to open up a modal where you can paste in a
 
 Railway supports multiline variables/object variables. Just type or paste in the value as you would normally.
 
-Railway provides the following additional system environment variables to all
-builds and deployments.
 
 ## Railway Provided Variables
+
+Railway provides the following additional system environment variables to all
+builds and deployments.
 
 | Name                         | Description |
 |------------------------------|-------------|
