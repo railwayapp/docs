@@ -9,7 +9,7 @@ from. If you have more than 1 [Railway environment](develop/environments), you c
 select which environment to use.
 
 It is possible to create multiple triggers. With this workflow you can connect to your repo and
-- Deploy _master_ using the _production_ environment
+- Deploy _main_ using the _production_ environment
 - Deploy _staging_ using the _staging_ environment
 
 ## Project Tokens
