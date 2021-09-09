@@ -10,7 +10,7 @@ Users are only allowed one account per person, if caught multi-accounting, we do
 
 ## Account Actions
 
-The main account preferences page is accessible by clicking your profile photo in the top right and selecting `Account Settings` 
+The main account preferences page is accessible by clicking your profile photo in the top right and selecting [`Account Settings`](https://railway.app/account).
 
 ### Change Account Information
 
