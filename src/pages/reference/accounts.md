@@ -23,7 +23,7 @@ Railway is committed to you and your project's security. As such, we provide a v
 
 You can enable Two-Factor Authentication under the Account Security page. Most TOTP applications are supported.
 
-After scanning the provided QR code and entering the code for the initial pairing of the application, 2FA will require additional verification for login and destructive account actions. 
+After scanning the provided QR code and entering the code for the initial pairing of the application, 2FA will require additional verification for login and destructive account and project actions. 
 
 ### Account Sessions
 
