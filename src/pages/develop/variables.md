@@ -1,6 +1,35 @@
 ---
-title: Environment Variables
+title: Variables
 ---
+
+Project variables are provided whenever you build, deploy, or run `railway run`.
+Together these variables form your Railway environment. Each
+plugin provides the necessary environment variables needed to use it (such as
+`DATABASE_URL` for the PG plugin). You can also specify custom variables on the
+project variables page.
+
+<NextImage  src="/images/variables.png" 
+            alt="Screenshot of Project Variables on Railway Dashboard"
+            layout="responsive"
+            width={1205} 
+            height={901}
+            quality={100} />
+
+
+You can view all variables for the current environment with `railway vars` and change the environment with `railway environment`.
+
+## Bulk Import
+
+Chances are you might already have a `.env` file laying around. You can import your existing environment variables via Bulk Import. 
+
+You can click the `Bulk Import` link to open up a modal where you can paste in a list of variables separated by new line.
+
+## Multiline Variables
+
+Railway supports multiline variables/object variables. Just type or paste in the value as you would normally.
+
+
+## Railway Provided Variables
 
 Railway provides the following additional system environment variables to all
 builds and deployments.

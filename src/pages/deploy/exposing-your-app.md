@@ -1,8 +1,14 @@
 ---
-title: Custom Domains
+title: Exposing Your App
 ---
 
-Custom domains can be configured inside the Deployment -> Domains tab.
+## Exposing Your Application
+
+Before your application can say hello, Railway needs to know what PORT to listen on to expose your application to the internet. Railway does try to do it's best to do this automatically for you however, there are cases when we can't.
+
+You can configure your application to use the `PORT` environment variable by adding the `PORT` on your projects variables page. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
+
+<b>A Note on Listening IPs</b>: It's best for your application to listen on 0.0.0.0:$PORT. While most things work with 127.0.0.1 and localhost, some do not (Django for example)
 
 Each Railway environment will automatically be configured with a public Railway
 domain, which looks like `*.up.railway.app`. This can be changed at any time if

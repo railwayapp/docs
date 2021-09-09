@@ -17,55 +17,81 @@ const makePage = (
 });
 
 export const sidebarContent: ISidebarContent = [
+  // The goal is to have the docs be in a narrative structure
   {
-    title: "General",
+    title: "Introduction",
     pages: [
-      makePage("Introduction", undefined, ["what", "railway"], "/"),
-      makePage("Getting Started", undefined, ["start"]),
-      makePage("Environments", undefined, ["plugins", "containers"]),
-      makePage("Projects"),
-      makePage("Starters", undefined, ["button", "template", "example"]),
-    ],
-  },
-  {
-    title: "CLI",
-    pages: [
-      makePage("Quick Start", "cli"),
-      makePage("Installation", "cli", ["install"]),
-      makePage("API Reference", "cli"),
-    ],
-  },
-  {
-    title: "Deployments",
-    pages: [
-      makePage("Railway Up", "deployment", ["deploy"], "/deployment/up"),
-      makePage("GitHub Triggers", "deployment", ["git"]),
-      makePage("Builds", "deployment", [
-        "node",
-        "python",
-        "ruby",
-        "golang",
-        "java",
-        "procfile",
-        "deploy",
+      makePage("Home", undefined, ["home", "railway", "index"], "/"),
+      makePage("Getting Started", undefined, [
+        "introduction",
+        "tutorial",
+        "getting started",
       ]),
-      makePage("Environment Variables", "deployment", [
+    ],
+  },
+  {
+    title: "Develop",
+    pages: [
+      makePage("CLI", "develop", ["CLI", "command", "line"]),
+      makePage("Projects", "develop", ["project", "dashboard", "repo"]),
+      makePage("Plugins", "develop", ["database", "plugin", "db"]),
+      makePage("Variables", "develop", ["railway run", "variables"]),
+      makePage("Environments", "develop", [
+        "staging",
+        "create env",
         "environment",
-        "variables",
       ]),
-      makePage("Serverless", "deployment", ["vercel", "netlify"]),
-      makePage("Self Hosted Server", "deployment", [
-        "aws",
-        "digital ocean",
-        "gcp",
+    ],
+  },
+  {
+    title: "Deploy",
+    pages: [
+      makePage("Railway Up", "deploy", [
+        "deploying from command line",
+        "live",
+        "deploy",
+        "up",
       ]),
-      makePage("Project Tokens", "deployment", ["ci", "testing"]),
-      makePage("Webhooks", "deployment", ["deploy"]),
-      makePage("Custom Domains", "deployment", [
-        "custom",
-        "domain",
+      makePage("Deployments", "deploy", ["logs", "singleton", "rollback"]),
+      makePage("Builds", "deploy", [
+        "builds",
+        "procfile",
+        "buildpacks",
+        "heroku",
+      ]),
+      makePage("NodeJS", "deploy", ["node", "javascript"]),
+      makePage("Python", "deploy", ["python", "requirements.txt"]),
+      makePage("Go", "deploy", ["go"]),
+      makePage("Ruby", "deploy", ["ruby"]),
+      makePage("Java", "deploy", ["java", "maven"]),
+      makePage("Docker", "deploy", ["docker, compose"]),
+      makePage("Exposing Your App", "deploy", [
+        "port",
+        "bad gateway",
+        "internet",
+        "custom domain",
         "cloudflare",
       ]),
+
+      makePage("Integrations", "deploy", [
+        "vercel",
+        "netlify",
+        "project tokens",
+        "ci",
+        "continuous integration",
+        "aws",
+        "gcp",
+        "azure",
+        "digital ocean",
+      ]),
+    ],
+  },
+  {
+    title: "Diagnose",
+    pages: [
+      makePage("Metrics", "diagnose", ["metrics", "logs"]),
+      makePage("Webhooks", "diagnose", ["webhooks", "notifcations"]),
+      makePage("Project Usage", "diagnose", ["usage", "pricing"]),
     ],
   },
   {
@@ -75,6 +101,16 @@ export const sidebarContent: ISidebarContent = [
       makePage("MySQL", "plugins", ["database", "sql"]),
       makePage("Redis", "plugins", ["key", "value", "store", "cache"]),
       makePage("MongoDB", "plugins", ["database", "nosql"]),
+    ],
+  },
+  {
+    title: "Reference",
+    pages: [
+      makePage("Accounts", "reference", ["accounts"]),
+      makePage("Teams", "reference", ["teams"]),
+      makePage("CLI API", "reference", ["cli"]),
+      makePage("Starters", "reference", ["starters"]),
+      makePage("Limits", "reference", ["limits"]),
     ],
   },
 ];

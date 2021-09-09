@@ -11,7 +11,6 @@ const Home: NextPage = () => {
     <Page>
       <div>
         <h1 tw="text-5xl md:text-6xl font-bold mb-12">Railway Docs</h1>
-
         <div tw="flex items-center space-x-4 mb-8">
           <ButtonLink
             href="/getting-started"
