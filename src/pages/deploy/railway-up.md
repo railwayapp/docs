@@ -10,7 +10,7 @@ railway up
 ```
 
 The current directory will be deployed to the currently selected Railway project
-and environment. Run [`railway status`](/cli/api-reference#status) to see
+and environment. Run [`railway status`](/reference/cli-api#status) to see
 which project and environment will be used.
 
 All deployments will appear in the deployments view on your project dashboard.

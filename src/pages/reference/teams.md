@@ -23,10 +23,8 @@ You can open your team's settings page to manage team members and see billing in
 Under the General tab of the settings page, you can invite members to access the project.
 
 There are two scopes for Team members
-- Admin: full administration of all Team projects and the Team its self
-- Member: adminstration and can make deployments to team projects, no Team Administration abilities
-
-All Team members have visibility into all Projects under a team.
+- Admin: full administration of the Team and all Team projects
+- Member: access to all team projects
 
 ## Transferring Projects to Teams
 

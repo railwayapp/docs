@@ -13,7 +13,11 @@ Install with [Brew](https://brew.sh) or [NPM](https://www.npmjs.com/package/@rai
 brew install railwayapp/railway/railway
 # or
 npm i -g @railway/cli
+# or
+sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
 ```
+
+[You can also install from source.](https://github.com/railwayapp/cli#from-source)
 
 ## Login
 

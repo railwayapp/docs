@@ -10,8 +10,6 @@ You can configure your application to use the `PORT` environment variable by add
 
 <b>A Note on Listening IPs</b>: It's best for your application to listen on 0.0.0.0:$PORT. While most things work with 127.0.0.1 and localhost, some do not (Django for example)
 
-Custom domains can be configured inside the Deployment -> Domains tab.
-
 Each Railway environment will automatically be configured with a public Railway
 domain, which looks like `*.up.railway.app`. This can be changed at any time if
 a custom domain has not yet been configured.
