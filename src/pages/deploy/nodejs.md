@@ -27,5 +27,8 @@ You can customize the node version using the [engines field](https://docs.npmjs.
 
 ## Sample Node Procfile
 
-If your project doesn't include a procfile, you can 
+Railway uses Procfiles to determine the start command of your application. For NodeJS, it's usually best practice to serve a compiled version of your application and serve the distribution via a start command defined in your `package.json`
 
+```
+web: npm start
+```
