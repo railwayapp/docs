@@ -40,7 +40,7 @@ Railway allows users to see running logs of your application to help with monito
 
 ### Singleton Deploys
 
-For those who prefer to keep only one deploy active, you can enable singleton deploys under the Settings tab of the Deployments page. This setting is useful for bots where there might be conflicts with log ins. 
+For those who prefer to keep only one deploy active, you can enable (default behaviour) singleton deploys under the Settings tab of the Deployments page. This setting is useful for bots where there might be conflicts with log ins. 
 
 ### Delete Deployments
 
