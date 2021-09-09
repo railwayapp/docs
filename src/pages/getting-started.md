@@ -8,8 +8,8 @@ develop with that infrastructure locally, and then deploy to the cloud.
 The following guide will get you up and running quickly by covering the following
 3 steps. 
 
-1. Creating a Project from a starter.
-2. Developing the Project locally.
+1. Creating a project from a starter.
+2. Developing the project locally.
 3. Deploying to the cloud.
 
 > You will need Node or Homebrew installed to install the Railway CLI.
