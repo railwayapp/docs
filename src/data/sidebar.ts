@@ -110,8 +110,6 @@ export const sidebarContent: ISidebarContent = [
       makePage("Teams", "reference", ["teams"]),
       makePage("CLI API", "reference", ["cli"]),
       makePage("Starters", "reference", ["starters"]),
-      makePage("Guides", "reference", ["guides"]),
-      makePage("FAQ", "reference", ["faq"]),
       makePage("Limits", "reference", ["limits"]),
     ],
   },
