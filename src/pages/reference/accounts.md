@@ -35,7 +35,7 @@ Every account has an editable referral link. You can copy and share your persona
 
 For every referral who incurs more than $10 worth of usage and pays their first bill, we credit $5 to your account.
 
-You can see your referral invite statuses by navigating to the account page to: https://railway.app/account/referrals
+You can see your referral invite statuses by navigating to the account page to: [railway.app/account/referrals](https://railway.app/account/referrals)
 
 ## Billing
 
