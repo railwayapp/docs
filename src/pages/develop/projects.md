@@ -62,7 +62,7 @@ Each project generates a project invite link. To invite someone via a link:
 
 Users can transfer projects to other users. 
 
-Under the members list in the members tab- click the 3 dots menu at the end of the user you'd like to transfer the project to.
+Under the members list in the members tab - click the 3 dots menu at the end of the user you'd like to transfer the project to.
 
 The transferee receives an email with the current owner requesting to transfer the project to the user. Once that user accepts the transfer, they become the new owner of the project. 
 
