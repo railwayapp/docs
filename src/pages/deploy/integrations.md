@@ -8,6 +8,13 @@ Configure Railway to deploy every push to a repo by going to Deployments > Trigg
 from. If you have more than 1 [Railway environment](develop/environments), you can
 select which environment to use.
 
+<NextImage  src="/images/github-deploys.png" 
+            alt="Screenshot of GitHub Integration"
+            layout="responsive"
+            width={1001} 
+            height={740}
+            quality={100} />
+
 It is possible to create multiple triggers. With this workflow you can connect to your repo and
 - Deploy _main_ using the _production_ environment
 - Deploy _staging_ using the _staging_ environment
@@ -17,6 +24,13 @@ It is possible to create multiple triggers. With this workflow you can connect t
 Project tokens can be used in environments where you cannot login (e.g. remote
 servers or CI). You can create project tokens for a specific [Railway
 environment](develop/environments) on the project page.
+
+ <NextImage  src="/images/project-tokens.png" 
+            alt="Screenshot of Project Tokens"
+            layout="responsive"
+            width={1076} 
+            height={741}
+            quality={100} />
 
 Project tokens allow the CLI to access all the environment variables associated
 with a specific project and environment. Use the token by setting the

@@ -34,7 +34,7 @@ controlled from here.
 
 ### Install and Link the CLI
 
-Before we begin, clone the repo you created locally on your machine. 
+Clone the repo you created locally on your machine. 
 (Tip: you can navigate directly to the Project's repo from the deployment pane.)
 
 The Railway CLI allows you to connect your code to your infrastructure. 

@@ -8,11 +8,11 @@ plugin provides the necessary environment variables needed to use it (such as
 `DATABASE_URL` for the PG plugin). You can also specify custom variables on the
 project variables page.
 
-<NextImage  src="/images/variables.png" 
+<NextImage  src="/images/project-vars.png" 
             alt="Screenshot of Project Variables on Railway Dashboard"
             layout="responsive"
-            width={1205} 
-            height={901}
+            width={1083} 
+            height={865}
             quality={100} />
 
 

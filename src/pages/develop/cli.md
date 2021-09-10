@@ -9,11 +9,17 @@ needing to worry about environment variables or configuration.
 
 Install with [Brew](https://brew.sh) or [NPM](https://www.npmjs.com/package/@railway/cli).
 
+**Homebrew**
+
 ```bash
 brew install railwayapp/railway/railway
-# or
+```
+**NPM**
+```bash
 npm i -g @railway/cli
-# or
+```
+**Shell Script**
+```bash
 sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
 ```
 
@@ -44,6 +50,11 @@ RAILWAY_TOKEN=XXXX railway run
 ## Link to a Project
 
 Link to an existing Project under your Railway account or team.
+
+<NextImage src="/images/railway-link.png"
+alt="Screenshot of Railway"
+layout="intrinsic"
+width={389} height={116} quality={100} />
 
 ```bash
 railway link <projectId>
