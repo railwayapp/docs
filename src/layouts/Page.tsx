@@ -44,14 +44,14 @@ export const Page: React.FC<Props> = props => {
     <>
       <SEO {...props.seo} />
 
-      <div tw="min-h-screen relative flex max-w-6xl mx-auto">
+      <div tw="min-h-screen relative flex">
         <Sidebar />
 
-        <div tw="flex flex-col flex-1 max-w-full">
+        <div tw="flex flex-col flex-1 ">
           <Nav />
           <MobileNav />
 
-          <main tw="flex justify-between px-4 md:px-8 pt-8 pb-12 md:pb-24">
+          <main tw="flex justify-between px-4 max-w-4xl mx-auto md:px-8 pt-8 pb-12 md:pb-24">
             {props.children}
           </main>
         </div>

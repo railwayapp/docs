@@ -1,4 +1,4 @@
-import { Twitter } from "react-feather";
+import { Twitter } from "react-feather"; // Import with React Feather
 import tw, { styled } from "twin.macro";
 
 export const TwitterIcon = styled(Twitter)`
@@ -33,3 +33,4 @@ export const RssIcon = () => (
     />
   </svg>
 );
+
