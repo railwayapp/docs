@@ -2,7 +2,10 @@
 title: Project Usage
 ---
 
-## Project Usage
+<NextImage src="/images/project-usage.png"
+alt="Screenshot of Expanded Project Usage Pane"
+layout="intrinsic"
+width={491} height={286} quality={100} />
 
 Projects on Railway are billed per minute and only for the resources projects use.
 

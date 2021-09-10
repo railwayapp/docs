@@ -10,6 +10,13 @@ Deployments can be in the following states
 - Success
 - Failure 
 
+<NextImage  src="/images/deploy-view.png" 
+            alt="Screenshot of Deploy View"
+            layout="responsive"
+            width={1005} 
+            height={505}
+            quality={100} />
+
 All deployments will appear in the deployments view on your project dashboard.
 Clicking on the build will bring up the build and deploy logs. Each deploy gets
 a pair of unique URLs and is considered immutable.
@@ -24,6 +31,13 @@ If you get a Bad Gateway when you attempt to visit the deployment URL, it could 
 
 A new deploy is triggered when the [command](railway-up.md) `railway up` is executed. Projects that are linked to a GitHub repo automatically deploy when new commits are detected in the connected branch.
 
+<NextImage  src="/images/github-deploys.png" 
+            alt="Screenshot of GitHub Integration"
+            layout="responsive"
+            width={1001} 
+            height={740}
+            quality={100} />
+
 You can configure additional deployment triggers such as when a new PR is created using the [GitHub Trigger's integration](integrations#github-integration).
 
 ## Deployment Actions
@@ -32,7 +46,14 @@ You can configure additional deployment triggers such as when a new PR is create
 
 Users can rollback to previous deploys if mistakes were made. A deployment rollback will revert to the previously successful deployment. Both the Docker image and custom variables are restored during the rollback process.
 
-To perform a rollback, click the three dots at the end of the deployment, you will then be asked to confirm your rollback.
+<NextImage  src="/images/rollback.png" 
+            alt="Screenshot of Rollback Menu"
+            layout="responsive"
+            width={992} 
+            height={426}
+            quality={100} />
+
+To perform a rollback, click the three dots at the end of a previous deployment, you will then be asked to confirm your rollback.
 
 ### Logs
 
@@ -41,6 +62,13 @@ Railway allows users to see running logs of your application to help with monito
 ### Singleton Deploys
 
 For those who prefer to keep only one deploy active, you can enable (default behaviour) singleton deploys under the Settings tab of the Deployments page. This setting is useful for bots where there might be conflicts with log ins. 
+
+<NextImage  src="/images/singletons.png" 
+            alt="Screenshot of Deploy Options"
+            layout="responsive"
+            width={994} 
+            height={756}
+            quality={100} />
 
 ### Delete Deployments
 

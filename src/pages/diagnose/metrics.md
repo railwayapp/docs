@@ -2,7 +2,10 @@
 title: Metrics
 ---
 
-## Metrics
+<NextImage src="/images/metrics.png"
+alt="Screenshot of Metrics Page"
+layout="intrinsic"
+width={440} height={405} quality={100} />
 
 Railway allows you to see system information related to your deployments. 
 
@@ -17,7 +20,12 @@ When you view your project's metrics, we show you the graphs tied to the selecte
 
 We currently keep 7 days worth of metrics data. 
 
-### Deployments Information
+### Deployment Information
+
+<NextImage src="/images/commit-metrics.png"
+alt="Screenshot of Metric Timeseries Page"
+layout="responsive"
+width={864} height={345} quality={100} />
 
 Your project maintains a continuous timeseries for all your deployments, not just the latest one. Deployments appear on the graph so you can see which commit may have caused a spike in resources.
 

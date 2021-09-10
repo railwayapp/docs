@@ -3,6 +3,11 @@ title: Webhooks
 ---
 Webhooks can be used to notify your own application of deployment status changes.
 
+<NextImage src="/images/webhooks.png"
+alt="Screenshot of Webhooks Menu"
+layout="responsive"
+width={823} height={324} quality={100} />
+
 ## Setting up a webhook
 Complete the following steps to setup a webhook:
 
@@ -35,6 +40,6 @@ Discord supports integrating directly with webhooks. To enable this on a server 
 9. Input the copied webhook URL into the input under "Build and Deploy Webhooks".
 10. Click the checkmark to the right of the input to save.
 
-At this point, the Discord Muxer will identify the URL and change the payload to accomodate the Discord integration.  You can see this if you expand the payload preview panel.
+At this point, the Discord Muxer will identify the URL and change the payload to accommodate the Discord integration.  You can see this if you expand the payload preview panel.
 
 You are now done!  When your project deploys again, that Discord channel will get updates on the deploy!
