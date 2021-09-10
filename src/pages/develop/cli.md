@@ -99,11 +99,6 @@ railway environment
 
 Deploy current directory to Railway. Displays deployment logs from the project deploys.
 
-<NextImage src="/images/railway-up.png"
-alt="Screenshot of Railway Up"
-layout="intrinsic"
-width={333} height={64} quality={100} />
-
 ```bash
 railway up
 ```
