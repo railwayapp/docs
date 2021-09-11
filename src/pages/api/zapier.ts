@@ -10,8 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       Feedback: ${body.feedback.length === 0 ? "N/A" : body.feedback}`,
     };
     const resp = await fetch(
-      "https://discord.com/api/webhooks/762084574091149353/-e2iklFxMu91FgFHQkPs1kUfyu3XPlxR0tafr70XV5UMiuZ7C6A4yEFQ0lvpZ57OfwFt",
-      //"https://discord.com/api/webhooks/886039948032090152/TN0AU9rQs3bzWfIR-enPZp9xAW2XeOzYiCQH4Y_W6MX-ABjKaKzsJOTp_psayU_Z8H-f",
+      "https://discord.com/api/webhooks/886039948032090152/TN0AU9rQs3bzWfIR-enPZp9xAW2XeOzYiCQH4Y_W6MX-ABjKaKzsJOTp_psayU_Z8H-f",
       {
         body: JSON.stringify(discordBody),
         method: "POST",

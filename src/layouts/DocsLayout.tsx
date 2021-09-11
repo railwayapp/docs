@@ -108,7 +108,7 @@ export const DocsLayout: React.FC<Props> = ({
               </button>
             </div>}
             {!helpful && <form tw="mt-16" onSubmit={sendFeedback}>
-              <input tw="border rounded-md w-full p-2 my-6" id="feedback" name="feedback" type="text" required placeholder="What was missing or innacurate?" />
+              <textarea tw="border rounded-md w-full p-2 my-6" id="feedback" name="feedback" rows={3} required placeholder="What was missing or inaccurate?" />
               <button type="submit" tw="border border-gray-200 p-2 rounded-md font-semibold text-gray-400 bg-gray-100 mr-8 hover:text-gray-700">Submit Feedback</button>
               <button onClick={e => setHelpful(true)}>Cancel</button>
             </form>}
