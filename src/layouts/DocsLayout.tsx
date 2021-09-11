@@ -40,7 +40,7 @@ export const DocsLayout: React.FC<Props> = ({
     event.preventDefault()
     const feedback = event.target.feedback ? event.target.feedback.value : "";
     const res = await fetch(
-      '/api/zapier',
+      '/api/discord',
       {
         body: JSON.stringify({
           topic: frontMatter.title,
