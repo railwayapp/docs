@@ -1,6 +1,7 @@
 import React from "react";
 import tw, { TwStyle } from "twin.macro";
 import { Icon } from "./Icon";
+import { Info, XOctagon, CheckCircle, AlertTriangle } from "react-feather";
 
 export type BannerVariant =
   | "primary"
