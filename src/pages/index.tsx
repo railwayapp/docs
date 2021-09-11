@@ -4,11 +4,11 @@ import tw, { styled } from "twin.macro";
 import { DiscordIcon, RssIcon, TwitterIcon } from "../components/Icons";
 import { Link } from "../components/Link";
 import { Page } from "../layouts/Page";
-import { GitHub } from "react-feather";
+import { GitHub, ThumbsUp, ThumbsDown } from "react-feather";
 
 const Home: NextPage = () => {
   return (
-    <Page>
+    <>
       <div>
         <h1 tw="text-5xl md:text-6xl font-bold mb-12">Railway Docs</h1>
         <div tw="flex items-center space-x-4 mb-8">
@@ -77,7 +77,7 @@ const Home: NextPage = () => {
           </section>
         </div>
       </div>
-    </Page>
+    </>
   );
 };
 
