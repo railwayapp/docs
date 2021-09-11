@@ -38,7 +38,7 @@ export const DocsLayout: React.FC<Props> = ({
 
   const sendFeedback = async event => {
     event.preventDefault()
-    const feedback = event.target.feedback ? event.target.feedback.value : "";
+    const feedback = event.target.feedback ?? "";
     const res = await fetch(
       '/api/discord',
       {
