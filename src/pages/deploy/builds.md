@@ -84,6 +84,6 @@ You can opt-in to using this new builder by enabling it in your projects deploym
             layout="responsive"
             width={944} 
             height={693}
-            quality={100} />
+            quality={80} />
 
 Please note that this is still in development and may not be 100% backwards compatible with the previous builder. If you have any thoughts/concerns/questions/feedback, [we would love to hear from you](https://discord.gg/xAm2w6g)!

@@ -37,7 +37,7 @@ The project dashboard is where you can perform administrative actions, view proj
 <NextImage src="/images/project-dashboard.png"
 alt="Screenshot of Project Dashboard"
 layout="responsive"
-width={841} height={548} quality={100} />
+width={841} height={548} quality={80} />
 
 ## Project Settings
 
@@ -51,7 +51,7 @@ Under the Settings > General tab you can change the project's name and descripti
 <NextImage src="/images/project-member-list.png"
 alt="Screenshot of Project Team Members"
 layout="responsive"
-width={1345} height={933} quality={100} />
+width={1345} height={933} quality={80} />
 
 Under the Members tab, you can invite members to access the project.
 
@@ -71,7 +71,7 @@ Each project generates a project invite link. To invite someone via a link:
 <NextImage src="/images/project-invite-member.png"
 alt="Screenshot of Invite Links"
 layout="responsive"
-width={910} height={272} quality={100} />
+width={910} height={272} quality={80} />
 
 ### Transferring Projects
 
@@ -82,7 +82,7 @@ Under the members list in the members tab - click the 3 dots menu at the end of 
 <NextImage src="/images/project-transfer.png"
 alt="Screenshot of Project Transfer Menu"
 layout="intrinsic"
-width={411} height={253} quality={100} />
+width={411} height={253} quality={80} />
 
 The transferee receives an email with the current owner requesting to transfer the project to the user. Once that user accepts the transfer, they become the new owner of the project. 
 

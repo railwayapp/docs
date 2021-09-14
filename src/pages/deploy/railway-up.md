@@ -5,7 +5,7 @@ title: Railway Up
 <NextImage src="/images/railway-up.png"
 alt="Screenshot of Railway Up"
 layout="intrinsic"
-width={333} height={64} quality={100} />
+width={333} height={64} quality={80} />
 
 Use the [Railway CLI](/develop/cli) to deploy your project from the
 command line. In a [connected project](/develop/cli#connect) run

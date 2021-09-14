@@ -15,7 +15,7 @@ Deployments can be in the following states
             layout="responsive"
             width={1005} 
             height={505}
-            quality={100} />
+            quality={80} />
 
 All deployments will appear in the deployments view on your project dashboard.
 Clicking on the build will bring up the build and deploy logs. Each deploy gets
@@ -36,7 +36,7 @@ A new deploy is triggered when the [command](railway-up.md) `railway up` is exec
             layout="responsive"
             width={1001} 
             height={740}
-            quality={100} />
+            quality={80} />
 
 You can configure additional deployment triggers such as when a new PR is created using the [GitHub Trigger's integration](integrations#github-integration).
 
@@ -51,7 +51,7 @@ Users can rollback to previous deploys if mistakes were made. A deployment rollb
             layout="responsive"
             width={992} 
             height={426}
-            quality={100} />
+            quality={80} />
 
 To perform a rollback, click the three dots at the end of a previous deployment, you will then be asked to confirm your rollback.
 
@@ -68,7 +68,7 @@ For those who prefer to keep only one deploy active, you can enable (default beh
             layout="responsive"
             width={994} 
             height={756}
-            quality={100} />
+            quality={80} />
 
 ### Delete Deployments
 

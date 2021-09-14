@@ -1,6 +1,7 @@
 FROM node:alpine
 
 ARG NEXT_PUBLIC_FATHOM_CODE
+ARG DISCORD_WEBHOOK
 
 # Create app directory
 WORKDIR /usr/src/app

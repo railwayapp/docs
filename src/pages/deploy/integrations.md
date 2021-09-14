@@ -13,7 +13,7 @@ select which environment to use.
             layout="responsive"
             width={1001} 
             height={740}
-            quality={100} />
+            quality={80} />
 
 It is possible to create multiple triggers. With this workflow you can connect to your repo and
 - Deploy _main_ using the _production_ environment
@@ -30,7 +30,7 @@ environment](develop/environments) on the project page.
             layout="responsive"
             width={1076} 
             height={741}
-            quality={100} />
+            quality={80} />
 
 Project tokens allow the CLI to access all the environment variables associated
 with a specific project and environment. Use the token by setting the
