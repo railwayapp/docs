@@ -13,7 +13,7 @@ project variables page.
             layout="responsive"
             width={1083} 
             height={865}
-            quality={100} />
+            quality={80} />
 
 
 You can view all variables for the current environment with `railway vars` and change the environment with `railway environment`.

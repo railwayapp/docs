@@ -23,7 +23,7 @@ You can create an environment under Settings > Environments. When you create an 
             layout="responsive"
             width={1082} 
             height={733}
-            quality={100} />
+            quality={80} />
 
 ## Environment Deploys
 

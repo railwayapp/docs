@@ -19,9 +19,9 @@ const makePage = (
 export const sidebarContent: ISidebarContent = [
   // The goal is to have the docs be in a narrative structure
   {
-    title: "Introduction",
+    title: "",
     pages: [
-      makePage("Home", undefined, ["home", "railway", "index"], "/"),
+      makePage("Introduction", undefined, ["home", "railway", "index"], "/"),
       makePage("Getting Started", undefined, [
         "introduction",
         "tutorial",
@@ -110,6 +110,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Teams", "reference", ["teams"]),
       makePage("CLI API", "reference", ["cli"]),
       makePage("Starters", "reference", ["starters"]),
+      makePage("Guides", "reference", ["guides"]),
       makePage("Limits", "reference", ["limits"]),
     ],
   },

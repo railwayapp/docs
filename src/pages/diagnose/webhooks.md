@@ -6,7 +6,7 @@ Webhooks can be used to notify your own application of deployment status changes
 <NextImage src="/images/webhooks.png"
 alt="Screenshot of Webhooks Menu"
 layout="responsive"
-width={823} height={324} quality={100} />
+width={823} height={324} quality={80} />
 
 ## Setting up a webhook
 Complete the following steps to setup a webhook:

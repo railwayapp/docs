@@ -13,7 +13,7 @@ Users are only allowed one account per person, if caught multi-accounting, we do
 <NextImage src="/images/account-nav.png"
 alt="Screenshot of Account Navigation"
 layout="fixed"
-width={450} height={311} quality={100} />
+width={450} height={311} quality={80} />
 
 The main account preferences page is accessible by clicking your profile photo in the top right and selecting [`Account Settings`](https://railway.app/account).
 
@@ -26,7 +26,7 @@ Accounts can change their display name, profile photo, and account email under t
 <NextImage src="/images/sessions.png"
 alt="Screenshot of Sessions Page"
 layout="responsive"
-width={1162} height={587} quality={100} />
+width={1162} height={587} quality={80} />
 
 Railway is committed to you and your project's security. As such, we provide a variety of methods to help you keep your piece of mind.
 ### Enabling 2FA 
@@ -44,7 +44,7 @@ You can see all the places you are logged in on the [account security page](http
 <NextImage src="/images/referrals.png"
 alt="Screenshot of Referrals Page"
 layout="responsive"
-width={1141} height={604} quality={100} />
+width={1141} height={604} quality={80} />
 
 Every account has an editable referral link. You can copy and share your personal referral link with your friends/enemies as you see fit. 
 

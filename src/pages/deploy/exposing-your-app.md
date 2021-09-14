@@ -25,7 +25,7 @@ Here's how it works:
 <NextImage src="/images/domain.png"
 alt="Screenshot of Custom Domain"
 layout="responsive"
-width={2522} height={1718} quality={100} />
+width={2522} height={1718} quality={80} />
 
 **NOTE!:** Changes to DNS settings may take up to 72 hours to propagate
 worldwide.
@@ -45,7 +45,7 @@ SSL/TLS settings to full or above.
 <NextImage src="/images/cloudflare.png"
 alt="Screenshot of Custom Domain"
 layout="responsive"
-width={1205} height={901} quality={100} />
+width={1205} height={901} quality={80} />
 
 If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error.
 
@@ -64,7 +64,7 @@ In Google Domains, you can create a record to forward your domain root to the Ra
 <NextImage src="/images/gd-redirect.png"
 alt="Screenshot of Custom Domain"
 layout="responsive"
-width={1116} height={411} quality={100} />
+width={1116} height={411} quality={80} />
 
 Then, under the Synthetic Records section, you can configure a Subdomain forward - enter `@` in the subdomain and then `www.yourdomain.com` under the Destination URL entry.
 
