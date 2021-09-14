@@ -54,7 +54,7 @@ const Home: NextPage = () => {
               <OverviewLinkText>See all starters you can deploy to get up and running on Railway.</OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="reference/starters">
+          <OverviewLink href="deploy/builds">
             <OverviewLinkIcon>
               <Code size="28" tw="text-pink-800" />
             </OverviewLinkIcon>
@@ -63,7 +63,7 @@ const Home: NextPage = () => {
               <OverviewLinkText>Get information on how to deploy specific applications.</OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="reference/starters">
+          <OverviewLink href="develop/variables">
             <OverviewLinkIcon>
               <Database size="28" tw="text-pink-800" />
             </OverviewLinkIcon>
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
               <OverviewLinkText>Understand how Railway handles variables on the platform.</OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="reference/starters">
+          <OverviewLink href="reference/guides">
             <OverviewLinkIcon>
               <Book size="28" tw="text-pink-800" />
             </OverviewLinkIcon>
