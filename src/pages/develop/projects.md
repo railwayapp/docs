@@ -6,7 +6,7 @@ A Railway project contains all of your plugins, environments, and deployments. I
 
 All projects feature
 
-- 80 GB outbound network bandwidth
+- 100 GB outbound network bandwidth
 - GitHub repo deployment triggers
 - Unlimited inbound network bandwidth
 - Unique copy of your infra for each PR

@@ -44,7 +44,7 @@ const Home: NextPage = () => {
 
         </div>
 
-        <div tw="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div tw="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
           <OverviewLink href="reference/starters">
             <OverviewLinkIcon>
               <Zap size="28" tw="text-pink-800" />
@@ -87,7 +87,7 @@ const Home: NextPage = () => {
             <div tw="flex text-base font-semibold mb-4"><GitHub tw="mr-2" /> Contributing</div>
             <div>
               <div>Each page footer contains an "Edit on GitHub" Link. Make a pull request, and we'll merge it!</div>
-              <Link tw="flex text-pink-800 items-center mt-2" href="https://github.com/railwayapp/docs">Docs Repository <ArrowRight /></Link>
+              <Link tw="flex text-pink-800 items-center mt-2 hover:text-pink-600" href="https://github.com/railwayapp/docs">Docs Repository <ArrowRight /></Link>
             </div>
           </div>
           <div tw="mt-8 flex flex-col ml-8 col-span-3 gap-4 md:mt-0">
