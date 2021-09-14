@@ -15,9 +15,9 @@ const Home: NextPage = () => {
         {/* Need to make this mobile friendly */}
         <div css={[
           `background: linear-gradient(83.84deg, rgba(149, 203, 233, 0.9) -3.34%, rgba(71, 201, 242, 0.135) 35.77%), linear-gradient(101.71deg, rgba(227, 167, 228, 0.048) 46.42%, rgba(238, 96, 215, 0.8) 94.51%), linear-gradient(149.12deg, #3308AD 13.67%, rgba(51, 8, 173, 0) 86.42%);`,
-          tw`flex rounded-md w-full overflow-hidden`
+          tw`flex relative rounded-md w-full overflow-hidden`
         ]}>
-          <div tw="py-12 pl-12">
+          <div tw="py-12 pl-12 z-10">
             <div tw="text-3xl font-bold text-white mb-4">Quickstart Guide</div>
             <div tw="text-xl font-normal text-white mb-12 max-w-md">A short guide on making your first deploy on Railway in a couple of minutes.</div>
             <ButtonLink
@@ -31,14 +31,14 @@ const Home: NextPage = () => {
 
             </ButtonLink>
           </div>
-          <div tw="flex items-end justify-end z-50 h-full">
+          <div tw="absolute -bottom-8 right-0 opacity-50 z-0 lg:opacity-100">
             <NextImage
               src="/images/code-terminal.svg"
               alt="Graphic of Terminal"
               tw=""
-              layout="fixed"
-              width={350}
-              height={310}
+              layout="intrinsic"
+              height={350}
+              width={310}
               quality={100} />
           </div>
 
