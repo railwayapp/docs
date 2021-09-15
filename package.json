@@ -8,9 +8,14 @@
     "postbuild": "next-sitemap",
     "start": "next start --port ${PORT-3001}",
     "clean": "rm -rf .next",
-    "tsc": "tsc -p ."
+    "tsc": "tsc -p .",
+    "generate": "prisma generate",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:status": "prisma migrate status"
   },
   "dependencies": {
+    "@prisma/client": "2.23.0",
     "@radix-ui/react-scroll-area": "^0.0.11",
     "@tailwindcss/typography": "^0.4.0",
     "dayjs": "^1.10.4",
@@ -43,6 +48,7 @@
     "next-sitemap": "^1.6.57",
     "postcss": "^8.2.10",
     "prettier": "^2.2.1",
+    "prisma": "2.23.0",
     "remark-autolink-headings": "^6.0.1",
     "remark-slug": "^6.0.0",
     "tailwindcss": "^2.1.1",
