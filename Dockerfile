@@ -19,6 +19,7 @@ COPY . .
 RUN yarn migrate:deploy
 
 # Build
+RUN yarn generate
 RUN yarn build
 
 # Start
