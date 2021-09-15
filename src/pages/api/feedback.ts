@@ -14,17 +14,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const feedbackMessage =
       body.feedback?.trim() === "" ? null : body.feedback?.trim();
 
-    const discordBody = {
-      content: `:speaking_head:
-      Topic: ${body.topic}
-      Was it helpful?: ${body.helpful ? "Yes" : "No"}
-      Feedback: ${
-        feedbackMessage != null && feedbackMessage.length === 0
-          ? "N/A"
-          : feedbackMessage
-      }`,
-    };
-
     // Save result in prisma
     await prisma.feedback.create({
       data: {
@@ -36,6 +25,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     // Only send Discord message if negative
     if (!body.helpful) {
+      const discordBody = {
+        content: `:speaking_head:
+      Topic: ${body.topic}
+      Was it helpful?: ${body.helpful ? "Yes" : "No"}
+      Feedback: ${
+        feedbackMessage != null && feedbackMessage.length === 0
+          ? "N/A"
+          : feedbackMessage
+      }`,
+      };
+
       await fetch(`${process.env.DISCORD_WEBHOOK}`, {
         body: JSON.stringify(discordBody),
         method: "POST",
