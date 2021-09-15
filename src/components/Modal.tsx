@@ -40,7 +40,7 @@ const ModalDialog: React.FC<Props> = ({ title, isOpen, onClose, children }) => {
   return (
     <div
       css={[
-        tw`fixed top-0 right-0 bottom-0 left-0 select-none`,
+        tw`fixed top-0 right-0 bottom-0 left-0 select-none z-50`,
         tw`bg-black bg-opacity-50`,
       ]}
     >
