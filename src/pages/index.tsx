@@ -147,7 +147,7 @@ const OverviewLink = styled(Link)`
 `;
 
 const OverviewLinkIcon = styled.div`
-  ${tw`flex border border-pink-200 items-center p-4 h-16 w-16 rounded-md bg-white`}
+  ${tw`flex border border-pink-200 items-center p-4 h-16 w-16 rounded-md bg-background`}
 `;
 
 const OverviewLinkTextbox = styled.div`
