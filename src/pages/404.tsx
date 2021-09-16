@@ -1,10 +1,11 @@
 import React from "react";
-import { Page } from "../layouts/Page";
 import "twin.macro";
 import { Link } from "../components/Link";
+import { SEO } from "../components/SEO";
 
 const NotFoundPage: React.FC = () => (
-  <Page seo={{ title: "Not Found" }}>
+  <>
+    <SEO title="Not Found" />
     <div tw="prose">
       <h1>Page not found</h1>
 
@@ -25,7 +26,7 @@ const NotFoundPage: React.FC = () => (
         </li>
       </ul>
     </div>
-  </Page>
+  </>
 );
 
 export default NotFoundPage;
