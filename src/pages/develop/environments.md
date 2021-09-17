@@ -18,7 +18,7 @@ Deploys are also scoped to a specific Railway environment. When you create a [Gi
 
 You can create an environment under Settings > Environments. When you create an environment, Railway provisions another copy of existing plugins from the `production` environment.
 
-<NextImage  src="/images/create-env.png" 
+<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/create-env_hrgfme.png" 
             alt="Screenshot of Environments Page"
             layout="responsive"
             width={1082} 

@@ -34,7 +34,7 @@ Projects that are created by a user that is logged in or that have been claimed 
 
 The project dashboard is where you can perform administrative actions, view project metrics, set project variables, and view deployments.
 
-<NextImage src="/images/project-dashboard.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-dashboard_qmrx1z.png"
 alt="Screenshot of Project Dashboard"
 layout="responsive"
 width={841} height={548} quality={80} />
@@ -48,7 +48,7 @@ Under the Settings > General tab you can change the project's name and descripti
 
 ## Project Member Management
 
-<NextImage src="/images/project-member-list.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-member-list_p0bjfs.png"
 alt="Screenshot of Project Team Members"
 layout="responsive"
 width={1345} height={933} quality={80} />
@@ -68,7 +68,7 @@ Each project generates a project invite link. To invite someone via a link:
 1. Select the desired invited member scope
 2. Copy link and send to the invitee
 
-<NextImage src="/images/project-invite-member.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-invite-member_kxmhtb.png"
 alt="Screenshot of Invite Links"
 layout="responsive"
 width={910} height={272} quality={80} />
@@ -79,7 +79,7 @@ Users can transfer projects to other users.
 
 Under the members list in the members tab - click the 3 dots menu at the end of the user you'd like to transfer the project to.
 
-<NextImage src="/images/project-transfer.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-transfer_iz4myn.png"
 alt="Screenshot of Project Transfer Menu"
 layout="intrinsic"
 width={411} height={253} quality={80} />

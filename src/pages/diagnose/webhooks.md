@@ -3,7 +3,7 @@ title: Webhooks
 ---
 Webhooks can be used to notify your own application of deployment status changes.
 
-<NextImage src="/images/webhooks.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917802/docs/webhooks_nslim0.png"
 alt="Screenshot of Webhooks Menu"
 layout="responsive"
 width={823} height={324} quality={80} />
