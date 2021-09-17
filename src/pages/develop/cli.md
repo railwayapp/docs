@@ -51,7 +51,7 @@ RAILWAY_TOKEN=XXXX railway run
 
 Link to an existing Project under your Railway account or team.
 
-<NextImage src="/images/railway-link.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/railway-link_juslvt.png"
 alt="Screenshot of Railway"
 layout="intrinsic"
 width={389} height={116} quality={80} />

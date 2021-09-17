@@ -21,7 +21,11 @@ module.exports = withPlugins([
     },
   })({
     images: {
-      domains: ["user-images.githubusercontent.com", "railway.app"],
+      domains: [
+        "user-images.githubusercontent.com",
+        "railway.app",
+        "res.cloudinary.com",
+      ],
     },
   }),
 ]);

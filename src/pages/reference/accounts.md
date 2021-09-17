@@ -10,7 +10,7 @@ Users are only allowed one account per person, if caught multi-accounting, we do
 
 ## Account Actions
 
-<NextImage src="/images/account-nav.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/account-nav_jzyaeb.png"
 alt="Screenshot of Account Navigation"
 layout="fixed"
 width={450} height={311} quality={80} />
@@ -23,7 +23,7 @@ Accounts can change their display name, profile photo, and account email under t
 
 ## Account Security
 
-<NextImage src="/images/sessions.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/sessions_qo0lhw.png"
 alt="Screenshot of Sessions Page"
 layout="responsive"
 width={1162} height={587} quality={80} />
@@ -41,7 +41,7 @@ You can see all the places you are logged in on the [account security page](http
 
 ## Referrals 
 
-<NextImage src="/images/referrals.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/referrals_iya9mz.png"
 alt="Screenshot of Referrals Page"
 layout="responsive"
 width={1141} height={604} quality={80} />

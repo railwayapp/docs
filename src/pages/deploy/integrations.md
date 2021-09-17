@@ -8,7 +8,7 @@ Configure Railway to deploy every push to a repo by going to Deployments > Trigg
 from. If you have more than 1 [Railway environment](develop/environments), you can
 select which environment to use.
 
-<NextImage  src="/images/github-deploys.png" 
+<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/github-deploys_bscowt.png" 
             alt="Screenshot of GitHub Integration"
             layout="responsive"
             width={1001} 
@@ -25,7 +25,7 @@ Project tokens can be used in environments where you cannot login (e.g. remote
 servers or CI). You can create project tokens for a specific [Railway
 environment](develop/environments) on the project page.
 
- <NextImage  src="/images/project-tokens.png" 
+ <NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-tokens_rslnr6.png" 
             alt="Screenshot of Project Tokens"
             layout="responsive"
             width={1076} 

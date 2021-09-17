@@ -2,7 +2,7 @@
 title: Metrics
 ---
 
-<NextImage src="/images/metrics.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/metrics_p27gzt.png"
 alt="Screenshot of Metrics Page"
 layout="intrinsic"
 width={440} height={405} quality={80} />
@@ -22,7 +22,7 @@ We currently keep 7 days worth of metrics data.
 
 ### Deployment Information
 
-<NextImage src="/images/commit-metrics.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/commit-metrics_md9wd1.png"
 alt="Screenshot of Metric Timeseries Page"
 layout="responsive"
 width={864} height={345} quality={80} />

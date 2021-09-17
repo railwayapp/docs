@@ -8,7 +8,7 @@ plugin provides the necessary environment variables needed to use it (such as
 `DATABASE_URL` for the PG plugin). You can also specify custom variables on the
 project variables page.
 
-<NextImage  src="/images/project-vars.png" 
+<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-vars_yu71yi.png" 
             alt="Screenshot of Project Variables on Railway Dashboard"
             layout="responsive"
             width={1083} 

@@ -2,7 +2,7 @@
 title: Railway Up
 ---
 
-<NextImage src="/images/railway-up.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/railway-up_h4as0c.png"
 alt="Screenshot of Railway Up"
 layout="intrinsic"
 width={333} height={64} quality={80} />

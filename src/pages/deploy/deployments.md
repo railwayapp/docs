@@ -10,7 +10,7 @@ Deployments can be in the following states
 - Success
 - Failure 
 
-<NextImage  src="/images/deploy-view.png" 
+<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/deploy-view_pohple.png" 
             alt="Screenshot of Deploy View"
             layout="responsive"
             width={1005} 
@@ -31,7 +31,7 @@ If you get a Bad Gateway when you attempt to visit the deployment URL, it could 
 
 A new deploy is triggered when the [command](railway-up.md) `railway up` is executed. Projects that are linked to a GitHub repo automatically deploy when new commits are detected in the connected branch.
 
-<NextImage  src="/images/github-deploys.png" 
+<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/github-deploys_bscowt.png" 
             alt="Screenshot of GitHub Integration"
             layout="responsive"
             width={1001} 
@@ -46,7 +46,7 @@ You can configure additional deployment triggers such as when a new PR is create
 
 Users can rollback to previous deploys if mistakes were made. A deployment rollback will revert to the previously successful deployment. Both the Docker image and custom variables are restored during the rollback process.
 
-<NextImage  src="/images/rollback.png" 
+<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/rollback_i4mge0.png" 
             alt="Screenshot of Rollback Menu"
             layout="responsive"
             width={992} 
@@ -63,7 +63,7 @@ Railway allows users to see running logs of your application to help with monito
 
 For those who prefer to keep only one deploy active, you can enable (default behaviour) singleton deploys under the Settings tab of the Deployments page. This setting is useful for bots where there might be conflicts with log ins. 
 
-<NextImage  src="/images/singletons.png" 
+<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/singletons_oajxpb.png" 
             alt="Screenshot of Deploy Options"
             layout="responsive"
             width={994} 
