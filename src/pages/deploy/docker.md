@@ -26,7 +26,7 @@ you must specify them in the Dockerfile with
 ARG EnvironmentVariable
 ```
 
-Be sure to declare your declare your environment variables at the start of the `Dockerfile`.
+Be sure to declare your environment variables at the start of the `Dockerfile`.
 
 
 ### Docker Compose
