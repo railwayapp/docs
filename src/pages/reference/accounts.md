@@ -58,6 +58,6 @@ Every Account gets $5 of included credit per month. No credit card required.
 
 Users who upgrade to the Developer plan get $10's worth of credit each month and are billed for any usage above $10.
 
-Accounts are stilled billed for usage for deleted projects. 
+Accounts are still billed for the usage of credit used by the deleted projects.
 
 You can add and manage your payment info under the billing page as well as see historical billing usage under the account billing page: https://railway.app/account/billing
