@@ -2,14 +2,14 @@
 title: Plugins
 ---
 
-Railway projects allow you to provision additional infrastructure on top of your existing deployment in the form of Plugins. 
+Railway projects allow you to provision additional infrastructure on top of your existing deployment in the form of Plugins.
 
 Railway currently offers the following Plugins
 
-- [PostgreSQL](plugins/postgresql)
-- [MySQL](plugins/mysql)
-- [MongoDB](plugins/mongodb)
-- [Redis](plugins/redis)
+- [PostgreSQL](/plugins/postgresql)
+- [MySQL](/plugins/mysql)
+- [MongoDB](/plugins/mongodb)
+- [Redis](/plugins/redis)
 
 You can add a plugin in the Command + K menu or by clicking the Add Plugin on the Project sidebar.
 
