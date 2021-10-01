@@ -2,7 +2,7 @@
 title: Java Builds
 ---
 
-The [Java buildpack](https://github.com/heroku/java-buildpack) detects if your
+The [Java buildpack](https://github.com/heroku/heroku-buildpack-java) detects if your
 build is Java by looking for a `pom.xml` file. If found, Maven will download all
 dependencies and build the project.
 
