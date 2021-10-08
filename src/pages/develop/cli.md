@@ -23,7 +23,7 @@ npm i -g @railway/cli
 sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
 ```
 
-You can also download the [prebuilt binary directly](https://github.com/railwayapp/cli/releases/latest) or [build from source].(https://github.com/railwayapp/cli#from-source)
+You can also download the [prebuilt binary directly](https://github.com/railwayapp/cli/releases/latest) or [build from source](https://github.com/railwayapp/cli#from-source).
 
 ## Login
 
