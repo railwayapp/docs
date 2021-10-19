@@ -71,7 +71,7 @@ We will inject all the environment variables inside your current Railway
 [environment](develop/environments). This allows your application to take advantage of your plugins and any environment variables you wish to set up.
 
 
-Locally install the project dependencies. Then, lets make a tiny change to our application. Open `src/pages/index.tsx` in a text editor of your choice and change line 76 of the `<h1>` JSX tag to `My Todos`, for those running the dev server locally should see the change.
+Locally install the project dependencies. Then, lets make a tiny change to our application. Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of the `<h1>` JSX tag to `My Todos`, for those running the dev server locally should see the change.
 
 Save the file, now we are ready to deploy.
 
