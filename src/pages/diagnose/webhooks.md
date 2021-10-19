@@ -25,6 +25,7 @@ To see what payload will be transmitted to the URL, you can expand the "Example 
 Webhooks contain Muxers which will automatically identify webhook URLs and transform the payload based on where it's going.  Below are the currently supported Muxers.
 
 - Discord
+- Slack
 
 ## Setting up a webhook for Discord
 Discord supports integrating directly with webhooks. To enable this on a server you will need to be an admin or otherwise have the appropriate permissions.
@@ -43,3 +44,11 @@ Discord supports integrating directly with webhooks. To enable this on a server 
 At this point, the Discord Muxer will identify the URL and change the payload to accommodate the Discord integration.  You can see this if you expand the payload preview panel.
 
 You are now done!  When your project deploys again, that Discord channel will get updates on the deploy!
+
+## Setting up a webhook for Slack
+Slack supports integrating directly with webhooks. 
+
+1. Enable incoming webhooks for your Slack instance (Tutorial [here](https://api.slack.com/messaging/webhooks#enable_webhooks))
+2. Get a hooks.slack.com address for your channel (Tutorial [here](https://api.slack.com/messaging/webhooks#create_a_webhook))
+3. Open up Railway, navigate to your project. Under Deployments -> Settings -> Webhooks, paste your URL
+4. Click the checkmark to save
