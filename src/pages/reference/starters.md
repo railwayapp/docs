@@ -3,7 +3,7 @@ title: Starters
 ---
 
 Starters allow you to deploy a fully configured project that is automatically
-connected to infrastructure. Examples of starters are
+connected to infrastructure. Examples of starters are:
 
 - NextJS app with Prisma
 - Django app connected to Postgres
