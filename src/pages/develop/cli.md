@@ -7,7 +7,7 @@ needing to worry about environment variables or configuration.
 
 ## Install
 
-Install with [Brew](https://brew.sh) or [NPM](https://www.npmjs.com/package/@railway/cli).
+Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli) or [Scoop](https://scoop.sh).
 
 **Homebrew**
 
@@ -21,6 +21,24 @@ npm i -g @railway/cli
 **Shell Script**
 ```bash
 sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
+```
+
+**Windows (via Scoop)**
+
+*This should be used incase the npm method doesn't work for you.*
+
+**Note:** you might need to run this command in an administrative PowerShell instance to make Scoop work.
+
+```ps1
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+```
+
+**One-liner to install**
+
+This installs Scoop, adds a bucket, and installs the CLI. Run it in PowerShell.
+
+```ps1
+iwr -useb get.scoop.sh | iex; scoop bucket add cone https://github.com/Milo123459/cone; scoop install cone/railway
 ```
 
 You can also download the [prebuilt binary directly](https://github.com/railwayapp/cli/releases/latest) or [build from source](https://github.com/railwayapp/cli#from-source).
