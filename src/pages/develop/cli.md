@@ -25,9 +25,9 @@ sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/insta
 
 **Windows (via Scoop)**
 
-*This should be used incase the npm method doesn't work for you.*
+Use this method if you prefer to interact with Railway using a native Windows binary.
 
-**Note:** you might need to run this command in an administrative PowerShell instance to make Scoop work.
+This commnd below requires an administrative powershell instance.
 
 ```ps1
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser
