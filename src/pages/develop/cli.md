@@ -38,7 +38,7 @@ Set-ExecutionPolicy RemoteSigned -scope CurrentUser
 This installs Scoop, adds a bucket, and installs the CLI. Run it in PowerShell.
 
 ```ps1
-iwr -useb get.scoop.sh | iex; scoop bucket add cone https://github.com/Milo123459/cone; scoop install cone/railway
+iwr -useb get.scoop.sh | iex; scoop bucket add cone https://github.com/railwayapp/scoop-railway; scoop install scoop-railway/railway
 ```
 
 You can also download the [prebuilt binary directly](https://github.com/railwayapp/cli/releases/latest) or [build from source](https://github.com/railwayapp/cli#from-source).
