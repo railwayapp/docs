@@ -27,7 +27,7 @@ sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/insta
 
 Use this method if you prefer to interact with Railway using a native Windows binary.
 
-This commnd below requires an administrative powershell instance.
+This command below requires an administrative powershell instance.
 
 ```ps1
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser
