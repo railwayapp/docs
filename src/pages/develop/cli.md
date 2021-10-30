@@ -41,6 +41,8 @@ This installs Scoop, adds a bucket, and installs the CLI. Run it in PowerShell.
 iwr -useb get.scoop.sh | iex; scoop bucket add cone https://github.com/railwayapp/scoop-railway; scoop install scoop-railway/railway
 ```
 
+For additional documentation on Scoop, see [here](https://scoop-docs.vercel.app/)
+
 You can also download the [prebuilt binary directly](https://github.com/railwayapp/cli/releases/latest) or [build from source](https://github.com/railwayapp/cli#from-source).
 
 ## Login
