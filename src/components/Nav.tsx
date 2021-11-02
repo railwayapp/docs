@@ -18,7 +18,7 @@ export const Nav: React.FC = () => {
             href="https://railway.app/login"
             tw="flex items-center space-x-2 text-gray-400 text-sm hover:text-pink-500"
           >
-            <span>Login</span>
+            <span>Go to Railway</span>
             <ArrowRight tw="w-4 h-4" />
           </Link>
         </li>
