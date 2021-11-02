@@ -8,6 +8,9 @@ import { useTheme } from "../../styles/theme";
 import { normalize } from "./normalize";
 import tw from "twin.macro";
 import { useIsMounted } from "../../hooks/useIsMounted";
+import { Icon } from "../Icon";
+import { CheckCircle, Copy } from "react-feather";
+import { useCopy } from "../../hooks/useCopy";
 
 SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("js", javascript);
@@ -50,16 +53,17 @@ export const CodeBlock: React.FC<Props> = ({
   language,
 }) => {
   const isMounted = useIsMounted();
+  const [copied, copy] = useCopy();
 
   const { colorMode } = useTheme();
   const theme = colorMode === "light" ? lightCodeTheme : darkCodeTheme;
 
   const params = useMemo(() => getParams(className) as any, [className]);
 
-  const lang = useMemo(() => language ?? params.language ?? "shell", [
-    language,
-    params,
-  ]);
+  const lang = useMemo(
+    () => language ?? params.language ?? "shell",
+    [language, params],
+  );
 
   const [content] = useMemo(
     () =>
@@ -80,14 +84,25 @@ export const CodeBlock: React.FC<Props> = ({
   }
 
   return (
-    <Container>
+    <div tw="relative" className="group">
       <SyntaxHighlighter language={lang} style={theme}>
         {content}
       </SyntaxHighlighter>
-    </Container>
+      <div tw="absolute top-0 right-0 mr-1 mt-1 text-gray-300 hover:text-gray-400 hidden group-hover:flex">
+        {copied ? (
+          <div tw="p-1">
+            <Icon icon={CheckCircle} size="sm" />
+          </div>
+        ) : (
+          <button
+            tw="focus:ring-0 hover:bg-gray-200 p-1 rounded-md"
+            type="button"
+            onClick={() => copy(content)}
+          >
+            <Icon icon={Copy} size="sm" />
+          </button>
+        )}
+      </div>
+    </div>
   );
 };
-
-const Container = tw.div`
-  
-`;
