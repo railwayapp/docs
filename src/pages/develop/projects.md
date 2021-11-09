@@ -30,7 +30,7 @@ Projects that are created by a user that is logged in or that have been claimed 
 - Are only accessible to members of the project
 - Are private and require permission to access
 
-## Project Dashboard 
+## Project Dashboard
 
 The project dashboard is where you can perform administrative actions, view project metrics, set project variables, and view deployments.
 
@@ -42,6 +42,7 @@ width={841} height={548} quality={80} />
 ## Project Settings
 
 You can manage project specific settings under the Settings page.
+
 ### General Actions
 
 Under the Settings > General tab you can change the project's name and description as well as retrieve the `projectId`.
@@ -56,6 +57,7 @@ width={1345} height={933} quality={80} />
 Under the Members tab, you can invite members to access the project.
 
 There are three scopes for project members
+
 - Owner: full administration of the project
 - Editor: adminstration and can make deployments to the project, sans the ability to remove the Owner from the project
 - Viewer: Read only access to the project. Viewers can not make deploys.
@@ -65,6 +67,7 @@ Only project owners are charged for project usage.
 ### Project Invite Links
 
 Each project generates a project invite link. To invite someone via a link:
+
 1. Select the desired invited member scope
 2. Copy link and send to the invitee
 
@@ -75,7 +78,7 @@ width={910} height={272} quality={80} />
 
 ### Transferring Projects
 
-Users can transfer projects to other users. 
+Users can transfer projects to other users.
 
 Under the members list in the members tab - click the 3 dots menu at the end of the user you'd like to transfer the project to.
 
@@ -84,9 +87,15 @@ alt="Screenshot of Project Transfer Menu"
 layout="intrinsic"
 width={411} height={253} quality={80} />
 
-The transferee receives an email with the current owner requesting to transfer the project to the user. Once that user accepts the transfer, they become the new owner of the project. 
+The transferee receives an email with the current owner requesting to transfer the project to the user. Once that user accepts the transfer, they become the new owner of the project.
 
+## Monorepo Support
 
+Monorepos are a common and popular way to organize code that allows teams to maintain context for complex applications. Railway has limited support for Monorepos by offering the ability to Deploy from Subdirectory.
 
+On project creation, below the branch selection menu, if a subdirectory is specified- Railway will clone into that project and deploy the directory.
 
-
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1636424666/docs/deploy_subdirectory_xkrcq0.png"
+alt="Screenshot of Deployment Modal Page"
+layout="intrinsic"
+width={809} height={563} quality={80} />
