@@ -19,10 +19,10 @@ Users can see the usage of their projects under [your billing page](https://rail
 
 ### Billing Metrics
 
-The chart for each project shows individual resource usage over the month. If you delete the project, Railway still count's the usage against your account metrics.
+The chart for each project shows individual resource usage over the month. If you delete the project, Railway still counts the usage against your account metrics.
 
-If you are on the developer plan it will show what your current bill will be at the end of the month. 
- 
+If you are on the developer plan it will show what your current bill will be at the end of the month.
+
 On the starter plan, it will show the remaining usage balance you have.
 
 ### Billing Alerts
