@@ -23,7 +23,7 @@ a pair of unique URLs and is considered immutable.
 
 If there happens to be an issue with the start command of your application, Railway will attempt to retry the deploy 3 times until timeout.
 
-### Bad Gateway
+## Bad Gateway
 
 If you get a Bad Gateway when you attempt to visit the deployment URL, it could be that your `PORT` variable is misconfigured. Railway needs an explicit port to listen on to expose the application to the internet. You can provide a `PORT` variable under the Variables page in your project.
 
@@ -75,5 +75,3 @@ For those who prefer to keep only one deploy active, you can enable (default beh
 Users can cancel deployments in progress by clicking the three dots at the end of the deployment tab and select Abort deployment. This will cancel the deployment in progress.
 
 If a deployment is completed, you can delete a live deploy by clicking the the three dots at the end of the deployment tab and select Remove. This will remove the deployment and stop any further project usage. 
-
-

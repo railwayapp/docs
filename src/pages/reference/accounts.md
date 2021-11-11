@@ -15,7 +15,7 @@ alt="Screenshot of Account Navigation"
 layout="fixed"
 width={450} height={311} quality={80} />
 
-The main account preferences page is accessible by clicking your profile photo in the top right and selecting [`Account Settings`](https://railway.app/account).
+The main account preferences page is accessible by clicking your profile photo in the top right and selecting [Account Settings](https://railway.app/account).
 
 ### Change Account Information
 
@@ -29,6 +29,7 @@ layout="responsive"
 width={1162} height={587} quality={80} />
 
 Railway is committed to you and your project's security. As such, we provide a variety of methods to help you keep your piece of mind.
+
 ### Enabling 2FA 
 
 You can enable Two-Factor Authentication under the Account Security page. Most TOTP applications are supported.
@@ -60,4 +61,4 @@ Users who upgrade to the Developer plan get $10's worth of credit each month and
 
 Accounts are still billed for the usage of credit used by the deleted projects.
 
-You can add and manage your payment info under the billing page as well as see historical billing usage under the account billing page: https://railway.app/account/billing
+You can add and manage your payment info under the billing page as well as see historical billing usage under the account billing page: [railway.app/account/billing](https://railway.app/account/billing)

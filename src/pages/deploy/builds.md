@@ -15,14 +15,12 @@ languages out of the box
 If you have a language that you want us to support, please don't hesitate to
 [reach out](https://discord.gg/xAm2w6g) and let us know.
 
+We will also also build using a [Dockerfile](/deploy/docker) if found at at the project root.
 
-### Procfile
+## Procfile
 
-Railway supports [Procfiles](https://devcenter.heroku.com/articles/procfile), a
-file that can be included in the project to specify which command to run when
-the deployment starts.
-
-A Procfile is in the format of
+If your project use buildpacks, you specify the start command with a
+[Procfile](https://devcenter.heroku.com/articles/procfile). A Procfile is in the format of
 
 ```
 process: command
@@ -32,7 +30,7 @@ When Railway deploys your build, the process listed in the file will be started 
 
 _Note: some buildpacks specify a default start command_
 
-#### Web process
+### Web process
 
 HTTP servers should use the `web` process type. This process should listen on
 the [PORT environment variable](/deploy/railway-up#port-variable) and will receive
@@ -42,7 +40,7 @@ HTTP traffic. For example,
 web: npm start
 ```
 
-### Custom Buildpacks
+## Custom Buildpacks
 
 By default, the appropriate buildpacks are selected by inspecting the source
 files of a project. For more control, a
@@ -63,7 +61,7 @@ uri = "heroku/nodejs-yarn"
 ## Experimental Builder
 
 By default Railway will attempt to build your app with the
-[heroku/buildpacks:18](https://devcenter.heroku.com/articles/heroku-18-stack)
+[heroku/buildpacks:20](https://devcenter.heroku.com/articles/heroku-20-stack)
 builder, which is based on how [Heroku](https://www.heroku.com/) builds apps. We
 are experimenting using a [custom
 builder](https://github.com/railwayapp/railway-builder) that will allow us to have more control and flexibility in how your source code gets built and deployed on the platform. The new builder has support for
