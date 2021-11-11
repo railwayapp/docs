@@ -9,39 +9,33 @@ needing to worry about environment variables or configuration.
 
 Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli) or [Scoop](https://scoop.sh).
 
-**Homebrew**
+### Homebrew
 
 ```bash
 brew install railwayapp/railway/railway
 ```
-**NPM**
+### NPM
+
 ```bash
 npm i -g @railway/cli
 ```
-**Shell Script**
+### Shell Script
+
 ```bash
 sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
 ```
 
-**Windows (via Scoop)**
+### Scoop
 
 Use this method if you prefer to interact with Railway using a native Windows binary.
 
-This command below requires an administrative powershell instance.
-
 ```ps1
-Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+scoop bucket add cone https://github.com/railwayapp/scoop-railway; scoop install scoop-railway/railway
 ```
 
-**One-liner to install**
+For additional documentation on Scoop, see [here](https://scoop-docs.vercel.app/).
 
-This installs Scoop, adds a bucket, and installs the CLI. Run it in PowerShell.
-
-```ps1
-iwr -useb get.scoop.sh | iex; scoop bucket add cone https://github.com/railwayapp/scoop-railway; scoop install scoop-railway/railway
-```
-
-For additional documentation on Scoop, see [here](https://scoop-docs.vercel.app/)
+### Source
 
 You can also download the [prebuilt binary directly](https://github.com/railwayapp/cli/releases/latest) or [build from source](https://github.com/railwayapp/cli#from-source).
 
@@ -55,7 +49,7 @@ railway login
 
 If there are any issues with Browser based login you can use the `--browserless` flag to authenticate.
 
-### Project Token Authentication
+### Project Token
 
 You can use Project tokens to authenticate in environments that prevent you to authenticate with browsers such as CI environments.
 
