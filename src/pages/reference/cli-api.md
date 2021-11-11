@@ -46,7 +46,7 @@ railway docs
 
 ## Environment
 
-Change which environment you are using. View [environment docs](/environments)
+Change which environment you are using. View [environment docs](/develop/environments)
 for more information.
 
 ```bash
@@ -73,7 +73,7 @@ railway init
 ```
 
 Running `init` will prompt you to create a new project or a select from one of
-our [Starter Templates](/starters).
+our [starter templates](https://railway.app/starters).
 
 ## Link
 

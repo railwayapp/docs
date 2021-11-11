@@ -5,7 +5,7 @@ title: Integrations
 ## GitHub Integration
 
 Configure Railway to deploy every push to a repo by going to Deployments > Triggers in your project. Here you can select a GitHub repo and branch to deploy
-from. If you have more than 1 [Railway environment](develop/environments), you can
+from. If you have more than 1 [Railway environment](/develop/environments), you can
 select which environment to use.
 
 <NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/github-deploys_bscowt.png" 
@@ -23,7 +23,7 @@ It is possible to create multiple triggers. With this workflow you can connect t
 
 Project tokens can be used in environments where you cannot login (e.g. remote
 servers or CI). You can create project tokens for a specific [Railway
-environment](develop/environments) on the project page.
+environment](/develop/environments) on the project page.
 
  <NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-tokens_rslnr6.png" 
             alt="Screenshot of Project Tokens"
@@ -68,7 +68,7 @@ for the Postgres plugin).
 
 You can deploy to a separate server (e.g. AWS, GCP, DigitalOcean) and still
 connect to your Railway plugins. On the server, you can either login to the CLI
-with `railway login` or use a [project token](/deploy/project-tokens). Then prefix the
+with `railway login` or use a [project token](/deploy/integrations#project-tokens). Then prefix the
 server start command with `railway run`.
 
 ```shell:always
