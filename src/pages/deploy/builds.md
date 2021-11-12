@@ -64,7 +64,7 @@ By default Railway will attempt to build your app with the
 [heroku/buildpacks:20](https://devcenter.heroku.com/articles/heroku-20-stack)
 builder, which is based on how [Heroku](https://www.heroku.com/) builds apps. We
 are experimenting using a [custom
-builder](https://github.com/railwayapp/railway-builder) that will allow us to have more control and flexibility in how your source code gets built and deployed on the platform. The new builder has support for
+builder](https://github.com/railwayapp/railway-builder) that will allow us to have more control and flexibility in how your source code gets built and deployed on the platform. The new builder has support for:
 
 - NodeJS
 - Go

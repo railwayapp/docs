@@ -25,7 +25,7 @@ If there happens to be an issue with the start command of your application, Rail
 
 ## Bad Gateway
 
-If you get a Bad Gateway when you attempt to visit the deployment URL, it could be that your `PORT` variable is misconfigured. Railway needs an explicit port to listen on to expose the application to the internet. You can provide a `PORT` variable under the Variables page in your project.
+If you get a "Bad Gateway" error when you attempt to visit the deployment URL, it could be that your `PORT` variable is misconfigured. Railway needs an explicit port to listen on to expose the application to the internet. You can provide a `PORT` variable under the Variables page in your project.
 
 ## Deploy Triggers
 
