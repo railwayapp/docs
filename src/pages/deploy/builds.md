@@ -15,7 +15,7 @@ languages out of the box
 If you have a language that you want us to support, please don't hesitate to
 [reach out](https://discord.gg/xAm2w6g) and let us know.
 
-We will also also build using a [Dockerfile](/deploy/docker) if found at at the project root.
+We will also build using a [Dockerfile](/deploy/docker) if found at at the project root.
 
 ## Procfile
 
