@@ -62,8 +62,8 @@
       "Does Railway support monorepos?",
       "Is there support for monorepos?"
     ],
-    "answer": "Not at the moment. However, monorepos are curently on our near term roadmap.",
-    "link": "https://feedback.railway.app/feature-requests/p/monorepo-root-directory-support"
+    "answer": "Partially, and improving this support is on our near term roadmap.",
+    "link": "https://docs.railway.app/deploy/monorepos"
   },
   "docker": {
     "category": "general",
