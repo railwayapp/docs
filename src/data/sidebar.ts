@@ -72,7 +72,10 @@ export const sidebarContent: ISidebarContent = [
         "custom domain",
         "cloudflare",
       ]),
-
+      makePage("Monorepo", "deploy", [
+        "start command",
+        "yarn workspace"
+      ]),
       makePage("Integrations", "deploy", [
         "vercel",
         "netlify",

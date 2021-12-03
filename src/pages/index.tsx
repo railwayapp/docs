@@ -4,8 +4,7 @@ import React from "react";
 import tw, { styled } from "twin.macro";
 import { DiscordIcon, RssIcon, TwitterIcon } from "../components/Icons";
 import { Link } from "../components/Link";
-import { Page } from "../layouts/Page";
-import { GitHub, ArrowRight, Zap, Code, Database, Book } from "react-feather";
+import { ArrowRight, Book, Code, Database, GitHub, Zap } from "react-feather";
 
 const Home: NextPage = () => {
   return (
