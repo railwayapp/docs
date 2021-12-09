@@ -57,17 +57,3 @@ Slack supports integrating directly with webhooks.
 2. Get a hooks.slack.com address for your channel (Tutorial [here](https://api.slack.com/messaging/webhooks#create_a_webhook))
 3. Open up Railway, navigate to your project. Under Deployments -> Settings -> Webhooks, paste your URL
 4. Click the checkmark to save
-
-## Project Healthchecks
-
-<NextImage 
-src="https://res.cloudinary.com/railway/image/upload/v1636427657/docs/healthchecks_xov2f5.png"
-alt="Screenshot of Healthchecks"
-layout="intrinsic"
-width={967} height={694} quality={80} />
-
-Guarantee the new version of your application is live and able to handle requests by configuring a project healthcheck.
-
-Under Deployments → Settings, once the input has a endpoint provided, Railway will ping this endpoint after a new image has been deployed but before Railway upgrades the deployment to the static url.
-
-If the healthcheck succeeds, everything proceeds as normal. If it fails after the allotted retries, we fail the deploy and tear down the container that was spun up and retains the previous deployment. A user can remove a previously configured healthcheck by setting it to null in the UI.
