@@ -43,6 +43,7 @@ builds and deployments.
 | `RAILWAY_GIT_REPO_NAME`      | The name of the repository that triggered the deployment. Example: `myproject` |
 | `RAILWAY_GIT_REPO_OWNER`     | The name of the repository owner that triggered the deployment. Example: `mycompany` |
 | `RAILWAY_GIT_COMMIT_MESSAGE` | The message of the commit that triggered the deployment. Example: `Fixed a few bugs` |
+| `RAILWAY_HEALTHCHECK_TIMEOUT_SEC` | The timeout length (in seconds) of healthchecks. Example: `300` |
 
 ## Templated Variables
 

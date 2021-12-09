@@ -95,6 +95,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Metrics", "diagnose", ["metrics", "logs"]),
       makePage("Webhooks", "diagnose", ["webhooks", "notifcations"]),
       makePage("Project Usage", "diagnose", ["usage", "pricing"]),
+      makePage("Healthchecks", "diagnose", ["health", "healthcheck"])
     ],
   },
   {
