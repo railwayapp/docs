@@ -4,7 +4,7 @@ title: Exposing Your App
 
 Before your application can say hello, Railway needs to know what PORT to listen on to expose your application to the internet. Railway does try to do it's best to do this automatically for you however, there are cases when we can't.
 
-You can configure your application to use the `PORT` environment variable by adding the `PORT` on your projects variables page. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
+You can configure your application to use the `PORT` environment variable by adding the `PORT` on your projects variables page. (Command + K or CTRL + K, depending on your keyboard/OS and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
 
 **A Note on Listening IPs**: It's best for your application to listen on `0.0.0.0:$PORT`. While most things work with `127.0.0.1` and localhost, some do not (Django for example)
 
