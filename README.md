@@ -1,4 +1,4 @@
-# Railway Documentation
+# Secta Documentation
 
 Visit [docs.railway.app](https://docs.railway.app)
 
