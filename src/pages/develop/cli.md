@@ -30,7 +30,7 @@ sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/insta
 Use this method if you prefer to interact with Railway using a native Windows binary.
 
 ```ps1
-scoop bucket add cone https://github.com/railwayapp/scoop-railway; scoop install scoop-railway/railway
+scoop bucket add cone https://github.com/railwayapp/scoop-railway; scoop install cone/railway
 ```
 
 For additional documentation on Scoop, see [here](https://scoop-docs.vercel.app/).
