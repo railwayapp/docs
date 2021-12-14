@@ -21,8 +21,7 @@ const Home: NextPage = () => {
           <div tw="py-12 pl-12 z-10">
             <div tw="text-3xl font-bold text-white mb-4">Quickstart Guide</div>
             <div tw="text-xl font-normal text-white mb-12 max-w-md">
-              A short guide on making your first deploy on Railway in a couple
-              of minutes.
+              A short guide on installing Secta and getting started
             </div>
             <ButtonLink
               href="/getting-started"
@@ -65,9 +64,9 @@ const Home: NextPage = () => {
               <Code size="28" tw="text-pink-800" />
             </OverviewLinkIcon>
             <OverviewLinkTextbox tw="">
-              <OverviewLinkHeading>Language Specific Apps</OverviewLinkHeading>
+              <OverviewLinkHeading>CMS Specific Apps</OverviewLinkHeading>
               <OverviewLinkText>
-                Get information on how to deploy specific applications.
+                Get information on how to install on various CMS systems.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
@@ -76,9 +75,9 @@ const Home: NextPage = () => {
               <Database size="28" tw="text-pink-800" />
             </OverviewLinkIcon>
             <OverviewLinkTextbox tw="">
-              <OverviewLinkHeading>Variables</OverviewLinkHeading>
+              <OverviewLinkHeading>Configuration Parameters</OverviewLinkHeading>
               <OverviewLinkText>
-                Understand how Railway handles variables on the platform.
+                Understanding all the various ways to configure Secta.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>

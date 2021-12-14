@@ -3,7 +3,7 @@ import { IPage, ISidebarContent } from "../types";
 const makePage = (
   title: string,
   category?: string,
-  tags?: string[],
+  tags?: string[], // This is for the search fuse.js
   slug?: string,
 ): IPage => ({
   title,
@@ -21,7 +21,7 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "",
     pages: [
-      makePage("Introduction", undefined, ["home", "railway", "index"], "/"),
+      makePage("Introduction", undefined, ["home", "secta", "index"], "/"),
       makePage("Getting Started", undefined, [
         "introduction",
         "tutorial",
@@ -29,22 +29,22 @@ export const sidebarContent: ISidebarContent = [
       ]),
     ],
   },
+  // Removing Develop from build 
+  // {
+  //   title: "Develop",
+  //   pages: [
+  //     makePage("CLI", "develop", ["CLI", "command", "line"]),
+  //     makePage("Projects", "develop", ["project", "dashboard", "repo"]),
+  //     makePage("Plugins", "develop", ["database", "plugin", "db"]),
+  //     makePage("Variables", "develop", ["railway run", "variables"]),
+  //     makePage("Environments", "develop", [
+  //       "create env",
+  //       "environment",
+  //     ]),
+  //   ],
+  // },
   {
-    title: "Develop",
-    pages: [
-      makePage("CLI", "develop", ["CLI", "command", "line"]),
-      makePage("Projects", "develop", ["project", "dashboard", "repo"]),
-      makePage("Plugins", "develop", ["database", "plugin", "db"]),
-      makePage("Variables", "develop", ["railway run", "variables"]),
-      makePage("Environments", "develop", [
-        "staging",
-        "create env",
-        "environment",
-      ]),
-    ],
-  },
-  {
-    title: "Deploy",
+    title: "Installation",
     pages: [
       makePage("Railway Up", "deploy", [
         "deploying from command line",

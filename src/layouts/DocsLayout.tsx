@@ -13,8 +13,11 @@ export interface Props extends PageProps {
   frontMatter: FrontMatter;
 }
 
+// Using Secta Image Generator
+// https://og.secta.ai/api/image?fileType=png&layoutName=Docs&Theme=Dark&Page=Getting+Started
+
 const getOGImage = (title: string) =>
-  `https://og.railway.app/api/image?fileType=png&layoutName=Docs&Theme=Dark&URL=&Page=${encodeURIComponent(
+  `https://og.secta.ai/api/image?fileType=png&layoutName=Docs&Theme=Dark&URL=&Page=${encodeURIComponent(
     title,
   )}`;
 
@@ -26,7 +29,7 @@ export const DocsLayout: React.FC<Props> = ({
   const { pathname } = useRouter();
   const gitHubFileLink = useMemo(
     () =>
-      `https://github.com/railwayapp/docs/edit/main/src/pages${pathname}.md`,
+      `https://github.com/SectaAI/docs/edit/main/src/pages${pathname}.md`,
     [pathname],
   );
 
@@ -100,6 +103,8 @@ export const DocsLayout: React.FC<Props> = ({
             </Link>
           )}
         </div>
+
+        {/* Removing Edit this file on Github */}
 
         <Link
           className="edit-github-link"
