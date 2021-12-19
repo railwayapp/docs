@@ -22,6 +22,7 @@ const customColors = {
   blue: generateColorShades("blue"),
   yellow: generateColorShades("yellow"),
   green: generateColorShades("green"),
+  violet: generateColorShades("violet"), // Added Violet
   red: generateColorShades("red"),
 };
 
@@ -38,6 +39,7 @@ const fontStack = [
   "Apple Color Emoji",
   "Segoe UI Emoji",
   "Segoe UI Symbol",
+  "Saira",
 ].join(",");
 
 module.exports = {
@@ -79,7 +81,7 @@ module.exports = {
               textDecoration: "underline",
 
               "&:hover": {
-                color: theme("colors.purple.400"),
+                color: theme("colors.pink.400"),
               },
             },
 
@@ -102,7 +104,7 @@ module.exports = {
             },
             code: {
               background: "transparent",
-              color: theme("colors.purple.700"),
+              color: theme("colors.pink.700"),
               fontWeight: theme("fontWeight.normal"),
             },
             pre: {

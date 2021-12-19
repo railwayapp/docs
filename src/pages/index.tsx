@@ -23,7 +23,7 @@ const Home: NextPage = () => {
               </div>
               <Link
                 tw="flex text-pink-800 items-center mt-2 hover:text-pink-600"
-                href="https://github.com/railwayapp/docs"
+                href="https://www.notion.so/markojak/Our-Mission-2746987fdf0e416f86d03d467c94489c"
               >
                 <span tw="mr-2">Read about our Mission</span> <ExternalLink />
               </Link>              
@@ -88,7 +88,7 @@ const Home: NextPage = () => {
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="develop/variables">
+          <OverviewLink href="deploy/builds">
             <OverviewLinkIcon>
               <Database size="28" tw="text-pink-800" />
             </OverviewLinkIcon>

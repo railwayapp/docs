@@ -30,19 +30,19 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   // Removing Develop from build 
-  {
-    title: "Develop",
-    pages: [
-      makePage("CLI", "develop", ["CLI", "command", "line"]),
-      makePage("Projects", "develop", ["project", "dashboard", "repo"]),
-      makePage("Plugins", "develop", ["database", "plugin", "db"]),
-      makePage("Variables", "develop", ["railway run", "variables"]),
-      makePage("Environments", "develop", [
-        "create env",
-        "environment",
-      ]),
-    ],
-  },
+  // {
+  //   title: "Develop",
+  //   pages: [
+  //     makePage("CLI", "develop", ["CLI", "command", "line"]),
+  //     makePage("Projects", "develop", ["project", "dashboard", "repo"]),
+  //     makePage("Plugins", "develop", ["database", "plugin", "db"]),
+  //     makePage("Variables", "develop", ["railway run", "variables"]),
+  //     makePage("Environments", "develop", [
+  //       "create env",
+  //       "environment",
+  //     ]),
+  //   ],
+  // },
   {
     title: "Installation",
     pages: [
