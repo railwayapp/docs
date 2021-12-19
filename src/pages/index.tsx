@@ -4,7 +4,7 @@ import React from "react";
 import tw, { styled } from "twin.macro";
 import { DiscordIcon, RssIcon, TwitterIcon } from "../components/Icons";
 import { Link } from "../components/Link";
-import { ArrowRight, Book, Code, Database, GitHub, Zap } from "react-feather";
+import { ArrowRight, Book, Code, Database, GitHub, Zap, Info, ExternalLink } from "react-feather";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +12,24 @@ const Home: NextPage = () => {
       <div tw="max-w-4xl">
         <h1 tw="text-5xl md:text-6xl font-bold mb-12">Introduction</h1>
         {/* Need to make this mobile friendly */}
+
+        <div tw="bg-gray-100 rounded-md col-span-5 p-6 mb-8">
+            <div tw="flex text-base font-semibold mb-4">
+              <Info tw="mr-2" /> What is Secta?
+            </div>
+            <div>
+              <div>
+                Secta is a command palette for websites to completely re-invent visitor engagement and journeys. Think "MacOS Spotlight" but for websites. 
+              </div>
+              <Link
+                tw="flex text-pink-800 items-center mt-2 hover:text-pink-600"
+                href="https://github.com/railwayapp/docs"
+              >
+                <span tw="mr-2">Read about our Mission</span> <ExternalLink />
+              </Link>              
+            </div>
+          </div>
+
         <div
           css={[
             `background: linear-gradient(83.84deg, rgba(149, 203, 233, 0.9) -3.34%, rgba(71, 201, 242, 0.135) 35.77%), linear-gradient(101.71deg, rgba(227, 167, 228, 0.048) 46.42%, rgba(238, 96, 215, 0.8) 94.51%), linear-gradient(149.12deg, #3308AD 13.67%, rgba(51, 8, 173, 0) 86.42%);`,
@@ -35,7 +53,7 @@ const Home: NextPage = () => {
           </div>
           <div tw="absolute -bottom-8 right-0 opacity-50 z-0 lg:opacity-100">
             <NextImage
-              src="/images/code-terminal.svg"
+              src="/images/secta-dashed.svg"
               alt="Graphic of Terminal"
               tw=""
               layout="intrinsic"
@@ -54,8 +72,8 @@ const Home: NextPage = () => {
             <OverviewLinkTextbox tw="">
               <OverviewLinkHeading>Starters</OverviewLinkHeading>
               <OverviewLinkText>
-                See all starters you can deploy to get up and running on
-                Railway.
+                See all CMS you can deploy to get up and running on
+                Secta.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
@@ -112,16 +130,16 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div tw="mt-8 flex flex-col ml-8 col-span-3 gap-4 md:mt-0">
-            <OverviewSecondaryLink href="https://discord.gg/railway">
+            <OverviewSecondaryLink href="https://discord.gg/secta">
               <DiscordIcon tw="w-8 h-8" />
               <div>Join our Discord Server </div>
               <ArrowRight />
             </OverviewSecondaryLink>
-            <OverviewSecondaryLink href="https://railway.app/changelog">
+            <OverviewSecondaryLink href="https://www.notion.so/markojak/Changelog-a796faa294c04a49a22e3bb2e6a95c65">
               <RssIcon tw="w-8 h-8 text-pink-700" />
               Check out the Changelog <ArrowRight />
             </OverviewSecondaryLink>
-            <OverviewSecondaryLink href="https://twitter.com/Railway">
+            <OverviewSecondaryLink href="https://twitter.com/Secta">
               <TwitterIcon tw="w-8 h-8" />
               Follow Us on Twitter <ArrowRight />
             </OverviewSecondaryLink>

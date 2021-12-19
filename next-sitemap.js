@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://docs.railway.app/",
+  siteUrl: "https://docs.secta.ai/",
   generateRobotsTxt: true,
 };

@@ -18,9 +18,9 @@ const NotFoundPage: React.FC = () => (
         <li>
           <Link href="/getting-started">Getting Started</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/develop/cli">CLI Quick Start</Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/deploy/railway-up">Railway Up</Link>
         </li>

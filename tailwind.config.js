@@ -18,6 +18,7 @@ const customColors = {
   secondaryBg: `var(--${prefix}-secondaryBg)`,
   gray: generateColorShades("gray"),
   pink: generateColorShades("pink"),
+  purple: generateColorShades("purple"),
   blue: generateColorShades("blue"),
   yellow: generateColorShades("yellow"),
   green: generateColorShades("green"),
@@ -78,7 +79,7 @@ module.exports = {
               textDecoration: "underline",
 
               "&:hover": {
-                color: theme("colors.pink.500"),
+                color: theme("colors.purple.400"),
               },
             },
 
@@ -101,7 +102,7 @@ module.exports = {
             },
             code: {
               background: "transparent",
-              color: theme("colors.pink.500"),
+              color: theme("colors.purple.700"),
               fontWeight: theme("fontWeight.normal"),
             },
             pre: {
