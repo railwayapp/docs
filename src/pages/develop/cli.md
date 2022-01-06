@@ -47,7 +47,7 @@ Login to your Railway account. Opens a browser tab which authenticates into an e
 railway login
 ```
 
-If there are any issues with Browser based login you can use the `--browserless` flag to authenticate.
+If there are any issues with browser-based login you can use the `--browserless` flag to authenticate, or try it with a different browser. [Brave](https://brave.com) is known to have issues with browser-based login.
 
 ### Project Token
 
