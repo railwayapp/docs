@@ -88,4 +88,4 @@ Please note that this is still in development and may not be 100% backwards comp
 
 ## Custom Start Commands
 
-You may additionally define a custom start command in the Deployment Settings. This means you can deploy the same repository to multiple Railway projects and start a different monorepo component for each one! [You can also see our documentation about Monorepos for more information.](/deploy/monorepo)
+You may define a custom start command in the Deployment Settings. This means you can deploy the same repository within Railway projects and start a different monorepo component for each one. [You can also see our documentation about Monorepos for more information.](/deploy/monorepo)
