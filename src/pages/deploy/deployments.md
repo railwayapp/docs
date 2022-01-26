@@ -82,6 +82,14 @@ Railway allows users to see running logs of your application to help with
 monitoring. Railway displays the last 10,000 lines of logs available for a
 deployment.
 
+We maintain logs for inactive deployments as well as active. Under the logs pane, you can search within your logs for certain keywords.
+
+<NextImage
+src="https://res.cloudinary.com/railway/image/upload/v1643229357/docs/log-filtering_tkzope.gif"
+alt="Animation of Log Filtering"
+layout="responsive"
+width={1200} height={798} quality={80} />
+
 ### Singleton Deploys
 
 For those who prefer to keep only one deploy active, you can enable (default
@@ -102,4 +110,19 @@ deployment in progress.
 
 If a deployment is completed, you can delete a live deploy by clicking the the
 three dots at the end of the deployment tab and select Remove. This will remove
-the deployment and stop any further project usage. 
+the deployment and stop any further project usage.
+
+### What Happens if my Deployment Crashes?
+
+Railway will initally restart your app on your behalf up to 3 times. Afterwards, a crash notification via Webhook and Email will be sent if you have configured the option. Deployment crash emails are configurable under the Account email preferences section under your Account.
+
+After the automatic restarts have completed- your deployment will also display a restart button on the most recent crashed deployment.
+
+<NextImage
+src="https://res.cloudinary.com/railway/image/upload/v1643239507/crash-ui_b2yig1.png"
+alt="Screenshot of Deploy Options"
+layout="responsive"
+width={947} height={156} quality={80} />
+
+
+

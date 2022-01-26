@@ -27,7 +27,7 @@ You can create an environment under Settings > Environments. When you create an 
 
 ## Environment Deploys
 
-Running `railway up` with an environment selected from the CLI will create a deploy using the variables from the Environment. 
+Running `railway up` with an environment selected from the CLI will create a deploy using the variables from the Environment.
 
 ## Ephemeral Environments
 

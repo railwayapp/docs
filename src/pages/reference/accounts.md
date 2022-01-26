@@ -73,3 +73,20 @@ Users who upgrade to the Developer plan get $10's worth of credit each month and
 Accounts are still billed for the usage of credit used by the deleted projects.
 
 You can add and manage your payment info under the billing page as well as see historical billing usage under the account billing page: [railway.app/account/billing](https://railway.app/account/billing)
+
+## Link Discord Account
+
+Each Railway account has the option to associate that user's Discord account. Integration is required to enroll in Railway's Beta program dubbed Priority Boarding. You can link the account under the Account Settings page below the GitHub integration section.
+
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643230045/link-discord-account_vpal68.png"
+alt="Screenshot of Referrals Page"
+layout="responsive"
+width={642} height={326} quality={80} />
+
+If the Discord user has not joined the Railway Discord server, linking the account will automatically invite the Discord user to the server.
+
+### Priority Boarding Enrollment
+
+For the most adventurous, we offer a pre-release feature program- Priority Boarding.
+
+Railway users in the Discord can assign themselves a Priority Boarding role by typing `/beta` in the Railway Discord server. Those who have their Discord account integrated will then be able to access and share feedback on pre-release features.
