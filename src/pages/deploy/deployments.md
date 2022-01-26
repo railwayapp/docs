@@ -112,8 +112,17 @@ If a deployment is completed, you can delete a live deploy by clicking the the
 three dots at the end of the deployment tab and select Remove. This will remove
 the deployment and stop any further project usage.
 
-### Deployment Restarts
+### What Happens if my Deployment Crashes?
 
-We do provide the ability to restart your deployment if it crashes. We will also attempt to restart your app on your behalf up to 3 times.
+Railway will initally restart your app on your behalf up to 3 times. Afterwards, a crash notification via Webhook and Email will be sent if you have configured the option. Deployment crash emails are configurable under the Account email preferences section under your Account.
 
-We don't allow users to restart their deployment manually.
+After the automatic restarts have completed- your deployment will also display a restart button on the most recent crashed deployment.
+
+<NextImage
+src="https://res.cloudinary.com/railway/image/upload/v1643239507/crash-ui_b2yig1.png"
+alt="Screenshot of Deploy Options"
+layout="responsive"
+width={947} height={156} quality={80} />
+
+
+
