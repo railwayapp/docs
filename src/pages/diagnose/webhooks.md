@@ -57,3 +57,7 @@ Slack supports integrating directly with webhooks.
 2. Get a hooks.slack.com address for your channel (Tutorial [here](https://api.slack.com/messaging/webhooks#create_a_webhook))
 3. Open up Railway, navigate to your project. Under Deployments -> Settings -> Webhooks, paste your URL
 4. Click the checkmark to save
+
+## Crash Notifications
+
+Railway projects now allow you to pipe out project crashes via the configured webhook.

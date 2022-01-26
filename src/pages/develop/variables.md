@@ -15,35 +15,37 @@ project variables page.
             height={865}
             quality={80} />
 
-
 You can view all variables for the current environment with `railway vars` and change the environment with `railway environment`.
 
 ## Bulk Import
 
-Chances are you might already have a `.env` file laying around. You can import your existing environment variables via Bulk Import. 
+Chances are you might already have a `.env` file laying around. You can import your existing environment variables via Bulk Import.
 
 You can click the `Bulk Import` link to open up a modal where you can paste in a list of variables separated by new line.
+
+### Automatic Detection of Environment Variables
+
+If you initialize the a new project from the CLI- if a .env file is detected, Railway will now prompt to see if you'd like to import it into your new project.
 
 ## Multiline Variables
 
 Railway supports multiline variables/object variables. Just type or paste in the value as you would normally.
-
 
 ## Railway Provided Variables
 
 Railway provides the following additional system environment variables to all
 builds and deployments.
 
-| Name                         | Description |
-|------------------------------|-------------|
-| `RAILWAY_STATIC_URL`         | The public domain, of the form `example.up.railway.app` |
-| `RAILWAY_GIT_COMMIT_SHA`     | The git [SHA](https://docs.github.com/en/github/getting-started-with-github/github-glossary#commit) of the commit that triggered the deployment. Example: `d0beb8f5c55b36df7d674d55965a23b8d54ad69b` |
-| `RAILWAY_GIT_AUTHOR`         | The user of the commit that triggered the deployment. Example: `gschier` |
-| `RAILWAY_GIT_BRANCH`         | The branch that triggered the deployment. Example: `main` |
-| `RAILWAY_GIT_REPO_NAME`      | The name of the repository that triggered the deployment. Example: `myproject` |
-| `RAILWAY_GIT_REPO_OWNER`     | The name of the repository owner that triggered the deployment. Example: `mycompany` |
-| `RAILWAY_GIT_COMMIT_MESSAGE` | The message of the commit that triggered the deployment. Example: `Fixed a few bugs` |
-| `RAILWAY_HEALTHCHECK_TIMEOUT_SEC` | The timeout length (in seconds) of healthchecks. Example: `300` |
+| Name                              | Description                                                                                                                                                                                          |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RAILWAY_STATIC_URL`              | The public domain, of the form `example.up.railway.app`                                                                                                                                              |
+| `RAILWAY_GIT_COMMIT_SHA`          | The git [SHA](https://docs.github.com/en/github/getting-started-with-github/github-glossary#commit) of the commit that triggered the deployment. Example: `d0beb8f5c55b36df7d674d55965a23b8d54ad69b` |
+| `RAILWAY_GIT_AUTHOR`              | The user of the commit that triggered the deployment. Example: `gschier`                                                                                                                             |
+| `RAILWAY_GIT_BRANCH`              | The branch that triggered the deployment. Example: `main`                                                                                                                                            |
+| `RAILWAY_GIT_REPO_NAME`           | The name of the repository that triggered the deployment. Example: `myproject`                                                                                                                       |
+| `RAILWAY_GIT_REPO_OWNER`          | The name of the repository owner that triggered the deployment. Example: `mycompany`                                                                                                                 |
+| `RAILWAY_GIT_COMMIT_MESSAGE`      | The message of the commit that triggered the deployment. Example: `Fixed a few bugs`                                                                                                                 |
+| `RAILWAY_HEALTHCHECK_TIMEOUT_SEC` | The timeout length (in seconds) of healthchecks. Example: `300`                                                                                                                                      |
 
 ## Templated Variables
 
