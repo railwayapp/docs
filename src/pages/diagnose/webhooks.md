@@ -60,4 +60,4 @@ Slack supports integrating directly with webhooks.
 
 ## Crash Notifications
 
-Railway projects now allow you to pipe out project crashes via the configured webhook.
+Railway projects now allows you to pipe out project crashes via the configured webhook.
