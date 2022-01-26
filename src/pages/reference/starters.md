@@ -34,4 +34,4 @@ Every time you visit your project on Railway, we will check to see if the projec
 
 If it has, we will prompt you to update your project. On confirmation, we will create a branch on Github and open a PR deployment for you on Railway. This way, we don’t replace your production deployment and you can test things out within the PR deploy.
 
-Once you’re happy with the changes, you can merge the PR and your production deployment will be updated to the latest version
+Once you’re happy with the changes, you can merge the PR and your production deployment will be updated to the latest version.
