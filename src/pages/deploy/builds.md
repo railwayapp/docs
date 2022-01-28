@@ -85,7 +85,3 @@ You can opt-in to using this new builder by enabling it in your project's deploy
             quality={80} />
 
 Please note that this is still in development and may not be 100% backwards compatible with the previous builder. If you have any thoughts/concerns/questions/feedback, [we would love to hear from you](https://discord.gg/xAm2w6g)!
-
-## Custom Start Commands
-
-You may define a custom start command in the Deployment Settings. This means you can deploy the same repository within Railway projects and start a different monorepo component for each one. [You can also see our documentation about Monorepos for more information.](/deploy/monorepo)
