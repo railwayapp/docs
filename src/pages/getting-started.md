@@ -2,24 +2,25 @@
 title: Getting Started
 ---
 
-Railway is an infrastructure platform where you can provision infrastructure,
+Railway is a deployment platform where you can provision infrastructure,
 develop with that infrastructure locally, and then deploy to the cloud.
 
 The following guide will get you up and running quickly by covering the following
-3 steps.
+3 steps:
 
-1. Creating a project from a starter.
-2. Developing the project locally.
-3. Deploying to the cloud.
+1. Creating a project from a starter
+2. Developing the project locally
+3. Deploying to the cloud
 
-> You will need Node or Homebrew installed to install the Railway CLI.
+You will need Node or Homebrew installed to install the Railway CLI.
+
+In this guide we will deploy a simple Web Server running NextJS and Prisma.
 
 ## Create a Project
 
 Create a new Railway project by visiting [dev.new](https://dev.new). We will deploy a starter to show how quick you can get up and running on Railway.
 
 Press Command + K and select "Deploy Starter"
-
 
 You will be prompted with a grid of starters. Railway supports a number of languages out of the box and can provision infrastructure like databases to extend your applications. These are what we call Plugins; they can be added and removed at any time.
 
@@ -39,7 +40,7 @@ Clone the repo you created locally on your machine.
 
 The Railway CLI allows you to connect your code to your infrastructure.
 
-Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli), or another [method](develop/cli#install):
+Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli), or [scoop](develop/cli#install):
 
 ```bash
 brew install railwayapp/railway/railway
@@ -59,8 +60,7 @@ before init, which will allow you to select from all your existing projects.
 
 ## Developing Locally
 
-When developing locally, you can connect to your infrastructure by running your
-code with
+When developing locally, you can connect to your infrastructure by running your code with the command.
 
 ```bash
 railway run <cmd>
@@ -69,14 +69,28 @@ railway run <cmd>
 We will inject all the environment variables inside your current Railway
 [environment](develop/environments). This allows your application to take advantage of your plugins and any environment variables you wish to set up.
 
+Locally install the project dependencies by running the following command.
 
-Locally install the project dependencies. Then make a tiny change to our application. Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of the `<h1>` JSX tag to `My Todos`. If you are running the dev server locally, you'll see the change.
+```bash
+yarn
+```
+
+Then start the development server with the environment variables sourced by Railway through the CLI like so.
+
+```bash
+railway run yarn dev
+```
+
+Lets make a tiny change to our application to see if everything is working.
+Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of the `<h1>` JSX tag to `My Todos`.
+
+If you are running the dev server locally, you'll see the change.
 
 Save the file, and now we are ready to deploy.
 
 ## Deploy
 
-To deploy your current directory, run
+To deploy your current directory, run the following command. Make sure you are in the project root directory in your terminal.
 
 ```bash
 railway up
@@ -94,7 +108,7 @@ After your deployment completes, you can see your new deployment live at the dep
 Railway aims to be the simplest way to develop, deploy, and diagnose issues with your application. There are additional features we haven't covered in this guide but are worth exploring.
 
 1. Railway automagically manages your environment variables for plugins. Add Postgres -> that project instantly gets access.
-2. Railway lets you create parallel, identical environments for PRs/testing
+2. Railway lets you create parallel, identical environments for PRs/testing.
 3. Railway lets you run as much (or as little) compute as you'd like with its usage based pricing and a metrics dashboard included in every project.
 4. Adding team members to your projects is as easy as sending them an invite link.
 
