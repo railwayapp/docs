@@ -5,42 +5,75 @@ title: Getting Started
 Railway is a deployment platform where you can provision infrastructure,
 develop with that infrastructure locally, and then deploy to the cloud.
 
-The following guide will get you up and running quickly by covering the following
-3 steps:
+In this guide we will deploy a simple To-Do App running NextJS and Prisma using a starter.
+
+(Gif of the To-Do App)
+
+We will get you up and running quickly by covering the following 3 steps:
 
 1. Creating a project from a starter
 2. Developing the project locally
 3. Deploying to the cloud
 
-You will need Node or Homebrew installed to install the Railway CLI.
-
-In this guide we will deploy a simple Web Server running NextJS and Prisma.
+You will need [Node](https://nodejs.org/en/download/) or [Homebrew](https://brew.sh/) on your machine to install the Railway CLI.
 
 ## Create a Project
 
-Create a new Railway project by visiting [dev.new](https://dev.new). We will deploy a starter to show how quick you can get up and running on Railway.
+First, to deploy the NextJS Prisma starter, we will make a new [project](develop/projects).
 
-Press Command + K and select "Deploy Starter"
+Railway offers a Command Palette that exposes all actions that one can do on the platform. We will use this menu to create our project.
 
-You will be prompted with a grid of starters. Railway supports a number of languages out of the box and can provision infrastructure like databases to extend your applications. These are what we call Plugins; they can be added and removed at any time.
+Press the Command + K key combination and type "New Project".
 
-In the starter selection grid, select `NextJS Prisma`.
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643696774/docs/CleanShot_2022-02-01_at_01.15.37_2_p85zsa.gif"
+alt="Screenshot of Metrics Page"
+layout="intrinsic"
+width={800} height={440} quality={80} />
 
-This will create a repo using the starter as a base on your linked GitHub account. If you don't have a linked GitHub account, you will be prompted to link an account to deploy.
+You can also create a project by [navigating to dev.new](https://dev.new). One of the many ways you can create a new project on Railway.
+
+You will then be be prompted with a menu of options. Select "Deploy Starter" from the list.
+
+### Deploy the Next JS Prisma Starter
+
+Railway offers 40+ starters on the platform of varying type. Under the search bar at the top right of the page, type `NextJS Prisma`.
+
+(Gif of typing the query)
+
+The grid will narrow down to your query. Click the `NextJS Prisma` starter to deploy it.
+
+Railway requires that you have a valid GitHub account linked to deploy a starter. If there is no account associated with your Railway account, you will be prompted to link an account.
+
+Let's leave the default settings as is in the Deploy menu and click deploy.
+
+When you click deploy, Railway will create a repo using the `NextJS Prisma` starter as the source on your linked GitHub account and kick off an initial deploy after the project is created.
+
+(Gif of deploy)
 
 Once the project is created you will land on your project dashboard.
 
 This is your _mission control_. Your project's infrastructure, [environments](develop/environments), and [deployments](deploy/railway-up) are all
 controlled from here.
 
+Congrats! After the initial deployment finalizes, your web server is ready to go. Within the web server service deployed- you can click on the deployment link to go to your web app. In the next step, we will personalize your new web app.
+
+## Developing Locally
+
+So far Railway spun up a Postgres instance and a web server providing all the needed variables on deploy. However, we will need these variables locally when developing our app locally.
+
+In this step, we will use the Railway CLI to run your app locally with all the variables you need to connect to your infrastructure.
+
+Lets begin by cloning the repo you created on your machine.
+
+(Tip: you can navigate directly to the Project's repo from the deployment pane using the Command Palette.)
+
 ### Install and Link the CLI
 
-Clone the repo you created locally on your machine.
-(Tip: you can navigate directly to the Project's repo from the deployment pane.)
+As mentioned, we use the Railway CLI to connect your code to your infrastructure.
 
-The Railway CLI allows you to connect your code to your infrastructure.
+Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli), or [Scoop](develop/cli#install):
 
-Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli), or [scoop](develop/cli#install):
+(Note: Brew works best on M1 Macs.)
 
 ```bash
 brew install railwayapp/railway/railway
@@ -48,19 +81,23 @@ brew install railwayapp/railway/railway
 npm i -g @railway/cli
 ```
 
-After signing in, if you are in your project's directory, you can link your project to a directory:
+Log in to your account by running the login command.
 
 ```bash
-railway link [projectId]
+railway login
 ```
 
-The `projectId` is available on your project dashboard under the Setup page. If you were logged in to
-the Railway dashboard when you created your project, you can run `railway login`
-before init, which will allow you to select from all your existing projects.
+After signing in, if you are in your project's directory, you can link your repo to the starter project:
 
-## Developing Locally
+(Gif of Link)
 
-When developing locally, you can connect to your infrastructure by running your code with the command.
+```bash
+railway link
+```
+
+### Run and Develop Your App
+
+When developing locally, you can connect to your infrastructure by running your code with the command. Our code needs the Postgres DB connection variables to persist the To-Dos locally, `railway run` makes that possible.
 
 ```bash
 railway run <cmd>
@@ -82,7 +119,11 @@ railway run yarn dev
 ```
 
 Lets make a tiny change to our application to see if everything is working.
-Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of the `<h1>` JSX tag to `My Todos`.
+Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of the `<h1>` JSX tag to the following string.
+
+```javascript
+<h1>My Todos</h1>
+```
 
 If you are running the dev server locally, you'll see the change.
 
@@ -95,6 +136,8 @@ To deploy your current directory, run the following command. Make sure you are i
 ```bash
 railway up
 ```
+
+(Gif of Railway Up)
 
 This will create a [deployment](deploy/railway-up) using the current project and
 environment. Click the returned link to see the build and deploy logs.
