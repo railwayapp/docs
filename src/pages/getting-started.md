@@ -54,8 +54,10 @@ When you click deploy, Railway will create a repo using the `NextJS Prisma` star
 
 Once the project is created you will land on your project dashboard.
 
-This is your _mission control_. Your project's infrastructure, [environments](develop/environments), and [deployments](deploy/railway-up) are all
+This is your _mission control_. Your project's infrastructure, [environments](develop/environments), and [deployments](deploy/deployments) are all
 controlled from here.
+
+You should see a [Postgres plugin](plugins/postgresql) in the project dashboard, we use this to persist our To-Dos in the app.
 
 Congrats! After the initial deployment finalizes, your web server is ready to go. Click on the deployment and navigate to your deployment to see the app live. In the next step, we will personalize your new web app.
 
@@ -77,7 +79,11 @@ Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railw
 
 ```bash
 brew install railwayapp/railway/railway
-# or
+```
+
+or
+
+```
 npm i -g @railway/cli
 ```
 
@@ -156,7 +162,7 @@ width={800} height={498} quality={100} />
 This will create a [deployment](deploy/railway-up) using the current project and
 environment. Click the returned link to see the build and deploy logs.
 
-For projects based off of a GitHub repo like a starter, [auto deploys](deploy/github-triggers) are automatically enabled. Commits on main trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
+For projects based off of a GitHub repo like a starter, [auto deploys](deploy/github-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
 
 After your deployment completes, you can see your new deployment live at the deployment's URL. If you added To-Dos while developing locally, you should see them on your deployment live. In a proper project, you would enable multiple environments to isolate your production environment.
 
@@ -174,7 +180,7 @@ Railway aims to be the simplest way to develop, deploy, and diagnose issues with
 1. Railway lets you create parallel, identical environments for PRs/testing.
 2. Railway lets you run as much (or as little) compute as you'd like with its usage based pricing and a metrics dashboard included in every project.
 3. Adding team members to your projects is as easy as sending them an invite link.
-4. Railway supports projects or any size, you can deploy additional services to the same project or deploy subdirectories of a monorepo.
+4. Railway supports projects of any size, you can deploy additional services to the same project or deploy subdirectories of a monorepo.
 
 As your Project scales, Railway scales with you by supporting with multiple members per Project, Teams, and Autoscaling- leaving you to focus on what matters: your code.
 
