@@ -27,7 +27,7 @@ export const sidebarContent: ISidebarContent = [
         "tutorial",
         "getting started",
       ]),
-      makePage("What Is Metro", undefined, [
+      makePage("Railway Metro", undefined, [
         "introduction",
         "tutorial",
         "getting started",
