@@ -27,6 +27,11 @@ export const sidebarContent: ISidebarContent = [
         "tutorial",
         "getting started",
       ]),
+      makePage("What Is Metro", undefined, [
+        "introduction",
+        "tutorial",
+        "getting started",
+      ]),
     ],
   },
   {
