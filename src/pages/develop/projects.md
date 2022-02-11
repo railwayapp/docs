@@ -34,7 +34,7 @@ Projects that are created by a user that is logged in or that have been claimed 
 
 The project canvas is where you can perform administrative actions, view services, manage environments, and spin up new services.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644620884/docs/ProjectPage_new_pa52tp.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644620884/docs/ProjectPage_new_pa52tp.png"
 alt="Screenshot of Project Canvas"
 layout="responsive"
 width={1377} height={823} quality={100} />
@@ -49,7 +49,7 @@ Under the Settings > General page you can change the project's name and descript
 
 ## Project Member Management
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644620958/docs/MemberView_New_p0s3be.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644620958/docs/MemberView_New_p0s3be.png"
 alt="Screenshot of Project Team Members"
 layout="responsive"
 width={1377} height={823} quality={100} />

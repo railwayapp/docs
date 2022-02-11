@@ -26,7 +26,7 @@ Project tokens can be used in environments where you cannot login (e.g. remote
 servers or CI). You can create project tokens for a specific [Railway
 environment](/develop/environments) on the project page.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644622499/docs/projecttokens_lwjgat.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644622499/docs/projecttokens_lwjgat.png"
 alt="Screenshot of Project Canvas"
 layout="responsive"
 width={1377} height={823} quality={100} />
