@@ -9,7 +9,7 @@ import "twin.macro";
 
 const Image = props => (
   <a tw="block xl:-mx-8" href={props.src} target="_blank" rel="noopener">
-    <Image {...props} />
+    <NextImage {...props} />
   </a>
 );
 
