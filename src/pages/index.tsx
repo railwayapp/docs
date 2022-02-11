@@ -35,7 +35,7 @@ const Home: NextPage = () => {
             </ButtonLink>
           </div>
           <div tw="absolute -bottom-8 right-0 opacity-50 z-0 lg:opacity-100">
-            <Image
+            <NextImage
               src="/images/code-terminal.svg"
               alt="Graphic of Terminal"
               tw=""
