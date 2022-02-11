@@ -76,7 +76,7 @@ alt="Screenshot of Service UI"
 layout="responsive"
 width={1200} height={630} quality={80} />
 
-Clicking the gear icon on the upper left now opens the Global Project settings. Menu items such as inviting users, deleting services, renaming your project, Vercel integration, and much more now live in a dedicated menu with much more screen real estate.
+Clicking the gear icon on the upper right now opens the Global Project settings. Menu items such as inviting users, deleting services, renaming your project, Vercel integration, and much more now live in a dedicated menu with much more screen real estate.
 
 ### First Class Mobile Interfaces
 

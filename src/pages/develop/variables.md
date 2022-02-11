@@ -2,18 +2,17 @@
 title: Variables
 ---
 
-Project variables are provided whenever you build, deploy, or run `railway run`.
+Service variables are provided whenever you build, deploy, or run `railway run`.
+
 Together these variables form your Railway environment. Each
 plugin provides the necessary environment variables needed to use it (such as
 `DATABASE_URL` for the PG plugin). You can also specify custom variables on the
 project variables page.
 
-<Image  src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-vars_yu71yi.png" 
-            alt="Screenshot of Project Variables on Railway Dashboard"
-            layout="responsive"
-            width={1083} 
-            height={865}
-            quality={80} />
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644622035/docs/VariablesView_avvpds.png"
+alt="Screenshot of Project Canvas"
+layout="responsive"
+width={1377} height={823} quality={100} />
 
 You can view all variables for the current environment with `railway vars` and change the environment with `railway environment`.
 

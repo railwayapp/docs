@@ -2,7 +2,7 @@
 title: Deployments
 ---
 
-Project Deployments are attempts to build and deliver your application.
+Service Deployments are attempts to build and deliver your application.
 
 Deployments can be in any of the following states:
 

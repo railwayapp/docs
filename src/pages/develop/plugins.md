@@ -11,7 +11,7 @@ Railway currently offers the following Plugins
 - [MongoDB](/plugins/mongodb)
 - [Redis](/plugins/redis)
 
-You can add a plugin in the Command + K menu or by clicking the Add Plugin on the Project sidebar.
+You can add a plugin in the Command + K menu or by clicking the New Service button on the Project Canvas.
 
 Railway maintains separate plugins for each Environment created.
 

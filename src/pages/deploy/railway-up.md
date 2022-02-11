@@ -15,10 +15,13 @@ railway up
 ```
 
 The current directory will be deployed to the currently selected Railway project
-and environment. Run [`railway status`](/reference/cli-api#status) to see
+and environment. If there is only one service in the project, `up` will deploy to that target.
+Run [`railway status`](/reference/cli-api#status) to see
 which project and environment will be used.
 
-All deployments will appear in the deployments view on your project dashboard.
+If there is more than one service within a project, the CLI will prompt you which service to deploy to.
+
+All deployments will appear within the service on your project canvas.
 Clicking on the build will bring up the build and deploy logs. Each deploy gets
 a unique URL and is considered immutable.
 
