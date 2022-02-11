@@ -4,9 +4,9 @@ title: Dockerfiles
 
 ## Dockerfiles
 
-We will look for and use a `Dockerfile` at the project root if it exists.
+We will look for and use a `Dockerfile` at the service's root if it exists.
 
-Railway notifies you when it's using the `Dockerfile` in the build process with the following message in the logs 
+Railway notifies you when it's using the `Dockerfile` in the build process with the following message in the logs
 
 ```shell
 ==========================
@@ -28,7 +28,6 @@ ARG EnvironmentVariable
 
 Be sure to declare your environment variables at the start of the `Dockerfile`.
 
-
 ### Docker Compose
 
-We sadly do not support docker compose at the moment. Thank you for the understanding 
+We sadly do not support docker compose at the moment. Thank you for the understanding

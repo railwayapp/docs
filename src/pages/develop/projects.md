@@ -30,29 +30,29 @@ Projects that are created by a user that is logged in or that have been claimed 
 - Are only accessible to members of the project
 - Are private and require permission to access
 
-## Project Dashboard
+## Project Canvas
 
-The project dashboard is where you can perform administrative actions, view project metrics, set project variables, and view deployments.
+The project canvas is where you can perform administrative actions, view services, manage environments, and spin up new services.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-dashboard_qmrx1z.png"
-alt="Screenshot of Project Dashboard"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644620884/docs/ProjectPage_new_pa52tp.png"
+alt="Screenshot of Project Canvas"
 layout="responsive"
-width={841} height={548} quality={80} />
+width={1377} height={823} quality={100} />
 
 ## Project Settings
 
-You can manage project specific settings under the Settings page.
+You can manage project specific settings under the Project Settings page accessible by the button on the top right in the project canvas.
 
 ### General Actions
 
-Under the Settings > General tab you can change the project's name and description as well as retrieve the `projectId`.
+Under the Settings > General page you can change the project's name and description as well as retrieve the `projectId`.
 
 ## Project Member Management
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-member-list_p0bjfs.png"
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644620958/docs/MemberView_New_p0s3be.png"
 alt="Screenshot of Project Team Members"
 layout="responsive"
-width={1345} height={933} quality={80} />
+width={1377} height={823} quality={100} />
 
 Under the Members tab, you can invite members to access the project.
 

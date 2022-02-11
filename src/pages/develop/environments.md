@@ -2,14 +2,14 @@
 title: Environments
 ---
 
-Railway environments give you an isolated instance of all plugins in a project.
+Railway environments give you an isolated instance of all plugins and services in a project.
 You can use them to
 
 - Have development environments for each team member that are identical to the
   production environment
 - Have separate staging and production environments
 
-Each environment has the same plugins. When a new plugin is added to the
+Each environment has the same plugins and services. When a new plugin is added to the
 project, an instance of that plugin is created for each environment.
 
 Deploys are also scoped to a specific Railway environment. When you create a [GitHub Trigger](/deploy/integrations#github-integration) you can specify which environment to use. When you [deploy with up](/deploy/railway-up), the current environment will be used.
@@ -18,12 +18,10 @@ Deploys are also scoped to a specific Railway environment. When you create a [Gi
 
 You can create an environment under Settings > Environments. When you create an environment, Railway provisions another copy of existing plugins from the `production` environment.
 
-<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/create-env_hrgfme.png" 
+<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1644621886/docs/Environments.gif" 
             alt="Screenshot of Environments Page"
             layout="responsive"
-            width={1082} 
-            height={733}
-            quality={80} />
+            width={800} height={434} quality={100} />
 
 ## Environment Deploys
 

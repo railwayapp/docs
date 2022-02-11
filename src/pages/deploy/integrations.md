@@ -16,6 +16,7 @@ select which environment to use.
             quality={80} />
 
 It is possible to create multiple triggers. With this workflow you can connect to your repo and
+
 - Deploy _main_ using the _production_ environment
 - Deploy _staging_ using the _staging_ environment
 
@@ -25,12 +26,10 @@ Project tokens can be used in environments where you cannot login (e.g. remote
 servers or CI). You can create project tokens for a specific [Railway
 environment](/develop/environments) on the project page.
 
- <NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-tokens_rslnr6.png" 
-            alt="Screenshot of Project Tokens"
-            layout="responsive"
-            width={1076} 
-            height={741}
-            quality={80} />
+<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644622499/docs/projecttokens_lwjgat.png"
+alt="Screenshot of Project Canvas"
+layout="responsive"
+width={1377} height={823} quality={100} />
 
 Project tokens allow the CLI to access all the environment variables associated
 with a specific project and environment. Use the token by setting the
