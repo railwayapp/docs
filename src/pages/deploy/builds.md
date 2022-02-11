@@ -77,7 +77,7 @@ builder](https://github.com/railwayapp/railway-builder) that will allow us to ha
 
 You can opt-in to using this new builder by enabling it in your project's deployment settings, on a per-project basis.
 
-<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/experimental-builder_dfan3l.png" 
+<Image  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/experimental-builder_dfan3l.png" 
             alt="Screenshot of enabling the experimental builder setting"
             layout="responsive"
             width={944} 

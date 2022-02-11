@@ -2,7 +2,7 @@
 title: Project Usage
 ---
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-usage_gd43fq.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-usage_gd43fq.png"
 alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={491} height={286} quality={80} />

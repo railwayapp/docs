@@ -66,7 +66,7 @@ export const DocsLayout: React.FC<Props> = ({
         image={getOGImage(frontMatter.title)}
       />
       <div tw="max-w-full">
-        <div tw="max-w-prose flex-auto prose">
+        <div tw="flex-auto prose">
           <h1>{frontMatter.title}</h1>
 
           <div className="docs-content">{children}</div>

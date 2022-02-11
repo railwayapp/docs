@@ -7,7 +7,7 @@ develop with that infrastructure locally, and then deploy to the cloud.
 
 In this guide we will deploy a simple To-Do App running [NextJS](https://nextjs.org/docs/getting-started) and [Prisma](https://www.prisma.io/docs/) using a starter.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643740624/docs/todos-gif.gif"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1643740624/docs/todos-gif.gif"
 alt="Preview of What The Guide is Building"
 layout="intrinsic"
 width={800} height={378} quality={100} />
@@ -28,7 +28,7 @@ Railway offers a Command Palette that exposes all actions that one can do on the
 
 Press the Command + K key combination and type "New Project".
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643696774/docs/CleanShot_2022-02-01_at_01.15.37_2_p85zsa.gif"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1643696774/docs/CleanShot_2022-02-01_at_01.15.37_2_p85zsa.gif"
 alt="Command K in Action"
 layout="intrinsic"
 width={800} height={440} quality={80} />
@@ -39,7 +39,7 @@ Under the list of options in the menu, select "Deploy Starter".
 
 Railway offers 40+ starters ranging from blogs to self-hosted apps. Use the search bar at the top right and type `NextJS Prisma`.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643761460/docs/findnextjs_kvgmuj.gif"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1643761460/docs/findnextjs_kvgmuj.gif"
 alt="Deploy the Starter"
 layout="intrinsic"
 width={800} height={546} quality={80} />
@@ -99,7 +99,7 @@ Then, when you are in your project's directory, link your repo to the starter pr
 railway link
 ```
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643748194/docs/railwaylinkv2_ty9q8c.gif"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1643748194/docs/railwaylinkv2_ty9q8c.gif"
 alt="Linking the Project via CLI"
 layout="intrinsic"
 width={800} height={320} quality={80} />
@@ -130,7 +130,7 @@ Start the development server with the environment variables sourced by Railway t
 railway run yarn dev
 ```
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643747993/docs/railwayrun_zgaqop.gif"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1643747993/docs/railwayrun_zgaqop.gif"
 alt="Developing Locally"
 layout="intrinsic"
 width={800} height={480} quality={100} />
@@ -154,7 +154,7 @@ To deploy your current directory, run the following command. Make sure you are i
 railway up
 ```
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643748653/docs/railwayup_vhkdv8.gif"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1643748653/docs/railwayup_vhkdv8.gif"
 alt="Railway Up in Action"
 layout="intrinsic"
 width={800} height={498} quality={100} />
@@ -166,7 +166,7 @@ For projects based off of a GitHub repo like a starter, [auto deploys](deploy/gi
 
 After your deployment completes, you can see your new deployment live at the deployment's URL. If you added To-Dos while developing locally, you should see them on your deployment live. In a proper project, you would enable multiple environments to isolate your production environment.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643749599/docs/updeployworking_qaysjx.gif"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1643749599/docs/updeployworking_qaysjx.gif"
 alt="App Deployed From Local to Production"
 layout="intrinsic"
 width={800} height={342} quality={100} />

@@ -14,11 +14,13 @@ Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railw
 ```bash
 brew install railwayapp/railway/railway
 ```
+
 ### NPM
 
 ```bash
 npm i -g @railway/cli
 ```
+
 ### Shell Script
 
 ```bash
@@ -41,7 +43,7 @@ You can also download the [prebuilt binary directly](https://github.com/railwaya
 
 ## Login
 
-Login to your Railway account. Opens a browser tab which authenticates into an existing Railway session. 
+Login to your Railway account. Opens a browser tab which authenticates into an existing Railway session.
 
 ```bash
 railway login
@@ -65,7 +67,7 @@ RAILWAY_TOKEN=XXXX railway run
 
 Link to an existing Project under your Railway account or team.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/railway-link_juslvt.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/railway-link_juslvt.png"
 alt="Screenshot of Railway"
 layout="intrinsic"
 width={389} height={116} quality={80} />
@@ -76,7 +78,7 @@ railway link <projectId>
 
 ## Create a Project
 
-Create a new project directly from the command line. 
+Create a new project directly from the command line.
 
 ```bash
 railway init
@@ -108,7 +110,6 @@ Projects might have multiple environments, by default the CLI points to the `pro
 railway environment
 ```
 
-
 ## Deploy
 
 Deploy current directory to Railway. Displays deployment logs from the project deploys.
@@ -133,7 +134,7 @@ Open an interactive shell to a database directly in the CLI.
 railway connect
 ```
 
-## Logout 
+## Logout
 
 ```bash
 railway logout

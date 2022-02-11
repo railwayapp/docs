@@ -2,7 +2,7 @@
 title: What Is Metro?
 ---
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1644303904/docs/CleanShot_2022-02-08_at_02.04.30_xj4kzt.png"
 alt="Screenshot of Metro in Chrome Browser"
 layout="responsive"
@@ -38,7 +38,7 @@ Before we opened up Metro to everyone, we have extensively tested and previewed 
 
 ### Multi-Service Projects
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1644302337/docs/CleanShot_2022-02-08_at_01.32.19_bwyxyl.png"
 alt="Screenshot of Multi Service View"
 layout="responsive"
@@ -50,7 +50,7 @@ Adding a new service to your project is as easy as Command + K: and picking your
 
 ### New Service UI
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1644301146/docs/services-ui-view_qxithf.png"
 alt="Screenshot of Service View"
 layout="responsive"
@@ -60,7 +60,7 @@ One of the issues with the old UI was the fact that it was hard to separate whic
 
 ### Activity Pane
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1644302072/docs/activity_ctz3yb.png"
 alt="Screenshot of Activity Pane"
 layout="intrinsic"
@@ -70,7 +70,7 @@ The new added activity feed in the project home screen now shows you all relevan
 
 ### Global Settings
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1644301148/docs/service-pr-deploys_v1crch.png"
 alt="Screenshot of Service UI"
 layout="responsive"
@@ -80,7 +80,7 @@ Clicking the gear icon on the upper left now opens the Global Project settings. 
 
 ### First Class Mobile Interfaces
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1644301144/docs/mobile-metro-og_dmqo02.png"
 alt="Screenshot of Mobile Views"
 layout="responsive"

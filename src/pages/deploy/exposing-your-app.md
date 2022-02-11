@@ -22,7 +22,7 @@ Here's how it works:
 2. Add the `CNAME` record to the DNS settings for your domain
 3. Wait for Railway to verify your `CNAME` record
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/domain_sftsni.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/domain_sftsni.png"
 alt="Screenshot of Custom Domain"
 layout="responsive"
 width={2522} height={1718} quality={80} />
@@ -42,7 +42,7 @@ via `https://`.
 If you have proxying enabled on Cloudflare (the orange cloud), you MUST set your
 SSL/TLS settings to full or above.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/cloudflare_zgeycj.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/cloudflare_zgeycj.png"
 alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1205} height={901} quality={80} />
@@ -61,7 +61,7 @@ Some domain registrars don't fully support CNAME records like Google Domains. As
 
 In Google Domains, you can create a record to forward your domain root to the Railway project. You can do this by creating a CNAME in the Custom Records section pointing to www to `yourapp.yourrailwayproject.com`
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/gd-redirect_vhit07.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/gd-redirect_vhit07.png"
 alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1116} height={411} quality={80} />

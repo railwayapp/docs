@@ -15,7 +15,7 @@ Deployments can be in any of the following states:
 - Removed
 - Removing
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/deploy-view_pohple.png"
 alt="Screenshot of Deploy View"
 layout="responsive"
@@ -27,13 +27,13 @@ a pair of unique URLs and is considered immutable.
 
 ## Deployment Lifecycle
 
-Every Deployment in Railway begins as `Initializing` - once it has been accepted into our build queue, the status will change to `Building`. 
+Every Deployment in Railway begins as `Initializing` - once it has been accepted into our build queue, the status will change to `Building`.
 
-While a Deployment is building, Railway will attempt to create a deployable Docker image containing your code and configuration (see [Builds](builds) for more details). Once the build succeeds, Railway will attempt to deploy your image and the Deployment's status becomes `Deploying`. If a [healthcheck](../diagnose/healthchecks) is configured, Railway will wait for it to succeed before proceeding to the next step. 
+While a Deployment is building, Railway will attempt to create a deployable Docker image containing your code and configuration (see [Builds](builds) for more details). Once the build succeeds, Railway will attempt to deploy your image and the Deployment's status becomes `Deploying`. If a [healthcheck](../diagnose/healthchecks) is configured, Railway will wait for it to succeed before proceeding to the next step.
 
 If an error occurs during the build or deploy process, the Deployment will stop and the status will become `Failure`. Once the Deployment is live and running, the status will change to `Success`. A Deployment will remain in this state unless it [crashes](deployments#restart-a-crashed-deployment), at which point it will become `Crashed`.
 
-When a new Deployment is triggered, older deploys in a `Crashed` and `Success` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually. 
+When a new Deployment is triggered, older deploys in a `Crashed` and `Success` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually.
 
 ## Bad Gateway
 
@@ -48,7 +48,7 @@ A new deploy is triggered when the [command](railway-up.md) `railway up` is
 executed. Projects that are linked to a GitHub repo automatically deploy when
 new commits are detected in the connected branch.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/github-deploys_bscowt.png"
 alt="Screenshot of GitHub Integration"
 layout="responsive"
@@ -63,7 +63,7 @@ the [GitHub Trigger's integration](integrations#github-integration).
 A start command is the process used to run a Deployment's code. For example, a Python project may have a start command of `python main.py`, or a NodeJS project may have a start command of `npm run start`.
 
 Railway automatically configures the start command based on the code being
-deployed. If your code uses a Dockerfile, the start command defaults to the ENTRYPOINT and/or CMD defined in the Dockerfile. Otherwise, the buildpack used to create the image will determine the start command - see [Builds](builds) for more details. 
+deployed. If your code uses a Dockerfile, the start command defaults to the ENTRYPOINT and/or CMD defined in the Dockerfile. Otherwise, the buildpack used to create the image will determine the start command - see [Builds](builds) for more details.
 
 Start commands may be overridden for advanced use-cases such as
 deploying multiple projects from a single [monorepo](/deploy/monorepo).
@@ -73,7 +73,7 @@ When specifying a start command, the behavior of the image depends on type of bu
 - Dockerfile: the start command overrides the Docker image's ENTRYPOINT in [exec form](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example)
 - Buildpack: the start command is inserted as a [buildpack launch process](https://buildpacks.io/docs/app-developer-guide/run-an-app/#user-provided-shell-process)
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-start-command_a8vcxs.png"
 alt="Screenshot of custom start command configuration"
 layout="intrinsic"
@@ -85,7 +85,7 @@ For those who prefer to keep only one deploy active, you can enable (default
 behaviour) singleton deploys under the Settings tab of the Deployments page.
 This setting is useful for bots where there might be conflicts with log ins.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/singletons_oajxpb.png"
 alt="Screenshot of Deploy Options"
 layout="responsive"
@@ -99,7 +99,7 @@ Users can rollback to previous deploys if mistakes were made. A deployment
 rollback will revert to the previously successful deployment. Both the Docker
 image and custom variables are restored during the rollback process.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/rollback_i4mge0.png"
 alt="Screenshot of Rollback Menu"
 layout="responsive"
@@ -116,7 +116,7 @@ deployment.
 
 We maintain logs for inactive deployments as well as active. Under the logs pane, you can search within your logs for certain keywords.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1643229357/docs/log-filtering_tkzope.gif"
 alt="Animation of Log Filtering"
 layout="responsive"
@@ -134,17 +134,16 @@ the deployment and stop any further project usage.
 
 ### Restart a Crashed Deployment
 
-When a Deployment is `Crashed`, it is no longer running because the underlying process exited with a non-zero exit code - if your deployment exits successfully (exit code 0), the status will remain `Success`. 
+When a Deployment is `Crashed`, it is no longer running because the underlying process exited with a non-zero exit code - if your deployment exits successfully (exit code 0), the status will remain `Success`.
 
-Railway automatically restarts crashed Deployments up to 3 times. After this limit is reached, your deployment status is changed to `Crashed` and notifying webhooks & emails are sent to the project's members. 
+Railway automatically restarts crashed Deployments up to 3 times. After this limit is reached, your deployment status is changed to `Crashed` and notifying webhooks & emails are sent to the project's members.
 
 You can restart a `Crashed` Deployment by visiting your project and clicking on the "Restart" button that appears in-line on the Deployment:
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1643239507/crash-ui_b2yig1.png"
 alt="Screenshot of Deploy Options"
 layout="responsive"
 width={947} height={156} quality={80} />
 
-Restarting a crashed Deployment restores the exact image containing the code & configuration of the original build. Once the Deployment is back online, its status will change back to `Success`. 
-
+Restarting a crashed Deployment restores the exact image containing the code & configuration of the original build. Once the Deployment is back online, its status will change back to `Success`.
