@@ -75,13 +75,6 @@ builder](https://github.com/railwayapp/railway-builder) that will allow us to ha
 - NGINX
 - Python
 
-You can opt-in to using this new builder by enabling it in your project's deployment settings, on a per-project basis.
-
-<NextImage  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/experimental-builder_dfan3l.png" 
-            alt="Screenshot of enabling the experimental builder setting"
-            layout="responsive"
-            width={944} 
-            height={693}
-            quality={80} />
+You can opt-in to using this new builder by enabling it in your service's deployment settings, on a per-service basis.
 
 Please note that this is still in development and may not be 100% backwards compatible with the previous builder. If you have any thoughts/concerns/questions/feedback, [we would love to hear from you](https://discord.gg/xAm2w6g)!
