@@ -15,7 +15,7 @@ Deployments can be in any of the following states:
 - Removed
 - Removing
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/deploy-view_pohple.png"
 alt="Screenshot of Deploy View"
 layout="responsive"
@@ -48,7 +48,7 @@ A new deploy is triggered when the [command](railway-up.md) `railway up` is
 executed. Projects that are linked to a GitHub repo automatically deploy when
 new commits are detected in the connected branch.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/github-deploys_bscowt.png"
 alt="Screenshot of GitHub Integration"
 layout="responsive"
@@ -73,7 +73,7 @@ When specifying a start command, the behavior of the image depends on type of bu
 - Dockerfile: the start command overrides the Docker image's ENTRYPOINT in [exec form](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example)
 - Buildpack: the start command is inserted as a [buildpack launch process](https://buildpacks.io/docs/app-developer-guide/run-an-app/#user-provided-shell-process)
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-start-command_a8vcxs.png"
 alt="Screenshot of custom start command configuration"
 layout="intrinsic"
@@ -85,7 +85,7 @@ For those who prefer to keep only one deploy active, you can enable (default
 behaviour) singleton deploys under the Settings tab of the Deployments page.
 This setting is useful for bots where there might be conflicts with log ins.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/singletons_oajxpb.png"
 alt="Screenshot of Deploy Options"
 layout="responsive"
@@ -99,7 +99,7 @@ Users can rollback to previous deploys if mistakes were made. A deployment
 rollback will revert to the previously successful deployment. Both the Docker
 image and custom variables are restored during the rollback process.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/rollback_i4mge0.png"
 alt="Screenshot of Rollback Menu"
 layout="responsive"
@@ -116,7 +116,7 @@ deployment.
 
 We maintain logs for inactive deployments as well as active. Under the logs pane, you can search within your logs for certain keywords.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1643229357/docs/log-filtering_tkzope.gif"
 alt="Animation of Log Filtering"
 layout="responsive"
@@ -140,7 +140,7 @@ Railway automatically restarts crashed Deployments up to 3 times. After this lim
 
 You can restart a `Crashed` Deployment by visiting your project and clicking on the "Restart" button that appears in-line on the Deployment:
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1643239507/crash-ui_b2yig1.png"
 alt="Screenshot of Deploy Options"
 layout="responsive"

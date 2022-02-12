@@ -10,7 +10,7 @@ Users are only allowed one account per person, if caught multi-accounting, we do
 
 ## Account Actions
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/account-nav_jzyaeb.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/account-nav_jzyaeb.png"
 alt="Screenshot of Account Navigation"
 layout="fixed"
 width={450} height={311} quality={80} />
@@ -25,7 +25,7 @@ Accounts can change their display name, profile photo, and account email under t
 
 At the bottom of the page under [Account Settings](https://railway.app/account), you can select "Delete Account" to have all your account and data related to your account deleted.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1641244076/docs/delete_acz7hs.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1641244076/docs/delete_acz7hs.png"
 alt="Screenshot of Account Delete View"
 layout="fixed"
 width={450} height={311} quality={80} />
@@ -34,7 +34,7 @@ After successful confirmation, Railway deletes all account information, project 
 
 ## Account Security
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/sessions_qo0lhw.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/sessions_qo0lhw.png"
 alt="Screenshot of Sessions Page"
 layout="responsive"
 width={1162} height={587} quality={80} />
@@ -53,7 +53,7 @@ You can see all the places you are logged in on the [account security page](http
 
 ## Referrals
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/referrals_iya9mz.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/referrals_iya9mz.png"
 alt="Screenshot of Referrals Page"
 layout="responsive"
 width={1141} height={604} quality={80} />
@@ -78,7 +78,7 @@ You can add and manage your payment info under the billing page as well as see h
 
 Each Railway account has the option to associate that user's Discord account. Integration is required to enroll in Railway's Beta program dubbed Priority Boarding. You can link the account under the Account Settings page below the GitHub integration section.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1643230045/link-discord-account_vpal68.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1643230045/link-discord-account_vpal68.png"
 alt="Screenshot of Referrals Page"
 layout="responsive"
 width={642} height={326} quality={80} />

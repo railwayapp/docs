@@ -6,7 +6,7 @@ Railway has a built in Database Management Interface, this allows you to perform
 
 ## SQL Interfaces
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/table_select_subfar.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/table_select_subfar.png"
 alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={995} height={628} quality={80} />
@@ -17,7 +17,7 @@ Shift-clicking on one or multiple tables exposes additional options such as the 
 
 ### Creating a Table
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/table_create_kuvnjg.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/table_create_kuvnjg.png"
 alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={928} height={396} quality={80} />
@@ -32,7 +32,7 @@ When a table is clicked, the interface navigates into the Entries View.
 
 Under the Entries View, selecting an existing entry exposes the ability to edit the entry. When button that allows one to add entries to the table.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/edit_row_tobmdh.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/edit_row_tobmdh.png"
 alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={803} height={457} quality={80} />
@@ -55,7 +55,7 @@ For non-structured data, Railway has interfaces that permit users to add and edi
 
 ### Redis View
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/redis_view_jna8ho.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/redis_view_jna8ho.png"
 alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={732} height={419} quality={80} />
@@ -68,7 +68,7 @@ With MongoDB plugins, Railway displays a list of document collections. Users can
 
 ### Adding MongoDB Databases
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1636424673/docs/add_mongo_db_ujjcgr.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1636424673/docs/add_mongo_db_ujjcgr.png"
 alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={552} height={516} quality={80} />

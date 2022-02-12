@@ -5,11 +5,18 @@ import { MDXProvider } from "@mdx-js/react";
 import { DocsLayout } from "../layouts/DocsLayout";
 import { CodeBlock } from "../components/CodeBlock";
 import NextImage from "next/image";
+import "twin.macro";
+
+const Image = props => (
+  <a tw="block xl:-mx-8" href={props.src} target="_blank" rel="noopener">
+    <NextImage {...props} />
+  </a>
+);
 
 const components = {
   a: Link,
   pre: CodeBlock,
-  NextImage,
+  Image,
 };
 
 const Layout: React.FC<{ frontMatter: FrontMatter }> = props => (

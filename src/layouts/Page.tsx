@@ -51,7 +51,7 @@ export const Page: React.FC<Props> = props => {
           <Nav />
           <MobileNav />
 
-          <main tw="flex justify-between px-4 max-w-4xl mx-auto md:px-8 pt-8 pb-12 md:pb-24">
+          <main tw="flex justify-between px-4 w-full max-w-5xl mx-auto md:px-8 pt-8 pb-12 md:pb-24">
             {props.children}
           </main>
         </div>

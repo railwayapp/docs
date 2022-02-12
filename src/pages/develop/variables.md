@@ -9,7 +9,7 @@ plugin provides the necessary environment variables needed to use it (such as
 `DATABASE_URL` for the PG plugin). You can also specify custom variables on the
 project variables page.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644622035/docs/VariablesView_avvpds.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644622035/docs/VariablesView_avvpds.png"
 alt="Screenshot of Project Canvas"
 layout="responsive"
 width={1377} height={823} quality={100} />

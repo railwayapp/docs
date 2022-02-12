@@ -34,7 +34,7 @@ Projects that are created by a user that is logged in or that have been claimed 
 
 The project canvas is where you can perform administrative actions, view services, manage environments, and spin up new services.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644620884/docs/ProjectPage_new_pa52tp.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644620884/docs/ProjectPage_new_pa52tp.png"
 alt="Screenshot of Project Canvas"
 layout="responsive"
 width={1377} height={823} quality={100} />
@@ -49,7 +49,7 @@ Under the Settings > General page you can change the project's name and descript
 
 ## Project Member Management
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1644620958/docs/MemberView_New_p0s3be.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644620958/docs/MemberView_New_p0s3be.png"
 alt="Screenshot of Project Team Members"
 layout="responsive"
 width={1377} height={823} quality={100} />
@@ -71,7 +71,7 @@ Each project generates a project invite link. To invite someone via a link:
 1. Select the desired invited member scope
 2. Copy link and send to the invitee
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-invite-member_kxmhtb.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-invite-member_kxmhtb.png"
 alt="Screenshot of Invite Links"
 layout="responsive"
 width={910} height={272} quality={80} />
@@ -82,7 +82,7 @@ Users can transfer projects to other users.
 
 Under the members list in the members tab - click the 3 dots menu at the end of the user you'd like to transfer the project to.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-transfer_iz4myn.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-transfer_iz4myn.png"
 alt="Screenshot of Project Transfer Menu"
 layout="intrinsic"
 width={411} height={253} quality={80} />
@@ -95,7 +95,7 @@ Monorepos are a common and popular way to organize code that allows teams to mai
 
 On project creation, below the branch selection menu, if a subdirectory is specified- Railway will clone into that project and deploy the directory.
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1636424666/docs/deploy_subdirectory_xkrcq0.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1636424666/docs/deploy_subdirectory_xkrcq0.png"
 alt="Screenshot of Deployment Modal Page"
 layout="intrinsic"
 width={809} height={563} quality={80} />

@@ -2,12 +2,12 @@
 title: Metrics
 ---
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/metrics_p27gzt.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/metrics_p27gzt.png"
 alt="Screenshot of Metrics Page"
 layout="intrinsic"
 width={440} height={405} quality={80} />
 
-Railway allows you to see system information related to your deployments. 
+Railway allows you to see system information related to your deployments.
 
 We provide the following graphs that provide insight into your application's load to help you diagnose application performance.
 
@@ -16,13 +16,13 @@ We provide the following graphs that provide insight into your application's loa
 - Disk Usage
 - Network
 
-When you view your project's metrics, we show you the graphs tied to the selected environment in your Project dashboard. 
+When you view your project's metrics, we show you the graphs tied to the selected environment in your Project dashboard.
 
-We currently keep 7 days worth of metrics data. 
+We currently keep 7 days worth of metrics data.
 
 ### Deployment Information
 
-<NextImage src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/commit-metrics_md9wd1.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/commit-metrics_md9wd1.png"
 alt="Screenshot of Metric Timeseries Page"
 layout="responsive"
 width={864} height={345} quality={80} />
@@ -31,4 +31,4 @@ Your project maintains a continuous timeseries for all your deployments, not jus
 
 ## Plugin Metrics
 
-In addition to metrics on your Project, we provide usage information about your plugins tied to your Project if you have any provisioned. You will see them below your application's metrics. 
+In addition to metrics on your Project, we provide usage information about your plugins tied to your Project if you have any provisioned. You will see them below your application's metrics.

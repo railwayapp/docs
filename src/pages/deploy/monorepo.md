@@ -43,7 +43,7 @@ application when setting up a Deployment Trigger for each project that
 references the monorepo codebase. Setting this means that Railway will only pull
 down files from that directory when creating new deployments.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798659/docs/root-directory_achzga.png"
 alt="Screenshot of root directory configuration"
 layout="intrinsic"
@@ -72,7 +72,7 @@ To deploy this type of monorepo in Railway, define a separate custom start
 command in Deployment Settings for each project that references the monorepo
 codebase.
 
-<NextImage
+<Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-start-command_a8vcxs.png"
 alt="Screenshot of custom start command configuration"
 layout="intrinsic"
