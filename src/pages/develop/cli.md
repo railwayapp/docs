@@ -24,7 +24,7 @@ npm i -g @railway/cli
 ### Shell Script
 
 ```bash
-sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
+curl -fsSL https://railway-develop.app/install.sh | sh
 ```
 
 ### Scoop
