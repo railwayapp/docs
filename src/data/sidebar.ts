@@ -37,9 +37,20 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Develop",
     pages: [
+      makePage("Projects", "develop", [
+        "project",
+        "dashboard",
+        "canvas",
+        "invite",
+      ]),
+      makePage("Services", "develop", [
+        "services",
+        "monorepo",
+        "repo",
+        "domains",
+      ]),
+      makePage("Plugins", "develop", ["databases", "plugin", "db"]),
       makePage("CLI", "develop", ["CLI", "command", "line"]),
-      makePage("Projects", "develop", ["project", "dashboard", "repo"]),
-      makePage("Plugins", "develop", ["database", "plugin", "db"]),
       makePage("Variables", "develop", ["railway run", "variables"]),
       makePage("Environments", "develop", [
         "staging",

@@ -2,8 +2,19 @@
 title: CLI
 ---
 
-Use the Railway CLI to connect your code to your projects infrastructure without
-needing to worry about environment variables or configuration.
+<Image src="https://res.cloudinary.com/railway/image/upload/v1645060494/docs/CLIexample_fiflvb.gif"
+alt="Gif of the CLI in Action"
+layout="intrinsic"
+width={800} height={468} quality={100} />
+
+The Railway command line interface (CLI) connects your code to your Railway project from the command line.
+
+The Railway CLI allows you to
+
+- Create new Railway projects from the terminal
+- Link to an existing Railway project
+- Pull down environment variables to run your project locally
+- Open an interactive shell to a database within a project
 
 ## Install
 
@@ -84,7 +95,7 @@ Create a new project directly from the command line.
 railway init
 ```
 
-## Run
+## Local Development
 
 Run code inside your Railway environment. We connect your code to your
 infrastructure hosted on Railway by injecting environment variables.
@@ -112,21 +123,23 @@ railway environment
 
 ## Deploy
 
-Deploy current directory to Railway. Displays deployment logs from the project deploys.
+Deploy current directory to Railway. Displays deployment logs from the service deploy.
 
 ```bash
 railway up
 ```
 
-## Add Plugin
+If there are multiple services within your project, the CLI will prompt you for a service to deploy to.
 
-Provision a plugin for a project.
+## Add Database Service
+
+Provision a database service for a project.
 
 ```bash
 railway add
 ```
 
-## Connect to Plugin
+## Connect to Database
 
 Open an interactive shell to a database directly in the CLI.
 
@@ -139,3 +152,7 @@ railway connect
 ```bash
 railway logout
 ```
+
+## Contributing
+
+Our CLI is Open Source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
