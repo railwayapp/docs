@@ -48,8 +48,8 @@ export const sidebarContent: ISidebarContent = [
         "monorepo",
         "repo",
         "domains",
+        "databases",
       ]),
-      makePage("Plugins", "develop", ["databases", "plugin", "db"]),
       makePage("CLI", "develop", ["CLI", "command", "line"]),
       makePage("Variables", "develop", ["railway run", "variables"]),
       makePage("Environments", "develop", [

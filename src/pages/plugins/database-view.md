@@ -4,6 +4,13 @@ title: Database View
 
 Railway has a built in Database Management Interface, this allows you to perform common actions on your Database such as viewing and editing the contents of your database plugins in Railway.
 
+### Database Management
+
+We expose two high level administrative actions through the interface for Plugin interface.
+
+- Reset Plugin Credentials
+- Wipe Plugin Data
+
 ## SQL Interfaces
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/table_select_subfar.png"
