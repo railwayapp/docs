@@ -35,8 +35,7 @@ different programming languages.
 ```
 
 To deploy this type of monorepo on Railway, define a root directory for the
-application when setting up a Deployment Trigger within the Service settings for each project that
-references the monorepo codebase. Setting this means that Railway will only pull
+application after when a service is created. To do this: select the service within the project canvas to open up the service view. Click on the Settings tab and scroll down to the root directory option. Setting this means that Railway will only pull
 down files from that directory when creating new deployments.
 
 <Image
@@ -65,7 +64,7 @@ eg. `npm run start:backend` and `npm run start:frontend`).
 ```
 
 To deploy this type of monorepo in Railway, define a separate custom start
-command in Deployment Settings for each project that references the monorepo
+command in Service Settings for each project that references the monorepo
 codebase.
 
 <Image

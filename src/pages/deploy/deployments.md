@@ -40,7 +40,7 @@ When a new Deployment is triggered, older deploys in a `Crashed` and `Success` s
 If you get a Bad Gateway when you attempt to visit the deployment URL, it could
 be that your `PORT` variable is misconfigured. Railway needs an explicit port to
 listen on to expose the application to the internet. You can provide a `PORT`
-variable under the Variables page in your project. For more information, see [Exposing Your App](/deploy/exposing-your-app)
+variable under the Variables page in your project. For more information, see [Exposing Your App.](/deploy/exposing-your-app)
 
 ## Deploy Triggers
 

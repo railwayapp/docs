@@ -75,6 +75,6 @@ builder](https://github.com/railwayapp/railway-builder) that will allow us to ha
 - NGINX
 - Python
 
-You can opt-in to using this new builder by enabling it in your service's deployment settings, on a per-service basis.
+You can opt-in to using this new builder by enabling it in your service's deployment settings, on a per-service basis. We plan to switch to the new builder at some point.
 
 Please note that this is still in development and may not be 100% backwards compatible with the previous builder. If you have any thoughts/concerns/questions/feedback, [we would love to hear from you](https://discord.gg/xAm2w6g)!

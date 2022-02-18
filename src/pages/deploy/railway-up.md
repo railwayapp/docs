@@ -7,7 +7,7 @@ alt="Screenshot of Railway Up"
 layout="intrinsic"
 width={800} height={364} quality={80} />
 
-Use the [Railway CLI](/develop/cli) to deploy your project from the
+Use the [Railway CLI](/develop/cli) to kickoff a deploy within a service in a project from the
 command line. In a [connected project](/develop/cli#connect) run
 
 ```bash
@@ -27,7 +27,7 @@ a unique URL and is considered immutable.
 
 ## Up Behavior
 
-If pointed to a GitHub service, the `up` deploy build will replace the active deploy with the `up` service.
+If pointed to a GitHub service, the `up` deploy build will replace the active deploy with the `up` service. When an empty service is selected within the deployment prompt, the empty service will become a CLI service.
 
 ## Port Variable
 
