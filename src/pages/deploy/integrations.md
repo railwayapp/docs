@@ -2,24 +2,6 @@
 title: Integrations
 ---
 
-## GitHub Integration
-
-Configure Railway to deploy every push to a repo by going to Deployments > Triggers in your project. Here you can select a GitHub repo and branch to deploy
-from. If you have more than 1 [Railway environment](/develop/environments), you can
-select which environment to use.
-
-<Image  src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/github-deploys_bscowt.png" 
-            alt="Screenshot of GitHub Integration"
-            layout="responsive"
-            width={1001} 
-            height={740}
-            quality={80} />
-
-It is possible to create multiple triggers. With this workflow you can connect to your repo and
-
-- Deploy _main_ using the _production_ environment
-- Deploy _staging_ using the _staging_ environment
-
 ## Project Tokens
 
 Project tokens can be used in environments where you cannot login (e.g. remote

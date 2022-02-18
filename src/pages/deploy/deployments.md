@@ -4,6 +4,18 @@ title: Deployments
 
 Service Deployments are attempts to build and deliver your application.
 
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1645148376/docs/deployment-photo_q4q8in.png"
+alt="Screenshot of Deploy View"
+layout="responsive"
+width={1103} height={523} quality={80} />
+
+All deployments will appear in the deployments view on your selected service.
+Clicking on the deployment will bring up the build and deploy logs. Each deploy gets
+a pair of unique URLs and is considered immutable.
+
+## Deployment Lifecycle
+
 Deployments can be in any of the following states:
 
 - Initializing
@@ -14,18 +26,6 @@ Deployments can be in any of the following states:
 - Crashed
 - Removed
 - Removing
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/deploy-view_pohple.png"
-alt="Screenshot of Deploy View"
-layout="responsive"
-width={1005} height={505} quality={80} />
-
-All deployments will appear in the deployments view on your project dashboard.
-Clicking on the build will bring up the build and deploy logs. Each deploy gets
-a pair of unique URLs and is considered immutable.
-
-## Deployment Lifecycle
 
 Every Deployment in Railway begins as `Initializing` - once it has been accepted into our build queue, the status will change to `Building`.
 
@@ -40,16 +40,16 @@ When a new Deployment is triggered, older deploys in a `Crashed` and `Success` s
 If you get a Bad Gateway when you attempt to visit the deployment URL, it could
 be that your `PORT` variable is misconfigured. Railway needs an explicit port to
 listen on to expose the application to the internet. You can provide a `PORT`
-variable under the Variables page in your project.
+variable under the Variables page in your project. For more information, see [Exposing Your App](/deploy/exposing-your-app)
 
 ## Deploy Triggers
 
-A new deploy is triggered when the [command](railway-up.md) `railway up` is
-executed. Projects that are linked to a GitHub repo automatically deploy when
+A new deploy is triggered when the [command](/deploy/railway-up) `railway up` is
+executed. [GitHub Services](/develop/services#github-services) that are linked to a GitHub repo automatically deploy when
 new commits are detected in the connected branch.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/github-deploys_bscowt.png"
+src="https://res.cloudinary.com/railway/image/upload/v1645148953/docs/triggers_i2nrwd.png"
 alt="Screenshot of GitHub Integration"
 layout="responsive"
 width={1001} height={740} quality={80} />
@@ -81,15 +81,7 @@ width={1302} height={408} quality={80} />
 
 ## Singleton Deploys
 
-For those who prefer to keep only one deploy active, you can enable (default
-behaviour) singleton deploys under the Settings tab of the Deployments page.
-This setting is useful for bots where there might be conflicts with log ins.
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/singletons_oajxpb.png"
-alt="Screenshot of Deploy Options"
-layout="responsive"
-width={994} height={756} quality={80} />
+By default, Railway maintains only one deploy per service.
 
 ## Deployment Actions
 
@@ -100,10 +92,10 @@ rollback will revert to the previously successful deployment. Both the Docker
 image and custom variables are restored during the rollback process.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/rollback_i4mge0.png"
+src="https://res.cloudinary.com/railway/image/upload/v1645149734/docs/rollback_mhww2u.png"
 alt="Screenshot of Rollback Menu"
 layout="responsive"
-width={992} height={426} quality={80} />
+width={1518} height={502} quality={80} />
 
 To perform a rollback, click the three dots at the end of a previous deployment,
 you will then be asked to confirm your rollback.
@@ -117,10 +109,10 @@ deployment.
 We maintain logs for inactive deployments as well as active. Under the logs pane, you can search within your logs for certain keywords.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1643229357/docs/log-filtering_tkzope.gif"
+src="https://res.cloudinary.com/railway/image/upload/v1645149733/docs/logs_seqcps.png"
 alt="Animation of Log Filtering"
 layout="responsive"
-width={1200} height={798} quality={80} />
+width={1512} height={1254} quality={80} />
 
 ### Delete Deployments
 

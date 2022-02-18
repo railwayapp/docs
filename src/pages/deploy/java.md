@@ -4,15 +4,15 @@ title: Java Builds
 
 The [Java buildpack](https://github.com/heroku/heroku-buildpack-java) detects if your
 build is Java by looking for a `pom.xml` file. If found, Maven will download all
-dependencies and build the project.
+dependencies and build the project. For latest versions of Java, we will also look for a `system.properties` within the root as well.
 
 ## Setting up your POM.XML file
 
-If your app has any dependencies, the `pom.xml` file should include the `maven-dependency-plugin`. 
+If your app has any dependencies, the `pom.xml` file should include the `maven-dependency-plugin`.
 
 It tells Maven to copy the jar files that your app depends on to the target/dependency directory.
 
-Because we use Cloudnative Buildpacks, the `pom.xml` file needs to have a compatible structure to produce a correct build slug for Java. 
+Because we use Cloudnative Buildpacks, the `pom.xml` file needs to have a compatible structure to produce a correct build slug for Java.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -50,6 +50,7 @@ Because we use Cloudnative Buildpacks, the `pom.xml` file needs to have a compat
 You can specify a Java version by adding a file called system.properties to your application.
 
 Then set a java.runtime.version in the file:
+
 ```
 java.runtime.version=13
 ```

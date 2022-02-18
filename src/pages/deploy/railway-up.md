@@ -2,10 +2,10 @@
 title: Railway Up
 ---
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/railway-up_h4as0c.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1645147674/docs/railwayup_q2mqwx.gif"
 alt="Screenshot of Railway Up"
 layout="intrinsic"
-width={333} height={64} quality={80} />
+width={800} height={364} quality={80} />
 
 Use the [Railway CLI](/develop/cli) to deploy your project from the
 command line. In a [connected project](/develop/cli#connect) run
@@ -19,11 +19,15 @@ and environment. If there is only one service in the project, `up` will deploy t
 Run [`railway status`](/reference/cli-api#status) to see
 which project and environment will be used.
 
-If there is more than one service within a project, the CLI will prompt you which service to deploy to.
+If there is more than one service within a project, the CLI will prompt you which service to [deploy](/deploy/deployments) to.
 
 All deployments will appear within the service on your project canvas.
 Clicking on the build will bring up the build and deploy logs. Each deploy gets
 a unique URL and is considered immutable.
+
+## Up Behavior
+
+If pointed to a GitHub service, the `up` deploy build will replace the active deploy with the `up` service.
 
 ## Port Variable
 

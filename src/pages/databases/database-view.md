@@ -71,7 +71,7 @@ For Redis, Railway displays the keys contained within a plugin instance by defau
 
 ### MongoDB Document View
 
-With MongoDB plugins, Railway displays a list of document collections. Users can add additional collections or add/edit documents within the collection.
+With MongoDB, Railway displays a list of document collections. Users can add additional collections or add/edit documents within the collection.
 
 ### Adding MongoDB Databases
 

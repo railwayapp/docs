@@ -42,10 +42,10 @@ Railway projects allow you to provision additional infrastructure on top of your
 
 Railway currently offers the following databases.
 
-- [PostgreSQL](/plugins/postgresql)
-- [MySQL](/plugins/mysql)
-- [MongoDB](/plugins/mongodb)
-- [Redis](/plugins/redis)
+- [PostgreSQL](/databases/postgresql)
+- [MySQL](/databases/mysql)
+- [MongoDB](/databases/mongodb)
+- [Redis](/databases/redis)
 
 You can add a plugin in the Command + K menu or by clicking the New Service button on the Project Canvas.
 
