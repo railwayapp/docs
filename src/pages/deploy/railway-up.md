@@ -16,7 +16,7 @@ railway up
 
 The current directory will be deployed to the currently selected Railway project
 and environment. If there is only one service in the project, `up` will deploy to that target.
-Run [`railway status`](/reference/cli-api#status) to see
+Run [`railway status`](/reference/cli-api#status) or run `up` with `-v` or `--verbose` to see
 which project and environment will be used.
 
 If there is more than one service within a project, the CLI will prompt you which service to deploy to.
