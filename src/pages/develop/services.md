@@ -61,9 +61,9 @@ Railway injects your database variables whenever you run `railway run` locally t
 
 Railway provides a user interface into your plugin's data that allow you to introspect the tables and the data in your plugin.
 
-## Starter Services
+## Starters
 
-Railway offers 40+ starters that are maintained by the community. A starter service will clone a GitHub repo to your connected account and deploy the service to your project. This is especially useful if you wanted to deploy common pieces of infrastructure like a DataDog Agent.
+Railway offers 40+ starters that are maintained by the community. A starter will clone a GitHub repo to your connected account and deploy the service(s) to your project. This is especially useful if you wanted to deploy common pieces of infrastructure like a DataDog Agent.
 
 This feature is in Beta and is actively being worked on.
 
