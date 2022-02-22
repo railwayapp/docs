@@ -69,7 +69,7 @@ This feature is in Beta and is actively being worked on.
 
 ## Empty Services
 
-Empty services are services with no reference to a repo or binary. They are perfect for [CLI](develop/cli) deploys, running ad-hoc processes, or storing environment variables for local development.
+Empty services are services with no reference to a repo. They are perfect for [CLI](develop/cli) deploys, running ad-hoc processes, or storing environment variables for local development. A repo can be connected to an empty service at any time on the service settings page.
 
 ## Service Metrics
 
