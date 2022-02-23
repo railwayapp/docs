@@ -2,10 +2,6 @@
 title: Monorepo Support
 ---
 
-**Support for monorepos is still early. Please follow our
-[roadmap item](https://feedback.railway.app/feature-requests/p/monorepo-root-directory-support)
-for more details.**
-
 A "monorepo" is roughly defined as a single repository that contains multiple
 runnable components. For example, a web app may have both a frontend and backend
 component, which could be completely isolated from one another or share a subset
@@ -39,8 +35,7 @@ different programming languages.
 ```
 
 To deploy this type of monorepo on Railway, define a root directory for the
-application when setting up a Deployment Trigger for each project that
-references the monorepo codebase. Setting this means that Railway will only pull
+application after when a service is created. To do this: select the service within the project canvas to open up the service view. Click on the Settings tab and scroll down to the root directory option. Setting this means that Railway will only pull
 down files from that directory when creating new deployments.
 
 <Image
@@ -69,7 +64,7 @@ eg. `npm run start:backend` and `npm run start:frontend`).
 ```
 
 To deploy this type of monorepo in Railway, define a separate custom start
-command in Deployment Settings for each project that references the monorepo
+command in Service Settings for each project that references the monorepo
 codebase.
 
 <Image

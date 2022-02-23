@@ -2,12 +2,12 @@
 title: PostgreSQL
 ---
 
-The Railway PostgreSQL plugin allows you to provision and connect to a
+The Railway PostgreSQL database service allows you to provision and connect to a
 PostgreSQL database with zero configuration.
 
 ## Connect
 
-When you run `railway run` in a project with the Postgres plugin installed, we inject several environment variables.
+When you run `railway run` in a project with the Postgres database service installed, we inject several environment variables.
 
 - PGHOST
 - PGPORT
@@ -22,7 +22,7 @@ like.
 
 ## Image
 
-The Postgres plugin uses the [timescale/timescaledb-postgis:latest-pg13](https://hub.docker.com/r/timescale/timescaledb) docker image.
+The Postgres database service uses the [timescale/timescaledb-postgis:latest-pg13](https://hub.docker.com/r/timescale/timescaledb) docker image.
 
 ## Timescale and PostGIS
 

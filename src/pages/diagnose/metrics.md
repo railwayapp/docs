@@ -2,12 +2,12 @@
 title: Metrics
 ---
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/metrics_p27gzt.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1645223702/docs/metrics_angr0b.png"
 alt="Screenshot of Metrics Page"
 layout="intrinsic"
-width={440} height={405} quality={80} />
+width={1576} height={1100} quality={80} />
 
-Railway allows you to see system information related to your deployments.
+Railway allows you to see resource usage information related to your deployments within a service.
 
 We provide the following graphs that provide insight into your application's load to help you diagnose application performance.
 
@@ -16,19 +16,15 @@ We provide the following graphs that provide insight into your application's loa
 - Disk Usage
 - Network
 
-When you view your project's metrics, we show you the graphs tied to the selected environment in your Project dashboard.
+When you view your project's metrics, we show you the graphs tied to the selected environment in your service's metrics tab.
 
 We currently keep 7 days worth of metrics data.
 
 ### Deployment Information
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/commit-metrics_md9wd1.png"
-alt="Screenshot of Metric Timeseries Page"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1645223703/docs/usage-commit_fkvbqj.png"
+alt="Screenshot of Metric Timeseries Commit Information"
 layout="responsive"
-width={864} height={345} quality={80} />
+width={904} height={726} quality={80} />
 
-Your project maintains a continuous timeseries for all your deployments, not just the latest one. Deployments appear on the graph so you can see which commit may have caused a spike in resources.
-
-## Plugin Metrics
-
-In addition to metrics on your Project, we provide usage information about your plugins tied to your Project if you have any provisioned. You will see them below your application's metrics.
+Your project maintains a continuous timeseries for all your deployments within a service, not just the latest one. Deployments appear on the graph so you can see which commit may have caused a spike in resources.

@@ -5,7 +5,7 @@ title: Variables
 Service variables are provided whenever you build, deploy, or run `railway run`.
 
 Together these variables form your Railway environment. Each
-plugin provides the necessary environment variables needed to use it (such as
+database service provides the necessary environment variables needed to use it (such as
 `DATABASE_URL` for the PG plugin). You can also specify custom variables on the
 project variables page.
 

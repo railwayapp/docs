@@ -7,7 +7,7 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={491} height={286} quality={80} />
 
-Projects on Railway are billed per minute and only for the resources projects use.
+Projects on Railway are billed per minute and only for the resources projects use. All the services within a project in every environment contribute to the resources billed.
 
 **RAM**
 $0.000231 / GB / minute

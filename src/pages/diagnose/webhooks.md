@@ -14,8 +14,8 @@ width={823} height={324} quality={80} />
 Complete the following steps to setup a webhook:
 
 1. Open an existing project on Railway.
-2. Click on the deployments menu.
-3. Navigate to the settings tab.
+2. Click on the project settings menu.
+3. Navigate to the webhooks page.
 4. Input your desired webhook URL into the input under "Build and Deploy Webhooks".
 5. Click the checkmark to the right of the input to save.
 

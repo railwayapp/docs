@@ -30,4 +30,4 @@ Be sure to declare your environment variables at the start of the `Dockerfile`.
 
 ### Docker Compose
 
-We sadly do not support docker compose at the moment. Thank you for the understanding
+Railway doesn't support docker compose at the moment.

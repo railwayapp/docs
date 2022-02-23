@@ -37,9 +37,20 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Develop",
     pages: [
+      makePage("Projects", "develop", [
+        "project",
+        "dashboard",
+        "canvas",
+        "invite",
+      ]),
+      makePage("Services", "develop", [
+        "services",
+        "monorepo",
+        "repo",
+        "domains",
+        "databases",
+      ]),
       makePage("CLI", "develop", ["CLI", "command", "line"]),
-      makePage("Projects", "develop", ["project", "dashboard", "repo"]),
-      makePage("Plugins", "develop", ["database", "plugin", "db"]),
       makePage("Variables", "develop", ["railway run", "variables"]),
       makePage("Environments", "develop", [
         "staging",
@@ -101,17 +112,17 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Plugins",
+    title: "Databases",
     pages: [
-      makePage("Database View", "plugins", [
+      makePage("Database View", "databases", [
         "management view",
         "plugin view",
         "create table",
       ]),
-      makePage("PostgreSQL", "plugins", ["database", "sql"]),
-      makePage("MySQL", "plugins", ["database", "sql"]),
-      makePage("Redis", "plugins", ["key", "value", "store", "cache"]),
-      makePage("MongoDB", "plugins", ["database", "nosql"]),
+      makePage("PostgreSQL", "databases", ["database", "sql"]),
+      makePage("MySQL", "databases", ["database", "sql"]),
+      makePage("Redis", "databases", ["key", "value", "store", "cache"]),
+      makePage("MongoDB", "databases", ["database", "nosql"]),
     ],
   },
   {

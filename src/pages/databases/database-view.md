@@ -2,7 +2,14 @@
 title: Database View
 ---
 
-Railway has a built in Database Management Interface, this allows you to perform common actions on your Database such as viewing and editing the contents of your database plugins in Railway.
+Railway has a built in Database Management Interface, this allows you to perform common actions on your Database such as viewing and editing the contents of your database services in Railway. The interface is available for all database services deployed within a project.
+
+### Database Management
+
+We expose two high level administrative actions through the interface for database services.
+
+- Reset Database Credentials
+- Wipe Database Data
 
 ## SQL Interfaces
 
@@ -11,7 +18,7 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={995} height={628} quality={80} />
 
-For MySQL and Postgres, Railway displays the tables contained within a plugin instance by default. This is called the Table View.
+For MySQL and Postgres, Railway displays the tables contained within a instance by default. This is called the Table View.
 
 Shift-clicking on one or multiple tables exposes additional options such as the ability to delete the table(s).
 
@@ -24,7 +31,7 @@ width={928} height={396} quality={80} />
 
 Under the Table View, clicking the Create Table button at the bottom right of the interface navigates users to the Create Table interface.
 
-For each column a user wants to add to the plugin, the interface accepts a `name`, `type`, `default_value` and `constraints`. Depending on the SQL database that is used, valid types and constraints may vary.
+For each column a user wants to add to the database, the interface accepts a `name`, `type`, `default_value` and `constraints`. Depending on the SQL database that is used, valid types and constraints may vary.
 
 ### Viewing and Editing Entries
 
@@ -51,7 +58,7 @@ Under the Query tab - there is an option to input raw queries against your SQL d
 
 ## NoSQL Interfaces
 
-For non-structured data, Railway has interfaces that permit users to add and edit data within the plugin.
+For non-structured data, Railway has interfaces that permit users to add and edit data within the service.
 
 ### Redis View
 
@@ -60,11 +67,11 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={732} height={419} quality={80} />
 
-For Redis, Railway displays the keys contained within a plugin instance by default.
+For Redis, Railway displays the keys contained within a database instance by default.
 
 ### MongoDB Document View
 
-With MongoDB plugins, Railway displays a list of document collections. Users can add additional collections or add/edit documents within the collection.
+With MongoDB, Railway displays a list of document collections. Users can add additional collections or add/edit documents within the collection.
 
 ### Adding MongoDB Databases
 
