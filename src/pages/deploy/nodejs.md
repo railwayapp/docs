@@ -8,7 +8,7 @@ will execute the following NPM (or Yarn) commands.
 
 ```bash
 npm install
-npm build
+npm run build
 ```
 
 If no [Procfile](/deploy/builds#procfile) is found,
