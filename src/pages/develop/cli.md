@@ -40,7 +40,7 @@ curl -fsSL https://railway.app/install.sh | sh
 
 ### Scoop
 
-Use this method if you prefer to interact with Railway using a native Windows binary.
+Use this method if you prefer to interact with Railway using a native Windows binary. In a PowerShell terminal enter the following command:
 
 ```ps1
 scoop bucket add railway https://github.com/railwayapp/scoop-railway; scoop install railway/railway
