@@ -8,7 +8,7 @@ alt="Screenshot of Metro in Chrome Browser"
 layout="responsive"
 width={1958} height={1236} quality={100} />
 
-Metro is Railway’s major product update that brings multi-service projects to the platform. It became Generally Availible on March 2022. Metro brings a number of improvements to the product such as the following.
+Metro is Railway’s major product update that brings multi-service projects to the platform. It became Generally Available on March 2022. Metro brings a number of improvements to the product such as the following.
 
 - Redesigned Project Canvas
 - Activity Pane
