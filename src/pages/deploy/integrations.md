@@ -28,7 +28,7 @@ RAILWAY_TOKEN=XXXX railway run
 Use the [Railway Vercel
 integration](https://railway.app/changelog/2020-10-23#vercel-integration)
 to provide your production and preview deploys with access to your [Railway
-environments](/environments).
+environments](/develop/environments).
 
 Under Project Settings > Integrations in your project dashboard, you can connect
 to your Vercel account, specify a team, project, and production/preview
