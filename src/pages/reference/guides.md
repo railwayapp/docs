@@ -18,7 +18,7 @@ These are guides centered around deploying cool projects up on Railway.
 ### Technical Guides
 - [ExpressJS with Postgres](https://blog.railway.app/p/expressjs-with-postgresql)
 - [Using Notion as a CMS](https://blog.railway.app/p/next-notion-blog)
-- [Getting Started (with NextJS Prisma)](getting-started)
+- [Getting Started (with NextJS Prisma)](/getting-started)
 
 ## Database Backup Guides
 Guides for helping you manage your plugin's data. 
