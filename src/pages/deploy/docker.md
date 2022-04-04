@@ -17,6 +17,17 @@ Using detected Dockerfile!
 If you have a Dockerfile in your project directory, you can use `railway run`
 with no arguments to build and run your Dockerfile.
 
+### Custom Dockerfile
+
+If you want to use a custom Dockerfile named something other than `Dockerfile`, you can use the
+`RAILWAY_DOCKERFILE_PATH` environment variable to specify the path to the file.
+
+For example, if your Dockerfile was called `Dockerfile.origin`, you'd specify it like this.
+
+```
+RAILWAY_DOCKERFILE_PATH = Dockerfile.origin
+```
+
 ## Environment Variables
 
 If you need to use the environment variables that Railway injects at build time,
