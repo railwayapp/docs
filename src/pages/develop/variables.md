@@ -53,8 +53,6 @@ Variables can reference other variables using the `${{ MY_VAR }}` templating
 syntax. This can help reduce duplication if you need the same value in more than
 one variable, or need to present a plugin-provided variable differently.
 
-**Note:** The above `RAILWAY_*` variables aren't yet supported in templates
-
 ### Construct "Meta" Variables
 
 If you find yourself needing the same value in more than one place, you can
