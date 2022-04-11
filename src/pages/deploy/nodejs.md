@@ -2,7 +2,7 @@
 title: NodeJS Builds
 ---
 
-The [NodeJS buildpack](https://github.com/heroku/nodejs-npm-buildpack) detects
+The [NodeJS buildpack](https://github.com/heroku/buildpacks-nodejs) detects
 if your build is Node by looking for a `package.json` file. If found, the build
 will execute the following NPM (or Yarn) commands.
 
