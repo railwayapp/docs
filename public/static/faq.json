@@ -35,7 +35,7 @@
       "Are databases backed up?",
       "Can I download database backups?"
     ],
-    "answer": "We backup databases every 24 hours. Currently, we only restore databases for disaster scenarios or projects on a team plan.",
+    "answer": "We backup databases every 24 hours. Currently, we only restore databases for disaster scenarios.",
     "link": ""
   },
   "custom-domains": {
