@@ -72,3 +72,13 @@ uri = "heroku/nodejs"
 [[build.buildpacks]]
 uri = "heroku/nodejs-yarn"
 ```
+
+## Nixpacks
+
+Nixpacks is a new [open source](https://github.com/railwayapp/nixpacks) way of
+building applications that is developed by Railway and built using packages from
+[Nix](https://nixos.org/). Priority boarding users can opt-in to building their
+applications with Nixpacks by selecting it as the builder on the service
+settings page. Nixpacks is still in beta and under active development. Bug
+reports and pull requests [are
+welcome](https://github.com/railwayapp/nixpacks/issues).
