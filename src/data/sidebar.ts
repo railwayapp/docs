@@ -74,6 +74,8 @@ export const sidebarContent: ISidebarContent = [
         "procfile",
         "buildpacks",
         "heroku",
+        "paketo",
+        "nixpacks",
       ]),
       makePage("NodeJS", "deploy", ["node", "javascript"]),
       makePage("Python", "deploy", ["python", "requirements.txt"]),
