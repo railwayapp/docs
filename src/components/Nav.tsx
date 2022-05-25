@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { ArrowRight, Menu, X } from "react-feather";
 import tw from "twin.macro";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
-import { Search } from "./Search";
-import { MobileSidebar } from "./Sidebar";
+
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { sidebarContent } from "../data/sidebar";
 
 export const Nav: React.FC = () => {
   return (
@@ -28,7 +29,8 @@ export const Nav: React.FC = () => {
 };
 
 export const MobileNav: React.FC = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const { pathname } = useRouter();
+  const [isNavOpen, setIsNavOpen] = useState(true);
 
   return (
     <>
@@ -64,7 +66,41 @@ export const MobileNav: React.FC = () => {
         </div>
       </header>
 
-      <MobileSidebar isOpen={isNavOpen} />
+      <div
+        css={[isNavOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}
+      >
+        <>
+          {sidebarContent.map((section, i) => (
+            <React.Fragment key={i}>
+              {section.title != null && (
+                <h5 tw="px-4 my-2 text-foreground text-sm font-bold">
+                  {section.title}
+                </h5>
+              )}
+
+              <ul tw="mb-8">
+                {section.pages.map(page => (
+                  <li key={page.slug} onClick={() => setIsNavOpen(!isNavOpen)}>
+                    <Link
+                      href={page.slug}
+                      css={[
+                        tw`text-gray-700 text-sm`,
+                        tw`block px-4 py-2`,
+                        tw`hover:bg-gray-100 hover:text-foreground`,
+                        tw`focus:outline-none focus:bg-pink-100`,
+                        pathname === page.slug &&
+                          tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
+                      ]}
+                    >
+                      {page.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </React.Fragment>
+          ))}
+        </>
+      </div>
     </>
   );
 };

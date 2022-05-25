@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
@@ -38,14 +38,6 @@ export const Sidebar: React.FC = ({ ...props }) => {
 
         <SidebarContent />
       </ScrollArea>
-    </div>
-  );
-};
-
-export const MobileSidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
-  return (
-    <div css={[isOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}>
-      <SidebarContent />
     </div>
   );
 };
