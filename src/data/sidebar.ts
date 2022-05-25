@@ -136,6 +136,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Starters", "reference", ["starters"]),
       makePage("Guides", "reference", ["guides"]),
       makePage("Limits", "reference", ["limits"]),
+      makePage("Usecases", "reference", ["usecases"]),
     ],
   },
 ];
