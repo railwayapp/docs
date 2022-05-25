@@ -199,6 +199,7 @@ railway up [path]
 
 - `-d`, `--detach`: Detach from cloud build/deploy logs
 - `-e`, `--environment`: Specify the environment to use
+- `-s`, `--service`: Specify the service to use (e.g., `--service my-service`)
 
 ## Variables
 
