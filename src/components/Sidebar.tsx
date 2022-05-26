@@ -79,3 +79,11 @@ const SidebarContent: React.FC = () => {
     </>
   );
 };
+
+export const MobileSidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
+  return (
+    <div css={[isOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}>
+      <SidebarContent />
+    </div>
+  );
+};
