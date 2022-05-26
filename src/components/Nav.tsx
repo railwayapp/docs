@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { useRouter } from "next/router";
 import { ArrowRight, Menu, X } from "react-feather";
 import tw from "twin.macro";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
-import { Search } from "./Search";
 import { MobileSidebar } from "./Sidebar";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 
@@ -28,7 +28,20 @@ export const Nav: React.FC = () => {
 };
 
 export const MobileNav: React.FC = () => {
+  const router = useRouter();
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const hide = useCallback(() => {
+    setIsNavOpen(false);
+  }, [setIsNavOpen]);
+
+  useEffect(() => {
+    // subscribe
+    router.events.on("routeChangeStart", hide);
+
+    // unsubscribe
+    return () => router.events.off("routeChangeStart", hide);
+  }, [hide, router.events]);
 
   return (
     <>
