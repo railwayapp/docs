@@ -73,12 +73,12 @@ uri = "heroku/nodejs"
 uri = "heroku/nodejs-yarn"
 ```
 
-## Nixpacks
+## Nixpacks [Beta]
 
-Nixpacks is a new [open source](https://github.com/railwayapp/nixpacks) way of
-building applications that is developed by Railway and built using packages from
-[Nix](https://nixos.org/). Priority boarding users can opt-in to building their
-applications with Nixpacks by selecting it as the builder on the service
-settings page. Nixpacks is still in beta and under active development. Bug
-reports and pull requests [are
-welcome](https://github.com/railwayapp/nixpacks/issues).
+Note: To enable Nixpacks, you must be in [Priority Boarding](https://docs.railway.app/reference/accounts#priority-boarding-enrollment)
+
+Nixpacks is an opensource, drop in replacement for the cloud native buildpacks
+
+Once in Priority Boarding, you should be able to enable it inside of Service -> Settings -> Builder
+
+Issues? Report them on [GitHub](https://github.com/railwayapp/nixpacks/issues)
