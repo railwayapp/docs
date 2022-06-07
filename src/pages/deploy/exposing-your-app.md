@@ -8,11 +8,9 @@ The easiest way to get up and running is to have your application listen on `0.0
 
 Alternatively, you can manually override the `PORT` environment variable by adding `PORT` to your projects variables page. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
 
-Each Railway environment will automatically be configured with a public Railway domain, which looks like `*.up.railway.app`. This can be changed at any time if a custom domain has not yet been configured.
-
 ## Railway-Provided Domain
 
-Railway services don't obtain a domain automatically, but you'll be notified as soon as we detect a deployment is listening correctly (as described above). Simply follow the prompts to generate a domain your app will be exposed to the internet!
+Railway services don't obtain a domain automatically, but you'll be notified to set one up as soon as we detect a deployment is listening correctly (as described above). Simply follow the prompts to generate a domain and your app will be exposed to the internet!
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1654560212/docs/add-domain_prffyh.png"
