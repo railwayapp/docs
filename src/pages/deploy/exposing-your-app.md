@@ -2,30 +2,38 @@
 title: Exposing Your App
 ---
 
-Before your application can say hello, Railway needs to know what PORT to listen on to expose your application to the internet. Railway does try to do it's best to do this automatically for you however, there are cases when we can't.
+Before your application can say hello, Railway needs to know the IP and port that your application is listening on, in order to expose it to the internet.
 
-You can configure your application to use the `PORT` environment variable by adding the `PORT` on your service's variables page. (Command + K or CTRL + K, depending on your keyboard/OS and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected service)
+The easiest way to get up and running is to have your application listen on `0.0.0.0:$PORT`, where `PORT` is a Railway-provided environment variable. 
 
-**A Note on Listening IPs**: It's best for your application to listen on `0.0.0.0:$PORT`. While most things work with `127.0.0.1` and localhost, some do not (Django for example)
+Alternatively, you can manually override the `PORT` environment variable by adding `PORT` to your projects variables page. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
 
-Each Railway environment will automatically be configured with a public Railway
-domain, which looks like `*.up.railway.app`. This can be changed at any time if
-a custom domain has not yet been configured.
+## Railway-Provided Domain
 
-## Add a Custom Domain
+Railway services don't obtain a domain automatically, but you'll be notified to set one up as soon as we detect a deployment is listening correctly (as described above). Simply follow the prompts to generate a domain and your app will be exposed to the internet!
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1654560212/docs/add-domain_prffyh.png"
+alt="Screenshot of adding Service Domain"
+layout="responsive"
+width={1396} height={628} quality={80} />
+
+## Custom Domains
 
 One or more custom domains can be added to a Railway service (tied to a specific environment).
 
 Here's how it works:
 
-1. Select the environment and enter your domain name
-2. Add the `CNAME` record to the DNS settings for your domain
-3. Wait for Railway to verify your `CNAME` record
+1. Navigate to the Settings tab of your desired service
+2. Add a custom domain and type in the name
+3. Add the `CNAME` record to the DNS settings for your domain
+4. Wait for Railway to verify your `CNAME` record
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1645221801/docs/domains_ycdysl.png"
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1654563209/docs/domains_uhchsu.png"
 alt="Screenshot of Custom Domain"
 layout="responsive"
-width={1432} height={1214} quality={80} />
+width={1338} height={808} quality={80} />
 
 **NOTE!:** Changes to DNS settings may take up to 72 hours to propagate
 worldwide.
