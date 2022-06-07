@@ -4,7 +4,7 @@ title: Exposing Your App
 
 Before your application can say hello, Railway needs to know the IP and port that your application is listening on, in order to expose it to the internet.
 
-The easiest way to get up and running is to have your application listen on `0.0.0.0:$PORT`, where `PORT` is a Railway-provided environment variable. Most servers work with `127.0.0.1` or `localhost` but some (eg. Django) require listening on all addresses with `0.0.0.0`.
+The easiest way to get up and running is to have your application listen on `0.0.0.0:$PORT`, where `PORT` is a Railway-provided environment variable. 
 
 Alternatively, you can manually override the `PORT` environment variable by adding `PORT` to your projects variables page. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
 
