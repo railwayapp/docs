@@ -33,7 +33,7 @@ Railway will gladly bump up your service limits within your tier of service to m
 
 ### Databases
 
-We have customers do have customers using our DBs for their production environment with no issue. Railway's plugins are optimized for a batteries included development experience. They are good for applications that are prioritizing velocity and iteration speed over scale.
+We have customers using our DBs for their production environment with no issue. Railway's plugins are optimized for a batteries included development experience. They are good for applications that are prioritizing velocity and iteration speed over scale.
 
 Our databases are provided with no SLAs, are not highly available, and scale only to the limits of your plan. We don't think they are suitable for anything mission-critical, like if you wanted to start a bank.
 
