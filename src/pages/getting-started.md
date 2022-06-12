@@ -162,7 +162,7 @@ width={800} height={498} quality={100} />
 This will create a [deployment](deploy/railway-up) using the current project and
 environment. Click the returned link to see the build and deploy logs.
 
-For projects based off of a GitHub repo like a starter, [auto deploys](deploy/github-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
+For projects based off of a GitHub repo like a starter, [auto deploys](deploy/deployments#deploy-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
 
 After your deployment completes, you can see your new deployment live at the deployment's URL. If you added To-Dos while developing locally, you should see them on your deployment live. In a proper project, you would enable multiple environments to isolate your production environment.
 
