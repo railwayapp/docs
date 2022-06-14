@@ -73,9 +73,7 @@ uri = "heroku/nodejs"
 uri = "heroku/nodejs-yarn"
 ```
 
-## Nixpacks [Beta]
-
-Note: To enable Nixpacks, you must be in [Priority Boarding](https://docs.railway.app/reference/accounts#priority-boarding-enrollment)
+## Nixpacks
 
 Nixpacks is an opensource, drop in replacement for the cloud native buildpacks
 
