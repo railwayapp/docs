@@ -23,22 +23,16 @@ If your project use buildpacks, you specify the start command with a
 [Procfile](https://devcenter.heroku.com/articles/procfile). A Procfile is in the format of
 
 ```
-process: command
+web: command
 ```
 
 When Railway deploys your build, the process listed in the file will be started by running the respective command. Note: Railway can only execute one process per Procfile.
 
-_Note: some buildpacks specify a default start command_
-
-### Web process
-
 HTTP servers should use the `web` process type. This process should listen on
 the [PORT environment variable](/deploy/railway-up#port-variable) and will receive
-HTTP traffic. For example,
+HTTP traffic.
 
-```
-web: npm start
-```
+_Note: some buildpacks specify a default start command_
 
 ## Paketo Buildpacks
 
@@ -75,8 +69,8 @@ uri = "heroku/nodejs-yarn"
 
 ## Nixpacks
 
-Nixpacks is an opensource, drop in replacement for the cloud native buildpacks
+Nixpacks is an opensource, drop in replacement for the cloud native buildpacks. They are GA to everyone.
 
-Once in Priority Boarding, you should be able to enable it inside of Service -> Settings -> Builder
+You can enable Nixpacks for your service within Service -> Settings -> Builder
 
 Issues? Report them on [GitHub](https://github.com/railwayapp/nixpacks/issues)
