@@ -16,12 +16,6 @@ width={1377} height={823} quality={100} />
 
 You can view all variables for the current environment with `railway vars` and change the environment with `railway environment`.
 
-## Bulk Import
-
-Chances are you might already have a `.env` file laying around. You can import your existing environment variables via Bulk Import.
-
-You can click the `Bulk Import` link to open up a modal where you can paste in a list of variables separated by new line.
-
 ### Automatic Detection of Environment Variables
 
 If you initialize the a new project from the CLI- if a .env file is detected, Railway will now prompt to see if you'd like to import it into your new project.
@@ -29,6 +23,17 @@ If you initialize the a new project from the CLI- if a .env file is detected, Ra
 ## Multiline Variables
 
 Railway supports multiline variables/object variables. Just type or paste in the value as you would normally.
+
+## RAW Editor
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644622035/docs/VariablesView_avvpds.png"
+alt="Screenshot of Project Canvas"
+layout="responsive"
+width={1377} height={823} quality={100} />
+
+Chances are you might already have a `.env` file laying around. You can import your existing environment variables via the RAW Editor.
+
+You can click the `RAW Editor` link to open up a modal where you can paste in a list of variables separated by new line. This also allows you to bulk editor your variables in a familiar way like you would an `.env` file or even edit them via JSON notation.
 
 ## Railway Provided Variables
 

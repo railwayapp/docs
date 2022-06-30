@@ -27,8 +27,11 @@ Developer plan projects auto-scale: limits are raised as projects approach them 
 
 **Limits**
 
-- Limited to 32 GB of RAM
+- Limited up to 8 GB of RAM
+- Limited up to 8 vCPU cores
 - Limited to 100 GB of Disk
+
+If you need more resources, we recommend that you upgrade to a team plan.
 
 ### Team Plan Project Limits
 
@@ -38,9 +41,11 @@ Unlike the starter and developer projects, team members within a team can access
 
 **Limits**
 
-- Up to 240 GB RAM
-- Up to 96 vCPU / container
+- Default up to 32 GB RAM
+- Default up to 32 vCPU cores
 - Up to 2 TB of Disk
+
+If you need more limits as your application scales, reach out to us within your direct support channel. We would be more than happy to bump up those limits on a case by case basis.
 
 ## Fair Use
 
