@@ -9,10 +9,10 @@ database service provides the necessary environment variables needed to use it (
 `DATABASE_URL` for the PG plugin). You can also specify custom variables on the
 project variables page.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1644622035/docs/VariablesView_avvpds.png"
-alt="Screenshot of Project Canvas"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1656640465/docs/variables-editor_rvhbim.png"
+alt="Screenshot of Variables Pane"
 layout="responsive"
-width={1377} height={823} quality={100} />
+width={1323} height={698} quality={100} />
 
 You can view all variables for the current environment with `railway vars` and change the environment with `railway environment`.
 
@@ -26,10 +26,10 @@ Railway supports multiline variables/object variables. Just type or paste in the
 
 ## RAW Editor
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1644622035/docs/VariablesView_avvpds.png"
-alt="Screenshot of Project Canvas"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1656640465/docs/raw-editor_r6mlmr.png"
+alt="Screenshot of Raw Editor"
 layout="responsive"
-width={1377} height={823} quality={100} />
+width={552} height={572} quality={100} />
 
 Chances are you might already have a `.env` file laying around. You can import your existing environment variables via the RAW Editor.
 
