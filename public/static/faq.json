@@ -7,7 +7,7 @@
       "Why did my app root didn't return a 200?"
     ],
     "answer": "Your application needs to have a PORT variable configured to tell Railway to expose the right port to the internet. You can configure a PORT variable under the variables pane in your project.",
-    "link": "https://docs.railway.app/deployment/up#port-variable"
+    "link": "https://docs.railway.app/deploy/exposing-your-app"
   },
   "account-verification": {
     "category": "security",
@@ -16,7 +16,7 @@
       "How do I verify my account?",
       "Why do I need to verify?"
     ],
-    "answer": "Your account requires additional information to use the Starter plan. Make sure to link a GitHub account and a Credit Card to pass the verification check. If you do not have a Credit Card- don't fret; we can manually verify you if you email verify (at) railway (dot) app.",
+    "answer": "Your account requires additional information to use the Starter plan. Make sure to link a GitHub account and a Credit Card to pass the verification check.",
     "link": ""
   },
   "region": {
@@ -45,7 +45,7 @@
       "Can I use custom domains?"
     ],
     "answer": "Yes, you can set up multiple custom domains per project and environment!",
-    "link": "https://docs.railway.app/deployment/custom-domains"
+    "link": "https://docs.railway.app/deploy/exposing-your-app"
   },
   "ssh": {
     "category": "general",
@@ -62,8 +62,8 @@
       "Does Railway support monorepos?",
       "Is there support for monorepos?"
     ],
-    "answer": "Partially, and improving this support is on our near term roadmap.",
-    "link": "https://docs.railway.app/deploy/monorepos"
+    "answer": "Yes! See how in our documentation.",
+    "link": "https://docs.railway.app/deploy/monorepo"
   },
   "docker": {
     "category": "general",
@@ -74,7 +74,7 @@
       "Can I use docker compose on Railway?"
     ],
     "answer": "You can use a Dockerfile with Railway but we do not support using docker-compose at this moment.",
-    "link": "https://docs.railway.app/deployment/builds#dockerfiles"
+    "link": "https://docs.railway.app/deploy/docker"
   },
   "plugin-connection": {
     "category": "general",
@@ -162,7 +162,7 @@
   "no-credits": {
     "category": "pricing",
     "questions": ["What happens when I run out of credits?"],
-    "answer": "If you are on the Starter plan, your projects are put to rest until next month's credits. You must redploy your projects after you get next month's credits. If you are on the Developer plan, you are charged for any usage above $10 for the month.",
+    "answer": "If you are on the Starter plan, your projects are put to rest until next month's credits. You must redeploy your projects after you get next month's credits. If you are on the Developer plan, you are charged for any usage above $10 for the month.",
     "link": ""
   },
   "see-usage": {

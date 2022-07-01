@@ -18,9 +18,24 @@ This repo is open source and contributions (new starters, updating existing ones
 
 Starters can point at any public repository.
 
-## Railway Button
+## Updating Starters
 
-The button allows you to offer a 1-Click deploy on Railway button.
+Every time you visit your project on Railway, we will check to see if the project it is based on has been updated by its maker.
+
+If it has, we will prompt you to update your project. On confirmation, we will create a branch on Github and open a PR environment for you on Railway. This way, we don’t replace your production environment and you can test things out within the PR deploy.
+
+Once you’re happy with the changes, you can merge the PR and your production deployment will be updated to the latest version.
+
+## Templates
+
+Templates are user created starters that can be deployed at the click of a button.
+
+The button allows you to offer a 1-Click deploy on Railway experience.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1656470421/docs/template-editor_khw8n6.png"
+alt="Screenshot of Template Editor"
+layout="intrinsic"
+width={609} height={520} quality={80} />
 
 ![Railway Button](https://railway.app/button.svg)
 
@@ -28,10 +43,17 @@ Configure your own button at
 [railway.app/button](https://railway.app/button) where you can define the repo
 to deploy, plugins to install, and required env vars.
 
-## Updating Starters
+### Managing Templates
 
-Every time you visit your project on Railway, we will check to see if the project it is based on has been updated by its maker.
+<Image src="https://res.cloudinary.com/railway/image/upload/v1656470419/docs/template-manager_ki6byi.png"
+alt="Screenshot of Expanded Project Usage Pane"
+layout="intrinsic"
+width={973} height={562} quality={80} />
 
-If it has, we will prompt you to update your project. On confirmation, we will create a branch on Github and open a PR deployment for you on Railway. This way, we don’t replace your production deployment and you can test things out within the PR deploy.
+You can see all of your templates that you created within your [Account's Templates page](https://railway.app/account/templates). You can edit your Template at any time.
 
-Once you’re happy with the changes, you can merge the PR and your production deployment will be updated to the latest version.
+## Deploy a Stable Version
+
+Upon successful deployment of any service within a project linked to a template, we create a version of that service that contains the `commitSha` of the commit and the title of that commit that was deployed as the content.
+
+This version becomes selectable within the starter deploy UI for users to choose. If users need to use an older or experimental version of your starter deployed? A dropdown is present giving your users control on what version to deploy. Users can choose between the last stable version of the template or experiment by deploying the latest version.

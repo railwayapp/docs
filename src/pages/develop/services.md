@@ -2,10 +2,10 @@
 title: Services
 ---
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1645141323/docs/servicesgif.gif"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1656640995/docs/CleanShot_2022-06-30_at_18.17.31_cl0wlr.gif"
 alt="Gif of the Services view"
 layout="intrinsic"
-width={800} height={518} quality={100} />
+width={800} height={646} quality={100} />
 
 A railway service is a deployment target for your application. There are two types of services
 
@@ -63,9 +63,7 @@ Railway provides a user interface into your plugin's data that allow you to intr
 
 ## Starters
 
-Railway offers 40+ starters that are maintained by the community. A starter will clone a GitHub repo to your connected account and deploy the service(s) to your project. This is especially useful if you wanted to deploy common pieces of infrastructure like a DataDog Agent.
-
-This feature is in Beta and is actively being worked on.
+Railway offers 60+ templates that are maintained by the community. A starter will clone a GitHub repo to your connected account and deploy the service(s) to your project. You can deploy a template within the canvas provided there are no variables to configure, else you must use the new project flow. This is especially useful if you wanted to deploy common pieces of infrastructure like a DataDog Agent.
 
 ## Empty Application Services
 
@@ -78,3 +76,7 @@ You can see services metrics under the [Metrics] tab of the service view.
 ## Deleting a Service
 
 You can delete your service by opening the project's settings and navigating to the danger page.
+
+## Service Icons
+
+Within the Command Palette, you can change the default service icon to something else. The list of available icons are pulled from our [devicons](https://devicons.railway.app/) service.

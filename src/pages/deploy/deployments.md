@@ -22,16 +22,20 @@ Deployments can be in any of the following states:
 - Building
 - Deploying
 - Success
-- Failure
+- Failed
 - Crashed
 - Removed
 - Removing
 
 Every Deployment in Railway begins as `Initializing` - once it has been accepted into our build queue, the status will change to `Building`.
 
-While a Deployment is building, Railway will attempt to create a deployable Docker image containing your code and configuration (see [Builds](builds) for more details). Once the build succeeds, Railway will attempt to deploy your image and the Deployment's status becomes `Deploying`. If a [healthcheck](../diagnose/healthchecks) is configured, Railway will wait for it to succeed before proceeding to the next step.
+While a Deployment is building, Railway will attempt to create a deployable Docker image containing your code and configuration (see [Builds](builds) for more details).
 
-If an error occurs during the build or deploy process, the Deployment will stop and the status will become `Failure`. Once the Deployment is live and running, the status will change to `Success`. A Deployment will remain in this state unless it [crashes](deployments#restart-a-crashed-deployment), at which point it will become `Crashed`.
+Once the build succeeds, Railway will attempt to deploy your image and the Deployment's status becomes `Deploying`. If a [healthcheck](../diagnose/healthchecks) is configured, Railway will wait for it to succeed before proceeding to the next step.
+
+If an error occurs during the build or deploy process, the Deployment will stop and the status will become `Failed`.
+
+Once the Deployment is live and running, the status will change to `Success`. A Deployment will remain in this state unless it [crashes](deployments#restart-a-crashed-deployment), at which point it will become `Crashed`.
 
 When a new Deployment is triggered, older deploys in a `Crashed` and `Success` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually.
 
@@ -139,3 +143,7 @@ layout="responsive"
 width={947} height={156} quality={80} />
 
 Restarting a crashed Deployment restores the exact image containing the code & configuration of the original build. Once the Deployment is back online, its status will change back to `Success`.
+
+## How come my GitHub PR wont deploy?
+
+Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
