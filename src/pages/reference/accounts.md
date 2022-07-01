@@ -68,11 +68,20 @@ You can see your referral invite statuses by navigating to the account page to: 
 
 Every Account gets $5 of included credit per month. No credit card required.
 
-Users who upgrade to the Developer plan get $10's worth of credit each month and are billed for any usage above $10.
+Users who upgrade to the Developer plan do not get a time limit execution on their workloads compared to users on the starter plan.
 
 Accounts are still billed for the usage of credit used by the deleted projects.
 
 You can add and manage your payment info under the billing page as well as see historical billing usage under the account billing page: [railway.app/account/billing](https://railway.app/account/billing)
+
+### Service Level Cost
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/referrals_iya9mz.png"
+alt="Screenshot of Referrals Page"
+layout="responsive"
+width={1141} height={604} quality={80} />
+
+You can see the breakdown of your billing by seeing the service level breakdown of your usage within the billing page.
 
 ## Link Discord Account
 
@@ -84,6 +93,10 @@ layout="responsive"
 width={642} height={326} quality={80} />
 
 If the Discord user has not joined the Railway Discord server, linking the account will automatically invite the Discord user to the server.
+
+### Discord Support
+
+Every user now must link their Discord account and their account must be within good standing to ask questions within the Discord.
 
 ### Priority Boarding Enrollment
 

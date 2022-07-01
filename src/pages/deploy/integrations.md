@@ -55,3 +55,13 @@ server start command with `railway run`.
 ```shell:always
 railway run start-server
 ```
+
+## GitHub Integration
+
+Railway uses GitHub to source account or organizational repos provided the Railway app is given the correct permissions.
+
+### Railway Deployment Checks
+
+[PHOTO]
+
+GitHub Commits have a status check to indicate the status of the Railway build. This applies for both PRs and all commits that auto deploy to Railway.

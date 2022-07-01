@@ -51,3 +51,9 @@ layout="intrinsic"
 width={973} height={562} quality={80} />
 
 You can see all of your templates that you created within your [Account's Templates page](https://railway.app/account/templates). You can edit your Template at any time.
+
+## Deploy a Certain Commit
+
+Upon successful deployment of any service within a project linked to a template, we create a version of that service that contains the `commitSha` of the commit and the title of that commit that was deployed as the content.
+
+This version becomes selectable within the starter deploy UI for users to choose. If users need to use an older or experimental version of your starter deployed? A dropdown is present giving your users control on what version to deploy.
