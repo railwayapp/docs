@@ -20,6 +20,12 @@ The default timeout on healthchecks is 120 seconds - if your application fails t
 
 ## Debugging
 
+<Image 
+src="https://res.cloudinary.com/railway/image/upload/v1656640465/docs/healthcheck_bzbjbd.png"
+alt="Screenshot of Healthchecks Logs"
+layout="intrinsic"
+width={1350} height={744} quality={80} />
+
 Build Logs include detailed healthcheck failure logs.
 
 We also maintain Deploy logs for failed deployments, allowing healthcheck debugging.

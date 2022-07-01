@@ -2,10 +2,10 @@
 title: Services
 ---
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1645141323/docs/servicesgif.gif"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1656640995/docs/CleanShot_2022-06-30_at_18.17.31_cl0wlr.gif"
 alt="Gif of the Services view"
 layout="intrinsic"
-width={800} height={518} quality={100} />
+width={800} height={646} quality={100} />
 
 A railway service is a deployment target for your application. There are two types of services
 
