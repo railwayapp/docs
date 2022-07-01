@@ -79,4 +79,4 @@ You can delete your service by opening the project's settings and navigating to 
 
 ## Service Icons
 
-Within the Command + K context menu, you can change the default service icon to something else. The list of available icons are pulled from our [devicons](https://devicons.railway.app/) service.
+Within the Command + K menu, you can change the default service icon to something else. If no URL to an icon is provided, we will use an image from our [devicons](https://devicons.railway.app/) service.
