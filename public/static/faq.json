@@ -7,7 +7,7 @@
       "Why did my app root didn't return a 200?"
     ],
     "answer": "Your application needs to have a PORT variable configured to tell Railway to expose the right port to the internet. You can configure a PORT variable under the variables pane in your project.",
-    "link": "https://docs.railway.app/deployment/up#port-variable"
+    "link": "https://docs.railway.app/deploy/exposing-your-app"
   },
   "account-verification": {
     "category": "security",
@@ -45,7 +45,7 @@
       "Can I use custom domains?"
     ],
     "answer": "Yes, you can set up multiple custom domains per project and environment!",
-    "link": "https://docs.railway.app/deployment/custom-domains"
+    "link": "https://docs.railway.app/deploy/exposing-your-app"
   },
   "ssh": {
     "category": "general",
@@ -74,7 +74,7 @@
       "Can I use docker compose on Railway?"
     ],
     "answer": "You can use a Dockerfile with Railway but we do not support using docker-compose at this moment.",
-    "link": "https://docs.railway.app/deployment/builds#dockerfiles"
+    "link": "https://docs.railway.app/deploy/docker"
   },
   "plugin-connection": {
     "category": "general",
