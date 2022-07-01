@@ -63,7 +63,7 @@ Railway provides a user interface into your plugin's data that allow you to intr
 
 ## Starters
 
-Railway offers 40+ templates that are maintained by the community. A starter will clone a GitHub repo to your connected account and deploy the service(s) to your project. You can deploy a template within the canvas provided if there are no variables to configure, else you must use the new project flow. This is especially useful if you wanted to deploy common pieces of infrastructure like a DataDog Agent.
+Railway offers 60+ templates that are maintained by the community. A starter will clone a GitHub repo to your connected account and deploy the service(s) to your project. You can deploy a template within the canvas provided there are no variables to configure, else you must use the new project flow. This is especially useful if you wanted to deploy common pieces of infrastructure like a DataDog Agent.
 
 ## Empty Application Services
 
@@ -79,4 +79,4 @@ You can delete your service by opening the project's settings and navigating to 
 
 ## Service Icons
 
-Within the Command + K context menu, you can change the default service icon to something else. The list of available icons are pulled from our [devicons](https://devicons.railway.app/) service.
+Within the Command Palette, you can change the default service icon to something else. The list of available icons are pulled from our [devicons](https://devicons.railway.app/) service.

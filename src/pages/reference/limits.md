@@ -45,7 +45,7 @@ Unlike the starter and developer projects, team members within a team can access
 - Default up to 32 vCPU cores
 - Up to 2 TB of Disk
 
-If you need more limits as your application scales, reach out to us within your direct support channel. We would be more than happy to bump up those limits on a case by case basis.
+If you need more limits as your application scales, reach out to us within your direct support channel. We would be more than happy to bump up those limits on a case-by-case basis.
 
 ## Fair Use
 

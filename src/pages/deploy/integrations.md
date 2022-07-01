@@ -62,6 +62,4 @@ Railway uses GitHub to source account or organizational repos provided the Railw
 
 ### Railway Deployment Checks
 
-[PHOTO]
-
 GitHub Commits have a status check to indicate the status of the Railway build. This applies for both PRs and all commits that auto deploy to Railway.

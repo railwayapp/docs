@@ -68,7 +68,7 @@ You can see your referral invite statuses by navigating to the account page to: 
 
 Every Account gets $5 of included credit per month. No credit card required.
 
-Users who upgrade to the Developer plan do not get a time limit execution on their workloads compared to users on the starter plan.
+Users who upgrade to the Developer plan get unlimited execution time on their workloads compared to users on the starter plan.
 
 Accounts are still billed for the usage of credit used by the deleted projects.
 
