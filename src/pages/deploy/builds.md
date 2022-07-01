@@ -69,7 +69,7 @@ uri = "heroku/nodejs-yarn"
 
 ## Nixpacks
 
-Nixpacks is an opensource, drop in replacement for the cloud native buildpacks. They are GA to everyone.
+Nixpacks is an opensource, drop in replacement for the cloud native buildpacks. They are available to everyone.
 
 You can enable Nixpacks for your service within Service -> Settings -> Builder
 
