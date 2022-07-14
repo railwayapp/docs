@@ -12,12 +12,12 @@ A Railway project contains all of your plugins, environments, and deployments. I
 All projects feature
 
 - 100 GB outbound network bandwidth
-- Ability to deploy multiple [services](develop/services)
+- Ability to deploy multiple [services](/develop/services)
 - Unlimited inbound network bandwidth
 - Unique copy of your infra for each PR
 - Unlimited database services per project
 
-Projects can contain one or multiple [services](develop/services) to suit your application's architecture.
+Projects can contain one or multiple [services](/develop/services) to suit your application's architecture.
 
 A new service can be spun up anywhere within the Project canvas.
 
