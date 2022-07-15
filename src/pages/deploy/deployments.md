@@ -132,7 +132,7 @@ the deployment and stop any further project usage.
 
 When a Deployment is `Crashed`, it is no longer running because the underlying process exited with a non-zero exit code - if your deployment exits successfully (exit code 0), the status will remain `Success`.
 
-Railway automatically restarts crashed Deployments up to 3 times. After this limit is reached, your deployment status is changed to `Crashed` and notifying webhooks & emails are sent to the project's members.
+Railway automatically restarts crashed Deployments up to 10 times. After this limit is reached, your deployment status is changed to `Crashed` and notifying webhooks & emails are sent to the project's members.
 
 You can restart a `Crashed` Deployment by visiting your project and clicking on the "Restart" button that appears in-line on the Deployment:
 
@@ -143,6 +143,12 @@ layout="responsive"
 width={947} height={156} quality={80} />
 
 Restarting a crashed Deployment restores the exact image containing the code & configuration of the original build. Once the Deployment is back online, its status will change back to `Success`.
+
+You can also click within a deployment and using the Command Palette restart a deployment at any state.
+
+### Configurable Restart Policy
+
+Within the Service settings, a user is able to configure a restart policy of either `Never`, `Always`, or `On-Failure` with an optional maximum number of restarts.
 
 ## How come my GitHub PR wont deploy?
 
