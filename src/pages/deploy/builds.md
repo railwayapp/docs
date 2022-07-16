@@ -2,31 +2,40 @@
 title: Builds
 ---
 
-Railway uses [Cloudnative Buildpacks](https://buildpacks.io/) to attempt to
-build and deploy with zero configuration. Currently, we support the following
-languages out of the box
+Railway uses [Nixpacks](https://nixpacks.com) to build and deploy your code with zero configuration. Currently, we support the following languages out of the box.
 
-- [NodeJS](nodejs)
-- [Python](python)
-- [Go](go)
-- [Ruby](ruby)
-- [Java](java)
+- [NodeJS](https://nixpacks.com/docs/providers/node)
+- [Deno](https://nixpacks.com/docs/providers/deno)
+- [Python](https://nixpacks.com/docs/providers/python)
+- [Go](https://nixpacks.com/docs/providers/go)
+- [Ruby](https://nixpacks.com/docs/providers/ruby)
+- [PHP](https://nixpacks.com/docs/providers/php)
+- [Java](https://nixpacks.com/docs/providers/java)
+- [Rust](https://nixpacks.com/docs/providers/rust)
+- [.NET](https://nixpacks.com/docs/providers/csharp)
+- [Haskell](https://nixpacks.com/docs/providers/haskell)
+- [Crystal](https://nixpacks.com/docs/providers/crystal)
+- [Swift](https://nixpacks.com/docs/providers/swift)
+- [Zig](https://nixpacks.com/docs/providers/zig-lang)
+- [Dart](https://nixpacks.com/docs/providers/dart)
+- [Staticfile](https://nixpacks.com/docs/providers/https://nixpacks.com/docs/providers/staticfile)
 
-If you have a language that you want us to support, please don't hesitate to
-[reach out](https://discord.gg/xAm2w6g) and let us know.
+## Build Configuration
 
-We will also build using a [Dockerfile](/deploy/docker) if found at the project root.
+Nixpacks has a variety of options that can be configured with environment variables. These include things like
+
+- Install/build/start commands
+- Nix/Apt packages to install
+- Directories to cache
+
+For a full list of these options, please view the [Nixpacks docs](https://nixpacks.com/docs/config).
+
+If you have a language or feature that you want us to support, please don't hesitate to
+reach out on [Discord](https://discord.gg/xAm2w6g) or on [the Nixpacks GitHub repo](https://github.com/railwayapp/nixpacks/discussions/245).
 
 ## Procfile
 
-If your project use buildpacks, you specify the start command with a
-[Procfile](https://devcenter.heroku.com/articles/procfile). A Procfile is in the format of
-
-```
-web: command
-```
-
-When Railway deploys your build, the process listed in the file will be started by running the respective command. Note: Railway can only execute one process per Procfile.
+If using Nixpacks, you can override the start command with a [Procfile](https://nixpacks.com/docs/config#procfiles) at the root of your app. Only a single process type is supported at the moment.
 
 HTTP servers should use the `web` process type. This process should listen on
 the [PORT environment variable](/deploy/railway-up#port-variable) and will receive
@@ -34,11 +43,29 @@ HTTP traffic.
 
 _Note: some buildpacks specify a default start command_
 
-## Paketo Buildpacks
+## Dockerfiles
 
-By default Railway will attempt to build your app with the
-[heroku/buildpacks:20](https://devcenter.heroku.com/articles/heroku-20-stack)
-builder, which is based on how [Heroku](https://www.heroku.com/) builds apps. However, you can opt-in to build your app with the [Paketo buildpacks](https://paketo.io/). Paketo has support for
+We will also build using a [Dockerfile](/deploy/docker) if found at the project root.
+
+## Buildpacks
+
+Railway can also use [Cloudnative Buildpacks](https://buildpacks.io/). These are now deprecated and will eventually be removed from Railway.
+
+### Heroku
+
+Heroku buildpacks support
+
+- NodeJS
+- Python
+- Go
+- Ruby
+- Java
+
+[Go to Heroku buildpack documentation](https://devcenter.heroku.com/articles/heroku-20-stack).
+
+### Paketo
+
+Paketo buildpacks support
 
 - NodeJS
 - Go
@@ -49,7 +76,9 @@ builder, which is based on how [Heroku](https://www.heroku.com/) builds apps. Ho
 - NGINX
 - Python
 
-## Custom Buildpacks
+[Go to Paketo buildpack documentation](https://paketo.io/)
+
+### Custom Buildpacks
 
 By default, the appropriate buildpacks are selected by inspecting the source
 files of a project. For more control, a
@@ -66,11 +95,3 @@ uri = "heroku/nodejs"
 [[build.buildpacks]]
 uri = "heroku/nodejs-yarn"
 ```
-
-## Nixpacks
-
-Nixpacks is an opensource, drop in replacement for the cloud native buildpacks. They are available to everyone.
-
-You can enable Nixpacks for your service within Service -> Settings -> Builder
-
-Issues? Report them on [GitHub](https://github.com/railwayapp/nixpacks/issues)

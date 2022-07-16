@@ -2,8 +2,6 @@
 title: Dockerfiles
 ---
 
-## Dockerfiles
-
 We will look for and use a `Dockerfile` at the service's root if it exists.
 
 Railway notifies you when it's using the `Dockerfile` in the build process with the following message in the logs

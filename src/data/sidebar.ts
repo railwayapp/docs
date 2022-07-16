@@ -72,12 +72,7 @@ export const sidebarContent: ISidebarContent = [
         "paketo",
         "nixpacks",
       ]),
-      makePage("NodeJS", "deploy", ["node", "javascript"]),
-      makePage("Python", "deploy", ["python", "requirements.txt"]),
-      makePage("Go", "deploy", ["go"]),
-      makePage("Ruby", "deploy", ["ruby"]),
-      makePage("Java", "deploy", ["java", "maven"]),
-      makePage("Docker", "deploy", ["docker, compose"]),
+      makePage("Dockerfiles", "deploy", ["docker, compose"]),
       makePage("Exposing Your App", "deploy", [
         "port",
         "bad gateway",
