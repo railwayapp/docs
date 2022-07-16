@@ -29,6 +29,8 @@ a unique URL and is considered immutable.
 
 If pointed to a GitHub service, the `up` deploy build will replace the active deploy with the `up` service. When an empty service is selected within the deployment prompt, the empty service will become a CLI service.
 
+Keep in mind, Railway takes a snapshot of your code payload from your machine. This command may fail for large repos that are larger than 50mb.
+
 ## Port Variable
 
 If you are starting a server, you need to use the `PORT` environment variable.

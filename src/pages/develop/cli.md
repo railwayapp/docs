@@ -43,7 +43,7 @@ curl -fsSL https://railway.app/install.sh | sh
 Use this method if you prefer to interact with Railway using a native Windows binary. In a PowerShell terminal enter the following command:
 
 ```ps1
-scoop bucket add railway https://github.com/railwayapp/scoop-railway; scoop install railway/railway
+scoop install railway
 ```
 
 For additional documentation on Scoop, see [here](https://scoop-docs.vercel.app/).
@@ -156,3 +156,5 @@ railway logout
 ## Contributing
 
 Our CLI is Open Source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
+
+[You can see our documentation of the CLI API here.](reference/cli-api)

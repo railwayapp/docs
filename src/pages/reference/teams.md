@@ -2,11 +2,9 @@
 title: Teams
 ---
 
-Teams are how organizations are represented within Railway.
+Teams are how organizations are represented within Railway. Teams with a valid credit card attached are subscribed to the Team plan. Projects within the Team plan get generous limits on service caps such as 32 GB of RAM and 32 vCPU cores.
 
-To provision a team, they must be used with an active usage based subscription.
-
-Team plans cost $20 per seat, for more information see our [pricing page](https://railway.app/pricing).
+Team plans cost $20 per seat plus get billed for any service usage within their projects, for more information see our [pricing page](https://railway.app/pricing). Team
 
 ## Creating a Team
 

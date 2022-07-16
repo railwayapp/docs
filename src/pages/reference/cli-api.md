@@ -224,3 +224,11 @@ View what user is currently authenticated with Railway
 ```bash
 railway whoami
 ```
+
+## Shell
+
+This will create a subshell (based on $SHELL) with all the variables from your project/environment/service loaded and accessible.
+
+```bash
+railway shell
+```

@@ -35,11 +35,9 @@ If using Nixpacks, you can override the start command with a [Procfile](https://
 
 HTTP servers should use the `web` process type. This process should listen on
 the [PORT environment variable](/deploy/railway-up#port-variable) and will receive
-HTTP traffic. For example,
+HTTP traffic.
 
-```
-web: npm start
-```
+_Note: some buildpacks specify a default start command_
 
 ## Dockerfiles
 

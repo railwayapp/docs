@@ -27,11 +27,6 @@ export const sidebarContent: ISidebarContent = [
         "tutorial",
         "getting started",
       ]),
-      makePage("Railway Metro", undefined, [
-        "introduction",
-        "tutorial",
-        "getting started",
-      ]),
     ],
   },
   {
@@ -125,6 +120,7 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Reference",
     pages: [
+      makePage("Pricing", "reference", ["pricing"]),
       makePage("Accounts", "reference", ["accounts"]),
       makePage("Teams", "reference", ["teams"]),
       makePage("CLI API", "reference", ["cli"]),

@@ -9,18 +9,12 @@ database service provides the necessary environment variables needed to use it (
 `DATABASE_URL` for the PG plugin). You can also specify custom variables on the
 project variables page.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1644622035/docs/VariablesView_avvpds.png"
-alt="Screenshot of Project Canvas"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1656640465/docs/variables-editor_rvhbim.png"
+alt="Screenshot of Variables Pane"
 layout="responsive"
-width={1377} height={823} quality={100} />
+width={1323} height={698} quality={100} />
 
 You can view all variables for the current environment with `railway vars` and change the environment with `railway environment`.
-
-## Bulk Import
-
-Chances are you might already have a `.env` file laying around. You can import your existing environment variables via Bulk Import.
-
-You can click the `Bulk Import` link to open up a modal where you can paste in a list of variables separated by new line.
 
 ### Automatic Detection of Environment Variables
 
@@ -29,6 +23,17 @@ If you initialize the a new project from the CLI- if a .env file is detected, Ra
 ## Multiline Variables
 
 Railway supports multiline variables/object variables. Just type or paste in the value as you would normally.
+
+## RAW Editor
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1656640465/docs/raw-editor_r6mlmr.png"
+alt="Screenshot of Raw Editor"
+layout="responsive"
+width={552} height={572} quality={100} />
+
+Chances are you might already have a `.env` file laying around. You can import your existing environment variables via the RAW Editor.
+
+You can click the `RAW Editor` link to open up a modal where you can paste in a list of variables separated by new line. This also allows you to bulk edit your variables in a familiar way like you would an `.env` file or even edit them via JSON notation.
 
 ## Railway Provided Variables
 
