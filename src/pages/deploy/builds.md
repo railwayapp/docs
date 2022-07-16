@@ -15,6 +15,10 @@ Railway uses [Nixpacks](https://nixpacks.com) to build and deploy your code with
 - [.NET](https://nixpacks.com/docs/providers/csharp)
 - [Haskell](https://nixpacks.com/docs/providers/haskell)
 - [Crystal](https://nixpacks.com/docs/providers/crystal)
+- [Swift](https://nixpacks.com/docs/providers/swift)
+- [Zig](https://nixpacks.com/docs/providers/zig-lang)
+- [Dart](https://nixpacks.com/docs/providers/dart)
+- [Staticfile](https://nixpacks.com/docs/providers/https://nixpacks.com/docs/providers/staticfile)
 
 ## Build Configuration
 
