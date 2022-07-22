@@ -23,7 +23,7 @@ Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railw
 ### Homebrew
 
 ```bash
-brew install railwayapp/railway/railway
+brew install railway
 ```
 
 ### NPM
