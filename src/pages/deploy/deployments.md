@@ -58,7 +58,7 @@ You can configure additional deployment triggers such as when a new PR is
 created using
 the [GitHub Trigger's integration](integrations#github-integration).
 
-## Start Commands
+## Start Command
 
 A start command is the process used to run a Deployment's code. For example, a Python project may have a start command of `python main.py`, or a NodeJS project may have a start command of `npm run start`.
 
@@ -78,6 +78,40 @@ src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-sta
 alt="Screenshot of custom start command configuration"
 layout="intrinsic"
 width={1302} height={408} quality={80} />
+
+## Root Directory
+
+The root directory defaults to `/` but can be changed for various use-cases like [monorepo](/deploy/monorepo) projects. When specified, 
+all build and deploy commands will operate within that root directory. Additionally, files changed outside the root directory will not 
+trigger a new build.
+
+## Watch Paths
+
+Watch paths are [gitignore-style](https://git-scm.com/docs/gitignore#_pattern_format) patterns that can be used to trigger a new deployment based on what file paths have changed. 
+For example, a monorepo might want to only trigger builds if files are changed in the `/packages/backend` directory. When specified, any changes that don't match 
+the patterns will skip creating a new deployment. Multiple patterns can be combined, one per line. 
+
+_Note, if a Root Directory is provided, patterns still operate from `/`. For a root directory of `/app`, `/app/**.js` would be used as a pattern to match files in the new root._
+
+Here are a few examples of common use-cases.
+
+```gitignore
+# Match all TypeScript files under src/
+/src/**/*.ts
+```
+
+```gitignore
+# Match Go files in the root, but not in subdirectories
+/*.go
+```
+
+```gitignore
+# Ignore all Markdown files
+** 
+!/*.md
+```
+
+_Note, negations will only work if you include files in a preceding rule._
 
 ## Singleton Deploys
 
