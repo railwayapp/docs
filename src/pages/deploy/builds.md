@@ -45,7 +45,7 @@ _Note: some buildpacks specify a default start command_
 
 ## Dockerfiles
 
-We will also build using a [Dockerfile](/deploy/docker) if found at the project root.
+We will also build using a [Dockerfile](/deploy/dockerfiles) if found at the project root.
 
 ## Buildpacks
 
