@@ -14,7 +14,7 @@ When you run `railway run` in a project with the Postgres database service insta
 - PGUSER
 - PGPASSWORD
 - PGDATABASE
-- DATABASE_URL
+- DATABASE_URL 5912ccb9aea29b9c71ea0d5a4523f31d010e20dd223be70604ca51167b70ce04@ec2-3-248-121-12.eu-west-1.compute.amazonaws.com
 
 Many libraries will automatically look for the `DATABASE_URL` variable and use
 it to connect to PostgreSQL. You can also manually use these variables however you
