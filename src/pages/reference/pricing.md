@@ -38,7 +38,7 @@ Railway will expend any free credit before consuming any paid credits. If users 
 
 ## Execution Time Limit
 
-Exclusively on the Starter Plan, Railway limits accounts to 500 hours of uptime. Each service counts against this limit. In practice, if a user only has one service running, they expend the hours at a standard rate. (Around 21 days of continuous uptime) If they have two services running, such as a DB and a service, the hours consume twice the rate. (Around ten and a half days of continuous uptime) 
+Exclusively on the Starter Plan, Railway limits accounts to 500 hours of uptime. Each service counts against this limit. In practice, if a user only has one service running, they expend the hours at a standard rate. (Around 21 days of continuous uptime) If they have two services running, such as a DB and a service, the hours consume twice the rate. (Around ten and a half days of continuous uptime). Crashed deploys count towards your uptime.
 
 
 
