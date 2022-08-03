@@ -14,8 +14,7 @@ command line. In a [connected project](/develop/cli#connect) run
 railway up
 ```
 
-The current directory will be deployed to the currently selected Railway project
-and environment. If there is only one service in the project, `up` will deploy to that target.
+The linked project directory will be deployed to the currently selected Railway project and environment (if running from a subdirectory, the project root is still deployed). If there is only one service in the project, `up` will deploy to that target.
 Run [`railway status`](/reference/cli-api#status) or run `up` with `-v` or `--verbose` to see
 which project and environment will be used.
 
