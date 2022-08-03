@@ -123,10 +123,14 @@ railway environment
 
 ## Deploy
 
-Deploy current directory to Railway. Displays deployment logs from the service deploy.
+Deploy the linked project directory (if running from a subdirectory, the project root is still deployed).
 
 ```bash
+# Show project logs
 railway up
+
+# Return immediately after uploading
+railway up --detach
 ```
 
 If there are multiple services within your project, the CLI will prompt you for a service to deploy to.
