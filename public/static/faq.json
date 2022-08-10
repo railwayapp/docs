@@ -162,7 +162,7 @@
   "no-credits": {
     "category": "pricing",
     "questions": ["What happens when I run out of credits?"],
-    "answer": "If you are on the Starter plan, your projects are put to rest until next month's credits. You must redeploy your projects after you get next month's credits. If you are on the Developer plan, you are charged for any usage above $10 for the month.",
+    "answer": "If you are on the Starter plan, your projects are put to rest until next month's credits. You must redeploy your projects after you get next month's credits. If you are on the Developer plan, you are charged for any usage above $5 for the month.",
     "link": ""
   },
   "see-usage": {
