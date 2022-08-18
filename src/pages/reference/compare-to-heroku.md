@@ -2,16 +2,18 @@
 title: Railway vs. Heroku
 ---
 
-## TL;DR
+## Summary
 
-Railway is a dead simple deployment platform that focuses on giving you and your team a deployment plane that radically increases developer efficiency.
+Railway is a simple and powerful deployment platform that focuses on giving you and your team a deployment plane that radically increases developer efficiency.
 
 We are alike in the following ways:
 
 - GitHub repo deployments
 - CLI tooling
 - Built-in databases
-  We differ in the following:
+
+We differ in the following:
+
 - We have an outsized focus on support and developer experience. A highly engaged community and the Railway team stand at the ready to help you scale
 - Resource-based pricing, only pay for what you use.
 - Better developer experience. We offer PR deploys, variable management, rapid builds, and local development flows.
@@ -19,9 +21,13 @@ We are alike in the following ways:
 
 ## Background
 
-We humbly know that users have a lot of options when it comes to deploying their workloads. One prevalent option is Heroku. Heroku became known for one of the easiest ways to deploy code, thanks to opinionated CLI tooling, first-class Ruby support, and built-in integrations such as databases and Salesforce.
+We humbly know that users have a lot of options when it comes to deploying their workloads.
 
-Railway is a natural replacement for people looking to move on from Heroku or looking for similar alternatives. However, one of the most common questions we receive is: How are we different or better than Heroku?
+One prevalent option is Heroku. Heroku became known for one of the easiest ways to deploy code, thanks to opinionated CLI tooling, first-class Ruby support, and built-in integrations such as databases and Salesforce.
+
+Railway is a natural replacement for people looking to move on from Heroku or looking for similar alternatives.
+
+However, one of the most common questions we receive is: How are we different or better than Heroku?
 We owe a lot to the pioneers that were the founders of Heroku. However, in 2007, Heroku's founding, the state of cloud deployments was much different than what they were today. As a result, their product reflects the context of the state of the cloud was then.
 
 ## Differences
@@ -46,6 +52,7 @@ It's possible to go from zero → 3 services in <30 seconds. Adding new services
 ### Pricing
 
 Pay only for what you use—no need to size dynos.
+
 Containers scale vertically up to 8 GB/CPU Cores (on DevPlan) and 32 GB/CPU Cores (on Teams Plans), and you only pay per minute.
 
 Did traffic spike for an hour? Only pay for that hour, and no manual scaling intervention is required.
@@ -61,16 +68,26 @@ If your changes look good, you can even run `railway up` from the terminal to tr
 
 ### Lifecycle Management
 
-We offer guardrails to prevent new deployments from knocking your app offline, such as healthchecks. For example, by providing an endpoint for Railway to hit, we will make a series of requests, checking for a 200 OK before we switch deploys to the most recent one.
+We offer guardrails to prevent new deployments from knocking your app offline, such as [Healthchecks](/diagnose/healthchecks). For example, by providing an endpoint for Railway to hit, we will make a series of requests, checking for a 200 OK before we switch deploys to the most recent one.
 
-Want to revert a change? Because we image all builds, we allow you to rollback to an earlier working deploy in just one click.
+Want to revert a change? Because we image all builds, we allow you to [rollback](/deploy/deployments#rollback) to an earlier working deploy in just one click.
 
 ### Support + Community
 
-Railway serves tens of thousands of builders who deploy applications that bring tremendous impact to themselves, their friends, and their customers. We feel no project, big or small- is never not important. This is our guiding philosophy to our users.
-As a result, we make great pains to be very communicative in our support channels, provide great docs, and enrich our community to help each other.
-Join our community of 5k+ users on Discord who can help, and even chat directly with developers if the community can't solve your problem.
+Railway serves tens of thousands of builders who deploy applications that bring tremendous impact to themselves, their friends, and their customers.
+
+We feel no project, big or small- is never not important. This is our guiding philosophy to our users.
+
+As a result, we make great pains to be very communicative in our support channels, [optimistically gather feedback](https://feedback.railway.app/), provide informative docs (this place), and enrich our community to help each other.
+
+[Join our community of 5k+ users on Discord who can help, and even chat directly with developers if the community can't solve your problem.](https://discord.gg/railway)
 
 ## Moving From Heroku to Railway
 
-Getting your app hosted on Heroku moved over to Railway is very simple. All you need to do is connect your GitHub account, create a new project and then deploy your repo. We even support Procfiles out of the box. (Caveat: only the web worker process.)
+Getting your app hosted on Heroku moved over to Railway is very simple.
+
+All you need to do is connect your GitHub account, create a new project and then deploy your repo. We even support Procfiles out of the box. (Caveat: only the web worker process is supported for now)
+
+If you wanna learn in-depth about our product and the feature discussed here, we have a Getting Started guide.
+
+If you run into any issues, we would be more than happy to answer your questions on our [Discord](https://discord.gg/railway) or over email at contact (at) railway (dot) app
