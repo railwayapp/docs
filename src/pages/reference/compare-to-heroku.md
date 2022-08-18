@@ -38,7 +38,7 @@ Part of the limitations faced by the Heroku team during the early 2010s was the 
 
 At the time, the idea of unikernels and Docker didn't take hold until much later. As a result: their build solution, Buildpacks, used mostly complex Bash scripts to introspect into code to build your app.
 
-In the current era of software development, we feel that in some respects, knowing Docker to know how to ship your app is too much boilerplate for the average developer. But, we still want to offer the developer all the benefits of reproducibility, speed, and ease of use when deploying images, hence why we built our builder called Nixpacks.
+In the current era of software development, we feel that in some respects, needing to know Docker to ship your app is too much boilerplate for the average developer. But, we still want to offer the developer all the benefits of reproducibility, speed, and ease of use when deploying images, hence why we built our builder called Nixpacks.
 It's open source (https://github.com/railwayapp/nixpacks), and it's also swift.
 We detect more languages, builds are faster with the help of intelligent caching, and lastly, builds are reproducible. (A common frustration of Buildpacks).
 Those moving from Heroku to Railway will find that we support the Heroku CNCF Buildpacks.
