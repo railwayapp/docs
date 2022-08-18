@@ -70,7 +70,7 @@ If your changes look good, you can even run `railway up` from the terminal to tr
 
 We offer guardrails to prevent new deployments from knocking your app offline, such as [Healthchecks](/diagnose/healthchecks). For example, by providing an endpoint for Railway to hit, we will make a series of requests, checking for a 200 OK before we switch deploys to the most recent one.
 
-Want to revert a change? Because we image all builds, we allow you to [rollback](/deploy/deployments#rollback) to an earlier working deploy in just one click.
+Want to revert a change? Because we image all builds, you can [rollback](/deploy/deployments#rollback) to an earlier working deploy in just one click.
 
 ### Support + Community
 
