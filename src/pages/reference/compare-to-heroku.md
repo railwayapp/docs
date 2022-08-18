@@ -86,7 +86,7 @@ As a result, we make great pains to be very communicative in our support channel
 
 Getting your app hosted on Heroku moved over to Railway is very simple.
 
-All you need to do is connect your GitHub account, create a new project and then deploy your repo. We even support Procfiles out of the box. (Caveat: only the web worker process is supported for now)
+All you need to do is connect your GitHub account, create a new project, and then deploy your repo. We even support Procfiles out of the box. (Caveat: only a single process is supported for now)
 
 If you wanna learn in-depth about our product and the feature discussed here, we have a Getting Started guide.
 
