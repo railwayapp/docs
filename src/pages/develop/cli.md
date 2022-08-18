@@ -161,4 +161,4 @@ railway logout
 
 Our CLI is Open Source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
 
-[You can see our documentation of the CLI API here.](reference/cli-api)
+[You can see our documentation of the CLI API here.](/reference/cli-api)
