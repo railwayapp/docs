@@ -6,7 +6,7 @@ Railway offers a consumption-based pricing model for your projects. You don't ge
 
 Users who upgrade to the Developer plan get unlimited execution time on their workloads and increased service limits compared to users on the Starter plan.
 
-[You can see the limits of each tier on this page.](reference/limits)
+[You can see the limits of each tier on this page.](/reference/limits)
 
 ## Pricing Rates
 
