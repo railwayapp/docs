@@ -171,6 +171,26 @@
     "answer": "Under the project usage tab under the Account dropdown menu.",
     "link": "https://railway.app/account/billing"
   },
+  "execution-hours": {
+    "category": "pricing",
+    "questions": ["What are execution hours?"],
+    "answer": "Execution hours are a free plan limit. Execution hours are how we measure how long your app has been occupying deployment space. However, they are not a direct measurement of the time your app has been up. Each service you have counts towards the hour limit. To see more information, click the link below.",
+    "link": "https://docs.railway.app/reference/plans#execution-time-limit"
+  },
+  "pay-execution-hours": {
+    "category": "pricing",
+    "questions": ["Do I pay for Execution Hours?"],
+    "answer": "Not at all. They are a free-plan limit. To remove them, you can upgrade your account by subscribing or add credits to your account.",
+    "link": "https://docs.railway.app/reference/plans#execution-time-limit"
+  },
+  "paypal-workaround": {
+    "category": "pricing",
+    "questions": [
+      "Can I send a team member money over PayPal or Venmo in exchange for credits?"
+    ],
+    "answer": "No, we only sell credits directly on our website with supported payment methods.",
+    "link": "https://docs.railway.app/reference/plans#upgrading-to-the-developer-plan"
+  },
   "bug-reporting": {
     "category": "misc",
     "questions": [
@@ -184,7 +204,19 @@
     "category": "misc",
     "questions": ["Is Railway hiring?", "Do you have any jobs?"],
     "answer": "Yes!",
-    "link": "https://www.notion.so/railwayapp/Jobs-bdc641c4b72947f2ab1e09bea5362363"
+    "link": "https://railway.app/careers"
+  },
+  "sponsorship": {
+    "category": "misc",
+    "questions": ["Can Railway sponsor my project?"],
+    "answer": "Railway sponsors choice OSS that we use in the product. However, users can take advantage of the OSS kickback or referral program to get credits.",
+    "link": "https://railway.app/open-source-kickback"
+  },
+  "students": {
+    "category": "misc",
+    "questions": ["Will students and educators be offered any benefits?"],
+    "answer": "Not at the moment for students, however this may be something we explore in the future! However, reach out to us if you made quality tutorial content. contact (at) railway (dot) app",
+    "link": ""
   },
   "intro": {
     "category": "misc",

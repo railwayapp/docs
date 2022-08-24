@@ -119,7 +119,7 @@ The user starts the month with 500 execution hours.
 | 5            | 120                      | 20                        |
 | **~5**       | **125**                  | **0**                     |
 
-With your current arrangement, your app will only stay up for ~5 days.
+With that current arrangement, their app will only stay up for ~5 days.
 
 2 environments x 2 services/environment = 4 execution hours consumed per every real hour.
 At this rate, the user runs out after only 125 real hours.
