@@ -126,4 +126,4 @@ At this rate, the user runs out after only 125 real hours.
 
 Successful and crashed deployments will continue to consume execution hours unless they are manually removed.
 
-This is because a crashed deployment continues to occupy deployment space, even it if doesn't use any compute resources.
+This is because a crashed deployment continues to occupy deployment space, even if it doesn't use any compute resources.
