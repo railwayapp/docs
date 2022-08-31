@@ -5,7 +5,7 @@ title: Getting Started
 Railway is a deployment platform where you can provision infrastructure,
 develop with that infrastructure locally, and then deploy to the cloud.
 
-In this guide we will deploy a simple To-Do App running [NextJS](https://nextjs.org/docs/getting-started) and [Prisma](https://www.prisma.io/docs/) using a starter.
+In this guide we will deploy a simple To-Do App running [NextJS](https://nextjs.org/docs/getting-started) and [Prisma](https://www.prisma.io/docs/) using a template.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1643740624/docs/todos-gif.gif"
 alt="Preview of What The Guide is Building"
@@ -14,7 +14,7 @@ width={800} height={378} quality={100} />
 
 We will get you up and running quickly by covering the following 3 steps:
 
-1. Creating a project from a starter
+1. Creating a project from a template
 2. Developing the project locally
 3. Deploying to the cloud
 
@@ -22,7 +22,7 @@ You will need [Node](https://nodejs.org/en/download/) to run the project locally
 
 ## Create a Project
 
-First, to deploy the NextJS Prisma starter, we will make a new [project](develop/projects).
+First, to deploy the NextJS Prisma template, we will make a new [project](develop/projects).
 
 Railway offers a Command Palette that exposes all actions that one can do on the platform. We will use this menu to create our project.
 
@@ -33,24 +33,24 @@ alt="Command K in Action"
 layout="intrinsic"
 width={800} height={440} quality={80} />
 
-Under the list of options in the menu, select "Deploy Starter".
+Under the list of options in the menu, select "Deploy Template".
 
-### Deploy the Next JS Prisma Starter
+### Deploy the Next JS Prisma Template
 
-Railway offers 40+ starters ranging from blogs to self-hosted apps. Use the search bar at the top right and type `NextJS Prisma`.
+Railway offers 50+ templates ranging from blogs to self-hosted apps. Use the search bar at the top right and type `NextJS Prisma`.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1643761460/docs/findnextjs_kvgmuj.gif"
-alt="Deploy the Starter"
+alt="Deploy the Template"
 layout="intrinsic"
 width={800} height={546} quality={80} />
 
-Click the `NextJS Prisma` starter to deploy it.
+Click the `NextJS Prisma` template to deploy it.
 
-Railway requires that you have a valid GitHub account linked to deploy a starter. If there is no account associated with your Railway account, you will be prompted to link an account.
+Railway requires that you have a valid GitHub account linked to deploy a template. If there is no account associated with your Railway account, you will be prompted to link an account.
 
 Let's go with the default settings in the Deploy menu and click the deploy button.
 
-When you click deploy, Railway will create a repo using the `NextJS Prisma` starter as the source on your linked GitHub account and kick off an initial deploy after the project is created.
+When you click deploy, Railway will create a repo using the `NextJS Prisma` template as the source on your linked GitHub account and kick off an initial deploy after the project is created.
 
 Once the project is created you will land on your project dashboard.
 
@@ -93,7 +93,7 @@ Log in to your account by running the login command.
 railway login
 ```
 
-Then, when you are in your project's directory, link your repo to the starter project with the following command.
+Then, when you are in your project's directory, link your repo to the template project with the following command.
 
 ```bash
 railway link
@@ -162,7 +162,7 @@ width={800} height={498} quality={100} />
 This will create a [deployment](deploy/railway-up) using the current project and
 environment. Click the returned link to see the build and deploy logs.
 
-For projects based off of a GitHub repo like a starter, [auto deploys](deploy/deployments#deploy-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
+For projects based off of a GitHub repo like a template, [auto deploys](deploy/deployments#deploy-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
 
 After your deployment completes, you can see your new deployment live at the deployment's URL. If you added To-Dos while developing locally, you should see them on your deployment live. In a proper project, you would enable multiple environments to isolate your production environment.
 
