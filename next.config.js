@@ -27,6 +27,15 @@ module.exports = withPlugins([
         "res.cloudinary.com",
       ],
     },
+    async redirects() {
+      return [
+        {
+          source: "/reference/starters",
+          destination: "/reference/templates",
+          permanent: true,
+        },
+      ];
+    },
   }),
 ]);
 

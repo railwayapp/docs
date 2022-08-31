@@ -125,7 +125,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Accounts", "reference", ["accounts"]),
       makePage("Teams", "reference", ["teams"]),
       makePage("CLI API", "reference", ["cli"]),
-      makePage("Starters", "reference", ["starters"]),
+      makePage("Templates", "reference", ["templates"]),
       makePage("Guides", "reference", ["guides"]),
       makePage("Usecases", "reference", ["usecases"]),
       makePage("Compare to Heroku", "reference", ["heroku", "vs"]),
