@@ -14,7 +14,7 @@ A railway service is a deployment target for your application. There are two typ
 
 Deployment services can be connected to a GitHub repo and autodeployed on each commit. Templates are a pre-configured groups of services that can be used as a starting off point for your project, or added to an existing project).
 
-Services keep track of all current and historical deployment attempts as well as [variables](/develop/deployments), [metrics](/diagnose/metrics), and application source like a GitHub repo and a start command. Clicking a service within the project canvas will bring up the service view on the side of your browser.
+Services keep track of all current and historical deployment attempts as well as [variables](/develop/variables), [metrics](/diagnose/metrics), and application source like a GitHub repo and a start command. Clicking a service within the project canvas will bring up the service view on the side of your browser.
 
 Within the service view, you can change the service name, view all [deployments](/deploy/deployments), add [domains](/deploy/exposing-your-app), and the code used to build your service.
 
@@ -26,7 +26,7 @@ Anytime within a project, a new service can be created with the command palette.
 
 ## Deployment Services
 
-Application services are services which tie to a GitHub repo as the source of deployment. Railway will clone into the root directory of the provided repo and initiate a [deploy](deploy/deployments). We will then use a Cloudnative buildback to automagically determine the application runtime and begin hosting it.
+Application services are services which tie to a GitHub repo as the source of deployment. Railway will clone into the root directory of the provided repo and initiate a [deploy](/deploy/deployments). We will then use a Cloudnative buildback to automagically determine the application runtime and begin hosting it.
 
 ### Monorepo Services
 
@@ -67,7 +67,7 @@ Railway offers 60+ templates that are maintained by the community. A template wi
 
 ## Empty Application Services
 
-Empty services are services with no reference to a repo. They are perfect for [CLI](develop/cli) deploys, running ad-hoc processes, or storing environment variables for local development. A repo can be connected to an empty service at any time on the service settings page.
+Empty services are services with no reference to a repo. They are perfect for [CLI](/develop/cli) deploys, running ad-hoc processes, or storing environment variables for local development. A repo can be connected to an empty service at any time on the service settings page.
 
 ## Service Metrics
 
