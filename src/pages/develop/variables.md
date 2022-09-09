@@ -16,14 +16,6 @@ width={1323} height={698} quality={100} />
 
 You can view all variables for the current environment with `railway vars` and change the environment with `railway environment`.
 
-### Automatic Detection of Environment Variables
-
-If you initialize the a new project from the CLI- if a .env file is detected, Railway will now prompt to see if you'd like to import it into your new project.
-
-## Multiline Variables
-
-Railway supports multiline variables/object variables. Just type or paste in the value as you would normally.
-
 ## RAW Editor
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1656640465/docs/raw-editor_r6mlmr.png"
@@ -34,6 +26,14 @@ width={552} height={572} quality={100} />
 Chances are you might already have a `.env` file laying around. You can import your existing environment variables via the RAW Editor.
 
 You can click the `RAW Editor` link to open up a modal where you can paste in a list of variables separated by new line. This also allows you to bulk edit your variables in a familiar way like you would an `.env` file or even edit them via JSON notation.
+
+## Automatic Detection of Environment Variables
+
+If you initialize the a new project from the CLI- if a .env file is detected, Railway will now prompt to see if you'd like to import it into your new project.
+
+## Multiline Variables
+
+Railway supports multiline variables/object variables. Just type or paste in the value as you would normally.
 
 ## Railway Provided Variables
 
@@ -79,3 +79,14 @@ template to reference the original:
 ```
 DATABASE_URL = ${{ MYSQL_URL }}
 ```
+
+## Import Variables from Heroku
+
+You can import variables from an existing Heroku app using the command palette
+on the service variables page. After connecting your Heroku account you can
+select any of your Heroku apps and the config variables will be added to the current service and environment.
+
+<Image src="/images/connect-heroku-account.png"
+alt="Screenshot of connect Heroku account modal"
+layout="responsive"
+width={521} height={404} quality={100} />

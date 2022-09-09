@@ -48,14 +48,14 @@ const Home: NextPage = () => {
         </div>
 
         <div tw="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-          <OverviewLink href="reference/starters">
+          <OverviewLink href="reference/templates">
             <OverviewLinkIcon>
               <Zap size="28" tw="text-pink-800" />
             </OverviewLinkIcon>
             <OverviewLinkTextbox tw="">
-              <OverviewLinkHeading>Starters</OverviewLinkHeading>
+              <OverviewLinkHeading>Templates</OverviewLinkHeading>
               <OverviewLinkText>
-                See all starters you can deploy to get up and running on
+                See all templates you can deploy to get up and running on
                 Railway.
               </OverviewLinkText>
             </OverviewLinkTextbox>

@@ -74,7 +74,7 @@
       "Can I use docker compose on Railway?"
     ],
     "answer": "You can use a Dockerfile with Railway but we do not support using docker-compose at this moment.",
-    "link": "https://docs.railway.app/deploy/docker"
+    "link": "https://docs.railway.app/deploy/dockerfiles"
   },
   "plugin-connection": {
     "category": "general",

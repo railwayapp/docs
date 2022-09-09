@@ -73,7 +73,7 @@ railway init
 ```
 
 Running `init` will prompt you to create a new project or a select from one of
-our [starter templates](https://railway.app/starters).
+our [featured templates](https://railway.app/templates).
 
 ## Link
 

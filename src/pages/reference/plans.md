@@ -118,4 +118,4 @@ With that current arrangement, their app will stay up for ~21 days.
 
 Successful and crashed deployments will continue to consume execution hours unless they are manually removed.
 
-This is because a crashed deployment continues to occupy deployment space, even it if doesn't use any compute resources.
+This is because a crashed deployment continues to occupy deployment space, even if it doesn't use any compute resources.
