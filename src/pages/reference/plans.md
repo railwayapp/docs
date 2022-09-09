@@ -10,9 +10,9 @@ Stater plans are designed to help you evaluate Railway and are fit for hobbyist 
 
 Starter plans get $5 of credits that do not accumulate.
 
-Starter plans also have an execution limit, users get 500 execution hours per month. Each service counts against the execution limit.
+Starter plans also have an execution limit, users get 500 execution hours per month. Hours get consumed if you at least have one service live.
 
-If you have one service, it will deplete the 500 hour reserve at a normal rate. If you have two services, the timer will deplete twice as much.
+If you have one service, it will deplete the 500 hour reserve at a normal rate. If you have two services, the timer will also deplete at a normal rate.
 
 **Tier Offering**
 
@@ -91,15 +91,11 @@ If we deem that projects violate the [fair use](https://railway.app/legal/fair-u
 
 **Only applies to the Starter Plan. Paid plans on Railway are exempt from this limit.**
 
-Execution hours are how we measure how long your app has been occupying deployment space.
+Execution hours are how we measure how long an account has at least one deploy.
 
 However, they are not a direct measurement of the time your app has been up. It is a separate measure of your app's compute usage.
 
-We calculate execution hours with the following formula.
-
-> Execution Hours Consumed = Hours Elapsed x Number of Environments x Number of Services
-
-Railway limits free accounts to 500 hours of continuous uptime. Each service counts against this limit.
+Railway limits free accounts to 500 hours of continuous uptime. If you have a deploy live, time is consumed.
 
 ### Example Calculation
 
@@ -112,17 +108,13 @@ The user starts the month with 500 execution hours.
 | Days elapsed | Real world hours elapsed | Execution Hours remaining |
 | ------------ | ------------------------ | ------------------------- |
 | 0            | 0                        | 500                       |
-| 1            | 24                       | 404                       |
-| 2            | 48                       | 308                       |
-| 3            | 72                       | 212                       |
-| 4            | 96                       | 116                       |
-| 5            | 120                      | 20                        |
-| **~5**       | **125**                  | **0**                     |
+| 1            | 24                       | 476                       |
+| 2            | 48                       | 452                       |
+| 3            | 72                       | 428                       |
+| 4            | 96                       | 404                       |
+| **5**        | **120**                  | **380**                   |
 
-With your current arrangement, your app will only stay up for ~5 days.
-
-2 environments x 2 services/environment = 4 execution hours consumed per every real hour.
-At this rate, the user runs out after only 125 real hours.
+With that current arrangement, their app will stay up for ~21 days.
 
 Successful and crashed deployments will continue to consume execution hours unless they are manually removed.
 
