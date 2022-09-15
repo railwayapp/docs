@@ -20,7 +20,7 @@ Within the service view, you can change the service name, view all [deployments]
 
 ## Creating A Service
 
-Create a service by opening the command palette and typing `New Service`. You may also use the `New` button to open this exact flow. Afterwards, there is a prompt to to pick a type of service to deploy. You can deploy a GitHub repo, provision a database, deploy a template, or create an empty service.
+Create a service by opening the command palette and typing `New Service`. You may also use the `New` button to open this exact flow. Afterwards, there is a prompt to pick a type of service to deploy. You can deploy a GitHub repo, provision a database, deploy a template, or create an empty service.
 
 Anytime within a project, a new service can be created with the command palette.
 
