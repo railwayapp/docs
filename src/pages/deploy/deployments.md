@@ -11,8 +11,8 @@ layout="responsive"
 width={1103} height={523} quality={80} />
 
 All deployments will appear in the deployments view on your selected service.
-Clicking on the deployment will bring up the build and deploy logs. Each deploy gets
-a pair of unique URLs and is considered immutable.
+Clicking on the deployment will bring up the build and deploy logs. Each deploy has the option to configure a
+a Railway provided domain as well as attaching a custom domain.
 
 ## Deployment Lifecycle
 
