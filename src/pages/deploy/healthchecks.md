@@ -14,7 +14,17 @@ First, make sure your webserver has an endpoint (e.g. `/health`) that will retur
 
 Under Service → Settings, input your health endpoint. Railway will wait for this endpoint to serve a 200 status code before switching traffic to your new deployment.
 
-The default timeout on healthchecks is 300 seconds - if your application fails to serve a 200 status code during this allotted time, the deploy will be marked as failed and removed. To increase the timeout, specify the `RAILWAY_HEALTHCHECK_TIMEOUT_SEC` variable on your deployment.
+## Timeout
+
+The default timeout on healthchecks is 300 seconds (5 minutes) - if your application fails
+to serve a 200 status code during this allotted time, the deploy will be marked
+as failed. To increase the timeout, change the number of seconds on the service settings page.
+
+<Image 
+src="https://res.cloudinary.com/railway/image/upload/v1664564544/docs/healthcheck-timeout_lozkiv.png"
+alt="Screenshot of Healthchecks Timeouts"
+layout="intrinsic"
+width={1188} height={348} quality={80} />
 
 ## Debugging
 

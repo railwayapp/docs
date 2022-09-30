@@ -63,7 +63,6 @@ export const sidebarContent: ISidebarContent = [
         "deploy",
         "up",
       ]),
-      makePage("Deployments", "deploy", ["logs", "singleton", "rollback"]),
       makePage("Builds", "deploy", [
         "builds",
         "procfile",
@@ -72,6 +71,8 @@ export const sidebarContent: ISidebarContent = [
         "paketo",
         "nixpacks",
       ]),
+      makePage("Deployments", "deploy", ["logs", "singleton", "rollback"]),
+      makePage("Healthchecks", "deploy", ["health", "healthcheck"]),
       makePage("Dockerfiles", "deploy", ["docker, compose"]),
       makePage("Exposing Your App", "deploy", [
         "port",
@@ -100,7 +101,6 @@ export const sidebarContent: ISidebarContent = [
       makePage("Metrics", "diagnose", ["metrics", "logs"]),
       makePage("Webhooks", "diagnose", ["webhooks", "notifcations"]),
       makePage("Project Usage", "diagnose", ["usage", "pricing"]),
-      makePage("Healthchecks", "diagnose", ["health", "healthcheck"]),
     ],
   },
   {
