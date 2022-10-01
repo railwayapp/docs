@@ -20,4 +20,4 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) to see the result.
+Open [http://localhost:3001](http://localhost:3001) to see the result
