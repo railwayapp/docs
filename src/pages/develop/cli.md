@@ -115,7 +115,7 @@ If you have a Dockerfile in your project directory, you can just run
 
 ## Local Shell
 
-Open an interactive subshell loaded with environment variables from your active service.
+Open an interactive subshell loaded with your project's environment variables.
 
 ```bash
 railway shell
