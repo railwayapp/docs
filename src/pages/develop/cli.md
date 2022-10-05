@@ -113,6 +113,14 @@ railway run npm start
 If you have a Dockerfile in your project directory, you can just run
 `railway run` with no arguments to build and run the Dockerfile.
 
+## Local Shell
+
+Open an interactive subshell loaded with your project's environment variables.
+
+```bash
+railway shell
+```
+
 ## Environments
 
 Projects might have multiple environments, by default the CLI points to the `production` environment. If you'd like to use a different set of environment variables and a different deployment environment you can change the setting by:
