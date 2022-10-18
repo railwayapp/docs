@@ -28,11 +28,11 @@ If you have one service, it will deplete the 500 hour reserve at a normal rate. 
 
 ## Developer Plan Offering
 
-When you add a credit card or have a prepaid credit balance on your account, your account is upgraded to the Developer plan. The $5 of monthly credit no longer comes with an execution limit. You are billed for any usage above $5 on your account.
+When you add a credit card or have a prepaid credit balance on your account, your account is upgraded to the Developer plan. The $5 of monthly credit no longer comes with an execution limit. You are billed for any usage above $5 on your account. The developer plan is meant for hobbyist workloads.
 
 Developer plan projects have increased limits: limits are raised as projects approach them up to the hard cap listed here.
 
-If a user unsubscribes or runs out of prepaid credits, the user returns to the Starter plan and the previous limits begin reapplying.
+If a user unsubscribes or runs out of prepaid credits, the user returns to the Starter plan and the previous limits reapply.
 
 **Tier Offering**
 
@@ -41,7 +41,7 @@ If a user unsubscribes or runs out of prepaid credits, the user returns to the S
 - Max 100 GB of Disk (Soft cap)
 - Max 5 members per project
 
-The Developer Plan is meant for serious hobbyist use-cases or small commercial projects. We do urge companies to upgrade to the teams plan for the support required to maintain those workloads.
+The Developer Plan is meant for serious hobbyist use-cases. We do urge companies to upgrade to the Teams plan for for a commercial license to use Railway.
 
 ### Upgrading to the Developer Plan
 
@@ -81,7 +81,7 @@ Unlike the starter and developer projects, team members within a team can access
 - Default up to 32 vCPU cores
 - Up to 2 TB of Disk
 
-If you need more limits as your application scales, reach out to us within your direct support channel. We would be more than happy to bump up those limits on a case-by-case basis.
+If you need more limits as your application scales, reach out to us within your direct support channel. We would be more than happy to bump up those limits on a case-by-case basis. Note: Companies who wiosh to use Railway for commercial use must be on the team plan.
 
 ## Fair Use
 
