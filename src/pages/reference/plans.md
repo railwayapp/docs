@@ -81,7 +81,7 @@ Unlike the starter and developer projects, team members within a team can access
 - Default up to 32 vCPU cores
 - Up to 2 TB of Disk
 
-If you need more limits as your application scales, reach out to us within your direct support channel. We would be more than happy to bump up those limits on a case-by-case basis. Note: Companies who wiosh to use Railway for commercial use must be on the team plan.
+If you need more limits as your application scales, reach out to us within your direct support channel. We would be more than happy to bump up those limits on a case-by-case basis. Note: Companies who wish to use Railway for commercial use must be on the team plan.
 
 ## Fair Use
 
