@@ -1,7 +1,14 @@
 import React from "react";
 import tw, { TwStyle } from "twin.macro";
 import { Icon } from "./Icon";
-import { Info, XOctagon, CheckCircle, AlertTriangle } from "react-feather";
+import {
+  Info,
+  Star,
+  XOctagon,
+  CheckCircle,
+  AlertTriangle,
+} from "react-feather";
+import { Link } from "./Link";
 
 export type BannerVariant =
   | "primary"
@@ -62,5 +69,15 @@ export const Banner: React.FC<Props> = ({ children, hideIcon, ...props }) => {
 
       {hideIcon || icon == null ? <>{children}</> : <span>{children}</span>}
     </div>
+  );
+};
+
+export const PriorityBoardingBanner: React.FC = () => {
+  return (
+    <Banner variant="primary" icon={Star}>
+      This feature is only available to{" "}
+      <Link href="/reference/priority-boarding">Priority Boarding</Link>{" "}
+      members.
+    </Banner>
   );
 };
