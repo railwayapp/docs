@@ -85,7 +85,7 @@ You can see the breakdown of your billing by seeing the service level breakdown 
 
 ## Link Discord Account
 
-Each Railway account has the option to associate that user's Discord account. Integration is required to enroll in Railway's Beta program dubbed Priority Boarding. You can link the account under the Account Settings page below the GitHub integration section.
+Each Railway account has the option to associate that user's Discord account. You can link the account under the Account Settings page below the GitHub integration section.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1643230045/link-discord-account_vpal68.png"
 alt="Screenshot of Referrals Page"
@@ -100,6 +100,4 @@ Every user now must link their Discord account and their account must be within 
 
 ### Priority Boarding Enrollment
 
-For the most adventurous, we offer a pre-release feature program- Priority Boarding.
-
-Railway users in the Discord can assign themselves a Priority Boarding role by typing `/beta` in the Railway Discord server. Those who have their Discord account integrated will then be able to access and share feedback on pre-release features.
+For the most adventurous, we offer a beta program called Priority Boarding. Integration with Discord is required. To learn more, visit [Priority Boarding](priority-boarding).
