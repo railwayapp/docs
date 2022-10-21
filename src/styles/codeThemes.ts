@@ -1,7 +1,5 @@
-import {
-  atomOneDark,
-  atomOneLight,
-} from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import oneLight from "react-syntax-highlighter/dist/cjs/styles/prism/one-light";
+import oneDark from "react-syntax-highlighter/dist/cjs/styles/prism/one-dark";
 
-export const lightCodeTheme = atomOneLight;
-export const darkCodeTheme = atomOneDark;
+export const lightCodeTheme = oneLight;
+export const darkCodeTheme = oneDark;

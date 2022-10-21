@@ -1,23 +1,26 @@
 import React, { useMemo } from "react";
-import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
-import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
-import ruby from "react-syntax-highlighter/dist/cjs/languages/hljs/ruby";
-import shell from "react-syntax-highlighter/dist/cjs/languages/hljs/shell";
+import { CheckCircle, Copy } from "react-feather";
+import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
+import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
+import toml from "react-syntax-highlighter/dist/cjs/languages/prism/toml";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+
+import "twin.macro";
+import { useCopy } from "../../hooks/useCopy";
+import { useIsMounted } from "../../hooks/useIsMounted";
 import { darkCodeTheme, lightCodeTheme } from "../../styles/codeThemes";
 import { useTheme } from "../../styles/theme";
-import { normalize } from "./normalize";
-import tw from "twin.macro";
-import { useIsMounted } from "../../hooks/useIsMounted";
 import { Icon } from "../Icon";
-import { CheckCircle, Copy } from "react-feather";
-import { useCopy } from "../../hooks/useCopy";
+import { normalize } from "./normalize";
 
-SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("js", javascript);
-SyntaxHighlighter.registerLanguage("ruby", ruby);
-SyntaxHighlighter.registerLanguage("shell", shell);
+SyntaxHighlighter.registerLanguage("javascript", javascript);
+SyntaxHighlighter.registerLanguage("bash", bash);
+SyntaxHighlighter.registerLanguage("toml", toml);
+SyntaxHighlighter.registerLanguage("json", json);
 
-export type SupportedLanguage = "javascript" | "shell" | "ruby" | "json";
+export type SupportedLanguage = "javascript" | "bash" | "json" | "toml";
 
 export interface Props {
   language?: string;
@@ -61,7 +64,7 @@ export const CodeBlock: React.FC<Props> = ({
   const params = useMemo(() => getParams(className) as any, [className]);
 
   const lang = useMemo(
-    () => language ?? params.language ?? "shell",
+    () => language ?? params.language ?? "bash",
     [language, params],
   );
 
