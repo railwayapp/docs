@@ -128,6 +128,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Templates", "reference", ["templates"]),
       makePage("Guides", "reference", ["guides"]),
       makePage("Usecases", "reference", ["usecases"]),
+      makePage("Priority Boarding", "reference", ["priority", "boarding"]),
       makePage("Compare to Heroku", "reference", ["heroku", "vs"]),
     ],
   },
