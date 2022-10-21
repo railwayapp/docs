@@ -74,7 +74,7 @@ module.exports = {
             color: theme("colors.foreground"),
 
             a: {
-              color: theme("colors.foreground"),
+              color: "currentColor",
               textDecoration: "underline",
 
               "&:hover": {

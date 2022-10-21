@@ -87,6 +87,20 @@ width={1302} height={408} quality={80} />
 
 By default, Railway maintains only one deploy per service.
 
+## Logs
+
+Railway allows users to see running logs of your application to help with
+monitoring. Railway displays the last 10,000 lines of logs available for a
+deployment.
+
+We maintain logs for inactive deployments as well as active. Under the logs pane, you can search within your logs for certain keywords.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1645149733/docs/logs_seqcps.png"
+alt="Animation of Log Filtering"
+layout="responsive"
+width={1512} height={1254} quality={80} />
+
 ## Deployment Actions
 
 ### Rollback
@@ -104,29 +118,30 @@ width={1518} height={502} quality={80} />
 To perform a rollback, click the three dots at the end of a previous deployment,
 you will then be asked to confirm your rollback.
 
-### Logs
+### Redeploy
 
-Railway allows users to see running logs of your application to help with
-monitoring. Railway displays the last 10,000 lines of logs available for a
-deployment.
+<PriorityBoardingBanner />
 
-We maintain logs for inactive deployments as well as active. Under the logs pane, you can search within your logs for certain keywords.
+A successful, failed, or crashed deployment can be re-deployed. This will create
+an new deployment with the exact same code and build/deploy configuration.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1645149733/docs/logs_seqcps.png"
-alt="Animation of Log Filtering"
+src="https://res.cloudinary.com/railway/image/upload/v1666380373/docs/redeploy_ghinkb.png"
+alt="Screenshot of Redeploy Menu"
 layout="responsive"
-width={1512} height={1254} quality={80} />
+width={888} height={493} quality={100} />
 
-### Delete Deployments
+### Cancel
 
 Users can cancel deployments in progress by clicking the three dots at the end
 of the deployment tab and select Abort deployment. This will cancel the
 deployment in progress.
 
-If a deployment is completed, you can delete a live deploy by clicking the the
-three dots at the end of the deployment tab and select Remove. This will remove
-the deployment and stop any further project usage.
+### Remove
+
+If a deployment is completed, you can remove it by clicking the the three dots
+at the end of the deployment tab and select Remove. This will remove the
+deployment and stop any further project usage.
 
 ### Restart a Crashed Deployment
 
