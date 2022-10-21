@@ -136,7 +136,7 @@ Number of seconds to wait for the healthcheck path to become healthy
 
 ```toml
 [deploy]
-healthcheckPath = "/health"
+healthcheckTimeout = 300
 ```
 
 ### [Restart Policy Type](/deploy/deployments#configurable-restart-policy)
