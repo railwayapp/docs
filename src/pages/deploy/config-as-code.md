@@ -4,7 +4,17 @@ title: Config as Code
 
 <PriorityBoardingBanner />
 
-Railway supports defining the configuration for a single deployment in a file alongside your code. By default, we will look for a `railway.toml` or `railway.json` file. Everything in the build and deploy sections of the service settings page can be specified in this configuration file.
+Railway supports defining the configuration for a single deployment in a file
+alongside your code. By default, we will look for a `railway.toml` or
+`railway.json` file. Everything in the build and deploy sections of the service
+settings page can be specified in this configuration file.
+
+When a new deploy is triggered, Railway will look for any config files in your
+code and combine these values with the settings from the dashboard. The
+resulting build and deploy config will be used **only for the current deploy**.
+The settings in the dashboard will not be updated with the settings defined in
+code. Configuration defined in code will always override values from the
+dashboard.
 
 ## Examples
 
@@ -47,7 +57,7 @@ In a `railway.json` file
 
 ## Config Source Location
 
-On the deployment details page, all of the settings that a deploy went out with is shown. For settings that comes from a configuration file, there is a little file icon. Hovering over the icon will show exactly what part of the file the values originated from.
+On the deployment details page, all of the settings that a deploy went out with are shown. For settings that comes from a configuration file, there is a little file icon. Hovering over the icon will show exactly what part of the file the values originated from.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1666388941/docs/details-page-config-tooltip_jvy1qu.png"
@@ -57,9 +67,11 @@ width={948} height={419} quality={100} />
 
 ## Configurable Settings
 
-Everything in the build and deploy sections of the service settings can be configured. The settings are
+Everything in the build and deploy sections of the service settings can be configured. The settings are...
 
 ### [Builder](/deploy/builds)
+
+Set the builder for the deployment
 
 ```toml
 [build]
@@ -168,9 +180,9 @@ Configuration can be overriden for a specific environment by nesting it in an
 
 When resolving the settings for a deployment, Railway will use this priority order
 
-- Dashboard (lowest)
-- Base config in code
-- Environment specific config in code (highest)
+1. Environment specific config in code
+2. Base config in code
+3. Dashboard
 
 The following example changes the start command just in the production
 environment.
