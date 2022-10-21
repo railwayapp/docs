@@ -1,23 +1,25 @@
 import React, { useMemo } from "react";
+import { CheckCircle, Copy } from "react-feather";
 import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
 import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
-import ruby from "react-syntax-highlighter/dist/cjs/languages/hljs/ruby";
 import shell from "react-syntax-highlighter/dist/cjs/languages/hljs/shell";
+import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
+import toml from "react-syntax-highlighter/dist/cjs/languages/prism/toml";
+import "twin.macro";
+import { useCopy } from "../../hooks/useCopy";
+import { useIsMounted } from "../../hooks/useIsMounted";
 import { darkCodeTheme, lightCodeTheme } from "../../styles/codeThemes";
 import { useTheme } from "../../styles/theme";
-import { normalize } from "./normalize";
-import tw from "twin.macro";
-import { useIsMounted } from "../../hooks/useIsMounted";
 import { Icon } from "../Icon";
-import { CheckCircle, Copy } from "react-feather";
-import { useCopy } from "../../hooks/useCopy";
+import { normalize } from "./normalize";
 
 SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("js", javascript);
-SyntaxHighlighter.registerLanguage("ruby", ruby);
 SyntaxHighlighter.registerLanguage("shell", shell);
+SyntaxHighlighter.registerLanguage("toml", toml);
+SyntaxHighlighter.registerLanguage("json", json);
 
-export type SupportedLanguage = "javascript" | "shell" | "ruby" | "json";
+export type SupportedLanguage = "javascript" | "shell" | "json" | "toml";
 
 export interface Props {
   language?: string;

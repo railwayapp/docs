@@ -93,6 +93,7 @@ export const sidebarContent: ISidebarContent = [
         "azure",
         "digital ocean",
       ]),
+      makePage("Config as Code", "deploy", ["CaC", "IaC", "service", "config"]),
     ],
   },
   {
