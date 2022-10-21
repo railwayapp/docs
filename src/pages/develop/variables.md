@@ -29,7 +29,7 @@ You can click the `RAW Editor` link to open up a modal where you can paste in a 
 
 ## Automatic Detection of Environment Variables
 
-If you initialize the a new project from the CLI- if a .env file is detected, Railway will now prompt to see if you'd like to import it into your new project.
+If you initialize a new project from the CLI- and an .env file is detected, Railway will prompt to see if you'd like to import it into your new project.
 
 ## Multiline Variables
 
