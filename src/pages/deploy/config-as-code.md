@@ -87,7 +87,7 @@ The available values are
 
 ### [Build command](/deploy/builds#build-command)
 
-Build command to pass to the Nixpacks builder.
+Build command to pass to the Nixpacks builder
 
 ```toml
 [build]
@@ -96,7 +96,7 @@ buildCommand = "echo building"
 
 ### [Watch Patterns](/deploy/builds#watch-paths)
 
-Array of patterns used to conditionally trigger deploys.
+Array of patterns used to conditionally trigger deploys
 
 ```toml
 [build]
@@ -123,7 +123,7 @@ startCommand = "echo starting"
 
 ### [Healthcheck Path](/deploy/healthchecks)
 
-Path to check after starting your deployment to ensure it is healthy.
+Path to check after starting your deployment to ensure it is healthy
 
 ```toml
 [deploy]
