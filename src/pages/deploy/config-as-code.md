@@ -6,11 +6,9 @@ title: Config as Code
 
 Railway supports defining the configuration for a single deployment in a file alongside your code. By default, we will look for a `railway.toml` or `railway.json` file. Everything in the build and deploy sections of the service settings page can be specified in this configuration file.
 
-_This is a beta feature and may change in the near future. Use at your own risk._
-
 ## Examples
 
-These configuration files are equivalent.
+These configuration examples are equivalent.
 
 ### Toml
 
