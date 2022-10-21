@@ -76,7 +76,7 @@ export const PriorityBoardingBanner: React.FC = () => {
   return (
     <Banner variant="primary" icon={Star}>
       This feature is only available to{" "}
-      <Link href="/reference/priority-boarding">priority boarding</Link>{" "}
+      <Link href="/reference/priority-boarding">Priority Boarding</Link>{" "}
       members.
     </Banner>
   );
