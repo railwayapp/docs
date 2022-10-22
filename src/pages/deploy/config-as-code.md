@@ -16,7 +16,7 @@ The settings in the dashboard will not be updated with the settings defined in
 code. Configuration defined in code will always override values from the
 dashboard.
 
-## Examples
+## Example
 
 These configuration examples are equivalent.
 
