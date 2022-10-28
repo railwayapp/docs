@@ -207,3 +207,25 @@ In a `railway.json` file
   }
 }
 ```
+
+### PR Environment Overrides
+
+Deploys for all pull requests can be configured using a special `pr` environment. This configuration is applied only to deploys that belong to an ephemeral environment. When resolving the settings for a PR deployment, the following priority order is used:
+
+1. Environment with the name of the ephemeral environment
+2. Environment with the hardcoded name "pr"
+3. Base environment of the pull request
+4. Base config as code
+5. Service settings
+
+```json
+{
+  "environments": {
+    "pr": {
+      "deploy": {
+        "startCommand": "echo 'start command for all pull requests!'"
+      }
+    }
+  }
+}
+```
