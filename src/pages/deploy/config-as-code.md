@@ -210,7 +210,7 @@ In a `railway.json` file
 
 ### PR Environment Overrides
 
-Deploys for all pull requests can be configured using a special `pr` environment. This configuration is applied only to deploys that belong to an ephemeral environment. When resolving the settings for a PR deployment, the following priority order is used
+Deploys for all pull requests can be configured using a special `pr` environment. This configuration is applied only to deploys that belong to an ephemeral environment. When resolving the settings for a PR deployment, the following priority order is used:
 
 1. Environment with the name of the ephemeral environment
 2. Environment with the hardcoded name "pr"
