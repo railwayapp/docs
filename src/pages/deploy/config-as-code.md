@@ -182,7 +182,7 @@ When resolving the settings for a deployment, Railway will use this priority ord
 
 1. Environment specific config in code
 2. Base config in code
-3. Dashboard
+3. Service settings
 
 The following example changes the start command just in the production
 environment.
