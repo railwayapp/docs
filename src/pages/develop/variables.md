@@ -35,7 +35,7 @@ If you initialize a new project from the CLI- and an .env file is detected, Rail
 
 Railway supports multiline variables/object variables. Just type or paste in the value as you would normally.
 
-## Railway Provided Variables
+## Railway-Provided Variables
 
 Railway provides the following additional system environment variables to all
 builds and deployments.
@@ -58,13 +58,14 @@ Variables can reference other variables using the `${{ MY_VAR }}` templating
 syntax. This can help reduce duplication if you need the same value in more than
 one variable, or need to present a plugin-provided variable differently.
 
+
 ### Construct "Meta" Variables
 
 If you find yourself needing the same value in more than one place, you can
 create a template to avoid duplication. The following example constructs a URL
 from an AWS S3 configuration:
 
-```
+```plaintext
 S3_HOST    = us-west-2.amazonaws.com
 S3_BUCKET  = mybucket
 STATIC_URL = https://${{ S3_HOST }}/${{ S3_BUCKET }}/static/
@@ -76,8 +77,35 @@ Railway plugins provide a fixed set of variables. If your application requires a
 variable to be under different name, create a new custom variable that uses a
 template to reference the original:
 
-```
+```plaintext
 DATABASE_URL = ${{ MYSQL_URL }}
+```
+## Shared Variables
+
+<PriorityBoardingBanner />
+
+To reduce duplication of variables across multiple services within the same projects, shared variables can be created at
+the environment level and referenced by the services that need it. Creation of shared variables can be done via the Project Settings pane.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1667332192/docs/shared-variables-settings_tzd2jk.png"
+alt="Screenshot of Shared Variables Settings"
+layout="responsive"
+width={1694} height={1140} quality={100} />
+
+To reference a shared variable, visit the Variables tab within a service and click the "Insert Shared Variable" button to reveal the
+picker. From here, you can either add shared variables individually or add all shared variables at once.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1667332192/docs/shared-variables-picker_ryjble.png"
+alt="Screenshot of Shared Variables Picker"
+layout="responsive"
+width={1784} height={1168} quality={100} />
+
+Under the hood, shared variables references are service variables that use a templated value to reference the shared variable (eg. `NAME=${{shared.NAME}}`).
+Because of this, shared variables automatically support more advanced use cases like including surrounding text or multiple variables like the following example illustrate:
+
+```plaintext
+URL              = https://${{shared.DOMAIN}}`
+GRAPHQL_ENDPOINT = https://${{shared.DOMAIN}}/${{GRAPHQL_PATH}}`
 ```
 
 ## Import Variables from Heroku
