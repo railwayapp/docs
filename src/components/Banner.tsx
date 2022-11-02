@@ -81,3 +81,11 @@ export const PriorityBoardingBanner: React.FC = () => {
     </Banner>
   );
 };
+
+export const AlphaFeatureBanner: React.FC = () => {
+  return (
+    <Banner variant="primary" icon={Star}>
+      This feature is in alpha and we're giving access on a case-by-case basis.
+    </Banner>
+  );
+};

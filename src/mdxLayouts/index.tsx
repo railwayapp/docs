@@ -6,7 +6,11 @@ import { DocsLayout } from "../layouts/DocsLayout";
 import { CodeBlock } from "../components/CodeBlock";
 import NextImage from "next/image";
 import "twin.macro";
-import { Banner, PriorityBoardingBanner } from "../components/Banner";
+import {
+  Banner,
+  PriorityBoardingBanner,
+  AlphaFeatureBanner,
+} from "../components/Banner";
 
 const Image = props => (
   <a tw="block xl:-mx-8" href={props.src} target="_blank" rel="noopener">
@@ -21,6 +25,7 @@ const components = {
   Banner,
   Link,
   PriorityBoardingBanner,
+  AlphaFeatureBanner,
 };
 
 const Layout: React.FC<{ frontMatter: FrontMatter }> = props => (

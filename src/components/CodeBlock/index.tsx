@@ -4,6 +4,7 @@ import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javasc
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
 import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
 import toml from "react-syntax-highlighter/dist/cjs/languages/prism/toml";
+import graphql from "react-syntax-highlighter/dist/cjs/languages/prism/toml";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 
 import "twin.macro";
@@ -19,6 +20,7 @@ SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("bash", bash);
 SyntaxHighlighter.registerLanguage("toml", toml);
 SyntaxHighlighter.registerLanguage("json", json);
+SyntaxHighlighter.registerLanguage("graphql", graphql);
 
 export type SupportedLanguage = "javascript" | "bash" | "json" | "toml";
 
