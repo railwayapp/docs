@@ -85,7 +85,10 @@ export const PriorityBoardingBanner: React.FC = () => {
 export const AlphaFeatureBanner: React.FC = () => {
   return (
     <Banner variant="primary" icon={Star}>
-      This feature is in alpha and we're giving access on a case-by-case basis.
+      This feature is in alpha and access is granted on a case-by-case basis. To
+      request access, visit the{" "}
+      <Link href="https://railway.app/account/tokens">tokens</Link> page in the
+      Railway dashboard.
     </Banner>
   );
 };
