@@ -4,12 +4,12 @@ title: Public API Reference
 
 <AlphaFeatureBanner />
 
-The Railway public API is built with GraphQL and is the same API that powers the Railway dashboard. You can play around with the API right inside your browser with the [GraphiQL playground](LINK_GOES_HERE). Continue reading to learn more about the API and see some examples of the API in use.
+The Railway public API is built with GraphQL and is the same API that powers the Railway dashboard. Continue reading to learn more about the API and see some examples of the API in use.
 
 ## Endpoint
 
 ```bash
-https://api.railway.app/graphql/v2
+https://backboard.railway.app/graphql/v2
 ```
 
 The Railway API supports introspection so you should be able to use popular tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) to query the schema.
@@ -115,7 +115,7 @@ In order to protect the Railway API from abuse, we have established some basic r
 
 | Header                | Description                                                                                                                                        |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| X-RateLimit-Limit     | The maximum number of API requests allowed per day.                                                                                               |
+| X-RateLimit-Limit     | The maximum number of API requests allowed per day.                                                                                                |
 | X-RateLimit-Remaining | The number of API requests your token can make in the current window.                                                                              |
 | X-RateLimit-Reset     | The time at which the current window ends and your remaining requests reset.                                                                       |
 | Retry-After           | The amount of time after which you can make another request. This header is only sent once you've used up all your requests in the current window. |
