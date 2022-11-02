@@ -4,7 +4,7 @@ title: Public API Reference
 
 <AlphaFeatureBanner />
 
-Our public API is built with GraphQL and is the same API that powers our dashboard. You can play around with the API right inside your browser with our [GraphiQL playground](LINK_GOES_HERE). Continue reading to learn more about our API and see some examples on how you'd use it.
+The Railway public API is built with GraphQL and is the same API that powers the Railway dashboard. You can play around with the API right inside your browser with the [GraphiQL playground](LINK_GOES_HERE). Continue reading to learn more about the API and see some examples of the API in use.
 
 ## Endpoint
 
@@ -12,11 +12,11 @@ Our public API is built with GraphQL and is the same API that powers our dashboa
 https://api.railway.app/graphql/v2
 ```
 
-Our API supports introspection so you should be able to use any popular tools like Postman or Insomnia to query our schema.
+The Railway API supports introspection so you should be able to use popular tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) to query the schema.
 
 ## Authentication
 
-To use our API, you will need an API token. You can create one by visiting the [tokens page](https://railway.app/account/tokens) in your account settings. There are two types of tokens you can create.
+To use the API, you will need an API token. You can create one by visiting the [tokens page](https://railway.app/account/tokens) in your account settings. There are two types of tokens you can create.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1667386744/docs/new-token-form_rhrbw8.png"
 alt="New token form"
@@ -111,15 +111,15 @@ mutation pluginCreate {
 
 ## Rate Limits
 
-In order to protect our API from abuse we have set up some basic rate limits. Currently, we have a limit of **1000** requests per **day** on our API. To help you keep track of your usage, we send a few headers with the response on each request.
+In order to protect the Railway API from abuse, we have established some basic rate limits. The current limit is **1000** requests per **day** to the API. To help you keep track of your usage, Railway sends a few headers with the response on each request.
 
 | Header                | Description                                                                                                                                        |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| X-RateLimit-Limit     | The maximum number of API requests we allow per day.                                                                                               |
+| X-RateLimit-Limit     | The maximum number of API requests allowed per day.                                                                                               |
 | X-RateLimit-Remaining | The number of API requests your token can make in the current window.                                                                              |
 | X-RateLimit-Reset     | The time at which the current window ends and your remaining requests reset.                                                                       |
 | Retry-After           | The amount of time after which you can make another request. This header is only sent once you've used up all your requests in the current window. |
 
 ## Support
 
-If you run into problems using the API or have any suggestions, feel free to join our [Discord server](https://discord.gg/railway) where you can directly interact with the engineers working on the API.
+If you run into problems using the API or have any suggestions, feel free to join our [Discord server](https://discord.gg/railway) where you can interact with the engineers working on the API directly.
