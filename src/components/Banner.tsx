@@ -82,13 +82,14 @@ export const PriorityBoardingBanner: React.FC = () => {
   );
 };
 
-export const AlphaFeatureBanner: React.FC = () => {
+export const PublicAPIBanner: React.FC = () => {
   return (
     <Banner variant="primary" icon={Star}>
-      This feature is in alpha and access is granted on a case-by-case basis. To
-      request access, visit the{" "}
-      <Link href="https://railway.app/account/tokens">tokens</Link> page in the
-      Railway dashboard.
+      The Public API Alpha is{" "}
+      <Link href="https://railway.app/changelog/2022-11-04-shared-variables-public-api">
+        now available
+      </Link>{" "}
+      to Railway users on a Team plan.
     </Banner>
   );
 };

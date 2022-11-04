@@ -9,7 +9,7 @@ import "twin.macro";
 import {
   Banner,
   PriorityBoardingBanner,
-  AlphaFeatureBanner,
+  PublicAPIBanner,
 } from "../components/Banner";
 
 const Image = props => (
@@ -25,7 +25,7 @@ const components = {
   Banner,
   Link,
   PriorityBoardingBanner,
-  AlphaFeatureBanner,
+  PublicAPIBanner,
 };
 
 const Layout: React.FC<{ frontMatter: FrontMatter }> = props => (
