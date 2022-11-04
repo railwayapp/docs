@@ -37,10 +37,10 @@ Once you have your token, you can pass it within the `Authorization` header of y
 
 ```bash
 curl --request POST \
-  --url https://api.railway.app/graphql/v2 \
+  --url https://backboard.railway.app/graphql/v2 \
   --header 'Authorization: Bearer <API_TOKEN_GOES_HERE>' \
   --header 'Content-Type: application/json' \
-  --data '{"query":"query { projects { edges { node { name } } } }"}'
+  --data '{"query":"query { templates { edges { node { id code } } } }"}'
 ```
 
 ## Examples
