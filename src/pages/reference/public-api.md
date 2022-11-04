@@ -4,7 +4,7 @@ title: Public API Reference
 
 <AlphaFeatureBanner />
 
-The Railway public API is built with GraphQL and is the same API that powers the Railway dashboard. Continue reading to learn more about the API and see some examples of the API in use.
+The Railway public API is built with GraphQL and is the same API that powers the Railway dashboard. You can play around with the API right inside your browser with the [GraphiQL playground](https://railway.app/graphiql). Continue reading to learn more about the API and see some examples of the API in use.
 
 ## Endpoint
 
