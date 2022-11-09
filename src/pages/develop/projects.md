@@ -57,7 +57,7 @@ There are three scopes for project members
 
 - Owner: full administration of the project
 - Editor: adminstration and can make deployments to the project, sans the ability to remove the Owner from the project
-- Viewer: Read only access to the project. Viewers can not make deploys.
+- Viewer: Read only access to the project. Viewers can not make deploys or see environment variables.
 
 Only project owners are charged for project usage.
 
@@ -126,3 +126,19 @@ Projects that are created by a user that is logged in or that have been claimed 
 
 - Are only accessible to members of the project
 - Are private and require permission to access
+
+### Public Projects
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1663700589/docs/visible_vjqct8.png"
+alt="Screenshot of Project Visibility Setting"
+layout="intrinsic"
+width={712} height={291} quality={80} />
+
+Public projects allow you to share your project in a read-only state with anyone on the internet.
+
+Public visibility is helpful for educators who want to show students how their projects look before a user deploys their own.
+
+- Viewers don't need a Railway account to see the project
+- Environment variables are private from viewers
+- Services and Deployment logs are public
