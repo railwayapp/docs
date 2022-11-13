@@ -12,7 +12,9 @@ Starter plans get $5 of credits that do not accumulate.
 
 Starter plans also have an execution limit, users get 500 execution hours per month. Hours get consumed if you at least have one service live.
 
-If you have one service, it will deplete the 500 hour reserve at a normal rate. If you have two services, the timer will also deplete at a normal rate.
+If you have one service, it will deplete the 500-hour reserve at a normal rate. If you have two services, the timer will also deplete at a normal rate.
+
+Once you have run out of hours for that month, your deployment will be suspended until the next month, were you have to manually restart it.
 
 **Tier Offering**
 
@@ -41,7 +43,7 @@ If a user unsubscribes or runs out of prepaid credits, the user returns to the S
 - Max 100 GB of Disk (Soft cap)
 - Max 5 members per project
 
-The Developer Plan is meant for serious hobbyist use-cases. We do urge companies to upgrade to the Teams plan for for a commercial license to use Railway.
+The Developer Plan is meant for serious hobbyist use-cases. We do urge companies to upgrade to the Teams plan for a commercial license to use Railway.
 
 ### Upgrading to the Developer Plan
 
@@ -71,7 +73,7 @@ Credits cannot be bought with:
 
 ## Team Plan Offering
 
-Team plan projects are designed to provide the most resources for all your scaled needs. Team project usage is charged in addition to the number of seats the team pays for.
+Team plan projects are designed to provide the most resources for all your scaled needs. The team plan has project usage charged in addition to the number of seats that the team pays for.
 
 Unlike the starter and developer projects, team members within a team can access all team projects.
 
@@ -95,7 +97,7 @@ Execution hours are how we measure how long an account has at least one deploy.
 
 However, they are not a direct measurement of the time your app has been up. It is a separate measure of your app's compute usage.
 
-Railway limits free accounts to 500 hours of continuous uptime. If you have a deploy live, time is consumed.
+Railway limits free accounts to 500 hours of continuous uptime. If you have a deployment live, time is consumed.
 
 ### Example Calculation
 

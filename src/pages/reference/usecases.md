@@ -52,7 +52,7 @@ Railway provides up to 7 days worth of data on service information such as:
 
 We also overlay commit and deployment behavior to correlate issues with application health to deployments. This is on top of the service logs that are continually delivered to users viewing a particular deployment of a service.
 
-It is common for teams who wish to have additional observability to use a additional monitoring tool that maintains a longer time horizon of data such as New Relic or Datadog. Within projects, deploying a Datadog Agent is as easy as using our provided Dockerfile and providing your Datadog API Keys.
+It is common for teams who wish to have additional observability to use an additional monitoring tool that maintains a longer time horizon of data such as New Relic or Datadog. Within projects, deploying a Datadog Agent is as easy as using our provided Dockerfile and providing your Datadog API Keys.
 
 ### Networking
 
@@ -62,7 +62,7 @@ We do have plans to include private networking, static IPs, and allowing people 
 
 ## Unsupported Use-Cases
 
-Our policy for being forthcoming and frank applies to unsavory information that we need to share. Unfortunately, our platform isn't yet well equipped to handle the following verticals that require extensive certification or GPU compute.
+Our policy for being forthcoming and frank applies to unsavory information that we need to share. Unfortunately, our platform isn't yet well-equipped to handle the following verticals that require extensive certification or GPU compute.
 
 - Medical
 - Government

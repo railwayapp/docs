@@ -3,7 +3,7 @@ title: CLI
 ---
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1645060494/docs/CLIexample_fiflvb.gif"
-alt="Gif of the CLI in Action"
+alt="GIF of the CLI in Action"
 layout="intrinsic"
 width={800} height={468} quality={100} />
 

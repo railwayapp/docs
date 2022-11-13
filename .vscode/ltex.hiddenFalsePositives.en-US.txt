@@ -1,0 +1,2 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QAt the time, the idea of unikernels and Docker didn't take hold until much later.\\E$"}
+{"rule":"NOUN_VERB_CONFUSION","sentence":"^\\QBecause we image all builds, you can rollback to an earlier working deploy in just one click.\\E$"}

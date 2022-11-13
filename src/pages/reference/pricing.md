@@ -2,9 +2,9 @@
 title: Pricing
 ---
 
-Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use—Railway charges by the minute for each vCPU and memory resource your service uses.
+Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use, instead, Railway charges by the minute for each vCPU and memory resource your service uses.
 
-Users who upgrade to the Developer plan get unlimited execution time on their workloads and increased service limits compared to users on the Starter plan.
+Users who upgrade to the Developer plan get unlimited execution hours on their workloads and increased service limits compared to users on the Starter plan.
 
 [You can see the offerings of each tier on this page.](/reference/plans)
 
@@ -12,7 +12,7 @@ Users who upgrade to the Developer plan get unlimited execution time on their wo
 
 Railway computes the usage cost with the following formula:
 
-`Num Services` x (`Service Time` (in minutes) x (`Memory usage` (in GB) + `vCPU usage` (in cores))
+`Num Services` x (`Service Time` (in minutes) x (`Memory usage` (in GB)) + `vCPU usage` (in cores))
 
 And our rates for usage are as follows:
 

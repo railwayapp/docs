@@ -3,7 +3,7 @@ title: Services
 ---
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1656640995/docs/CleanShot_2022-06-30_at_18.17.31_cl0wlr.gif"
-alt="Gif of the Services view"
+alt="GIF of the Services view"
 layout="intrinsic"
 width={800} height={646} quality={100} />
 
@@ -12,7 +12,7 @@ A railway service is a deployment target for your application. There are two typ
 - Persistent database services
 - Ephemeral deployment services
 
-Deployment services can be connected to a GitHub repo and autodeployed on each commit. Templates are a pre-configured groups of services that can be used as a starting off point for your project, or added to an existing project).
+Deployment services can be connected to a GitHub repo and automatically deployed on each commit. Templates are a pre-configured group of services that can be used as a starting off point for your project, or added to an existing project.
 
 Services keep track of all current and historical deployment attempts as well as [variables](/develop/variables), [metrics](/diagnose/metrics), and application source like a GitHub repo and a start command. Clicking a service within the project canvas will bring up the service view on the side of your browser.
 
@@ -26,7 +26,7 @@ Anytime within a project, a new service can be created with the command palette.
 
 ## Deployment Services
 
-Application services are services which tie to a GitHub repo as the source of deployment. Railway will clone into the root directory of the provided repo and initiate a [deploy](/deploy/deployments). We will then use a Cloudnative buildback to automagically determine the application runtime and begin hosting it.
+Application services are services which tie to a GitHub repo as the source of deployment. Railway will clone into the root directory of the provided repo and initiate a [deployment](/deploy/deployments). We will then use a Cloudnative buildback to automagically determine the application runtime and begin hosting it.
 
 ### Monorepo Services
 
@@ -79,4 +79,4 @@ You can delete your service by opening the project's settings and navigating to 
 
 ## Service Icons
 
-Within the Command Palette, you can change the default service icon to something else. The list of available icons are pulled from our [devicons](https://devicons.railway.app/) service.
+Within the Command Palette, you can change the default service icon to something else. The list of available icons is pulled from our [devicons](https://devicons.railway.app/) service.

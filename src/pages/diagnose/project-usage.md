@@ -27,4 +27,4 @@ On the starter plan, it will show the remaining usage balance you have.
 
 ### Billing Alerts
 
-Throughout the month as your usage increases, we will send you an email reminding you how much usage you have used, and if you are on the Starter plan, how much usage you have remaining.
+Throughout the month as your usage increases, we will email you reminding you how much usage you have used, and if you are on the Starter plan, how much usage you have remaining.

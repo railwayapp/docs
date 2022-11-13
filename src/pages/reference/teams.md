@@ -8,7 +8,7 @@ Team plans cost $20 per seat plus get billed for any service usage within their 
 
 ## Creating a Team
 
-Organizations can create a team by heading to the [Create Team](https://railway.app/new/team) page and entering in the required information.
+Organizations can create a team by heading to the [Create Team](https://railway.app/new/team) page and entering the required information.
 
 After the team creation, you will be prompted to enter the team's billing information.
 
@@ -27,7 +27,7 @@ There are two scopes for Team members
 
 ## Transferring Projects to Teams
 
-In the Dashboard you can click and drag projects into the team. Just click and hold the handle icon on the project on the dashboard, you will see a drag interface appear and then you can let go of the mouse click in the desired team.
+In the Dashboard you can click and drag projects into the team. Just click and hold the handle icon on the project on the dashboard, you will see a drag interface appear, then you can let go of the mouse click in the desired team.
 
 ## Direct Line of Support
 

@@ -18,14 +18,14 @@ Deploys are also scoped to a specific Railway environment. When you create a [Gi
 
 You can create an environment under Settings > Environments. When you create an environment, Railway provisions the same services from the `production` environment.
 
-<Image  src="https://res.cloudinary.com/railway/image/upload/v1644621886/docs/Environments.gif" 
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644621886/docs/Environments.gif" 
             alt="Screenshot of Environments Page"
             layout="responsive"
             width={800} height={434} quality={100} />
 
 ## Environment Deploys
 
-Running `railway up` with an environment selected from the CLI will create a deploy using the variables from the Environment.
+Running `railway up` with an environment selected from the CLI will create a deployment using the variables from the Environment.
 
 ## Ephemeral Environments
 

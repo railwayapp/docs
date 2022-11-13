@@ -2,7 +2,7 @@
 title: Priority Boarding
 ---
 
-Priority Boarding is Railway's beta program. The Railway Team frequently makes new features available to Priority Boarding members and provides a Discord channel to collect feedback before general availability. 
+Priority Boarding is Railway's beta program. The railway team are always working on pushing new beta features out to priority boarding. We also offer a Discord channel dedicated to this, allowing you to submit feedback. 
 
 To read more about Priority Boarding, check out [Priority Boarding: The Journey to Get There](https://blog.railway.app/p/building-the-beta).
 
@@ -19,7 +19,7 @@ Once connected to Discord, you'll need to let Percy, the Railway Discord bot, kn
 
 In Discord, open up any channel, enter `/beta`, and follow the prompts.
 
-You should now have access to the `#priority-boarding` channel and you should also see that your Account Settings now display a new Priority Boarding status.
+You should now have access to the `#priority-boarding` channel. You should also see that your Account Settings now display a new Priority Boarding status.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1666372408/docs/priority-boarding-settings_wvvza4.png"
 alt="Screenshot of Account Settings - Priority Boarding"
@@ -28,4 +28,4 @@ width={1004} height={468} quality={80} />
 
 From this point forward, you'll have Priority Boarding features automatically enabled for your account. We'll notify you of any new features via the [Changelog](https://railway.app/changelog). We kindly request that you report any issues you encounter in the Discord channel.
 
-That's all there is to it! Thanks for helping improve Railway and we'll see you in Priority Boarding.
+That's all there is to it! Thanks for helping improve Railway, and we'll see you in Priority Boarding.

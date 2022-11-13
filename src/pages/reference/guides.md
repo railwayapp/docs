@@ -2,7 +2,7 @@
 title: Guides
 ---
 
-The Railway Team and the community provides content on how to make the most out of Railway. Consider this page as a list for all of the awesome tutorials that help you achieve what you aim to do.
+The Railway Team and the community provides content on how to make the most out of Railway. Consider this page as a list for all the awesome tutorials that help you achieve what you aim to do.
 
 We have attempted to group these guides by category. Pull requests are welcome if you make a quality tutorial for other Railway users, we would love to include it!
 
@@ -21,7 +21,6 @@ These are guides centered around deploying cool projects up on Railway.
 - [Getting Started (with NextJS Prisma)](/getting-started)
 
 ## Database Backup Guides
-Guides for helping you manage your plugin's data. 
 
 - [Backing Up Redis](https://blog.railway.app/p/redis-backup)
 - [Backing Up Postgres](https://blog.railway.app/p/postgre-backup)

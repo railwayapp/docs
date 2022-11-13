@@ -20,7 +20,7 @@ Run `railway completion --help` to for information on how to install the complet
 
 ## Connect
 
-Lets you connect to your Railway plugins.
+Open an interactive shell for one of your databases.
 
 ```bash
 railway connect [plugin]
@@ -38,7 +38,7 @@ Supported:
 
 ## Docs
 
-Open the Railway documentation (this website) in the default browser
+Open the Railway documentation (this website) in the default browser.
 
 ```bash
 railway docs

@@ -111,7 +111,7 @@ mutation pluginCreate {
 
 ## Rate Limits
 
-In order to protect the Railway API from abuse, we have established some basic rate limits. The current limit is **1000** requests per **day** to the API. To help you keep track of your usage, Railway sends a few headers with the response on each request.
+In order to protect the Railway API from spam and misusage, we have established some basic rate limits. The current limit is **1000** requests per **day** to the API. To help you keep track of your usage, Railway sends a few headers with the response on each request.
 
 | Header                | Description                                                                                                                                        |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
