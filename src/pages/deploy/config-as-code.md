@@ -9,7 +9,7 @@ alongside your code. By default, we will look for a `railway.toml` or
 `railway.json` file. Everything in the build and deploy sections of the service
 settings page can be specified in this configuration file.
 
-When a new deploy is triggered, Railway will look for any config files in your
+When a new deployment is triggered, Railway will look for any config files in your
 code and combine these values with the settings from the dashboard. The
 resulting build and deploy config will be used **only for the current deploy**.
 The settings in the dashboard will not be updated with the settings defined in
@@ -57,7 +57,7 @@ In a `railway.json` file
 
 ## Config Source Location
 
-On the deployment details page, all of the settings that a deploy went out with are shown. For settings that comes from a configuration file, there is a little file icon. Hovering over the icon will show exactly what part of the file the values originated from.
+On the deployment details page, all the settings that a deployment went out with are shown. For settings that comes from a configuration file, there is a little file icon. Hovering over the icon will show exactly what part of the file the values originated from.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1666388941/docs/details-page-config-tooltip_jvy1qu.png"
@@ -175,7 +175,7 @@ width={621} height={204} quality={100} />
 
 ## Environment Overrides
 
-Configuration can be overriden for a specific environment by nesting it in an
+Configuration can be overridden for a specific environment by nesting it in a
 `environments.[name]` block.
 
 When resolving the settings for a deployment, Railway will use this priority order

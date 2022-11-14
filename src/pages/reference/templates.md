@@ -17,9 +17,7 @@ You can find featured templates on our
 
 Every time you visit your project on Railway, we will check to see if the project it is based on has been updated by its maker.
 
-If it has, we will prompt you to update your project. On confirmation, we will create a branch on Github and open a PR environment for you on Railway. This way, we don’t replace your production environment and you can test things out within the PR deploy.
-
-Once you’re happy with the changes, you can merge the PR and your production deployment will be updated to the latest version.
+If a template you have created receives an upstream update, if configured, we will create a branch on the GitHub repo that was created when deploying the template, allowing for you to test it out within a PR deploy. If you are happy with the changes, you can merge the pullrequest, and we will automatically deploy it to your production environment.
 
 ## Creating Templates
 

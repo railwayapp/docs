@@ -19,7 +19,7 @@ Complete the following steps to setup a webhook:
 4. Input your desired webhook URL into the input under "Build and Deploy Webhooks".
 5. Click the checkmark to the right of the input to save.
 
-The URL you provide will receive a webhook payload when the current project's deploy status changes. This will be executed across all environments in the project.
+The URL you provide will receive a webhook payload when the current project's deployment status changes. This will be executed across all environments in the project.
 
 To see what payload will be transmitted to the URL, you can expand the "Example webhook payload" panel.
 
@@ -47,7 +47,7 @@ Discord supports integrating directly with webhooks. To enable this on a server 
 
 At this point, the Discord Muxer will identify the URL and change the payload to accommodate the Discord integration. You can see this if you expand the payload preview panel.
 
-You are now done! When your project deploys again, that Discord channel will get updates on the deploy!
+You are now done! When your project deploys again, that Discord channel will get updates on the deployment!
 
 ## Setting up a webhook for Slack
 

@@ -11,8 +11,7 @@ layout="responsive"
 width={1103} height={523} quality={80} />
 
 All deployments will appear in the deployments view on your selected service.
-Clicking on the deployment will bring up the build and deploy logs. Each deploy has the option to configure a
-a Railway provided domain as well as attaching a custom domain.
+Clicking on the deployment will bring up the build and deploy logs. Each deploy has the option to configure a Railway provided domain as well as attaching a custom domain.
 
 ## Deployment Lifecycle
 
@@ -48,7 +47,7 @@ variable under the Variables page in your project. For more information, see [Ex
 
 ## Deploy Triggers
 
-A new deploy is triggered when the [command](/deploy/railway-up) `railway up` is
+A new deployment is triggered when the [command](/deploy/railway-up) `railway up` is
 executed. [GitHub Services](/develop/services#github-services) that are linked to a GitHub repo automatically deploy when
 new commits are detected in the connected branch.
 

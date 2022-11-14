@@ -28,7 +28,7 @@ One prevalent option is Heroku. Heroku became known for one of the easiest ways 
 Railway is a natural replacement for people looking to move on from Heroku or looking for similar alternatives.
 
 However, one of the most common questions we receive is: How are we different or better than Heroku?
-We owe a lot to the pioneers that were the founders of Heroku. However, in 2007, Heroku's founding, the state of cloud deployments was much different than what they were today. As a result, their product reflects the context of the state of the cloud was then.
+We owe a lot to the pioneers that were the founders of Heroku. However, in 2007, Heroku's founding, the state of cloud deployments was much different from what they were today. As a result, their product reflects the context of the state of the cloud was then.
 
 ## Differences
 
@@ -88,6 +88,6 @@ Getting your app hosted on Heroku moved over to Railway is very simple.
 
 All you need to do is connect your GitHub account, create a new project, and then deploy your repo. We even support Procfiles out of the box. (Caveat: only a single process is supported for now)
 
-If you wanna learn in-depth about our product and the feature discussed here, we have a Getting Started guide.
+If you want to learn in-depth about our product and the feature discussed here, we have a Getting Started guide.
 
 If you run into any issues, we would be more than happy to answer your questions on our [Discord](https://discord.gg/railway) or over email at contact (at) railway (dot) app

@@ -3,7 +3,7 @@ title: Projects
 ---
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1645132880/docs/project-page_ihrmaq.png"
-alt="Gif of the CLI in Action"
+alt="GIF of the CLI in Action"
 layout="intrinsic"
 width={779} height={442} quality={100} />
 
@@ -56,7 +56,7 @@ Under the Members tab, you can invite members to access the project.
 There are three scopes for project members
 
 - Owner: full administration of the project
-- Editor: adminstration and can make deployments to the project, sans the ability to remove the Owner from the project
+- Editor: administration and can make deployments to the project, sans the ability to remove the Owner from the project
 - Viewer: Read only access to the project. Viewers can not make deploys or see environment variables.
 
 Only project owners are charged for project usage.

@@ -19,7 +19,7 @@ The main account preferences page is accessible by clicking your profile photo i
 
 ### Change Account Information
 
-Accounts can change their display name, profile photo, and account email under the main account
+Accounts can change their display name, profile photo, and account email under [Account Settings](https://railway.app/account).
 
 ### Deleting Your Account
 

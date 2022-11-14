@@ -27,4 +27,4 @@ alt="Screenshot of Metric Timeseries Commit Information"
 layout="responsive"
 width={904} height={726} quality={80} />
 
-Your project maintains a continuous timeseries for all your deployments within a service, not just the latest one. Deployments appear on the graph so you can see which commit may have caused a spike in resources.
+Your project maintains a continuous timeseries for all your deployments within a service, not just the latest one. Deployments appear on the graph, so you can see which commit may have caused a spike in resources.

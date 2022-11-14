@@ -38,6 +38,8 @@ width={1338} height={808} quality={80} />
 **NOTE!:** Changes to DNS settings may take up to 72 hours to propagate
 worldwide.
 
+**NOTE:**: freenom is not allowed, and not supported.
+
 ## Let's Encrypt SSL Certificates
 
 Once a custom domain has been correctly configured, Railway will automatically
