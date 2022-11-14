@@ -2,8 +2,6 @@
 title: Config as Code
 ---
 
-<PriorityBoardingBanner />
-
 Railway supports defining the configuration for a single deployment in a file
 alongside your code. By default, we will look for a `railway.toml` or
 `railway.json` file. Everything in the build and deploy sections of the service
