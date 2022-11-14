@@ -41,7 +41,7 @@ If a user unsubscribes or runs out of prepaid credits, the user returns to the S
 - Max 100 GB of Disk (Soft cap)
 - Max 5 members per project
 
-The Developer Plan is meant for serious hobbyist use-cases. We do urge companies to upgrade to the Teams plan for for a commercial license to use Railway.
+The Developer Plan is meant for serious hobbyist use-cases. We do urge companies to upgrade to the Teams plan for a commercial license to use Railway.
 
 ### Upgrading to the Developer Plan
 
