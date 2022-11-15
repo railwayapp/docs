@@ -6,7 +6,7 @@ Railway has multiple plans that fit your need on the platform. Projects inherit 
 
 ## Starter Plan
 
-Stater plans are designed to help you evaluate Railway and are fit for hobbyist projects. You get access to all features on Railway and you have no limits to the amount of projects you can provision.
+Starter plans are designed to help you evaluate Railway and are fit for hobbyist projects. You get access to all features on Railway and you have no limits to the amount of projects you can provision.
 
 Starter plans get $5 of credits that do not accumulate.
 
