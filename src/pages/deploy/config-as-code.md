@@ -80,8 +80,6 @@ The available values are
 
 - nixpacks
 - dockerfile
-- heroku
-- paketo
 
 ### [Build command](/deploy/builds#build-command)
 
