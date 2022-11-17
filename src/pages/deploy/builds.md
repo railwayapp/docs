@@ -61,10 +61,10 @@ commands will operate within that root directory. Additionally, files changed
 outside the root directory will not trigger a new build.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/root-directory_nczles.png"
+src="https://res.cloudinary.com/railway/image/upload/v1668662436/docs/multi-providers_lrxdbp.png"
 alt="Screenshot of Railway Root Directory"
 layout="responsive"
-width={1190} height={400} quality={80} />
+width={745} height={238} quality={80} />
 
 ## Watch Paths
 
@@ -104,6 +104,30 @@ alt="Screenshot of Railway Watch Paths"
 layout="responsive"
 width={1158} height={444} quality={80} />
 
+## Build Providers
+
+With Nixpacks, we analyze the app source directory and generate a reproducible build plan. This determines which language provider to install packages and runtimes for.
+
+If there is a detected `nixpacks.toml`, it is possible to define a build provider ahead of time like so:
+
+```toml
+providers = ["...", "python"]
+```
+
+### Build Providers UI Screenshot of Railway Build Provider UI"
+
+<PriorityBoardingBanner />
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/watch-paths_l4xozt.png"
+alt="Screenshot of Railway Watch Paths"
+layout="responsive"
+width={1158} height={444} quality={80} />
+
+Within your Service's settings, under the Builds section, you can define within the multi-select box which Nixpacks language providers you would like to use for your builds. This is useful if you have code that calls libraries that need to be built from another language within your repo.
+
+When multiple providers are defined, Railway will build your service with the language providers (in the order you defined) and ensure your binaries are ready to be called. The runtime(s) will then initialize as soon as you start your application.
+
 ## Procfiles
 
 If using Nixpacks, you can override the start command with a [Procfile](https://nixpacks.com/docs/config#procfiles) at the root of your app. Only a single process type is supported at the moment.
@@ -117,52 +141,3 @@ _Note: some buildpacks specify a default start command_
 ## Dockerfiles
 
 We will also build using a [Dockerfile](/deploy/dockerfiles) if found at the project root.
-
-## Buildpacks
-
-Railway can also use [Cloudnative Buildpacks](https://buildpacks.io/). These are now deprecated and will eventually be removed from Railway.
-
-### Heroku
-
-Heroku buildpacks support
-
-- NodeJS
-- Python
-- Go
-- Ruby
-- Java
-
-[Go to Heroku buildpack documentation](https://devcenter.heroku.com/articles/heroku-20-stack).
-
-### Paketo
-
-Paketo buildpacks support
-
-- NodeJS
-- Go
-- PHP
-- Ruby
-- Java
-- .NET
-- NGINX
-- Python
-
-[Go to Paketo buildpack documentation](https://paketo.io/)
-
-### Custom Buildpacks
-
-By default, the appropriate buildpacks are selected by inspecting the source
-files of a project. For more control, a
-[project.toml](https://buildpacks.io/docs/app-developer-guide/using-project-descriptor/)
-file can be used to achieve a more custom setup.
-
-Here is an example `project.toml` file that forces a NodeJS project to use Yarn
-instead of NPM.
-
-```toml
-[[build.buildpacks]]
-uri = "heroku/nodejs"
-
-[[build.buildpacks]]
-uri = "heroku/nodejs-yarn"
-```
