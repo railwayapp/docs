@@ -40,6 +40,7 @@ In a `railway.json` file
 
 ```json
 {
+  "$schema": "https://railway.app/railway.schema.json",
   "build": {
     "builder": "nixpacks",
     "buildCommand": "echo building!"
@@ -223,5 +224,17 @@ Deploys for all pull requests can be configured using a special `pr` environment
       }
     }
   }
+}
+```
+
+## JSON Schema
+
+You can find an always up-to-date [JSON schema](https://json-schema.org/) at [railway.app/railway.schema.json](https://railway.app.schema.json).
+
+If you include it in your `railway.json` file, many editors (e.g. VSCode) will provide autocomplete and documentation.
+
+```json
+{
+  "$schema": "https://railway.app/railway.schema.json"
 }
 ```
