@@ -106,27 +106,25 @@ width={1158} height={444} quality={80} />
 
 ## Build Providers
 
-With Nixpacks, we analyze the app source directory and generate a reproducible build plan. This determines which language provider to install packages and runtimes for.
+<PriorityBoardingBanner />
 
-If there is a detected `nixpacks.toml`, it is possible to define a build provider ahead of time like so:
+With Nixpacks, we analyze the app source directory and generate a build plan. This determines which language provider to install packages and runtimes for.
+
+If there is a detected `nixpacks.toml` file, it is possible to define a build provider ahead of time like so:
 
 ```toml
 providers = ["...", "python"]
 ```
 
-### Build Providers UI Screenshot of Railway Build Provider UI"
-
-<PriorityBoardingBanner />
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/watch-paths_l4xozt.png"
-alt="Screenshot of Railway Watch Paths"
-layout="responsive"
-width={1158} height={444} quality={80} />
-
 Within your Service's settings, under the Builds section, you can define within the multi-select box which Nixpacks language providers you would like to use for your builds. This is useful if you have code that calls libraries that need to be built from another language within your repo.
 
 When multiple providers are defined, Railway will build your service with the language providers (in the order you defined) and ensure your binaries are ready to be called. The runtime(s) will then initialize as soon as you start your application.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1668662436/docs/multi-providers_lrxdbp.png"
+alt="Screenshot of Railway Build Providers"
+layout="responsive"
+width={745} height={238} quality={100} />
 
 ## Procfiles
 
