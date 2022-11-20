@@ -10,8 +10,12 @@ import { Link } from "./Link";
 
 export const Search: React.FC = () => {
   const { setIsSearchOpen } = useStore();
-  const shortCut =
-    window.navigator.appVersion.indexOf("Win") !== -1 ? "Ctrl K" : "⌘K";
+  const [shortCut, setShortCut] = useState("");
+  useEffect(() => {
+    window.navigator.platform.match(/^Mac/)
+      ? setShortCut("⌘ K")
+      : setShortCut("Ctrl K");
+  }, []);
 
   return (
     <>
