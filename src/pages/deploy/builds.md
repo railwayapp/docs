@@ -27,7 +27,7 @@ Currently, we support the following languages out of the box.
 - [Swift](https://nixpacks.com/docs/providers/swift)
 - [Zig](https://nixpacks.com/docs/providers/zig-lang)
 - [Dart](https://nixpacks.com/docs/providers/dart)
-- [Staticfile](https://nixpacks.com/docs/providers/https://nixpacks.com/docs/providers/staticfile)
+- [Staticfile](https://nixpacks.com/docs/providers/staticfile)
 - [Elixir](https://nixpacks.com/docs/providers/elixir)
 
 ## Build Configuration
