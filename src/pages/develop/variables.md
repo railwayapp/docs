@@ -82,8 +82,6 @@ DATABASE_URL = ${{ MYSQL_URL }}
 ```
 ## Shared Variables
 
-<PriorityBoardingBanner />
-
 To reduce duplication of variables across multiple services within the same projects, shared variables can be created at
 the environment level and referenced by the services that need it. Creation of shared variables can be done via the Project Settings pane.
 
