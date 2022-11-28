@@ -83,27 +83,28 @@ DATABASE_URL = ${{ MYSQL_URL }}
 ## Shared Variables
 
 To reduce duplication of variables across multiple services within the same projects, shared variables can be created at
-the environment level and referenced by the services that need it. Creation of shared variables can be done via the Project Settings pane.
+the environment level and referenced by the services that need it. Creation of shared variables can be done via Project Settings.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1667332192/docs/shared-variables-settings_tzd2jk.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1669678393/docs/shared-variables-settings_vchmzn.png"
 alt="Screenshot of Shared Variables Settings"
 layout="responsive"
-width={1694} height={1140} quality={100} />
+width={2402} height={1388} quality={100} />
 
-To reference a shared variable, visit the Variables tab within a service and click the "Insert Shared Variable" button to reveal the
-picker. From here, you can either add shared variables individually or add all shared variables at once.
+To use a shared variable, either click the Share button and select the desired services, 
+or visit the Variables tab within the service itself and click "Insert Shared Variable". 
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1667332192/docs/shared-variables-picker_ryjble.png"
 alt="Screenshot of Shared Variables Picker"
 layout="responsive"
 width={1784} height={1168} quality={100} />
 
-Under the hood, shared variables references are service variables that use a templated value to reference the shared variable (eg. `NAME=${{shared.NAME}}`).
-Because of this, shared variables automatically support more advanced use cases like including surrounding text or multiple variables like the following example illustrate:
+Under the hood, adding a shared variables to a service creates a new variable that references the shared variable using Railway's templating syntax (eg. `NAME=${{shared.NAME}}`).
+This means that shared variables can be combined with additional text or even other variables, like the following examples illustrate.
 
 ```plaintext
-URL              = https://${{shared.DOMAIN}}`
-GRAPHQL_ENDPOINT = https://${{shared.DOMAIN}}/${{GRAPHQL_PATH}}`
+DOMAIn           = ${{shared.DOMAIN}}
+URL              = https://${{shared.DOMAIN}}
+GRAPHQL_ENDPOINT = https://${{shared.DOMAIN}}/${{GRAPHQL_PATH}}
 ```
 
 ## Import Variables from Heroku
