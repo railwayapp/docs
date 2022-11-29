@@ -59,7 +59,15 @@ controlled from here.
 
 You should see a [Postgres plugin](plugins/postgresql) in the project dashboard, we use this to persist our To-Dos in the app.
 
-Congrats! After the initial deployment finalizes, your web server is ready to go. Click on the deployment and navigate to your deployment to see the app live. In the next step, we will personalize your new web app.
+Congrats! After the initial deployment finalizes, your web server is nearly ready to go. All you now need to do is just to [Generate a Domain](deploy/exposing-your-app)
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1654560212/docs/add-domain_prffyh.png"
+alt="Screenshot of adding Service Domain"
+layout="responsive"
+width={1396} height={628} quality={80} />
+
+After doing this, click on the deployment and navigate to your deployment to see the app live. In the next step, we will personalize your new web app.
 
 ## Developing Locally
 
