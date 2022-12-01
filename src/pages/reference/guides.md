@@ -2,12 +2,12 @@
 title: Guides
 ---
 
-The Railway Team and the community provides content on how to make the most out of Railway. Consider this page as a list for all the awesome tutorials that help you achieve what you aim to do.
+The Railway Team and the community provide content on how to make the most out of Railway. Consider this page as a list for all the awesome tutorials that help you achieve what you aim to do.
 
-We have attempted to group these guides by category. Pull requests are welcome if you make a quality tutorial for other Railway users, we would love to include it!
+We have attempted to group these guides by category. Pull requests are welcome. If you make a quality tutorial for other Railway users, we would love to include it!
 
 ## Deployment Guides
-These are guides centered around deploying cool projects up on Railway.
+These are guides centered around deploying cool projects on Railway.
 ### Self Hosted Applications
 
 - [Deploy Cusdis](https://blog.railway.app/p/cusdis)
