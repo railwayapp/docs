@@ -69,7 +69,7 @@ Our policy for being forthcoming and frank applies to unsavory information that 
 - Traditional Banking
 - Machine Learning Compute
 
-SoC2 and HIPPA BAA service agreements are on the roadmap but the work is not yet underway nor delivered in the near-term.
+SoC2 and HIPAA BAA service agreements are on the roadmap but the work is not yet underway nor delivered in the near-term.
 
 ### Status on Certifications
 
