@@ -31,6 +31,7 @@ brew install railway
 ```bash
 npm i -g @railway/cli
 ```
+You need to have => 16.x version of Nodejs installed.
 
 ### Shell Script
 
@@ -84,8 +85,9 @@ layout="intrinsic"
 width={389} height={116} quality={80} />
 
 ```bash
-railway link <projectId>
+railway link
 ```
+Pick from the list projects you have.
 
 ## Create a Project
 
