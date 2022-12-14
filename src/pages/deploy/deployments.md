@@ -65,11 +65,11 @@ the [GitHub Trigger's integration](integrations#github-integration).
 
 <PriorityBoardingBanner />
 
-When using GitHub Actions, enable the `Check Suites` flag to ensure we wait for all your GitHub Actions to run successfully before we trigger a new deployment.
+When using GitHub Actions, enable the `Check Suites` flag to ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1671003153/docs/check-suites.png" alt="Check Suites Configuration" layout="responsive" width={1340} height={392} quality={80} />
 
-When enabled, deployments will be moved to a `WAITING` state while your workflows are running. If any workflow fails, the deployments will be `SKIPPED`. If all your workflows are successful, the deployments will proceed as usual.
+When enabled, deployments will be moved to a `WAITING` state while your workflows are running. If any workflow fails, the deployments will be `SKIPPED`. When all workflows are successful, deployments will proceed as usual.
 
 ## Start Command
 
