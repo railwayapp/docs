@@ -1,4 +1,4 @@
-import { Sentiment } from ".prisma/client";
+import { Sentiment } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../clients/prisma";
 

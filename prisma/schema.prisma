@@ -22,5 +22,4 @@ model Feedback {
   topic     String
   sentiment Sentiment
   message   String?
-
 }
