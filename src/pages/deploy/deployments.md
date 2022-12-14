@@ -61,6 +61,16 @@ You can configure additional deployment triggers such as when a new PR is
 created using
 the [GitHub Trigger's integration](integrations#github-integration).
 
+## Check Suites
+
+<PriorityBoardingBanner />
+
+When using GitHub Actions, enable the `Check Suites` flag to ensure we wait for all your GitHub Actions to run successfully before we trigger a new deployment.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1671003153/docs/check-suites.png" alt="Check Suites Configuration" layout="responsive" width={1340} height={392} quality={80} />
+
+When enabled, deployments will be moved to a `WAITING` state while your workflows are running. If any workflow fails, the deployments will be `SKIPPED`. If all your workflows are successful, the deployments will proceed as usual.
+
 ## Start Command
 
 A start command is the process used to run a Deployment's code. For example, a Python project may have a start command of `python main.py`, or a NodeJS project may have a start command of `npm run start`.
