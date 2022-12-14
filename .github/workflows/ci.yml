@@ -14,10 +14,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Use Node 18
+      - name: Use Node 16
         uses: actions/setup-node@v1
         with:
-          node-version: 18.x
+          node-version: 16.x
 
       - uses: actions/cache@v2
         with:
