@@ -81,15 +81,3 @@ export const PriorityBoardingBanner: React.FC = () => {
     </Banner>
   );
 };
-
-export const PublicAPIBanner: React.FC = () => {
-  return (
-    <Banner variant="primary" icon={Star}>
-      The Public API Preview is{" "}
-      <Link href="https://railway.app/changelog/2022-11-04-shared-variables-api">
-        now available
-      </Link>{" "}
-      to Railway users on a Team plan.
-    </Banner>
-  );
-};
