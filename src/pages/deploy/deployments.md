@@ -63,7 +63,15 @@ the [GitHub Trigger's integration](integrations#github-integration).
 
 ## Check Suites
 
-<PriorityBoardingBanner />
+<Banner variant="info">
+  This feature is only available to{" "}
+  <Link href="/reference/priority-boarding">Priority Boarding</Link>{" "}
+  members. Please make sure you have{" "}
+  <Link href="https://github.com/settings/installations">
+    accepted our updated GitHub permissions
+  </Link>{" "}
+  required for this feature to work.
+</Banner>
 
 When using GitHub Actions, enable the `Check Suites` flag to ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment.
 
