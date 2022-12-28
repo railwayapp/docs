@@ -182,6 +182,6 @@ You can also click within a deployment and using the Command Palette restart a d
 
 Within the Service settings, a user is able to configure a restart policy of either `Never`, `Always`, or `On-Failure` with an optional maximum number of restarts.
 
-## How come my GitHub PR wont deploy?
+## How come my GitHub PR won't deploy?
 
 Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
