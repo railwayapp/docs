@@ -128,7 +128,7 @@ width={745} height={238} quality={100} />
 
 ## Procfiles
 
-If using Nixpacks, you can override the start command with a [Procfile](https://nixpacks.com/docs/config#procfiles) at the root of your app. Only a single process type is supported at the moment.
+If using Nixpacks, you can override the start command with a [Procfile](https://nixpacks.com/docs/configuration/procfile) at the root of your app. Only a single process type is supported at the moment.
 
 HTTP servers should use the `web` process type. This process should listen on
 the [PORT environment variable](/deploy/railway-up#port-variable) and will receive
