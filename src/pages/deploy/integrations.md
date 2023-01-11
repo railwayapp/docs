@@ -26,7 +26,7 @@ RAILWAY_TOKEN=XXXX railway run
 ### Vercel
 
 Use the [Railway Vercel
-integration](https://railway.app/changelog/2020-10-23#vercel-integration)
+integration](https://vercel.com/changelog/railway-integration-postgres-redis-mysql)
 to provide your production and preview deploys with access to your [Railway
 environments](/develop/environments).
 
