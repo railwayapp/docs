@@ -31,6 +31,14 @@ In the Dashboard you can click and drag projects into the team. Just click and h
 
 ## Direct Line of Support
 
-Teams are entitled to a private Discord channel for your company to speak with the development team. This is a direct line of communication with Railway for your team to share feedback, ask questions, and raise concerns with the product.
+Teams can request a time-limited private Discord channel for your company to speak with the development team. This is a direct line of communication with Railway for your team to share feedback, ask questions, and raise concerns with the product.
 
-With a valid payment method attached to the team, a private Discord channel on the [Railway Community Server](https://discord.gg/railway) is created. Provided you or your team members have their [Discord accounts linked](https://railway.app/discord-link) we automatically invite you to the channel. You can attach your account at any time to be invited.
+Provided you or your team members have their [Discord accounts linked](https://railway.app/discord-link) we automatically invite you to the channel. You can attach your account at any time to be invited.
+
+## Team Billing Policy
+
+At Railway, we understand the importance of keeping your workloads running smoothly. However, it is important to note that in order to maintain the stability and integrity of our platform, we may take down running workloads if an account has unpaid pending invoices.
+
+If there is a past-due invoice, we will send you a notification via email. We will then attempt to retry the payment on file 3 times. After 7 days, we prevent new resource creation and remove all running deployments until the invoices are resolved.
+
+If you have any questions or concerns about your account or invoices, please contact our billing team at contact@railway.app. We are always happy to help and work with you to resolve any issues.
