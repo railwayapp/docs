@@ -92,6 +92,7 @@ export const sidebarContent: ISidebarContent = [
         "gcp",
         "azure",
         "digital ocean",
+        "doppler",
       ]),
       makePage("Config as Code", "deploy", ["CaC", "IaC", "service", "config"]),
     ],

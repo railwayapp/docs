@@ -63,25 +63,21 @@ If proxying is not enabled, Cloudflare will not associate the domain with your R
 ERR_TOO_MANY_REDIRECTS
 ```
 
-### Redirecting a Root Domain from Google Domains
+### Redirecting a Root Domain Workarounds
 
-Some domain registrars don't fully support CNAME records like Google Domains. As a result - when you add an `@` record for a CNAME, Google Domains won't link it to the Railway service.
+Some domain registrars don't fully support CNAME records. As a result - when you add an `@` record for a CNAME, the domain registrar will create an invalid `A` record.
 
-**Workaround 1 - Root Domain Forwarding**
+Registrars that are known to not fully support CNAME records for the root domain include:
+- Freenom
+- GoDaddy
+- Ionos
 
-In Google Domains, you can create a record to forward your domain root to the Railway service. You can do this by creating a CNAME in the Custom Records section pointing to www to `yourapp.yourrailwayproject.com`
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/gd-redirect_vhit07.png"
-alt="Screenshot of Custom Domain"
-layout="responsive"
-width={1116} height={411} quality={80} />
-
-Then, under the Synthetic Records section, you can configure a Subdomain forward - enter `@` in the subdomain and then `www.yourdomain.com` under the Destination URL entry.
-
-Keep in mind, if Google's domain forwarding service is down, so is access to your service via that domain.
-
-**Workaround 2 - Cloudflare Proxy**
+**Workaround 1 - Cloudflare Proxy**
 
 You may also configure Cloudflare proxying for your domain to redirect your domain.
 
 After a custom domain is added to the Railway service follow [the instructions listed on Cloudflare's documentation to configure the proxy.](https://support.cloudflare.com/hc/en-us/articles/205893698-Configure-Cloudflare-and-Heroku-over-HTTPS)
+
+**Workaround 2 - Changing your Domain's Nameservers**
+
+You can also change your domain's nameservers to point to Cloudflare's nameservers. This will allow you to use a CNAME record for the root domain. Follow the instructions listed on Cloudflare's documentation to [change your nameservers.](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/)
