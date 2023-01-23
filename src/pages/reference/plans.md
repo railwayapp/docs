@@ -14,7 +14,7 @@ Starter plans also have an execution limit, users get 500 execution hours per mo
 
 If you have one service, it will deplete the 500-hour reserve at a normal rate. If you have two services, the timer will also deplete at a normal rate.
 
-Once you have run out of hours for that month, your deployment will be suspended until the next month, were you have to manually restart it.
+Once you have run out of hours for that month, your deployment will be suspended until the next month, where you have to manually restart it.
 
 **Tier Offering**
 
@@ -27,6 +27,9 @@ Once you have run out of hours for that month, your deployment will be suspended
 - Project deploys are stood down if credit limit OR execution hour limit is reached
 - Plugin connection strings are changed then hidden when usage is reached _(your data is not deleted)_
 - Need to redeploy projects after the new monthly credit is applied to your account
+- Max 5 members per project
+- Max 3 concurrent deploys per user
+-- If another deploy is attempted, Railway will remove the oldest deploy. This is intended as an anti-spam measure. If you need more concurrent deploys, please upgrade to the Developer plan.
 
 ## Developer Plan Offering
 

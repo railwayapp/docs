@@ -63,3 +63,10 @@ Railway uses GitHub to source account or organizational repos provided the Railw
 ### Railway Deployment Checks
 
 GitHub Commits have a status check to indicate the status of the Railway build. This applies for both PRs and all commits that auto deploy to Railway.
+
+## Secrets Management
+
+It's common for developers to store secrets in environment variables. However, this can be a security risk if you accidentally commit your secrets to a public repository. To avoid this, you can use a secrets management tool to store your secrets in a secure location. Railway supports Doppler as a secrets management tool. You can use Doppler to manage your Railway environment variables using the Railway Integration that Doppler provides.
+### Doppler 
+
+You can get instructions on how to use Doppler with Railway on the [Doppler Docs](https://docs.doppler.com/docs/railway).
