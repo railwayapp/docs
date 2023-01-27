@@ -70,11 +70,6 @@ const lightColors = {
     800: "#0037C7",
     900: "#002994",
   },
-
-  partnerProjectsGradient:
-    "linear-gradient(31.2deg, #0B4347 -25.4%, rgba(9, 36, 45, 0.15) 80.73%), linear-gradient(109.68deg, rgba(60, 0, 61, 0.01) 30.31%, #20041C 85.93%), linear-gradient(149.12deg, #1B0066 13.67%, rgba(28, 0, 108, 0) 86.42%);",
-  submitPartnerProjectGradient:
-    "linear-gradient(97.9deg, rgba(24, 0, 77, 0.4) 5.96%, rgba(104, 3, 88, 0.4) 81.62%, rgba(9, 251, 251, 0.4) 95.18%), linear-gradient(59.12deg, #2C0A5C 45.19%, #5E084D 68.24%);",
 };
 
 const invertMap = {
