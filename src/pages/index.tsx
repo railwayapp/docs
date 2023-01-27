@@ -14,10 +14,29 @@ import {
   GitPullRequest,
 } from "react-feather";
 
+export const Background = () => (
+  <div tw="opacity-50 md:opacity-100 absolute inset-0 pointer-events-none">
+    <img
+      src="/images/VectorGrid.svg"
+      tw="absolute top-0 left-56 transform scale-x-[-1] max-w-none"
+    />
+    <img
+      src="images/DocBlog.svg"
+      tw="absolute -top-80 left-64 transform scale-x-[-1] max-w-none z-10"
+    />
+    {/* <img src="/blog.svg" className="absolute top-[0px] left-[-500px]" /> */}
+    {/* <img
+      src="/blog.svg"
+      className="absolute top-[350px] right-[-450px] transform scale-x-[-1] rotate-90"
+    /> */}
+  </div>
+);
+
 const Home: NextPage = () => {
   return (
     <>
-      <div tw="max-w-4xl">
+      <Background />
+      <div tw="max-w-4xl z-10">
         <h1 tw="text-5xl md:text-6xl font-bold mb-12">Introduction</h1>
         {/* Need to make this mobile friendly */}
         <div

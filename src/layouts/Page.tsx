@@ -10,6 +10,7 @@ import { SearchModal } from "../components/Search";
 import { Props as SEOProps, SEO } from "../components/SEO";
 import { Sidebar } from "../components/Sidebar";
 import { sidebarContent } from "../data/sidebar";
+import { Background } from "../pages";
 import { useStore } from "../store";
 
 export interface Props {
@@ -49,6 +50,7 @@ export const Page: React.FC<Props> = props => {
 
         <div tw="flex flex-col flex-1">
           {" "}
+          <Background />
           {/*This area would be perfect to add the bg image.*/}
           <Nav />
           <MobileNav />

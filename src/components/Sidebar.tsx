@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
@@ -14,7 +14,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
       css={[
         tw`hidden`,
         tw`md:h-screen md:sticky md:top-0 md:overflow-hidden md:block md:min-w-sidebar`,
-        tw`md:border-r md:border-gray-200`,
+        tw`md:border-r md:border-gray-200 bg-background`,
       ]}
       className="sidebar"
       {...props}
