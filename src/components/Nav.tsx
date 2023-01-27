@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
-import { ArrowRight, Menu, X } from "react-feather";
+import { Home, Menu, X } from "react-feather";
 import tw from "twin.macro";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
@@ -18,8 +18,8 @@ export const Nav: React.FC = () => {
             href="https://railway.app/login"
             tw="flex items-center space-x-2 text-gray-400 text-sm hover:text-pink-500"
           >
+            <Home tw="w-4 h-4" />
             <span>Go to Railway</span>
-            <ArrowRight tw="w-4 h-4" />
           </Link>
         </li>
       </ul>

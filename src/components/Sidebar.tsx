@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
@@ -14,7 +14,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
       css={[
         tw`hidden`,
         tw`md:h-screen md:sticky md:top-0 md:overflow-hidden md:block md:min-w-sidebar`,
-        tw`md:border-r md:border-gray-200`,
+        tw`md:border-r md:border-gray-200 bg-background`,
       ]}
       className="sidebar"
       {...props}
@@ -24,7 +24,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
           <div tw="flex items-center justify-between">
             <Link tw="w-full flex items-center" href="/">
               <div tw="flex items-center">
-                <Logo tw="w-8 h-8 mr-4" /> <span tw="font-bold">Railway</span>
+                <Logo tw="w-8 h-8 mr-4" /> <span tw="font-bold">Docs</span>
               </div>
             </Link>
 
