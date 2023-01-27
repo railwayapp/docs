@@ -34,8 +34,9 @@ const Home: NextPage = () => {
       <div tw="max-w-4xl z-10">
         <h1 tw="text-5xl md:text-6xl font-bold mb-12">Introduction</h1>
         <div
+          // I know this is the longest single line of css I've ever written
           css={[
-            `background: linear-gradient(31.2deg, #0B4347 -25.4%, rgba(9, 36, 45, 0.15) 36.73%), linear-gradient(109.68deg, rgba(60, 0, 61, 0.01) 10.31%, #20041C 85.93%), linear-gradient(149.12deg, #1B0066 13.67%, rgba(28, 0, 108, 0) 86.42%);`,
+            tw`background[linear-gradient(83.84deg, rgba(149, 203, 233, 0.9) -3.34%, rgba(71, 201, 242, 0.135) 35.77%), linear-gradient(101.71deg, rgba(227, 167, 228, 0.048) 46.42%, rgba(238, 96, 215, 0.8) 94.51%), linear-gradient(149.12deg, #3308AD 13.67%, rgba(51, 8, 173, 0) 86.42%)] dark:background[linear-gradient(31.2deg, #0B4347 -25.4%, rgba(9, 36, 45, 0.15) 80.73%), linear-gradient(109.68deg, rgba(60, 0, 61, 0.01) 30.31%, #20041C 85.93%), linear-gradient(149.12deg, #1B0066 13.67%, rgba(28, 0, 108, 0) 86.42%)]`,
             tw`flex relative rounded-md w-full overflow-hidden border`,
           ]}
         >
