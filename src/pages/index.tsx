@@ -9,7 +9,6 @@ import {
   Book,
   Code,
   Layers,
-  GitHub,
   Edit3,
   GitPullRequest,
 } from "react-feather";
@@ -58,7 +57,7 @@ const Home: NextPage = () => {
           </div>
           <div tw="absolute -bottom-20 -right-4 opacity-25 z-0 lg:opacity-100">
             <NextImage
-              src="/images/code terminal.svg"
+              src="/images/code-terminal.svg"
               alt="Graphic of Terminal"
               tw=""
               layout="intrinsic"
