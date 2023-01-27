@@ -24,11 +24,6 @@ export const Background = () => (
       src="images/DocBlog.svg"
       tw="absolute -top-80 left-64 transform scale-x-[-1] max-w-none z-10"
     />
-    {/* <img src="/blog.svg" className="absolute top-[0px] left-[-500px]" /> */}
-    {/* <img
-      src="/blog.svg"
-      className="absolute top-[350px] right-[-450px] transform scale-x-[-1] rotate-90"
-    /> */}
   </div>
 );
 
@@ -38,7 +33,6 @@ const Home: NextPage = () => {
       <Background />
       <div tw="max-w-4xl z-10">
         <h1 tw="text-5xl md:text-6xl font-bold mb-12">Introduction</h1>
-        {/* Need to make this mobile friendly */}
         <div
           css={[
             `background: linear-gradient(31.2deg, #0B4347 -25.4%, rgba(9, 36, 45, 0.15) 36.73%), linear-gradient(109.68deg, rgba(60, 0, 61, 0.01) 10.31%, #20041C 85.93%), linear-gradient(149.12deg, #1B0066 13.67%, rgba(28, 0, 108, 0) 86.42%);`,
