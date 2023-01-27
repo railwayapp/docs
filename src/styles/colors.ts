@@ -2,7 +2,7 @@ export type ColorMode = "light" | "dark";
 export const defaultColorMode: ColorMode = "dark";
 
 const lightColors = {
-  foreground: "#0b0d0e",
+  foreground: "#181622",
   background: "#ffffff",
   gray: {
     100: "#f4f4f6",

@@ -24,7 +24,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
           <div tw="flex items-center justify-between">
             <Link tw="w-full flex items-center" href="/">
               <div tw="flex items-center">
-                <Logo tw="w-8 h-8 mr-4" /> <span tw="font-bold">Railway</span>
+                <Logo tw="w-8 h-8 mr-4" /> <span tw="font-bold">Docs</span>
               </div>
             </Link>
 
