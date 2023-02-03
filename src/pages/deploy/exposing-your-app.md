@@ -57,11 +57,13 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1205} height={901} quality={80} />
 
-If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error.
+If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error.  
 
 ```
 ERR_TOO_MANY_REDIRECTS
 ```
+
+Also note that if proxying is enabled, you can NOT use a domain deeper than a first level subdomain without Cloudflare's Advanced Certificate Manager. For example, anything falling under \*.yourdomain.com can be proxied through Cloudflare without issue, however if you have a custom domain under \*.subdomain.yourdomain.com, you MUST disable Cloudflare Proxying and set the CNAME record to DNS Only (the grey cloud), unless you have Cloudflare's Advanced Certificate Manager. 
 
 ### Redirecting a Root Domain Workarounds
 
