@@ -17,11 +17,7 @@ export const Background = () => (
   <div tw="opacity-50 md:opacity-100 absolute inset-0 pointer-events-none">
     <img
       src="/images/VectorGrid.svg"
-      tw="absolute top-0 left-56 transform scale-x-[-1] max-w-none"
-    />
-    <img
-      src="images/DocBlog.svg"
-      tw="absolute -top-80 left-64 transform scale-x-[-1] max-w-none z-10"
+      tw="absolute top-0 right-0 transform scale-x-[-1] max-w-none"
     />
   </div>
 );
@@ -29,7 +25,6 @@ export const Background = () => (
 const Home: NextPage = () => {
   return (
     <>
-      <Background />
       <div tw="max-w-4xl z-10">
         <h1 tw="text-5xl md:text-6xl font-bold mb-12">Introduction</h1>
         <div
