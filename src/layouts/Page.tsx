@@ -48,12 +48,13 @@ export const Page: React.FC<Props> = props => {
       <div tw="min-h-screen relative flex">
         <Sidebar />
 
-        <div tw="flex flex-col flex-1">
-          {" "}
+        <div tw="flex flex-col flex-1 max-w-[100vw] overflow-x-hidden">
           <Background />
+
           {/*This area would be perfect to add the bg image.*/}
           <Nav />
           <MobileNav />
+
           <main tw="flex justify-between px-4 w-full max-w-5xl mx-auto md:px-8 pt-8 pb-12 md:pb-24">
             {props.children}
           </main>
