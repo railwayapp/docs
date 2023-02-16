@@ -25,6 +25,7 @@ module.exports = withPlugins([
         "user-images.githubusercontent.com",
         "railway.app",
         "res.cloudinary.com",
+        "devicons.railway.app",
       ],
     },
     async redirects() {
