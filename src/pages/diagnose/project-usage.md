@@ -7,7 +7,7 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={491} height={286} quality={80} />
 
-Projects on Railway are billed per minute and only for the resources projects use. All the services within a project in every environment contribute to the resources billed.
+Projects on Railway are billed per minute for the resources projects use. All services within a project's environments contribute to the resources billed.
 
 **RAM**
 $0.000231 / GB / minute
@@ -15,16 +15,20 @@ $0.000231 / GB / minute
 **CPU**
 $0.000463 / vCPU / minute
 
-Users can see the usage of their projects under [your billing page](https://railway.app/account/billing).
+Users can see the usage of their projects under [the usage page](https://railway.app/account/usage).
 
-### Billing Metrics
+### Month-to-day Usage
 
-The chart for each project shows individual resource usage over the month. If you delete the project, Railway still counts the usage against your account metrics.
+This section outlines the current usage for the month as well as any discounts and credits the user has applied to their account.
 
-If you are on the developer plan it will show what your current bill will be at the end of the month.
+In addition to the current usage, the user can see their estimated resource usage by the end of the month. If this number is positive and the user is on the Developer plan, they will be charged at the end of the month.
 
-On the starter plan, it will show the remaining usage balance you have.
+
+### Usage by Project
+The chart shows the cumulative usage for the month. If you delete a project Railway will still count the usage.
+
+The Current and Estimated cost metrics show the current resource usage and the estimated usage by the end of the month.
 
 ### Billing Alerts
 
-Throughout the month as your usage increases, we will email you reminding you how much usage you have used, and if you are on the Starter plan, how much usage you have remaining.
+Throughout the month as your usage increases, we will email you reminding you how much usage you have used. If you are on the Trial plan, we will also email you when you are approaching the end of your free credit.

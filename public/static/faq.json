@@ -16,7 +16,7 @@
       "How do I verify my account?",
       "Why do I need to verify?"
     ],
-    "answer": "Your account requires additional information to use the Starter plan. Make sure to link a GitHub account and a Credit Card to pass the verification check.",
+    "answer": "Your account requires additional information to use the Trial plan. Make sure to link a GitHub account and a Credit Card to pass the verification check.",
     "link": ""
   },
   "region": {
@@ -156,13 +156,13 @@
       "What are the usage limits for the free plan?",
       "Free plan limits?"
     ],
-    "answer": "Deploys on the Starter plan get 512 MB memory and 1GB of disk, with up to $5 of usage per month.",
+    "answer": "Deploys on the Trial plan get 512 MB memory and 1GB of disk, with up to $5 of usage per month.",
     "link": "https://railway.app/pricing"
   },
   "no-credits": {
     "category": "pricing",
     "questions": ["What happens when I run out of credits?"],
-    "answer": "If you are on the Starter plan, your projects are put to rest until next month's credits. You must redeploy your projects after you get next month's credits. If you are on the Developer plan, you are charged for any usage above $5 for the month.",
+    "answer": "If you are on the Trial plan, your projects are put to rest until next month's credits. You must redeploy your projects after you get next month's credits. If you are on the Developer plan, you are charged for any usage above $5 for the month.",
     "link": ""
   },
   "see-usage": {
