@@ -7,18 +7,16 @@ alt="Screenshot of Metrics Page"
 layout="intrinsic"
 width={1576} height={1100} quality={80} />
 
-Railway allows you to see resource usage information related to your deployments within a service.
+Railway provides resource usage information on deployments within a service. This information can be used to diagnose issues with a project's performance. 
 
-We provide the following graphs that provide insight into your application's load to help you diagnose application performance.
+The following metrics are provided:
 
 - CPU
 - Memory
 - Disk Usage
 - Network
 
-When you view your project's metrics, we show you the graphs tied to the selected environment in your service's metrics tab.
-
-We currently keep 7 days worth of metrics data.
+Graphs include white lines to indicate when new deployments began. Only the past 7 days of data is available for each project.
 
 ### Deployment Information
 
@@ -27,4 +25,4 @@ alt="Screenshot of Metric Timeseries Commit Information"
 layout="responsive"
 width={904} height={726} quality={80} />
 
-Your project maintains a continuous timeseries for all your deployments within a service, not just the latest one. Deployments appear on the graph, so you can see which commit may have caused a spike in resources.
+Projects maintain a continuous timeseries for all deployments within a service, not just the latest one. Deployments appear on the graph so users can see which commit may have caused a spike in resources.
