@@ -95,6 +95,7 @@ export const sidebarContent: ISidebarContent = [
         "doppler",
       ]),
       makePage("Config as Code", "deploy", ["CaC", "IaC", "service", "config"]),
+      makePage("Deploy on Railway Button", "deploy", ["button", "badge"])
     ],
   },
   {
