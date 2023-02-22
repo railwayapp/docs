@@ -31,7 +31,7 @@ module.exports = withPlugins([
     async redirects() {
       return [
         {
-          source: "/reference/starters",
+          source: "/reference/s",
           destination: "/reference/templates",
           permanent: true,
         },

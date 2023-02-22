@@ -4,7 +4,7 @@ title: Pricing
 
 Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use, instead, Railway charges by the minute for each vCPU and memory resource your service uses.
 
-Users who upgrade to the Developer plan get unlimited execution hours on their workloads and increased service limits compared to users on the Starter plan.
+Users who upgrade to the Developer plan get unlimited execution hours on their workloads and increased service limits compared to users on the Trial plan.
 
 [You can see the offerings of each tier on this page.](/reference/plans)
 
@@ -36,4 +36,4 @@ You can't load prepaid credits on your account while using the usage-based payme
 
 Every account gets $5 of included credit per month. Users who upgrade to the Developer Plan have no execution time limit on their credits.
 
-Railway will expend any free credit before consuming any paid credits. If users prepay to use the Developer Plan and expend all credits, the account is demoted to the Starter plan.
+Railway will expend any free credit before consuming any paid credits. If users prepay to use the Developer Plan and expend all credits, the account is demoted to the Trial plan.

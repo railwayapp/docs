@@ -4,13 +4,13 @@ title: Plans
 
 Railway has multiple plans that fit your need on the platform. Projects inherit the caps of the plan that the user has. Projects that are made within a team belong to the team and aren't tied to a Railway user.
 
-## Starter Plan
+## Trial Plan
 
-Starter plans are designed to help you evaluate Railway and are fit for hobbyist projects. You get access to all features on Railway and you have no limits to the amount of projects you can provision.
+Trial plans are designed to help you evaluate Railway and are fit for hobbyist projects. You get access to all features on Railway and you have no limits to the amount of projects you can provision.
 
-Starter plans get $5 of credits that do not accumulate.
+Trial plans get $5 of credits that do not accumulate.
 
-Starter plans also have an execution limit, users get 500 execution hours per month. Hours get consumed if you at least have one service live.
+Trial plans also have an execution limit, users get 500 execution hours per month. Hours get consumed if you at least have one service live.
 
 If you have one service, it will deplete the 500-hour reserve at a normal rate. If you have two services, the timer will also deplete at a normal rate.
 
@@ -37,7 +37,7 @@ When you add a credit card or have a prepaid credit balance on your account, you
 
 Developer plan projects have increased limits: limits are raised as projects approach them up to the hard cap listed here.
 
-If a user unsubscribes or runs out of prepaid credits, the user returns to the Starter plan and the previous limits reapply.
+If a user unsubscribes or runs out of prepaid credits, the user returns to the Trial plan and the previous limits reapply.
 
 **Tier Offering**
 
@@ -78,7 +78,7 @@ Credits cannot be bought with:
 
 Team plan projects are designed to provide the most resources for all your scaled needs. The team plan has project usage charged in addition to the number of seats that the team pays for.
 
-Unlike the starter and developer projects, team members within a team can access all team projects.
+Unlike projects on the Trial and Developer plan, team members within a team can access all team projects.
 
 **Tier Offering**
 
@@ -94,7 +94,7 @@ If we deem that projects violate the [fair use](https://railway.app/legal/fair-u
 
 ## Execution Time Limit
 
-**Only applies to the Starter Plan. Paid plans on Railway are exempt from this limit.**
+**Only applies to the Trial Plan. Paid plans on Railway are exempt from this limit.**
 
 Execution hours are how we measure how long an account has at least one deploy.
 
