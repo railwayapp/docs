@@ -31,6 +31,7 @@ brew install railway
 ```bash
 npm i -g @railway/cli
 ```
+
 You need to have => 16.x version of Nodejs installed.
 
 ### Shell Script
@@ -87,7 +88,24 @@ width={389} height={116} quality={80} />
 ```bash
 railway link
 ```
-Pick from the list projects you have.
+
+Pick from the list projects you have. You can also type to filter the list.
+
+You can optionally pass the project ID as an argument to link to a specific project.
+
+```bash
+railway link <project-id>
+```
+
+## Link to a Service
+
+Once you have linked to a project, if you have multiple services: you can link to a specific service within that project. Linking to a service will allow you to run commands against that service's variables and deploy to that service. using `up`
+
+````bash
+
+```bash
+railway service
+````
 
 ## Create a Project
 
@@ -106,7 +124,7 @@ infrastructure hosted on Railway by injecting environment variables.
 railway run <cmd>
 ```
 
-For example, to run your node project with Railway:
+For example, to run your node project with Railway's variables:
 
 ```bash
 railway run npm start
@@ -117,7 +135,7 @@ If you have a Dockerfile in your project directory, you can just run
 
 ## Local Shell
 
-Open an interactive subshell loaded with your project's environment variables.
+Open an interactive subshell loaded with your project's environment variables. This allows you to run commands locally that use the same environment variables as your Railway project.
 
 ```bash
 railway shell
@@ -138,27 +156,42 @@ Deploy the linked project directory (if running from a subdirectory, the project
 ```bash
 # Show project logs
 railway up
-
-# Return immediately after uploading
-railway up --detach
 ```
 
 If there are multiple services within your project, the CLI will prompt you for a service to deploy to.
 
 ## Add Database Service
 
-Provision a database service for a project.
+Provision a database service for a project. The CLI will prompt you
 
 ```bash
 railway add
 ```
 
-## Connect to Database
+## Variables
 
-Open an interactive shell to a database directly in the CLI.
+Sometimes you need to access environment variables in your project. You can pull down the environment variables for a project with the `variables` command.
 
 ```bash
-railway connect
+railway variables
+```
+
+Railway outputs a table of environment variables that are tied to your project or service.
+
+## Scripting
+
+Commands with the Railway CLI have a `--json` flag that will output the result of the command as JSON.
+
+```bash
+railway link --json
+```
+
+This is useful for scripting like piping the output of one command into another.
+
+Commands on the Railway CLI have positional arguments and flags. Positional arguments are required and flags are optional. Flags are prefixed with `--` and can have a value or be a boolean flag.
+
+```bash
+railway link <project-id> --json
 ```
 
 ## Logout

@@ -18,24 +18,6 @@ Generate a shell-completions for the following shells: bash, zsh, fish, PowerShe
 
 Run `railway completion --help` to for information on how to install the completions for your specific shell.
 
-## Connect
-
-Open an interactive shell for one of your databases.
-
-```bash
-railway connect [plugin]
-```
-
-If you don't specify a plugin, you will be prompted to select a plugin to
-connect to.
-
-Supported:
-
-- `postgresql`/`postgres`/`psql`
-- `mysql`
-- `redis`
-- `mongodb`/`mongo`
-
 ## Docs
 
 Open the Railway documentation (this website) in the default browser.
@@ -95,6 +77,14 @@ railway delete [projectId]
 ```
 
 If 2FA is enabled on your account you will be prompted to delete the project from the dashboard.
+
+## Domain
+
+Generates a Railway provided domain for a service. If the user isn't linked to a service, they will be prompted to select one.
+
+```bash
+railway domain
+```
 
 ## List
 
@@ -214,21 +204,21 @@ railway variables
 Get the current version of the Railway CLI
 
 ```bash
-railway version
+railway -V
 ```
 
-## Whoami
+## Args
 
-View what user is currently authenticated with Railway
+Most commands accept positional args and flags. For example, you can provide an environment name to the `environment` command to switch to that environment without being prompted.
 
 ```bash
-railway whoami
+railway environment <name>
 ```
 
-## Shell
+### Flags
 
-This will create a subshell (based on $SHELL) with all the variables from your project/environment/service loaded and accessible.
+You can also provide flags to commands. Flags are prefixed with a `-` or `--` and can be used to provide additional information to the command. For example, you can provide `--json` to the `status` command to get the status in JSON format.
 
 ```bash
-railway shell
+railway status --json
 ```
