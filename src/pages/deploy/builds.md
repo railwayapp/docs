@@ -48,10 +48,10 @@ reach out on [Discord](https://discord.gg/xAm2w6g) or on [the Nixpacks GitHub re
 If using the Nixpacks builder, you can customize the build command that is run. For those familiar with Nixpacks, this gets set as the `--build-cmd` argument during the Nixpacks build.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1664564851/docs/build-command_vhuify.png"
+src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/root-directory_nczles.png"
 alt="Screenshot of Railway Build Command"
 layout="responsive"
-width={1168} height={346} quality={80} />
+width={1190} height={400} quality={80} />
 
 ## Root Directory
 
