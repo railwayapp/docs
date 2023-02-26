@@ -10,6 +10,12 @@ import { Link } from "./Link";
 
 export const Search: React.FC = () => {
   const { setIsSearchOpen } = useStore();
+  const [shortCut, setShortCut] = useState("");
+  useEffect(() => {
+    window.navigator.platform.match(/^Mac/)
+      ? setShortCut("⌘ K")
+      : setShortCut("Ctrl K");
+  }, []);
 
   return (
     <>
@@ -26,7 +32,7 @@ export const Search: React.FC = () => {
           <SearchIcon tw="w-4 h-4" />
           <span tw="text-sm">Search</span>
         </div>
-        <div tw="text-gray-300 text-sm hidden md:block">⌘K</div>
+        <div tw="text-gray-300 text-sm hidden md:block">{shortCut}</div>
       </button>
     </>
   );
@@ -96,8 +102,8 @@ export const SearchModal: React.FC<{
     >
       <div
         css={[
-          tw`bg-background rounded w-full md:w-1/2 mx-auto overflow-hidden`,
-          `max-width: 550px`,
+          tw`bg-background rounded-md w-full md:w-1/2 mx-auto overflow-hidden`,
+          `max-width: 550px `,
         ]}
         onPointerDown={e => e.stopPropagation()}
       >
@@ -106,20 +112,29 @@ export const SearchModal: React.FC<{
           value={query}
           onChange={e => setQuery(e.target.value)}
           autoFocus
-          tw="px-4 py-4 w-full bg-transparent focus:outline-none"
+          tw="px-6 py-4 w-full bg-transparent focus:outline-none "
         />
 
         <div className="results">
-          <ul>
+          <ul
+            css={[
+              tw`flex flex-col items-center w-full border-t-[1px] border-gray-200`,
+              query !== "" && results.length && tw`py-3`,
+            ]}
+          >
             {results.map((item, index) => (
-              <li key={item.slug} onMouseMove={() => setSelected(index)}>
+              <li
+                key={item.slug}
+                onMouseMove={() => setSelected(index)}
+                tw={"w-[95%]"}
+              >
                 <Link
                   href={item.slug}
                   onClick={e => {
                     closeModal();
                   }}
                   css={[
-                    tw`flex items-center justify-between px-3 h-16 relative`,
+                    tw`flex items-center justify-between px-3 h-16 relative rounded-md`,
                     index === selected
                       ? tw`text-pink-900 bg-pink-100`
                       : tw`text-gray-500`,
