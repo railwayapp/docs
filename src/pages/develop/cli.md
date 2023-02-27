@@ -179,7 +179,7 @@ Our CLI is Open Source. Contribute to the development of the Railway CLI by open
 
 <PriorityBoardingBanner />
 
-The Railway CLI is currently undergoing an overhaul to improve the user experience and to make it easier to maintain. The new CLI is written in Rust and is currently undergoing a beta in Priority Boarding. You can find the new CLI [here](https://github.com/railwayapp/cliv3) with instructions on how to install it. (Script coming soon.)
+The Railway CLI is currently undergoing an overhaul to improve the user experience and to make it easier to maintain (it uses our new Public API vs our undocumented v1 routes). The new CLI is written in Rust and is currently undergoing a beta in Priority Boarding. You can find the new CLI [here](https://github.com/railwayapp/cliv3) with instructions on how to install it. (Script coming soon.)
 
 ### Differences between v2 and v3
 
@@ -207,3 +207,11 @@ Undocumented commands such as `railway protect` and `railway shell` will be remo
 - `railway version` is being removed in favor of using `-V` or `--version` flags.
 - `railway build` is being removed in favor of using `railway variables` to output a local .env file. (Also the name was confusing.)
 - `railway init` will no longer allow you to deploy a new Project with a Template. We have since re-worked the flow and realized that the Template deploy flow is best served as a web driven flow.
+
+## Timeline
+
+We hope to get the new CLI into our CLI offical release pipeline on Friday (2023/03/03). Meaning: all new installations from `npm`, `brew`, and the shell will install (v3.x.x)
+
+We do plan to deprecate the v2 CLI and the API routes it depends on in the future. The goal is to have teh transition for the CLI to occur before we fully transition the API routes.
+
+We will be updating this page with more information as we get closer to the release date.
