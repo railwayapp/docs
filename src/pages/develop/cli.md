@@ -179,7 +179,7 @@ Our CLI is Open Source. Contribute to the development of the Railway CLI by open
 
 <PriorityBoardingBanner />
 
-The Railway CLI is currently undergoing a rewrite to improve the user experience and make it easier to maintain. The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/) rather than undocumented routes. 
+The Railway CLI is currently undergoing a rewrite to improve the user experience and make it easier to maintain. The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/) rather than undocumented routes.
 
 The new CLI is written in Rust and is currently in Priority Boarding. You can find the new CLI and installation instructions [here](https://github.com/railwayapp/cliv3). (Script coming soon.)
 
@@ -190,15 +190,17 @@ The new CLI is written in Rust and is currently in Priority Boarding. You can fi
 - The new CLI has interactive search for services + projects to link to
 - The new CLI now displays information about your data in cleaner, more readable tables
 - New commands:
-    - `railway service` helper command to link to a project's service
-    - `railway add` now allows you to connect
-    - `railway generate` now will generate a service domain for you without the need to connect to
-    - `railway logs` now opens a direct websocket connection to the logs API and will stream logs in real time
+
+  - `railway service` helper command to link to a project's service
+  - `railway add` now allows you to provision multiple database types at once
+  - `railway generate` now will generate a service domain for you without the need to connect to
+  - `railway logs` now opens a direct websocket connection to the logs API and will stream logs in real time
 
 - Added the `--json` flag to output data in JSON format for scripting
 - CLI commands now allow you to explicitly specify the project and environment you want to use via flags. For example, `railway up --projectId <project-id> --environmentId <environment-id>`
 
 ### CLI v3 Deprecations
+
 - Undocumented commands such as `railway protect` and `railway shell` will be removed. We are re-thinking how we want to handle these features and will be adding them back in the future
 - `railway variables add` will no longer give you the option to add a secret. We are re-thinking how we want to handle the secret flow within the CLI now since the addition of [Shared Variables](/develop/variables#shared-variables)
 - `railway down` will be sunset as we are looking into better ways to handle deployments and scaling
@@ -208,7 +210,7 @@ The new CLI is written in Rust and is currently in Priority Boarding. You can fi
 
 ## Timeline
 
-We hope to get the new CLI into our CLI offical release pipeline on **Friday 3 March 2023**. 
+We hope to get the new CLI into our CLI offical release pipeline on **Friday 3 March 2023**.
 
 After this date, all _new_ installations from `npm`, `brew`, and the shell will install (v3.x.x).
 
