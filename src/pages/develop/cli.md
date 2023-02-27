@@ -179,39 +179,39 @@ Our CLI is Open Source. Contribute to the development of the Railway CLI by open
 
 <PriorityBoardingBanner />
 
-The Railway CLI is currently undergoing an overhaul to improve the user experience and to make it easier to maintain (it uses our new Public API vs our undocumented v1 routes). The new CLI is written in Rust and is currently undergoing a beta in Priority Boarding. You can find the new CLI [here](https://github.com/railwayapp/cliv3) with instructions on how to install it. (Script coming soon.)
+The Railway CLI is currently undergoing a rewrite to improve the user experience and make it easier to maintain. The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/) rather than undocumented routes. 
 
-### Differences between v2 and v3
+The new CLI is written in Rust and is currently in Priority Boarding. You can find the new CLI and installation instructions [here](https://github.com/railwayapp/cliv3). (Script coming soon.)
+
+### What's New in CLI v3?
 
 - The new CLI is written in Rust and is much faster than the previous version
-- The new CLI has additional commands and UI for linking to services and displaying the data in tables
 - The new CLI has additional flags such as `--json` to output data in JSON format for scripting
+- The new CLI has interactive search for services + projects to link to
+- The new CLI now displays information about your data in cleaner, more readable tables
+- New commands:
+    - `railway service` helper command to link to a project's service
+    - `railway add` now allows you to connect
+    - `railway generate` now will generate a service domain for you without the need to connect to
+    - `railway logs` now opens a direct websocket connection to the logs API and will stream logs in real time
 
-### Whats Added
-
-- We've added the `railway service` command to link to a project's service to avoid the need to be re-prompted for a service
-- You can now type within the interactive shell to search for services + projects to link to
-- `railway add` now allows you to connect
-- `railway generate` now will generate a service domain for you without the need to connect to
-- `railway logs` now opens a direct websocket connection to the logs API and will stream logs in real time
-- The CLI now displays information about your data within tables
 - Added the `--json` flag to output data in JSON format for scripting
 - CLI commands now allow you to explicitly specify the project and environment you want to use via flags. For example, `railway up --projectId <project-id> --environmentId <environment-id>`
 
-### Whats Leaving
-
-Undocumented commands such as `railway protect` and `railway shell` will be removed in the future. We are rethinking how we want to handle these features and will be adding them back in the future.
-
-- `railway variables add` will no longer give you the option to add a secret. We are rethinking how we want to handle the secret flow within the CLI now since we have added Shared Variables.
-- `railway down` will be sunset as we are looking into better ways to handle deployments and scaling.
+### CLI v3 Deprecations
+- Undocumented commands such as `railway protect` and `railway shell` will be removed. We are re-thinking how we want to handle these features and will be adding them back in the future
+- `railway variables add` will no longer give you the option to add a secret. We are re-thinking how we want to handle the secret flow within the CLI now since the addition of [Shared Variables](/develop/variables#shared-variables)
+- `railway down` will be sunset as we are looking into better ways to handle deployments and scaling
 - `railway version` is being removed in favor of using `-V` or `--version` flags.
-- `railway build` is being removed in favor of using `railway variables` to output a local .env file. (Also the name was confusing.)
-- `railway init` will no longer allow you to deploy a new Project with a Template. We have since re-worked the flow and realized that the Template deploy flow is best served as a web driven flow.
+- `railway build` is being removed in favor of using `railway variables` to output a local .env file (also the name was confusing)
+- `railway init` will no longer allow you to deploy a new Project with a Template. We have since re-worked the flow and realized that the Template deploy flow is best served in the dashboard
 
 ## Timeline
 
-We hope to get the new CLI into our CLI offical release pipeline on Friday (2023/03/03). Meaning: all new installations from `npm`, `brew`, and the shell will install (v3.x.x)
+We hope to get the new CLI into our CLI offical release pipeline on **Friday 3 March 2023**. 
 
-We do plan to deprecate the v2 CLI and the API routes it depends on in the future. The goal is to have teh transition for the CLI to occur before we fully transition the API routes.
+After this date, all _new_ installations from `npm`, `brew`, and the shell will install (v3.x.x).
+
+We plan to deprecate the v2 CLI and the API routes it depends on in the future. The goal is to transition the CLI before fully transitioning the API routes.
 
 We will be updating this page with more information as we get closer to the release date.
