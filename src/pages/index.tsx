@@ -1,17 +1,16 @@
 import { NextPage } from "next";
-import NextImage from "next/image";
-import React from "react";
-import tw, { styled } from "twin.macro";
-import { DiscordIcon, RssIcon, TwitterIcon } from "../components/Icons";
-import { Link } from "../components/Link";
+import NextImage from "next/legacy/image";
 import {
   ArrowRight,
   Book,
   Code,
-  Layers,
   Edit3,
   GitPullRequest,
+  Layers,
 } from "react-feather";
+import tw, { styled } from "twin.macro";
+import { DiscordIcon, RssIcon, TwitterIcon } from "../components/Icons";
+import { Link } from "../components/Link";
 
 export const Background = () => (
   <div tw="opacity-50 md:opacity-100 absolute inset-0 pointer-events-none">
@@ -30,7 +29,7 @@ const Home: NextPage = () => {
         <div
           // I know this is the longest single line of css I've ever written
           css={[
-            tw`background[linear-gradient(83.84deg, rgba(149, 203, 233, 0.9) -3.34%, rgba(71, 201, 242, 0.135) 35.77%), linear-gradient(101.71deg, rgba(227, 167, 228, 0.048) 46.42%, rgba(238, 96, 215, 0.8) 94.51%), linear-gradient(149.12deg, #3308AD 13.67%, rgba(51, 8, 173, 0) 86.42%)] dark:background[linear-gradient(31.2deg, #0B4347 -25.4%, rgba(9, 36, 45, 0.15) 80.73%), linear-gradient(109.68deg, rgba(60, 0, 61, 0.01) 30.31%, #20041C 85.93%), linear-gradient(149.12deg, #1B0066 13.67%, rgba(28, 0, 108, 0) 86.42%)]`,
+            tw`[background:linear-gradient(83.84deg,_rgba(149,_203,_233,_0.9)_-3.34%,_rgba(71,_201,_242,_0.135)_35.77%),_linear-gradient(101.71deg,_rgba(227,_167,_228,_0.048)_46.42%,_rgba(238,_96,_215,_0.8)_94.51%),_linear-gradient(149.12deg,_#3308AD_13.67%,_rgba(51,_8,_173,_0)_86.42%)] dark:[background:linear-gradient(31.2deg,_#0B4347_-25.4%,_rgba(9,_36,_45,_0.15)_80.73%),_linear-gradient(109.68deg,_rgba(60,_0,_61,_0.01)_30.31%,_#20041C_85.93%),_linear-gradient(149.12deg,_#1B0066_13.67%,_rgba(28,_0,_108,_0)_86.42%)]`,
             tw`flex relative rounded-md w-full overflow-hidden border`,
           ]}
         >

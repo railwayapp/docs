@@ -1,7 +1,7 @@
 export type ColorMode = "light" | "dark";
 export const defaultColorMode: ColorMode = "dark";
 
-const lightColors = {
+const lightColors: Record<string, Record<number, string>> = {
   foreground: "#181622",
   background: "#ffffff",
   gray: {
@@ -72,7 +72,7 @@ const lightColors = {
   },
 };
 
-const invertMap = {
+const invertMap: Record<string, number> = {
   "100": 900,
   "200": 800,
   "300": 700,

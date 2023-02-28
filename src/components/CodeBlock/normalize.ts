@@ -2,7 +2,7 @@
 
 const COMMENT_START = new RegExp(`(#|\\/\\/|\\{\\/\\*|\\/\\*+|<!--)`);
 
-const createDirectiveRegExp = featureSelector =>
+const createDirectiveRegExp = (featureSelector: string) =>
   new RegExp(`${featureSelector}-(next-line|line|start|end|range)({([^}]+)})?`);
 
 const COMMENT_END = new RegExp(`(-->|\\*\\/\\}|\\*\\/)?`);
@@ -10,12 +10,12 @@ const DIRECTIVE = createDirectiveRegExp(`(highlight|hide)`);
 const HIGHLIGHT_DIRECTIVE = createDirectiveRegExp(`highlight`);
 const HIDE_DIRECTIVE = createDirectiveRegExp(`hide`);
 
-const END_DIRECTIVE = {
+const END_DIRECTIVE: Record<string, RegExp> = {
   highlight: /highlight-end/,
   hide: /hide-end/,
 };
 
-const stripComment = line =>
+const stripComment = (line: string) =>
   /**
    * This regexp does the following:
    * 1. Match a comment start, along with the accompanying PrismJS opening comment span tag;
@@ -29,25 +29,28 @@ const stripComment = line =>
     ``,
   );
 
-const containsDirective = line =>
+const containsDirective = (line: string) =>
   [HIDE_DIRECTIVE, HIGHLIGHT_DIRECTIVE].some(expr => expr.test(line));
 
 /*
  * This parses the {1-3} syntax range that is sometimes used
  */
-const getInitialFilter = (className, split) => {
+const getInitialFilter = (className: string, split: string[]) => {
   const lineNumberExpr = /{([^}]+)/;
   const [, match] = className.match(lineNumberExpr) || [];
   if (match) {
-    const lookup = match.split(/,\s*/).reduce((merged, range) => {
-      const [start, end = start] = range
-        .split(`-`)
-        .map(num => parseInt(num, 10));
-      for (let i = start; i <= end; i++) {
-        merged[i - 1] = true;
-      }
-      return merged;
-    }, {});
+    const lookup = match
+      .split(/,\s*/)
+      .reduce<Record<number, boolean>>((merged, range) => {
+        const [start, end = start]: number[] = range
+          .split(`-`)
+          .map(num => parseInt(num, 10));
+
+        for (let i = start; i <= end; i++) {
+          merged[i - 1] = true;
+        }
+        return merged;
+      }, {});
     return split.map((line, index) => {
       return {
         code: line,
@@ -58,12 +61,17 @@ const getInitialFilter = (className, split) => {
   return [];
 };
 
+interface NormalizeResult {
+  content: string;
+  filteredLines: Record<number, boolean>;
+}
+
 /*
  * This function will output the normalized content (stripped of comment directives)
  * alongside a lookup of filtered lines
  * https://github.com/gatsbyjs/gatsby/blob/dad0628f274f1c61853f3177573bb17a79e4a540/packages/gatsby-remark-prismjs/src/directives.js
  */
-export const normalize = (content, className = ``) => {
+export const normalize = (content: string, className = ``): NormalizeResult => {
   const split = content.split(`\n`);
   let filtered = getInitialFilter(className, split);
 
@@ -71,7 +79,7 @@ export const normalize = (content, className = ``) => {
     for (let i = 0; i < split.length; i++) {
       const line = split[i];
       if (containsDirective(line)) {
-        const [, keyword, directive] = line.match(DIRECTIVE);
+        const [, keyword, directive] = line.match(DIRECTIVE)!;
         switch (directive) {
           case `start`: {
             const endIndex = split
@@ -82,16 +90,21 @@ export const normalize = (content, className = ``) => {
 
             if (keyword === `highlight`) {
               filtered = filtered.concat(
-                split.slice(i, end + 1).reduce((merged, line) => {
-                  const code = stripComment(line);
-                  if (code) {
-                    merged.push({
-                      code,
-                      highlighted: true,
-                    });
-                  }
-                  return merged;
-                }, []),
+                split
+                  .slice(i, end + 1)
+                  .reduce<{ code: string; highlighted: boolean }[]>(
+                    (merged, line) => {
+                      const code = stripComment(line);
+                      if (code) {
+                        merged.push({
+                          code,
+                          highlighted: true,
+                        });
+                      }
+                      return merged;
+                    },
+                    [],
+                  ),
               );
             }
 
@@ -115,6 +128,7 @@ export const normalize = (content, className = ``) => {
                 [
                   {
                     code,
+                    highlighted: false,
                   },
                   {
                     code: stripComment(split[i + 1]),
@@ -125,6 +139,7 @@ export const normalize = (content, className = ``) => {
             } else if (keyword === `hide` && code) {
               filtered.push({
                 code,
+                highlighted: false,
               });
             }
             i += 1;
@@ -137,21 +152,25 @@ export const normalize = (content, className = ``) => {
       } else {
         filtered.push({
           code: line,
+          highlighted: false,
         });
       }
     }
   }
 
-  return [
-    filtered
+  return {
+    content: filtered
       .map(({ code }) => code)
       .join(`\n`)
       .trim(),
-    filtered.reduce((lookup, { highlighted }, index) => {
-      if (highlighted) {
-        lookup[index] = true;
-      }
-      return lookup;
-    }, {}),
-  ];
+    filteredLines: filtered.reduce<Record<number, boolean>>(
+      (lookup, { highlighted }, index) => {
+        if (highlighted) {
+          lookup[index] = true;
+        }
+        return lookup;
+      },
+      {},
+    ),
+  };
 };

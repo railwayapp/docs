@@ -1,12 +1,3 @@
-import create from "zustand";
+import { atom } from "nanostores";
 
-type IStore = {
-  isSearchOpen: boolean;
-  setIsSearchOpen: (value: boolean) => void;
-};
-
-export const useStore = create<IStore>(set => ({
-  isSearchOpen: false,
-  setIsSearchOpen: (value: boolean) =>
-    set(state => ({ ...state, isSearchOpen: value })),
-}));
+export const searchStore = atom<boolean>(false);

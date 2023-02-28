@@ -40,7 +40,7 @@ const fontStack = [
 ].join(",");
 
 module.exports = {
-  purge: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class", // 'media' or 'class'
   theme: {
     fontFamily: {
