@@ -1,13 +1,13 @@
-import React from "react";
-import tw, { TwStyle } from "twin.macro";
-import { Icon } from "./Icon";
+import React, { PropsWithChildren } from "react";
 import {
+  AlertTriangle,
+  CheckCircle,
   Info,
   Star,
   XOctagon,
-  CheckCircle,
-  AlertTriangle,
 } from "react-feather";
+import tw, { TwStyle } from "twin.macro";
+import { Icon } from "./Icon";
 import { Link } from "./Link";
 
 export type BannerVariant =
@@ -53,7 +53,11 @@ const defaultIcons: Record<BannerVariant, React.ComponentType | null> = {
   warning: AlertTriangle,
 };
 
-export const Banner: React.FC<Props> = ({ children, hideIcon, ...props }) => {
+export const Banner: React.FC<PropsWithChildren<Props>> = ({
+  children,
+  hideIcon,
+  ...props
+}) => {
   const variant = props.variant ?? defaultVariant;
   const icon = props.icon ?? defaultIcons[variant];
 

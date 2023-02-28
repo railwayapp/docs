@@ -4,17 +4,15 @@ import React, { useCallback, useEffect, useState } from "react";
 import { ArrowRight, Search as SearchIcon } from "react-feather";
 import tinykeys from "tinykeys";
 import tw from "twin.macro";
-import { useStore } from "../store";
+import { searchStore } from "../store";
 import { IPage } from "../types";
 import { Link } from "./Link";
 
 export const Search: React.FC = () => {
-  const { setIsSearchOpen } = useStore();
-
   return (
     <>
       <button
-        onClick={() => setIsSearchOpen(true)}
+        onClick={() => searchStore.set(true)}
         css={[
           tw`flex items-center justify-between space-x-4 w-full`,
           tw`rounded border border-gray-200 cursor-pointer`,

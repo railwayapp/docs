@@ -18,23 +18,22 @@ const sizes: Record<IconSize, string | undefined> = {
   none: undefined,
 };
 
-export const Icon = React.forwardRef<
-  HTMLDivElement,
-  Props
->(({ icon, ...props }, ref) => {
-  const Comp = icon;
+export const Icon = React.forwardRef<HTMLDivElement, Props>(
+  ({ icon, ...props }, ref) => {
+    const Comp = icon;
 
-  return (
-    <Container ref={ref} {...props} aria-hidden="true">
-      <Comp />
-    </Container>
-  );
-});
+    return (
+      <Container ref={ref} {...props} aria-hidden="true">
+        <Comp />
+      </Container>
+    );
+  },
+);
 
 const getSize = (s: string): string | undefined =>
-  s === "none" ? undefined : sizes[s] ?? s;
+  s === "none" ? undefined : sizes[s as IconSize] ?? s;
 
-const Container = styled.div <Omit<Props, "icon">>`
+const Container = styled.div<Omit<Props, "icon">>`
   ${tw`text-current`}
   width: ${({ size }) => getSize(size ?? "sm")};
   height: ${({ size }) => getSize(size ?? "sm")};

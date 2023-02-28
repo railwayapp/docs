@@ -2,7 +2,7 @@
 
 const COMMENT_START = new RegExp(`(#|\\/\\/|\\{\\/\\*|\\/\\*+|<!--)`);
 
-const createDirectiveRegExp = featureSelector =>
+const createDirectiveRegExp = (featureSelector: string) =>
   new RegExp(`${featureSelector}-(next-line|line|start|end|range)({([^}]+)})?`);
 
 const COMMENT_END = new RegExp(`(-->|\\*\\/\\}|\\*\\/)?`);
@@ -10,12 +10,12 @@ const DIRECTIVE = createDirectiveRegExp(`(highlight|hide)`);
 const HIGHLIGHT_DIRECTIVE = createDirectiveRegExp(`highlight`);
 const HIDE_DIRECTIVE = createDirectiveRegExp(`hide`);
 
-const END_DIRECTIVE = {
+const END_DIRECTIVE: Record<string, RegExp> = {
   highlight: /highlight-end/,
   hide: /hide-end/,
 };
 
-const stripComment = line =>
+const stripComment = (line: string) =>
   /**
    * This regexp does the following:
    * 1. Match a comment start, along with the accompanying PrismJS opening comment span tag;
@@ -29,30 +29,31 @@ const stripComment = line =>
     ``,
   );
 
-const containsDirective = line =>
+const containsDirective = (line: string) =>
   [HIDE_DIRECTIVE, HIGHLIGHT_DIRECTIVE].some(expr => expr.test(line));
 
 /*
  * This parses the {1-3} syntax range that is sometimes used
  */
-const getInitialFilter = (className, split) => {
+const getInitialFilter = (className: string, split: string[]) => {
   const lineNumberExpr = /{([^}]+)/;
   const [, match] = className.match(lineNumberExpr) || [];
   if (match) {
     const lookup = match.split(/,\s*/).reduce((merged, range) => {
-      const [start, end = start] = range
+      const [start, end = start]: number[] = range
         .split(`-`)
         .map(num => parseInt(num, 10));
+
       for (let i = start; i <= end; i++) {
         merged[i - 1] = true;
       }
       return merged;
-    }, {});
+    }, {} as Record<number, boolean>);
     return split.map((line, index) => {
       return {
         code: line,
         highlighted: !!lookup[index],
-      };
+      } as { code: string; highlighted: boolean | undefined };
     });
   }
   return [];
@@ -63,7 +64,7 @@ const getInitialFilter = (className, split) => {
  * alongside a lookup of filtered lines
  * https://github.com/gatsbyjs/gatsby/blob/dad0628f274f1c61853f3177573bb17a79e4a540/packages/gatsby-remark-prismjs/src/directives.js
  */
-export const normalize = (content, className = ``) => {
+export const normalize = (content: string, className = ``) => {
   const split = content.split(`\n`);
   let filtered = getInitialFilter(className, split);
 
@@ -71,7 +72,7 @@ export const normalize = (content, className = ``) => {
     for (let i = 0; i < split.length; i++) {
       const line = split[i];
       if (containsDirective(line)) {
-        const [, keyword, directive] = line.match(DIRECTIVE);
+        const [, keyword, directive] = line.match(DIRECTIVE)!;
         switch (directive) {
           case `start`: {
             const endIndex = split
@@ -91,7 +92,7 @@ export const normalize = (content, className = ``) => {
                     });
                   }
                   return merged;
-                }, []),
+                }, [] as { code: string; highlighted: boolean | undefined }[]),
               );
             }
 
@@ -115,6 +116,7 @@ export const normalize = (content, className = ``) => {
                 [
                   {
                     code,
+                    highlighted: undefined,
                   },
                   {
                     code: stripComment(split[i + 1]),
@@ -125,6 +127,7 @@ export const normalize = (content, className = ``) => {
             } else if (keyword === `hide` && code) {
               filtered.push({
                 code,
+                highlighted: undefined,
               });
             }
             i += 1;
@@ -137,6 +140,7 @@ export const normalize = (content, className = ``) => {
       } else {
         filtered.push({
           code: line,
+          highlighted: undefined,
         });
       }
     }
@@ -152,6 +156,6 @@ export const normalize = (content, className = ``) => {
         lookup[index] = true;
       }
       return lookup;
-    }, {}),
+    }, {} as Record<number, boolean>),
   ];
 };

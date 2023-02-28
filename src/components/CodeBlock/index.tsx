@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { CheckCircle, Copy } from "react-feather";
-import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
+import graphql from "react-syntax-highlighter/dist/cjs/languages/prism/graphql";
+import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
 import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
 import toml from "react-syntax-highlighter/dist/cjs/languages/prism/toml";
-import graphql from "react-syntax-highlighter/dist/cjs/languages/prism/graphql";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 
 import "twin.macro";
 import { useCopy } from "../../hooks/useCopy";
@@ -40,16 +40,14 @@ const getParams = (
 ): { language?: string; for?: string; always?: boolean } => {
   const [language, params = ""] = className.split(":");
 
-  const splitParams: { [key: string]: string } = params
-    .split("&")
-    .reduce((merged, param) => {
-      const [key, value] = param.split("=");
-      if (key !== "") {
-        merged[key] = value ?? true;
-      }
+  const splitParams = params.split("&").reduce((merged, param) => {
+    const [key, value] = param.split("=");
+    if (key !== "") {
+      merged[key] = value ?? true;
+    }
 
-      return merged;
-    }, {});
+    return merged;
+  }, {} as Record<string, string>);
 
   return {
     language: language.split("language-")[1],
@@ -85,7 +83,7 @@ export const CodeBlock: React.FC<Props> = ({
           ? children.props.children
           : children ?? "",
         className,
-      ),
+      ) as string[],
     [children],
   );
 

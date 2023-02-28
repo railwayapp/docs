@@ -1,5 +1,5 @@
 import NLink from "next/link";
-import React, { useMemo } from "react";
+import React, { PropsWithChildren, useMemo } from "react";
 
 export interface Props {
   href: string;
@@ -14,7 +14,7 @@ const isExternalLink = (href: string) =>
 const useIsExternalLink = (href: string) =>
   useMemo(() => isExternalLink(href), [href]);
 
-export const Link: React.FC<Props> = ({
+export const Link: React.FC<PropsWithChildren<Props>> = ({
   href,
   external,
   children,
@@ -31,7 +31,7 @@ export const Link: React.FC<Props> = ({
   }
 
   return (
-    <NLink href={href} passHref>
+    <NLink href={href} passHref legacyBehavior>
       <a {...props}>{children}</a>
     </NLink>
   );

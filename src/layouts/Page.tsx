@@ -1,9 +1,8 @@
+import { useStore } from "@nanostores/react";
 import Fuse from "fuse.js";
-import { useRouter } from "next/router";
-import React, { useEffect, useMemo } from "react";
+import React, { PropsWithChildren, useEffect, useMemo } from "react";
 import tinykeys from "tinykeys";
 import "twin.macro";
-import { Footer } from "../components/Footer";
 import { Modal } from "../components/Modal";
 import { MobileNav, Nav } from "../components/Nav";
 import { SearchModal } from "../components/Search";
@@ -11,20 +10,20 @@ import { Props as SEOProps, SEO } from "../components/SEO";
 import { Sidebar } from "../components/Sidebar";
 import { sidebarContent } from "../data/sidebar";
 import { Background } from "../pages";
-import { useStore } from "../store";
+import { searchStore } from "../store";
 
 export interface Props {
   seo?: SEOProps;
 }
 
-export const Page: React.FC<Props> = props => {
-  const { isSearchOpen, setIsSearchOpen } = useStore();
+export const Page: React.FC<PropsWithChildren<Props>> = props => {
+  const isSearchOpen = useStore(searchStore);
 
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
       "$mod+K": e => {
         e.preventDefault();
-        setIsSearchOpen(!isSearchOpen);
+        searchStore.set(!isSearchOpen);
       },
     });
 
@@ -64,9 +63,9 @@ export const Page: React.FC<Props> = props => {
       <Modal
         title="Search Docs"
         isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
+        onClose={() => searchStore.set(false)}
       >
-        <SearchModal fuse={fuse} closeModal={() => setIsSearchOpen(false)} />
+        <SearchModal fuse={fuse} closeModal={() => searchStore.set(false)} />
       </Modal>
     </>
   );
