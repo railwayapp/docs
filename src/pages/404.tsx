@@ -6,7 +6,7 @@ import { SEO } from "../components/SEO";
 const NotFoundPage: React.FC = () => (
   <>
     <SEO title="Not Found" />
-    <div tw="prose">
+    <div tw="prose dark:prose-invert">
       <h1>Page not found</h1>
 
       <p>Maybe you were looking for one of the following</p>

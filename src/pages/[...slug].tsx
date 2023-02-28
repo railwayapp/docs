@@ -8,7 +8,7 @@ import matter from "gray-matter";
 import { GetStaticProps } from "next";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import { default as NextImage, ImageProps } from "next/image";
+import { default as NextImage, ImageProps } from "next/legacy/image";
 import Link from "next/link";
 import path from "path";
 import remarkAutolinkHeadings from "remark-autolink-headings";

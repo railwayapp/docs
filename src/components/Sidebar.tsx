@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useMemo } from "react";
 import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
@@ -43,7 +43,15 @@ export const Sidebar: React.FC = ({ ...props }) => {
 };
 
 const SidebarContent: React.FC = () => {
-  const { pathname } = useRouter();
+  const {
+    query: { slug },
+    pathname,
+  } = useRouter();
+
+  const prefixedSlug = useMemo(
+    () => (slug ? `/${(slug as string[])?.join("/")}` : undefined),
+    [slug],
+  );
 
   return (
     <>
@@ -65,7 +73,7 @@ const SidebarContent: React.FC = () => {
                     tw`block px-4 py-2`,
                     tw`hover:bg-gray-100 hover:text-foreground`,
                     tw`focus:outline-none focus:bg-pink-100`,
-                    pathname === page.slug &&
+                    (prefixedSlug ?? pathname) === page.slug &&
                       tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
                   ]}
                 >

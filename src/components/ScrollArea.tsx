@@ -6,17 +6,15 @@ export const ScrollArea: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <StyledScrollArea>
       <StyledViewport>{children}</StyledViewport>
-      <StyledScrollbarY>
-        <StyledScrollTrack>
-          <RadixScrollArea.Thumb />
-        </StyledScrollTrack>
+      <StyledScrollbarY orientation="vertical">
+        <StyledScrollThumb />
       </StyledScrollbarY>
     </StyledScrollArea>
   );
 };
 
 const StyledScrollArea = styled(RadixScrollArea.Root)`
-  ${tw`relative max-w-full max-h-full`}
+  ${tw`relative w-full h-full`}
   z-index: 0;
 
   & [data-radix-scroll-area-position]::-webkit-scrollbar {
@@ -25,7 +23,7 @@ const StyledScrollArea = styled(RadixScrollArea.Root)`
 `;
 
 const StyledViewport = styled(RadixScrollArea.Viewport)`
-  ${tw`relative`}
+  ${tw`relative max-w-full max-h-full`}
   z-index: 1;
 `;
 
@@ -34,7 +32,6 @@ const StyledScrollbarY = styled(RadixScrollArea.Scrollbar)`
   z-index: 1;
 `;
 
-const StyledScrollTrack = styled(RadixScrollArea.ScrollArea)`
-  ${tw`relative w-full h-full`}
-  z-index: -1;
+const StyledScrollThumb = styled(RadixScrollArea.Thumb)`
+  ${tw`rounded-full select-none relative left-0 top-0 bg-gray-300`}
 `;
