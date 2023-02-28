@@ -39,21 +39,23 @@ const getInitialFilter = (className: string, split: string[]) => {
   const lineNumberExpr = /{([^}]+)/;
   const [, match] = className.match(lineNumberExpr) || [];
   if (match) {
-    const lookup = match.split(/,\s*/).reduce((merged, range) => {
-      const [start, end = start]: number[] = range
-        .split(`-`)
-        .map(num => parseInt(num, 10));
+    const lookup = match
+      .split(/,\s*/)
+      .reduce<Record<number, boolean>>((merged, range) => {
+        const [start, end = start]: number[] = range
+          .split(`-`)
+          .map(num => parseInt(num, 10));
 
-      for (let i = start; i <= end; i++) {
-        merged[i - 1] = true;
-      }
-      return merged;
-    }, {} as Record<number, boolean>);
+        for (let i = start; i <= end; i++) {
+          merged[i - 1] = true;
+        }
+        return merged;
+      }, {});
     return split.map((line, index) => {
       return {
         code: line,
         highlighted: !!lookup[index],
-      } as { code: string; highlighted: boolean | undefined };
+      };
     });
   }
   return [];
@@ -90,7 +92,7 @@ export const normalize = (content: string, className = ``): NormalizeResult => {
               filtered = filtered.concat(
                 split
                   .slice(i, end + 1)
-                  .reduce<{ code: string; highlighted: boolean | undefined }[]>(
+                  .reduce<{ code: string; highlighted: boolean }[]>(
                     (merged, line) => {
                       const code = stripComment(line);
                       if (code) {
@@ -126,7 +128,7 @@ export const normalize = (content: string, className = ``): NormalizeResult => {
                 [
                   {
                     code,
-                    highlighted: undefined,
+                    highlighted: false,
                   },
                   {
                     code: stripComment(split[i + 1]),
@@ -137,7 +139,7 @@ export const normalize = (content: string, className = ``): NormalizeResult => {
             } else if (keyword === `hide` && code) {
               filtered.push({
                 code,
-                highlighted: undefined,
+                highlighted: false,
               });
             }
             i += 1;
@@ -150,7 +152,7 @@ export const normalize = (content: string, className = ``): NormalizeResult => {
       } else {
         filtered.push({
           code: line,
-          highlighted: undefined,
+          highlighted: false,
         });
       }
     }
