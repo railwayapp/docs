@@ -5,7 +5,7 @@ export type IconSize = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "none";
 
 export interface Props {
   icon: React.ComponentType;
-  size?: IconSize | string;
+  size?: IconSize;
 }
 
 const sizes: Record<IconSize, string | undefined> = {
@@ -30,8 +30,8 @@ export const Icon = React.forwardRef<HTMLDivElement, Props>(
   },
 );
 
-const getSize = (s: string): string | undefined =>
-  s === "none" ? undefined : sizes[s as IconSize] ?? s;
+const getSize = (s: IconSize): string | undefined =>
+  s === "none" ? undefined : sizes[s] ?? s;
 
 const Container = styled.div<Omit<Props, "icon">>`
   ${tw`text-current`}

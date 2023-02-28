@@ -15,8 +15,6 @@ export const ScrollArea: React.FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-// const { SCROLL_AREA_CSS_PROPS } = RadixScrollArea;
-
 const StyledScrollArea = styled(RadixScrollArea.Root)`
   ${tw`relative max-w-full max-h-full`}
   z-index: 0;
@@ -40,10 +38,3 @@ const StyledScrollTrack = styled(RadixScrollArea.ScrollArea)`
   ${tw`relative w-full h-full`}
   z-index: -1;
 `;
-
-// const StyledScrollThumb = styled(RadixScrollArea.Thumb)`
-//   ${tw`rounded-full select-none absolute left-0 top-0 bg-gray-300`}
-//   will-change: var(${SCROLL_AREA_CSS_PROPS.scrollbarThumbWillChange});
-//   width: var(${SCROLL_AREA_CSS_PROPS.scrollbarThumbWidth});
-//   height: var(${SCROLL_AREA_CSS_PROPS.scrollbarThumbHeight});
-// `;

@@ -40,14 +40,16 @@ const getParams = (
 ): { language?: string; for?: string; always?: boolean } => {
   const [language, params = ""] = className.split(":");
 
-  const splitParams = params.split("&").reduce((merged, param) => {
-    const [key, value] = param.split("=");
-    if (key !== "") {
-      merged[key] = value ?? true;
-    }
+  const splitParams = params
+    .split("&")
+    .reduce<Record<string, string>>((merged, param) => {
+      const [key, value] = param.split("=");
+      if (key !== "") {
+        merged[key] = value ?? true;
+      }
 
-    return merged;
-  }, {} as Record<string, string>);
+      return merged;
+    }, {});
 
   return {
     language: language.split("language-")[1],
@@ -66,14 +68,14 @@ export const CodeBlock: React.FC<Props> = ({
   const { colorMode } = useTheme();
   const theme = colorMode === "light" ? lightCodeTheme : darkCodeTheme;
 
-  const params = useMemo(() => getParams(className) as any, [className]);
+  const params = useMemo(() => getParams(className), [className]);
 
   const lang = useMemo(
     () => language ?? params.language ?? "bash",
     [language, params],
   );
 
-  const [content] = useMemo(
+  const { content } = useMemo(
     () =>
       normalize(
         children != null &&
@@ -83,7 +85,7 @@ export const CodeBlock: React.FC<Props> = ({
           ? children.props.children
           : children ?? "",
         className,
-      ) as string[],
+      ),
     [children],
   );
 

@@ -57,7 +57,7 @@ export const Feedback: React.FC<{ topic: string }> = ({ topic }) => {
           )}
 
           {!helpful && (
-            <form tw="mt-16" onSubmit={e => sendFeedback(e)}>
+            <form tw="mt-16" onSubmit={sendFeedback}>
               <textarea
                 tw="border rounded-md w-full p-2 my-6"
                 id="feedback"

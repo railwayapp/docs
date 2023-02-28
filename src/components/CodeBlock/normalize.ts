@@ -59,12 +59,17 @@ const getInitialFilter = (className: string, split: string[]) => {
   return [];
 };
 
+interface NormalizeResult {
+  content: string;
+  filteredLines: Record<number, boolean>;
+}
+
 /*
  * This function will output the normalized content (stripped of comment directives)
  * alongside a lookup of filtered lines
  * https://github.com/gatsbyjs/gatsby/blob/dad0628f274f1c61853f3177573bb17a79e4a540/packages/gatsby-remark-prismjs/src/directives.js
  */
-export const normalize = (content: string, className = ``) => {
+export const normalize = (content: string, className = ``): NormalizeResult => {
   const split = content.split(`\n`);
   let filtered = getInitialFilter(className, split);
 
@@ -83,16 +88,21 @@ export const normalize = (content: string, className = ``) => {
 
             if (keyword === `highlight`) {
               filtered = filtered.concat(
-                split.slice(i, end + 1).reduce((merged, line) => {
-                  const code = stripComment(line);
-                  if (code) {
-                    merged.push({
-                      code,
-                      highlighted: true,
-                    });
-                  }
-                  return merged;
-                }, [] as { code: string; highlighted: boolean | undefined }[]),
+                split
+                  .slice(i, end + 1)
+                  .reduce<{ code: string; highlighted: boolean | undefined }[]>(
+                    (merged, line) => {
+                      const code = stripComment(line);
+                      if (code) {
+                        merged.push({
+                          code,
+                          highlighted: true,
+                        });
+                      }
+                      return merged;
+                    },
+                    [],
+                  ),
               );
             }
 
@@ -146,16 +156,19 @@ export const normalize = (content: string, className = ``) => {
     }
   }
 
-  return [
-    filtered
+  return {
+    content: filtered
       .map(({ code }) => code)
       .join(`\n`)
       .trim(),
-    filtered.reduce((lookup, { highlighted }, index) => {
-      if (highlighted) {
-        lookup[index] = true;
-      }
-      return lookup;
-    }, {} as Record<number, boolean>),
-  ];
+    filteredLines: filtered.reduce<Record<number, boolean>>(
+      (lookup, { highlighted }, index) => {
+        if (highlighted) {
+          lookup[index] = true;
+        }
+        return lookup;
+      },
+      {},
+    ),
+  };
 };

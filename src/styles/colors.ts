@@ -1,7 +1,7 @@
 export type ColorMode = "light" | "dark";
 export const defaultColorMode: ColorMode = "dark";
 
-const lightColors = {
+const lightColors: Record<string, Record<number, string>> = {
   foreground: "#181622",
   background: "#ffffff",
   gray: {
@@ -70,9 +70,9 @@ const lightColors = {
     800: "#0037C7",
     900: "#002994",
   },
-} as Record<string, Record<number, string>>;
+};
 
-const invertMap = {
+const invertMap: Record<string, number> = {
   "100": 900,
   "200": 800,
   "300": 700,
@@ -82,7 +82,7 @@ const invertMap = {
   "700": 300,
   "800": 200,
   "900": 100,
-} as Record<string, number>;
+};
 
 let darkColors = {} as typeof lightColors;
 for (const [name, colors] of Object.entries(lightColors)) {
