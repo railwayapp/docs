@@ -198,6 +198,7 @@ The new CLI is written in Rust and is currently in Priority Boarding. You can fi
 
 - Added the `--json` flag to output data in JSON format for scripting
 - CLI commands now allow you to explicitly specify the project and environment you want to use via flags. For example, `railway up --projectId <project-id> --environmentId <environment-id>`
+- `railway list` will now work without requiring you to link to a project
 
 ### CLI v3 Deprecations
 
