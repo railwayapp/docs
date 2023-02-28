@@ -65,9 +65,7 @@ the [GitHub Trigger's integration](integrations#github-integration).
 
 <Banner variant="info">
   Please make sure you have{" "}
-  <Link href="https://github.com/settings/installations">
-    accepted our updated GitHub permissions
-  </Link>{" "}
+  <Link href="https://github.com/settings/installations">accepted our updated GitHub permissions</Link>{" "}
   required for this feature to work.
 </Banner>
 

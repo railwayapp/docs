@@ -35,7 +35,7 @@ Those moving from Heroku to Railway will find an easy switch from Heroku's Build
 
 Deploying a project on Railway is incredibly easy thanks to Nixpacks and our templating system. We have a [Getting Started guide](/getting-started) that will walk you through the process.
 
-It's possible to go from zero → 3 services in <30 seconds. Adding new services is trivial and meshing them together means you don't need to deal with headaches based on your infrastructure.
+It's possible to go from zero → 3 services in < 30 seconds. Adding new services is trivial and meshing them together means you don't need to deal with headaches based on your infrastructure.
 
 ### Pricing
 
