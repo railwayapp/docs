@@ -1,9 +1,9 @@
-{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/433c568ba113fff4b6a5832e008f85d52aef7f76.tar.gz") { } }:
+{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/afdcf78bf9115bddc3cb3793e3cfb78ed399fce9.tar.gz") { } }:
 
 let
   inputs = with pkgs;
     [
-      nodejs-16_x
+      nodejs-18_x
       yarn
     ];
 in

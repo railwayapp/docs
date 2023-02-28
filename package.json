@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@nanostores/react": "^0.4.1",
+    "@next/env": "^13.2.1",
     "@prisma/client": "4.10.1",
     "@radix-ui/react-scroll-area": "^1.0.2",
     "@tailwindcss/typography": "^0.5.9",
@@ -36,7 +37,6 @@
     "react-feather": "^2.0.9",
     "react-is": "18.2.0",
     "react-syntax-highlighter": "^15.5.0",
-    "stailwc": "^0.15.0",
     "styled-components": "5.3.6",
     "theme-custom-properties": "^1.0.0",
     "tinykeys": "1.4.0",
@@ -50,8 +50,6 @@
     "@types/styled-components": "^5.1.9",
     "autoprefixer": "^10.2.5",
     "babel-plugin-macros": "^3.1.0",
-    "next-compose-plugins": "^2.2.1",
-    "next-mdx-enhanced": "^5.0.0",
     "next-sitemap": "^3.1.54",
     "postcss": "^8.2.10",
     "prettier": "^2.2.1",
@@ -63,7 +61,7 @@
     "typescript": "^4.2.4"
   },
   "engines": {
-    "node": "=16.16.0"
+    "node": ">=16.0.0"
   },
   "babelMacros": {
     "twin": {

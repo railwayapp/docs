@@ -1,6 +1,6 @@
 {
   description = "Railway Documentation";
-  inputs.nixpkgs.url = github:NixOS/nixpkgs/433c568ba113fff4b6a5832e008f85d52aef7f76;
+  inputs.nixpkgs.url = github:NixOS/nixpkgs/afdcf78bf9115bddc3cb3793e3cfb78ed399fce9;
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   outputs = { self, nixpkgs, flake-utils }:
