@@ -1,4 +1,3 @@
-import NextImage from "next/image";
 import React, { PropsWithChildren } from "react";
 import "twin.macro";
 import { DocsLayout } from "../layouts/DocsLayout";
