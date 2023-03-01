@@ -12,6 +12,7 @@ import { default as NextImage, ImageProps } from "next/legacy/image";
 import Link from "next/link";
 import path from "path";
 import remarkAutolinkHeadings from "remark-autolink-headings";
+import remarkGfm from "remark-gfm";
 import remarkSlug from "remark-slug";
 
 const Image = (props: ImageProps) => (
@@ -59,7 +60,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const mdxSource = await serialize(content, {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
-      remarkPlugins: [remarkAutolinkHeadings, remarkSlug],
+      remarkPlugins: [remarkAutolinkHeadings, remarkSlug, remarkGfm],
       rehypePlugins: [],
     },
     scope: data,
