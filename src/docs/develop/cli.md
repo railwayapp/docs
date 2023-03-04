@@ -23,8 +23,10 @@ Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railw
 ### Homebrew
 
 ```bash
-brew install railway
+brew tap railwayapp/tap
+brew install rlwy
 ```
+*Note: We are working on migrating over the brew install command to the new CLI. `brew install railway` will install 2.x.x*
 
 ### NPM
 
