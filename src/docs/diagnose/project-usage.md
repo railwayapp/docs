@@ -7,7 +7,7 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={491} height={286} quality={80} />
 
-Users are billed monthly basedf on their project's minutely usage.  All services within a project's environments contribute to the resources billed. The rates are as follows:
+Users are billed monthly based on their project's minutely usage.  All services within a project's environments contribute to the resources billed. The rates are as follows:
 
 **RAM**
 $0.000231 / GB / minute
