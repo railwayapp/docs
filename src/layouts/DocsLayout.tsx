@@ -28,7 +28,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
   } = useRouter();
 
   const prefixedSlug = useMemo(
-    () => `/${(slug as string[]).join("/")}`,
+    () => `/${(slug as string[] | undefined)?.join("/")}`,
     [slug],
   );
   const gitHubFileLink = useMemo(

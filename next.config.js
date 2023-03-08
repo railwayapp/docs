@@ -1,5 +1,7 @@
+const { withContentlayer } = require("next-contentlayer");
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withContentlayer({
   reactStrictMode: true,
   images: {
     domains: [
@@ -18,6 +20,6 @@ const nextConfig = {
       },
     ];
   },
-};
+});
 
 module.exports = nextConfig;
