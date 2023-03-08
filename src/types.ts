@@ -1,7 +1,5 @@
 export interface FrontMatter {
   title: string;
-  id: string;
-  wordCount: number;
 }
 
 export type ISidebarContent = ISidebarSection[];

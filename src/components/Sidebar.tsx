@@ -49,7 +49,7 @@ const SidebarContent: React.FC = () => {
   } = useRouter();
 
   const prefixedSlug = useMemo(
-    () => (slug ? `/${(slug as string[])?.join("/")}` : undefined),
+    () => (slug ? `/${(slug as string[] | undefined)?.join("/")}` : undefined),
     [slug],
   );
 
