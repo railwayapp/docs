@@ -52,7 +52,6 @@
     "@types/styled-components": "^5.1.9",
     "autoprefixer": "^10.2.5",
     "babel-plugin-macros": "^3.1.0",
-    "next-remote-watch": "^2.0.0",
     "next-sitemap": "^3.1.54",
     "postcss": "^8.2.10",
     "prettier": "^2.2.1",
