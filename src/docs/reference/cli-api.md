@@ -23,7 +23,7 @@ Options:
 
 ## Completion
 
-*Generate a shell-completions for the following shells: `bash`, `elvish`, `fish`, and `powershell`.*
+*Generate a shell-completions for the following shells: `bash`, `elvish`, `fish`, and `powershell`*
 ```txt
 ~ railway completion --help
 Generate completion script
@@ -41,7 +41,7 @@ Options:
 
 ## Delete
 
-*Interactively delete a plugin.*
+*Interactively delete a plugin*
 
 ```txt
 ~ railway delete --help
@@ -72,7 +72,7 @@ Options:
 
 ## Docs
 
-*Open the Railway documentation (this website) in the default browser.*
+*Open the Railway documentation site in the default browser*
 
 ```txt
 ~ railway docs --help
@@ -88,7 +88,7 @@ Options:
 
 ## Environment
 
-*Change which environment you are using.*
+*Change which environment you are using*
 
 
 ```txt
@@ -112,10 +112,10 @@ with an environment selector that lists all your environments for the project.
 
 ## Help
 
-*Help about any command*
+*Help command reference*
 
 ```txt
-railway help
+~ railway help
 Interact with Railway via CLI
 
 Usage: railway [OPTIONS] <COMMAND>
@@ -154,7 +154,7 @@ Options:
 *Create a new Project from the CLI*
   
 ```txt
-railway init --help
+~ railway init --help
 Create a new project
 
 Usage: railway init [OPTIONS]
@@ -168,7 +168,7 @@ Options:
 
 ## Link
 
-*Connect to an existing Railway project.*
+*Connect to an existing Railway project*
 
 ```txt
 ~ railway link --help
@@ -186,7 +186,7 @@ Options:
   -V, --version                    Print version
 ```
 
-Running `link` with no project ID will prompt you to select a Team and project.
+Running `link` with no project ID will prompt you to select a team and project.
 
 ## List
 
@@ -206,7 +206,7 @@ Options:
 
 ## Login
 
-*Login to your Railway account.*
+*Login to your Railway account*
 
 ```txt
 ~ railway login --help
@@ -241,11 +241,11 @@ Logged in as Nebula (nebula@railway.app)
 
 This will prompt you to go to a URL (you can copy and paste) and present you
 with a 4 word code that you need to verify. If the codes match, click "Verify"
-and you will be logged in
+and you will be logged in.
 
 ## Logout
 
-*Logout of your Railway account.*
+*Logout of your Railway account*
 
 ```txt
 ~ railway logout --help
@@ -279,7 +279,7 @@ Options:
 
 ## Open
 
-*Open your current Railway project in the browser.*
+*Open your current Railway project in the browser*
 
 ```txt
 ~ railway open --help
@@ -295,7 +295,7 @@ Options:
 
 ## Run
 
-*Run a command using the Railway environment.*
+*Run a command using the Railway environment*
 
 ```txt
 ~ railway run --help
@@ -337,7 +337,7 @@ Options:
 
 ## Shell
 
-*Create a subshell (based on `$SHELL`) with all the variables from your project/environment/service loaded and accessible.*
+*Create a subshell (based on `$SHELL`) with all the variables from your project/environment/service loaded and accessible*
 
 ```txt
 ~ railway shell --help
@@ -354,7 +354,7 @@ Options:
 
 ## Status
 
-*View the status of your Railway project and user.*
+*View the status of your Railway project and user*
 
 ```txt
 ~ railway status --help
@@ -370,7 +370,7 @@ Options:
 
 ## Unlink
 
-*Disconnects the current directory from Railway.*
+*Disconnects the current directory from Railway*
 
 ```txt
 ~ Disassociate project from current directory
@@ -387,7 +387,7 @@ You will need to rerun `railway link` to use `railway` in this directory again.
 
 ## Up
 
-*Deploy a directory to your Railway project.*
+*Deploy a directory to your Railway project*
 
 ```txt
 ~ railway up --help
@@ -409,7 +409,7 @@ If no path is provided, the top linked directory is deployed. The currently sele
 
 ## Variables
 
-*View a table of all the environment variables associated with your project and environment.*
+*View a table of all the environment variables associated with your project and environment*
 
 ```txt
 ~ railway variables --help
