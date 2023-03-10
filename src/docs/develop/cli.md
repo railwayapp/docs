@@ -18,31 +18,29 @@ The Railway CLI allows you to
 
 ## Install
 
-Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli) or [Scoop](https://scoop.sh).
+Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli), Shell Script, or [Scoop](https://scoop.sh).
 
-### Homebrew
+### Homebrew (Linux, macOS)
 
 ```bash
-brew tap railwayapp/tap
-brew install rlwy
+brew install railway
 ```
-*Note: We are working on migrating over the brew install command to the new CLI. `brew install railway` will install 2.x.x*
 
-### NPM
+### NPM (Linux, macOS, Windows)
 
 ```bash
 npm i -g @railway/cli
 ```
 
-You need to have => 16.x version of Nodejs installed.
+You need to have => 16.x version of [Node.js](https://nodejs.org/en/) installed.
 
-### Shell Script
+### Shell Script (Linux, macOS, Windows: Git Bash)
 
 ```bash
-curl -fsSL https://railway.app/install.sh | sh
+curl -fsSL cli.new | sh
 ```
 
-### Scoop
+### Scoop (Windows)
 
 Use this method if you prefer to interact with Railway using a native Windows binary. In a PowerShell terminal enter the following command:
 
@@ -50,37 +48,43 @@ Use this method if you prefer to interact with Railway using a native Windows bi
 scoop install railway
 ```
 
-For additional documentation on Scoop, see [here](https://scoop-docs.vercel.app/).
+For additional documentation on Scoop, see [here](https://scoop.sh/).
 
 ### Source
 
 You can also download the [prebuilt binary directly](https://github.com/railwayapp/cli/releases/latest) or [build from source](https://github.com/railwayapp/cli#from-source).
 
-## Login
+## Authentication
 
-Login to your Railway account. Opens a browser tab which authenticates into an existing Railway session.
+### Interactive Login
+
+Login to your Railway account. This command opens a browser tab which authenticates into an existing Railway session.
 
 ```bash
 railway login
 ```
 
-If there are any issues with Browser based login you can use the `--browserless` flag to authenticate.
+If there are any issues with browser-based login you can use the `--browserless` flag to authenticate.
 
-### Project Token
+This will print a URL and a pairing code to the terminal which you can use to authenticate (useful for SSH sessions).
 
-You can use Project tokens to authenticate in environments that prevent you to authenticate with browsers such as CI environments.
+
+### Project Tokens
+
+You can use Project Tokens to authenticate in cases where user input/interaction is not possible, such as in CI/CD pipelines.
 
 Project tokens allow the CLI to access all the environment variables associated
 with a specific project and environment. Use the token by setting the
-`RAILWAY_TOKEN` environment variable and then running `railway run`.
+`RAILWAY_TOKEN` environment variable and then running `railway <command>`.
 
 ```bash
 RAILWAY_TOKEN=XXXX railway run
 ```
+## Usage
 
-## Link to a Project
+### Link to a Project
 
-Link to an existing Project under your Railway account or team.
+Associate a project and environment with your current directory
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/railway-link_juslvt.png"
 alt="Screenshot of Railway"
@@ -88,59 +92,63 @@ layout="intrinsic"
 width={389} height={116} quality={80} />
 
 ```bash
+# Link to a project
 railway link
 ```
+Prompts you to select a team, project, and environment to associate with your current directory. Any future commands will be run against this project and environment.
 
-Pick from the list projects you have.
 
-## Create a Project
+### Create a Project
 
 Create a new project directly from the command line.
 
 ```bash
+# Create a new project
 railway init
 ```
+Prompts you to name your project and select a team to create the project in.
 
-## Local Development
 
-Run code inside your Railway environment. We connect your code to your
-infrastructure hosted on Railway by injecting environment variables.
+### Local Development
+
+Run code locally with the same environment variables as your Railway project.
 
 ```bash
+# Run <cmd> locally with the same environment variables as your Railway project
 railway run <cmd>
 ```
 
-For example, to run your node project with Railway:
+For example, to run your Node.js project with your remote environment variables:
 
 ```bash
+# Run your Node.js project with your remote environment variables
 railway run npm start
 ```
 
-If you have a Dockerfile in your project directory, you can just run
-`railway run` with no arguments to build and run the Dockerfile.
+### Local Shell
 
-## Local Shell
-
-Open an interactive subshell loaded with your project's environment variables.
+Open a new shell with Railway environment variables. Similar to `railway run` but opens a new shell.
 
 ```bash
+# Open a new shell with Railway environment variables
 railway shell
 ```
 
-## Environments
+### Environments
 
-Projects might have multiple environments, by default the CLI points to the `production` environment. If you'd like to use a different set of environment variables and a different deployment environment you can change the setting by:
+Projects might have multiple environments, but by default the CLI links to the `production` environment. You can change the linked environment with the `environment` command.
 
 ```bash
+# Change the linked environment
 railway environment
 ```
 
-## Deploy
+### Deploy
 
 Deploy the linked project directory (if running from a subdirectory, the project root is still deployed).
 
 ```bash
-# Show project logs
+# Show build logs
 railway up
 
 # Return immediately after uploading
@@ -149,59 +157,50 @@ railway up --detach
 
 If there are multiple services within your project, the CLI will prompt you for a service to deploy to.
 
-## Add Database Service
+### Add Database Service
 
-Provision a database service for a project.
+Provision plugins (databases) for a project.
 
 ```bash
 railway add
 ```
+Prompts you to select one or more plugins to provision for your project.
 
-## Connect to Database
-
-Open an interactive shell to a database directly in the CLI.
-
-```bash
-railway connect
-```
-
-## Logout
+### Logout
 
 ```bash
 railway logout
 ```
 
-## Contributing
+### Contributing
 
-Our CLI is Open Source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
+Our CLI is open source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
 
 [You can see our documentation of the CLI API here.](/reference/cli-api)
 
-## CLI v3 (Rust CLI)
+## CLI v3 Changes
 
-<PriorityBoardingBanner />
+The Railway CLI recently underwent a rewrite to improve the user experience and make it easier to maintain. The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/) rather than undocumented routes.
 
-The Railway CLI is currently undergoing a rewrite to improve the user experience and make it easier to maintain. The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/) rather than undocumented routes.
+The new CLI is written in Rust and is currently available via all release channels.
 
-The new CLI is written in Rust and is currently in Priority Boarding. You can find the new CLI and installation instructions [here](https://github.com/railwayapp/cliv3). (Script coming soon.)
-
-### What's New in CLI v3?
+### What's New?
 
 - The new CLI is written in Rust and is much faster than the previous version
-- The new CLI has additional flags such as `--json` to output data in JSON format for scripting
 - The new CLI has interactive search for services + projects to link to
 - The new CLI now displays information about your data in cleaner, more readable tables
+- The new CLI has additional flags such as `--json` to output data in JSON format for scripting
 - New commands:
 
   - `railway service` helper command to link to a project's service
   - `railway add` now allows you to provision multiple database types at once
-  - `railway generate` now will generate a service domain for you without the need to connect to
+  - `railway domain` now will generate a service domain
   - `railway logs` now opens a direct websocket connection to the logs API and will stream logs in real time
 
 - Added the `--json` flag to output data in JSON format for scripting
-- CLI commands now allow you to explicitly specify the project and environment you want to use via flags. For example, `railway up --projectId <project-id> --environmentId <environment-id>`
+- CLI commands now allow you to explicitly specify the project and environment you want to use via flags.
 
-### CLI v3 Deprecations
+### Deprecations
 
 - Undocumented commands such as `railway protect` and `railway shell` will be removed. We are re-thinking how we want to handle these features and will be adding them back in the future
 - `railway variables add` will no longer give you the option to add a secret. We are re-thinking how we want to handle the secret flow within the CLI now since the addition of [Shared Variables](/develop/variables#shared-variables)
@@ -209,13 +208,3 @@ The new CLI is written in Rust and is currently in Priority Boarding. You can fi
 - `railway version` is being removed in favor of using `-V` or `--version` flags.
 - `railway build` is being removed in favor of using `railway variables` to output a local .env file (also the name was confusing)
 - `railway init` will no longer allow you to deploy a new Project with a Template. We have since re-worked the flow and realized that the Template deploy flow is best served in the dashboard
-
-## Timeline
-
-We hope to get the new CLI into our CLI offical release pipeline on **Friday 3 March 2023**.
-
-After this date, all _new_ installations from `npm`, `brew`, and the shell will install (v3.x.x).
-
-We plan to deprecate the v2 CLI and the API routes it depends on in the future. The goal is to transition the CLI before fully transitioning the API routes.
-
-We will be updating this page with more information as we get closer to the release date.
