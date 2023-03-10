@@ -86,7 +86,7 @@ Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railw
 (Note: Brew works best on M1 Macs.)
 
 ```bash
-brew install railwayapp/railway/railway
+brew install railway
 ```
 
 or

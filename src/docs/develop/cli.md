@@ -23,10 +23,8 @@ Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railw
 ### Homebrew (Linux, macOS)
 
 ```bash
-brew tap railwayapp/tap
-brew install rlwy
+brew install railway
 ```
-*Note: We are working on migrating over the brew install command to the new CLI. `brew install railway` will install 2.x.x*
 
 ### NPM (Linux, macOS, Windows)
 
@@ -180,15 +178,13 @@ Our CLI is Open Source. Contribute to the development of the Railway CLI by open
 
 [You can see our documentation of the CLI API here.](/reference/cli-api)
 
-## CLI v3 (Rust CLI)
+## CLI v3 Changes
 
-<PriorityBoardingBanner />
+The Railway CLI is recently underwent a rewrite to improve the user experience and make it easier to maintain. The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/) rather than undocumented routes.
 
-The Railway CLI is currently undergoing a rewrite to improve the user experience and make it easier to maintain. The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/) rather than undocumented routes.
+The new CLI is written in Rust and is currently in available via all release channels.
 
-The new CLI is written in Rust and is currently in Priority Boarding. You can find the new CLI and installation instructions [here](https://github.com/railwayapp/cliv3). (Script coming soon.)
-
-### What's New in CLI v3?
+### What's New?
 
 - The new CLI is written in Rust and is much faster than the previous version
 - The new CLI has additional flags such as `--json` to output data in JSON format for scripting
@@ -204,7 +200,7 @@ The new CLI is written in Rust and is currently in Priority Boarding. You can fi
 - Added the `--json` flag to output data in JSON format for scripting
 - CLI commands now allow you to explicitly specify the project and environment you want to use via flags. For example, `railway up --projectId <project-id> --environmentId <environment-id>`
 
-### CLI v3 Deprecations
+### Deprecations
 
 - Undocumented commands such as `railway protect` and `railway shell` will be removed. We are re-thinking how we want to handle these features and will be adding them back in the future
 - `railway variables add` will no longer give you the option to add a secret. We are re-thinking how we want to handle the secret flow within the CLI now since the addition of [Shared Variables](/develop/variables#shared-variables)
@@ -212,13 +208,3 @@ The new CLI is written in Rust and is currently in Priority Boarding. You can fi
 - `railway version` is being removed in favor of using `-V` or `--version` flags.
 - `railway build` is being removed in favor of using `railway variables` to output a local .env file (also the name was confusing)
 - `railway init` will no longer allow you to deploy a new Project with a Template. We have since re-worked the flow and realized that the Template deploy flow is best served in the dashboard
-
-## Timeline
-
-We hope to get the new CLI into our CLI offical release pipeline on **Friday 3 March 2023**.
-
-After this date, all _new_ installations from `npm`, `brew`, and the shell will install (v3.x.x).
-
-We plan to deprecate the v2 CLI and the API routes it depends on in the future. The goal is to transition the CLI before fully transitioning the API routes.
-
-We will be updating this page with more information as we get closer to the release date.
