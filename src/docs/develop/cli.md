@@ -18,7 +18,7 @@ The Railway CLI allows you to
 
 ## Install
 
-Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli) or [Scoop](https://scoop.sh).
+Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli), Shell Script, or [Scoop](https://scoop.sh).
 
 ### Homebrew (Linux, macOS)
 
@@ -32,7 +32,7 @@ brew install railway
 npm i -g @railway/cli
 ```
 
-You need to have => 16.x version of Nodejs installed.
+You need to have => 16.x version of [Node.js](https://nodejs.org/en/) installed.
 
 ### Shell Script (Linux, macOS, Windows: Git Bash)
 
@@ -58,13 +58,13 @@ You can also download the [prebuilt binary directly](https://github.com/railwaya
 
 ### Interactive Login
 
-Login to your Railway account. Opens a browser tab which authenticates into an existing Railway session.
+Login to your Railway account. This command opens a browser tab which authenticates into an existing Railway session.
 
 ```bash
 railway login
 ```
 
-If there are any issues with browser based login you can use the `--browserless` flag to authenticate.
+If there are any issues with browser-based login you can use the `--browserless` flag to authenticate.
 
 This will print a URL and a pairing code to the terminal which you can use to authenticate (useful for SSH sessions).
 
@@ -174,31 +174,31 @@ railway logout
 
 ### Contributing
 
-Our CLI is Open Source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
+Our CLI is open source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
 
 [You can see our documentation of the CLI API here.](/reference/cli-api)
 
 ## CLI v3 Changes
 
-The Railway CLI is recently underwent a rewrite to improve the user experience and make it easier to maintain. The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/) rather than undocumented routes.
+The Railway CLI recently underwent a rewrite to improve the user experience and make it easier to maintain. The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/) rather than undocumented routes.
 
-The new CLI is written in Rust and is currently in available via all release channels.
+The new CLI is written in Rust and is currently available via all release channels.
 
 ### What's New?
 
 - The new CLI is written in Rust and is much faster than the previous version
-- The new CLI has additional flags such as `--json` to output data in JSON format for scripting
 - The new CLI has interactive search for services + projects to link to
 - The new CLI now displays information about your data in cleaner, more readable tables
+- The new CLI has additional flags such as `--json` to output data in JSON format for scripting
 - New commands:
 
   - `railway service` helper command to link to a project's service
   - `railway add` now allows you to provision multiple database types at once
-  - `railway generate` now will generate a service domain for you without the need to connect to
+  - `railway domain` now will generate a service domain
   - `railway logs` now opens a direct websocket connection to the logs API and will stream logs in real time
 
 - Added the `--json` flag to output data in JSON format for scripting
-- CLI commands now allow you to explicitly specify the project and environment you want to use via flags. For example, `railway up --projectId <project-id> --environmentId <environment-id>`
+- CLI commands now allow you to explicitly specify the project and environment you want to use via flags.
 
 ### Deprecations
 
