@@ -20,12 +20,6 @@ The Railway CLI allows you to
 
 Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli), Shell Script, or [Scoop](https://scoop.sh).
 
-### Homebrew (Linux, macOS)
-
-```bash
-brew install railway
-```
-
 ### NPM (Linux, macOS, Windows)
 
 ```bash
@@ -39,6 +33,13 @@ You need to have => 16.x version of [Node.js](https://nodejs.org/en/) installed.
 ```bash
 curl -fsSL cli.new | sh
 ```
+
+### Homebrew (Linux, macOS)
+
+```bash
+brew install railway
+```
+*Note: This will install 2.x.x, we are working on restoring installs on Brew.*
 
 ### Scoop (Windows)
 
