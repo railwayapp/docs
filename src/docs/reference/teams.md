@@ -32,3 +32,11 @@ In the Dashboard you can click and drag projects into the team. Just click and h
 ## Priority Email Support
 
 If you are on the Teams plan, you can reach out to us via email at contact@railway.app for support.
+
+## Invoicing and Billing
+
+Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use, instead, Railway charges by the minute for each vCPU and memory resource your service uses. 
+
+However, if you expect to use a consistent amount of resources for large companies, you can contact us for a quote and demo. Railway will work with you to find a solution that works for your needs. We are willing to offer Purchase Orders and concierge onboarding for large companies.
+
+Reach out to us at contact@railway.app for more information.
