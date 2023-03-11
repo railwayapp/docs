@@ -34,7 +34,7 @@ contact@railway.app for more information on how to sign up.
 
 | Priority | Surface Areas |
 | --- | --- |
-| 1 | Production impacting outages that cover the following components: https://dashboard.instatus.com/railway/railway/incidents - especially defined by end. customer impact. Customer production impacting issues with the matter of load on their boxes that require intervention from Railway. (Builder being pinned.) Ex. unable to login to the Dashboard due to an incident the API,  |
+| 1 | Production impacting outages that cover the following components: https://dashboard.instatus.com/railway/railway/incidents - especially defined by end. customer impact. Customer production impacting issues with the matter of load on their boxes that require intervention from Railway. (Builder being pinned.) Ex. unable to login to the Dashboard due to an incident with the API,  |
 | 2 | Issues impacting the usage of the dashboard, or any issues related to features developed on the platform. Customer production impacting issues with the matter of load on their boxes that don’t require intervention on Railway’s part. (Workload CPU too high.) Ex. adding a variable and having an error due to improper validation, CLI issue unable to accept the proper flag |
 | 3 | Requests from the customer that deal with integration work within the product. Or general questions Ex. Answering requests about integrating with Terraform. |
 ### Expected Response Hours
