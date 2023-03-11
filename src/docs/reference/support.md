@@ -34,9 +34,9 @@ contact@railway.app for more information on how to sign up.
 
 | Priority | Surface Areas |
 | --- | --- |
-| 1 | Production impacting outages that cover the following components: https://dashboard.instatus.com/railway/railway/incidents - especially defined by end. customer impact. 
-Customer production impacting issues with the matter of load on their boxes that require intervention from Railway. (Builder being pinned.) Ex. unable to login to the Dashboard due to an incident impacting the API | | 2 | Issues impacting the usage of the dashboard, or any issues related to features developed on the platform. Customer production impacting issues with the matter of load on their boxes that don’t require intervention on Railway’s part. (Workload CPU too high.) Ex. adding a variable and having an error due to improper validation, CLI issue unable to accept the proper flags | | 3 | Requests from the customer that deal with integration work within the product. Or general questions Ex. Answering requests about integrating with Terraform. |
-
+| 1 | Production impacting outages that cover the following components: https://dashboard.instatus.com/railway/railway/incidents - especially defined by end. customer impact. Customer production impacting issues with the matter of load on their boxes that require intervention from Railway. (Builder being pinned.) Ex. unable to login to the Dashboard due to an incident the API,  |
+| 2 | Issues impacting the usage of the dashboard, or any issues related to features developed on the platform. Customer production impacting issues with the matter of load on their boxes that don’t require intervention on Railway’s part. (Workload CPU too high.) Ex. adding a variable and having an error due to improper validation, CLI issue unable to accept the proper flag |
+| 3 | Requests from the customer that deal with integration work within the product. Or general questions Ex. Answering requests about integrating with Terraform. |
 ### Expected Response Hours
 
 We offer support during business hours. Business hours are Monday through Friday, 9am to 9pm PST. Exceptions apply to outages where the team will be on-call 24/7. The team may reply outside of business hours, but we do not guarantee a response.
