@@ -20,7 +20,7 @@ As of 2023/03/17, we will be no longer be creating new Direct Support channels f
 ## Business Class
 
 For large companies who need dedicated support, we offer Business Class. It's support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company. You can reach out to us at
-contact@railway.app for more information.
+contact@railway.app for more information on how to sign up.
 
 ### Business Class SLOs
 
@@ -38,19 +38,19 @@ contact@railway.app for more information.
 
 Customer production impacting issues with the matter of load on their boxes that require intervention from Railway. (Builder being pinned.)
 
-Ex. unable to login to the Dashboard due to an incident the API,  |
+Ex. unable to login to the Dashboard due to an incident impacting the API,  |
 | 2 | Issues impacting the usage of the dashboard, or any issues related to features developed on the platform. 
 
 Customer production impacting issues with the matter of load on their boxes that don’t require intervention on Railway’s part. (Workload CPU too high.) 
 
-Ex. adding a variable and having an error due to improper validation, CLI issue unable to accept the proper flag |
+Ex. adding a variable and having an error due to improper validation, CLI issue unable to accept the proper flags |
 | 3 | Requests from the customer that deal with integration work within the product. Or general questions 
 
 Ex. Answering requests about integrating with Terraform. |
 
 ### Expected Response Hours
 
-We offer support during business hours. Business hours are Monday through Friday, 9am to 9pm PST. Exceptions apply to outages where the team will be on-call 24/7.
+We offer support during business hours. Business hours are Monday through Friday, 9am to 9pm PST. Exceptions apply to outages where the team will be on-call 24/7. The team may reply outside of business hours, but we do not guarantee a response.
 
 ## Uptime Calculation/Audits
 
