@@ -2,7 +2,7 @@
 title: Database View
 ---
 
-Railway has a built in Database Management Interface, this allows you to perform common actions on your Database such as viewing and editing the contents of your database services in Railway. The interface is available for all database services deployed within a project.
+Railway has a built-in Database Management Interface, this allows you to perform common actions on your Database such as viewing and editing the contents of your database services in Railway. The interface is available for all database services deployed within a project.
 
 ### Database Management
 
