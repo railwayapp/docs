@@ -55,7 +55,7 @@ Railway provides connection strings and project variables that let your applicat
 
 You can access your plugin's connection strings under the Connect tab in the service view.
 
-Railway injects your database variables whenever you run `railway run` locally to facilitate local development.
+Database variables can be referenced within a service by creating [Variable References](/develop/variables#variable-references).
 
 ### Managing Database Data
 

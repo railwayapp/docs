@@ -13,7 +13,7 @@ The Railway CLI allows you to
 
 - Create new Railway projects from the terminal
 - Link to an existing Railway project
-- Pull down environment variables to run your project locally
+- Pull down environment variables to run a service locally
 - Open an interactive shell to a database within a project
 
 ## Install

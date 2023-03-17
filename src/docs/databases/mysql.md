@@ -7,18 +7,22 @@ MySQL database with zero configuration.
 
 ## Connect
 
-When you run `railway run` in a project with the MySQL database service installed, we inject several environment variables.
+There are two ways to connect to a MySQL database:
 
-- MYSQLHOST
-- MYSQLPORT
-- MYSQLUSER
-- MYSQLPASSWORD
-- MYSQLDATABASE
-- MYSQL_URL
+- Add a [Reference Variable](/develop/variables#reference-variables) to a service
+- Run `railway connect` to start a `mysql` shell
 
-Many libraries will automatically look for the `MYSQL_URL` variable and use
-it to connect to MySQL. You can also manually use these variables however you
-like.
+The following variables can be referenced in your services:
+
+- `MYSQLHOST`
+- `MYSQLPORT`
+- `MYSQLUSER`
+- `MYSQLPASSWORD`
+- `MYSQLDATABASE`
+- `MYSQL_URL`
+
+Connect to your MySQL container using your library of choice and supplying the
+appropriate environment variables.
 
 ## Image
 

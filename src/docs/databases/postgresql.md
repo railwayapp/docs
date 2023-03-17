@@ -7,18 +7,22 @@ PostgreSQL database with zero configuration.
 
 ## Connect
 
-When you run `railway run` in a project with the Postgres database service installed, we inject several environment variables.
+There are two ways to connect to a PostgreSQL database:
 
-- PGHOST
-- PGPORT
-- PGUSER
-- PGPASSWORD
-- PGDATABASE
-- DATABASE_URL
+- Add a [Reference Variable](/develop/variables#reference-variables) to a service
+- Run `railway connect` to start a `psql` shell
 
-Many libraries will automatically look for the `DATABASE_URL` variable and use
-it to connect to PostgreSQL. You can also manually use these variables however you
-like.
+The following variables can be referenced in your services:
+
+- `PGHOST`
+- `PGPORT`
+- `PGUSER`
+- `PGPASSWORD`
+- `PGDATABASE`
+- `DATABASE_URL`
+
+_Note, Many libraries will automatically look for the `DATABASE_URL` variable and use
+it to connect to PostgreSQL but you can use these variables in whatever way works for you._
 
 ## Image
 
