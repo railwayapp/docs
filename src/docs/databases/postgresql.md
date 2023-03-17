@@ -12,7 +12,7 @@ There are two ways to connect to a PostgreSQL database:
 - Add a [Reference Variable](/develop/variables#reference-variables) to a service
 - Run `railway connect` to start a `psql` shell
 
-The following variables are made available to reference in your services:
+The following variables can be referenced in your services:
 
 - `PGHOST`
 - `PGPORT`
