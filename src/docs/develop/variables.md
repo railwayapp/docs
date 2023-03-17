@@ -27,8 +27,6 @@ You can view all variables for the current environment using the [Railway CLI](/
 
 If you already have a `.env` file, or simply prefer to edit text, the Raw Editor can be used to edit variables in either `.env` or `.json` format.
 
-**_NOTE: If you initialize a new project from the CLI and an .env file is detected, Railway will prompt you to import it into your new project._**
-
 <Image src="https://res.cloudinary.com/railway/image/upload/c_scale,w_2000/v1678821397/docs/CleanShot_2023-03-14_at_12.15.56_2x_ankjja.png"
 alt="Screenshot of Raw Editor"
 layout="responsive"
