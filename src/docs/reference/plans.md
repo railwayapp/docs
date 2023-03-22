@@ -30,6 +30,7 @@ Once you have run out of hours for that month, your deployment will be suspended
 - Max 5 members per project
 - Max 3 concurrent deploys per user
 -- If another deploy is attempted, Railway will remove the oldest deploy. This is intended as an anti-spam measure. If you need more concurrent deploys, please upgrade to the Developer plan.
+- Max total 5 of Projects, 5 Services, and 5 databases per user
 
 ## Developer Plan Offering
 
