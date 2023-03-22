@@ -104,7 +104,7 @@ Under the hood, adding a shared variables to a service creates a new variable th
 This means that shared variables can be combined with additional text or even other variables, like the following examples illustrate.
 
 ```plaintext
-DOMAIn           = ${{shared.DOMAIN}}
+DOMAIN           = ${{shared.DOMAIN}}
 URL              = https://${{shared.DOMAIN}}
 GRAPHQL_ENDPOINT = https://${{shared.DOMAIN}}/${{GRAPHQL_PATH}}
 ```
