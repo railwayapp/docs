@@ -25,8 +25,8 @@ One or more custom domains can be added to a Railway service (tied to a specific
 Here's how it works:
 
 1. Navigate to the Settings tab of your desired service
-2. Add a custom domain and type in the name
-3. Add the `CNAME` record to the DNS settings for your domain
+2. Add a custom domain and type in the name (wildcard domains are supported)
+3. Add the `CNAME` records to the DNS settings for your domain
 4. Wait for Railway to verify your `CNAME` record
 
 <Image
@@ -35,10 +35,12 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1338} height={808} quality={80} />
 
-**NOTE!:** Changes to DNS settings may take up to 72 hours to propagate
+**NOTE:** For wildcard domains, ensure that the CNAME record for authorize.railwaydns.net is not proxied by your provider (eg: Cloudflare).
+
+**NOTE:** Changes to DNS settings may take up to 72 hours to propagate
 worldwide.
 
-**NOTE:**: freenom is not allowed, and not supported.
+**NOTE:** freenom is not allowed, and not supported.
 
 ## Let's Encrypt SSL Certificates
 
