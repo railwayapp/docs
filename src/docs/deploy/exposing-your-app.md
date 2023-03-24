@@ -45,7 +45,6 @@ worldwide.
 ## Wildcard Domains
 There are a few important things to know when using Wildcard Domains.
 1. Ensure that the CNAME record for authorize.railwaydns.net is not proxied by your provider (eg: Cloudflare). This is required for the verification process to work.
-2. Sibling domains (eg: thing1.yourdomain.com) can be proxied, even if you're using a wildcard (eg: *.yourdomain.com).
 3. Wildcards can be used for any subdomain level (eg: `*.yourdomain.com` or  `*.subdomain.yourdomain.com`).
 4. You cannot nest wildcards (eg: \*.\*.yourdomain.com).
 
