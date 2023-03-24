@@ -35,12 +35,25 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1338} height={808} quality={80} />
 
-**NOTE:** For wildcard domains, ensure that the CNAME record for authorize.railwaydns.net is not proxied by your provider (eg: Cloudflare).
+**NOTE:** For wildcard domains, see the section below.
 
 **NOTE:** Changes to DNS settings may take up to 72 hours to propagate
 worldwide.
 
-**NOTE:** freenom is not allowed, and not supported.
+**NOTE:** Freenom is not allowed, and not supported.
+
+## Wildcard Domains
+There are a few important things to know when using Wildcard Domains.
+1. Ensure that the CNAME record for authorize.railwaydns.net is not proxied by your provider (eg: Cloudflare). This is required for the verification process to work.
+3. Wildcards can be used for any subdomain level (eg: `*.yourdomain.com` or  `*.subdomain.yourdomain.com`).
+4. You cannot nest wildcards (eg: \*.\*.yourdomain.com).
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1679693511/wildcard_domains_zdguqs.png"
+alt="Screenshot of Wildcard Domain"
+layout="responsive"
+width={1048} height={842} quality={80} />
+In order to use Wildcard Domains, you must add a two CNAME records, one for the wildcard domain, and one for the _acme-challenge. The _acme-challenge CNAME is required for Railway to issue the SSL Certificate for your domain.
 
 ## Let's Encrypt SSL Certificates
 
