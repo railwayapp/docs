@@ -81,6 +81,7 @@ export const sidebarContent: ISidebarContent = [
         "custom domain",
         "cloudflare",
       ]),
+      makePage("Networking", "deploy", ["domain", "dns", "cname", "private"]),
       makePage("Monorepo", "deploy", ["start command", "yarn workspace"]),
       makePage("Integrations", "deploy", [
         "vercel",
@@ -95,7 +96,7 @@ export const sidebarContent: ISidebarContent = [
         "doppler",
       ]),
       makePage("Config as Code", "deploy", ["CaC", "IaC", "service", "config"]),
-      makePage("Deploy on Railway Button", "deploy", ["button", "badge"])
+      makePage("Deploy on Railway Button", "deploy", ["button", "badge"]),
     ],
   },
   {
