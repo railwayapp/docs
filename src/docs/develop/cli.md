@@ -39,7 +39,6 @@ curl -fsSL cli.new | sh
 ```bash
 brew install railway
 ```
-*Note: This will install 2.x.x, we are working on restoring installs on Brew.*
 
 ### Scoop (Windows)
 
