@@ -1,9 +1,9 @@
-import Fuse from "fuse.js";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
 import { ArrowRight, Search as SearchIcon } from "react-feather";
 import tinykeys from "tinykeys";
 import tw from "twin.macro";
+import Typesense from "typesense";
 import { searchStore } from "../store";
 import { IPage } from "../types";
 import { Link } from "./Link";
@@ -31,15 +31,51 @@ export const Search: React.FC = () => {
 };
 
 const MAX_NUM_RESULTS = 5;
+interface Result extends IPage {
+  id: string;
+  text: string;
+}
 
 export const SearchModal: React.FC<{
-  fuse: Fuse<IPage>;
   closeModal: () => void;
-}> = ({ fuse, closeModal }) => {
+}> = ({ closeModal }) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<IPage[]>([]);
   const [selected, setSelected] = useState(0);
   const router = useRouter();
+
+  const ts = new Typesense.Client({
+    nodes: [
+      {
+        host: `${process.env.TYPESENSE_ENDPOINT}`,
+        port: 443,
+        protocol: "https",
+      },
+    ],
+    apiKey: `${process.env.TYPESENSE_SEARCH_KEY}`,
+    numRetries: 3,
+    connectionTimeoutSeconds: 10,
+    retryIntervalSeconds: 0.5,
+    healthcheckIntervalSeconds: 2,
+  });
+
+  const fetchResults = useCallback(async () => {
+    const results = await ts
+      .collections("docs")
+      .documents()
+      .search({
+        q: query,
+        query_by: "title,text",
+        text_match_type: "max_score",
+        per_page: MAX_NUM_RESULTS,
+      })
+      .catch(() => ({ hits: [] }));
+    const pages = results.hits?.map(hit => hit.document) as
+      | Result[]
+      | undefined;
+    setResults(pages ?? []);
+    setSelected(Math.max(0, Math.min(pages?.length ?? 0 - 1, selected)));
+  }, [query]);
 
   const onPressUp = useCallback(() => {
     setSelected(Math.max(0, selected - 1));
@@ -79,10 +115,7 @@ export const SearchModal: React.FC<{
   }, [handleEnter, onPressUp, onPressDown]);
 
   useEffect(() => {
-    const results = fuse.search(query);
-    const pages = results.map(r => r.item).slice(0, MAX_NUM_RESULTS);
-    setResults(pages);
-    setSelected(Math.max(0, Math.min(pages.length - 1, selected)));
+    fetchResults();
   }, [query]);
 
   return (
@@ -113,7 +146,7 @@ export const SearchModal: React.FC<{
               <li key={item.slug} onMouseMove={() => setSelected(index)}>
                 <Link
                   href={item.slug}
-                  onClick={e => {
+                  onClick={() => {
                     closeModal();
                   }}
                   css={[

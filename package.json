@@ -15,6 +15,7 @@
     "migrate:status": "prisma migrate status"
   },
   "dependencies": {
+    "@babel/runtime": "^7.21.0",
     "@nanostores/react": "^0.4.1",
     "@next/env": "^13.2.1",
     "@prisma/client": "4.10.1",
@@ -24,7 +25,6 @@
     "copy-to-clipboard": "^3.3.1",
     "dayjs": "^1.10.4",
     "fathom-client": "^3.1.0",
-    "fuse.js": "^6.4.6",
     "nanostores": "^0.7.4",
     "next": "13.2.1",
     "next-contentlayer": "^0.3.0",
@@ -43,6 +43,7 @@
     "theme-custom-properties": "^1.0.0",
     "tinykeys": "1.4.0",
     "twin.macro": "^3.1.0",
+    "typesense": "^1.5.3",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
