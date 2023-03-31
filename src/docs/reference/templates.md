@@ -13,43 +13,32 @@ connected to infrastructure. Examples of templates are:
 You can find featured templates on our
 [dedicated templates page](https://railway.app/templates).
 
-## Updating Templates
+## Updatable Templates
 
-Every time you visit your project on Railway, we will check to see if the project it is based on has been updated by its maker.
+Every time you visit a project deployed from a template, we will check to see if the project it is based on has been updated by its maker.
 
-If a template you have created receives an upstream update, if configured, we will create a branch on the GitHub repo that was created when deploying the template, allowing for you to test it out within a PR deploy. If you are happy with the changes, you can merge the pullrequest, and we will automatically deploy it to your production environment.
+If it has received an upstream update, we will create a branch on the GitHub repo that was created when deploying the template, allowing for you to test it out within a PR deploy. If you are happy with the changes, you can merge the pull request, and we will automatically deploy it to your production environment.
 
-## Creating Templates
+<Banner variant="info">
+If you're curious, you can read more about how we built updatable templates in this <Link href="https://blog.railway.app/p/updatable-starters">blog post</Link>.
+</Banner>
 
-The button allows you to create templates to offer a 1-Click deploy on Railway experience. Services within a template can point to any public repository.
+## Creating a Template
+
+The [Railway button page](https://railway.app/button) allows you to create templates to offer a 1-click deploy on Railway experience. Services within a template can point to any public repository.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1656470421/docs/template-editor_khw8n6.png"
-alt="Screenshot of Template Editor"
+alt="Template Editor"
 layout="intrinsic"
 width={609} height={520} quality={80} />
-
-![Railway Button](https://railway.app/button.svg)
 
 Configure your own button at
 [railway.app/button](https://railway.app/button) where you can define the repo
 to deploy, plugins to install, and required env vars.
 
-### Deploying a Branch
+### Specifying a Branch
 
 When adding services to a template, you can enter a url to a GitHub repo's branch to have a user clone that instead of the `main` branch.
-
-### Create Template from Project
-
-Within the Project Settings, you can convert your project into a ready-made Template for other users by pressing the "Create Template" button.
-
-### Managing Templates
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1656470419/docs/template-manager_ki6byi.png"
-alt="Screenshot of Expanded Project Usage Pane"
-layout="intrinsic"
-width={973} height={562} quality={80} />
-
-You can see all of your templates that you created within your [Account's Templates page](https://railway.app/account/templates). You can edit your Template at any time.
 
 ### Additional Configuration
 
@@ -58,10 +47,43 @@ You can configure the following fields to enable successful deploys for template
 - Root Directory (Helpful for monorepos)
 - Start command
 - Healthcheck Path
-- Variables (with an optional default value)
+- Variables (with an optional description default value)
 
-## Deploy a Stable Version
+## Convert a Project into a Template
 
-Upon successful deployment of any service within a project linked to a template, we create a version of that service that contains the `commitSha` of the commit and the title of that commit that was deployed as the content.
+You can also convert an existing project into a template by heading over to your project settings page. We will automatically identify and add all the required services and plugins.
 
-This version becomes selectable within the template deploy UI for users to choose. If users need to use an older or experimental version of your template deployed? A dropdown is present giving your users control on what version to deploy. Users can choose between the last stable version of the template or experiment by deploying the latest version.
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1680277820/CleanShot_2023-03-31_at_19.47.55_2x_yvr9hb.png"
+alt="Generate template from project"
+layout="intrinsic"
+width={1599}
+height={899}
+quality={80}
+/>
+
+Within the Project Settings, you can convert your project into a ready-made Template for other users by pressing the "Create Template" button.
+
+## Publishing a Template
+
+Once you create a template, you have the option to publish it. Publishing a template will add it to our [templates page](https://railway.app/templates). Simply click the publish button and fill out the form to publish your template.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1680281251/CleanShot_2023-03-31_at_20.46.28_2x_tjjpna.png"
+  alt="Template publishing form"
+  layout="intrinsic"
+  width={1514}
+  height={2490}
+  quality={80}
+/>
+
+## Managing your Templates
+
+You can see all of your templates on your [Account's Templates page](https://railway.app/account/templates). Templates are separated into Personal and Published templates. You can edit, publish/unpublish and delete templates whenever you'd like!
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1680281548/CleanShot_2023-03-31_at_20.51.43_2x_j8a83x.png"
+ alt="Account templates page"
+ layout="intrinsic"
+ height={3080}
+ width={3100}
+ quality={80}
+/>
