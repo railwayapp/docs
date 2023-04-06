@@ -64,14 +64,14 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
   return (
     <div
       css={[
-        tw`flex items-start px-3 border rounded-md space-x-3`,
+        tw`flex items-start px-3 border rounded-md`,
         containerStyles[variant],
       ]}
       className="banner"
       {...props}
     >
       {!hideIcon && icon != null && (
-        <Icon tw="mt-6" icon={icon} css={[iconStyles[variant]]} />
+        <Icon tw="mt-6 mr-3" icon={icon} css={[iconStyles[variant]]} />
       )}
 
       <>{children}</>
@@ -82,9 +82,11 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
 export const PriorityBoardingBanner: React.FC = () => {
   return (
     <Banner variant="primary" icon={Star}>
-      This feature is only available to{" "}
-      <Link href="/reference/priority-boarding">Priority Boarding</Link>{" "}
-      members.
+      <p>
+        This feature is only available to&nbsp;
+        <Link href="/reference/priority-boarding">Priority Boarding</Link>
+        &nbsp;members.
+      </p>
     </Banner>
   );
 };
