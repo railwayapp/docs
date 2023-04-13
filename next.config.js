@@ -9,7 +9,6 @@ const nextConfig = withContentlayer({
       "railway.app",
       "res.cloudinary.com",
       "devicons.railway.app",
-      "i.imgur.com",
     ],
   },
   async redirects() {

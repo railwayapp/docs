@@ -30,7 +30,7 @@ users commonly encounter.
 After deploying your application, you encounter this screen when accessing
 your application's domain:
 
-<Image src="https://i.imgur.com/4WDZHHE.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1681392822/docs/application-error_wgrwro.png"
 alt="Screenshot of application failed to respond error"
 width={729} height={675}
 quality={80} />
