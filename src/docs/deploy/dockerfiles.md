@@ -12,9 +12,6 @@ Using detected Dockerfile!
 ==========================
 ```
 
-If you have a Dockerfile in your project directory, you can use `railway run`
-with no arguments to build and run your Dockerfile.
-
 ### Custom Dockerfile
 
 If you want to use a custom Dockerfile named something other than `Dockerfile`, you can use the
