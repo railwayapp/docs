@@ -79,24 +79,3 @@ app.listen(port, '0.0.0.0', function () {
 
 `gunicorn` listens on `0.0.0.0` and the `PORT` environment variable by default.
 There is no additional configuration necessary.
-
-If you are running into this error on `gunicorn`, try creating a
-[Procfile](/deploy/builds#procfiles) in your project's root directory and set
-the host and port explicitly:
-
-* **Django**
-    ```sh
-    # Procfile
-    web: python manage.py migrate && \
-         python manage.py collectstatic --noinput && \
-         gunicorn --bind=0.0.0.0:$PORT $YOUR_APP.wsgi
-    ```
-
-* **Flask**
-    ```sh
-    # Procfile
-    web: gunicorn --bind=0.0.0.0:$PORT $YOUR_APP:app
-    ```
-
-For more information about Procfiles, check out
-[Builds -> Procfiles](/deploy/builds#procfiles).
