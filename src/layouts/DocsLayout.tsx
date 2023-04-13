@@ -74,9 +74,10 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
       />
       <div tw="max-w-full">
         <div tw="flex-auto prose dark:prose-invert">
-          <h1>{frontMatter.title}</h1>
-
-          <div className="docs-content">{children}</div>
+          <div className="docs-content">
+            <h1>{frontMatter.title}</h1>
+            {children}
+          </div>
         </div>
 
         <Feedback topic={frontMatter.title} />
