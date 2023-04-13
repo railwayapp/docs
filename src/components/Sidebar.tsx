@@ -5,6 +5,7 @@ import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
+import { ISidebarSection } from "@/types";
 import { ScrollArea } from "./ScrollArea";
 import { Search } from "./Search";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -57,12 +58,20 @@ const SidebarContent: React.FC = () => {
   const isCurrentPage = (pageSlug: string) =>
     (prefixedSlug ?? pathname) === pageSlug;
 
+  const isCurrentSection = (section: ISidebarSection) =>
+    section.pages.some(p => isCurrentPage(p.slug));
+
   return (
     <>
       {sidebarContent.map((section, i) => (
         <React.Fragment key={i}>
           {section.title != null && (
-            <h5 tw="px-4 my-2 text-foreground text-sm font-bold">
+            <h5
+              tw="px-4 my-2 text-foreground text-sm font-bold"
+              className={classNames(
+                isCurrentSection(section) && "current-section",
+              )}
+            >
               {section.title}
             </h5>
           )}
