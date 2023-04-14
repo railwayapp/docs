@@ -122,6 +122,23 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
+    title: "Troubleshoot",
+    pages: [
+      makePage("Fixing Common Errors", "troubleshoot", [
+        "error",
+        "errors",
+        "railway error",
+        "railway errors",
+        "application error",
+        "failed to respond",
+        "application failed to respond",
+        "503",
+        "service unavailable",
+        "503 service unavailable",
+      ]),
+    ],
+  },
+  {
     title: "Reference",
     pages: [
       makePage("Pricing", "reference", ["pricing"]),

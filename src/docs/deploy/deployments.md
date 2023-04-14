@@ -38,13 +38,6 @@ Once the Deployment is live and running, the status will change to `Success`. A 
 
 When a new Deployment is triggered, older deploys in a `Crashed` and `Success` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually.
 
-## Bad Gateway
-
-If you get a Bad Gateway when you attempt to visit the deployment URL, it could
-be that your `PORT` variable is misconfigured. Railway needs an explicit port to
-listen on to expose the application to the internet. You can provide a `PORT`
-variable under the Variables page in your project. For more information, see [Exposing Your App.](/deploy/exposing-your-app)
-
 ## Deploy Triggers
 
 A new deployment is triggered when the [command](/deploy/railway-up) `railway up` is
