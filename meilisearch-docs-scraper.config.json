@@ -1,7 +1,6 @@
 {
   "index_uid": "docs_railway_app_production",
   "stop_urls": [
-    "https://docs.railway.app/",
     "https://docs.railway.app/getting-started"
   ],
   "sitemap_urls": [
