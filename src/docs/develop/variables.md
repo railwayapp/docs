@@ -3,7 +3,7 @@ title: Variables
 ---
 
 Service variables are provided whenever you build, deploy, or run `railway run`. When 
-defined, they are made available to you application at runtime as environment variables.
+defined, they are made available to your application at runtime as environment variables.
 
 Variables are made available in the following scenarios:
 
