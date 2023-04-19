@@ -1,9 +1,11 @@
+import classNames from "classnames";
 import { useRouter } from "next/router";
 import React, { useMemo } from "react";
 import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
+import { ISidebarSection } from "@/types";
 import { ScrollArea } from "./ScrollArea";
 import { Search } from "./Search";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -53,12 +55,23 @@ const SidebarContent: React.FC = () => {
     [slug],
   );
 
+  const isCurrentPage = (pageSlug: string) =>
+    (prefixedSlug ?? pathname) === pageSlug;
+
+  const isCurrentSection = (section: ISidebarSection) =>
+    section.pages.some(p => isCurrentPage(p.slug));
+
   return (
     <>
       {sidebarContent.map((section, i) => (
         <React.Fragment key={i}>
           {section.title != null && (
-            <h5 tw="px-4 my-2 text-foreground text-sm font-bold">
+            <h5
+              tw="px-4 my-2 text-foreground text-sm font-bold"
+              className={classNames(
+                isCurrentSection(section) && "current-section",
+              )}
+            >
               {section.title}
             </h5>
           )}
@@ -68,12 +81,13 @@ const SidebarContent: React.FC = () => {
               <li key={page.slug}>
                 <Link
                   href={page.slug}
+                  className={classNames(isCurrentPage(page.slug) && `current`)}
                   css={[
                     tw`text-gray-700 text-sm`,
                     tw`block px-4 py-2`,
                     tw`hover:bg-gray-100 hover:text-foreground`,
                     tw`focus:outline-none focus:bg-pink-100`,
-                    (prefixedSlug ?? pathname) === page.slug &&
+                    isCurrentPage(page.slug) &&
                       tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
                   ]}
                 >
