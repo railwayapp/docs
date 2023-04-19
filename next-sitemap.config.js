@@ -5,6 +5,6 @@ module.exports = {
     // otherwise use the provided static URL.
     RAILWAY_STATIC_URL === "railway-docs-production.up.railway.app"
       ? "https://docs.railway.app/"
-      : `https://${RAILWAY_STATIC_URL}`,
+      : `https://${RAILWAY_STATIC_URL}/`,
   generateRobotsTxt: true,
 };
