@@ -7,7 +7,7 @@ import { Link } from "./Link";
 import { Logo } from "./Logo";
 import { ISidebarSection } from "@/types";
 import { ScrollArea } from "./ScrollArea";
-import { Search } from "./Search";
+import { OpenSearchModalButton } from "@/components/Search";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export const Sidebar: React.FC = ({ ...props }) => {
@@ -35,7 +35,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
         </div>
 
         <div tw="mx-4 mb-6">
-          <Search />
+          <OpenSearchModalButton />
         </div>
 
         <SidebarContent />

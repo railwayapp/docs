@@ -4,6 +4,7 @@ import { Home, Menu, X } from "react-feather";
 import tw from "twin.macro";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
+import { OpenSearchModalButton } from "@/components/Search";
 import { MobileSidebar } from "./Sidebar";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 
@@ -55,9 +56,9 @@ export const MobileNav: React.FC = () => {
           <Logo tw="w-10 h-10" />
         </Link>
 
-        {/* <div tw="w-full block">
-          <Search />
-        </div> */}
+        <div tw="w-full block">
+          <OpenSearchModalButton />
+        </div>
 
         <div tw="flex items-center space-x-4 md:space-x-4">
           <button
