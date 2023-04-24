@@ -1,10 +1,8 @@
 import { useSearchIndex } from "@/hooks/useSearchIndex";
-import { DiscordIcon } from "@/components/Icons";
 import { Search } from "@/types";
-import { Link } from "@/components/Link";
 import React, { useCallback, useEffect, useState } from "react";
-import { HelpCircle, Mail } from "react-feather";
 import tw from "twin.macro";
+import NoResults from "./NoResults";
 import SearchResults from "./Results";
 
 const SearchModal: React.FC<{
@@ -72,45 +70,7 @@ const SearchModal: React.FC<{
         <div className="results">
           {response &&
             (response.length === 0 ? (
-              <div css={[tw`flex flex-col items-center justify-center mb-4`]}>
-                <HelpCircle size={64} css={tw`mt-8 mb-4 text-pink-300`} />
-                <div css={tw`flex flex-col items-center justify-center p-4`}>
-                  <p css={tw`font-bold mb-4 text-center`}>
-                    We couldn't find what you're searching for.
-                  </p>
-                  <div>
-                    <p css={tw`mb-4`}>Reach out to us if you need help:</p>
-                    <div
-                      css={tw`flex flex-row gap-4 items-center justify-center`}
-                    >
-                      <Link
-                        href="https://discord.gg/railway"
-                        css={[
-                          tw`flex flex-row items-center gap-2`,
-                          tw`border border-solid rounded-lg`,
-                          tw`hover:bg-pink-100`,
-                          tw`p-2`,
-                        ]}
-                      >
-                        <DiscordIcon css={tw`w-8 h-8`} />
-                        Discord
-                      </Link>
-                      <Link
-                        href="https://discord.gg/railway"
-                        css={[
-                          tw`flex flex-row items-center gap-2`,
-                          tw`border border-solid rounded-lg`,
-                          tw`hover:bg-pink-100`,
-                          tw`p-2`,
-                        ]}
-                      >
-                        <Mail css={tw`w-8 h-8`} />
-                        Email
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <NoResults />
             ) : (
               <SearchResults response={response} />
             ))}
