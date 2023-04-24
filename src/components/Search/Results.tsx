@@ -15,7 +15,7 @@ const Results: React.FC<Props> = ({ results }) => {
 
   return (
     <div css={tw`p-2 m-2`}>
-      {Array.from(Object.entries(results)).map(([chapter, hits]) => {
+      {Object.entries(results).map(([chapter, hits]) => {
         return (
           <div
             key={chapter}
