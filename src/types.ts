@@ -1,5 +1,3 @@
-import { Hits, Index as MsIndex } from 'meilisearch'
-
 export interface FrontMatter {
   title: string;
 }
