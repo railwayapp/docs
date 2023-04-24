@@ -9,9 +9,16 @@ interface Props {
 }
 
 const Results: React.FC<Props> = ({ results }) => {
+  const withoutBaseUri = (slug: string) => {
+    const url = new URL(slug);
+    const { hash, pathname } = url;
+    return `${pathname}${hash}`;
+  };
+
   // @FIXME: Indexer is grabbing #__next from anchor hrefs. This should be
   // fixed upstream, but no harm in just hacking it in place for now.
-  const cleanSlug = (slug: string) => slug.replace("#__next", "");
+  const cleanSlug = (slug: string) =>
+    withoutBaseUri(slug.replace("#__next", ""));
 
   return (
     <div css={tw`p-2 m-2`}>
