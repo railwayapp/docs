@@ -1,3 +1,4 @@
+import { SearchResponse } from "meilisearch";
 import { Link } from "@/components/Link";
 import { Search } from "@/types";
 import { Markup } from "interweave";
@@ -5,13 +6,13 @@ import React from "react";
 import tw from "twin.macro";
 
 const SearchResults: React.FC<{
-  response: Search.MeilisearchResponse;
+  response: SearchResponse<Search.Response>;
 }> = ({ response }) => {
-  const chapters = Array.from(new Set(response.map(r => r.hierarchy_lvl0)));
-
+  const { hits } = response;
+  const chapters = Array.from(new Set(hits.map(r => r.hierarchy_lvl0)));
   const results = chapters.reduce((acc, curr) => {
     acc[curr] = [
-      ...response
+      ...hits
         .filter(r => r.hierarchy_lvl0 === curr)
         .map(hit => ({
           hierarchies: [
@@ -31,7 +32,7 @@ const SearchResults: React.FC<{
             hit.hierarchy_lvl4,
           ].filter(h => h !== null),
           slug: hit.url,
-          text: hit._formatted.content,
+          text: (hit._formatted && hit._formatted.content) ?? "",
         })),
     ];
     return acc;

@@ -6,10 +6,9 @@ import tw, { styled } from "twin.macro";
 
 const ContactButton = styled(Link)`
   ${[
-    tw`flex flex-row items-center gap-2`,
+    tw`flex flex-row items-center gap-2 p-2`,
     tw`border border-solid rounded-lg`,
     tw`hover:bg-pink-100`,
-    tw`p-2`,
     tw`[&>svg]:w-8`,
     tw`[&>svg]:h-8`,
   ]}

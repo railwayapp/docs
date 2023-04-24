@@ -1,3 +1,5 @@
+import { Hits, Index as MsIndex } from 'meilisearch'
+
 export interface FrontMatter {
   title: string;
 }
@@ -23,9 +25,9 @@ export namespace Search {
     text: string;
   }
   export type Result = Record<string, ResultItem[]>;
-  export type MeilisearchResponse = MeilisearchResponseItem[];
+  // export type MeilisearchResponse = Hits<MeilisearchResponseItem>;
 
-  interface _MeilisearchResponseItem {
+  export interface Response {
     hierarchy_lvl0: string;
     hierarchy_lvl1: string;
     hierarchy_lvl2: string;
@@ -33,8 +35,5 @@ export namespace Search {
     hierarchy_lvl4: string;
     url: string;
     content: string;
-  }
-  export interface MeilisearchResponseItem extends _MeilisearchResponseItem {
-    _formatted: _MeilisearchResponseItem;
   }
 }

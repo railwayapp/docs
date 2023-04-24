@@ -1,11 +1,11 @@
 import { Index, MeiliSearch } from "meilisearch";
 import { useMemo } from "react";
 
-export const useSearchIndex = (
+export const useSearchIndex = <T extends Record<string, any>>(
   host: string,
   apiKey: string,
   indexName: string,
-): Index => {
+): Index<T> => {
   if (host === "") {
     console.error(`useSearchIndex.host not provided`);
   }
@@ -20,7 +20,6 @@ export const useSearchIndex = (
       host,
       apiKey,
     });
-    const index = meilisearch.index(indexName);
-    return index;
+    return meilisearch.index<T>(indexName);
   }, [apiKey, host, indexName]);
 };

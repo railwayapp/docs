@@ -1,6 +1,7 @@
+import { useDebouncedSearch } from "@/hooks/useDebouncedSearch";
 import { useSearchIndex } from "@/hooks/useSearchIndex";
 import { Search } from "@/types";
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import tw from "twin.macro";
 import NoResults from "./NoResults";
 import SearchResults from "./Results";
@@ -8,43 +9,21 @@ import SearchResults from "./Results";
 const SearchModal: React.FC<{
   closeModal: () => void;
 }> = ({ closeModal }) => {
-  const [query, setQuery] = useState("");
-  const [response, setResponse] = useState<Search.MeilisearchResponse | null>(
-    null,
-  );
-
-  const index = useSearchIndex(
+  const index = useSearchIndex<Search.Response>(
     process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
     process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
     process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
   );
 
-  const fetchResponse = useCallback(async () => {
-    if (query === "") {
-      return;
-    }
-    try {
-      const response = await index.search<Search.MeilisearchResponseItem>(
-        query,
-        {
-          limit: 10,
-          attributesToHighlight: ["*"],
-          highlightPreTag: "<span>",
-          highlightPostTag: "</span>",
-        },
-      );
-      setResponse(response.hits);
-    } catch (e) {
-      console.error(`Search for query "${query}" failed (${e})`);
-    }
-  }, [query]);
-
-  useEffect(() => {
-    if (query === "") {
-      return;
-    }
-    fetchResponse();
-  }, [query]);
+  const { query, setQuery, response } = useDebouncedSearch<Search.Response>(
+    index,
+    {
+      limit: 10,
+      attributesToHighlight: ["*"],
+      highlightPreTag: "<span>",
+      highlightPostTag: "</span>",
+    },
+  );
 
   return (
     <div
@@ -69,7 +48,7 @@ const SearchModal: React.FC<{
         />
         <div className="results">
           {response &&
-            (response.length === 0 ? (
+            (response.hits.length === 0 ? (
               <NoResults />
             ) : (
               <SearchResults response={response} />
