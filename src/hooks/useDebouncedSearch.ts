@@ -1,5 +1,8 @@
+import { trackGoal } from "fathom-client";
 import { MeiliSearch, SearchParams, SearchResponse } from "meilisearch";
 import { useCallback, useEffect, useMemo, useState } from "react";
+
+const FATHOM_SEARCH_PERFORMED_EVT_ID = "IMSTAYP4"
 
 export const useDebouncedSearch = <T extends Record<string, any>>(
   host: string,
@@ -42,6 +45,7 @@ export const useDebouncedSearch = <T extends Record<string, any>>(
     try {
       const response = await index.search<T>(query, params);
       setResponse(response);
+      trackGoal(FATHOM_SEARCH_PERFORMED_EVT_ID, 0)
     } catch (e) {
       console.error(`Search for query "${query}" failed (${e})`);
     }
