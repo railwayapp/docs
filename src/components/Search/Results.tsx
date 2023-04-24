@@ -1,53 +1,14 @@
-import { SearchResponse } from "meilisearch";
 import { Link } from "@/components/Link";
 import { Search } from "@/types";
 import { Markup } from "interweave";
 import React from "react";
 import tw from "twin.macro";
 
-interface ResultItem {
-  hierarchies: string[];
-  slug: string;
-  text: string;
-}
-
-type Result = Record<string, ResultItem[]>;
-
 interface Props {
-  response: SearchResponse<Search.Document>;
+  results: Search.Result;
 }
 
-const Results: React.FC<Props> = ({ response }) => {
-  const { hits } = response;
-  const chapters = Array.from(new Set(hits.map(r => r.hierarchy_lvl0)));
-  const results = chapters.reduce((acc, curr) => {
-    acc[curr] = [
-      ...hits
-        .filter(r => r.hierarchy_lvl0 === curr)
-        .map(hit => ({
-          hierarchies: [
-            // `hit.hierarchy_lvl0` is intentionally ignored here; we're
-            // grouping the rendered output by it so it's redundant.
-            // In practice, this means that we'll render:
-            //   >> "Databases"
-            //   >> "PostgreSQL"
-            //   >> ...
-            // instead of:
-            //   >> "Databases"
-            //   >> "Databases -> PostgreSQL"
-            //   >> ...
-            hit.hierarchy_lvl1,
-            hit.hierarchy_lvl2,
-            hit.hierarchy_lvl3,
-            hit.hierarchy_lvl4,
-          ].filter(h => h !== null),
-          slug: hit.url,
-          text: (hit._formatted && hit._formatted.content) ?? "",
-        })),
-    ];
-    return acc;
-  }, {} as Result);
-
+const Results: React.FC<Props> = ({ results }) => {
   // @FIXME: Indexer is grabbing #__next from anchor hrefs. This should be
   // fixed upstream, but no harm in just hacking it in place for now.
   const cleanSlug = (slug: string) => slug.replace("#__next", "");

@@ -17,14 +17,16 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
     highlightPreTag: "<span>",
     highlightPostTag: "</span>",
   };
-  const { clearResponse, query, setQuery, response } =
-    useDebouncedSearch<Search.Document>(
-      process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
-      process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
-      process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
-      searchParams,
-      200,
-    );
+  const { clearResponse, query, setQuery, results } = useDebouncedSearch<
+    Search.Document,
+    Search.Result
+  >(
+    process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
+    process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
+    process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
+    searchParams,
+    200,
+  );
 
   return (
     <div
@@ -45,11 +47,11 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
           />
         </div>
         <div className="search-results">
-          {response &&
-            (response.hits.length === 0 ? (
+          {results &&
+            (Object.keys(results).length === 0 ? (
               <NoResults />
             ) : (
-              <Results response={response} />
+              <Results results={results} />
             ))}
         </div>
       </div>
