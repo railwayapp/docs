@@ -6,9 +6,11 @@ import NoResults from "./NoResults";
 import QueryInput from "./QueryInput";
 import Results from "./Results";
 
-const Modal: React.FC<{
+interface Props {
   closeModal: () => void;
-}> = ({ closeModal }) => {
+}
+
+const Modal: React.FC<Props> = ({ closeModal }) => {
   const searchParams = {
     limit: 10,
     attributesToHighlight: ["*"],
