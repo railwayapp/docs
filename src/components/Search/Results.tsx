@@ -5,8 +5,16 @@ import { Markup } from "interweave";
 import React from "react";
 import tw from "twin.macro";
 
+interface ResultItem {
+  hierarchies: string[];
+  slug: string;
+  text: string;
+}
+
+type Result = Record<string, ResultItem[]>;
+
 const SearchResults: React.FC<{
-  response: SearchResponse<Search.Response>;
+  response: SearchResponse<Search.Document>;
 }> = ({ response }) => {
   const { hits } = response;
   const chapters = Array.from(new Set(hits.map(r => r.hierarchy_lvl0)));
@@ -36,7 +44,7 @@ const SearchResults: React.FC<{
         })),
     ];
     return acc;
-  }, {} as Search.Result);
+  }, {} as Result);
 
   const cleanSlug = (slug: string) => slug.replace("#__next", "");
 

@@ -19,15 +19,7 @@ export interface ISidebarSection {
 }
 
 export namespace Search {
-  export interface ResultItem {
-    hierarchies: string[];
-    slug: string;
-    text: string;
-  }
-  export type Result = Record<string, ResultItem[]>;
-  // export type MeilisearchResponse = Hits<MeilisearchResponseItem>;
-
-  export interface Response {
+  export interface Document {
     hierarchy_lvl0: string;
     hierarchy_lvl1: string;
     hierarchy_lvl2: string;

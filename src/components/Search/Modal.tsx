@@ -1,5 +1,4 @@
 import { useDebouncedSearch } from "@/hooks/useDebouncedSearch";
-import { useSearchIndex } from "@/hooks/useSearchIndex";
 import { Search } from "@/types";
 import React from "react";
 import tw from "twin.macro";
@@ -9,14 +8,10 @@ import SearchResults from "./Results";
 const SearchModal: React.FC<{
   closeModal: () => void;
 }> = ({ closeModal }) => {
-  const index = useSearchIndex<Search.Response>(
+  const { query, setQuery, response } = useDebouncedSearch<Search.Document>(
     process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
     process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
     process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
-  );
-
-  const { query, setQuery, response } = useDebouncedSearch<Search.Response>(
-    index,
     {
       limit: 10,
       attributesToHighlight: ["*"],
