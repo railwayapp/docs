@@ -1,13 +1,12 @@
 import { useDebouncedSearch } from "@/hooks/useDebouncedSearch";
-import { Search as SearchIcon } from "react-feather";
 import { Search } from "@/types";
 import React from "react";
 import tw from "twin.macro";
 import NoResults from "./NoResults";
-import SearchResults from "./Results";
 import QueryInput from "./QueryInput";
+import Results from "./Results";
 
-const SearchModal: React.FC<{
+const Modal: React.FC<{
   closeModal: () => void;
 }> = ({ closeModal }) => {
   const { clearResponse, query, setQuery, response } =
@@ -46,7 +45,7 @@ const SearchModal: React.FC<{
             (response.hits.length === 0 ? (
               <NoResults />
             ) : (
-              <SearchResults response={response} />
+              <Results response={response} />
             ))}
         </div>
       </div>
@@ -54,4 +53,4 @@ const SearchModal: React.FC<{
   );
 };
 
-export default SearchModal;
+export default Modal;

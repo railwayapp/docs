@@ -3,7 +3,7 @@ import React from "react";
 import { Search as SearchIcon } from "react-feather";
 import tw from "twin.macro";
 
-const OpenSearchModalButton: React.FC = () => {
+const OpenModalButton: React.FC = () => {
   return (
     <>
       <button
@@ -25,4 +25,4 @@ const OpenSearchModalButton: React.FC = () => {
   );
 };
 
-export default OpenSearchModalButton;
+export default OpenModalButton;

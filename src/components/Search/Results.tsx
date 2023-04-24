@@ -13,7 +13,7 @@ interface ResultItem {
 
 type Result = Record<string, ResultItem[]>;
 
-const SearchResults: React.FC<{
+const Results: React.FC<{
   response: SearchResponse<Search.Document>;
 }> = ({ response }) => {
   const { hits } = response;
@@ -46,6 +46,8 @@ const SearchResults: React.FC<{
     return acc;
   }, {} as Result);
 
+  // @FIXME: Indexer is grabbing #__next from anchor hrefs. This should be
+  // fixed upstream, but no harm in just hacking it in place for now.
   const cleanSlug = (slug: string) => slug.replace("#__next", "");
 
   return (
@@ -96,4 +98,4 @@ const SearchResults: React.FC<{
   );
 };
 
-export default SearchResults;
+export default Results;
