@@ -60,7 +60,6 @@ const Results: React.FC<{
               tw`flex flex-col`,
               tw`rounded-lg p-3 mb-4`,
               tw`border border-2 rounded-lg border-dashed`,
-              tw`hover:bg-pink-100`,
             ]}
           >
             <h4 css={[tw`font-bold text-lg mb-2`]}>{chapter}</h4>
@@ -70,23 +69,23 @@ const Results: React.FC<{
                   <li key={cleanSlug(h.slug)} css={tw`flex flex-col mb-2`}>
                     <Link
                       href={cleanSlug(h.slug)}
-                      css={[tw`font-medium hover:text-pink-700`]}
+                      css={[tw`flex flex-col font-medium hover:text-pink-700`]}
                     >
                       {h.hierarchies.join(" -> ")}
+                      <span
+                        css={[
+                          tw`leading-[1.4] text-gray-500 dark:text-gray-600`,
+                          tw`[&>.rendered span]:bg-yellow-200`,
+                          tw`[&>.rendered span]:p-1`,
+                          tw`[&>.rendered span]:text-black`,
+                          tw`[&>.rendered span]:dark:text-white`,
+                        ]}
+                      >
+                        {h.text !== "" && (
+                          <Markup className="rendered" content={h.text} />
+                        )}
+                      </span>
                     </Link>
-                    <span
-                      css={[
-                        tw`leading-[1.4] text-gray-500`,
-                        tw`[&>.rendered span]:bg-yellow-200`,
-                        tw`[&>.rendered span]:p-1`,
-                        tw`[&>.rendered span]:text-black`,
-                        tw`[&>.rendered span]:dark:text-white`,
-                      ]}
-                    >
-                      {h.text !== "" && (
-                        <Markup className="rendered" content={h.text} />
-                      )}
-                    </span>
                   </li>
                 );
               })}
