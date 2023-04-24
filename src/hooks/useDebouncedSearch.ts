@@ -63,6 +63,11 @@ export const useDebouncedSearch = <T extends Record<string, any>>(
 
   return {
     query: rawInput,
+    clearResponse: () => {
+      setQuery("");
+      setRawInput("");
+      setResponse(null);
+    },
     setQuery: setRawInput,
     response,
   };

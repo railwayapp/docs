@@ -1,24 +1,27 @@
 import { useDebouncedSearch } from "@/hooks/useDebouncedSearch";
+import { Search as SearchIcon } from "react-feather";
 import { Search } from "@/types";
 import React from "react";
 import tw from "twin.macro";
 import NoResults from "./NoResults";
 import SearchResults from "./Results";
+import QueryInput from "./QueryInput";
 
 const SearchModal: React.FC<{
   closeModal: () => void;
 }> = ({ closeModal }) => {
-  const { query, setQuery, response } = useDebouncedSearch<Search.Document>(
-    process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
-    process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
-    process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
-    {
-      limit: 10,
-      attributesToHighlight: ["*"],
-      highlightPreTag: "<span>",
-      highlightPostTag: "</span>",
-    },
-  );
+  const { clearResponse, query, setQuery, response } =
+    useDebouncedSearch<Search.Document>(
+      process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
+      process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
+      process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
+      {
+        limit: 10,
+        attributesToHighlight: ["*"],
+        highlightPreTag: "<span>",
+        highlightPostTag: "</span>",
+      },
+    );
 
   return (
     <div
@@ -31,17 +34,14 @@ const SearchModal: React.FC<{
         onPointerDown={e => e.stopPropagation()}
         css={[tw`bg-background border rounded-lg w-full md:w-1/2 mx-auto`]}
       >
-        <input
-          placeholder="Search"
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-          autoFocus
-          css={[
-            tw`px-4 py-4 w-full bg-transparent focus:outline-none`,
-            tw`border-b-2 border-gray-200 border-dotted`,
-          ]}
-        />
-        <div className="results">
+        <div className="search-input">
+          <QueryInput
+            clearResponse={clearResponse}
+            query={query}
+            setQuery={setQuery}
+          />
+        </div>
+        <div className="search-results">
           {response &&
             (response.hits.length === 0 ? (
               <NoResults />
