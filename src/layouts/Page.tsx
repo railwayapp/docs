@@ -1,16 +1,14 @@
+import { Modal } from "@/components/Modal";
+import { SearchModal } from "@/components/Search";
+import { searchStore } from "@/store";
 import { useStore } from "@nanostores/react";
-import Fuse from "fuse.js";
-import React, { PropsWithChildren, useEffect, useMemo } from "react";
+import React, { PropsWithChildren, useEffect } from "react";
 import tinykeys from "tinykeys";
 import "twin.macro";
-import { Modal } from "@/components/Modal";
 import { MobileNav, Nav } from "../components/Nav";
-import { SearchModal } from "@/components/Search";
 import { Props as SEOProps, SEO } from "../components/SEO";
 import { Sidebar } from "../components/Sidebar";
-import { sidebarContent } from "../data/sidebar";
 import { Background } from "../pages";
-import { searchStore } from "@/store";
 
 export interface Props {
   seo?: SEOProps;
@@ -29,16 +27,6 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
 
     return () => unsubscribe();
   }, [isSearchOpen]);
-
-  const fuse = useMemo(() => {
-    const pages = sidebarContent.map(section => section.pages).flat();
-    const fuse = new Fuse(pages, {
-      keys: ["title", "tags", "category"],
-      includeScore: true,
-    });
-
-    return fuse;
-  }, [sidebarContent]);
 
   return (
     <>

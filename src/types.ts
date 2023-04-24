@@ -8,7 +8,6 @@ export interface IPage {
   title: string;
   slug: string;
   category?: string;
-  tags?: string[];
 }
 
 export interface ISidebarSection {
