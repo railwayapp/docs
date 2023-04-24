@@ -26,8 +26,10 @@ const QueryInput: React.FC<Props> = ({ clearResponse, query, setQuery }) => {
         <span css={tw`flex items-center p-2`}>
           <button
             css={[
-              tw`rounded border border-solid rounded-lg p-3`,
-              tw`text-black dark:text-white`,
+              tw`flex items-center justify-center w-14 h-8`,
+              tw`rounded border border-solid rounded-lg`,
+              tw`text-black text-sm dark:text-white`,
+              tw`hover:bg-pink-100`,
             ]}
             onClick={e => {
               e.preventDefault();

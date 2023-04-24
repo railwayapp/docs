@@ -13,9 +13,11 @@ interface ResultItem {
 
 type Result = Record<string, ResultItem[]>;
 
-const Results: React.FC<{
+interface Props {
   response: SearchResponse<Search.Document>;
-}> = ({ response }) => {
+}
+
+const Results: React.FC<Props> = ({ response }) => {
   const { hits } = response;
   const chapters = Array.from(new Set(hits.map(r => r.hierarchy_lvl0)));
   const results = chapters.reduce((acc, curr) => {
