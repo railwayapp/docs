@@ -9,17 +9,19 @@ import Results from "./Results";
 const Modal: React.FC<{
   closeModal: () => void;
 }> = ({ closeModal }) => {
+  const searchParams = {
+    limit: 10,
+    attributesToHighlight: ["*"],
+    highlightPreTag: "<span>",
+    highlightPostTag: "</span>",
+  };
   const { clearResponse, query, setQuery, response } =
     useDebouncedSearch<Search.Document>(
       process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
       process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
       process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
-      {
-        limit: 10,
-        attributesToHighlight: ["*"],
-        highlightPreTag: "<span>",
-        highlightPostTag: "</span>",
-      },
+      searchParams,
+      200,
     );
 
   return (
