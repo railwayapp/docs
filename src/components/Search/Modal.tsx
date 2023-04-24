@@ -51,7 +51,7 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
             (Object.keys(results).length === 0 ? (
               <NoResults />
             ) : (
-              <Results results={results} />
+              <Results closeModal={closeModal} results={results} />
             ))}
         </div>
       </div>

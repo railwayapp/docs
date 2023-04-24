@@ -5,10 +5,11 @@ import React from "react";
 import tw from "twin.macro";
 
 interface Props {
+  closeModal: () => void
   results: Search.Result;
 }
 
-const Results: React.FC<Props> = ({ results }) => {
+const Results: React.FC<Props> = ({ closeModal, results }) => {
   const withoutBaseUri = (slug: string) => {
     const url = new URL(slug);
     const { hash, pathname } = url;
@@ -39,6 +40,7 @@ const Results: React.FC<Props> = ({ results }) => {
                   <li key={cleanSlug(h.slug)} css={tw`flex flex-col mb-2`}>
                     <Link
                       href={cleanSlug(h.slug)}
+                      onClick={(e) => closeModal()}
                       css={[tw`flex flex-col font-medium hover:text-pink-700`]}
                     >
                       {h.hierarchies.join(" -> ")}
