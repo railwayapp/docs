@@ -1,6 +1,9 @@
 import { Search } from "@/types";
+import { trackGoal } from "fathom-client";
 import { MeiliSearch, SearchParams, SearchResponse } from "meilisearch";
 import { useCallback, useEffect, useMemo, useState } from "react";
+
+const FATHOM_SEARCH_PERFORMED_EVT_ID = "IMSTAYP4";
 
 type Transformer<Source, Result extends any> = (
   src: SearchResponse<Source>,
@@ -102,6 +105,7 @@ export const useDebouncedSearch = <
     }
     try {
       const response = await index.search<Response>(query, params);
+      trackGoal(FATHOM_SEARCH_PERFORMED_EVT_ID, 0);
       setResults(transformResponse(response));
     } catch (e) {
       console.error(`Search for query "${query}" failed (${e})`);
