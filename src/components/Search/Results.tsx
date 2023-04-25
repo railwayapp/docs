@@ -1,60 +1,29 @@
-import { SearchResponse } from "meilisearch";
 import { Link } from "@/components/Link";
 import { Search } from "@/types";
 import { Markup } from "interweave";
 import React from "react";
 import tw from "twin.macro";
 
-interface ResultItem {
-  hierarchies: string[];
-  slug: string;
-  text: string;
-}
-
-type Result = Record<string, ResultItem[]>;
-
 interface Props {
-  response: SearchResponse<Search.Document>;
+  closeModal: () => void
+  results: Search.Result;
 }
 
-const Results: React.FC<Props> = ({ response }) => {
-  const { hits } = response;
-  const chapters = Array.from(new Set(hits.map(r => r.hierarchy_lvl0)));
-  const results = chapters.reduce((acc, curr) => {
-    acc[curr] = [
-      ...hits
-        .filter(r => r.hierarchy_lvl0 === curr)
-        .map(hit => ({
-          hierarchies: [
-            // `hit.hierarchy_lvl0` is intentionally ignored here; we're
-            // grouping the rendered output by it so it's redundant.
-            // In practice, this means that we'll render:
-            //   >> "Databases"
-            //   >> "PostgreSQL"
-            //   >> ...
-            // instead of:
-            //   >> "Databases"
-            //   >> "Databases -> PostgreSQL"
-            //   >> ...
-            hit.hierarchy_lvl1,
-            hit.hierarchy_lvl2,
-            hit.hierarchy_lvl3,
-            hit.hierarchy_lvl4,
-          ].filter(h => h !== null),
-          slug: hit.url,
-          text: (hit._formatted && hit._formatted.content) ?? "",
-        })),
-    ];
-    return acc;
-  }, {} as Result);
+const Results: React.FC<Props> = ({ closeModal, results }) => {
+  const withoutBaseUri = (slug: string) => {
+    const url = new URL(slug);
+    const { hash, pathname } = url;
+    return `${pathname}${hash}`;
+  };
 
   // @FIXME: Indexer is grabbing #__next from anchor hrefs. This should be
   // fixed upstream, but no harm in just hacking it in place for now.
-  const cleanSlug = (slug: string) => slug.replace("#__next", "");
+  const cleanSlug = (slug: string) =>
+    withoutBaseUri(slug.replace("#__next", ""));
 
   return (
     <div css={tw`p-2 m-2`}>
-      {Array.from(Object.entries(results)).map(([chapter, hits]) => {
+      {Object.entries(results).map(([chapter, hits]) => {
         return (
           <div
             key={chapter}
@@ -71,6 +40,7 @@ const Results: React.FC<Props> = ({ response }) => {
                   <li key={cleanSlug(h.slug)} css={tw`flex flex-col mb-2`}>
                     <Link
                       href={cleanSlug(h.slug)}
+                      onClick={(e) => closeModal()}
                       css={[tw`flex flex-col font-medium hover:text-pink-700`]}
                     >
                       {h.hierarchies.join(" -> ")}
