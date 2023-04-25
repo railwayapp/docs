@@ -47,6 +47,7 @@ const ModalDialog: React.FC<PropsWithChildren<Props>> = ({
       css={[
         tw`fixed top-0 right-0 bottom-0 left-0 select-none z-50`,
         tw`bg-black bg-opacity-50`,
+        tw`overflow-scroll`,
       ]}
     >
       <FocusScope contain restoreFocus autoFocus>

@@ -3,14 +3,14 @@ import Fuse from "fuse.js";
 import React, { PropsWithChildren, useEffect, useMemo } from "react";
 import tinykeys from "tinykeys";
 import "twin.macro";
-import { Modal } from "../components/Modal";
+import { Modal } from "@/components/Modal";
 import { MobileNav, Nav } from "../components/Nav";
-import { SearchModal } from "../components/Search";
+import { SearchModal } from "@/components/Search";
 import { Props as SEOProps, SEO } from "../components/SEO";
 import { Sidebar } from "../components/Sidebar";
 import { sidebarContent } from "../data/sidebar";
 import { Background } from "../pages";
-import { searchStore } from "../store";
+import { searchStore } from "@/store";
 
 export interface Props {
   seo?: SEOProps;
@@ -65,7 +65,7 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
         isOpen={isSearchOpen}
         onClose={() => searchStore.set(false)}
       >
-        <SearchModal fuse={fuse} closeModal={() => searchStore.set(false)} />
+        <SearchModal closeModal={() => searchStore.set(false)} />
       </Modal>
     </>
   );
