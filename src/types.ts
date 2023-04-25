@@ -16,6 +16,12 @@ export interface ISidebarSection {
 }
 
 export namespace Search {
+  interface ResultItem {
+    hierarchies: string[];
+    slug: string;
+    text: string;
+  }
+  export type Result = Record<string, ResultItem[]>;
   export interface Document {
     hierarchy_lvl0: string;
     hierarchy_lvl1: string;
