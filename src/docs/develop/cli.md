@@ -44,7 +44,7 @@ npm i -g @railway/cli
 
 This requires version =>16 of [Node.js](https://nodejs.org/en/).
 
-### Shell Script (macOS, Linux, Windows)
+### Shell Script (macOS, Linux, Windows via WSL)
 
 In a Terminal, enter the following command:
 
