@@ -26,11 +26,11 @@ Anytime within a project, a new service can be created with the command palette.
 
 ## Deployment Services
 
-Application services are services which tie to a GitHub repo as the source of deployment. Railway will clone into the root directory of the provided repo and initiate a [deployment](/deploy/deployments). We will then use a Cloudnative buildback to automagically determine the application runtime and begin hosting it.
+Application services are services which tie to a GitHub repo as the source of deployment. Railway will clone into the root directory of the provided repo and initiate a [deployment](/deploy/deployments). We will then use a Cloud Native buildpack to automagically determine the application runtime and begin hosting it.
 
 ### Monorepo Services
 
-You can deploy the same GitHub repo within a project even if it's already deployed. This is useful if your have a monorepo with multiple expected services. You can change the root directory that Railway hosts from within the service settings page.
+You can deploy the same GitHub repo within a project even if it's already deployed. This is useful if you have a monorepo with multiple expected services. You can change the root directory that Railway hosts from within the service settings page.
 
 ### I Can't See My GitHub Repo?
 
@@ -59,11 +59,11 @@ Database variables can be referenced within a service by creating [Variable Refe
 
 ### Managing Database Data
 
-Railway provides a user interface into your plugin's data that allow you to introspect the tables and the data in your plugin.
+Railway provides a user interface into your plugin's data that allows you to inspect data in your plugin, such as database tables.
 
 ## Templates
 
-Railway offers 60+ templates that are maintained by the community. A template will clone a GitHub repo to your connected account and deploy the service(s) to your project. You can deploy a template within the canvas provided there are no variables to configure, else you must use the new project flow. This is especially useful if you wanted to deploy common pieces of infrastructure like a DataDog Agent.
+Railway offers 60+ templates that are maintained by the community. A template will clone a GitHub repo to your connected account and deploy the service(s) to your project. You can deploy a template within the canvas provided there are no variables to configure, else you must use the new project flow. This is especially useful if you wish to deploy common pieces of infrastructure like a DataDog Agent.
 
 ## Empty Application Services
 

@@ -27,16 +27,16 @@ RAILWAY_TOKEN=XXXX railway run
 
 Use the [Railway Vercel
 integration](https://vercel.com/changelog/railway-integration-postgres-redis-mysql)
-to provide your production and preview deploys with access to your [Railway
+to provide your production and preview deployments with access to your [Railway
 environments](/develop/environments).
 
 Under Project Settings > Integrations in your project dashboard, you can connect
 to your Vercel account, specify a team, project, and production/preview
-environments. We will then provide your production and preview deploys on Vercel
+environments. We will then provide your production and preview deployments on Vercel
 with all the environment variables needed to connect to your Railway
 environments.
 
-This allows you to keep production and preview deploy databases separate.
+This allows you to keep production and preview deployment databases separate.
 
 ### Other Platforms
 
@@ -58,7 +58,7 @@ railway run start-server
 
 ## GitHub Integration
 
-Railway uses GitHub to source account or organizational repos provided the Railway app is given the correct permissions.
+Railway supports GitHub personal or organizational repos, provided the Railway app is given the correct permissions.
 
 ### Railway Deployment Checks
 
@@ -67,6 +67,6 @@ GitHub Commits have a status check to indicate the status of the Railway build. 
 ## Secrets Management
 
 It's common for developers to store secrets in environment variables. However, this can be a security risk if you accidentally commit your secrets to a public repository. To avoid this, you can use a secrets management tool to store your secrets in a secure location. Railway supports Doppler as a secrets management tool. You can use Doppler to manage your Railway environment variables using the Railway Integration that Doppler provides.
-### Doppler 
+### Doppler
 
 You can get instructions on how to use Doppler with Railway on the [Doppler Docs](https://docs.doppler.com/docs/railway).

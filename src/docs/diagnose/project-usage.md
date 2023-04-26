@@ -7,7 +7,7 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={491} height={286} quality={80} />
 
-Users are billed monthly based on their project's minutely usage.  All services within a project's environments contribute to the resources billed. The rates are as follows:
+Users are billed monthly based on their project's per-minute usage.  All services within a project's environments contribute to the resources billed. The rates are as follows:
 
 **RAM**
 $0.000231 / GB / minute
@@ -25,6 +25,6 @@ In addition to the current usage, the user can see their estimated resource usag
 
 
 ### Usage by Project
-The chart shows the cumulative usage for the month. If you delete a project Railway will still count the usage towards your total.
+The chart shows the cumulative usage for the month. If you delete a project, Railway will still count the usage towards your total.
 
 The Current and Estimated cost metrics show the current resource usage and the estimated usage by the end of the month.

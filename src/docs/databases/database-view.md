@@ -18,7 +18,7 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={995} height={628} quality={80} />
 
-For MySQL and Postgres, Railway displays the tables contained within a instance by default. This is called the Table View.
+For MySQL and Postgres, Railway displays the tables contained within an instance by default. This is called the Table View.
 
 Shift-clicking on one or multiple tables exposes additional options such as the ability to delete the table(s).
 

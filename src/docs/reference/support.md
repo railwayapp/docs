@@ -13,7 +13,7 @@ For users who are on the Starter Plan or Developer Plan, Railway offers a [Disco
 
 ## Email Support
 
-If you are on the Teams plan, you can reach out to us via email at contact@railway.app for support. You can contact us for a quote for Business Class support. 
+If you are on the Teams plan, you can reach out to us via email at contact@railway.app for support. You can contact us for a quote for Business Class support.
 
 As of 2023/03/17, we will be no longer be creating new Direct Support channels for the Teams plan. We encourage you to reach out to email us directly.
 

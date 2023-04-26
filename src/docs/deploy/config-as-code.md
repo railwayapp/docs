@@ -9,7 +9,7 @@ settings page can be specified in this configuration file.
 
 When a new deployment is triggered, Railway will look for any config files in your
 code and combine these values with the settings from the dashboard. The
-resulting build and deploy config will be used **only for the current deploy**.
+resulting build and deploy config will be used **only for the current deployment**.
 The settings in the dashboard will not be updated with the settings defined in
 code. Configuration defined in code will always override values from the
 dashboard.
@@ -56,7 +56,7 @@ In a `railway.json` file
 
 ## Config Source Location
 
-On the deployment details page, all the settings that a deployment went out with are shown. For settings that comes from a configuration file, there is a little file icon. Hovering over the icon will show exactly what part of the file the values originated from.
+On the deployment details page, all the settings that a deployment went out with are shown. For settings that come from a configuration file, there is a little file icon. Hovering over the icon will show exactly what part of the file the values originated from.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1666388941/docs/details-page-config-tooltip_jvy1qu.png"
@@ -207,7 +207,7 @@ In a `railway.json` file
 
 ### PR Environment Overrides
 
-Deploys for all pull requests can be configured using a special `pr` environment. This configuration is applied only to deploys that belong to an ephemeral environment. When resolving the settings for a PR deployment, the following priority order is used:
+Deployments for pull requests can be configured using a special `pr` environment. This configuration is applied only to deploys that belong to an ephemeral environment. When resolving the settings for a PR deployment, the following priority order is used:
 
 1. Environment with the name of the ephemeral environment
 2. Environment with the hardcoded name "pr"

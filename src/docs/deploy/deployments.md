@@ -111,7 +111,7 @@ width={1512} height={1254} quality={80} />
 
 ### Rollback
 
-Users can rollback to previous deploys if mistakes were made. A deployment
+Users can rollback to previous deployments if mistakes were made. A deployment
 rollback will revert to the previously successful deployment. Both the Docker
 image and custom variables are restored during the rollback process.
 

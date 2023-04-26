@@ -4,7 +4,7 @@ title: Exposing Your App
 
 Before your application can say hello, Railway needs to know the IP and port that your application is listening on, in order to expose it to the internet.
 
-The easiest way to get up and running is to have your application listen on `0.0.0.0:$PORT`, where `PORT` is a Railway-provided environment variable. 
+The easiest way to get up and running is to have your application listen on `0.0.0.0:$PORT`, where `PORT` is a Railway-provided environment variable.
 
 Alternatively, you can manually override the `PORT` environment variable by adding `PORT` to your projects variables page. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
 
@@ -53,7 +53,8 @@ src="https://res.cloudinary.com/railway/image/upload/v1679693511/wildcard_domain
 alt="Screenshot of Wildcard Domain"
 layout="responsive"
 width={1048} height={842} quality={80} />
-In order to use Wildcard Domains, you must add a two CNAME records, one for the wildcard domain, and one for the _acme-challenge. The _acme-challenge CNAME is required for Railway to issue the SSL Certificate for your domain.
+
+In order to use Wildcard Domains, you must add two CNAME records, one for the wildcard domain, and one for the _acme-challenge. The _acme-challenge CNAME is required for Railway to issue the SSL Certificate for your domain.
 
 ## Let's Encrypt SSL Certificates
 
@@ -72,13 +73,13 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1205} height={901} quality={80} />
 
-If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error.  
+If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error.
 
 ```
 ERR_TOO_MANY_REDIRECTS
 ```
 
-Also note that if proxying is enabled, you can NOT use a domain deeper than a first level subdomain without Cloudflare's Advanced Certificate Manager. For example, anything falling under \*.yourdomain.com can be proxied through Cloudflare without issue, however if you have a custom domain under \*.subdomain.yourdomain.com, you MUST disable Cloudflare Proxying and set the CNAME record to DNS Only (the grey cloud), unless you have Cloudflare's Advanced Certificate Manager. 
+Also note that if proxying is enabled, you can NOT use a domain deeper than a first level subdomain without Cloudflare's Advanced Certificate Manager. For example, anything falling under \*.yourdomain.com can be proxied through Cloudflare without issue, however if you have a custom domain under \*.subdomain.yourdomain.com, you MUST disable Cloudflare Proxying and set the CNAME record to DNS Only (the grey cloud), unless you have Cloudflare's Advanced Certificate Manager.
 
 ### Redirecting a Root Domain Workarounds
 

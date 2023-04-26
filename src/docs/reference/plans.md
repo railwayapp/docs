@@ -2,7 +2,7 @@
 title: Plans
 ---
 
-Railway has multiple plans that fit your need on the platform. Projects inherit the caps of the plan that the user has. Projects that are made within a team belong to the team and aren't tied to a Railway user.
+Railway has multiple plans that fit your needs on the platform. Projects inherit the caps of the plan that the user has. Projects that are made within a team belong to the team and aren't tied to a Railway user.
 
 ## Trial Plan
 

@@ -106,7 +106,7 @@ For now, the activity feed doesn't include the team member who performed the act
 
 ## CLI Instructions
 
-Upon Project creation, a button on the lower left opens a modal with instructions to set up projects locally. After setup, the button can by dismissed by selecting `Project setup is done`. [See our page on the CLI for more information.](/develop/cli/)
+Upon Project creation, a button on the lower left opens a modal with instructions to set up projects locally. After setup, the button can be dismissed by selecting `Project setup is done`. [See our page on the CLI for more information.](/develop/cli/)
 
 ## Project Visibility
 
