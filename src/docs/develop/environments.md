@@ -16,9 +16,9 @@ Deploys are also scoped to a specific Railway environment. When you create a [Gi
 
 ## Create an Environment
 
-You can create an environment under Settings > Environments. When you create an environment, Railway provisions the same services from the `production` environment.
+You can create an environment under Settings > Environments. When you create an environment, Railway will provision the same services in the new environment as the `production` environment.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1644621886/docs/Environments.gif" 
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644621886/docs/Environments.gif"
             alt="Screenshot of Environments Page"
             layout="responsive"
             width={800} height={434} quality={100} />
@@ -29,4 +29,4 @@ Running `railway up` with an environment selected from the CLI will create a dep
 
 ## Ephemeral Environments
 
-If you enable Pull Request [Deploys](/deploy/deployments), a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
+If you enable [Pull Request Deploys](/deploy/deployments), a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.

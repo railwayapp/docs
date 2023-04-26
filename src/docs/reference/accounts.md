@@ -58,7 +58,7 @@ width={1141} height={604} quality={80} />
 
 Every account has an editable referral link. Users can copy and share their personal referral link to earn credits.
 
-For every referral who incurs more than $10 worth of usage and pays their first bill, users recieve 5$ of credit.
+For every referral who incurs more than $10 worth of usage and pays their first bill, users receive 5$ of credit.
 
 Users can view their referral invite status on the [referrals page](https://railway.app/account/referrals).
 
@@ -66,7 +66,7 @@ Users can view their referral invite status on the [referrals page](https://rail
 
 Every Account gets $5 of free credit per month. No credit card required.
 
-Users on the Trial plan are limitedf to 500 hours of execution time per month. This restriction is lifted for users on the Developer plan.
+Users on the Trial plan are limited to 500 hours of execution time per month. This restriction is lifted for users on the Developer plan.
 
 Accounts are billed monthly. Resources used by deleted projects are still counted towards the total bill.
 

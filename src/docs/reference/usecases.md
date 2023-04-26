@@ -14,9 +14,9 @@ Railway is a deployment platform that helps developers deliver their software th
 
 We believe that most developer oriented products attempt to target one or more stages within the software development cycle. Railway provides solutions for developers for all of these stages, whereas some vendors focus on specific stages.
 
-Railway is a company staffed with people who know that developers would prefer to use tools that they are familiar with. We believe software should be take what you need, and leave what you don't. As a result, we are comfortable recommending additional vendors if we feel their needs might be acutely met by them. Our goal is for your unique need to be served, so you can focus on delivering for your customers.
+Railway is a company staffed with people who know that developers would prefer to use tools that they are familiar with. We believe software should be "take what you need, and leave what you don't." As a result, we are comfortable recommending additional vendors if we feel their needs might be acutely met by them. Our goal is for your unique need to be served, so you can focus on delivering for your customers.
 
-We think that companies should be as upfront as possible about their product and offering to help you come to a decision that is best for your team and users. With that said, let's talk about the number one use-case: delivering apps to users in a Production environment.
+We think that companies should be as upfront as possible about their product and offerings to help you come to a decision that is best for your team and users. With that said, let's talk about the number one use-case: delivering apps to users in a Production environment.
 
 ## Is Railway Production Ready?
 
@@ -77,4 +77,6 @@ The long answer is we have several fundamental platform changes incoming (multi-
 
 ## General Recommendations
 
-A document like this can only go so far, as a result, we have a standing invitation for any team who needs an extended scale use-case to reach out to us at our Discord or contacting us directly by emailing contact (at) railway (dot) app. We would be happy to answer any additional questions you may have.
+A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us
+directly by e-mailing [contact@railway.app](mailto:contact@railway.app), or via our [Discord](https://discord.gg/railway).
+We would be happy to answer any additional questions you may have.

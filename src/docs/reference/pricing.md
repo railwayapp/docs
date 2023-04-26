@@ -22,7 +22,7 @@ And our rates for usage are as follows:
 
 There is no minimum service cost; you aren't billed if your app uses no resources or crashes. Likewise, we don't bill for build time on the platform.
 
-Keep in mind, if your project has PR deploys, Railway deploys a mirror copy of your service(s) based off the environment deploys fork from. You are billed for the services that are spun while the ephemeral environment is active.
+Keep in mind, if your project has PR deploys enabled, Railway deploys a mirror copy of your service(s) based on the environment it forks from (`production` by default). You are billed for the services that are spun while the ephemeral environment is active.
 
 ## Billing Management
 

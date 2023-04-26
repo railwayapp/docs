@@ -79,7 +79,7 @@ Lets begin by cloning the repo you created on your machine.
 
 ### Install and Link the CLI
 
-The Railway CLI to connects your code to your infrastructure.
+The Railway CLI connects your code to your infrastructure.
 
 Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli), or [Scoop](develop/cli#install):
 
@@ -143,7 +143,7 @@ alt="Developing Locally"
 layout="intrinsic"
 width={800} height={480} quality={100} />
 
-Lets make a tiny change to our application to see if everything is working.
+Let's make a tiny change to our application to see if everything is working.
 Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of the `<h1>` JSX tag to the following string.
 
 ```javascript
@@ -190,7 +190,7 @@ Railway aims to be the simplest way to develop, deploy, and diagnose issues with
 3. Adding team members to your projects is as easy as sending them an invite link.
 4. Railway supports projects of any size, you can deploy additional services to the same project or deploy subdirectories of a monorepo.
 
-As your Project scales, Railway scales with you by supporting with multiple members per Project, Teams, and Autoscaling- leaving you to focus on what matters: your code.
+As your Project scales, Railway scales with you by supporting multiple members per Project, Teams, and Autoscaling- leaving you to focus on what matters: your code.
 
 Happy Building!
 
