@@ -56,7 +56,7 @@ builds and deployments.
 | `RAILWAY_HEALTHCHECK_TIMEOUT_SEC`    | The timeout length (in seconds) of healthchecks. Example: `300`                                                                                                                                      |
 | `RAILWAY_ENVIRONMENT`                | The railway environment for the deployment. Example: `production`                                                                                                                                    |
 | `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS` | How long the old deploy will overlap with the newest one being deployed. Example: `0`                                                                                                                |
-| `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service. Example: `Railway.dockerfile`                                                                                                                  |
+| `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service, the default value is `Dockerfile`. Example: `Railway.dockerfile`                                                                               |
 
 ## Reference Variables
 
