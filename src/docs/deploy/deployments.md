@@ -126,8 +126,6 @@ you will then be asked to confirm your rollback.
 
 ### Redeploy
 
-<PriorityBoardingBanner />
-
 A successful, failed, or crashed deployment can be re-deployed. This will create
 an new deployment with the exact same code and build/deploy configuration.
 
