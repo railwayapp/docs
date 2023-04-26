@@ -62,8 +62,8 @@ Users can use the following environment variables to configure Railway's behavio
 
 | Name                                 | Description                                                                                                            |
 |--------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS` | How long the old deploy will overlap with the newest one being deployed. Example: `0`                                  |
-| `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service, the default value is `Dockerfile`. Example: `Railway.dockerfile` |
+| `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS` | How long the old deploy will overlap with the newest one being deployed, its default value is `20`. Example: `0`       |
+| `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service, its default value is `Dockerfile`. Example: `Railway.dockerfile` |
 
 ## Reference Variables
 
