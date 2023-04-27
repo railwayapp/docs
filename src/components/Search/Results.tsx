@@ -1,25 +1,84 @@
 import { Link } from "@/components/Link";
 import { Search } from "@/types";
 import { Markup } from "interweave";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useCallback, useEffect, useState } from "react";
 import tw from "twin.macro";
+import tinykeys from "tinykeys";
 
 interface Props {
-  closeModal: () => void
+  closeModal: () => void;
   results: Search.Result;
 }
 
-const Results: React.FC<Props> = ({ closeModal, results }) => {
-  const withoutBaseUri = (slug: string) => {
-    const url = new URL(slug);
-    const { hash, pathname } = url;
-    return `${pathname}${hash}`;
-  };
+type SelectedResult = { idx: number; slug: string };
 
-  // @FIXME: Indexer is grabbing #__next from anchor hrefs. This should be
-  // fixed upstream, but no harm in just hacking it in place for now.
-  const cleanSlug = (slug: string) =>
-    withoutBaseUri(slug.replace("#__next", ""));
+const withoutBaseUri = (slug: string) => {
+  const url = new URL(slug);
+  const { hash, pathname } = url;
+  return `${pathname}${hash}`;
+};
+
+// @FIXME: Indexer is grabbing #__next from anchor hrefs. This should be
+// fixed upstream, but no harm in just hacking it in place for now.
+const cleanSlug = (slug: string) => withoutBaseUri(slug.replace("#__next", ""));
+
+const Results: React.FC<Props> = ({ closeModal, results }) => {
+  const router = useRouter();
+
+  // A result is selected when navigated to using arrow keys, or on mouse
+  // hover.
+  const [selectedResult, setSelectedResult] = useState<SelectedResult | null>(
+    null,
+  );
+
+  const resultsFlat: SelectedResult[] = Object.values(results)
+    .flat()
+    .map((r, idx) => ({ idx, slug: cleanSlug(r.slug) }));
+
+  const onArrowKeyDown = useCallback(() => {
+    if (selectedResult && selectedResult.idx + 1 >= resultsFlat.length) {
+      // End of results; nothing to go down from.
+      return;
+    }
+    setSelectedResult(prev => {
+      // On key down, go to the next item.
+      const next = prev ? resultsFlat[prev.idx + 1] : resultsFlat[0];
+      return { ...next };
+    });
+  }, [resultsFlat, selectedResult, setSelectedResult]);
+
+  const onArrowKeyUp = useCallback(() => {
+    setSelectedResult(prev => {
+      if (prev === null || prev.idx === 0) {
+        // Start of results. Going up from here is the search input, so we
+        // null out `selectedResult` to set the focus back to the input.
+        return null;
+      }
+      // On key up, go to the previous item.
+      const next = prev ? resultsFlat[prev.idx - 1] : resultsFlat[0];
+      return { ...next };
+    });
+  }, [resultsFlat, setSelectedResult]);
+
+  const onEnter = useCallback(() => {
+    if (selectedResult === null) {
+      return;
+    }
+    closeModal();
+    router.push(selectedResult.slug);
+  }, [selectedResult]);
+
+  useEffect(() => {
+    const unsubscribe = tinykeys(window, {
+      ArrowDown: () => onArrowKeyDown(),
+      ArrowUp: () => onArrowKeyUp(),
+      Enter: () => onEnter(),
+    });
+    return () => unsubscribe();
+  }, [onArrowKeyDown]);
+
+  console.log("selected", selectedResult);
 
   return (
     <div css={tw`p-2 m-2`}>
@@ -36,27 +95,54 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
             <h4 css={[tw`font-bold text-lg mb-2`]}>{chapter}</h4>
             <ul>
               {hits.map(h => {
+                const slug = cleanSlug(h.slug);
+                const isSelected = selectedResult?.slug === slug;
                 return (
-                  <li key={cleanSlug(h.slug)} css={tw`flex flex-col mb-2`}>
+                  <li
+                    key={slug}
+                    css={tw`flex flex-col mb-2`}
+                    onMouseEnter={() => {
+                      if (isSelected) {
+                        return;
+                      }
+                      const result = resultsFlat.find(r => r.slug === slug);
+                      if (!result) {
+                        return;
+                      }
+                      setSelectedResult(result);
+                    }}
+                  >
                     <Link
-                      href={cleanSlug(h.slug)}
-                      onClick={(e) => closeModal()}
-                      css={[tw`flex flex-col font-medium hover:text-pink-700`]}
+                      href={slug}
+                      onClick={closeModal}
+                      css={[
+                        tw`flex flex-col font-medium p-3 rounded rounded-lg border`,
+                        isSelected && tw`bg-pink-200`,
+                      ]}
                     >
-                      {h.hierarchies.join(" -> ")}
                       <span
                         css={[
-                          tw`leading-[1.4] text-gray-500 dark:text-gray-600`,
-                          tw`[&>.rendered span]:bg-yellow-200`,
-                          tw`[&>.rendered span]:p-1`,
-                          tw`[&>.rendered span]:text-black`,
-                          tw`[&>.rendered span]:dark:text-white`,
+                          tw`flex flex-col justify-center h-12`,
+                          tw`font-bold text-lg truncate text-ellipsis`,
                         ]}
                       >
-                        {h.text !== "" && (
-                          <Markup className="rendered" content={h.text} />
-                        )}
+                        {h.hierarchies.join(" -> ")}
                       </span>
+                      {h.text !== "" && (
+                        <span
+                          css={[
+                            tw`leading-[1.6] text-gray-500 dark:text-gray-600`,
+                            tw`[&>.rendered span]:bg-yellow-200`,
+                            tw`[&>.rendered span]:p-1`,
+                            tw`[&>.rendered span]:text-black`,
+                            tw`[&>.rendered span]:dark:text-white`,
+                            isSelected &&
+                              tw`text-black font-light dark:text-gray-700`,
+                          ]}
+                        >
+                          <Markup className="rendered" content={h.text} />
+                        </span>
+                      )}
                     </Link>
                   </li>
                 );
