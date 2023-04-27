@@ -8,7 +8,7 @@ layout="intrinsic"
 width={800} height={364} quality={80} />
 
 Use the [Railway CLI](/develop/cli) to kickoff a deploy within a service in a project from the
-command line. In a [connected project](/develop/cli#connect) run
+command line. In a [linked project](/develop/cli#link-to-a-project) run
 
 ```bash
 railway up
