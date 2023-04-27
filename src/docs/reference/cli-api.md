@@ -39,6 +39,33 @@ Options:
   -V, --version  Print version
 ```
 
+## Connect
+
+*Connect to a plugin's shell (`psql` for Postgres, `mongosh` for MongoDB, etc.)*
+
+```txt
+~ railway connect --help
+Connect to a plugin's shell (psql for Postgres, mongosh for MongoDB, etc.)
+
+Usage: railway connect [OPTIONS] [PLUGIN_NAME]
+
+Arguments:
+  [PLUGIN_NAME]  The name of the plugin to connect to
+
+Options:
+  -e, --environment <ENVIRONMENT>  Environment to pull variables from (defaults to linked environment)
+      --json                       Output in JSON format
+  -h, --help                       Print help
+  -V, --version                    Print version
+```
+
+This requires you to have the plugin's appropriate shell/client installed in your `$PATH`:
+
+* Postgres: `psql` (https://www.postgresql.org/docs/current/app-psql.html)
+* Redis: `redis-cli` (https://redis.io/docs/ui/cli/)
+* MongoDB: `mongosh` (https://www.mongodb.com/docs/mongodb-shell/)
+* MySQL: `mysql` (https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
+
 ## Delete
 
 *Interactively delete a plugin*
@@ -84,6 +111,23 @@ Options:
       --json     Output in JSON format
   -h, --help     Print help
   -V, --version  Print version```
+```
+
+## Down
+
+*Remove the most recent deployment*
+
+```txt
+~ railway down --help
+Remove the most recent deployment
+
+Usage: railway down [OPTIONS]
+
+Options:
+  -y, --yes      Skip confirmation dialog
+      --json     Output in JSON format
+  -h, --help     Print help
+  -V, --version  Print version
 ```
 
 ## Environment
@@ -152,7 +196,7 @@ Options:
 
 ## Init
 *Create a new Project from the CLI*
-  
+
 ```txt
 ~ railway init --help
 Create a new project
