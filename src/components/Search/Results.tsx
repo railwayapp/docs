@@ -68,7 +68,7 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
     }
     closeModal();
     router.push(selectedResult.slug);
-  }, [selectedResult]);
+  }, [closeModal, router, selectedResult]);
 
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
@@ -77,7 +77,7 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
       Enter: () => onEnter(),
     });
     return () => unsubscribe();
-  }, [onArrowKeyDown]);
+  }, [onArrowKeyDown, onArrowKeyUp, onEnter]);
 
   return (
     <div css={tw`p-2 m-2`}>
