@@ -56,7 +56,7 @@ It is common for teams who wish to have additional observability to use an addit
 
 ### Networking
 
-Railway doesn't meter bandwidth within Projects and the broader internet. As such, we have had projects handle unexpected traffic and features on major media publications. It is something we are very proud of. With that said, if you need to control where your traffic is allowed to come from such as setting up firewall rules, we recommend setting up Cloudflare to handle this aspect of your application.
+Railway doesn't have a hard bandwidth limit within Projects and the broader internet. We throttle outbound bandwidth when you exceed 100GB/month, but we happily lift that limit for legitimate customers. As such, we have had projects handle unexpected traffic and features on major media publications. It is something we are very proud of. With that said, if you need to control where your traffic is allowed to come from such as setting up firewall rules, we recommend setting up Cloudflare to handle this aspect of your application.
 
 We do have plans to include private networking, static IPs, and allowing people to set up firewall rules to control permitted traffic within their projects.
 
