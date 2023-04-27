@@ -3,8 +3,8 @@ import { Search } from "@/types";
 import { Markup } from "interweave";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
-import tw from "twin.macro";
 import tinykeys from "tinykeys";
+import tw from "twin.macro";
 
 interface Props {
   closeModal: () => void;
@@ -41,6 +41,7 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
       // End of results; nothing to go down from.
       return;
     }
+
     setSelectedResult(prev => {
       // On key down, go to the next item.
       const next = prev ? resultsFlat[prev.idx + 1] : resultsFlat[0];
@@ -51,8 +52,8 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
   const onArrowKeyUp = useCallback(() => {
     setSelectedResult(prev => {
       if (prev === null || prev.idx === 0) {
-        // Start of results. Going up from here is the search input, so we
-        // null out `selectedResult` to set the focus back to the input.
+        // Start of results. Going up from here is the search input, so it's
+        // a no-op.
         return null;
       }
       // On key up, go to the previous item.
@@ -77,8 +78,6 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
     });
     return () => unsubscribe();
   }, [onArrowKeyDown]);
-
-  console.log("selected", selectedResult);
 
   return (
     <div css={tw`p-2 m-2`}>
