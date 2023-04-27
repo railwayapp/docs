@@ -28,6 +28,6 @@ appropriate environment variables.
 
 The MySQL database service uses the [mysql:8](https://hub.docker.com/_/mysql) docker image.
 
-## Changing Variables
+## Changing System Variables
 
-At the moment it is not possible to change the variables for the MySQL database service. 
+We do not support changing System Variables for MySQL at the moment.
