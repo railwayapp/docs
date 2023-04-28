@@ -80,18 +80,16 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
   }, [onArrowKeyDown, onArrowKeyUp, onEnter]);
 
   return (
-    <div css={tw`p-2 m-2`}>
+    <div css={tw`border-t pt-4`}>
       {Object.entries(results).map(([chapter, hits]) => {
         return (
           <div
             key={chapter}
-            css={[
-              tw`flex flex-col`,
-              tw`rounded-lg p-3 mb-4`,
-              tw`border border-2 rounded-lg border-dashed`,
-            ]}
+            css={[tw`flex flex-col`, tw`rounded-lg pb-4 px-4`]}
           >
-            <h4 css={[tw`font-bold text-lg mb-2`]}>{chapter}</h4>
+            <h4 css={[tw`font-medium text-[16px] mb-3 text-gray-500`]}>
+              {chapter}
+            </h4>
             <ul>
               {hits.map(h => {
                 const slug = cleanSlug(h.slug);
@@ -115,28 +113,26 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
                       href={slug}
                       onClick={closeModal}
                       css={[
-                        tw`flex flex-col font-medium p-3 rounded rounded-lg border`,
-                        isSelected && tw`bg-pink-200`,
+                        tw`flex flex-col font-medium px-4 py-3 rounded rounded-lg bg-gray-100 transition ease-out`,
+                        isSelected && tw`bg-gray-200`,
                       ]}
                     >
-                      <span
+                      <div
                         css={[
-                          tw`flex flex-col justify-center h-12`,
-                          tw`font-bold text-lg truncate text-ellipsis`,
+                          tw`flex flex-col justify-center h-8`,
+                          tw`font-semibold text-[16px] truncate text-ellipsis`,
                         ]}
                       >
                         {h.hierarchies.join(" -> ")}
-                      </span>
+                      </div>
                       {h.text !== "" && (
                         <span
                           css={[
-                            tw`leading-[1.6] text-gray-500 dark:text-gray-600`,
+                            tw`leading-[1.6] text-gray-500 dark:text-gray-600 font-light mt-1`,
                             tw`[&>.rendered span]:bg-yellow-200`,
-                            tw`[&>.rendered span]:p-1`,
                             tw`[&>.rendered span]:text-black`,
                             tw`[&>.rendered span]:dark:text-white`,
-                            isSelected &&
-                              tw`text-black font-light dark:text-gray-700`,
+                            isSelected && tw`text-gray-800 dark:text-gray-700`,
                           ]}
                         >
                           <Markup className="rendered" content={h.text} />
