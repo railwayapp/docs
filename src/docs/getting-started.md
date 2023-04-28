@@ -152,7 +152,7 @@ Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of
 
 If you are running the dev server locally, you'll see the change. Feel free to change anything within the project as well! We can't stop you.
 
-Once you are done, save the file. In the next step, we will show you how easy it is to deploy your changes.
+Once you are done, save the file. If you're in a Git repository, you may also commit and push to your remote Git repository. In the next step, we will show you how easy it is to deploy your changes.
 
 ## Deploy
 
