@@ -6,6 +6,38 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { default as NextImage, ImageProps } from "next/legacy/image";
 import Link from "next/link";
+import { IconProps, Link as FeatherLinkIcon } from "react-feather";
+import styled from "styled-components";
+
+const StyledHeading = styled.h2`
+  display: flex;
+  align-items: center;
+`;
+
+const StyledLink = styled.a`
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover{
+    text-decoration: underline;
+  }
+  svg {
+    position: absolute;
+    left: -1.7rem;
+    top: 20%;
+    visibility: hidden;
+    transition: visibility; 
+  }
+    @media (max-width: 767px) {
+    & > svg {
+      display: none;
+    }
+  }
+  &:hover svg {
+    visibility: visible;
+  }
+`;
+
 
 const Image = (props: ImageProps) => (
   <a
@@ -18,8 +50,21 @@ const Image = (props: ImageProps) => (
   </a>
 );
 
-const components = {
+const Heading = (props: IconProps) => {
+  const { children, id } = props;
+  return (
+    <StyledHeading id={id} tw="flex items-center space-x-2">
+      <StyledLink href={`#${id}`}>
+        <FeatherLinkIcon size={20}/>
+        {children}
+      </StyledLink>
+    </StyledHeading>
+  );
+};
+
+const components: Record<string, React.ElementType> = {
   pre: CodeBlock,
+  h2: Heading,
   Image,
   Banner,
   Link,
