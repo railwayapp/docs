@@ -2,76 +2,114 @@
 title: Getting Started
 ---
 
-Railway is a deployment platform where you can provision infrastructure,
-develop with that infrastructure locally, and then deploy to the cloud.
+    ![Railway](./images/todo-app.png)
 
-In this guide we will deploy a simple To-Do App running [NextJS](https://nextjs.org/docs/getting-started) and [Prisma](https://www.prisma.io/docs/) using a template.
+In this getting started, you deploy a simple To-Do App running NextJS and Prisma using a template. 
+To do this, complete the following procedures:
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643740624/docs/todos-gif.gif"
-alt="Preview of What The Guide is Building"
-layout="intrinsic"
-width={800} height={378} quality={100} />
+1. Create a project from a template.
+2. Develop the project locally.
+3. Deploy to the cloud.
 
-We will get you up and running quickly by covering the following 3 steps:
+### Before you Start
 
-1. Creating a project from a template
-2. Developing the project locally
-3. Deploying to the cloud
+Railway deploys projects from GitHub to the cloud. So, to use Railway, you need a Railway Account and GitHub account. If you haven't created a GitHub account, do that first.
 
-You will need [Node](https://nodejs.org/en/download/) to run the project locally. And you will need either Node or [Homebrew](https://brew.sh/) on your machine to install the Railway CLI. We will use [Yarn](https://yarnpkg.com/) for our examples locally.
+To create a Railway account you can provide a username/password or link your GitHub account to log into Railway. If you haven't done it yet, go ahead and [create a Railway Account](#) now. When you have successfully created your account, the Railway dashboard is displayed:
 
-## Create a Project
+![Railway](./images/dashboard.png)
 
-First, to deploy the NextJS Prisma template, we will make a new [project](develop/projects).
+ The dashboard is your _mission control_. Your project's infrastructure, environments, and deployments are all controlled from the dashboard. 
 
-Railway offers a Command Palette that exposes all actions that one can do on the platform. We will use this menu to create our project.
 
-Press the Command + K key combination and type "New Project".
+## Create a project from a template
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643696774/docs/CleanShot_2022-02-01_at_01.15.37_2_p85zsa.gif"
-alt="Command K in Action"
-layout="intrinsic"
-width={800} height={440} quality={80} />
+Railway offers 50+ templates ranging from blogs to self-hosted apps. The To-Dos application you are creating is a self-hosted NextJS Prisma app.  To create this app from the Railway template, do this:
 
-Under the list of options in the menu, select "Deploy Template".
+1. If you haven't already, open the Railway Dashboard.
+2. Choose **New Project** button.
 
-### Deploy the Next JS Prisma Template
+   The system presents a display area:
 
-Railway offers 50+ templates ranging from blogs to self-hosted apps. Use the search bar at the top right and type `NextJS Prisma`.
+   ![Railway](./images/new-project.png)
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643761460/docs/findnextjs_kvgmuj.gif"
-alt="Deploy the Template"
-layout="intrinsic"
-width={800} height={546} quality={80} />
+3. Choose **NextJS Prisma** from the dropdown.
 
-Click the `NextJS Prisma` template to deploy it.
+    You'll see next to every template, Railway tells you the project language.
 
-Railway requires that you have a valid GitHub account linked to deploy a template. If there is no account associated with your Railway account, you will be prompted to link an account.
+   ![Railway](./images/dropdown.png)
 
-Let's go with the default settings in the Deploy menu and click the deploy button.
+4. Enter the details for your project's GitHub repository.
 
-When you click deploy, Railway will create a repo using the `NextJS Prisma` template as the source on your linked GitHub account and kick off an initial deploy after the project is created.
+    The details page has a lot of information. For example, Railway tells you the components created with this template. The GitHub service and a database. You can see that the [template source code is available in GitHub](https://github.com/railwayapp-templates) for you to review. Railway also asks you for details about the GitHub repository your app will live in.
 
-Once the project is created you will land on your project dashboard.
+   ![Railway](./images/project-details.png)
 
-This is your _mission control_. Your project's infrastructure, [environments](develop/environments), and [deployments](deploy/deployments) are all
-controlled from here.
+5. Press **Deploy**
 
-You should see a [Postgres plugin](plugins/postgresql) in the project dashboard, we use this to persist our To-Dos in the app.
+    Railway creates a repo in GitHub for you using the **NextJS Prisma** template as the source. It creates a Postgres instance with the repo to persist the application To-do list. Finally, Railway kicks off an initial deploy of your application.
 
-Congrats! After the initial deployment finalizes, your web server is nearly ready to go. All you now need to do is just to [Generate a Domain](deploy/exposing-your-app)
+4. Take a minute to review your deployed application in your dashboard.
 
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1654560212/docs/add-domain_prffyh.png"
-alt="Screenshot of adding Service Domain"
-layout="responsive"
-width={1396} height={628} quality={80} />
+    You can see that the Postgres plugin and the deployed `nextjs` app.
 
-After doing this, click on the deployment and navigate to your deployment to see the app live. In the next step, we will personalize your new web app.
+    ![Railway](./images/deployed-proj.png)
 
-## Developing Locally
 
-So far Railway spun up a Postgres instance and a web server providing all the needed variables on deploy. We will connect to that very same Postgres instance locally to help us develop our app.
+5. Click on the `nextjs` app to open the app details.
+
+    You can see the that the deployed application is already being served. 
+
+    ![Railway](./images/find-deploy.png)
+
+6. Open the application.
+
+    ![Railway](./images/todo-app.png)
+
+
+## Develop the project locally
+
+If you try to add a To-do to the app now, you will find you can't. You need to develop locally to get your app to work. The Railway dashboard provides some quick tips for doing this:
+
+![Railway](./images/local-set-up.png)
+
+
+So far Railway spun up a Postgres instance and a web server providing all the needed variables on deploy. TTo locate the GitHub source repository:
+
+1. From the dashboard, choose the deployed nextjs project.
+2. Click on Settings.
+3. Scroll to the Source Repo value.
+4. Click on the repo to open GitHub.
+5. Copy the 'git clone' command appropriate for your environment.
+6. Enter the command in your local shell.
+7. Change into your new repo.
+8. Install the Railway CLI.
+
+
+
+
+ IN THIS  connect to that very same Postgres instance locally to help us develop our app.
+
+1. Clone the Git repository for your template to your local environment.
+
+3. Link to your project
+
+    ```bash
+    $ railway link 16605f74-44c7-4f65-802d-c10d8911517b
+    A newer version of the Railway CLI is available, please update to: v3.3.1
+    🚨 Not logged in.
+    Run railway login
+    ```
+
+4. Correct this by logging in.
+
+    ```
+    railway login
+    Press Enter to open the browser (^C to quit)
+    🚅 Logging in... No dice? Try railway login --browserless
+    🚊 Logging in... 
+    🎉 Logged in as Moxiegirl (myemail@gmail.com)
+    ```
 
 Lets begin by cloning the repo you created on your machine.
 
@@ -107,10 +145,6 @@ Then, when you are in your project's directory, link your repo to the template p
 railway link
 ```
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643748194/docs/railwaylinkv2_ty9q8c.gif"
-alt="Linking the Project via CLI"
-layout="intrinsic"
-width={800} height={320} quality={80} />
 
 `railway link` makes the Railway CLI aware of project variables when you run development commands locally. Something we will explore in depth in the next section.
 
@@ -137,11 +171,6 @@ Start the development server with the environment variables sourced by Railway t
 ```bash
 railway run yarn dev
 ```
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643747993/docs/railwayrun_zgaqop.gif"
-alt="Developing Locally"
-layout="intrinsic"
-width={800} height={480} quality={100} />
 
 Let's make a tiny change to our application to see if everything is working.
 Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of the `<h1>` JSX tag to the following string.
@@ -173,11 +202,6 @@ environment. Click the returned link to see the build and deploy logs.
 For projects based off of a GitHub repo like a template, [auto deploys](deploy/deployments#deploy-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
 
 After your deployment completes, you can see your new deployment live at the deployment's URL. If you added To-Dos while developing locally, you should see them on your deployment live. In a proper project, you would enable multiple environments to isolate your production environment.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643749599/docs/updeployworking_qaysjx.gif"
-alt="App Deployed From Local to Production"
-layout="intrinsic"
-width={800} height={342} quality={100} />
 
 This is only the beginning, there are many features we haven't yet covered in this guide that we will touch on in the next step.
 
