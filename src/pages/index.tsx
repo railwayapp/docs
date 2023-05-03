@@ -26,7 +26,6 @@ const Home: NextPage = () => {
     <>
       <div tw="max-w-4xl z-10">
         <h1 tw="text-5xl md:text-6xl font-bold mb-12">Introduction</h1>
-        
         <div
           // I know this is the longest single line of css I've ever written
           css={[
@@ -35,11 +34,10 @@ const Home: NextPage = () => {
           ]}
         >
           <div tw="py-12 pl-12 z-10">
-            <div tw="text-3xl font-bold text-white mb-4">On-boarding Railway</div>
+            <div tw="text-3xl font-bold text-white mb-4">Quickstart Guide</div>
             <div tw="text-xl font-normal text-white dark:text-gray-600 mb-12 max-w-md">
-              <p>Railway is a deployment platform where you can provision infrastructure, develop your infrastructure locally, and then deploy it to the cloud. </p> 
-              <br></br>
-              Try your first deploy on Railway.
+              A short guide on making your first deploy on Railway in a couple
+              of minutes.
             </div>
             <ButtonLink
               href="/getting-started"
