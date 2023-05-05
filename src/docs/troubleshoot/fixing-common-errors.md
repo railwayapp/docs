@@ -63,7 +63,7 @@ at the port you specified. For more information, check out
 
 ## Some examples for a few frameworks / servers:
 
-#### Node/Express
+#### Node / Express
 
 ```javascript
 // Use PORT provided in environment or default to 3000
@@ -107,7 +107,7 @@ gunicorn main:app
 
 ### Python / Uvicorn
 
-uvicorn needs additional configuration flags to listen on `0.0.0.0` and `PORT`
+`uvicorn` needs additional configuration flags to listen on `0.0.0.0` and `PORT`
 
 ```bash
 uvicorn main:app --host 0.0.0.0 --port $PORT
