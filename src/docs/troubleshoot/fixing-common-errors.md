@@ -27,6 +27,8 @@ users commonly encounter.
 
 ## Application Error: This application failed to respond
 
+https requets will fail with status code 503 Bad Gateway
+
 After deploying your application, you encounter this screen when accessing
 your application's domain:
 
