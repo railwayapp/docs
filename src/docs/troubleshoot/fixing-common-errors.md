@@ -61,21 +61,80 @@ at the port you specified. For more information, check out
 **This approach is not recommended**.
 </Banner>
 
-#### Node/Express
+## Some examples for a few frameworks / servers:
 
-Make your application listen on `0.0.0.0` and `PORT`:
+#### Node/Express
 
 ```javascript
 // Use PORT provided in environment or default to 3000
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 // Listen on `port` and 0.0.0.0
-app.listen(port, '0.0.0.0', function () {
+app.listen(port, "0.0.0.0", function () {
   // ...
 });
 ```
 
-#### Python/Gunicorn
+#### Node / Nest
+
+```javascript
+// Use PORT provided in environment or default to 3000
+const port = process.env.PORT || 3000;
+
+// Listen on `port` and 0.0.0.0
+async function bootstrap() {
+  // ...
+  await app.listen(port, "0.0.0.0");
+}
+```
+
+### Node / Next
+
+next needs an edditional flag to listen on `port`
+
+```bash
+next start --port ${PORT-3000}
+```
+
+#### Python / Gunicorn
 
 `gunicorn` listens on `0.0.0.0` and the `PORT` environment variable by default.
 There is no additional configuration necessary.
+
+```bash
+gunicorn main:app
+```
+
+### Python / Uvicorn
+
+uvicorn needs additional configuration flags to listen on `0.0.0.0` and `PORT`
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
+
+### Go / net/http
+
+This example is for the stdlib net/http but similar methods can be used with other frameworks
+
+```golang
+func main() {
+  // ...
+
+  // Use PORT provided in environment or default to 3000
+  var port = envPortOr("3000")
+
+  log.Fatal(http.ListenAndServe(port, handler))
+}
+
+// returns environment PORT or port parameter, both will be prfixed with ":"
+func envPortOr(port string) string {
+  // check if PORT exists
+  if envPort := os.Getenv("PORT"); envPort != "" {
+    // return found environment PORT variable
+    return ":" + envPort
+  }
+  // environment PORT does not exit, return passed in port variable
+  return ":" + port
+}
+```
