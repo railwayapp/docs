@@ -48,67 +48,64 @@ const StyledHeadingH2 = styled.h2`
 `;
 
 const Image = (props: ImageProps) => (
-    <a
-        tw="block xl:-mx-8"
-        href={props.src as string}
-        target="_blank"
-        rel="noopener"
-    >
-        <NextImage {...props} />
-    </a>
+  <a
+    tw="block xl:-mx-8"
+    href={props.src as string}
+    target="_blank"
+    rel="noopener"
+  >
+    <NextImage {...props} />
+  </a>
 );
 
-
 const components: Record<string, React.ElementType> = {
-    pre: CodeBlock,
-    Image,
-    Banner,
-    Link,
-    PriorityBoardingBanner,
-    h2: ({id,children}) => (
-        <StyledHeadingH2 id={id}>
-            <StyledLinkIcon href={`#${id}`}>
-                <FeatherLinkIcon className="icon" size={20} />
-            </StyledLinkIcon>
-            <StyledLinkHeading href={`#${id}`}>
-                {children[1]}
-            </StyledLinkHeading>
-        </StyledHeadingH2>
-    ),
+  pre: CodeBlock,
+  Image,
+  Banner,
+  Link,
+  PriorityBoardingBanner,
+  h2: ({ id, children }) => (
+    <StyledHeadingH2 id={id}>
+      <StyledLinkIcon href={`#${id}`}>
+        <FeatherLinkIcon className="icon" size={20} />
+      </StyledLinkIcon>
+      <StyledLinkHeading href={`#${id}`}>{children[1]}</StyledLinkHeading>
+    </StyledHeadingH2>
+  ),
 };
 
 export default function PostPage({ page }: { page: Page }) {
-    const MDXContent = useMDXComponent(page.body.code);
+  const MDXContent = useMDXComponent(page.body.code);
 
-    return (
-        <Layout
-            frontMatter={{
-                title: page.title,
-            }}
-        >
-            <MDXContent components={components} />
-        </Layout>
-    );
+  return (
+    <Layout
+      frontMatter={{
+        title: page.title,
+      }}
+    >
+      <MDXContent components={components} />
+    </Layout>
+  );
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const page = allPages.find(
-        page =>
-            page._raw.flattenedPath ===
-            (params?.slug as string[] | undefined)?.join("/"),
-    );
+  const page = allPages.find(
+    (page) =>
+      page._raw.flattenedPath ===
+      (params?.slug as string[] | undefined)?.join("/")
+  );
 
-    return {
-        props: {
-            page,
-        },
-    };
+  return {
+    props: {
+      page,
+    },
+  };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = allPages.map(page => page.url);
-    return {
-        paths,
-        fallback: false,
-    };
+  const paths = allPages.map((page) => page.url);
+  return {
+    paths,
+    fallback: false,
+  };
 };
