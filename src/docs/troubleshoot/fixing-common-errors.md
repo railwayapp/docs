@@ -92,7 +92,7 @@ async function bootstrap() {
 
 ### Node / Next
 
-next needs an edditional flag to listen on `port`
+next needs an additional flag to listen on `port`
 
 ```bash
 next start --port ${PORT-3000}
