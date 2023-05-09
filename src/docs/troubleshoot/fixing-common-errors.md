@@ -129,7 +129,7 @@ func main() {
   log.Fatal(http.ListenAndServe(port, handler))
 }
 
-// returns environment PORT or port parameter, both will be prfixed with ":"
+// returns environment PORT or port parameter, both will be prefixed with ":"
 func envPortOr(port string) string {
   // check if PORT exists
   if envPort := os.Getenv("PORT"); envPort != "" {
