@@ -46,7 +46,8 @@ builds and deployments.
 
 | Name                              | Description                                                                                                                                                                                          |
 |-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `RAILWAY_STATIC_URL`              | The public domain, of the form `example.up.railway.app`                                                                                                                                              |
+| `RAILWAY_STATIC_URL`              | The public domain, of the form `example.up.railway.app` 
+| `RAILWAY_{serviceName}_STATIC_URL`              | The public domain of a specific service within a project, of the form `example.up.railway.app`                                                                                                                                              |
 | `RAILWAY_GIT_COMMIT_SHA`          | The git [SHA](https://docs.github.com/en/github/getting-started-with-github/github-glossary#commit) of the commit that triggered the deployment. Example: `d0beb8f5c55b36df7d674d55965a23b8d54ad69b` |
 | `RAILWAY_GIT_AUTHOR`              | The user of the commit that triggered the deployment. Example: `gschier`                                                                                                                             |
 | `RAILWAY_GIT_BRANCH`              | The branch that triggered the deployment. Example: `main`                                                                                                                                            |
@@ -128,3 +129,7 @@ select any of your Heroku apps and the config variables will be added to the cur
 alt="Screenshot of connect Heroku account modal"
 layout="responsive"
 width={521} height={404} quality={100} />
+
+## Service Discovery
+
+On the Railway platform, services don't yet communicate via a Private Network. The team is working on: [Private Networking](https://feedback.railway.app/feature-requests/p/internal-networking). In the short term, you can reference other services via their public URL via a variable. You can use `RAILWAY_{serviceName}_STATIC_URL` to get the public URL of a service. For example, if you have a service named `backend`, you can reference it via `RAILWAY_BACKEND_STATIC_URL` to get the public domain of the service.
