@@ -35,7 +35,7 @@ alt="Screenshot of application failed to respond error"
 width={729} height={675}
 quality={80} />
 
-This error occurs when Railway is unable to connect to your application.
+This error occurs when Railway is unable to connect to your application, making your request fail with status code 503 (Bad Gateway).
 
 Railway needs to know how to communicate with your application. When you
 deploy and expose a web application on Railway, we expect your web server
@@ -61,21 +61,81 @@ at the port you specified. For more information, check out
 **This approach is not recommended**.
 </Banner>
 
-#### Node/Express
+Below are some solution examples for common languages and frameworks.
 
-Make your application listen on `0.0.0.0` and `PORT`:
+#### Node / Express
 
 ```javascript
 // Use PORT provided in environment or default to 3000
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 // Listen on `port` and 0.0.0.0
-app.listen(port, '0.0.0.0', function () {
+app.listen(port, "0.0.0.0", function () {
   // ...
 });
 ```
 
-#### Python/Gunicorn
+#### Node / Nest
+
+```javascript
+// Use `PORT` provided in environment or default to 3000
+const port = process.env.PORT || 3000;
+
+// Listen on `port` and 0.0.0.0
+async function bootstrap() {
+  // ...
+  await app.listen(port, "0.0.0.0");
+}
+```
+
+#### Node / Next
+
+Next needs an additional flag to listen on `PORT`:
+
+```bash
+next start --port ${PORT-3000}
+```
+
+#### Python / Gunicorn
 
 `gunicorn` listens on `0.0.0.0` and the `PORT` environment variable by default.
 There is no additional configuration necessary.
+
+```bash
+gunicorn main:app
+```
+
+#### Python / Uvicorn
+
+`uvicorn` needs additional configuration flags to listen on `0.0.0.0` and `PORT`:
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
+
+#### Go / `net/http`
+
+This example is for `net/http` in the Go standard library, but you can also apply this to other frameworks.
+
+```go
+func main() {
+  // ...
+  // Use `PORT` provided in environment or default to 3000
+  var port = envPortOr("3000")
+
+  log.Fatal(http.ListenAndServe(port, handler))
+  // ...
+}
+
+// Returns PORT from environment if found, defaults to
+// value in `port` parameter otherwise. The returned port
+// is prefixed with a `:`, e.g. `":3000"`.
+func envPortOr(port string) string {
+  // If `PORT` variable in environment exists, return it
+  if envPort := os.Getenv("PORT"); envPort != "" {
+    return ":" + envPort
+  }
+  // Otherwise, return the value of `port` variable from function argument
+  return ":" + port
+}
+```
