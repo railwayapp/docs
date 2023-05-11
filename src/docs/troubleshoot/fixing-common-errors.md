@@ -27,8 +27,6 @@ users commonly encounter.
 
 ## Application Error: This application failed to respond
 
-The HTTPS request will fail with status code 503 Bad Gateway
-
 After deploying your application, you encounter this screen when accessing
 your application's domain:
 
@@ -37,7 +35,7 @@ alt="Screenshot of application failed to respond error"
 width={729} height={675}
 quality={80} />
 
-This error occurs when Railway is unable to connect to your application.
+This error occurs when Railway is unable to connect to your application, making your request fail with status code 503 (Bad Gateway).
 
 Railway needs to know how to communicate with your application. When you
 deploy and expose a web application on Railway, we expect your web server
@@ -63,7 +61,7 @@ at the port you specified. For more information, check out
 **This approach is not recommended**.
 </Banner>
 
-## Some examples for a few frameworks / servers:
+Below are some solution examples for common languages and frameworks.
 
 #### Node / Express
 
@@ -80,7 +78,7 @@ app.listen(port, "0.0.0.0", function () {
 #### Node / Nest
 
 ```javascript
-// Use PORT provided in environment or default to 3000
+// Use `PORT` provided in environment or default to 3000
 const port = process.env.PORT || 3000;
 
 // Listen on `port` and 0.0.0.0
@@ -90,9 +88,9 @@ async function bootstrap() {
 }
 ```
 
-### Node / Next
+#### Node / Next
 
-next needs an additional flag to listen on `port`
+Next needs an additional flag to listen on `PORT`:
 
 ```bash
 next start --port ${PORT-3000}
@@ -107,36 +105,37 @@ There is no additional configuration necessary.
 gunicorn main:app
 ```
 
-### Python / Uvicorn
+#### Python / Uvicorn
 
-`uvicorn` needs additional configuration flags to listen on `0.0.0.0` and `PORT`
+`uvicorn` needs additional configuration flags to listen on `0.0.0.0` and `PORT`:
 
 ```bash
 uvicorn main:app --host 0.0.0.0 --port $PORT
 ```
 
-### Go / net/http
+#### Go / `net/http`
 
-This example is for the stdlib net/http but similar methods can be used with other frameworks
+This example is for `net/http` in the Go standard library, but you can also apply this to other frameworks.
 
-```golang
+```go
 func main() {
   // ...
-
-  // Use PORT provided in environment or default to 3000
+  // Use `PORT` provided in environment or default to 3000
   var port = envPortOr("3000")
 
   log.Fatal(http.ListenAndServe(port, handler))
+  // ...
 }
 
-// returns environment PORT or port parameter, both will be prefixed with ":"
+// Returns PORT from environment if found, defaults to
+// value in `port` parameter otherwise. The returned port
+// is prefixed with a `:`, e.g. `":3000"`.
 func envPortOr(port string) string {
-  // check if PORT exists
+  // If `PORT` variable in environment exists, return it
   if envPort := os.Getenv("PORT"); envPort != "" {
-    // return found environment PORT variable
     return ":" + envPort
   }
-  // environment PORT does not exit, return passed in port variable
+  // Otherwise, return the value of `port` variable from function argument
   return ":" + port
 }
 ```
