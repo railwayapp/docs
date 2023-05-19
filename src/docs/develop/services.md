@@ -45,7 +45,7 @@ This will create multiple instances of your service and distribute traffic betwe
 
 At the moment, Railway will round-robin requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services. **Note:** Railway does not support sticky sessions nor report the usage of the replicas within the metrics view for now.
 
-### I Can't See My GitHub Repo?
+## I Can't See My GitHub Repo?
 
 You might need to configure the Railway app on your connected GitHub account. Please make sure that you have the requisite permissions for Railway's GitHub app. [You can configure the app by clicking this link.](https://github.com/apps/railway-app/installations/new)
 
