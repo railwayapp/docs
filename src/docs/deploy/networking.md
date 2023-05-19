@@ -9,7 +9,7 @@ Private networking is not yet available on Railway. The feature is [currently un
 Refer to [Horizontal Scaling with Replicas](/develop/services#horizontal-scaling-with-replicas) for more information.
 
 ## Cloudflare Load Balancer
-Cloudflare offers an LB proxy that can be used to load balance between multiple Railway services. This is a great way to achieve horizontal scaling.
+Cloudflare offers an LB proxy that can be used to load balance between multiple Railway services. This is another great way to achieve horizontal scaling.
 
 In order to set this up, there are a few prerequisites:
 1. You must have a Cloudflare account
