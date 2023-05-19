@@ -2,7 +2,11 @@
 title: Networking
 ---
 
-> Private Networking and Horizontal Scaling will be available in the future, in the meantime, there are a few ways to achieve this.
+## Private Networking
+Private networking is not yet available on Railway. The feature is [currently under development](https://feedback.railway.app/feature-requests/p/internal-networking).
+
+## Horizontal Scaling
+Refer to [Horizontal Scaling with Replicas](/develop/services#horizontal-scaling-with-replicas) for more information.
 
 ## Cloudflare Load Balancer
 Cloudflare offers an LB proxy that can be used to load balance between multiple Railway services. This is a great way to achieve horizontal scaling.
