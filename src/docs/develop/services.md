@@ -32,18 +32,20 @@ Application services are services which tie to a GitHub repo as the source of de
 
 You can deploy the same GitHub repo within a project even if it's already deployed. This is useful if you have a monorepo with multiple expected services. You can change the root directory that Railway hosts from within the service settings page.
 
-## Replicas and Horizontal Scaling
+## Horizontal Scaling with Replicas
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1684534939/docs/Export-replica_lrtrvs.png"
 alt="Screenshot of replica setting"
 layout="responsive"
 width={800} height={317} quality={100} />
 
-By default Railway will scale up to the the specified vCPU and Memory limits of your plan. You can scale horizontally by increasing the number of replicas for a service. Within the service settings view, under "Deploy", you can change the number of replicas per deploy within your service.
+By default Railway will scale your service up to the the specified vCPU and Memory limits of your plan. You can scale horizontally by increasing the number of replicas for a service. 
 
-This will create multiple instances of your service and distribute traffic between them.
+To change the number of replicas per deploy within your service, go to the service settings view and look for the "Replicas" field in the "Deploy" section. This will create multiple instances of your service and distribute traffic between them.
 
-At the moment, Railway will round-robin requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services. **Note:** Railway does not support sticky sessions nor report the usage of the replicas within the metrics view for now.
+At the moment, Railway will round-robin requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services. 
+
+**Note:** For now Railway does not support sticky sessions nor report the usage of the replicas within the metrics view.
 
 ## I Can't See My GitHub Repo?
 
