@@ -28,11 +28,18 @@ RAILWAY_DOCKERFILE_PATH = Dockerfile.origin
 If you need to use the environment variables that Railway injects at build time,
 you must specify them in the Dockerfile with
 
-```
+```dockerfile
 ARG EnvironmentVariable
 ```
 
-Be sure to declare your environment variables at the start of the `Dockerfile`.
+Be sure to declare your environment variables in the stage they are required in.
+
+```dockerfile
+FROM node
+
+ARG RAILWAY_ENVIRONMENT
+ENV RAILWAY_ENVIRONMENT=$RAILWAY_ENVIRONMENT
+```
 
 ### Docker Compose
 

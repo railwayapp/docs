@@ -56,6 +56,7 @@ builds and deployments.
 | `RAILWAY_GIT_COMMIT_MESSAGE`      | The message of the commit that triggered the deployment. Example: `Fixed a few bugs`                                                                                                                 |
 | `RAILWAY_HEALTHCHECK_TIMEOUT_SEC` | The timeout length (in seconds) of healthchecks. Example: `300`                                                                                                                                      |
 | `RAILWAY_ENVIRONMENT`             | The railway environment for the deployment. Example: `production`                                                                                                                                    |
+| `RAILWAY_REPLICA_ID`             | The railway replica ID for the deployment. Example: `2`                                                                                                                                    |
 
 ## User-Provided Configuration Variables
 
