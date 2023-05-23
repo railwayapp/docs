@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.env
+
 # dependencies
 /node_modules
 /.pnp
@@ -37,5 +39,6 @@ yarn-error.log*
 .blog_index_data_previews
 
 # dynamically generated files
-public/sitemap.xml
+public/sitemap*.xml
 public/robots.txt
+.contentlayer

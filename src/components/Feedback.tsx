@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import { ThumbsUp, ThumbsDown } from "react-feather";
-import { Banner } from "./Banner";
+import React, { FormEvent, useState } from "react";
+import { ThumbsDown, ThumbsUp } from "react-feather";
 import "twin.macro";
+import { Banner } from "./Banner";
 
 export const Feedback: React.FC<{ topic: string }> = ({ topic }) => {
   const [helpful, setHelpful] = useState(true);
   const [success, setSuccess] = useState(false);
 
-  const sendFeedback = async event => {
+  const sendFeedback = async (event: React.MouseEvent | FormEvent) => {
     event.preventDefault();
-
-    const feedback = event.target.feedback?.value ?? "";
+    const feedback =
+      event.target instanceof HTMLFormElement
+        ? event.target?.feedback?.value ?? ""
+        : "";
 
     await fetch("/api/feedback", {
       body: JSON.stringify({
@@ -35,18 +37,18 @@ export const Feedback: React.FC<{ topic: string }> = ({ topic }) => {
       {!success && (
         <>
           {helpful && (
-            <div tw="flex flex-row align-items[center] mt-32">
+            <div tw="flex flex-row [align-items:center] mt-32">
               <div tw="font-semibold text-lg mr-4">Was this page helpful?</div>
               <button
                 onClick={e => sendFeedback(e)}
-                tw="mr-2 flex align-items[center] border border-blue-200 rounded-md px-4 py-2 hover:bg-blue-100"
+                tw="mr-2 flex [align-items:center] border border-blue-200 rounded-md px-4 py-2 hover:bg-blue-100"
               >
                 <ThumbsUp tw="mr-2 text-blue-700" />
                 <div tw="font-semibold text-blue-900">Yes</div>
               </button>
               <button
                 onClick={e => setHelpful(false)}
-                tw="flex align-items[center] border border-red-200 rounded-md px-4 py-2 hover:background-color[#FBEAEA]"
+                tw="flex [align-items:center] border border-red-200 rounded-md px-4 py-2 hover:[background-color:#FBEAEA]"
               >
                 <ThumbsDown tw="mr-2 text-red-500" />
                 <div tw="font-semibold text-red-700">No</div>

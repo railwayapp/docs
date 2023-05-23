@@ -1,0 +1,33 @@
+{
+  "index_uid": "docs_railway_app_production",
+  "stop_urls": [
+    "https://docs.railway.app/getting-started"
+  ],
+  "sitemap_urls": [
+    "https://docs.railway.app/sitemap.xml"
+  ],
+  "js_render": false,
+  "scrape_start_urls": false,
+  "selectors": {
+    "lvl0": {
+      "selector": ".sidebar .current-section",
+      "global": true,
+      "default": "Railway Documentation"
+    },
+    "lvl1": ".docs-content h1",
+    "lvl2": ".docs-content h2",
+    "lvl3": ".docs-content h3",
+    "lvl4": ".docs-content h4",
+    "text": ".docs-content p, .docs-content li, .docs-content a"
+  },
+  "strip_chars": " .,;:#",
+  "custom_settings": {
+    "synonyms": {
+      "postgres": ["postgresql"],
+      "postgresql": ["postgres"],
+      "api": ["graphql", "gql"],
+      "graphql": ["gql", "api"],
+      "gql": ["graphql", "api"]
+    }
+  }
+}

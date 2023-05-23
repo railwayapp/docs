@@ -1,0 +1,24 @@
+name: Build Search Index
+
+on:
+  workflow_dispatch:
+    # Manually hit button. Ideally this should be triggered automatically,
+    # after a build/deploy step, but it's not worth it to make a custom build
+    # right now.
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Scrape and index docs
+        env:
+          HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          API_KEY: ${{ secrets.MEILISEARCH_WRITE_API_KEY }}
+          CONFIG_FILE_PATH: ${{ github.workspace }}/meilisearch-docs-scraper.config.json
+        run: |
+          docker run -t --rm \
+            -e MEILISEARCH_HOST_URL=$HOST_URL \
+            -e MEILISEARCH_API_KEY=$API_KEY \
+            -v $CONFIG_FILE_PATH:/docs-scraper/config.json \
+            getmeili/docs-scraper:v0.12.8 pipenv run ./docs_scraper config.json

@@ -1,5 +1,5 @@
-import tw from "twin.macro";
 import React, { useEffect, useState } from "react";
+import tw, { TwStyle } from "twin.macro";
 import { Link } from "./Link";
 
 export interface Props {
@@ -13,7 +13,7 @@ interface IHeader {
   subHeaders: IHeader[];
 }
 
-const nodeNameToLevel = { H1: 1, H2: 2, H3: 3, H4: 4 };
+const nodeNameToLevel: Record<string, number> = { H1: 1, H2: 2, H3: 3, H4: 4 };
 
 const nodeToHeader = (node: HTMLHeadingElement): IHeader => ({
   level: nodeNameToLevel[node.nodeName],
@@ -81,7 +81,7 @@ export const PageNav: React.FC<Props> = ({ title }) => {
   );
 };
 
-const nestingTw = {
+const nestingTw: Record<number, TwStyle> = {
   0: tw`ml-0`,
   1: tw`ml-6`,
   2: tw`ml-10`,

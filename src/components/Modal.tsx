@@ -6,7 +6,7 @@ import {
   useOverlay,
   usePreventScroll,
 } from "@react-aria/overlays";
-import React, { useRef } from "react";
+import React, { PropsWithChildren, useRef } from "react";
 import { VisuallyHidden } from "react-aria";
 import tw from "twin.macro";
 
@@ -16,7 +16,12 @@ export interface Props {
   onClose: () => void;
 }
 
-const ModalDialog: React.FC<Props> = ({ title, isOpen, onClose, children }) => {
+const ModalDialog: React.FC<PropsWithChildren<Props>> = ({
+  title,
+  isOpen,
+  onClose,
+  children,
+}) => {
   // Handle interacting outside the dialog and pressing
   // the Escape key to close the modal.
   const ref = useRef<HTMLDivElement | null>(null);
@@ -42,6 +47,7 @@ const ModalDialog: React.FC<Props> = ({ title, isOpen, onClose, children }) => {
       css={[
         tw`fixed top-0 right-0 bottom-0 left-0 select-none z-50`,
         tw`bg-black bg-opacity-50`,
+        tw`overflow-scroll`,
       ]}
     >
       <FocusScope contain restoreFocus autoFocus>
@@ -65,7 +71,7 @@ const ModalDialog: React.FC<Props> = ({ title, isOpen, onClose, children }) => {
   );
 };
 
-export const Modal: React.FC<Props> = props => {
+export const Modal: React.FC<PropsWithChildren<Props>> = props => {
   if (!props.isOpen) {
     return null;
   }

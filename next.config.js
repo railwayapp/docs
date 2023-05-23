@@ -1,44 +1,25 @@
-const withPlugins = require("next-compose-plugins");
-const withMdxEnhanced = require("next-mdx-enhanced");
+const { withContentlayer } = require("next-contentlayer");
 
-module.exports = withPlugins([
-  withMdxEnhanced({
-    layoutPath: "src/mdxLayouts",
-    defaultLayout: true,
-    fileExtensions: ["mdx", "md"],
-    remarkPlugins: [
-      require("remark-autolink-headings"),
-      require("remark-slug"),
+/** @type {import('next').NextConfig} */
+const nextConfig = withContentlayer({
+  reactStrictMode: true,
+  images: {
+    domains: [
+      "user-images.githubusercontent.com",
+      "railway.app",
+      "res.cloudinary.com",
+      "devicons.railway.app",
     ],
-    rehypePlugins: [],
-    extendFrontMatter: {
-      process: (mdxContent, frontMatter) => {
-        return {
-          id: makeIdFromPath(frontMatter.__resourcePath),
-          wordCount: mdxContent.split(/\s+/g).length,
-        };
+  },
+  async redirects() {
+    return [
+      {
+        source: "/reference/s",
+        destination: "/reference/templates",
+        permanent: true,
       },
-    },
-  })({
-    images: {
-      domains: [
-        "user-images.githubusercontent.com",
-        "railway.app",
-        "res.cloudinary.com",
-      ],
-    },
-    async redirects() {
-      return [
-        {
-          source: "/reference/starters",
-          destination: "/reference/templates",
-          permanent: true,
-        },
-      ];
-    },
-  }),
-]);
+    ];
+  },
+});
 
-function makeIdFromPath(resourcePath) {
-  return resourcePath.replace(".mdx", "").replace("/index", "");
-}
+module.exports = nextConfig;
