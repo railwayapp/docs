@@ -1,14 +1,14 @@
-# Railway Documentation 📚
+# 📚 Railway Documentation
 
 Visit [docs.railway.app](https://docs.railway.app)
 
 ![og](https://railway.app/og.png)
 
-## About 💡
+## 💡 About
 
 This is the place where all the documentation about Railway is hosted. Contributions are welcome! Change the markdown, make a pull request, and we'll merge it! Deploys will happen automagically cause the docs are hosted on Railway.
 
-## Contributing 🧑‍🔬
+## 🧑‍🔬 Contributing
 
 This is a [NextJS](https://nextjs.org) project.
 
