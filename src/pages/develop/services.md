@@ -12,7 +12,7 @@ A railway service is a deployment target for your application. There are two typ
 - Persistent database services
 - Ephemeral deployment services
 
-Deployment services can be connected to a GitHub repo and automatically deployed on each commit. A templates is a pre-configured group of services. A template can be used to start a project or to expand an existing project.
+Deployment services can be connected to a GitHub repo and automatically deployed on each commit. A template is a pre-configured group of services. A template can be used to start a project or to expand an existing project.
 
 Each service keeps a log of deployment attempts, [variables](/develop/variables), and [metrics](/diagnose/metrics). Source references, such as a GitHub repository URI, and relevant start commands are also saved. Clicking a service from the project canvas reveals the service view.
 
