@@ -1,37 +1,10 @@
-import React from "react";
-import { Link } from "../components/Link";
-import { FrontMatter } from "../types";
-import { MDXProvider } from "@mdx-js/react";
-import { DocsLayout } from "../layouts/DocsLayout";
-import { CodeBlock } from "../components/CodeBlock";
-import NextImage from "next/image";
+import React, { PropsWithChildren } from "react";
 import "twin.macro";
-import {
-  Banner,
-  PriorityBoardingBanner,
-  PublicAPIBanner,
-} from "../components/Banner";
+import { DocsLayout } from "../layouts/DocsLayout";
+import { FrontMatter } from "../types";
 
-const Image = props => (
-  <a tw="block xl:-mx-8" href={props.src} target="_blank" rel="noopener">
-    <NextImage {...props} />
-  </a>
-);
-
-const components = {
-  a: Link,
-  pre: CodeBlock,
-  Image,
-  Banner,
-  Link,
-  PriorityBoardingBanner,
-  PublicAPIBanner,
-};
-
-const Layout: React.FC<{ frontMatter: FrontMatter }> = props => (
-  <MDXProvider components={components}>
-    <DocsLayout {...props}>{props.children}</DocsLayout>
-  </MDXProvider>
-);
+const Layout: React.FC<
+  PropsWithChildren<{ frontMatter: FrontMatter }>
+> = props => <DocsLayout {...props}>{props.children}</DocsLayout>;
 
 export default Layout;

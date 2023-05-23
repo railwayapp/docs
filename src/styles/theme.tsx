@@ -3,7 +3,12 @@ import {
   useTheme as useNextTheme,
 } from "next-themes";
 import Head from "next/head";
-import React, { createContext, useContext, useMemo } from "react";
+import React, {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useMemo,
+} from "react";
 import { transformThemeToCustomProperties } from "theme-custom-properties";
 import { GlobalStyles as TwinGlobalStyles } from "twin.macro";
 import { ColorMode, colorThemes, defaultColorMode } from "./colors";
@@ -23,7 +28,9 @@ const ThemeContext = createContext<ThemeState>({} as ThemeState);
 
 export const useTheme = () => useContext(ThemeContext);
 
-export const WrappedThemeProvider: React.FC = ({ children }) => {
+export const WrappedThemeProvider: React.FC<PropsWithChildren> = ({
+  children,
+}) => {
   const { bodyCSS } = useMemo(
     () =>
       transformThemeToCustomProperties(themes, {
@@ -56,7 +63,7 @@ export const WrappedThemeProvider: React.FC = ({ children }) => {
   );
 };
 
-export const ThemeProvider: React.FC = props => (
+export const ThemeProvider: React.FC<PropsWithChildren> = props => (
   <NextThemeProvider
     defaultTheme="light"
     enableSystem={true}

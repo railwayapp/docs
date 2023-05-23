@@ -1,6 +1,7 @@
 name: CI
 
-on: [pull_request]
+on:
+  pull_request:
 
 env:
   CI: true
@@ -12,17 +13,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Use Node 12
-        uses: actions/setup-node@v1
+      - name: Use Node 16
+        uses: actions/setup-node@v3
         with:
-          node-version: 12.x
-
-      - uses: actions/cache@v2
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          node-version: 16.x
+          cache: "yarn"
 
       - name: Install packages
         run: yarn install

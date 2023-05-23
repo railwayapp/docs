@@ -1,44 +1,32 @@
-import Fuse from "fuse.js";
-import { useRouter } from "next/router";
-import React, { useEffect, useMemo } from "react";
+import { Modal } from "@/components/Modal";
+import { SearchModal } from "@/components/Search";
+import { searchStore } from "@/store";
+import { useStore } from "@nanostores/react";
+import React, { PropsWithChildren, useEffect } from "react";
 import tinykeys from "tinykeys";
 import "twin.macro";
-import { Footer } from "../components/Footer";
-import { Modal } from "../components/Modal";
 import { MobileNav, Nav } from "../components/Nav";
-import { SearchModal } from "../components/Search";
 import { Props as SEOProps, SEO } from "../components/SEO";
 import { Sidebar } from "../components/Sidebar";
-import { sidebarContent } from "../data/sidebar";
-import { useStore } from "../store";
+import { Background } from "../pages";
 
 export interface Props {
   seo?: SEOProps;
 }
 
-export const Page: React.FC<Props> = props => {
-  const { isSearchOpen, setIsSearchOpen } = useStore();
+export const Page: React.FC<PropsWithChildren<Props>> = props => {
+  const isSearchOpen = useStore(searchStore);
 
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
       "$mod+K": e => {
         e.preventDefault();
-        setIsSearchOpen(!isSearchOpen);
+        searchStore.set(!isSearchOpen);
       },
     });
 
     return () => unsubscribe();
   }, [isSearchOpen]);
-
-  const fuse = useMemo(() => {
-    const pages = sidebarContent.map(section => section.pages).flat();
-    const fuse = new Fuse(pages, {
-      keys: ["title", "tags", "category"],
-      includeScore: true,
-    });
-
-    return fuse;
-  }, [sidebarContent]);
 
   return (
     <>
@@ -47,7 +35,10 @@ export const Page: React.FC<Props> = props => {
       <div tw="min-h-screen relative flex">
         <Sidebar />
 
-        <div tw="flex flex-col flex-1 ">
+        <div tw="flex flex-col flex-1 max-w-[100vw] overflow-x-hidden">
+          <Background />
+
+          {/*This area would be perfect to add the bg image.*/}
           <Nav />
           <MobileNav />
 
@@ -60,9 +51,9 @@ export const Page: React.FC<Props> = props => {
       <Modal
         title="Search Docs"
         isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
+        onClose={() => searchStore.set(false)}
       >
-        <SearchModal fuse={fuse} closeModal={() => setIsSearchOpen(false)} />
+        <SearchModal closeModal={() => searchStore.set(false)} />
       </Modal>
     </>
   );

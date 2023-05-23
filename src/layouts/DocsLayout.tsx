@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useMemo } from "react";
+import React, { PropsWithChildren, useMemo } from "react";
 import "twin.macro";
 import { Feedback } from "../components/Feedback";
 import { Link } from "../components/Link";
@@ -18,24 +18,31 @@ const getOGImage = (title: string) =>
     title,
   )}`;
 
-export const DocsLayout: React.FC<Props> = ({
+export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
   frontMatter,
   children,
   ...props
 }) => {
-  const { pathname } = useRouter();
+  const {
+    query: { slug },
+  } = useRouter();
+
+  const prefixedSlug = useMemo(
+    () => `/${(slug as string[] | undefined)?.join("/")}`,
+    [slug],
+  );
   const gitHubFileLink = useMemo(
     () =>
-      `https://github.com/railwayapp/docs/edit/main/src/pages${pathname}.md`,
-    [pathname],
+      `https://github.com/railwayapp/docs/edit/main/src/docs${prefixedSlug}.md`,
+    [prefixedSlug],
   );
 
   const { prevPage, nextPage } = useMemo(() => {
     const sectionIndex = sidebarContent.findIndex(s =>
-      s.pages.find(p => p.slug === pathname),
+      s.pages.find(p => p.slug === prefixedSlug),
     )!;
     const pageIndex = sidebarContent[sectionIndex].pages.findIndex(
-      p => p.slug === pathname,
+      p => p.slug === prefixedSlug,
     );
 
     const prevSection = sidebarContent[sectionIndex - 1];
@@ -57,7 +64,7 @@ export const DocsLayout: React.FC<Props> = ({
         : currentSection.pages[pageIndex + 1];
 
     return { prevPage, nextPage };
-  }, [pathname]);
+  }, [slug]);
 
   return (
     <>
@@ -66,10 +73,11 @@ export const DocsLayout: React.FC<Props> = ({
         image={getOGImage(frontMatter.title)}
       />
       <div tw="max-w-full">
-        <div tw="flex-auto prose">
-          <h1>{frontMatter.title}</h1>
-
-          <div className="docs-content">{children}</div>
+        <div tw="flex-auto prose dark:prose-invert">
+          <div className="docs-content">
+            <h1>{frontMatter.title}</h1>
+            {children}
+          </div>
         </div>
 
         <Feedback topic={frontMatter.title} />

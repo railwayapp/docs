@@ -1,13 +1,13 @@
-import React from "react";
-import tw, { TwStyle } from "twin.macro";
-import { Icon } from "./Icon";
+import React, { PropsWithChildren } from "react";
 import {
+  AlertTriangle,
+  CheckCircle,
   Info,
   Star,
   XOctagon,
-  CheckCircle,
-  AlertTriangle,
 } from "react-feather";
+import tw, { TwStyle } from "twin.macro";
+import { Icon } from "./Icon";
 import { Link } from "./Link";
 
 export type BannerVariant =
@@ -53,21 +53,28 @@ const defaultIcons: Record<BannerVariant, React.ComponentType | null> = {
   warning: AlertTriangle,
 };
 
-export const Banner: React.FC<Props> = ({ children, hideIcon, ...props }) => {
+export const Banner: React.FC<PropsWithChildren<Props>> = ({
+  children,
+  hideIcon,
+  ...props
+}) => {
   const variant = props.variant ?? defaultVariant;
   const icon = props.icon ?? defaultIcons[variant];
 
   return (
     <div
-      css={[tw`flex p-3 border rounded-md space-x-3`, containerStyles[variant]]}
+      css={[
+        tw`flex items-start px-3 border rounded-md`,
+        containerStyles[variant],
+      ]}
       className="banner"
       {...props}
     >
       {!hideIcon && icon != null && (
-        <Icon tw="mt-1" icon={icon} css={[iconStyles[variant]]} />
+        <Icon tw="mt-6 mr-3" icon={icon} css={[iconStyles[variant]]} />
       )}
 
-      {hideIcon || icon == null ? <>{children}</> : <span>{children}</span>}
+      <>{children}</>
     </div>
   );
 };
@@ -75,21 +82,11 @@ export const Banner: React.FC<Props> = ({ children, hideIcon, ...props }) => {
 export const PriorityBoardingBanner: React.FC = () => {
   return (
     <Banner variant="primary" icon={Star}>
-      This feature is only available to{" "}
-      <Link href="/reference/priority-boarding">Priority Boarding</Link>{" "}
-      members.
-    </Banner>
-  );
-};
-
-export const PublicAPIBanner: React.FC = () => {
-  return (
-    <Banner variant="primary" icon={Star}>
-      The Public API Preview is{" "}
-      <Link href="https://railway.app/changelog/2022-11-04-shared-variables-public-api">
-        now available
-      </Link>{" "}
-      to Railway users on a Team plan.
+      <p>
+        This feature is only available to&nbsp;
+        <Link href="/reference/priority-boarding">Priority Boarding</Link>
+        &nbsp;members.
+      </p>
     </Banner>
   );
 };
