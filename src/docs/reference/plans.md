@@ -29,8 +29,8 @@ If you’re on Starter and not verified, here’s what will happen on August 1, 
 - Shared vCPU capacity
 - Up to 1 GB of Disk (Shared between plugins)
 - $5 one-time grant of free credits towards usage
-- Project deploys are stood down if credit limit OR execution hour limit is reached
-- Plugin connection strings are changed then hidden when usage is reached _(your data is not deleted)_
+- Project deploys are stood down if credit limit
+- Databases are turned off when usage is reached _(your data is not deleted)_
 - Max 5 members per project
 - Max 3 concurrent deploys per user
 -- If another deploy is attempted, Railway will remove the oldest deploy. This is intended as an anti-spam measure. If you need more concurrent deploys, please upgrade.
@@ -51,6 +51,7 @@ If you’re on Developer and verified, here’s what will happen on August 1, 20
 If you’re on Developer and not verified, here’s what will happen on August 1, 2023:
 
 - You will be downgraded to No Subscription
+- You can manually opt-in to the paid Hobby plan
 
 **Tier Offering**
 
