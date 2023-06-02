@@ -3,8 +3,8 @@ title: Pricing
 ---
 
 <Banner variant="info">
-  New plans were announced in early June, 2023. The migration window will be open from **July 3, 2023** - **August 1, 2023**, after which all existing Railway users will be migrated automatically.
-  <br /><br />For full details, read the [blogpost](https://railway.app/blog) and check out the [Migration Guide](https://railway.app/blog). 
+  New plans [were announced](https://blog.railway.app/p/introducing-trial-hobby-pro-plans) in early June, 2023. The migration window will be open from **July 3, 2023** - **August 1, 2023**, after which all existing Railway users will be migrated automatically.
+  <br /><br />For full details, read the [blogpost](https://blog.railway.app/p/introducing-trial-hobby-pro-plans) and check out the [Migration Guide](https://blog.railway.app/p/pricing-and-plans-migration-guide-2023). 
 </Banner>
 
 Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use, instead, Railway charges by the minute for each vCPU and memory resource your service uses.
