@@ -1,44 +1,57 @@
 ---
-title: Plans
+title: Plans (New!)
 ---
 
-Railway has multiple plans that fit your needs on the platform. Projects inherit the caps of the plan that the user has. Projects that are made within a team belong to the team and aren't tied to a Railway user.
+Railway has multiple plans that fit your needs on the platform.
 
-## Trial Plan
+<Banner variant="info">
+  New plans were announced in early June, 2023. The migration window will be open from **July 3, 2023** - **August 1, 2023**, after which all existing Railway users will be migrated automatically.
+  <br /><br />For full details, read the [blogpost](https://railway.app/blog) and check out the [Migration Guide](https://railway.app/blog). 
+</Banner>
 
-Trial plans are designed to help you evaluate Railway and are fit for hobbyist projects. You get access to all features on Railway and you have no limits to the amount of projects you can provision.
+## Starter -> Trial
 
-Trial plans get $5 of credits that do not accumulate.
+We’re revamping the Trial experience for developers getting started with Railway. Beginning July 3, new sign-ups will receive $5 in nonrecurring credits towards usage. 
 
-Trial plans also have an execution limit, users get 500 execution hours per month. Hours get consumed if you at least have one service live.
+The current Starter plan will be sunset effective August 1, which means there will no longer be recurring $5 monthly credits for Starter plan users.
 
-If you have one service, it will deplete the 500-hour reserve at a normal rate. If you have two services, the timer will also deplete at a normal rate.
+If you’re on Starter and verified, here’s what will happen on August 1, 2023:
 
-Once you have run out of hours for that month, your deployment will be suspended until the next month, where you have to manually restart it.
+- You will be eligible to upgrade to Hobby plan with the fee waived
+
+If you’re on Starter and not verified, here’s what will happen on August 1, 2023:
+
+- You will be downgraded to No Subscription
 
 **Tier Offering**
 
 - Max to 512 MB of RAM
 - Shared vCPU capacity
 - Up to 1 GB of Disk (Shared between plugins)
-- $5 of monthly usage
-- Limited to 500 execution hours per month
-  - [See how execution hours are calculated](#execution-time-limit)
-- Project deploys are stood down if credit limit OR execution hour limit is reached
-- Plugin connection strings are changed then hidden when usage is reached _(your data is not deleted)_
-- Need to redeploy projects after the new monthly credit is applied to your account
+- $5 one-time grant of free credits towards usage
+- Project deploys are stood down if credit limit
+- Databases are turned off when usage is reached _(your data is not deleted)_
 - Max 5 members per project
 - Max 3 concurrent deploys per user
--- If another deploy is attempted, Railway will remove the oldest deploy. This is intended as an anti-spam measure. If you need more concurrent deploys, please upgrade to the Developer plan.
+-- If another deploy is attempted, Railway will remove the oldest deploy. This is intended as an anti-spam measure. If you need more concurrent deploys, please upgrade.
 - Max total 5 of Projects, 5 Services, and 5 databases per user
 
-## Developer Plan Offering
+## Developer -> Hobby
 
-When you add a credit card or have a prepaid credit balance on your account, your account is upgraded to the Developer plan. The $5 of monthly credit no longer comes with an execution limit. You are billed for any usage above $5 on your account. The developer plan is meant for hobbyist workloads.
+We’re introducing a Hobby plan for developers to build and run personal projects. There will be a $5 monthly subscription fee which includes $5 of usage, with additional usage billed at Railway’s standard rates.
 
-Developer plan projects have increased limits: limits are raised as projects approach them up to the hard cap listed here.
+For a small set of active builders on the platform, Railway will waive the monthly subscription fee. 
 
-If a user unsubscribes or runs out of prepaid credits, the user returns to the Trial plan and the previous limits reapply.
+The current Developer plan will be sunset effective August 1.
+
+If you’re on Developer and verified, here’s what will happen on August 1, 2023:
+
+- You will be automatically moved to the Hobby plan with the fee waived
+
+If you’re on Developer and not verified, here’s what will happen on August 1, 2023:
+
+- You will be downgraded to No Subscription
+- You can manually opt-in to the paid Hobby plan
 
 **Tier Offering**
 
@@ -47,11 +60,42 @@ If a user unsubscribes or runs out of prepaid credits, the user returns to the T
 - Max 100 GB of Disk (Soft cap)
 - Max 5 members per project
 
-The Developer Plan is meant for serious hobbyist use-cases. We do urge companies to upgrade to the Teams plan for a commercial license to use Railway.
+The Hobby Plan is meant for serious hobbyist use-cases. We recommend you upgrade to the Pro plan for a commercial license to use Railway.
 
-### Upgrading to the Developer Plan
+## Team -> Pro
 
-To upgrade to the Developer Plan on the Usage Pay as you go Model your card must be a valid payment method.
+The Team plan will now be known as the Pro plan. A Pro seat will still cost $20 / mo (plus usage). Over time we will start to gate advanced features into this plan, like Regions, Replicas, and a whole lot more to come.
+
+If you’re running a Team or are a member of a Team on Railway, no action is required. Here’s what will happen on August 1, 2023:
+
+- Your Team plan will be updated to Pro
+- You will start incurring charges for network egress at $0.10 per GB, and you will be able to see the network egress usage on the Railway Dashboard
+
+**Tier Offering**
+
+- Default up to 32 GB RAM
+- Default up to 32 vCPU cores
+- Up to 2 TB of Disk
+
+If you need more limits as your application scales, reach out to us within your direct support channel. We would be more than happy to bump up those limits on a case-by-case basis. Note: Companies who wish to use Railway for commercial use must be on the team plan.
+
+## Verification
+Verification is a fraud prevention measure designed to filter out spammy actors while financially incentivizing legitimate actors. 
+
+Verification status depends on a number of factors, including the age and activity of your GitHub account.
+
+If you have trouble getting verified (often because your GitHub account is not up to the verification standard), don’t fret! You are still able to use a credit card and purchase Railway plans.
+
+## Network egress charges
+From August 1 2023, we will start billing $0.10 / GB for any network egress on the platform. We will not charge for any ingress. 
+
+We’re obligated to charge for network in order to disincentivize platform abuse. According to our calculations, this should be negligible for most workloads. 
+
+However, if you are downloading copyrighted movies, prepare to pay!
+
+## Upgrading your plan
+
+To upgrade your plan, your card must be a valid payment method.
 
 This includes:
 
@@ -75,55 +119,10 @@ Credits cannot be bought with:
 - PayPal - neither PayPal balance nor linked cards on PayPal
 - Cryptocurrencies - we only support fiat currencies
 
-## Team Plan Offering
-
-Team plan projects are designed to provide the most resources for all your scaled needs. The team plan has project usage charged in addition to the number of seats that the team pays for.
-
-Unlike projects on the Trial and Developer plan, team members within a team can access all team projects.
-
-**Tier Offering**
-
-- Default up to 32 GB RAM
-- Default up to 32 vCPU cores
-- Up to 2 TB of Disk
-
-If you need more limits as your application scales, reach out to us within your direct support channel. We would be more than happy to bump up those limits on a case-by-case basis. Note: Companies who wish to use Railway for commercial use must be on the team plan.
-
 ## Fair Use
 
 If we deem that projects violate the [fair use](https://railway.app/legal/fair-use) policy, Railway will shut down any violating projects.
 
-## Execution Time Limit
-
-**Only applies to the Trial Plan. Paid plans on Railway are exempt from this limit.**
-
-Execution hours are how we measure how long an account has at least one deploy.
-
-However, they are not a direct measurement of the time your app has been up. It is a separate measure of your app's compute usage.
-
-Railway limits free accounts to 500 hours of continuous uptime. If you have a deployment live, time is consumed.
-
-### Example Calculation
-
-In practice, if a free-plan user has **2 services**, an API and a PostgreSQL database.
-
-The user also has 2 environments, one for production, and one for testing.
-
-The user starts the month with 500 execution hours.
-
-| Days elapsed | Real world hours elapsed | Execution Hours remaining |
-| ------------ | ------------------------ | ------------------------- |
-| 0            | 0                        | 500                       |
-| 1            | 24                       | 476                       |
-| 2            | 48                       | 452                       |
-| 3            | 72                       | 428                       |
-| 4            | 96                       | 404                       |
-| **5**        | **120**                  | **380**                   |
-
-With that current arrangement, their app will stay up for ~21 days.
-
-Successful and crashed deployments will continue to consume execution hours unless they are manually removed.
-
-This is because a crashed deployment continues to occupy deployment space, even if it doesn't use any compute resources.
-
-In order to save on execution hours, you will need to remove all running deploys and databases. Railway doesn't automatically sleep your applications.
+## More information
+For the announcement, check out the [blogpost](https://railway.app/blog).
+For detailed information on new plans, check out the [Migration Guide](https://railway.app/blog).
