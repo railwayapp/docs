@@ -112,9 +112,10 @@ export const useDebouncedSearch = <
     }
   }, [query]);
 
-  // Perform search
+  // Perform search and clear search results if query is empty
   useEffect(() => {
     if (query === "") {
+      setResults(null);
       return;
     }
     search();
