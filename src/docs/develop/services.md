@@ -24,6 +24,8 @@ Create a service by clicking the `New` button or opening the command palette and
 
 Anytime within a project, a new service can be created with the command palette.
 
+Service names have a max length of 32 characters.
+
 ## Application Services
 
 Application services have a GitHub repo as the source of deployment. Railway will clone the root directory of the provided repo and initiate a [deployment](/deploy/deployments). A Cloudnative buildpack is used to determine the application's runtime and begin hosting it.
