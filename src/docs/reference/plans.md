@@ -117,7 +117,7 @@ Credits can be bought with:
 Credits cannot be bought with:
 
 - PayPal - neither PayPal balance nor linked cards on PayPal
-- Cryptocurrencies - we only support fiat currencies
+- Cryptocurrencies - we only support flat currencies
 
 ## Fair Use
 
