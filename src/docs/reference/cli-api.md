@@ -318,7 +318,7 @@ Options:
   -b, --build       Show build logs
       --json        Output in JSON format
   -h, --help        Print help
-  -V, --version     Print versio
+  -V, --version     Print version
 ```
 
 ## Open
