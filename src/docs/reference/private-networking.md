@@ -5,12 +5,14 @@ title: Private Networking
 <PriorityBoardingBanner />
 
 
+Private Networking is a feature within Railway that will open network communication through a IPv6 wireguard mesh only accessible to your Railway services within an environment. 
+
 <Image src="https://res.cloudinary.com/railway/image/upload/v1686946888/docs/CleanShot_2023-06-16_at_16.21.08_2x_lgp9ne.png"
 alt="Preview of What The Guide is Building"
 layout="intrinsic"
 width={1310} height={420} quality={100} />
 
-Private Networking is a feature within Railway that will open network communication through a IPv6 wireguard mesh only accessible to your Railway services within an environment. This will allow you to have a private network between your services, helpful for situations where you want to have a public gateway for your API but leave internal communication private.
+This will allow you to have a private network between your services, helpful for situations where you want to have a public gateway for your API but leave internal communication private.
 
 ## Enabling Private Networking
 
