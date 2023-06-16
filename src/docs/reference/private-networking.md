@@ -55,5 +55,5 @@ During the feature development process we found a few caveats that you should be
 - You will need to establish a wireguard tunnel to external services if you wish to vendor requests in your application.
 - You will need to bind to a IPv6 port to receive traffic on the private network.
 - You will need to make a new project and a new environment to use private networking.
-- Private take 100ms to initialize, we ask that you set initial private requests on a retry loop. 
+- Private networks take 100ms to initialize on deploy, we ask that you set initial requests on a retry loop. 
 - We don't support IPv4 private networking 
