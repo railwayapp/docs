@@ -77,13 +77,17 @@ query project {
         node {
           id
           name
-          deployments {
-            id
-            status
-          }
+        	deployments {
+            edges {
+              node{
+                id
+              	status
+              }
+            }
+          }				
         }
       }
-    }
+    }      
   }
 }
 ```
