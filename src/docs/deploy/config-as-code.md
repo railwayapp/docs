@@ -118,6 +118,15 @@ The command to run when starting the container
 startCommand = "echo starting"
 ```
 
+### [Replicas](/develop/services#horizontal-scaling-with-replicas)
+
+The number of replicas to run.
+
+```toml
+[deploy]
+numReplicas = 2
+```
+
 ### [Healthcheck Path](/deploy/healthchecks)
 
 Path to check after starting your deployment to ensure it is healthy
