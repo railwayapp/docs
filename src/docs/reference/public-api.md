@@ -77,7 +77,7 @@ query project {
         node {
           id
           name
-        	deployments {
+          deployments {
             edges {
               node{
                 id
