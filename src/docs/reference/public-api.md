@@ -78,12 +78,16 @@ query project {
           id
           name
           deployments {
-            id
-            status
-          }
+            edges {
+              node{
+                id
+              	status
+              }
+            }
+          }				
         }
       }
-    }
+    }      
   }
 }
 ```
