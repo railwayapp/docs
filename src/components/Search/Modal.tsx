@@ -10,9 +10,6 @@ interface Props {
   closeModal: () => void;
 }
 
-const _MEILISEARCH_URL = process.env.RAILWAY_SERVICE__MEILISEARCH_URL;
-const MEILISEARCH_URL = _MEILISEARCH_URL ? `https://${_MEILISEARCH_URL}` : ``;
-
 const Modal: React.FC<Props> = ({ closeModal }) => {
   const searchParams = {
     limit: 10,
@@ -24,7 +21,7 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
     Search.Document,
     Search.Result
   >(
-    MEILISEARCH_URL,
+    process.env.RAILWAY_SERVICE__MEILISEARCH_URL ?? "",
     process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
     process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
     searchParams,
