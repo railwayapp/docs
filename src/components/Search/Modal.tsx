@@ -21,7 +21,7 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
     Search.Document,
     Search.Result
   >(
-    process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
+    process.env.RAILWAY_SERVICE__MEILISEARCH_URL ?? "",
     process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
     process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
     searchParams,
