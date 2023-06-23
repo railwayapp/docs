@@ -78,7 +78,6 @@ You must configure the mount point of the volume in your service:
     alt="Connect volume to service"
 />
 
-
 ## Using the Volume
 
 The volume mount point you specify will be available in your service as a
@@ -87,8 +86,29 @@ directory you can read/write to. For instance, if you mount a volume to
 
 Attaching a Volume to a service will make these environment variables available
 to the service:
+
 - `RAILWAY_VOLUME_NAME`: Name of the volume (e.g. `foobar`)
 - `RAILWAY_VOLUME_MOUNT_PATH`: Mount path of the volume (e.g. `/data`)
+
+## Limits
+
+At the moment, there are limits on the maximum size of a volume. This may change
+after the priority boarding period.
+
+- For individuals, the maximum size of the volume allowed is **1GB**.
+- For teams, the maximum size of the volume allowed is **20GB**.
+
+## Pricing
+
+You are only charged for the amount of storage used by your volumes. The
+selected volume size just indicates the maximum amount of available storage.
+However, each volume requires a small amount of space to store metadata about
+the filesystem, so the actual usable space will be slightly less than the
+selected size.
+
+Volumes are billed at **$0.25 / GB**, billed minutely.
+
+Pricing is subject to change during the priority boarding period.
 
 ## Caveats
 
@@ -99,12 +119,14 @@ of:
 - Each service can only have a single volume
 - Replicas cannot be used with volumes
 - There is no built-in S/FTP support
-- Down-sizing a volume is not currently supported, but increasing size is supported
-- There is no file browser, or direct file download. To access your files,
-you must do so via the attached service's mount point
 - To prevent data corruption, we prevent multiple deployments from being active
-and mounted to the same service. This means that there will be a small amount
-of downtime when re-deploying a service that has a volume attached
+  and mounted to the same service. This means that there will be a small amount
+  of downtime when re-deploying a service that has a volume attached
+- Down-sizing a volume is not currently supported, but increasing size is supported
+- When resizing a volume, all deployments must be taken offline to prevent data
+  corruption
+- There is no file browser, or direct file download. To access your files,
+  you must do so via the attached service's mount point
 
 <Banner variant="info">
 Join the [🚅｜priority-boarding](https://discord.gg/railway) channel in our
