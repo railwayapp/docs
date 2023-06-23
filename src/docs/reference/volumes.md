@@ -97,9 +97,14 @@ is still under development. Here are some limitations we are currently aware
 of:
 
 - Each service can only have a single volume.
+- Replicas cannot be used with volumes.
 - There is no built-in S/FTP support.
+- Down-sizing a volume is not support. You can only increase the size.
 - There is no file browser, or direct file download. To access your files,
 you must do so via the attached service's mount point.
+- To prevent data corruption, we prevent multiple deployments from being active
+and mounted to the same service. This means that there will be a small amount
+of downtime when re-deploying a service that has a volume attached.
 
 <Banner variant="info">
 Join the [🚅｜priority-boarding](https://discord.gg/railway) channel in our
