@@ -85,6 +85,11 @@ The Volume Mount Point you specify will be available in your service as a
 directory you can read/write to. For instance, if you mount a volume to
 `/foobar`, your application will be able to access it at `/foobar`.
 
+Attaching a Volume to a service will make these environment variables available
+to the service:
+- `RAILWAY_VOLUME_NAME`: Name of the volume (e.g. `foobar`)
+- `RAILWAY_VOLUME_MOUNT_PATH`: Mount path of the volume (e.g. `/data`)
+
 ## Caveats
 
 Volumes is a [Priority Boarding](/reference/priority-boarding) feature that

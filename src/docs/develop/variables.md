@@ -2,7 +2,7 @@
 title: Variables
 ---
 
-Service variables are provided whenever you build, deploy, or run `railway run`. When 
+Service variables are provided whenever you build, deploy, or run `railway run`. When
 defined, they are made available to your application at runtime as environment variables.
 
 Variables are made available in the following scenarios:
@@ -20,10 +20,10 @@ alt="Screenshot of Variables Pane"
 layout="responsive"
 width={2026} height={933} quality={100} />
 
-You can view all variables for the current environment using the [Railway CLI](/develop/cli) with 
+You can view all variables for the current environment using the [Railway CLI](/develop/cli) with
 `railway variables` and change the environment with `railway environment`.
 
-### Raw Editor 
+### Raw Editor
 
 If you already have a `.env` file, or simply prefer to edit text, the Raw Editor can be used to edit variables in either `.env` or `.json` format.
 
@@ -32,7 +32,7 @@ alt="Screenshot of Raw Editor"
 layout="responsive"
 width={1954} height={1303} quality={100} />
 
-Variables can be defined as simple key/value pairs or as [Templated Variables](#templated-variables) (eg. `${{Postgres.DATABASE_URL}}`), 
+Variables can be defined as simple key/value pairs or as [Templated Variables](#templated-variables) (eg. `${{Postgres.DATABASE_URL}}`),
 which can dynamically reference other variables, shared variables, or plugin variables (more on this below).
 
 ### Multiline Variables
@@ -46,7 +46,7 @@ builds and deployments.
 
 | Name                              | Description                                                                                                                                                                                          |
 |-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `RAILWAY_STATIC_URL`              | The public domain, of the form `example.up.railway.app` 
+| `RAILWAY_STATIC_URL`              | The public domain, of the form `example.up.railway.app`
 | `RAILWAY_SERVICE_{ServiceName}_URL`              | The public domain of a specific service within a project, of the form `example.up.railway.app`. Example: `RAILWAY_SERVICE_API_URL`                                                                                                                                              |
 | `RAILWAY_GIT_COMMIT_SHA`          | The git [SHA](https://docs.github.com/en/github/getting-started-with-github/github-glossary#commit) of the commit that triggered the deployment. Example: `d0beb8f5c55b36df7d674d55965a23b8d54ad69b` |
 | `RAILWAY_GIT_AUTHOR`              | The user of the commit that triggered the deployment. Example: `gschier`                                                                                                                             |
@@ -57,6 +57,8 @@ builds and deployments.
 | `RAILWAY_HEALTHCHECK_TIMEOUT_SEC` | The timeout length (in seconds) of healthchecks. Example: `300`                                                                                                                                      |
 | `RAILWAY_ENVIRONMENT`             | The railway environment for the deployment. Example: `production`                                                                                                                                    |
 | `RAILWAY_REPLICA_ID`             | The railway replica ID for the deployment. Example: `c0dfac18-1606-4f6d-a702-062a8c5163cf`                                                                                                                                    |
+| `RAILWAY_VOLUME_NAME`             | The name of the attached volume, if any. Example: `foobar`
+| `RAILWAY_VOLUME_MOUNT_PATH`             | The mount path of the attached volume, if any. Example: `/data`
 
 ## User-Provided Configuration Variables
 
@@ -70,9 +72,9 @@ Users can use the following environment variables to configure Railway's behavio
 ## Reference Variables
 
 Variables can use the `${{VAR}}` or `${{NAMESPACE.VAR}}` syntax to reference
-other service variables, shared variables, or plugin variables. 
+other service variables, shared variables, or plugin variables.
 
-The Railway dashboard provides an autocomplete dropdown in both the name and 
+The Railway dashboard provides an autocomplete dropdown in both the name and
 value fields to help create these references.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/c_scale,w_2000/v1678823846/docs/CleanShot_2023-03-14_at_12.56.56_2x_mbb6hu.png"
@@ -95,7 +97,7 @@ PRISMA_DB=${{Postgres.DATABASE_URL}}?connection_limit=100
 
 ### Shared Variables
 
-Shared variables help reduce duplication of variables across multiple services within the same project. They are 
+Shared variables help reduce duplication of variables across multiple services within the same project. They are
 defined at the project environment level and can be added in Project Settings > Shared Variables.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1669678393/docs/shared-variables-settings_vchmzn.png"
