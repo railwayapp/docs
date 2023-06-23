@@ -71,6 +71,7 @@ export const sidebarContent: ISidebarContent = [
     title: "Reference",
     pages: [
       makePage("Private Networking", "reference"),
+      makePage("Volumes", "reference"),
       makePage("Pricing", "reference"),
       makePage("Plans", "reference"),
       makePage("Accounts", "reference"),
