@@ -4,7 +4,7 @@ title: Volumes
 
 <PriorityBoardingBanner />
 
-Volumes allow you to store persistent data for services on Railway.
+Volumes is a feature that allows you to store persistent data for services on Railway.
 
 <Image
     layout="intrinsic"
@@ -17,8 +17,8 @@ Volumes allow you to store persistent data for services on Railway.
 
 ## Creating A Volume
 
-You can create a volume through the Command Palette (`⌘K`),
-or by right-clicking your project's canvas to bring up a menu.
+You can create a new volume through the Command Palette (`⌘K`)
+or by right-clicking the project canvas to bring up a menu.
 
 <div style={{ display: 'flex', flexDirection: 'row', gap: '5px' }}>
     <div>
@@ -79,9 +79,9 @@ You must configure the mount point of the volume in your service:
 />
 
 
-## Using The Volume
+## Using the Volume
 
-The Volume Mount Point you specify will be available in your service as a
+The volume mount point you specify will be available in your service as a
 directory you can read/write to. For instance, if you mount a volume to
 `/foobar`, your application will be able to access it at `/foobar`.
 
@@ -96,15 +96,15 @@ Volumes is a [Priority Boarding](/reference/priority-boarding) feature that
 is still under development. Here are some limitations we are currently aware
 of:
 
-- Each service can only have a single volume.
-- Replicas cannot be used with volumes.
-- There is no built-in S/FTP support.
-- Down-sizing a volume is not support. You can only increase the size.
+- Each service can only have a single volume
+- Replicas cannot be used with volumes
+- There is no built-in S/FTP support
+- Down-sizing a volume is not currently supported, but increasing size is supported
 - There is no file browser, or direct file download. To access your files,
-you must do so via the attached service's mount point.
+you must do so via the attached service's mount point
 - To prevent data corruption, we prevent multiple deployments from being active
 and mounted to the same service. This means that there will be a small amount
-of downtime when re-deploying a service that has a volume attached.
+of downtime when re-deploying a service that has a volume attached
 
 <Banner variant="info">
 Join the [🚅｜priority-boarding](https://discord.gg/railway) channel in our
