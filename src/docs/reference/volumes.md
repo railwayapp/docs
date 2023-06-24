@@ -106,7 +106,7 @@ However, each volume requires a small amount of space to store metadata about
 the filesystem, so the actual usable space will be slightly less than the
 selected size.
 
-Volumes are billed at **$0.25 / GB**, billed minutely.
+Volumes are billed at **$0.25 / GB**, billed monthly.
 
 Pricing is subject to change during the priority boarding period.
 
