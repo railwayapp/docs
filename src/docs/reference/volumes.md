@@ -88,7 +88,7 @@ Attaching a Volume to a service will make these environment variables available
 to the service:
 
 - `RAILWAY_VOLUME_NAME`: Name of the volume (e.g. `foobar`)
-- `RAILWAY_VOLUME_MOUNT_PATH`: Mount path of the volume (e.g. `/data`)
+- `RAILWAY_VOLUME_MOUNT_PATH`: Mount path of the volume (e.g. `/foobar`)
 
 ## Limits
 
