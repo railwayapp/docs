@@ -25,13 +25,14 @@ width={1442} height={510} quality={100} />
 
 For environments created before 2023/06/16 - you can enable it on the service settings page for old projects. This will enable private networking and service discovery for all services within the environment.
 
-To communicate on the private network, you must bind to a IPv6 port and use the internal DNS name of the service. For example, if you have a service called `api` and you want to communicate with it from another service, you would use `api.railway.internal` as the hostname.
+To communicate on the private network, you must bind to a IPv6 port and use the internal DNS name of the service. For example, if you have a service called `api` and you want to communicate with it from another service, you would use `api.railway.internal` as the hostname. You can also simply use `api` as the hostname.
 
-If you wish to open a service that has a public, you can use the `PORT` environment variable to specify the public port. This will allow Railway to route traffic to the public port.
+If you wish to open a service that has a public URL, you can use the `PORT` environment variable to specify the public port. This will allow Railway to route traffic to the public port.
 
 ## How it works
 
-Every service within an environment now has its own subnet within an environment. Under the hood, Railway is using encrypted Wireguard tunnels to create a mesh network between all services within an environment. This allows Railway to route traffic between services without having to expose any ports publicly. **Note: You cannot use private networking to communicate with services in other environments.**
+Every service within an environment now has its own subnet within an environment. Under the hood, Railway is using encrypted Wireguard tunnels to create a mesh network between all services within an environment. This allows Railway to route traffic between services without having to expose any ports publicly. 
+**Note: You cannot use private networking to communicate with services in other environments.**
 
 Every service gets a DNS name under the `railway.internal` domain. This DNS name will resolve to the internal IP address of the service. This allows you to communicate with any service within an environment without having to expose any ports publicly. Any valid IPv6 traffic is allowed, UDP, TCP and HTTP.
 
