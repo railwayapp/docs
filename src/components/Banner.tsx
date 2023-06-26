@@ -64,17 +64,16 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
   return (
     <div
       css={[
-        tw`flex items-start px-3 border rounded-md`,
+        tw`flex items-center p-2 border rounded-md space-x-1`,
         containerStyles[variant],
       ]}
       className="banner"
       {...props}
     >
       {!hideIcon && icon != null && (
-        <Icon tw="mt-6 mr-3" icon={icon} css={[iconStyles[variant]]} />
+        <Icon tw="mx-1" icon={icon} css={[iconStyles[variant]]} />
       )}
-
-      <>{children}</>
+      <div>{children}</div>
     </div>
   );
 };
