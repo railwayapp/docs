@@ -54,7 +54,7 @@ During the feature development process we found a few caveats that you should be
 - Railway databases are not accessible via the private network, we are moving towards a system where DBs are services with volumes attached.
 - You will need to establish a wireguard tunnel to external services if you wish to vendor requests in your application.
 - You will need to bind to a IPv6 port to receive traffic on the private network.
-- You will need to make a new project and a new environment to use private networking.
+- Private networking is enabled automatically for new projects/environments. If you want to use private networking in an existing environment, you will have to enable it manually in the settings panel of one of the environment services.
 - Private networks take 100ms to initialize on deploy, we ask that you set initial requests on a retry loop.
 - We don't support IPv4 private networking
 - Alpine-based images may not work with our internal DNS due to how it performs
