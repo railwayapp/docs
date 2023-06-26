@@ -56,7 +56,7 @@ width={1048} height={842} quality={80} />
 
 In order to use Wildcard Domains, you must add two CNAME records, one for the wildcard domain, and one for the _acme-challenge. The _acme-challenge CNAME is required for Railway to issue the SSL Certificate for your domain.
 
-## Private Netoworks
+## Private Networks
 
 To expose an application on the [private network](https://docs.railway.app/reference/private-networking) you need to
 bind your application to the ipv6 address of `::` and specify the port(s) you want to use.
