@@ -61,7 +61,7 @@ During the feature development process we found a few caveats that you should be
 resolution. See the section below for a workaround.
 
 ## Workaround for Alpine-based images
-During private networking initialization (<100ms), dns resolution is handled via a fallback DNS server 8.8.8.8 in the container DNS config.
+During private networking initialization (the period under 100ms), dns resolution is handled via a fallback DNS server 8.8.8.8 in the container DNS config.
 However, in Alpine-based images, due to how DNS resolution is handled, if that public DNS server's response is faster than the private networking DNS, it causes private resolution to fail.
 
 You can workaround this issue by adding `ENABLE_ALPINE_PRIVATE_NETWORKING=true` in your service environment variables. 
