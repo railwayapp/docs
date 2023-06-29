@@ -2,9 +2,6 @@
 title: Private Networking
 ---
 
-<PriorityBoardingBanner />
-
-
 Private Networking is a feature within Railway that will open network communication through a IPv6 wireguard mesh only accessible to your Railway services within an environment.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1686946888/docs/CleanShot_2023-06-16_at_16.21.08_2x_lgp9ne.png"
@@ -64,7 +61,7 @@ resolution. See the section below for a workaround.
 During private networking initialization (the period under 100ms), dns resolution is handled via a fallback DNS server 8.8.8.8 in the container DNS config.
 However, in Alpine-based images, due to how DNS resolution is handled, if that public DNS server's response is faster than the private networking DNS, it causes private resolution to fail.
 
-You can workaround this issue by adding `ENABLE_ALPINE_PRIVATE_NETWORKING=true` in your service environment variables. 
+You can workaround this issue by adding `ENABLE_ALPINE_PRIVATE_NETWORKING=true` in your service environment variables.
 This will effectively remove the fallback DNS server 8.8.8.8 which is used during the private networking 100ms initialization period.
 
 <Banner variant="info">
