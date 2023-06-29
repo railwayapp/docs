@@ -46,11 +46,13 @@ As well as optional add-ons:
 
 See [railway.app/pricing](http://railway.app) for detailed usage pricing and pricing calculator.
 
+<Banner variant="info">
 Keep in mind, if your project has PR deploys enabled, Railway deploys a mirror copy of your service(s) based on the environment it forks from (`production` by default). You are billed for the services that are spun while the ephemeral environment is active.
+</Banner>
 
 ## Add-on services
 
-Railway offers [Business Class Support](https://www.notion.so/5c47cc42b2cb456c85d125b512bb8763?pvs=21) as an add-on service for teams on the Pro plan (Business Class Support is included with Enterprise). Contact us to get started.
+Railway offers [Business Class Support](https://www.notion.so/5c47cc42b2cb456c85d125b512bb8763?pvs=21) as an add-on service for teams on the Pro plan (Business Class Support is included with Enterprise). [Contact us](mailto:contact@railway.app) to get started.
 
 ## Credits
 
@@ -69,11 +71,11 @@ On Railway, you can pay for your Hobby plan subscription and any additional usag
 
 ## Billing Management
 
-[Billing Management](https://docs.railway.app/reference/pricing#billing-management)
-
 You can add and manage your payment info under the billing page and see historical billing usage under the account billing page: [railway.app/account/billing](https://railway.app/account/billing)
 
 Within this page, you can also top-up on credits for your account if you prefer to pay for the Hobby plan in a prepaid fashion.
+
+For more information, read the [Billing](https://docs.railway.app/reference/pricing#billing-management) docs.
 
 ## Verification
 
@@ -104,7 +106,11 @@ Common questions related to pricing.
 
 **I’ve heard that Railway waives the subscription fee for some users on the Hobby plan. Can I get the Hobby plan subscription fee waived?**
 
-    Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform. Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. To see if you qualify, go to [link]. Unfortunately, we cannot manually grant verification status.
+    Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform. Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. 
+    
+    To see if you qualify, visit [railway.app/verify](https://railway.app/verify). 
+    
+    Unfortunately, we cannot manually grant verification status.
 
 ### Trial
 
@@ -120,7 +126,7 @@ Common questions related to pricing.
 
     During the trial, you can access the same features as on the Hobby plan, however you will be limited to 500MB of RAM and shared (rather than dedicated) vCPU cores.
 
-    As a trial user, you can always spin-up Plugins. However, to deploy code, you must have a verified account. [Read about verification](https://www.notion.so/Feature-gating-and-limits-e8a30eb3e3a74101b83f238d0f5c6111?pvs=21).
+    As a trial user, you can always spin-up Plugins. However, to deploy code, you must have a verified account. [Read about verification](#verification).
 
 **What’s the difference between the Limited Trial and the Full Trial?**
 
