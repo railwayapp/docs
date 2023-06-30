@@ -180,7 +180,7 @@ There are two main components to your bill:
 </Collapse>
 
 <Collapse title="How do I view and manage my subscription?">
-To view and manage your subscription, visit your account page.
+To view and manage your subscription, visit the [billing section](https://railway.app/account/billing) in your account page.
 </Collapse>
 
 <Collapse title="How can I get a receipt?">
@@ -188,31 +188,27 @@ When you make a payment, you will receive an email with your invoice and receipt
 </Collapse>
 
 <Collapse title="How can I add company information to my invoice?">
-    Head to the [billing section](https://railway.app/account/billing) in your dashboard and click "Manage Subscription." From there, you can update your billing information, including billing address and Tax ID.
+Head to the [billing section](https://railway.app/account/billing) in your dashboard and click "Manage Subscription." From there, you can update your billing information, including billing address and Tax ID.
 </Collapse>
 
 <Collapse title="What payment methods are accepted?">
-    Railway accepts credit cards for plan subscriptions, usage, and to purchase prepaid credits. We support invoice payments for customers on the Enterprise plan.
+Railway accepts credit cards for plan subscriptions, usage, and to purchase prepaid credits. We support invoice payments for customers on the Enterprise plan.
 </Collapse>
 
 <Collapse title="Can I try Railway without a credit-card?">
-
-    Yes. As a new Railway user you can sign up for a free Trial. You will receive a one-time grant of $5 to use on resources.
-
+Yes. As a new Railway user, you can sign up for a free Trial. You will receive a one-time grant of $5 to use on resources.
 </Collapse>
 
 <Collapse title="I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?">
-
-    Create a Pro plan on Railway and add the client to the team. If you run into issues when it’s time to pass on your workload to your client, email us — and we can help onboard your client to Railway.
-
+Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, [email us](mailto:contact@railway.app) for help on onboarding your client to Railway.
 </Collapse>
 
 <Collapse title="I prefer to prepay. Is that possible?">
-Yes. You can use prepaid credits as a payment method on Railway if you prefer to prepay for Railway’s services. You will still need to pay a monthly subscription fee, as well as for any usage. Those amounts will be deducted from your credit balance.
+Yes. You can use prepaid credits as a payment method on Railway if you prefer to prepay for Railway's services. You will still need to pay a monthly subscription fee, as well as for any usage. Those amounts will be deducted from your credit balance.
 </Collapse>
 
 <Collapse title="What happens if I use credits as a payment method and my account runs out of credits?">
-If you are using credits as a payment method and you credit balance reaches zero, you will no longer be able to deploy to Railway and we will stop all of your workloads. You will have a grace period to add new credits before we purge your data.
+If you are using credits as a payment method and your credit balance reaches zero, you will no longer be able to deploy to Railway and we will stop all of your workloads. You will have a grace period to add new credits before we purge your data.
 </Collapse>
 
 ### General
@@ -222,7 +218,7 @@ You can upgrade any time, and when you do, you will get to the features of your 
 </Collapse>
 
 <Collapse title="What happens when I cancel my subscription?">
-When you cancel your subscription, if you’re on Hobby, Pro, or Enterprise, your plan will remain active through the end of your current billing period, and any usage will be charged at the end of the period.
+When you cancel your subscription, if you're on Hobby, Pro, or Enterprise, your plan will remain active through the end of your current billing period, and any usage will be charged at the end of the period.
 
 If you are on the Hobby plan and using prepaid credits as your payment method, your subscription will be canceled immediately and any credit balance you may have will be forfeited.
 </Collapse>
