@@ -87,7 +87,7 @@ Verification is a necessary measure to prevent abuse of the free Trial, limiting
 
 When you sign up for a free Trial, you can connect your GitHub account to initiate verification. Your verification status depends on a number of factors, including the age and activity of your GitHub account.
 
-If your account is not verified — either because you have not initiated the verification process or your account does not meet our criteria for verification — your trial experience will be limited to deploying plugins. Read more about the Full and Limited Trial in the FAQs.
+If your account is not verified — either because you have not initiated the verification process or your account does not meet our criteria for verification — your trial experience will be limited to deploying databases. Read more about the Full and Limited Trial in the FAQs.
 
 Verification is a fully automated process, and Railway does not respond to requests for verification. If your account is not verified, you can upgrade to the Hobby plan to unlock the full Railway experience.
 
@@ -133,7 +133,7 @@ As a trial user, you can always spin-up databases. However, to deploy code, you 
 <Collapse title="What's the difference between the Limited Trial and the Full Trial?">
 If you connect your GitHub account, and we are able to verify it against a set of parameters, you will be on the Full Trial where you can deploy both code and databases.
 
-If you do not connect a GitHub account, or we are not able to verify your account, you will be on the Limited Trial, where you can only deploy plugins.
+If you do not connect a GitHub account, or we are not able to verify your account, you will be on the Limited Trial, where you can only deploy databases.
 
 While you're on the Limited Trial, you can initiate verification at any time by visiting [railway.app/verify](https://railway.app/verify) in order to access the Full Trial experience.
 </Collapse>
