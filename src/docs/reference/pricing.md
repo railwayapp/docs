@@ -83,7 +83,7 @@ To manage your payment information, head to your account's [billing page](https:
 
 ## Verification
 
-Verification is a necessary measure to prevent abuse of the free Trial, limiting users from creating multiple accounts and reducing the risk of trial users deploying or hosting content that violates Railway’s Terms of Service.
+Verification is a necessary measure to prevent abuse of the free Trial, limiting users from creating multiple accounts and reducing the risk of trial users deploying or hosting content that violates Railway's [Terms of Service](https://railway.app/legal/fair-use).
 
 When you sign up for a free Trial, you can connect your GitHub account to initiate verification. Your verification status depends on a number of factors, including the age and activity of your GitHub account.
 
