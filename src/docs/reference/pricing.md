@@ -81,14 +81,13 @@ To manage your payment information, head to your account's [billing page](https:
 
 ## Verification
 
-Verification is a fraud prevention measure designed to prevent bad actors from taking advantage of Railway, while incentivizing legitimate actors.
+Verification is a necessary measure to prevent abuse of the free Trial, limiting users from creating multiple accounts and reducing the risk of trial users deploying or hosting content that violates Railway’s Terms of Service.
 
-- Verification status depends on a number of factors, including the age and activity of your GitHub account.
-- Verification is an automated process, and we do not respond to requests for verification.
+When you sign up for a free Trial, you can connect your GitHub account to initiate verification. Your verification status depends on a number of factors, including the age and activity of your GitHub account. 
 
-If you are verified according to [railway.app/verify](https://railway.app/verify), your subscription cost to the Hobby plan will be waived.
+If your account is not verified — either because you have not initiated the verification process or your account does not meet our criteria for verification — your trial experience will be limited to deploying plugins. Read more about the Full and Limited Trial in the FAQs. 
 
-If you have trouble getting verified (often because your GitHub account is too new), don't fret! You are still able to use a credit card to purchase Railway plans.
+Verification is a fully automated process, and Railway does not respond to requests for verification. If your account is not verified, you can upgrade to the Hobby plan to unlock the full Railway experience.
 
 ## FAQs
 
@@ -108,11 +107,9 @@ Read more about adding members to your Pro or Enterprise team [here](https://doc
 </Collapse>
 
 <Collapse title="I've heard that Railway waives the subscription fee for some users on the Hobby plan. Can I get the Hobby plan subscription fee waived?">
-Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform. Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more.
+Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform. Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. If you qualify, you will be notified in the Dashboard or when you upgrade to the Hobby plan. 
 
-To see if you qualify, visit [railway.app/verify](https://railway.app/verify).
-
-Unfortunately, we cannot manually grant verification status.
+Railway does not manually grant verification status.
 </Collapse>
 
 ### Trial
