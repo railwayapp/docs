@@ -4,88 +4,91 @@ title: Pricing
 
 ## Introduction
 
-Railway plans and pricing are designed to support you however you work. Usage-based pricing means that you are only charged for the resources you actually use — this helps prevent runaway cloud costs and provides assurances that you’re always getting the best deal possible on your cloud spend.
+Railway plans and pricing are designed to support you however you work. We charge a base subscription fee for the plan you sign up to, on top of your resource and add-on usages.
 
-In addition to usage-based pricing, you will need a basic subscription to use Railway. These plans are detailed below.
+The base subscription fee allows you to use the Railway platform and features included in the tier of your subscription.
+
+Usage-based pricing means that you are only charged for the resources you actually use - this helps prevent runaway cloud costs and provides assurances that you're always getting the best deal possible on your cloud spend.
 
 ## Free Trial
 
-As a new user, you can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5 for usage.
+As a new user, you can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5 for usage. Full Trial users can deploy code and databases, while Limited Trial users can only deploy databases.
 
-Full Trial users can deploy code and plugins, while Limited Trial users can only deploy plugins.
-
-Your trial experience depends on whether Railway can verify your account. Read more about verification (link to below).
+Your trial experience depends on whether Railway can verify your account. Read more about verification [here](#verification).
 
 ## Plans
 
 Railway offers three plans in addition to a free trial:
 
-- Hobby — For indie hackers and developers to build and deploy personal projects
-- Pro — For professional developers and their teams shipping to production
-- Enterprise — For dev teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
+- **Hobby**: For indie hackers and developers to build and deploy personal projects
+- **Pro**: For professional developers and their teams shipping to production
+- **Enterprise**: For teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
 
-## Plan Pricing
+### Plan Pricing
 
-- Hobby → $5 / mo, including $5 of usage
-- Pro → $20 / seat / mo
-- Enterprise → Custom pricing
+- **Hobby**: $5 / mo, including $5 of usage
+- **Pro**: $20 / seat / mo
+- **Enterprise**: Custom pricing
 
-Read more about the plans here: railway.app/pricing.
+Read more about our plans at [railway.app/pricing](https://railway.app/pricing).
 
-## Usage Pricing
+### Usage Pricing
 
-Railway charges for the core components of compute that you consume. These include:
+Railway charges for the resources that you consume. These include:
 
-- RAM → $10 / GB / mo ($0.000231 / GB / minute)
-- CPU → $20 / vCPU / mo ($0.000463 / vCPU / minute)
-- Network → $0.10 / GB ($0.000000095367432 / KB)
+- **RAM**: $10 / GB / mo ($0.000231 / GB / minute)
+- **CPU**: $20 / vCPU / mo ($0.000463 / vCPU / minute)
+- **Network Egress**: $0.10 / GB ($0.000000095367432 / KB)
+- (Optional Add-on) [**Volume Storage**](/reference/volumes): $0.25 / GB / mo
 
-As well as optional add-ons:
-
-- [Volume storage](/reference/volumes) → $0.25 / GB / mo
-
-See [railway.app/pricing](http://railway.app) for detailed usage pricing and pricing calculator.
+Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a calculator you can use for estimating your costs.
 
 <Banner variant="info">
-Keep in mind, if your project has PR deploys enabled, Railway deploys a mirror copy of your service(s) based on the environment it forks from (`production` by default). You are billed for the services that are spun while the ephemeral environment is active.
+If you have [PR deploys](/develop/environments#ephemeral-environments) enabled in your project, Railway will deploy a mirror copy of your workload(s) based on the environment it forks from (`production` by default). You are billed for those workload(s) running in the ephemeral environment.
 </Banner>
 
-## Add-on services
+### Additional services
 
-Railway offers [Business Class Support](https://www.notion.so/5c47cc42b2cb456c85d125b512bb8763?pvs=21) as an add-on service for teams on the Pro plan (Business Class Support is included with Enterprise). [Contact us](mailto:contact@railway.app) to get started.
+Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan (Business Class Support is included with Enterprise). [Contact us](mailto:contact@railway.app) to get started.
 
 ## Credits
 
-Credits are available on Railway as part of the Trial plan as well as a payment method for users who prefer to prepay for their subscription and usage on Railway.
+Credits are available on Railway as a payment method for users who prefer to prepay for their subscription and usage on Railway.
+
+### Credits as a payment method
+
+On Railway, you can pay for your plan subscription and resource usage with pre-purchased credits. When using credits as a payment method, keep in mind that:
+
+- If your usage within a billing period exceeds your credit balance, you will no longer be able to deploy, and your projects will be paused
+- If you cancel your subscription, any remaining credit balance will be lost
+
+### Purchasing credits
+
+You can purchase credits from your account's [billing page](https://railway.app/account/billing).
 
 ### One-time grant of credits on the Trial plan
 
-Users who create a Trial new account receive a free one-time grant of $5. Railway will expend any free credit before consuming any paid credits.
-
-### Credits as a payment method on the Hobby plan
-
-On Railway, you can pay for your Hobby plan subscription and any additional usage with pre-purchased credits. This results in some specific behavior.
-
-- If your usage within a billing period exceeds your credit balance, you will no longer be able to deploy, and your projects will be paused
-- If you cancel your Hobby plan subscription, any remaining credit balance will be lost
+Users who create a new Trial account receive a free one-time grant of $5. Railway will expend any free credit before consuming any purchased credits.
 
 ## Billing Management
 
-You can add and manage your payment info under the billing page and see historical billing usage under the account billing page: [railway.app/account/billing](https://railway.app/account/billing)
+To manage your payment information, head to your account's [billing page](https://railway.app/account/billing). On this page, you can:
 
-Within this page, you can also top-up on credits for your account if you prefer to pay for the Hobby plan in a prepaid fashion.
-
-For more information, read the [Billing](https://docs.railway.app/reference/pricing#billing-management) docs.
+- Add and manage payment info
+- See historical usage you were billed for
+- Purchase credits for your account
+- Retrieve current and past invoices
 
 ## Verification
 
-Verification is a fraud prevention measure designed to filter out spammy actors while incentivizing legitimate actors.
+Verification is a fraud prevention measure designed to prevent bad actors from taking advantage of Railway, while incentivizing legitimate actors.
 
-Verification status depends on a number of factors, including the age and activity of your GitHub account.
+- Verification status depends on a number of factors, including the age and activity of your GitHub account.
+- Verification is an automated process, and we do not respond to requests for verification.
 
-If you have trouble getting verified (often because your GitHub account is not up to the verification standard), don’t fret! You are still able to use a credit card and purchase Railway plans.
+If you are verified according to [railway.app/verify](https://railway.app/verify), your subscription cost to the Hobby plan will be waived.
 
-Verification is an automated process, and we do not respond to requests for verification.
+If you have trouble getting verified (often because your GitHub account is too new), don't fret! You are still able to use a credit card to purchase Railway plans.
 
 ## FAQs
 
@@ -106,10 +109,10 @@ Common questions related to pricing.
 
 **I’ve heard that Railway waives the subscription fee for some users on the Hobby plan. Can I get the Hobby plan subscription fee waived?**
 
-    Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform. Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. 
-    
-    To see if you qualify, visit [railway.app/verify](https://railway.app/verify). 
-    
+    Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform. Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more.
+
+    To see if you qualify, visit [railway.app/verify](https://railway.app/verify).
+
     Unfortunately, we cannot manually grant verification status.
 
 ### Trial
