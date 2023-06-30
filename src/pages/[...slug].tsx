@@ -1,4 +1,5 @@
 import { Banner, PriorityBoardingBanner } from "@/components/Banner";
+import { Collapse } from "@/components/Collapse";
 import { CodeBlock } from "@/components/CodeBlock";
 import Layout from "@/mdxLayouts/index";
 import { allPages, Page } from "contentlayer/generated";
@@ -60,6 +61,7 @@ const Image = (props: ImageProps) => (
 
 const components: Record<string, React.ElementType> = {
   pre: CodeBlock,
+  Collapse,
   Image,
   Banner,
   Link,

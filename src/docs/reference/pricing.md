@@ -96,134 +96,137 @@ Common questions related to pricing.
 
 ### Plans
 
-**Which plan is right for me?**
+<Collapse title="Which plan is right for me?">
+- **Hobby** is for indie hackers and developers to build and deploy personal projects
+- **Pro** is for professional developers and their teams shipping to production
+- **Enterprise** is for dev teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
+</Collapse>
+<Collapse title="Can I add collaborators to my project?">
+Railway’s Pro and Enterprise plans are designed for collaboration. These plans allow you to add members to your team and manage their permissions.
 
-    - **Hobby** is for indie hackers and developers to build and deploy personal projects
-    - **Pro** is for professional developers and their teams shipping to production
-    - **Enterprise** is for dev teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
+Read more about adding members to your Pro or Enterprise team [here](https://docs.railway.app/reference/teams#inviting-members).
+</Collapse>
 
-**Can I add collaborators to my project?**
+<Collapse title="I've heard that Railway waives the subscription fee for some users on the Hobby plan. Can I get the Hobby plan subscription fee waived?">
+Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform. Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more.
 
-    Railway’s Pro and Enterprise plans are designed for collaboration. These plans allow you to add members to your team and manage their permissions.
-    Read more about adding members to your Pro or Enterprise team [here](https://docs.railway.app/reference/teams#inviting-members).
+To see if you qualify, visit [railway.app/verify](https://railway.app/verify).
 
-**I’ve heard that Railway waives the subscription fee for some users on the Hobby plan. Can I get the Hobby plan subscription fee waived?**
-
-    Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform. Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more.
-
-    To see if you qualify, visit [railway.app/verify](https://railway.app/verify).
-
-    Unfortunately, we cannot manually grant verification status.
+Unfortunately, we cannot manually grant verification status.
+</Collapse>
 
 ### Trial
 
-**How do I get started with the free Trial?**
+<Collapse title="How do I get started with the free Trial?">
+If you do not already have a Railway account, you can sign up for a free Trial by clicking "Login" at [railway.app](https://railway.app/).
+</Collapse>
 
-    If you do not already have a Railway account, you can sign up for a free Trial here.
+<Collapse title="How does the Trial work?">
+When you sign up for the free Trial, you will receive a one-time grant of $5 in credits that you can use to try out Railway. The credits will be applied towards any usage on the platform and do not expire. If you upgrade to a plan while you still have a credit balance from the trial, the remaining balance will carry over to your new plan.
+</Collapse>
 
-**How does the Trial work?**
+<Collapse title="What resources can I access during the Trial?">
+During the trial, you can access the same features as on the Hobby plan, however you will be limited to 500MB of RAM and shared (rather than dedicated) vCPU cores.
 
-    When you sign up for the free Trial, you will receive a one-time grant of $5 in credits that you can use to try out Railway. The credits will be applied towards any usage on the platform and do not expire. If you upgrade to a plan while you still have a credit balance from the trial, the remaining balance will carry over to your new plan.
+As a trial user, you can always spin-up Plugins. However, to deploy code, you must have a verified account. [Read about verification](#verification).
+</Collapse>
 
-**What resources can I access during the Trial?**
+<Collapse title="What's the difference between the Limited Trial and the Full Trial?">
+If you connect your GitHub account, and we are able to verify it against a set of parameters, you will be on the Full Trial where you can deploy both code and plugins.
 
-    During the trial, you can access the same features as on the Hobby plan, however you will be limited to 500MB of RAM and shared (rather than dedicated) vCPU cores.
+If you do not connect a GitHub account, or we are not able to verify your account, you will be on the Limited Trial, where you can only deploy plugins.
 
-    As a trial user, you can always spin-up Plugins. However, to deploy code, you must have a verified account. [Read about verification](#verification).
+While you’re on the Limited Trial, you can initiate verification at any time in order to access the Full Trial experience.
+</Collapse>
 
-**What’s the difference between the Limited Trial and the Full Trial?**
-
-    If you connect your GitHub account, and we are able to verify it against a set of parameters, you will be on the Full Trial where you can deploy both code and plugins.
-
-    If you do not connect a GitHub account, or we are not able to verify your account, you will be on the Limited Trial, where you can only deploy plugins.
-
-    While you’re on the Limited Trial, you can initiate verification at any time in order to access the Full Trial experience.
-
-**How far will the $5 one-time Trial grant last?**
-
-    The longevity of your one-time trial grant depends on how many resources you consume. A project that uses most of the resources available on the Trial plan 24/7 will consume the credits in roughly a month, while a simple webserver may be able to run for several months before running out.
+<Collapse title="How far will the $5 one-time Trial grant last?">
+The longevity of your one-time trial grant depends on how many resources you consume. A project that uses most of the resources available on the Trial plan 24/7 will consume the credits in roughly a month, while a simple webserver may be able to run for several months before running out.
+</Collapse>
 
 ### Usage
 
-**How is usage billed?**
+<Collapse title="How is usage billed?">
+Railway charges for the core components of compute that you consume. These include:
 
-    Railway charges for the core components of compute that you consume. These include:
+- GB RAM used. Billed by the minute.
+- Cores of vCPU used. Billed by the minute.
+- GB of Network Egress. Billed by the kb.
 
-    - GB RAM used. Billed by the minute.
-    - Cores of vCPU used. Billed by the minute.
-    - GB of Network Egress. Billed by the kb.
+Railway offers additional add-ons that are usage-based:
 
-    Railway offers additional add-ons that are usage-based:
+- GB Volume. Billed by the minute.
 
-    - GB Volume. Billed by the minute.
+Prices are listed here.
+</Collapse>
 
-    Prices are listed here.
+<Collapse title="What will it cost to run my app?">
+With Railway, you are only billed for the resources you consume at any given time. If you want to approximate the cost of running your app, try our calculator.
+</Collapse>
 
-**What will it cost to run my app?**
+<Collapse title="How does included usage work on the Hobby plan?">
+Your Hobby plan subscription includes $5 of usage per month. If your total usage at the end of your billing period is $5 or less, you will not be charged for usage. If your total usage exceeds $5 in any given billing period, you will be charged the delta.
+</Collapse>
 
-    With Railway, you are only billed for the resources you consume at any given time. If you want to approximate the cost of running your app, try our calculator.
+<Collapse title="Does included usage on the Hobby plan accumulate over time?">
+Included usage is reset at the end of every billing cycle and does not accumulate over time.
+</Collapse>
 
-**How does included usage work on the Hobby plan?**
-
-    Your Hobby plan subscription includes $5 of usage per month. If your total usage at the end of your billing period is $5 or less, you will not be charged for usage. If your total usage exceeds $5 in any given billing period, you will be charged the delta.
-
-**Does included usage on the Hobby plan accumulate over time?**
-
-    Included usage is reset at the end of every billing cycle and does not accumulate over time.
-
-**Can I set limits for maximum usage within a billing period?**
-
-    Usage limits are coming to Railway. In the meantime, if you are on the Hobby plan and you want a guarantee that you keep under a certain spending threshold, you can set up credits as your payment method.
+<Collapse title="Can I set limits for maximum usage within a billing period?">
+Usage limits are coming to Railway. In the meantime, if you are on the Hobby plan and you want a guarantee that you keep under a certain spending threshold, you can set up credits as your payment method.
+</Collapse>
 
 ### Billing
 
-**What is the difference between subscription and usage?**
+<Collapse title="What is the difference between subscription and usage?">
+There are two main components to your bill:
+- **Subscription**: Cost of the plan you’re on (`cost per seat` * `purchased seats`)
+- **Usage**: Cost of the resources you’ve consumed: (`cost per unit` * `used units`)
+</Collapse>
 
-    There are two main components to your bill:
+<Collapse title="How do I view and manage my subscription?">
+To view and manage your subscription, visit your account page.
+</Collapse>
 
-    - **Subscription**: Cost of the plan you’re on (`cost per seat` * `purchased seats`)
-    - **Usage**: Cost of the resources you’ve consumed: (`cost per unit` * `used units`)
+<Collapse title="How can I get a receipt?">
+When you make a payment, you will receive an email with your invoice and receipt attached. You can also find your billing history in the [billing section](https://railway.app/account/billing) of the Railway dashboard.
+</Collapse>
 
-**How do I view and manage my subscription?**
-
-    To view and manage your subscription, visit your account page.
-
-**How can I get a receipt?**
-
-    When you make a payment, you will receive an email with your invoice and receipt attached. You can also find your billing history in the [billing section](https://railway.app/account/billing) of the Railway dashboard.
-
-**How can I add company information to my invoice?**
-
+<Collapse title="How can I add company information to my invoice?">
     Head to the [billing section](https://railway.app/account/billing) in your dashboard and click “Manage Subscription.” From there, you can update your billing information, including billing address and Tax ID.
+</Collapse>
 
-**What payment methods are accepted?**
-
+<Collapse title="What payment methods are accepted?">
     Railway accepts credit cards for plan subscriptions, usage, and to purchase prepaid credits. We support invoice payments for customers on the Enterprise plan.
+</Collapse>
 
-**Can I try Railway without a credit-card?**
+<Collapse title="Can I try Railway without a credit-card?">
 
     Yes. As a new Railway user you can sign up for a free Trial. You will receive a one-time grant of $5 to use on resources.
 
-**I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?**
+</Collapse>
+
+<Collapse title="I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?">
 
     Create a Pro plan on Railway and add the client to the team. If you run into issues when it’s time to pass on your workload to your client, email us — and we can help onboard your client to Railway.
 
-**I prefer to prepay. Is that possible?**
+</Collapse>
 
-    Yes. You can use prepaid credits as a payment method on Railway if you prefer to prepay for Railway’s services. You will still need to pay a monthly subscription fee, as well as for any usage. Those amounts will be deducted from your credit balance.
+<Collapse title="I prefer to prepay. Is that possible?">
+Yes. You can use prepaid credits as a payment method on Railway if you prefer to prepay for Railway’s services. You will still need to pay a monthly subscription fee, as well as for any usage. Those amounts will be deducted from your credit balance.
+</Collapse>
 
-**What happens if I use credits as a payment method and my account runs out of credits?**
-
-    If you are using credits as a payment method and you credit balance reaches zero, you will no longer be able to deploy to Railway and we will stop all of your workloads. You will have a grace period to add new credits before we purge your data.
+<Collapse title="What happens if I use credits as a payment method and my account runs out of credits?">
+If you are using credits as a payment method and you credit balance reaches zero, you will no longer be able to deploy to Railway and we will stop all of your workloads. You will have a grace period to add new credits before we purge your data.
+</Collapse>
 
 ### General
 
-**Can I upgrade or downgrade at any time?**
+<Collapse title="Can I upgrade or downgrade at any time?">
+You can upgrade any time, and when you do, you will get to the features of your new plan, as well as access to more powerful resources, immediately. When you downgrade, the changes will take effect at the beginning of your next billing cycle.
+</Collapse>
 
-    You can upgrade any time, and when you do, you will get to the features of your new plan, as well as access to more powerful resources, immediately. When you downgrade, the changes will take effect at the beginning of your next billing cycle.
+<Collapse title="What happens when I cancel my subscription?">
+When you cancel your subscription, if you’re on Hobby, Pro, or Enterprise, your plan will remain active through the end of your current billing period, and any usage will be charged at the end of the period.
 
-**What happens when I cancel my subscription?**
-
-    When you cancel your subscription, if you’re on Hobby, Pro, or Enterprise, your plan will remain active through the end of your current billing period, and any usage will be charged at the end of the period.
-
-    If you are on the Hobby plan and using prepaid credits as your payment method, your subscription will be canceled immediately and any credit balance you may have will be forfeited.
+If you are on the Hobby plan and using prepaid credits as your payment method, your subscription will be canceled immediately and any credit balance you may have will be forfeited.
+</Collapse>
