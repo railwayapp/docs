@@ -145,7 +145,7 @@ The longevity of your one-time trial grant depends on how many resources you con
 ### Usage
 
 <Collapse title="How is usage billed?">
-Railway charges for the core components of compute that you consume. These include:
+Railway charges for the resources that you consume. These include:
 
 - **RAM**: $10 / GB / mo ($0.000231 / GB / minute)
 - **CPU**: $20 / vCPU / mo ($0.000463 / vCPU / minute)
@@ -176,11 +176,13 @@ Usage limits are currently unavailable, but coming soon to Railway. In the meant
 <Collapse title="What is the difference between subscription and usage?">
 There are two main components to your bill:
 - **Subscription**: Cost of the plan you're on (`[cost per seat] x [purchased seats]`)
-- **Usage**: Cost of the resources you've consumed: (`[cost per unit] x [used units]`)
+- **Usage**: Cost of the resources you've consumed (`[cost per unit] x [used units]`)
+
+Subscription is a flat fee you pay monthly for the tier you're subscribed to, and Usage varies according to your resource consumption for the month.
 </Collapse>
 
 <Collapse title="How do I view and manage my subscription?">
-To view and manage your subscription, visit the [billing section](https://railway.app/account/billing) in your account page.
+To view and manage your subscription, visit the [billing section](https://railway.app/account/billing) of the Railway dashboard.
 </Collapse>
 
 <Collapse title="How can I get a receipt?">
