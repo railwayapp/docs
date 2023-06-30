@@ -2,9 +2,9 @@
 title: Teams
 ---
 
-Teams are how organizations are represented within Railway. Teams can be created via the Hobby, Pro, or Enterprise plans.
+Teams are how organizations are represented within Railway. Teams can be created via the Pro or Enterprise plans.
 
-For more information, see the [pricing page](https://railway.app/pricing).
+For more information, visit our [documentation on pricing](/reference/pricing) or [railway.app/pricing](https://railway.app/pricing).
 
 ## Creating a Team
 
@@ -29,7 +29,7 @@ In the Dashboard you can click and drag projects into the team. Just click and h
 
 ## Invoicing and Billing
 
-Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use, instead, Railway charges by the minute for each vCPU and memory resource your service uses. 
+Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use, instead, Railway charges by the minute for each vCPU and memory resource your service uses.
 
 However, if you expect to use a consistent amount of resources for large companies, you can contact us for a quote and demo. Railway will work with you to find a solution that works for your needs. We are willing to offer Purchase Orders and concierge onboarding for large companies.
 
