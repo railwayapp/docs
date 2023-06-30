@@ -38,7 +38,7 @@ Railway charges for the resources that you consume. These include:
 
 - **RAM**: $10 / GB / mo ($0.000231 / GB / minute)
 - **CPU**: $20 / vCPU / mo ($0.000463 / vCPU / minute)
-- **Network Egress**: $0.10 / GB ($0.000000095367432 / KB)
+- **Network Egress**: $0.10 / GB ($0.000000095367432 / KB) ― _from August 1, 2023_
 - (Optional Add-on) [**Volume Storage**](/reference/volumes): $0.25 / GB / mo ($0.000005787037037 / GB / minute)
 
 Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a [calculator](https://railway.app/pricing#calculator) you can use for estimating your costs.
