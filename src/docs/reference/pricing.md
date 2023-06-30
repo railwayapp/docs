@@ -87,7 +87,7 @@ Verification is a necessary measure to prevent abuse of the free Trial, limiting
 
 When you sign up for a free Trial, you can connect your GitHub account to initiate verification. Your verification status depends on a number of factors, including the age and activity of your GitHub account.
 
-If your account is not verified — either because you have not initiated the verification process or your account does not meet our criteria for verification — your trial experience will be limited to deploying databases. Read more about the Full and Limited Trial in the FAQs.
+If your account is not verified — either because you have not initiated the verification process or your account does not meet our criteria for verification — your trial experience will be limited to deploying databases. Read more about the Full and Limited Trial in the [FAQs](#faq).
 
 Verification is a fully automated process, and Railway does not respond to requests for verification. If your account is not verified, you can upgrade to the Hobby plan to unlock the full Railway experience.
 
