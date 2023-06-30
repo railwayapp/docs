@@ -12,7 +12,7 @@ export const Collapse: React.FC<PropsWithChildren<Props>> = ({
   return (
     <details css={tw`my-4 mx-2 cursor-pointer`}>
       <summary css={tw`font-medium`}>{title}</summary>
-      {children}
+      <div css={tw`cursor-default`}>{children}</div>
     </details>
   );
 };
