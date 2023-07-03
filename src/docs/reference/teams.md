@@ -2,15 +2,13 @@
 title: Teams
 ---
 
-Teams are how organizations are represented within Railway. Teams with a valid credit card attached are subscribed to the Team plan. Projects within the Team plan get generous limits on service caps such as 32 GB of RAM and 32 vCPU cores.
+Teams are how organizations are represented within Railway. Teams can be created via the Pro or Enterprise plans.
 
-Team plans cost $20 per seat plus get billed for any service usage within their projects, for more information see our [pricing page](https://railway.app/pricing). Team
+For more information, visit our [documentation on pricing](/reference/pricing) or [railway.app/pricing](https://railway.app/pricing).
 
 ## Creating a Team
 
 Organizations can create a team by heading to the [Create Team](https://railway.app/new/team) page and entering the required information.
-
-After the team creation, you will be prompted to enter the team's billing information.
 
 ## Managing Teams
 
@@ -29,13 +27,9 @@ There are two scopes for Team members
 
 In the Dashboard you can click and drag projects into the team. Just click and hold the handle icon on the project on the dashboard, you will see a drag interface appear, then you can let go of the mouse click in the desired team.
 
-## Priority Email Support
-
-If you are on the Teams plan, you can reach out to us via email at contact@railway.app for support.
-
 ## Invoicing and Billing
 
-Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use, instead, Railway charges by the minute for each vCPU and memory resource your service uses. 
+Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use, instead, Railway charges by the minute for each vCPU and memory resource your service uses.
 
 However, if you expect to use a consistent amount of resources for large companies, you can contact us for a quote and demo. Railway will work with you to find a solution that works for your needs. We are willing to offer Purchase Orders and concierge onboarding for large companies.
 
