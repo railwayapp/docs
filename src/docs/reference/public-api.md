@@ -79,9 +79,9 @@ query project {
           name
           deployments {
             edges {
-              node{
+              node {
                 id
-              	status
+                status
               }
             }
           }
@@ -99,16 +99,9 @@ The mutation below will add the `redis` plugin to an existing project and the re
 ```graphql
 mutation pluginCreate {
   pluginCreate(
-    input: {
-      data: {
-        name: "redis"
-        projectId: "a9f2c2a3-ce89-48e4-9174-2d9874beb966z"
-      }
-    }
+    input: { name: "redis", projectId: "a9f2c2a3-ce89-48e4-9174-2d9874beb966z" }
   ) {
-    plugin {
-      id
-    }
+    id
   }
 }
 ```
