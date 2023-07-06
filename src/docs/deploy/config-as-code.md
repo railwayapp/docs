@@ -82,6 +82,8 @@ The available values are
 - nixpacks
 - dockerfile
 
+Note: Railway will always build with a Dockerfile if it finds one. To build with nixpacks, you can remove or rename the Dockerfile.
+
 ### [Build command](/deploy/builds#build-command)
 
 Build command to pass to the Nixpacks builder
