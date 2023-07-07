@@ -13,22 +13,22 @@ import styled from "styled-components";
 const StyledLinkIcon = styled.a`
   text-decoration: none;
   position: absolute;
-  width:3rem;
-  height:2rem;
-  display:none;
-  align-items:center;
+  width: 3rem;
+  height: 2rem;
+  display: none;
+  align-items: center;
   left: -2rem;
   &:hover {
-      text-decoration:underline;
+    text-decoration: underline;
   }
 `;
 
 const StyledLinkHeading = styled.a`
   text-decoration: none;
   position: absolute;
-  font-weight:bold;
+  font-weight: bold;
   &:hover {
-      text-decoration:underline;
+    text-decoration: underline;
   }
 `;
 
@@ -37,13 +37,16 @@ const StyledHeadingH2 = styled.h2`
   align-items: center;
   position: relative;
   padding: 1.5rem 0 0;
-  &:hover{
-      ${StyledLinkIcon}{
-        display:flex;
-      }
-      @media (max-width: 1300px) {
-       ${StyledLinkIcon}{
+  margin-bottom: 2rem;
+
+  &:hover {
+    ${StyledLinkIcon} {
+      display: flex;
+    }
+    @media (max-width: 1300px) {
+      ${StyledLinkIcon} {
         display: none;
+      }
     }
   }
 `;
@@ -92,9 +95,9 @@ export default function PostPage({ page }: { page: Page }) {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const page = allPages.find(
-    (page) =>
+    page =>
       page._raw.flattenedPath ===
-      (params?.slug as string[] | undefined)?.join("/")
+      (params?.slug as string[] | undefined)?.join("/"),
   );
 
   return {
@@ -105,7 +108,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = allPages.map((page) => page.url);
+  const paths = allPages.map(page => page.url);
   return {
     paths,
     fallback: false,
