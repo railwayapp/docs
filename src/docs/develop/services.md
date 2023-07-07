@@ -26,11 +26,49 @@ Anytime within a project, a new service can be created with the command palette.
 
 Service names have a max length of 32 characters.
 
-## Application Services
+## Service Source
 
-Application services have a GitHub repo as the source of deployment. Railway will clone the root directory of the provided repo and initiate a [deployment](/deploy/deployments). A Cloudnative buildpack is used to determine the application's runtime and begin hosting it.
+Services on Railway can be deployed from a GitHub repository, a local directory,
+or a Docker image.
 
-### Monorepo Services
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1688760102/docs/screenshot-2023-07-07-16.00.54_e2r6mk.png"
+alt="Screenshot of how to connect a service to a GitHub repo or Docker image"
+layout="responsive"
+width={709} height={190} quality={80} />
+
+### GitHub
+
+Services can be linked to a GitHub repository and branch. When a new commit is
+pushed to the linked branch, Railway will automatically build and deploy the new
+code.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1688759920/docs/screenshot-2023-07-07-15.58.09_dmufxl.png"
+alt="Screenshot of a GitHub deployment trigger"
+layout="responsive"
+width={708} height={245} quality={80} />
+
+### CLI
+
+You can deploy to a service with the `railway up` [command](/deploy/railway-up)
+CLI command. This command will push your code to Railway which will then be
+built and deployed.
+
+### Docker Image
+
+<PriorityBoardingBanner />
+
+Services can be connected to a Docker image hosted on DockerHub or GHCR. Railway
+will pull the image and deploy it to your service.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1688760102/docs/screenshot-2023-07-07-15.59.59_kxo5fa.png"
+alt="Screenshot of a Docker image source"
+layout="responsive"
+width={699} height={168} quality={80} />
+
+## Monorepos
 
 To deploy a monorepo on Railway, just create multiple services from the single GitHub monorepo. Add a service, choose the GitHub repo, then select the appropriate directory from the same repo as a different deployment target. You can deploy a monorepo within a project even if it's already deployed. This is useful when you have a monorepo with multiple services. Change the directory that Railway hosts from within the service settings page.
 
