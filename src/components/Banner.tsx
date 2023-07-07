@@ -24,6 +24,7 @@ export interface Props {
   variant?: BannerVariant;
   icon?: React.ComponentType;
   hideIcon?: boolean;
+  className?: string;
 }
 
 const containerStyles: Record<BannerVariant, TwStyle> = {
@@ -73,7 +74,13 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
       {!hideIcon && icon != null && (
         <Icon tw="mx-1" icon={icon} css={[iconStyles[variant]]} />
       )}
-      <div>{children}</div>
+      <div
+        css={{
+          "> p": tw`my-2`,
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 };
@@ -81,11 +88,14 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
 export const PriorityBoardingBanner: React.FC = () => {
   return (
     <Banner variant="primary" icon={Star}>
-      <p>
-        This feature is only available to&nbsp;
-        <Link href="/reference/priority-boarding">Priority Boarding</Link>
-        &nbsp;members.
-      </p>
+      This feature is only available to&nbsp;
+      <Link
+        href="/reference/priority-boarding"
+        className="underline hover:opacity-60"
+      >
+        Priority Boarding
+      </Link>
+      &nbsp;members.
     </Banner>
   );
 };
