@@ -61,7 +61,7 @@ export const PageNav: React.FC<Props> = ({ title }) => {
 
   useEffect(() => {
     const documentHeaders = Array.from(
-      document.querySelectorAll(".docs-content h1, h2, h3, h4"),
+      document.querySelectorAll(".docs-content h2, h3, h4"),
     ) as HTMLHeadingElement[];
 
     setHeaders(buildHeaderTree(documentHeaders));

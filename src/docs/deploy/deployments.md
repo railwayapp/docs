@@ -50,10 +50,6 @@ alt="Screenshot of GitHub Integration"
 layout="responsive"
 width={1001} height={740} quality={80} />
 
-You can configure additional deployment triggers such as when a new PR is
-created using
-the [GitHub Trigger's integration](integrations#github-integration).
-
 ## Check Suites
 
 <Banner variant="info">
@@ -165,7 +161,7 @@ Restarting a crashed Deployment restores the exact image containing the code & c
 
 You can also click within a deployment and using the Command Palette restart a deployment at any state.
 
-### Configurable Restart Policy
+## Restart Policy
 
 Within the Service settings, a user is able to configure a restart policy of either `Never`, `Always`, or `On-Failure` with an optional maximum number of restarts.
 
