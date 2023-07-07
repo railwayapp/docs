@@ -45,18 +45,7 @@ or by right-clicking the project canvas to bring up a menu.
     </div>
 </div>
 
-When creating a new volume, you can pick the size of the volume:
-
-<Image
-    layout="intrinsic"
-    quality={100}
-    width={1088}
-    height={656}
-    src="https://res.cloudinary.com/railway/image/upload/v1687541236/docs/volumes/volume-size-picker_vdsmmk.png"
-    alt="Volume size picker"
-/>
-
-A volume must be connected to a service before it's usable:
+When creating a volume, you will be prompted to select a service to connect the volume to.
 
 <Image
     layout="intrinsic"
@@ -67,7 +56,7 @@ A volume must be connected to a service before it's usable:
     alt="Connect volume to service"
 />
 
-You must configure the mount point of the volume in your service:
+You must configure the mount path of the volume in your service:
 
 <Image
     layout="intrinsic"
@@ -92,19 +81,17 @@ to the service:
 
 ## Limits
 
-At the moment, there are limits on the maximum size of a volume. This may change
+Volumes have a max size based on the type of plan you are on. This may change
 after the priority boarding period.
 
-- For individuals, the maximum size of the volume allowed is **1GB**.
-- For teams, the maximum size of the volume allowed is **20GB**.
+- Trial and Hobby plans: **10GB**
+- Pro and team plans: **50GB**
+
+Please reach out if you need more space.
 
 ## Pricing
 
-You are only charged for the amount of storage used by your volumes. The
-selected volume size just indicates the maximum amount of available storage.
-However, each volume requires a small amount of space to store metadata about
-the filesystem, so the actual usable space will be slightly less than the
-selected size.
+You are only charged for the amount of storage used by your volumes. Each volume requires a small amount of space to store metadata about the filesystem, so a new volume will start with a small amount of space used.
 
 Volumes are billed at **$0.25 / GB**, billed monthly.
 
