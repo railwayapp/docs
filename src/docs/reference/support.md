@@ -6,11 +6,11 @@ Railway offers numerous tiers of support for our users. This page will cover the
 
 ## Support Tiers
 
-| Plan       | Support                                                                                                               |
-| ---------- | --------------------------------------------------------------------------------------------------------------------- |
-| Hobby      | [Community Discord](https://discord.gg/railway) only                                                                  |
-| Pro        | Email: [support@railway.app](mailto:support@railway.app) and [Community Discord](https://discord.gg/railway)          |
-| Enterprise | Custom, Email: [support@railway.app](mailto:support@railway.app), and [Community Discord](https://discord.gg/railway) |
+| Plan       | Support                                                                                                                                                  |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hobby      | [Community Discord](https://discord.gg/railway) only                                                                                                     |
+| Pro        | Email: [support@railway.app](mailto:support@railway.app), [Community Discord](https://discord.gg/railway), and [Business Class](#business-class)         |
+| Enterprise | Custom, [Business Class](#business-class), Email: [support@railway.app](mailto:support@railway.app), and [Community Discord](https://discord.gg/railway) |
 
 ### Hobby Plan users
 
@@ -21,6 +21,8 @@ Railway has a [Discord server](https://discord.gg/railway) where you can get hel
 You are eligible for Email Support if you're on a Pro plan and above. Reach out to us via email at [support@railway.app](mailto:support@railway.app) for support. We also offer a [Business Class](#business-class) add-on for teams and companies requiring dedicated support with SLOs.
 
 When emailing us, please do so from your Railway account's email address. This helps us know who you are upfront, and allows us to prioritize your request better.
+
+Check out [How to ask for help](#how-to-ask-for-help) on some tips you can follow for a faster and complete response.
 
 ### Enterprise Plan users
 
@@ -35,6 +37,24 @@ When emailing us, please do so from your Railway account's email address. This h
 ## Discord
 
 Railway has a vibrant community of users and developers on [Discord](https://discord.gg/railway). We encourage you to reach out to the community for help with your project. The community is a great place to get help with your project, learn new things, and meet other developers.
+
+Please ensure that you follow these rules in our community:
+
+- Ask questions in the [✋ ｜ help](https://discord.com/channels/713503345364697088/1006629907067064482) channel
+- Search for your issue first before making a thread
+- Give as much information as you can (see [How to ask for help](#how-to-ask-for-help))
+- Refrain from pinging anyone with the Team or Conductor roles in Discord
+
+## How to ask for help
+
+When you reach out for help, either over email or Discord, it's important that you help us help you! Please include as much information as you can, including but not limited to:
+
+- Description of the issue you're facing
+- IDs (Project ID, Service Name/ID, Deployment ID, etc.)
+- Railway environment of your service/deployment
+- Error messages and descriptions
+- Logs (build and/or deploy)
+- Link to GitHub repo/code or template you're using, if applicable
 
 ## Business Class
 
