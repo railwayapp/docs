@@ -59,7 +59,9 @@ built and deployed.
 
 <PriorityBoardingBanner />
 
-Services can be connected to a Docker image hosted on DockerHub or GHCR. Railway
+Services can be connected to a Docker image hosted on
+[Docker Hub](https://hub.docker.com/) or
+[GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry). Railway
 will pull the image and deploy it to your service.
 
 <Image
