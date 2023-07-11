@@ -7,8 +7,7 @@ alt="GIF of the Services view"
 layout="intrinsic"
 width={800} height={646} quality={100} />
 
-A railway service is a deployment target for your application. There are two types of services
-
+A railway service is a deployment target for your application. There are two types of services:
 - Persistent database services
 - Ephemeral deployment services
 
@@ -97,8 +96,7 @@ You might need to configure the Railway app on your connected GitHub account. Pl
 
 Railway projects allow you to provision additional infrastructure on top of your existing services in the form of database services.
 
-Railway currently offers the following database services.
-
+Railway currently offers the following database services:
 - [PostgreSQL](/databases/postgresql)
 - [MySQL](/databases/mysql)
 - [MongoDB](/databases/mongodb)
@@ -120,7 +118,7 @@ Railway has a user interface for managing your database service's data. You can 
 
 ## Templates
 
-Railway offers 60+ community-maintained templates. A template will clone a GitHub repo to your account and deploy the service(s) to a project. You can deploy a template from the Project Canvas unless there are variables to configure. To configure environment variables, you'll need to use the New Project button. Templates are useful for deploying common pieces of infrastructure — like a DataDog Agent.
+Railway offers 60+ [community-maintained templates](https://railway.app/templates). A template will clone a GitHub repo to your account and deploy the service(s) to a project. You can deploy a template from the Project Canvas unless there are variables to configure. To configure environment variables, you'll need to use the New Project button. Templates are useful for deploying common pieces of infrastructure — like a DataDog Agent.
 
 ## Empty Application Services
 
