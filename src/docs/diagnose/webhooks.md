@@ -12,7 +12,6 @@ width={823} height={324} quality={80} />
 ## Setting up a webhook
 
 Complete the following steps to setup a webhook:
-
 1. Open an existing project on Railway.
 2. Click on the project settings menu.
 3. Navigate to the webhooks page.
@@ -25,8 +24,7 @@ To see what payload will be transmitted to the URL, you can expand the "Example 
 
 ## Muxers
 
-Webhooks contain Muxers which will automatically identify webhook URLs and transform the payload based on where it's going. Below are the currently supported Muxers.
-
+Webhooks contain Muxers which will automatically identify webhook URLs and transform the payload based on where it's going. Below are the currently supported Muxers:
 - Discord
 - Slack
 
