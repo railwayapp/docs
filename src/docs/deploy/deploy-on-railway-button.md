@@ -17,18 +17,16 @@ You can also copy the button below:
 The button should link to the desired template. Instructions are below for [Starting with a New Template](#starting-with-a-new-template) and [Starting with an Existing Template](#starting-with-an-existing-template).
 
 ## Markdown
-To render the button in Markdown, copy the following code and replace the link with your desired template.
+To render the button in Markdown, copy the following code and replace the link with your desired template:
 ```md
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ZweBXA)
 ```
 
 ## HTML
-To render the button in HTML, copy the following code and replace the link with your desired template.
+To render the button in HTML, copy the following code and replace the link with your desired template:
 ```html
 <a href="https://railway.app/new/template/ZweBXA"><img src="https://railway.app/button.svg" alt="Deploy on Railway" /></a>
 ```
-
-<br />
 
 # Use Cases
 Since the **Deploy on Railway** button generates a deterministic and reproducible deployment, it is an excellent way to share your project with the public and let others clone your project.
@@ -47,7 +45,6 @@ The button is also a way to take advantage of the Railway [Open Source Kickback]
 Any Template on Railway can be made into a Deploy on Railway button. 
 
 Here are some example templates from the [template gallery](https://railway.app/templates) in button form:
-
 |Icon|Template|Button|
 |----|--------|------|
 |<img src="https://devicons.railway.app/i/nodejs.svg" alt="Node" width="25" height="25" />|Node|[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ZweBXA)|
@@ -76,20 +73,16 @@ To create a **Deploy on Railway** button, you'll first need a public template. W
 
 This page is designed to guide you through the template creation process. The requirements are as follows:
 
-1. Template Name - Name the template
-
+1. **Template Name** - Name the template:
 <Image src="https://res.cloudinary.com/railway/image/upload/v1676521081/docs/deploy-on-railway-template-name_z47dbq.png" width={714} height={263} alt="Deply on Railway Template Name" />
 
-2. Services - Specify one or multiple services 
-
+2. **Services** - Specify one or multiple services:
 <Image src="https://res.cloudinary.com/railway/image/upload/v1676521081/docs/deploy-on-railway-services_jn4rof.png" width={714} height={460} alt="Deply on Railway Service" />
 
-3. Databases - Add the databases needed for the template
-
+3. **Databases** - Add the databases needed for the template:
 <Image src="https://res.cloudinary.com/railway/image/upload/v1676521081/docs/deploy-on-railway-databases_vunhed.png" width={714} height={325} alt="Deploy on Railway Database" />
 
-4. Demo Project - Choose a public project as a preview for the template
-
+4. **Demo Project** - Choose a public project as a preview for the template:
 <Image src="https://res.cloudinary.com/railway/image/upload/v1676521081/docs/deploy-on-railway-demo_fzpfkf.png" width={714} height={260} alt="Deploy on Railway Demo" />
 
 That's all there is to it! 
