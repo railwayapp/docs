@@ -8,8 +8,7 @@ layout="intrinsic"
 width={800} height={364} quality={80} />
 
 Use the [Railway CLI](/develop/cli) to kickoff a deploy within a service in a project from the
-command line. In a [linked project](/develop/cli#link-to-a-project) run
-
+command line. In a [linked project](/develop/cli#link-to-a-project) run:
 ```bash
 railway up
 ```
@@ -20,9 +19,7 @@ which project and environment will be used.
 
 If there is more than one service within a project, the CLI will prompt you which service to [deploy](/deploy/deployments) to.
 
-All deployments will appear within the service on your project canvas.
-Clicking on the build will bring up the build and deploy logs. Each deploy gets
-a unique URL and is considered immutable.
+All deployments will appear within the service on your project canvas. Clicking on the build will bring up the build and deploy logs. Each deploy gets a unique URL and is considered immutable.
 
 ## Up Behavior
 
@@ -32,6 +29,4 @@ Keep in mind, Railway takes a snapshot of your code payload from your machine. T
 
 ## Port Variable
 
-If you are starting a server, you need to use the `PORT` environment variable.
-This is how Railway can expose your deployment. If you see a "Bad Gateway"
-error, you most likely are not listening on `PORT`.
+If you are starting a server, you need to use the `PORT` environment variable. This is how Railway can expose your deployment. If you see a "Bad Gateway" error, you most likely are not listening on `PORT`.
