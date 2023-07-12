@@ -8,12 +8,8 @@ layout="intrinsic"
 width={491} height={286} quality={80} />
 
 Users are billed monthly based on their project's per-minute usage.  All services within a project's environments contribute to the resources billed. The rates are as follows:
-
-**RAM**
-$0.000231 / GB / minute
-
-**CPU**
-$0.000463 / vCPU / minute
+1. **RAM** → $0.000231 / GB / minute
+2. **CPU** → $0.000463 / vCPU / minute
 
 Users can see the usage of their projects under [the usage page](https://railway.app/account/usage).
 
