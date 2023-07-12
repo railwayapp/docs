@@ -8,12 +8,10 @@ MongoDB database with zero configuration.
 ## Connect
 
 There are two ways to connect to a MongoDB database:
-
 - Add a [Reference Variable](/develop/variables#reference-variables) to a service
 - Run `railway connect` to start a `mongodb` shell
 
 The following variables can be referenced in your services:
-
 - `MONGOHOST`
 - `MONGOPORT`
 - `MONGOUSER`
