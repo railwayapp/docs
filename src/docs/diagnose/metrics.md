@@ -10,7 +10,6 @@ width={1576} height={1100} quality={80} />
 Railway provides resource usage information on deployments within a service. This information can be used to diagnose issues with a project's performance.
 
 The following metrics are provided:
-
 - CPU
 - Memory
 - Disk Usage
