@@ -20,8 +20,7 @@ These configuration examples are equivalent.
 
 ### Toml
 
-In a `railway.toml` file
-
+In a `railway.toml` file:
 ```toml
 [build]
 builder = "nixpacks"
@@ -36,8 +35,7 @@ restartPolicyType = "never"
 
 ### Json
 
-In a `railway.json` file
-
+In a `railway.json` file:
 ```json
 {
   "$schema": "https://railway.app/railway.schema.json",
@@ -70,15 +68,13 @@ Everything in the build and deploy sections of the service settings can be confi
 
 ### [Builder](/deploy/builds)
 
-Set the builder for the deployment
-
+Set the builder for the deployment:
 ```toml
 [build]
 builder = "nixpacks"
 ```
 
-The available values are
-
+The available values are:
 - nixpacks
 - dockerfile
 
@@ -86,8 +82,7 @@ Note: Railway will always build with a Dockerfile if it finds one. To build with
 
 ### [Build command](/deploy/builds#build-command)
 
-Build command to pass to the Nixpacks builder
-
+Build command to pass to the Nixpacks builder:
 ```toml
 [build]
 buildCommand = "echo building"
@@ -95,8 +90,7 @@ buildCommand = "echo building"
 
 ### [Watch Patterns](/deploy/builds#watch-paths)
 
-Array of patterns used to conditionally trigger deploys
-
+Array of patterns used to conditionally trigger deploys:
 ```toml
 [build]
 watchPatterns = ["src/**"]
@@ -104,8 +98,7 @@ watchPatterns = ["src/**"]
 
 ### [Dockerfile Path](/deploy/dockerfiles)
 
-Location of non-standard Dockerfile path
-
+Location of non-standard Dockerfile path:
 ```toml
 [build]
 dockerfilePath = "Dockerfile.backend"
@@ -113,8 +106,7 @@ dockerfilePath = "Dockerfile.backend"
 
 ### [Start Command](/deploy/deployments#start-command)
 
-The command to run when starting the container
-
+The command to run when starting the container:
 ```toml
 [deploy]
 startCommand = "echo starting"
@@ -122,8 +114,7 @@ startCommand = "echo starting"
 
 ### [Replicas](/develop/services#horizontal-scaling-with-replicas)
 
-The number of replicas to run.
-
+The number of replicas to run:
 ```toml
 [deploy]
 numReplicas = 2
@@ -131,8 +122,7 @@ numReplicas = 2
 
 ### [Healthcheck Path](/deploy/healthchecks)
 
-Path to check after starting your deployment to ensure it is healthy
-
+Path to check after starting your deployment to ensure it is healthy:
 ```toml
 [deploy]
 healthcheckPath = "/health"
@@ -140,8 +130,7 @@ healthcheckPath = "/health"
 
 ### [Healthcheck Timeout](/deploy/healthchecks#timeout)
 
-Number of seconds to wait for the healthcheck path to become healthy
-
+Number of seconds to wait for the healthcheck path to become healthy:
 ```toml
 [deploy]
 healthcheckTimeout = 300
@@ -149,23 +138,20 @@ healthcheckTimeout = 300
 
 ### [Restart Policy Type](/deploy/deployments#configurable-restart-policy)
 
-How to handle the deployment crashing
-
+How to handle the deployment crashing:
 ```toml
 [deploy]
 restartPolicyType = "never"
 ```
 
-The available values are
-
+The available values are:
 - never
 - on_failure
 - always
 
 ### Restart Policy Max Retries
 
-The number of times to restart if the restart type is `on_failure`
-
+The number of times to restart if the restart type is `on_failure`:
 ```toml
 [deploy]
 restartPolicyMaxRetries = 5
@@ -186,8 +172,7 @@ width={621} height={204} quality={100} />
 Configuration can be overridden for a specific environment by nesting it in a
 `environments.[name]` block.
 
-When resolving the settings for a deployment, Railway will use this priority order
-
+When resolving the settings for a deployment, Railway will use this priority order:
 1. Environment specific config in code
 2. Base config in code
 3. Service settings
@@ -195,15 +180,13 @@ When resolving the settings for a deployment, Railway will use this priority ord
 The following example changes the start command just in the production
 environment.
 
-In a `railway.toml` file
-
+In a `railway.toml` file:
 ```toml
 [environments.production.deploy]
 startCommand = "echo starting production!"
 ```
 
-In a `railway.json` file
-
+In a `railway.json` file:
 ```json
 {
   "environments": {
@@ -219,7 +202,6 @@ In a `railway.json` file
 ### PR Environment Overrides
 
 Deployments for pull requests can be configured using a special `pr` environment. This configuration is applied only to deploys that belong to an ephemeral environment. When resolving the settings for a PR deployment, the following priority order is used:
-
 1. Environment with the name of the ephemeral environment
 2. Environment with the hardcoded name "pr"
 3. Base environment of the pull request
