@@ -18,10 +18,9 @@ You can open your team's settings page to manage team members and see billing in
 
 Under the General tab of the settings page, you can invite members to access the project.
 
-There are two scopes for Team members
-
-- Admin: full administration of the Team and all Team projects
-- Member: access to all team projects
+There are two scopes for Team members:
+- Admin: Full administration of the Team and all Team projects
+- Member: Access to all Team projects
 
 ## Transferring Projects to Teams
 
@@ -33,4 +32,4 @@ Railway offers a consumption-based pricing model for your projects. You don't ge
 
 However, if you expect to use a consistent amount of resources for large companies, you can contact us for a quote and demo. Railway will work with you to find a solution that works for your needs. We are willing to offer Purchase Orders and concierge onboarding for large companies.
 
-Reach out to us at contact@railway.app for more information.
+Reach out to us at [contact@railway.app](mailto:contact@railway.app) for more information.
