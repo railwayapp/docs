@@ -4,7 +4,6 @@ title: Templates
 
 Templates allow you to deploy a fully configured project that is automatically
 connected to infrastructure. Examples of templates are:
-
 - NextJS app with Prisma
 - Django app connected to Postgres
 - Elixir Phoenix webserver
@@ -15,7 +14,7 @@ You can find featured templates on our
 
 ## Updatable Templates
 
-Every time you visit a project deployed from a template, we will check to see if the project it is based on has been updated by its maker.
+Every time you visit a project deployed from a template, we will check to see if the project it is based on has been updated by its creator.
 
 If it has received an upstream update, we will create a branch on the GitHub repo that was created when deploying the template, allowing for you to test it out within a PR deploy. If you are happy with the changes, you can merge the pull request, and we will automatically deploy it to your production environment.
 
@@ -42,8 +41,7 @@ When adding services to a template, you can enter a url to a GitHub repo's branc
 
 ### Additional Configuration
 
-You can configure the following fields to enable successful deploys for template users.
-
+You can configure the following fields to enable successful deploys for template users:
 - Root Directory (Helpful for monorepos)
 - Start command
 - Healthcheck Path
