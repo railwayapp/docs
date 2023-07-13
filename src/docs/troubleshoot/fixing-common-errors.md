@@ -1,7 +1,6 @@
 ---
 title: Fixing Common Errors
 ---
-
 {/**
 This page holds descriptions and solutions to common errors users may face
 when deploying to Railway.
@@ -29,7 +28,6 @@ users commonly encounter.
 
 After deploying your application, you encounter this screen when accessing
 your application's domain:
-
 <Image src="https://res.cloudinary.com/railway/image/upload/v1681392822/docs/application-error_wgrwro.png"
 alt="Screenshot of application failed to respond error"
 width={729} height={675}
@@ -49,7 +47,6 @@ Railway provides in the `PORT` environment variable.
 ### Solution
 
 To fix this, start your application's server using:
-
 * Host = `0.0.0.0`,
 * Port = Value of the `PORT` environment variable provided by Railway.
 
@@ -91,32 +88,29 @@ async function bootstrap() {
 #### Node / Next
 
 Next needs an additional flag to listen on `PORT`:
-
 ```bash
 next start --port ${PORT-3000}
 ```
 
 #### Python / Gunicorn
 
-`gunicorn` listens on `0.0.0.0` and the `PORT` environment variable by default.
-There is no additional configuration necessary.
-
+`gunicorn` listens on `0.0.0.0` and the `PORT` environment variable by default:
 ```bash
 gunicorn main:app
 ```
 
+There is no additional configuration necessary.
+
 #### Python / Uvicorn
 
 `uvicorn` needs additional configuration flags to listen on `0.0.0.0` and `PORT`:
-
 ```bash
 uvicorn main:app --host 0.0.0.0 --port $PORT
 ```
 
 #### Go / `net/http`
 
-This example is for `net/http` in the Go standard library, but you can also apply this to other frameworks.
-
+This example is for `net/http` in the Go standard library, but you can also apply this to other frameworks:
 ```go
 func main() {
   // ...
