@@ -73,4 +73,4 @@ The long answer is we have several fundamental platform changes incoming (multi-
 
 ## General Recommendations
 
-A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [contact@railway.app](mailto:contact@railway.app), or via our [Community Discord server](https://discord.gg/railway). We would be happy to answer any additional questions you may have.
+A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [contact@railway.app](mailto:contact@railway.app), or via our [Discord server](https://discord.gg/railway). We would be happy to answer any additional questions you may have.
