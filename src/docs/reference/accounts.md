@@ -21,7 +21,7 @@ Accounts can change their display name, profile photo, and account email under [
 
 ### Deleting Your Account
 
-selecting "Delete Account" at the bottom of the [Account Settings](https://railway.app/account) page will delete your account. All data related to your account will be deleted.
+Selecting "Delete Account" at the bottom of the [Account Settings](https://railway.app/account) page will delete your account. All data related to your account will be deleted.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1641244076/docs/delete_acz7hs.png"
 alt="Screenshot of Account Delete View"
@@ -64,11 +64,11 @@ Users can view their referral invite status on the [referrals page](https://rail
 
 ## Billing
 
-Every Account gets $5 of free credit per month. No credit card required.
+Every account gets $5 of free credit one-time to trial the service. No credit card required.
 
-Users on the Trial plan are limited to 500 hours of execution time per month. This restriction is lifted for users on the Developer plan.
+Users on the Trial plan are limited to 500 hours of execution time per month. This restriction is lifted for users on paid plans.
 
-Accounts are billed monthly. Resources used by deleted projects are still counted towards the total bill.
+Accounts are billed monthly. Resources used by deleted projects up until deletion are still counted towards the total bill.
 
 Users can manage their billing plan as well as view historical payments on the [billing page](https://railway.app/account/billing).
 
