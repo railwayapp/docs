@@ -7,13 +7,11 @@ title: Railway vs. Heroku
 Railway is a simple and powerful deployment platform that focuses on giving you and your team a deployment plane that radically increases developer efficiency.
 
 We are alike in the following ways:
-
 - GitHub repo deployments
 - CLI tooling
 - Built-in databases
 
 We differ in the following:
-
 - We have an outsized focus on support and developer experience. A highly engaged community and the Railway team stand at the ready to help you scale
 - Resource-based pricing, only pay for what you use.
 - Better developer experience. We offer PR deploys, variable management, rapid builds, and local development flows.
@@ -41,7 +39,7 @@ It's possible to go from zero → 3 services in < 30 seconds. Adding new service
 
 Pay only for what you use—no need to size dynos.
 
-Containers scale vertically up to 8 GB/CPU Cores (on the Dev Plan) and 32 GB/CPU Cores (on Teams Plans).
+Containers scale vertically up to 8 GB/CPU Cores (on the Hobby Plan) and 32 GB/CPU Cores (on Teams Plans).
 
 Did traffic spike for an hour? Only pay for that hour, no manual scaling intervention required.
 
