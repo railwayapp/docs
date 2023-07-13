@@ -12,14 +12,13 @@ Usage-based pricing means that you are only charged for the resources you actual
 
 ## Free Trial
 
-As a new user, you can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5 for usage. Full Trial users can deploy code and databases, while Limited Trial users can only deploy databases.
+As a new user, you can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5 for usage and 500 execution hours. Full Trial users can deploy code and databases, while Limited Trial users can only deploy databases.
 
 Your trial experience depends on whether Railway can verify your account. Read more about verification [here](#verification).
 
 ## Plans
 
 Railway offers three plans in addition to a free trial:
-
 - **Hobby**: For indie hackers and developers to build and deploy personal projects
 - **Pro**: For professional developers and their teams shipping to production
 - **Enterprise**: For teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
@@ -35,7 +34,6 @@ Read more about our plans at [railway.app/pricing](https://railway.app/pricing).
 ### Usage Pricing
 
 Railway charges for the resources that you consume. These include:
-
 - **RAM**: $10 / GB / mo ($0.000231 / GB / minute)
 - **CPU**: $20 / vCPU / mo ($0.000463 / vCPU / minute)
 - **Network Egress**: $0.10 / GB ($0.000000095367432 / KB) ― _from August 1, 2023_
@@ -58,7 +56,6 @@ Credits are available on Railway as a payment method for Hobby plan users who pr
 ### Credits as a payment method
 
 On Railway, you can pay for your Hobby plan subscription and resource usage with pre-purchased credits. When using credits as a payment method, keep in mind that:
-
 - If your usage within a billing period exceeds your credit balance, you will no longer be able to deploy, and your projects will be paused
 - If you cancel your subscription, any remaining credit balance will be lost
 
@@ -75,7 +72,6 @@ Users who create a new Trial account receive a free one-time grant of $5. Railwa
 ## Billing Management
 
 To manage your payment information, head to your account's [billing page](https://railway.app/account/billing). On this page, you can:
-
 - Add and manage payment info
 - See historical usage you were billed for
 - Purchase credits for your account
@@ -146,7 +142,6 @@ The longevity of your one-time trial grant depends on how many resources you con
 
 <Collapse title="How is usage billed?">
 Railway charges for the resources that you consume. These include:
-
 - **RAM**: $10 / GB / mo ($0.000231 / GB / minute)
 - **CPU**: $20 / vCPU / mo ($0.000463 / vCPU / minute)
 - **Network Egress**: $0.10 / GB ($0.000000095367432 / KB)
