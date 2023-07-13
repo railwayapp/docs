@@ -8,12 +8,10 @@ MySQL database with zero configuration.
 ## Connect
 
 There are two ways to connect to a MySQL database:
-
 - Add a [Reference Variable](/develop/variables#reference-variables) to a service
 - Run `railway connect` to start a `mysql` shell
 
 The following variables can be referenced in your services:
-
 - `MYSQLHOST`
 - `MYSQLPORT`
 - `MYSQLUSER`
