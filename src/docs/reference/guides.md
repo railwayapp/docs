@@ -9,7 +9,6 @@ We have attempted to group these guides by category. Pull requests are welcome. 
 ## Deployment Guides
 These are guides centered around deploying cool projects on Railway.
 ### Self Hosted Applications
-
 - [Deploy Cusdis](https://blog.railway.app/p/cusdis)
 - [Deploy Ghost](https://blog.railway.app/p/ghost)
 - [Deploy Calendso](https://blog.railway.app/p/calendso)
@@ -22,7 +21,6 @@ These are guides centered around deploying cool projects on Railway.
 - [Moving A Pyramid Web Application onto Railway](https://chancecallahan.com/pyramid-poetry-and-track-switching-lessons-learned-migrating-to-railway.html)
 
 ## Database Backup Guides
-
 - [Backing Up Redis](https://blog.railway.app/p/redis-backup)
 - [Backing Up Postgres](https://blog.railway.app/p/postgre-backup)
 
