@@ -2,8 +2,6 @@
 title: Volumes
 ---
 
-<PriorityBoardingBanner />
-
 Volumes is a feature that allows you to store persistent data for services on Railway.
 
 <Image
