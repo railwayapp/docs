@@ -2,6 +2,8 @@
 title: Cron Jobs
 ---
 
+<PriorityBoardingBanner />
+
 Cron Jobs allow you to start a service based on a crontab expression.
 
 ## Configuring a cron job
