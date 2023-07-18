@@ -82,6 +82,6 @@ Let's break down each field:
 
 ## Service execution
 
-Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exist properly.
+Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
 
 At this moment Railway won't terminate your process in any scenario and it's not going to skip any execution. Thus, it is possible that if your service is still running when a new invocation is expected, there will be two instances of the service running at the same time. However this may change in the future depending on the feedback we receive.
