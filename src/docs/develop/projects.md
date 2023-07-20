@@ -73,7 +73,7 @@ width={910} height={272} quality={80} />
 ### Transferring Projects
 
 Users can transfer projects to other users.
-Note that project transfers are only allowed for users subscribed to the [Developer Plan](/reference/plans#developer-plan-offering) (both the initiator and recipient of the transfer).
+Note that project transfers are only allowed for users subscribed to the [Hobby Plan](/reference/pricing#plans) (both the initiator and recipient of the transfer).
 
 In the member list under the members tab, select the three dots next to the user you want to transfer the project to.
 

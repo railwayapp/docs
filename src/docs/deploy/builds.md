@@ -13,6 +13,7 @@ width={1158} height={338} quality={80} />
 
 Currently, we support the following languages out of the box:
 - [NodeJS](https://nixpacks.com/docs/providers/node)
+- [Bun](https://nixpacks.com/docs/providers/node#bun-support) (Experimental)
 - [Deno](https://nixpacks.com/docs/providers/deno)
 - [Python](https://nixpacks.com/docs/providers/python)
 - [Go](https://nixpacks.com/docs/providers/go)

@@ -5,14 +5,15 @@ title: Getting Started
 Railway is a deployment platform where you can provision infrastructure,
 develop with that infrastructure locally, and then deploy to the cloud.
 
-In this guide we will deploy a simple To-Do App running [NextJS](https://nextjs.org/docs/getting-started) and [Prisma](https://www.prisma.io/docs/) using a template.
+In this guide, we will deploy a simple To-Do App running [NextJS](https://nextjs.org/docs/getting-started) and [Prisma](https://www.prisma.io/docs/) using a template.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643740624/docs/todos-gif.gif"
+<Image src="/images/getting-started/1-railway-getting-started.gif"
 alt="Preview of What The Guide is Building"
 layout="intrinsic"
-width={800} height={378} quality={100} />
+width={800} height={455} quality={100} />
 
-We will get you up and running quickly by covering the following 3 steps:
+We will get you up and running quickly by covering the following three steps:
+
 1. Creating a project from a template
 2. Developing the project locally
 3. Deploying to the cloud
@@ -27,10 +28,10 @@ Railway offers a Command Palette that exposes all actions that one can do on the
 
 Press the Command + K key combination and type "New Project".
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643696774/docs/CleanShot_2022-02-01_at_01.15.37_2_p85zsa.gif"
+<Image src="/images/getting-started/2-railway-getting-started-create-a-project.gif"
 alt="Command K in Action"
 layout="intrinsic"
-width={800} height={440} quality={80} />
+width={800} height={455} quality={80} />
 
 Under the list of options in the menu, select "Deploy Template".
 
@@ -38,16 +39,16 @@ Under the list of options in the menu, select "Deploy Template".
 
 Railway offers 50+ templates ranging from blogs to self-hosted apps. Use the search bar at the top right and type `NextJS Prisma`.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643761460/docs/findnextjs_kvgmuj.gif"
+<Image src="/images/getting-started/3-railway-getting-started-deploy-template.gif"
 alt="Deploy the Template"
 layout="intrinsic"
-width={800} height={546} quality={80} />
+width={800} height={448} quality={80} />
 
 Click the `NextJS Prisma` template to deploy it.
 
 Railway requires that you have a valid GitHub account linked to deploy a template. If there is no account associated with your Railway account, you will be prompted to link an account.
 
-Let's go with the default settings in the Deploy menu and click the deploy button.
+Let's go with the default settings in the Deploy menu and click the "deploy" button.
 
 When you click deploy, Railway will create a repo using the `NextJS Prisma` template as the source on your linked GitHub account and kick off an initial deploy after the project is created.
 
@@ -61,10 +62,10 @@ You should see a [Postgres plugin](plugins/postgresql) in the project dashboard,
 Congrats! After the initial deployment finalizes, your web server is nearly ready to go. All you now need to do is just to [Generate a Domain](deploy/exposing-your-app)
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1654560212/docs/add-domain_prffyh.png"
+src="/images/getting-started/4-railway-getting-started-domain-link.png"
 alt="Screenshot of adding Service Domain"
 layout="responsive"
-width={1396} height={628} quality={80} />
+width={800} height={287} quality={80} />
 
 After doing this, click on the deployment and navigate to your deployment to see the app live. In the next step, we will personalize your new web app.
 
@@ -72,7 +73,7 @@ After doing this, click on the deployment and navigate to your deployment to see
 
 So far Railway spun up a Postgres instance and a web server providing all the needed variables on deploy. We will connect to that very same Postgres instance locally to help us develop our app.
 
-Lets begin by cloning the repo you created on your machine.
+Let's begin by cloning the repo you created on your machine.
 
 (Tip: you can navigate directly to the Project's repo from the deployment pane using the Command Palette.)
 
@@ -102,10 +103,10 @@ Then, when you are in your project's directory, link your repo to the template p
 railway link
 ```
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643748194/docs/railwaylinkv2_ty9q8c.gif"
+<Image src="/images/getting-started/5-railway-getting-started-link-cli.gif"
 alt="Linking the Project via CLI"
 layout="intrinsic"
-width={800} height={320} quality={80} />
+width={800} height={303} quality={80} />
 
 `railway link` makes the Railway CLI aware of project variables when you run development commands locally. Something we will explore in depth in the next section.
 
@@ -130,10 +131,10 @@ Start the development server with the environment variables sourced by Railway t
 railway run yarn dev
 ```
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643747993/docs/railwayrun_zgaqop.gif"
+<Image src="/images/getting-started/6-railway-getting-started-run-locally.gif"
 alt="Developing Locally"
 layout="intrinsic"
-width={800} height={480} quality={100} />
+width={800} height={483} quality={100} />
 
 Let's make a tiny change to our application to see if everything is working.
 Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of the `<h1>` JSX tag to the following string.
@@ -154,22 +155,22 @@ To deploy your current directory, run the following command. Make sure you are i
 railway up
 ```
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643748653/docs/railwayup_vhkdv8.gif"
+<Image src="/images/getting-started/7-railway-getting-started-build-deploy.gif"
 alt="Railway Up in Action"
 layout="intrinsic"
-width={800} height={498} quality={100} />
+width={800} height={486} quality={100} />
 
 This will create a [deployment](deploy/railway-up) using the current project and
 environment. Click the returned link to see the build and deploy logs.
 
-For projects based off of a GitHub repo like a template, [auto deploys](deploy/deployments#deploy-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
+For projects based on a GitHub repo like a template, [auto deploys](deploy/deployments#deploy-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
 
 After your deployment completes, you can see your new deployment live at the deployment's URL. If you added To-Dos while developing locally, you should see them on your deployment live. In a proper project, you would enable multiple environments to isolate your production environment.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1643749599/docs/updeployworking_qaysjx.gif"
+<Image src="/images/getting-started/8-railway-getting-started-data-persistence.gif"
 alt="App Deployed From Local to Production"
 layout="intrinsic"
-width={800} height={342} quality={100} />
+width={800} height={486} quality={100} />
 
 This is only the beginning, there are many features we haven't yet covered in this guide that we will touch on in the next step.
 
@@ -177,7 +178,7 @@ This is only the beginning, there are many features we haven't yet covered in th
 
 Railway aims to be the simplest way to develop, deploy, and diagnose issues with your application. Railway offers additional features that are worth exploring:
 1. Railway lets you create parallel, identical environments for PRs/testing.
-2. Railway lets you run as much (or as little) compute as you'd like with its usage based pricing and a metrics dashboard included in every project.
+2. Railway lets you run as much (or as little) compute as you'd like with its usage-based pricing and a metrics dashboard included in every project.
 3. Adding team members to your projects is as easy as sending them an invite link.
 4. Railway supports projects of any size, you can deploy additional services to the same project or deploy subdirectories of a monorepo.
 

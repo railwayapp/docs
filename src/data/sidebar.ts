@@ -72,6 +72,7 @@ export const sidebarContent: ISidebarContent = [
     pages: [
       makePage("Private Networking", "reference"),
       makePage("Volumes", "reference"),
+      makePage("Cron Jobs", "reference"),
       makePage("Pricing", "reference"),
       makePage("Accounts", "reference"),
       makePage("Teams", "reference"),

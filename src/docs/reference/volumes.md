@@ -2,8 +2,6 @@
 title: Volumes
 ---
 
-<PriorityBoardingBanner />
-
 Volumes is a feature that allows you to store persistent data for services on Railway.
 
 <Image
@@ -94,7 +92,7 @@ Pricing is subject to change during the priority boarding period.
 
 ## Caveats
 
-Volumes is a [Priority Boarding](/reference/priority-boarding) feature that
+Volumes is a newer feature that
 is still under development. Here are some limitations we are currently aware
 of:
 - Each service can only have a single volume
@@ -108,9 +106,3 @@ of:
   corruption
 - There is no file browser, or direct file download. To access your files,
   you must do so via the attached service's mount point
-
-<Banner variant="info">
-Join the [🚅｜priority-boarding](https://discord.gg/railway) channel in our
-[Discord server](https://discord.gg/railway) if you'd like to share feedback,
-bug reports, feature requests, and questions.
-</Banner>
