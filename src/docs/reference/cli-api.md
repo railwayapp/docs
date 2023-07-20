@@ -134,7 +134,6 @@ Options:
 
 *Change which environment you are using*
 
-
 ```txt
 ~ railway environment --help
 Change the active environment

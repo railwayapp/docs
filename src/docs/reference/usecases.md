@@ -7,7 +7,6 @@ Railway is suited for a variety of use-cases. This page will walk-through what t
 ## Philosophy
 
 Railway is a deployment platform that helps developers deliver their software through the entire application life-cycle through git native tooling, composable infrastructure, and built in instrumentation. We design and develop our product features to serve what we consider to be the three primary stages of software development:
-
 - Development
 - Deployment
 - Diagnosis
@@ -21,7 +20,6 @@ We think that companies should be as upfront as possible about their product and
 ## Is Railway Production Ready?
 
 Many of our customers use Railway to reliably deploy their applications to customers at scale. With that said, Production standards are going to be different depending on what your users expect. We have a companies that use Railway in a variety of different verticals such as:
-
 - Enterprise SaaS
 - Consumer Social
 - Crypto/DAOs
@@ -44,7 +42,6 @@ As mentioned before: we don't believe in vendor lock-in here at Railway, so if y
 ### Metrics
 
 Railway provides up to 7 days worth of data on service information such as:
-
 - CPU
 - Memory
 - Disk Usage
@@ -62,8 +59,7 @@ We do have plans to include private networking, static IPs, and allowing people 
 
 ## Unsupported Use-Cases
 
-Our policy for being forthcoming and frank applies to unsavory information that we need to share. Unfortunately, our platform isn't yet well-equipped to handle the following verticals that require extensive certification or GPU compute.
-
+Our policy for being forthcoming and frank applies to unsavory information that we need to share. Unfortunately, our platform isn't yet well-equipped to handle the following verticals that require extensive certification or GPU compute:
 - Medical
 - Government
 - Traditional Banking
@@ -77,6 +73,4 @@ The long answer is we have several fundamental platform changes incoming (multi-
 
 ## General Recommendations
 
-A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us
-directly by e-mailing [contact@railway.app](mailto:contact@railway.app), or via our [Discord](https://discord.gg/railway).
-We would be happy to answer any additional questions you may have.
+A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [contact@railway.app](mailto:contact@railway.app), or via our [Discord server](https://discord.gg/railway). We would be happy to answer any additional questions you may have.

@@ -18,7 +18,7 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={995} height={628} quality={80} />
 
-For MySQL and Postgres, Railway displays the tables contained within an instance by default. This is called the Table View.
+For MySQL and Postgres, Railway displays the tables contained within an instance by default; this is called the Table View.
 
 Shift-clicking on one or multiple tables exposes additional options such as the ability to delete the table(s).
 
@@ -67,7 +67,7 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={732} height={419} quality={80} />
 
-For Redis, Railway displays the keys contained within a database instance by default.
+With Redis, Railway displays the keys contained within a database instance by default.
 
 ### MongoDB Document View
 

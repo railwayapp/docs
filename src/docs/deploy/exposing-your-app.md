@@ -23,7 +23,6 @@ width={1396} height={628} quality={80} />
 One or more custom domains can be added to a Railway service (tied to a specific environment).
 
 Here's how it works:
-
 1. Navigate to the Settings tab of your desired service
 2. Add a custom domain and type in the name (wildcard domains are supported)
 3. Add the `CNAME` records to the DNS settings for your domain
@@ -35,15 +34,11 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1338} height={808} quality={80} />
 
-**NOTE:** For wildcard domains, see the section below.
-
-**NOTE:** Changes to DNS settings may take up to 72 hours to propagate
-worldwide.
-
-**NOTE:** Freenom is not allowed, and not supported.
+**NOTE:** For wildcard domains, see the section below. Changes to DNS settings may take up to 72 hours to propagate
+worldwide. Freenom is not allowed, and not supported.
 
 ## Wildcard Domains
-There are a few important things to know when using Wildcard Domains.
+There are a few important things to know when using Wildcard Domains:
 1. Ensure that the CNAME record for authorize.railwaydns.net is not proxied by your provider (eg: Cloudflare). This is required for the verification process to work.
 3. Wildcards can be used for any subdomain level (eg: `*.yourdomain.com` or  `*.subdomain.yourdomain.com`).
 4. You cannot nest wildcards (eg: \*.\*.yourdomain.com).
@@ -78,8 +73,7 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1205} height={901} quality={80} />
 
-If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error.
-
+If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error:
 ```
 ERR_TOO_MANY_REDIRECTS
 ```

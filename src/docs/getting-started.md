@@ -88,21 +88,17 @@ Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railw
 ```bash
 brew install railway
 ```
-
 or
-
 ```
 npm i -g @railway/cli
 ```
 
-Log in to your account by running the login command.
-
+Log in to your account by running the login command:
 ```bash
 railway login
 ```
 
-Then, when you are in your project's directory, link your repo to the template project with the following command.
-
+Then, when you are in your project's directory, link your repo to the template project with the following command:
 ```bash
 railway link
 ```
@@ -116,8 +112,7 @@ width={800} height={303} quality={80} />
 
 ### Run and Develop Your App
 
-When developing locally, it's likely that you'll need environment variables to store sensitive connection strings. Railway provides those variables whenever you run the following command.
-
+When developing locally, it's likely that you'll need environment variables to store sensitive connection strings. Railway provides those variables whenever you run the following command:
 ```bash
 railway run <cmd>
 ```
@@ -125,15 +120,13 @@ railway run <cmd>
 We will inject all the environment variables inside your current Railway
 [environment](develop/environments). This allows your application to take advantage of your plugins and any environment variables you wish to set up.
 
-Locally install the project dependencies by running the following command.
-
+Locally install the project dependencies by running the following command:
 ```bash
 yarn
 ```
 
 Our code needs the Postgres DB connection variables to persist the To-Dos locally, `railway run` makes that possible.
-Start the development server with the environment variables sourced by Railway through the CLI like so.
-
+Start the development server with the environment variables sourced by Railway through the CLI like so:
 ```bash
 railway run yarn dev
 ```
@@ -183,8 +176,7 @@ This is only the beginning, there are many features we haven't yet covered in th
 
 ## Closing
 
-Railway aims to be the simplest way to develop, deploy, and diagnose issues with your application. Railway offers additional features that are worth exploring.
-
+Railway aims to be the simplest way to develop, deploy, and diagnose issues with your application. Railway offers additional features that are worth exploring:
 1. Railway lets you create parallel, identical environments for PRs/testing.
 2. Railway lets you run as much (or as little) compute as you'd like with its usage-based pricing and a metrics dashboard included in every project.
 3. Adding team members to your projects is as easy as sending them an invite link.

@@ -3,19 +3,22 @@ title: Networking
 ---
 
 ## Private Networking
-Private networking is not yet available on Railway. The feature is [currently under development](https://feedback.railway.app/feature-requests/p/internal-networking).
+Refer to [this page](/reference/private-networking) for more information.
 
 ## Horizontal Scaling
-Refer to [Horizontal Scaling with Replicas](/develop/services#horizontal-scaling-with-replicas) for more information.
+Refer to [this page](/develop/services#horizontal-scaling-with-replicas) for more information.
 
 ## Cloudflare Load Balancer
 Cloudflare offers an LB proxy that can be used to load balance between multiple Railway services. This is another great way to achieve horizontal scaling.
 
+<Banner variant="warning">
+  If your Cloudflare SSL mode is not set to `Full (Strict)`, you will experience a `ERR_TOO_MANY_REDIRECTS` error in your browser.
+</Banner>
+
 In order to set this up, there are a few prerequisites:
 1. You must have a Cloudflare account
 2. You must have a Custom Domain which is on Cloudflare
-3. **Your Cloudflare SSL mode must be set to `Full (Strict)`**
-   > This is very important
+3. Your Cloudflare SSL mode must be set to `Full (Strict)`
 
 Once you have met the prerequisites, you can follow the steps below:
 1. Create a new Cloudflare Load Balancer

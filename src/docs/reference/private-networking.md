@@ -34,9 +34,7 @@ Every service gets a DNS name under the `railway.internal` domain. This DNS name
 
 ## Communicating with services
 
-To communicate with a service, you must bind to a IPv6 port. On most web frameworks, you can do this via `::` and specifying the port(s) you want to bind to.
-
-To communicate with a service, you must use the internal DNS name of the service.
+To communicate with a service, you must bind to a IPv6 port and use the internal DNS name of the service. On most web frameworks, you can do this via `::` and specifying the port(s) you want to bind to.
 
 ### Internal DNS
 
@@ -46,8 +44,7 @@ Requests to replica DNS service address will be round robin'd between all replic
 
 ## Caveats
 
-During the feature development process we found a few caveats that you should be aware of.
-
+During the feature development process we found a few caveats that you should be aware of:
 - Railway databases are not accessible via the private network, we are moving towards a system where DBs are services with volumes attached.
 - You will need to establish a wireguard tunnel to external services if you wish to vendor requests in your application.
 - You will need to bind to a IPv6 port to receive traffic on the private network.

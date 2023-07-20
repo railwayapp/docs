@@ -33,8 +33,7 @@ If you do not select a `Team`, the token will be tied to your Railway account an
 
 ---
 
-Once you have your token, you can pass it within the `Authorization` header of your request.
-
+Once you have your token, you can pass it within the `Authorization` header of your request:
 ```bash
 curl --request POST \
   --url https://backboard.railway.app/graphql/v2 \

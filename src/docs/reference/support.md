@@ -39,7 +39,6 @@ When emailing us, please do so from your Railway account's email address. This h
 Railway has a vibrant community of users and developers on [Discord](https://discord.gg/railway). We encourage you to reach out to the community for help with your project. The community is a great place to get help with your project, learn new things, and meet other developers.
 
 Please ensure that you follow these rules in our community:
-
 - Ask questions in the [✋ ｜ help](https://discord.com/channels/713503345364697088/1006629907067064482) channel
 - Search for your issue first before making a thread
 - Give as much information as you can (see [How to ask for help](#how-to-ask-for-help))
@@ -48,7 +47,6 @@ Please ensure that you follow these rules in our community:
 ## How to ask for help
 
 When you reach out for help, either over email or Discord, it's important that you help us help you! Please include as much information as you can, including but not limited to:
-
 - Description of the issue you're facing
 - IDs (Project ID, Service Name/ID, Deployment ID, etc.)
 - Railway environment of your service/deployment
@@ -90,8 +88,7 @@ Reach out to us at [team@railway.app](mailto:team@railway.app) on setting this u
 
 ### Business Class Response Hours
 
-We offer support during business hours, and prioritize requests from Business Class customers.
-
+We offer support during business hours, and prioritize requests from Business Class customers:
 - Business hours are Monday through Friday, 9am to 9pm Pacific Time
 - Exceptions apply to our business hours during P1 outages where the team will be on-call 24/7
 - The team may reply outside of business hours, but we do not guarantee a response outside of business hours

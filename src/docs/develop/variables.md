@@ -6,7 +6,6 @@ Service variables are provided whenever you build, deploy, or run `railway run`.
 defined, they are made available to your application at runtime as environment variables.
 
 Variables are made available in the following scenarios:
-
 - The build process for each service deployment,
 - The running service deployment, and
 - The command invoked by `railway run <COMMAND>`.

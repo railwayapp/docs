@@ -9,7 +9,6 @@ width={800} height={468} quality={100} />
 
 The Railway Command Line Interface (CLI) lets you interact with your
 Railway project from the command line, allowing you to:
-
 - Create new Railway projects from the Terminal
 - Link a local project directory to an existing Railway project
 - Run services locally using environment variables from your Railway project
@@ -18,7 +17,6 @@ Railway project from the command line, allowing you to:
 ## Installation
 
 The Railway CLI can be installed via:
-
 - [Homebrew](https://brew.sh) for macOS
 - [npm](https://www.npmjs.com/package/@railway/cli) for macOS, Linux, and Windows
 - [Scoop](https://scoop.sh) for Windows as a native `.exe` binary
@@ -37,7 +35,6 @@ brew install railway
 ### npm (macOS, Linux, Windows)
 
 In a Terminal, enter the following command:
-
 ```bash
 npm i -g @railway/cli
 ```
@@ -47,7 +44,6 @@ This requires version =>16 of [Node.js](https://nodejs.org/en/).
 ### Shell Script (macOS, Linux, Windows via WSL)
 
 In a Terminal, enter the following command:
-
 ```bash
 bash <(curl -fsSL cli.new)
 ```
@@ -58,7 +54,6 @@ with a Bash shell.
 ### Scoop (Windows)
 
 In a PowerShell terminal, enter the following command:
-
 ```ps1
 scoop install railway
 ```
@@ -81,7 +76,6 @@ if you wish.
 ## Authentication
 
 Before you can use the Railway CLI, you must authenticate the CLI to your Railway account:
-
 ```bash
 railway login
 ```
@@ -96,7 +90,6 @@ you're authenticating the CLI inside an environment without a browser (e.g. SSH
 sessions).
 
 Use the `--browserless` flag to authenticate manually:
-
 ```bash
 railway login --browserless
 ```

@@ -16,8 +16,7 @@ Volumes is a feature that allows you to store persistent data for services on Ra
 ## Creating A Volume
 
 You can create a new volume through the Command Palette (`⌘K`)
-or by right-clicking the project canvas to bring up a menu.
-
+or by right-clicking the project canvas to bring up a menu:
 <div style={{ display: 'flex', flexDirection: 'row', gap: '5px' }}>
     <div>
         <Image
@@ -43,8 +42,7 @@ or by right-clicking the project canvas to bring up a menu.
     </div>
 </div>
 
-When creating a volume, you will be prompted to select a service to connect the volume to.
-
+When creating a volume, you will be prompted to select a service to connect the volume to:
 <Image
     layout="intrinsic"
     quality={100}
@@ -55,7 +53,6 @@ When creating a volume, you will be prompted to select a service to connect the 
 />
 
 You must configure the mount path of the volume in your service:
-
 <Image
     layout="intrinsic"
     quality={100}
@@ -73,15 +70,13 @@ directory you can read/write to. For instance, if you mount a volume to
 
 Attaching a Volume to a service will make these environment variables available
 to the service:
-
 - `RAILWAY_VOLUME_NAME`: Name of the volume (e.g. `foobar`)
 - `RAILWAY_VOLUME_MOUNT_PATH`: Mount path of the volume (e.g. `/foobar`)
 
 ## Limits
 
 Volumes have a max size based on the type of plan you are on. This may change
-after the priority boarding period.
-
+after the priority boarding period:
 - Trial and Hobby plans: **10GB**
 - Pro and team plans: **50GB**
 
@@ -100,7 +95,6 @@ Pricing is subject to change during the priority boarding period.
 Volumes is a newer feature that
 is still under development. Here are some limitations we are currently aware
 of:
-
 - Each service can only have a single volume
 - Replicas cannot be used with volumes
 - There is no built-in S/FTP support

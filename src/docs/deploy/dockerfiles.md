@@ -4,8 +4,7 @@ title: Dockerfiles
 
 We will look for and use a `Dockerfile` at the service's root if it exists.
 
-Railway notifies you when it's using the `Dockerfile` in the build process with the following message in the logs
-
+Railway notifies you when it's using the `Dockerfile` in the build process with the following message in the logs:
 ```shell
 ==========================
 Using detected Dockerfile!
@@ -17,8 +16,7 @@ Using detected Dockerfile!
 If you want to use a custom Dockerfile named something other than `Dockerfile`, you can use the
 `RAILWAY_DOCKERFILE_PATH` environment variable to specify the path to the file.
 
-For example, if your Dockerfile was called `Dockerfile.origin`, you'd specify it like this.
-
+For example, if your Dockerfile was called `Dockerfile.origin`, you'd specify it like this:
 ```
 RAILWAY_DOCKERFILE_PATH = Dockerfile.origin
 ```
@@ -26,14 +24,12 @@ RAILWAY_DOCKERFILE_PATH = Dockerfile.origin
 ## Environment Variables
 
 If you need to use the environment variables that Railway injects at build time,
-you must specify them in the Dockerfile with
-
+you must specify them in the Dockerfile with:
 ```dockerfile
 ARG EnvironmentVariable
 ```
 
-Be sure to declare your environment variables in the stage they are required in.
-
+Be sure to declare your environment variables in the stage they are required in:
 ```dockerfile
 FROM node
 

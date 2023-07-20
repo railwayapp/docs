@@ -8,12 +8,10 @@ Redis database with zero configuration.
 ## Connect
 
 There are two ways to connect to a Redis database:
-
 - Add a [Reference Variable](/develop/variables#reference-variables) to a service
 - Run `railway connect` to start a `redis-cli` shell
 
 The following variables can be referenced in your services:
-
 - `REDISHOST`
 - `REDISUSER`
 - `REDISPORT`

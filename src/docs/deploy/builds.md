@@ -11,8 +11,7 @@ alt="Nixpacks builder"
 layout="responsive"
 width={1158} height={338} quality={80} />
 
-Currently, we support the following languages out of the box.
-
+Currently, we support the following languages out of the box:
 - [NodeJS](https://nixpacks.com/docs/providers/node)
 - [Bun](https://nixpacks.com/docs/providers/node#bun-support) (Experimental)
 - [Deno](https://nixpacks.com/docs/providers/deno)
@@ -33,8 +32,7 @@ Currently, we support the following languages out of the box.
 
 ## Build Configuration
 
-Nixpacks has a variety of options that can be configured with environment variables. These include things like
-
+Nixpacks has a variety of options that can be configured with environment variables. These include things like:
 - Install/build/start commands
 - Nix/Apt packages to install
 - Directories to cache
@@ -42,7 +40,7 @@ Nixpacks has a variety of options that can be configured with environment variab
 For a full list of these options, please view the [Nixpacks docs](https://nixpacks.com/docs/guides/configuring-builds).
 
 If you have a language or feature that you want us to support, please don't hesitate to
-reach out on [Discord](https://discord.gg/xAm2w6g) or on [the Nixpacks GitHub repo](https://github.com/railwayapp/nixpacks/discussions/245).
+reach out on [Discord](https://discord.gg/xAm2w6g) or on the [Nixpacks repo](https://github.com/railwayapp/nixpacks/discussions/245).
 
 ## Build Command
 
@@ -79,18 +77,15 @@ can be combined, one per line.
 
 _Note, if a Root Directory is provided, patterns still operate from `/`. For a root directory of `/app`, `/app/**.js` would be used as a pattern to match files in the new root._
 
-Here are a few examples of common use-cases.
-
+Here are a few examples of common use-cases:
 ```gitignore
 # Match all TypeScript files under src/
 /src/**/*.ts
 ```
-
 ```gitignore
 # Match Go files in the root, but not in subdirectories
 /*.go
 ```
-
 ```gitignore
 # Ignore all Markdown files
 **
@@ -112,7 +107,6 @@ width={1158} height={444} quality={80} />
 With Nixpacks, we analyze the app source directory and generate a build plan. This determines which language provider to install packages and runtimes for.
 
 If there is a detected `nixpacks.toml` file, it is possible to define a build provider ahead of time like so:
-
 ```toml
 providers = ["...", "python"]
 ```

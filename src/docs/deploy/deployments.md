@@ -16,7 +16,6 @@ Clicking on the deployment will bring up the build and deploy logs. Each deploy 
 ## Deployment Lifecycle
 
 Deployments can be in any of the following states:
-
 - Initializing
 - Building
 - Deploying
@@ -75,9 +74,8 @@ Start commands may be overridden for advanced use-cases such as
 deploying multiple projects from a single [monorepo](/deploy/monorepo).
 
 When specifying a start command, the behavior of the image depends on type of build:
-
-- Dockerfile: the start command overrides the Docker image's ENTRYPOINT in [exec form](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example)
-- Buildpack: the start command is inserted as a [buildpack launch process](https://buildpacks.io/docs/app-developer-guide/run-an-app/#user-provided-shell-process)
+- **Dockerfile**: the start command overrides the Docker image's ENTRYPOINT in [exec form](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example)
+- **Buildpack**: the start command is inserted as a [buildpack launch process](https://buildpacks.io/docs/app-developer-guide/run-an-app/#user-provided-shell-process)
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-start-command_a8vcxs.png"
