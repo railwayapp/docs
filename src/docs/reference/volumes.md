@@ -77,7 +77,7 @@ to the service:
 
 Volumes have a max size based on the type of plan you are on. This may change
 after the priority boarding period:
-- Trial and Hobby plans: **10GB**
+- Trial and Hobby plans: **5GB**
 - Pro and team plans: **50GB**
 
 Please reach out if you need more space.
