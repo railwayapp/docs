@@ -4,6 +4,7 @@ title: Templates
 
 Templates allow you to deploy a fully configured project that is automatically
 connected to infrastructure. Examples of templates are:
+
 - NextJS app with Prisma
 - Django app connected to Postgres
 - Elixir Phoenix webserver
@@ -29,7 +30,7 @@ The [Railway button page](https://railway.app/button) allows you to create templ
 <Image src="https://res.cloudinary.com/railway/image/upload/v1656470421/docs/template-editor_khw8n6.png"
 alt="Template Editor"
 layout="intrinsic"
-width={609} height={520} quality={80} />
+width={1218} height={1120} quality={80} />
 
 Configure your own button at
 [railway.app/button](https://railway.app/button) where you can define the repo
@@ -42,10 +43,27 @@ When adding services to a template, you can enter a url to a GitHub repo's branc
 ### Additional Configuration
 
 You can configure the following fields to enable successful deploys for template users:
+
 - Root Directory (Helpful for monorepos)
 - Start command
 - Healthcheck Path
 - Variables (with an optional description default value)
+
+### Template Variable Functions
+
+Template variable functions allows you to dynamically generate variables (or parts of a variable) on demand when the template is deployed.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1690581532/docs/screenshot-2023-07-28-15.31.42_tjgp1e.png"
+alt="Template Variable Functions"
+layout="intrinsic"
+width={624} height={497} quality={100} />
+
+When a template is deployed, all functions are executed and the result replaces the `${{ ... }}` in the variable. For example, you can use them to generate a random password for a database, or to generate a random string for a secret. You can see an example of what the variable will look like after all the functions execute when creating the template.
+
+The current template variable functions are:
+
+- `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).
+- `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
 ## Convert a Project into a Template
 
