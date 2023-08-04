@@ -86,4 +86,4 @@ Let's break down each field:
 
 Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
 
-At this moment Railway won't terminate your process in any scenario. However cron triggers may be skipped if building and deploying a service takes so long that overlaps with the next scheduled execution.
+At this moment, Railway won't terminate your process in any scenario. However, cron jobs may be skipped if the service is in the build/deploy stage when the next scheduled execution happens.
