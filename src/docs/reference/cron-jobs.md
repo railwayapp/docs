@@ -42,11 +42,11 @@ Let's break down each field:
 
 Note that schedules are based on UTC (Coordinated Universal Time).
 
+## Frequency
+
+The shortest time between successive executions of a cron job cannot be less than 15 minutes.
+
 ## Examples
-
-- Run a command every minute:
-
-  `* * * * *`
 
 - Run a command every hour at the 30th minute:
 
