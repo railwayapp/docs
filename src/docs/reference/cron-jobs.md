@@ -40,6 +40,8 @@ Let's break down each field:
 
 - Day of the week (0-7, where both 0 and 7 represent Sunday): Represents the day of the week when the command should be executed. You can specify a specific day value (e.g., 0-Sunday, 1-Monday, etc.), or use an asterisk (`*`) to indicate any day of the week.
 
+Note that schedules are based on UTC (Coordinated Universal Time).
+
 ## Examples
 
 - Run a command every minute:
