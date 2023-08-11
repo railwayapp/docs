@@ -21,7 +21,7 @@ We differ in the following:
 
 ### Builds
 
-In the current era of software development, using Docker adds a large workload to the average developer. We want to offer the developer all the benefits of reproducibility, speed, and ease of use when deploying images without the clunky boilerplate of Docker. 
+In the current era of software development, using Docker adds a large workload to the average developer. We want to offer the developer all the benefits of reproducibility, speed, and ease of use when deploying images without the clunky boilerplate of Docker.
 
 Heroku's buildpacks are decent, but we want to offer the user a better experience. This is why we built Nixpacks.
 
@@ -61,7 +61,7 @@ Want to revert a change? Because we image all builds, you can [rollback](/deploy
 
 ### Support + Community
 
-Railway serves tens of thousands of builders who deploy applications that bring tremendous impact to themselves, their friends, and their customers.
+Railway serves hundreds of thousands of thousands of builders who deploy applications that bring tremendous impact to themselves, their friends, and their customers.
 
 We feel no project, big or small- is never not important. This is our guiding philosophy to our users.
 
