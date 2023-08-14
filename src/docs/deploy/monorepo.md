@@ -41,7 +41,7 @@ width={980} height={380} quality={80} />
 ## Shared Monorepo
 
 Popular in the JavaScript ecosystem, shared monorepos contain multiple components that all share a common root directory. By default, all components are built with
-a single command from the root directory (eg. `npm run build`). However, if you are using Nixpacks, then you can override the build command with the `NIXPACKS_BUILD_CMD` environment variable.
+a single command from the root directory (eg. `npm run build`). However, if you are using Nixpacks, then you can override the build command in the service settings.
 
 The start command can be overridden in the Railway settings (
 eg. `npm run start:backend` and `npm run start:frontend`).
