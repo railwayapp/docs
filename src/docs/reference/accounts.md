@@ -64,10 +64,6 @@ Users can view their referral invite status on the [referrals page](https://rail
 
 ## Billing
 
-Every account gets $5 of free credit one-time to trial the service. No credit card required.
-
-Users on the Trial plan are limited to 500 hours of execution time per month. This restriction is lifted for users on paid plans.
-
 Accounts are billed monthly. Resources used by deleted projects up until deletion are still counted towards the total bill.
 
 Users can manage their billing plan as well as view historical payments on the [billing page](https://railway.app/account/billing).
