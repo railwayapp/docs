@@ -12,7 +12,7 @@ Usage-based pricing means that you are only charged for the resources you actual
 
 ## Free Trial
 
-As a new user, you can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5 for usage and 500 execution hours. Full Trial users can deploy code and databases, while Limited Trial users can only deploy databases.
+As a new user, you can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5. Full Trial users can deploy code and databases, while Limited Trial users can only deploy databases.
 
 Your trial experience depends on whether Railway can verify your account. Read more about verification [here](#verification).
 
