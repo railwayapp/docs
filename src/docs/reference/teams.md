@@ -19,12 +19,21 @@ You can open your team's settings page to manage team members and see billing in
 Under the General tab of the settings page, you can invite members to access the project.
 
 There are two scopes for Team members:
+
 - Admin: Full administration of the Team and all Team projects
 - Member: Access to all Team projects
 
 ## Transferring Projects to Teams
 
-In the Dashboard you can click and drag projects into the team. Just click and hold the handle icon on the project on the dashboard, you will see a drag interface appear, then you can let go of the mouse click in the desired team.
+### Dashboard
+
+You can click and drag projects into the team. Just click and hold the handle icon on the project on the dashboard, you will see a drag interface appear, then you can let go of the mouse click in the desired team.
+
+### Project
+
+Inside your project, you can visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1692378671/project-transfer_iukfwb.png" alt="Project Transfer" layout="responsive" height={968} width={1240} />
 
 ## Invoicing and Billing
 
