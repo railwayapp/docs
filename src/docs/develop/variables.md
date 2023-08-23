@@ -6,6 +6,7 @@ Service variables are provided whenever you build, deploy, or run `railway run`.
 defined, they are made available to your application at runtime as environment variables.
 
 Variables are made available in the following scenarios:
+
 - The build process for each service deployment,
 - The running service deployment, and
 - The command invoked by `railway run <COMMAND>`.
@@ -43,30 +44,44 @@ Variables can span multiple lines. Press `Control+Enter` (`cmd+Enter` on Mac) in
 Railway provides the following additional system environment variables to all
 builds and deployments.
 
-| Name                              | Description                                                                                                                                                                                          |
-|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `RAILWAY_STATIC_URL`              | The public domain, of the form `example.up.railway.app`
-| `RAILWAY_SERVICE_{ServiceName}_URL`              | The public domain of a specific service within a project, of the form `example.up.railway.app`. Example: `RAILWAY_SERVICE_API_URL`                                                                                                                                              |
-| `RAILWAY_GIT_COMMIT_SHA`          | The git [SHA](https://docs.github.com/en/github/getting-started-with-github/github-glossary#commit) of the commit that triggered the deployment. Example: `d0beb8f5c55b36df7d674d55965a23b8d54ad69b` |
-| `RAILWAY_GIT_AUTHOR`              | The user of the commit that triggered the deployment. Example: `gschier`                                                                                                                             |
-| `RAILWAY_GIT_BRANCH`              | The branch that triggered the deployment. Example: `main`                                                                                                                                            |
-| `RAILWAY_GIT_REPO_NAME`           | The name of the repository that triggered the deployment. Example: `myproject`                                                                                                                       |
-| `RAILWAY_GIT_REPO_OWNER`          | The name of the repository owner that triggered the deployment. Example: `mycompany`                                                                                                                 |
-| `RAILWAY_GIT_COMMIT_MESSAGE`      | The message of the commit that triggered the deployment. Example: `Fixed a few bugs`                                                                                                                 |
-| `RAILWAY_HEALTHCHECK_TIMEOUT_SEC` | The timeout length (in seconds) of healthchecks. Example: `300`                                                                                                                                      |
-| `RAILWAY_ENVIRONMENT`             | The railway environment for the deployment. Example: `production`                                                                                                                                    |
-| `RAILWAY_REPLICA_ID`             | The railway replica ID for the deployment. Example: `c0dfac18-1606-4f6d-a702-062a8c5163cf`                                                                                                                                    |
-| `RAILWAY_VOLUME_NAME`             | The name of the attached volume, if any. Example: `foobar`
-| `RAILWAY_VOLUME_MOUNT_PATH`             | The mount path of the attached volume, if any. Example: `/data`
+| Name                        | Description                                                                  |
+| --------------------------- | ---------------------------------------------------------------------------- |
+| `RAILWAY_PUBLIC_DOMAIN`     | The public service or customer domain, of the form `example.up.railway.app`. |
+| `RAILWAY_PRIVATE_DOMAIN`    | The private DNS name of the service.                                         |
+| `RAILWAY_PROJECT_NAME`      | The project name the service belongs to.                                     |
+| `RAILWAY_PROJECT_ID`        | The project id the service belongs to.                                       |
+| `RAILWAY_ENVIRONMENT_NAME`  | The environment name of the service instance.                                |
+| `RAILWAY_ENVIRONMENT_ID`    | The environment id of the service instance.                                  |
+| `RAILWAY_SERVICE_NAME`      | The service name.                                                            |
+| `RAILWAY_SERVICE_ID`        | The service id.                                                              |
+| `RAILWAY_REPLICA_ID`        | The replica ID for the deployment.                                           |
+| `RAILWAY_DEPLOYMENT_ID`     | The ID for the deployment.                                                   |
+| `RAILWAY_SNAPSHOT_ID`       | The snapshot ID for the deployment.                                          |
+| `RAILWAY_VOLUME_NAME`       | The name of the attached volume, if any. Example: `foobar`                   |
+| `RAILWAY_VOLUME_MOUNT_PATH` | The mount path of the attached volume, if any. Example: `/data`              |
+
+### Git Variables
+
+These variables are provided if the deploy originated from a GitHub trigger.
+
+| Name                         | Description                                                                                                                                                                                          |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RAILWAY_GIT_COMMIT_SHA`     | The git [SHA](https://docs.github.com/en/github/getting-started-with-github/github-glossary#commit) of the commit that triggered the deployment. Example: `d0beb8f5c55b36df7d674d55965a23b8d54ad69b` |
+| `RAILWAY_GIT_AUTHOR`         | The user of the commit that triggered the deployment. Example: `gschier`                                                                                                                             |
+| `RAILWAY_GIT_BRANCH`         | The branch that triggered the deployment. Example: `main`                                                                                                                                            |
+| `RAILWAY_GIT_REPO_NAME`      | The name of the repository that triggered the deployment. Example: `myproject`                                                                                                                       |
+| `RAILWAY_GIT_REPO_OWNER`     | The name of the repository owner that triggered the deployment. Example: `mycompany`                                                                                                                 |
+| `RAILWAY_GIT_COMMIT_MESSAGE` | The message of the commit that triggered the deployment. Example: `Fixed a few bugs`                                                                                                                 |
 
 ## User-Provided Configuration Variables
 
 Users can use the following environment variables to configure Railway's behaviour.
 
 | Name                                 | Description                                                                                                            |
-|--------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
 | `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS` | How long the old deploy will overlap with the newest one being deployed, its default value is `20`. Example: `0`       |
 | `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service, its default value is `Dockerfile`. Example: `Railway.dockerfile` |
+| `RAILWAY_HEALTHCHECK_TIMEOUT_SEC`    | The timeout length (in seconds) of healthchecks. Example: `300`                                                        |
 
 ## Reference Variables
 
@@ -80,6 +95,16 @@ value fields to help create these references.
 alt="Screenshot of Variables Pane"
 layout="responsive"
 width={2408} height={1150} quality={100} />
+
+You can also reference the Railway provided variables of other services. For
+example, in your "frontend" service you can create the variable
+
+```plaintext
+API_URL=https://${{ backend.RAILWAY_PUBLIC_DOMAIN }}
+```
+
+and then use it to make requests to your backend. This prevents the need to
+hardcode the URL in your frontend code.
 
 ### Plugin Variables
 
