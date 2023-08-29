@@ -8,7 +8,6 @@ export const useFathom = (trackingCode: string, siteUrl: string) => {
   useEffect(() => {
     // Initialize Fathom when the app loads
     Fathom.load(trackingCode, {
-      url: "https://kiwi.railway.app/script.js",
       includedDomains: [siteUrl],
     });
 
