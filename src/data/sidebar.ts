@@ -68,6 +68,14 @@ export const sidebarContent: ISidebarContent = [
     pages: [makePage("Fixing Common Errors", "troubleshoot")],
   },
   {
+    title: "Maturity",
+    pages: [
+      makePage("Philosophy", "maturity"),
+      makePage("Use Cases", "maturity"),
+      makePage("Compliance", "maturity"),
+    ],
+  },
+  {
     title: "Reference",
     pages: [
       makePage("Private Networking", "reference"),
@@ -80,7 +88,6 @@ export const sidebarContent: ISidebarContent = [
       makePage("Public API", "reference"),
       makePage("Templates", "reference"),
       makePage("Guides", "reference"),
-      makePage("Usecases", "reference"),
       makePage("Support", "reference"),
       makePage("Priority Boarding", "reference"),
       makePage("Compare to Heroku", "reference"),

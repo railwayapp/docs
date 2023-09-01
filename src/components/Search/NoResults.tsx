@@ -29,7 +29,7 @@ const NoResults: React.FC = () => {
               <DiscordIcon />
               Discord
             </ContactButton>
-            <ContactButton href="mailto:contact@railway.app">
+            <ContactButton href="mailto:team@railway.app">
               <Mail />
               Email
             </ContactButton>
