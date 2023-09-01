@@ -1,5 +1,5 @@
 ---
-title: Philosophy & Product Readiness
+title: Philosophy
 ---
 
 Railway is a deployment platform that helps developers deliver their software through the entire application life-cycle through git native tooling, composable infrastructure, and built-in instrumentation. 
