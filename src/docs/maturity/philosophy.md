@@ -81,4 +81,4 @@ No, Railway is a deployment platform that works with your existing code. We don'
 
 ### Is Railway serverless?
 
-No, services on Railway are deployed in Docker containers that stick around until you don't need them anymore.
+No, services on Railway are deployed in stateful Docker containers. They are old deployments are removed on every new deploy.
