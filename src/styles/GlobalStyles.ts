@@ -30,4 +30,8 @@ export const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  .docs-content td {
+    vertical-align: middle;
+  }
 `;
