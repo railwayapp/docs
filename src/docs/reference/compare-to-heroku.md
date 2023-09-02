@@ -77,4 +77,4 @@ All you need to do is connect your GitHub account, create a new project, and the
 
 If you want to learn in-depth about our product, the [Getting Started guide](/getting-started) that will walk you through the process.
 
-If you run into any issues, we would be more than happy to answer your questions on our [Discord](https://discord.gg/railway) or over email at contact@railway.app
+If you run into any issues, we would be more than happy to answer your questions on our [Discord](https://discord.gg/railway) or over email at team@railway.app

@@ -208,7 +208,7 @@ Yes. As a new Railway user, you can sign up for a free Trial. You will receive a
 </Collapse>
 
 <Collapse title="I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?">
-Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, [email us](mailto:contact@railway.app) for help on onboarding your client to Railway.
+Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, [email us](mailto:team@railway.app) for help on onboarding your client to Railway.
 </Collapse>
 
 <Collapse title="I prefer to prepay. Is that possible?">

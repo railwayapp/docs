@@ -41,4 +41,4 @@ Railway offers a consumption-based pricing model for your projects. You don't ge
 
 However, if you expect to use a consistent amount of resources for large companies, you can contact us for a quote and demo. Railway will work with you to find a solution that works for your needs. We are willing to offer Purchase Orders and concierge onboarding for large companies.
 
-Reach out to us at [contact@railway.app](mailto:contact@railway.app) for more information.
+Reach out to us at [team@railway.app](mailto:team@railway.app) for more information.
