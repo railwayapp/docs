@@ -44,7 +44,7 @@ We advise developers to:
 
 Included in our planned near-term work for databases on Railway are built in backups, additional database metrics, and SSH access into the running database. 
 
-As mentioned before: we don't believe in vendor lock-in here at Railway, if your needs outpace us, consider other vendors like PlanetScale (for MySQL) or Cockroach (For Postgres).
+As mentioned before: we don't believe in vendor lock-in here at Railway, if your needs outpace us, consider other vendors like PlanetScale (for MySQL) or Cockroach (for Postgres).
 
 ### Metrics
 
