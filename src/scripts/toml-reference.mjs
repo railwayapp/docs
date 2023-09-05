@@ -150,6 +150,7 @@ const links = {
   "deploy.healthcheckPath": "/deploy/healthchecks",
   "deploy.healthcheckTimeout": "/deploy/healthchecks#timeout",
   "deploy.restartPolicyType": "/deploy/deployments#configurable-restart-policy",
+  "deploy.cronSchedule": "/reference/cron-jobs",
 };
 
 const ignoredEnumValues = ["HEROKU", "PAKETO"];
