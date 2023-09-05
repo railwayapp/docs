@@ -12,7 +12,8 @@
     "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
-    "migrate:status": "prisma migrate status"
+    "migrate:status": "prisma migrate status",
+    "toml-reference": "node src/scripts/toml-reference.mjs"
   },
   "dependencies": {
     "@nanostores/react": "^0.4.1",
