@@ -2,7 +2,9 @@
 title: Cron Jobs
 ---
 
-Cron Jobs allow you to start a service based on a crontab expression.
+Cron Jobs allow you to start a service based on a crontab expression. This means the service is expected to execute a task, and terminate as soon as that task is finished. Make sure the service doesn't leave any resources open, such as database connections, because otherwise the service won't terminate and Railway wont't start it again until the previous execution has finished.
+
+If you are already using a scheduling library or system in your service such as [node-cron](https://www.npmjs.com/package/node-cron) or [Quartz](http://www.quartz-scheduler.org/), Railway cron jobs are a substitute of them that allows you to safe resources between executions.
 
 ## Configuring a cron job
 
