@@ -231,3 +231,165 @@ If you include it in your `railway.json` file, many editors (e.g. VSCode) will p
   "$schema": "https://railway.app/railway.schema.json"
 }
 ```
+
+
+## Manifest Reference
+
+{/* codegen:start do not edit this comment */}
+### builder
+
+Set the builder for the deployment.
+
+```toml
+[build]
+builder = "NIXPACKS"
+```
+
+Possible values are:
+- `NIXPACKS`
+- `DOCKERFILE`
+- `HEROKU`
+- `PAKETO`
+
+### watchPatterns
+
+```toml
+[build]
+watchPatterns = ["src/**"]
+```
+
+### buildCommand
+
+Build command to pass to the Nixpacks builder.
+
+```toml
+[build]
+buildCommand = "yarn run build"
+```
+
+This field can be set to `null`.
+
+### dockerfilePath
+
+Location of non-standard Dockerfile.
+
+```toml
+[build]
+dockerfilePath = "Dockerfile.backend"
+```
+
+This field can be set to `null`.
+
+### nixpacksConfigPath
+
+Location of a non-standard Nixpacks config file.
+
+```toml
+[build]
+nixpacksConfigPath = "nixpacks.toml"
+```
+
+This field can be set to `null`.
+
+### nixpacksPlan
+
+Full nixpacks plan. See https://nixpacks.com/docs/configuration/file for more info.
+
+```toml
+[build]
+nixpacksPlan = "examples/node"
+```
+
+This field can be set to `null`.
+
+### nixpacksVersion
+
+Version of Nixpacks to use. Must be a valid Nixpacks version. EXPERIMENTAL: USE AT YOUR OWN RISK!.
+
+```toml
+[build]
+nixpacksVersion = "1.13.0"
+```
+
+This field can be set to `null`.
+
+### startCommand
+
+The command to run when starting the container.
+
+```toml
+[deploy]
+startCommand = "echo starting"
+```
+
+This field can be set to `null`.
+
+### numReplicas
+
+The number of instances to run for the deployment.
+
+```toml
+[deploy]
+numReplicas = 2
+```
+
+This field can be set to `null`.
+
+### healthcheckPath
+
+Path to check after starting your deployment to ensure it is healthy.
+
+```toml
+[deploy]
+healthcheckPath = "/health"
+```
+
+This field can be set to `null`.
+
+### healthcheckTimeout
+
+Number of seconds to wait for the healthcheck path to become healthy.
+
+```toml
+[deploy]
+healthcheckTimeout = 300
+```
+
+This field can be set to `null`.
+
+### restartPolicyType
+
+How to handle the deployment crashing.
+
+```toml
+[deploy]
+restartPolicyType = "ON_FAILURE"
+```
+
+Possible values are:
+- `ON_FAILURE`
+- `ALWAYS`
+- `NEVER`
+
+### restartPolicyMaxRetries
+
+```toml
+[deploy]
+restartPolicyMaxRetries = 5
+```
+
+This field can be set to `null`.
+
+### cronSchedule
+
+Cron schedule to run the deployment on.
+
+```toml
+[deploy]
+cronSchedule = "0 0 * * *"
+```
+
+This field can be set to `null`.
+
+
+{/* codegen:end do not edit this comment */}
