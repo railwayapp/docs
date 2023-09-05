@@ -44,9 +44,18 @@ function generateDocsForProperties(section, properties) {
   for (const [key, value] of Object.entries(properties)) {
     const { nullable, value: unwrappedValue } = unwrap(value);
     const propertyPath = `${section}.${key}`;
-    content += `### ${key}\n\n`;
-    if (unwrappedValue.description) {
-      content += `${unwrappedValue.description}.\n\n`;
+    const title = titelize(key);
+    const link = links[propertyPath];
+    if (link) {
+      content += `### [${title}](${link})\n\n`;
+    } else {
+      content += `### ${title}\n\n`;
+    }
+
+    const description =
+      unwrappedValue.description ?? unwrappedValue.items?.description;
+    if (description) {
+      content += `${description}.\n\n`;
     }
 
     const example = examples[propertyPath] ?? value.enum?.[0];
@@ -66,8 +75,15 @@ ${key} = ${
 
     if (unwrappedValue.enum) {
       content += `Possible values are:\n${value.enum
+        .filter(v => !ignoredEnumValues.includes(v))
         .map(v => `- \`${v}\``)
         .join("\n")}\n\n`;
+    }
+
+    const note = notes[propertyPath];
+
+    if (note) {
+      content += `Note: ${note}.\n\n`;
     }
 
     if (nullable) {
@@ -96,6 +112,11 @@ function unwrap(value) {
   return { value, nullable };
 }
 
+function titelize(key) {
+  const s = key.replace(/([A-Z])/g, " $1");
+  return s.charAt(0).toUpperCase() + s.substring(1);
+}
+
 // Although json-schema supports examples, we build the schema from zod and it doesn't support examples.
 // So a solution is to have them here.
 const examples = {
@@ -113,5 +134,24 @@ const examples = {
   "deploy.restartPolicyType": "ON_FAILURE",
   "deploy.cronSchedule": "0 0 * * *",
 };
+
+const notes = {
+  "build.builder":
+    "Railway will always build with a Dockerfile if it finds one. To build with nixpacks, you can remove or rename the Dockerfile.",
+};
+
+const links = {
+  "build.builder": "/deploy/builds",
+  "build.buildCommand": "/deploy/builds#build-command",
+  "build.watchPatterns": "/deploy/builds#watch-paths",
+  "build.dockerfilePath": "/deploy/dockerfiles",
+  "deploy.startCommand": "/deploy/deployments#start-command",
+  "deploy.numReplicas": "/develop/services#horizontal-scaling-with-replicas",
+  "deploy.healthcheckPath": "/deploy/healthchecks",
+  "deploy.healthcheckTimeout": "/deploy/healthchecks#timeout",
+  "deploy.restartPolicyType": "/deploy/deployments#configurable-restart-policy",
+};
+
+const ignoredEnumValues = ["HEROKU", "PAKETO"];
 
 main().catch(console.error);

@@ -66,96 +66,166 @@ width={948} height={419} quality={100} />
 
 Everything in the build and deploy sections of the service settings can be configured. The settings are...
 
+{/* codegen:start do not edit this comment */}
 ### [Builder](/deploy/builds)
 
-Set the builder for the deployment:
+Set the builder for the deployment.
+
 ```toml
 [build]
-builder = "nixpacks"
+builder = "NIXPACKS"
 ```
 
-The available values are:
-- nixpacks
-- dockerfile
+Possible values are:
+- `NIXPACKS`
+- `DOCKERFILE`
 
-Note: Railway will always build with a Dockerfile if it finds one. To build with nixpacks, you can remove or rename the Dockerfile.
-
-### [Build command](/deploy/builds#build-command)
-
-Build command to pass to the Nixpacks builder:
-```toml
-[build]
-buildCommand = "echo building"
-```
+Note: Railway will always build with a Dockerfile if it finds one. To build with nixpacks, you can remove or rename the Dockerfile..
 
 ### [Watch Patterns](/deploy/builds#watch-paths)
 
-Array of patterns used to conditionally trigger deploys:
+Array of patterns used to conditionally trigger a deploys.
+
 ```toml
 [build]
 watchPatterns = ["src/**"]
 ```
 
+### [Build Command](/deploy/builds#build-command)
+
+Build command to pass to the Nixpacks builder.
+
+```toml
+[build]
+buildCommand = "yarn run build"
+```
+
+This field can be set to `null`.
+
 ### [Dockerfile Path](/deploy/dockerfiles)
 
-Location of non-standard Dockerfile path:
+Location of non-standard Dockerfile.
+
 ```toml
 [build]
 dockerfilePath = "Dockerfile.backend"
 ```
 
+This field can be set to `null`.
+
+### Nixpacks Config Path
+
+Location of a non-standard Nixpacks config file.
+
+```toml
+[build]
+nixpacksConfigPath = "nixpacks.toml"
+```
+
+This field can be set to `null`.
+
+### Nixpacks Plan
+
+Full nixpacks plan. See https://nixpacks.com/docs/configuration/file for more info.
+
+```toml
+[build]
+nixpacksPlan = "examples/node"
+```
+
+This field can be set to `null`.
+
+### Nixpacks Version
+
+Version of Nixpacks to use. Must be a valid Nixpacks version. EXPERIMENTAL: USE AT YOUR OWN RISK!.
+
+```toml
+[build]
+nixpacksVersion = "1.13.0"
+```
+
+This field can be set to `null`.
+
 ### [Start Command](/deploy/deployments#start-command)
 
-The command to run when starting the container:
+The command to run when starting the container.
+
 ```toml
 [deploy]
 startCommand = "echo starting"
 ```
 
-### [Replicas](/develop/services#horizontal-scaling-with-replicas)
+This field can be set to `null`.
 
-The number of replicas to run:
+### [Num Replicas](/develop/services#horizontal-scaling-with-replicas)
+
+The number of instances to run for the deployment.
+
 ```toml
 [deploy]
 numReplicas = 2
 ```
 
+This field can be set to `null`.
+
 ### [Healthcheck Path](/deploy/healthchecks)
 
-Path to check after starting your deployment to ensure it is healthy:
+Path to check after starting your deployment to ensure it is healthy.
+
 ```toml
 [deploy]
 healthcheckPath = "/health"
 ```
 
+This field can be set to `null`.
+
 ### [Healthcheck Timeout](/deploy/healthchecks#timeout)
 
-Number of seconds to wait for the healthcheck path to become healthy:
+Number of seconds to wait for the healthcheck path to become healthy.
+
 ```toml
 [deploy]
 healthcheckTimeout = 300
 ```
 
+This field can be set to `null`.
+
 ### [Restart Policy Type](/deploy/deployments#configurable-restart-policy)
 
-How to handle the deployment crashing:
+How to handle the deployment crashing.
+
 ```toml
 [deploy]
-restartPolicyType = "never"
+restartPolicyType = "ON_FAILURE"
 ```
 
-The available values are:
-- never
-- on_failure
-- always
+Possible values are:
+- `ON_FAILURE`
+- `ALWAYS`
+- `NEVER`
 
 ### Restart Policy Max Retries
 
-The number of times to restart if the restart type is `on_failure`:
 ```toml
 [deploy]
 restartPolicyMaxRetries = 5
 ```
+
+This field can be set to `null`.
+
+### Cron Schedule
+
+Cron schedule to run the deployment on.
+
+```toml
+[deploy]
+cronSchedule = "0 0 * * *"
+```
+
+This field can be set to `null`.
+
+
+{/* codegen:end do not edit this comment */}
 
 ## Custom Config File
 
@@ -231,165 +301,3 @@ If you include it in your `railway.json` file, many editors (e.g. VSCode) will p
   "$schema": "https://railway.app/railway.schema.json"
 }
 ```
-
-
-## Manifest Reference
-
-{/* codegen:start do not edit this comment */}
-### builder
-
-Set the builder for the deployment.
-
-```toml
-[build]
-builder = "NIXPACKS"
-```
-
-Possible values are:
-- `NIXPACKS`
-- `DOCKERFILE`
-- `HEROKU`
-- `PAKETO`
-
-### watchPatterns
-
-```toml
-[build]
-watchPatterns = ["src/**"]
-```
-
-### buildCommand
-
-Build command to pass to the Nixpacks builder.
-
-```toml
-[build]
-buildCommand = "yarn run build"
-```
-
-This field can be set to `null`.
-
-### dockerfilePath
-
-Location of non-standard Dockerfile.
-
-```toml
-[build]
-dockerfilePath = "Dockerfile.backend"
-```
-
-This field can be set to `null`.
-
-### nixpacksConfigPath
-
-Location of a non-standard Nixpacks config file.
-
-```toml
-[build]
-nixpacksConfigPath = "nixpacks.toml"
-```
-
-This field can be set to `null`.
-
-### nixpacksPlan
-
-Full nixpacks plan. See https://nixpacks.com/docs/configuration/file for more info.
-
-```toml
-[build]
-nixpacksPlan = "examples/node"
-```
-
-This field can be set to `null`.
-
-### nixpacksVersion
-
-Version of Nixpacks to use. Must be a valid Nixpacks version. EXPERIMENTAL: USE AT YOUR OWN RISK!.
-
-```toml
-[build]
-nixpacksVersion = "1.13.0"
-```
-
-This field can be set to `null`.
-
-### startCommand
-
-The command to run when starting the container.
-
-```toml
-[deploy]
-startCommand = "echo starting"
-```
-
-This field can be set to `null`.
-
-### numReplicas
-
-The number of instances to run for the deployment.
-
-```toml
-[deploy]
-numReplicas = 2
-```
-
-This field can be set to `null`.
-
-### healthcheckPath
-
-Path to check after starting your deployment to ensure it is healthy.
-
-```toml
-[deploy]
-healthcheckPath = "/health"
-```
-
-This field can be set to `null`.
-
-### healthcheckTimeout
-
-Number of seconds to wait for the healthcheck path to become healthy.
-
-```toml
-[deploy]
-healthcheckTimeout = 300
-```
-
-This field can be set to `null`.
-
-### restartPolicyType
-
-How to handle the deployment crashing.
-
-```toml
-[deploy]
-restartPolicyType = "ON_FAILURE"
-```
-
-Possible values are:
-- `ON_FAILURE`
-- `ALWAYS`
-- `NEVER`
-
-### restartPolicyMaxRetries
-
-```toml
-[deploy]
-restartPolicyMaxRetries = 5
-```
-
-This field can be set to `null`.
-
-### cronSchedule
-
-Cron schedule to run the deployment on.
-
-```toml
-[deploy]
-cronSchedule = "0 0 * * *"
-```
-
-This field can be set to `null`.
-
-
-{/* codegen:end do not edit this comment */}
