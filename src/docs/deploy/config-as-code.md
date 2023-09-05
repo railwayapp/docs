@@ -213,7 +213,7 @@ restartPolicyMaxRetries = 5
 
 This field can be set to `null`.
 
-### Cron Schedule
+### [Cron Schedule](/reference/cron-jobs)
 
 Cron schedule to run the deployment on.
 
