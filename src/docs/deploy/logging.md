@@ -98,18 +98,6 @@ alt="Viewing a log in context"
 layout="responsive"
 width={1682} height={272} quality={80} />
 
-### Log View Features
-
-The log view is a full-featured log viewer with the following features:
-
-- Select a date range using the dropdown left of the filter
-- Adjust settings like line wrapping using the gear icon
-- Auto-complete various tags by typing the`@` symbol
-- Show-hide table columns using the three-dots icon in the table header
-- Expand a log to view tags using the chevron icon on each row
-- View context around a specific log using the "View Context" button
-- Resize table columns using the drag handles in the table header
-
 ## Structured Logs
 
 📣 _Currently in beta_
@@ -133,6 +121,8 @@ type StructuredLog = {
 Structured logs are best generated with a library for your language. For
 example, the default [Winston](https://github.com/winstonjs/winston) JSON
 format emits logs in the correct structure by default.
+
+### Examples
 
 Here are a few examples of structured logs. Note that the entire log must be
 emitted on a single line to be parsed correctly.
