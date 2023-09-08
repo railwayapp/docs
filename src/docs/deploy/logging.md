@@ -103,7 +103,7 @@ width={1682} height={272} quality={80} />
 
 ## Structured Logs
 
-📣 _Currently in beta_
+<PriorityBoardingBanner />
 
 Structured logs are logs emitted in a structured JSON format, useful if you want
 to attach custom metadata to logs or preserve multi-line logs like stack traces.
