@@ -59,7 +59,7 @@ alt="Viewing logs using the command line interface"
 layout="responsive"
 width={1489} height={591} quality={80} />
 
-### Filtering Logs
+## Filtering Logs
 
 Railway supports a custom filter syntax that can be used to query logs.
 
@@ -86,7 +86,7 @@ error AND @service:123
 @fullName:"first last"
 ```
 
-### View In Context
+## View In Context
 
 Often, when searching for a log, it is useful to see the surrounding logs. To
 do this, either click the "Timestamp" column, or expand any log and click 
