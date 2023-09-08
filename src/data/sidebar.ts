@@ -40,6 +40,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Exposing Your App", "deploy"),
       makePage("Networking", "deploy"),
       makePage("Monorepo", "deploy"),
+      makePage("Logging", "deploy"),
       makePage("Integrations", "deploy"),
       makePage("Config as Code", "deploy"),
       makePage("Deploy on Railway Button", "deploy"),

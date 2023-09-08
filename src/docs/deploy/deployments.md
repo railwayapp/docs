@@ -90,16 +90,7 @@ By default, Railway maintains only one deploy per service.
 ## Logs
 
 Railway allows users to see running logs of your application to help with
-monitoring. Railway displays the last 10,000 lines of logs available for a
-deployment.
-
-We maintain logs for inactive deployments as well as active. Under the logs pane, you can search within your logs for certain keywords.
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1645149733/docs/logs_seqcps.png"
-alt="Animation of Log Filtering"
-layout="responsive"
-width={1512} height={1254} quality={80} />
+monitoring. For more information, please see [Logging](/deploy/logging) 
 
 ## Deployment Actions
 
