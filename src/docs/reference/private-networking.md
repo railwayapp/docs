@@ -45,6 +45,7 @@ Requests to replica DNS service address will be round robin'd between all replic
 ## Caveats
 
 During the feature development process we found a few caveats that you should be aware of:
+
 - Railway databases are not accessible via the private network, we are moving towards a system where DBs are services with volumes attached.
 - You will need to establish a wireguard tunnel to external services if you wish to vendor requests in your application.
 - You will need to bind to a IPv6 port to receive traffic on the private network.
@@ -52,9 +53,10 @@ During the feature development process we found a few caveats that you should be
 - Private networks take 100ms to initialize on deploy, we ask that you set initial requests on a retry loop.
 - We don't support IPv4 private networking
 - Alpine-based images may not work with our internal DNS due to how it performs
-resolution. See the section below for a workaround.
+  resolution. See the section below for a workaround.
 
 ## Workaround for Alpine-based images
+
 During private networking initialization (the period under 100ms), dns resolution is handled via a fallback DNS server 8.8.8.8 in the container DNS config.
 However, in Alpine-based images, due to how DNS resolution is handled, if that public DNS server's response is faster than the private networking DNS, it causes private resolution to fail.
 
