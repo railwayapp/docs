@@ -187,4 +187,6 @@ All regions provide the same experience, performance, and reliability you expect
 
 ### Caveats
 
-You can't deploy database services to different regions. We recommend deploying Official Database Templates instead. Region deployment UI is in progress.
+You can't deploy database services to different regions. We recommend deploying Official Database Templates instead. Region deployment UI is in progress. 
+
+If you set the `RAILWAY_REGION` to a arbitrary value, your service's build will hang.
