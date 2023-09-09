@@ -189,4 +189,4 @@ All regions provide the same experience, performance, and reliability you expect
 
 You can't deploy database services to different regions. We recommend deploying Official Database Templates instead. Region deployment UI is in progress. 
 
-If you set the `RAILWAY_REGION` to a arbitrary value, your service's build will hang.
+If you create a volume within a region and attach it to a service in a different region it won't connect, we have a fix in progress.
