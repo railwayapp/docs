@@ -183,4 +183,8 @@ Within the service variable settings, you can set `RAILWAY_REGION` to any of the
 
 By default, Railway deploys to US-West located in Portland, Oregon.
 
-All regions provide the same experience, performance, and reliability you expect from Railway. You can't deploy database services to different regions. 
+All regions provide the same experience, performance, and reliability you expect from Railway. 
+
+### Caveats
+
+You can't deploy database services to different regions. We recommend deploying Official Database Templates instead. Region deployment UI is in progress.
