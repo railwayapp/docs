@@ -173,8 +173,8 @@ Within the service variable settings, you can set `RAILWAY_REGION` to any of the
 
 |Name|Location|Variable Value|
 |---|---|---|
-|US West|Oregon, USA|`us-west`|
-|US East|Virginia, USA|`us-east-4`|
+|US West|Oregon, USA|`us-west1`|
+|US East|Virginia, USA|`us-east4`|
 |EU West|Amsterdam, Netherlands|`europe-west4`|
 |Southeast Asia|Singapore|`asia-southeast1`|
 
