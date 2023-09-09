@@ -162,7 +162,7 @@ Railway will not deploy a PR branch from a user who is not in your team or invit
 
 <PriorityBoardingBanner />
 
-Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located.
+Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located. **This feature is only available to Pro plan workspaces.**
 
  Consider factors like compliance needs and proximity to your users when choosing a region.
 
