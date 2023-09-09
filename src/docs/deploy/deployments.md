@@ -157,3 +157,36 @@ Within the Service settings, a user is able to configure a restart policy of eit
 ## How come my GitHub PR won't deploy?
 
 Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
+
+## Regions
+
+<PriorityBoardingBanner />
+
+Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located. **This feature is only available to Pro plan workspaces.**
+
+ Consider factors like compliance needs and proximity to your users when choosing a region.
+
+### Region Options
+Railway has deploy regions in the Americas, Europe, and Asia-Pacific to provide broad coverage around the world.
+
+Within the service variable settings, you can set `RAILWAY_REGION` to any of the below values to use a region specific build/deployment target.
+
+|Name|Location|Variable Value|
+|---|---|---|
+|US West|Oregon, USA|`us-west`|
+|US East|Virginia, USA|`us-east-4`|
+|EU West|Amsterdam, Netherlands|`europe-west4`|
+|Southeast Asia|Singapore|`asia-southeast1`|
+
+
+*Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
+
+By default, Railway deploys to US-West located in Portland, Oregon.
+
+All regions provide the same experience, performance, and reliability you expect from Railway. 
+
+### Caveats
+
+You can't deploy database services to different regions. We recommend deploying Official Database Templates instead. Region deployment UI is in progress. 
+
+If you set the `RAILWAY_REGION` to a arbitrary value, your service's build will hang.
