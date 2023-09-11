@@ -171,17 +171,16 @@ Railway has deploy regions in the Americas, Europe, and Asia-Pacific to provide 
 
 Within the service variable settings, you can set `RAILWAY_REGION` to any of the below values to use a region specific build/deployment target.
 
-|Name|Location|Variable Value|
-|---|---|---|
-|US West|Oregon, USA|`us-west1`|
-|US East|Virginia, USA|`us-east4`|
-|EU West|Amsterdam, Netherlands|`europe-west4`|
-|Southeast Asia|Singapore|`asia-southeast1`|
-
+| Name           | Location               | Variable Value    |
+|----------------|------------------------|-------------------|
+| US West        | Oregon, USA            | `us-west1`        |
+| US East        | Virginia, USA          | `us-east4`        |
+| EU West        | Amsterdam, Netherlands | `europe-west4`    |
+| Southeast Asia | Singapore              | `asia-southeast1` |
 
 *Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
 
-By default, Railway deploys to US-West located in Portland, Oregon.
+By default, Railway deploys to `us-west1` located in Portland, Oregon.
 
 All regions provide the same experience, performance, and reliability you expect from Railway. 
 

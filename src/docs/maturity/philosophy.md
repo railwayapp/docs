@@ -54,9 +54,9 @@ We love working with our customers to solve interesting use cases. If you're not
 As mentioned before, Railway at a high level takes your code, builds it, and throws it on running infrastructure on GCP. At a granular level Railway relies on a few systems to maintain workloads. 
 
 - Build Layer
-  - Where archived folders of code or a Dockerfile (via GitHub or Railway Up) is sent to be built into an image
+  - Where archived folders of code or a Dockerfile (via GitHub or `railway up`) is sent to be built into an image
   - [Nixpacks](https://nixpacks.com/docs): the OSS software that reads your code and builds it via Nix
-  - Image Registry: either via Dockerhub, or a previously built image from Railway's Build servers
+  - Image Registry: either via Dockerhub/GitHub packages, or a previously built image from Railway's Build servers
 - Deployment Layer
   - Where images are ran in containers, images are pulled from the Build Layer
   - Databases on Railway are images + volumes mounted on a machine

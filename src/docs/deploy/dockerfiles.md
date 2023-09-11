@@ -34,7 +34,6 @@ Be sure to declare your environment variables in the stage they are required in:
 FROM node
 
 ARG RAILWAY_ENVIRONMENT
-ENV RAILWAY_ENVIRONMENT=$RAILWAY_ENVIRONMENT
 ```
 
 ### Docker Compose
