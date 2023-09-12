@@ -70,7 +70,7 @@ We may throttle your outbound bandwidth and reach out to you when it exceeds 100
 
 Private networking bandwidth is un-metered.
 
-We do have plans to provide static IPs, and allowing people to set up firewall rules to control permitted traffic within their projects.
+We intend to provide static IPs and advanced traffic-shaping controls within Railway in the future.
 
 
 ### Service Level Objectives
