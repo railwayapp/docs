@@ -66,7 +66,7 @@ It is common for teams who wish to have additional observability to use an addit
 
 Railway doesn't have a hard bandwidth limit to the broader internet. 
 
-We will get in contact when your outbound bandwidth exceed 100GB/month, but we happily lift that limit for legitimate customers. As such, we have had projects handle unexpected traffic and features on major media publications. It is something we are very proud of. With that said, if you need to control where your traffic is allowed to come from such as setting up firewall rules, we recommend setting up Cloudflare to handle this aspect of your application.
+We may throttle your outbound bandwidth and reach out to you when it exceeds 100GB/month to ensure the legitimacy of your workloads. If you need to control where your traffic is allowed to come from such as setting up firewall rules, we recommend setting up Cloudflare or an external load balancer/L7 application firewall to handle it.
 
 Private networking bandwidth is un-metered.
 
