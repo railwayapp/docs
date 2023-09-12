@@ -86,6 +86,8 @@ export const useDebouncedSearch = <
   const [rawInput, setRawInput] = useState("");
   // Actual query from input that gets sent in search requests
   const [query, setQuery] = useState("");
+  // Loading indicator
+  const [isSearching, setIsSearching] = useState(false);
 
   const [results, setResults] = useState<Result | null>(null);
 
@@ -103,6 +105,7 @@ export const useDebouncedSearch = <
     if (query === "") {
       return;
     }
+    setIsSearching(true);
     try {
       const response = await index.search<Response>(query, params);
       trackGoal(FATHOM_SEARCH_PERFORMED_EVT_ID, 0);
@@ -110,7 +113,8 @@ export const useDebouncedSearch = <
     } catch (e) {
       console.error(`Search for query "${query}" failed (${e})`);
     }
-  }, [query]);
+    setIsSearching(false);
+  }, [query, setIsSearching]);
 
   // Perform search and clear search results if query is empty
   useEffect(() => {
@@ -129,6 +133,7 @@ export const useDebouncedSearch = <
 
   return {
     query: rawInput,
+    isSearching,
     clearResponse: () => {
       setQuery("");
       setRawInput("");
