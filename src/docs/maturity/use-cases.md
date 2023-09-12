@@ -58,7 +58,7 @@ We also overlay commit and deployment behavior to correlate issues with applicat
 
 For service logs, we store logs for up to 90 days for Pro plan workspaces.
 
-Included in our planned near-term work for logging and observability on Railway are improvements to structured logging compatibly, and OpenTelemetry compatible endpoints.
+Included in our planned near-term work for logging and observability on Railway are improvements to structured logging, and OpenTelemetry compatible endpoints.
 
 It is common for teams who wish to have additional observability to use an additional monitoring tool that maintains a longer time horizon of data such as New Relic, Sentry, or Datadog. Within projects, deploying a Datadog Agent is as easy as deploying the template and providing your Datadog API Keys.
 
