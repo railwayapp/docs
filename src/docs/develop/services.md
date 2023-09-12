@@ -130,7 +130,7 @@ You can see services metrics under the [Metrics](/diagnose/metrics) tab when the
 
 ## Creating a Service
 
-From within the project canvas, close any services or plugins that may be open, the `+ New` button is located at the top right of the project canvas.
+From within the project canvas, click the `+ New` button located at the top right of the project canvas. You may need to close any services or plugins open in the canvas to see the button.
 
 ## Deleting a Service
 
