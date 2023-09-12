@@ -49,9 +49,9 @@ builds and deployments.
 |--------------------------------|--------------------------------------------------------------------------------------------------|
 | `RAILWAY_PUBLIC_DOMAIN`        | The public service or customer domain, of the form `example.up.railway.app`                      |
 | `RAILWAY_PRIVATE_DOMAIN`       | The private DNS name of the service.                                                             |
-| `RAILWAY_TCP_PROXY_DOMAIN`     | The public TCP proxy domain for the service, if applicable. Example: `roundhouse.proxy.rlwy.net` |
-| `RAILWAY_TCP_PROXY_PORT`       | The external port for the TCP Proxy, if applicable. Example: `11105`                             |
-| `RAILWAY_TCP_APPLICATION_PORT` | The internal port for the TCP Proxy, if applicable. Example: `25565`                             |
+| `RAILWAY_TCP_PROXY_DOMAIN`     | (Beta-only; see [TCP Proxying](/deploy/exposing-your-app#tcp-proxying) for details) The public TCP proxy domain for the service, if applicable. Example: `roundhouse.proxy.rlwy.net` |
+| `RAILWAY_TCP_PROXY_PORT`       | (Beta-only; see [TCP Proxying](/deploy/exposing-your-app#tcp-proxying) for details) The external port for the TCP Proxy, if applicable. Example: `11105`                             |
+| `RAILWAY_TCP_APPLICATION_PORT` | (Beta-only; see [TCP Proxying](/deploy/exposing-your-app#tcp-proxying) for details) The internal port for the TCP Proxy, if applicable. Example: `25565`                             |
 | `RAILWAY_PROJECT_NAME`         | The project name the service belongs to.                                                         |
 | `RAILWAY_PROJECT_ID`           | The project id the service belongs to.                                                           |
 | `RAILWAY_ENVIRONMENT_NAME`     | The environment name of the service instance.                                                    |
