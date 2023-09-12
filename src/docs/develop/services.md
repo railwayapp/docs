@@ -56,8 +56,6 @@ built and deployed.
 
 ### Docker Image
 
-<PriorityBoardingBanner />
-
 Services can be connected to a Docker image hosted on
 [Docker Hub](https://hub.docker.com/) or
 [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry). Railway
