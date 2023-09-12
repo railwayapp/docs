@@ -159,4 +159,4 @@ width={521} height={404} quality={100} />
 
 ## Service Discovery
 
-On the Railway platform, services don't yet communicate via a Private Network. The team is working on: [Private Networking](https://feedback.railway.app/feature-requests/p/internal-networking). In the short term, you can reference other services via their public URL via a variable. You can use `RAILWAY_SERVICE_{ServiceName}_URL` to get the public URL of a service. For example, if you have a service named `Backend API`, you can reference it via `RAILWAY_SERVICE_BACKEND_API_URL` to get the public domain of the service.
+You can reference other services' public URL via a service variable. Use `RAILWAY_SERVICE_{ServiceName}_URL` to get the public URL of a service within your project. For example, if you have a service named `Backend API`, you can reference it from another service by using `RAILWAY_SERVICE_BACKEND_API_URL`.
