@@ -105,16 +105,15 @@ export const useDebouncedSearch = <
     if (query === "") {
       return;
     }
+    setIsSearching(true);
     try {
-      setIsSearching(true);
       const response = await index.search<Response>(query, params);
       trackGoal(FATHOM_SEARCH_PERFORMED_EVT_ID, 0);
       setResults(transformResponse(response));
-      setIsSearching(false);
     } catch (e) {
       console.error(`Search for query "${query}" failed (${e})`);
-      setIsSearching(false);
     }
+    setIsSearching(false);
   }, [query, setIsSearching]);
 
   // Perform search and clear search results if query is empty
