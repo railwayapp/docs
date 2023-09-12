@@ -1,4 +1,5 @@
 import { useDebouncedSearch } from "@/hooks/useDebouncedSearch";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { Search } from "@/types";
 import React from "react";
 import tw from "twin.macro";
@@ -17,16 +18,14 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
     highlightPreTag: "<span>",
     highlightPostTag: "</span>",
   };
-  const { clearResponse, query, setQuery, results } = useDebouncedSearch<
-    Search.Document,
-    Search.Result
-  >(
-    process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
-    process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
-    process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
-    searchParams,
-    200,
-  );
+  const { clearResponse, isSearching, query, setQuery, results } =
+    useDebouncedSearch<Search.Document, Search.Result>(
+      process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
+      process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
+      process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
+      searchParams,
+      200,
+    );
 
   return (
     <div
@@ -47,12 +46,19 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
           />
         </div>
         <div className="search-results">
-          {results &&
-            (Object.keys(results).length === 0 ? (
+          {isSearching ? (
+            <span tw="p-10 flex items-center justify-center">
+              <LoadingIndicator />
+            </span>
+          ) : results ? (
+            Object.keys(results).length === 0 ? (
               <NoResults />
             ) : (
               <Results closeModal={closeModal} results={results} />
-            ))}
+            )
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>
