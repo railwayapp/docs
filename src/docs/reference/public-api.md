@@ -70,6 +70,8 @@ In order to protect the Railway API from spam and misusage, we have established 
 
 To help you get started, here are a few examples for reference.
 
+<Banner variant="info">You can also use `image` inside the `source` to attach a Docker image to the service.</Banner>
+
 ### Projects
 
 #### Fetch all your projects
@@ -239,6 +241,23 @@ mutation variableUpsert {
   )
 }
 ```
+
+## Tips and Tricks
+
+### Resource IDs
+
+While building your queries, if you quickly need to copy resource IDs, you can hit `Cmd/Ctrl + K` within your project and copy the project/service/environment ID.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1694616111/rw-cmd-palette_s5yilj.png" alt="Railway Command Palette" height={678} width={1176} quality={80} />
+
+### The network tab
+
+If you're unsure about what query/mutation to use for what you are trying to achieve, you can always do the action in the dashboard and look for the request in the network tab. As we use the same API internally, you can simply grab the name and then look for specific query in the introspected schema.
+
+### External resources
+
+1. The [awesome-graphql](https://github.com/chentsulin/awesome-graphql) repository is a great resource for all things GraphQL with implementations available across a variety of languages.
+2. The [GraphQL Discord](https://discord.graphql.org/) is the official Discord channel for graphql.org with a lot of active members and specific help channels.
 
 ## Support
 
