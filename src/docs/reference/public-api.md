@@ -70,8 +70,6 @@ In order to protect the Railway API from spam and misusage, we have established 
 
 To help you get started, here are a few examples for reference.
 
-<Banner variant="info">You can also use `image` inside the `source` to attach a Docker image to the service.</Banner>
-
 ### Projects
 
 #### Fetch all your projects
