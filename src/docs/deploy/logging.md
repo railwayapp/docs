@@ -110,7 +110,7 @@ to attach custom metadata to logs or preserve multi-line logs like stack traces.
 
 ```typescript
 type StructuredLog = {
-  // (required) The content of the log
+  // (required) The content of the log ("msg" is also supported)
   message: string;
 
   // Severity of the log (default info)
