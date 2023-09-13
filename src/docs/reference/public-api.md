@@ -12,8 +12,6 @@ If you haven't used GraphQL before, here are a few resources to get started:
 2. The [GraphQL Basics](https://hasura.io/learn/graphql/intro-graphql/introduction/) course by Hasura
 3. [GraphQL is the better REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/) to understand how it is different from a REST API
 
-You can play around with the API right inside your browser with the [GraphiQL playground](https://railway.app/graphiql). Continue reading to learn more about the API and see some examples of the API in use.
-
 ## Endpoint
 
 ```bash
