@@ -69,7 +69,7 @@ width={699} height={168} quality={80} />
 
 ## Monorepos
 
-To deploy a monorepo on Railway, just create multiple services from the single GitHub monorepo. Add a service, choose the GitHub repo, then select the appropriate directory from the same repo as a different deployment target. You can deploy a monorepo within a project even if it's already deployed. This is useful when you have a monorepo with multiple services. Change the directory that Railway hosts from within the service settings page.
+To deploy a monorepo on Railway, just create an empty service for each service or app in the monorepo, set the appropriate root directory for each service, and then connect your repository to all the created services.
 
 ## Horizontal Scaling with Replicas
 
@@ -78,7 +78,7 @@ alt="Screenshot of replica setting"
 layout="responsive"
 width={800} height={317} quality={100} />
 
-By default Railway will scale your service up to the the specified vCPU and Memory limits of your plan. You can scale horizontally by increasing the number of replicas for a service.
+By default Railway will scale your service up to the the specified vCPU and Memory limits of your plan. You can scale horizontally by manually increasing the number of replicas for a service.
 
 To change the number of replicas per deploy within your service, go to the service settings view and look for the "Replicas" field in the "Deploy" section. This will create multiple instances of your service and distribute traffic between them.
 
@@ -116,7 +116,7 @@ Railway has a user interface for managing your database service's data. You can 
 
 ## Templates
 
-Railway offers 60+ [community-maintained templates](https://railway.app/templates). A template will clone a GitHub repo to your account and deploy the service(s) to a project. You can deploy a template from the Project Canvas unless there are variables to configure. To configure environment variables, you'll need to use the New Project button. Templates are useful for deploying common pieces of infrastructure — like a DataDog Agent.
+Railway offers 200+ [community-maintained templates](https://railway.app/templates). A template with a Github repo will clone the repo to your account, and deploy the service(s) to a project. A template with Docker images will deploy the images directly. You can deploy a template from the Project Canvas unless there are variables to configure. To configure environment variables, you'll need to use the New Project button. Templates are useful for deploying common pieces of infrastructure — like a DataDog Agent.
 
 ## Empty Application Services
 
@@ -125,6 +125,10 @@ Empty application services don't reference a repo. They are useful for [CLI](/de
 ## Service Metrics
 
 You can see services metrics under the [Metrics](/diagnose/metrics) tab when the service view is made visible.
+
+## Creating a Service
+
+From within the project canvas, click the `+ New` button located at the top right of the project canvas. You may need to close any services or plugins open in the canvas to see the button.
 
 ## Deleting a Service
 

@@ -33,7 +33,7 @@ Railway will gladly bump up your service limits within your tier of service to m
 
 ### Databases
 
-We have customers using our DBs for their production environment with no issue. Railway's plugins are optimized for a batteries included development experience. They are good for applications that are prioritizing velocity and iteration speed over scale.
+We have customers using our databases for their production environment with no issue. Railway's plugins are optimized for a batteries included development experience. They are good for applications that are prioritizing velocity and iteration speed over scale.
 
 Our databases are provided with no SLAs, are not highly available, and scale only to the limits of your plan. We don't think they are suitable for anything mission-critical, like if you wanted to start a bank.
 
@@ -58,17 +58,19 @@ We also overlay commit and deployment behavior to correlate issues with applicat
 
 For service logs, we store logs for up to 90 days for Pro plan workspaces.
 
-Included in our planned near-term work for logging and observability on Railway are structured logs, OpenTelemetry compatible endpoints, and structured logs. 
+Included in our planned near-term work for logging and observability on Railway are improvements to structured logging, and OpenTelemetry compatible endpoints.
 
-It is common for teams who wish to have additional observability to use an additional monitoring tool that maintains a longer time horizon of data such as New Relic, Sentry, or Datadog. Within projects, deploying a Datadog Agent is as easy as using a provided Dockerfile and providing your Datadog API Keys.
+It is common for teams who wish to have additional observability to use an additional monitoring tool that maintains a longer time horizon of data such as New Relic, Sentry, or Datadog. Within projects, deploying a Datadog Agent is as easy as deploying the template and providing your Datadog API Keys.
 
 ### Networking
 
-Railway doesn't have a hard bandwidth limit within Projects and the broader internet. 
+Railway doesn't have a hard bandwidth limit to the broader internet. 
 
-We throttle outbound bandwidth when you exceed 100GB/month, but we happily lift that limit for legitimate customers. As such, we have had projects handle unexpected traffic and features on major media publications. It is something we are very proud of. With that said, if you need to control where your traffic is allowed to come from such as setting up firewall rules, we recommend setting up Cloudflare to handle this aspect of your application.
+We may throttle your outbound bandwidth and reach out to you when it exceeds 100GB/month to ensure the legitimacy of your workloads. If you need to control where your traffic is allowed to come from such as setting up firewall rules, we recommend setting up Cloudflare or an external load balancer/L7 application firewall to handle it.
 
-We do have plans to include private networking, static IPs, and allowing people to set up firewall rules to control permitted traffic within their projects.
+Private networking bandwidth is un-metered.
+
+We intend to provide static IPs and advanced traffic-shaping controls within Railway in the future.
 
 
 ### Service Level Objectives
@@ -80,7 +82,7 @@ Railway does meet SLOs for companies who have greater need for incident, support
 
 A common question we get in conversations with (rightly) skeptical developers is the above question. Most documentation pages don't address the meta question of a company's existence but how we run *our* business affects yours. 
 
-The short and simple answer is: yes. 
+The short and simple answer is: **Yes**. 
 
 Railway aims to exist for a very long time. Railway has presence on existing public clouds, while also building out presence on co-location providers. As a company, we have been structured sustainably with a first principles approach to every expense while growing sustainably.
 

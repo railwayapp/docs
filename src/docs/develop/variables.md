@@ -7,9 +7,10 @@ defined, they are made available to your application at runtime as environment v
 
 Variables are made available in the following scenarios:
 
-- The build process for each service deployment,
-- The running service deployment, and
-- The command invoked by `railway run <COMMAND>`.
+- The build process for each service deployment.
+- The running service deployment.
+- The command invoked by `railway run <COMMAND>`
+- The local shell via `railway shell`
 
 ## Defining Variables
 
@@ -37,35 +38,38 @@ which can dynamically reference other variables, shared variables, or plugin var
 
 ### Multiline Variables
 
-Variables can span multiple lines. Press `Control+Enter` (`cmd+Enter` on Mac) in the variable value input field to add a newline, or simply type a newline in the Raw Editor.
+Variables can span multiple lines. Press `Control + Enter` (`Cmd + Enter` on Mac) in the variable value input field to add a newline, or simply type a newline in the Raw Editor.
 
 ## Railway-Provided Variables
 
 Railway provides the following additional system environment variables to all
 builds and deployments.
 
-| Name                        | Description                                                                  |
-| --------------------------- | ---------------------------------------------------------------------------- |
-| `RAILWAY_PUBLIC_DOMAIN`     | The public service or customer domain, of the form `example.up.railway.app`. |
-| `RAILWAY_PRIVATE_DOMAIN`    | The private DNS name of the service.                                         |
-| `RAILWAY_PROJECT_NAME`      | The project name the service belongs to.                                     |
-| `RAILWAY_PROJECT_ID`        | The project id the service belongs to.                                       |
-| `RAILWAY_ENVIRONMENT_NAME`  | The environment name of the service instance.                                |
-| `RAILWAY_ENVIRONMENT_ID`    | The environment id of the service instance.                                  |
-| `RAILWAY_SERVICE_NAME`      | The service name.                                                            |
-| `RAILWAY_SERVICE_ID`        | The service id.                                                              |
-| `RAILWAY_REPLICA_ID`        | The replica ID for the deployment.                                           |
-| `RAILWAY_DEPLOYMENT_ID`     | The ID for the deployment.                                                   |
-| `RAILWAY_SNAPSHOT_ID`       | The snapshot ID for the deployment.                                          |
-| `RAILWAY_VOLUME_NAME`       | The name of the attached volume, if any. Example: `foobar`                   |
-| `RAILWAY_VOLUME_MOUNT_PATH` | The mount path of the attached volume, if any. Example: `/data`              |
+| Name                           | Description                                                                                      |
+|--------------------------------|--------------------------------------------------------------------------------------------------|
+| `RAILWAY_PUBLIC_DOMAIN`        | The public service or customer domain, of the form `example.up.railway.app`                      |
+| `RAILWAY_PRIVATE_DOMAIN`       | The private DNS name of the service.                                                             |
+| `RAILWAY_TCP_PROXY_DOMAIN`     | (Beta-only; see [TCP Proxying](/deploy/exposing-your-app#tcp-proxying) for details) The public TCP proxy domain for the service, if applicable. Example: `roundhouse.proxy.rlwy.net` |
+| `RAILWAY_TCP_PROXY_PORT`       | (Beta-only; see [TCP Proxying](/deploy/exposing-your-app#tcp-proxying) for details) The external port for the TCP Proxy, if applicable. Example: `11105`                             |
+| `RAILWAY_TCP_APPLICATION_PORT` | (Beta-only; see [TCP Proxying](/deploy/exposing-your-app#tcp-proxying) for details) The internal port for the TCP Proxy, if applicable. Example: `25565`                             |
+| `RAILWAY_PROJECT_NAME`         | The project name the service belongs to.                                                         |
+| `RAILWAY_PROJECT_ID`           | The project id the service belongs to.                                                           |
+| `RAILWAY_ENVIRONMENT_NAME`     | The environment name of the service instance.                                                    |
+| `RAILWAY_ENVIRONMENT_ID`       | The environment id of the service instance.                                                      |
+| `RAILWAY_SERVICE_NAME`         | The service name.                                                                                |
+| `RAILWAY_SERVICE_ID`           | The service id.                                                                                  |
+| `RAILWAY_REPLICA_ID`           | The replica ID for the deployment.                                                               |
+| `RAILWAY_DEPLOYMENT_ID`        | The ID for the deployment.                                                                       |
+| `RAILWAY_SNAPSHOT_ID`          | The snapshot ID for the deployment.                                                              |
+| `RAILWAY_VOLUME_NAME`          | The name of the attached volume, if any. Example: `foobar`                                       |
+| `RAILWAY_VOLUME_MOUNT_PATH`    | The mount path of the attached volume, if any. Example: `/data`                                  |
 
 ### Git Variables
 
 These variables are provided if the deploy originated from a GitHub trigger.
 
 | Name                         | Description                                                                                                                                                                                          |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `RAILWAY_GIT_COMMIT_SHA`     | The git [SHA](https://docs.github.com/en/github/getting-started-with-github/github-glossary#commit) of the commit that triggered the deployment. Example: `d0beb8f5c55b36df7d674d55965a23b8d54ad69b` |
 | `RAILWAY_GIT_AUTHOR`         | The user of the commit that triggered the deployment. Example: `gschier`                                                                                                                             |
 | `RAILWAY_GIT_BRANCH`         | The branch that triggered the deployment. Example: `main`                                                                                                                                            |
@@ -77,11 +81,13 @@ These variables are provided if the deploy originated from a GitHub trigger.
 
 Users can use the following environment variables to configure Railway's behaviour.
 
-| Name                                 | Description                                                                                                            |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS` | How long the old deploy will overlap with the newest one being deployed, its default value is `20`. Example: `0`       |
-| `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service, its default value is `Dockerfile`. Example: `Railway.dockerfile` |
-| `RAILWAY_HEALTHCHECK_TIMEOUT_SEC`    | The timeout length (in seconds) of healthchecks. Example: `300`                                                        |
+| Name                                 | Description                                                                                                                                          |
+|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS` | How long the old deploy will overlap with the newest one being deployed, its default value is `20`. Example: `0`                                     |
+| `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service, its default value is `Dockerfile`. Example: `Railway.dockerfile`                               |
+| `NIXPACKS_CONFIG_FILE`               | The path to the Nixpacks configuration file relative to the root of the app, its default value is `nixpacks.toml`. Example: `frontend.nixpacks.toml` |
+| `RAILWAY_HEALTHCHECK_TIMEOUT_SEC`    | The timeout length (in seconds) of healthchecks. Example: `300`                                                                                      |
+| `RAILWAY_REGION`                     | (Beta-only; see [Regions](/deploy/deployments#regions) for details) The name of the region to be used for the deployment. Example: `europe-west4` [available options](/deploy/deployments#region-options)                |
 
 ## Reference Variables
 
@@ -141,9 +147,9 @@ Under the hood, adding a shared variables to a service creates a new variable th
 This means that shared variables can be combined with additional text or even other variables, like the following examples illustrate.
 
 ```plaintext
-DOMAIN           = ${{shared.DOMAIN}}
-URL              = https://${{shared.DOMAIN}}
-GRAPHQL_ENDPOINT = https://${{shared.DOMAIN}}/${{GRAPHQL_PATH}}
+DOMAIN=${{shared.DOMAIN}}
+URL=https://${{shared.DOMAIN}}
+GRAPHQL_ENDPOINT=https://${{shared.DOMAIN}}/${{GRAPHQL_PATH}}
 ```
 
 ## Import Variables from Heroku
