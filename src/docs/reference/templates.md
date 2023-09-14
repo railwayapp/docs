@@ -62,7 +62,11 @@ When a template is deployed, all functions are executed and the result replaces 
 
 The current template variable functions are:
 
-- `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).
+- `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  You can generate random Hex or Base64 secrets by passing the appropriate alphabet.
+    
+    - Base64: `secret(32, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/')`
+    - Hex: `secret(32, '0123456789ABCDEF')`
+
 - `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
 ## Convert a Project into a Template
