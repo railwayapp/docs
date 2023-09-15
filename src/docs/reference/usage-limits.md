@@ -14,7 +14,7 @@ You can visit your [account usage page](https://railway.app/account/usage) to se
 
 <Banner variant="info">The link above takes you to the usage page for your personal account. If you want to set a usage limit for your team, you can use the account switcher in the top left corner of your dashboard to access the team's usage.</Banner>
 
-## Custom email threshold
+## Custom email alert
 
 You can think of this as a _soft limit_. When your resource usage reaches the specified amount, we will email you that this threshold has been met. Your resources will remain unaffected.
 
