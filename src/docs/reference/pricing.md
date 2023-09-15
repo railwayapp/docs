@@ -19,6 +19,7 @@ Your trial experience depends on whether Railway can verify your account. Read m
 ## Plans
 
 Railway offers three plans in addition to a free trial:
+
 - **Hobby**: For indie hackers and developers to build and deploy personal projects
 - **Pro**: For professional developers and their teams shipping to production
 - **Enterprise**: For teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
@@ -34,6 +35,7 @@ Read more about our plans at [railway.app/pricing](https://railway.app/pricing).
 ### Usage Pricing
 
 Railway charges for the resources that you consume. These include:
+
 - **RAM**: $10 / GB / mo ($0.000231 / GB / minute)
 - **CPU**: $20 / vCPU / mo ($0.000463 / vCPU / minute)
 - **Network Egress**: $0.10 / GB ($0.000000095367432 / KB) ― _from August 1, 2023_
@@ -56,6 +58,7 @@ Credits are available on Railway as a payment method for Hobby plan users who pr
 ### Credits as a payment method
 
 On Railway, you can pay for your Hobby plan subscription and resource usage with pre-purchased credits. When using credits as a payment method, keep in mind that:
+
 - If your usage within a billing period exceeds your credit balance, you will no longer be able to deploy, and your projects will be paused
 - If you cancel your subscription, any remaining credit balance will be lost
 
@@ -72,6 +75,7 @@ Users who create a new Trial account receive a free one-time grant of $5. Railwa
 ## Billing Management
 
 To manage your payment information, head to your account's [billing page](https://railway.app/account/billing). On this page, you can:
+
 - Add and manage payment info
 - See historical usage you were billed for
 - Purchase credits for your account
@@ -92,6 +96,7 @@ Verification is a fully automated process, and Railway does not respond to reque
 Railway offers Educational Licenses for educational institutions. The Educational License is a batch purchase of credits for a group of students to use on Railway within a time limited period of time (typically a semester).
 
 To apply for an Educational License, please [contact us](mailto:team@railway.app) with the following information:
+
 - The name of your institution
 - The number of students you would like to purchase credits for
 - The time period you would like the credits to be valid for
@@ -174,7 +179,7 @@ Included usage is reset at the end of every billing cycle and does not accumulat
 </Collapse>
 
 <Collapse title="Can I set limits for maximum usage within a billing period?">
-Usage limits are currently unavailable, but coming soon to Railway. In the meantime, if you are on the Hobby plan and you want a guarantee that you keep under a certain spending threshold, you can set up credits as your payment method.
+Usage limits are now in beta, you can read more about them [here](/reference/usage-limits).
 </Collapse>
 
 ### Billing
