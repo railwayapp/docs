@@ -179,7 +179,7 @@ Included usage is reset at the end of every billing cycle and does not accumulat
 </Collapse>
 
 <Collapse title="Can I set limits for maximum usage within a billing period?">
-Usage limits are now in beta, you can read more about them [here](/reference/usage-limits)!
+Usage limits are now in beta, you can read more about them [here](/reference/usage-limits).
 </Collapse>
 
 ### Billing
