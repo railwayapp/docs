@@ -10,24 +10,24 @@ In short, Usage Limits allow you to set a maximum limit on your usage for a sing
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1694775828/usage-limits_hzv9ee.png" alt="Usage Limits Modal" layout="responsive" width={1252} height={1150} />
 
-You can visit your [account usage page](https://railway.app/account/usage) to set the usage limits for your account. Once you click the `Set Usage Limits` button, you will see the modal above where you can set a `Custom email threshold` and a `Hard limit`.
+You can visit your [account usage page](https://railway.app/account/usage) to set the usage limits for your account. Once you click the <kbd>Set Usage Limits</kbd> button, you will see the modal above where you can set a <kbd>Custom email threshold</kbd> and a <kbd>Hard limit</kbd>.
 
-<Banner variant="info">The link above takes you to the usage page for your personal account. If you want to set a usage limit for your team, you can use the account switcher to access the team's usage.</Banner>
+<Banner variant="info">The link above takes you to the usage page for your personal account. If you want to set a usage limit for your team, you can use the account switcher in the top left corner of your dashboard to access the team's usage.</Banner>
 
 ## Custom email threshold
 
-You can think of this as a _soft limit_. When your resource usage crosses the specified amount, we will send you an email notifying you of the same. Your resources will remain unaffected.
+You can think of this as a _soft limit_. When your resource usage reaches the specified amount, we will email you that this threshold has been met. Your resources will remain unaffected.
 
 ## Hard limit
 
-Think of the hard limit as the absolute maximum amount you're willing to spend on your infrastructure. As once your resource usage touches your hard limit, all your resources will be taken offline to prevent further usage.
+Think of the hard limit as the absolute maximum amount you're willing to spend on your infrastructure. Once your resource usage within a billing cycle meets your hard limit, all your resources will be slept and thereby taken offline to prevent further usage.
 
-We will send you multiple reminders as your usage creeps closer to your hard limit:
+We will send you multiple reminders as your usage approaches your hard limit:
 
-1. Once your usage has crossed 75% of your hard limit
-2. Once your usage has crossed 90% of your hard limit
+1. When your usage reaches 75% of your hard limit
+2. When your usage reaches 90% of your hard limit
 
-If your resources do end up being taken down, we will send you another email notifying you of the same.
+If your resources are taken down, we will send you another email notifying you of the same.
 
 <Banner variant="danger">Setting a hard limit is a possibly destructive action as you're risking having all your resources shut down once your usage crosses the specified amount.</Banner>
 
