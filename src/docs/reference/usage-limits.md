@@ -37,7 +37,7 @@ If your resources are taken down, we will send you another email notifying you o
 Usage limits are available for all users on the Pro plan and for users on the usage-based version of the Hobby plan.
 </Collapse>
 
-<Collapse title="Do I need to set a hard limit to set a custom email threshold?">
+<Collapse title="Do I need to set a hard limit to set a custom email alert?">
 No. You can leave the hard limit blank if you simply want to be notified at a particular amount of usage.
 </Collapse>
 
