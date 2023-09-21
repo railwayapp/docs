@@ -95,4 +95,10 @@ export const sidebarContent: ISidebarContent = [
       makePage("Compare to Heroku", "reference"),
     ],
   },
+  {
+    title: "Guides",
+    pages: [
+      makePage("Migrate from Heroku", 'guides')
+    ]
+  },
 ];
