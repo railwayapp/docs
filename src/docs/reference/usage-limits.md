@@ -42,7 +42,7 @@ No. You can leave the hard limit blank if you simply want to be notified at a pa
 </Collapse>
 
 <Collapse title="What is the minimum hard limit?">
-The minimum amount you can specify as the hard limit is $20.
+The minimum amount you can specify as the hard limit is $10.
 </Collapse>
 
 <Collapse title="How can I restart my resources if I hit my usage limit?">
