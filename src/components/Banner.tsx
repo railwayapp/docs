@@ -25,6 +25,7 @@ export interface Props {
   icon?: React.ComponentType;
   hideIcon?: boolean;
   className?: string;
+  textContainerStyles?: TwStyle;
 }
 
 const containerStyles: Record<BannerVariant, TwStyle> = {
@@ -57,6 +58,7 @@ const defaultIcons: Record<BannerVariant, React.ComponentType | null> = {
 export const Banner: React.FC<PropsWithChildren<Props>> = ({
   children,
   hideIcon,
+  textContainerStyles,
   ...props
 }) => {
   const variant = props.variant ?? defaultVariant;
@@ -75,9 +77,12 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
         <Icon tw="mx-1" icon={icon} css={[iconStyles[variant]]} />
       )}
       <div
-        css={{
-          "> p": tw`my-2`,
-        }}
+        css={[
+          {
+            "> p": tw`my-2`,
+          },
+          textContainerStyles,
+        ]}
       >
         {children}
       </div>
