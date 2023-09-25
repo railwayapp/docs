@@ -9,6 +9,7 @@ import { MobileNav, Nav } from "../components/Nav";
 import { Props as SEOProps, SEO } from "../components/SEO";
 import { Sidebar } from "../components/Sidebar";
 import { Background } from "../pages";
+import { GlobalBanners } from "@/components/GlobalBanner";
 
 export interface Props {
   seo?: SEOProps;
@@ -31,10 +32,9 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
   return (
     <>
       <SEO {...props.seo} />
-
+      <GlobalBanners />
       <div tw="min-h-screen relative flex">
         <Sidebar />
-
         <div tw="flex flex-col flex-1 max-w-[100vw] overflow-x-hidden">
           <Background />
 
@@ -47,7 +47,6 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
           </main>
         </div>
       </div>
-
       <Modal
         title="Search Docs"
         isOpen={isSearchOpen}

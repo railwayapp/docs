@@ -46,6 +46,7 @@
     "theme-custom-properties": "^1.0.0",
     "tinykeys": "1.4.0",
     "twin.macro": "^3.1.0",
+    "use-local-storage-state": "^19.1.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
