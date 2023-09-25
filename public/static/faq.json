@@ -26,8 +26,8 @@
       "Does Railway support the EU region?",
       "Where are the Railway servers located?"
     ],
-    "answer": "Currently, our servers are located in the US-West region. We plan to add additional regions.",
-    "link": "https://feedback.railway.app/feature-requests/p/eu-region-support"
+    "answer": "Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located. This feature is only available to Pro plan workspaces.",
+    "link": "https://docs.railway.app/deploy/deployments#regions"
   },
   "db-backups": {
     "category": "general",

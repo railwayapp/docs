@@ -169,7 +169,7 @@ Railway's infrastructure spans multiple regions across the globe. This allows yo
 ### Region Options
 Railway has deploy regions in the Americas, Europe, and Asia-Pacific to provide broad coverage around the world.
 
-Within the service variable settings, you can set `RAILWAY_REGION` to any of the below values to use a region specific build/deployment target.
+Within the service settings, you can select one of the following regions:
 
 | Name           | Location               | Variable Value    |
 |----------------|------------------------|-------------------|
@@ -178,14 +178,53 @@ Within the service variable settings, you can set `RAILWAY_REGION` to any of the
 | EU West        | Amsterdam, Netherlands | `europe-west4`    |
 | Southeast Asia | Singapore              | `asia-southeast1` |
 
+<Image
+    quality={100}
+    width={1359}
+    height={651}
+    src="https://res.cloudinary.com/railway/image/upload/v1695660846/docs/service_region_picker.png"
+    alt="Volume"
+/>
+
+
 *Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
 
 By default, Railway deploys to `us-west1` located in Portland, Oregon.
 
+The region of a service can be changed at any time, without any changes to your domain, private networking, etc.
+There will be no downtime when changing the region of a service, except if it has a volume attached to it (see next section).
+
 All regions provide the same experience, performance, and reliability you expect from Railway. 
+
+
+### Volumes
+
+Volumes are following the region of the service they are attached to. This means if you attach a new volume to a service, it will be deployed in the same region as the service.
+
+If you change the region of a service with an existing attached volume, you will get warned about the volume needing to be migrated to the new region.
+
+<Image
+    quality={100}
+    src="https://res.cloudinary.com/railway/image/upload/v1695660986/docs/volume_migrate_modal.png"
+    alt="Volume"
+    width={669}
+    height={678}
+/>
+
+Note that this migration can take a while depending on the size of the volume, and will cause downtime of your service during that time.
+
+<Image
+    quality={100}
+    src="https://res.cloudinary.com/railway/image/upload/v1695661106/docs/volume_migration.png"
+    alt="Volume"
+    width={732}
+    height={483}
+/>
+
+
+
+The same is true if you attach a detached volume to a service in a different region. It will need to be migrated to the new region, which can take a while and cause downtime.
 
 ### Caveats
 
-You can't deploy database services to different regions. We recommend deploying Official Database Templates instead. Region deployment UI is in progress. 
-
-If you create a volume within a region and attach it to a service in a different region it won't connect, we have a fix in progress.
+You can't deploy database services to different regions. We recommend deploying Official Database Templates instead.  
