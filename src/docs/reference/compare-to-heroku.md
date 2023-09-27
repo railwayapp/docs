@@ -68,13 +68,3 @@ We feel no project, big or small- is never not important. This is our guiding ph
 As a result, we make great pains to be very communicative in our support channels, [optimistically gather feedback](https://feedback.railway.app/), provide informative docs, and encourage our community to help each other.
 
 Having an issue with a deployment? [Join over 5k Railway users on our Discord Server!](https://discord.gg/railway) With our dedicated support channels, you can get help from the Railway team and our community of builders.
-
-## Moving From Heroku to Railway
-
-Getting your app hosted on Heroku moved over to Railway is very simple.
-
-All you need to do is connect your GitHub account, create a new project, and then deploy your repo. We even support Procfiles out of the box. (Only a single process is supported for now)
-
-If you want to learn in-depth about our product, the [Getting Started guide](/getting-started) that will walk you through the process.
-
-If you run into any issues, we would be more than happy to answer your questions on our [Discord](https://discord.gg/railway) or over email at team@railway.app
