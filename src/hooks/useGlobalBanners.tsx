@@ -46,15 +46,15 @@ export const allGlobalBanners: GlobalBanner[] = [
   //   message: <LaunchWeekBanner linkText="Regions" isFirstStop />,
   // },
   // Day 2
-  {
-    id: "launch-week-day-2",
-    message: <LaunchWeekBanner linkText="Next-Gen Databases" />,
-  },
-  // Day 3
   // {
-  //   id: "launch-week-day-3",
-  //   message: <LaunchWeekBanner linkText="NO SPOILERS" />,
+  //   id: "launch-week-day-2",
+  //   message: <LaunchWeekBanner linkText="Next-Gen Databases" />,
   // },
+  // Day 3
+  {
+    id: "launch-week-day-3",
+    message: <LaunchWeekBanner linkText="Horizontal Scaling" />,
+  },
   // Day 4
   // {
   //   id: "launch-week-day-4",
