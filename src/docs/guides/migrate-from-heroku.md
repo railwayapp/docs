@@ -17,7 +17,7 @@ width={700} height={464} quality={80} />
 
 In your terminal, ensure your current working directory is the same directory where your service code is located.
 
-This is important so that as you complete the following steps, the Railway CLI is properly linked.
+This is important so that as you complete the following steps, the [Railway CLI](/develop/cli) is properly linked.
 
 ## Login to Railway from the CLI
 
@@ -44,34 +44,34 @@ Once your project is created, you can push your code into the project and assign
 
 ### Push the Code
 
-Push the code into a service in Railway:
+Push the code into a [service](/develop/services) in Railway:
 ```bash
 railway up -d
 ```
 
-At this point, the service is being deployed, but let's give it a Domain.
+At this point, the service is being deployed, but let's give it a domain.
 
 ### Assign a Domain
 
-The service we are migrating is a web service that should be available over the Internet, so let's assign a Domain:
+The service we are migrating is a web service that should be available over the Internet, so let's assign a domain:
 ```bash
 railway domain
 ```
 
-Now the service will be available over the Internet via the provided Domain.
+Now the service will be available over the Internet via the provided domain.
 
 ## Migrate the Environment Variables
 
 Finally, we will import the environment variables from Heroku into Railway.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1695765481/docs/heroku-migration/variables_hagopv.gif"
-alt="Screenshot of Railway Up"
+alt="Video of importing variables from Heroku"
 layout="intrinsic"
 width={600} height={364} quality={80} />
 
 ### Open the Project in Railway
 
-Let's open over our new Railway project in the UI:
+Let's pop over to our new project in the [Railway canvas](/develop/projects).:
 ```bash
 railway open
 ```
@@ -89,11 +89,13 @@ From the project canvas, import the Heroku variables into the service:
 
 Your Heroku variables will be imported into the service, and it will automatically redeploy.
 
-_Note: The first time you import variables from Heroku, you will be prompted to Allow Railway to connec to your Heroku account._
+_Note: The first time you import variables from Heroku, you will be prompted to Allow Railway to connect to your Heroku account._
 
 ## Conclusion
 
-Following this guide, we have successfully migrated a simple web service from Heroku to Railway including importing Heroku variables.
+Following this guide, we have successfully migrated a simple web service from Heroku to Railway, including importing variables from Heroku into Railway.
+
+We have completed the migration by pushing our code directly from our local machine into a service in Railway.  Once you are comfortable with Railway, you may want to integrate [deployments](/deploy/deployments) into your development workflow.
 
 For more advanced operations, like migrating your databases from Heroku to Railway, the process will be a bit more involved, but we are happy to help work out a solution!
 
