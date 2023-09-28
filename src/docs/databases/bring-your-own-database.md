@@ -6,15 +6,15 @@ Our goal at Railway is to create a best-in-class developer experience by minimiz
 
 One way we try to achieve this goal, is by providing four, one-click templates that provision some of the most popular databases out there ([PostgreSQL](/databases/postgresql), [MySQL](databases/mysql), [MongoDB](/databases/mongodb), & [Redis](/databases/redis)).
 
-But what about all the rest of the data storage options?
+But what about the rest of the data storage options?
 
 ## Database Options
 
-We know there are a lot of data storage options out there, designed to accommodate various needs, and we are pleased that our platform primitives are built to support any that best suit your system.
+We know that there are numerous data storage options designed to accommodate various needs, and we are pleased to support any one that best suits your system.  Our platform primitives are built with flexibility in mind.
 
 ## Railway Primitives
 
-Using these primitive platform features, you can build any type of service you require, including databases - 
+With these primitive platform features, you can build any type of service your system requires, including database services - 
 
 ### Docker Images & Dockerfiles
 
@@ -35,7 +35,7 @@ Need to persist your data?  Of course you do.  Railway makes it easy to attach a
 
 ### TCP Proxy
 
-Railway understands that database services don't usually communicate over HTTP, and the communication port is typically static.  That's why we've enabled [TCP Proxying](/deploy/exposing-your-app#tcp-proxying), to facilitate communication to your database services from anywhere.
+Railway understands that database services don't usually communicate over HTTP.  That's why we've enabled [TCP Proxying](/deploy/exposing-your-app#tcp-proxying), to facilitate communication to your database services from anywhere.
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1694217808/docs/screenshot-2023-09-08-20.02.55_hhxn0a.png"
 alt="Screenshot of TCP proxy configuration"

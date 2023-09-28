@@ -94,7 +94,7 @@ You might need to configure the Railway app on your connected GitHub account. Pl
 
 Railway projects allow you to provision additional infrastructure on top of your existing services in the form of database services.
 
-Railway currently offers the following database services:
+You can provision [any database service](/databases/bring-your-own-database) that your system requires.  Additionally, Railway offers one-click deployments for the following databases:
 - [PostgreSQL](/databases/postgresql)
 - [MySQL](/databases/mysql)
 - [MongoDB](/databases/mongodb)
