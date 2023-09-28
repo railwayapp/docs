@@ -33,9 +33,7 @@ If you enable [Pull Request Deploys](/deploy/deployments), a temporary environme
 
 ## Forking and merging environments
 
-<PriorityBoardingBanner />
-
-Environments in Railway can be forked and merged. Forking an environment means that a new environment will be available to you that will recreate all the the services, plugins and variables that the original environment had. Changes in a forked environment are not propagated automatically to the parent environment or any other environment. Instead, any change made to a forked environment will be stored in a log of changes that we call changesets that you can review at any point in time.
+Environments in Railway can be forked and merged. Forking an environment means that a new environment will be available to you that will recreate all the the services, plugins, and variables that the original environment had. Changes in a forked environment are not propagated automatically to the parent environment or any other environment. Instead, any change made to a forked environment will be stored in a log of changes that we call changesets that you can review at any point in time.
 
 You can fork an environment from the environment selector dropdown in the navigation bar, which will fork the active environment. Alternatively you can fork an environment in the Environments section in the project settings.
 
