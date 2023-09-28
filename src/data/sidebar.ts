@@ -57,11 +57,12 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Databases",
     pages: [
-      makePage("Database View", "databases"),
+      makePage("Bring Your Own Database", "databases"),
       makePage("PostgreSQL", "databases"),
       makePage("MySQL", "databases"),
       makePage("Redis", "databases"),
       makePage("MongoDB", "databases"),
+      makePage("Database View", "databases"),
     ],
   },
   {
