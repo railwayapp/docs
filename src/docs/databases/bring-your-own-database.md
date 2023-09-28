@@ -41,3 +41,13 @@ src="https://res.cloudinary.com/railway/image/upload/v1694217808/docs/screenshot
 alt="Screenshot of TCP proxy configuration"
 layout="responsive"
 width={700} height={225} quality={100} />
+
+## Template Marketplace
+
+Need inspiration?  Our [Template Marketplace](https://railway.app/templates) already includes solutions for many different database services.  You might even find find a template for the database you need!
+
+Here are some suggestions to checkout - 
+- [Minio](https://railway.app/template/SMKOEA)
+- [ClickHouse](https://railway.app/template/clickhouse)
+- [Dragonfly](https://railway.app/template/dragonfly)
+- [Chroma](https://railway.app/template/tifygm)
