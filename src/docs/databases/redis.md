@@ -17,10 +17,11 @@ The following variables can be referenced in your services:
 - `REDISPORT`
 - `REDISPASSWORD`
 - `REDIS_URL`
+- `REDIS_PRIVATE_URL`
 
 Connect to your Redis container using your library of choice and supplying the
 appropriate environment variables.
 
 ## Image
 
-The Redis database service uses the [bitnami/redis:6.0](https://hub.docker.com/r/bitnami/redis/) docker image.
+The Redis database service uses the [bitnami/redis:latest](https://hub.docker.com/r/bitnami/redis/) docker image.

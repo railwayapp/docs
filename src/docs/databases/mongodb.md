@@ -17,10 +17,15 @@ The following variables can be referenced in your services:
 - `MONGOUSER`
 - `MONGOPASSWORD`
 - `MONGO_URL`
+- `MONGO_PRIVATE_URL`
  
 Connect to your MongoDB container using your library of choice and supplying the
 appropriate environment variables.
 
 ## Image
 
-The MongoDB database service uses the [mongo:4.4](https://hub.docker.com/_/mongo) docker image.
+The MongoDB database service uses the [mongo:latest](https://hub.docker.com/_/mongo) docker image.
+
+## Custom Start Command
+
+The MongoDB database service starts with the following [Start Command](/deploy/deployments#start-command) to enable communication over [Private Network](/reference/private-networking): `mongod --ipv6 --bind_ip ::,0.0.0.0`

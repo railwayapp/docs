@@ -18,14 +18,15 @@ The following variables can be referenced in your services:
 - `MYSQLPASSWORD`
 - `MYSQLDATABASE`
 - `MYSQL_URL`
+- `MYSQL_PRIVATE_URL`
 
 Connect to your MySQL container using your library of choice and supplying the
 appropriate environment variables.
 
 ## Image
 
-The MySQL database service uses the [mysql:8](https://hub.docker.com/_/mysql) docker image.
+The MySQL database service uses the [mysql:latest](https://hub.docker.com/_/mysql) docker image.
 
 ## Changing System Variables
 
-We do not support changing System Variables for MySQL at the moment.
+Tailor your MySQL service to your needs by adding any variables relevant to the [mysql](https://hub.docker.com/_/mysql) image.

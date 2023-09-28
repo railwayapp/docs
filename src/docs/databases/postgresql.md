@@ -18,21 +18,17 @@ The following variables can be referenced in your services:
 - `PGPASSWORD`
 - `PGDATABASE`
 - `DATABASE_URL`
+- `DATABASE_PRIVATE_URL`
 
 _Note, Many libraries will automatically look for the `DATABASE_URL` variable and use
 it to connect to PostgreSQL but you can use these variables in whatever way works for you._
 
 ## Image
 
-The Postgres database service uses the [timescale/timescaledb-postgis:latest-pg13](https://hub.docker.com/r/timescale/timescaledb) docker image.
+The Postgres database service uses Railway's [SSL-enabled Postgres image](https://github.com/railwayapp-templates/postgres-ssl).
 
 ## Timescale and PostGIS
 
-All PostgreSQL containers have the [PostGIS](https://postgis.net/install/) and [Timescale](https://www.timescale.com/) family of extensions installed. This means you can do both geo-spatial and time-series queries out of the box with Railway!
+The Postgres image that we use in our one-click template no longer contains PostGIS or Timescale extensions.
 
-You must enable the extensions in every database you want to use them. For example,
-
-```
-CREATE EXTENSION IF NOT EXISTS postgis;
-CREATE EXTENSION IF NOT EXISTS timescaledb;
-```
+The beauty of our new services, however, is that you can customize your Postgres service to your needs!  Please reach out to the community in [Discord](https://discord.gg/railway) if you need help.
