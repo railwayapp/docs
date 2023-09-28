@@ -58,7 +58,7 @@ it to connect to PostgreSQL but you can use these variables in whatever way work
 
 ## Image
 
-The Postgres database service uses Railway's [SSL-enabled Postgres image](https://github.com/railwayapp-templates/postgres-ssl).
+The Postgres database service uses Railway's [SSL-enabled Postgres image](https://github.com/railwayapp-templates/postgres-ssl/pkgs/container/postgres-ssl), which uses the official [postgres](https://hub.docker.com/_/postgres) image in Docker Hub as its base.
 
 ## Changing System Variables
 

@@ -4,7 +4,7 @@ title: Bring Your Own Database
 
 Our goal at Railway is to create a best-in-class developer experience by minimizing the time it takes to spin up and manage infrastructure.
 
-One way we try to achieve this goal, is by providing four, one-click templates that provision some of the most popular databases out there ([PostgreSQL](/databases/postgresql), [MySQL](databases/mysql), [MongoDB](/databases/mongodb), & [Redis](/databases/redis)).
+One way we try to achieve this goal, is by providing four, one-click templates that provision some of the most popular databases out there ([PostgreSQL](/databases/postgresql), [MySQL](/databases/mysql), [MongoDB](/databases/mongodb), & [Redis](/databases/redis)).
 
 But what about the rest of the data storage options?
 
