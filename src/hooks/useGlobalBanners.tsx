@@ -56,15 +56,15 @@ export const allGlobalBanners: GlobalBanner[] = [
   //   message: <LaunchWeekBanner linkText="Horizontal Scaling" />,
   // },
   // Day 4
-  {
-    id: "launch-week-day-4",
-    message: <LaunchWeekBanner linkText="Changesets" />,
-  },
-  // Day 5
   // {
-  //   id: "launch-week-day-5",
-  //   message: <LaunchWeekBanner linkText="NO SPOILERS" isLastStop />,
+  //   id: "launch-week-day-4",
+  //   message: <LaunchWeekBanner linkText="Changesets" />,
   // },
+  // Day 5
+  {
+    id: "launch-week-day-5",
+    message: <LaunchWeekBanner linkText="Workflows" isLastStop />,
+  },
 ];
 
 export const useGlobalBanners = () => {
