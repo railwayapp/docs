@@ -2,8 +2,6 @@
 title: Public API Reference
 ---
 
-<PriorityBoardingBanner />
-
 The Railway public API is built with GraphQL and is the same API that powers the Railway dashboard.
 
 If you haven't used GraphQL before, here are a few resources to get started:
