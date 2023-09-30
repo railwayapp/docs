@@ -135,6 +135,13 @@ nixpacksPlan = "examples/node"
 
 This field can be set to `null`.
 
+You can also define specific options as follow.
+
+```toml
+[build.nixpacksPlan.phases.setup]
+nixPkgs = ["...", "zlib"]
+```
+
 ### Nixpacks Version
 
 Version of Nixpacks to use. Must be a valid Nixpacks version. EXPERIMENTAL: USE AT YOUR OWN RISK!.
