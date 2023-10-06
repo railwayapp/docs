@@ -10,7 +10,7 @@ App Sleeping allows you to increase the efficiency of resource utilization on Ra
 
 Enabling App Sleep on a service tells Railway to stop a service when it is inactive, effectively reducing the overall cost to run it.
 
-App sleeping enables automated detection of an inactive [service](/develop/services) based on outbound traffic.
+App sleeping enables automated detection of an inactive service based on outbound traffic.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1696017787/events_gjkaob.png"
 alt="App Sleeping in the Activity Feed"
