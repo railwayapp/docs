@@ -2,11 +2,11 @@
 title: Scale to Zero
 ---
 
-Scale to Zero enables you to reduce unnecessary costs by ensuring you only use what you need, when you need it.
+Scale to Zero means reducing unnecessary costs by ensuring you only use what you need, when you need it.
 
 ## What is App Sleeping?
 
-App sleeping enables automated detection of inactive [services](/develop/services) based on outbound traffic.
+App sleeping enables automated detection of an inactive [service](/develop/services) based on outbound traffic.
 
 Enabling App Sleep on a service tells Railway to stop the service when it is inactive, effectively reducing the overall cost to run it.
 
