@@ -4,7 +4,7 @@ title: App Sleeping
 
 <PriorityBoardingBanner />
 
-App Sleeping allows you to increase the efficiency of resource utilization on Railway.  It may reduce the resource usage cose of a [service](/develop/services) by ensuring you only use what you need, when you need it.
+App Sleeping allows you to increase the efficiency of resource utilization on Railway.  It may reduce the resource usage cost of a [service](/develop/services) by ensuring you only use what you need, when you need it.
 
 ## What is App Sleeping?
 
