@@ -8,7 +8,7 @@ As mentioned in our philosophy document. Railway will make a best effort to prov
 
 ## Is Railway Production Ready?
 
-Many of our customers use Railway to reliably deploy their applications to customers at scale. With that said, Production standards are going to be different depending on what your users expect. We have a companies that use Railway in a variety of different verticals such as:
+Many of our customers use Railway to reliably deploy their applications to customers at scale. With that said, Production standards are going to be different depending on what your users expect. We have companies that use Railway in a variety of different verticals such as:
 
 - Enterprise SaaS
 - Consumer Social
