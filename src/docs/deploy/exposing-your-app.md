@@ -107,6 +107,7 @@ Registrars that are known to not fully support CNAME records for the root domain
 - Freenom
 - GoDaddy
 - Ionos
+- Porkbun
 
 **Workaround 1 - Cloudflare Proxy**
 
