@@ -2,8 +2,6 @@
 title: Usage Limits
 ---
 
-<PriorityBoardingBanner />
-
 Usage Limits allow you to set a maximum limit on your usage for a billing cycle. If your resource usage for the billing cycle exceeds the limit you configured, we will shut down your workloads to prevent them from incurring further resource usage.
 
 ## Configuring usage limits
