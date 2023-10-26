@@ -57,7 +57,7 @@ Once the project is created you will land on your project dashboard.
 This is your _mission control_. Your project's infrastructure, [environments](develop/environments), and [deployments](deploy/deployments) are all
 controlled from here.
 
-You should see a [Postgres plugin](plugins/postgresql) in the project dashboard, we use this to persist our To-Dos in the app.
+You should see a [Postgres database](databases/postgresql) in the project dashboard, we use this to persist our To-Dos in the app.
 
 Congrats! After the initial deployment finalizes, your web server is nearly ready to go. All you now need to do is just to [Generate a Domain](deploy/exposing-your-app)
 
