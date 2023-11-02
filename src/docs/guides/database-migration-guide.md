@@ -36,6 +36,13 @@ Here is what will happen when you choose to migrate via our one-click migration 
 
 _**NOTE: Your old plugin will NOT be deleted automatically.  You should perform the necessary actions to ensure data consistency between the plugin and the new database service.**_
 
+## Other Options
+
+If you would prefer not to go through the migration flow as outline above, there are other options for your migration path - 
+
+1. **Template** - The template which is used in the automation can be deployed at-will.  Deploy this manually in your project if you prefer this method.
+2. **DIY** - If our tools don't align with your needs, or you have a unique migration process in mind, you're welcome to execute your own strategy.  We always recommend ensuring you have a backup and a process for testing.
+
 ## FAQ
 
 ### What is the risk?
