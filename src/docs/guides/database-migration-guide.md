@@ -2,7 +2,7 @@
 title: Migrating from Legacy Plugins to Database Services
 ---
 
-As we continue to deliver the best solutions for your needs, we've introduced a more robust and flexible way to deploy database services.  This guide aims to provide an overview of why we're making this transition, what it means for you, and how you can migrate.
+We've introduced a more secure and flexible way to deploy databases on Railway.  The purpose of this guide is to provide an overview of why we are making these changes, what they mean for you, and how you can migrate.
 
 ## What is Changing?
 ### Legacy Plugins
@@ -36,7 +36,7 @@ _**NOTE: Your old plugin will NOT be deleted automatically.  You should perform 
 
 ## Other Options
 
-If you would prefer not to go through the migration flow as outline above, there are other options for your migration path - 
+If you would prefer not to go through the migration flow as outlined above, there are other options for your migration path - 
 
 1. **Template** - The template which is used in the automation can be deployed at-will.  Deploy this manually in your project if you prefer this method.
 2. **DIY** - If our tools don't align with your needs, or you have a unique migration process in mind, you're welcome to execute your own strategy.  We always recommend ensuring you have a backup and a process for testing.
@@ -61,7 +61,7 @@ The old plugin remains intact until you verify the migration. If you encounter a
 
 ## Conclusion
 
-We're committed to providing you with the best tools and solutions for your needs. This migration is a significant step in that direction. While change can sometimes be daunting, rest assured that we've made the process as smooth and risk-free as possible. We appreciate your understanding and cooperation, and we're excited about the new possibilities this transition brings!
+We're committed to providing the best solutions for your needs, and the new database services are a big step in that direction.  We're excited about the possibilities that this transition brings to your experience on Railway.
 
 ## Need Help?
 
