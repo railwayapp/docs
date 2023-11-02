@@ -6,7 +6,7 @@ We've introduced a more secure and flexible way to deploy databases on Railway. 
 
 ## What is Changing?
 ### Legacy Plugins
-In the early stages of Railway, we introduced `plugins`, a foundational part of our offering. They were databases deployed from Docker images with a fixed version, no data persistence, and no way to customize the database to your needs.
+In the early stages of Railway, we introduced "Plugins", a foundational part of our offering. They were databases deployed from Docker images with a fixed version, no data persistence, and no way to customize the database to your needs.
 
 ### Database Services
 Some of our newest features - Volumes, Docker Image Deployments, TCP Proxy - open the door for deploying databases as services, complete with data persistence, flexible configuration and management, and connectivity from the external network.
