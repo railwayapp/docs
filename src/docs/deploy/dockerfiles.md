@@ -13,7 +13,7 @@ Using detected Dockerfile!
 
 ### Custom Dockerfile Path
 
-By default, we look for a file named `Dockerfile` in the directory.  If you want to use a custom filename, you have a couple of options - 
+By default, we look for a file named `Dockerfile` in the directory.  If you want to use a custom filename, you have a couple of options - set a variable defining the path or use config as code.
 
 #### Set a Variable
 
@@ -24,9 +24,15 @@ For example, if your Dockerfile was called `Dockerfile.origin`, you would specif
 RAILWAY_DOCKERFILE_PATH=Dockerfile.origin
 ```
 
+If your Dockerfile is in another directory, specify it like this:
+
+```
+RAILWAY_DOCKERFILE_PATH=/build/Dockerfile
+```
+
 #### Use Config as Code
 
-Set your custom Dockerfile path using [config as code](/deploy/config-as-code#dockerfile-path).
+You can also set your custom Dockerfile path using [config as code](/deploy/config-as-code#dockerfile-path).
 
 For example, if you use a `railway.toml` file, you would specify your Dockerfile path like this:
 
