@@ -2,9 +2,7 @@
 title: Migrating from Legacy Plugins to Database Services
 ---
 
-As we continue to deliver the best solutions for your needs, we've introduced a more robust and flexible way to deploy database services.  In an effort to sunset the legacy component that 
-
-This guide aims to provide an overview of why we're making this transition, what it means for you, and how you can migrate.
+As we continue to deliver the best solutions for your needs, we've introduced a more robust and flexible way to deploy database services.  This guide aims to provide an overview of why we're making this transition, what it means for you, and how you can migrate.
 
 ## What is Changing?
 ### Legacy Plugins
