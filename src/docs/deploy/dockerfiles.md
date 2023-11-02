@@ -13,7 +13,7 @@ Using detected Dockerfile!
 
 ### Custom Dockerfile Path
 
-By default, we look for a file named `Dockerfile` in the directory.  If you want to use a custom filename, you have a couple of options - set a variable defining the path or use config as code.
+By default, we look for a file named `Dockerfile` in the directory.  If you want to use a custom filename or path, you have a couple of options - set a variable defining the path or use config as code.
 
 #### Set a Variable
 
