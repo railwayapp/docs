@@ -9,11 +9,13 @@ We've introduced a more secure and flexible way to deploy databases on Railway. 
 In the early stages of Railway, we introduced "Plugins", a foundational part of our offering. They were databases deployed from Docker images with a fixed version, no data persistence, and no way to customize the database to your needs.
 
 ### Database Services
-Some of our newest features - Volumes, Docker Image Deployments, TCP Proxy - open the door for deploying databases as services, complete with data persistence, flexible configuration and management, and connectivity from the external network.
+Some of our newest features - [Volumes](/reference/volumes), [Docker Image Deployments](/develop/services#docker-image), [TCP Proxy](https://docs.railway.app/deploy/exposing-your-app#tcp-proxying) - open the door for deploying databases as services, complete with data persistence, flexible configuration and management, and connectivity over the public Internet or [private network](/reference/private-networking).
+
+In fact, we have [updated our official databases](https://blog.railway.app/p/launch-01-next-gen-databases) to deploy from templates, built as database services using all of the features above, utilizing the `latest` image versions available in Docker Hub.
 
 ## Why Migrate?
 
-There are several primary reasons why this migration is beneficial -
+There are several key reasons why this migration is beneficial -
 
 1. Data Security
 2. Modern Architecture
@@ -21,24 +23,49 @@ There are several primary reasons why this migration is beneficial -
 
 ## Migration Process
 
-Here is what will happen when you choose to migrate via our one-click migration process - 
+You have some options when it comes to migrating from a database plugin to a database service.
 
-  *screenshot of button?*
+We wanted to make the process as easy as possible, so we built an automated process to migrate the data for you.  However, there are other options in case you would like a bit more control over the process.
 
-1. **One-click button** - When you access the plugin settings from within your project canvas, you will see a prompt to migrate.
-2. **Modal** - Once you click on the button, a modal will appear, detailing the steps that will be taken on your behalf to migrate your data.
-3. **Services Stop** - Any service within your project that is connected via a variable reference to the plugin will be stopped for the duration of the migration to prevent data loss or corruption.
-4. **Database Service** - A new database service with an attached volume will be deployed.
-5. **Data Transfer** - A separate service will be deployed that will execute a migration script.  The script will connect to your old plugin, create a dump of the data, and then transfer it to the new database service.
-6. **Reference Update** - All variable references within other services that point to the old plugin will be updated to the new database service.
+### One-click Automated Migration
+When you access the plugin panel from within your project canvas, you will see a prompt to migrate.
 
-_**NOTE: Your old plugin will NOT be deleted automatically.  You should perform the necessary actions to ensure data consistency between the plugin and the new database service.**_
+<Image src="https://res.cloudinary.com/railway/image/upload/v1698952078/docs/db-migration-guide/migrateBanner_hfgxbh.png"
+alt="Video of importing variables from Heroku"
+layout="fixed"
+width={500} height={150} quality={80} />
 
-## Other Options
+Once you click the `Migrate` button, a modal will appear, detailing the steps that will be taken on your behalf, to migrate your data.  After acknowledgment, the data migration will begin -
+
+1. **Deploy Database Service** - A new database service with an attached volume will be deployed.
+2. **Stop Connected Services** - Any service within your project that is connected to the plugin via a [variable reference](/develop/variables#reference-variables) will be stopped, for the duration of the migration, to prevent data loss or corruption.
+
+    *Note: You should ensure that any service(s) external to Railway which is writing to, or reading from, the database plugin is also stopped, or otherwise prevented from performing operations against the database, for the duration of the migration.*
+
+3. **Data Transfer** - A migration service will be deployed that will execute a migration script.  The script will connect to your database plugin, create a dump of the data, and then transfer it to the new database service.  The scripts are open-source and can be reviewed here:
+    - [PostgreSQL]()
+    - [MySQL]()
+    - [MongoDB]()
+    - [Redis]()
+
+    Once the migration is complete, the migration service will be deleted.
+4. **Update Service Variables** - [Variable references](/develop/variables#reference-variables) within services that point to the database plugin will be updated to the new database service
+
+5. **Redeploy Connected Services** - Services previously connected to the database plugin will be redployed to apply the updated connection string and connect to the new database service.
+
+_**NOTE: The legacy plugin will NOT be deleted automatically.**_
+
+Once you have performed the necessary actions to ensure data consistency between the database plugin and the new database service, you should [delete](/develop/services#deleting-a-service) the database plugin from your project.
+
+### Other Options
 
 If you would prefer not to go through the migration flow as outlined above, there are other options for your migration path - 
 
 1. **Template** - The template which is used in the automation can be deployed at-will.  Deploy this manually in your project if you prefer this method.
+    - [PostgreSQL]()
+    - [MySQL]()
+    - [MongoDB]()
+    - [Redis]()
 2. **DIY** - If our tools don't align with your needs, or you have a unique migration process in mind, you're welcome to execute your own strategy.  We always recommend ensuring you have a backup and a process for testing.
 
 ## FAQ
@@ -51,13 +78,17 @@ The migration process has been designed to minimize risks. By temporarily stoppi
 
 Yes, there will be a brief downtime for services that reference the old plugin. However, this is essential to ensure a seamless and error-free migration.
 
+### Do I have to perform the migration for every environment?
+
+If you follow the one-click automated process, each environment will be handled for you.  If you perform the migration via another process, you will need to perform the migration within each environment.
+
 ### What is the deadline for migration?
 
-While we encourage users to migrate as soon as possible to benefit from the enhanced features, you will have ???? to complete the migration. After this, we may start sunsetting the old plugins.
+While we encourage users to migrate as soon as possible to benefit from the enhanced features, you will have until **January 30th, 2024** to complete the migration.
 
 ### What if something goes wrong?
 
-The old plugin remains intact until you verify the migration. If you encounter any issues, please contact our support team. We're here to assist you through every step.
+The old plugin remains intact until you verify the migration. If you encounter any issues, please reach out on our [Discord](https://discord.gg/railway) or contact our support team at [support@railway.app](mailto:support@railway.app).
 
 ## Conclusion
 
@@ -65,4 +96,4 @@ We're committed to providing the best solutions for your needs, and the new data
 
 ## Need Help?
 
-If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our [Discord](https://discord.gg/railway) or over email at [team@railway.app](mailto:team@railway.app).
+If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our [Discord](https://discord.gg/railway) or over email at [support@railway.app](mailto:support@railway.app).
