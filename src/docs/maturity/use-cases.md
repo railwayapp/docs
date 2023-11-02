@@ -95,11 +95,9 @@ Unfortunately, our platform isn't yet well-equipped to handle the following vert
 - Traditional Banking
 - Machine Learning Compute
 
-FedRAMP is planned to be on
-
 ### Status on Certifications
 
-Railway is undergoing the certification process, for more information see our [compliance documentation page](/maturity/compliance).
+Railway is undergoing the SoC2 certification process, for more information see our [compliance documentation page](/maturity/compliance).
 
 ## General Recommendations
 
