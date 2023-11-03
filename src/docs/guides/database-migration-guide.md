@@ -43,10 +43,10 @@ Once you click the `Migrate` button, a modal will appear, detailing the steps th
     *Note: You should ensure that any service(s) external to Railway which is writing to, or reading from, the database plugin is also stopped, or otherwise prevented from performing operations against the database, for the duration of the migration.*
 
 3. **Data Transfer** - A migration service will be deployed that will execute a migration script.  The script will connect to your database plugin, create a dump of the data, and then transfer it to the new database service.  The scripts are open-source and can be reviewed here:
-    - [PostgreSQL]()
-    - [MySQL]()
-    - [MongoDB]()
-    - [Redis]()
+    - [PostgreSQL](https://github.com/railwayapp-templates/postgres-plugin-migration/blob/main/migrate.sh)
+    - [MySQL](https://github.com/railwayapp-templates/mysql-plugin-migration/blob/main/migrate.sh)
+    - [MongoDB](https://github.com/railwayapp-templates/mongo-plugin-migration/blob/main/migrate.sh)
+    - [Redis](https://github.com/railwayapp-templates/redis-plugin-migration/blob/main/migrate.sh)
 
     Once the migration is complete, the migration service will be deleted.
 4. **Update Service Variables** - [Variable references](/develop/variables#reference-variables) within services that point to the database plugin will be updated to the new database service
@@ -62,10 +62,10 @@ Once you have performed the necessary actions to ensure data consistency between
 If you would prefer not to go through the migration flow as outlined above, there are other options for your migration path - 
 
 1. **Template** - The template which is used in the automation can be deployed at-will.  Deploy this manually in your project if you prefer this method.
-    - [PostgreSQL]()
-    - [MySQL]()
-    - [MongoDB]()
-    - [Redis]()
+    - [PostgreSQL](https://railway.app/template/postgres-plugin-migration)
+    - [MySQL](https://railway.app/template/mysql-plugin-migration)
+    - [MongoDB](https://railway.app/template/mongo-plugin-migration)
+    - [Redis](https://railway.app/template/redis-plugin-migration)
 2. **DIY** - If our tools don't align with your needs, or you have a unique migration process in mind, you're welcome to execute your own strategy.  We always recommend ensuring you have a backup and a process for testing.
 
 ## FAQ
