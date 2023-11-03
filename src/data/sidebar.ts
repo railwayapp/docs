@@ -100,7 +100,8 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Guides",
     pages: [
-      makePage("Migrate from Heroku", 'guides')
+      makePage("Migrate from Heroku", 'guides'),
+      makePage("Database Migration Guide", 'guides'),
     ]
   },
 ];
