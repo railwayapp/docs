@@ -75,7 +75,7 @@ changed in the `/packages/backend` directory. When specified, any changes that
 don't match the patterns will skip creating a new deployment. Multiple patterns
 can be combined, one per line.
 
-_Note, if a Root Directory is provided, patterns still operate from `/`. For a root directory of `/app`, `/app/**.js` would be used as a pattern to match files in the new root._
+_Note, if a Root Directory is provided, patterns still operate from `/`. For a root directory of `/app`, `/app/**` would be used as a pattern to match all files in the new root._
 
 Here are a few examples of common use-cases:
 ```gitignore
