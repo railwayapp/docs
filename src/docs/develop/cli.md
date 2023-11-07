@@ -130,6 +130,17 @@ railway link
 This prompts you to select a team, project, and environment to associate with
 your current directory. Any future commands will be run against this project and environment.
 
+### Link to a Service
+
+Associate a service in a project and environment with your current directory:
+
+```bash
+# Link to a service
+railway service
+```
+
+This links your current directory with the chosen service.
+
 ### Create a Project
 
 Create a new project directly from the command line.
