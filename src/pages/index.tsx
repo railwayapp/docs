@@ -25,7 +25,7 @@ const Home: NextPage = () => {
   return (
     <>
       <div tw="max-w-4xl z-10">
-        <h1 tw="text-5xl md:text-6xl font-bold mb-12">Introduction</h1>
+        <h1 tw="text-5xl md:text-6xl font-bold mb-12">Railway Docs</h1>
         <div
           // I know this is the longest single line of css I've ever written
           css={[
@@ -34,12 +34,11 @@ const Home: NextPage = () => {
           ]}
         >
           <div tw="py-12 pl-12 z-10">
-            <div tw="text-3xl font-bold text-white mb-4">Quickstart Guide</div>
+            <div tw="text-3xl font-bold text-white mb-4">Welcome!</div>
             <div tw="text-xl font-normal text-white dark:text-gray-600 mb-12 max-w-md">
-              A short guide on making your first deploy on Railway in a couple
-              of minutes.
+              Our docs are organized by use-case.  Whether you are here to learn what Railway is or have a specific purpose, we hope the options below guide you to the appropriate pages.
             </div>
-            <ButtonLink
+            {/* <ButtonLink
               href="/getting-started"
               tw="w-40 bg-pink-400 text-white text-center text-lg hover:bg-pink-500"
             >
@@ -47,7 +46,7 @@ const Home: NextPage = () => {
                 <ArrowRight tw="mr-1" />
                 Get Started
               </div>
-            </ButtonLink>
+            </ButtonLink> */}
           </div>
           <div tw="absolute -bottom-20 -right-4 opacity-25 z-0 lg:opacity-100">
             <NextImage
@@ -63,48 +62,47 @@ const Home: NextPage = () => {
         </div>
 
         <div tw="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-          <OverviewLink href="reference/templates">
+          <OverviewLink href="getting-stared/introduction">
             <OverviewLinkIcon tw="bg-pink-100 border-pink-100 dark:bg-[#291839]">
               <Layers size="28" tw="text-pink-800" />
             </OverviewLinkIcon>
             <OverviewLinkTextbox>
-              <OverviewLinkHeading>Templates</OverviewLinkHeading>
+              <OverviewLinkHeading>Here to learn</OverviewLinkHeading>
               <OverviewLinkText>
-                See all templates you can deploy to get up and running on
-                Railway.
+                Understand what Railway is, how to get started, and the main components of the platform.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="deploy/builds">
+          <OverviewLink href="how-to/introduction">
             <OverviewLinkIcon tw="bg-blue-100 border-blue-100 dark:bg-[#0F1B33]">
               <Code size="28" tw="text-blue-800" />
             </OverviewLinkIcon>
             <OverviewLinkTextbox>
-              <OverviewLinkHeading>Language Specific Apps</OverviewLinkHeading>
+              <OverviewLinkHeading>Need direction</OverviewLinkHeading>
               <OverviewLinkText>
-                Get information on how to deploy specific applications.
+                Get information on how to configure something or enable a specific feature.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="develop/variables">
+          <OverviewLink href="/quick-start-tutorial">
             <OverviewLinkIcon tw="bg-yellow-100 border-yellow-200 dark:border-yellow-100 dark:bg-[#1D190C]">
               <Edit3 size="28" tw="text-yellow-800" />
             </OverviewLinkIcon>
             <OverviewLinkTextbox>
-              <OverviewLinkHeading>Variables</OverviewLinkHeading>
+              <OverviewLinkHeading>Try it Out</OverviewLinkHeading>
               <OverviewLinkText>
-                Understand how Railway handles variables on the platform.
+                Want to get your hands dirty?  Head over to our Quick Start Tutorial to deploy an app in minutes.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="reference/guides">
+          <OverviewLink href="tutorials/introduction">
             <OverviewLinkIcon tw="bg-green-100 border-green-100 dark:bg-[#15231D]">
               <Book size="28" tw="text-green-800" />
             </OverviewLinkIcon>
             <OverviewLinkTextbox>
-              <OverviewLinkHeading>Guides</OverviewLinkHeading>
+              <OverviewLinkHeading>Tutorials</OverviewLinkHeading>
               <OverviewLinkText>
-                Tutorials on common developer scenarios.
+                Step-by-step guides on common developer scenarios.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>

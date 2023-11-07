@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Quick Start Tutorial
 ---
 
 Railway is a deployment platform where you can provision infrastructure,

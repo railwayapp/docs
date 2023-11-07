@@ -15,43 +15,26 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "",
     pages: [
-      makePage("Introduction", undefined, "/"),
-      makePage("Getting Started", undefined),
+      makePage("Home", undefined, "/"),
+      makePage("Quick Start", undefined),
     ],
   },
   {
-    title: "Develop",
+    title: "Getting Started",
     pages: [
-      makePage("Projects", "develop"),
-      makePage("Services", "develop"),
-      makePage("CLI", "develop"),
-      makePage("Variables", "develop"),
-      makePage("Environments", "develop"),
+      makePage("Introduction", "getting-started"),
+      makePage("Setup", "getting-started"),
+      makePage("Deploy", "getting-started"),
+      makePage("Scale", "getting-started"),
+      makePage("Diagnose", "getting-started"),
     ],
   },
   {
-    title: "Deploy",
+    title: "Maturity",
     pages: [
-      makePage("Railway Up", "deploy"),
-      makePage("Builds", "deploy"),
-      makePage("Deployments", "deploy"),
-      makePage("Healthchecks", "deploy"),
-      makePage("Dockerfiles", "deploy"),
-      makePage("Exposing Your App", "deploy"),
-      makePage("Networking", "deploy"),
-      makePage("Monorepo", "deploy"),
-      makePage("Logging", "deploy"),
-      makePage("Integrations", "deploy"),
-      makePage("Config as Code", "deploy"),
-      makePage("Deploy on Railway Button", "deploy"),
-    ],
-  },
-  {
-    title: "Diagnose",
-    pages: [
-      makePage("Metrics", "diagnose"),
-      makePage("Webhooks", "diagnose"),
-      makePage("Project Usage", "diagnose"),
+      makePage("Philosophy", "maturity"),
+      makePage("Use Cases", "maturity"),
+      makePage("Compliance", "maturity"),
     ],
   },
   {
@@ -66,17 +49,52 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Troubleshoot",
-    pages: [makePage("Fixing Common Errors", "troubleshoot")],
-  },
-  {
-    title: "Maturity",
+    title: "How To",
     pages: [
-      makePage("Philosophy", "maturity"),
-      makePage("Use Cases", "maturity"),
-      makePage("Compliance", "maturity"),
+      makePage("Deploy a GitHub Repo", "how-to"),
+      makePage("Configure Replicas", "how-to"),
+      makePage("Setup Private Networking", "how-to"),
+      makePage("Configure Health Checks", "how-to"),
     ],
   },
+  {
+    title: "Tutorials",
+    pages: [
+      makePage("Introduction to Tutorials", 'tutorials'),
+      makePage("Migrate from Heroku", 'tutorials'),
+      makePage("Database Migration Guide", 'tutorials'),
+    ]
+  },
+  // {
+  //   title: "Deploy",
+  //   pages: [
+  //     makePage("Railway Up", "deploy"),
+  //     makePage("Builds", "deploy"),
+  //     makePage("Deployments", "deploy"),
+  //     makePage("Healthchecks", "deploy"),
+  //     makePage("Dockerfiles", "deploy"),
+  //     makePage("Exposing Your App", "deploy"),
+  //     makePage("Networking", "deploy"),
+  //     makePage("Monorepo", "deploy"),
+  //     makePage("Logging", "deploy"),
+  //     makePage("Integrations", "deploy"),
+  //     makePage("Config as Code", "deploy"),
+  //     makePage("Deploy on Railway Button", "deploy"),
+  //   ],
+  // },
+  // {
+  //   title: "Diagnose",
+  //   pages: [
+  //     makePage("Metrics", "diagnose"),
+  //     makePage("Webhooks", "diagnose"),
+  //     makePage("Project Usage", "diagnose"),
+  //   ],
+  // },
+  // {
+  //   title: "Troubleshoot",
+  //   pages: [makePage("Fixing Common Errors", "troubleshoot")],
+  // },
+
   {
     title: "Reference",
     pages: [
@@ -97,11 +115,5 @@ export const sidebarContent: ISidebarContent = [
       makePage("Compare to Heroku", "reference"),
     ],
   },
-  {
-    title: "Guides",
-    pages: [
-      makePage("Migrate from Heroku", 'guides'),
-      makePage("Database Migration Guide", 'guides'),
-    ]
-  },
+
 ];
