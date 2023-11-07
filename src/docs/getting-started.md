@@ -37,7 +37,9 @@ Under the list of options in the menu, select "Deploy Template".
 
 ### Deploy the Next JS Prisma Template
 
-Railway offers 50+ templates ranging from blogs to self-hosted apps. Use the search bar at the top right and type `NextJS Prisma`.
+Railway offers 50+ templates ranging from blogs to self-hosted apps. In the Command Palette, type `NextJS Prisma`.
+
+Alternatively, you can deploy the template from the [Template marketplace](https://railway.app/templates).
 
 <Image src="/images/getting-started/3-railway-getting-started-deploy-template.gif"
 alt="Deploy the Template"
@@ -59,7 +61,9 @@ controlled from here.
 
 You should see a [Postgres database](databases/postgresql) in the project dashboard, we use this to persist our To-Dos in the app.
 
-Congrats! After the initial deployment finalizes, your web server is nearly ready to go. All you now need to do is just to [Generate a Domain](deploy/exposing-your-app)
+Congrats! After the initial deployment finalizes, your web server ready to go. All you need to do now is to find the domain.  Within the service settings panel, the domain is listen under Deployments.  
+
+You can also find it in the [Settings](deploy/exposing-your-app) tab under Public Networking.
 
 <Image
 src="/images/getting-started/4-railway-getting-started-domain-link.png"
@@ -67,13 +71,15 @@ alt="Screenshot of adding Service Domain"
 layout="responsive"
 width={800} height={287} quality={80} />
 
-After doing this, click on the deployment and navigate to your deployment to see the app live. In the next step, we will personalize your new web app.
+Navigate to your domain to see the app live.
+
+In the next step, we will personalize your new web app.
 
 ## Developing Locally
 
 So far Railway spun up a Postgres instance and a web server providing all the needed variables on deploy. We will connect to that very same Postgres instance locally to help us develop our app.
 
-Let's begin by cloning the repo you created on your machine.
+Begin by cloning the repo you created on your machine.
 
 (Tip: you can navigate directly to the Project's repo from the deployment pane using the Command Palette.)
 
