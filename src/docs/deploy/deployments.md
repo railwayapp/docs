@@ -40,14 +40,16 @@ When a new Deployment is triggered, older deploys in a `Crashed` and `Success` s
 ## Deploy Triggers
 
 A new deployment is triggered when the [command](/deploy/railway-up) `railway up` is
-executed. [GitHub Services](/develop/services#github-services) that are linked to a GitHub repo automatically deploy when
+executed.
+
+[GitHub Services](/develop/services#github-services) that are linked to a GitHub repo automatically deploy when
 new commits are detected in the connected branch.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1645148953/docs/triggers_i2nrwd.png"
+src="https://res.cloudinary.com/railway/image/upload/v1699395694/docs/deployTrigger_tuxk5l.png"
 alt="Screenshot of GitHub Integration"
 layout="responsive"
-width={1001} height={740} quality={80} />
+width={1103} height={523} quality={80} />
 
 ## Check Suites
 
@@ -153,6 +155,7 @@ You can also click within a deployment and using the Command Palette restart a d
 ## Restart Policy
 
 Within the Service settings, a user is able to configure a restart policy of either `Never`, `Always`, or `On-Failure` with an optional maximum number of restarts.
+
 
 ## How come my GitHub PR won't deploy?
 
