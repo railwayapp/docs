@@ -44,33 +44,45 @@ reach out on [Discord](https://discord.gg/xAm2w6g) or on the [Nixpacks repo](htt
 
 ## Build Command
 
-If using the Nixpacks builder, you can customize the build command that is run. For those familiar with Nixpacks, this gets set as the `--build-cmd` argument during the Nixpacks build.
-
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/root-directory_nczles.png"
+src="https://res.cloudinary.com/railway/image/upload/v1664564851/docs/build-command_vhuify.png"
 alt="Screenshot of Railway Build Command"
 layout="responsive"
-width={1190} height={400} quality={80} />
+width={745} height={238} quality={80} />
+
+If using the Nixpacks builder, you can customize the build command that is run. For those familiar with Nixpacks, this gets set as the `--build-cmd` argument during the Nixpacks build.
+
 
 ## Root Directory
 
 The root directory defaults to `/` but can be changed for various use-cases like
-[monorepo](/deploy/monorepo) projects. When specified, all build and deploy
+[monorepo](/deploy/monorepo) projects. 
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/root-directory_nczles.png"
+alt="Screenshot of Root Directory"
+layout="responsive"
+width={1190} height={400} quality={80} />
+
+When specified, all build and deploy
 commands will operate within that root directory. Additionally, files changed
 outside the root directory will not trigger a new build.
 
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1668662436/docs/multi-providers_lrxdbp.png"
-alt="Screenshot of Railway Root Directory"
-layout="responsive"
-width={745} height={238} quality={80} />
 
 ## Watch Paths
 
 Watch paths are
 [gitignore-style](https://git-scm.com/docs/gitignore#_pattern_format) patterns
 that can be used to trigger a new deployment based on what file paths have
-changed. For example, a monorepo might want to only trigger builds if files are
+changed. 
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/watch-paths_l4xozt.png"
+alt="Screenshot of Railway Watch Paths"
+layout="responsive"
+width={1158} height={444} quality={80} />
+
+For example, a monorepo might want to only trigger builds if files are
 changed in the `/packages/backend` directory. When specified, any changes that
 don't match the patterns will skip creating a new deployment. Multiple patterns
 can be combined, one per line.
@@ -94,11 +106,6 @@ Here are a few examples of common use-cases:
 
 _Note, negations will only work if you include files in a preceding rule._
 
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/watch-paths_l4xozt.png"
-alt="Screenshot of Railway Watch Paths"
-layout="responsive"
-width={1158} height={444} quality={80} />
 
 ## Build Providers
 
@@ -113,13 +120,13 @@ providers = ["...", "python"]
 
 Within your Service's settings, under the Builds section, you can define within the multi-select box which Nixpacks language providers you would like to use for your builds. This is useful if you have code that calls libraries that need to be built from another language within your repo.
 
-When multiple providers are defined, Railway will build your service with the language providers (in the order you defined) and ensure your binaries are ready to be called. The runtime(s) will then initialize as soon as you start your application.
-
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1668662436/docs/multi-providers_lrxdbp.png"
 alt="Screenshot of Railway Build Providers"
 layout="responsive"
-width={745} height={238} quality={100} />
+width={745} height={238} quality={80} />
+
+When multiple providers are defined, Railway will build your service with the language providers (in the order you defined) and ensure your binaries are ready to be called. The runtime(s) will then initialize as soon as you start your application.
 
 ## Procfiles
 

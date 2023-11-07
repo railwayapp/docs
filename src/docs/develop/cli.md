@@ -130,6 +130,17 @@ railway link
 This prompts you to select a team, project, and environment to associate with
 your current directory. Any future commands will be run against this project and environment.
 
+### Link to a Service
+
+Associate a service in a project and environment with your current directory:
+
+```bash
+# Link to a service
+railway service
+```
+
+This links your current directory with the chosen service.
+
 ### Create a Project
 
 Create a new project directly from the command line.
@@ -208,35 +219,4 @@ railway logout
 
 Our CLI is open source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
 
-[You can see our documentation of the CLI API here.](/reference/cli-api)
-
-## CLI v3 Changes
-
-The Railway CLI recently underwent a rewrite to improve the user and developer experience.
-The biggest change is that the new v3 CLI will use the new [Public API](/reference/public-api/).
-
-The new CLI is written in Rust and is currently available via all release channels.
-
-### What's New?
-
-- Written in Rust; much faster than previous versions
-- Interactive search for services + projects when linking
-- Tabular displays for cleaner data visualization
-- New commands:
-    - `railway service` for linking to a project's service
-    - `railway domain` for generating a service domain
-
-### What's Improved?
-
-- Commands now allow you to specify the project and environment via flags
-- Additional flags such as `--json` to output data in JSON format for scripting
-- `railway add` now allows you to provision multiple database types at once
-- `railway logs` now opens a direct websocket connection to the logs API and will stream logs in real time
-
-### What's Deprecated?
-
-- `railway build` has been removed
-- `railway protect` has been removed
-- `railway variables add` will no longer give you the option to add a secret. We are re-thinking how we want to handle the secret flow within the CLI now since the addition of [Shared Variables](/develop/variables#shared-variables)
-- `railway version` has been removed, in favor of using `-V` or `--version` flags
-- `railway init` will no longer allow you to deploy a new Project with a Template. We have since re-worked the flow and realized that the Template deploy flow is best served in the dashboard
+[You can see the full documentation of the CLI API here.](/reference/cli-api)

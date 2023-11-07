@@ -58,8 +58,6 @@ In order to use Wildcard Domains, you must add two CNAME records, one for the wi
 
 ## TCP Proxying
 
-<PriorityBoardingBanner />
-
 You can proxy TCP traffic to your service by creating a TCP proxy in the service settings. Enter the port that you want traffic proxied to, Railway will generate a domain and port for you to use. All traffic sent to `domain:port` will be proxied to your service. This is useful for services that don't support HTTP, such as databases.
 
 <Image

@@ -47,7 +47,6 @@ Requests to replica DNS service address will be round robin'd between all replic
 During the feature development process we found a few caveats that you should be aware of:
 
 - Private networking is not available during the build phase.
-- Railway databases are not accessible via the private network, we are moving towards a system where DBs are services with volumes attached.
 - You will need to establish a wireguard tunnel to external services if you wish to vendor requests in your application.
 - You will need to bind to a IPv6 port to receive traffic on the private network.
 - Private networking is enabled automatically for new projects/environments. If you want to use private networking in an existing environment, you will have to enable it manually in the settings panel of one of the environment services.
