@@ -12,7 +12,7 @@ You can use them to
 Each environment has the same services. This applies to database services, when added to the
 project, an instance of that service is created for each environment.
 
-Deploys are also scoped to a specific Railway environment. When you create a [GitHub Trigger](/deploy/integrations#github-integration) you can specify which environment to use. When you [deploy with up](/deploy/railway-up), the current environment will be used.
+Deploys are also scoped to a specific Railway environment. When you create a [GitHub Trigger](/deploy/deployments#deploy-triggers) you can specify which environment to use. When you [deploy with up](/deploy/railway-up), the current environment will be used.
 
 ## Create an Environment
 
