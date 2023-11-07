@@ -134,7 +134,7 @@ Read more about the kickback program [here](https://railway.app/open-source-kick
 ## Deployment
 
 Templates allow you to deploy a fully configured project that is automatically
-connected to infrastructure. Examples of templates are:
+connected to infrastructure. Examples of templates are -
 
 - NextJS app with Prisma
 - Django app connected to Postgres
