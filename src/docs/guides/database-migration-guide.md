@@ -2,8 +2,6 @@
 title: Migrating from Legacy Plugins to Database Services
 ---
 
-<PriorityBoardingBanner />
-
 We've introduced a more secure and flexible way to deploy databases on Railway.  The purpose of this guide is to provide an overview of why we are making these changes, what they mean for you, and how you can migrate.
 
 ## What is Changing?
@@ -30,8 +28,6 @@ You have some options when it comes to migrating from a database plugin to a dat
 We wanted to make the process as easy as possible, so we built an automated process to migrate the data for you.  However, there are other options in case you would like a bit more control over the process.
 
 ### One-click Automated Migration
-
-_This flow will be enabled on Nov. 6, 2024_
 
 When you access the plugin panel from within your project canvas, you will see a prompt to migrate.
 
