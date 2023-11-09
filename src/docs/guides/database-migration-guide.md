@@ -64,6 +64,8 @@ _**NOTE: The legacy plugin will NOT be deleted automatically.**_
 
 Once you have performed the necessary actions to ensure data consistency between the database plugin and the new database service, you should [delete](/develop/services#deleting-a-service) the database plugin from your project.
 
+**If you have hard-coded the plugin `DATABASE_URL` anywhere, make sure to update it to point to the new database**
+
 ### Other Options
 
 If you would prefer not to go through the migration flow as outlined above, there are other options for your migration path - 
