@@ -2,9 +2,14 @@
 title: Variables
 ---
 
-Variables provide a powerful way to manage configuration and secrets across services in Railway.  When defined, they are made available to your application at build and runtime as environment variables.
+Variables provide a powerful way to manage configuration and secrets across services in Railway.
 
-Variables generally represent key-value pairs that store data needed by your services which you do not want to keep in code, like secrets or configuration values.
+When defined, they are made available to your application as environment variables in the following scenarios:
+
+- The build process for each service deployment.
+- The running service deployment.
+- The command invoked by `railway run <COMMAND>`
+- The local shell via `railway shell`
 
 In Railway, there is also a notion of configuration variables which allow you to control the behavior of the platform.
 
