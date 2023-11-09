@@ -2,29 +2,36 @@
 title: Variables
 ---
 
-Service variables are provided whenever you build, deploy, or run `railway run`. When
-defined, they are made available to your application at runtime as environment variables.
+Variables provide a powerful way to manage configuration and secrets across services in Railway.  When defined, they are made available to your application at build and runtime as environment variables.
 
-Variables are made available in the following scenarios:
+Variables generally represent key-value pairs that store data needed by your services which you do not want to keep in code, like secrets or configuration values.
 
-- The build process for each service deployment.
-- The running service deployment.
-- The command invoked by `railway run <COMMAND>`
-- The local shell via `railway shell`
+In Railway, there is also a notion of configuration variables which allow you to control the behavior of the platform.
+
+## Types of Variables
+
+There are four main types of variables in Railway - 
+- **Service-level variables** are configured in your services' settings.
+- **Shared variables** are configured in your projects' settings and can be made available to any service in specific project.
+- **Railway-provided variables** are set by Railway to provide metadata about the environment, project, or service.
+- **User-provided configuration variables** are a group of reserved variables that change the behavior of Railway when set.
 
 ## Defining Variables
 
-Variables can be added via the Railway Dashboard by navigating to a service's "Variables" tab.
+Variables can be defined and managed from within your project canvas - either in your Service settings or Project settings.
+
+### Service-level variables
+
+Define variables for individual services by navigating to a service's "Variables" tab.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/c_scale,w_2026/v1678820924/docs/CleanShot_2023-03-14_at_12.07.44_2x_rpesxd.png"
 alt="Screenshot of Variables Pane"
 layout="responsive"
 width={2026} height={933} quality={100} />
 
-You can view all variables for the current environment using the [Railway CLI](/develop/cli) with
-`railway variables` and change the environment with `railway environment`.
+Click on `New Variable` to enter your new variable into a form field or use the `RAW Editor`.
 
-### Raw Editor
+#### Raw Editor
 
 If you already have a `.env` file, or simply prefer to edit text, the Raw Editor can be used to edit variables in either `.env` or `.json` format.
 
@@ -33,12 +40,82 @@ alt="Screenshot of Raw Editor"
 layout="responsive"
 width={1954} height={1303} quality={100} />
 
-Variables can be defined as simple key/value pairs or as [Templated Variables](#templated-variables) (eg. `${{Postgres.DATABASE_URL}}`),
-which can dynamically reference other variables, shared variables, or plugin variables (more on this below).
+
+#### Using Reference Variables
+
+Reference variables refer to variables set on a service that reference variables which are defined elsewhere, i.e. in another service or Shared variables.
+
+More on reference variables [below](/develop/variables#reference-variables).
+
+### Shared Variables
+
+Shared variables help reduce duplication of variables across multiple services within the same project.  They are defined at the project environment level and can be added in Project Settings > Shared Variables.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1669678393/docs/shared-variables-settings_vchmzn.png"
+alt="Screenshot of Shared Variables Settings"
+layout="responsive"
+width={2402} height={1388} quality={100} />
+
+To use a shared variable, either click the Share button and select the desired services,
+or visit the Variables tab within the service itself and click "Shared Variable".
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1667332192/docs/shared-variables-picker_ryjble.png"
+alt="Screenshot of Shared Variables Picker"
+layout="responsive"
+width={1784} height={1168} quality={100} />
+
+Adding a shared variables to a service creates a [Reference Variable](/develop/variables#reference-variables) in the service.
 
 ### Multiline Variables
 
 Variables can span multiple lines. Press `Control + Enter` (`Cmd + Enter` on Mac) in the variable value input field to add a newline, or simply type a newline in the Raw Editor.
+
+### Template Syntax
+
+You can use Railway's templating syntax to manage variables.  This means that you can combine additional text or even other variables, to construct values that you need.
+
+```plaintext
+DOMAIN=${{shared.DOMAIN}}
+GRAPHQL_PATH=/v1/gql
+GRAPHQL_ENDPOINT=https://${{DOMAIN}}/${{GRAPHQL_PATH}}
+```
+
+The example above illustrates a pattern of maintaining a Shared variable called `DOMAIN` and using that plus a service-level variable to construct an endpoint.
+
+## Reference Variables
+
+Variables can be set as reference variables which resolve to variables defined in other services, or shared variables.  This is useful for ease of maintenace and security, allowing you to set a variable in a single place, wherever it makes the most sense.
+
+Reference variables use Railway's [template syntax](/develop/variables#template-syntax) using a specific format - `${{NAMESPACE.VAR}}` - where `NAMESPACE` can either be a service's name or the value `shared` (depending on where the variable is defined that you need to access) and `VAR` is the variable name.
+
+When using reference variables, you also have access to [Railway-provided variables](/develop/variables#railway-provided-variables).
+
+### Example Scenarios
+
+Here are some example scenarios to help clarify reference variable usage and syntax.
+
+Referencing a Shared variable -
+- You have a shared variable defined in your project called `API_KEY`, and you need to make the API key available to a service.  Go to the service's settings, and add a variable with the following variable:
+  - `API_KEY=${{shared.API_KEY}}`
+
+Referencing another service's variables -
+- You have a variable set on your database service called `DATABASE_URL` which contains the connection string to connect to the database.  The database service name is **Clickhouse**.
+
+  You need to make this connection string available to another service in the project.  Go to the service that needs the connection string and add a variable with the folling variable:
+  - `DATABASE_URL=${{Clickhouse.DATABASE_URL}}`
+
+- Your frontend service needs to make requests to your backend.  You do not want to hardcode the backend URL in your frontend code.  Go to your frontend service settings and add the Railway-provided variable for the backend URL -
+  - `API_URL=https://${{ backend.RAILWAY_PUBLIC_DOMAIN }}`
+
+### Autocomplete Dropdown
+
+The Railway dashboard also provides an autocomplete dropdown in both the name and
+value fields to help create these references.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1699559731/docs/referenceVars_klvijr.gif"
+alt="Screenshot of Variables Pane"
+layout="responsive"
+width={1108} height={1050} quality={100} />
 
 ## Railway-Provided Variables
 
@@ -77,7 +154,7 @@ These variables are provided if the deploy originated from a GitHub trigger.
 | `RAILWAY_GIT_REPO_OWNER`     | The name of the repository owner that triggered the deployment. Example: `mycompany`                                                                                                                 |
 | `RAILWAY_GIT_COMMIT_MESSAGE` | The message of the commit that triggered the deployment. Example: `Fixed a few bugs`                                                                                                                 |
 
-## User-Provided Configuration Variables
+### User-Provided Configuration Variables
 
 Users can use the following environment variables to configure Railway's behaviour.
 
@@ -87,69 +164,6 @@ Users can use the following environment variables to configure Railway's behavio
 | `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service, its default value is `Dockerfile`. Example: `Railway.dockerfile`                               |
 | `NIXPACKS_CONFIG_FILE`               | The path to the Nixpacks configuration file relative to the root of the app, its default value is `nixpacks.toml`. Example: `frontend.nixpacks.toml` |
 | `RAILWAY_HEALTHCHECK_TIMEOUT_SEC`    | The timeout length (in seconds) of healthchecks. Example: `300`                                                                                      |
-
-## Reference Variables
-
-Variables can use the `${{VAR}}` or `${{NAMESPACE.VAR}}` syntax to reference
-other service variables, shared variables, or plugin variables.
-
-The Railway dashboard provides an autocomplete dropdown in both the name and
-value fields to help create these references.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/c_scale,w_2000/v1678823846/docs/CleanShot_2023-03-14_at_12.56.56_2x_mbb6hu.png"
-alt="Screenshot of Variables Pane"
-layout="responsive"
-width={2408} height={1150} quality={100} />
-
-You can also reference the Railway provided variables of other services. For
-example, in your "frontend" service you can create the variable
-
-```plaintext
-API_URL=https://${{ backend.RAILWAY_PUBLIC_DOMAIN }}
-```
-
-and then use it to make requests to your backend. This prevents the need to
-hardcode the URL in your frontend code.
-
-### Plugin Variables
-
-Railway plugins offer a number variables that can be referenced by Railway services. To include a plugin variable,
-create a reference to the variable using the `${{<PLUGIN_NAME>.<VARIABLE_NAME>}}` syntax.
-
-```plaintext
-DATABASE_URL=${{Postgres.DATABASE_URL}}
-CACHE_HOST=${{Redis.REDISHOST}}
-PRISMA_DB=${{Postgres.DATABASE_URL}}?connection_limit=100
-```
-
-**_NOTE: Railway's autocomplete will help create these references so you don't need to remember the exact syntax._**
-
-### Shared Variables
-
-Shared variables help reduce duplication of variables across multiple services within the same project. They are
-defined at the project environment level and can be added in Project Settings > Shared Variables.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1669678393/docs/shared-variables-settings_vchmzn.png"
-alt="Screenshot of Shared Variables Settings"
-layout="responsive"
-width={2402} height={1388} quality={100} />
-
-To use a shared variable, either click the Share button and select the desired services,
-or visit the Variables tab within the service itself and click "Insert Shared Variable".
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1667332192/docs/shared-variables-picker_ryjble.png"
-alt="Screenshot of Shared Variables Picker"
-layout="responsive"
-width={1784} height={1168} quality={100} />
-
-Under the hood, adding a shared variables to a service creates a new variable that references the shared variable using Railway's templating syntax (eg. `NAME=${{shared.NAME}}`).
-This means that shared variables can be combined with additional text or even other variables, like the following examples illustrate.
-
-```plaintext
-DOMAIN=${{shared.DOMAIN}}
-URL=https://${{shared.DOMAIN}}
-GRAPHQL_ENDPOINT=https://${{shared.DOMAIN}}/${{GRAPHQL_PATH}}
-```
 
 ## Import Variables from Heroku
 
@@ -164,4 +178,8 @@ width={521} height={404} quality={100} />
 
 ## Service Discovery
 
-You can reference other services' public URL via a service variable. Use `RAILWAY_SERVICE_{ServiceName}_URL` to get the public URL of a service within your project. For example, if you have a service named `Backend API`, you can reference it from another service by using `RAILWAY_SERVICE_BACKEND_API_URL`.
+You can reference other services' public URL via a service variable.
+
+Use `RAILWAY_SERVICE_{ServiceName}_URL` to get the public URL of a service within your project. 
+
+For example, if you have a service named `Backend API`, you can reference it from another service by using `RAILWAY_SERVICE_BACKEND_API_URL`.
