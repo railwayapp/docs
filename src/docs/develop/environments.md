@@ -29,7 +29,7 @@ Running `railway up` with an environment selected from the CLI will create a dep
 
 ## Ephemeral Environments
 
-If you enable [Pull Request Deploys](/deploy/deployments), a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
+If you enable [Pull Request Deploys](/deploy/deployments#pr-environments), a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
 
 ## Forking and merging environments
 
