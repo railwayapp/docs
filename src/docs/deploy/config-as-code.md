@@ -135,11 +135,21 @@ nixpacksPlan = "examples/node"
 
 This field can be set to `null`.
 
-You can also define specific options as follow.
+You can also define specific options as follows.
 
 ```toml
 [build.nixpacksPlan.phases.setup]
 nixPkgs = ["...", "zlib"]
+```
+
+#### Install Command
+
+Use nixpacksPlan to configure a custom install command.
+
+```toml
+[build.nixpacksPlan.phases.install]
+dependsOn = ["setup"],
+cmds = ["cd ../.. && yarn"]
 ```
 
 ### Nixpacks Version

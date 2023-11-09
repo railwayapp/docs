@@ -66,6 +66,8 @@ alt="Screenshot of TCP proxy configuration"
 layout="responsive"
 width={700} height={225} quality={100} />
 
+Currently we use a random load balancing strategy for TCP traffic.
+
 ## Private Networks
 
 To expose an application on the [private network](https://docs.railway.app/reference/private-networking) you need to
@@ -77,6 +79,10 @@ Once a custom domain has been correctly configured, Railway will automatically
 generate and apply a Let's Encrypt certificate. This means that any custom
 domain on Railway will automatically be accessible
 via `https://`.
+
+### External SSL Certificates
+
+We currently do not support external SSL certificates since we provision one for you.
 
 ## Provider Specific Instructions
 
