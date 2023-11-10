@@ -13,21 +13,10 @@ When defined, they are made available to your application as environment variabl
 
 In Railway, there is also a notion of configuration variables which allow you to control the behavior of the platform.
 
-## Types of Variables
 
-There are four main types of variables in Railway - 
-- **Service-level variables** are configured in your services' settings.
-- **Shared variables** are configured in your projects' settings and can be made available to any service in specific project.
-- **Railway-provided variables** are set by Railway to provide metadata about the environment, project, or service.
-- **User-provided configuration variables** are a group of reserved variables that change the behavior of Railway when set.
+## Service variables
 
-## Defining Variables
-
-Variables can be defined and managed from within your project canvas - either in your Service settings or Project settings.
-
-### Service-level variables
-
-Define variables for individual services by navigating to a service's "Variables" tab.
+Define variables scoped to individual services by navigating to a service's "Variables" tab.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/c_scale,w_2026/v1678820924/docs/CleanShot_2023-03-14_at_12.07.44_2x_rpesxd.png"
 alt="Screenshot of Variables Pane"
@@ -36,7 +25,7 @@ width={2026} height={933} quality={100} />
 
 Click on `New Variable` to enter your new variable into a form field or use the `RAW Editor`.
 
-#### Raw Editor
+### Raw Editor
 
 If you already have a `.env` file, or simply prefer to edit text, the Raw Editor can be used to edit variables in either `.env` or `.json` format.
 
@@ -45,14 +34,7 @@ alt="Screenshot of Raw Editor"
 layout="responsive"
 width={1954} height={1303} quality={100} />
 
-
-#### Using Reference Variables
-
-Reference variables refer to variables set on a service that reference variables which are defined elsewhere, i.e. in another service or Shared variables.
-
-More on reference variables [below](/develop/variables#reference-variables).
-
-### Shared Variables
+## Shared Variables
 
 Shared variables help reduce duplication of variables across multiple services within the same project.  They are defined at the project environment level and can be added in Project Settings > Shared Variables.
 
@@ -71,25 +53,9 @@ width={1784} height={1168} quality={100} />
 
 Adding a shared variables to a service creates a [Reference Variable](/develop/variables#reference-variables) in the service.
 
-### Multiline Variables
-
-Variables can span multiple lines. Press `Control + Enter` (`Cmd + Enter` on Mac) in the variable value input field to add a newline, or simply type a newline in the Raw Editor.
-
-### Template Syntax
-
-You can use Railway's templating syntax to manage variables.  This means that you can combine additional text or even other variables, to construct values that you need.
-
-```plaintext
-DOMAIN=${{shared.DOMAIN}}
-GRAPHQL_PATH=/v1/gql
-GRAPHQL_ENDPOINT=https://${{DOMAIN}}/${{GRAPHQL_PATH}}
-```
-
-The example above illustrates a pattern of maintaining a Shared variable called `DOMAIN` and using that plus a service-level variable to construct an endpoint.
-
 ## Reference Variables
 
-Variables can be set as reference variables which resolve to variables defined in other services, or shared variables.  This is useful for ease of maintenace and security, allowing you to set a variable in a single place, wherever it makes the most sense.
+Variables can be defined to reference variables in other services or to reference shared variables.  This is useful for ease of maintenace and security, allowing you to set a variable in a single place, wherever it makes the most sense.
 
 Reference variables use Railway's [template syntax](/develop/variables#template-syntax) using a specific format - `${{NAMESPACE.VAR}}` - where `NAMESPACE` can either be a service's name or the value `shared` (depending on where the variable is defined that you need to access) and `VAR` is the variable name.
 
@@ -99,15 +65,15 @@ When using reference variables, you also have access to [Railway-provided variab
 
 Here are some example scenarios to help clarify reference variable usage and syntax.
 
-Referencing a Shared variable -
-- You have a shared variable defined in your project called `API_KEY`, and you need to make the API key available to a service.  Go to the service's settings, and add a variable with the following variable:
+#### Referencing a Shared variable -
+- You have a shared variable defined in your project called `API_KEY`, and you need to make the API key available to a service.  Go to the service's variables tab, and add a variable with the following value:
   - `API_KEY=${{shared.API_KEY}}`
 
-Referencing another service's variables -
+#### Referencing another service's variables -
 - You have a variable set on your database service called `DATABASE_URL` which contains the connection string to connect to the database.  The database service name is **Clickhouse**.
 
-  You need to make this connection string available to another service in the project.  Go to the service that needs the connection string and add a variable with the folling variable:
-  - `DATABASE_URL=${{Clickhouse.DATABASE_URL}}`
+  You need to make this connection string available to another service in the project.  Go to the service's variables that needs the connection string and add a variable with the following value:
+  - `DATABASE_URL=${{ Clickhouse.DATABASE_URL }}`
 
 - Your frontend service needs to make requests to your backend.  You do not want to hardcode the backend URL in your frontend code.  Go to your frontend service settings and add the Railway-provided variable for the backend URL -
   - `API_URL=https://${{ backend.RAILWAY_PUBLIC_DOMAIN }}`
@@ -115,12 +81,44 @@ Referencing another service's variables -
 ### Autocomplete Dropdown
 
 The Railway dashboard also provides an autocomplete dropdown in both the name and
-value fields to help create these references.
+value fields to help create reference variables.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1699559731/docs/referenceVars_klvijr.gif"
 alt="Screenshot of Variables Pane"
 layout="responsive"
 width={1108} height={1050} quality={100} />
+
+## Multiline Variables
+
+Variables can span multiple lines. Press `Control + Enter` (`Cmd + Enter` on Mac) in the variable value input field to add a newline, or simply type a newline in the Raw Editor.
+
+## Template Syntax
+
+Railway's templating syntax gives you flexibility in managing variables.  You can combine additional text or even other variables, to construct the values that you need.
+
+```plaintext
+DOMAIN=${{shared.DOMAIN}}
+GRAPHQL_PATH=/v1/gql
+GRAPHQL_ENDPOINT=https://${{DOMAIN}}/${{GRAPHQL_PATH}}
+```
+
+The example above illustrates a pattern of maintaining a Shared variable called `DOMAIN` and using that plus a Service variable to construct an endpoint.
+
+
+
+## Using Variables in your services
+
+Variables are made available at runtime as environment variables.  In order to use them in your code, simply use the package appropriate for your language to retrieve environment variables.
+
+For example, in a node app -
+
+```node
+process.env.VARIABLE_NAME
+```
+
+#### Local development
+
+Using the Railway CLI, you can run your code locally with the environment variables configured in your Railway project.  Check out the [CLI docs](/develop/cli#local-development) for the appropriate commands.
 
 ## Railway-Provided Variables
 
