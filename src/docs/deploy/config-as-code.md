@@ -148,7 +148,7 @@ Use nixpacksPlan to configure a custom install command.
 
 ```toml
 [build.nixpacksPlan.phases.install]
-dependsOn = ["setup"],
+dependsOn = ["setup"]
 cmds = ["cd ../.. && yarn"]
 ```
 
