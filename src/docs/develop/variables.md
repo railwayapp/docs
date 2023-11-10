@@ -34,6 +34,7 @@ alt="Screenshot of Raw Editor"
 layout="responsive"
 width={1954} height={1303} quality={100} />
 
+
 ## Shared Variables
 
 Shared variables help reduce duplication of variables across multiple services within the same project.  They are defined at the project environment level and can be added in Project Settings > Shared Variables.
@@ -55,38 +56,41 @@ Adding a shared variables to a service creates a [Reference Variable](/develop/v
 
 ## Reference Variables
 
-Variables can be defined to reference variables in other services or to reference shared variables.  This is useful for ease of maintenace and security, allowing you to set a variable in a single place, wherever it makes the most sense.
+Reference variables are those defined by referencing variables in other services, shared variables, or even variables in the same service.  This is useful for ease of maintenance, allowing you to set a variable in a single place and reference it as needed.
 
-Reference variables use Railway's [template syntax](/develop/variables#template-syntax) using a specific format - `${{NAMESPACE.VAR}}` - where `NAMESPACE` can either be a service's name or the value `shared` (depending on where the variable is defined that you need to access) and `VAR` is the variable name.
+Reference variables use Railway's [template syntax](/develop/variables#template-syntax) in a specific format - `${{NAMESPACE.VAR}}` - where `NAMESPACE` can either be a service's name or the value `shared` (depending on where the variable is defined that you need to access) and `VAR` is the variable name.
 
 When using reference variables, you also have access to [Railway-provided variables](/develop/variables#railway-provided-variables).
 
-### Example Scenarios
+#### Autocomplete Dropdown
+
+The Railway dashboard provides an autocomplete dropdown in both the name and value fields to help create reference variables.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/c_scale,w_2000/v1678823846/docs/CleanShot_2023-03-14_at_12.56.56_2x_mbb6hu.png"
+alt="Screenshot of Variables Pane"
+layout="responsive"
+width={2408} height={1150} quality={100} />
+
+### Examples
 
 Here are some example scenarios to help clarify reference variable usage and syntax.
 
-#### Referencing a Shared variable -
+#### Referencing a Shared variable
 - You have a shared variable defined in your project called `API_KEY`, and you need to make the API key available to a service.  Go to the service's variables tab, and add a variable with the following value:
   - `API_KEY=${{shared.API_KEY}}`
 
-#### Referencing another service's variables -
+#### Referencing another service's variables
 - You have a variable set on your database service called `DATABASE_URL` which contains the connection string to connect to the database.  The database service name is **Clickhouse**.
 
   You need to make this connection string available to another service in the project.  Go to the service's variables that needs the connection string and add a variable with the following value:
   - `DATABASE_URL=${{ Clickhouse.DATABASE_URL }}`
 
-- Your frontend service needs to make requests to your backend.  You do not want to hardcode the backend URL in your frontend code.  Go to your frontend service settings and add the Railway-provided variable for the backend URL -
+- Your frontend service needs to make requests to your backend.  You do not want to hardcode the backend URL in your frontend code.  Go to your frontend service settings and add the [Railway-provided variable](/develop/variables#railway-provided-variables) for the backend URL -
   - `API_URL=https://${{ backend.RAILWAY_PUBLIC_DOMAIN }}`
 
-### Autocomplete Dropdown
-
-The Railway dashboard also provides an autocomplete dropdown in both the name and
-value fields to help create reference variables.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1699559731/docs/referenceVars_klvijr.gif"
-alt="Screenshot of Variables Pane"
-layout="responsive"
-width={1108} height={1050} quality={100} />
+#### Referencing variables in the same service
+- You have the individual variables needed to construct an API endpoint already defined in your service - `BASE_URL` and `AUTH_PATH` - and you would like to combine them to create a single variable.  Go to your service variables and add a new variable referencing other variables in the same service -
+  - `AUTH_ENDPOINT=https://${{ BASE_URL }}/${{ AUTH_PATH }}`
 
 ## Multiline Variables
 
