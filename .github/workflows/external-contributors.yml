@@ -20,8 +20,4 @@ jobs:
       - name: Create Comment for external
         if: |
           ${{ steps.is_organization_member.outputs.result == 'false' }}
-        run: echo User Does Not Belong to testorg
-      - name: Create Comment for internal  
-        if: |
-          ${{ steps.is_organization_member.outputs.result == 'true' }}
-        run: echo User Belongs to testorg
+        run: echo User Does Not Belong to testorg. result = ${{ steps.is_organization_member.outputs.result}}
