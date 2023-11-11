@@ -20,7 +20,12 @@ jobs:
       - name: Comment on issue for external
         if: |
           ${{ steps.is_organization_member.outputs.result != 'true' }}
-        uses: alexrogalskiy/github-action-issue-commenter@master
+        uses: jd-0001/gh-action-comment-on-new-issue@v2.0.3
         with:
-          message: 'this issue was created by an external contributor'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: 'Welcome to the repo EXTERNAL person :)'
+      - name: Comment on issue for external
+        if: |
+          ${{ steps.is_organization_member.outputs.result == 'true' }}
+        uses: jd-0001/gh-action-comment-on-new-issue@v2.0.3
+        with:
+          message: 'Welcome to the repo INTERNAL person :)'
