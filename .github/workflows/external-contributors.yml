@@ -12,20 +12,20 @@ jobs:
       - name: Check if organization member
         id: is_organization_member
         if: github.event.action == 'opened'
-        uses: JamesSingleton/is-organization-member@1.0.0
+        uses: JamesSingleton/is-organization-member@1.0.1
         with:
           organization: railwayapp
           username: ${{ github.event.issue.user.login }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Comment on issue for external
         if: |
-          ${{ steps.is_organization_member.outputs.result != 'true' }}
+          steps.is_organization_member.outputs.result != 'true'
         uses: jd-0001/gh-action-comment-on-new-issue@v2.0.3
         with:
           message: 'Welcome to the repo EXTERNAL person :)'
       - name: Comment on issue for external
         if: |
-          ${{ steps.is_organization_member.outputs.result == 'true' }}
+          steps.is_organization_member.outputs.result == 'true'
         uses: jd-0001/gh-action-comment-on-new-issue@v2.0.3
         with:
           message: 'Welcome to the repo INTERNAL person :)'
