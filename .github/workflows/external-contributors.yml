@@ -1,7 +1,9 @@
-name: Is Organization Member Example
+name: Is Org Member
 
 on:
   issues:
+    types: [opened, labeled]
+  pull_request:
     types: [opened, labeled]
 
 jobs:
@@ -12,12 +14,28 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
-      - name: Check if organization member
-        id: is_organization_member
-        uses: zuchka/community-actions@v1.1.6
+      - name: Is org member?
+        id: is_org_member
+        uses: zuchka/community-actions@v0.0.2
+        env:   
+          GITHUB_ISSUE_URL: ${{ toJson(github.event.issue.html_url) }}
+          GITHUB_REPO: ${{ toJson(github.repository) }}
+          GITHUB_EVENT_NAME: ${{ toJson(github.event_name) }}
         with:
-          org: railwayapp
-          username: zuchka
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create Comment for external
-        run: echo "${{ steps.is_organization_member.outputs.result}}"
+          username: foo
+          teammates: 20k-ultra|char8|coffee-cup|dbanys|FarazPatankar|gschier|half0wl|JakeCooper|jitachi|melissa-hale|ndneighbor|ohrgaard|pierre-borckmans|railway-bot|tacLog|trif0lium|zuchka
+          webhook: https://discord.com/api/webhooks/886039948032090152/TN0AU9rQs3bzWfIR-enPZp9xAW2XeOzYiCQH4Y_W6MX-ABjKaKzsJOTp_psayU_Z8H-f
+      - name: Add label
+        uses: actions-ecosystem/action-add-labels@v1
+        if: ${{ steps.is_org_member.outputs.result == 'false' }}
+        with:
+          labels: community
+      - name: Add initial comment
+        uses: actions-ecosystem/action-create-comment@v1
+        if: ${{ steps.is_org_member.outputs.result == 'false' }}
+        with:
+          github_token: ${{ secrets.github_token }}
+          body: |
+            Hello, @${{ github.actor }}! Thanks for your submission. 
+            
+            Our team will respond soon. If you need more immediate help, try our Forum or our Discord. Thanks!
