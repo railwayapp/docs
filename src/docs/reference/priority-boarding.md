@@ -18,7 +18,7 @@ width={992} height={422} quality={80} />
 Once connected to Discord, you'll need to let Percy, the Railway Discord bot, know that you'd like to be a part of priority boarding. 
 
 In Discord, open up any channel, enter `/beta`, and follow the prompts. 
-Alternatively, you can open the command palette using `CMD + K` or `Ctrl + K`, then scroll down to `Utilities`, and select the join priority boarding button.
+Alternatively, you can open the command palette using `CMD + K` or `Ctrl + K`, then scroll down to `Utilities`, and select the join Priority Boarding button.
 
 You should now have access to the `#priority-boarding` channel. You should also see that your Account Settings now display a new Priority Boarding status.
 
