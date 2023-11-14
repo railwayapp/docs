@@ -12,7 +12,7 @@ You can use them to
 Each environment has the same services. This applies to database services, when added to the
 project, an instance of that service is created for each environment.
 
-Deploys are also scoped to a specific Railway environment. When you create a [GitHub Trigger](/deploy/integrations#github-integration) you can specify which environment to use. When you [deploy with up](/deploy/railway-up), the current environment will be used.
+Deploys are also scoped to a specific Railway environment. When you create a [GitHub Trigger](/deploy/deployments#deploy-triggers) you can specify which environment to use. When you [deploy with up](/deploy/railway-up), the current environment will be used.
 
 ## Create an Environment
 
@@ -29,11 +29,11 @@ Running `railway up` with an environment selected from the CLI will create a dep
 
 ## Ephemeral Environments
 
-If you enable [Pull Request Deploys](/deploy/deployments), a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
+If you enable [Pull Request Deploys](/deploy/deployments#pr-environments), a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
 
 ## Forking and merging environments
 
-Environments in Railway can be forked and merged. Forking an environment means that a new environment will be available to you that will recreate all the the services, plugins, and variables that the original environment had. Changes in a forked environment are not propagated automatically to the parent environment or any other environment. Instead, any change made to a forked environment will be stored in a log of changes that we call changesets that you can review at any point in time.
+Environments in Railway can be forked and merged. Forking an environment means that a new environment will be available to you that will recreate all the services, plugins, and variables that the original environment had. Changes in a forked environment are not propagated automatically to the parent environment or any other environment. Instead, any change made to a forked environment will be stored in a log of changes that we call changesets that you can review at any point in time.
 
 You can fork an environment from the environment selector dropdown in the navigation bar, which will fork the active environment. Alternatively you can fork an environment in the Environments section in the project settings.
 

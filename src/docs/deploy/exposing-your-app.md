@@ -58,8 +58,6 @@ In order to use Wildcard Domains, you must add two CNAME records, one for the wi
 
 ## TCP Proxying
 
-<PriorityBoardingBanner />
-
 You can proxy TCP traffic to your service by creating a TCP proxy in the service settings. Enter the port that you want traffic proxied to, Railway will generate a domain and port for you to use. All traffic sent to `domain:port` will be proxied to your service. This is useful for services that don't support HTTP, such as databases.
 
 <Image
@@ -67,6 +65,8 @@ src="https://res.cloudinary.com/railway/image/upload/v1694217808/docs/screenshot
 alt="Screenshot of TCP proxy configuration"
 layout="responsive"
 width={700} height={225} quality={100} />
+
+Currently we use a random load balancing strategy for TCP traffic.
 
 ## Private Networks
 
@@ -79,6 +79,10 @@ Once a custom domain has been correctly configured, Railway will automatically
 generate and apply a Let's Encrypt certificate. This means that any custom
 domain on Railway will automatically be accessible
 via `https://`.
+
+### External SSL Certificates
+
+We currently do not support external SSL certificates since we provision one for you.
 
 ## Provider Specific Instructions
 

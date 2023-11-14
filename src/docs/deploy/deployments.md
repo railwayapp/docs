@@ -40,14 +40,16 @@ When a new Deployment is triggered, older deploys in a `Crashed` and `Success` s
 ## Deploy Triggers
 
 A new deployment is triggered when the [command](/deploy/railway-up) `railway up` is
-executed. [GitHub Services](/develop/services#github-services) that are linked to a GitHub repo automatically deploy when
+executed.
+
+[GitHub Services](/develop/services#github-services) that are linked to a GitHub repo automatically deploy when
 new commits are detected in the connected branch.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1645148953/docs/triggers_i2nrwd.png"
+src="https://res.cloudinary.com/railway/image/upload/v1699395694/docs/deployTrigger_tuxk5l.png"
 alt="Screenshot of GitHub Integration"
 layout="responsive"
-width={1001} height={740} quality={80} />
+width={1103} height={523} quality={80} />
 
 ## Check Suites
 
@@ -154,7 +156,21 @@ You can also click within a deployment and using the Command Palette restart a d
 
 Within the Service settings, a user is able to configure a restart policy of either `Never`, `Always`, or `On-Failure` with an optional maximum number of restarts.
 
-## How come my GitHub PR won't deploy?
+## PR Environments
+
+Railway can create a PR environment when a PR is opened on the source repo of a service.
+
+Enable PR Environments in Project Settings > Environments.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1699568846/docs/enablePrEnv_f5n2hx.png"
+alt="Screenshot of Deploy Options"
+layout="responsive"
+width={480} height={156} quality={80} />
+
+When enabled, a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
+
+### How come my GitHub PR won't deploy?
 
 Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
 

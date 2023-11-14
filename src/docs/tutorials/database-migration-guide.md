@@ -2,8 +2,6 @@
 title: Migrating from Legacy Plugins to Database Services
 ---
 
-<PriorityBoardingBanner />
-
 We've introduced a more secure and flexible way to deploy databases on Railway.  The purpose of this guide is to provide an overview of why we are making these changes, what they mean for you, and how you can migrate.
 
 ## What is Changing?
@@ -31,16 +29,20 @@ We wanted to make the process as easy as possible, so we built an automated proc
 
 ### One-click Automated Migration
 
-_This flow will be enabled on Nov. 6, 2024_
-
 When you access the plugin panel from within your project canvas, you will see a prompt to migrate.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1698952078/docs/db-migration-guide/migrateBanner_hfgxbh.png"
-alt="Video of importing variables from Heroku"
+alt="Plugin migration banner"
 layout="fixed"
 width={500} height={150} quality={80} />
 
 Once you click the `Migrate` button, a modal will appear, detailing the steps that will be taken on your behalf, to migrate your data.  After acknowledgment, the data migration will begin -
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1699418913/docs/db-migration-guide/nzln10tlvu00oe2teh3e.png"
+alt="Plugin migration steps"
+layout="fixed"
+width={725} height={613} quality={80} />
+
 
 1. **Deploy Database Service** - A new database service with an attached volume will be deployed.
 2. **Stop Connected Services** - Any service within your project that is connected to the plugin via a [variable reference](/develop/variables#reference-variables) will be stopped, for the duration of the migration, to prevent data loss or corruption.
@@ -61,6 +63,8 @@ Once you click the `Migrate` button, a modal will appear, detailing the steps th
 _**NOTE: The legacy plugin will NOT be deleted automatically.**_
 
 Once you have performed the necessary actions to ensure data consistency between the database plugin and the new database service, you should [delete](/develop/services#deleting-a-service) the database plugin from your project.
+
+**If you have hard-coded the plugin `DATABASE_URL` anywhere, make sure to update it to point to the new database**
 
 ### Other Options
 
@@ -89,7 +93,7 @@ If you follow the one-click automated process, each environment will be handled 
 
 ### What is the deadline for migration?
 
-While we encourage users to migrate as soon as possible to benefit from the enhanced features, you will have until **January 30th, 2024** to complete the migration.
+While we encourage users to migrate as soon as possible to benefit from the enhanced features, you will have until **January 31st, 2024** to complete the migration.
 
 ### What if something goes wrong?
 
