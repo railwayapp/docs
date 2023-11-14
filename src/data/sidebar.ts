@@ -14,14 +14,14 @@ export const sidebarContent: ISidebarContent = [
   // The goal is to have the docs be in a narrative structure
   {
     title: "",
-    pages: [
+    content: [
       makePage("Home", undefined, "/"),
       makePage("Quick Start", undefined),
     ],
   },
   {
     title: "Getting Started",
-    pages: [
+    content: [
       makePage("Introduction", "getting-started"),
       makePage("Build and Deploy", "getting-started"),
       makePage("Networking", "getting-started"),
@@ -33,7 +33,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Maturity",
-    pages: [
+    content: [
       makePage("Philosophy", "maturity"),
       makePage("Use Cases", "maturity"),
       makePage("Compliance", "maturity"),
@@ -41,7 +41,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Databases",
-    pages: [
+    content: [
       makePage("Bring Your Own Database", "databases"),
       makePage("PostgreSQL", "databases"),
       makePage("MySQL", "databases"),
@@ -52,8 +52,14 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "How To",
-    pages: [
-      makePage("Deploy a GitHub Repo", "how-to"),
+    content: [
+      makePage("Introduction", "how-to"),
+      {
+        subTitle: "Build and Deploy",
+        pages: [
+          makePage("Deploy a GitHub Repo", "how-to"),
+        ]
+      },
       makePage("Configure Replicas", "how-to"),
       makePage("Setup Private Networking", "how-to"),
       makePage("Configure Health Checks", "how-to"),
@@ -61,7 +67,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Tutorials",
-    pages: [
+    content: [
       makePage("Introduction to Tutorials", 'tutorials'),
       makePage("Migrate from Heroku", 'tutorials'),
       makePage("Database Migration Guide", 'tutorials'),
@@ -99,7 +105,7 @@ export const sidebarContent: ISidebarContent = [
 
   {
     title: "Reference",
-    pages: [
+    content: [
       makePage("Private Networking", "reference"),
       makePage("Volumes", "reference"),
       makePage("Cron Jobs", "reference"),

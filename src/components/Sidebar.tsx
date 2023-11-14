@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
@@ -9,6 +9,7 @@ import { ISidebarSection } from "@/types";
 import { ScrollArea } from "./ScrollArea";
 import { OpenSearchModalButton } from "@/components/Search";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { IPage, ISubSection } from "../types";
 
 export const Sidebar: React.FC = ({ ...props }) => {
   return (
@@ -45,6 +46,8 @@ export const Sidebar: React.FC = ({ ...props }) => {
 };
 
 const SidebarContent: React.FC = () => {
+  const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]);
+
   const {
     query: { slug },
     pathname,
@@ -58,8 +61,98 @@ const SidebarContent: React.FC = () => {
   const isCurrentPage = (pageSlug: string) =>
     (prefixedSlug ?? pathname) === pageSlug;
 
-  const isCurrentSection = (section: ISidebarSection) =>
-    section.pages.some(p => isCurrentPage(p.slug));
+    const isCurrentSectionOrSubSection = (sectionOrSubSection: ISidebarSection | ISubSection) => {
+      if ('content' in sectionOrSubSection) {
+        // This is an ISidebarSection
+        return sectionOrSubSection.content.some(item => {
+          if ('subTitle' in item) {
+            // This is a sub-section within the section
+            return item.pages.some(p => isCurrentPage(p.slug));
+          } else {
+            // This is a page directly under the section
+            return isCurrentPage(item.slug);
+          }
+        });
+      } else {
+        // This is an ISubSection
+        return sectionOrSubSection.pages.some(p => isCurrentPage(p.slug));
+      }
+    };
+    
+
+  const toggleSubSection = (subTitle: string) => {
+    setExpandedSubSections(prevState =>
+      prevState.includes(subTitle)
+        ? prevState.filter(t => t !== subTitle)
+        : [...prevState, subTitle]
+    );
+  };
+
+  const renderContentItem = (item: IPage | ISubSection) => {
+    if ('subTitle' in item) {
+      const isExpanded = expandedSubSections.includes(item.subTitle);
+
+      const arrowIcon = isExpanded ? '↓' : '→';
+
+      return (
+        <div key={item.subTitle}>
+          <div 
+            onClick={() => toggleSubSection(item.subTitle)}
+            tw="cursor-pointer"
+            >
+            <h6 
+              tw="px-4 my-2 text-foreground text-sm font-bold"
+              className={classNames(
+                isCurrentSectionOrSubSection(item) && "current-section", // Modify this if needed
+            )}><span tw="mr-2">{arrowIcon}</span>{item.subTitle}</h6>
+          </div>
+          {expandedSubSections.includes(item.subTitle) && (
+            <ul>
+              {item.pages.map(page => (
+                <li key={page.slug}>
+                  <Link
+                    href={page.slug}
+                    className={classNames(isCurrentPage(page.slug) && `current`)}
+                    css={[
+                      tw`text-gray-700 text-sm`,
+                      tw`block px-4 py-2`,
+                      tw`pl-8`,
+                      tw`hover:bg-gray-100 hover:text-foreground`,
+                      tw`focus:outline-none focus:bg-pink-100`,
+                      isCurrentPage(page.slug) &&
+                        tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
+                    ]}
+                  >
+                    {page.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      );
+    } else {
+      // This is a page
+      return (
+        <li key={item.slug}>
+          <Link
+            href={item.slug}
+            className={classNames(isCurrentPage(item.slug) && `current`)}
+            css={[
+              tw`text-gray-700 text-sm`,
+              tw`block px-4 py-2`,
+              tw`hover:bg-gray-100 hover:text-foreground`,
+              tw`focus:outline-none focus:bg-pink-100`,
+              isCurrentPage(item.slug) &&
+                tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
+              ]}
+            >
+            {item.title}
+          </Link>
+        </li>
+      );
+    }
+  };
 
   return (
     <>
@@ -69,7 +162,7 @@ const SidebarContent: React.FC = () => {
             <h5
               tw="px-4 my-2 text-foreground text-sm font-bold"
               className={classNames(
-                isCurrentSection(section) && "current-section",
+                isCurrentSectionOrSubSection(section) && "current-section",
               )}
             >
               {section.title}
@@ -77,24 +170,7 @@ const SidebarContent: React.FC = () => {
           )}
 
           <ul tw="mb-8">
-            {section.pages.map(page => (
-              <li key={page.slug}>
-                <Link
-                  href={page.slug}
-                  className={classNames(isCurrentPage(page.slug) && `current`)}
-                  css={[
-                    tw`text-gray-700 text-sm`,
-                    tw`block px-4 py-2`,
-                    tw`hover:bg-gray-100 hover:text-foreground`,
-                    tw`focus:outline-none focus:bg-pink-100`,
-                    isCurrentPage(page.slug) &&
-                      tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
-                  ]}
-                >
-                  {page.title}
-                </Link>
-              </li>
-            ))}
+            {section.content.map(renderContentItem)}
           </ul>
         </React.Fragment>
       ))}
