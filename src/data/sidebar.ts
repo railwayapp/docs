@@ -58,11 +58,16 @@ export const sidebarContent: ISidebarContent = [
         subTitle: "Build and Deploy",
         pages: [
           makePage("Deploy a GitHub Repo", "how-to"),
+          makePage("Setup Private Networking", "how-to"),
         ]
       },
-      makePage("Configure Replicas", "how-to"),
-      makePage("Setup Private Networking", "how-to"),
-      makePage("Configure Health Checks", "how-to"),
+      {
+        subTitle: "Scale",
+        pages: [
+          makePage("Configure Replicas", "how-to"),
+          makePage("Configure Health Checks", "how-to"),
+        ]
+      },
     ],
   },
   {
