@@ -7,7 +7,7 @@ const makePage = (title: string, category?: string, slug?: string): IPage => ({
     slug ??
     `/${category != null ? category + "/" : ""}${title
       .toLowerCase()
-      .replace(/\s+/g, "-")}`,
+      .replace(/[\s/]+/g, '-')}`,
 });
 
 export const sidebarContent: ISidebarContent = [
@@ -23,10 +23,12 @@ export const sidebarContent: ISidebarContent = [
     title: "Getting Started",
     pages: [
       makePage("Introduction", "getting-started"),
-      makePage("Setup", "getting-started"),
-      makePage("Deploy", "getting-started"),
+      makePage("Build and Deploy", "getting-started"),
+      makePage("Networking", "getting-started"),
+      makePage("CI/CD", "getting-started"),
+      makePage("Variable Management", "getting-started"),
+      makePage("Monitor and Diagnose", "getting-started"),
       makePage("Scale", "getting-started"),
-      makePage("Diagnose", "getting-started"),
     ],
   },
   {
