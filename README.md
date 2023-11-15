@@ -21,3 +21,13 @@ yarn dev
 ```
 
 Open [localhost:3001](http://localhost:3001) to see the result
+
+## Using Vale Locally
+
+We've added a smal GitHub Action that lints our documentation. It uses an app called Vale. Vale is great, and you can use it locally to analyse your contributions for spelling mistakes and much more. Here is how to use it:
+
+1) clone this repo
+2) make sure [vale is installed](https://vale.sh) locally
+3) from this project's root directory, run vale ./src/docs/
+
+If you want to test with more rules, modify the configuration file `vale.ini` and the `styles` directory inside `.github`. Reference the [Vale docs](https://vale.sh) for more info.
