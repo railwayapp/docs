@@ -12,6 +12,11 @@ export interface IPage {
 
 export interface ISidebarSection {
   title?: string;
+  content: (IPage | ISubSection)[];
+}
+
+export interface ISubSection {
+  subTitle: string;
   pages: IPage[];
 }
 

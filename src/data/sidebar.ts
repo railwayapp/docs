@@ -14,14 +14,14 @@ export const sidebarContent: ISidebarContent = [
   // The goal is to have the docs be in a narrative structure
   {
     title: "",
-    pages: [
+    content: [
       makePage("Home", undefined, "/"),
       makePage("Quick Start", undefined),
     ],
   },
   {
     title: "Overview",
-    pages: [
+    content: [
       makePage("About Railway", "overview"),
       makePage("The Basics", "overview"),
       makePage("Advanced Concepts", "overview"),
@@ -29,7 +29,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Maturity",
-    pages: [
+    content: [
       makePage("Philosophy", "maturity"),
       makePage("Use Cases", "maturity"),
       makePage("Compliance", "maturity"),
@@ -37,7 +37,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Databases",
-    pages: [
+    content: [
       makePage("Bring Your Own Database", "databases"),
       makePage("PostgreSQL", "databases"),
       makePage("MySQL", "databases"),
@@ -48,17 +48,27 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "How To",
-    pages: [
-      makePage("Overview", "how-to"),
-      makePage("Deploy a GitHub Repo", "how-to"),
-      makePage("Configure Replicas", "how-to"),
-      makePage("Setup Private Networking", "how-to"),
-      makePage("Configure Health Checks", "how-to"),
+    content: [
+      makePage("Introduction", "how-to"),
+      {
+        subTitle: "Build and Deploy",
+        pages: [
+          makePage("Deploy a GitHub Repo", "how-to"),
+          makePage("Setup Private Networking", "how-to"),
+        ]
+      },
+      {
+        subTitle: "Scale",
+        pages: [
+          makePage("Configure Replicas", "how-to"),
+          makePage("Configure Health Checks", "how-to"),
+        ]
+      },
     ],
   },
   {
     title: "Tutorials",
-    pages: [
+    content: [
       makePage("Introduction to Tutorials", 'tutorials'),
       makePage("Migrate from Heroku", 'tutorials'),
       makePage("Database Migration Guide", 'tutorials'),
@@ -96,7 +106,7 @@ export const sidebarContent: ISidebarContent = [
 
   {
     title: "Reference",
-    pages: [
+    content: [
       makePage("Private Networking", "reference"),
       makePage("Volumes", "reference"),
       makePage("Cron Jobs", "reference"),
