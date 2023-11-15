@@ -62,7 +62,7 @@ const Home: NextPage = () => {
         </div>
 
         <div tw="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-          <OverviewLink href="getting-stared/introduction">
+          <OverviewLink href="overview/about-railway">
             <OverviewLinkIcon tw="bg-pink-100 border-pink-100 dark:bg-[#291839]">
               <Layers size="28" tw="text-pink-800" />
             </OverviewLinkIcon>
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="how-to/introduction">
+          <OverviewLink href="how-to/overview">
             <OverviewLinkIcon tw="bg-blue-100 border-blue-100 dark:bg-[#0F1B33]">
               <Code size="28" tw="text-blue-800" />
             </OverviewLinkIcon>
@@ -95,7 +95,7 @@ const Home: NextPage = () => {
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="tutorials/introduction">
+          <OverviewLink href="tutorials/introduction-to-tutorials">
             <OverviewLinkIcon tw="bg-green-100 border-green-100 dark:bg-[#15231D]">
               <Book size="28" tw="text-green-800" />
             </OverviewLinkIcon>

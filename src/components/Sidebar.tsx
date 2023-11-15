@@ -101,10 +101,10 @@ const SidebarContent: React.FC = () => {
             tw="cursor-pointer"
             >
             <h6 
-              tw="px-4 my-2 text-foreground text-sm font-bold"
+              tw="px-4 py-2 text-sm text-gray-700"
               className={classNames(
-                isCurrentSectionOrSubSection(item) && "current-section", // Modify this if needed
-            )}><span tw="mr-2">{arrowIcon}</span>{item.subTitle}</h6>
+                isCurrentSectionOrSubSection(item) && "current-section",
+            )}>{item.subTitle}     <span tw="mr-2">{arrowIcon}</span></h6>
           </div>
           {expandedSubSections.includes(item.subTitle) && (
             <ul>

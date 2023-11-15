@@ -47,21 +47,44 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "How To",
+    title: "How To Guides",
     content: [
-      makePage("Introduction", "how-to"),
+      makePage("Overview", "how-to"),
       {
-        subTitle: "Build and Deploy",
+        subTitle: "Get Started",
         pages: [
-          makePage("Deploy a GitHub Repo", "how-to"),
-          makePage("Setup Private Networking", "how-to"),
+          makePage("Projects", "how-to"),
+          makePage("Services", "how-to"),
+          makePage("Variables", "how-to"),
+          makePage("Using Volumes", "how-to"),
+          makePage("Understanding Pricing", "how-to"),
         ]
       },
       {
-        subTitle: "Scale",
+        subTitle: "Configure Networking",
+        pages: [
+          makePage("Exposing Your App", "how-to"),
+          makePage("Setup Private Networking", "how-to"),
+        ]
+      },
+      makePage("Customize Builds", "how-to"),
+      {
+        subTitle: "Customize Deployments",
         pages: [
           makePage("Configure Replicas", "how-to"),
+          makePage("Configure Regions", "how-to"),
+          makePage("Run a Cron", "how-to"),
           makePage("Configure Health Checks", "how-to"),
+          makePage("Enable App Sleep", "how-to"),
+          makePage("Health Checks and Restart Policy", "how-to"),
+        ]
+      },
+      makePage("Setup Environments", "how-to"),
+      {
+        subTitle: "Templates",
+        pages: [
+          makePage("Create a Template", "how-to"),
+          makePage("Deploy a Template", "how-to"),
         ]
       },
     ],
