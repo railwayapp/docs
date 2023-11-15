@@ -80,12 +80,12 @@ Here are some example scenarios to help clarify reference variable usage and syn
   - `API_KEY=${{shared.API_KEY}}`
 
 #### Referencing another service's variables
-- You have a variable set on your database service called `DATABASE_URL` which contains the connection string to connect to the database.  The database service name is **Clickhouse**.
+- You have a variable set on your database service called `DATABASE_URL` which contains the connection string to connect to the database.  The database service name is **ClickHouse**.
 
   You need to make this connection string available to another service in the project.  Go to the service's variables that needs the connection string and add a variable with the following value:
   - `DATABASE_URL=${{ Clickhouse.DATABASE_URL }}`
 
-- Your frontend service needs to make requests to your backend.  You do not want to hardcode the backend URL in your frontend code.  Go to your frontend service settings and add the [Railway-provided variable](/develop/variables#railway-provided-variables) for the backend URL -
+- Your frontend service needs to make requests to your backend.  You don't want to hardcode the backend URL in your frontend code.  Go to your frontend service settings and add the [Railway-provided variable](/develop/variables#railway-provided-variables) for the backend URL -
   - `API_URL=https://${{ backend.RAILWAY_PUBLIC_DOMAIN }}`
 
 #### Referencing variables in the same service

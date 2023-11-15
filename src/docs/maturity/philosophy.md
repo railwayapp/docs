@@ -43,7 +43,7 @@ Streamlined deployment workflows and sane defaults are inherited by every projec
 That's why we've designed the platform for flexibility, wherever you need it.
 
 On Railway, you can use the default pattern for deployment or opt to use vendor. In fact, we will even support you in your effort to integrate Railway in a unique way.  Here are a couple of use cases we've helped customers take advantage of -
-- Deploying to Railway from Gitlab CI/CD
+- Deploying to Railway from GitLab CI/CD
 - Supporting the development of a Terraform provider
 - Region based routing to workloads via Cloudflare
 
@@ -64,7 +64,7 @@ As mentioned before, Railway at a high level takes your code, builds it, and thr
 - Routing Layer
   - This is the system that Railway maintains that routes requests into your running containers and provides private networks to suites of containers.
 - Logging Layer
-  - A suite of machines networked running Clickhouse that store container logs. This is accessed when you open the service logs pane.
+  - A suite of machines networked running ClickHouse that store container logs. This is accessed when you open the service logs pane.
 - Dashboard Layer
   - Infrastructure and code that is used to manage the above layers.
   - This also incudes any monitors that Railway uses to maintain the state of the Deployment Layer to maintain application state. (ex. Removing a deployment.)

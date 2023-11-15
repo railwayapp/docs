@@ -37,7 +37,7 @@ To access your MySQL database over the public internet, you can use the connecti
 
 This connection string uses the [TCP Proxy connection](/deploy/exposing-your-app#tcp-proxying) to route communication to your service over the public internet.
 
-You can also connect using mysql shell:
+You can also connect using MySQL shell:
 ```bash
 mysql -h PUBLIC_DOMAIN -P PUBLIC_PORT -u root -p
 ```
@@ -62,4 +62,4 @@ The MySQL database service uses the [mysql:latest](https://hub.docker.com/_/mysq
 
 ## Changing System Variables
 
-Tailor your MySQL service to your needs by adding any variables relevant to the [mysql](https://hub.docker.com/_/mysql) image.
+Tailor your MySQL service to your needs by adding any variables relevant to the [MySQL](https://hub.docker.com/_/mysql) image.

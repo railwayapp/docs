@@ -2,7 +2,7 @@
 title: Templates
 ---
 
-Templates provide a way to jumpstart a project by giving users the means to package a service or set of services into a reusable and distributable format.
+Templates provide a way to jump-start a project by giving users the means to package a service or set of services into a reusable and distributable format.
 
 There are two main ways to interact with templates in Railway - creation and deployment.
 
@@ -18,7 +18,7 @@ You can either create a template from scratch or base it off of an existing proj
 
 The [Railway button page](https://railway.app/button) allows you to create templates to offer a 1-click deploy on Railway experience.
 
-Services within a template can be deployed from any public Github repository, or directly from a Docker image in Docker Hub or Github Container Registry.
+Services within a template can be deployed from any public GitHub repository, or directly from a Docker image in Docker Hub or GitHub Container Registry.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1656470421/docs/template-editor_khw8n6.png"
 alt="Template Editor"
@@ -59,7 +59,7 @@ In addition to the Source, you can configure the following fields to enable succ
 
 #### Specifying a Branch
 
-When adding services to a template, you can enter a url to a GitHub repo's branch to have a user clone that instead of the `main` branch.
+When adding services to a template, you can enter a URL to a GitHub repo's branch to have a user clone that instead of the `main` branch.
 
 #### Template Variables Functions
 
@@ -143,7 +143,7 @@ connected to infrastructure. Examples of templates are -
 
 - NextJS app with Prisma
 - Django app connected to Postgres
-- Elixir Phoenix webserver
+- Elixir Phoenix web server
 - Discord/Telegram bots
 
 You can find featured templates on our

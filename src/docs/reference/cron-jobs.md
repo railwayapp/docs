@@ -2,13 +2,13 @@
 title: Cron Jobs
 ---
 
-Cron Jobs allow you to start a service based on a crontab expression. This means the service is expected to execute a task, and terminate as soon as that task is finished. Make sure the service doesn't leave any resources open, such as database connections, because otherwise the service won't terminate and Railway wont't start it again until the previous execution has finished.
+Cron Jobs allow you to start a service based on a [crontab expression](https://crontab.guru/). This means the service is expected to execute a task, and terminate as soon as that task is finished. Make sure the service doesn't leave any resources open, such as database connections. Otherwise, the service won't terminate and Railway won't start it again until the previous execution finishes.
 
-If you are already using a scheduling library or system in your service such as [node-cron](https://www.npmjs.com/package/node-cron) or [Quartz](http://www.quartz-scheduler.org/), Railway cron jobs are a substitute of them that allows you to save resources between executions.
+If you are already using a scheduling library or system in your service such as [node-cron](https://www.npmjs.com/package/node-cron) or [Quartz](http://www.quartz-scheduler.org/), Railway cron jobs are a substitute for them that allows you to save resources between executions.
 
 ## Configuring a cron job
 
-You can configure a cron job by selecting a service and going to the Settings section. In the General Settings you'll see a field called "Cron Schedule". On it you can write a crontab expression and once the setting is saved we will re-run the service based on that schedule.
+You can configure a cron job by selecting a service and going to the Settings section. In the General Settings you'll see a field called `Cron Schedule`. On it you can write a crontab expression and once the setting is saved we will re-run the service based on that schedule.
 
 ## Crontab expressions
 
@@ -88,4 +88,4 @@ The shortest time between successive executions of a cron job cannot be less tha
 
 Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
 
-At this moment, Railway won't terminate your process in any scenario. However, cron jobs may be skipped if the service is in the build/deploy stage when the next scheduled execution happens.
+At this moment, Railway won't terminate your process in any scenario. However, Railway might skip a cron job if the service is in the build/deploy stage during the next scheduled execution.

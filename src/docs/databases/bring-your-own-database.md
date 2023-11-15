@@ -44,7 +44,7 @@ width={700} height={225} quality={100} />
 
 ## Template Marketplace
 
-Need inspiration?  Our [Template Marketplace](https://railway.app/templates) already includes solutions for many different database services.  You might even find find a template for the database you need!
+Need inspiration?  Our [Template Marketplace](https://railway.app/templates) already includes solutions for many different database services.  You might even find a template for the database you need!
 
 Here are some suggestions to checkout - 
 - [Minio](https://railway.app/template/SMKOEA)

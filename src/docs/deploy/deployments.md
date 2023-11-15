@@ -70,14 +70,14 @@ When enabled, deployments will be moved to a `WAITING` state while your workflow
 A start command is the process used to run a Deployment's code. For example, a Python project may have a start command of `python main.py`, or a NodeJS project may have a start command of `npm run start`.
 
 Railway automatically configures the start command based on the code being
-deployed. If your code uses a Dockerfile, the start command defaults to the ENTRYPOINT and/or CMD defined in the Dockerfile. Otherwise, the buildpack used to create the image will determine the start command - see [Builds](builds) for more details.
+deployed. If your code uses a Dockerfile, the start command defaults to the ENTRYPOINT and/or CMD defined in the Dockerfile. Otherwise, the Buildpack used to create the image will determine the start command - see [Builds](builds) for more details.
 
 Start commands may be overridden for advanced use-cases such as
 deploying multiple projects from a single [monorepo](/deploy/monorepo).
 
 When specifying a start command, the behavior of the image depends on type of build:
 - **Dockerfile**: the start command overrides the Docker image's ENTRYPOINT in [exec form](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example)
-- **Buildpack**: the start command is inserted as a [buildpack launch process](https://buildpacks.io/docs/app-developer-guide/run-an-app/#user-provided-shell-process)
+- **Buildpack**: the start command is inserted as a [Buildpack launch process](https://buildpacks.io/docs/app-developer-guide/run-an-app/#user-provided-shell-process)
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-start-command_a8vcxs.png"
@@ -130,7 +130,7 @@ deployment in progress.
 
 ### Remove
 
-If a deployment is completed, you can remove it by clicking the the three dots
+If a deployment is completed, you can remove it by clicking the three dots
 at the end of the deployment tab and select Remove. This will remove the
 deployment and stop any further project usage.
 

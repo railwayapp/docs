@@ -111,7 +111,7 @@ _Note, negations will only work if you include files in a preceding rule._
 
 <PriorityBoardingBanner />
 
-With Nixpacks, we analyze the app source directory and generate a build plan. This determines which language provider to install packages and runtimes for.
+With Nixpacks, we analyze the app source directory and generate a build plan. This determines which language provider to install and the required packages and runtimes.
 
 If there is a detected `nixpacks.toml` file, it is possible to define a build provider ahead of time like so:
 ```toml
@@ -136,7 +136,7 @@ HTTP servers should use the `web` process type. This process should listen on
 the [PORT environment variable](/deploy/railway-up#port-variable) and will receive
 HTTP traffic.
 
-_Note: some buildpacks specify a default start command_
+_Note: some Buildpacks specify a default start command_
 
 ## Dockerfiles
 

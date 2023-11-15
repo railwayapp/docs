@@ -23,9 +23,9 @@ We differ in the following:
 
 In the current era of software development, using Docker adds a large workload to the average developer. We want to offer the developer all the benefits of reproducibility, speed, and ease of use when deploying images without the clunky boilerplate of Docker.
 
-Heroku's buildpacks are decent, but we want to offer the user a better experience. This is why we built Nixpacks.
+Heroku's Buildpacks are decent, but we want to offer the user a better experience. This is why we built Nixpacks.
 
-Nixpax is open source (https://github.com/railwayapp/nixpacks). It detects more languages, builds are faster, and builds are reproducible. (A common frustration of Heroku's Buildpacks).
+Nixpacks is open source (https://github.com/railwayapp/nixpacks). It detects more languages, builds are faster, and builds are reproducible. (A common frustration of Heroku's Buildpacks).
 
 Those moving from Heroku to Railway will find an easy switch from Heroku's Buildpacks to Railway's Nixpacks.
 
@@ -37,7 +37,7 @@ It's possible to go from zero → 3 services in < 30 seconds. Adding new service
 
 ### Pricing
 
-Pay only for what you use—no need to size dynos.
+Pay only for what you use—no need to size (Dynos)[https://www.heroku.com/dynos].
 
 Containers scale vertically up to 8 GB/CPU Cores (on the Hobby Plan) and 32 GB/CPU Cores (on Teams Plans).
 
@@ -49,7 +49,7 @@ For those who prefer to pay upfront. We offer credit-based Developer plans who w
 
 You can use the CLI to run every service locally, hooking in with your cloud infrastructure.
 
-For example, running `railway run yarn start` in a project with Postgres will automatically inject required enviroment variables such as `DATABASE_URL`.
+For example, running `railway run yarn start` in a project with Postgres will automatically inject required environment variables such as `DATABASE_URL`.
 
 If your changes look good, you can even run `railway up` from the terminal to trigger a new deployment on demand.
 

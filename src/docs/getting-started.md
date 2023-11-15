@@ -87,7 +87,7 @@ Begin by cloning the repo you created on your machine.
 
 The Railway CLI connects your code to your infrastructure.
 
-Install with [Brew](https://brew.sh), [NPM](https://www.npmjs.com/package/@railway/cli), or [Scoop](develop/cli#install):
+Install with [Brew](https://brew.sh), [npm](https://www.npmjs.com/package/@railway/cli), or [Scoop](develop/cli#install):
 
 (Note: Brew works best on M1 Macs.)
 
@@ -149,7 +149,7 @@ Open `src/pages/index.tsx` in a text editor of your choice and change line 79 of
 <h1 className={styles.title}>My Todos</h1>
 ```
 
-If you are running the dev server locally, you'll see the change. Feel free to change anything within the project as well! We can't stop you.
+If you are running the development server locally, you'll see the change. Feel free to change anything within the project as well! We can't stop you.
 
 Once you are done, save the file. If you're in a Git repository, you may also commit and push to your remote Git repository. In the next step, we will show you how easy it is to deploy your changes.
 
@@ -169,7 +169,7 @@ width={800} height={486} quality={100} />
 This will create a [deployment](deploy/railway-up) using the current project and
 environment. Click the returned link to see the build and deploy logs.
 
-For projects based on a GitHub repo like a template, [auto deploys](deploy/deployments#deploy-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub Repos.
+For projects based on a GitHub repo like a template, [auto deploys](deploy/deployments#deploy-triggers) are automatically enabled. Commits on the main branch trigger a redeploy. You can also enable ephemeral deploy environments for PRs made in GitHub repos.
 
 After your deployment completes, you can see your new deployment live at the deployment's URL. If you added To-Dos while developing locally, you should see them on your deployment live. In a proper project, you would enable multiple environments to isolate your production environment.
 

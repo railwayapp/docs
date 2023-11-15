@@ -58,7 +58,7 @@ width={725} height={613} quality={80} />
     Once the migration is complete, the migration service will be deleted.
 4. **Update Service Variables** - [Variable references](/develop/variables#reference-variables) within services that point to the database plugin will be updated to the new database service
 
-5. **Redeploy Connected Services** - Services previously connected to the database plugin will be redployed to apply the updated connection string and connect to the new database service.
+5. **Redeploy Connected Services** - Services previously connected to the database plugin will be redeployed to apply the updated connection string and connect to the new database service.
 
 _**NOTE: The legacy plugin will NOT be deleted automatically.**_
 
