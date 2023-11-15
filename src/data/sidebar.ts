@@ -20,15 +20,11 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Getting Started",
+    title: "Overview",
     pages: [
-      makePage("Introduction", "getting-started"),
-      makePage("Build and Deploy", "getting-started"),
-      makePage("Networking", "getting-started"),
-      makePage("CI/CD", "getting-started"),
-      makePage("Variable Management", "getting-started"),
-      makePage("Monitor and Diagnose", "getting-started"),
-      makePage("Scale", "getting-started"),
+      makePage("About Railway", "overview"),
+      makePage("The Basics", "overview"),
+      makePage("Advanced Concepts", "overview"),
     ],
   },
   {
@@ -53,6 +49,7 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "How To",
     pages: [
+      makePage("Overview", "how-to"),
       makePage("Deploy a GitHub Repo", "how-to"),
       makePage("Configure Replicas", "how-to"),
       makePage("Setup Private Networking", "how-to"),
