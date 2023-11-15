@@ -108,8 +108,6 @@ GRAPHQL_ENDPOINT=https://${{DOMAIN}}/${{GRAPHQL_PATH}}
 
 The example above illustrates a pattern of maintaining a Shared variable called `DOMAIN` and using that plus a Service variable to construct an endpoint.
 
-
-
 ## Using Variables in your services
 
 Variables are made available at runtime as environment variables.  In order to use them in your code, simply use the package appropriate for your language to retrieve environment variables.

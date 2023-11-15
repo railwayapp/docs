@@ -116,7 +116,7 @@ Railway has a user interface for managing your database service's data. You can 
 
 ## Templates
 
-Railway offers 200+ [community-maintained templates](https://railway.app/templates). A template with a GitHub repo will clone the repo to your account, and deploy the service(s) to a project. A template with Docker images will deploy the images directly. You can deploy a template from the Project Canvas unless there are variables to configure. To configure environment variables, you'll need to use the New Project button. Templates are useful for deploying common pieces of infrastructure — like a DataDog Agent.
+Railway offers 200+ [community-maintained templates](https://railway.app/templates). A template with a GitHub repo will clone the repo to your account, and deploy the service(s) to a project. A template with Docker images will deploy the images directly. You can deploy a template from the Project Canvas unless there are variables to configure. To configure environment variables, you'll need to use the New Project button. Templates are useful for deploying common pieces of infrastructure — like a Datadog Agent.
 
 ## Empty Application Services
 
