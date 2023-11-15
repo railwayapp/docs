@@ -8,7 +8,7 @@ There are two main ways to interact with templates in Railway - creation and dep
 
 ## Creation
 
-Creating a template allows you to capture your infrastructure in a reusable and distributable format.  By defining services, environment configuration, network settings, etc., you lay the foundation for others to deploy the same software stack with the click of a button.
+Creating a template allows you to capture your infrastructure in a reusable and distributable format. By defining services, environment configuration, network settings, etc., you lay the foundation for others to deploy the same software stack with the click of a button.
 
 ### How to Create a Template
 
@@ -74,10 +74,10 @@ When a template is deployed, all functions are executed and the result replaces 
 
 The current template variable functions are:
 
-- `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  You can generate random Hex or Base64 secrets by passing the appropriate alphabet.
-    
-    - Base64: `secret(32, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/')`
-    - Hex: `secret(32, '0123456789ABCDEF')`
+- `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default). You can generate random Hex or Base64 secrets by passing the appropriate alphabet.
+
+  - Base64: `secret(32, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/')`
+  - Hex: `secret(32, '0123456789ABCDEF')`
 
 - `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
@@ -111,7 +111,7 @@ After you create your template, you may want to share your work with the public 
 
 #### Deploy on Railway Button
 
-Upon template creation, you are provided with the Template URL where your template can be found and deployed.  
+Upon template creation, you are provided with the Template URL where your template can be found and deployed.
 
 To complement your template, we also provide a `Deploy on Railway` button which you can include in your README or embed it into a website.
 ![https://railway.app/button.svg](https://railway.app/button.svg)
@@ -121,18 +121,21 @@ For examples and more information about the button, head over to our [Deploy On 
 
 ## Kickback program
 
-If your published template is deployed into other users' projects, you are immediately eligible for a 25% kickback, in the form of Railway credits, of the usage cost incurred by those users.  That means if a user deploys your template, and the usage of the services cost the user $100, you could receive $25 in Railway credits.
+If your published template is deployed into other users' projects, you are immediately eligible for a 25% kickback, in the form of Railway credits, of the usage cost incurred by those users. That means if a user deploys your template, and the usage of the services cost the user $100, you could receive $25 in Railway credits.
 
 #### Important things to note
+
 - Your template must be published to the marketplace to be eligible for kickback.
 - For Hobby users with a $5 discount, only usage in excess of the discount is counted in the kickback.
-- Platform fees are not included in the kickback, but usage fees of the platform are included.  Examples of platform fees are:
+- Platform fees are not included in the kickback, but usage fees of the platform are included. Examples of platform fees are:
+
   - Cost of Subscription Plan ($5 for Hobby, $20 for Pro)
   - Additional Team Seats
-  
+
   As an example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $50 kickback (25% of $200).
-- Currently, the minimum kickback our program supports is $1, meaning usage of your template must incur at least $4 in usage after discounts and/or platform fees.  We are working to enable fractional kickbacks (< $1).
-- All service types and resource usage of those services (compute, volume, egress, etc) *do count* towards the kickback.
+
+- The minimum kickback our program supports is $0.01, meaning usage of your template must incur at least $0.04 in usage after discounts and/or platform fees.
+- All service types and resource usage of those services (compute, volume, egress, etc) _do count_ towards the kickback.
 
 Read more about the kickback program [here](https://railway.app/open-source-kickback).
 
@@ -153,9 +156,9 @@ You can find featured templates on our
 
 Templates can be made up of one or many services, and when you deploy a template, each service within the template is deployed to your Railway project.
 
-Services can be sourced from a GitHub repository, or directly from a Docker image in Docker Hub or GitHub Container Registry.  The source is defined by the template creator.
+Services can be sourced from a GitHub repository, or directly from a Docker image in Docker Hub or GitHub Container Registry. The source is defined by the template creator.
 
-If any service in a template you have deployed is sourced from a GitHub repository, a copy of that repository will be created in your own GitHub account upon deployment.  Your personal copy of the repository is used as the source of the service in your Railway project.
+If any service in a template you have deployed is sourced from a GitHub repository, a copy of that repository will be created in your own GitHub account upon deployment. Your personal copy of the repository is used as the source of the service in your Railway project.
 
 ### Updatable Templates
 
@@ -169,4 +172,4 @@ If you are happy with the changes, you can merge the pull request, and we will a
 If you're curious, you can read more about how we built updatable templates in this <Link href="https://blog.railway.app/p/updatable-starters">blog post</Link>.
 </Banner>
 
-Note that this feature only works for services based on GitHub repositories.  At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced.
+Note that this feature only works for services based on GitHub repositories. At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced.
