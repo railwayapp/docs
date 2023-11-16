@@ -10,9 +10,9 @@ of common code between them.
 Railway provides a few features to help improve support for deploying monorepos
 of various types:
 1. **[Isolated Monorepo](#isolated-monorepo)** → A repository that contains components that are completely isolated to the
-directory they are contained in (eg. JS frontend and Python backend)
+directory they are contained in (e.g. JS frontend and Python backend)
 2. **[Shared Monorepo](#shared-monorepo)** → A repository that contains components that share code or configuration from the
-root directory (eg. Yarn workspace or Lerna project)
+root directory (e.g. Yarn workspace or Lerna project)
 
 ## Isolated Monorepo
 
@@ -41,10 +41,10 @@ width={980} height={380} quality={80} />
 ## Shared Monorepo
 
 Popular in the JavaScript ecosystem, shared monorepos contain multiple components that all share a common root directory. By default, all components are built with
-a single command from the root directory (eg. `npm run build`). However, if you are using Nixpacks, then you can override the build command in the service settings.
+a single command from the root directory (e.g. `npm run build`). However, if you are using Nixpacks, then you can override the build command in the service settings.
 
 The start command can be overridden in the Railway settings (
-eg. `npm run start:backend` and `npm run start:frontend`).
+e.g. `npm run start:backend` and `npm run start:frontend`).
 
 ```
 ├── package.json

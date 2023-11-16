@@ -42,9 +42,9 @@ worldwide. Freenom is not allowed, and not supported.
 
 There are a few important things to know when using Wildcard Domains:
 
-1. Ensure that the CNAME record for authorize.railwaydns.net is not proxied by your provider (eg: Cloudflare). This is required for the verification process to work.
-2. Wildcards can be used for any subdomain level (eg: `*.yourdomain.com` or `*.subdomain.yourdomain.com`).
-3. You cannot nest wildcards (eg: \*.\*.yourdomain.com).
+1. Ensure that the CNAME record for authorize.railwaydns.net is not proxied by your provider (e.g.: Cloudflare). This is required for the verification process to work.
+2. Wildcards can be used for any subdomain level (e.g.: `*.yourdomain.com` or `*.subdomain.yourdomain.com`).
+3. You cannot nest wildcards (e.g.: \*.\*.yourdomain.com).
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1679693511/wildcard_domains_zdguqs.png"

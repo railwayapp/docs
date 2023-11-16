@@ -2,9 +2,9 @@
 title: Compliance
 ---
 
-Railway is designed to be used by companies of all sizes. We understand that companies have different needs when it comes to compliance and security. We are happy to work with you to ensure that Railway meets your needs. We have worked with teams in gov't, healthcare, and finance to ensure that Railway meets their needs. 
+Railway is designed to be used by companies of all sizes. We understand that companies have different needs when it comes to compliance and security. We are happy to work with you to ensure that Railway meets your needs. We have worked with teams in government, healthcare, and finance to ensure that Railway meets their needs.
 
-Companies choose Railway so that they can speed up their their development velocity while also maintaining their security and compliance posture.
+Companies choose Railway to accelerate their development while also maintaining their security and compliance posture.
 
 We are happy to sign NDAs with your company to provide additional information about our security and compliance practices. Please reach out to us at [team@railway.app](mailto:team@railway.app) to get started.
 
@@ -24,7 +24,7 @@ Railway follows a shared responsibility model for HIPAA compliance. Railway will
 
 If your company needs a BAA, you can contact our solutions team at [team@railway.app](mailto:team@railway.app).
 
-We are working on operationalized BAAs and continually gathering requirements for health focused workloads for Enterprises. You can subscribe to the road-map item and share your feedback on [our road-map board](https://railway.canny.io/feature-requests/p/compliance).
+We are working on operationalized BAAs and continually gather requirements for health focused workloads on Enterprises. You can subscribe to the road-map item and share your feedback [here](https://railway.canny.io/feature-requests/p/compliance).
 
 ## Privacy
 

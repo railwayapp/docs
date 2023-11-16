@@ -89,7 +89,7 @@ Railway aims to exist for a very long time. Railway has presence on existing pub
 
 ### Unsupported Use-Cases
 
-Unfortunately, our platform isn't yet well-equipped to handle the following verticals that require extensive Gov't certification or GPU compute:
+Unfortunately, our platform isn't yet well-equipped to handle the following verticals that require extensive Government certification or GPU compute:
 
 - Government
 - Traditional Banking
