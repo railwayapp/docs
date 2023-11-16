@@ -5,11 +5,10 @@ import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
 import { Logo } from "./Logo";
-import { ISidebarSection } from "@/types";
 import { ScrollArea } from "./ScrollArea";
 import { OpenSearchModalButton } from "@/components/Search";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-import { IPage, ISubSection } from "../types";
+import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
 
 export const Sidebar: React.FC = ({ ...props }) => {
   return (
@@ -67,15 +66,16 @@ const SidebarContent: React.FC = () => {
         return sectionOrSubSection.content.some(item => {
           if ('subTitle' in item) {
             // This is a sub-section within the section
-            return item.pages.some(p => isCurrentPage(p.slug));
-          } else {
+            return item.pages.some(p => 'slug' in p && isCurrentPage(p.slug));
+          } else if ('slug' in item) {
             // This is a page directly under the section
             return isCurrentPage(item.slug);
           }
+          return false;
         });
       } else {
         // This is an ISubSection
-        return sectionOrSubSection.pages.some(p => isCurrentPage(p.slug));
+        return sectionOrSubSection.pages.some(p => 'slug' in p && isCurrentPage(p.slug));
       }
     };
     
@@ -88,48 +88,84 @@ const SidebarContent: React.FC = () => {
     );
   };
 
-  const renderContentItem = (item: IPage | ISubSection) => {
-    if ('subTitle' in item) {
-      const isExpanded = expandedSubSections.includes(item.subTitle);
+  const renderContentItem = (item: IPage | ISubSection | IExternalLink) => {
+    if ('url' in item) {
+      // This is an external link
+      return (
+        <li key={item.url}>
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            tw="text-gray-700 text-sm block px-4 py-2 hover:bg-gray-100 hover:text-foreground"
+          >
+            {item.title}
+          </a>
+        </li>
+      );
+    } else if ('subTitle' in item) {
+      const isExpanded = expandedSubSections.includes(item.subTitle.slug);
 
-      const arrowIcon = isExpanded ? '↓' : '→';
+      const caretIcon = isExpanded ? '▼' : '►';
 
       return (
-        <div key={item.subTitle}>
+        <li key={item.subTitle.slug}>
           <div 
-            onClick={() => toggleSubSection(item.subTitle)}
+            onClick={() => toggleSubSection(item.subTitle.slug)}
             tw="cursor-pointer"
             >
-            <h6 
-              tw="px-4 py-2 text-sm text-gray-700"
-              className={classNames(
-                isCurrentSectionOrSubSection(item) && "current-section",
-            )}>{item.subTitle}     <span tw="mr-2">{arrowIcon}</span></h6>
+              <Link
+                href={item.subTitle.slug}
+                css={[
+                  tw`text-gray-700 text-sm`,
+                  tw`block px-4 py-2`,
+                  tw`hover:bg-gray-100 hover:text-foreground`,
+                  tw`focus:outline-none focus:bg-pink-100`,
+                  isCurrentPage(item.subTitle.slug) &&
+                    tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
+                ]}
+                className={classNames(isCurrentPage(item.subTitle.slug) && `current`)}
+              >
+                <span tw="mr-2">{caretIcon}</span>{item.subTitle.title}
+              </Link>
           </div>
-          {expandedSubSections.includes(item.subTitle) && (
+          {isExpanded && (
             <ul>
               {item.pages.map(page => (
-                <li key={page.slug}>
-                  <Link
-                    href={page.slug}
-                    className={classNames(isCurrentPage(page.slug) && `current`)}
-                    css={[
-                      tw`text-gray-700 text-sm`,
-                      tw`block px-4 py-2`,
-                      tw`pl-8`,
-                      tw`hover:bg-gray-100 hover:text-foreground`,
-                      tw`focus:outline-none focus:bg-pink-100`,
-                      isCurrentPage(page.slug) &&
-                        tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
-                    ]}
-                  >
-                    {page.title}
-                  </Link>
-                </li>
+                'slug' in page ? (
+                  <li key={page.slug}>
+                    <Link
+                      href={page.slug}
+                      className={classNames(isCurrentPage(page.slug) && `current`)}
+                      css={[
+                        tw`text-gray-700 text-sm`,
+                        tw`block px-4 py-2`,
+                        tw`pl-8`,
+                        tw`hover:bg-gray-100 hover:text-foreground`,
+                        tw`focus:outline-none focus:bg-pink-100`,
+                        isCurrentPage(page.slug) &&
+                          tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
+                      ]}
+                    >
+                      {page.title}
+                    </Link>
+                  </li>
+                ) : (
+                  <li key={page.url}>
+                    <a
+                      href={page.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      tw="text-gray-700 text-sm block px-4 py-2 pl-8 hover:bg-gray-100 hover:text-foreground"
+                    >
+                      {page.title}
+                    </a>
+                  </li>
+                )
               ))}
             </ul>
           )}
-        </div>
+        </li>
       );
     } else {
       // This is a page

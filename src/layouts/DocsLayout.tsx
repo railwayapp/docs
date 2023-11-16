@@ -22,9 +22,18 @@ const flattenSidebarContent = (sidebarContent: ISidebarContent): IPage[] => {
   let flatPages: IPage[] = [];
   sidebarContent.forEach(section => {
     section.content.forEach(item => {
-      if ('subTitle' in item) {
-        // This is a sub-section
-        flatPages = flatPages.concat(item.pages);
+      if ('url' in item) {
+        // Skip external links
+        return;
+      } else if ('subTitle' in item) {
+        // this is the subTitle page
+        flatPages.push(item.subTitle);
+        // also used for skipping external links
+        item.pages.forEach(page => {
+          if (!('url' in page)) {
+            flatPages.push(page);
+          }
+        });
       } else {
         // This is a page
         flatPages.push(item);

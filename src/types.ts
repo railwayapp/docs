@@ -10,14 +10,19 @@ export interface IPage {
   category?: string;
 }
 
+export interface IExternalLink {
+  title: string;
+  url: string;
+}
+
 export interface ISidebarSection {
   title?: string;
-  content: (IPage | ISubSection)[];
+  content: (IPage | ISubSection | IExternalLink)[];
 }
 
 export interface ISubSection {
-  subTitle: string;
-  pages: IPage[];
+  subTitle: IPage;
+  pages: (IPage | IExternalLink)[];
 }
 
 export namespace Search {

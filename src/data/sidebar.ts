@@ -17,6 +17,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Home", undefined, "/"),
       makePage("Quick Start", undefined),
+      {title: "Template Kickback Program", url: "https://blog.railway.app/p/incentivized-templates"},
     ],
   },
   {
@@ -36,22 +37,11 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Databases",
-    content: [
-      makePage("Bring Your Own Database", "databases"),
-      makePage("PostgreSQL", "databases"),
-      makePage("MySQL", "databases"),
-      makePage("Redis", "databases"),
-      makePage("MongoDB", "databases"),
-      makePage("Database View", "databases"),
-    ],
-  },
-  {
     title: "How To Guides",
     content: [
       makePage("Overview", "how-to"),
       {
-        subTitle: "Get Started",
+        subTitle: makePage("Get Started","how-to"),
         pages: [
           makePage("Projects", "how-to"),
           makePage("Services", "how-to"),
@@ -61,7 +51,7 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: "Configure Networking",
+        subTitle: makePage("Configure Networking", "how-to"),
         pages: [
           makePage("Exposing Your App", "how-to"),
           makePage("Setup Private Networking", "how-to"),
@@ -69,22 +59,33 @@ export const sidebarContent: ISidebarContent = [
       },
       makePage("Customize Builds", "how-to"),
       {
-        subTitle: "Customize Deployments",
+        subTitle: makePage("Customize Deployments", "how-to"),
         pages: [
           makePage("Configure Replicas", "how-to"),
           makePage("Configure Regions", "how-to"),
           makePage("Run a Cron", "how-to"),
           makePage("Configure Health Checks", "how-to"),
           makePage("Enable App Sleep", "how-to"),
-          makePage("Health Checks and Restart Policy", "how-to"),
+          makePage("Restart Policy", "how-to"),
         ]
       },
       makePage("Setup Environments", "how-to"),
       {
-        subTitle: "Templates",
+        subTitle: makePage("Templates", "how-to"),
         pages: [
           makePage("Create a Template", "how-to"),
           makePage("Deploy a Template", "how-to"),
+        ]
+      },
+      {
+        subTitle: makePage("Databases", "how-to"),
+        pages: [
+          makePage("Bring Your Own", "how-to"),
+          makePage("Using the Database View", "how-to"),
+          makePage("PostgreSQL", "how-to"),
+          makePage("MySQL", "how-to"),
+          makePage("Redis", "how-to"),
+          makePage("MongoDB", "how-to"),
         ]
       },
     ],
