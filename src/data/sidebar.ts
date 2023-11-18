@@ -43,21 +43,26 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Get Started","how-to"),
         pages: [
-          makePage("Projects", "how-to"),
-          makePage("Services", "how-to"),
-          makePage("Variables", "how-to"),
-          makePage("Volumes", "how-to"),
-          makePage("Understanding Pricing", "how-to"),
+          makePage("Create and Manage Projects", "how-to"),
+          makePage("Create and Manage Services", "how-to"),
+          makePage("Use Variables", "how-to"),
+          makePage("Use Volumes", "how-to"),
         ]
       },
       {
         subTitle: makePage("Configure Networking", "how-to"),
         pages: [
           makePage("Exposing Your App", "how-to"),
-          makePage("Setup Private Networking", "how-to"),
+          makePage("Use Private Networking", "how-to"),
         ]
       },
-      makePage("Customize Builds", "how-to"),
+      {
+        subTitle: makePage("Customize Builds", "how-to"),
+        pages: [
+          makePage("Control Build Behavior", "how-to"),
+          makePage("Build from a Dockerfile", "how-to"),
+        ]
+      },
       {
         subTitle: makePage("Customize Deployments", "how-to"),
         pages: [
@@ -130,6 +135,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Pricing", "reference"),
           makePage("Support", "reference"),
+          makePage("Builds", "reference"),
           makePage("Project Members", "reference"),
         ]
       },

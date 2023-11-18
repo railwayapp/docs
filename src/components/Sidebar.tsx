@@ -158,7 +158,11 @@ const SidebarContent: React.FC = () => {
             </div>
               <Link
                 href={item.subTitle.slug}
-                css={[tw`text-gray-700 text-sm flex-grow hover:text-foreground`]}
+                css={[
+                  tw`text-gray-700 text-sm flex-grow hover:text-foreground`,
+                  isCurrentPage(item.subTitle.slug) &&
+                  tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-pink-500`,
+                ]}
               >
                 {item.subTitle.title}
               </Link>

@@ -5,12 +5,7 @@ title: Builds
 Railway uses [Nixpacks](https://nixpacks.com) to build and deploy your code with
 zero configuration.
 
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1664564851/docs/nixpacks-builder_k1fmlp.png"
-alt="Nixpacks builder"
-layout="responsive"
-width={1158} height={338} quality={80} />
-
+## Supported Languages
 Currently, we support the following languages out of the box:
 - [NodeJS](https://nixpacks.com/docs/providers/node)
 - [Bun](https://nixpacks.com/docs/providers/node#bun-support) (Experimental)
@@ -141,9 +136,3 @@ _Note: some buildpacks specify a default start command_
 ## Dockerfiles
 
 We will also build using a [Dockerfile](/deploy/dockerfiles) if found at the project root.
-
-## FAQ
-
-### How to specify a custom install command?
-
-We do not expose a way to configure a custom install command in the UI, but you can control this using [config as code](/deploy/config-as-code#install-command).  See Nixpacks Plan > Install Command.

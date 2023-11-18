@@ -2,12 +2,17 @@
 title: Configure Replicas
 ---
 
-concise guide on how to configure replicas
+## Horizontal Scaling with Replicas
 
-## Load balancing
+<Image src="https://res.cloudinary.com/railway/image/upload/v1684534939/docs/Export-replica_lrtrvs.png"
+alt="Screenshot of replica setting"
+layout="responsive"
+width={800} height={317} quality={100} />
 
-round robin
+By default Railway will scale your service up to the the specified vCPU and Memory limits of your plan. You can scale horizontally by manually increasing the number of replicas for a service.
 
-## geo-based routing
+To change the number of replicas per deploy within your service, go to the service settings view and look for the "Replicas" field in the "Deploy" section. This will create multiple instances of your service and distribute traffic between them.
 
-we don't do this, you can set it up
+At the moment, Railway will round-robin requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
+
+**Note:** For now Railway does not support sticky sessions nor report the usage of the replicas within the metrics view.
