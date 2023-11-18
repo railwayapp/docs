@@ -46,7 +46,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Projects", "how-to"),
           makePage("Services", "how-to"),
           makePage("Variables", "how-to"),
-          makePage("Using Volumes", "how-to"),
+          makePage("Volumes", "how-to"),
           makePage("Understanding Pricing", "how-to"),
         ]
       },
@@ -64,6 +64,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Configure Replicas", "how-to"),
           makePage("Configure Regions", "how-to"),
           makePage("Run a Cron", "how-to"),
+          makePage("Deploy a Monorepo", "how-to"),
           makePage("Configure Health Checks", "how-to"),
           makePage("Enable App Sleep", "how-to"),
           makePage("Restart Policy", "how-to"),
@@ -98,52 +99,41 @@ export const sidebarContent: ISidebarContent = [
       makePage("Database Migration Guide", 'tutorials'),
     ]
   },
-  // {
-  //   title: "Deploy",
-  //   pages: [
-  //     makePage("Railway Up", "deploy"),
-  //     makePage("Builds", "deploy"),
-  //     makePage("Deployments", "deploy"),
-  //     makePage("Healthchecks", "deploy"),
-  //     makePage("Dockerfiles", "deploy"),
-  //     makePage("Exposing Your App", "deploy"),
-  //     makePage("Networking", "deploy"),
-  //     makePage("Monorepo", "deploy"),
-  //     makePage("Logging", "deploy"),
-  //     makePage("Integrations", "deploy"),
-  //     makePage("Config as Code", "deploy"),
-  //     makePage("Deploy on Railway Button", "deploy"),
-  //   ],
-  // },
-  // {
-  //   title: "Diagnose",
-  //   pages: [
-  //     makePage("Metrics", "diagnose"),
-  //     makePage("Webhooks", "diagnose"),
-  //     makePage("Project Usage", "diagnose"),
-  //   ],
-  // },
-  // {
-  //   title: "Troubleshoot",
-  //   pages: [makePage("Fixing Common Errors", "troubleshoot")],
-  // },
-
   {
     title: "Reference",
     content: [
-      makePage("Private Networking", "reference"),
-      makePage("Volumes", "reference"),
-      makePage("Cron Jobs", "reference"),
-      makePage("Pricing", "reference"),
-      makePage("App Sleeping", "reference"),
-      makePage("Usage Limits", "reference"),
-      makePage("Accounts", "reference"),
-      makePage("Teams", "reference"),
-      makePage("CLI API", "reference"),
-      makePage("Public API", "reference"),
-      makePage("Templates", "reference"),
+      {
+        subTitle: makePage("Primitives", "reference"),
+        pages: [
+          makePage("Projects", "reference"),
+          makePage("Services", "reference"),
+          makePage("Variables", "reference"),
+          makePage("Public API", "reference"),
+          makePage("Templates", "reference"),
+          makePage("Volumes", "reference"),
+          makePage("Accounts", "reference"),
+          makePage("Teams", "reference"),
+          makePage("CLI API", "reference"),
+        ]
+      },
+      {
+        subTitle: makePage("Features", "reference"),
+        pages: [
+          makePage("Private Networking", "reference"),
+          makePage("App Sleeping", "reference"),
+          makePage("Cron Jobs", "reference"),
+          makePage("Usage Limits", "reference"),
+        ]
+      },
+      {
+        subTitle: makePage("Operations", "reference"),
+        pages: [
+          makePage("Pricing", "reference"),
+          makePage("Support", "reference"),
+          makePage("Project Members", "reference"),
+        ]
+      },
       makePage("Guides", "reference"),
-      makePage("Support", "reference"),
       makePage("Priority Boarding", "reference"),
       makePage("Compare to Heroku", "reference"),
     ],

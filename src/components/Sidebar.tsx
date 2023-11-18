@@ -45,8 +45,6 @@ export const Sidebar: React.FC = ({ ...props }) => {
 };
 
 const SidebarContent: React.FC = () => {
-  const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]);
-
   const {
     query: { slug },
     pathname,
@@ -57,29 +55,44 @@ const SidebarContent: React.FC = () => {
     [slug],
   );
 
+  const findContainingSubSectionSlug = (sections: ISidebarSection[], currentPageSlug: string): string | undefined => {
+    for (const section of sections) {
+      for (const item of section.content) {
+        if ('subTitle' in item && item.pages.some(p => 'slug' in p && p.slug === currentPageSlug)) {
+          return item.subTitle.slug;
+        }
+      }
+    }
+  };
+
+  const initialExpandedSubSectionSlug = useMemo(() => {
+    return findContainingSubSectionSlug(sidebarContent, prefixedSlug ?? pathname);
+  }, [prefixedSlug, pathname]);
+
+  const [expandedSubSections, setExpandedSubSections] = useState<string[]>(initialExpandedSubSectionSlug ? [initialExpandedSubSectionSlug] : []);
+
   const isCurrentPage = (pageSlug: string) =>
     (prefixedSlug ?? pathname) === pageSlug;
 
-    const isCurrentSectionOrSubSection = (sectionOrSubSection: ISidebarSection | ISubSection) => {
-      if ('content' in sectionOrSubSection) {
-        // This is an ISidebarSection
-        return sectionOrSubSection.content.some(item => {
-          if ('subTitle' in item) {
+  const isCurrentSectionOrSubSection = (sectionOrSubSection: ISidebarSection | ISubSection) => {
+    if ('content' in sectionOrSubSection) {
+      // This is an ISidebarSection
+      return sectionOrSubSection.content.some(item => {
+        if ('subTitle' in item) {
             // This is a sub-section within the section
             return item.pages.some(p => 'slug' in p && isCurrentPage(p.slug));
-          } else if ('slug' in item) {
+        } else if ('slug' in item) {
             // This is a page directly under the section
             return isCurrentPage(item.slug);
-          }
-          return false;
-        });
-      } else {
+        }
+        return false;
+      });
+    } else {
         // This is an ISubSection
-        return sectionOrSubSection.pages.some(p => 'slug' in p && isCurrentPage(p.slug));
-      }
-    };
+      return sectionOrSubSection.pages.some(p => 'slug' in p && isCurrentPage(p.slug));
+    }
+  };
     
-
   const toggleSubSection = (subTitle: string) => {
     setExpandedSubSections(prevState =>
       prevState.includes(subTitle)
@@ -104,32 +117,54 @@ const SidebarContent: React.FC = () => {
         </li>
       );
     } else if ('subTitle' in item) {
+      // these are the expandable sections
       const isExpanded = expandedSubSections.includes(item.subTitle.slug);
 
-      const caretIcon = isExpanded ? '▼' : '►';
+      const handleToggleClick = (e: React.MouseEvent) => {
+        e.preventDefault(); // Prevent link navigation
+        toggleSubSection(item.subTitle.slug);
+      };
+
+      const arrowSvg = isExpanded ? (
+        <svg css={[tw`h-4 w-4 text-gray-700`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+        </svg>
+      ) : (
+        <svg css={[tw`h-4 w-4 text-gray-500`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fillRule="evenodd" d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z" clipRule="evenodd" />
+        </svg>
+      );
 
       return (
+        // the first Link is the subTitle page, i.e. How To > Get Started
         <li key={item.subTitle.slug}>
           <div 
-            onClick={() => toggleSubSection(item.subTitle.slug)}
-            tw="cursor-pointer"
+            className={classNames(isCurrentPage(item.subTitle.slug) && `current`)}
+            css={[
+              tw`flex items-center`,
+              tw`px-3 py-2`,
+              tw`text-gray-700 text-sm`,
+              tw`hover:bg-gray-100 hover:text-foreground`,
+              tw`focus:outline-none focus:bg-pink-100`,
+              isCurrentPage(item.subTitle.slug) &&
+                tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
+              ]}
             >
+            <div 
+              onClick={handleToggleClick} 
+              css={[tw`cursor-pointer mr-1 rounded hover:border hover:border-gray-300`]}
+            >
+              {arrowSvg}
+            </div>
               <Link
                 href={item.subTitle.slug}
-                css={[
-                  tw`text-gray-700 text-sm`,
-                  tw`block px-4 py-2`,
-                  tw`hover:bg-gray-100 hover:text-foreground`,
-                  tw`focus:outline-none focus:bg-pink-100`,
-                  isCurrentPage(item.subTitle.slug) &&
-                    tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
-                ]}
-                className={classNames(isCurrentPage(item.subTitle.slug) && `current`)}
+                css={[tw`text-gray-700 text-sm flex-grow hover:text-foreground`]}
               >
-                <span tw="mr-2">{caretIcon}</span>{item.subTitle.title}
+                {item.subTitle.title}
               </Link>
           </div>
           {isExpanded && (
+            // these are the links in the expanded section
             <ul>
               {item.pages.map(page => (
                 'slug' in page ? (
@@ -139,7 +174,7 @@ const SidebarContent: React.FC = () => {
                       className={classNames(isCurrentPage(page.slug) && `current`)}
                       css={[
                         tw`text-gray-700 text-sm`,
-                        tw`block px-4 py-2`,
+                        tw`block py-2`,
                         tw`pl-8`,
                         tw`hover:bg-gray-100 hover:text-foreground`,
                         tw`focus:outline-none focus:bg-pink-100`,
