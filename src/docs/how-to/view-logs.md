@@ -1,22 +1,9 @@
 ---
-title: Logging
+title: View Logs
 ---
 
 Any build or deployment logs emitted to standard output or standard error (
 eg. `console.log(...)`) is captured by Railway to be viewed or searched later.
-
-Depending on your plan, logs are retained for a certain amount of time.
-
-| Plan          | Retention*    |
-|---------------|---------------|
-| Hobby / Trial | 7 days        |
-| Pro           | 21 days       |
-| Enterprise    | Up to 90 days |
-
-_* Upgrading plans will immediately restore logs that were previously 
-outside of the retention period._
-
-## Viewing Logs
 
 There are three ways to view logs in Railway.
 
@@ -24,7 +11,7 @@ There are three ways to view logs in Railway.
 - **Log Explorer** → Click on the Observability tab in the top navigation
 - **CLI** → Run the `railway logs` command
 
-### Build/Deploy Panel
+## Build/Deploy Panel
 
 Logs for a specific deployment can be viewed by clicking on the deployment 
 in dashboard, useful when debugging build or deployment failures.
@@ -36,7 +23,7 @@ layout="responsive"
 width={1385} height={816} quality={80} />
 
 
-### Log Explorer
+## Log Explorer
 
 Logs for the entire environment can be viewed together by clicking the 
 "Observability" button in the top navigation. The Log Explorer is useful for 
@@ -51,7 +38,7 @@ alt="Railway Log Explorer"
 layout="responsive"
 width={1166} height={650} quality={80} />
 
-### Command Line 
+## Command Line 
 
 Deployment logs can also be viewed from the command line to quickly check 
 the current status of the latest deployment. Use `railway logs` to view them.

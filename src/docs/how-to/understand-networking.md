@@ -1,5 +1,5 @@
 ---
-title: Configure Networking
+title: Understand Networking
 ---
 
 Understand how to set up networking using these guides.

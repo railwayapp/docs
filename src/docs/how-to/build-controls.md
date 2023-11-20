@@ -1,13 +1,28 @@
 ---
-title: Customize Builds
+title: Build Controls
 ---
 
-Railway uses [Nixpacks](https://nixpacks.com) to build and deploy your code with
-zero configuration.  However, we provide easy ways to customize the builds of your application.
+Railway uses [Nixpacks](https://nixpacks.com) to build your code.  You can find a complete list of languages we support out of the box [here](/reference/builds#supported-languages).
 
-You can find a complete list of languages we support out of the box [here](/reference/builds).
+There are several ways to configure builds to suit your needs.
+
+## Build Configuration
+
+Nixpacks has a variety of options that can be configured with environment variables which can be defined in your services settings. These include things like:
+- Install/build/start commands
+- Nix/Apt packages to install
+- Directories to cache
+
+For a full list of these options, please view the <a href="https://nixpacks.com/docs/guides/configuring-builds" target="_blank">Nixpacks docs</a>.
+
+For information on setting environment variables, click [here](/how-to/use-variables#service-variables).
+
+If you have a language or feature that you want us to support, please don't hesitate to
+reach out on [Discord](https://discord.gg/xAm2w6g) or on the [Nixpacks repo](https://github.com/railwayapp/nixpacks/discussions/245).
 
 ## Customize the Build Command
+
+Using the default Nixpacks builder, you can customize the build command that is run from within your service settings.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1664564851/docs/build-command_vhuify.png"
@@ -15,7 +30,7 @@ alt="Screenshot of Railway Build Command"
 layout="responsive"
 width={745} height={238} quality={80} />
 
-If using the Nixpacks builder, you can customize the build command that is run. For those familiar with Nixpacks, this gets set as the `--build-cmd` argument during the Nixpacks build.
+For those familiar with Nixpacks, this gets set as the `--build-cmd` argument during the Nixpacks build.
 
 ## Set the Root Directory
 
@@ -29,7 +44,7 @@ layout="responsive"
 width={1190} height={400} quality={80} />
 
 When specified, all build and deploy
-commands will operate within that root directory. Additionally, files changed
+commands will operate within the defined root directory. Additionally, files changed
 outside the root directory will not trigger a new build.
 
 ## Configure Watch Paths
@@ -46,7 +61,9 @@ layout="responsive"
 width={1158} height={444} quality={80} />
 
 For example, a monorepo might want to only trigger builds if files are
-changed in the `/packages/backend` directory. When specified, any changes that
+changed in the `/packages/backend` directory.
+
+When specified, any changes that
 don't match the patterns will skip creating a new deployment. Multiple patterns
 can be combined, one per line.
 
@@ -73,12 +90,7 @@ _Note, negations will only work if you include files in a preceding rule._
 
 <PriorityBoardingBanner />
 
-With Nixpacks, we analyze the app source directory and generate a build plan. This determines which language provider to install packages and runtimes for.
-
-If there is a detected `nixpacks.toml` file, it is possible to define a build provider ahead of time like so:
-```toml
-providers = ["...", "python"]
-```
+With Nixpacks, we analyze the app source directory and generate a build plan. This determines for which language provider to install packages and runtimes.
 
 Within your Service's settings, under the Builds section, you can define within the multi-select box which Nixpacks language providers you would like to use for your builds. This is useful if you have code that calls libraries that need to be built from another language within your repo.
 
@@ -98,13 +110,9 @@ HTTP servers should use the `web` process type. This process should listen on
 the [PORT environment variable](/deploy/railway-up#port-variable) and will receive
 HTTP traffic.
 
-_Note: some buildpacks specify a default start command_
-
-## Dockerfiles
-
-We will also build using a [Dockerfile](/deploy/dockerfiles) if found at the project root.
+_Note: Some buildpacks specify a default start command_
 
 
 ## Specify a custom install command
 
-We do not expose a way to configure a custom install command in the UI, but you can control this using [config as code](/deploy/config-as-code#install-command).  See Nixpacks Plan > Install Command.
+We do not expose a way to configure a custom install command in the UI, but you can control this using [config as code](/deploy/config-as-code#install-command).  See Nixpacks Plan -> Install Command.

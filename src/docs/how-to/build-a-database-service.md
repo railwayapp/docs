@@ -1,22 +1,10 @@
 ---
-title: Bring Your Own Database
+title: Build a Database Service
 ---
-
-Our goal at Railway is to create a best-in-class developer experience by minimizing the time it takes to spin up and manage infrastructure.
-
-One way we try to achieve this goal, is by providing four, one-click templates that provision some of the most popular databases out there ([PostgreSQL](/databases/postgresql), [MySQL](/databases/mysql), [MongoDB](/databases/mongodb), & [Redis](/databases/redis)).
-
-But what about the rest of the data storage options?
-
-## Database Options
-
-We know that there are numerous data storage options designed to accommodate various needs, and we are pleased to support any one that best suits your system.  Our platform primitives are built with flexibility in mind.
-
-## Railway Primitives
 
 With these primitive platform features, you can build any type of service your system requires, including database services - 
 
-### Docker Images & Dockerfiles
+## Docker Images & Dockerfiles
 
 Railway supports deploying services directly from a Docker image hosted in [Docker Hub](https://hub.docker.com/) or
 [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
@@ -29,13 +17,14 @@ width={699} height={168} quality={80} />
 
 We can also detect and deploy from a [Dockerfile](/deploy/dockerfiles) that exists in your source code.
 
-### Volumes
+## Volumes
 
-Need to persist your data?  Of course you do.  Railway makes it easy to attach a [volume](/reference/volumes) to any service, to keep your data safe between deployments.
+Railway makes it easy to attach a [volume](/how-to/use-volumes) to any service, to keep your data safe between deployments.
 
-### TCP Proxy
+## TCP Proxy
 
-Railway understands that database services don't usually communicate over HTTP.  That's why we've enabled [TCP Proxying](/deploy/exposing-your-app#tcp-proxying), to facilitate communication to your database services from anywhere.
+Since databases don't usually communicate over HTTP, you may find the [TCP Proxy](/how-to/exposing-your-app#tcp-proxying) feature helpful for exposing your database service to the Internet.
+
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1694217808/docs/screenshot-2023-09-08-20.02.55_hhxn0a.png"
 alt="Screenshot of TCP proxy configuration"
@@ -46,7 +35,7 @@ width={700} height={225} quality={100} />
 
 Need inspiration?  Our [Template Marketplace](https://railway.app/templates) already includes solutions for many different database services.  You might even find find a template for the database you need!
 
-Here are some suggestions to checkout - 
+Here are some suggestions to check out - 
 - [Minio](https://railway.app/template/SMKOEA)
 - [ClickHouse](https://railway.app/template/clickhouse)
 - [Dragonfly](https://railway.app/template/dragonfly)

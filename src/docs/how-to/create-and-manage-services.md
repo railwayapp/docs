@@ -32,7 +32,21 @@ alt="Screenshot of how to connect a service to a GitHub repo or Docker image"
 layout="responsive"
 width={709} height={190} quality={80} />
 
-## Deploying from a Docker Image
+### Deploying from a Github Repo
+
+Define a GitHub repository as your service source by selecting `Connect Repo` and choosing the repository you'd like to deploy. 
+
+When a new commit is pushed to the linked branch, Railway will automatically build and deploy the new code.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1688759920/docs/screenshot-2023-07-07-15.58.09_dmufxl.png"
+alt="Screenshot of a GitHub deployment trigger"
+layout="responsive"
+width={708} height={245} quality={80} />
+
+You must link your Railway account to Github, to enable Railway to connect to your Github repositories. [You can configure the Railway App in Github by clicking this link.](https://github.com/apps/railway-app/installations/new)
+
+### Deploying from a Docker Image
 
 To deploy from a docker image, specify the path of the image when prompted in the creation flow.
 
@@ -46,7 +60,7 @@ GitHub Container Registry:
 
 ## Deploying from a local directory
 
-Use the CLI to deploy a local directory to a service -
+[Use the CLI](/how-to/use-the-cli) to deploy a local directory to a service -
 
 1. Create an Empty Service by choosing `Empty Service` during the service creation flow.
 2. In a Terminal, navigate to the directory you would like to deploy.
@@ -61,7 +75,15 @@ For information on how to deploy a Monorepo click [here](/how-to/deploy-a-monore
 
 ## Monitoring Usage
 
-Monitor a service's resource usage by navigating to the [Metrics](/diagnose/metrics) tab in your service panel.
+Monitor a service's resource usage by navigating to the Metrics tab in your service view.
+
+Read more about [how to understand metrics here](/how-to/view-metrics).
+
+## Finding Logs
+
+Find a service's logs in the Deployment tab in the service view.  Logs emitted by your service will be shown here.
+
+Read more about [how to view logs here](/how-to/view-logs).
 
 
 ## Deleting a Service
@@ -81,6 +103,6 @@ You can also access this configuration from the command palette.
 
 ## FAQ
 
-### I Can't See My GitHub Repo?
+### Why Can't I See My GitHub Repo?
 
-You might need to configure the Railway app on your connected GitHub account. Ensure that you have the requisite permissions for Railway's GitHub app. [You can configure the app by clicking this link.](https://github.com/apps/railway-app/installations/new)
+If you're unable to see your Github repos in the service creation flow, you might need to configure the Railway app on your connected GitHub account. Ensure that you have the requisite permissions for Railway's GitHub app. [You can configure the app by clicking this link.](https://github.com/apps/railway-app/installations/new)

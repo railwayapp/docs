@@ -17,7 +17,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Home", undefined, "/"),
       makePage("Quick Start", undefined),
-      {title: "Template Kickback Program", url: "https://blog.railway.app/p/incentivized-templates"},
+      {title: "Open Source Kickback", url: "https://railway.app/open-source-kickback"},
     ],
   },
   {
@@ -47,53 +47,67 @@ export const sidebarContent: ISidebarContent = [
           makePage("Create and Manage Services", "how-to"),
           makePage("Use Variables", "how-to"),
           makePage("Use Volumes", "how-to"),
+          makePage("Use the CLI", "how-to"),
+          makePage("Manage Environments", "how-to"),
         ]
       },
       {
-        subTitle: makePage("Configure Networking", "how-to"),
+        subTitle: makePage("Understand Networking", "how-to"),
         pages: [
           makePage("Exposing Your App", "how-to"),
           makePage("Use Private Networking", "how-to"),
         ]
       },
       {
-        subTitle: makePage("Customize Builds", "how-to"),
+        subTitle: makePage("Configure Builds", "how-to"),
         pages: [
-          makePage("Control Build Behavior", "how-to"),
+          makePage("Build Controls", "how-to"),
           makePage("Build from a Dockerfile", "how-to"),
         ]
       },
       {
-        subTitle: makePage("Customize Deployments", "how-to"),
+        subTitle: makePage("Configure Deployments", "how-to"),
         pages: [
-          makePage("Configure Replicas", "how-to"),
-          makePage("Configure Regions", "how-to"),
-          makePage("Run a Cron", "how-to"),
+          makePage("Optimize Deployments", "how-to"),
           makePage("Deploy a Monorepo", "how-to"),
-          makePage("Configure Health Checks", "how-to"),
-          makePage("Enable App Sleep", "how-to"),
-          makePage("Restart Policy", "how-to"),
+          makePage("Deployment Actions", "how-to"),
+          makePage("Configure Deployment Lifecycle", "how-to"),
         ]
       },
-      makePage("Setup Environments", "how-to"),
       {
-        subTitle: makePage("Templates", "how-to"),
+        subTitle: makePage("Monitor Services", "how-to"),
+        pages: [
+          makePage("View Logs", "how-to"),
+          makePage("View Metrics", "how-to"),
+          makePage("Setup Webhooks", "how-to"),
+        ]
+      },
+      {
+        subTitle: makePage("Advanced Usage", "how-to"),
+        pages: [
+          makePage("Use Config as Code", "how-to"),
+          makePage("Use the Public API", "how-to"),
+        ]
+      },
+      {
+        subTitle: makePage("Use Templates", "how-to"),
         pages: [
           makePage("Create a Template", "how-to"),
           makePage("Deploy a Template", "how-to"),
         ]
       },
       {
-        subTitle: makePage("Databases", "how-to"),
+        subTitle: makePage("Use Database Services", "how-to"),
         pages: [
-          makePage("Bring Your Own", "how-to"),
-          makePage("Using the Database View", "how-to"),
+          makePage("Build a Database Service", "how-to"),
           makePage("PostgreSQL", "how-to"),
           makePage("MySQL", "how-to"),
           makePage("Redis", "how-to"),
           makePage("MongoDB", "how-to"),
+          makePage("Using the Database View", "how-to"),
         ]
       },
+      makePage("Fixing Common Errors", "how-to"),
     ],
   },
   {

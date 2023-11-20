@@ -6,10 +6,6 @@ Cron Jobs allow you to start a service based on a crontab expression. This means
 
 If you are already using a scheduling library or system in your service such as [node-cron](https://www.npmjs.com/package/node-cron) or [Quartz](http://www.quartz-scheduler.org/), Railway cron jobs are a substitute of them that allows you to save resources between executions.
 
-## Configuring a cron job
-
-You can configure a cron job by selecting a service and going to the Settings section. In the General Settings you'll see a field called "Cron Schedule". On it you can write a crontab expression and once the setting is saved we will re-run the service based on that schedule.
-
 ## Crontab expressions
 
 A crontab expression is a scheduling format used in Unix-like operating systems to specify when and how often a command or script should be executed automatically. It consists of five fields separated by spaces, representing different units of time. These fields specify the minute, hour, day of the month, month, and day of the week when the command should be executed.

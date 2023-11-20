@@ -1,8 +1,10 @@
 ---
 title: CLI API Reference
 ---
+The Railway Command Line Interface (CLI) lets you interact with your
+Railway project from the command line.
 
-The following commands are available in the CLI
+This document describes the commands available in the CLI.
 
 ## Add
 

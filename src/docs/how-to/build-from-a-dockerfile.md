@@ -1,5 +1,5 @@
 ---
-title: Dockerfiles
+title: Build from a Dockerfile
 ---
 
 We will look for and use a `Dockerfile` at the service's root if it exists.
@@ -11,11 +11,9 @@ Using detected Dockerfile!
 ==========================
 ```
 
-### Custom Dockerfile Path
+## Custom Dockerfile Path
 
-By default, we look for a file named `Dockerfile` in the directory.  If you want to use a custom filename or path, you have a couple of options - set a variable defining the path or use config as code.
-
-#### Set a Variable
+By default, we look for a file named `Dockerfile` in the root directory.  If you want to use a custom filename or path, you can set a variable defining the path.
 
 In your [service variables](/develop/variables#defining-variables), set a variable named `RAILWAY_DOCKERFILE_PATH` to specify the path to the file.
 
@@ -30,21 +28,14 @@ If your Dockerfile is in another directory, specify it like this:
 RAILWAY_DOCKERFILE_PATH=/build/Dockerfile
 ```
 
-#### Use Config as Code
+### Use Config as Code
 
-You can also set your custom Dockerfile path using [config as code](/deploy/config-as-code#dockerfile-path).
-
-For example, if you use a `railway.toml` file, you would specify your Dockerfile path like this:
-
-```toml
-[build]
-dockerfilePath = "Dockerfile.backend"
-```
+You can also set your custom Dockerfile path using [config as code](/how-to/use-config-as-code#dockerfile-path).
 
 
-### Using Variables at Build Time
+## Using Variables at Build Time
 
-If you need to use the environment variables that Railway injects at build time, which include [variables that you define](/develop/variables#defining-variables) and [Railway-provided variables](/develop/variables#railway-provided-variables), you must specify them in the Dockerfile using the `ARG` command.
+If you need to use the environment variables that Railway injects at build time, which include [variables that you define](/how-to/use-variables#service-variables) and [Railway-provided variables](/how-to/use-variables#railway-provided-variables), you must specify them in the Dockerfile using the `ARG` command.
 
 For example:
 ```dockerfile
@@ -61,6 +52,6 @@ FROM node
 ARG RAILWAY_ENVIRONMENT
 ```
 
-### Docker Compose
+## Docker Compose
 
 Railway doesn't support docker compose at the moment.
