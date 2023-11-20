@@ -105,15 +105,18 @@ const SidebarContent: React.FC = () => {
     if ('url' in item) {
       // This is an external link
       return (
-        <li key={item.url}>
+        <li key={item.url} tw="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-foreground">
           <a
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            tw="text-gray-700 text-sm block px-4 py-2 hover:bg-gray-100 hover:text-foreground"
+            tw="text-gray-700 text-sm flex-grow"
           >
             {item.title}
           </a>
+          <svg css={[tw`m-1 w-3 h-3 text-gray-700`]} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+          </svg>
         </li>
       );
     } else if ('subTitle' in item) {
@@ -142,7 +145,7 @@ const SidebarContent: React.FC = () => {
             className={classNames(isCurrentPage(item.subTitle.slug) && `current`)}
             css={[
               tw`flex items-center`,
-              tw`px-3 py-2`,
+              tw`px-4 py-2`,
               tw`text-gray-700 text-sm`,
               tw`hover:bg-gray-100 hover:text-foreground`,
               tw`focus:outline-none focus:bg-pink-100`,
@@ -150,12 +153,6 @@ const SidebarContent: React.FC = () => {
                 tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
               ]}
             >
-            <div 
-              onClick={handleToggleClick} 
-              css={[tw`cursor-pointer mr-1 rounded hover:border hover:border-gray-300`]}
-            >
-              {arrowSvg}
-            </div>
               <Link
                 href={item.subTitle.slug}
                 css={[
@@ -166,6 +163,12 @@ const SidebarContent: React.FC = () => {
               >
                 {item.subTitle.title}
               </Link>
+              <div 
+              onClick={handleToggleClick} 
+              css={[tw`cursor-pointer mr-1 rounded hover:border hover:border-gray-300`]}
+              >
+                {arrowSvg}
+              </div>
           </div>
           {isExpanded && (
             // these are the links in the expanded section
@@ -179,7 +182,8 @@ const SidebarContent: React.FC = () => {
                       css={[
                         tw`text-gray-700 text-sm`,
                         tw`block py-2`,
-                        tw`pl-8`,
+                        tw`ml-4`,
+                        tw`pl-2`,
                         tw`hover:bg-gray-100 hover:text-foreground`,
                         tw`focus:outline-none focus:bg-pink-100`,
                         isCurrentPage(page.slug) &&

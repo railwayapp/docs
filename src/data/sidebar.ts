@@ -39,7 +39,6 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "How To Guides",
     content: [
-      makePage("Overview", "how-to"),
       {
         subTitle: makePage("Get Started","how-to"),
         pages: [
@@ -114,6 +113,10 @@ export const sidebarContent: ISidebarContent = [
     title: "Tutorials",
     content: [
       makePage("Introduction to Tutorials", 'tutorials'),
+      {title: "Deploy Cusdis", url: "https://blog.railway.app/p/cusdis"},
+      {title: "Deploy Ghost", url: "https://blog.railway.app/p/ghost"},
+      {title: "Deploy Website Analytics", url: "https://blog.railway.app/p/self-hosted-website-analytics"},
+      {title: "ExpressJS with Postgres", url: "https://blog.railway.app/p/expressjs-with-postgresql"},
       makePage("Migrate from Heroku", 'tutorials'),
       makePage("Database Migration Guide", 'tutorials'),
     ]
