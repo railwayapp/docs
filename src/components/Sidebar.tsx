@@ -105,12 +105,17 @@ const SidebarContent: React.FC = () => {
     if ('url' in item) {
       // This is an external link
       return (
-        <li key={item.url} tw="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-foreground">
+        <li key={item.url} css={[
+            tw`flex items-center`, 
+            tw`px-4 py-2`, 
+            tw`hover:bg-gray-100 hover:text-foreground`, 
+            tw`border-r-2 border-transparent`
+            ]}>
           <a
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            tw="text-gray-700 text-sm flex-grow"
+            css={[tw`text-gray-700 text-sm flex-grow`]}
           >
             {item.title}
           </a>
@@ -149,6 +154,7 @@ const SidebarContent: React.FC = () => {
               tw`text-gray-700 text-sm`,
               tw`hover:bg-gray-100 hover:text-foreground`,
               tw`focus:outline-none focus:bg-pink-100`,
+              tw`border-r-2 border-transparent`,
               isCurrentPage(item.subTitle.slug) &&
                 tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
               ]}
