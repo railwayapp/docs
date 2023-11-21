@@ -109,8 +109,7 @@ const SidebarContent: React.FC = () => {
             tw`flex items-center`, 
             tw`px-4 py-2`, 
             tw`hover:bg-gray-100 hover:text-foreground`, 
-            tw`border-r-2 border-transparent`
-            ]}>
+            tw`border-r-2 border-transparent`]}>
           <a
             href={item.url}
             target="_blank"

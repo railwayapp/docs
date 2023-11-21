@@ -29,14 +29,6 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Maturity",
-    content: [
-      makePage("Philosophy", "maturity"),
-      makePage("Use Cases", "maturity"),
-      makePage("Compliance", "maturity"),
-    ],
-  },
-  {
     title: "How To Guides",
     content: [
       {
@@ -135,44 +127,63 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Develop", "reference"),
         pages: [
+          makePage("CLI API", "reference"),
+          makePage("Databases", "reference"),
+          makePage("Environments", "reference"),
           makePage("Projects", "reference"),
           makePage("Services", "reference"),
           makePage("Variables", "reference"),
-          makePage("Public API", "reference"),
-          makePage("Templates", "reference"),
           makePage("Volumes", "reference"),
-          makePage("Accounts", "reference"),
-          makePage("Teams", "reference"),
-          makePage("CLI API", "reference"),
         ]
       },
       {
         subTitle: makePage("Deploy", "reference"),
         pages: [
-          makePage("Private Networking", "reference"),
           makePage("App Sleeping", "reference"),
+          makePage("Builds", "reference"),
+          makePage("Config as Code", "reference"),
           makePage("Cron Jobs", "reference"),
-          makePage("Usage Limits", "reference"),
+          makePage("Deployments", "reference"),
+          makePage("Dockerfiles", "reference"),
+          makePage("Healthchecks", "reference"),
+          makePage("Integrations", "reference"),
+          makePage("Monorepo", "reference"),
+          makePage("Private Networking", "reference"),
+          makePage("Public Domains", "reference"),
+          makePage("TCP Proxy", "reference"),
         ]
       },
       {
         subTitle: makePage("Diagnose", "reference"),
         pages: [
-          makePage("Pricing", "reference"),
-          makePage("Support", "reference"),
-          makePage("Builds", "reference"),
-          makePage("Project Members", "reference"),
+          makePage("Logging", "reference"),
+          makePage("Metrics", "reference"),
+          makePage("Project Usage", "reference"),
+          makePage("Webhooks", "reference"),
         ]
       },
       {
         subTitle: makePage("Operations", "reference"),
         pages: [
+          makePage("Accounts", "reference"),
           makePage("Pricing", "reference"),
-          makePage("Support", "reference"),
           makePage("Priority Boarding", "reference"),
+          makePage("Support", "reference"),
+          makePage("Teams", "reference"),
+          makePage("Usage Limits", "reference"),
         ]
-      },
+      },      
+      makePage("Public API", "reference"),
+      makePage("Templates", "reference"),
+    ], 
+  },
+  {
+    title: "Maturity",
+    content: [
+      makePage("Philosophy", "maturity"),
+      makePage("Use Cases", "maturity"),
+      makePage("Compliance", "maturity"),
+      makePage("Compare to Heroku", "maturity"),
     ],
   },
-
 ];
