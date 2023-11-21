@@ -1,5 +1,5 @@
 ---
-title: Manage Environments
+title: Setup Environments
 ---
 
 Railway supports complex development workflows through environments, giving you isolated instances of all databases and services in a project.

@@ -4,8 +4,12 @@ title: Config as Code
 
 Railway supports defining the configuration for a single deployment in a file
 alongside your code. By default, we will look for a `railway.toml` or
-`railway.json` file. Everything in the build and deploy sections of the service
+`railway.json` file. 
+
+Everything in the build and deploy sections of the service
 settings page can be specified in this configuration file.
+
+### How does it work?
 
 When a new deployment is triggered, Railway will look for any config files in your
 code and combine these values with the settings from the dashboard. The
@@ -13,44 +17,6 @@ resulting build and deploy config will be used **only for the current deployment
 The settings in the dashboard will not be updated with the settings defined in
 code. Configuration defined in code will always override values from the
 dashboard.
-
-## Example
-
-These configuration examples are equivalent.
-
-### Toml
-
-In a `railway.toml` file:
-```toml
-[build]
-builder = "nixpacks"
-buildCommand = "echo building!"
-
-[deploy]
-startCommand = "echo starting!"
-healthcheckPath = "/"
-healthcheckTimeout = 100
-restartPolicyType = "never"
-```
-
-### Json
-
-In a `railway.json` file:
-```json
-{
-  "$schema": "https://railway.app/railway.schema.json",
-  "build": {
-    "builder": "nixpacks",
-    "buildCommand": "echo building!"
-  },
-  "deploy": {
-    "startCommand": "echo starting!",
-    "healthcheckPath": "/",
-    "healthcheckTimeout": 100,
-    "restartPolicyType": "never"
-  }
-}
-```
 
 ## Config Source Location
 

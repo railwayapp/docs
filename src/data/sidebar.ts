@@ -47,7 +47,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Use Variables", "how-to"),
           makePage("Use Volumes", "how-to"),
           makePage("Use the CLI", "how-to"),
-          makePage("Manage Environments", "how-to"),
+          makePage("Setup Environments", "how-to"),
         ]
       },
       {
@@ -74,28 +74,6 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: makePage("Monitor Services", "how-to"),
-        pages: [
-          makePage("View Logs", "how-to"),
-          makePage("View Metrics", "how-to"),
-          makePage("Setup Webhooks", "how-to"),
-        ]
-      },
-      {
-        subTitle: makePage("Advanced Usage", "how-to"),
-        pages: [
-          makePage("Use Config as Code", "how-to"),
-          makePage("Use the Public API", "how-to"),
-        ]
-      },
-      {
-        subTitle: makePage("Use Templates", "how-to"),
-        pages: [
-          makePage("Create a Template", "how-to"),
-          makePage("Deploy a Template", "how-to"),
-        ]
-      },
-      {
         subTitle: makePage("Use Database Services", "how-to"),
         pages: [
           makePage("Build a Database Service", "how-to"),
@@ -104,6 +82,36 @@ export const sidebarContent: ISidebarContent = [
           makePage("Redis", "how-to"),
           makePage("MongoDB", "how-to"),
           makePage("Using the Database View", "how-to"),
+        ]
+      },
+      {
+        subTitle: makePage("Monitor Services", "how-to"),
+        pages: [
+          makePage("View Logs", "how-to"),
+          makePage("View Metrics", "how-to"),
+          makePage("Setup Webhooks", "how-to"),
+        ]
+      },
+      {
+        subTitle: makePage("Use the Public API", "how-to"),
+        pages: [
+          makePage("Manage Projects", "how-to"),
+          makePage("Manage Services", "how-to"),
+          makePage("Manage Deployments", "how-to"),
+          makePage("Manage Variables", "how-to"),
+        ]
+      },
+      {
+        subTitle: makePage("Use Config as Code", "how-to"),
+        pages: [
+          makePage("Configurable Settings", "how-to"),
+        ]
+      },
+      {
+        subTitle: makePage("Use Templates", "how-to"),
+        pages: [
+          makePage("Create a Template", "how-to"),
+          makePage("Deploy a Template", "how-to"),
         ]
       },
       makePage("Fixing Common Errors", "how-to"),
@@ -125,7 +133,7 @@ export const sidebarContent: ISidebarContent = [
     title: "Reference",
     content: [
       {
-        subTitle: makePage("Primitives", "reference"),
+        subTitle: makePage("Develop", "reference"),
         pages: [
           makePage("Projects", "reference"),
           makePage("Services", "reference"),
@@ -139,7 +147,7 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: makePage("Features", "reference"),
+        subTitle: makePage("Deploy", "reference"),
         pages: [
           makePage("Private Networking", "reference"),
           makePage("App Sleeping", "reference"),
@@ -148,7 +156,7 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: makePage("Operations", "reference"),
+        subTitle: makePage("Diagnose", "reference"),
         pages: [
           makePage("Pricing", "reference"),
           makePage("Support", "reference"),
@@ -156,9 +164,14 @@ export const sidebarContent: ISidebarContent = [
           makePage("Project Members", "reference"),
         ]
       },
-      makePage("Guides", "reference"),
-      makePage("Priority Boarding", "reference"),
-      makePage("Compare to Heroku", "reference"),
+      {
+        subTitle: makePage("Operations", "reference"),
+        pages: [
+          makePage("Pricing", "reference"),
+          makePage("Support", "reference"),
+          makePage("Priority Boarding", "reference"),
+        ]
+      },
     ],
   },
 
