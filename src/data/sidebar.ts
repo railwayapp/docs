@@ -144,6 +144,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Config as Code", "reference"),
           makePage("Cron Jobs", "reference"),
           makePage("Deployments", "reference"),
+          makePage("Deployment Regions", "reference"),
           makePage("Dockerfiles", "reference"),
           makePage("Healthchecks", "reference"),
           makePage("Integrations", "reference"),

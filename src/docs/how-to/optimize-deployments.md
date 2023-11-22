@@ -40,7 +40,7 @@ To choose a different region for your service, go to your service settings and s
 
 ### Impact of Region Changes
 
-For information on the impact of changing a service's region, see the [Regions reference guide](/reference/regions).
+For information on the impact of changing a service's region, see the [Regions reference guide](/reference/deployment-regions).
 
 ## Singleton Deploys
 
