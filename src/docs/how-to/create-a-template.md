@@ -40,7 +40,7 @@ Once the template has been generated, you will be taken to the template creation
 
 ## Configuring Services
 
-Whether you are building from scratch or have started from an existing project, once you are on the [template creation page](https://railway.app/button), you will see various configuration options for each service added to your template.
+Whether you are building from scratch or have started from an existing project, once you are on the <a href="https://railway.app/button" target="_blank">template creation page</a>, you will see various configuration options for each service added to your template.
 
 In addition to the Source, you can configure the following fields to enable successful deploys for template users:
 
@@ -75,18 +75,6 @@ The current template variable functions are:
 
 - `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
-## Publishing a Template
-
-Once you create a template, you have the option to publish it. Publishing a template will add it to our [templates page](https://railway.app/templates). Simply click the publish button and fill out the form to publish your template.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1680281251/CleanShot_2023-03-31_at_20.46.28_2x_tjjpna.png"
-  alt="Template publishing form"
-  layout="intrinsic"
-  width={1514}
-  height={2490}
-  quality={80}
-/>
-
 ## Managing your Templates
 
 You can see all of your templates on your [Account's Templates page](https://railway.app/account/templates). Templates are separated into Personal and Published templates. You can edit, publish/unpublish and delete templates whenever you'd like!
@@ -99,33 +87,3 @@ You can see all of your templates on your [Account's Templates page](https://rai
  quality={80}
 />
 
-## Sharing your Templates
-
-After you create your template, you may want to share your work with the public and let others clone your project.
-
-### Deploy on Railway Button
-
-Upon template creation, you are provided with the Template URL where your template can be found and deployed.  
-
-To complement your template, we also provide a `Deploy on Railway` button which you can include in your README or embed it into a website.
-![https://railway.app/button.svg](https://railway.app/button.svg)
-The button is located at [https://railway.app/button.svg](https://railway.app/button.svg).
-
-For examples and more information about the button, head over to our [Deploy On Railway Button](/deploy/deploy-on-railway-button) page.
-
-## Kickback program
-
-If your published template is deployed into other users' projects, you are immediately eligible for a 25% kickback, in the form of Railway credits, of the usage cost incurred by those users.  That means if a user deploys your template, and the usage of the services cost the user $100, you could receive $25 in Railway credits.
-
-### Important things to note
-- Your template must be published to the marketplace to be eligible for kickback.
-- For Hobby users with a $5 discount, only usage in excess of the discount is counted in the kickback.
-- Platform fees are not included in the kickback, but usage fees of the platform are included.  Examples of platform fees are:
-  - Cost of Subscription Plan ($5 for Hobby, $20 for Pro)
-  - Additional Team Seats
-  
-  As an example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $50 kickback (25% of $200).
-- Currently, the minimum kickback our program supports is $1, meaning usage of your template must incur at least $4 in usage after discounts and/or platform fees.  We are working to enable fractional kickbacks (< $1).
-- All service types and resource usage of those services (compute, volume, egress, etc) *do count* towards the kickback.
-
-Read more about the kickback program [here](https://railway.app/open-source-kickback).

@@ -2,7 +2,15 @@
 title: Cron Jobs
 ---
 
-Cron Jobs allow you to start a service based on a crontab expression. This means the service is expected to execute a task, and terminate as soon as that task is finished. Make sure the service doesn't leave any resources open, such as database connections, because otherwise the service won't terminate and Railway wont't start it again until the previous execution has finished.
+Cron Jobs allow you to start a service based on a crontab expression. 
+
+## How it Works
+
+Railway will look for a defined cron schedule on your service settings, and execute the start command for that service on the given schedule.
+
+The service is expected to execute a task, and terminate as soon as that task is finished, not leaving any resources open, such as database connections
+
+If any resources are left open, the service won't terminate and Railway wont't start it again until the previous execution has finished.
 
 If you are already using a scheduling library or system in your service such as [node-cron](https://www.npmjs.com/package/node-cron) or [Quartz](http://www.quartz-scheduler.org/), Railway cron jobs are a substitute of them that allows you to save resources between executions.
 
@@ -85,3 +93,7 @@ The shortest time between successive executions of a cron job cannot be less tha
 Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
 
 At this moment, Railway won't terminate your process in any scenario. However, cron jobs may be skipped if the service is in the build/deploy stage when the next scheduled execution happens.
+
+## Support
+
+For information on how to configure cron jobs, refer to [this guide](/how-to/configure-deployment-lifecycle#configure-a-cron-job).

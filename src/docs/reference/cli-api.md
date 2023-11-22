@@ -6,6 +6,8 @@ Railway project from the command line.
 
 This document describes the commands available in the CLI.
 
+For information on how to install the CLI and more examples of usage, see [How to Use the CLI](/how-to/use-the-cli).
+
 ## Add
 
 *Add a plugin to your project*

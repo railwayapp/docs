@@ -10,15 +10,9 @@ alt="GIF of the CLI in Action"
 layout="intrinsic"
 width={800} height={468} quality={100} />
 
-## Installation
+## Installing the CLI
 
-The Railway CLI can be installed via:
-- [Homebrew](https://brew.sh) for macOS
-- [npm](https://www.npmjs.com/package/@railway/cli) for macOS, Linux, and Windows
-- [Scoop](https://scoop.sh) for Windows as a native `.exe` binary
-- Direct Shell Script
-- Downloading pre-built binaries
-- Building from source
+The Railway CLI can be installed via Homebrew, npm, Scoop, or directly from the source.
 
 ### Homebrew (macOS)
 
@@ -69,7 +63,7 @@ The Railway CLI is an open source project on [GitHub](https://github.com/railway
 You can build a binary [from source](https://github.com/railwayapp/cli#from-source)
 if you wish.
 
-## Authentication
+## Authenticating with the CLI
 
 Before you can use the Railway CLI, you must authenticate the CLI to your Railway account:
 ```bash
@@ -107,7 +101,7 @@ with a specific project and environment. Use the token by setting the
 RAILWAY_TOKEN=XXXX railway run
 ```
 
-## Usage
+## Common Examples of CLI Usage
 
 Below are some of the most commonly used CLI commands. Find a complete list of CLI commands in the [CLI API reference page](/reference/cli-api).
 

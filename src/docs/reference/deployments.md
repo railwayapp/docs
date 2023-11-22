@@ -4,17 +4,16 @@ title: Deployments
 
 Service Deployments are attempts to build and deliver your application.
 
+All deployments will appear in the deployments view on your selected service.
+
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1645148376/docs/deployment-photo_q4q8in.png"
 alt="Screenshot of Deploy View"
 layout="responsive"
 width={1103} height={523} quality={80} />
 
-All deployments will appear in the deployments view on your selected service.
-
 Clicking on the deployment will bring up the build and deploy logs. 
 
-Each deploy has the option to configure a Railway provided domain as well as attaching a custom domain.
 
 ## Deployment States
 
@@ -44,3 +43,7 @@ When a new Deployment is triggered, older deploys in a `Crashed` and `Success` s
 ## Singleton Deploys
 
 By default, Railway maintains only one deploy per service.
+
+## Support
+
+For information on how to manage your deployments, explore [the guides in this section](/how-to/configure-deployments).

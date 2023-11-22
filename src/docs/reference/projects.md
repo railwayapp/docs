@@ -2,12 +2,7 @@
 title: Projects
 ---
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1645132880/docs/project-page_ihrmaq.png"
-alt="GIF of the CLI in Action"
-layout="intrinsic"
-width={779} height={442} quality={100} />
-
-A Railway project contains any plugins, environments, and deployments that an app needs. If you are logged in, projects can be found on [your project dashboard](https://railway.app/dashboard).
+A Railway project contains services, environments, and deployments related to an application or system in Railway. If you are logged in, projects can be found on <a href="https://railway.app/dashboard" target="_blank">your project dashboard</a>.
 
 ## Project Resources
 
@@ -46,12 +41,12 @@ Public visibility is helpful for educators who want to show students how their p
 - Environment variables are private from viewers
 - Services and Deployment logs are public
 
-Find instructions for updating your project's visibility [here](/how-to/projects#updating-project-visibility).
+Find instructions for updating your project's visibility [here](/how-to/create-and-manage-projects#updating-project-visibility).
 
 ## Transferring Projects
 
-Users can transfer projects to other users or to Teams if they have just signed up for Pro.
+Users can transfer projects to other users or to Teams if they have signed up for Pro.
 
 - Project transfers to other users are only allowed for users subscribed to the [Hobby Plan](/reference/pricing#plans) (both the initiator and recipient of the transfer).
 
-- Project transfers to [Teams]() are only allowed for users who are members of an existing Team.
+- Project transfers to [Teams](/reference/teams) are only allowed for users who are members of an existing Team.

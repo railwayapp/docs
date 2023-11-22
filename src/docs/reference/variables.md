@@ -4,7 +4,9 @@ title: Variables
 
 Variables provide a powerful way to manage configuration and secrets across services in Railway.
 
-When defined, they are made available to your application as environment variables in the following scenarios:
+## How it Works
+
+When defined, variables are made available to your application as environment variables in the following scenarios:
 
 - The build process for each service deployment.
 - The running service deployment.
@@ -13,23 +15,37 @@ When defined, they are made available to your application as environment variabl
 
 In Railway, there is also a notion of configuration variables which allow you to control the behavior of the platform.
 
-## Service Variables
+## Template Syntax
+
+Railway's templating syntax gives you flexibility in managing variables. You can combine additional text or even other variables, to construct the values that you need.
+
+```
+${{NAMESPACE.VAR}}
+```
+
+- `NAMESPACE` - The value for NAMESPACE is determined by the location of the variable being referenced.  For a shared variable, the namespace is "shared".  For a variable defined in another service, the namespace is the name of the service, e.g. "Postgres" or "backend-api".
+- `VAR` - The value for VAR is the name, or key, of the variable being referenced.
+
+## Types of Variables
+
+In Railway, there is a notion of service variables, shared variables, reference variables, and a few kinds of reserved variables.
+
+### Service Variables
 
 Service variables are scoped to a specific service.  They can be referenced in other services by using a Reference Variable.
 
-## Shared Variables
+### Shared Variables
 
 Shared variables help reduce duplication of variables across multiple services within the same project. 
 
-## Reference Variables
+### Reference Variables
 
 Reference variables are those defined by referencing variables in other services, shared variables, or even variables in the same service.  This is useful for ease of maintenance, allowing you to set a variable in a single place and reference it as needed.
 
-Reference variables use Railway's [template syntax](/develop/variables#template-syntax) in a specific format - `${{NAMESPACE.VAR}}` - where `NAMESPACE` can either be a service's name or the value `shared` (depending on where the variable is defined that you need to access) and `VAR` is the variable name.
+Reference variables use Railway's [template syntax](/reference/variables#template-syntax).
 
-When using reference variables, you also have access to [Railway-provided variables](/develop/variables#railway-provided-variables).
 
-## Railway-Provided Variables
+### Railway-Provided Variables
 
 Railway provides the following additional system environment variables to all
 builds and deployments.
@@ -53,7 +69,7 @@ builds and deployments.
 | `RAILWAY_VOLUME_NAME`          | The name of the attached volume, if any. Example: `foobar`                                       |
 | `RAILWAY_VOLUME_MOUNT_PATH`    | The mount path of the attached volume, if any. Example: `/data`                                  |
 
-## Git Variables
+### Git Variables
 
 These variables are provided if the deploy originated from a GitHub trigger.
 
@@ -66,7 +82,7 @@ These variables are provided if the deploy originated from a GitHub trigger.
 | `RAILWAY_GIT_REPO_OWNER`     | The name of the repository owner that triggered the deployment. Example: `mycompany`                                                                                                                 |
 | `RAILWAY_GIT_COMMIT_MESSAGE` | The message of the commit that triggered the deployment. Example: `Fixed a few bugs`                                                                                                                 |
 
-## User-Provided Configuration Variables
+### User-Provided Configuration Variables
 
 Users can use the following environment variables to configure Railway's behaviour.
 
@@ -76,3 +92,7 @@ Users can use the following environment variables to configure Railway's behavio
 | `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service, its default value is `Dockerfile`. Example: `Railway.dockerfile`                               |
 | `NIXPACKS_CONFIG_FILE`               | The path to the Nixpacks configuration file relative to the root of the app, its default value is `nixpacks.toml`. Example: `frontend.nixpacks.toml` |
 | `RAILWAY_HEALTHCHECK_TIMEOUT_SEC`    | The timeout length (in seconds) of healthchecks. Example: `300`                                        
+
+## Support
+
+For information on how to use variables refer to the [guide on using variables](/how-to/use-variabls).

@@ -4,6 +4,13 @@ title: Volumes
 
 Volumes is a feature that allows you to store persistent data for services on Railway.
 
+## How it works
+
+When creating a service in Railway, you have the option to mount a volume to the service and specify a mount path.
+
+When the service is deployed, the volume is made available to the service on the specified mount path.
+
+Refer to the guide on [how to use volumes](/how-to/use-volumes) for more details.
 
 ## Limits
 

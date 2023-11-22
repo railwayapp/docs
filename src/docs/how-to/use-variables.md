@@ -40,7 +40,7 @@ From your Project Settings -> Shared Variables page, choose the Environment, ent
 #### Use a shared variable
 To use a shared variable, either click the Share button from the Project Settings -> Shared Variables menu and select the services with which to share, or visit the Variables tab within the service itself and click "Shared Variable".
 
-Adding a shared variables to a service creates a [Reference Variable](/develop/variables#reference-variables) in the service.
+Adding a shared variables to a service creates a [Reference Variable](/reference/variables#reference-variables) in the service.
 
 ## Reference Variables
 
@@ -48,7 +48,7 @@ Reference variables are those defined by referencing variables in other services
 
 When using reference variables, you also have access to [Railway-provided variables](/how-to/variables#railway-provided-variables).
 
-Railway's [template syntax](/develop/variables#template-syntax) is used when defining reference variables.
+Railway's [template syntax](/reference/variables#template-syntax) is used when defining reference variables.
 
 ### Referencing a Shared variable
 

@@ -103,6 +103,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Use Templates", "how-to"),
         pages: [
           makePage("Create a Template", "how-to"),
+          makePage("Publish and Share Templates", "how-to"),
           makePage("Deploy a Template", "how-to"),
         ]
       },
@@ -127,7 +128,6 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Develop", "reference"),
         pages: [
-          makePage("CLI API", "reference"),
           makePage("Databases", "reference"),
           makePage("Environments", "reference"),
           makePage("Projects", "reference"),
@@ -150,6 +150,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Monorepo", "reference"),
           makePage("Private Networking", "reference"),
           makePage("Public Domains", "reference"),
+          makePage("Scaling", "reference"),
           makePage("TCP Proxy", "reference"),
         ]
       },
@@ -158,7 +159,6 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Logging", "reference"),
           makePage("Metrics", "reference"),
-          makePage("Project Usage", "reference"),
           makePage("Webhooks", "reference"),
         ]
       },
@@ -168,11 +168,13 @@ export const sidebarContent: ISidebarContent = [
           makePage("Accounts", "reference"),
           makePage("Pricing", "reference"),
           makePage("Priority Boarding", "reference"),
+          makePage("Project Usage", "reference"),
           makePage("Support", "reference"),
           makePage("Teams", "reference"),
           makePage("Usage Limits", "reference"),
         ]
-      },      
+      },
+      makePage("CLI API", "reference"),
       makePage("Public API", "reference"),
       makePage("Templates", "reference"),
     ], 

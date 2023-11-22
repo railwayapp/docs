@@ -4,18 +4,12 @@ title: App Sleeping
 
 <PriorityBoardingBanner />
 
-App Sleeping allows you to increase the efficiency of resource utilization on Railway.  It may reduce the resource usage cost of a [service](/develop/services) by ensuring you only use what you need, when you need it.
+App Sleeping allows you to increase the efficiency of resource utilization on Railway.  It may reduce the resource usage cost of a [service](/reference/services) by ensuring you only use what you need, when you need it.
 
-## What is App Sleeping?
 
-Enabling App Sleep on a service tells Railway to stop a service when it is inactive, effectively reducing the overall cost to run it.
+## How it Works
 
 App sleeping enables automated detection of an inactive service based on outbound traffic.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1696017787/events_gjkaob.png"
-alt="App Sleeping in the Activity Feed"
-layout="intrinsic"
-width={700} height={460} quality={100} />
 
 ### Inactive Service Detection
 
@@ -33,3 +27,7 @@ The first request made to a service wakes a sleeping service.  It may take a sma
 - [Private Networking](/reference/private-networking) does not currently work with App Sleeping
 - For Railway to put a service to sleep, a service must not send *outbound* traffic for at least 10 minutes. Outbound traffic can include telemetry, NTP, etc.  Inbound traffic is excluded from considering when to sleep a service.
 - Enabling App Sleeping will apply the setting across all [Replicas](https://docs.railway.app/develop/services#horizontal-scaling-with-replicas)
+
+## Support
+
+For information on how to enable app sleeping on your services refer to the [how to guide](/how-to/configure-deployment-lifecycle#enable-app-sleeping).

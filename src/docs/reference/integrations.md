@@ -2,11 +2,13 @@
 title: Integrations
 ---
 
+Railway offers easy integrations out of the box, as well as features to enable building your own integrations.
+
 ## Project Tokens
 
 Project tokens can be used in environments where you cannot login (e.g. remote
 servers or CI). You can create project tokens for a specific [Railway
-environment](/develop/environments) on the project page.
+environment](/referece/environments) on the project page.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1644622499/docs/projecttokens_lwjgat.png"
 alt="Screenshot of Project Canvas"
@@ -25,12 +27,11 @@ RAILWAY_TOKEN=XXXX railway run
 
 ### Vercel
 
-Use the [Railway Vercel
-integration](https://vercel.com/changelog/railway-integration-postgres-redis-mysql)
-to provide your production and preview deployments with access to your [Railway
+Use the <a href="https://vercel.com/changelog/railway-integration-postgres-redis-mysql" target="_blank">Railway Vercel
+integration</a> to provide your production and preview deployments with access to your [Railway
 environments](/develop/environments).
 
-Under Project Settings > Integrations in your project dashboard, you can connect
+You can enable this integration in your project dashboard by connecting
 to your Vercel account, specify a team, project, and production/preview
 environments. We will then provide your production and preview deployments on Vercel
 with all the environment variables needed to connect to your Railway
@@ -42,19 +43,8 @@ This allows you to keep production and preview deployment databases separate.
 
 We are working on adding more integrations to various serverless platforms.
 However, if you want to use Railway for a platform we do not support, you can
-manually add the environment variables for each plugin (e.g. the `DATABASE_URL`
-for the Postgres plugin).
-
-## Self Hosted Server
-
-You can deploy to a separate server (e.g. AWS, GCP, DigitalOcean) and still
-connect to your Railway plugins. On the server, you can either login to the CLI
-with `railway login` or use a [project token](/deploy/integrations#project-tokens). Then prefix the
-server start command with `railway run`.
-
-```shell:always
-railway run start-server
-```
+manually add the environment variables for any of your services (e.g. the `DATABASE_URL`
+for Postgres) to the serverless platform.
 
 ## GitHub Integration
 
@@ -70,4 +60,5 @@ It's common for developers to store secrets in environment variables. However, t
 
 ### Doppler
 
-You can get instructions on how to use Doppler with Railway on the [Doppler Docs](https://docs.doppler.com/docs/railway).
+You can get instructions on how to use Doppler with Railway on the <a href="https://docs.doppler.com/docs/railway" target="_blank">Doppler Docs
+integration</a>.
