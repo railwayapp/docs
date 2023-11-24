@@ -18,7 +18,7 @@ dashboard.
 
 These configuration examples are equivalent.
 
-### Toml
+### TOML
 
 In a `railway.toml` file:
 ```toml
@@ -33,7 +33,7 @@ healthcheckTimeout = 100
 restartPolicyType = "never"
 ```
 
-### Json
+### JSON
 
 In a `railway.json` file:
 ```json
@@ -80,7 +80,7 @@ Possible values are:
 - `NIXPACKS`
 - `DOCKERFILE`
 
-Note: Railway will always build with a Dockerfile if it finds one. To build with nixpacks, you can remove or rename the Dockerfile..
+Note: Railway will always build with a Dockerfile if it finds one. To build with Nixpacks, you can remove or rename the Dockerfile..
 
 ### [Watch Patterns](/deploy/builds#watch-paths)
 
@@ -126,7 +126,7 @@ This field can be set to `null`.
 
 ### Nixpacks Plan
 
-Full nixpacks plan. See https://nixpacks.com/docs/configuration/file for more info.
+Full Nixpacks plan. See https://nixpacks.com/docs/configuration/file for more info.
 
 ```toml
 [build]
@@ -290,7 +290,7 @@ In a `railway.json` file:
 
 Deployments for pull requests can be configured using a special `pr` environment. This configuration is applied only to deploys that belong to an ephemeral environment. When resolving the settings for a PR deployment, the following priority order is used:
 1. Environment with the name of the ephemeral environment
-2. Environment with the hardcoded name "pr"
+2. Environment with the hardcoded name `pr`
 3. Base environment of the pull request
 4. Base config as code
 5. Service settings

@@ -3,7 +3,7 @@ title: Logging
 ---
 
 Any build or deployment logs emitted to standard output or standard error (
-eg. `console.log(...)`) is captured by Railway to be viewed or searched later.
+e.g. `console.log(...)`) is captured by Railway to be viewed or searched later.
 
 Depending on your plan, logs are retained for a certain amount of time.
 

@@ -4,7 +4,7 @@ title: Migrate from Heroku
 
 Migrating your app from Heroku to Railway is very simple.  We even support Procfiles out of the box. (Only a single process is supported for now).
 
-All you need to do is create a project in Railway, push your code, and migrate your envionment variables.
+All you need to do is create a project in Railway, push your code, and migrate your environment variables.
 
 This guide will step you through the process of migrating a simple web service, using the [Railway CLI](/develop/cli).
 

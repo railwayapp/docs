@@ -101,7 +101,7 @@ To apply for an Educational License, please [contact us](mailto:team@railway.app
 - The number of students you would like to purchase credits for
 - The time period you would like the credits to be valid for
 
-Eligible institutions that are eligible include as profit and non-profit institutions as: State Universities, Private Universities, Technical Training Centers a.k.a. Bootcamps, Community Colleges, and High Schools.
+Eligible institutions include for-profit and non-profit institutions such as: state universities, private universities, technical training centers (a.k.a. bootcamps), community colleges, and high schools.
 
 ## FAQs
 
@@ -112,7 +112,7 @@ Common questions related to pricing.
 <Collapse title="Which plan is right for me?">
 - **Hobby** is for indie hackers and developers to build and deploy personal projects
 - **Pro** is for professional developers and their teams shipping to production
-- **Enterprise** is for dev teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
+- **Enterprise** is for teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
 </Collapse>
 <Collapse title="Can I add collaborators to my project?">
 Railway's Pro and Enterprise plans are designed for collaboration. These plans allow you to add members to your team and manage their permissions.
@@ -151,7 +151,7 @@ While you're on the Limited Trial, you can initiate verification at any time by 
 </Collapse>
 
 <Collapse title="How far will the $5 one-time Trial grant last?">
-The longevity of your one-time trial grant depends on how many resources you consume. A project that uses most of the resources available on the Trial plan 24/7 will consume the credits in roughly a month, while a simple webserver may be able to run for several months before running out.
+The longevity of your one-time trial grant depends on how many resources you consume. A project that uses most of the resources available on the Trial plan 24/7 will consume the credits in roughly a month, while a simple web server may be able to run for several months before running out.
 </Collapse>
 
 ### Usage

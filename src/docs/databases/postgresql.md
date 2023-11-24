@@ -37,7 +37,7 @@ To access your PostgreSQL database over the public internet, you can use the con
 
 This connection string uses the [TCP Proxy connection](/deploy/exposing-your-app#tcp-proxying) to route communication to your service over the public internet.
 
-You can also connect using psql shell:
+You can also connect using `psql` shell:
 ```bash
 psql "postgres://railway:PASSWORD@PROXY_DOMAIN:PROXY_PORT/railway"
 ```
@@ -58,12 +58,11 @@ it to connect to PostgreSQL but you can use these variables in whatever way work
 
 ## Image
 
-The Postgres database service uses Railway's [SSL-enabled Postgres image](https://github.com/railwayapp-templates/postgres-ssl/pkgs/container/postgres-ssl), which uses the official [postgres](https://hub.docker.com/_/postgres) image in Docker Hub as its base.
+The Postgres database service uses Railway's [SSL-enabled Postgres image](https://github.com/railwayapp-templates/postgres-ssl/pkgs/container/postgres-ssl), which uses the official [Postgres](https://hub.docker.com/_/postgres) image in Docker Hub as its base.
 
 ## Changing System Variables
 
-Tailor your PostgreSQL service to your needs by adding any variables relevant to the [postgres](https://hub.docker.com/_/postgres) image.
-
+Tailor your PostgreSQL service to your needs by adding any variables relevant to the [Postgres](https://hub.docker.com/_/postgres) image.
 
 ## Timescale and PostGIS
 

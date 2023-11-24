@@ -231,7 +231,7 @@ query variables {
 }
 ```
 
-#### Upsert variable for a service
+#### Upsert a variable for a service
 
 The mutation below will upsert a new variable for the specified service within the specified environment. You can use this to both create and update variables.
 

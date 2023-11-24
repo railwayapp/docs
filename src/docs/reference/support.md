@@ -65,7 +65,7 @@ Reach out to us at [team@railway.app](mailto:team@railway.app) for more informat
 For Business Class customers, we offer Direct Support over chat channels. This allows you to have a dedicated channel for your team to communicate with Railway.
 
 - In Discord, we'll create a dedicated channel for you and your team
-- In Slack, we'll embed Railway Engineers into one of your workspace's channels
+- In Slack, we'll embed Railway Engineers into one of your channels
 - If you'd like to set this up over other channels (e.g. Microsoft Teams), let us know
 
 Reach out to us at [team@railway.app](mailto:team@railway.app) on setting this up.
