@@ -126,7 +126,6 @@ If your published template is deployed into other users' projects, you are immed
 #### Important things to note
 
 - Your template must be published to the marketplace to be eligible for kickback.
-- For Hobby users with a $5 discount, only usage in excess of the discount is counted in the kickback.
 - Platform fees are not included in the kickback, but usage fees of the platform are included. Examples of platform fees are:
 
   - Cost of Subscription Plan ($5 for Hobby, $20 for Pro)
