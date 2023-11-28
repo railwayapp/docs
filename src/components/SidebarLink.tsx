@@ -9,12 +9,10 @@ interface SidebarLinkProps {
     item: IPage | ISubSection | IExternalLink;
     isCurrentPage: (pageSlug: string) => boolean;
     isExpanded: boolean;
-    isTopLevelPage?: boolean;
-    onToggleSubSection: () => void;
-    onSvgToggle: () => void;
+    onToggleSubSection: (subTitleSlug: string, isTopLevelPageClick?: boolean, isDirectToggle?: boolean) => void;
   }
 
-const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpanded, onToggleSubSection, onSvgToggle }) => {
+const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpanded, onToggleSubSection }) => {
     
     const arrowSvg = isExpanded ? ( 
         <svg css={[tw`h-4 w-4 text-gray-700`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -69,7 +67,9 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpand
               >
                 <Link
                   href={item.subTitle.slug}
-                  onClick={onToggleSubSection}
+                  onClick={() => {
+                    onToggleSubSection(item.subTitle.slug, true, false);
+                  }}
                   css={[
                     tw`text-gray-700 text-sm flex-grow hover:text-foreground`,
                     isCurrentPage(item.subTitle.slug) &&
@@ -79,7 +79,10 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpand
                   {item.subTitle.title}
                 </Link>
                 <div
-                  onClick={onSvgToggle} 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onToggleSubSection(item.subTitle.slug, false, true);
+                  }}
                   css={[
                     tw`cursor-pointer p-2 -m-2`,
                   ]}

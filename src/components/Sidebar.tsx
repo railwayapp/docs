@@ -92,23 +92,26 @@ const SidebarContent: React.FC = () => {
     }
   };
     
-  const toggleSubSection = (subTitleSlug: string, svgToggle = false, isTopLevelPageClick = false) => {
-    console.log(isTopLevelPageClick)
+  const toggleSubSection = (subTitleSlug: string, isTopLevelPageClick = false, isDirectToggle = false) => {
     setExpandedSubSections(prevState => {
-      if (isTopLevelPageClick && prevState.includes(subTitleSlug) && !svgToggle) {
-        // Do not collapse if it's a top-level page click and the section is already expanded 
-        // and the click happened on the title and not the svg
+      if (isDirectToggle) {
+        // Directly toggle the subsection when SVG is clicked
+        return prevState.includes(subTitleSlug) 
+          ? prevState.filter(slug => slug !== subTitleSlug) 
+          : [...prevState, subTitleSlug];
+      } else if (isTopLevelPageClick && prevState.includes(subTitleSlug)) {
+        // Do not collapse if it's a top-level page click and the section is already expanded
         return prevState;
-      } else if (prevState.includes(subTitleSlug)) {
-        // Collapse if already expanded
-        return prevState.filter(slug => slug !== subTitleSlug);
-      } else {
-        // Expand the clicked subsection
+      } else if (isTopLevelPageClick) {
+        // Expand the clicked top-level section if it's not already expanded
         return [...prevState, subTitleSlug];
+      } else {
+        // For all other cases (like external links), maintain the current state
+        return prevState;
       }
     });
   };
-
+  
   const renderContentItem = (item: IPage | ISubSection | IExternalLink) => {
     let itemSlug = '';
 
@@ -126,9 +129,8 @@ const SidebarContent: React.FC = () => {
         item={item}
         isCurrentPage={isCurrentPage}
         isExpanded={expandedSubSections.includes(itemSlug)}
-        isTopLevelPage={'subTitle' in item}
-        onToggleSubSection={() => toggleSubSection(itemSlug, 'subTitle' in item)}
-        onSvgToggle={() => toggleSubSection(itemSlug, true, 'subTitle' in item)}
+        onToggleSubSection={(itemSlug, isTopLevelPageClick = false, isDirectToggle = false) => 
+          toggleSubSection(itemSlug, isTopLevelPageClick, isDirectToggle)}
       />
     );
   };
