@@ -1,5 +1,5 @@
 ---
-title: Builds
+title: Nixpacks
 ---
 
 Railway uses [Nixpacks](https://nixpacks.com) to build and deploy your code with

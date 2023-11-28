@@ -2,32 +2,26 @@
 title: Volumes
 ---
 
-Volumes is a feature that allows you to store persistent data for services on Railway.
+Volumes are a feature that enables persistent data for [services](/reference/services) on Railway.
 
 ## How it works
 
-When creating a service in Railway, you have the option to mount a volume to the service and specify a mount path.
+When mounting a volume to a service, a volume is made available to the service on the specified mount path.
 
-When the service is deployed, the volume is made available to the service on the specified mount path.
 
-Refer to the guide on [how to use volumes](/how-to/use-volumes) for more details.
+## Size Limits
 
-## Limits
-
-Volumes have a max size based on the type of plan you are on. This may change
-after the priority boarding period:
+Volumes have a max size based on the [subscription plan](reference/pricing#plans).
 - Trial and Hobby plans: **5GB**
 - Pro and team plans: **50GB**
 
-Please reach out if you need more space.
+Please reach out to us at [team@railway.app](mailto:team@railway.app) if you need more space.
 
 ## Pricing
 
-You are only charged for the amount of storage used by your volumes. Each volume requires a small amount of space to store metadata about the filesystem, so a new volume will start with a small amount of space used.
-
 Volumes are billed at **$0.25 / GB**, billed monthly.
 
-Pricing is subject to change during the priority boarding period.
+You are only charged for the amount of storage used by your volumes. *Each volume requires a small amount of space to store metadata about the filesystem, so a new volume will start with a small amount of space used.*
 
 ## Caveats
 
@@ -45,3 +39,7 @@ of:
   corruption
 - There is no file browser, or direct file download. To access your files,
   you must do so via the attached service's mount point
+
+## Support
+
+Refer to the guide on [how to use volumes](/how-to/use-volumes) for more details on how to use the feature.

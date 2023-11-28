@@ -15,7 +15,7 @@ Using detected Dockerfile!
 
 By default, we look for a file named `Dockerfile` in the root directory.  If you want to use a custom filename or path, you can set a variable defining the path.
 
-In your [service variables](/develop/variables#defining-variables), set a variable named `RAILWAY_DOCKERFILE_PATH` to specify the path to the file.
+In your [service variables](/how-to/use-variables#service-variables), set a variable named `RAILWAY_DOCKERFILE_PATH` to specify the path to the file.
 
 For example, if your Dockerfile was called `Dockerfile.origin`, you would specify it like this:
 ```
@@ -30,7 +30,7 @@ RAILWAY_DOCKERFILE_PATH=/build/Dockerfile
 
 ### Use Config as Code
 
-You can also set your custom Dockerfile path using [config as code](/how-to/use-config-as-code#dockerfile-path).
+You can also set your custom Dockerfile path using [config as code](/how-to/use-config-as-code).
 
 
 ## Using Variables at Build Time

@@ -17,14 +17,22 @@ In Railway, there is also a notion of configuration variables which allow you to
 
 ## Template Syntax
 
-Railway's templating syntax gives you flexibility in managing variables. You can combine additional text or even other variables, to construct the values that you need.
+Railway's templating syntax gives you flexibility in managing variables:
 
-```
+```plaintext
 ${{NAMESPACE.VAR}}
 ```
 
 - `NAMESPACE` - The value for NAMESPACE is determined by the location of the variable being referenced.  For a shared variable, the namespace is "shared".  For a variable defined in another service, the namespace is the name of the service, e.g. "Postgres" or "backend-api".
 - `VAR` - The value for VAR is the name, or key, of the variable being referenced.
+
+You can also combine additional text or even other variables, to construct the values that you need:
+
+```plaintext
+DOMAIN=${{shared.DOMAIN}}
+GRAPHQL_PATH=/v1/gql
+GRAPHQL_ENDPOINT=https://${{DOMAIN}}/${{GRAPHQL_PATH}}
+```
 
 ## Types of Variables
 

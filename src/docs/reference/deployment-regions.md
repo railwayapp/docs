@@ -31,13 +31,13 @@ All regions provide the same experience, performance, and reliability you expect
 
 The region of a service can be changed at any time, without any changes to your domain, private networking, etc.
 
-There will be no downtime when changing the region of a service, except if it has a volume attached to it (see next section).
+There will be no downtime when changing the region of a service, except if it has a volume attached to it (see below).
 
 ### Volumes
 
-Volumes are following the region of the service they are attached to. This means if you attach a new volume to a service, it will be deployed in the same region as the service.
+Volumes follow the region of the service to which they are attached.
 
-If you change the region of a service with an existing attached volume, you will get warned about the volume needing to be migrated to the new region.
+If you change the region of a service with an attached volume, the volume will need to be migrated to the new region.
 
 <Image
     quality={100}
@@ -59,7 +59,3 @@ Note that this migration can take a while depending on the size of the volume, a
 
 
 The same is true if you attach a detached volume to a service in a different region. It will need to be migrated to the new region, which can take a while and cause downtime.
-
-### Caveats
-
-You can't deploy database services to different regions. We recommend deploying Official Database Templates instead.  

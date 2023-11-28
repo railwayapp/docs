@@ -70,7 +70,7 @@ Currently we use a random load balancing strategy for TCP traffic.
 
 ## Private Networks
 
-To expose an application on the [private network](https://docs.railway.app/reference/private-networking) you need to
+To expose an application on the [private network](/reference/private-networking) you need to
 bind your application to the ipv6 address of `::` and specify the port(s) you want to use.
 
 ## Let's Encrypt SSL Certificates

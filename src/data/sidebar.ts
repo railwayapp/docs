@@ -29,7 +29,7 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "How To Guides",
+    title: "Guides",
     content: [
       {
         subTitle: makePage("Get Started","how-to"),
@@ -93,12 +93,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Manage Variables", "how-to"),
         ]
       },
-      {
-        subTitle: makePage("Use Config as Code", "how-to"),
-        pages: [
-          makePage("Configurable Settings", "how-to"),
-        ]
-      },
+      makePage("Use Config as Code", "how-to"),
       {
         subTitle: makePage("Use Templates", "how-to"),
         pages: [
@@ -140,7 +135,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Deploy", "reference"),
         pages: [
           makePage("App Sleeping", "reference"),
-          makePage("Builds", "reference"),
+          makePage("Build and Start Commands", "reference"),
           makePage("Config as Code", "reference"),
           makePage("Cron Jobs", "reference"),
           makePage("Deployments", "reference"),
@@ -149,6 +144,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Healthchecks", "reference"),
           makePage("Integrations", "reference"),
           makePage("Monorepo", "reference"),
+          makePage("Nixpacks", "reference"),
           makePage("Private Networking", "reference"),
           makePage("Public Domains", "reference"),
           makePage("Scaling", "reference"),

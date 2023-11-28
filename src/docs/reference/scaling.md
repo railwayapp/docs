@@ -2,26 +2,23 @@
 title: Scaling
 ---
 
-Scaling your applications in Railway is made easy with configurable options for horizontal scaling and built-in vertical autoscaling.
+Scaling your applications in Railway is made easy with configurable options for horizontal scaling as well as vertical autoscaling out-of-the-box.
 
 ## How it Works
 
 ### Vertical Autoscaling
 
-By default Railway will scale your service up to the the specified vCPU and Memory limits of your plan.
+By default Railway will scale your service up to the the specified vCPU and Memory limits of your [plan](/reference/pricing#plans).
 
 ### Horizontal Scaling with Replicas
 
-You can scale horizontally by manually increasing the number of replicas for a service.
+Scale horizontally by manually increasing the number of replicas for a service in the service settings.  Increasing the number of replicas on a service will create multiple instances of the service deployment.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1684534939/docs/Export-replica_lrtrvs.png"
-alt="Screenshot of replica setting"
-layout="responsive"
-width={800} height={317} quality={100} />
+#### Load Balancing Between Replicas
 
-#### Load Balancing between replicas
+Railway will round-robin requests to the replicas of a service. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
 
-At the moment, Railway will round-robin requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
+We plan to add more advanced load balancing strategies in the future.
 
 #### Sticky Sessions
 

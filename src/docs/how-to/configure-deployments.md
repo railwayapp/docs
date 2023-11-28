@@ -2,7 +2,7 @@
 title: Configure Deployments
 ---
 
-[Service Deployments](/reference/deployments) are attempts to build and deliver your application.
+[Deployments](/reference/deployments) are attempts to build and deliver your application.
 
 Explore the guides in this section to learn about deployments and how to configure them:
 - [Optimize Deployments](/how-to/optimize-deployments)

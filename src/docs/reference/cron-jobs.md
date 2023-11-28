@@ -6,19 +6,24 @@ Cron Jobs allow you to start a service based on a crontab expression.
 
 ## How it Works
 
-Railway will look for a defined cron schedule on your service settings, and execute the start command for that service on the given schedule.
+Railway will look for a defined cron schedule on your service settings, and execute the start command for that service on the given schedule.  The service is expected to execute a task, and terminate as soon as that task is finished, not leaving any resources open, such as database connections.  More on [execution requirements](/reference/cron-jobs#service-execution-requirements) below.
 
-The service is expected to execute a task, and terminate as soon as that task is finished, not leaving any resources open, such as database connections
-
-If any resources are left open, the service won't terminate and Railway wont't start it again until the previous execution has finished.
+#### Scheduling Libraries
 
 If you are already using a scheduling library or system in your service such as [node-cron](https://www.npmjs.com/package/node-cron) or [Quartz](http://www.quartz-scheduler.org/), Railway cron jobs are a substitute of them that allows you to save resources between executions.
 
-## Crontab expressions
+## Service Execution Requirements
 
-A crontab expression is a scheduling format used in Unix-like operating systems to specify when and how often a command or script should be executed automatically. It consists of five fields separated by spaces, representing different units of time. These fields specify the minute, hour, day of the month, month, and day of the week when the command should be executed.
+Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
 
-We use the same format for scheduling redeploys in Railway.
+At this moment, Railway won't terminate your process in any scenario. However, cron jobs may be skipped if the service is in the build/deploy stage when the next scheduled execution happens.
+
+## Crontab Expressions
+
+A crontab expression is a scheduling format used in Unix-like operating systems to specify when and how often a command or script should be executed automatically. 
+
+Crontab expressions consists of five fields separated by spaces, representing different units of time. These fields specify the minute, hour, day of the month, month, and day of the week when the command should be executed.
+
 
 ```
 * * * * *
@@ -32,17 +37,17 @@ We use the same format for scheduling redeploys in Railway.
 
 The values of these fields can be an asterisk `*`, a list of values separated by commas, a range of values (using `-`), step values (using `/`) or an integer value.
 
-Let's break down each field:
+#### Field Definitions
 
-- Minute (0-59): Represents the minute of the hour when the command should be executed. An asterisk (`*`) denotes any value, meaning the command will be executed every minute, or you can specify a specific minute value (e.g., 0, 15, 30).
+- **Minute (0-59)**: Represents the minute of the hour when the command should be executed. An asterisk (`*`) denotes any value, meaning the command will be executed every minute, or you can specify a specific minute value (e.g., 0, 15, 30).
 
-- Hour (0-23): Represents the hour of the day when the command should be executed. You can specify a specific hour value (e.g., 0, 6, 12), or use an asterisk (`*`) to indicate any hour.
+- **Hour (0-23)**: Represents the hour of the day when the command should be executed. You can specify a specific hour value (e.g., 0, 6, 12), or use an asterisk (`*`) to indicate any hour.
 
-- Day of the month (1-31): Represents the day of the month when the command should be executed. You can specify a specific day value (e.g., 1, 15, 31), or use an asterisk (`*`) to indicate any day.
+- **Day of the month (1-31)**: Represents the day of the month when the command should be executed. You can specify a specific day value (e.g., 1, 15, 31), or use an asterisk (`*`) to indicate any day.
 
-- Month (1-12): Represents the month when the command should be executed. You can specify a specific month value (e.g., 1, 6, 12), or use an asterisk (`*`) to indicate any month.
+- **Month (1-12)**: Represents the month when the command should be executed. You can specify a specific month value (e.g., 1, 6, 12), or use an asterisk (`*`) to indicate any month.
 
-- Day of the week (0-7, where both 0 and 7 represent Sunday): Represents the day of the week when the command should be executed. You can specify a specific day value (e.g., 0-Sunday, 1-Monday, etc.), or use an asterisk (`*`) to indicate any day of the week.
+- **Day of the week (0-7, where both 0 and 7 represent Sunday)**: Represents the day of the week when the command should be executed. You can specify a specific day value (e.g., 0-Sunday, 1-Monday, etc.), or use an asterisk (`*`) to indicate any day of the week.
 
 Note that schedules are based on UTC (Coordinated Universal Time).
 
@@ -87,12 +92,6 @@ The shortest time between successive executions of a cron job cannot be less tha
 - Run a command every 2nd day of the month at 6:00 AM:
 
   `0 6 2 * *`
-
-## Service execution
-
-Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
-
-At this moment, Railway won't terminate your process in any scenario. However, cron jobs may be skipped if the service is in the build/deploy stage when the next scheduled execution happens.
 
 ## Support
 
