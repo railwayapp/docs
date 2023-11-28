@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import tw from "twin.macro";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
@@ -9,6 +9,7 @@ import { ScrollArea } from "./ScrollArea";
 import { OpenSearchModalButton } from "@/components/Search";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
+import SidebarLink from "./SidebarLink";
 
 export const Sidebar: React.FC = ({ ...props }) => {
   return (
@@ -55,21 +56,19 @@ const SidebarContent: React.FC = () => {
     [slug],
   );
 
-  const findContainingSubSectionSlug = (sections: ISidebarSection[], currentPageSlug: string): string | undefined => {
-    for (const section of sections) {
+  const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]);
+
+  useEffect(() => {
+    const newExpandedSubSections = [];
+    for (const section of sidebarContent) {
       for (const item of section.content) {
-        if ('subTitle' in item && item.pages.some(p => 'slug' in p && p.slug === currentPageSlug)) {
-          return item.subTitle.slug;
+        if ('subTitle' in item && (item.subTitle.slug === prefixedSlug || item.pages.some(p => 'slug' in p && p.slug === prefixedSlug))) {
+          newExpandedSubSections.push(item.subTitle.slug);
         }
       }
     }
-  };
-
-  const initialExpandedSubSectionSlug = useMemo(() => {
-    return findContainingSubSectionSlug(sidebarContent, prefixedSlug ?? pathname);
+    setExpandedSubSections(newExpandedSubSections);
   }, [prefixedSlug, pathname]);
-
-  const [expandedSubSections, setExpandedSubSections] = useState<string[]>(initialExpandedSubSectionSlug ? [initialExpandedSubSectionSlug] : []);
 
   const isCurrentPage = (pageSlug: string) =>
     (prefixedSlug ?? pathname) === pageSlug;
@@ -93,149 +92,45 @@ const SidebarContent: React.FC = () => {
     }
   };
     
-  const toggleSubSection = (subTitle: string) => {
-    setExpandedSubSections(prevState =>
-      prevState.includes(subTitle)
-        ? prevState.filter(t => t !== subTitle)
-        : [...prevState, subTitle]
-    );
+  const toggleSubSection = (subTitleSlug: string, svgToggle = false, isTopLevelPageClick = false) => {
+    console.log(isTopLevelPageClick)
+    setExpandedSubSections(prevState => {
+      if (isTopLevelPageClick && prevState.includes(subTitleSlug) && !svgToggle) {
+        // Do not collapse if it's a top-level page click and the section is already expanded 
+        // and the click happened on the title and not the svg
+        return prevState;
+      } else if (prevState.includes(subTitleSlug)) {
+        // Collapse if already expanded
+        return prevState.filter(slug => slug !== subTitleSlug);
+      } else {
+        // Expand the clicked subsection
+        return [...prevState, subTitleSlug];
+      }
+    });
   };
 
   const renderContentItem = (item: IPage | ISubSection | IExternalLink) => {
-    if ('url' in item) {
-      // This is an external link
-      return (
-        <li key={item.url} css={[
-            tw`flex items-center`, 
-            tw`px-4 py-2`, 
-            tw`hover:bg-gray-100 hover:text-foreground`, 
-            tw`border-r-2 border-transparent`]}>
-          <a
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            css={[tw`text-gray-700 text-sm flex-grow`]}
-          >
-            {item.title}
-          </a>
-          <svg css={[tw`m-1 w-3 h-3 text-gray-700`]} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
-          </svg>
-        </li>
-      );
-    } else if ('subTitle' in item) {
-      // these are the expandable sections
-      const isExpanded = expandedSubSections.includes(item.subTitle.slug);
+    let itemSlug = '';
 
-      const handleToggleClick = (e: React.MouseEvent) => {
-        e.preventDefault(); // Prevent link navigation
-        toggleSubSection(item.subTitle.slug);
-      };
-
-      const arrowSvg = isExpanded ? (
-        <svg css={[tw`h-4 w-4 text-gray-700`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-          <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-        </svg>
-      ) : (
-        <svg css={[tw`h-4 w-4 text-gray-500`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-          <path fillRule="evenodd" d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z" clipRule="evenodd" />
-        </svg>
-      );
-
-      return (
-        // the first Link is the subTitle page, i.e. How To > Get Started
-        <li key={item.subTitle.slug}>
-          <div 
-            className={classNames(isCurrentPage(item.subTitle.slug) && `current`)}
-            css={[
-              tw`flex items-center`,
-              tw`px-4 py-2`,
-              tw`text-gray-700 text-sm`,
-              tw`hover:bg-gray-100 hover:text-foreground`,
-              tw`focus:outline-none focus:bg-pink-100`,
-              tw`border-r-2 border-transparent`,
-              isCurrentPage(item.subTitle.slug) &&
-                tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
-              ]}
-            >
-              <Link
-                href={item.subTitle.slug}
-                css={[
-                  tw`text-gray-700 text-sm flex-grow hover:text-foreground`,
-                  isCurrentPage(item.subTitle.slug) &&
-                  tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-pink-500`,
-                ]}
-              >
-                {item.subTitle.title}
-              </Link>
-              <div 
-              onClick={handleToggleClick} 
-              css={[tw`cursor-pointer mr-1 rounded hover:border hover:border-gray-300`]}
-              >
-                {arrowSvg}
-              </div>
-          </div>
-          {isExpanded && (
-            // these are the links in the expanded section
-            <ul>
-              {item.pages.map(page => (
-                'slug' in page ? (
-                  <li key={page.slug}>
-                    <Link
-                      href={page.slug}
-                      className={classNames(isCurrentPage(page.slug) && `current`)}
-                      css={[
-                        tw`text-gray-700 text-sm`,
-                        tw`block py-2`,
-                        tw`ml-4`,
-                        tw`pl-2`,
-                        tw`hover:bg-gray-100 hover:text-foreground`,
-                        tw`focus:outline-none focus:bg-pink-100`,
-                        isCurrentPage(page.slug) &&
-                          tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
-                      ]}
-                    >
-                      {page.title}
-                    </Link>
-                  </li>
-                ) : (
-                  <li key={page.url}>
-                    <a
-                      href={page.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      tw="text-gray-700 text-sm block px-4 py-2 pl-8 hover:bg-gray-100 hover:text-foreground"
-                    >
-                      {page.title}
-                    </a>
-                  </li>
-                )
-              ))}
-            </ul>
-          )}
-        </li>
-      );
-    } else {
-      // This is a page
-      return (
-        <li key={item.slug}>
-          <Link
-            href={item.slug}
-            className={classNames(isCurrentPage(item.slug) && `current`)}
-            css={[
-              tw`text-gray-700 text-sm`,
-              tw`block px-4 py-2`,
-              tw`hover:bg-gray-100 hover:text-foreground`,
-              tw`focus:outline-none focus:bg-pink-100`,
-              isCurrentPage(item.slug) &&
-                tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
-              ]}
-            >
-            {item.title}
-          </Link>
-        </li>
-      );
-    }
+    if ('slug' in item) {
+      itemSlug = item.slug;
+   } else if ('subTitle' in item) {
+      itemSlug = item.subTitle.slug;
+   } else if ('url' in item) {
+      itemSlug = item.url;
+   }
+    
+    return (
+      <SidebarLink
+        key={itemSlug}
+        item={item}
+        isCurrentPage={isCurrentPage}
+        isExpanded={expandedSubSections.includes(itemSlug)}
+        isTopLevelPage={'subTitle' in item}
+        onToggleSubSection={() => toggleSubSection(itemSlug, 'subTitle' in item)}
+        onSvgToggle={() => toggleSubSection(itemSlug, true, 'subTitle' in item)}
+      />
+    );
   };
 
   return (

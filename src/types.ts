@@ -22,7 +22,7 @@ export interface ISidebarSection {
 
 export interface ISubSection {
   subTitle: IPage;
-  pages: (IPage | IExternalLink)[];
+  pages: IPage[];
 }
 
 export namespace Search {
