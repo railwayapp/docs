@@ -80,7 +80,6 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
                     <Link
                       href={slug}
                       onClick={(e) => {
-                        // e.preventDefault();
                         onToggleSubSection(false);
                       }}
                       css={[
@@ -100,7 +99,10 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
                   }}
                   css={[
                     tw`pr-3 pl-2 py-2`,
+                    tw`hover:bg-gray-200 hover:border-y-2 hover:border-l-4 hover:border-gray-200`,
                     tw`hover:svg:text-foreground text-gray-700`,
+                    isCurrentPage(slug) &&
+                          tw`hover:bg-pink-200 hover:border-y-2 hover:border-l-4 hover:border-pink-200`,
                   ]}
                 >
                   {arrowSvg}

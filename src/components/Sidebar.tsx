@@ -59,16 +59,12 @@ const SidebarContent: React.FC = () => {
   const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]); 
 
   useEffect(() => {
-    // Only run this effect on initial component mount, or when the direct URL navigation happens
-    console.log(prefixedSlug)
-    console.log(pathname)
     const newExpandedSubSections = findContainingSubSectionSlugs(sidebarContent, prefixedSlug ?? pathname);
     setExpandedSubSections(prevExpandedSubSections =>Array.from(new Set([...prevExpandedSubSections, ...newExpandedSubSections])));
   }, [prefixedSlug]);
   
 
   const findContainingSubSectionSlugs = (sections: ISidebarSection[], currentPageSlug: string): string[] => {
-    console.log(currentPageSlug)
     let slugs: string[] = [];
     for (const section of sections) {
       for (const item of section.content) {
