@@ -6,13 +6,14 @@ import tw from 'twin.macro';
 import { IPage, ISubSection, IExternalLink } from "../types";
 
 interface SidebarLinkProps {
+    slug: string,
     item: IPage | ISubSection | IExternalLink;
     isCurrentPage: (pageSlug: string) => boolean;
     isExpanded: boolean;
     onToggleSubSection: (isDirectToggle: boolean) => void;
   }
 
-const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpanded, onToggleSubSection }) => {
+const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, isExpanded, onToggleSubSection }) => {
     
     const arrowSvg = isExpanded ? ( 
         <svg css={[tw`h-4 w-4`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -51,33 +52,47 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpand
         // these are the expandable sections
         return (
           // the first Link is the subTitle page, i.e. How To > Get Started
-          <li key={item.subTitle.slug}>
+          <li key={slug}>
             <div 
-              className={classNames(isCurrentPage(item.subTitle.slug) && `current`)}
+              className={classNames(isCurrentPage(slug) && `current`)}
               css={[
                 tw`flex justify-between items-center`,
                 tw`hover:bg-gray-100`,
                 tw`focus:outline-none focus:bg-pink-100`,
                 tw`border-r-2 border-transparent`,
-                isCurrentPage(item.subTitle.slug) &&
+                isCurrentPage(slug) &&
                   tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
                 ]}
               >
-                <Link
-                  href={item.subTitle.slug}
-                  onClick={(e) => {
-                    // e.preventDefault();
-                    onToggleSubSection(false);
-                  }}
-                  css={[
-                    tw`text-gray-700 flex-grow text-sm hover:text-foreground`,
-                    tw`pl-4 py-2`,
-                    isCurrentPage(item.subTitle.slug) &&
-                      tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-pink-500`,
-                  ]}
-                >
-                  {item.subTitle.title}
-                </Link>
+                { typeof item.subTitle === 'string' ? (
+                    <span
+                      onClick={(e) => {
+                        onToggleSubSection(true);
+                      }} 
+                      css={[
+                        tw`text-gray-700 flex-grow`,
+                        tw`hover:cursor-pointer`,
+                        tw`text-sm`,
+                        tw`pl-4 py-2`]}>
+                      {item.subTitle}
+                    </span>
+                  ) : (
+                    <Link
+                      href={slug}
+                      onClick={(e) => {
+                        // e.preventDefault();
+                        onToggleSubSection(false);
+                      }}
+                      css={[
+                        tw`text-gray-700 flex-grow text-sm hover:text-foreground`,
+                        tw`pl-4 py-2`,
+                        isCurrentPage(slug) &&
+                          tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-pink-500`,
+                      ]}
+                    >
+                      {item.subTitle.title}
+                    </Link>
+                )}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -119,16 +134,16 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpand
       } else {
         // This is a page
         return (
-          <li key={item.slug}>
+          <li key={slug}>
             <Link
-              href={item.slug}
-              className={classNames(isCurrentPage(item.slug) && `current`)}
+              href={slug}
+              className={classNames(isCurrentPage(slug) && `current`)}
               css={[
                 tw`text-gray-700 text-sm`,
                 tw`block px-4 py-2`,
                 tw`hover:bg-gray-100 hover:text-foreground`,
                 tw`focus:outline-none focus:bg-pink-100`,
-                isCurrentPage(item.slug) &&
+                isCurrentPage(slug) &&
                   tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
                 ]}
               >

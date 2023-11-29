@@ -56,24 +56,33 @@ const SidebarContent: React.FC = () => {
     [slug],
   );
 
-  const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]);
+  const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]); 
 
   useEffect(() => {
     // Only run this effect on initial component mount, or when the direct URL navigation happens
-    if (expandedSubSections.length === 0) {
-      const newExpandedSubSections = [];
-      for (const section of sidebarContent) {
-        for (const item of section.content) {
-          if ('subTitle' in item && (item.subTitle.slug === prefixedSlug || item.pages.some(p => 'slug' in p && p.slug === prefixedSlug))) {
-            newExpandedSubSections.push(item.subTitle.slug);
+    console.log(prefixedSlug)
+    console.log(pathname)
+    const newExpandedSubSections = findContainingSubSectionSlugs(sidebarContent, prefixedSlug ?? pathname);
+    setExpandedSubSections(prevExpandedSubSections =>Array.from(new Set([...prevExpandedSubSections, ...newExpandedSubSections])));
+  }, [prefixedSlug]);
+  
+
+  const findContainingSubSectionSlugs = (sections: ISidebarSection[], currentPageSlug: string): string[] => {
+    console.log(currentPageSlug)
+    let slugs: string[] = [];
+    for (const section of sections) {
+      for (const item of section.content) {
+        if ('subTitle' in item) {
+          const subTitleSlug = typeof item.subTitle === 'string' ? item.subTitle : item.subTitle.slug;
+          if (item.pages.some(p => p.slug === currentPageSlug) || subTitleSlug === currentPageSlug) {
+            slugs.push(subTitleSlug);
           }
         }
       }
-      setExpandedSubSections(newExpandedSubSections);
     }
-  }, [prefixedSlug, sidebarContent]);
+    return slugs;
+  }; 
   
-
   const isCurrentPage = (pageSlug: string) =>
     (prefixedSlug ?? pathname) === pageSlug;
 
@@ -115,15 +124,16 @@ const SidebarContent: React.FC = () => {
 
     if ('slug' in item) {
       itemSlug = item.slug;
-   } else if ('subTitle' in item) {
-      itemSlug = item.subTitle.slug;
-   } else if ('url' in item) {
+     } else if ('subTitle' in item) {
+      itemSlug = typeof item.subTitle === 'string' ? item.subTitle : item.subTitle.slug;
+     } else if ('url' in item) {
       itemSlug = item.url;
-   }
+     };
     
     return (
       <SidebarLink
         key={itemSlug}
+        slug={itemSlug}
         item={item}
         isCurrentPage={isCurrentPage}
         isExpanded={expandedSubSections.includes(itemSlug)}

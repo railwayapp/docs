@@ -27,7 +27,9 @@ const flattenSidebarContent = (sidebarContent: ISidebarContent): IPage[] => {
         return;
       } else if ('subTitle' in item) {
         // this is the subTitle page
-        flatPages.push(item.subTitle);
+        if (typeof item.subTitle !== 'string') {
+          flatPages.push(item.subTitle);
+        }
         // also used for skipping external links
         item.pages.forEach(page => {
           if (!('url' in page)) {

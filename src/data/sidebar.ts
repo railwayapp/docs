@@ -126,7 +126,7 @@ export const sidebarContent: ISidebarContent = [
     title: "Reference",
     content: [
       {
-        subTitle: makePage("Develop", "reference"),
+        subTitle: "Develop",
         pages: [
           makePage("Databases", "reference"),
           makePage("Environments", "reference"),
@@ -137,7 +137,7 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: makePage("Deploy", "reference"),
+        subTitle: "Deploy",
         pages: [
           makePage("App Sleeping", "reference"),
           makePage("Build and Start Commands", "reference"),
@@ -157,7 +157,7 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: makePage("Diagnose", "reference"),
+        subTitle: "Diagnose",
         pages: [
           makePage("Logging", "reference"),
           makePage("Metrics", "reference"),
@@ -165,7 +165,7 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: makePage("Operations", "reference"),
+        subTitle: "Operations",
         pages: [
           makePage("Accounts", "reference"),
           makePage("Priority Boarding", "reference"),
