@@ -9,16 +9,16 @@ interface SidebarLinkProps {
     item: IPage | ISubSection | IExternalLink;
     isCurrentPage: (pageSlug: string) => boolean;
     isExpanded: boolean;
-    onToggleSubSection: (subTitleSlug: string, isTopLevelPageClick?: boolean, isDirectToggle?: boolean) => void;
+    onToggleSubSection: (isDirectToggle: boolean) => void;
   }
 
 const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpanded, onToggleSubSection }) => {
     
     const arrowSvg = isExpanded ? ( 
-        <svg css={[tw`h-4 w-4 text-gray-700`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <svg css={[tw`h-4 w-4`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
         </svg> ) : (
-        <svg css={[tw`h-4 w-4 text-gray-500`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <svg css={[tw`h-4 w-4`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fillRule="evenodd" d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z" clipRule="evenodd" />
         </svg>
     );
@@ -55,10 +55,8 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpand
             <div 
               className={classNames(isCurrentPage(item.subTitle.slug) && `current`)}
               css={[
-                tw`flex items-center`,
-                tw`px-4 py-2`,
-                tw`text-gray-700 text-sm`,
-                tw`hover:bg-gray-100 hover:text-foreground`,
+                tw`flex justify-between items-center`,
+                tw`hover:bg-gray-100`,
                 tw`focus:outline-none focus:bg-pink-100`,
                 tw`border-r-2 border-transparent`,
                 isCurrentPage(item.subTitle.slug) &&
@@ -67,28 +65,31 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ item, isCurrentPage, isExpand
               >
                 <Link
                   href={item.subTitle.slug}
-                  onClick={() => {
-                    onToggleSubSection(item.subTitle.slug, true, false);
+                  onClick={(e) => {
+                    // e.preventDefault();
+                    onToggleSubSection(false);
                   }}
                   css={[
-                    tw`text-gray-700 text-sm flex-grow hover:text-foreground`,
+                    tw`text-gray-700 flex-grow text-sm hover:text-foreground`,
+                    tw`pl-4 py-2`,
                     isCurrentPage(item.subTitle.slug) &&
                       tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-pink-500`,
                   ]}
                 >
                   {item.subTitle.title}
                 </Link>
-                <div
+                <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    onToggleSubSection(item.subTitle.slug, false, true);
+                    onToggleSubSection(true);
                   }}
                   css={[
-                    tw`cursor-pointer p-2 -m-2`,
+                    tw`pr-3 pl-2 py-2`,
+                    tw`hover:svg:text-foreground text-gray-700`,
                   ]}
                 >
                   {arrowSvg}
-                </div>
+                </button>
             </div>
             {isExpanded && (
               // these are the links in the expanded section

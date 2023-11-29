@@ -114,6 +114,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Introduction to Tutorials", 'tutorials'),
       {title: "Deploy Cusdis", url: "https://blog.railway.app/p/cusdis"},
+      {title: "Gitlab CI/CD with Railway", url: "https://blog.railway.app/p/gitlab-ci-cd"},
       {title: "Deploy Ghost", url: "https://blog.railway.app/p/ghost"},
       {title: "Deploy Website Analytics", url: "https://blog.railway.app/p/self-hosted-website-analytics"},
       {title: "ExpressJS with Postgres", url: "https://blog.railway.app/p/expressjs-with-postgresql"},

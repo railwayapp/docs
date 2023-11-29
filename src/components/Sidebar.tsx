@@ -59,16 +59,20 @@ const SidebarContent: React.FC = () => {
   const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]);
 
   useEffect(() => {
-    const newExpandedSubSections = [];
-    for (const section of sidebarContent) {
-      for (const item of section.content) {
-        if ('subTitle' in item && (item.subTitle.slug === prefixedSlug || item.pages.some(p => 'slug' in p && p.slug === prefixedSlug))) {
-          newExpandedSubSections.push(item.subTitle.slug);
+    // Only run this effect on initial component mount, or when the direct URL navigation happens
+    if (expandedSubSections.length === 0) {
+      const newExpandedSubSections = [];
+      for (const section of sidebarContent) {
+        for (const item of section.content) {
+          if ('subTitle' in item && (item.subTitle.slug === prefixedSlug || item.pages.some(p => 'slug' in p && p.slug === prefixedSlug))) {
+            newExpandedSubSections.push(item.subTitle.slug);
+          }
         }
       }
+      setExpandedSubSections(newExpandedSubSections);
     }
-    setExpandedSubSections(newExpandedSubSections);
-  }, [prefixedSlug, pathname]);
+  }, [prefixedSlug, sidebarContent]);
+  
 
   const isCurrentPage = (pageSlug: string) =>
     (prefixedSlug ?? pathname) === pageSlug;
@@ -92,22 +96,16 @@ const SidebarContent: React.FC = () => {
     }
   };
     
-  const toggleSubSection = (subTitleSlug: string, isTopLevelPageClick = false, isDirectToggle = false) => {
+  const toggleSubSection = (subTitleSlug: string, isDirectToggle:boolean = false) => {
     setExpandedSubSections(prevState => {
       if (isDirectToggle) {
-        // Directly toggle the subsection when SVG is clicked
+        // Direct toggle when SVG icon is clicked
         return prevState.includes(subTitleSlug) 
-          ? prevState.filter(slug => slug !== subTitleSlug) 
+          ? prevState.filter(slug => slug !== subTitleSlug)
           : [...prevState, subTitleSlug];
-      } else if (isTopLevelPageClick && prevState.includes(subTitleSlug)) {
-        // Do not collapse if it's a top-level page click and the section is already expanded
-        return prevState;
-      } else if (isTopLevelPageClick) {
-        // Expand the clicked top-level section if it's not already expanded
-        return [...prevState, subTitleSlug];
       } else {
-        // For all other cases (like external links), maintain the current state
-        return prevState;
+        // Expand the clicked top-level section if it's not already expanded
+        return prevState.includes(subTitleSlug) ? prevState : [...prevState, subTitleSlug];
       }
     });
   };
@@ -129,8 +127,7 @@ const SidebarContent: React.FC = () => {
         item={item}
         isCurrentPage={isCurrentPage}
         isExpanded={expandedSubSections.includes(itemSlug)}
-        onToggleSubSection={(itemSlug, isTopLevelPageClick = false, isDirectToggle = false) => 
-          toggleSubSection(itemSlug, isTopLevelPageClick, isDirectToggle)}
+        onToggleSubSection={(isDirectToggle) => toggleSubSection(itemSlug, isDirectToggle)}
       />
     );
   };
