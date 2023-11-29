@@ -1,5 +1,5 @@
 ---
-title: View Logs
+title: Viewing Logs
 ---
 
 Any build or deployment logs emitted to standard output or standard error (

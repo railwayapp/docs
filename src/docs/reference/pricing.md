@@ -2,19 +2,25 @@
 title: Pricing
 ---
 
-## Introduction
-
 Railway plans and pricing are designed to support you however you work. We charge a base subscription fee for the plan you sign up to, on top of your resource and add-on usages.
 
+**Base Subscription Fee**
+
 The base subscription fee allows you to use the Railway platform and features included in the tier of your subscription.
+
+**Usage-based Pricing**
 
 Usage-based pricing means that you are only charged for the resources you actually use - this helps prevent runaway cloud costs and provides assurances that you're always getting the best deal possible on your cloud spend.
 
 ## Free Trial
 
-As a new user, you can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5. Full Trial users can deploy code and databases, while Limited Trial users can only deploy databases.
+New users can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5. 
+
+**Full vs Limited Trial**
 
 Your trial experience depends on whether Railway can verify your account. Read more about verification [here](#verification).
+
+Full Trial users can deploy code and databases, while Limited Trial users can only deploy databases.
 
 ## Plans
 
@@ -30,7 +36,7 @@ Railway offers three plans in addition to a free trial:
 - **Pro**: $20 / seat / mo
 - **Enterprise**: Custom pricing
 
-Read more about our plans at [railway.app/pricing](https://railway.app/pricing).
+Read more about our plans at <a href="https://railway.app/pricing" target="_blank">railway.app/pricing</a>.
 
 ### Usage Pricing
 

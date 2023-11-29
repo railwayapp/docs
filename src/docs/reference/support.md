@@ -14,7 +14,7 @@ Railway offers numerous tiers of support for our users. This page will cover the
 
 ### Hobby Plan users
 
-Railway has a [Discord server](https://discord.gg/railway) where you can get help from other users.
+Railway has a <a href="https://discord.gg/railway" target="_blank">Discord Server</a> where you can get help from other users.
 
 ### Pro Plan users
 
@@ -36,10 +36,10 @@ When emailing us, please do so from your Railway account's email address. This h
 
 ## Discord
 
-Railway has a vibrant community of users and developers on [Discord](https://discord.gg/railway). We encourage you to reach out to the community for help with your project. The community is a great place to get help with your project, learn new things, and meet other developers.
+Railway has a vibrant community of users and developers on  <a href="https://discord.gg/railway" target="_blank">Discord</a>. We encourage you to reach out to the community for help with your project. The community is a great place to get help with your project, learn new things, and meet other developers.
 
 Please ensure that you follow these rules in our community:
-- Ask questions in the [✋ ｜ help](https://discord.com/channels/713503345364697088/1006629907067064482) channel
+- Ask questions in the  <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> channel
 - Search for your issue first before making a thread
 - Give as much information as you can (see [How to ask for help](#how-to-ask-for-help))
 - Refrain from pinging anyone with the Team or Conductor roles in Discord

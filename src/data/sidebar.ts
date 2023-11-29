@@ -59,10 +59,14 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Configure Deployments", "how-to"),
         pages: [
-          makePage("Optimize Deployments", "how-to"),
-          makePage("Deploy a Monorepo", "how-to"),
+          makePage("Set a Start Command", "how-to"),
           makePage("Deployment Actions", "how-to"),
-          makePage("Configure Deployment Lifecycle", "how-to"),
+          makePage("Control Github Autodeploys", "how-to"),
+          makePage("Optimize Performance", "how-to"),
+          makePage("Healthchecks and Restart Policy", "how-to"),
+          makePage("Deploy a Monorepo", "how-to"),
+          makePage("Run a Cron Job", "how-to"),
+          makePage("Optimize Usage", "how-to"),
         ]
       },
       {
@@ -163,7 +167,6 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Operations", "reference"),
         pages: [
           makePage("Accounts", "reference"),
-          makePage("Pricing", "reference"),
           makePage("Priority Boarding", "reference"),
           makePage("Project Usage", "reference"),
           makePage("Support", "reference"),
@@ -174,6 +177,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("CLI API", "reference"),
       makePage("Public API", "reference"),
       makePage("Templates", "reference"),
+      makePage("Pricing", "reference"),
     ], 
   },
   {

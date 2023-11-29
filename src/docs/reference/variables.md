@@ -44,7 +44,7 @@ Service variables are scoped to a specific service.  They can be referenced in o
 
 ### Shared Variables
 
-Shared variables help reduce duplication of variables across multiple services within the same project. 
+Shared variables are scoped to a project and environment.  They help reduce duplication of variables across multiple services within the same project.
 
 ### Reference Variables
 
@@ -103,4 +103,4 @@ Users can use the following environment variables to configure Railway's behavio
 
 ## Support
 
-For information on how to use variables refer to the [guide on using variables](/how-to/use-variabls).
+For information on how to use variables refer to the [guide on using variables](/how-to/use-variables).

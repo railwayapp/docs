@@ -2,7 +2,7 @@
 title: Diagnose Reference
 ---
 
-Technical descriptions of concepts related to the monitoring, diagnosing, or troubleshooting in Railway.
+Technical descriptions of concepts related to monitoring, diagnosing, or troubleshooting in Railway.
 
 - [Logging](/reference/logging)
 - [Metrics](/reference/metrics)

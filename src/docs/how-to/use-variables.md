@@ -1,5 +1,5 @@
 ---
-title: Managing Variables
+title: Using Variables
 ---
 
 Variables provide a way to manage configuration and secrets across services in Railway.

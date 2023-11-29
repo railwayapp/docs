@@ -2,12 +2,12 @@
 title: Logging
 ---
 
-Logs for services deployed to Railway are made availabe for you to diagnose issues or track performance.
+Logs for services deployed to Railway are availabe to diagnose issues or track performance.
 
 ## How it Works
 
 Any build or deployment logs emitted to standard output or standard error (
-eg. `console.log(...)`) is captured by Railway to be viewed or searched later.
+eg. `console.log(...)`) are captured by Railway to be viewed or searched later.
 
 ## Log Retention
 
@@ -24,4 +24,4 @@ outside of the retention period._
 
 ## Viewing Logs
 
-For information on how to view logs, head over to the [how-to guide for logs](/how-to/view-logs).
+For information on how to view logs, head over to the [guide for using logs](/how-to/view-logs).

@@ -22,7 +22,11 @@ width={745} height={238} quality={80} />
 
 #### Start Command
 
-The command used to start the service, for example `npm run start`.  Override the detected start command by setting a value in your service settings.
+Railway automatically configures the start command based on the code being deployed.  
+
+If your code uses a [Dockerfile](/reference/dockerfiles), the start command defaults to the `ENTRYPOINT` and/or `CMD` defined in the Dockerfile.
+
+Override the detected start command by setting a value in your service settings.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-start-command_a8vcxs.png"

@@ -14,7 +14,7 @@ alt="Screenshot of TCP proxy configuration"
 layout="responsive"
 width={700} height={225} quality={100} />
 
-### Load Balancing 
+#### Load Balancing 
 
 Currently we use a random load balancing strategy for TCP traffic.
 

@@ -13,6 +13,8 @@ width={823} height={324} quality={80} />
 
 When a deployment's status changes, Railway will send a notification via HTTP to the URL provided in the webhook configuration.
 
+Deployment states can be found [here](/reference/deployments#deployment-states).
+
 ## Muxers
 
 Webhooks contain Muxers which will automatically identify webhook URLs and transform the payload based on where it's going. Below are the currently supported Muxers:

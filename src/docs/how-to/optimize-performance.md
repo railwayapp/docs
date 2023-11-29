@@ -1,5 +1,5 @@
 ---
-title: Optimize Deployments
+title: Optimize Performance
 ---
 
 Railway offers some quick and easy ways to configure deployments for achieving optimal performance.

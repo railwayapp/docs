@@ -6,7 +6,7 @@ Railway provides resource usage information on deployments within a service, whi
 
 ## How it Works
 
-For each service, Railway captures metric data.  These metrics are then made availabe in visualization within a service's panel, under the metrics tab.
+For each service, Railway captures metric data.  These metrics are then made availabe in graphs within a service's panel, under the metrics tab.
 
 ## Provided Metrics
 

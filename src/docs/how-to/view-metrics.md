@@ -1,12 +1,12 @@
 ---
-title: View Metrics
+title: Viewing Metrics
 ---
 
 Railway provides resource usage information on deployments within a service which can be used to diagnose issues with a project's performance.
 
 ## Accessing Service Metrics
 
-Access a service's metrics by click on a service in the project canvas, and going to the "Metrics" tab.
+Access a service's metrics by clicking on a service in the project canvas, and going to the "Metrics" tab.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1645223702/docs/metrics_angr0b.png"
 alt="Screenshot of Metrics Page"
@@ -22,8 +22,6 @@ The following metrics are provided:
 ## Understanding the Metrics Graphs
 
 Graphs include white lines to indicate when new deployments began. Only the past 7 days of data is available for each project.
-
-### Deployment Information
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1645223703/docs/usage-commit_fkvbqj.png"
 alt="Screenshot of Metric Timeseries Commit Information"

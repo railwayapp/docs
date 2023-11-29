@@ -2,19 +2,22 @@
 title: Configure Deployments
 ---
 
-[Deployments](/reference/deployments) are attempts to build and deliver your application.
+[Deployments](/reference/deployments) are attempts to build and deliver your [service](/reference/services).
 
-Explore the guides in this section to learn about deployments and how to configure them:
-- [Optimize Deployments](/how-to/optimize-deployments)
-  - [Horizontal Scaling with Replicas](/how-to/optimize-deployments#configure-horizontal-scaling)
-  - [Configure Regions](/how-to/optimize-deployments#configure-regions)
-- [Deploy a Monorepo](/how-to/deploy-a-monorepo)
+Explore the guides in this section to learn about how to configure services for optimal deployments:
+- [Set a Start Command](/how-to/set-a-start-command)
 - [Deployment Actions](/how-to/deployment-actions)
-- [Deployment Lifecycle](/how-to/configure-deployment-lifecycle)
-  - [Start Command]()
+- [Control Github Autodeploys](/how-to/control-github-autodeploys)
   - [Github Trigger Branch]()
+  - [Enable Check Suites]()
+- [Optimize Performance](/how-to/optimize-performance)
+  - [Horizontal Scaling with Replicas](/how-to/optimize-performance#configure-horizontal-scaling)
+  - [Configure Regions](/how-to/optimize-deployments#configure-regions)
+- [Healthchecks and Restart Policy](/how-to/healthchecks-and-restart-policy)
   - [Healthcheck Endpoint]()
-  - [Enable Check suites]()
   - [Restart policy]()
+- [Deploy a Monorepo](/how-to/deploy-a-monorepo)
+- [Run a Cron Job](/how-to/run-a-cron-job)
+- [Optimize Usage](/how-to/optimize-usage)
   - [App Sleeping]()
-  - [Run a Cron]()
+  - [Set Usage Limits]()
