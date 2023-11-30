@@ -49,7 +49,7 @@ You are now done! When your project deploys again, that Discord channel will get
 
 Slack supports integrating directly with webhooks.
 
-1. Enable incoming webhooks for your Slack instance (Tutorial [here](https://api.slack.com/messaging/webhooks#enable_webhooks))
-2. Get a hooks.slack.com address for your channel (Tutorial [here](https://api.slack.com/messaging/webhooks#create_a_webhook))
+1. Enable incoming webhooks for your Slack instance (Tutorial <a href="https://api.slack.com/messaging/webhooks#enable_webhooks" target="_blank">here</a>)
+2. Get a hooks.slack.com address for your channel (Tutorial <a href="https://api.slack.com/messaging/webhooks#create_a_webhook" target="_blank">here</a>)
 3. Open up Railway, navigate to your project. Under Deployments -> Settings -> Webhooks, paste your URL
 4. Click the checkmark to save

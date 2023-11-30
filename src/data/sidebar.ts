@@ -86,9 +86,17 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Monitoring", "guides"),
         pages: [
-          makePage("View Logs", "guides"),
-          makePage("View Metrics", "guides"),
-          makePage("Setup Webhooks", "guides"),
+          makePage("Logs", "guides"),
+          makePage("Metrics", "guides"),
+          makePage("Webhooks", "guides"),
+        ]
+      },
+      {
+        subTitle: makePage("Templates", "guides"),
+        pages: [
+          makePage("Create", "guides"),
+          makePage("Publish and Share", "guides"),
+          makePage("Deploy", "guides"),
         ]
       },
       {
@@ -101,14 +109,6 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       makePage("Config as Code", "guides"),
-      {
-        subTitle: makePage("Templates", "guides"),
-        pages: [
-          makePage("Create a Template", "guides"),
-          makePage("Publish and Share Templates", "guides"),
-          makePage("Deploy a Template", "guides"),
-        ]
-      },
     ],
   },
   {

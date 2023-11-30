@@ -1,8 +1,8 @@
 ---
-title: Use Database Services
+title: Database Services
 ---
 
-Ready to talk databases?
+Ready for databases?
 
 Railway's platform primitives are built with flexibility in mind, allowing you to build any type of service your system requires, including database services.
 

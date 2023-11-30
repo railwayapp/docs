@@ -10,7 +10,7 @@ You can either create a template from scratch or base it off of an existing proj
 
 ### Starting from Scratch
 
-The [Railway button page](https://railway.app/button) allows you to create templates to offer a 1-click deploy on Railway experience.
+The <a href="https://railway.app/button" target="_blank">Railway button page</a>. allows you to create templates to offer a 1-click deploy on Railway experience.
 
 Services within a template can be deployed from any public Github repository, or directly from a Docker image in Docker Hub or Github Container Registry.
 
@@ -44,18 +44,18 @@ Whether you are building from scratch or have started from an existing project, 
 
 In addition to the Source, you can configure the following fields to enable successful deploys for template users:
 
-- [Enable Public Networking](/how-to/exposing-your-app)
-- [Root Directory (Helpful for monorepos)](/how-to/deploy-a-monorepo)
-- [Start command](/how-to/deployments#start-command)
-- [Healthcheck Path](/how-to/configure-deployment-lifecycle#configure-healthcheck-endpoint)
-- [Volume mount path](/how-to/use-volumes)
-- [Variables](/how-to/use-variables) (with an optional description default value)
+- [Enable Public Networking](/guides/public-networking)
+- [Root Directory (Helpful for monorepos)](/guides/deploy-a-monorepo)
+- [Start command](/guides/start-command)
+- [Healthcheck Path](/guides/healthchecks-and-restarts#configure-healthcheck-endpoint)
+- [Volume mount path](/guides/volumes)
+- [Variables](/guides/variables) (with an optional description default value)
 
 ### Specifying a Branch
 
 When adding services to a template, you can enter a url to a GitHub repo's branch to have a user clone that instead of the `main` branch.
 
-### Template Variables Functions
+### Template Variable Functions
 
 Template variable functions allow you to dynamically generate variables (or parts of a variable) on demand when the template is deployed.
 
@@ -77,7 +77,7 @@ The current template variable functions are:
 
 ## Managing your Templates
 
-You can see all of your templates on your [Account's Templates page](https://railway.app/account/templates). Templates are separated into Personal and Published templates. You can edit, publish/unpublish and delete templates whenever you'd like!
+You can see all of your templates on your <a href="https://railway.app/account/templates" target="_blank">Account's Template page</a>. Templates are separated into Personal and Published templates. You can edit, publish/unpublish and delete templates whenever you'd like!
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1680281548/CleanShot_2023-03-31_at_20.51.43_2x_j8a83x.png"
  alt="Account templates page"

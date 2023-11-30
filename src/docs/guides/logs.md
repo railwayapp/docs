@@ -107,7 +107,7 @@ type StructuredLog = {
 ```
 
 Structured logs are best generated with a library for your language. For
-example, the default [Winston](https://github.com/winstonjs/winston) JSON
+example, the default <a href="https://github.com/winstonjs/winston" target="_blank">Winston</a>. JSON
 format emits logs in the correct structure by default.
 
 ### Examples

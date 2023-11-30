@@ -1,14 +1,18 @@
 ---
-title: Monitor Services
+title: Monitoring
 ---
 
-Learn how to monitor your service usage and performance in these guides.
+Let's learn about monitoring your services!
 
+At this point, you should be feeling confident in your understanding of the foundational concepts and operations in Railway.
+
+Now is a great time to learn how to dig into your service's logs and metrics, so you can debug issues or track performance between code deploys.  You'll also learn how to enable notifications when your [deployments change state](/reference/deployments#deployment-states).
+
+#### Main Concepts
 |||
 |-|-|
-| **Logs and Metrics** | A Project is like an application stack, or a system of related components.  Everything needed by the components in the system are encapsulated in a Project, including environments and variable.                                                                                   |
-| **Alerting** | Services are components that make up the Project. Services can be anything from frontend web servers, backend APIs, message queues, databases, etc.  Services can be configured with [variables](/guides/use-variables), start and run commands, restart policies, [volume mounts](/guides/use-volumes), etc. |
+| **Logs and Metrics** | Logs are the lines sent to `stdout` or `stderr` from your application code.  Metrics represent measured system level performance, like CPU and RAM.  Railway surfaces both logs and metrics for your services.                                                                                     |
+| **Notifications** | An essential part of monitoring is through proactive notifications.  Configure a webhook to be notified when any of your deployed services change state. |
 |||
 
-- [Viewing Logs](/how-to/view-logs)
-- [Viewing Metrics](how-to/view-metrics)
+The next few pages cover the topics above and how to interact with them inside the platform.

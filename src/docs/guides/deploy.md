@@ -10,8 +10,7 @@ connected to infrastructure. Examples of templates are -
 - Elixir Phoenix webserver
 - Discord/Telegram bots
 
-You can find featured templates on our
-[dedicated templates page](https://railway.app/templates).
+You can find featured templates on our <a href="https://railway.app/templates" target="_blank">template marketplace</a>.
 
 Simply find a template you want, and click the `Deploy` button.
 
@@ -32,7 +31,7 @@ If it has received an upstream update, we will create a branch on the GitHub rep
 If you are happy with the changes, you can merge the pull request, and we will automatically deploy it to your production environment.
 
 <Banner variant="info">
-If you're curious, you can read more about how we built updatable templates in this <Link href="https://blog.railway.app/p/updatable-starters">blog post</Link>.
+If you're curious, you can read more about how we built updatable templates in this <a href="https://blog.railway.app/p/updatable-starters" target="_blank">blog post</a>
 </Banner>
 
 Note that this feature only works for services based on GitHub repositories.  At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced.
