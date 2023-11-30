@@ -6,7 +6,7 @@ Railway is a deployment platform designed to streamline the software development
 
 ## Deploying on Railway
 
-Simply point Railway to your deployment source and let the platform handle the rest.
+Point Railway to your deployment source and let the platform handle the rest.
 
 #### Flexible Deployment Sources
 - **Code Repositories**: With or without Dockerfiles.  Railway will build an [OCI compliant image](https://opencontainers.org/) based on what you provide.

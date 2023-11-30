@@ -4,6 +4,12 @@ title: Use Database Services
 
 Railway's platform primitives are built with flexibility in mind, allowing you to build any type of service your system requires, including database services.
 
+|||
+|-|-|
+| **Essential Features** | A Project is like an application stack, or a system of related components.  Everything needed by the components in the system are encapsulated in a Project, including environments and variable.                                                                                   |
+| **Templates** | Services are components that make up the Project. Services can be anything from frontend web servers, backend APIs, message queues, databases, etc.  Services can be configured with [variables](/guides/use-variables), start and run commands, restart policies, [volume mounts](/guides/use-volumes), etc. |
+|||
+
 We have created this guide to help you find the features you may need to build a database service - 
 - [Build a Database Service](/how-to/build-a-database-service)
 

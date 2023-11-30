@@ -32,81 +32,81 @@ export const sidebarContent: ISidebarContent = [
     title: "Guides",
     content: [
       {
-        subTitle: makePage("Get Started","how-to"),
+        subTitle: makePage("Get Started","guides"),
         pages: [
-          makePage("Create and Manage Projects", "how-to"),
-          makePage("Create and Manage Services", "how-to"),
-          makePage("Use Variables", "how-to"),
-          makePage("Use Volumes", "how-to"),
-          makePage("Use the CLI", "how-to"),
-          makePage("Setup Environments", "how-to"),
+          makePage("Create and Manage Projects", "guides"),
+          makePage("Create and Manage Services", "guides"),
+          makePage("Use Variables", "guides"),
+          makePage("Use Volumes", "guides"),
+          makePage("Setup Environments", "guides"),
+          makePage("Use the CLI", "guides"),
         ]
       },
       {
-        subTitle: makePage("Understand Networking", "how-to"),
+        subTitle: makePage("Understand Networking", "guides"),
         pages: [
-          makePage("Exposing Your App", "how-to"),
-          makePage("Use Private Networking", "how-to"),
+          makePage("Exposing Your App", "guides"),
+          makePage("Use Private Networking", "guides"),
         ]
       },
       {
-        subTitle: makePage("Configure Builds", "how-to"),
+        subTitle: makePage("Configure Builds", "guides"),
         pages: [
-          makePage("Build Controls", "how-to"),
-          makePage("Build from a Dockerfile", "how-to"),
+          makePage("Build Controls", "guides"),
+          makePage("Build from a Dockerfile", "guides"),
         ]
       },
       {
-        subTitle: makePage("Configure Deployments", "how-to"),
+        subTitle: makePage("Configure Deployments", "guides"),
         pages: [
-          makePage("Set a Start Command", "how-to"),
-          makePage("Deployment Actions", "how-to"),
-          makePage("Control Github Autodeploys", "how-to"),
-          makePage("Optimize Performance", "how-to"),
-          makePage("Healthchecks and Restart Policy", "how-to"),
-          makePage("Deploy a Monorepo", "how-to"),
-          makePage("Run a Cron Job", "how-to"),
-          makePage("Optimize Usage", "how-to"),
+          makePage("Set a Start Command", "guides"),
+          makePage("Deployment Actions", "guides"),
+          makePage("Control Github Autodeploys", "guides"),
+          makePage("Optimize Performance", "guides"),
+          makePage("Healthchecks and Restart Policy", "guides"),
+          makePage("Deploy a Monorepo", "guides"),
+          makePage("Run a Cron Job", "guides"),
+          makePage("Optimize Usage", "guides"),
         ]
       },
       {
-        subTitle: makePage("Use Database Services", "how-to"),
+        subTitle: makePage("Use Database Services", "guides"),
         pages: [
-          makePage("Build a Database Service", "how-to"),
-          makePage("PostgreSQL", "how-to"),
-          makePage("MySQL", "how-to"),
-          makePage("Redis", "how-to"),
-          makePage("MongoDB", "how-to"),
-          makePage("Using the Database View", "how-to"),
+          makePage("Build a Database Service", "guides"),
+          makePage("PostgreSQL", "guides"),
+          makePage("MySQL", "guides"),
+          makePage("Redis", "guides"),
+          makePage("MongoDB", "guides"),
+          makePage("Using the Database View", "guides"),
         ]
       },
       {
-        subTitle: makePage("Monitor Services", "how-to"),
+        subTitle: makePage("Monitor Services", "guides"),
         pages: [
-          makePage("View Logs", "how-to"),
-          makePage("View Metrics", "how-to"),
-          makePage("Setup Webhooks", "how-to"),
+          makePage("View Logs", "guides"),
+          makePage("View Metrics", "guides"),
+          makePage("Setup Webhooks", "guides"),
         ]
       },
       {
-        subTitle: makePage("Use the Public API", "how-to"),
+        subTitle: makePage("Use the Public API", "guides"),
         pages: [
-          makePage("Manage Projects", "how-to"),
-          makePage("Manage Services", "how-to"),
-          makePage("Manage Deployments", "how-to"),
-          makePage("Manage Variables", "how-to"),
+          makePage("Manage Projects", "guides"),
+          makePage("Manage Services", "guides"),
+          makePage("Manage Deployments", "guides"),
+          makePage("Manage Variables", "guides"),
         ]
       },
-      makePage("Use Config as Code", "how-to"),
+      makePage("Use Config as Code", "guides"),
       {
-        subTitle: makePage("Use Templates", "how-to"),
+        subTitle: makePage("Use Templates", "guides"),
         pages: [
-          makePage("Create a Template", "how-to"),
-          makePage("Publish and Share Templates", "how-to"),
-          makePage("Deploy a Template", "how-to"),
+          makePage("Create a Template", "guides"),
+          makePage("Publish and Share Templates", "guides"),
+          makePage("Deploy a Template", "guides"),
         ]
       },
-      makePage("Fixing Common Errors", "how-to"),
+      makePage("Fixing Common Errors", "guides"),
     ],
   },
   {
