@@ -114,14 +114,43 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Tutorials",
     content: [
-      makePage("Introduction to Tutorials", 'tutorials'),
-      {title: "Deploy Cusdis", url: "https://blog.railway.app/p/cusdis"},
-      {title: "Gitlab CI/CD with Railway", url: "https://blog.railway.app/p/gitlab-ci-cd"},
-      {title: "Deploy Ghost", url: "https://blog.railway.app/p/ghost"},
-      {title: "Deploy Website Analytics", url: "https://blog.railway.app/p/self-hosted-website-analytics"},
-      {title: "ExpressJS with Postgres", url: "https://blog.railway.app/p/expressjs-with-postgresql"},
-      makePage("Migrate from Heroku", 'tutorials'),
-      makePage("Database Migration Guide", 'tutorials'),
+      {
+        subTitle: "Getting Started",
+        pages: [
+          {title: "NextJS with Prisma", url: "https://blog.railway.app/p/cusdis"},
+        ]
+      },
+      {
+        subTitle: "Self Hosted Applications",
+        pages: [
+          {title: "Deploy Cusdis", url: "https://blog.railway.app/p/cusdis"},
+          {title: "Deploy Ghost", url: "https://blog.railway.app/p/ghost"},
+          {title: "Deploy Calendso", url: "https://blog.railway.app/p/ghost"},
+          {title: "Deploy Website Analytics", url: "https://blog.railway.app/p/ghost"},
+        ]
+      },
+      {
+        subTitle: "Technical Tutorial",
+        pages: [
+          {title: "ExpressJS with Postgres", url: "https://blog.railway.app/p/expressjs-with-postgresql"},
+          {title: "Using Notion as a CMS", url: "https://blog.railway.app/p/ghost"},
+          {title: "Gitlab CI/CD with Railway", url: "https://blog.railway.app/p/ghost"},
+          {title: "Move a Pyramid Web App", url: "https://blog.railway.app/p/ghost"},
+        ]
+      },
+      {
+        subTitle: "Database Backup Tutorials",
+        pages: [
+          {title: "Backing Up Redis", url: "https://blog.railway.app/p/expressjs-with-postgresql"},
+          {title: "Backing Up Postgres", url: "https://blog.railway.app/p/ghost"},
+        ]
+      },
+      {
+        subTitle: "GitHub Tutorials",
+        pages: [
+          {title: "GitHub Actions", url: "https://blog.railway.app/p/expressjs-with-postgresql"},
+        ]
+      },
     ]
   },
   {

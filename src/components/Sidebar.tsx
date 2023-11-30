@@ -70,7 +70,7 @@ const SidebarContent: React.FC = () => {
       for (const item of section.content) {
         if ('subTitle' in item) {
           const subTitleSlug = typeof item.subTitle === 'string' ? item.subTitle : item.subTitle.slug;
-          if (item.pages.some(p => p.slug === currentPageSlug) || subTitleSlug === currentPageSlug) {
+          if (item.pages.some(p => 'slug' in p && p.slug === currentPageSlug) || subTitleSlug === currentPageSlug) {
             slugs.push(subTitleSlug);
           }
         }

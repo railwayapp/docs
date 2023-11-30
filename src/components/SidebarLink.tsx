@@ -109,28 +109,55 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
                 </button>
             </div>
             {isExpanded && (
-              // these are the links in the expanded section
               <ul>
-                {item.pages.map(page => (
-                <li key={page.slug}>
-                    <Link
-                      href={page.slug}
-                      className={classNames(isCurrentPage(page.slug) && `current`)}
-                      css={[
-                        tw`text-gray-700 text-sm`,
-                        tw`block py-2 ml-6 pl-2`,
-                        tw`hover:bg-gray-100 hover:text-foreground`,
-                        tw`focus:outline-none focus:bg-pink-100`,
-                          isCurrentPage(page.slug) &&
-                        tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
-                      ]}
-                    >
-                      {page.title}
-                    </Link>
-                </li>
-                ))}
+                {item.pages.map(page => {
+                  // Check if the page is an IExternalLink
+                  if ('url' in page) {
+                    return (
+                      <li key={page.url} 
+                        css={[
+                          tw`flex items-center`, 
+                          tw`py-2 ml-6 pl-2`,
+                          tw`hover:bg-gray-100 hover:text-foreground`, 
+                        ]}>
+                        <Link
+                          href={page.url}
+                          css={[
+                            tw`text-gray-700 text-sm flex-grow`
+                          ]}
+                        >
+                          {page.title}
+                        </Link>
+                        <span css={tw`mr-4`}>
+                          {externalLinkSvg}
+                        </span>
+                      </li>
+                    );
+                  } else {
+                    // Handle as IPage
+                    return (
+                      <li key={page.slug}>
+                          <Link
+                            href={page.slug}
+                            className={classNames(isCurrentPage(page.slug) && `current`)}
+                            css={[
+                              tw`text-gray-700 text-sm`,
+                              tw`block py-2 ml-6 pl-2`,
+                              tw`hover:bg-gray-100 hover:text-foreground`,
+                              tw`focus:outline-none focus:bg-pink-100`,
+                                isCurrentPage(page.slug) &&
+                              tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
+                            ]}
+                          >
+                            {page.title}
+                          </Link>
+                      </li>
+                    );
+                  }
+                })}
               </ul>
             )}
+
           </li>
         );
       } else {
