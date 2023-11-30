@@ -117,38 +117,33 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: "Getting Started",
         pages: [
-          {title: "NextJS with Prisma", url: "https://blog.railway.app/p/cusdis"},
+          makePage("Quick Start", undefined),
         ]
       },
       {
         subTitle: "Self Hosted Applications",
         pages: [
-          {title: "Deploy Cusdis", url: "https://blog.railway.app/p/cusdis"},
-          {title: "Deploy Ghost", url: "https://blog.railway.app/p/ghost"},
-          {title: "Deploy Calendso", url: "https://blog.railway.app/p/ghost"},
-          {title: "Deploy Website Analytics", url: "https://blog.railway.app/p/ghost"},
+          {title: "Deploy Offen", url: "https://blog.railway.app/p/offen-web-analytics"},
         ]
       },
       {
         subTitle: "Technical Tutorial",
         pages: [
-          {title: "ExpressJS with Postgres", url: "https://blog.railway.app/p/expressjs-with-postgresql"},
-          {title: "Using Notion as a CMS", url: "https://blog.railway.app/p/ghost"},
-          {title: "Gitlab CI/CD with Railway", url: "https://blog.railway.app/p/ghost"},
-          {title: "Move a Pyramid Web App", url: "https://blog.railway.app/p/ghost"},
+          {title: "Queues on Railway", url: "https://blog.railway.app/p/queues"},
+          {title: "Gitlab CI/CD with Railway", url: "https://blog.railway.app/p/gitlab-ci-cd"},
         ]
       },
       {
         subTitle: "Database Backup Tutorials",
         pages: [
-          {title: "Backing Up Redis", url: "https://blog.railway.app/p/expressjs-with-postgresql"},
-          {title: "Backing Up Postgres", url: "https://blog.railway.app/p/ghost"},
+          {title: "Backing Up Redis", url: "https://blog.railway.app/p/redis-backup"},
+          {title: "Backing Up Postgres", url: "https://blog.railway.app/p/postgre-backup"},
         ]
       },
       {
         subTitle: "GitHub Tutorials",
         pages: [
-          {title: "GitHub Actions", url: "https://blog.railway.app/p/expressjs-with-postgresql"},
+          {title: "GitHub Actions", url: "https://blog.railway.app/p/github-actions"},
         ]
       },
     ]
