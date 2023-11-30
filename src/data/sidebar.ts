@@ -7,6 +7,7 @@ const makePage = (title: string, category?: string, slug?: string): IPage => ({
     slug ??
     `/${category != null ? category + "/" : ""}${title
       .toLowerCase()
+      .replace(/!/g, '')
       .replace(/[\s/]+/g, '-')}`,
 });
 
@@ -32,45 +33,47 @@ export const sidebarContent: ISidebarContent = [
     title: "Guides",
     content: [
       {
-        subTitle: makePage("Get Started","guides"),
+        subTitle: makePage("Foundations","guides"),
         pages: [
-          makePage("Create and Manage Projects", "guides"),
-          makePage("Create and Manage Services", "guides"),
-          makePage("Use Variables", "guides"),
-          makePage("Use Volumes", "guides"),
-          makePage("Setup Environments", "guides"),
-          makePage("Use the CLI", "guides"),
+          makePage("Projects", "guides"),
+          makePage("Services", "guides"),
+          makePage("Variables", "guides"),
+          makePage("Volumes", "guides"),
+          makePage("Environments", "guides"),
+          makePage("CLI", "guides"),
+          makePage("Join Priority Boarding!", "guides"),
         ]
       },
       {
-        subTitle: makePage("Understand Networking", "guides"),
+        subTitle: makePage("Networking", "guides"),
         pages: [
-          makePage("Exposing Your App", "guides"),
-          makePage("Use Private Networking", "guides"),
+          makePage("Public Networking", "guides"),
+          makePage("Private Networking", "guides"),
+          makePage("Fixing Common Errors", "guides"),
         ]
       },
       {
-        subTitle: makePage("Configure Builds", "guides"),
+        subTitle: makePage("Builds", "guides"),
         pages: [
-          makePage("Build Controls", "guides"),
-          makePage("Build from a Dockerfile", "guides"),
+          makePage("Build Configuration", "guides"),
+          makePage("Dockerfiles", "guides"),
         ]
       },
       {
-        subTitle: makePage("Configure Deployments", "guides"),
+        subTitle: makePage("Deployments", "guides"),
         pages: [
-          makePage("Set a Start Command", "guides"),
+          makePage("Start Command", "guides"),
           makePage("Deployment Actions", "guides"),
-          makePage("Control Github Autodeploys", "guides"),
+          makePage("Github Autodeploys", "guides"),
           makePage("Optimize Performance", "guides"),
-          makePage("Healthchecks and Restart Policy", "guides"),
+          makePage("Healthchecks and Restarts", "guides"),
           makePage("Deploy a Monorepo", "guides"),
-          makePage("Run a Cron Job", "guides"),
+          makePage("Cron Jobs", "guides"),
           makePage("Optimize Usage", "guides"),
         ]
       },
       {
-        subTitle: makePage("Use Database Services", "guides"),
+        subTitle: makePage("Databases", "guides"),
         pages: [
           makePage("Build a Database Service", "guides"),
           makePage("PostgreSQL", "guides"),
@@ -81,7 +84,7 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: makePage("Monitor Services", "guides"),
+        subTitle: makePage("Monitoring", "guides"),
         pages: [
           makePage("View Logs", "guides"),
           makePage("View Metrics", "guides"),
@@ -89,7 +92,7 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: makePage("Use the Public API", "guides"),
+        subTitle: makePage("Public API", "guides"),
         pages: [
           makePage("Manage Projects", "guides"),
           makePage("Manage Services", "guides"),
@@ -97,16 +100,15 @@ export const sidebarContent: ISidebarContent = [
           makePage("Manage Variables", "guides"),
         ]
       },
-      makePage("Use Config as Code", "guides"),
+      makePage("Config as Code", "guides"),
       {
-        subTitle: makePage("Use Templates", "guides"),
+        subTitle: makePage("Templates", "guides"),
         pages: [
           makePage("Create a Template", "guides"),
           makePage("Publish and Share Templates", "guides"),
           makePage("Deploy a Template", "guides"),
         ]
       },
-      makePage("Fixing Common Errors", "guides"),
     ],
   },
   {
@@ -169,6 +171,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Accounts", "reference"),
           makePage("Priority Boarding", "reference"),
+          makePage("Project Members", "reference"),
           makePage("Project Usage", "reference"),
           makePage("Support", "reference"),
           makePage("Teams", "reference"),

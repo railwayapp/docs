@@ -2,7 +2,7 @@
 title: Optimize Usage
 ---
 
-Railway provides controls over resource usage in the form of usage limits and force-sleeping of inactive services.
+Railway provides controls over resource usage in the form of usage limits and auto-sleeping of inactive services.
 
 ## Configuring Usage Limits
 

@@ -25,7 +25,7 @@ Public visibility is helpful for educators who want to show students how their p
 - Environment variables are private from viewers
 - Services and Deployment logs are public
 
-Find instructions for updating your project's visibility [here](/how-to/create-and-manage-projects#updating-project-visibility).
+Find instructions for updating your project's visibility [here](/guides/projects#updating-project-visibility).
 
 ## Project Transfers
 

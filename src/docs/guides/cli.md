@@ -1,5 +1,5 @@
 ---
-title: Use the CLI
+title: Using the CLI
 ---
 
 The Railway Command Line Interface (CLI) lets you interact with your

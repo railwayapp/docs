@@ -2,10 +2,11 @@
 title: Nixpacks
 ---
 
-Railway uses [Nixpacks](https://nixpacks.com) to build and deploy your code with
+Railway uses <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> to build and deploy your code with
 zero configuration.
 
 ## Supported Languages
+
 Currently, we support the following languages out of the box:
 - [NodeJS](https://nixpacks.com/docs/providers/node)
 - [Bun](https://nixpacks.com/docs/providers/node#bun-support) (Experimental)
@@ -25,6 +26,7 @@ Currently, we support the following languages out of the box:
 - [Staticfile](https://nixpacks.com/docs/providers/staticfile)
 - [Elixir](https://nixpacks.com/docs/providers/elixir)
 
-## Build Controls
+## Support
 
-For information on how to control build behavior refer to this [guide](/how-to/configure-builds).
+If you have a language or feature that you want us to support, please don't hesitate to
+reach out on <a href="https://discord.gg/xAm2w6g" target="_blank">Discord</a> or on the <a href="https://github.com/railwayapp/nixpacks/discussions/245" target="_blank">Nixpacks repo</a>.

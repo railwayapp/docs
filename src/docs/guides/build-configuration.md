@@ -1,24 +1,20 @@
 ---
-title: Build Controls
+title: Build Configuration
 ---
 
-Railway uses [Nixpacks](https://nixpacks.com) to build your code.  You can find a complete list of languages we support out of the box [here](/reference/builds#supported-languages).
+Railway will build and deploy your code with zero configuration, but when necessary, there are several ways to configure this behavior to suit your needs.
 
-There are several ways to configure builds to suit your needs.
+## Nixpacks Options
 
-## Build Configuration
-
-Nixpacks has a variety of options that can be configured with environment variables which can be defined in your services settings. These include things like:
+Railway uses <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> to build your code. It has a variety of options that can be configured with [environment variables](/guides/variables#service-variables) which can be defined in your services settings. These include things like:
 - Install/build/start commands
 - Nix/Apt packages to install
 - Directories to cache
 
 For a full list of these options, please view the <a href="https://nixpacks.com/docs/guides/configuring-builds" target="_blank">Nixpacks docs</a>.
 
-For information on setting environment variables, click [here](/how-to/use-variables#service-variables).
 
-If you have a language or feature that you want us to support, please don't hesitate to
-reach out on [Discord](https://discord.gg/xAm2w6g) or on the [Nixpacks repo](https://github.com/railwayapp/nixpacks/discussions/245).
+You can find a complete list of languages we support out of the box [here](/reference/nixpacks#supported-languages).
 
 ## Customize the Build Command
 
@@ -35,7 +31,7 @@ For those familiar with Nixpacks, this gets set as the `--build-cmd` argument du
 ## Set the Root Directory
 
 The root directory defaults to `/` but can be changed for various use-cases like
-[monorepo](/how-to/deploy-a-monorepo) projects. 
+[monorepo](/guides/deploy-a-monorepo) projects. 
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/root-directory_nczles.png"
@@ -49,8 +45,7 @@ outside the root directory will not trigger a new build.
 
 ## Configure Watch Paths
 
-Watch paths are
-[gitignore-style](https://git-scm.com/docs/gitignore#_pattern_format) patterns
+Watch paths are <a href="https://git-scm.com/docs/gitignore#_pattern_format" target="_blank">gitignore-style</a> patterns
 that can be used to trigger a new deployment based on what file paths have
 changed. 
 
@@ -104,10 +99,10 @@ When multiple providers are defined, Railway will build your service with the la
 
 ## Procfiles
 
-If using Nixpacks, you can override the start command with a [Procfile](https://nixpacks.com/docs/configuration/procfile) at the root of your app. Only a single process type is supported at the moment.
+If using Nixpacks, you can override the start command with a <a href="https://nixpacks.com/docs/configuration/procfile" target="_blank">Procfile</a> at the root of your app. Only a single process type is supported at the moment.
 
 HTTP servers should use the `web` process type. This process should listen on
-the [PORT environment variable](/deploy/railway-up#port-variable) and will receive
+the [PORT environment variable](/guides/public-networking#port-variable) and will receive
 HTTP traffic.
 
 _Note: Some buildpacks specify a default start command_
@@ -115,4 +110,4 @@ _Note: Some buildpacks specify a default start command_
 
 ## Specify a custom install command
 
-We do not expose a way to configure a custom install command in the UI, but you can control this using [config as code](/deploy/config-as-code#install-command).  See Nixpacks Plan -> Install Command.
+We do not expose a way to configure a custom install command in the UI, but you can control this using [config as code](/reference/config-as-code#nixpacks-plan) (see Nixpacks Plan -> Install Command).

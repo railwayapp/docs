@@ -1,8 +1,8 @@
 ---
-title: Create and Manage Projects
+title: Managing Projects
 ---
 
-A Railway project contains any services, environments, and deployments that an app needs. If you are logged in, projects can be found on [your project dashboard](https://railway.app/dashboard).
+A Railway project contains any services, environments, and deployments that an app needs. Projects can be found on <a href="https://railway.app/dashboard" target="_blank">your project dashboard</a>.
 
 Click on a project card to go to the project canvas:
 
@@ -18,10 +18,6 @@ Project settings can be managed through the `Settings` button at the top right o
 A project's name and description can be changed from the General tab within a project's settings.
 
 The project id can also be retrieved here.
-
-## Updating Project Visibility
-
-You can update the visibility of your project by clicking `Change Visibility` in your Project's Settings -> General tab.
 
 
 ## Deleting a Project

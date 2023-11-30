@@ -46,7 +46,7 @@ Adding a shared variables to a service creates a [Reference Variable](/reference
 
 Reference variables are those defined by referencing variables in other services, shared variables, or even variables in the same service.
 
-When using reference variables, you also have access to [Railway-provided variables](/how-to/variables#railway-provided-variables).
+When using reference variables, you also have access to [Railway-provided variables](#railway-provided-variables).
 
 Railway's [template syntax](/reference/variables#template-syntax) is used when defining reference variables.
 
@@ -120,7 +120,7 @@ process.env.VARIABLE_NAME
 
 #### Local development
 
-Using the Railway CLI, you can run your code locally with the environment variables configured in your Railway project.  Check out the [CLI docs](/develop/cli#local-development) for the appropriate commands.
+Using the Railway CLI, you can run your code locally with the environment variables configured in your Railway project.  Check out the [CLI guide](/guides/cli#local-development) for the appropriate commands.
 
 ## Import Variables from Heroku
 

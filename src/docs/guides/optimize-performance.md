@@ -2,11 +2,18 @@
 title: Optimize Performance
 ---
 
-Railway offers some quick and easy ways to configure deployments for achieving optimal performance.
+Railway offers some quick and easy ways to configure deployments for achieving optimal performance.  
+
+Specifically, we offer the following features:
+
+- Horizontal Scaling with Replicas ([vertical scaling](/reference/scaling#vertical-autoscaling) is done automatically)
+- Regional Deployments
+
+Continue reading for information on how to configure these.
 
 ## Configure Horizontal Scaling
 
-By default Railway will scale your service up to the the specified vCPU and Memory limits of your plan. You can scale horizontally by manually increasing the number of replicas for a service.
+Scale horizontally by manually increasing the number of replicas for a service.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1684534939/docs/Export-replica_lrtrvs.png"
 alt="Screenshot of replica setting"
@@ -40,7 +47,7 @@ To choose a different region for your service, go to your service settings and s
 
 ### Impact of Region Changes
 
-For information on the impact of changing a service's region, see the [Regions reference guide](/reference/deployment-regions).
+For information on the impact of changing a service's region, see the [Regions reference guide](/reference/deployment-regions#impact-of-region-changes).
 
 ## Singleton Deploys
 

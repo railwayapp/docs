@@ -1,12 +1,12 @@
 ---
-title: Create and Manage Services
+title: Managing Services
 ---
 
 A Railway Service is a deployment target for your application.
 
 ## Creating A Service
 
-Create a service by clicking the `New` button in the top right corner of your project canvas, or by typing new service from the [command palette]().
+Create a service by clicking the `New` button in the top right corner of your project canvas, or by typing new service from the **command palette**, accessible via `CMD + K` (Mac) or `Ctrl + K`(Windows).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1656640995/docs/CleanShot_2022-06-30_at_18.17.31_cl0wlr.gif"
 alt="GIF of the Services view"
@@ -14,6 +14,10 @@ layout="intrinsic"
 width={370} height={300} quality={100} />
 
 Services on Railway can be deployed from a GitHub repository, a local directory, or a Docker image.
+
+## Deleting a Service
+
+Delete a service by opening the project's settings and scrolling to the danger section.
 
 
 ## Accessing Service Settings
@@ -44,13 +48,13 @@ alt="Screenshot of a GitHub deployment trigger"
 layout="responsive"
 width={708} height={245} quality={80} />
 
-You must link your Railway account to Github, to enable Railway to connect to your Github repositories. [You can configure the Railway App in Github by clicking this link.](https://github.com/apps/railway-app/installations/new)
+You must link your Railway account to Github, to enable Railway to connect to your Github repositories.  <a href="https://github.com/apps/railway-app/installations/new" target="_blank">You can configure the Railway App in Github by clicking this link.</a>
 
 ### Deploying from a Docker Image
 
 To deploy from a docker image, specify the path of the image when prompted in the creation flow.
 
-Railway can deploy images from [Docker Hub](https://hub.docker.com/) or [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).  Example paths - 
+Railway can deploy images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> or <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>.  Example paths - 
 
 Docker Hub:
 - `bitnami/redis`
@@ -60,7 +64,7 @@ GitHub Container Registry:
 
 ## Deploying from a local directory
 
-[Use the CLI](/how-to/use-the-cli) to deploy a local directory to a service -
+[Use the CLI](/guides/cli) to deploy a local directory to a service -
 
 1. Create an Empty Service by choosing `Empty Service` during the service creation flow.
 2. In a Terminal, navigate to the directory you would like to deploy.
@@ -70,25 +74,12 @@ GitHub Container Registry:
 
 ## Deploying a Monorepo
 
-For information on how to deploy a Monorepo click [here](/how-to/deploy-a-monorepo).
+For information on how to deploy a Monorepo click [here](/guides/deploy-a-monorepo).
 
 
-## Monitoring Usage
+## Monitoring
 
-Monitor a service's resource usage by navigating to the Metrics tab in your service view.
-
-Read more about [how to understand metrics here](/how-to/view-metrics).
-
-## Finding Logs
-
-Find a service's logs in the Deployment tab in the service view.  Logs emitted by your service will be shown here.
-
-Read more about [how to view logs here](/how-to/view-logs).
-
-
-## Deleting a Service
-
-Delete a service by opening the project's settings and scrolling to the danger section.
+Logs, metrics, and usage information is available for services and projects.  Check out the [monitoring guides](/guides/monitoring) for information on how to track this data.
 
 ## Changing the Service Icon
 
@@ -97,12 +88,6 @@ Customize your project canvas for easier readability by changing the service ico
 1. Right click on the service
 2. Choose `Update Info`
 3. Choose `Icon`
-4. Begin typing to see a list of available icons, pulled from our [devicons](https://devicons.railway.app/) service.
+4. Begin typing to see a list of available icons, pulled from our <a href="https://devicons.railway.app/" target="_blank">devicons</a>service.
 
 You can also access this configuration from the command palette.
-
-## FAQ
-
-### Why Can't I See My GitHub Repo?
-
-If you're unable to see your Github repos in the service creation flow, you might need to configure the Railway app on your connected GitHub account. Ensure that you have the requisite permissions for Railway's GitHub app. [You can configure the app by clicking this link.](https://github.com/apps/railway-app/installations/new)

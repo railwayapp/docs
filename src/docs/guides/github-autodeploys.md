@@ -2,7 +2,7 @@
 title: Controlling Github Autodeploys
 ---
 
-[Services that are linked to a GitHub repo](/how-to/create-and-manage-services#deploying-from-a-github-repo) automatically deploy when new commits are detected in the connected branch.
+[Services that are linked to a GitHub repo](/guides/services#deploying-from-a-github-repo) automatically deploy when new commits are detected in the connected branch.
 
 ## Configure the GitHub branch for deployment triggers
 
@@ -18,17 +18,35 @@ width={1103} height={523} quality={80} />
 
 To disable automatic deployment, simply choose `Disable Trigger` from your Service Settings.
 
-## Enable Check Suites
+## Check Suites
 
 <Banner variant="info">
   Please make sure you have{" "}
-  <Link href="https://github.com/settings/installations">accepted our updated GitHub permissions</Link>{" "}
+  <a href="https://github.com/settings/installations" target="_blank">accepted our updated GitHub permissions</a>
   required for this feature to work.
 </Banner>
 
-Enable the `Check Suites` flag in service settings to ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment.
+
+To ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment, you should enable Check Suites.
+
+#### Requirements
+
+- You must have a Github workflow defined in your repository.  
+- The Github workflow must contain a directive to run on push: 
+
+    ```plaintext
+    on:
+      push:
+        branches:
+          - main
+    ```
+### Enabling Check Suites
+
+If your workfow satisfies the requirements above, you will see the `Check Suites` flag in service settings.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1671003153/docs/check-suites.png" alt="Check Suites Configuration" layout="responsive" width={1340} height={392} quality={80} />
+
+Toggle this on to ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment.
 
 When enabled, deployments will be moved to a `WAITING` state while your workflows are running. 
 

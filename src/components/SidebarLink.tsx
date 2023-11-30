@@ -118,7 +118,7 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
                       className={classNames(isCurrentPage(page.slug) && `current`)}
                       css={[
                         tw`text-gray-700 text-sm`,
-                        tw`block py-2 ml-4 pl-2`,
+                        tw`block py-2 ml-6 pl-2`,
                         tw`hover:bg-gray-100 hover:text-foreground`,
                         tw`focus:outline-none focus:bg-pink-100`,
                           isCurrentPage(page.slug) &&

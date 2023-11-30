@@ -1,8 +1,10 @@
 ---
-title: Exposing Your App
+title: Public Networking
 ---
 
 Before your application can say hello, Railway needs to know the IP and port that your application is listening on, in order to expose it to the internet.
+
+## Port Variable
 
 The easiest way to get up and running is to have your application listen on `0.0.0.0:$PORT`, where `PORT` is a Railway-provided environment variable.
 
@@ -68,10 +70,6 @@ width={700} height={225} quality={100} />
 
 Currently we use a random load balancing strategy for TCP traffic.
 
-## Private Networks
-
-To expose an application on the [private network](/reference/private-networking) you need to
-bind your application to the ipv6 address of `::` and specify the port(s) you want to use.
 
 ## Let's Encrypt SSL Certificates
 
