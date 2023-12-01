@@ -35,14 +35,14 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
           <li key={item.url} 
               css={[
                 tw`flex items-center`, 
-                tw`py-2 ml-6 pl-2`,
+                tw` ml-6 pl-2`,
                 tw`hover:bg-gray-100 hover:text-foreground`, 
                 ]}>
             <Link
               href={item.url}
               css={[
                 tw`text-gray-700 text-sm flex-grow`, 
-                tw`w-full`, 
+                tw`w-full py-2`, 
                 tw`flex justify-between items-center`
                 ]}>
                 <span>{item.title}</span>
@@ -121,13 +121,13 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
                       <li key={page.url} 
                         css={[
                           tw`flex items-center`, 
-                          tw`py-2 ml-6 pl-2`,
+                          tw`ml-6 pl-2`,
                           tw`hover:bg-gray-100 hover:text-foreground`, 
                         ]}>
                         <Link
                           href={page.url}
                           css={[tw`text-gray-700 text-sm flex-grow`, 
-                                tw`w-full`, 
+                                tw`py-2 w-full`, 
                                 tw`flex justify-between items-center`
                               ]}
                         >
