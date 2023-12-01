@@ -42,4 +42,4 @@ of:
 
 ## Support
 
-Refer to the guide on [how to use volumes](/how-to/use-volumes) for more details on how to use the feature.
+Refer to the guide on [how to use volumes](/guides/volumes) for more details on how to use the feature.

@@ -24,4 +24,4 @@ outside of the retention period._
 
 ## Viewing Logs
 
-For information on how to view logs, head over to the [guide for using logs](/how-to/view-logs).
+For information on how to view logs, head over to the [guide for using logs](/guides/logs).

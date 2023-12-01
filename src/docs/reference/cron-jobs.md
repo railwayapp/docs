@@ -95,4 +95,4 @@ The shortest time between successive executions of a cron job cannot be less tha
 
 ## Support
 
-For information on how to configure cron jobs, refer to [this guide](/how-to/configure-deployment-lifecycle#configure-a-cron-job).
+For information on how to configure cron jobs, refer to [this guide](/guides/cron-jobs).

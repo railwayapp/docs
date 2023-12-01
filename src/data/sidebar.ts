@@ -81,6 +81,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Redis", "guides"),
           makePage("MongoDB", "guides"),
           makePage("Using the Database View", "guides"),
+          makePage("Database Migration Guide", "guides"),
         ]
       },
       {
@@ -115,9 +116,10 @@ export const sidebarContent: ISidebarContent = [
     title: "Tutorials",
     content: [
       {
-        subTitle: "Getting Started",
+        subTitle: makePage("Getting Started", "tutorials"),
         pages: [
           makePage("Quick Start", undefined),
+          makePage("Migrate From Heroku", "tutorials"),
         ]
       },
       {

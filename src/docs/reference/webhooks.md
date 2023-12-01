@@ -23,4 +23,4 @@ Webhooks contain Muxers which will automatically identify webhook URLs and trans
 
 ## Setting up a webhook
 
-For information on how to setup webhooks, visit [this guide](/how-to/setup-webhooks).
+For information on how to setup webhooks, visit [this guide](/guides/webhooks).

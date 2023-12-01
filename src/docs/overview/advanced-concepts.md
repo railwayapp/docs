@@ -10,7 +10,7 @@ Out of the box, many defaults are applied to builds and deployments.  However, t
 
 ### Build Options
 
-Railway uses [Nixpacks](https://nixpacks.com) to build and deploy your code with zero configuration.  When your needs require adjustments to the defaults, we make it easy to configure things like install, build, and start commands.
+Railway uses <a href="https://nixpacks.com" target="_blank">Nixpacks</a> to build and deploy your code with zero configuration.  When your needs require adjustments to the defaults, we make it easy to configure things like install, build, and start commands.
 
 ### Deploy Options
 
@@ -32,7 +32,7 @@ All projects have private networking enabled and services are assigned a DNS nam
 
 ### Railway-Provided Domains
 
-With the click of a button, Railway will expose your service to the internet and provide you with a domain.  In order to make this work, you must configure your application appropriately to ensure we know the IP and port it is listening on.  Instructions for how to do this can be found in the Exposing Your App how-to guide.
+With the click of a button, Railway will expose your service to the internet and provide you with a domain.  In order to make this work, you must configure your application appropriately to ensure we know the IP and port it is listening on.  Instructions for how to do this can be found in the [Public Networking guide](/guides/public-networking).
 
 #### Custom Domains
 

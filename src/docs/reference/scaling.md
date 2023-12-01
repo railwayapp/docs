@@ -26,4 +26,4 @@ For now Railway does not support sticky sessions nor report the usage of the rep
 
 ## Support
 
-For information on how to use horizontal scaling with replicas, refer to [this guide](/how-to/optimize-deployments#configure-horizontal-scaling).
+For information on how to use horizontal scaling with replicas, refer to [this guide](/guides/optimize-performance#configure-horizontal-scaling).

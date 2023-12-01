@@ -14,7 +14,7 @@ https://backboard.railway.app/graphql/v2
 
 ## Authentication
 
-To use the API, you will need an API token. You can create one by visiting the [tokens page](https://railway.app/account/tokens) in your account settings.
+To use the API, you will need an API token. You can create one by visiting the <a href="https://railway.app/account/tokens" target="_blank">tokens page</a> in your account settings.
 
 ```bash
 curl --request POST \
@@ -60,6 +60,6 @@ In order to protect the Railway API from spam and misusage, we have established 
 
 ## Support
 
-For more information on how to use the Public API and for examples of queries, view the [How to Use the Public API](/how-to/use-the-public-api) page.
+For more information on how to use the Public API and for examples of queries, view the [Public API guide](/guides/public-api).
 
 If you run into problems using the API or have any suggestions, feel free to join our [Discord server](https://discord.gg/railway) where you can interact with the engineers working on the API directly.

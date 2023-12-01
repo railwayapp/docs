@@ -60,3 +60,13 @@ layout="intrinsic"
 width={411} height={253} quality={80} />
 
 The transferee receives an email with the current owner requesting to transfer the project to the user. Once that user accepts the transfer, they become the new owner of the project.
+
+## Updating Project Visibility
+
+Projects are private by default and only accessible to members of the project.  However, you can make your projects public to share in a read-only state by changing the visibility in project settings - 
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1663700589/docs/visible_vjqct8.png"
+alt="Screenshot of Project Visibility Setting"
+layout="intrinsic"
+width={712} height={291} quality={80} />

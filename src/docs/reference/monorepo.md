@@ -17,9 +17,30 @@ These controls are required to instruct Railway where the files are for the pack
 
 1. **[Isolated Monorepo](#isolated-monorepo)** → A repository that contains components that are completely isolated to the
 directory they are contained in (eg. JS frontend and Python backend)
+
+        ```
+        ├── frontend/
+        │   ├── index.js
+        │   └── ...
+        └── backend/
+            ├── server.py
+            └── ...
+        ```
+
 2. **[Shared Monorepo](#shared-monorepo)** → A repository that contains components that share code or configuration from the
 root directory (eg. Yarn workspace or Lerna project)
 
+        ```
+        ├── package.json
+        └── packages
+            ├── backend
+            │   └── index.js
+            ├── common
+            │   └── index.js
+            └── frontend
+                └── index.jsx
+        ```
+
 ## Support
 
-For information on how to deploy a monorepo in Railway, visit [this guide](/how-to/deploy-a-monorepo).
+For information on how to deploy a monorepo in Railway, visit [this guide](/guides/deploy-a-monorepo).

@@ -6,7 +6,7 @@ Railway project from the command line.
 
 This document describes the commands available in the CLI.
 
-For information on how to install the CLI and more examples of usage, see [How to Use the CLI](/how-to/use-the-cli).
+For information on how to install the CLI and more examples of usage, see the [CLI guide](/guides/cli).
 
 ## Add
 
@@ -152,7 +152,7 @@ Options:
   -h, --help     Print help
   -V, --version  Print version
 ```
-View [environment docs](/develop/environments) for more information.
+View [environment docs](/reference/environments) for more information.
 
 If you run `railway environment` without specifying a name, you will be prompted
 with an environment selector that lists all your environments for the project.

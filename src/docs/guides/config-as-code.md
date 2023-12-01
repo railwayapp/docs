@@ -17,7 +17,8 @@ The format you use for your config-as-code (toml or json) file is entirely depen
 
 For example, these configuration definitions are equivalent:
 
-<div style={{ display: 'flex', flexDirection: 'row', gap: '5px', fontSize: '0.9em' }}>
+
+<div style={{ display: 'flex', flexDirection: 'row', gap: '5px', fontSize: '0.9em', alignItems: 'stretch' }}>
     <div style={{ flex: '1 1 50%', overflow: 'auto', minWidth: '200px', maxWidth: '350px' }}>
         ```toml
         [build]
@@ -29,6 +30,11 @@ For example, these configuration definitions are equivalent:
         healthcheckPath = "/"
         healthcheckTimeout = 100
         restartPolicyType = "never"
+
+
+
+
+        --
         ```
         <p style={{ marginTop: '-0.2em', fontSize: '0.8em', opacity: '0.6' }}>A `railway.toml` file</p>
     </div>

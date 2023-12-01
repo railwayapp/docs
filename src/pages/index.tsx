@@ -36,7 +36,7 @@ const Home: NextPage = () => {
           <div tw="py-12 pl-12 z-10">
             <div tw="text-3xl font-bold text-white mb-4">Welcome!</div>
             <div tw="text-xl font-normal text-white dark:text-gray-600 mb-12 max-w-md">
-              Our docs are organized by use-case.  Whether you are here to learn what Railway is or have a specific purpose, we hope the options below guide you to the appropriate pages.
+              Our docs are organized by use-case.  Review the options below to guide you to the appropriate pages.
             </div>
             {/* <ButtonLink
               href="/getting-started"
@@ -69,33 +69,33 @@ const Home: NextPage = () => {
             <OverviewLinkTextbox>
               <OverviewLinkHeading>Here to learn</OverviewLinkHeading>
               <OverviewLinkText>
-                Understand what Railway is, how to get started, and the main components of the platform.
+                Understand what Railway offers, including the main components of the platform.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="how-to/overview">
+          <OverviewLink href="/guides/foundations">
             <OverviewLinkIcon tw="bg-blue-100 border-blue-100 dark:bg-[#0F1B33]">
               <Code size="28" tw="text-blue-800" />
             </OverviewLinkIcon>
             <OverviewLinkTextbox>
               <OverviewLinkHeading>Need direction</OverviewLinkHeading>
               <OverviewLinkText>
-                Get information on how to configure something or enable a specific feature.
+                Explore the Guides to learn how to configure or enable a specific feature.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="/quick-start-tutorial">
+          <OverviewLink href="/quick-start">
             <OverviewLinkIcon tw="bg-yellow-100 border-yellow-200 dark:border-yellow-100 dark:bg-[#1D190C]">
               <Edit3 size="28" tw="text-yellow-800" />
             </OverviewLinkIcon>
             <OverviewLinkTextbox>
               <OverviewLinkHeading>Try it Out</OverviewLinkHeading>
               <OverviewLinkText>
-                Want to get your hands dirty?  Head over to our Quick Start Tutorial to deploy an app in minutes.
+                Want to get your hands dirty?  Head over to our Quick Start and deploy an app in minutes.
               </OverviewLinkText>
             </OverviewLinkTextbox>
           </OverviewLink>
-          <OverviewLink href="tutorials/introduction-to-tutorials">
+          <OverviewLink href="/tutorials/getting-started">
             <OverviewLinkIcon tw="bg-green-100 border-green-100 dark:bg-[#15231D]">
               <Book size="28" tw="text-green-800" />
             </OverviewLinkIcon>

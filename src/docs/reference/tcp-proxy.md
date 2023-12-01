@@ -24,4 +24,4 @@ TCP Proxy is useful for services that don't support HTTP, such as databases.
 
 ## Support
 
-For more information on how to set it up, refer to the guide on [how to expose your app](/how-to/exposing-your-app#tcp-proxying).
+For more information on how to set it up, refer to the TCP Proxy section of the [Public Networking guide](/guides/public-networking#tcp-proxying).

@@ -10,4 +10,4 @@ Railway can detect a deployment is listening for traffic.  When detected, you wi
 
 ## Support
 
-For information on how to use domains as well as setting up a custom domain, refer to [this guide](/how-to/exposing-your-app).
+For information on how to use domains as well as setting up a custom domain, refer to [this guide](/guides/public-networking).

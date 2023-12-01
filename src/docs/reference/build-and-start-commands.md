@@ -36,6 +36,6 @@ width={1302} height={408} quality={80} />
 
 ## Support
 
-For more information on how to configure builds, check out the [Configure Builds](/how-to/configure-builds) guide section.
+For more information on how to configure builds, check out the [Builds](/guides/builds) guide section.
 
-For more information on how to configure a service's deployment lifecycle, like the Start command, check out the [Configure Deployments](/how-to/configure-deployments) guide section.
+For more information on how to configure a service's deployment lifecycle, like the Start command, check out the [Deployments](/guides/deployments) guide section.

@@ -6,7 +6,7 @@ Templates provide a way to jumpstart a project by giving users the means to pack
 
 As a user in Railway, you can create and publish templates for others to use, or you can deploy templates from our <a href="https://railway.app/templates" target="_blank">template marketplace</a>.
 
-For information on how to create, publish, and deploy templates, visit our [how-to guides for templates](/how-to/use-templates).
+For information on how to create, publish, and deploy templates, visit our [Templates guides](/guides/templates).
 
 ## Kickback program
 

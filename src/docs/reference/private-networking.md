@@ -32,8 +32,8 @@ During the feature development process we found a few caveats that you should be
 - Private networks take 100ms to initialize on deploy, we ask that you set initial requests on a retry loop.
 - We don't support IPv4 private networking
 - Alpine-based images may not work with our internal DNS due to how it performs
-  resolution. [Click here](/how-to/use-private-networking#workaround-for-alpine-based-images) for a workaround.
+  resolution. [Click here](/guides/private-networking#workaround-for-alpine-based-images) for a workaround.
 
 ## Support
 
-For information on how to use Private Networking, check out [this guide](/how-to/use-private-networking).
+For information on how to use Private Networking, check out [this guide](/guides/private-networking).

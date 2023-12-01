@@ -98,10 +98,10 @@ If you're unsure about what query/mutation to use for what you are trying to ach
 
 To help you get started, we have provided some example queries in the guides within this section - 
 
-- [Manage Projects](/how-to/manage-projects)
-- [Manage Services](/how-to/manage-services)
-- [Manage Deployments](/how-to/manage-deployments)
-- [Manage Variables](/how-to/manage-variables)
+- [Manage Projects](/guides/manage-projects)
+- [Manage Services](/guides/manage-services)
+- [Manage Deployments](/guides/manage-deployments)
+- [Manage Variables](/guides/manage-variables)
 
 ## Support
 

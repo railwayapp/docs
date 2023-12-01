@@ -22,7 +22,7 @@ A key difference between forked and persistent environments are changesets.  Cha
 
 #### PR Environments
 
-[PR Environments](/how-to/setup-environments#enable-pr-environments) are temporary.  They are created when a Pull Request is opened on a branch and are deleted as soon as the PR is merged or closed.
+[PR Environments](/guides/environments#enable-pr-environments) are temporary.  They are created when a Pull Request is opened on a branch and are deleted as soon as the PR is merged or closed.
 
 ## Use Cases
 
@@ -34,4 +34,4 @@ production environment
 
 ## Support
 
-Explore the [Setup Environments](/how-to/setup-environments) guide for more information on how to use and manage environments.
+Explore the [Environments](/guides/environments) guide for more information on how to use and manage environments.

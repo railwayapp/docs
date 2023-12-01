@@ -17,4 +17,4 @@ Using detected Dockerfile!
 
 ## Support
 
-For more information, refer to the guide on [how to use Dockerfiles](/how-to/build-from-a-dockerfile)
+For more information, refer to the guide on [how to use Dockerfiles](/guides/dockerfiles).

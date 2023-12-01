@@ -19,4 +19,4 @@ The following metrics are provided:
 
 ## Viewing Metrics
 
-For information on how to view and read metrics, visit [this guide](/how-to/view-metrics).
+For information on how to view and read metrics, visit [this guide](/guides/metrics).

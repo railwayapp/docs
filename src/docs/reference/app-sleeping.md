@@ -30,4 +30,4 @@ The first request made to a slept service wakes it.  It may take a small amount 
 
 ## Support
 
-For information on how to enable app sleeping on your services refer to the [how to guide](/how-to/configure-deployment-lifecycle#enable-app-sleeping).
+For information on how to enable app sleeping on your services refer to the [how to guide](/guides/optimize-usage#enabling-app-sleeping).

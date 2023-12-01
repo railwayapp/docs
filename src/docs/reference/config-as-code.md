@@ -51,7 +51,7 @@ Possible values are:
 
 Note: Railway will always build with a Dockerfile if it finds one. To build with nixpacks, you can remove or rename the Dockerfile.
 
-Read more about Builds [here](/how-to/configure-builds).
+Read more about Builds [here](/guides/builds).
 
 
 ### Watch Patterns
@@ -63,7 +63,7 @@ Array of patterns used to conditionally trigger a deploys.
 watchPatterns = ["src/**"]
 ```
 
-Read more about watch patterns [here](/how-to/build-controls#configure-watch-paths).
+Read more about watch patterns [here](/guides/build-configuration#configure-watch-paths).
 
 ### Build Command
 
@@ -76,7 +76,7 @@ buildCommand = "yarn run build"
 
 This field can be set to `null`.
 
-Read more about the build command [here](/how-to/build-controls#customize-the-build-command).
+Read more about the build command [here](/reference/build-and-start-commands#build-command).
 
 ### Dockerfile Path
 
@@ -89,7 +89,7 @@ dockerfilePath = "Dockerfile.backend"
 
 This field can be set to `null`.
 
-More about building from a Dockerfile [here](/how-to/build-from-a-dockerfile).
+More about building from a Dockerfile [here](/reference/dockerfiles).
 
 ### Nixpacks Config Path
 
@@ -154,7 +154,7 @@ startCommand = "echo starting"
 
 This field can be set to `null`.
 
-Read more about the start command [here](/how-to/configure-deployment-lifecycle#configure-the-start-command).
+Read more about the start command [here](/reference/build-and-start-commands#start-command).
 
 ### Number of Replicas
 
@@ -167,7 +167,7 @@ numReplicas = 2
 
 This field can be set to `null`.
 
-Read more about horizontal scaling [here](/how-to/optimize-deployments#configure-horizontal-scaling).
+Read more about horizontal scaling [here](/reference/scaling#horizontal-scaling-with-replicas).
 
 ### Healthcheck Path
 
@@ -180,7 +180,7 @@ healthcheckPath = "/health"
 
 This field can be set to `null`.
 
-Read more about the healthcheck path [here](/how-to/configure-deployment-lifecycle#configure-healthcheck-endpoint).
+Read more about the healthcheck path [here](/reference/healthchecks).
 
 ### Healthcheck Timeout
 
@@ -193,7 +193,7 @@ healthcheckTimeout = 300
 
 This field can be set to `null`.
 
-Read more about the healthcheck timeout [here](/how-to/configure-deployment-lifecycle#healthcheck-timeout).
+Read more about the healthcheck timeout [here](/reference/healthchecks).
 
 ### Restart Policy Type
 
@@ -209,7 +209,7 @@ Possible values are:
 - `ALWAYS`
 - `NEVER`
 
-Read more about the Restart policy [here](/how-to/configure-deployment-lifecycle#restart-policy).
+Read more about the Restart policy [here](/guides/healthchecks-and-restarts#restart-policy).
 
 ### Restart Policy Max Retries
 
