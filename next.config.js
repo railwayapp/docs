@@ -18,6 +18,11 @@ const nextConfig = withContentlayer({
         destination: "/reference/templates",
         permanent: true,
       },
+      {
+        source: "/develop/variables",
+        destination: "/guides/variables",
+        permanent: true,
+      },
     ];
   },
 });

@@ -32,20 +32,24 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
     if ('url' in item) {
         // This is an external link
         return (
-          <li key={item.url} css={[
-              tw`flex items-center`, 
-              tw`px-4 py-2`,
-              tw`hover:bg-gray-100 hover:text-foreground`, 
-              tw`border-r-2 border-transparent`]}>
+          <li key={item.url} 
+              css={[
+                tw`flex items-center`, 
+                tw`py-2 ml-6 pl-2`,
+                tw`hover:bg-gray-100 hover:text-foreground`, 
+                ]}>
             <Link
               href={item.url}
               css={[
-                tw`text-gray-700 text-sm flex-grow`
-              ]}
-            >
-              {item.title}
+                tw`text-gray-700 text-sm flex-grow`, 
+                tw`w-full`, 
+                tw`flex justify-between items-center`
+                ]}>
+                <span>{item.title}</span>
+                <span css={tw`mr-4`}>
+                  {externalLinkSvg}
+                </span>
             </Link>
-            {externalLinkSvg}
           </li>
         );
       } else if ('subTitle' in item) {
@@ -111,7 +115,7 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
             {isExpanded && (
               <ul>
                 {item.pages.map(page => {
-                  // Check if the page is an IExternalLink
+                  // Check if the page is an external link
                   if ('url' in page) {
                     return (
                       <li key={page.url} 
@@ -122,15 +126,16 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
                         ]}>
                         <Link
                           href={page.url}
-                          css={[
-                            tw`text-gray-700 text-sm flex-grow`
-                          ]}
+                          css={[tw`text-gray-700 text-sm flex-grow`, 
+                                tw`w-full`, 
+                                tw`flex justify-between items-center`
+                              ]}
                         >
-                          {page.title}
+                          <span>{page.title}</span>
+                          <span css={tw`mr-4`}>
+                            {externalLinkSvg}
+                          </span>
                         </Link>
-                        <span css={tw`mr-4`}>
-                          {externalLinkSvg}
-                        </span>
                       </li>
                     );
                   } else {
