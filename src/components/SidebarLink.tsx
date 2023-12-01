@@ -35,18 +35,18 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
           <li key={item.url} 
               css={[
                 tw`flex items-center`, 
-                tw` ml-6 pl-2`,
-                tw`hover:bg-gray-100 hover:text-foreground`, 
+                tw`ml-2 pl-2`,
+                tw`hover:bg-gray-100`, 
                 ]}>
             <Link
               href={item.url}
               css={[
                 tw`text-gray-700 text-sm flex-grow`, 
-                tw`w-full py-2`, 
+                tw`w-full py-2 hover:text-foreground`, 
                 tw`flex justify-between items-center`
                 ]}>
                 <span>{item.title}</span>
-                <span css={tw`mr-4`}>
+                <span css={tw`mr-4 hover:svg:text-foreground`}>
                   {externalLinkSvg}
                 </span>
             </Link>
@@ -122,17 +122,17 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
                         css={[
                           tw`flex items-center`, 
                           tw`ml-6 pl-2`,
-                          tw`hover:bg-gray-100 hover:text-foreground`, 
+                          tw`hover:bg-gray-100`, 
                         ]}>
                         <Link
                           href={page.url}
                           css={[tw`text-gray-700 text-sm flex-grow`, 
-                                tw`py-2 w-full`, 
+                                tw`py-2 w-full hover:text-foreground`, 
                                 tw`flex justify-between items-center`
                               ]}
                         >
                           <span>{page.title}</span>
-                          <span css={tw`mr-4`}>
+                          <span css={tw`mr-4 hover:svg:text-foreground`}>
                             {externalLinkSvg}
                           </span>
                         </Link>
