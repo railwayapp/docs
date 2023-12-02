@@ -43,7 +43,7 @@ deployment in progress.
 
 ## Remove
 
-If a deployment is completed, you can remove it by clicking the the three dots
+If a deployment is completed, you can remove it by clicking the three dots
 at the end of the deployment tab and select Remove. This will remove the
 deployment and stop any further project usage.
 

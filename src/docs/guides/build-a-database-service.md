@@ -60,7 +60,7 @@ Remember you can also deploy from a Dockerfile which would generally involve the
 
 ### Template Marketplace
 
-Need inspiration or looking for a specific database?  Our <a href="https://railway.app/templates" target="_blank">Template Marketplace</a> already includes solutions for many different database services.  You might even find find a template for the database you need!
+Need inspiration or looking for a specific database?  Our <a href="https://railway.app/templates" target="_blank">Template Marketplace</a> already includes solutions for many different database services.  You might even find a template for the database you need!
 
 Here are some suggestions to check out - 
 - <a href="https://railway.app/template/SMKOEA" target="_blank">Minio</a>

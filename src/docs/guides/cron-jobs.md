@@ -4,7 +4,7 @@ title: Running a Scheduled Job
 
 Scheduled Jobs, or Cron Jobs, allow you to start a service on a defined schedule.
 
-Services configured as cron jobs are expected to execute a task, and terminate as soon as that task is finished, leaving no open resourcs.
+Services configured as cron jobs are expected to execute a task, and terminate as soon as that task is finished, leaving no open resources.
 
 ## Configuring a Cron Job
 

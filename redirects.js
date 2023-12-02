@@ -35,6 +35,11 @@ const redirects = [
       permanent: true,
     },
     {
+      source: "/deploy/railway-up",
+      destination: "/guides/services",
+      permanent: true,
+    },
+    {
       source: "/deploy/:slug*",
       destination: "/guides/:slug*",
       permanent: true,
@@ -47,6 +52,11 @@ const redirects = [
     {
       source: "/databases/:slug*",
       destination: "/guides/:slug*",
+      permanent: true,
+    },
+    {
+      source: "/diagnose/project-usage",
+      destination: "/reference/project-usage",
       permanent: true,
     },
     {

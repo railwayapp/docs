@@ -14,7 +14,7 @@ Railway uses <a href="https://nixpacks.com" target="_blank">Nixpacks</a> to buil
 
 ### Deploy Options
 
-Deployments are created with some default options that can be overriden.  Some of the options available are - 
+Deployments are created with some default options that can be overridden.  Some of the options available are - 
 - **Replicas**:  By default, your deployment will go out with a single instance.  With replicas, you have the ability to scale up your deployment instances.
 - **Deployment Region**: Deployments are pushed to the `us-west1` region unless a different region is specified.
 - **Scheduled Executions**:  Your deployment will be run once by default.  If the service is intended to be a scheduled task of sorts, you can create a cron schedule.

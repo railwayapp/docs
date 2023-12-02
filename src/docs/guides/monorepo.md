@@ -38,7 +38,7 @@ width={980} height={380} quality={80} />
 
 Popular in the JavaScript ecosystem, shared monorepos contain multiple components that all share a common root directory. 
 
-By default, all components are built with a single command from the root directory (eg. `npm run build`). However, if you are using Nixpacks, then you can override the build command in the service settings.
+By default, all components are built with a single command from the root directory (e.g. `npm run build`). However, if you are using Nixpacks, then you can override the build command in the service settings.
 
 ```
 ├── package.json
@@ -56,7 +56,7 @@ command in Service Settings for each project that references the monorepo
 codebase.
 1. Select the service within the project canvas to open the service view.
 2. Click on the Settings tab.
-3. Set the start command, eg. `npm run start:backend` and `npm run start:frontend`
+3. Set the start command, e.g. `npm run start:backend` and `npm run start:frontend`
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-start-command_a8vcxs.png"

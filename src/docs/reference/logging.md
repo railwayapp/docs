@@ -2,7 +2,7 @@
 title: Logging
 ---
 
-Logs for services deployed to Railway are availabe to diagnose issues or track performance.
+Logs for services deployed to Railway are available to diagnose issues or track performance.
 
 ## How it Works
 

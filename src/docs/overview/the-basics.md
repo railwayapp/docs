@@ -2,7 +2,7 @@
 title: The Basics
 ---
 
-This document outlines the core concepts of Railway, providing foundational knowledge of the basic buiding blocks you'll work with in the platform.
+This document outlines the core concepts of Railway, providing foundational knowledge of the basic building blocks you'll work with in the platform.
 
 ## Projects
 
@@ -14,7 +14,7 @@ Services within a project are automatically joined to a [private network](/refer
 
 A Railway service is a deployment target for your deployment source.  Deployment sources can be code repositories or Docker Images.  Once you create a service and choose a source, Railway will analyze the source, build a Docker image (if the source is a code repository), and deploy it to the service.
 
-Out of the box, your service is deployed with a set of default configurations which can be overriden as needed.
+Out of the box, your service is deployed with a set of default configurations which can be overridden as needed.
 
 ## Variables
 

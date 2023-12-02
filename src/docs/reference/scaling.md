@@ -8,7 +8,7 @@ Scaling your applications in Railway is made easy with configurable options for 
 
 ### Vertical Autoscaling
 
-By default Railway will scale your service up to the the specified vCPU and Memory limits of your [plan](/reference/pricing#plans).
+By default Railway will scale your service up to the specified vCPU and Memory limits of your [plan](/reference/pricing#plans).
 
 ### Horizontal Scaling with Replicas
 

@@ -42,7 +42,7 @@ To ensure Railway waits for your GitHub Actions to run successfully before trigg
     ```
 ### Enabling Check Suites
 
-If your workfow satisfies the requirements above, you will see the `Check Suites` flag in service settings.
+If your workflow satisfies the requirements above, you will see the `Check Suites` flag in service settings.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1671003153/docs/check-suites.png" alt="Check Suites Configuration" layout="responsive" width={1340} height={392} quality={80} />
 
