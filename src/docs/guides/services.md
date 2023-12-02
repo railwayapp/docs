@@ -74,7 +74,7 @@ GitHub Container Registry:
 
 ## Deploying a Monorepo
 
-For information on how to deploy a Monorepo click [here](/guides/deploy-a-monorepo).
+For information on how to deploy a Monorepo click [here](/guides/monorepo).
 
 
 ## Monitoring

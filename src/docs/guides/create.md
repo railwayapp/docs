@@ -45,7 +45,7 @@ Whether you are building from scratch or have started from an existing project, 
 In addition to the Source, you can configure the following fields to enable successful deploys for template users:
 
 - [Enable Public Networking](/guides/public-networking)
-- [Root Directory (Helpful for monorepos)](/guides/deploy-a-monorepo)
+- [Root Directory (Helpful for monorepos)](/guides/monorepo)
 - [Start command](/guides/start-command)
 - [Healthcheck Path](/guides/healthchecks-and-restarts#configure-healthcheck-endpoint)
 - [Volume mount path](/guides/volumes)

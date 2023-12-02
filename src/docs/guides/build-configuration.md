@@ -31,7 +31,7 @@ For those familiar with Nixpacks, this gets set as the `--build-cmd` argument du
 ## Set the Root Directory
 
 The root directory defaults to `/` but can be changed for various use-cases like
-[monorepo](/guides/deploy-a-monorepo) projects. 
+[monorepo](/guides/monorepo) projects. 
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/root-directory_nczles.png"

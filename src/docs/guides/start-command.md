@@ -9,7 +9,7 @@ deployed, see [Build and Start Commands](/reference/build-and-start-commands) fo
 
 ## Configure the Start Command
 
-When necessary, start commands may be overridden, like for advanced use-cases such as deploying multiple projects from a single [monorepo](/guides/deploy-a-monorepo).
+When necessary, start commands may be overridden, like for advanced use-cases such as deploying multiple projects from a single [monorepo](/guides/monorepo).
 
 When specifying a start command, the behavior of the image depends on type of build:
 - **Dockerfile**: the start command overrides the Docker image's ENTRYPOINT in <a href="https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example" target="_blank">exec form</a>

@@ -43,4 +43,4 @@ root directory (eg. Yarn workspace or Lerna project)
 
 ## Support
 
-For information on how to deploy a monorepo in Railway, visit [this guide](/guides/deploy-a-monorepo).
+For information on how to deploy a monorepo in Railway, visit [this guide](/guides/monorepo).

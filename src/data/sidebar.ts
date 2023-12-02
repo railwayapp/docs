@@ -67,7 +67,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Github Autodeploys", "guides"),
           makePage("Optimize Performance", "guides"),
           makePage("Healthchecks and Restarts", "guides"),
-          makePage("Deploy a Monorepo", "guides"),
+          makePage("Monorepo", "guides"),
           makePage("Cron Jobs", "guides"),
           makePage("Optimize Usage", "guides"),
         ]
@@ -80,7 +80,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("MySQL", "guides"),
           makePage("Redis", "guides"),
           makePage("MongoDB", "guides"),
-          makePage("Using the Database View", "guides"),
+          makePage("Database View", "guides"),
           makePage("Database Migration Guide", "guides"),
         ]
       },
