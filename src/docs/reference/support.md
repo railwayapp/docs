@@ -14,7 +14,7 @@ Railway offers numerous tiers of support for our users. This page will cover the
 
 ### Hobby Plan users
 
-Railway has a [Discord server](https://discord.gg/railway) where you can get help from other users.
+Railway has a <a href="https://discord.gg/railway" target="_blank">Discord Server</a> where you can get help from other users.
 
 ### Pro Plan users
 
@@ -36,10 +36,10 @@ When emailing us, please do so from your Railway account's email address. This h
 
 ## Discord
 
-Railway has a vibrant community of users and developers on [Discord](https://discord.gg/railway). We encourage you to reach out to the community for help with your project. The community is a great place to get help with your project, learn new things, and meet other developers.
+Railway has a vibrant community of users and developers on  <a href="https://discord.gg/railway" target="_blank">Discord</a>. We encourage you to reach out to the community for help with your project. The community is a great place to get help with your project, learn new things, and meet other developers.
 
 Please ensure that you follow these rules in our community:
-- Ask questions in the [✋ ｜ help](https://discord.com/channels/713503345364697088/1006629907067064482) channel
+- Ask questions in the  <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> channel
 - Search for your issue first before making a thread
 - Give as much information as you can (see [How to ask for help](#how-to-ask-for-help))
 - Refrain from pinging anyone with the Team or Conductor roles in Discord
@@ -82,7 +82,7 @@ Reach out to us at [team@railway.app](mailto:team@railway.app) on setting this u
 
 | Priority | Surface Areas                                                                                                                                                                                                                                                                                                                                                                                                       |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1        | **Outages that impact production**. This covers the following components: incidents declared on [status.railway.app](https://status.railway.app/) including and especially incidents with end-customer impact (e.g. inability to login to the Dashboard), customer workload-impacting issues due to high load requiring intervention from Railway (e.g. requiring additional resources beyond your current limits). |
+| 1        | **Outages that impact production**. This covers the following components: incidents declared on <a href="https://status.railway.app/" target="_blank">status.railway.app</a> including and especially incidents with end-customer impact (e.g. inability to login to the Dashboard), customer workload-impacting issues due to high load requiring intervention from Railway (e.g. requiring additional resources beyond your current limits). |
 | 2        | **Issues related to Railway features**. This covers features offered by Railway, including but not limited to our Dashboard, CLI, and platform-level features such as Deployments, Environments, Private Networking, Volumes.                                                                                                                                                                                       |
 | 3        | **Integration work and general questions related to Railway**. This covers customer-related requests involving integrating Railway with other services (e.g. fronting your Railway workload with a DDoS protection service), leveraging tools to use Railway the way you like (e.g. IaC provisioning/Terraform), or questions about Railway features or its platform.                                               |
 

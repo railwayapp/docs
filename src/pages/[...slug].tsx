@@ -51,6 +51,25 @@ const StyledHeadingH2 = styled.h2`
   }
 `;
 
+const StyledHeadingH3 = styled.h3`
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 1.5rem 0 0;
+  margin-bottom: 2rem;
+
+  &:hover {
+    ${StyledLinkIcon} {
+      display: flex;
+    }
+    @media (max-width: 1300px) {
+      ${StyledLinkIcon} {
+        display: none;
+      }
+    }
+  }
+`;
+
 const Image = (props: ImageProps) => (
   <a
     tw="block xl:-mx-8"
@@ -76,6 +95,14 @@ const components: Record<string, React.ElementType> = {
       </StyledLinkIcon>
       <StyledLinkHeading href={`#${id}`}>{children[1]}</StyledLinkHeading>
     </StyledHeadingH2>
+  ),
+  h3: ({ id, children }) => (
+    <StyledHeadingH3 id={id}>
+      <StyledLinkIcon href={`#${id}`}>
+        <FeatherLinkIcon className="icon" size={20} />
+      </StyledLinkIcon>
+      <StyledLinkHeading href={`#${id}`}>{children[1]}</StyledLinkHeading>
+    </StyledHeadingH3>
   ),
 };
 

@@ -4,11 +4,11 @@ title: Teams
 
 Teams are how organizations are represented within Railway. Teams can be created via the Pro or Enterprise plans.
 
-For more information, visit our [documentation on pricing](/reference/pricing) or [railway.app/pricing](https://railway.app/pricing).
+For more information, visit our [documentation on pricing](/reference/pricing) or <a href="https://railway.app/pricing" target="_blank">railway.app/pricing</a>.
 
 ## Creating a Team
 
-Organizations can create a team by heading to the [Create Team](https://railway.app/new/team) page and entering the required information.
+Organizations can create a team by heading to the <a href="https://railway.app/new/team" target="_blank">Create Team</a> page and entering the required information.
 
 ## Managing Teams
 

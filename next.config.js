@@ -1,4 +1,5 @@
 const { withContentlayer } = require("next-contentlayer");
+const redirects = require("./redirects"); 
 
 /** @type {import('next').NextConfig} */
 const nextConfig = withContentlayer({
@@ -12,13 +13,7 @@ const nextConfig = withContentlayer({
     ],
   },
   async redirects() {
-    return [
-      {
-        source: "/reference/s",
-        destination: "/reference/templates",
-        permanent: true,
-      },
-    ];
+    return redirects;
   },
 });
 

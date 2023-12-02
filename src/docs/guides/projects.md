@@ -1,0 +1,72 @@
+---
+title: Managing Projects
+---
+
+A Railway project contains any services, environments, and deployments that an app needs. Projects can be found on <a href="https://railway.app/dashboard" target="_blank">your project dashboard</a>.
+
+Click on a project card to go to the project canvas:
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1644620884/docs/ProjectPage_new_pa52tp.png"
+alt="Screenshot of Project Canvas"
+layout="responsive"
+width={1377} height={823} quality={100} />
+
+Project settings can be managed through the `Settings` button at the top right of the project canvas.
+
+## Managing Project Info
+
+A project's name and description can be changed from the General tab within a project's settings.
+
+The project id can also be retrieved here.
+
+
+## Deleting a Project
+
+A project can be deleted by selecting the `Delete Project` button in the Danger tab. Deleting a project will delete all services, environments, and deployments associated with the project.
+
+Specific services within a project can also be deleted from this page.
+
+## Inviting Members
+
+Invite members to access a project through the Members tab in your Project Settings.
+
+You can invite a member by sending an invitation to their email address, or by generating an invite link to send to them directly.
+
+Click [here](/reference/project-members#scope-of-permissions) to view the scope definitions for permissions.
+
+
+### Invite by Email
+
+Invite a new member via email by specifying their email address and scope of permissions, then click `Invite`.
+
+This will send an email to the address specified containing a link to join your project.
+
+
+### Invite by Link
+
+Each project generates a project invite link. To invite someone via a link:
+
+1. Select the desired invited member scope
+2. Copy link and send to the invitee
+
+
+## Transferring Projects
+
+You can transfer a project to another member in the members list by selecting the three dots next to the user and choosing `Transfer Ownership`.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-transfer_iz4myn.png"
+alt="Screenshot of Project Transfer Menu"
+layout="intrinsic"
+width={411} height={253} quality={80} />
+
+The transferee receives an email with the current owner requesting to transfer the project to the user. Once that user accepts the transfer, they become the new owner of the project.
+
+## Updating Project Visibility
+
+Projects are private by default and only accessible to members of the project.  However, you can make your projects public to share in a read-only state by changing the visibility in project settings - 
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1663700589/docs/visible_vjqct8.png"
+alt="Screenshot of Project Visibility Setting"
+layout="intrinsic"
+width={712} height={291} quality={80} />

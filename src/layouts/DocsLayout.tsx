@@ -6,7 +6,7 @@ import { Link } from "../components/Link";
 import { PageNav } from "../components/PageNav";
 import { SEO } from "../components/SEO";
 import { sidebarContent } from "../data/sidebar";
-import { FrontMatter } from "../types";
+import { FrontMatter, ISidebarContent, IPage } from "../types";
 import { Props as PageProps } from "./Page";
 
 export interface Props extends PageProps {
@@ -17,6 +17,33 @@ const getOGImage = (title: string) =>
   `https://og.railway.app/api/image?fileType=png&layoutName=Docs&Theme=Dark&URL=&Page=${encodeURIComponent(
     title,
   )}`;
+
+const flattenSidebarContent = (sidebarContent: ISidebarContent): IPage[] => {
+  let flatPages: IPage[] = [];
+  sidebarContent.forEach(section => {
+    section.content.forEach(item => {
+      if ('url' in item) {
+        // Skip external links
+        return;
+      } else if ('subTitle' in item) {
+        // this is the subTitle page
+        if (typeof item.subTitle !== 'string') {
+          flatPages.push(item.subTitle);
+        }
+        // also used for skipping external links
+        item.pages.forEach(page => {
+          if (!('url' in page)) {
+            flatPages.push(page);
+          }
+        });
+      } else {
+        // This is a page
+        flatPages.push(item);
+      }
+    });
+  });
+  return flatPages;
+};
 
 export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
   frontMatter,
@@ -38,30 +65,11 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
   );
 
   const { prevPage, nextPage } = useMemo(() => {
-    const sectionIndex = sidebarContent.findIndex(s =>
-      s.pages.find(p => p.slug === prefixedSlug),
-    )!;
-    const pageIndex = sidebarContent[sectionIndex].pages.findIndex(
-      p => p.slug === prefixedSlug,
-    );
+    const flatPages = flattenSidebarContent(sidebarContent);
+    const pageIndex = flatPages.findIndex(p => p.slug === prefixedSlug);
 
-    const prevSection = sidebarContent[sectionIndex - 1];
-    const currentSection = sidebarContent[sectionIndex];
-    const nextSection = sidebarContent[sectionIndex + 1];
-
-    const prevPage =
-      pageIndex === 0
-        ? prevSection != null
-          ? prevSection.pages[prevSection.pages.length - 1]
-          : null
-        : currentSection.pages[pageIndex - 1];
-
-    const nextPage =
-      pageIndex === currentSection.pages.length - 1
-        ? nextSection != null
-          ? nextSection.pages[0]
-          : null
-        : currentSection.pages[pageIndex + 1];
+    const prevPage = pageIndex > 0 ? flatPages[pageIndex - 1] : null;
+    const nextPage = pageIndex < flatPages.length - 1 ? flatPages[pageIndex + 1] : null;
 
     return { prevPage, nextPage };
   }, [slug]);
