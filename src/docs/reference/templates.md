@@ -20,11 +20,15 @@ Read more about the kickback program <a href="https://railway.app/open-source-ki
 - Your template must be published to the marketplace to be eligible for kickback.
 - For Hobby users with a $5 discount, only usage in excess of the discount is counted in the kickback.
 - All service types and resource usage of those services (compute, volume, egress, etc) *do count* towards the kickback.
-- Platform fees are not included in the kickback, but usage fees of the platform are included.  Examples of platform fees are:
+- Platform fees are not included in the kickback, but usage fees of the platform are included. Examples of platform fees are:
+
   - Cost of Subscription Plan ($5 for Hobby, $20 for Pro)
   - Additional Team Seats
-  
+
   As an example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $50 kickback (25% of $200).
+
+- The minimum kickback our program supports is $0.01, meaning usage of your template must incur at least $0.04 in usage after discounts and/or platform fees.
+- All service types and resource usage of those services (compute, volume, egress, etc) _do count_ towards the kickback.
 
 
 ## Updatable Templates
@@ -39,4 +43,4 @@ If you are happy with the changes, you can merge the pull request, and we will a
 If you're curious, you can read more about how we built updatable templates in this <Link href="https://blog.railway.app/p/updatable-starters" target="_blank">blog post</Link>.
 </Banner>
 
-Note that this feature only works for services based on GitHub repositories.  At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced.
+Note that this feature only works for services based on GitHub repositories. At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced.

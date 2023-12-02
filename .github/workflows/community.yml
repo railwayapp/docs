@@ -2,9 +2,9 @@ name: Is Org Member
 
 on:
   issues:
-    types: [opened, labeled]
+    types: [opened]
   pull_request:
-    types: [opened, labeled]
+    types: [opened]
 
 jobs:
   is-member:
@@ -16,15 +16,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Is org member?
         id: is_org_member
-        uses: zuchka/community-actions@v0.0.2
+        uses: zuchka/community-actions@v0.0.12
         env:   
           GITHUB_ISSUE_URL: ${{ toJson(github.event.issue.html_url) }}
+          GITHUB_PR_URL: ${{ toJson(github.event.pull_request._links.html.href) }}
           GITHUB_REPO: ${{ toJson(github.repository) }}
           GITHUB_EVENT_NAME: ${{ toJson(github.event_name) }}
         with:
-          username: ${{ github.event.issue.user.login }}
+          username: ${{ github.actor }}
           teammates: 20k-ultra|char8|coffee-cup|dbanys|FarazPatankar|gschier|half0wl|JakeCooper|jitachi|melissa-hale|ndneighbor|ohrgaard|pierre-borckmans|railway-bot|tacLog|trif0lium|zuchka
-          webhook: https://discord.com/api/webhooks/886039948032090152/TN0AU9rQs3bzWfIR-enPZp9xAW2XeOzYiCQH4Y_W6MX-ABjKaKzsJOTp_psayU_Z8H-f
+          webhook: https://discord.com/api/webhooks/1174144680104038511/D8RTqckekpv1KfCmVp3kcfFSvV35MavPSuO3FHHxlXoxK8lM5DGwuZLI-XjhTQWB5m8D
       - name: Add label
         uses: actions-ecosystem/action-add-labels@v1
         if: ${{ steps.is_org_member.outputs.result == 'false' }}
@@ -38,4 +39,4 @@ jobs:
           body: |
             Hello, @${{ github.actor }}! Thanks for your submission. 
             
-            Our team will respond soon. If you need more immediate help, try our Forum or our Discord. Thanks!
+            Our team will respond soon. If you need more immediate help, try our [Forum](https://community.railway.app/) or our [Discord](https://discord.com/invite/railway). Thanks!
