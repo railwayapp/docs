@@ -118,7 +118,6 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Getting Started", "tutorials"),
         pages: [
-          makePage("Quick Start", undefined),
           makePage("Migrate From Heroku", "tutorials"),
         ]
       },

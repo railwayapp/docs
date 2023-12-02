@@ -74,6 +74,11 @@ const redirects = [
       destination: "/guides/fixing-common-errors",
       permanent: true,
     },
+    {
+      source: "/reference/guides",
+      destination: "/tutorials/getting-started",
+      permanent: true,
+    },
   ];
   
   module.exports = redirects;
