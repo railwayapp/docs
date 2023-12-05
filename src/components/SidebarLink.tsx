@@ -58,7 +58,6 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
           // the first Link is the subTitle page, i.e. How To > Get Started
           <li key={slug}>
             <div 
-              className={classNames(isCurrentPage(slug) && `current`)}
               css={[
                 tw`flex justify-between items-center`,
                 tw`hover:bg-gray-100`,
@@ -82,6 +81,7 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({ slug, item, isCurrentPage, is
                     </span>
                   ) : (
                     <Link
+                      className={classNames(isCurrentPage(slug) && `current`)}
                       href={slug}
                       onClick={(e) => {
                         onToggleSubSection(false);
