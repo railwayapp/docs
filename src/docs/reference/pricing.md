@@ -32,7 +32,7 @@ Railway offers three plans in addition to a free trial:
 
 ### Plan Pricing
 
-- **Hobby**: $5 / mo, including $5 of usage
+- **Hobby**: $5 / mo
 - **Pro**: $20 / seat / mo
 - **Enterprise**: Custom pricing
 
@@ -130,6 +130,10 @@ Read more about adding members to your Pro or Enterprise team [here](/reference/
 Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform. Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. If you qualify, you will be notified in the Dashboard or when you upgrade to the Hobby plan.
 
 Railway does not manually grant verification status.
+</Collapse>
+
+<Collapse title="Is the Hobby Plan free?">
+No, the Hobby Plan is $5 a month, but it does include a resource usage credit of $5.  Even if you do not use the $5 in usage (CPU, Memory, egress), you always pay the $5 subscription fee.
 </Collapse>
 
 ### Trial
