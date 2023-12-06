@@ -2,21 +2,14 @@
 title: Using the Database View
 ---
 
-Baked into the four, one-click database templates that Railway provides is a built-in Database Management Interface, this allows you to perform common actions on your Database such as viewing and editing the contents of your database services in Railway.
-
-### Database Management
-
-We expose two high level administrative actions through the interface for database services.
-
-- Reset Database Credentials
-- Wipe Database Data
+Baked into the four, one-click database templates that Railway provides, is a Database Management Interface, this allows you to perform common actions on your Database such as viewing and editing the contents of your database services in Railway.
 
 ## SQL Interfaces
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/table_select_subfar.png"
-alt="Screenshot of Expanded Project Usage Pane"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1701904581/docs/databases/dataTab_vtj7me.png"
+alt="Screenshot of Postgres Service Panel"
 layout="intrinsic"
-width={995} height={628} quality={80} />
+width={995} height={528} quality={80} />
 
 For MySQL and Postgres, Railway displays the tables contained within an instance by default; this is called the Table View.
 
@@ -25,7 +18,7 @@ Shift-clicking on one or multiple tables exposes additional options such as the 
 ### Creating a Table
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/table_create_kuvnjg.png"
-alt="Screenshot of Expanded Project Usage Pane"
+alt="Screenshot of Create Table interface"
 layout="intrinsic"
 width={928} height={396} quality={80} />
 
@@ -47,14 +40,6 @@ width={803} height={457} quality={80} />
 ### Add SQL Column
 
 Selecting the add column in the entries view opens a modal that prompts you to add a new column to the table.
-
-### Raw SQL Queries
-
-<video autoPlay controls>
-<source src="https://res.cloudinary.com/railway/video/upload/v1636424680/docs/raw_sql_queries_dlrgqn.mp4" type="video/mp4" />
-</video>
-
-Under the Query tab - there is an option to input raw queries against your SQL databases with context-aware autocompletion. (Currently only available for Postgres)
 
 ## NoSQL Interfaces
 
