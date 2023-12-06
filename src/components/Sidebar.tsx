@@ -9,7 +9,7 @@ import { ScrollArea } from "./ScrollArea";
 import { OpenSearchModalButton } from "@/components/Search";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
-import SidebarLink from "./SidebarLink";
+import SidebarItem from "./SidebarItem";
 
 export const Sidebar: React.FC = ({ ...props }) => {
   return (
@@ -82,23 +82,22 @@ const SidebarContent: React.FC = () => {
   const isCurrentPage = (pageSlug: string) =>
     (prefixedSlug ?? pathname) === pageSlug;
 
-  const isCurrentSectionOrSubSection = (sectionOrSubSection: ISidebarSection | ISubSection) => {
-    if ('content' in sectionOrSubSection) {
-      // This is an ISidebarSection
-      return sectionOrSubSection.content.some(item => {
-        if ('subTitle' in item) {
-            // This is a sub-section within the section
-            return item.pages.some(p => 'slug' in p && isCurrentPage(p.slug));
-        } else if ('slug' in item) {
-            // This is a page directly under the section
-            return isCurrentPage(item.slug);
-        }
-        return false;
-      });
-    } else {
-        // This is an ISubSection
-      return sectionOrSubSection.pages.some(p => 'slug' in p && isCurrentPage(p.slug));
-    }
+  const isCurrentSection = (section: ISidebarSection ) => {
+    const isDirectPageCurrent = section.content.some(item => 'slug' in item && isCurrentPage(item.slug));
+
+    const isSubTitlePageCurrent = section.content.some(item => {
+      if ('subTitle' in item) {
+        const subTitleSlug = typeof item.subTitle === 'string' ? item.subTitle : item.subTitle.slug;
+        return isCurrentPage(subTitleSlug);
+      }
+      return false;
+    });
+
+    const isSubSectionPageCurrent = section.content.some(item => 
+      'subTitle' in item && item.pages.some(page => 'slug' in page && isCurrentPage(page.slug))
+    );
+
+    return isDirectPageCurrent || isSubTitlePageCurrent || isSubSectionPageCurrent;
   };
     
   const toggleSubSection = (subTitleSlug: string, isDirectToggle:boolean = false) => {
@@ -127,9 +126,8 @@ const SidebarContent: React.FC = () => {
      };
     
     return (
-      <SidebarLink
+      <SidebarItem
         key={itemSlug}
-        slug={itemSlug}
         item={item}
         isCurrentPage={isCurrentPage}
         isExpanded={expandedSubSections.includes(itemSlug)}
@@ -146,7 +144,7 @@ const SidebarContent: React.FC = () => {
             <h5
               tw="px-4 my-2 text-foreground text-sm font-bold"
               className={classNames(
-                isCurrentSectionOrSubSection(section) && "current-section",
+                isCurrentSection(section) && "current-section",
               )}
             >
               {section.title}
