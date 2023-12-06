@@ -15,11 +15,6 @@ width={370} height={300} quality={100} />
 
 Services on Railway can be deployed from a GitHub repository, a local directory, or a Docker image.
 
-## Deleting a Service
-
-Delete a service by opening the project's settings and scrolling to the danger section.
-
-
 ## Accessing Service Settings
 
 To access a service's settings, simply click on the service tile from your project canvas and go to the Settings tab.
@@ -91,3 +86,7 @@ Customize your project canvas for easier readability by changing the service ico
 4. Begin typing to see a list of available icons, pulled from our <a href="https://devicons.railway.app/" target="_blank">devicons</a>service.
 
 You can also access this configuration from the command palette.
+
+## Deleting a Service
+
+Delete a service by opening the project's settings and scrolling to the danger section.
