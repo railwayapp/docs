@@ -10,6 +10,8 @@ Railway can detect a deployed service is listening for traffic.  When detected, 
 
 ## Technical Specifications
 
+**This information is subject to change at any time.*
+
 | Category | Key Information |
 |----------|-----------------|
 | **DNS/Domain Names** | - Support for domains, subdomains, and wildcard domains.<br /> - Subdomains and wildcards cannot overlap (`foo.hello.com` cannot exist with `*.hello.com` unless owned by the same service).<br /> - Root domains need a DNS provider with ALIAS records or CNAME flattening.<br /> - Unicode domains should be PUNYcode encoded.<br /> - Non-public/internal domain names are not supported. |
