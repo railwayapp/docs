@@ -9,27 +9,44 @@ alt="Preview of What The Guide is Building"
 layout="intrinsic"
 width={1310} height={420} quality={100} />
 
-## Enabling Private Networking
-
-All new projects have private networking enabled and services will get a new DNS name under the `railway.internal` domain. This DNS name will resolve to the internal IPv6 address of the services within a project.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1686946842/docs/CleanShot_2023-06-16_at_16.15.35_2x_woehyq.png"
-alt="Preview of What The Guide is Building"
-layout="intrinsic"
-width={1442} height={510} quality={100} />
-
-#### Environments created before 2023/06/16
-You can enable it on the service settings page for old projects. This will enable private networking and service discovery for all services within the environment.
+By default, all projects have private networking enabled and services will get a new DNS name under the `railway.internal` domain. This DNS name will resolve to the internal IPv6 address of the services within a project.
 
 ## Communicating over the private network
 
-To communicate on the private network, you must bind to a IPv6 port and use the internal DNS name of the service. On most web frameworks, you can do this via `::` and specifying the port(s) you want to bind to.
+First, it is important to understand that the private network exists in the context of a project and environment and is not accessible over the public internet.  In other words -
 
-For example, if you have a service called `api` and you want to communicate with it from another service, you would use `api.railway.internal` as the hostname.
+- A client-side application **cannot** communicate to another service over the private network (unless the requests are server-side).
+- Services in one project/environment **cannot** communicate with services in another project/environment over the private network.
+
+### Listen on IPv6
+
+To set up an application to listen on the private network, your app must listen on IPv6.  On most web frameworks, you can do this via `::` and specifying the port(s) to which you want to bind.
+
+For example - 
+```javascript
+const port = 3000;
+
+app.listen(port, '::', () => {
+    console.log(`Server listening on  ::${port}`);
+});
+```
+
+### Internal Hostname
+
+To make a request to a service over the private network, you should use the internal DNS name of the service, plus the `PORT` on which the service is listening.
+
+For example, if you have a service called `api` listening on port 3000, and you want to communicate with it from another service, you would use `api.railway.internal` as the hostname and specify the port -
+
+```javascript
+app.get('/fetch-secret', async (req, res) => {
+    axios.get('http://api.railway.internal:3000/secret')
+    .then(response => {
+        res.json(response.data);
+    })
+})
+```
 
 If you wish to open a service that has a public, you can use the `PORT` environment variable to specify the public port. This will allow Railway to route traffic to the public port.
-
-**Note: You cannot use private networking to communicate with services in other environments.**
 
 ## Changing the service name for DNS
 
@@ -60,3 +77,14 @@ During the feature development process we found a few caveats that you should be
 - We don't support IPv4 private networking
 - Alpine-based images may not work with our internal DNS due to how it performs
   resolution. See the section above for a workaround.
+
+## Projects created before 2023/06/16
+
+For projects created before the above date, Private Networking is not automatically enabled.  
+
+In the service settings page, you can enable private networking and service discovery for all services within the environment. 
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1686946842/docs/CleanShot_2023-06-16_at_16.15.35_2x_woehyq.png"
+alt="Preview of What The Guide is Building"
+layout="intrinsic"
+width={1442} height={510} quality={100} />
