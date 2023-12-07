@@ -2,11 +2,13 @@
 title: Public Networking
 ---
 
-Public Networking refers to communicating over the public internet to services in Railway.  Networking is one layer of development operations that we aim to make as simple as possible.
+Public Networking refers to communicating over the public internet to services in Railway.
 
 ## How it Works
 
-Railway can detect a deployed service is listening for traffic.  When detected, Railway will provide a public domain for your service with the click of a button.  The only thing you need to do, is properly handle the port assignment.  More on this in the [Public Networking guide](/guides/public-networking).
+Railway can detect if a deployed service is listening for traffic.  When detected, Railway will provide a public domain for your service with the click of a button.  The only thing you need to do, is properly handle the port assignment.  More on this in the [Public Networking guide](/guides/public-networking).
+
+If you have your own Domain already, Railway also supports adding custom domains to your services.  For instructions on adding a custom domain, see the [Public Networking guide](/guides/public-networking#custom-domains).
 
 ## Technical Specifications
 
@@ -18,8 +20,9 @@ Railway can detect a deployed service is listening for traffic.  When detected, 
 | **Certificate Issuance** | - Raiway attempts to issue a certificate for **up to 72 hours** after domain creation before failing.<br /> - Certificates are expected to be issued within an hour. |
 | **TLS** | - Support for TLS 1.2 and TLS 1.3 with specific ciphersets.<br /> - Certificates are valid for 90 days and renewed every 30 days.<br /> - Cloudflare Proxying does impact certificate issuance and support for wildcard domains. |
 | **Edge Traffic** | - Support for HTTP/1.1 and HTTP/2.<br /> - Support for websockets over HTTP/1.1 (may be interrupted after 2-4hrs, clients should handle reconnect). <br /> - Idle timeout of 900 seconds.<br /> - Max 100 request headers.<br /> - Max 100 concurrent streams per HTTP2 connection.<br /> - Max duration of 5 minutes for HTTP requests. |
-| **Request Headers** | - `X-Envoy-External-Address` or `X-Forwarded-For` for identifying client's remote IP.<br /> - `X-Forwarded-Proto` always indicates HTTPS.<br /> - `X-Request-Id` for correlating requests against network logs. |
-| **Requests** | - Inbound traffic must be TLS-encrypted <br /> - HTTP GET requests to port 80 are redirected to HTTPS. <br /> - HTTP POST requests to port 80 are redirected to HTTPS as GET requests.|
+| **Request Headers** | - `X-Forwarded-For` for identifying client's remote IP.<br /> - `X-Forwarded-Proto` always indicates HTTPS.<br /> - `X-Request-Id` for correlating requests against network logs. |
+| **Requests** | - Inbound traffic must be TLS-encrypted <br /> - HTTP GET requests to port 80 are redirected to HTTPS. <br /> - HTTP POST requests to port 80 are redirected to HTTPS as GET requests. <br /> - SNI is required for correct certificate matching. |
+||
 
 ## FAQ
 
@@ -47,8 +50,8 @@ We are unable to provide DDoS protection or WAFs at this time.
 
 <Collapse title="How do I handle forwarding traffic to my exposed port?">
 To have traffic from the public internet properly forwarded to your service's exposed port, you must ensure that you are properly using the `PORT` environment variable made available to every service deployment.
-- If your application is listening on an explictely defined port, you must define a `PORT` variable with the proper assignment in your service's [variables](/guides/variables).
-- If you do not explicitely define the `PORT`, Railway provides one for you and exposes it during deployment.
+- If your application is listening on an explicitly defined port, you must define a `PORT` variable with the proper assignment in your service's [variables](/guides/variables).
+- If you do not explicitly define the `PORT`, Railway provides one for you and exposes it during deployment.
 
 More on this in the [Public Networking guide](/guides/public-networking).
 </Collapse>

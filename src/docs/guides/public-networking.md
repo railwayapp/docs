@@ -161,3 +161,9 @@ After a custom domain is added to the Railway service follow [the instructions l
 **Workaround 2 - Changing your Domain's Nameservers**
 
 You can also change your domain's nameservers to point to Cloudflare's nameservers. This will allow you to use a CNAME record for the root domain. Follow the instructions listed on Cloudflare's documentation to [change your nameservers.](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/)
+
+## Support
+
+Looking for the technical specs like timeouts, TLS information, etc?  Check out the [Public Networking reference page](/reference/public-networking).
+
+Having trouble connecting to your app from the internet?  Check out the [Fixing Common Errors guide](/guides/fixing-common-errors) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
