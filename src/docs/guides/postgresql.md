@@ -67,6 +67,9 @@ Tailor your PostgreSQL service to your needs by adding any variables relevant to
 
 ## Timescale and PostGIS
 
-The Postgres image that we use in our one-click template no longer contains PostGIS or Timescale extensions.
+The Postgres service deployed from the Command Palette no longer contains PostGIS or Timescale extensions.  However, there are several options in the template marketplace that deploy a PostGIS or Timescale-enabled Postgres image.
+- <a href="https://railway.app/template/VSbF5V" target="_blank">TimescaleDB</a>
+- <a href="https://railway.app/template/postgis" target="_blank">PostGIS</a>
+- <a href="https://railway.app/template/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
 
-The beauty of our new services, however, is that you can customize your Postgres service to your needs!  Please reach out to the community in [Discord](https://discord.gg/railway) if you need help.
+To deploy a service from a template in an existing project, simply click `+ New` from your project canvas, select `Template` and search for the template you require.

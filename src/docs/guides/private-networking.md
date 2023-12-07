@@ -1,5 +1,5 @@
 ---
-title: Connecting over the Private Network
+title: Private Networking
 ---
 
 Private Networking is a feature within Railway that allows you to have a private network between your services, helpful for situations where you want to have a public gateway for your API but leave internal communication private.

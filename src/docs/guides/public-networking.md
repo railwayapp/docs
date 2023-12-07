@@ -2,23 +2,64 @@
 title: Public Networking
 ---
 
-Before your application can say hello, Railway needs to know the IP and port that your application is listening on, in order to expose it to the internet.
+Public Networking refers to exposing your application to the internet, to be accessible from the public network.
 
 ## Port Variable
 
-The easiest way to get up and running is to have your application listen on `0.0.0.0:$PORT`, where `PORT` is a Railway-provided environment variable.
+An essential part of connecting your service to the internet, is properly handling the `PORT` variable.
 
-Alternatively, you can manually override the `PORT` environment variable by adding `PORT` to your projects variables page. (Command + K and type `Variables` or you can use the keyboard shortcut: `G` + `V` under your selected project)
+The easiest way to get up and running is by using the Railway-provided port.
+
+### Railway-provided port
+
+As long as you have not defined a `PORT` variable, Railway will provide and expose one for you.
+
+To have your application use the Railway-provided port, you should ensure it is listening on `0.0.0.0:$PORT`, where `PORT` is the Railway-provided environment variable.
+
+**Examples**
+```python
+# python web server
+if __name__ == '__main__':
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
+```
+
+```javascript
+// node web server
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`App listening on port: ${port}`);
+});
+
+```
+
+### User-defined port
+
+If you prefer to explicitly set a port, you *must* set the `PORT` variable in your service variables to the port on which your service is listening.
+
+For information on how to configure variables, see the [Variables guide](/guides/variables).
 
 ## Railway-Provided Domain
 
-Railway services don't obtain a domain automatically, but you'll be notified to set one up as soon as we detect a deployment is listening correctly (as described above). Simply follow the prompts to generate a domain and your app will be exposed to the internet!
+Railway services don't obtain a domain automatically, but it is easy to set one up.
+
+To assign a domain to your service, go to your service's settings, find the Networking -> Public Networking section, and choose `Generate Domain`.
+
+#### Automated prompt
+
+If Railway detects that a deployed service is listening correctly (as described above), you will see a prompt on the service tile in the canvas, and within the service panel.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1654560212/docs/add-domain_prffyh.png"
 alt="Screenshot of adding Service Domain"
 layout="responsive"
 width={1396} height={628} quality={80} />
+
+Simply follow the prompts to generate a domain and your app will be exposed to the internet.
+
+**Don't see the Generate Domain Button?**
+
+If you have previously assigned a TCP Proxy to your service, you will not see the `Generate Domain` option.  You must remove the TCP Proxy (click the Trashcan icon), then you can add a domain.
 
 ## Custom Domains
 
@@ -120,3 +161,9 @@ After a custom domain is added to the Railway service follow [the instructions l
 **Workaround 2 - Changing your Domain's Nameservers**
 
 You can also change your domain's nameservers to point to Cloudflare's nameservers. This will allow you to use a CNAME record for the root domain. Follow the instructions listed on Cloudflare's documentation to [change your nameservers.](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/)
+
+## Support
+
+Looking for the technical specs like timeouts, TLS information, etc?  Check out the [Public Networking reference page](/reference/public-networking).
+
+Having trouble connecting to your app from the internet?  Check out the [Fixing Common Errors guide](/guides/fixing-common-errors) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.

@@ -70,6 +70,11 @@ const redirects = [
       permanent: true
     },
     {
+      source: "/reference/compare-to-heroku",
+      destination: "/maturity/compare-to-heroku",
+      permanent: true
+    },
+    {
       source: "/troubleshoot/fixing-common-errors",
       destination: "/guides/fixing-common-errors",
       permanent: true,

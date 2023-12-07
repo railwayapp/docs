@@ -20,7 +20,7 @@ width={559} height={168} quality={80} />
 
 ## Volumes
 
-Railway makes it easy to attach a [volume](/how-to/use-volumes) to any service, to keep your data safe between deployments.  For the Postgres image, the default mount path is `/var/lib/postgresql/data`.
+Attach a [volume](/guies/volumes) to any service, to keep your data safe between deployments.  For the Postgres image, the default mount path is `/var/lib/postgresql/data`.
 
 Just attach a volume to the service you created, at the mount path:
 
@@ -32,7 +32,7 @@ width={519} height={168} quality={80} />
 
 ## Environment Variables
 
-Now, all you need to do is configure the <a href="https://hub.docker.com/_/postgres#environment-variables:~:text=have%20found%20useful.-,Environment%20Variables,-The%20PostgreSQL%20image" target="_blank">appropriate environment variables</a> to let the Postgres image know how to run:
+Now, all you need to do is configure the appropriate <a href="https://hub.docker.com/_/postgres#environment-variables:~:text=have%20found%20useful.-,Environment%20Variables,-The%20PostgreSQL%20image" target="_blank">environment variables</a> to let the Postgres image know how to run:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1701464670/docs/databases/envvars_aow79p.png"
@@ -40,11 +40,21 @@ alt="Screenshot of environment variables"
 layout="responsive"
 width={460} height={458} quality={80} />
 
-Note the `DATABASE_URL` is configured with TCP Proxy variables.  More information on that below.
+Note the `DATABASE_URL` is configured with TCP Proxy variables, but you can also connect to the database service over the private network.  More information below.
 
-## TCP Proxy
+## Connecting
 
-If you'd like to expose the database over the public network, you'll need to set up a [TCP Proxy](/how-to/exposing-your-app#tcp-proxying), to proxy public traffic to the Postgres port `5432`:
+### Private Network
+
+To connect to your database service from other services in your project, you can use the [private network](/guides/private-networking).  For a postgres database service listening on port `5432`, you can use a connection string like this - 
+
+```bash
+postgresql://postgres:password@postgres.railway.internal:5432/railway
+```
+
+### TCP Proxy
+
+If you'd like to expose the database over the public network, you'll need to set up a [TCP Proxy](/guides/public-networking#tcp-proxying), to proxy public traffic to the Postgres port `5432`:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1694217808/docs/screenshot-2023-09-08-20.02.55_hhxn0a.png"

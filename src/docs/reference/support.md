@@ -64,11 +64,16 @@ Reach out to us at [team@railway.app](mailto:team@railway.app) for more informat
 
 For Business Class customers, we offer Direct Support over chat channels. This allows you to have a dedicated channel for your team to communicate with Railway.
 
-- In Discord, we'll create a dedicated channel for you and your team
+- In Discord, you'll have access to a **#direct-support** channel, allowing you to create a temporary dedicated bridge (more info below)
 - In Slack, we'll embed Railway Engineers into one of your workspace's channels
 - If you'd like to set this up over other channels (e.g. Microsoft Teams), let us know
 
-Reach out to us at [team@railway.app](mailto:team@railway.app) on setting this up.
+**Discord Chat Bridge**
+- When you sign up for Business Class, you have access to a channel in Discord called **#direct-support**
+- From within the **#direct-support** channel, you will click the `Join Channel` button to create a temporary bridge dedicated to you
+- After *7 days of inactivity*, the dedicated bridge will disappear, but you can always create another one through the **#direct-support** channel
+
+Reach out to us at [team@railway.app](mailto:team@railway.app) on setting up dedicated chat bridges.
 
 ### Business Class SLOs
 
