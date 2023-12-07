@@ -11,9 +11,12 @@ When mounting a volume to a service, a volume is made available to the service o
 
 ## Size Limits
 
-Volumes have a max size based on the [subscription plan](reference/pricing#plans).
-- Trial and Hobby plans: **5GB**
+Volumes have a max size based on the [subscription plan](/reference/pricing#plans).
+- Free and Trial plans: **0.5GB**
+- Hobby plans: **5GB**
 - Pro and team plans: **50GB**
+
+Volumes can be "Grown" after upgrading to a different plan.
 
 Please reach out to us at [team@railway.app](mailto:team@railway.app) if you need more space.
 
