@@ -116,6 +116,12 @@ Since adding new volumes and services is now scoped to the current environment, 
             layout="responsive"
             width={736} height={522} quality={100} />
 
+### Caveats
+
+- Networking changes are not yet staged and are applied immediately.
+- Adding databases or templates will only affect the current environment. However, they do not yet create a commit in the history.
+- When staged changes are enabled, forking environments is disabled. Staging changes is our long-term vision for environments which will incorporate the best parts of forking environments. However, at the moment the two features are incompatible.
+
 ### Feedback
 
 Staged changes is big change to the Railway dashboard. We'd love to hear your [feedback on the feature](https://community.railway.app).
