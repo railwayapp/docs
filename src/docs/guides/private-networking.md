@@ -13,25 +13,22 @@ By default, all projects have private networking enabled and services will get a
 
 ## Communicating over the private network
 
-First, it is important to understand that the private network exists in the context of a project and environment and is not accessible over the public internet.  In other words -
-
-- A client-side application **cannot** communicate to another service over the private network (unless the requests are server-side).
-- Services in one project/environment **cannot** communicate with services in another project/environment over the private network.
+To communicate over the private network, there are some specific things to know to be successful.
 
 ### Listen on IPv6
 
-To set up an application to listen on the private network, your app must listen on IPv6.  On most web frameworks, you can do this via `::` and specifying the port(s) to which you want to bind.
+Since the private network is an IPv6 network, your app must be configured to listen on IPv6.  On most web frameworks, you can do this via `::` and specifying the port(s) to which you want to bind.
 
 For example - 
 ```javascript
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, '::', () => {
     console.log(`Server listening on  ::${port}`);
 });
 ```
 
-### Internal Hostname
+### Internal Hostname and Port
 
 To make a request to a service over the private network, you should use the internal DNS name of the service, plus the `PORT` on which the service is listening.
 
@@ -48,13 +45,97 @@ app.get('/fetch-secret', async (req, res) => {
 
 If you wish to open a service that has a public, you can use the `PORT` environment variable to specify the public port. This will allow Railway to route traffic to the public port.
 
+### Private Network Context
+
+The private network exists in the context of a project and environment and is not accessible over the public internet.  In other words -
+
+- A web application that makes client-side requests **cannot** communicate to another service over the private network.
+- Services in one project/environment **cannot** communicate with services in another project/environment over the private network.
+
+Check out the [FAQ](#faq) section for more information.
+
+### Known Configuration Requirements for IPv6
+
+Some libraries and components require you to be explicit when either listening or establishing a connection over IPv6.
+
+<Collapse title="ioredis">
+
+`ioredis` is a Redis client for node.js, commonly used for connecting to Redis from a node application.  When initializing a Redis client using `ioredis`, you must specify `family=6` in the connection string:
+
+```javascript
+import Redis from 'ioredis';
+
+const redis = new Redis(process.env.REDIS_PRIVATE_URL + '?family=6');
+
+const ping = await redis.ping();
+```
+
+<a href="https://www.npmjs.com/package/ioredis" target="_blank">ioredis docs</a>
+
+</Collapse>
+
+<Collapse title="Mongo Docker image">
+
+If you are creating a service directly from the Official Mongo Docker image and would like to connect to it over the private network, you must start the container with some options to instruct the Mongo instance to listen on IPv6.  For example, this would be set in your [Start Command](/guides/start-command):
+
+```bash
+docker-entrypoint.sh mongod --ipv6 --bind_ip ::,0.0.0.0
+```
+
+Note that the official template provided by Railway is deployed with this Start Command.
+
+</Collapse>
+
+<Collapse title="hot-shots">
+
+`hot-shots` is a StatsD client for node.js, which can be used to ship metrics to a DataDog agent for example.  When initializing a StatsD client using `hot-shots`, you must specify that it should connect over IPv6:
+
+```javascript
+const StatsD = require('hot-shots');
+
+const statsdClient = new StatsD({
+  host: process.env.AGENT_HOST,
+  port: process.env.AGENT_PORT,
+  protocol: 'udp',
+  cacheDns: true,
+  udpSocketOptions: {
+    type: 'udp6',
+    reuseAddr: true,
+    ipv6Only: true,
+  },
+});
+```
+
+<a href="https://www.npmjs.com/package/hot-shots" target="_blank">hot-shots docs</a>
+
+</Collapse>
+
+<Collapse title="Go Fiber">
+
+`fiber` is a web framework for Go.  When configuring your Fiber app, you should set the Network field to `tcp` to have it listen on IPv6:
+
+```go
+app := fiber.New(fiber.Config{
+    Network:       "tcp",
+    ServerHeader:  "Fiber",
+    AppName: "Test App v1.0.1",
+})
+```
+
+<a href="https://docs.gofiber.io/api/fiber#:~:text=json.Marshal-,Network,-string" target="_blank">Fiber docs</a>
+
+</Collapse>
+
+
 ## Changing the service name for DNS
 
-Within the service settings you can change the service name you refer to but not the internal DNS root. Ex. `api-1.railway.internal` -> `api-2.railway.internal`
+Within the service settings you can change the service name to which you refer, e.g. `api-1.railway.internal` -> `api-2.railway.internal`
+
+The root of the domain, `railway.internal`, is static and **cannot** be changed.
 
 ## Workaround for Alpine-based images
 
-During private networking initialization (the period under 100ms), dns resolution is handled via a fallback DNS server 8.8.8.8 in the container DNS config.
+During private networking initialization (the period under 100ms), DNS resolution is handled via a fallback DNS server 8.8.8.8 in the container DNS config.
 
 In Alpine-based images, due to how DNS resolution is handled, if that public DNS server's response is faster than the private networking DNS, it causes private resolution to fail.
 
@@ -62,7 +143,7 @@ You can workaround this issue by adding `ENABLE_ALPINE_PRIVATE_NETWORKING=true` 
 This will effectively remove the fallback DNS server 8.8.8.8 which is used during the private networking 100ms initialization period.
 
 <Banner variant="info">
-Note that using this workaround will cause the 100ms dns initialization delay to impact both public and private networking.
+Note that using this workaround will cause the 100ms DNS initialization delay to impact both public and private networking.
 </Banner>
 
 ## Caveats
@@ -76,15 +157,22 @@ During the feature development process we found a few caveats that you should be
 - Private networks take 100ms to initialize on deploy, we ask that you set initial requests on a retry loop.
 - We don't support IPv4 private networking
 - Alpine-based images may not work with our internal DNS due to how it performs
-  resolution. See the section above for a workaround.
+  resolution. See the [section above](#workaround-for-alpine-based-images) for a workaround.
 
-## Projects created before 2023/06/16
+## FAQ
 
-For projects created before the above date, Private Networking is not automatically enabled.  
+<Collapse title="What is a client side app, a sever side app, and what kind of app am I running?">
 
-In the service settings page, you can enable private networking and service discovery for all services within the environment. 
+In the context of private networking, the key distinction between client- and server-side is from where requests are being made.
+- In client-side applications, requests to other resources (like other Railway services) are made from a browser, which exists on the public network and outside the private network.
+- In server-side applications, requests to other resources are made from the server hosting the application, which would exist within the private network (assuming the server hosting the app is in Railway).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1686946842/docs/CleanShot_2023-06-16_at_16.15.35_2x_woehyq.png"
-alt="Preview of What The Guide is Building"
-layout="intrinsic"
-width={1442} height={510} quality={100} />
+One way to determine whether your application is making client- or server-side requests is by inspecting the request in the Network tab of DevTools.  If the RequestURL is the resource to which the request is being made, e.g. a backend server, this is a good indication that the browser itself is making the request (client-side).
+
+</Collapse>
+
+<Collapse title="What if I am making a request server-side, but from Vercel?">
+
+Since an application hosted on Vercel exists outside of the private network in Railway, requests coming from Vercel servers cannot be made over the private network.
+
+</Collapse>
