@@ -17,7 +17,7 @@ To communicate over the private network, there are some specific things to know 
 
 ### Listen on IPv6
 
-Since the private network is an IPv6 network, your app must be configured to listen on IPv6.  On most web frameworks, you can do this via `::` and specifying the port(s) to which you want to bind.
+Since the private network is an IPv6 network, applications that will receive requests over the private network must be configured to listen on IPv6.  On most web frameworks, you can do this via `::` and specifying the port(s) to which you want to bind.
 
 For example - 
 ```javascript
@@ -28,9 +28,9 @@ app.listen(port, '::', () => {
 });
 ```
 
-### Internal Hostname and Port
+### Use Internal Hostname and Port
 
-To make a request to a service over the private network, you should use the internal DNS name of the service, plus the `PORT` on which the service is listening.
+For applications making requests to a service over the private network, you should use the internal DNS name of the service, plus the `PORT` on which the service is listening.
 
 For example, if you have a service called `api` listening on port 3000, and you want to communicate with it from another service, you would use `api.railway.internal` as the hostname and specify the port -
 
@@ -42,6 +42,8 @@ app.get('/fetch-secret', async (req, res) => {
     })
 })
 ```
+
+Note that you should use `http` in the address.
 
 If you wish to open a service that has a public, you can use the `PORT` environment variable to specify the public port. This will allow Railway to route traffic to the public port.
 
