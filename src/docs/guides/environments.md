@@ -124,4 +124,4 @@ Since adding new volumes and services is now scoped to the current environment, 
 
 ### Feedback
 
-Staged changes is big change to the Railway dashboard. We'd love to hear your [feedback on the feature](https://community.railway.app).
+Staged changes is big change to the Railway dashboard. We'd love to hear your [feedback on the feature](https://community.railway.app/discuss/thread/staged-changes-720f7804).
