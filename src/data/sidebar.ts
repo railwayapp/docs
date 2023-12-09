@@ -174,11 +174,9 @@ export const sidebarContent: ISidebarContent = [
           makePage("Dockerfiles", "reference"),
           makePage("Healthchecks", "reference"),
           makePage("Integrations", "reference"),
-          makePage("Monorepo", "reference"),
           makePage("Nixpacks", "reference"),
           makePage("Private Networking", "reference"),
           makePage("Public Networking", "reference"),
-          makePage("Public Domains", "reference"),
           makePage("Scaling", "reference"),
           makePage("TCP Proxy", "reference"),
         ]
