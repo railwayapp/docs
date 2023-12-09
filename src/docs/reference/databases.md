@@ -25,7 +25,7 @@ Many database templates are available to Railway users, which ease the process o
 
 ### Railway-provided Templates
 
-Railway provides several templates to provision some of the most popular databases out there.  They also deploy with a helpful [Database View](/guides/use-the-database-view).  
+Railway provides several templates to provision some of the most popular databases out there.  They also deploy with a helpful [Database View](/guides/database-view).  
 
 Explore the guides in the How To section for information on how to use these templates - 
 - [PostgreSQL](/guides/postgresql)
