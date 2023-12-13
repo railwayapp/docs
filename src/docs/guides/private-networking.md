@@ -24,7 +24,7 @@ For example -
 const port = process.env.PORT || 3000;
 
 app.listen(port, '::', () => {
-    console.log(`Server listening on  ::${port}`);
+    console.log(`Server listening on [::]${port}`);
 });
 ```
 
@@ -62,12 +62,12 @@ Some libraries and components require you to be explicit when either listening o
 
 <Collapse title="ioredis">
 
-`ioredis` is a Redis client for node.js, commonly used for connecting to Redis from a node application.  When initializing a Redis client using `ioredis`, you must specify `family=6` in the connection string:
+`ioredis` is a Redis client for node.js, commonly used for connecting to Redis from a node application.  When initializing a Redis client using `ioredis`, you must specify `family=0` in the connection string to support connecting to both IPv6 and IPv4 connections:
 
 ```javascript
 import Redis from 'ioredis';
 
-const redis = new Redis(process.env.REDIS_PRIVATE_URL + '?family=6');
+const redis = new Redis(process.env.REDIS_PRIVATE_URL + '?family=0');
 
 const ping = await redis.ping();
 ```
@@ -78,7 +78,7 @@ const ping = await redis.ping();
 
 <Collapse title="Mongo Docker image">
 
-If you are creating a service directly from the Official Mongo Docker image and would like to connect to it over the private network, you must start the container with some options to instruct the Mongo instance to listen on IPv6.  For example, this would be set in your [Start Command](/guides/start-command):
+If you are creating a service directly from the Official Mongo Docker image and would like to connect to it over the private network, you must start the container with some options to instruct the Mongo instance to listen on IPv6. For example, this would be set in your [Start Command](/guides/start-command):
 
 ```bash
 docker-entrypoint.sh mongod --ipv6 --bind_ip ::,0.0.0.0
@@ -114,7 +114,7 @@ const statsdClient = new StatsD({
 
 <Collapse title="Go Fiber">
 
-`fiber` is a web framework for Go.  When configuring your Fiber app, you should set the Network field to `tcp` to have it listen on IPv6:
+`fiber` is a web framework for Go.  When configuring your Fiber app, you should set the Network field to `tcp` to have it listen on IPv6 as well as IPv4:
 
 ```go
 app := fiber.New(fiber.Config{
