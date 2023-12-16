@@ -19,7 +19,7 @@ In your terminal, ensure your current working directory is the same directory wh
 
 This is important so that as you complete the following steps, the [Railway CLI](/reference/cli-api) is properly linked.
 
-## Login to Railway from the CLI
+## 1. Login to Railway from the CLI
 
 Ensure your CLI is authenticated to your Railway account:
 ```bash
@@ -28,7 +28,7 @@ railway login
 
 This command will prompt to open a browser to complete authentication.  Once authenticated, commands executed by the Railway CLI, will be performed in the context of your Railway account.
 
-## Create a New Project
+## 2. Create a New Project
 
 Now, let's create a new [project](/reference/projects):
 ```bash
@@ -38,7 +38,7 @@ railway init
 This command will prompt you to define a name for your service.
 
 
-## Deploy the Service
+## 3. Deploy the Service
 
 Once your project is created, you can push your code into the project and assign a domain.
 
@@ -60,7 +60,7 @@ railway domain
 
 Now the service will be available over the Internet via the provided domain.
 
-## Migrate the Environment Variables
+## 4. Migrate the Environment Variables
 
 Finally, we will import the environment variables from Heroku into Railway.
 

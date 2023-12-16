@@ -127,10 +127,11 @@ export const sidebarContent: ISidebarContent = [
         ]
       },
       {
-        subTitle: "Technical Tutorial",
+        subTitle: "Technical Tutorials",
         pages: [
           {title: "Queues on Railway", url: "https://blog.railway.app/p/queues"},
           {title: "Gitlab CI/CD with Railway", url: "https://blog.railway.app/p/gitlab-ci-cd"},
+          makePage("Set Up a Datadog Agent", "tutorials"),
         ]
       },
       {
