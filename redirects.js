@@ -30,6 +30,11 @@ const redirects = [
       permanent: true,
     },
     {
+      source: "/deploy/healthchecks",
+      destination: "/reference/healthchecks",
+      permanent: true,
+    },
+    {
       source: "/deploy/integrations",
       destination: "/reference/integrations",
       permanent: true,
