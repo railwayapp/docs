@@ -97,18 +97,6 @@ If your account is not verified — either because you have not initiated the ve
 
 Verification is a fully automated process, and Railway does not respond to requests for verification. If your account is not verified, you can upgrade to the Hobby plan to unlock the full Railway experience.
 
-## Educational License
-
-Railway offers Educational Licenses for educational institutions. The Educational License is a batch purchase of credits for a group of students to use on Railway within a time limited period of time (typically a semester).
-
-To apply for an Educational License, please [contact us](mailto:team@railway.app) with the following information:
-
-- The name of your institution
-- The number of students you would like to purchase credits for
-- The time period you would like the credits to be valid for
-
-Eligible institutions that are eligible include as profit and non-profit institutions as: State Universities, Private Universities, Technical Training Centers a.k.a. Bootcamps, Community Colleges, and High Schools.
-
 ## FAQs
 
 Common questions related to pricing.
