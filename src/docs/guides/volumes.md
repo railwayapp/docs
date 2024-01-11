@@ -68,18 +68,18 @@ The volume mount point you specify will be available in your service as a direct
 
 ### Relative Paths
 
-Nixpacks, the default buildpack used by Railway, puts your application files in an `/app` folder at the root of the container.
-
-If your application writes to a directory at a relative path, and you need to persist that data on the volume, you should mount the volume to the `/app` folder.
+Nixpacks, the default buildpack used by Railway, puts your application files in an `/app` folder at the root of the container.  If your application writes to a directory at a relative path, and you need to persist that data on the volume, your mount path should include the app path.
 
 For example, if your application writes data to `./data`, you should mount the volume to `/app/data`.
 
 ### Provided Variables
 
-Attaching a Volume to a service will make these environment variables available
-to the service:
+Attaching a Volume to a service will automatically make these environment variables available
+to the service at runtime:
 - `RAILWAY_VOLUME_NAME`: Name of the volume (e.g. `foobar`)
 - `RAILWAY_VOLUME_MOUNT_PATH`: Mount path of the volume (e.g. `/foobar`)
+
+You do not need to define these variables on the service, they are automatically set by Railway at runtime.
 
 ### Volume Availability
 
