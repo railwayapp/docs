@@ -45,7 +45,25 @@ app.get('/fetch-secret', async (req, res) => {
 
 Note that you should use `http` in the address.
 
-If you wish to open a service that has a public, you can use the `PORT` environment variable to specify the public port. This will allow Railway to route traffic to the public port.
+**Using Reference Variables**
+
+Using [reference variables](/guides/variables#reference-variables), you can accomplish the same end as the above example.
+
+Let's say you are setting up your frontend service to talk to the `api` service.  In the frontend service, set the following variable -
+```
+BACKEND_URL=http://${{api.RAILWAY_PRIVATE_DOMAIN}}:${{api.PORT}}
+```
+
+Then in the frontend code, you will simply reference the `BACKEND_URL` environment variable - 
+
+```javascript
+app.get('/fetch-secret', async (req, res) => {
+    axios.get(`${process.env.BACKEND_URL}/secret`)
+    .then(response => {
+        res.json(response.data);
+    })
+})
+```
 
 ### Private Network Context
 

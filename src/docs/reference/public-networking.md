@@ -24,6 +24,10 @@ If you have your own Domain already, Railway also supports adding custom domains
 | **Requests** | - Inbound traffic must be TLS-encrypted <br /> - HTTP GET requests to port 80 are redirected to HTTPS. <br /> - HTTP POST requests to port 80 are redirected to HTTPS as GET requests. <br /> - SNI is required for correct certificate matching. |
 ||
 
+## Custom Domain Limits
+
+The [Hobby plan](/reference/pricing#plans) is limited to 2 custom domains.
+
 ## FAQ
 
 <Collapse title="What type of traffic can I send to my services in Railway?">
