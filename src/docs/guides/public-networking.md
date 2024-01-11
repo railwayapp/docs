@@ -63,7 +63,7 @@ If you have previously assigned a TCP Proxy to your service, you will not see th
 
 ## Custom Domains
 
-One or more custom domains can be added to a Railway service (tied to a specific environment).
+Custom domains can be added to a Railway service and environment.
 
 Here's how it works:
 
@@ -78,8 +78,11 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1338} height={808} quality={80} />
 
-**NOTE:** For wildcard domains, see the section below. Changes to DNS settings may take up to 72 hours to propagate
-worldwide. Freenom is not allowed, and not supported.
+Note that changes to DNS settings may take up to 72 hours to propagate worldwide. 
+
+Freenom is not allowed, and not supported.  
+
+The [Hobby Plan](/reference/pricing#plans) is limited to 2 custom domains.
 
 ## Wildcard Domains
 
