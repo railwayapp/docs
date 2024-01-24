@@ -109,6 +109,7 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       makePage("Config as Code", "guides"),
+      makePage("Production Readiness", "guides"),
     ],
   },
   {
