@@ -19,12 +19,18 @@ Railway supports complex development workflows through environments, giving you 
 
 You can easily sync environments to _import_ one or more services from one environment into another environment.
 
+
 1. Ensure your current environment is the one that should *receive* the synced service(s)
 2. Click `Sync` at the top of the canvas
 3. Select the environment from which to sync changes
 4. Upon sync, each service card that has received a change will be tagged "New", "Edited", "Removed"
 4. Review the [staged changes](/guides/staged-changes) by clicking Details on the staged changes banner
 5. Click "Deploy" once you are ready to apply the changes and re-deploy
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1706310620/docs/staged-changes/canvas_kgihlb.png"
+            alt="Staged changes on Railway canvas"
+            layout="responsive"
+            width={1108} height={800} quality={100} />
 
 ### Caveats
 
