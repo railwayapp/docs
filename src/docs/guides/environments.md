@@ -30,7 +30,7 @@ You can easily sync environments to _import_ one or more services from one envir
 <Image src="https://res.cloudinary.com/railway/image/upload/v1706310620/docs/staged-changes/canvas_kgihlb.png"
             alt="Staged changes on Railway canvas"
             layout="responsive"
-            width={1108} height={800} quality={100} />
+            width={1108} height={770} quality={100} />
 
 ### Caveats
 
