@@ -68,7 +68,7 @@ Once you have performed the necessary actions to ensure data consistency between
 
 ### Other Options
 
-If you would prefer not to go through the migration flow as outlined above, there are other options for your migration path - 
+If you would prefer not to go through the migration flow as outlined above, there are other options for your migration path -
 
 1. **Template** - The template which is used in the automation can be deployed at-will.  Deploy this manually in your project if you prefer this method.
     - [PostgreSQL](https://railway.app/template/postgres-plugin-migration)
@@ -76,6 +76,22 @@ If you would prefer not to go through the migration flow as outlined above, ther
     - [MongoDB](https://railway.app/template/mongo-plugin-migration)
     - [Redis](https://railway.app/template/redis-plugin-migration)
 2. **DIY** - If our tools don't align with your needs, or you have a unique migration process in mind, you're welcome to execute your own strategy.  We always recommend ensuring you have a backup and a process for testing.
+
+## Migration Timeline
+
+- On **January 31st, 2024**:
+  - We will begin a rolling shutdown of all database plugins
+  - We expect all database plugins to be shutdown by **Feburary 3rd, 2024**
+  - After your database plugin is shut down, you may **no longer connect to your database**, however, **data will remain intact**
+  - Impacted users will receive an email with instructions on how to proceed
+- Between **January 31st, 2024** and **Feburary 14th, 2024**:
+  - Users will have a final **2-week window to migrate** their database plugins to the new version
+  - We will begin **archiving data** of database plugins that were shut down as a result of this deprecation
+    - Archived data will be available for download upon request for up to **6 months** from **Feburary 14th, 2024**
+    - If your **database plugin is locked, your data will not be archived, and it will be deleted on Feburary 14th, 2024**. Please **upgrade to a paying plan** to unlock your database plugin and migrate
+- On **Feburary 14th, 2024**:
+  - We will begin deleting all database plugins
+  - Any database plugin that has not been migrated or had its data archived will be lost
 
 ## FAQ
 
@@ -97,7 +113,7 @@ While we encourage users to migrate as soon as possible to benefit from the enha
 
 ### What if something goes wrong?
 
-The old plugin remains intact until you verify the migration. If you encounter any issues, please reach out on our [Discord](https://discord.gg/railway) or contact our support team at [support@railway.app](mailto:support@railway.app).
+The old plugin remains intact until you verify the migration. If you encounter any issues, please reach out on our [Discord](https://discord.com/channels/713503345364697088/1200516735497945239), [Community Forum](https://community.railway.app/db-migration), or contact our support team at [support@railway.app](mailto:support@railway.app) (for Pro users).
 
 ## Conclusion
 
@@ -105,4 +121,4 @@ We're committed to providing the best solutions for your needs, and the new data
 
 ## Need Help?
 
-If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our [Discord](https://discord.gg/railway) or over email at [support@railway.app](mailto:support@railway.app).
+If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our [Discord](https://discord.com/channels/713503345364697088/1200516735497945239), [Community Forum](https://community.railway.app/db-migration), or over email at [support@railway.app](mailto:support@railway.app) (for Pro users).
