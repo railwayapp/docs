@@ -2,18 +2,60 @@
 title: Using Environments
 ---
 
-Railway supports complex development workflows through environments, giving you isolated instances of all databases and services in a project.
+Railway supports complex development workflows through environments, giving you isolated instances of all services in a project.
 
 ## Create an Environment
 
-Create an environment under Settings > Environments.
+1. Select `+ New Environment` from the environment drop down in the top navigation.  You can also go to Settings > Environments.
+2. Choose which type of environment to create -
+    - **Duplicate Environment** creates a copy of the selected environment, including services, variables, and configuration.  
+        
+        When the duplicate environment is created, all services and their configuration will be staged for deployment.
+        *You must review and approve the [staged changes](#staged-changes) before the services deploy.*
 
-When you create an environment, Railway will provision the same services in the new environment as the `production` environment.
+    - **Empty Environment** creates an empty environment with no services.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1644621886/docs/Environments.gif"
-            alt="Screenshot of Environments Page"
+## Staged Changes
+
+When you make a change to a service or volume, that change will be staged.
+
+1. The number of staged changes will be displayed in a banner in the top left corner of the canvas
+2. Staged changes will appear as purple in the UI
+3. Each service card that has received a change will be tagged "Edited"
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1702077687/docs/staged-changes/wl1qxxj8mpbej70i042r.png"
+            alt="Staged changes on Railway canvas"
             layout="responsive"
-            width={800} height={434} quality={100} />
+            width={1423} height={826} quality={100} />
+
+### Review and Deploy Changes
+
+To review the staged changes, click the "Details" button in the banner.  Here, you will see a diff of old and new values.  You can discard a change by clicking the "x" to the right of the change.
+
+You can optionally add a commit message that will appear in the [activity feed](/guides/projects#viewing-recent-activity).
+ 
+<Image src="https://res.cloudinary.com/railway/image/upload/v1702078631/docs/staged-changes/a9xic5xjerg0t6ksogzh.png"
+            alt="Staged changes on Railway canvas"
+            layout="responsive"
+            width={1108} height={841} quality={100} />
+
+Clicking "Deploy" will deploy all of the changes at once. Any services that are affected will be redeployed.
+
+## Sync Environments
+
+You can easily sync environments to _import_ one or more services from one environment into another environment.
+
+1. Ensure your current environment is the one that should *receive* the synced service(s)
+2. Click `Sync` at the top of the canvas
+3. Select the environment from which to sync changes
+4. Review the staged changes to keep or discard the desired services and configuration
+5. Click "Deploy" once you are ready to apply the changes and re-deploy
+
+### Caveats
+
+- Networking changes are not yet staged and are applied immediately.
+- Adding databases or templates will only affect the current environment. However, they do not yet create a commit in the history.
+- When staged changes are enabled, forking environments is disabled. Staging changes is our long-term vision for environments which will incorporate the best parts of forking environments. However, at the moment the two features are incompatible.
 
 ## Enable PR Environments
 
@@ -31,97 +73,8 @@ When enabled, a temporary environment is spun up to support the Pull Request dep
 
 Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
 
-## Forking and merging environments
+## Forked Environments
 
-Environments in Railway can be forked and merged. Changes in a forked environment are not propagated automatically to the parent environment or any other environment.
+As of January 2024, Forked environments have been deprecated in favor of Isolated Environments with the ability to Sync.
 
-### Fork an environment
-
-Fork an environment from the environment selector dropdown in the navigation bar. Alternatively you can fork an environment in the Environments section in the project settings.
-
-### Merge changes from a forked environment
-
-In Railway's UI you'll see a dock widget at the bottom of the project canvas when a forked environment is active.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1690454775/environment-dock_niocez.png"
-            alt="Screenshot of Merge Widget"
-            layout="intrinsic"
-            width={210 } height={45} quality={100} />
-
-Clicking on it will reveal a side panel with a list of changesets made into the active environment that haven't been propagated yet to the parent environment.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1690455300/environment-merge_ktyx7a.png"
-            alt="Screenshot of Merge Panel"
-            layout="responsive"
-            width={429} height={439} quality={100} />
-
-Select which changes you want to propagate to the parent environment and click `Merge` to apply the changes. Note that you can override values if you do not want to apply them to the parent environment.
-
-At this moment only changes in environment variables can be merged, but we are working on adding support for any other changes made to a service.
-
-## Staged Changes
-
-<PriorityBoardingBanner />
-
-Staged changes is a feature that touches many parts of the Railway dashboard. At its core, it allows you to group multiple changes together and deploy them all at once. Other changes include
-
-- A updated settings page for both services and volumes
-- All changes are now scoped to an environment
-- A new activity feed that shows all the changes made
-
-You can enable staged changes for your account on the [feature flags](https://railway.app/account/feature-flags) page.
-
-### Making changes
-
-When you make a change to a service or volume, that change will be staged.
-
-1. The number of staged changes will be displayed in a banner in the top left corner of the canvas
-2. Staged changes will appear as purple in the UI
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1702077687/docs/staged-changes/wl1qxxj8mpbej70i042r.png"
-            alt="Staged changes on Railway canvas"
-            layout="responsive"
-            width={1423} height={826} quality={100} />
-
-You can discard the changes by opening up the 3-dot menu in the banner.
-
-Clicking "Details" will open up a modal that shows all the changes that have been staged. You can optionally add a commit message that will appear in the activity feed.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1702078631/docs/staged-changes/a9xic5xjerg0t6ksogzh.png"
-            alt="Staged changes on Railway canvas"
-            layout="responsive"
-            width={1108} height={841} quality={100} />
-
-Clicking "Deploy" will deploy all of the changes at once. Any services that are affected will be redeployed.
-
-### Isolated environments
-
-When staged changes are enabled, all changes are scoped to an environment. This means that you can make changes to an environment without affecting other environments.
-
-### Activity feed
-
-The activity feed shows all the changes that have been made to a project. This includes changes to services and volumes. You can click on a change to see everything that was committed.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1702078916/docs/staged-changes/t16znkj2e7v88j5h4lb3.png"
-            alt="Commit activity feed"
-            layout="responsive"
-            width={1273} height={777} quality={100} />
-
-### Bringing in services from other environments
-
-Since adding new volumes and services is now scoped to the current environment, you may want to _import_ a service added from another environment. To do this you can open up the new service menu. Any service that is not currently in the current environment will appear at the top of the list. When selected you can choose if you want to import the configuration from another environment, or start from scratch.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1702078916/docs/staged-changes/itar4aqayjwhqcfns7lk.png"
-            alt="Importing service from another environment"
-            layout="responsive"
-            width={736} height={522} quality={100} />
-
-### Caveats
-
-- Networking changes are not yet staged and are applied immediately.
-- Adding databases or templates will only affect the current environment. However, they do not yet create a commit in the history.
-- When staged changes are enabled, forking environments is disabled. Staging changes is our long-term vision for environments which will incorporate the best parts of forking environments. However, at the moment the two features are incompatible.
-
-### Feedback
-
-Staged changes is big change to the Railway dashboard. We'd love to hear your [feedback on the feature](https://community.railway.app/discuss/thread/staged-changes-720f7804).
+If you still have a forked environment, it will remain in your project until you merge it.
