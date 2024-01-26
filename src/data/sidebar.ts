@@ -109,7 +109,6 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       makePage("Config as Code", "guides"),
-      makePage("Production Readiness", "guides"),
     ],
   },
   {
@@ -223,6 +222,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Public API", "reference"),
       makePage("Templates", "reference"),
       makePage("Pricing", "reference"),
+      makePage("Production Readiness Checklist", "reference"),
     ],
   },
   {
