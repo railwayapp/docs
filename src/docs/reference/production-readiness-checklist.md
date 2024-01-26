@@ -20,9 +20,9 @@ Ensuring your application is performant and reliable under changing conditions l
 
 **&check; Serve your application from the right region**
 
-- Deploying your application as close to your users as possible minimizes the number of network jumps it has to make to reach your users, thus reducing latency and improving performance.
+- Deploying your application as close to your users as possible minimizes the number of network hops, reducing latency and improving performance.
     
-    Railway offers multiple options for [deployment region](/reference/deployment-regions) around the globe.
+    Railway offers multiple [deployment regions](/reference/deployment-regions) around the globe.
     
     You may also consider implementing a CDN to cache server responses on an edge network.
 
@@ -42,7 +42,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
 - If a service crashes or becomes unavailable due to a long-running request, your application could experience downtime or degraded performance.
 
-    Increase the [number of replicas](/guides/optimize-performance#configure-horizontal-scaling) to at least 2, so if one instance of your service crashes or becomes unavailable, there is one remaining to handle requests.
+    Increase the [number of replicas](/guides/optimize-performance#configure-horizontal-scaling) to at least 2, so if one instance of your service crashes or becomes unavailable, there is another to continue handling requests.
 
 **&check; Confirm your compute capacity**
 
@@ -66,9 +66,11 @@ Observability and monitoring refers to tracking the health and performance of yo
 
 - Ensure you are alerted if the [deployment status](/reference/deployments#deployment-states) of your services change.
 
-    Enable email notifications to receive these alerts via email.
+    Enable email notifications in you Account Settings to receive these alerts via email.
     
     Setup [webhooks](/reference/deployments#deployment-states) to have the alerts sent to another system, like Slack or Discord.
+
+*What's next for observability features in Railway?  We have a ton of ideas, but we would love to hear yours in our <a href="https://community.railway.app/feature-request/better-logging-support-1e6f5676" target="_blank">community forums</a>.*
 
 ---
 
@@ -78,7 +80,7 @@ Quality assurance involves following practices to ensure changes to your applica
 
 **&check; Implement check suites**
 
-- Common practice is to run a suite of tests, scans, or other automated jobs against your code before it is merged into production.  You may want to configure your deployment strategy to wait until those jobs have completed successfully before triggering a deployment.
+- Common practice is to run a suite of tests, scans, or other automated jobs against your code before it is merged into production.  You may want to configure your deployments to wait until those jobs have completed successfully before triggering a build.
 
   Enable [check suites](/guides/github-autodeploys#check-suites) to have Railway wait for your Github workflows to complete successfuly before triggering a deployment.
 
@@ -96,11 +98,11 @@ Quality assurance involves following practices to ensure changes to your applica
 
     Take advantage of [config as code](/guides/config-as-code) to control and track changes to your Railway configuration.
 
-**&check; Be aware of deployment rollbacks**
+**&check; Understand the deployment rollback feature**
 
 - Introducing breaking changes to your application code is sometimes unavoidable, and it can be a headache reverting to previous commits. 
 
-    Be aware of [deployment rollbacks](/guides/deployment-actions#rollback) in case you need to act fast to restore a previous deployment.
+    Be sure to check out the [deployment rollback feature](/guides/deployment-actions#rollback), in case you need to rollback to a previous deployment.
 
 ---
 
@@ -120,6 +122,8 @@ Protecting your application and user data from malicious threats and vulnerabili
 
     Consider using a service like Cloudflare to protect your application against attacks.
 
+    *In the future, we would love to offer a native WAF solution.  If you agree, <a href="https://community.railway.app/feature-request/implement-a-waf-firewall-security-54fe2aaf" target="_blank">let us know</a>.*
+
 ---
 
 ## Disaster Recovery
@@ -132,15 +136,17 @@ Being prepared for major and unexpected issues helps minimize downtime and data 
 
     Using [deployment regions](/reference/deployment-regions), you can deploy an entire instance of your application in another region.
 
-    To save on cost of running a separate instance of your application, use [App Sleep](/reference/app-sleeping) to turn down resource usage on the inactive instance.
+    To save on cost of running a separate instance of your application, use [App Sleep](/reference/app-sleeping) to turn down resource usage on the inactive services.
 
 **&check; Regularly back up your data**
 
 - Data is critical to preserve in many applications.  You should ensure you have a backup strategy in place for your data.
 
-    Implement a [cron service](/guides/cron-jobs) to dump and store your data on an external resource.
+    Implement a [cron service](/guides/cron-jobs) to dump and store your data backups.
     
-    If you use Postgres, check out one of our popular templates - <a href="https://railway.app/template/I4zGrH" target="_blank">PostgreSQL S3 Backups</a>
+    If you use Postgres, check out one of our popular templates - <a href="https://railway.app/template/I4zGrH" target="_blank">PostgreSQL S3 Backups</a>.
+
+    *We are exploring ways to implement a native solution for backing up your data.  If you have any thoughts, we would love to hear from you in our <a href="https://community.railway.app/feature-request/native-database-backups-for-popular-data-8ec06824" target="_blank">community forums</a>.*
 
 ---
 
@@ -149,3 +155,5 @@ Being prepared for major and unexpected issues helps minimize downtime and data 
 Using a mix of native features and external tools, we hope you can feel confident that your applications on Railway meet the highest standards of performance, reliability, and security.
 
 Remember, our team is always here to assist you with solutions.  Reach out in <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">Discord</a> or over email at [team@railway.app](mailto:team@railway.app) for assistance.
+
+Finally, as suggested on several sections above, we are working tirelessly to give you the best experience imaginable on Railway.  If you have requests or suggestions, please <a href="https://community.railway.app" target="_blank">let us know</a>!
