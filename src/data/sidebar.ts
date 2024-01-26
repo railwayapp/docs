@@ -35,6 +35,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Foundations", "guides"),
         pages: [
           makePage("Projects", "guides"),
+          makePage("Staged Changes", "guides"),
           makePage("Services", "guides"),
           makePage("Variables", "guides"),
           makePage("Volumes", "guides"),

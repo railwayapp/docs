@@ -61,6 +61,15 @@ width={411} height={253} quality={80} />
 
 The transferee receives an email with the current owner requesting to transfer the project to the user. Once that user accepts the transfer, they become the new owner of the project.
 
+## Viewing Recent Activity
+
+The activity feed shows all the changes that have been made to a project. This includes changes to services and volumes. You can click on a change to see everything that was committed.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1702078916/docs/staged-changes/t16znkj2e7v88j5h4lb3.png"
+            alt="Commit activity feed"
+            layout="responsive"
+            width={1273} height={777} quality={100} />
+
 ## Updating Project Visibility
 
 Projects are private by default and only accessible to members of the project.  However, you can make your projects public to share in a read-only state by changing the visibility in project settings - 

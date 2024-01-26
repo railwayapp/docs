@@ -4,6 +4,8 @@ title: Managing Services
 
 A Railway Service is a deployment target for your application.
 
+*As you create and manage your services, your changes will be collected in a set of [staged changes](/guides/staged-changes) that you must review and deploy, in order to apply them.*
+
 ## Creating A Service
 
 Create a service by clicking the `New` button in the top right corner of your project canvas, or by typing new service from the **command palette**, accessible via `CMD + K` (Mac) or `Ctrl + K`(Windows).
