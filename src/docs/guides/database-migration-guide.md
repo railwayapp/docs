@@ -81,15 +81,15 @@ If you would prefer not to go through the migration flow as outlined above, ther
 
 - On **January 31st, 2024**:
   - We will begin a rolling shutdown of all database plugins
-  - We expect all database plugins to be shutdown by **Feburary 3rd, 2024**
+  - We expect all database plugins to be shutdown by **February 3rd, 2024**
   - After your database plugin is shut down, you may **no longer connect to your database**, however, **data will remain intact**
   - Impacted users will receive an email with instructions on how to proceed
-- Between **January 31st, 2024** and **Feburary 14th, 2024**:
+- Between **January 31st, 2024** and **February 14th, 2024**:
   - Users will have a final **2-week window to migrate** their database plugins to the new version
   - We will begin **archiving data** of database plugins that were shut down as a result of this deprecation
-    - Archived data will be available for download upon request for up to **6 months** from **Feburary 14th, 2024**
-    - If your **database plugin is locked, your data will not be archived, and it will be deleted on Feburary 14th, 2024**. Please **upgrade to a paying plan** to unlock your database plugin and migrate
-- On **Feburary 14th, 2024**:
+    - Archived data will be available for download upon request for up to **6 months** from **February 14th, 2024**
+    - If your **database plugin is locked, your data will not be archived, and it will be deleted on February 14th, 2024**. Please **upgrade to a paying plan** to unlock your database plugin and migrate
+- On **February 14th, 2024**:
   - We will begin deleting all database plugins
   - Any database plugin that has not been migrated or had its data archived will be lost
 
