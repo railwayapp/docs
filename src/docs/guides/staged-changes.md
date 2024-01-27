@@ -32,3 +32,8 @@ You can optionally add a commit message that will appear in the [activity feed](
 Clicking "Deploy" will deploy all of the changes at once. Any services that are affected will be redeployed.
 
 Holding the "Alt" key while clicking the "Deploy" button allows you to commit the changes without triggering a redeploy.
+
+### Caveats
+
+- Networking changes are not yet staged and are applied immediately.
+- Adding databases or templates will only affect the current environment. However, they do not yet create a commit in the history.
