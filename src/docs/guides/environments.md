@@ -32,11 +32,6 @@ You can easily sync environments to _import_ one or more services from one envir
             layout="responsive"
             width={1108} height={770} quality={100} />
 
-### Caveats
-
-- Networking changes are not yet staged and are applied immediately.
-- Adding databases or templates will only affect the current environment. However, they do not yet create a commit in the history.
-
 
 ## Enable PR Environments
 
