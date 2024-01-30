@@ -2,8 +2,6 @@
 title: Regions
 ---
 
-<PriorityBoardingBanner />
-
 Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located. **This feature is only available to Pro plan workspaces.**
 
  Consider factors like compliance needs and proximity to your users when choosing a region.
@@ -33,7 +31,7 @@ Within the service settings, you can select one of the following regions:
 
 By default, Railway deploys to `us-west1` located in Portland, Oregon.
 
-All regions provide the same experience, performance, and reliability you expect from Railway. 
+All regions provide the same experience, performance, and reliability you expect from Railway.
 
 ## Impact of Region Changes
 
