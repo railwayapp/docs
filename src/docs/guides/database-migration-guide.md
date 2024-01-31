@@ -88,7 +88,7 @@ sufficient time to migrate.
 - On **February 1st, 2024**:
   - We will begin a rolling shut down of all database plugins
   - After your database plugin is shut down:
-    - You will **not be able to connect to your database**
+    - You will **not be able to connect to your database** outside of the migration process
     - Your database's **data will remain intact**
     - You will receive an **email with instructions** on how to proceed
   - We expect all database plugins to be shut down by **February 9th, 2024**
