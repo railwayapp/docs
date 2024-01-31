@@ -79,19 +79,36 @@ If you would prefer not to go through the migration flow as outlined above, ther
 
 ## Migration Timeline
 
-- On **January 31st, 2024**:
-  - We will begin a rolling shutdown of all database plugins
-  - We expect all database plugins to be shutdown by **February 3rd, 2024**
-  - After your database plugin is shut down, you may **no longer connect to your database**, however, **data will remain intact**
-  - Impacted users will receive an email with instructions on how to proceed
-- Between **January 31st, 2024** and **February 14th, 2024**:
-  - Users will have a final **2-week window to migrate** their database plugins to the new version
-  - We will begin **archiving data** of database plugins that were shut down as a result of this deprecation
-    - Archived data will be available for download upon request for up to **6 months** from **February 14th, 2024**
-    - If your **database plugin is locked, your data will not be archived, and it will be deleted on February 14th, 2024**. Please **upgrade to a paying plan** to unlock your database plugin and migrate
-- On **February 14th, 2024**:
-  - We will begin deleting all database plugins
-  - Any database plugin that has not been migrated or had its data archived will be lost
+<Banner variant="info">
+In light of recent [Denial-of-Service incidents](https://status.railway.app/)
+on and around January 27th, 2024, we have revised our timeline to give users
+sufficient time to migrate.
+</Banner>
+
+- On **February 1st, 2024**:
+  - We will begin a rolling shut down of all database plugins
+  - After your database plugin is shut down:
+    - You will **not be able to connect to your database** outside of the migration process
+    - Your database's **data will remain intact**
+    - You will receive an **email with instructions** on how to proceed
+  - We expect all database plugins to be shut down by **February 9th, 2024**
+- Between **February 1st, 2024** and **February 23rd, 2024**:
+  - You will be able to migrate your database plugin(s) to the new version by navigating to your projects in the [Railway Dashboard](https://railway.app/dashboard)
+- On **February 23rd, 2024**:
+  - We will begin **deleting all database plugins**
+  - We will start **archiving data of un-migrated database plugins** ([Data Archival](#data-archival))
+  - Archived data will be available for download upon request for **up to 6 months**
+  - Any database plugin that has **not been migrated**, or **had its data archived by us**, **will be permanently lost**
+- On **August 23rd, 2024**:
+  - We will **permanently delete all archived data**
+
+## Data Archival
+
+We will archive the data of un-migrated database plugins that were shut down as a result of this deprecation. Archived data will be available for download upon request for up to **6 months** from **February 23rd, 2024**.
+
+If your **database plugin is locked, your data will not be archived, and it will be deleted on February 23rd, 2024**. Please **upgrade to a paying plan** to unlock your database plugin and migrate.
+
+On **August 23rd, 2024**, we will **permanently deleted all archived data**.
 
 ## FAQ
 

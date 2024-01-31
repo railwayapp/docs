@@ -67,7 +67,7 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
   return (
     <div
       css={[
-        tw`flex items-center p-2 border rounded-md space-x-1`,
+        tw`flex items-center py-3 px-4 border rounded-md space-x-3`,
         containerStyles[variant],
       ]}
       className="banner"
