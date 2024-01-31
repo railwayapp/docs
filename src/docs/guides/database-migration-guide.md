@@ -126,7 +126,7 @@ If you follow the one-click automated process, each environment will be handled 
 
 ### What is the deadline for migration?
 
-While we encourage users to migrate as soon as possible to benefit from the enhanced features, you will have until **January 31st, 2024** to complete the migration.
+While we encourage users to migrate as soon as possible to benefit from the enhanced features, you will have until **February 23rd, 2024** to complete the migration.
 
 ### What if something goes wrong?
 
