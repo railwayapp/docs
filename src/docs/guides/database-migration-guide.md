@@ -81,12 +81,13 @@ If you would prefer not to go through the migration flow as outlined above, ther
 
 <Banner variant="warning">
 You must do this if you receive a "Hardcoded database URL" warning during the
-migration process.
+migration process. Please use [Reference Variables](/variables#reference-variables)
+in the future instead of hardcoding database URLs.
 </Banner>
 
 After your database is migrated, you will need to update your services to use the new database's connection string and/or credentials.
 
-If you are using [Reference Variables](/variables#reference-variables), the migration process will switch them over for you automatically.
+If you are using [Reference Variables](/variables#reference-variables), the migration process will switch them over for you automatically. If you are not, please update your services to use it - doing so will ensure the connection details are always in sync.
 
 To retrieve the connection details of your new database, click into the migrated database service and navigate to the `Variables` tab:
 
