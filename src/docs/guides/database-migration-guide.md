@@ -31,17 +31,17 @@ We wanted to make the process as easy as possible, so we built an automated proc
 
 When you access the plugin panel from within your project canvas, you will see a prompt to migrate.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1698952078/docs/db-migration-guide/migrateBanner_hfgxbh.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1707075329/docs/db-migrate-banner_qbfmge.png"
 alt="Plugin migration banner"
 layout="fixed"
-width={500} height={150} quality={80} />
+width={725} height={275} quality={80} />
 
 Once you click the `Migrate` button, a modal will appear, detailing the steps that will be taken on your behalf, to migrate your data.  After acknowledgment, the data migration will begin -
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1699418913/docs/db-migration-guide/nzln10tlvu00oe2teh3e.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1707075210/docs/db-migration-preview_ctfb5c.png"
 alt="Plugin migration steps"
 layout="fixed"
-width={725} height={613} quality={80} />
+width={725} height={750} quality={80} />
 
 
 1. **Deploy Database Service** - A new database service with an attached volume will be deployed.
@@ -76,6 +76,24 @@ If you would prefer not to go through the migration flow as outlined above, ther
     - [MongoDB](https://railway.app/template/mongo-plugin-migration)
     - [Redis](https://railway.app/template/redis-plugin-migration)
 2. **DIY** - If our tools don't align with your needs, or you have a unique migration process in mind, you're welcome to execute your own strategy.  We always recommend ensuring you have a backup and a process for testing.
+
+### Switching Over Connections
+
+<Banner variant="warning">
+You must do this if you receive a "Hardcoded database URL" warning during the
+migration process.
+</Banner>
+
+After your database is migrated, you will need to update your services to use the new database's connection string and/or credentials.
+
+If you are using [Reference Variables](/variables#reference-variables), the migration process will switch them over for you automatically.
+
+To retrieve the connection details of your new database, click into the migrated database service and navigate to the `Variables` tab:
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1707074517/docs/db-service-variables_kcp4gy.png"
+alt="Database service variables" layout="fixed" width={725} height={613} quality={80} />
+
+If you are connecting to this database within Railway, it is highly recommended to use the Private URL of the new database to take advantage of our [Private Networking](/reference/private-networking) features.
 
 ## Migration Timeline
 
