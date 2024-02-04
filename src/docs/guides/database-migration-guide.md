@@ -31,17 +31,17 @@ We wanted to make the process as easy as possible, so we built an automated proc
 
 When you access the plugin panel from within your project canvas, you will see a prompt to migrate.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1698952078/docs/db-migration-guide/migrateBanner_hfgxbh.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1707075329/docs/db-migrate-banner_qbfmge.png"
 alt="Plugin migration banner"
 layout="fixed"
-width={500} height={150} quality={80} />
+width={725} height={275} quality={80} />
 
 Once you click the `Migrate` button, a modal will appear, detailing the steps that will be taken on your behalf, to migrate your data.  After acknowledgment, the data migration will begin -
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1699418913/docs/db-migration-guide/nzln10tlvu00oe2teh3e.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1707075210/docs/db-migration-preview_ctfb5c.png"
 alt="Plugin migration steps"
 layout="fixed"
-width={725} height={613} quality={80} />
+width={725} height={750} quality={80} />
 
 
 1. **Deploy Database Service** - A new database service with an attached volume will be deployed.
