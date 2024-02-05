@@ -96,6 +96,14 @@ alt="Database service variables" layout="fixed" width={725} height={613} quality
 
 If you are connecting to this database within Railway, it is highly recommended to use the Private URL of the new database to take advantage of our [Private Networking](/reference/private-networking) features.
 
+### Re-initiating Migration
+
+If you have been connecting to your legacy database after migrating, you may have noticed your data is out of sync. To resolve this, you will need to re-initiate the migration process. **You can do so by deleting the new migrated Database Service**. Afterwards, you will be able to re-initiate the migration process on the legacy database again.
+
+Please ensure that you [switch over connections](#switching-over-connections) after the new migration is complete.
+
+If you need further assistance on this, please [reach out to us](#need-help).
+
 ## Migration Timeline
 
 <Banner variant="info">
