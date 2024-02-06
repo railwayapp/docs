@@ -98,7 +98,16 @@ If you are connecting to this database within Railway, it is highly recommended 
 
 ### Re-initiating Migration
 
-If you have been connecting to your legacy database after migrating, you may have noticed your data is out of sync. To resolve this, you will need to re-initiate the migration process. **You can do so by deleting the new migrated Database Service**. Afterwards, you will be able to re-initiate the migration process on the legacy database again.
+<Banner variant="info">
+If you have been connecting to your legacy database after migrating, you may have noticed your data is out of sync. To resolve this, you will need to re-initiate the migration process.
+</Banner>
+
+To re-initiate the migration process, click the `Delete Previous Migration & Re-Migrate` button in your legacy database:
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1707180785/db-remigrate_n7xjhs.png"
+alt="Re-initiate migration" layout="fixed" width={586} height={360} quality={80} />
+
+Doing this will delete the previously-migrated database service, and re-migrate your legacy database to a new database service.
 
 Please ensure that you [switch over connections](#switching-over-connections) after the new migration is complete.
 
