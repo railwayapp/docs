@@ -47,7 +47,7 @@ Note that you should use `http` in the address.
 
 **Using Reference Variables**
 
-Using [reference variables](/guides/variables#reference-variables), you can accomplish the same end as the above example.
+Using [reference variables](/guides/variables), you can accomplish the same end as the above example.
 
 Let's say you are setting up your frontend service to talk to the `api` service.  In the frontend service, set the following variable -
 ```
