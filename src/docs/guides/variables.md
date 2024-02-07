@@ -42,7 +42,7 @@ From your Project Settings -> Shared Variables page, choose the Environment, ent
 #### Use a shared variable
 To use a shared variable, either click the Share button from the Project Settings -> Shared Variables menu and select the services with which to share, or visit the Variables tab within the service itself and click "Shared Variable".
 
-Adding a shared variables to a service creates a [Reference Variable](/reference/variables#reference-variables) in the service.
+Adding a shared variables to a service creates a [Reference Variable](/guides/variables#referencing-a-shared-variable) in the service.
 
 ## Reference Variables
 

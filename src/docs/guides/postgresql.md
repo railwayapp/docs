@@ -22,7 +22,7 @@ There are two ways to connect to a PostgreSQL database -
 
 When you deploy your PostgreSQL database, you will have access to two environment [variables](/develop/variables) that enable one of the two connection types (private or public).
 
-As you create more services in your project, you can use [Reference Variables](/develop/variables#reference-variables) to easily connect to the PostgreSQL database.
+As you create more services in your project, you can use [Reference Variables](/guides/variables#referencing-another-services-variable) to easily connect to the PostgreSQL database.
 
 ### Private Networking
 

@@ -45,7 +45,7 @@ width={725} height={750} quality={80} />
 
 
 1. **Deploy Database Service** - A new database service with an attached volume will be deployed.
-2. **Stop Connected Services** - Any service within your project that is connected to the plugin via a [variable reference](/develop/variables#reference-variables) will be stopped, for the duration of the migration, to prevent data loss or corruption.
+2. **Stop Connected Services** - Any service within your project that is connected to the plugin via a [variable reference](/guides/variables#reference-variables) will be stopped, for the duration of the migration, to prevent data loss or corruption.
 
     *Note: You should ensure that any service(s) external to Railway which is writing to, or reading from, the database plugin is also stopped, or otherwise prevented from performing operations against the database, for the duration of the migration.*
 
@@ -56,7 +56,7 @@ width={725} height={750} quality={80} />
     - [Redis](https://github.com/railwayapp-templates/redis-plugin-migration/blob/main/migrate.sh)
 
     Once the migration is complete, the migration service will be deleted.
-4. **Update Service Variables** - [Variable references](/develop/variables#reference-variables) within services that point to the database plugin will be updated to the new database service
+4. **Update Service Variables** - [Variable references](/guides/variables#referencing-another-services-variable) within services that point to the database plugin will be updated to the new database service
 
 5. **Redeploy Connected Services** - Services previously connected to the database plugin will be redployed to apply the updated connection string and connect to the new database service.
 
@@ -81,13 +81,13 @@ If you would prefer not to go through the migration flow as outlined above, ther
 
 <Banner variant="warning">
 You must do this if you receive a "Hardcoded database URL" warning during the
-migration process. Please use [Reference Variables](/variables#reference-variables)
+migration process. Please use [Reference Variables](/guides/variables#referencing-another-services-variable)
 in the future instead of hardcoding database URLs.
 </Banner>
 
 After your database is migrated, you will need to update your services to use the new database's connection string and/or credentials.
 
-If you are using [Reference Variables](/variables#reference-variables), the migration process will switch them over for you automatically. If you are not, please update your services to use it - doing so will ensure the connection details are always in sync.
+If you are using [Reference Variables](/guides/variables#referencing-another-services-variable), the migration process will switch them over for you automatically. If you are not, please update your services to use it - doing so will ensure the connection details are always in sync.
 
 To retrieve the connection details of your new database, click into the migrated database service and navigate to the `Variables` tab:
 
