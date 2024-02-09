@@ -18,7 +18,7 @@ If you want to set a usage limit for your team, use the account switcher in the 
 
 ### Custom email alert
 
-Configure a soft limit by setting a threshold in Custom email alert.  When your resource usage reaches the specified amount, we will email you that this threshold has been met and resources continue running.
+Configure a soft limit by setting a threshold in Custom email alert. When your resource usage reaches the specified amount, we will email you that this threshold has been met and resources continue running.
 
 ### Hard limit
 
@@ -35,8 +35,6 @@ Multiple emails will be sent as your usage approaches your hard limit:
 Find more information about Usage Limits in the [reference page](/reference/usage-limits).
 
 ## Enabling App Sleeping
-
-<PriorityBoardingBanner />
 
 Enabling App Sleep on a service tells Railway to stop a service when it is inactive, effectively reducing the overall cost to run it.
 
