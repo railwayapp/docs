@@ -4,7 +4,7 @@ title: Services
 
 A Railway service is a deployment target.  Under the hood, services are containers deployed from an image.
 
-Each service keeps a log of [deployment attempts](/reference/deployments) and [performance metrics](/reference/metrics). 
+Each service keeps a log of [deployment attempts](/reference/deployments) and [performance metrics](/reference/metrics).
 
 [Variables](/reference/variables), source references (e.g. GitHub repository URI), and relevant [start and build commands](/reference/build-and-start-commands) are also stored in the service, among other configuration.
 
@@ -20,15 +20,15 @@ Services that are run until completion, on a defined schedule, also called Cron 
 
 ## Service Source
 
-A service source can be any of the following - Docker Image, Github or Local repository.
+A service source can be any of the following - Docker Image, GitHub or Local repository.
 
 If a [Dockerfile](/reference/dockerfiles) is found within the source repository, Railway will automatically use it to build an image for the service.
 
 #### Docker Image
 
-Services can be deployed directly from a Docker image from Docker Hub or Github Container Registry.
+Services can be deployed directly from a Docker image from Docker Hub or GitHub Container Registry.
 
-#### Github Repository
+#### GitHub Repository
 
 Services can be connected to a GitHub repo and automatically deployed on each commit.
 
