@@ -65,6 +65,7 @@ Credits are available on Railway as a payment method for Hobby plan users who pr
 
 On Railway, you can pay for your Hobby plan subscription and resource usage with pre-purchased credits. When using credits as a payment method, keep in mind that:
 
+- You must carry a credit balance sufficient to cover usage + the Hobby plan fee, otherwise your project will be paused and your subscription cancelled.  If your subscription is cancelled, you will be required to resubscribe
 - If your usage within a billing period exceeds your credit balance, you will no longer be able to deploy, and your projects will be paused
 - If you cancel your subscription, any remaining credit balance will be lost
 
@@ -220,6 +221,12 @@ Yes. You can use prepaid credits as a payment method on Railway if you prefer to
 
 <Collapse title="What happens if I use credits as a payment method and my account runs out of credits?">
 If you are using credits as a payment method and your credit balance reaches zero, you will no longer be able to deploy to Railway and we will stop all of your workloads. You will have a grace period to add new credits before we purge your data.
+</Collapse>
+
+<Collapse title="What happens if the payment fails for my subscription?">
+If your subscription payment fails, we retry the payment method on file over several days.  We also inform you of the payment failure, in case your payment method needs to be updated.
+
+If payment continues to fail, we flag your services to be stopped and send you a warning.  If we do not receive payment, your services are stopped until all open invoices have been paid.
 </Collapse>
 
 ### General
