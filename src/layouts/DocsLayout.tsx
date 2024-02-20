@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { PropsWithChildren, useMemo } from "react";
 import "twin.macro";
-import { Feedback } from "../components/Feedback";
+import { Forum } from "@/components/Forum";
 import { Link } from "../components/Link";
 import { PageNav } from "../components/PageNav";
 import { SEO } from "../components/SEO";
@@ -88,7 +88,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
           </div>
         </div>
 
-        <Feedback topic={frontMatter.title} />
+        {slug && <Forum slug={slug} />}
 
         <hr tw="my-16" />
 
