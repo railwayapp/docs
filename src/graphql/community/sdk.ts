@@ -64,11 +64,6 @@ export type Post = {
 
 export type Query = {
   __typename?: "Query";
-  adminNextThreadInQueue?: Maybe<Thread>;
-  adminThreadsQueue: Array<Thread>;
-  /** Example query that throws the type of error passed in */
-  exampleThrow?: Maybe<Scalars["String"]["output"]>;
-  myPrivateThreads: Array<Thread>;
   node?: Maybe<Node>;
   nodes: Array<Maybe<Node>>;
   post?: Maybe<Post>;
