@@ -36,7 +36,7 @@ of:
 - There is no built-in S/FTP support
 - To prevent data corruption, we prevent multiple deployments from being active
   and mounted to the same service. This means that there will be a small amount
-  of downtime when re-deploying a service that has a volume attached
+  of downtime when re-deploying a service that has a volume attached, even if there is a healthcheck endpoint configured
 - Down-sizing a volume is not currently supported, but increasing size is supported
 - When resizing a volume, all deployments must be taken offline to prevent data
   corruption
