@@ -28,6 +28,10 @@ width={1188} height={348} quality={80} />
 
 To increase the timeout, change the number of seconds on the service settings page.
 
+### Services with Attached Volumes
+
+To prevent data corruption, we prevent multiple deployments from being active and mounted to the same service. This means that there will be a small amount of downtime when re-deploying a service that has a volume attached, even if there is a healthcheck endpoint configured.
+
 ## Restart Policy
 
 The restart policy dictates what action Railway should take if a deployed service stops or otherwise becomes unhealthy, e.g. exits with a non-zero exit code.

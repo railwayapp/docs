@@ -23,6 +23,12 @@ width={800} height={317} quality={100} />
 
 To change the number of replicas per deploy within your service, go to the service settings view and look for the "Replicas" field in the "Deploy" section. This will create multiple instances of your service and distribute traffic between them.
 
+### Replica ID Environment Variable
+
+Each replica will be deployed with a Railway-provided environment variable named `RAILWAY_REPLICA_ID` which can be used for logging and monitoring, for example.
+
+### Load Balancing between Replicas
+
 At the moment, Railway will round-robin requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
 
 **Note:** For now Railway does not support sticky sessions nor report the usage of the replicas within the metrics view.
