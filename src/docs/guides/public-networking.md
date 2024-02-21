@@ -119,7 +119,7 @@ Generally, direct CNAME records at the root or apex level are incompatible with 
 The type of record to create is entirely dependent on your DNS provider.  Here are some examples -
 
 - <a href="https://developers.cloudflare.com/dns/zone-setups/partial-setup" target="_blank">Cloudflare CNAME</a> - Simply set up a CNAME record for your root domain in Cloudflare, and they take care of the rest under the hood.  Refer to <a href="https://support.cloudflare.com/hc/en-us/articles/205893698-Configure-Cloudflare-and-Heroku-over-HTTPS" target="_blank">this guide</a> for more detailed instructions.
-- <a href="https://support.dnsimple.com/articles/alias-record/" target="_blank">DNSimple ALIAS</a> - Set up an ALIAS in DNSimple for your root domain.
+- <a href="https://support.dnsimple.com/articles/domain-apex-heroku/" target="_blank">DNSimple ALIAS</a> - Set up an ALIAS in DNSimple for your root domain.
 - <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/10128/2237/how-to-create-an-alias-record/" target="_blank">Namecheap ALIAS</a> - Set up an ALIAS in Namecheap for your root domain.
 
 **Workaround - Changing your Domain's Nameservers**
