@@ -170,6 +170,6 @@ Also note that if proxying is enabled, you can NOT use a domain deeper than a fi
 
 ## Support
 
-Looking for the technical specs like timeouts, TLS information, etc?  Check out the [Public Networking reference page](/reference/public-networking).
+Looking for the technical specs like timeouts, TLS information, rate limits etc?  Check out the [Public Networking reference page](/reference/public-networking).
 
 Having trouble connecting to your app from the internet?  Check out the [Fixing Common Errors guide](/guides/fixing-common-errors) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
