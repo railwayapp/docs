@@ -84,6 +84,7 @@ Note that changes to DNS settings may take up to 72 hours to propagate worldwide
 **Important Considerations**
 - Freenom domains are not allowed and not supported.
 - The [Hobby Plan](/reference/pricing#plans) is limited to 2 custom domains.
+- The [Pro Plan]() is limited to 10 domains by default.  This limit can be increased for Pro users on request, simply reach out to us at [team@railway.app](mailto:team@railway.app) or via [private thread](/reference/support#private-threads).
 
 ## Wildcard Domains
 

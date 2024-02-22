@@ -40,6 +40,8 @@ If your application requires higher limits, please don't hesitate to reach out t
 
 The [Hobby plan](/reference/pricing#plans) is limited to 2 custom domains.
 
+The [Pro Plan](/reference/pricing#plans) is limited to 10 domains by default but can be increased for Pro users on request, by reaching out to us at [team@railway.app](mailto:team@railway.app) or via [private thread](/reference/support#private-threads).
+
 ## FAQ
 
 <Collapse title="What type of traffic can I send to my services in Railway?">
