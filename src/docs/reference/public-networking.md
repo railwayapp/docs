@@ -24,9 +24,23 @@ If you have your own Domain already, Railway also supports adding custom domains
 | **Requests** | - Inbound traffic must be TLS-encrypted <br /> - HTTP GET requests to port 80 are redirected to HTTPS. <br /> - HTTP POST requests to port 80 are redirected to HTTPS as GET requests. <br /> - SNI is required for correct certificate matching. |
 ||
 
-## Custom Domain Limits
+## Domain Rate Limits
+
+To ensure the integrity and performance of our network, we enforce the following limits for all domains.
+
+| Category               | Limit                                       | Description                                                                                       |
+|------------------------|---------------------------------------------|---------------------------------------------------------------------------------------------------|
+| **Maximum Connections**| 10,000 concurrent connections               | The number of concurrent connections. |
+| **HTTP Requests/Sec**  | 3,000 RPS    | The number of HTTP requests to a given domain per second. |
+| **Requests Per Connection** | 10,000 requests                          | The number of requests each connection can make.    |
+
+If your application requires higher limits, please don't hesitate to reach out to us at [team@railway.app](mailto:team@railway.app).
+
+## Custom Domain Count Limits
 
 The [Hobby plan](/reference/pricing#plans) is limited to 2 custom domains.
+
+The [Pro Plan](/reference/pricing#plans) is limited to 10 domains by default but can be increased for Pro users on request, by reaching out to us at [team@railway.app](mailto:team@railway.app) or via [private thread](/reference/support#private-threads).
 
 ## FAQ
 
