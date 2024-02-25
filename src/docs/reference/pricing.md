@@ -47,7 +47,7 @@ Railway charges for the resources that you consume. These include:
 - **Network Egress**: $0.10 / GB ($0.000000095367432 / KB) ― _from August 1, 2023_
 - (Optional Add-on) [**Volume Storage**](/reference/volumes): $0.25 / GB / mo ($0.000005787037037 / GB / minute)
 
-Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a [calculator](https://railway.app/pricing#calculator) you can use for estimating your costs.
+Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a [calculator](https://railway.app/pricing#usage-estimation) you can use for estimating your costs.
 
 <Banner variant="info">
 If you have [PR deploys](/develop/environments#ephemeral-environments) enabled in your project, Railway will deploy a mirror copy of your workload(s) based on the environment it forks from (`production` by default). You are billed for those workload(s) running in the ephemeral environment.
@@ -162,11 +162,11 @@ Railway charges for the resources that you consume. These include:
 - **Network Egress**: $0.10 / GB ($0.000000095367432 / KB)
 - (Optional Add-on) [**Volume Storage**](/reference/volumes): $0.25 / GB / mo ($0.000005787037037 / GB / minute)
 
-Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a [calculator](https://railway.app/pricing#calculator) you can use for estimating your costs.
+Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a [calculator](https://railway.app/pricing#usage-estimation) you can use for estimating your costs.
 </Collapse>
 
 <Collapse title="What will it cost to run my app?">
-With Railway, you are only billed for the resources you consume at any given time. If you want to approximate the cost of running your app, try our [pricing calculator](https://railway.app/pricing#calculator).
+With Railway, you are only billed for the resources you consume at any given time. If you want to approximate the cost of running your app, try our [pricing calculator](https://railway.app/pricing#usage-estimation).
 </Collapse>
 
 <Collapse title="How does included usage work on the Hobby plan?">
