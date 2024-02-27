@@ -79,7 +79,7 @@ Custom domains can be added to a Railway service and environment.
     layout="responsive"
     width={1338} height={808} quality={80} />
 
-Note that changes to DNS settings may take up to 72 hours to propagate worldwide. 
+Note that changes to DNS settings may take up to 72 hours to propagate worldwide.
 
 **Important Considerations**
 - Freenom domains are not allowed and not supported.
@@ -104,7 +104,19 @@ width={1048} height={842} quality={80} />
 
 One record is for the wildcard domain, and one for the \_acme-challenge. The \_acme-challenge CNAME is required for Railway to issue the SSL Certificate for your domain.
 
-**NOTE:** If you're using Cloudflare, it is important that the \_acme-challenge record has Cloudflare proxying disabled (no orange cloud).
+### Wildcard Domains on Cloudflare
+
+If you have a wildcard domain on Cloudflare, you must:
+
+- Turn off Cloudflare proxying is on the `_acme-challenge` record (disable the orange cloud)
+
+- Disable Cloudflare's [Universal SSL](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/disable-universal-ssl/)
+
+    <Image
+    src="https://res.cloudinary.com/railway/image/upload/v1709065556/docs/cf-disable-uni-ssl_rc0zje.png"
+    alt="Screenshot of Disabling Cloudflare Universal SSL"
+    layout="responsive"
+    width={855} height={342} quality={80} />
 
 ## Redirecting a Root Domain
 
@@ -112,7 +124,7 @@ When adding a root or apex domain to your Railway service, you must ensure that 
 
 **Additional context**
 
-Generally, direct CNAME records at the root or apex level are incompatible with DNS standards (which assert that you should use an "A" or "AAAA" record).  However, given the dynamic nature of the modern web and PaaS providers like Railway, some DNS providers have incorporated workarounds enabling CNAME-like records to be associated with root domains.  
+Generally, direct CNAME records at the root or apex level are incompatible with DNS standards (which assert that you should use an "A" or "AAAA" record).  However, given the dynamic nature of the modern web and PaaS providers like Railway, some DNS providers have incorporated workarounds enabling CNAME-like records to be associated with root domains.
 *Check out <a href="https://www.ietf.org/rfc/rfc1912.txt#:~:text=root%20zone%20data).-,2.4%20CNAME%20records,-A%20CNAME%20record" target="_blank">RFC 1912</a> if you're interested in digging into this topic.*
 
 **Choosing the correct record type**
