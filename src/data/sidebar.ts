@@ -64,7 +64,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Start Command", "guides"),
           makePage("Deployment Actions", "guides"),
-          makePage("Github Autodeploys", "guides"),
+          makePage("GitHub Autodeploys", "guides"),
           makePage("Optimize Performance", "guides"),
           makePage("Healthchecks and Restarts", "guides"),
           makePage("Monorepo", "guides"),

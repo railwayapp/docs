@@ -4,7 +4,7 @@ title: Accounts
 
 Railway Accounts are how a user interacts with the Railway platform.
 
-Users are only allowed one account per person. This is enforced through email, Github, and payment method verification.
+Users are only allowed one account per person. This is enforced through email, GitHub, and payment method verification.
 
 ## Account Settings
 

@@ -21,9 +21,9 @@ Ensuring your application is performant and reliable under changing conditions l
 **&check; Serve your application from the right region**
 
 - Deploying your application as close to your users as possible minimizes the number of network hops, reducing latency and improving performance.
-    
+
     Railway offers multiple [deployment regions](/reference/deployment-regions) around the globe.
-    
+
     You may also consider implementing a CDN to cache server responses on an edge network.
 
 **&check; Use private networking between services**
@@ -67,7 +67,7 @@ Observability and monitoring refers to tracking the health and performance of yo
 - Ensure you are alerted if the [deployment status](/reference/deployments#deployment-states) of your services change.
 
     Enable email notifications in you Account Settings to receive these alerts via email.
-    
+
     Setup [webhooks](/reference/deployments#deployment-states) to have the alerts sent to another system, like Slack or Discord.
 
 *What's next for observability features in Railway?  We have a ton of ideas, but we would love to hear yours in our <a href="https://community.railway.app/feature-request/better-logging-support-1e6f5676" target="_blank">community forums</a>.*
@@ -82,7 +82,7 @@ Quality assurance involves following practices to ensure changes to your applica
 
 - Common practice is to run a suite of tests, scans, or other automated jobs against your code before it is merged into production.  You may want to configure your deployments to wait until those jobs have completed successfully before triggering a build.
 
-  Enable [check suites](/guides/github-autodeploys#check-suites) to have Railway wait for your Github workflows to complete successfuly before triggering a deployment.
+  Enable [check suites](/guides/github-autodeploys#check-suites) to have Railway wait for your GitHub workflows to complete successfuly before triggering a deployment.
 
 **&check; Use environments**
 
@@ -100,7 +100,7 @@ Quality assurance involves following practices to ensure changes to your applica
 
 **&check; Understand the deployment rollback feature**
 
-- Introducing breaking changes to your application code is sometimes unavoidable, and it can be a headache reverting to previous commits. 
+- Introducing breaking changes to your application code is sometimes unavoidable, and it can be a headache reverting to previous commits.
 
     Be sure to check out the [deployment rollback feature](/guides/deployment-actions#rollback), in case you need to rollback to a previous deployment.
 
@@ -143,7 +143,7 @@ Being prepared for major and unexpected issues helps minimize downtime and data 
 - Data is critical to preserve in many applications.  You should ensure you have a backup strategy in place for your data.
 
     Implement a [cron service](/guides/cron-jobs) to dump and store your data backups.
-    
+
     If you use Postgres, check out one of our popular templates - <a href="https://railway.app/template/I4zGrH" target="_blank">PostgreSQL S3 Backups</a>.
 
     *We are exploring ways to implement a native solution for backing up your data.  If you have any thoughts, we would love to hear from you in our <a href="https://community.railway.app/feature-request/native-database-backups-for-popular-data-8ec06824" target="_blank">community forums</a>.*
