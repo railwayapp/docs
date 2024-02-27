@@ -52,6 +52,29 @@ FROM node
 ARG RAILWAY_ENVIRONMENT
 ```
 
+## Cache Mounts
+
+Railway supports cache mounts in your Dockerfile in the following format:
+```plaintext
+--mount=type=cache,id=s/<service id>-<target path>,target=<target path>
+```
+
+Replace `<service id>` with the id of the service.
+
+### Target Path
+
+Unsure of what your target path should be?  Refer to the <a href="https://github.com/railwayapp/nixpacks/tree/main" target="_blank">Nixpacks source code</a>.  Within the providers directory, find the file that aligns with your respective language or runtime, and check for the variable that indicates the CACHE_DIR.
+
+**Example**
+
+As an example, within the <a href="https://github.com/railwayapp/nixpacks/blob/main/src/providers/python.rs#L24" target="_blank">python provider definition</a>, you can see the `PIP_CACHE_DIR` is `/root/.cache/pip`.
+
+So the mount command is specified like this:
+
+```plaintext
+--mount=type=cache,id=s/<service id>-/root/cache/pip,target=/root/.cache/pip
+```
+
 ## Docker Compose
 
 Railway doesn't support docker compose at the moment.

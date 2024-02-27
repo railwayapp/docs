@@ -23,3 +23,12 @@ model Feedback {
   sentiment Sentiment
   message   String?
 }
+
+model CommunityThread {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
+  section   String
+  topic     String
+  communityThreadSlug String
+}

@@ -96,13 +96,13 @@ const ping = await redis.ping();
 
 <Collapse title="Mongo Docker image">
 
-If you are creating a service directly from the Official Mongo Docker image and would like to connect to it over the private network, you must start the container with some options to instruct the Mongo instance to listen on IPv6. For example, this would be set in your [Start Command](/guides/start-command):
+If you are creating a service using the official Mongo Docker image in Docker Hub and would like to connect to it over the private network, you must start the container with some options to instruct the Mongo instance to listen on IPv6. For example, this would be set in your [Start Command](/guides/start-command):
 
 ```bash
 docker-entrypoint.sh mongod --ipv6 --bind_ip ::,0.0.0.0
 ```
 
-Note that the official template provided by Railway is deployed with this Start Command.
+**Note that the official template provided by Railway is already deployed with this Start Command.**
 
 </Collapse>
 

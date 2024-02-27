@@ -12,7 +12,7 @@ You can either create a template from scratch or base it off of an existing proj
 
 The <a href="https://railway.app/button" target="_blank">Railway button page</a>. allows you to create templates to offer a 1-click deploy on Railway experience.
 
-Services within a template can be deployed from any public Github repository, or directly from a Docker image in Docker Hub or Github Container Registry.
+Services within a template can be deployed from any public GitHub repository, or directly from a Docker image in Docker Hub or GitHub Container Registry.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1656470421/docs/template-editor_khw8n6.png"
 alt="Template Editor"
@@ -69,9 +69,9 @@ When a template is deployed, all functions are executed and the result replaces 
 The current template variable functions are:
 
 - `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  You can generate random Hex or Base64 secrets by passing the appropriate alphabet.
-    
-    - Base64: `secret(32, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/')`
-    - Hex: `secret(32, '0123456789ABCDEF')`
+
+  - Base64: `secret(32, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/')`
+  - Hex: `secret(32, '0123456789ABCDEF')`
 
 - `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
@@ -86,4 +86,3 @@ You can see all of your templates on your <a href="https://railway.app/account/t
  width={3100}
  quality={80}
 />
-

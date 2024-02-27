@@ -63,3 +63,9 @@ src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-sta
 alt="Screenshot of custom start command configuration"
 layout="intrinsic"
 width={1302} height={408} quality={80} />
+
+## Using the CLI
+
+When interacting with your services deployed from a monorepo using the CLI, always ensure you are "linked" to the appropriate service when executing commands.
+
+To link to a specific service from the CLI, use `railway link` and follow the prompts.
