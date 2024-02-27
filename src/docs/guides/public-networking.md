@@ -78,9 +78,9 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1338} height={808} quality={80} />
 
-Note that changes to DNS settings may take up to 72 hours to propagate worldwide. 
+Note that changes to DNS settings may take up to 72 hours to propagate worldwide.
 
-Freenom is not allowed, and not supported.  
+Freenom is not allowed, and not supported.
 
 The [Hobby Plan](/reference/pricing#plans) is limited to 2 custom domains.
 
@@ -100,7 +100,19 @@ width={1048} height={842} quality={80} />
 
 In order to use Wildcard Domains, you must add two CNAME records, one for the wildcard domain, and one for the \_acme-challenge. The \_acme-challenge CNAME is required for Railway to issue the SSL Certificate for your domain.
 
-**NOTE:** If you're using Cloudflare, it is important that the \_acme-challenge record has Cloudflare proxying disabled (no orange cloud).
+### Wildcard Domains on Cloudflare
+
+If you have a wildcard domain on Cloudflare, you must:
+
+- Turn off Cloudflare proxying is on the `_acme-challenge` record (disable the orange cloud)
+
+- Disable Cloudflare's [Universal SSL](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/disable-universal-ssl/)
+
+    <Image
+    src="https://res.cloudinary.com/railway/image/upload/v1709065556/docs/cf-disable-uni-ssl_rc0zje.png"
+    alt="Screenshot of Disabling Cloudflare Universal SSL"
+    layout="responsive"
+    width={855} height={342} quality={80} />
 
 ## TCP Proxying
 
