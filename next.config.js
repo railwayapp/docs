@@ -15,14 +15,6 @@ const nextConfig = withContentlayer({
   async redirects() {
     return redirects;
   },
-  async rewrites() {
-    return [
-      {
-        source: '/metrics',
-        destination: '/api/metrics'
-      },
-    ]
-  },
 });
 
 module.exports = nextConfig;
