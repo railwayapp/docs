@@ -4,9 +4,14 @@ import { useFathom } from "../hooks/useFathom";
 import { Page } from "../layouts/Page";
 import "../styles/fonts.css";
 import { ThemeProvider } from "../styles/theme";
+import { useReportWebVitals } from 'next/web-vitals'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useFathom(process.env.NEXT_PUBLIC_FATHOM_CODE ?? "", "docs.railway.app");
+  
+  useReportWebVitals((metric) => {
+    console.log(metric);
+  });
 
   return (
     <ThemeProvider>
