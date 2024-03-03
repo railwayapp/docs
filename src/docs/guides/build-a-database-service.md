@@ -20,7 +20,7 @@ width={559} height={168} quality={80} />
 
 ## Volumes
 
-Attach a [volume](/guies/volumes) to any service, to keep your data safe between deployments.  For the Postgres image, the default mount path is `/var/lib/postgresql/data`.
+Attach a [volume](/guides/volumes) to any service, to keep your data safe between deployments.  For the Postgres image, the default mount path is `/var/lib/postgresql/data`.
 
 Just attach a volume to the service you created, at the mount path:
 
