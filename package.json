@@ -19,9 +19,12 @@
   "dependencies": {
     "@nanostores/react": "^0.4.1",
     "@next/env": "^13.2.1",
+    "@opentelemetry/api": "^1.8.0",
+    "@opentelemetry/sdk-trace-node": "^1.22.0",
     "@prisma/client": "4.10.1",
     "@radix-ui/react-scroll-area": "^1.0.2",
     "@tailwindcss/typography": "^0.5.9",
+    "@vercel/otel": "^1.5.0",
     "classnames": "^2.3.2",
     "contentlayer": "^0.3.0",
     "copy-to-clipboard": "^3.3.1",

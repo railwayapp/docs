@@ -3,6 +3,9 @@ const redirects = require("./redirects");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = withContentlayer({
+  experimental: {
+    instrumentationHook: true,
+  },
   reactStrictMode: true,
   images: {
     domains: [
