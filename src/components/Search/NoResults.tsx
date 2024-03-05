@@ -1,4 +1,4 @@
-import { DiscordIcon } from "@/components/Icons";
+import { RailwayIcon } from "@/components/Icons";
 import { Link } from "@/components/Link";
 import React from "react";
 import { HelpCircle, Mail } from "react-feather";
@@ -25,13 +25,9 @@ const NoResults: React.FC = () => {
         <div>
           <p css={tw`mb-4 text-center`}>Reach out to us if you need help:</p>
           <div css={tw`flex flex-row gap-4 items-center justify-center`}>
-            <ContactButton href="https://discord.gg/railway">
-              <DiscordIcon />
-              Discord
-            </ContactButton>
-            <ContactButton href="mailto:team@railway.app">
-              <Mail />
-              Email
+            <ContactButton href="https://help.railway.app/">
+              <RailwayIcon />
+              Railway Help Station
             </ContactButton>
           </div>
         </div>
