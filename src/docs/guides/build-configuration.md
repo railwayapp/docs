@@ -40,8 +40,7 @@ layout="responsive"
 width={1190} height={400} quality={80} />
 
 When specified, all build and deploy
-commands will operate within the defined root directory. Additionally, files changed
-outside the root directory will not trigger a new build.
+commands will operate within the defined root directory. 
 
 ## Configure Watch Paths
 
@@ -112,7 +111,7 @@ _Note: Some buildpacks specify a default start command_
 
 We do not expose a way to configure a custom install command in the UI, but you can control this using [config as code](/reference/config-as-code#nixpacks-plan) (see Nixpacks Plan -> Install Command).
 
-## Disable build caching
+## Disable build layer caching
 
 By default, Railway will cache build layers to provide faster build times.  If you have a need to disable this behavior, set the following environment variable in your service:
 
