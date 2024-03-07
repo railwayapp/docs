@@ -8,9 +8,25 @@ import { useReportWebVitals } from 'next/web-vitals'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useFathom(process.env.NEXT_PUBLIC_FATHOM_CODE ?? "", "docs.railway.app");
-  
+
   useReportWebVitals((metric) => {
-    console.log(metric);
+    let pageSlug = pageProps.page?.url || '/';
+    console.log(pageProps.page?.url)
+    switch (metric.name) {
+      case 'FCP': {
+        console.log(metric);
+        let fcpVal = metric.value;
+        try {
+          console.log(metric)// send to prometheus
+        } catch (error) {
+          console.error('Send to prometheus error', error)
+        }
+      }
+      case 'LCP': {
+        console.log(metric);
+      }
+      // ...
+    }
   });
 
   return (
