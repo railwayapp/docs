@@ -2,9 +2,13 @@
 title: Deploy an OpenTelemetry Stack on Railway
 ---
 
-OpenTelemetry is an observability framework for cloud-native software.  It provides tools, APIs, and SDKs to instrument, collect, and export telemetry data (metrics, logs, and traces), enabling engineering teams to monitor the performance and health of their services.
+## What is OpenTelemetry?
 
-There is an overwhelming number of options for applying OpenTelemetry in your software stack.  This tutorial uses the libraries and tools endorsed and maintained by the OpenTelemetry community.
+>OpenTelemetry is an Observability framework and toolkit designed to create and manage telemetry data such as traces, metrics, and logs. Crucially, OpenTelemetry is vendor- and tool-agnostic, meaning that it can be used with a broad variety of Observability backends, including open source tools like Jaeger and Prometheus, as well as commercial offerings. 
+
+## About this Tutorial
+
+There is an overwhelming number of options for applying OpenTelemetry in your software stack.  This tutorial uses the libraries and tools endorsed and/or maintained by the OpenTelemetry community.
 
 **Objectives**
 
@@ -13,20 +17,24 @@ In this tutorial you will learn how to -
 - Deploy a backend stack ([Jaeger](https://www.jaegertracing.io/), [Zipkin](https://zipkin.io/), and [Prometheus](https://prometheus.io/)) to receive the traces, metrics, and logs from the collector
 - Build and instrument an Express application to send data to the collector.
 
-If you are looking for a quicker way to get started, you can also deploy the collector and backend stack from a <a href="https://railway.app/template/7KNDff" target="_blank">template</a>.
+**Otel Collector Stack Template**
+
+If you are looking for a quicker way to get started, you can simply deploy the collector and backend stack from <a href="https://railway.app/template/7KNDff" target="_blank">this template</a>.
 
 **Prerequisites**
 
-To be successfull, you should already have - 
+To be successfull using this tutorial, you should already have - 
 
 - Railway [CLI installed](guides/cli#installing-the-cli)
 - A GitHub account
 
-## Deploy the Backend Services
+Let's get started!
 
-Let's deploy the backend services - Jaeger, Zipkin, and Prometheus.  Each step should be completed in the same Railway project.
+## 1. Deploy the Backend Services
 
-### 1. Add Jaeger Service
+First, we will deploy the backend services - Jaeger, Zipkin, and Prometheus.  Each step should be completed in the same Railway project.
+
+### Add Jaeger Service
 
 - Add a New service by clicking `+ New`
 - Select Docker Image as the Source
@@ -42,7 +50,7 @@ Let's deploy the backend services - Jaeger, Zipkin, and Prometheus.  Each step s
 
 You should be able to acess the Jaeger UI by clicking on the service domain.
 
-### 2. Add Zipkin Service
+### Add Zipkin Service
 
 - Add a New service by clicking `+ New`
 - Select Docker Image as the Source
@@ -58,25 +66,25 @@ You should be able to acess the Jaeger UI by clicking on the service domain.
 
 You should be able to acess the Zipkin UI by clicking on the service domain.
 
-### 3. Add Prometheus Service
+### Add Prometheus Service
 
 - Add a New service by clicking `+ New`
 - Select Template as the Source
-- Type Prometheus and select the Prometheus template
+- Type Prometheus and select the Prometheus template (be sure to select [this one](https://railway.app/template/KmJatA))
 - Click `Deploy` to apply and deploy the service
 
 *The template deploys with the proper UI port already configured to enable accessing the Prometheus UI from your browser*
 
 You should be able to acess the Prometheus UI by clicking on the service domain.
 
-## Deploy the OpenTelemetry Collector
+## 2. Deploy the OpenTelemetry Collector
 
-### 1. Fork the Open Telemetry Collector repository
+### Fork the Open Telemetry Collector repository
 - Navigate to the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack" target="_blank">Open Telemetry Collector repository</a> in GitHub
 - Click `Fork` then `Create fork`
 
-### 2. Add the Open Telemetry Service
-In the same Railway project -
+### Add the Open Telemetry Service
+In the Railway project -
 - Add a New service by clicking `+ New`
 - Select GitHub Repo as the Source
 - Select the `opentelemetry-collector-stack` repository (if you renamed the repo in the previous step, yours will be named differently) 
@@ -84,22 +92,32 @@ In the same Railway project -
     ```plaintext
     PORT=55679
     ```
-    *This is the port that serves the UI.  Setting this variable allows you to access the Zipkin UI from your browser*
+    *This is the port that serves the collector's debugging UI.  Setting this variable allows you to access the UI from your browser*
 - In the Settings tab, rename the service `OpenTelemetry Collector`
 - Click `Deploy` to apply and deploy the service
 - In the service settings, under Networking, click `Generate Domain`
 
-You should be able to access the Collector's debugging UI at....
-- https://github.com/open-telemetry/opentelemetry-collector/blob/main/extension/zpagesextension/README.md
-- this is driven by zpages
+The Collector's debugging UI is enabled by default and accessible from the browser.  This is controlled by the inclusion of the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/blob/main/otel-collector-config.yaml#L31" target="_blank">zpages extension in the collector's configuration yaml</a>.  You can read more about the UI and the available routes, in the collector's <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/extension/zpagesextension/README.md" target="_blank">source repo</a>. 
 
-# Add an image here to show "This is what your project should look like so far"
+## Checkpoint
 
-## Build and Instrument an Express App
+Congrats!  You should now have a working OpenTelemetry Collector along with a backend stack to which the collector will forward data.  Your project in Railway should look something like this - 
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1709927450/docs/tutorials/otel/CleanShot_2024-03-08_at_13.47.12_2x_iuhawv.png"
+alt="Screenshot of Project Canvas"
+layout="responsive"
+width={1177} height={823} quality={100} />
+
+Be sure to familiarize yourself with the Otel Collector's <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/blob/main/otel-collector-config.yaml" target="_blank">configuration file</a>.  The documentation on the format and structure of the file can be found <a href="https://opentelemetry.io/docs/collector/configuration/" target="_blank">here in Otel's official docs</a>.
+
+## 3. Build and Instrument an Express App
 
 Now that the collector stack is up, let's build and instrument an application!
 
-### 1. Create and initialize the project
+*Note: The full source code for the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApp" target="_blank">express app</a> that we will build is availalbe in the Open Telemetry Collector repository that you forked in the previous steps.*
+
+
+### Create and initialize the project
 
 From your local machine -
 
@@ -110,11 +128,11 @@ From your local machine -
   npm i express @opentelemetry/api @opentelemetry/auto-instrumentations-node @opentelemetry/exporter-metrics-otlp-proto @opentelemetry/exporter-trace-otlp-proto @opentelemetry/resources @opentelemetry/sdk-metrics @opentelemetry/sdk-node @opentelemetry/semantic-conventions
   ```
 
-### 2. Build the App
+### Build the App
 
 - In the `otel-example-app` folder, create an `app.js` file and add the following code - 
   ```javascript
-  // Otel Docs Reference - https://opentelemetry.io/docs/languages/js/getting-started/nodejs/
+  // app.js //
   const express = require('express');
   const { rollTheDice } = require('./dice.js');
 
@@ -142,15 +160,18 @@ From your local machine -
   // Otel Docs Reference - https://opentelemetry.io/docs/languages/js/instrumentation/
   const { trace } = require('@opentelemetry/api');
 
+  // obtain a trace
   const tracer = trace.getTracer('dice-lib');
 
   function rollOnce(i, min, max) {
+    // start a span
     return tracer.startActiveSpan(`rollOnce:${i}`, (span) => {
       const result = Math.floor(Math.random() * (max - min) + min);
 
       // Add an attribute to the span
       span.setAttribute('dicelib.rolled', result.toString());
 
+      // end the span
       span.end();
       return result;
     });
@@ -172,7 +193,10 @@ From your local machine -
   module.exports = { rollTheDice };
   ```
 
-### 3. Add Instrumentation
+  We encourage you to refer to the OpenTelemetry documentation to gain a richer understanding of this code.  The code you see above can be found <a href="https://opentelemetry.io/docs/languages/js/instrumentation/" target="_blank">here</a>.
+  
+
+### Build the Instrumentation SDK
 
 - In the `otel-example-app` folder, create an `instrumentation.js` file and add the following code -
 
@@ -206,47 +230,101 @@ From your local machine -
   sdk.start();
 
   ```
+  This code will wrap your application code and capture the telemetry data.  In the steps that follow, you will see how to start your application in Railway with a custom start command that utilizes this SDK.
 
-## Deploy the Express App
+  We encourage you to refer to the OpenTelemetry documentation to gain a richer understanding of this code.  The code you see above can be found <a href="https://opentelemetry.io/docs/languages/js/instrumentation/" target="_blank">here</a>.
 
-### 1. Create an Empty Service and Configure the Variable
+## 4. Deploy the Express App
+
+### Create an Empty Service and Configure the Environment
 - In the same Railway project, add a New service by clicking `+ New`
 - Select `Empty Service`
 - Add the following variable to the service
     ```plaintext
     OTEL_EXPORTER_OTLP_ENDPOINT=${{OpenTelemetry Collector.RAILWAY_PRIVATE_DOMAIN}}:4318
     ```
-    *This is used by your Express App to connect to the OpenTelemetry Collector*
-- Click Deploy to Apply and create the service
+    *This is used by the Express app to connect to the OpenTelemetry Collector*
+- In the service Settings, add the following [Custom Start Command](/guides/start-command):
+    ```plaintext
+    node --require ./instrumentation.js app.js
+    ```
+    *This wraps the Express app on startup with the instrumentation SDK you created above.*
+- In the service Settings, rename the service to `Express App`
+- Click `Deploy` to apply and create the empty service
 
-### 2. Deploy from the CLI
+### Deploy from the Railway CLI
+*This step assumes you have the [Railway CLI](guides/cli#installing-the-cli) installed.*
+
 On your local machine -
 - Open your terminal and change directory to the `otel-example-app` folder
 - Link to the Railway project by running the following command - 
   ```plaintext
   railway link
   ```
-- Follow the prompts, selecting the correct project name and `production` environment.
+  Follow the prompts, selecting the correct project name and environment (found in the upper left-hand corner of your project in Railway, click <a href="https://res.cloudinary.com/railway/image/upload/v1709917423/docs/tutorials/otel/CleanShot_2024-03-08_at_10.58.55_2x_kacssj.png" target="_blank">here</a> for a reference)
+
 - Link to the empty service you created by running the following command -
   ```plaintext
   railway service
   ```
-- Follow the prompt, selecting the correct service name
+  Follow the prompt, selecting the `Express App` service name
 - Deploy the Express App by running the following command -
   ```plaintext
   railway up -d
   ```
 
-## Test and Confirm
+## 5. Test and Confirm
 
-Test that your Datadog Agent is receiving and forwarding data to Datadog by navigating to the routes in the Express app -
-- `/`
-- `/test`
+Test that everything is working by generating some traffic to your Express App.  There is a single route, `/rolldice`, that takes a `rolls` query string -
+- `<YOUR_SERVICE_DOMAIN>/rolldice?rolls=10`
 
-Generate some traffic to these two routes and verify in your Datadog instance that the data is there.
+Generate some traffic to this route, updating the number of rolls to different numbers, and verify that you see traces and spans in Jaeger and Zipkin.
+
+<div style={{ display: 'flex', flexDirection: 'row', gap: '5px', fontSize: '0.9em', alignItems: 'stretch' }}>
+    <div style={{ flex: '1 1 50%', overflow: 'auto', minWidth: '200px', maxWidth: '350px' }}>
+        <Image src="https://res.cloudinary.com/railway/image/upload/v1709927026/docs/tutorials/otel/CleanShot_2024-03-08_at_13.42.44_2x_ym2ojg.png"
+        alt="Screenshot of Jaeger UI"
+        layout="responsive"
+        width={1177} height={823} quality={100} />
+        <p style={{ marginTop: '-0.2em', fontSize: '1em'}}>Jaeger</p>
+    </div>
+    <div style={{ flex: '1 1 50%', overflow: 'auto', minWidth: '200px', maxWidth: '350px' }}>
+        <Image src="https://res.cloudinary.com/railway/image/upload/v1709926920/docs/tutorials/otel/CleanShot_2024-03-08_at_13.39.53_2x_zd69mq.png"
+        alt="Screenshot of Zipkin Ui"
+        layout="responsive"
+        width={1177} height={823} quality={100} />
+        <p style={{ marginTop: '-0.2em', fontSize: '1em'}}>Zipkin</p>
+    </div>
+</div>
+
+## Bonus - NextJS
+
+This tutorial was born out of an exploration into instrumenting some of our applications with <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/open-telemetry#custom-exporters" target="_blank">NextJS's Otel library</a>.
+
+You can use this Otel collector stack to capture telemetry data from your NextJS app!  Simply set the required environment variable in the NextJS application.
+
+If your Next App is deployed in the **same Railway project as the collector**, you can use the private network -
+
+```plaintext
+OTEL_EXPORTER_OTLP_ENDPOINT=http://${{otel-collector.RAILWAY_PRIVATE_DOMAIN}}:4318
+```
+
+If your Next App is deployed in **another Railway project, or outside of Railway entirely**, you can use the public network -
+
+```plaintext
+OTEL_EXPORTER_OTLP_ENDPOINT=https://<PUBLIC DOMAIN OF THE COLLECTOR IN RAILWAY>
+```
+
+#### Having trouble?
+
+Another helpful environment variable, specific to NextJS, is the debug directive -
+
+```plaintext
+OTEL_LOG_LEVEL=debug
+```
 
 ## Conclusion
 
-Congratulations!  You have deployed a Datadog Agent and a Node Express app that sends logs and metrics to Datadog.
+Congratulations!  You have deployed a OpenTelemetry Collector and a Node Express app that sends data to the collector.
 
-This is a *very* basic implementation, and you should refer to the <a href="https://docs.datadoghq.com/" target="_blank">Datadog documentation</a> for information on how to customize the data you send.
+This is a *very* basic implementation, and you should refer to the <a href="https://opentelemetry.io/docs/" target="_blank">OpenTelemetry documentation</a> for information on how to customize your implementation.
