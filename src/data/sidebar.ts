@@ -140,6 +140,7 @@ export const sidebarContent: ISidebarContent = [
             url: "https://blog.railway.app/p/gitlab-ci-cd",
           },
           makePage("Set Up a Datadog Agent", "tutorials"),
+          makePage("Deploy an Otel Collector Stack", "tutorials"),
         ],
       },
       {
