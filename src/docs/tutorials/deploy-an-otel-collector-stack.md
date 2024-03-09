@@ -10,14 +10,16 @@ title: Deploy an OpenTelemetry Stack on Railway
 
 There is an overwhelming number of options for applying OpenTelemetry in your software stack.  This tutorial uses the libraries and tools endorsed and/or maintained by the OpenTelemetry community.
 
+OpenTelemetry is commonly referred to simply as "Otel".  You will see both terms used throughout this tutorial.
+
 **Objectives**
 
 In this tutorial you will learn how to -
 - Deploy the <a href="https://opentelemetry.io/docs/collector/" target="_blank">OpenTelemetry Collector</a>, listening for traces, metrics, and logs.
 - Deploy a backend stack ([Jaeger](https://www.jaegertracing.io/), [Zipkin](https://zipkin.io/), and [Prometheus](https://prometheus.io/)) to receive the traces, metrics, and logs from the collector
-- Build and instrument an Express application to send data to the collector.
+- Build and instrument an <a href="https://expressjs.com/" target="_blank">Express</a> application to send data to the collector.
 
-**Otel Collector Stack Template**
+**OpenTelemetry Collector Stack Template**
 
 If you are looking for a quicker way to get started, you can simply deploy the collector and backend stack from <a href="https://railway.app/template/7KNDff" target="_blank">this template</a>.
 
@@ -32,7 +34,15 @@ Let's get started!
 
 ## 1. Deploy the Backend Services
 
-First, we will deploy the backend services - Jaeger, Zipkin, and Prometheus.  Each step should be completed in the same Railway project.
+First, we will deploy the backend services: 
+
+- **Jaeger** - an open-source, distributed tracing system that will receive telemetry data from the collector
+- **Zipkin** - also an open-source, distributed tracing system that will receive telemetry data from the collector
+- **Prometheus** - an open-souce, systems monitoring and alerting toolkit that will receive telemetry data from the collector
+
+*Jaeger and Zipkin offer similar functionality, and it is not necessary to run both.  The intent is to give you different examples of backend services.*
+
+Each of the following steps should be completed in the same Railway project.
 
 ### Add Jaeger Service
 
@@ -79,6 +89,10 @@ You should be able to acess the Prometheus UI by clicking on the service domain.
 
 ## 2. Deploy the OpenTelemetry Collector
 
+The OpenTelemetry Collector is a vendor-agnostic service that receives, processes, and exports telemetry data.  
+
+It is not strictly necessary to run a collector when implementing OpenTelemetry, but it is recommended by the OpenTelemetry community.  More information on the subject can be found <a href="https://opentelemetry.io/docs/collector/#when-to-use-a-collector" target="_blank">here</a>.
+
 ### Fork the Open Telemetry Collector repository
 - Navigate to the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack" target="_blank">Open Telemetry Collector repository</a> in GitHub
 - Click `Fork` then `Create fork`
@@ -114,7 +128,7 @@ Be sure to familiarize yourself with the Otel Collector's <a href="https://githu
 
 Now that the collector stack is up, let's build and instrument an application!
 
-*Note: The full source code for the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApp" target="_blank">express app</a> that we will build is availalbe in the Open Telemetry Collector repository that you forked in the previous steps.*
+*Note: The full source code for the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApp" target="_blank">express app</a> that we will build is available in the Open Telemetry Collector repository that you forked in the previous steps.*
 
 
 ### Create and initialize the project
@@ -299,23 +313,26 @@ Generate some traffic to this route, updating the number of rolls to different n
 
 ## Bonus - NextJS
 
-This tutorial was born out of an exploration into instrumenting some of our applications with <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/open-telemetry#custom-exporters" target="_blank">NextJS's Otel library</a>.
+This tutorial was born out of an exploration into instrumenting some of our applications with <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/open-telemetry#custom-exporters" target="_blank">NextJS's Otel library</a>.  This means that you can use this Otel collector stack to capture telemetry data from your NextJS app!  
 
-You can use this Otel collector stack to capture telemetry data from your NextJS app!  Simply set the required environment variable in the NextJS application.
+### Send Telemetry Data from NextJS
 
-If your Next App is deployed in the **same Railway project as the collector**, you can use the private network -
+Assuming you've followed the docs mentioned above to instrument your NextJS app, you can configure it to send requests to your collector in Railway by setting the required environment variable in the NextJS application.
+
+*If your Next App is deployed in the **same Railway project as the collector**, you can use the private network -*
 
 ```plaintext
 OTEL_EXPORTER_OTLP_ENDPOINT=http://${{otel-collector.RAILWAY_PRIVATE_DOMAIN}}:4318
 ```
 
-If your Next App is deployed in **another Railway project, or outside of Railway entirely**, you can use the public network -
+*If your Next App is deployed in **another Railway project, or outside of Railway entirely**, you can use the public network -*
 
 ```plaintext
 OTEL_EXPORTER_OTLP_ENDPOINT=https://<PUBLIC DOMAIN OF THE COLLECTOR IN RAILWAY>
 ```
+- Note: If you use the public domain, you will need to update the PORT environment variable in your Otel Collector service to `PORT=4318`
 
-#### Having trouble?
+#### Debugging in NextJS
 
 Another helpful environment variable, specific to NextJS, is the debug directive -
 
@@ -323,8 +340,17 @@ Another helpful environment variable, specific to NextJS, is the debug directive
 OTEL_LOG_LEVEL=debug
 ```
 
+## Helpful Resources
+
+The OpenTelemetry Documentation is complete and easy to follow.  We encourage you to spend time getting familiar with the docs, but here are some sections that we found especially helpful -
+- [OpenTelemetry Components](https://opentelemetry.io/docs/concepts/components/)
+- [OTLP Spec](https://opentelemetry.io/docs/specs/otlp/)
+- [Collector Docs](https://opentelemetry.io/docs/collector/)
+- [Supported Languages](https://opentelemetry.io/docs/languages/)
+- [Vendors with Native OTLP Support](https://opentelemetry.io/ecosystem/vendors/)
+
 ## Conclusion
 
-Congratulations!  You have deployed a OpenTelemetry Collector and a Node Express app that sends data to the collector.
+Congratulations!  You have deployed an OpenTelemetry Collector and a Node Express app that sends data to the collector.
 
 This is a *very* basic implementation, and you should refer to the <a href="https://opentelemetry.io/docs/" target="_blank">OpenTelemetry documentation</a> for information on how to customize your implementation.
