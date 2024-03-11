@@ -9,8 +9,8 @@ While Railway has a native, [centralized logging mechanism](/guides/logs#log-exp
 **Objectives**
 
 In this tutorial you will learn how to -
-- Deploy a Datadog agent in Railway, listening for metrics and logs.
-- Configure an application to send metrics and logs to the agent.
+- Deploy a Datadog agent in Railway - listening for metrics, logs, and traces.
+- Configure an application to send metrics, logs, and traces to the agent.
 
 If you are looking for a quicker way to get started, you can also deploy this project from a <a href="https://railway.app/template/saGmYG" target="_blank">template</a>.
 
@@ -23,7 +23,7 @@ To be successfull, you should already have -
 
 **Caveats**
 
-Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you may see a spike in egress cost.
+Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost.  If this is a concern, you may be interested in exploring self-hosted solutions, and we encourage you to check out the [OpenTelemetry Tutorial](/tutorials/deploy-an-otel-collector-stack).
 
 ## 1. Create the Project Structure
 
@@ -63,22 +63,26 @@ Let's define the Dockerfile.
 
   # Set environment variables
   ENV DD_LOGS_ENABLED=true
+  ENV DD_APM_ENABLED=true
   ENV DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
   ENV DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
+  ENV DD_APM_NON_LOCAL_TRAFFIC=true
   ENV DD_BIND_HOST=::1
 
+  # Reference Variables defined in Railway
   ARG DD_API_KEY
   ARG DD_HOSTNAME
   ARG DD_SITE
 
-  # Copy the datadog.yaml into the container
+  # Copy datadog.yaml into the container
   COPY datadog.yaml /etc/datadog-agent/datadog.yaml
 
-  # Copy the syslog configuration file into the container
+  # Copy syslog configuration file
   COPY syslog.yaml /etc/datadog-agent/conf.d/syslog.d/
 
-  # Expose the StatsD port and the syslog port
+  # DogStatsD port, APM port, and the syslog port
   EXPOSE 8125/udp
+  EXPOSE 8126
   EXPOSE 514/udp
   ```
 
@@ -115,16 +119,19 @@ Now let's build a Node Express App that will send logs and metrics to the Datado
 - Use `npm` (or your preferred package manager) to install the required dependencies - 
 
   ```npm
-  npm i express winston winston-syslog
+  npm i express winston winston-syslog dd-trace
   ```
 
 #### Define the app.js file
 
-The `app.js` file defines your express server.  This is where we will initialize the StatsD client and the Winston logger, which will send metrics and logs, respectively, to the Datadog agent.
+The `app.js` file defines your express server.  This is where we will import the DataDog tracer and initialize the StatsD client and the Winston logger, which will send traces, metrics, and logs, respectively, to the Datadog agent.
 
 - Within the `app.js` file, add the following contents -
 
   ```javascript
+  // ** it is important to import the tracer before anything else **
+  const tracer = require('dd-trace').init();
+
   const express = require('express');
   const app = express();
 
@@ -245,6 +252,7 @@ Variables -
           DD_AGENT_HOST=${{datadog-agent.DD_HOSTNAME}}
         DD_AGENT_STATSD_PORT=8125
         DD_AGENT_SYSLOG_PORT=514
+        DD_TRACE_AGENT_PORT=8126
         ```
         <p style={{ marginTop: '-0.2em', fontSize: '1em'}}>`expressapi` variables</p>
     </div>
@@ -297,6 +305,8 @@ Test that your Datadog Agent is receiving and forwarding data to Datadog by navi
 - `/test`
 
 Generate some traffic to these two routes and verify in your Datadog instance that the data is there.
+
+*Note: it can take a few minutes to see the data in Datadog, check the Datadog Agent's logs in Railway*
 
 ## Conclusion
 
