@@ -1,5 +1,5 @@
 ---
-title: Deploy an OpenTelemetry Stack on Railway
+title: Deploy an OpenTelemetry Collector and Backend on Railway
 ---
 
 ## What is OpenTelemetry?
@@ -19,7 +19,7 @@ In this tutorial you will learn how to -
 - Deploy a backend stack ([Jaeger](https://www.jaegertracing.io/), [Zipkin](https://zipkin.io/), and [Prometheus](https://prometheus.io/)) to receive the traces, metrics, and logs from the collector
 - Build and instrument an <a href="https://expressjs.com/" target="_blank">Express</a> application to send data to the collector.
 
-**OpenTelemetry Collector Stack Template**
+**OpenTelemetry Collector Template**
 
 If you are looking for a quicker way to get started, you can simply deploy the collector and backend stack from <a href="https://railway.app/template/7KNDff" target="_blank">this template</a>.
 
@@ -27,7 +27,7 @@ If you are looking for a quicker way to get started, you can simply deploy the c
 
 To be successfull using this tutorial, you should already have - 
 
-- Railway [CLI installed](guides/cli#installing-the-cli)
+- Latest version of Railway [CLI installed](guides/cli#installing-the-cli)
 - A GitHub account
 
 Let's get started!
@@ -36,9 +36,9 @@ Let's get started!
 
 First, we will deploy the backend services: 
 
-- **Jaeger** - an open-source, distributed tracing system that will receive telemetry data from the collector
-- **Zipkin** - also an open-source, distributed tracing system that will receive telemetry data from the collector
-- **Prometheus** - an open-souce, systems monitoring and alerting toolkit that will receive telemetry data from the collector
+- <a href="https://www.jaegertracing.io/" target="_blank">Jaeger</a> - an open-source, distributed tracing system that will receive telemetry data from the collector
+- <a href="https://zipkin.io/" target="_blank">Zipkin</a> - also an open-source, distributed tracing system that will receive telemetry data from the collector
+- <a href="https://prometheus.io/" target="_blank">Prometheus</a> - an open-souce, systems monitoring and alerting toolkit that will receive telemetry data from the collector
 
 *Jaeger and Zipkin offer similar functionality, and it is not necessary to run both.  The intent is to give you different examples of backend services.*
 
@@ -56,7 +56,7 @@ Each of the following steps should be completed in the same Railway project.
     *This is the port that serves the UI.  Setting this variable allows you to access the Jaeger UI from your browser*
 - In the Settings tab, rename the service `Jaeger`
 - Click `Deploy` to apply and deploy the service
-- In the service settings, under Networking, click `Generate Domain`
+- In the Settings tab, under Networking, click `Generate Domain`
 
 You should be able to acess the Jaeger UI by clicking on the service domain.
 
@@ -72,7 +72,7 @@ You should be able to acess the Jaeger UI by clicking on the service domain.
     *This is the port that serves the UI.  Setting this variable allows you to access the Zipkin UI from your browser*
 - In the Settings tab, rename the service `Zipkin`
 - Click `Deploy` to apply and deploy the service
-- In the service settings, under Networking, click `Generate Domain`
+- In the Settings tab, under Networking, click `Generate Domain`
 
 You should be able to acess the Zipkin UI by clicking on the service domain.
 
@@ -109,7 +109,7 @@ In the Railway project -
     *This is the port that serves the collector's debugging UI.  Setting this variable allows you to access the UI from your browser*
 - In the Settings tab, rename the service `OpenTelemetry Collector`
 - Click `Deploy` to apply and deploy the service
-- In the service settings, under Networking, click `Generate Domain`
+- In the Settings tab, under Networking, click `Generate Domain`
 
 The Collector's debugging UI is enabled by default and accessible from the browser.  This is controlled by the inclusion of the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/blob/main/otel-collector-config.yaml#L31" target="_blank">zpages extension in the collector's configuration yaml</a>.  You can read more about the UI and the available routes, in the collector's <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/extension/zpagesextension/README.md" target="_blank">source repo</a>. 
 
@@ -265,23 +265,19 @@ From your local machine -
     *This wraps the Express app on startup with the instrumentation SDK you created above.*
 - In the service Settings, rename the service to `Express App`
 - Click `Deploy` to apply and create the empty service
+- In the Settings tab, under Networking, click `Generate Domain`
 
 ### Deploy from the Railway CLI
-*This step assumes you have the [Railway CLI](guides/cli#installing-the-cli) installed.*
+*This step assumes you have the latest version of the [Railway CLI](guides/cli#installing-the-cli) installed.*
 
 On your local machine -
 - Open your terminal and change directory to the `otel-example-app` folder
-- Link to the Railway project by running the following command - 
+- Link to the Railway project and service by running the following command - 
   ```plaintext
   railway link
   ```
-  Follow the prompts, selecting the correct project name and environment (found in the upper left-hand corner of your project in Railway, click <a href="https://res.cloudinary.com/railway/image/upload/v1709917423/docs/tutorials/otel/CleanShot_2024-03-08_at_10.58.55_2x_kacssj.png" target="_blank">here</a> for a reference)
+  Follow the prompts selecting the correct project name and environment (click <a href="https://res.cloudinary.com/railway/image/upload/v1709917423/docs/tutorials/otel/CleanShot_2024-03-08_at_10.58.55_2x_kacssj.png" target="_blank">here</a> for a reference), and choose the `Express App` service.
 
-- Link to the empty service you created by running the following command -
-  ```plaintext
-  railway service
-  ```
-  Follow the prompt, selecting the `Express App` service name
 - Deploy the Express App by running the following command -
   ```plaintext
   railway up -d
@@ -347,10 +343,10 @@ The OpenTelemetry Documentation is complete and easy to follow.  We encourage yo
 - [OTLP Spec](https://opentelemetry.io/docs/specs/otlp/)
 - [Collector Docs](https://opentelemetry.io/docs/collector/)
 - [Supported Languages](https://opentelemetry.io/docs/languages/)
-- [Vendors with Native OTLP Support](https://opentelemetry.io/ecosystem/vendors/)
+- [Vendors with Native OTLP Support](https://opentelemetry.io/ecosystem/vendors/) (explore this list for different backend options)
 
 ## Conclusion
 
-Congratulations!  You have deployed an OpenTelemetry Collector and a Node Express app that sends data to the collector.
+Congratulations!  You have deployed an OpenTelemetry Collector and a Node Express app that sends data to the collector which then sends it to Jaeger, Prometheus, and Zipkin.
 
 This is a *very* basic implementation, and you should refer to the <a href="https://opentelemetry.io/docs/" target="_blank">OpenTelemetry documentation</a> for information on how to customize your implementation.
