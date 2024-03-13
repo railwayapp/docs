@@ -55,6 +55,7 @@ The following variables are included in the MySQL service and can be referenced 
 
 Connect to your MySQL container using your library of choice and supplying the
 appropriate environment variables.
+Note that SSL should not be utilized for private networking when configuring connection settings manually.
 
 ## Image
 
