@@ -8,7 +8,7 @@ Railway offers integrations out of the box, as well as features to enable buildi
 
 Project tokens can be used in environments where you cannot login (e.g. remote
 servers or CI). You can create project tokens for a specific [Railway
-environment](/referece/environments) on the project page.
+environment](/reference/environments) on the project page.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1644622499/docs/projecttokens_lwjgat.png"
 alt="Screenshot of Project Canvas"
