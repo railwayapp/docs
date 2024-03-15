@@ -146,6 +146,39 @@ app := fiber.New(fiber.Config{
 
 </Collapse>
 
+## Initialization Time
+
+Currently, private networks take 100ms to initialize on deploy.  If you have services that immediately establish connections over the private network on startup, you may experience errors such as -
+```python
+## python
+socket.gaierror: [Errno -2] Name or service not known
+```
+
+```javascript
+// nodejs
+getaddrinfo ENOTFOUND
+```
+
+```javascript
+// prisma client
+Can’t reach database server at ‘postgres.railway.internal’
+```
+
+If you experience errors like those above, consider implementing a sleep or other wait mechanism in your app, before attempting to connect.  Depending on your specific implementation, you can accomplish this in various ways.  Some common patterns are:
+- In your `package.json` start command: 
+  ```
+  "start": "sleep 3 && node index.js"
+  ```
+- In your configured [start command](/guides/start-command#configure-the-start-command):
+  ```plaintext
+  sleep 3 && npm start
+  ```
+- In your Dockerfile:
+  ```dockerfile
+  CMD sleep 3 && npm run start
+  ```
+
+We agree, this is not ideal, and we are actively working on some big changes to properly fix this.
 
 ## Changing the service name for DNS
 
