@@ -1,5 +1,5 @@
 ---
-title: Controlling Github Autodeploys
+title: Controlling GitHub Autodeploys
 ---
 
 [Services that are linked to a GitHub repo](/guides/services#deploying-from-a-github-repo) automatically deploy when new commits are detected in the connected branch.
@@ -26,13 +26,12 @@ To disable automatic deployment, simply choose `Disable Trigger` from your Servi
   required for this feature to work.
 </Banner>
 
-
 To ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment, you should enable Check Suites.
 
 #### Requirements
 
-- You must have a Github workflow defined in your repository.  
-- The Github workflow must contain a directive to run on push: 
+- You must have a GitHub workflow defined in your repository.  
+- The GitHub workflow must contain a directive to run on push:
 
     ```plaintext
     on:
@@ -40,6 +39,7 @@ To ensure Railway waits for your GitHub Actions to run successfully before trigg
         branches:
           - main
     ```
+
 ### Enabling Check Suites
 
 If your workflow satisfies the requirements above, you will see the `Check Suites` flag in service settings.
@@ -48,8 +48,8 @@ If your workflow satisfies the requirements above, you will see the `Check Suite
 
 Toggle this on to ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment.
 
-When enabled, deployments will be moved to a `WAITING` state while your workflows are running. 
+When enabled, deployments will be moved to a `WAITING` state while your workflows are running.
 
-If any workflow fails, the deployments will be `SKIPPED`. 
+If any workflow fails, the deployments will be `SKIPPED`.
 
 When all workflows are successful, deployments will proceed as usual.

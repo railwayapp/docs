@@ -2,8 +2,6 @@
 title: Regions
 ---
 
-<PriorityBoardingBanner />
-
 Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located. **This feature is only available to Pro plan workspaces.**
 
  Consider factors like compliance needs and proximity to your users when choosing a region.
@@ -33,7 +31,7 @@ Within the service settings, you can select one of the following regions:
 
 By default, Railway deploys to `us-west1` located in Portland, Oregon.
 
-All regions provide the same experience, performance, and reliability you expect from Railway. 
+All regions provide the same experience, performance, and reliability you expect from Railway.
 
 ## Impact of Region Changes
 
@@ -68,6 +66,6 @@ Note that this migration can take a while depending on the size of the volume, a
 
 The same is true if you attach a detached volume to a service in a different region. It will need to be migrated to the new region, which can take a while and cause downtime.
 
-### Caveats
+## Support
 
-You can't deploy database services to different regions. We recommend deploying Official Database Templates instead.  
+For information on how to deploy your services to different regions, refer to [this guide](/guides/optimize-performance#configure-a-region).

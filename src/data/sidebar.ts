@@ -35,6 +35,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Foundations", "guides"),
         pages: [
           makePage("Projects", "guides"),
+          makePage("Staged Changes", "guides"),
           makePage("Services", "guides"),
           makePage("Variables", "guides"),
           makePage("Volumes", "guides"),
@@ -63,7 +64,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Start Command", "guides"),
           makePage("Deployment Actions", "guides"),
-          makePage("Github Autodeploys", "guides"),
+          makePage("GitHub Autodeploys", "guides"),
           makePage("Optimize Performance", "guides"),
           makePage("Healthchecks and Restarts", "guides"),
           makePage("Monorepo", "guides"),
@@ -139,6 +140,7 @@ export const sidebarContent: ISidebarContent = [
             url: "https://blog.railway.app/p/gitlab-ci-cd",
           },
           makePage("Set Up a Datadog Agent", "tutorials"),
+          makePage("Deploy an Otel Collector Stack", "tutorials"),
         ],
       },
       {
@@ -222,6 +224,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Public API", "reference"),
       makePage("Templates", "reference"),
       makePage("Pricing", "reference"),
+      makePage("Production Readiness Checklist", "reference"),
     ],
   },
   {

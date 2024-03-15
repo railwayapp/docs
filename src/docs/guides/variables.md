@@ -13,6 +13,8 @@ When defined, they are made available to your application as environment variabl
 
 In Railway, there is also a notion of configuration variables which allow you to control the behavior of the platform.
 
+*Adding, updating, or removing variables, results in a set of [staged changes](/guides/staged-changes) that you must review and deploy, in order to apply them.*
+
 ## Service variables
 
 Variables scoped to individual services can be defined by navigating to a service's "Variables" tab.
@@ -40,7 +42,7 @@ From your Project Settings -> Shared Variables page, choose the Environment, ent
 #### Use a shared variable
 To use a shared variable, either click the Share button from the Project Settings -> Shared Variables menu and select the services with which to share, or visit the Variables tab within the service itself and click "Shared Variable".
 
-Adding a shared variables to a service creates a [Reference Variable](/reference/variables#reference-variables) in the service.
+Adding a shared variables to a service creates a [Reference Variable](/guides/variables#referencing-a-shared-variable) in the service.
 
 ## Reference Variables
 

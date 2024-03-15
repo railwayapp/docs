@@ -4,6 +4,8 @@ title: Managing Services
 
 A Railway Service is a deployment target for your application.
 
+*As you create and manage your services, your changes will be collected in a set of [staged changes](/guides/staged-changes) that you must review and deploy, in order to apply them.*
+
 ## Creating A Service
 
 Create a service by clicking the `New` button in the top right corner of your project canvas, or by typing new service from the **command palette**, accessible via `CMD + K` (Mac) or `Ctrl + K`(Windows).
@@ -31,9 +33,9 @@ alt="Screenshot of how to connect a service to a GitHub repo or Docker image"
 layout="responsive"
 width={709} height={190} quality={80} />
 
-### Deploying from a Github Repo
+### Deploying from a GitHub Repo
 
-Define a GitHub repository as your service source by selecting `Connect Repo` and choosing the repository you'd like to deploy. 
+Define a GitHub repository as your service source by selecting `Connect Repo` and choosing the repository you'd like to deploy.
 
 When a new commit is pushed to the linked branch, Railway will automatically build and deploy the new code.
 
@@ -43,18 +45,20 @@ alt="Screenshot of a GitHub deployment trigger"
 layout="responsive"
 width={708} height={245} quality={80} />
 
-You must link your Railway account to Github, to enable Railway to connect to your Github repositories.  <a href="https://github.com/apps/railway-app/installations/new" target="_blank">You can configure the Railway App in Github by clicking this link.</a>
+You must link your Railway account to GitHub, to enable Railway to connect to your GitHub repositories.  <a href="https://github.com/apps/railway-app/installations/new" target="_blank">You can configure the Railway App in GitHub by clicking this link.</a>
 
 ### Deploying from a Docker Image
 
 To deploy from a docker image, specify the path of the image when prompted in the creation flow.
 
-Railway can deploy images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> or <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>.  Example paths - 
+Railway can deploy images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> or <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>.  Example paths -
 
 Docker Hub:
+
 - `bitnami/redis`
 
 GitHub Container Registry:
+
 - `ghcr.io/railwayapp-templates/postgres-ssl:latest`
 
 ## Deploying from a local directory
@@ -66,11 +70,9 @@ GitHub Container Registry:
 3. Link to your Railway project using the `railway link` CLI command.
 4. Deploy the directory using `railway up`.  The CLI will prompt you to choose a service target, be sure to choose the empty service you created.
 
-
 ## Deploying a Monorepo
 
 For information on how to deploy a Monorepo click [here](/guides/monorepo).
-
 
 ## Monitoring
 

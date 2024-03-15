@@ -17,12 +17,30 @@ If you have your own Domain already, Railway also supports adding custom domains
 | Category | Key Information |
 |----------|-----------------|
 | **DNS/Domain Names** | - Support for domains, subdomains, and wildcard domains.<br /> - Subdomains and wildcards cannot overlap (`foo.hello.com` cannot exist with `*.hello.com` unless owned by the same service).<br /> - Root domains need a DNS provider with ALIAS records or CNAME flattening.<br /> - Unicode domains should be PUNYcode encoded.<br /> - Non-public/internal domain names are not supported. |
-| **Certificate Issuance** | - Raiway attempts to issue a certificate for **up to 72 hours** after domain creation before failing.<br /> - Certificates are expected to be issued within an hour. |
+| **Certificate Issuance** | - Railway attempts to issue a certificate for **up to 72 hours** after domain creation before failing.<br /> - Certificates are expected to be issued within an hour. |
 | **TLS** | - Support for TLS 1.2 and TLS 1.3 with specific ciphersets.<br /> - Certificates are valid for 90 days and renewed every 30 days.<br /> - Cloudflare Proxying does impact certificate issuance and support for wildcard domains. |
 | **Edge Traffic** | - Support for HTTP/1.1 and HTTP/2.<br /> - Support for websockets over HTTP/1.1 (may be interrupted after 2-4hrs, clients should handle reconnect). <br /> - Idle timeout of 900 seconds.<br /> - Max 100 request headers.<br /> - Max 100 concurrent streams per HTTP2 connection.<br /> - Max duration of 5 minutes for HTTP requests. |
 | **Request Headers** | - `X-Forwarded-For` for identifying client's remote IP.<br /> - `X-Forwarded-Proto` always indicates HTTPS.<br /> - `X-Request-Id` for correlating requests against network logs. |
 | **Requests** | - Inbound traffic must be TLS-encrypted <br /> - HTTP GET requests to port 80 are redirected to HTTPS. <br /> - HTTP POST requests to port 80 are redirected to HTTPS as GET requests. <br /> - SNI is required for correct certificate matching. |
 ||
+
+## Domain Rate Limits
+
+To ensure the integrity and performance of our network, we enforce the following limits for all domains.
+
+| Category               | Limit                                       | Description                                                                                       |
+|------------------------|---------------------------------------------|---------------------------------------------------------------------------------------------------|
+| **Maximum Connections**| 10,000 concurrent connections               | The number of concurrent connections. |
+| **HTTP Requests/Sec**  | 3,000 RPS    | The number of HTTP requests to a given domain per second. |
+| **Requests Per Connection** | 10,000 requests                          | The number of requests each connection can make.    |
+
+If your application requires higher limits, please don't hesitate to reach out to us at [team@railway.app](mailto:team@railway.app).
+
+## Custom Domain Count Limits
+
+The [Hobby plan](/reference/pricing#plans) is limited to 2 custom domains per service.
+
+The [Pro Plan](/reference/pricing#plans) is limited to 10 domains per service by default but can be increased for Pro users on request, by reaching out to us at [team@railway.app](mailto:team@railway.app) or via [private thread](/reference/support#private-threads).
 
 ## FAQ
 

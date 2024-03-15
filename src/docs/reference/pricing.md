@@ -47,7 +47,7 @@ Railway charges for the resources that you consume. These include:
 - **Network Egress**: $0.10 / GB ($0.000000095367432 / KB) ― _from August 1, 2023_
 - (Optional Add-on) [**Volume Storage**](/reference/volumes): $0.25 / GB / mo ($0.000005787037037 / GB / minute)
 
-Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a [calculator](https://railway.app/pricing#calculator) you can use for estimating your costs.
+Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a [calculator](https://railway.app/pricing#usage-estimation) you can use for estimating your costs.
 
 <Banner variant="info">
 If you have [PR deploys](/develop/environments#ephemeral-environments) enabled in your project, Railway will deploy a mirror copy of your workload(s) based on the environment it forks from (`production` by default). You are billed for those workload(s) running in the ephemeral environment.
@@ -65,6 +65,7 @@ Credits are available on Railway as a payment method for Hobby plan users who pr
 
 On Railway, you can pay for your Hobby plan subscription and resource usage with pre-purchased credits. When using credits as a payment method, keep in mind that:
 
+- You must carry a credit balance sufficient to cover usage + the Hobby plan fee, otherwise your project will be paused and your subscription cancelled.  If your subscription is cancelled, you will be required to resubscribe
 - If your usage within a billing period exceeds your credit balance, you will no longer be able to deploy, and your projects will be paused
 - If you cancel your subscription, any remaining credit balance will be lost
 
@@ -80,12 +81,16 @@ Users who create a new Trial account receive a free one-time grant of $5. Railwa
 
 ## Billing Management
 
-To manage your payment information, head to your account's [billing page](https://railway.app/account/billing). On this page, you can:
+To manage your billing and payment information, head to your account's [billing page](https://railway.app/account/billing). On this page, you can:
 
 - Add and manage payment info
 - See historical usage you were billed for
 - Purchase credits for your account
 - Retrieve current and past invoices
+
+### Partial Month Charges
+
+In some cases, your billing method may be charged for the partial amount of your bill earlier in the billing cycle.  This is intended behavior, part of a non-configurable, automated workflow which helps us to mitigate risk and fraud.
 
 ## Verification
 
@@ -161,11 +166,11 @@ Railway charges for the resources that you consume. These include:
 - **Network Egress**: $0.10 / GB ($0.000000095367432 / KB)
 - (Optional Add-on) [**Volume Storage**](/reference/volumes): $0.25 / GB / mo ($0.000005787037037 / GB / minute)
 
-Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a [calculator](https://railway.app/pricing#calculator) you can use for estimating your costs.
+Refer to [railway.app/pricing](http://railway.app/pricing) for additional details and a [calculator](https://railway.app/pricing#usage-estimation) you can use for estimating your costs.
 </Collapse>
 
 <Collapse title="What will it cost to run my app?">
-With Railway, you are only billed for the resources you consume at any given time. If you want to approximate the cost of running your app, try our [pricing calculator](https://railway.app/pricing#calculator).
+With Railway, you are only billed for the resources you consume at any given time. If you want to approximate the cost of running your app, try our [pricing calculator](https://railway.app/pricing#usage-estimation).
 </Collapse>
 
 <Collapse title="How does included usage work on the Hobby plan?">
@@ -220,6 +225,18 @@ Yes. You can use prepaid credits as a payment method on Railway if you prefer to
 
 <Collapse title="What happens if I use credits as a payment method and my account runs out of credits?">
 If you are using credits as a payment method and your credit balance reaches zero, you will no longer be able to deploy to Railway and we will stop all of your workloads. You will have a grace period to add new credits before we purge your data.
+</Collapse>
+
+<Collapse title="What happens if the payment fails for my subscription?">
+If your subscription payment fails, we retry the payment method on file over several days.  We also inform you of the payment failure, in case your payment method needs to be updated.
+
+If payment continues to fail, we flag your services to be stopped and send you a warning.  If we do not receive payment, your services are stopped until all open invoices have been paid.
+</Collapse>
+
+<Collapse title="Why was I charged for a partial month of usage?">
+Railway has an automated system in place which can result in a partial amount of your bill being charged to your payment method, earlier in the billing cycle.
+
+This is intended and helps us to mitigate risk and fraud.
 </Collapse>
 
 ### General

@@ -63,3 +63,23 @@ src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-sta
 alt="Screenshot of custom start command configuration"
 layout="intrinsic"
 width={1302} height={408} quality={80} />
+
+## Watch paths
+
+To prevent code changes in one service from triggering a rebuild of other services in your monorepo, you should configure watch paths.
+
+Watch paths are <a href="https://git-scm.com/docs/gitignore#_pattern_format" target="_blank">gitignore-style</a> patterns that can be used to trigger a new deployment based on what file paths have changed. 
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/watch-paths_l4xozt.png"
+alt="Screenshot of Railway Watch Paths"
+layout="responsive"
+width={1158} height={444} quality={80} />
+
+A monorepo might want to only trigger builds if files are changed in the `/packages/backend` directory, for example.
+
+## Using the CLI
+
+When interacting with your services deployed from a monorepo using the CLI, always ensure you are "linked" to the appropriate service when executing commands.
+
+To link to a specific service from the CLI, use `railway link` and follow the prompts.

@@ -9,6 +9,7 @@
     "start": "next start --port ${PORT-3001}",
     "clean": "rm -rf .next",
     "tsc": "tsc -p .",
+    "generate:community-sdk": "graphql-code-generator --require tsconfig-paths/register --config src/graphql/community/generate.ts && prettier --write src/graphql/community/sdk.ts",
     "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
@@ -26,6 +27,7 @@
     "copy-to-clipboard": "^3.3.1",
     "dayjs": "^1.10.4",
     "fathom-client": "^3.1.0",
+    "graphql": "^16.8.1",
     "interweave": "^13.1.0",
     "meilisearch": "^0.32.3",
     "nanostores": "^0.7.4",
@@ -34,6 +36,7 @@
     "next-seo": "^5.15.0",
     "next-themes": "^0.2.1",
     "prismjs": "^1.29.0",
+    "prom-client": "^15.1.0",
     "react": "18.2.0",
     "react-aria": "^3.5.0",
     "react-dom": "18.2.0",
@@ -50,6 +53,9 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript-graphql-request": "^6.0.0",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
     "@types/node": "^18.14.2",
     "@types/react": "^18.0.28",
     "@types/react-syntax-highlighter": "^15.5.6",
@@ -64,6 +70,7 @@
     "remark-slug": "^7.0.1",
     "tailwindcss": "^3.2.7",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^4.2.4"
   },
   "engines": {

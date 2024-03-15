@@ -12,17 +12,17 @@ All projects in Railway are created with a `production` environment by default. 
 
 #### Persistent Environments
 
-Persistent environments contain the same services as the production environment, but not the same variables.  These environments are intended to persist but remain isolated from production with regard to their configuration.  For example, a `staging` environment that is configured to auto-deploy from a `staging` branch.
+Persistent environments are intended to persist but remain isolated from production with regard to their configuration.
 
-#### Forked Environments
-
-Forked environments contain the same services AND variables of the original environment.
-
-A key difference between forked and persistent environments are changesets.  Changes in a forked environment are stored in a changeset to be reviewed and merged into the original environment.
+For example, it is a common pattern to maintain a `staging` environment that is configured to auto-deploy from a `staging` branch and with variables relevant to `staging`.
 
 #### PR Environments
 
 [PR Environments](/guides/environments#enable-pr-environments) are temporary.  They are created when a Pull Request is opened on a branch and are deleted as soon as the PR is merged or closed.
+
+## Environment Isolation
+
+All changes made to a service are scoped to a single environment. This means that you can make changes to a service in an environment without affecting other environments.
 
 ## Use Cases
 

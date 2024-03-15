@@ -76,6 +76,7 @@ builds and deployments.
 | `RAILWAY_SNAPSHOT_ID`          | The snapshot ID for the deployment.                                                              |
 | `RAILWAY_VOLUME_NAME`          | The name of the attached volume, if any. Example: `foobar`                                       |
 | `RAILWAY_VOLUME_MOUNT_PATH`    | The mount path of the attached volume, if any. Example: `/data`                                  |
+| `RAILWAY_RUN_UID`    | The UID of the user which should run the main process inside the container.  Set to `0` to explicitly run as root.                                  |
 
 ### Git Variables
 

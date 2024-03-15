@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from "react";
+import { iconFromName } from "@/utils/icon";
 import {
   AlertTriangle,
   CheckCircle,
@@ -23,6 +24,7 @@ const defaultVariant: BannerVariant = "primary";
 export interface Props {
   variant?: BannerVariant;
   icon?: React.ComponentType;
+  iconName?: string;
   hideIcon?: boolean;
   className?: string;
   textContainerStyles?: TwStyle;
@@ -62,12 +64,14 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
   ...props
 }) => {
   const variant = props.variant ?? defaultVariant;
-  const icon = props.icon ?? defaultIcons[variant];
+  const icon = props.iconName
+    ? iconFromName(props.iconName)
+    : props.icon ?? defaultIcons[variant];
 
   return (
     <div
       css={[
-        tw`flex items-center p-2 border rounded-md space-x-1`,
+        tw`flex items-center py-3 px-4 border rounded-md space-x-3`,
         containerStyles[variant],
       ]}
       className="banner"

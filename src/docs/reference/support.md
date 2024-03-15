@@ -2,48 +2,76 @@
 title: Support
 ---
 
-Railway offers numerous tiers of support for our users. This page will cover the different types of support we offer and how to get in touch with us.
+Railway offers numerous tiers of support for our users.
 
 ## Support Tiers
 
-Visit the [Support Panel](https://railway.app/account?p=support) in the Railway Dashboard to view your support tier and available resources.
+Visit the [Help Station](https://help.railway.app/support) to view your support tier and available resources.
 
-| Plan          | Support                                                                                                                |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Trial & Hobby | [Community](#community) only                                                                                           |
-| Pro           | [Community](#community), [Support Panel](#support-panel), and [Business Class](#business-class)                        |
-| Enterprise    | [Custom](#enterprise), [Community](#community), [Support Panel](#support-panel), and [Business Class](#business-class) |
+| Plan          | Support                                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------------------ |
+| Trial & Hobby | [Community](#help-station) only                                                                        |
+| Pro           | [Community](#help-station), [Private Threads](#private-threads), and [Business Class](#business-class) |
+| Enterprise    | [Custom](#enterprise) & all of the above                                                               |
 
-### Community
-
-Railway has a vibrant community of over 20,000+ users and developers. We encourage you to reach out to the community for help with your project. The community is a great place to get help with your project, learn new things, and meet other developers.
-
-You can find the Railway Community at:
-
-- [Community Forum](https://community.railway.app)
-- [Community Discord](https://discord.gg/railway)
-
-Please ensure that you've searched for your issue before starting a new discussion, and follow the guidelines in [How To Ask For Help](#how-to-ask-for-help).
-
-### Support Panel
+## Community
 
 <Banner variant="info">
-This is only available to Pro plan users.
+Please ensure that you've searched for your issue before starting a new discussion, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://help.railway.app/community-code-of-conduct).
 </Banner>
 
-Pro plan users can reach us via the **Talk to a Railway Engineer** form located in the [Support Panel](https://railway.app/account?p=support) in the Railway Dashboard.
+Railway conducts its support over our [Help Station](https://help.railway.app/support) platform. It hosts our community of 500,000+ users and developers, and provides a dedicated section for Pro users to receive a guaranteed response from us ([Private Threads](#private-threads)).
 
-We also offer a [Business Class](#business-class) add-on for teams and companies requiring SLOs and higher-priority support over chat.
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1708556761/docs/help-station-3_b14jbh.png"
+alt="Screenshot of Railway Help Station"
+layout="intrinsic"
+width={2033} height={1380} quality={100} />
 
-### Enterprise
+The [Help Station](https://help.railway.app/support) is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
 
-For enterprises, we offer everything in [Business Class](#business-class) along with custom support tailored to your needs. Reach out to us at [team@railway.app](mailto:team@railway.app) for more information.
+We encourage you to reach out to the community for help with your project. The community is a great place to get help with your project, learn new things, and meet other developers.
 
-### Billing Enquiries
+### Private Threads
 
-For refund requests, please use the "Request a refund" form in the [Railway Dashboard](https://railway.app/account?p=support).
+<Banner variant="primary" iconName="star">
+Private Threads is only available to Pro plan users.
+</Banner>
 
-For other enquiries, please ask them in our [Community Forum](https://community.railway.app).
+**Private Threads** in Railway's [Help Station](https://help.railway.app/support) is a dedicated support feature for Pro plan users.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1708556944/docs/priv-thread_bhjt9g.png"
+alt="Screenshot of creating Private Threads in Railway Help Station"
+layout="intrinsic"
+width={780} height={377} quality={100} />
+
+Private threads are:
+
+- Only visible to you, your team members, and Railway employees
+- Guaranteed a response from Railway within 3-5 business days
+
+To create a Private Thread, visit [Help Station -> Support](https://help.railway.app/support) and click on the `+ New Private Thread` button.
+
+For teams and companies requiring SLOs and higher-priority support over chat, sign up for [Business Class](#business-class).
+
+### Discord
+
+We have a vibrant Discord community of over 20,000+ users and developers. You can find the Railway Discord at [https://discord.gg/railway](https://discord.gg/railway).
+
+Please ask your questions in the <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> channel, and refrain from pinging anyone with the Team or Conductor roles.
+
+## Refunds
+
+You can request for a refund in [Account -> Billing](https://railway.app/account/billing) under **Billing History**:
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1708555357/docs/billing-refund_wg7aja.png"
+alt="Screenshot of refund request button inside Account -> Billing"
+layout="intrinsic"
+width={989} height={231} quality={100} />
+
+If you do not see a refund button next to your invoice, you are ineligible for a refund.
 
 ## How To Ask For Help
 
@@ -56,8 +84,6 @@ When you reach out for help, it's important that you help us help you! Please in
 - Logs (build and/or deploy)
 - Link to GitHub repo/code or template you're using, if applicable
 
-In Discord, please ask questions in the <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> channel, and refrain from pinging anyone with the Team or Conductor roles.
-
 ## Business Class
 
 For teams and large companies who need dedicated support, we offer Business Class. It's support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company.
@@ -68,15 +94,14 @@ Reach out to us at [team@railway.app](mailto:team@railway.app) for more informat
 
 For Business Class customers, we offer Direct Support over chat channels. This allows you to have a dedicated channel for your team to communicate with Railway.
 
-- In Discord, you'll have access to a **#direct-support** channel, allowing you to create a temporary dedicated bridge (more info below)
+- In Discord, you'll have access to a **#direct-support** channel, allowing you to create a dedicated channel with us
 - In Slack, we'll embed Railway Engineers into one of your workspace's channels
 - If you'd like to set this up over other channels (e.g. Microsoft Teams), let us know
 
 **Discord Chat Bridge**
 
-- When you sign up for Business Class, you have access to a channel in Discord called **#direct-support**
-- From within the **#direct-support** channel, you will click the `Join Channel` button to create a temporary bridge dedicated to you
-- After _7 days of inactivity_, the dedicated bridge will disappear, but you can always create another one through the **#direct-support** channel
+- When you sign up for Business Class, you gain access to a channel in Discord called **#direct-support**
+- From within the **#direct-support** channel, click the `Join Channel` button to create a channel dedicated to your team
 
 Reach out to us at [team@railway.app](mailto:team@railway.app) on setting up dedicated chat bridges.
 
@@ -111,3 +136,7 @@ As part of this offering, we agree to provide a monthly summary on the uptime of
 ### Audits
 
 Security audits can be provided by request.
+
+## Enterprise
+
+For enterprises, we offer everything in [Business Class](#business-class) along with custom support tailored to your needs. Reach out to us at [team@railway.app](mailto:team@railway.app) for more information.
