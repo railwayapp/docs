@@ -19,10 +19,6 @@ In this tutorial you will learn how to -
 - Deploy a backend stack ([Jaeger](https://www.jaegertracing.io/), [Zipkin](https://zipkin.io/), and [Prometheus](https://prometheus.io/)) to receive the traces, metrics, and logs from the collector
 - Build and instrument an <a href="https://expressjs.com/" target="_blank">Express</a> application to send data to the collector.
 
-**OpenTelemetry Collector Template**
-
-If you are looking for a quicker way to get started, you can simply deploy the collector and backend stack from <a href="https://railway.app/template/7KNDff" target="_blank">this template</a>.
-
 **Prerequisites**
 
 To be successfull using this tutorial, you should already have - 
@@ -30,7 +26,14 @@ To be successfull using this tutorial, you should already have -
 - Latest version of Railway [CLI installed](guides/cli#installing-the-cli)
 - A GitHub account
 
-Let's get started!
+**OpenTelemetry Collector Template and Demo**
+
+If you are looking for a quicker way to get started, you can deploy the collector and backend stack from a template by clicking the button below.
+<a href="https://railway.app/template/7KNDff" target="_blank"><img src="https://railway.app/button.svg" alt="Deploy on Railway" /></a>
+
+We also have a live demo of the project you will build in this tutorial <a href="https://classy-writing-production.up.railway.app/" target="_blank">here</a>, and you can access the code repository <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack" target="_blank">here in Github</a>.
+
+**Let's get started!**
 
 ## 1. Deploy the Backend Services
 
