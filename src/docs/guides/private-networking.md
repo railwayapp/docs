@@ -148,7 +148,7 @@ app := fiber.New(fiber.Config{
 
 ## Initialization Time
 
-Currently, private networks take 100ms to initialize on deploy.  If you have services that immediately establish connections over the private network on startup, you may experience errors such as -
+Currently, private networks take up to 3 seconds to initialize on deploy.  If you have services that immediately establish connections over the private network on startup, you may experience errors such as -
 ```python
 ## python
 socket.gaierror: [Errno -2] Name or service not known
@@ -207,7 +207,7 @@ During the feature development process we found a few caveats that you should be
 - You will need to establish a wireguard tunnel to external services if you wish to vendor requests in your application.
 - You will need to bind to a IPv6 port to receive traffic on the private network.
 - Private networking is enabled automatically for new projects/environments. If you want to use private networking in an existing environment, you will have to enable it manually in the settings panel of one of the environment services.
-- Private networks take 100ms to initialize on deploy, we ask that you set initial requests on a retry loop.
+- Private networks take up to 3 seconds to initialize on deploy, we ask that you set initial requests on a retry loop.
 - We don't support IPv4 private networking
 - Alpine-based images may not work with our internal DNS due to how it performs
   resolution. See the [section above](#workaround-for-alpine-based-images) for a workaround.
