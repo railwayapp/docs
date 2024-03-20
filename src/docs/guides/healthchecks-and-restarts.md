@@ -32,6 +32,12 @@ To increase the timeout, change the number of seconds on the service settings pa
 
 To prevent data corruption, we prevent multiple deployments from being active and mounted to the same service. This means that there will be a small amount of downtime when re-deploying a service that has a volume attached, even if there is a healthcheck endpoint configured.
 
+### Continuous Healthchecks
+
+The healthcheck endpoint is currently ***not intended for continuous monitoring*** as it is only called at the start of the deployment, to ensure it is healthy prior to routing traffic to it.
+
+If you are looking for a quick way to setup continuous monitoring of your service(s), check out the <a href="https://railway.app/template/p6dsil" target="_blank">Uptime Kuma template</a> in our template marketplace.
+
 ## Restart Policy
 
 The restart policy dictates what action Railway should take if a deployed service stops or otherwise becomes unhealthy, e.g. exits with a non-zero exit code.
