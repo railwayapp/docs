@@ -28,9 +28,7 @@ You are only charged for the amount of storage used by your volumes. *Each volum
 
 ## Caveats
 
-Volumes is a newer feature that
-is still under development. Here are some limitations we are currently aware
-of:
+Volumes is a newer feature that is still under development. Here are some limitations of which we are currently aware:
 - Each service can only have a single volume
 - Replicas cannot be used with volumes
 - There is no built-in S/FTP support
@@ -42,6 +40,7 @@ of:
   corruption
 - There is no file browser, or direct file download. To access your files,
   you must do so via the attached service's mount point
+- Docker images that run as a non-root UID by default will have permissions issues when performing operations within an attached volume.  If you are affected by this, you can set `RAILWAY_RUN_UID=0` environment variable in your service.
 
 ## Support
 
