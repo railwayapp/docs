@@ -40,7 +40,7 @@ Volumes is a newer feature that is still under development. Here are some limita
   corruption
 - There is no file browser, or direct file download. To access your files,
   you must do so via the attached service's mount point
-- Docker images that run as a non-root UI by default will have permissions issues when performing operations within an attached volume.  If you are affected by this, you can set `RAILWAY_RUN_UID=0` environment variable in your service.
+- Docker images that run as a non-root UID by default will have permissions issues when performing operations within an attached volume.  If you are affected by this, you can set `RAILWAY_RUN_UID=0` environment variable in your service.
 
 ## Support
 
