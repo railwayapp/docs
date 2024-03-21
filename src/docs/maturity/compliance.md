@@ -18,6 +18,8 @@ Railway is currently in the process of attaining SOC 2 certification.
 
 We are undergoing this process with our vendor, Drata. After completion, we plan to publish a compliance portal via our vendor. For updates, you can subscribe to the road-map item on [our road-map board](https://railway.canny.io/feature-requests/p/compliance).
 
+Highly motivated customers who are in the process of securing SOC2 certification can request a security questionnaire where the Railway team will provide relevant information about vendor usage and Railway employee acesss procedures.
+
 ### HIPAA BAA
 
 Railway follows a shared responsibility model for HIPAA compliance. Railway will make its best effort to advise your company on setting up encryption for your data, auditing the storage of keys, establishing access control, and ensuring secure storage of sensitive patient data. When a BAA is in effect, the Railway team will no longer be able to directly access your running workloads. BAAs are only available on our Enterprise offerings.
@@ -31,3 +33,7 @@ We are working on operationalized BAAs and continually gathering requirements fo
 Railway is committed to protecting the privacy of our users. We understand that when working with user code and data, it is important to have a clear understanding of how we handle your data. Railway, on behalf of our users, may remove offending workloads but at no point will a Railway team member modify your application without your expressed permission through an approved communication channel.
 
 [Click here to see our Privacy Policy.](https://railway.app/legal/privacy)
+
+## VAT / Address
+
+For customers who require VAT tax collection, you can add your company VAT Tax ID and company address via the Pro plan billing portal for your respective workspace.
