@@ -214,7 +214,7 @@ During the feature development process we found a few caveats that you should be
 
 ## FAQ
 
-<Collapse title="What is a client side app, a sever side app, and what kind of app am I running?">
+<Collapse title="What is a client side app, a server side app, and what kind of app am I running?">
 
 In the context of private networking, the key distinction between client- and server-side is from where requests are being made.
 - In client-side applications, requests to other resources (like other Railway services) are made from a browser, which exists on the public network and outside the private network.
