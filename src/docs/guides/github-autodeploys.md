@@ -16,7 +16,7 @@ width={1103} height={523} quality={80} />
 
 ### Disable Automatic Deployments
 
-To disable automatic deployment, simply choose `Disable Trigger` from your Service Settings.
+To disable automatic deployment, simply hit `Disconnect` in the Service Settings menu
 
 ## Check Suites
 
