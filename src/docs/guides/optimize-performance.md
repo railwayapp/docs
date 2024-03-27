@@ -35,8 +35,6 @@ At the moment, Railway will round-robin requests to the replicas of your service
 
 ## Configure a Region
 
-<PriorityBoardingBanner />
-
 Railway's infrastructure spans multiple regions across the globe, and by default Railway deploys to `us-west1` located in Portland, Oregon.
 
 To choose a different region for your service, go to your service settings and select the desired region -
