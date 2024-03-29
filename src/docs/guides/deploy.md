@@ -30,8 +30,20 @@ If it has received an upstream update, we will create a branch on the GitHub rep
 
 If you are happy with the changes, you can merge the pull request, and we will automatically deploy it to your production environment.
 
-<Banner variant="info">
 If you're curious, you can read more about how we built updatable templates in this <a href="https://blog.railway.app/p/updatable-starters" target="_blank">blog post</a>
-</Banner>
 
 Note that this feature only works for services based on GitHub repositories.  At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced.
+
+## Eject from Template Repo
+
+<Banner variant="info">
+As of March 2024, the default behavior for deploying templates, is to attach to and deploy directly from the template repository.  Therefore, you will not automatically get a copy of the repository on deploy.  Follow the steps below to create a repository for yourself.
+</Banner>
+
+By default, services deployed from a template are attached to and deployed directly from the template repository.  In some cases, you may want to have your own copy of the template repository.  Follow these steps to eject from the template repository and create a mirror in your own GitHub account.
+
+1. Ensure you have the "Template Service Eject" <a href="https://railway.app/account/feature-flags" target="_blank">feature flag</a> enabled
+2. In the service settings, under Source, find the **Upstream Repo** setting
+3. Click the `Eject` button
+4. Select the appropriate GitHub organization to create the new repository
+5. Click `Eject service`
