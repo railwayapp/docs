@@ -116,13 +116,13 @@ Protecting your application and user data from malicious threats and vulnerabili
 
     Secure communication between services in the same project and environment by using the [private network](/reference/private-networking).
 
-**&check; Add a WAF service**
+**&check; Implement a Security Layer**
 
-- While Railway does have protections in place at the platform level, we do not currently offer a configurable firewall for users' services.
+- While Railway does have protections in place at the platform level, we do not currently offer a configurable service for users' applications.
 
-    Consider using a service like Cloudflare to protect your application against attacks.
+   Consider using a service like Cloudflare that offers both WAF and DDoS mitigation, to protect your services against web threats and ensure availability and performance.
 
-    *In the future, we would love to offer a native WAF solution.  If you agree, <a href="https://community.railway.app/feature-request/implement-a-waf-firewall-security-54fe2aaf" target="_blank">let us know</a>.*
+    *In the future, we would love to offer a native security solution.  If you agree, <a href="https://community.railway.app/feature-request/implement-a-waf-firewall-security-54fe2aaf" target="_blank">let us know</a>.*
 
 ---
 
