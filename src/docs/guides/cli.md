@@ -194,12 +194,12 @@ If there are multiple services within your project, the CLI will prompt you for 
 
 ### Add Database Service
 
-Provision plugins (databases) for a project.
+Provision database services to your project.
 
 ```bash
 railway add
 ```
-Prompts you to select one or more plugins to provision for your project.
+Prompts you to select one or more databases to provision for your project.
 
 ### Logout
 
