@@ -194,7 +194,7 @@ If there are multiple services within your project, the CLI will prompt you for 
 
 ### Add Database Service
 
-Provision database services to your project.
+Provision database services for a project.
 
 ```bash
 railway add
