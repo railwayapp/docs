@@ -10,19 +10,20 @@ For information on how to install the CLI and more examples of usage, see the [C
 
 ## Add
 
-*Add a plugin to your project*
+*Add a database service to your project*
 
 ```txt
 ~ railway add --help
-Add a new plugin to your project
+Provision a database into your project
 
 Usage: railway add [OPTIONS]
 
 Options:
-  -p, --plugin <PLUGIN>  The name of the plugin to add [possible values: postgresql, mysql, redis, mongodb]
-      --json             Output in JSON format
-  -h, --help             Print help
-  -V, --version          Print version
+  -d, --database <DATABASE>  The name of the database to add [possible values: postgre-sql, my-sql, redis, mongo-db]
+      --json                 Output in JSON format
+  -h, --help                 Print help
+  -V, --version              Print version
+
 ```
 
 ## Completion
@@ -45,16 +46,16 @@ Options:
 
 ## Connect
 
-*Connect to a plugin's shell (`psql` for Postgres, `mongosh` for MongoDB, etc.)*
+*Connect to a database's shell (`psql` for Postgres, `mongosh` for MongoDB, etc.)*
 
 ```txt
 ~ railway connect --help
-Connect to a plugin's shell (psql for Postgres, mongosh for MongoDB, etc.)
+Connect to a database's shell (psql for Postgres, mongosh for MongoDB, etc.)
 
-Usage: railway connect [OPTIONS] [PLUGIN_NAME]
+Usage: railway connect [OPTIONS] [SERVICE_NAME]
 
 Arguments:
-  [PLUGIN_NAME]  The name of the plugin to connect to
+  [SERVICE_NAME]  The name of the database to connect to
 
 Options:
   -e, --environment <ENVIRONMENT>  Environment to pull variables from (defaults to linked environment)
@@ -63,29 +64,13 @@ Options:
   -V, --version                    Print version
 ```
 
-This requires you to have the plugin's appropriate shell/client installed in your `$PATH`:
+This requires you to have the database's appropriate shell/client installed in your `$PATH`:
 
 * Postgres: `psql` (https://www.postgresql.org/docs/current/app-psql.html)
 * Redis: `redis-cli` (https://redis.io/docs/ui/cli/)
 * MongoDB: `mongosh` (https://www.mongodb.com/docs/mongodb-shell/)
 * MySQL: `mysql` (https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
 
-## Delete
-
-*Interactively delete a plugin*
-
-```txt
-~ railway delete --help
-Delete plugins from a project
-
-Usage: railway delete [OPTIONS]
-
-Options:
-      --json     Output in JSON format
-  -h, --help     Print help
-  -V, --version  Print version
-```
-You will be prompted to select a plugin to delete, and if you have 2FA enabled, you will be prompted to enter your 2FA code.
 
 ## Domain
 *Create a domain for a service*
@@ -168,22 +153,23 @@ Interact with Railway via CLI
 Usage: railway [OPTIONS] <COMMAND>
 
 Commands:
-  add          Add a new plugin to your project
+  add          Provision a database into your project
   completion   Generate completion script
-  delete       Delete plugins from a project
+  connect      Connect to a database's shell (psql for Postgres, mongosh for MongoDB, etc.)
   domain       Generates a domain for a service if there is not a railway provided domain
   docs         Open Railway Documentation in default browser
+  down         Remove the most recent deployment
   environment  Change the active environment
   init         Create a new project
   link         Associate existing project with current directory, may specify projectId as an argument
   list         List all projects in your Railway account
   login        Login to your Railway account
   logout       Logout of your Railway account
-  logs         View the most-recent deploy's logs
+  logs         View a deploy's logs
   open         Open your project dashboard
   run          Run a local command using variables from the active environment
   service      Link a service to the current project
-  shell        Open a subshell with Railway variables available
+  shell        Open a local subshell with Railway variables available
   status       Show information about the current project
   unlink       Disassociate project from current directory
   up           Upload and deploy project from the current directory
@@ -361,7 +347,7 @@ Options:
   -V, --version                    Print version
 ```
 
-This also injects all environment variables associated with the plugins you have
+This also injects all environment variables associated with the databases you have
 installed in your project.
 
 ## Service
