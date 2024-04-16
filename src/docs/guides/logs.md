@@ -132,7 +132,7 @@ emitted on a single line to be parsed correctly.
 In order to ensure a consistent query format across Railway services, incoming
 logs are normalized to the above format automatically.
 
-- Non-structured logs are converted to `{"msg": "<original_log>","level": "info"}`
+- Non-structured logs are converted to `{"msg":"...","level":"info"}`
 - `log.message` converted to `log.msg`
 - `log.severity` converted to `log.level`
 - `log.level` defaults to `info` if missing
