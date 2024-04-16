@@ -127,13 +127,13 @@ emitted on a single line to be parsed correctly.
 {"message":"New purchase!","productId":123,"userId":456}
 ```
 
-### Normalization
+### Normalization Strategy
 
 In order to ensure a consistent query format across Railway services, incoming
-logs are normalized to the following format.
+logs are normalized to the above format automatically.
 
-- Non-structured logs are converted to structured logs `{"msg": "<original_log>","level": "info"}`.
-- `message` attribute is converted to`msg`
-- `severity` attribute is converted to `level`
-- Levels are normalized to `debug`, `info`, `warn`, `error`
-- `level` defaults to `info` if missing
+- Non-structured logs are converted to `{"msg": "<original_log>","level": "info"}`
+- `log.message` converted to `log.msg`
+- `log.severity` converted to `log.level`
+- `log.level` defaults to `info` if missing
+- Levels are lowercased and matched to the closest of `debug`, `info`, `warn`, `error`
