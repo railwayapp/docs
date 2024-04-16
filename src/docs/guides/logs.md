@@ -98,7 +98,7 @@ type StructuredLog = {
   // (required) The content of the log
   msg: string;
 
-  // Severity of the log (default info)
+  // Severity of the log
   level: "debug" | "info" | "warn" | "error";
 
   // Custom attributes (query via @name:value)
