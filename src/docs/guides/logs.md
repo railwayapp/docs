@@ -95,8 +95,8 @@ to attach custom metadata to logs or preserve multi-line logs like stack traces.
 
 ```typescript
 type StructuredLog = {
-  // (required) The content of the log ("msg" is also supported)
-  message: string;
+  // (required) The content of the log
+  msg: string;
 
   // Severity of the log (default info)
   level: "debug" | "info" | "warn" | "error";
@@ -126,3 +126,14 @@ emitted on a single line to be parsed correctly.
 ```text
 {"message":"New purchase!","productId":123,"userId":456}
 ```
+
+### Normalization
+
+In order to ensure a consistent query format across Railway services, incoming
+logs are normalized to the following format.
+
+- Non-structured logs are converted to structured logs `{"msg": "<original_log>","level": "info"}`.
+- `message` attribute is converted to`msg`
+- `severity` attribute is converted to `level`
+- Levels are normalized to `debug`, `info`, `warn`, `error`
+- `level` defaults to `info` if missing
