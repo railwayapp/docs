@@ -129,6 +129,10 @@ We offer support during business hours, and prioritize requests from Business Cl
 - Exceptions apply to our business hours during P1 outages where the team will be on-call 24/7
 - The team may reply outside of business hours, but we do not guarantee a response outside of business hours
 
+### Business Class Resource Limits
+
+For Business Class customers, Railway increases resource limits beyond the standard Pro limits on a need-based basis. Contact the team through your dedicated communication channel to increase limits.
+
 ### Uptime Calculation
 
 As part of this offering, we agree to provide a monthly summary on the uptime of the components of Railway. Customers are provided an RCA to any outages on the Routing Layer.
