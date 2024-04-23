@@ -2,21 +2,21 @@
 title: Setup Webhooks
 ---
 
-Webhooks can be used to notify your own application of deployment status changes.
+Webhooks can be used to notify your own application of deployment status changes.  They are configured per project.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1631917802/docs/webhooks_nslim0.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1713913057/docs/webhooks_ooirjn.png"
 alt="Screenshot of Webhooks Menu"
 layout="responsive"
-width={823} height={324} quality={80} />
+width={753} height={324} quality={80} />
 
 Complete the following steps to setup a webhook:
-1. Open an existing project on Railway.
-2. Click on the project settings menu.
-3. Navigate to the webhooks page.
-4. Input your desired webhook URL into the input under "Build and Deploy Webhooks".
-5. Click the checkmark to the right of the input to save.
+1. Open an existing Project on Railway.
+2. Click on the `Settings` button in the top right-hand corner.
+3. Navigate to the Webhooks page.
+4. Input your desired webhook URL.
+5. Click `Save Webhook`.
 
-The URL you provide will receive a webhook payload when the current project's deployment status changes. This will be executed across all environments in the project.
+The URL you provide will receive a webhook payload when any service's deployment status changes. This will be executed across all environments in the project.
 
 To see what payload will be transmitted to the URL, you can expand the "Example webhook payload" panel.
 
