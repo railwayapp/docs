@@ -18,7 +18,9 @@ width={903} height={523} quality={80} />
 
 To disable automatic deployment, simply hit `Disconnect` in the Service Settings menu.
 
-*Note: To force a deployment from the latest commit with automatic deployments disabled, you can do so from the Command Pallette: `CMD + K` -> "Deploy Latest Commit".  This will deploy the latest commit from the Default branch.*
+*Note: To manually trigger a deployment from the latest commit, use the Command Pallette: `CMD + K` -> "Deploy Latest Commit".  This will deploy the latest commit from the **Default** branch in GitHub.*
+
+*Currently, there is no way to force a deploy from a branch other than the Default without connecting it in your service settings.*
 
 ## Check Suites
 
