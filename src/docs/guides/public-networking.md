@@ -173,7 +173,7 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1205} height={901} quality={80} />
 
-If proxying is not enabled, Cloudflare will not associate the domain with your Railway project with the following error:
+If proxying is not enabled, Cloudflare will not associate the domain with your Railway project.  In this case, you will encounter the following error message:
 
 ```
 ERR_TOO_MANY_REDIRECTS
