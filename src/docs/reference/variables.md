@@ -101,6 +101,7 @@ Users can use the following environment variables to configure Railway's behavio
 | `RAILWAY_DOCKERFILE_PATH`            | The path to the Dockerfile to be used by the service, its default value is `Dockerfile`. Example: `Railway.dockerfile`                               |
 | `NIXPACKS_CONFIG_FILE`               | The path to the Nixpacks configuration file relative to the root of the app, its default value is `nixpacks.toml`. Example: `frontend.nixpacks.toml` |
 | `RAILWAY_HEALTHCHECK_TIMEOUT_SEC`    | The timeout length (in seconds) of healthchecks. Example: `300`                                        
+| `RAILWAY_DEPLOYMENT_DRAINING_SECONDS`    | The the SIGTERM to SIGKILL buffer time (in seconds), its default value is 3. Example: `30`                                        
 
 ## Support
 
