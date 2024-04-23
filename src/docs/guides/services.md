@@ -89,6 +89,10 @@ Customize your project canvas for easier readability by changing the service ico
 
 You can also access this configuration from the command palette.
 
+## Storing Data
+
+Every service has access to 10GB of ephemeral storage.  If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/guides/volumes).
+
 ## Deleting a Service
 
 Delete a service by opening the project's settings and scrolling to the danger section.

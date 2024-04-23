@@ -16,7 +16,7 @@ Services that are always running.  Examples include web applications, backend AP
 
 #### Scheduled jobs
 
-Services that are run until completion, on a defined schedule, also called Cron Jobs.
+Services that are run until completion, on a defined schedule, also called [Cron Jobs](/reference/cron-jobs).
 
 ## Service Source
 
@@ -34,7 +34,13 @@ Services can be connected to a GitHub repo and automatically deployed on each co
 
 #### Local Repository
 
-Services can be deployed from a local machine by using the [Railway CLI](/reference/cli-api).  
+Services can be deployed from a local machine by using the [Railway CLI](/reference/cli-api).
+
+## Ephermal Storage
+
+Every service deployment has access to 10GB of ephemeral storage.  If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
+
+If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/reference/volumes).
 
 ## Templates
 
