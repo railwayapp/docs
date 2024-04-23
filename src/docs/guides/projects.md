@@ -52,14 +52,28 @@ Each project generates a project invite link. To invite someone via a link:
 
 ## Transferring Projects
 
-You can transfer a project to another member in the members list by selecting the three dots next to the user and choosing `Transfer Ownership`.
+Depening on your plan, you can transfer Projects to other users or Teams.
+
+#### Hobby User to Hobby User
+
+To transfer a project from one Hobby User to another Hobby User, you must first [add the user as a member](#inviting-members) in the project.
+
+You can then transfer the project to the new member by selecting the three dots next to the user and choosing `Transfer Ownership`.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/project-transfer_iz4myn.png"
 alt="Screenshot of Project Transfer Menu"
 layout="intrinsic"
 width={411} height={253} quality={80} />
 
-The transferee receives an email with the current owner requesting to transfer the project to the user. Once that user accepts the transfer, they become the new owner of the project.
+The transferee receives an email requesting to transfer the project.
+
+#### Hobby User to Team || Team to Team
+
+You can transfer a Project in your Hobby workspace to a Team (or between Teams) in which you are an Admin.  Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1692378671/project-transfer_iukfwb.png" alt="Project Transfer" layout="responsive" height={968} width={1240} />
+
+Note: If you do not see the Transfer Project section in your Project Settings, you may not be an Admin of the Team to which you wish to transfer the Project.  See the [reference page for Teams](/reference/teams#inviting-members) for more information on team member permissions.
 
 ## Viewing Recent Activity
 
