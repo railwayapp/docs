@@ -9,14 +9,18 @@ title: Controlling GitHub Autodeploys
 To update the branch that triggers automatic deployments, go to your Service Settings and choose the appropriate trigger branch.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1699395694/docs/deployTrigger_tuxk5l.png"
+src="https://res.cloudinary.com/railway/image/upload/v1713907838/docs/triggerBranch_tzf9q3.png"
 alt="Screenshot of GitHub Integration"
 layout="responsive"
-width={1103} height={523} quality={80} />
+width={903} height={523} quality={80} />
 
 ### Disable Automatic Deployments
 
-To disable automatic deployment, simply hit `Disconnect` in the Service Settings menu
+To disable automatic deployment, simply hit `Disconnect` in the Service Settings menu.
+
+*Note: To manually trigger a deployment from the latest commit, use the Command Pallette: `CMD + K` -> "Deploy Latest Commit".  This will deploy the latest commit from the **Default** branch in GitHub.*
+
+*Currently, there is no way to force a deploy from a branch other than the Default without connecting it in your service settings.*
 
 ## Check Suites
 

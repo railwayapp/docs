@@ -45,6 +45,12 @@ A Deployment will remain in the `Success` state unless it [crashes](/guides/depl
 #### Removed
 When a new Deployment is triggered, older deploys in a `Crashed` and `Success` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually.
 
+## Ephermal Storage
+
+Every service deployment has access to 10GB of ephemeral storage.  If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
+
+If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/reference/volumes).
+
 ## Singleton Deploys
 
 By default, Railway maintains only one deploy per service.
