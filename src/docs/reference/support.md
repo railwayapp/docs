@@ -6,21 +6,17 @@ Railway offers numerous tiers of support for our users.
 
 ## Support Tiers
 
-Visit the [Help Station](https://help.railway.app/support) to view your support tier and available resources.
+| Plan          | Support                                                                               |
+| ------------- | ------------------------------------------------------------------------------------- |
+| Trial & Hobby | [Community](#help-station) only                                                       |
+| Pro           | [Community Priority Threads](#priority-threads) and [Business Class](#business-class) |
+| Enterprise    | [Custom](#enterprise) & all of the above                                              |
 
-| Plan          | Support                                                                                                |
-| ------------- | ------------------------------------------------------------------------------------------------------ |
-| Trial & Hobby | [Community](#help-station) only                                                                        |
-| Pro           | [Community](#help-station), [Private Threads](#private-threads), and [Business Class](#business-class) |
-| Enterprise    | [Custom](#enterprise) & all of the above                                                               |
+## Help Station
 
-## Community
+Railway conducts its support over our [Help Station](https://help.railway.app) platform.
 
-<Banner variant="info">
-Please ensure that you've searched for your issue before starting a new discussion, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://help.railway.app/community-code-of-conduct).
-</Banner>
-
-Railway conducts its support over our [Help Station](https://help.railway.app/support) platform. It hosts our community of 500,000+ users and developers, and provides a dedicated section for Pro users to receive a guaranteed response from us ([Private Threads](#private-threads)).
+It hosts our community of 500,000+ users and developers. It is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1708556761/docs/help-station-3_b14jbh.png"
@@ -28,38 +24,41 @@ alt="Screenshot of Railway Help Station"
 layout="intrinsic"
 width={2033} height={1380} quality={100} />
 
-The [Help Station](https://help.railway.app/support) is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
+Please ensure that you've searched for your issue before creating a new thread, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://help.railway.app/community-code-of-conduct).
 
-We encourage you to reach out to the community for help with your project. The community is a great place to get help with your project, learn new things, and meet other developers.
+### Priority Threads
 
-### Private Threads
+For Pro plan users, threads created in the [Help Station](https://help.railway.app) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 3-5 business days (if community members are unable to help).
 
-<Banner variant="primary" iconName="star">
-Private Threads is only available to Pro plan users.
-</Banner>
-
-**Private Threads** in Railway's [Help Station](https://help.railway.app/support) is a dedicated support feature for Pro plan users.
+We pay special attention to threads created by Pro users and ensure that questions or concerns are resolved in a timely manner.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1708556944/docs/priv-thread_bhjt9g.png"
-alt="Screenshot of creating Private Threads in Railway Help Station"
+src="https://res.cloudinary.com/railway/image/upload/v1715282870/docs/pro-priority-threads_pxyodo.png"
+alt="Screenshot of Railway Help Station - Priority Threads"
 layout="intrinsic"
-width={780} height={377} quality={100} />
-
-Private threads are:
-
-- Only visible to you, your team members, and Railway employees
-- Guaranteed a response from Railway within 3-5 business days
-
-To create a Private Thread, visit [Help Station -> Support](https://help.railway.app/support) and click on the `+ New Private Thread` button.
+width={772} height={269} quality={100} />
 
 For teams and companies requiring SLOs and higher-priority support over chat, sign up for [Business Class](#business-class).
 
-### Discord
+### Private Threads
+
+You create a **Private Thread** on [Help Station](https://help.railway.app/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1715282996/docs/priv-threads_lus6tx.png"
+alt="Screenshot of Railway Help Station - Private Threads"
+layout="intrinsic"
+width={747} height={352} quality={100} />
+
+Private Threads have a slower response time (5 business days) because only Railway employees can see them. We recommend you to only create a Private Thread if you need to share sensitive information.
+
+We may make the thread public for community involvement if we determine that there is no sensitive information in your thread.
+
+## Discord
 
 We have a vibrant Discord community of over 20,000+ users and developers. You can find the Railway Discord at [https://discord.gg/railway](https://discord.gg/railway).
 
-Please ask your questions in the <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> channel, and refrain from pinging anyone with the Team or Conductor roles.
+Please ask your questions in the <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> channel, and refrain from pinging anyone with the `Team` or `Conductor` roles.
 
 ## Refunds
 
@@ -86,22 +85,18 @@ When you reach out for help, it's important that you help us help you! Please in
 
 ## Business Class
 
-For teams and large companies who need dedicated support, we offer Business Class. It's support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company.
+For teams and companies who need dedicated support, we offer Business Class.
+
+Business Class is support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company.
 
 Reach out to us at [team@railway.app](mailto:team@railway.app) for more information on how to sign up.
 
-### Chat Bridges
+### Slack / Chat Bridges
 
-For Business Class customers, we offer Direct Support over chat channels. This allows you to have a dedicated channel for your team to communicate with Railway.
+For Business Class customers, we offer Direct Support over chat channels. This allows you to have a dedicated channel for your team to communicate with Railway Engineers directly.
 
-- In Discord, you'll have access to a **#direct-support** channel, allowing you to create a dedicated channel with us
-- In Slack, we'll embed Railway Engineers into one of your workspace's channels
-- If you'd like to set this up over other channels (e.g. Microsoft Teams), let us know
-
-**Discord Chat Bridge**
-
-- When you sign up for Business Class, you gain access to a channel in Discord called **#direct-support**
-- From within the **#direct-support** channel, click the `Join Channel` button to create a channel dedicated to your team
+- In Slack, we'll set up a Shared Channel between your workspace and ours
+- Let us know if you'd like to set this up over other channels (e.g. Microsoft Teams)
 
 Reach out to us at [team@railway.app](mailto:team@railway.app) on setting up dedicated chat bridges.
 
@@ -131,7 +126,7 @@ We offer support during business hours, and prioritize requests from Business Cl
 
 ### Business Class Resource Limits
 
-For Business Class customers, Railway increases resource limits beyond the standard Pro limits on a need-based basis. Contact the team through your dedicated communication channel to increase limits.
+For Business Class customers, Railway increases resource limits beyond the standard limits on a need-based basis. Contact the team through your dedicated communication channel to increase limits.
 
 ### Uptime Calculation
 
