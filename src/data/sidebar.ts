@@ -223,8 +223,14 @@ export const sidebarContent: ISidebarContent = [
       makePage("CLI API", "reference"),
       makePage("Public API", "reference"),
       makePage("Templates", "reference"),
-      makePage("Pricing", "reference"),
-      makePage("Production Readiness Checklist", "reference"),
+      {
+        subTitle: "Pricing",
+        pages: [
+          makePage("Plans", "reference/pricing"),
+          makePage("Free Trial", "reference/pricing"),
+          makePage("FAQs", "reference/pricing"),
+        ],
+      },
     ],
   },
   {

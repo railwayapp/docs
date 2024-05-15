@@ -1,0 +1,114 @@
+---
+title: Pricing Plans
+---
+
+Railway plans and pricing are designed to support you however you work. We charge a base subscription fee for the plan you sign up to, on top of your resource and add-on usages.
+
+## Plans
+
+Railway offers three plans in addition to a [Free Trial](/reference/pricing/free-trial):
+
+|                |                                                                                                                                                    |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Hobby**      | For indie hackers and developers to build and deploy personal projects                                                                             |
+| **Pro**        | For professional developers and their teams shipping to production                                                                                 |
+| **Enterprise** | For teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management |
+
+### Plan Subscription Pricing
+
+Each Railway account needs an active subscription. The base subscription fee allows you to use the Railway platform and features included in the tier of your subscription.
+
+| Plan           | Price                     |
+| -------------- | ------------------------- |
+| **Hobby**      | $5 / month                |
+| **Pro**        | $20 / team member / month |
+| **Enterprise** | Custom                    |
+
+Read more about our plans at <a href="https://railway.app/pricing" target="_blank">railway.app/pricing</a>.
+
+### Resource Usage Pricing
+
+On top of the base subscription fee above, Railway charges for the resources that you consume. You are only charged for the resources you actually use, which helps prevent runaway cloud costs and provides assurances that you're always getting the best deal possible on your cloud spend.
+
+| Resource                                                   | Resource Price                                               |
+| ---------------------------------------------------------- | ------------------------------------------------------------ |
+| **RAM**                                                    | $10 / GB / month ($0.000231 / GB / minute)                   |
+| **CPU**                                                    | $20 / vCPU / month ($0.000463 / vCPU / minute)               |
+| **Network Egress**                                         | $0.10 / GB ($0.000000095367432 / KB) ― _from August 1, 2023_ |
+| (Optional Add-on) [**Volume Storage**](/reference/volumes) | $0.25 / GB / month ($0.000005787037037 / GB / minute)        |
+
+<Banner>
+If you have [PR deploys](/develop/environments#ephemeral-environments) enabled in your project, Railway will deploy a mirror copy of your workload(s) based on the environment it forks from (`production` by default). You are billed for those workload(s) running in the ephemeral environment.
+</Banner>
+
+## Included usage
+
+The Hobby plan includes $5 of resource usage per month.
+
+If your total resource usage at the end of your billing period is $5 or less, you will not be charged for resource usage. If your total resource usage exceeds $5 in any given billing period, you will be charged the delta. Included resource usage is reset at the end of every billing cycle and does not accumulate over time.
+
+**Examples**:
+
+- If your resource usage is $3, your total bill for the cycle will be $5. You are only charged the subscription fee because your resource usage is below $5 and therefore included in your subscription
+- If your resource usage is $7, your total bill for the cycle will be $7 ($5 subscription fee + $2 of usage), because your resource usage exceeds the included resource usage
+
+The Pro plan **does not include any usage credits**. You will be billed for resource usage on top of the full subscription fee.
+
+### Additional services
+
+Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.app) to get started.
+
+## Credits
+
+Credits are available on Railway as a payment method for Hobby plan users who prefer to pre-pay for their subscription and usage on Railway.
+
+### Credits as a payment method
+
+On Railway, you can pay for your Hobby plan subscription and resource usage with pre-purchased credits. When using credits as a payment method, keep in mind that:
+
+- You must carry a credit balance sufficient to cover usage + the Hobby plan fee, otherwise your project will be paused and your subscription cancelled. If your subscription is cancelled, you will be required to resubscribe
+- If your usage within a billing period exceeds your credit balance, you will no longer be able to deploy, and your projects will be paused
+- If you cancel your subscription, any remaining credit balance will be lost
+
+Credits as a payment method is only available for Hobby plan users.
+
+### Purchasing credits
+
+You can purchase credits from your account's [billing page](https://railway.app/account/billing).
+
+### One-time grant of credits on the Trial plan
+
+Users who create a new Trial account receive a free one-time grant of $5. Railway will expend any free credit before consuming any purchased credits. Trial plan users are unable to purchase credits without upgrading to the Hobby plan.
+
+Learn more about Railway's Trial plan [here](/reference/pricing/free-trial).
+
+## Partial Month Charges
+
+In some cases, your billing method may be charged for the partial amount of your bill earlier in the billing cycle.
+This ensures that your account remains in good standing, and helps us mitigate risk and fraud.
+
+## FAQs
+
+### Which plan is right for me?
+
+- **Hobby** is for indie hackers and developers to build and deploy personal projects
+- **Pro** is for professional developers and their teams shipping to production
+- **Enterprise** is for dev teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
+
+### Can I add collaborators to my project?
+
+Railway's Pro and Enterprise plans are designed for collaboration. These plans allow you to add members to your team and manage their permissions.
+
+Read more about adding members to your Pro or Enterprise team [here](/reference/teams#inviting-members).
+
+### Is the Hobby Plan free?
+
+No. The Hobby Plan is $5 a month, and it includes a resource usage credit of $5. Even if you do not use the $5 in usage (CPU, Memory, egress), you always pay the $5 subscription fee.
+
+### Can I get the Hobby plan subscription fee waived?
+
+Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform.
+
+Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. If you qualify, you will be notified in the Dashboard or when you upgrade to the Hobby plan. If you do not quality, you will not be eligible for the waiver.
+
+This is a fully automated process, and Railway does not respond to requests for waiver.

@@ -60,18 +60,6 @@ We have a vibrant Discord community of over 20,000+ users and developers. You ca
 
 Please ask your questions in the <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> channel, and refrain from pinging anyone with the `Team` or `Conductor` roles.
 
-## Refunds
-
-You can request for a refund in [Account -> Billing](https://railway.app/account/billing) under **Billing History**:
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1708555357/docs/billing-refund_wg7aja.png"
-alt="Screenshot of refund request button inside Account -> Billing"
-layout="intrinsic"
-width={989} height={231} quality={100} />
-
-If you do not see a refund button next to your invoice, you are ineligible for a refund.
-
 ## How To Ask For Help
 
 When you reach out for help, it's important that you help us help you! Please include as much information as you can, including but not limited to:
