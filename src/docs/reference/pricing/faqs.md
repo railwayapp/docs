@@ -32,17 +32,7 @@ If you are supporting a commercial application, we highly recommend you to upgra
 
 ### How do I prevent spending more than I want to?
 
-**Usage Limits**
-
-You can set [Usage Limits](/reference/usage-limits) to prevent unexpected costs. We recommend doing this if you'd like to cap your maximum bill every month.
-
-**Private Networking**
-
-Using [Private Networking](/guides/private-networking) when communicating with other services (such as databases) within your Railway project will help you avoid unnecessary Network Egress costs.
-
-**App Sleeping**
-
-Turning on [App Sleeping](/reference/app-sleeping) (aka "Serverless") may reduce the resource usage cost of a service. With App Sleeping enabled, Railway will pause your app if no traffic detected over a 10 minute period. When traffic is detected, your app will automatically resume.
+Check out our [guide on optimizing usage](/guides/optimize-usage).
 
 ### Why is my resource usage higher than expected?
 
