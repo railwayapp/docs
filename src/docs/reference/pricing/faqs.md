@@ -2,21 +2,29 @@
 title: Pricing FAQs
 ---
 
-Common Questions & Answers related to Railway's pricing.
+General common Questions & Answers related to Railway's pricing.
 
-## Cost
+### Can I try Railway without a credit-card?
+
+Yes. As a new Railway user, you can sign up for a [Free Trial](/reference/pricing/free-trial). You will receive a one-time grant of $5 to use on resources.
+
+### What payment methods are accepted?
+
+Railway accepts credit cards for plan subscriptions, usage, and to purchase prepaid credits. We support invoice payments for customers on the Enterprise plan.
 
 ### What will it cost to run my app?
 
 With Railway, you are billed for the [subscription fee](/reference/pricing/plans#plan-subscription-pricing) of the plan you're subscribed to, and the [resource usage](/reference/pricing/plans#resource-usage-pricing) of your workloads.
 
-We are unable to give exact quotes or estimates for how much it will cost to run your app because it is highly dependent on what you're deploying. To understand how much your app will cost to run on Railway, we recommend you to:
+To understand how much your app will cost to run on Railway, we recommend you to:
 
-1. Deploy your project with the Trial or Hobby plan
+1. Deploy your project with the [Trial](/reference/pricing/free-trial) or Hobby plan
 2. Allow it to run for one week
 3. Check your Estimated Usage in the [Usage Section](https://railway.app/account/usage) of your account
 
 Keeping it running for one week allows us to rack up sufficient metrics to provide you with an estimate of your usage for the current billing cycle. You can then use this information to extrapolate the cost you should expect.
+
+We are unable to give exact quotes or estimates for how much it will cost to run your app because it is highly dependent on what you're deploying.
 
 For a rough approximation of the cost for running your app, try our [pricing calculator](https://railway.app/pricing#usage-estimation).
 
@@ -24,56 +32,39 @@ If you are supporting a commercial application, we highly recommend you to upgra
 
 ### How do I prevent spending more than I want to?
 
+**Usage Limits**
+
 You can set [Usage Limits](/reference/usage-limits) to prevent unexpected costs. We recommend doing this if you'd like to cap your maximum bill every month.
 
-### Why is my usage higher than expected?
+**Private Networking**
 
-[todo]
+Using [Private Networking](/guides/private-networking) when communicating with other services (such as databases) within your Railway project will help you avoid unnecessary Network Egress costs.
 
-- check resource usage under https://railway.app/account/usage and look at projects consuming high resources and troubleshoot why it's doing so
-- could be a memory leak
-- could be more traffic
+**App Sleeping**
 
-Unfortunately, we can't assist with figuring out why your bill is higher than normal, as it is entirely dependent on what you have deployed. As an analogy, our position on this is similar to how a utilities company operates: they can tell you how much electricity you've used, but they can't tell you why you're using so much. We can only tell you how much resources you consume, not why.
+Turning on [App Sleeping](/reference/app-sleeping) (aka "Serverless") may reduce the resource usage cost of a service. With App Sleeping enabled, Railway will pause your app if no traffic detected over a 10 minute period. When traffic is detected, your app will automatically resume.
 
-## General
+### Why is my resource usage higher than expected?
 
-### Can I upgrade or downgrade at any time?
+You can check your resource usage in the [Usage Section](https://railway.app/account/usage) of your account. This includes a breakdown of your resource usage by project, along with the resource it's consuming (CPU, Memory, Network, etc.)
 
-You can upgrade any time, and when you do, you will get to the features of your new plan, as well as access to more powerful resources, immediately. When you downgrade, the changes will take effect at the beginning of your next billing cycle.
+Common reasons for high resource usage include:
 
-### What happens when I cancel my subscription?
+- Memory leaks in your application, causing it to consume more memory than necessary
+- Higher traffic than usual, causing your app to consume more CPU and/or Network
+- Certain templates or apps may be inherently more resource-intensive than others
+- If you notice high egress cost in your bill, ensure that you are connecting to your Railway databases over [Private Networking](/guides/private-networking)
+- If you have [PR deploys](/develop/environments#ephemeral-environments) enabled in your project, Railway will deploy a mirror copy of your workload(s) based on the environment it forks from (`production` by default). You are billed for those workload(s) running in the ephemeral environment
 
-When you cancel your subscription, if you're on Hobby, Pro, or Enterprise, your plan will remain active through the end of your current billing period, and any usage will be charged at the end of the period.
+Unfortunately, we are unable to assist with figuring out why your bill is higher than normal, as it is entirely dependent on what you have deployed. Resource usage is billed in a manner akin to how a utility company operates: they can tell you the amount of electricity you've consumed, but they can't explain the reasons for your high usage. Similarly, we can only provide information on the quantity of resources you consume, not the reasons behind it.
 
-If you are on the Hobby plan and using prepaid credits as your payment method, your subscription will be canceled immediately and any credit balance you may have will be forfeited.
+### Why am I charged for more than $5 on the Hobby plan?
 
-### How do I request a refund?
+Railway's pricing has two components: a monthly subscription fee, and resource usage costs. While the Hobby plan includes $5 of resource usage per month, you are charged for any usage that exceeds this amount.
 
-You can request for a refund in [Account -> Billing](https://railway.app/account/billing) under **Billing History**:
+Learn more [here](/reference/pricing/plans#included-usage).
 
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1708555357/docs/billing-refund_wg7aja.png"
-alt="Screenshot of refund request button inside Account -> Billing"
-layout="intrinsic"
-width={989} height={231} quality={100} />
-
-If you do not see a refund button next to your invoice, you are ineligible for a refund.
-
-## Billing
-
-### What is the difference between subscription and resource usage?
-
-There are two main components to your bill:
-
-| Component          | Description                                                             |
-| ------------------ | ----------------------------------------------------------------------- |
-| **Subscription**   | Cost of the plan you're on: `[cost per seat] x [purchased seats]`       |
-| **Resource Usage** | Cost of the resources you've consumed: `[cost per unit] x [used units]` |
-
-Subscription is a flat fee you pay monthly for the tier you're subscribed to, and Resource Usage varies according to your resource consumption for the month.
-
-### How do I view and manage my subscription?
+### How do I view/manage/cancel my subscription?
 
 To view and manage your subscription, visit the [billing section](https://railway.app/account/billing) of the Railway dashboard.
 
@@ -89,34 +80,36 @@ Clicking on "Manage Subscription" will allow you to:
 - Retrieve past invoices
 - Cancel your subscription
 
-### What payment methods are accepted?
+### What happens when I cancel my subscription?
 
-Railway accepts credit cards for plan subscriptions, usage, and to purchase prepaid credits. We support invoice payments for customers on the Enterprise plan.
+When you cancel your subscription, if you're on Hobby, Pro, or Enterprise, your plan will remain active through the end of your current billing period, and any usage will be charged at the end of the period.
 
-### Can I try Railway without a credit-card?
-
-Yes. As a new Railway user, you can sign up for a free Trial. You will receive a one-time grant of $5 to use on resources.
-
-### I prefer to prepay. Is that possible?
-
-Yes. You can use prepaid credits as a payment method on Railway if you prefer to prepay for Railway's services. You will still need to pay a monthly subscription fee, as well as for any usage. Those amounts will be deducted from your credit balance.
-
-### What happens if I use credits as a payment method and my account runs out of credits?
-
-If you are using credits as a payment method and your credit balance reaches zero, you will no longer be able to deploy to Railway and we will stop all of your workloads. You will have a grace period to add new credits before we purge your data.
+If you are on the Hobby plan and using prepaid credits as your payment method, your subscription will be canceled immediately and any credit balance you may have will be forfeited.
 
 ### What happens if the payment fails for my subscription?
 
 If your subscription payment fails, we retry the payment method on file over several days. We also inform you of the payment failure, in case your payment method needs to be updated.
 
-If payment continues to fail, we flag your services to be stopped and send you a warning. If we do not receive payment, your services are stopped until all open invoices have been paid.
+If payment continues to fail, we flag your services to be stopped and send you a warning.
 
-### Why was I charged for a partial month of usage?
-
-Railway has an automated system in place which can result in a partial amount of your bill being charged to your payment method, earlier in the billing cycle.
-
-This is intended to ensure that your account remains in good standing, and helps us to mitigate risk and fraud.
+If we do not receive payment, your services are stopped until all open invoices have been paid.
 
 ### I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?
 
-Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, [email us](mailto:team@railway.app) for help on onboarding your client to Railway.
+Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Help Station](https://help.railway.app).
+
+### How do I request a refund?
+
+You can request for a refund in [Account -> Billing](https://railway.app/account/billing) under **Billing History**:
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1708555357/docs/billing-refund_wg7aja.png"
+alt="Screenshot of refund request button inside Account -> Billing"
+layout="intrinsic"
+width={989} height={231} quality={100} />
+
+If you do not see a refund button next to your invoice, you are ineligible for a refund. **This decision is final** and we will not issue refunds for invoices that have been deemed ineligible.
+
+Railway offers refunds at its sole discretion. If your invoice contains resource usage costs, we may not be able to issue a refund as those were resources you have consumed (in a manner akin to how a utility company charges for electricity or water).
+
+If you'd like to stop using Railway, please remove your projects and cancel your subscription immediately. See "[How do I view/manage/cancel my subscription?](/reference/pricing/faqs#how-do-i-viewmanagecancel-my-subscription)" for further information.

@@ -45,7 +45,9 @@ If you have [PR deploys](/develop/environments#ephemeral-environments) enabled i
 
 The Hobby plan includes $5 of resource usage per month.
 
-If your total resource usage at the end of your billing period is $5 or less, you will not be charged for resource usage. If your total resource usage exceeds $5 in any given billing period, you will be charged the delta. Included resource usage is reset at the end of every billing cycle and does not accumulate over time.
+If your total resource usage at the end of your billing period is $5 or less, you will not be charged for resource usage. If your total resource usage exceeds $5 in any given billing period, you will be charged the delta.
+
+Included resource usage is reset at the end of every billing cycle and does not accumulate over time.
 
 **Examples**:
 
@@ -76,11 +78,11 @@ Credits as a payment method is only available for Hobby plan users.
 
 You can purchase credits from your account's [billing page](https://railway.app/account/billing).
 
-### One-time grant of credits on the Trial plan
+### One-time grant of credits on the Free Trial
 
 Users who create a new Trial account receive a free one-time grant of $5. Railway will expend any free credit before consuming any purchased credits. Trial plan users are unable to purchase credits without upgrading to the Hobby plan.
 
-Learn more about Railway's Trial plan [here](/reference/pricing/free-trial).
+Learn more about Railway's Free Trial [here](/reference/pricing/free-trial).
 
 ## Partial Month Charges
 
@@ -94,6 +96,21 @@ This ensures that your account remains in good standing, and helps us mitigate r
 - **Hobby** is for indie hackers and developers to build and deploy personal projects
 - **Pro** is for professional developers and their teams shipping to production
 - **Enterprise** is for dev teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management
+
+### Can I upgrade or downgrade at any time?
+
+You can upgrade any time, and when you do, you will get to the features of your new plan, as well as access to more powerful resources, immediately. When you downgrade, the changes will take effect at the beginning of your next billing cycle.
+
+### What is the difference between subscription and resource usage?
+
+There are two main components to your bill:
+
+| Component          | Description                                                             |
+| ------------------ | ----------------------------------------------------------------------- |
+| **Subscription**   | Cost of the plan you're on: `[cost per seat] x [purchased seats]`       |
+| **Resource Usage** | Cost of the resources you've consumed: `[cost per unit] x [used units]` |
+
+Subscription is a flat fee you pay monthly for the tier you're subscribed to, and Resource Usage varies according to your resource consumption for the month.
 
 ### Can I add collaborators to my project?
 
@@ -112,3 +129,17 @@ Railway waives the monthly Hobby plan subscription fee for a small set of active
 Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. If you qualify, you will be notified in the Dashboard or when you upgrade to the Hobby plan. If you do not quality, you will not be eligible for the waiver.
 
 This is a fully automated process, and Railway does not respond to requests for waiver.
+
+### I prefer to prepay. Is that possible?
+
+Yes. You can use prepaid credits as a payment method on Railway if you prefer to prepay for Railway's services. You will still need to pay a monthly subscription fee, as well as for any usage. Those amounts will be deducted from your credit balance.
+
+### What happens if I use credits as a payment method and my account runs out of credits?
+
+If you are using credits as a payment method and your credit balance reaches zero, you will no longer be able to deploy to Railway and we will stop all of your workloads. You will have a grace period to add new credits before we purge your data.
+
+### Why was I charged for a partial month of usage?
+
+Railway has an automated system in place which can result in a partial amount of your bill being charged to your payment method, earlier in the billing cycle.
+
+This is intended to ensure that your account remains in good standing, and helps us to mitigate risk and fraud.
