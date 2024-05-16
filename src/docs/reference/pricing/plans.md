@@ -14,7 +14,7 @@ Railway offers three plans in addition to a [Free Trial](/reference/pricing/free
 | **Pro**        | For professional developers and their teams shipping to production                                                                                 |
 | **Enterprise** | For teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management |
 
-### Plan Subscription Pricing
+### Subscription Pricing
 
 Each Railway account needs an active subscription. The base subscription fee allows you to use the Railway platform and features included in the tier of your subscription.
 
@@ -28,7 +28,9 @@ Read more about our plans at <a href="https://railway.app/pricing" target="_blan
 
 ### Resource Usage Pricing
 
-On top of the base subscription fee above, Railway charges for the resources that you consume. You are only charged for the resources you actually use, which helps prevent runaway cloud costs and provides assurances that you're always getting the best deal possible on your cloud spend.
+On top of the base subscription fee above, Railway charges for the resources that you consume.
+
+You are only charged for the resources you actually use, which helps prevent runaway cloud costs and provides assurances that you're always getting the best deal possible on your cloud spend.
 
 | Resource                                                   | Resource Price                                               |
 | ---------------------------------------------------------- | ------------------------------------------------------------ |
@@ -37,9 +39,7 @@ On top of the base subscription fee above, Railway charges for the resources tha
 | **Network Egress**                                         | $0.10 / GB ($0.000000095367432 / KB) ― _from August 1, 2023_ |
 | (Optional Add-on) [**Volume Storage**](/reference/volumes) | $0.25 / GB / month ($0.000005787037037 / GB / minute)        |
 
-<Banner>
-If you have [PR deploys](/develop/environments#ephemeral-environments) enabled in your project, Railway will deploy a mirror copy of your workload(s) based on the environment it forks from (`production` by default). You are billed for those workload(s) running in the ephemeral environment.
-</Banner>
+To learn more about controlling your resource usage costs, read our FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
 
 ## Included usage
 
