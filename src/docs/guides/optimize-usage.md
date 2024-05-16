@@ -34,6 +34,24 @@ Multiple emails will be sent as your usage approaches your hard limit:
 
 Find more information about Usage Limits in the [reference page](/reference/usage-limits).
 
+## Use Private Networking
+
+Using [Private Networking](/guides/private-networking) when communicating with other services (such as databases) within your Railway project will help you avoid unnecessary Network Egress costs.
+
+### With databases
+
+Communicate with your Railway database over private networking by using the `DATABASE_PRIVATE_URL` environment variable, instead of `DATABASE_PUBLIC_URL`:
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1715870608/docs/privnet-db_iujd9g.png" alt="Database Private URL" layout="responsive" width={664} height={452} />
+
+### With other services
+
+If your Railway services need to communicate with each other, you can find the service's private URL in the service settings:
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1715870638/docs/privnet-services_iyqsgd.png" alt="Private Network URL" layout="responsive" width={758} height={573} />
+
+Learn more about Railway's Private Networking [here](/guides/private-networking).
+
 ## Enabling App Sleeping
 
 Enabling App Sleep on a service tells Railway to stop a service when it is inactive, effectively reducing the overall cost to run it.
