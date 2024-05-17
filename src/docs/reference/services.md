@@ -36,7 +36,7 @@ Services can be connected to a GitHub repo and automatically deployed on each co
 
 Services can be deployed from a local machine by using the [Railway CLI](/reference/cli-api).
 
-## Ephermal Storage
+## Ephemeral Storage
 
 Every service deployment has access to 10GB of ephemeral storage.  If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
 
