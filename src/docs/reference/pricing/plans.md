@@ -136,7 +136,7 @@ Yes. You can use prepaid credits as a payment method on Railway if you prefer to
 
 ### What happens if I use credits as a payment method and my account runs out of credits?
 
-If you are using credits as a payment method and your credit balance reaches zero, you will no longer be able to deploy to Railway and we will stop all of your workloads. You will have a grace period to add new credits before we purge your data.
+If you are using credits as a payment method and your credit balance reaches zero, your subscription will be cancelled. You will no longer be able to deploy to Railway and we will stop all of your workloads. To resolve this, you will need to sign up for a new subscription after topping up sufficient credits.
 
 ### Why was I charged for a partial month of usage?
 
