@@ -89,7 +89,12 @@ const redirects = [
       destination: "/tutorials/getting-started",
       permanent: true,
     },
+    {
+      source: "/reference/pricing",
+      destination: "/reference/pricing/plans",
+      permanent: true,
+    },
   ];
-  
+
   module.exports = redirects;
-  
+
