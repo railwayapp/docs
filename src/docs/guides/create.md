@@ -35,7 +35,7 @@ Note that your template will not be available on the template marketplace, nor w
 
 You can also convert an existing project into a ready-made Template for other users.
 
-- From your project page, click `Settings` in the left-hand corner of the canvas
+- From your project page, click `Settings` in the right-hand corner of the canvas
 - Scroll down until you see **Generate Template from Project**
 - Click `Create Template`
 
@@ -90,10 +90,12 @@ Use template variables to generate a random password for a database, or to gener
 
 The current template variable functions are:
 
-1. `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  You can generate random Hex or Base64 secrets by passing the appropriate alphabet.
+1. `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  
 
-  - Base64: `secret(32, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/')`
-  - Hex: `secret(32, '0123456789ABCDEF')`
+    You can generate random Hex or Base64 secrets by passing the appropriate alphabet.
+
+    - Base64: `secret(32, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/')`
+    - Hex: `secret(32, '0123456789ABCDEF')`
 
 2. `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
