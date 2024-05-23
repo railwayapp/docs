@@ -2,7 +2,11 @@
 title: Create a Template
 ---
 
-Creating a template allows you to capture your infrastructure in a reusable and distributable format.  By defining services, environment configuration, network settings, etc., you lay the foundation for others to deploy the same software stack with the click of a button.
+Creating a template allows you to capture your infrastructure in a reusable and distributable format.  
+
+By defining services, environment configuration, network settings, etc., you lay the foundation for others to deploy the same software stack with the click of a button.
+
+If you [publish your template](/guides/publish-and-share) to the <a href="https://railway.app/templates" target="_blank">marketplace</a>, you can even <a href="https://railway.app/open-source-kickback" target="_blank">collect a kickback</a> from the usage of it!
 
 ## How to Create a Template
 
@@ -10,20 +14,30 @@ You can either create a template from scratch or base it off of an existing proj
 
 ### Starting from Scratch
 
-The <a href="https://railway.app/button" target="_blank">Railway button page</a>. allows you to create templates to offer a 1-click deploy on Railway experience.
+To create a template from scratch, head over to the <a href="https://railway.app/compose" target="_blank">template composer</a> then add and configure your services:
 
-Services within a template can be deployed from any public GitHub repository, or directly from a Docker image in Docker Hub or GitHub Container Registry.
+- Add a service by clicking the `Add New` button in the top right-hand corner, or through the command palette (`CMD + K` -> `+ New Service`)
+- Select the service source (GitHub repo or Docker Image)
+- Configure the service variables and settings
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1656470421/docs/template-editor_khw8n6.png"
-alt="Template Editor"
-layout="intrinsic"
-width={1218} height={1120} quality={80} />
+  <Image src="https://res.cloudinary.com/railway/image/upload/v1715724184/docs/templates-v2/composer_aix1x8.gif"
+  alt="Template Editor"
+  layout="intrinsic"
+  width={900} height={1120} quality={80} />
 
-Simply name the template, add and configure the services and click `Create Template`.
+- Once you've added your services, click `Create Template` 
+- You will be taken to your templates page where you can copy the template URL to share with others
+
+Note that your template will not be available on the template marketplace, nor will be eligible for a kickback, until you [publish](/guides/publish-and-share) it.
+
 
 ### Convert a Project into a Template
 
-You can also convert an existing project into a template by heading over to your project settings page. We will automatically identify and add all the required services.
+You can also convert an existing project into a ready-made Template for other users.
+
+- From your project page, click `Settings` in the left-hand corner of the canvas
+- Scroll down until you see **Generate Template from Project**
+- Click `Create Template`
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1680277820/CleanShot_2023-03-31_at_19.47.55_2x_yvr9hb.png"
@@ -34,26 +48,32 @@ height={899}
 quality={80}
 />
 
-Within the Project Settings, you can convert your project into a ready-made Template for other users by pressing the `Create Template` button.
-
-Once the template has been generated, you will be taken to the template creation page to confirm the settings and finalize the template creation.
+- You will be taken to the template composer page, where you should confirm the settings and finalize the template creation
 
 ## Configuring Services
 
-Whether you are building from scratch or have started from an existing project, once you are on the <a href="https://railway.app/button" target="_blank">template creation page</a>, you will see various configuration options for each service added to your template.
+Configuring services using the <a href="https://railway.app/compose" target="_blank">template composer</a> is very similar to building a live project in the canvas.
 
-In addition to the Source, you can configure the following fields to enable successful deploys for template users:
+Once you add a new service and select the source, you can configure the following to enable successful deploys for template users:
 
-- [Enable Public Networking](/guides/public-networking)
-- [Root Directory (Helpful for monorepos)](/guides/monorepo)
-- [Start command](/guides/start-command)
-- [Healthcheck Path](/guides/healthchecks-and-restarts#configure-healthcheck-endpoint)
-- [Volume mount path](/guides/volumes)
-- [Variables](/guides/variables) (with an optional description default value)
+- **Variables tab**
+  - Add required [Variables](/guides/variables).
+    *Use [reference variables](/guides/variables#reference-variables) where possible for a better quality template*
+- **Settings tab**
+  - Add a [Root Directory](/guides/monorepo) (Helpful for monorepos)
+  - [Enable Public Networking](/guides/public-networking) with TCP Proxy or HTTP
+  - Set a custom [Start command](/guides/start-command)
+  - Add a [Healthcheck Path](/guides/healthchecks-and-restarts#configure-healthcheck-endpoint)
+- **Add a volume**
+  - To add a volume to a service, right-click on the service, select Attach Volume, and specify the [Volume mount path](/guides/volumes)
+
 
 ### Specifying a Branch
 
-When adding services to a template, you can enter a url to a GitHub repo's branch to have a user clone that instead of the `main` branch.
+To specify a particular GitHub branch to deploy, simply enter the full URL to the desired branch in the Source Repo configuration.  For example -
+
+- This will deploy the `main` branch:  `https://github.com/railwayapp-templates/postgres-ssl`
+- This will deploy the `new` branch:  `https://github.com/railwayapp-templates/postgres-ssl/tree/new`
 
 ### Template Variable Functions
 
@@ -64,20 +84,24 @@ alt="Template Variable Functions"
 layout="intrinsic"
 width={624} height={497} quality={100} />
 
-When a template is deployed, all functions are executed and the result replaces the `${{ ... }}` in the variable. For example, you can use them to generate a random password for a database, or to generate a random string for a secret. You can see an example of what the variable will look like after all the functions execute when creating the template.
+When a template is deployed, all template variable functions are executed and the result replaces the `${{ ... }}` in the variable.
+
+Use template variables to generate a random password for a database, or to generate a random string for a secret.
 
 The current template variable functions are:
 
-- `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  You can generate random Hex or Base64 secrets by passing the appropriate alphabet.
+1. `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  You can generate random Hex or Base64 secrets by passing the appropriate alphabet.
 
   - Base64: `secret(32, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/')`
   - Hex: `secret(32, '0123456789ABCDEF')`
 
-- `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
+2. `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
 ## Managing your Templates
 
-You can see all of your templates on your <a href="https://railway.app/account/templates" target="_blank">Account's Template page</a>. Templates are separated into Personal and Published templates. You can edit, publish/unpublish and delete templates whenever you'd like!
+You can see all of your templates on your <a href="https://railway.app/account/templates" target="_blank">Account's Template page</a>. Templates are separated into Personal and Published templates.
+
+You can edit, publish/unpublish and delete templates.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1680281548/CleanShot_2023-03-31_at_20.51.43_2x_j8a83x.png"
  alt="Account templates page"
