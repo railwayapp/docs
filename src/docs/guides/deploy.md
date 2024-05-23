@@ -13,7 +13,6 @@ To deploy a template -
 
 - Find a template from the marketplace and click `Deploy Now`
 - If necessary, configure the required variables, and click `Deploy`
-  - If the template contains multiple services, you will need to click `Configure` to add the required variables and click `Save Config`
 - Upon deploy, you will be taken to your new project containing the template service(s)
   - Services are deployed directly from the defined source in the template configuration
   - After deploy, you can find the service source by going to the service's settings tab
@@ -27,7 +26,9 @@ To deploy a template -
 As of March 2024, the default behavior for deploying templates, is to attach to and deploy directly from the template repository.  Therefore, you will not automatically get a copy of the repository on deploy.  Follow the steps below to create a repository for yourself.
 </Banner>
 
-By default, services deployed from a template are attached to and deployed directly from the template repository.  In some cases, you may want to have your own copy of the template repository.  Follow these steps to eject from the template repository and create a mirror in your own GitHub account.
+By default, services deployed from a template are attached to and deployed directly from the template repository.  In some cases, you may want to have your own copy of the template repository.  
+
+Follow these steps to eject from the template repository and create a mirror in your own GitHub account.
 
 1. Ensure you have the "Template Service Eject" <a href="https://railway.app/account/feature-flags" target="_blank">feature flag</a> enabled
 2. In the service settings, under Source, find the **Upstream Repo** setting
