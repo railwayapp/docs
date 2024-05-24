@@ -314,7 +314,7 @@ Once you have your agent setup and working with a node app.  It's easy to add mo
 
 In the following example, we are using the <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Python framework</a>.  
 
-#### In the `main.py` file we have configured both metrics and logs to be sent over StatsD and SysLog respectively -
+**In the `main.py` file we have configured both metrics and logs to be sent over StatsD and SysLog respectively -**
 
 ```python
 import logging.handlers
@@ -381,13 +381,13 @@ async def test():
 
 ```
 
-#### Ensure that you configure all of the required variables in the Python service in Railway -
+**Ensure that you configure all of the required variables in the Python service in Railway -**
 - DD_AGENT_HOST - *should be the private domain of the DataDog agent*
 - DD_API_KEY
 - DD_AGENT_STATSD_PORT - *should be 8125*
 - DD_AGENT_SYSLOG_PORT - *should be **515** to work with the configuration below*
 
-#### Update the DataDog agent's `syslog.yaml` file to accept data from the new source -
+**Update the DataDog agent's `syslog.yaml` file to accept data from the new source -**
 ```plaintext
 logs:
   - type: udp
