@@ -14,3 +14,5 @@ Railway's platform primitives are built with flexibility in mind, allowing you t
 |||
 
 Use the next few pages to understand how to build your own database service or how to use the templates available.
+
+Note that the Railway-provided databases are still considered unmanaged services, meaning you will need to take the appropriate steps to ensure they are optimized for your usecase.
