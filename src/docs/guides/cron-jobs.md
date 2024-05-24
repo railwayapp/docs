@@ -14,3 +14,9 @@ To configure a cron job -
 3. Once the setting is saved, the service will run according to the cron schedule.
 
 Find more information about cron jobs, including examples of cron expressions, in the [reference page for Cron Jobs](/reference/cron-jobs).
+
+## Why isn't my Cron running as scheduled?
+
+An important requirement of a service that runs as a Cron, is that it terminates on completion and leaves no open resources.  If the code that runs in your Cron service does not exit, subsequent executions of the Cron will be skipped.
+
+If you see that a previous execution of your Cron service has a status of `Active`, the execution is still running and any new executions will not be run.

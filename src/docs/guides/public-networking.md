@@ -151,6 +151,12 @@ width={700} height={225} quality={100} />
 
 Currently we use a random load balancing strategy for TCP traffic.
 
+## Using HTTP and TCP together
+
+At the moment, Railway does not support exposing both HTTP and TCP over public networking, in a single service.  Therefore, if you have a domain assigned, you will not see the option to enable TCP Proxy, and vice-versa.  Meaning, you will need to remove one before you can enable the other.
+
+If you have a usecase that requires exposing both HTTP and TCP over public networking, in one service, <a href="https://help.railway.app/feedback" target="_blank">let us know</a>!
+
 
 ## Let's Encrypt SSL Certificates
 

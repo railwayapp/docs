@@ -122,7 +122,13 @@ process.env.VARIABLE_NAME
 
 #### Local development
 
-Using the Railway CLI, you can run your code locally with the environment variables configured in your Railway project.  Check out the [CLI guide](/guides/cli#local-development) for the appropriate commands.
+Using the Railway CLI, you can run your code locally with the environment variables configured in your Railway project.  
+
+- Ensure that you have the Railway CLI installed and linked to your project
+- In your terminal, execute `railway run <run command>`
+    -> for example, `railway run npm run dev`
+
+Check out the [CLI guide](/guides/cli#local-development) for more information on using the CLI.
 
 ## Import Variables from Heroku
 
@@ -134,3 +140,10 @@ select any of your Heroku apps and the config variables will be added to the cur
 alt="Screenshot of connect Heroku account modal"
 layout="responsive"
 width={521} height={404} quality={100} />
+
+## Using Doppler for Secrets Management
+
+Our friends at Doppler maintain an integration that makes it easy to sync your secrets in Doppler to your project(s) in Railway.
+
+You can get instructions on how to use Doppler with Railway on the <a href="https://docs.doppler.com/docs/railway" target="_blank">Doppler Docs
+integration</a>.

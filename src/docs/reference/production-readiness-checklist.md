@@ -50,6 +50,14 @@ Ensuring your application is performant and reliable under changing conditions l
 
     The compute allocation for your services is handled automatically by Railway, and the limits are determined by your chosen subscription [plan](/reference/pricing#plans).  You should review your plan limits and consider if upgrading is necessary to achieve the desired compute.
 
+**&check; Consider deploying a database cluster or replica set**
+
+- Data is critical to most applications, and you should ensure that the data layer in your stack is highly available and fault tolerant.
+
+    Consider implementing a cluster or replica set, similar to the <a href="https://railway.app/template/q589Jl" target="_blank">Redis HA with Sentinel</a> template, to ensure that your data remains available even if one node becomes unstable.
+
+    We are hard at work developing other templated solutions for more production-ready datastores, keep an eye on the template marketplace for more to become available.
+
 ---
 
 ## Observability and Monitoring
@@ -116,7 +124,7 @@ Protecting your application and user data from malicious threats and vulnerabili
 
     Secure communication between services in the same project and environment by using the [private network](/reference/private-networking).
 
-**&check; Implement a Security Layer**
+**&check; Implement a security layer**
 
 - While Railway does have protections in place at the platform level, we do not currently offer a configurable service for users' applications.
 
