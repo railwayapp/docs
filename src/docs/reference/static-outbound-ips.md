@@ -4,7 +4,11 @@ title: Static Outbound IPs
 
 Static Outbound IPs allows customers on the Pro plan to assign a permanent outbound IPv4 address to a service. This IP address will **always** be used for outbound traffic from any replicas running within the service.
 
+## Use Cases
+
 This feature may be useful to you if you're using a third-party service provider or firewall which requires you to whitelist which IP addreseses your services will be connecting from, such as MongoDB Atlas.
+
+The IPv4 address assigned to your service through this feature **cannot** be used to receive inbound traffic.
 
 ## Enabling Static Outbound IPs
 
@@ -20,3 +24,8 @@ Customers on the Pro plan can enable Static Outbound IPs for any service they wi
   layout="responsive"
   alt="Static IPs"
   width={1328} height={710} quality={80} />
+
+## Caveats
+- There is no guarantee that the IPv4 address assigned to your service is dedicated. It may be shared with other customers.
+- The  IP address cannot be used for inbound traffic.
+- If you wish to move your service to a different region, the IP address will change.
