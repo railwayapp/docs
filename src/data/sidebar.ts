@@ -229,6 +229,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Plans", "reference/pricing"),
           makePage("Free Trial", "reference/pricing"),
           makePage("FAQs", "reference/pricing"),
+          makePage("Refunds", "reference/pricing"),
         ],
       },
       makePage("Production Readiness Checklist", "reference"),
