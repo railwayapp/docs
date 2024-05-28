@@ -70,7 +70,7 @@ We may throttle your outbound bandwidth and reach out to you when it exceeds 100
 
 Private networking bandwidth is un-metered.
 
-We intend to provide static IPs and advanced traffic-shaping controls within Railway in the future.
+We intend to provide advanced traffic-shaping controls within Railway in the future.
 
 
 ### Service Level Objectives
