@@ -88,6 +88,10 @@ If we do not receive payment, your services are stopped until all open invoices 
 
 Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Help Station](https://help.railway.app).
 
+### Why did I receive another invoice after cancelling my subscription?
+
+You may receive an invoice containing charges for Resource Usage after you cancel your subscription. These are resource usages you have consumed in that billing cycle that we reserve the right to charge you for.
+
 ### How do I request a refund?
 
 Please refer to [Pricing -> Refunds](/reference/pricing/refunds).

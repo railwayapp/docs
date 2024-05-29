@@ -2,7 +2,7 @@
 title: Refunds
 ---
 
-Railway offers refunds at its sole discretion.
+Refunds are for new customers who no longer wish to use Railway after initially trying it out. Railway offers refunds at its sole discretion, in line with our [Terms of Service](https://railway.app/legal/terms).
 
 ## Requesting A Refund
 
@@ -35,9 +35,3 @@ Refunds are issued at our sole discretion. If your refund request was denied, it
 - You have received a refund from Railway in the past
 
 - You have violated our [Fair Use Policy](https://railway.app/legal/fair-use) and/or [Terms of Service](https://railway.app/legal/terms)
-
-### My bill is higher than expected. Can I get a refund?
-
-You may request for a refund by following the instructions above. We review refund requests on a case-by-case basis. To learn more about why your bill may be higher than expected, check out [Pricing -> FAQs -> Why is my resource usage higher than expected?](/reference/pricing/faqs#why-is-my-resource-usage-higher-than-expected) and our [guide on optimizing usage](/guides/optimize-usage).
-
-If you have any questions, please contact us through our [Help Station](https://help.railway.app).
