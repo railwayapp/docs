@@ -44,7 +44,7 @@
     "react-is": "18.2.0",
     "react-syntax-highlighter": "^15.5.0",
     "remark-gfm": "^3.0.1",
-    "sharp": "^0.31.3",
+    "sharp": "^0.32.6",
     "styled-components": "5.3.6",
     "theme-custom-properties": "^1.0.0",
     "tinykeys": "1.4.0",
