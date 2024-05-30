@@ -88,18 +88,10 @@ If we do not receive payment, your services are stopped until all open invoices 
 
 Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Help Station](https://help.railway.app).
 
+### Why did I receive another invoice after cancelling my subscription?
+
+You may receive an invoice containing charges for Resource Usage after you cancel your subscription. These are resource usages you have consumed in that billing cycle that we reserve the right to charge you for.
+
 ### How do I request a refund?
 
-You can request for a refund in [Account -> Billing](https://railway.app/account/billing) under **Billing History**:
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1708555357/docs/billing-refund_wg7aja.png"
-alt="Screenshot of refund request button inside Account -> Billing"
-layout="intrinsic"
-width={989} height={231} quality={100} />
-
-If you do not see a refund button next to your invoice, you are ineligible for a refund. **This decision is final** and we will not issue refunds for invoices that have been deemed ineligible.
-
-Railway offers refunds at its sole discretion. If your invoice contains resource usage costs, we may not be able to issue a refund as those were resources you have consumed (in a manner akin to how a utility company charges for electricity or water).
-
-If you'd like to stop using Railway, please remove your projects and cancel your subscription immediately. See "[How do I view/manage/cancel my subscription?](/reference/pricing/faqs#how-do-i-viewmanagecancel-my-subscription)" for further information.
+Please refer to [Pricing -> Refunds](/reference/pricing/refunds).
