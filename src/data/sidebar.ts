@@ -206,6 +206,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Logging", "reference"),
           makePage("Metrics", "reference"),
+          makePage("Observability", "reference"),
           makePage("Webhooks", "reference"),
         ],
       },
