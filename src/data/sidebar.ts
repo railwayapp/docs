@@ -88,6 +88,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Monitoring", "guides"),
         pages: [
           makePage("Logs", "guides"),
+          makePage("Observability", "guides"),
           makePage("Metrics", "guides"),
           makePage("Webhooks", "guides"),
         ],
@@ -206,7 +207,6 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Logging", "reference"),
           makePage("Metrics", "reference"),
-          makePage("Observability", "reference"),
           makePage("Webhooks", "reference"),
         ],
       },
