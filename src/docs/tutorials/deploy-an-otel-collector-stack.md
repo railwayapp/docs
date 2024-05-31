@@ -21,7 +21,7 @@ In this tutorial you will learn how to -
 
 **Prerequisites**
 
-To be successfull using this tutorial, you should already have - 
+To be successful using this tutorial, you should already have - 
 
 - Latest version of Railway [CLI installed](guides/cli#installing-the-cli)
 - A GitHub account
@@ -116,6 +116,7 @@ In the Railway project -
 
 The Collector's debugging UI is enabled by default and accessible from the browser.  This is controlled by the inclusion of the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/blob/main/otel-collector-config.yaml#L31" target="_blank">zpages extension in the collector's configuration yaml</a>.  You can read more about the UI and the available routes, in the collector's <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/extension/zpagesextension/README.md" target="_blank">source repo</a>. 
 
+---
 ## Checkpoint
 
 Congrats!  You should now have a working OpenTelemetry Collector along with a backend stack to which the collector will forward data.  Your project in Railway should look something like this - 
@@ -126,6 +127,8 @@ layout="responsive"
 width={1177} height={823} quality={100} />
 
 Be sure to familiarize yourself with the Otel Collector's <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/blob/main/otel-collector-config.yaml" target="_blank">configuration file</a>.  The documentation on the format and structure of the file can be found <a href="https://opentelemetry.io/docs/collector/configuration/" target="_blank">here in Otel's official docs</a>.
+
+---
 
 ## 3. Build and Instrument an Express App
 
@@ -254,7 +257,8 @@ From your local machine -
 ## 4. Deploy the Express App
 
 ### Create an Empty Service and Configure the Environment
-- In the same Railway project, add a New service by clicking `+ New`
+In the same Railway project - 
+- Add a New service by clicking `+ New`
 - Select `Empty Service`
 - Add the following variable to the service
     ```plaintext

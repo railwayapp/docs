@@ -142,6 +142,7 @@ export const sidebarContent: ISidebarContent = [
           },
           makePage("Set Up a Datadog Agent", "tutorials"),
           makePage("Deploy an Otel Collector Stack", "tutorials"),
+          makePage("Deploy and Monitor Mongo", "tutorials"),
         ],
       },
       {
