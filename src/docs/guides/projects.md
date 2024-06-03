@@ -52,7 +52,7 @@ Each project generates a project invite link. To invite someone via a link:
 
 ## Transferring Projects
 
-Depening on your plan, you can transfer Projects to other users or Teams.
+Depending on your plan, you can transfer Projects to other users or Teams.
 
 #### Hobby User to Hobby User
 
