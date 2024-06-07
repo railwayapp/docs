@@ -56,7 +56,6 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 - Yes. This behavior is enabled by default. You can opt out of it, and back in to it, at any time. Simply use the switch on the Earnings page marked `Direct Deposit to Railway Credits`.
 
-
 ## Updatable Templates
 
 When you deploy any services from a template based on a GitHub repo, every time you visit the project in Railway, we will check to see if the project it is based on has been updated by its creator.
