@@ -30,6 +30,9 @@ Read more about the kickback program <a href="https://railway.app/open-source-ki
 - The minimum kickback our program supports is $0.01, meaning usage of your template must incur at least $0.04 in usage after discounts and/or platform fees.
 - All service types and resource usage of those services (compute, volume, egress, etc) _do count_ towards the kickback.
 
+## Earnings and Withdrawals
+
+By default, your template kickbacks are automatically converted into Railway Credits. But we also offer cash wishdrawals. Visit the `/earnings` tab inside your account settings for more details. There you can add your details and request a withdrawal.
 
 ## Updatable Templates
 
