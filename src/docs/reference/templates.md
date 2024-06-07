@@ -34,6 +34,29 @@ Read more about the kickback program <a href="https://railway.app/open-source-ki
 
 By default, your template kickbacks are automatically converted into Railway Credits. But we also offer cash wishdrawals. Visit the `/earnings` tab inside your account settings for more details. There you can add your details and request a withdrawal.
 
+### FAQ
+
+#### How do I start earning cash?
+
+- Simply flip the switch on the Earnings page marked `Direct Deposit to Railway Credits`. This will stop auto-depositing your earnings into our Credits system. You will then begin accruing cash in your `Available Balance`.
+
+#### How do I request a withdrawal?
+
+- Follow the instructions inside the `Earnings` tab. We currently allow withdrawals to Paypal, Buy Me a Coffee, and GitHub Sponsors. After adding your account details you will request a withdrawal. Out team will receive the request and process it right away.
+
+#### Can I make manual withdrawals to credits too?
+
+- Yes! Choose the `Credits` checkbox and then make your withdrawal request.
+
+#### I have earned a lot of kickbacks from a template, but this page says my available balance is 0. Why?
+
+- Cash withdrawals are a new feature. The current kickback method is to automatically apply your kickbacks as Railway Credits. You can opt out of this if you wish to start accruing cash.
+
+#### Can I still use the older, automatic-credits setting?
+
+- Yes. This behavior is enabled by default. You can opt out of it, and back in to it, at any time. Simply use the switch on the Earnings page marked `Direct Deposit to Railway Credits`.
+
+
 ## Updatable Templates
 
 When you deploy any services from a template based on a GitHub repo, every time you visit the project in Railway, we will check to see if the project it is based on has been updated by its creator.
