@@ -201,6 +201,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Static Outbound IPs", "reference"),
           makePage("Scaling", "reference"),
           makePage("TCP Proxy", "reference"),
+          makePage("Runtime", "reference"),
         ],
       },
       {
