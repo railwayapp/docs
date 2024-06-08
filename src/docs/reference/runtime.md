@@ -4,7 +4,7 @@ title: Runtime
 
 <PriorityBoardingBanner />
 
-The runtime option on the service settings page refers to how and where your code gets executed. At the moment, Railway is rolling out a new runtime option that will run your OCI compliant image over from Docker. It is currently dubbed "V2". Railway tends not to concern our users with implementation details, however, in the interest of transparency, this reference page will discuss the benefits and our rollout plan for our new runtime.
+The runtime option on the service settings page refers to how and where your code gets executed. At the moment, Railway is rolling out a new runtime option that will run your OCI compliant image. It is currently dubbed "V2". Railway tends not to concern our users with implementation details, however, in the interest of transparency, this reference page will discuss the benefits and our rollout plan for our new runtime.
 
 ## How it works
 
