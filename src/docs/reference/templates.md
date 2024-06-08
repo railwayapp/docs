@@ -42,7 +42,7 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 #### How do I request a withdrawal?
 
-- Follow the instructions inside the `Earnings` tab. We currently allow withdrawals to Paypal, Buy Me a Coffee, and GitHub Sponsors. After adding your account details you will request a withdrawal. Out team will receive the request and process it right away.
+- Follow the instructions inside the `Earnings` tab. We currently allow withdrawals to GitHub Sponsors and Buy Me a Coffee. After adding your account details you will request a withdrawal. Out team will receive the request and process it right away.
 
 #### Can I make manual withdrawals to credits too?
 
