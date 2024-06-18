@@ -34,7 +34,7 @@ To achieve our goal, we've designed Railway to "just work", with all the necessa
 - Have a code repository but have yet to think about deployment? We got you. Connect your code repository and let Railway take care of the rest.
 - Already built the perfect Dockerfile?  Bring it.  If you have a Dockerfile in your repo, we'll find it and use that to build your image.
 
-If you've outgrown the "magic" built into deployment platforms, or are suspicious of things that are just too magical, we are happy to provide a high level over view of our architecture.
+If you've outgrown the "magic" built into deployment platforms, or are suspicious of things that are just too magical, we are happy to provide a high level overview of our architecture.
 
 ### Leave What You Don't
 
