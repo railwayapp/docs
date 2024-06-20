@@ -8,7 +8,7 @@ The runtime option on the service settings page refers to how and where your cod
 
 ## How it works
 
-Under the hood, Railway is uses encrypted Wireguard tunnels to create an IPv6 mesh network between all services within an environment. With the "Legacy" runtime, we had to patch the runtime environment after the deploy step to make services discoverable. The Runtime V2 now includes a number of foundational infrastructure on improvements that address long standing concerns of scale on the platform when it comes to executing your code. Namely, at the networking layer.
+Under the hood, Railway uses encrypted Wireguard tunnels to create an IPv6 mesh network between all services within an environment. With the "Legacy" runtime, we had to patch the runtime environment after the deploy step to make services discoverable. The Runtime V2 now includes a number of foundational infrastructure on improvements that address long standing concerns of scale on the platform when it comes to executing your code. Namely, at the networking layer.
 
 ### Benefits
 
