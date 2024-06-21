@@ -50,7 +50,7 @@ alt="Screenshot of Railway Help Station - Private Threads"
 layout="intrinsic"
 width={747} height={352} quality={100} />
 
-Private Threads have a slower response time (5 business days) because only Railway employees can see them. We recommend you to only create a Private Thread if you need to share sensitive information.
+Private Threads have a slower response time (at most 2 business days) because only Railway employees can see them. We recommend you to only create a Private Thread if you need to share sensitive information.
 
 We may make the thread public for community involvement if we determine that there is no sensitive information in your thread.
 
@@ -59,6 +59,22 @@ We may make the thread public for community involvement if we determine that the
 We have a vibrant Discord community of over 20,000+ users and developers. You can find the Railway Discord at [https://discord.gg/railway](https://discord.gg/railway).
 
 Please ask your questions in the <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> channel, and refrain from pinging anyone with the `Team` or `Conductor` roles.
+
+## Slack
+
+Railway offers non-SLO Slack channels to companies and prospective customers of planned significant use. Customers can raise issues, coordinate their migration over to the platform, and provide feedback within a Slack connect channel.
+
+Sufficiently adopted Pro Workspaces can create a Slack Connect channel for their team and the Railway team within the Workspace settings page.
+
+### Slack Account Linking
+
+<Image
+src="https://res.cloudinary.com/dbnvcdbk1/image/upload/v1718999607/CleanShot_2024-06-21_at_15.52.19_mh1uej.png"
+alt="Screenshot of Slack Account Linking"
+layout="intrinsic"
+width={534} height={278} quality={100} />
+
+The Railway team is building out functionality to natively conduct support operations within Slack connect channels. Connecting your Slack Account to your Railway Account allows the team to get insight into issues affecting your workloads. [To link your Slack account to your Railway account, you can navigate to your Account settings page on Railway and follow the instructions provided.](https://railway.app/account)
 
 ## How To Ask For Help
 
@@ -78,15 +94,6 @@ For teams and companies who need dedicated support, we offer Business Class.
 Business Class is support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company.
 
 Reach out to us at [team@railway.app](mailto:team@railway.app) for more information on how to sign up.
-
-### Slack / Chat Bridges
-
-For Business Class customers, we offer Direct Support over chat channels. This allows you to have a dedicated channel for your team to communicate with Railway Engineers directly.
-
-- In Slack, we'll set up a Shared Channel between your workspace and ours
-- Let us know if you'd like to set this up over other channels (e.g. Microsoft Teams)
-
-Reach out to us at [team@railway.app](mailto:team@railway.app) on setting up dedicated chat bridges.
 
 ### Business Class SLOs
 
