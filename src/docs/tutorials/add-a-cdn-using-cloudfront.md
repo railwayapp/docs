@@ -10,7 +10,7 @@ title: Add a CDN using Amazon CloudFront
 
 ## About this Tutorial
 
-We know that performance of your web applications is critical to your business, and one way to achieve higher performance is by implementing a CDN to cache data on servers closest to your users.
+We know that performance of your web applications is critical to your business, and one way to achieve higher performance is by implementing a CDN to serve data from servers closest to your users.
 
 Many CDN options are available ([list from G2](https://www.g2.com/categories/content-delivery-network-cdn)), but in this tutorial, we will cover step-by-step how to implement a CDN using [Amazon CloudFront](https://aws.amazon.com/cloudfront/).
 
@@ -62,8 +62,7 @@ First, let's create and deploy a simple Fastify server using the [Railway CLI](g
 
         reply.type('application/json');
         reply.headers({
-            'cache-control': 'must-revalidate, max-age=60',
-            vary: 'authorization'
+            'cache-control': 'must-revalidate, max-age=60'
         });
 
         reply.send(staticContent);
@@ -78,8 +77,7 @@ First, let's create and deploy a simple Fastify server using the [Railway CLI](g
 
         reply.type('application/json');
         reply.headers({
-            'cache-control': 'must-revalidate, max-age=60',
-            vary: 'authorization'
+            'cache-control': 'must-revalidate, max-age=60'
         });
 
         reply.send(staticContent);
@@ -95,8 +93,7 @@ First, let's create and deploy a simple Fastify server using the [Railway CLI](g
         reply.type('application/json');
         
         reply.headers({
-            'cache-control': 'must-revalidate, max-age=60',
-            vary: 'authorization'
+            'cache-control': 'must-revalidate, max-age=60'
         });
 
         reply.header('etag', '"foobar"');
@@ -143,9 +140,9 @@ Nice!  You now have a Fastify server running in Railway serving three routes, wh
     *Note: The Fastify server code above implements [Fastify's eTag plugin](https://www.npmjs.com/package/@fastify/etag).*
 
 
-#### Observe Cache Behavior with no CDN
+#### Observe Route Behavior with no CDN
 
-To observe caching behavior without a CDN in place, navigate to any of the routes above from the Railway-provided domain, your request will always go directly to the service running in Railway.
+To observe the behavior without a CDN in place, navigate to any of the routes above from the Railway-provided domain, your request will always go directly to the service running in Railway.
 
 One way you can visualize this, is by navigating to the `/static` route in your browser, opening up Network Tools, and observing that each request always receives a **HTTP 200** status code:
 
@@ -154,7 +151,7 @@ alt="Screenshot of DevTools no CDN"
 layout="responsive"
 width={1477} height={623} quality={100} />
 
-Since the data for the route has not been cached, the server receives every request, generates a new timestamp, and sends it back with a 200 status code.
+Since the data for the route has not been cached on a CDN, the server receives every request, generates a new timestamp, and sends it back with a 200 status code.
 
 Once we setup the CloudFront CDN, we will see how this behavior changes.
 
@@ -248,7 +245,7 @@ Great job!  You should now have a CloudFront Distribution pointed to your Fastif
 
 - `https://d1a23bcdefg.cloudfront.net`
 
-Now let's see how the cache behavior for the `/dynamic` route has changed when accessing the server from the CloudFront distribution domain.
+Now let's see how the behavior for the `/dynamic` route has changed when accessing the server from the CloudFront distribution domain.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1719001866/docs/tutorials/CDN/CleanShot_2024-06-21_at_15.24.47_2x_knqo9f.png"
 alt="Screenshot of DevTools with CDN"
@@ -270,7 +267,7 @@ This cache policy tells CloudFront to revalidate the data at the route after 60s
 
 #### Cache Behavior
 
-When the initial request is made to the route, CloudFront retrieves the data from the server, then caches it.  For 60s after the intial request, CloudFlare will serve the cached response with **HTTP 304**, and after 60s, it will check the server for new data.
+When the initial request is made to the route, CloudFront retrieves the data from the server, then stores it.  For 60s after the intial request, CloudFront will serve the cached response with **HTTP 304**, and after 60s, it will check the server for new data.
 
 #### Faster Response Time
 
