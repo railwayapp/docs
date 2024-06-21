@@ -273,7 +273,7 @@ When the initial request is made to the route, CloudFront retrieves the data fro
 
 In the screenshot above, take note of the Size and Time columns.
 
-When CloudFlare serves the cached data, it takes significantly less time to resolve the route, and, probably due to less headers, the Size of the message is also smaller.
+When CloudFront serves the cached data, it takes significantly less time to resolve the route, and, probably due to less headers, the Size of the message is also smaller.
 
 
 ## 3. Connect a Custom Domain with SSL enabled
