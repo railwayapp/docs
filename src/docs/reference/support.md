@@ -76,6 +76,8 @@ width={534} height={278} quality={100} />
 
 The Railway team is building out functionality to natively conduct support operations within Slack connect channels. Connecting your Slack Account to your Railway Account allows the team to get insight into issues affecting your workloads. [To link your Slack account to your Railway account, you can navigate to your Account settings page on Railway and follow the instructions provided.](https://railway.app/account)
 
+_Permissions_ - Railway only asks for permissions to link your Slack ID and your Workspace ID, we can't see any messages outside of the Slack Connect channel if you have one set up.
+
 ## How To Ask For Help
 
 When you reach out for help, it's important that you help us help you! Please include as much information as you can, including but not limited to:
