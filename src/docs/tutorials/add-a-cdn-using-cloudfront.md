@@ -155,11 +155,11 @@ Since the data for the route has not been cached on a CDN, the server receives e
 
 Once we setup the CloudFront CDN, we will see how this behavior changes.
 
-## 2. Create a CloudFront distribution in AWS
+## 2. Create a CloudFront Distribution in AWS
 
 *This step assumes you have already [configured the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to connect to your AWS account.*
 
-Now let's create a CloudFront Distribution using the AWS CDK.
+Now let's create a CloudFront distribution using the AWS CDK.
 
 - In your "fastify" folder, create a new folder called "cloudfront"
 - Within the "cloudfront" folder, fun the following command to initialize a new CDK project in TypeScript
@@ -237,11 +237,11 @@ Now let's create a CloudFront Distribution using the AWS CDK.
     cdk deploy
     ```
 
-*If you experience any problems with the AWS utilities used in this step, you can create and configure the CloudFront Distribution manually using the AWS Management Console, using the same settings defined in the "cloudfront-stack.ts" file.*
+*If you experience any problems with the AWS utilities used in this step, you can create and configure the CloudFront distribution manually using the AWS Management Console, using the same settings defined in the "cloudfront-stack.ts" file.*
 
 ### Checkpoint 2
 
-Great job!  You should now have a CloudFront Distribution pointed to your Fastify service in Railway.  Your distribution will be assigned a domain similar to the one below:
+Great job!  You should now have a CloudFront distribution pointed to your Fastify service in Railway.  Your distribution will be assigned a domain similar to the one below:
 
 - `https://d1a23bcdefg.cloudfront.net`
 
@@ -263,7 +263,7 @@ If you inspect the route definition for `/dynamic`, you'll see that the headers 
         'cache-control': 'must-revalidate, max-age=60'
     });
     ```
-This cache policy tells CloudFront to revalidate the data at the route after 60s.  
+This cache control definition tells CloudFront to revalidate the data at the route after 60s.  
 
 #### Cache Behavior
 
