@@ -85,7 +85,7 @@ Some libraries and components require you to be explicit when either listening o
 ```javascript
 import Redis from 'ioredis';
 
-const redis = new Redis(process.env.REDIS_PRIVATE_URL + '?family=0');
+const redis = new Redis(process.env.REDIS_URL + '?family=0');
 
 const ping = await redis.ping();
 ```
