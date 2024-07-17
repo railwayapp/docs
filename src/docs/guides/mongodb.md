@@ -28,7 +28,7 @@ Connect to MongoDB from another service in your project by [referencing the envi
 
 It is possible to connect to MongoDB externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
 
-Keep in mind that you will be billed for egress when using the TCP Proxy.
+Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.
 
 
 ## Image
