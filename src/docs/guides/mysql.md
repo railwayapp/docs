@@ -16,45 +16,20 @@ width={450} height={396} quality={100} />
 
 ## Connect
 
-There are two ways to connect to a MySQL database:
-- privately via [Private Networking](/reference/private-networking)
-- publicly via [TCP Proxy](/deploy/exposing-your-app#tcp-proxying)
+Connect to MySQL from another service in your project by [referencing the environment variables](/guides/variables#referencing-another-services-variable) made available in the MySQL service:
 
-When you deploy your MySQL database, you will have access to two environment [variables](/develop/variables) that enable one of the two connection types (private or public).
-
-As you create more services in your project, you can use [Reference Variables](/guides/variables#referencing-another-services-variable) to easily connect to the MySQL database.
-
-### Private Networking
-
-To access your MySQL database from another service within the same [project](/develop/projects), you can use the connection string stored in the `MYSQL_PRIVATE_URL` environment variable.
-
-This connection string uses [Private Networking](/reference/private-networking) to route communication to your service over the private network.
-
-
-### TCP Proxy Connection
-
-To access your MySQL database over the public internet, you can use the connection string stored in the `MYSQL_URL` environment variable available in the service.
-
-This connection string uses the [TCP Proxy connection](/deploy/exposing-your-app#tcp-proxying) to route communication to your service over the public internet.
-
-You can also connect using mysql shell:
-```bash
-mysql -h PUBLIC_DOMAIN -P PUBLIC_PORT -u root -p
-```
-
-## Variables
-
-The following variables are included in the MySQL service and can be referenced in other services:
 - `MYSQLHOST`
 - `MYSQLPORT`
 - `MYSQLUSER`
 - `MYSQLPASSWORD`
 - `MYSQLDATABASE`
 - `MYSQL_URL`
-- `MYSQL_PRIVATE_URL`
 
-Connect to your MySQL container using your library of choice and supplying the
-appropriate environment variables.
+#### Connecting externally
+
+It is possible to connect to MySQL externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
+
+Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.
 
 ## Image
 
