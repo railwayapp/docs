@@ -1,24 +1,18 @@
 ---
-title: Deploying a monorepo to Railway
+title: Deploying a Monorepo to Railway
 ---
 
-## Why would you want to use a monorepo structure?
+## What is a Monorepo?
 
-A monorepo structure makes it easy to deploy two co-dependent applications to Railway, such as a frontend and backend, along with being very maintainable.
+A monorepo is a project directory structure in which multiple, co-dependent codebases (such as a frontend and a backend) are maintained within the same repository, and in some cases, share common packages.
 
 ## About this Tutorial
 
-For people new to the platform deploying a monorepo can sometimes be a little daunting because of the extra configurations needed to get the applications up and running smoothly compared to a repository with only a single app. This tutorial aims to provide a simple step-by-step on how to deploy a monorepo.
+Deploying a monorepo in Railway requires some extra configuration to get the applications up and running.
 
-To demonstrate the process we will be going through, a simple monorepo has been prepared -
+This tutorial aims to provide a simple step-by-step on how to deploy a frontend and backend from a monorepo, one of the most commonly deployed type of monorepo. 
 
-https://github.com/railwayapp-templates/monorepo-example
-
-This contains a frontend built with [React](https://react.dev/) and [Vite](), the static files are served with [Caddy](https://caddyserver.com/), and a backend built with [Go](https://go.dev/)
-
-The backend in this monorepo will stream quotes that will be displayed on the frontend.
-
-While this tutorial shows how to deploy a frontend and backend from a monorepo since that is often the most commonly deployed type of monorepo, the procedure outlined can easily be adapted slightly to deploy different apps that are contained within a monorepo as well.
+The procedure outlined in this tutorial can easily be adapted to deploy different apps that are contained within a monorepo as well.
 
 **Objectives**
 
@@ -34,9 +28,19 @@ In this tutorial, you will learn how to -
 
 **Prerequisites**
 
-To be successful using this tutorial, you should already have -
+To be successful using this tutorial, you should already have a monorepo that follows the same structure as the [example repo](https://github.com/railwayapp-templates/monorepo-example).
 
-- A monorepo that follows the same structure as the [example repo](https://github.com/railwayapp-templates/monorepo-example).
+Or feel free to use the example repo to follow along!
+
+**About the Example repo**
+
+To demonstrate the process, a sample monorepo has been prepared -
+
+- https://github.com/railwayapp-templates/monorepo-example
+
+The frontend is built with [React](https://react.dev/) and [Vite](https://vitejs.dev/), and the static files are served with [Caddy](https://caddyserver.com/).
+
+The backend, built with [Go](https://go.dev/), will stream quotes that will be displayed on the frontend.
 
 **Let's get started!**
 
@@ -118,30 +122,33 @@ width={1381} height={760} quality={100} />
 
 - Click on `Generate Domain`
 
-- Do these steps for the other service too, so that both services have public domains.
+- Do these steps for both services, so that they both have public domains.
 
 ## 5. Variable setup
 
 For our example monorepo the Frontend service needs a `VITE_BACKEND_HOST` variable, and our backend needs an `ALLOWED_ORIGINS` variable.
 
-- Click on Frontend service and then the `Variables` tab.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721269030/docs/tutorials/monorepo/variables_tab_nbgxln.png"
-alt="Screenshot showing the service variables"
-layout="responsive"
-width={1386} height={760} quality={100} />
-
-- Add your needed variables to both services.
-
-Frontend
-
+Let's add the Frontend variable first.
+- Click on Frontend service, then the `Variables` tab
+- Add the required variable -
+    ```plaintext
+    VITE_BACKEND_HOST=${{ Backend.RAILWAY_PUBLIC_DOMAIN }}
+    ```
+It should look like this once added:
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721269049/docs/tutorials/monorepo/adding_frontend_variables_jqn4rf.png"
 alt="Screenshot showing the frontend service variables"
 layout="responsive"
 width={1386} height={760} quality={100} />
 
-Backend
+Now let's add the Backend variable.
 
+- Click on the Backend service, then the `Variables` tab
+- Add the required variable -
+    ```plaintext
+    ALLOWED_ORIGINS=${{ Frontend.RAILWAY_PUBLIC_DOMAIN }}
+    ```
+
+It should look like this once added:
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721269042/docs/tutorials/monorepo/adding_backend_variables_aplgej.png"
 alt="Screenshot showing the backend service variables"
 layout="responsive"
@@ -151,7 +158,7 @@ width={1386} height={760} quality={100} />
 
 **Notes:**
 
-- The variables shown here are reference variables, learn more about them [here](https://docs.railway.app/guides/variables#referencing-another-services-variable).
+- The variables used here are reference variables, learn more about them [here](https://docs.railway.app/guides/variables#referencing-another-services-variable).
 
 - Both the Frontend and Backend variables reference each other's public domains. The `RAILWAY_PUBLIC_DOMAIN` variable will be automatically updated whenever you deploy or re-deploy a service.
 
@@ -159,7 +166,7 @@ width={1386} height={760} quality={100} />
 
 ## 6. Directory setup
 
-Both of our apps deploy from subdirectories, so we need to tell Railway where they are located.
+Both of our apps deploy from subdirectories of our monorepo, so we need to tell Railway where they are located.
 
 - Open the Frontend service to its service settings and you will see a **Root Directory** option, in this case, we will set it to `/frontend`
 
@@ -179,7 +186,7 @@ width={1386} height={760} quality={100} />
 
 ## 7. Connecting the Repo
 
-This is the source of the service where the code is deployed.
+Now we need to configure the source of the service where the code is deployed.
 
 - Open the service settings for each service and connect your monorepo.
 
@@ -203,6 +210,4 @@ width={1386} height={760} quality={100} />
 
 ## Conclusion
 
-For this app, we would open up the Frontend service to then click on its public domain to access the deployed frontend website.
-
-Congratulations! You have setup a project, setup services, added variables and deployed your monorepo project to Railway.
+Congratulations! You have setup a project, setup services, added variables and deployed your monorepo project to Railway.  The Frontend service should be accessible on its public domain to access the deployed website.
