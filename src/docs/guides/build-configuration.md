@@ -82,8 +82,6 @@ _Note, negations will only work if you include files in a preceding rule._
 
 ## Build Providers
 
-<PriorityBoardingBanner />
-
 With Nixpacks, we analyze the app source directory and generate a build plan. This determines for which language provider to install packages and runtimes.
 
 Within your Service's settings, under the Builds section, you can define within the multi-select box which Nixpacks language providers you would like to use for your builds. This is useful if you have code that calls libraries that need to be built from another language within your repo.

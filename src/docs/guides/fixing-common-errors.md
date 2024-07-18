@@ -28,12 +28,12 @@ users commonly encounter.
 
 After deploying your application, you encounter this screen when accessing
 your application's domain:
-<Image src="https://res.cloudinary.com/railway/image/upload/v1681392822/docs/application-error_wgrwro.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721267135/docs/application-error_wgrwro_i4tjkl.png"
 alt="Screenshot of application failed to respond error"
 width={729} height={675}
-quality={80} />
+quality={100} />
 
-This error occurs when Railway is unable to connect to your application, making your request fail with status code 503 (Bad Gateway).
+This error occurs when Railway is unable to connect to your application, making your request fail with status code 502 (Bad Gateway).
 
 Railway needs to know how to communicate with your application. When you
 deploy and expose a web application on Railway, we expect your web server
@@ -115,21 +115,9 @@ This example is for `net/http` in the Go standard library, but you can also appl
 func main() {
   // ...
   // Use `PORT` provided in environment or default to 3000
-  var port = envPortOr("3000")
+  port := cmp.Or(os.Getenv("PORT"), 3000)
 
-  log.Fatal(http.ListenAndServe(port, handler))
+  log.Fatal(http.ListenAndServe((":" + port), handler))
   // ...
-}
-
-// Returns PORT from environment if found, defaults to
-// value in `port` parameter otherwise. The returned port
-// is prefixed with a `:`, e.g. `":3000"`.
-func envPortOr(port string) string {
-  // If `PORT` variable in environment exists, return it
-  if envPort := os.Getenv("PORT"); envPort != "" {
-    return ":" + envPort
-  }
-  // Otherwise, return the value of `port` variable from function argument
-  return ":" + port
 }
 ```
