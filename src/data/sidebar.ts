@@ -144,7 +144,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Deploy an Otel Collector Stack", "tutorials"),
           makePage("Deploy and Monitor Mongo", "tutorials"),
           makePage("Add a CDN using CloudFront", "tutorials"),
-          makePage("Deploying a monorepo", "tutorials")
+          makePage("Deploying a Monorepo", "tutorials")
         ],
       },
       {
