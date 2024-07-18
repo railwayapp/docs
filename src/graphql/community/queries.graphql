@@ -1,18 +1,5 @@
 query thread($slug: String!) {
   thread(slug: $slug) {
-    ...Thread
+    replyCount
   }
-}
-
-fragment Thread on Thread {
-  upvoteCount
-  posts {
-    ...PostFields
-  }
-}
-
-fragment PostFields on Post {
-  id
-  body
-  createdAt
 }

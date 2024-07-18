@@ -30,15 +30,8 @@ export type Scalars = {
   Int: { input: number; output: number };
   Float: { input: number; output: number };
   DateTime: { input: any; output: any };
+  JSON: { input: any; output: any };
 };
-
-export enum ExampleError {
-  BadAccess = "BadAccess",
-  Generic = "Generic",
-  Internal = "Internal",
-  NotFound = "NotFound",
-  User = "User",
-}
 
 export type Node = {
   id: Scalars["ID"]["output"];
@@ -52,21 +45,10 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars["String"]["output"]>;
 };
 
-export type Post = {
-  __typename?: "Post";
-  body: Scalars["String"]["output"];
-  createdAt: Scalars["DateTime"]["output"];
-  deletedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  id: Scalars["ID"]["output"];
-  thread: Thread;
-  updatedAt: Scalars["DateTime"]["output"];
-};
-
 export type Query = {
   __typename?: "Query";
   node?: Maybe<Node>;
   nodes: Array<Maybe<Node>>;
-  post?: Maybe<Post>;
   thread?: Maybe<Thread>;
   threads: QueryThreadsConnection;
 };
@@ -77,10 +59,6 @@ export type QueryNodeArgs = {
 
 export type QueryNodesArgs = {
   ids: Array<Scalars["ID"]["input"]>;
-};
-
-export type QueryPostArgs = {
-  id: Scalars["String"]["input"];
 };
 
 export type QueryTagsArgs = {
@@ -96,8 +74,9 @@ export type QueryThreadsArgs = {
   after?: InputMaybe<Scalars["String"]["input"]>;
   before?: InputMaybe<Scalars["String"]["input"]>;
   first?: InputMaybe<Scalars["Int"]["input"]>;
+  followingOnly?: InputMaybe<Scalars["Boolean"]["input"]>;
   last?: InputMaybe<Scalars["Int"]["input"]>;
-  mine?: InputMaybe<Scalars["Boolean"]["input"]>;
+  mineOnly?: InputMaybe<Scalars["Boolean"]["input"]>;
   tags?: InputMaybe<Array<Scalars["String"]["input"]>>;
   topic?: InputMaybe<Scalars["String"]["input"]>;
 };
@@ -118,23 +97,10 @@ export type QueryThreadsConnectionEdge = {
   node: Thread;
 };
 
+
 export type Thread = Node & {
-  __typename?: "Thread";
-  answeredByPost?: Maybe<Post>;
-  body: Scalars["String"]["output"];
-  createdAt: Scalars["DateTime"]["output"];
-  deletedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  duplicateThreadSlug?: Maybe<Scalars["String"]["output"]>;
-  id: Scalars["ID"]["output"];
-  isPrivate: Scalars["Boolean"]["output"];
-  lastActivityAt?: Maybe<Scalars["DateTime"]["output"]>;
-  pinned: Scalars["Boolean"]["output"];
-  posts: Array<Post>;
-  railwayTeamId?: Maybe<Scalars["String"]["output"]>;
-  slug: Scalars["String"]["output"];
-  subject: Scalars["String"]["output"];
-  updatedAt: Scalars["DateTime"]["output"];
-  upvoteCount: Scalars["Int"]["output"];
+  /** The number of replies to this thread */
+  replyCount: Scalars["Int"]["output"];
 };
 
 export type ThreadQueryVariables = Exact<{
@@ -143,52 +109,15 @@ export type ThreadQueryVariables = Exact<{
 
 export type ThreadQuery = {
   __typename?: "Query";
-  thread?: {
-    __typename?: "Thread";
-    upvoteCount: number;
-    posts: Array<{
-      __typename?: "Post";
-      id: string;
-      body: string;
-      createdAt: any;
-    }>;
-  } | null;
+  thread?: { __typename?: "Thread"; replyCount: number } | null;
 };
 
-export type ThreadFragment = {
-  __typename?: "Thread";
-  upvoteCount: number;
-  posts: Array<{
-    __typename?: "Post";
-    id: string;
-    body: string;
-    createdAt: any;
-  }>;
-};
-
-export const PostFieldsFragmentDoc = gql`
-  fragment PostFields on Post {
-    id
-    body
-    createdAt
-  }
-`;
-export const ThreadFragmentDoc = gql`
-  fragment Thread on Thread {
-    upvoteCount
-    posts {
-      ...PostFields
-    }
-  }
-  ${PostFieldsFragmentDoc}
-`;
 export const ThreadDocument = gql`
   query thread($slug: String!) {
     thread(slug: $slug) {
-      ...Thread
+      replyCount
     }
   }
-  ${ThreadFragmentDoc}
 `;
 
 export type SdkFunctionWrapper = <T>(
