@@ -1,20 +1,10 @@
 import { useState, useEffect } from 'react';
 import { fetchFromAPI } from "@/utils/fetchFromAPI";
 
-interface Post {
-  id: string;
-  body: string;
-  createdAt: string;
-};
-
-interface ThreadData {
-  upvoteCount: number;
-  posts: Post[];
-};
 
 interface ForumState {
   communitySlug?: string;
-  threadData?: ThreadData;
+  replyCount?: number;
 };
 
 export const useForum = (section: string | null, topic: string) => {
@@ -36,18 +26,10 @@ export const useForum = (section: string | null, topic: string) => {
           const data = await fetchFromAPI("/api/community/getThread", { communitySlug });
 
           // if the thread has some posts, add them to the state
-          if (data.thread && (data.thread.posts?.length ?? 0) > 0) {
-            const threadData = data.thread as ThreadData;
+          if (data.thread && data.thread.replyCount > 0) {
             setForumThread(prevState => ({
               ...prevState,
-              threadData: {
-                upvoteCount: threadData.upvoteCount,
-                posts: threadData.posts.map(post => ({
-                    id: post.id,
-                    body: post.body,
-                    createdAt: post.createdAt.toString(),
-                })),
-              },
+              replyCount: data.thread.replyCount
             }));
           }  
         } else {

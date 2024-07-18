@@ -28,13 +28,13 @@ export const Forum: React.FC<{ slug: string | string[] }> = ({ slug }) => {
     {forumThread.communitySlug && (
       <div css={tw`flex flex-col sm:flex-row items-center justify-between border rounded-md p-4 space-x-0 sm:space-x-4 mt-12`}>
         <div css={tw`flex flex-row items-center space-x-14`}>
-          {forumThread.threadData ? (
+          {forumThread.replyCount ? (
             <>
               <div css={tw`relative flex items-center justify-center mb-2 sm:mb-0`}>
-                {forumThread.threadData.posts.length > 0 && (
+                {forumThread.replyCount > 0 && (
                   <div css={tw`absolute -top-3 -right-4`}>
                     <div css={tw`w-5 h-5 bg-gray-400 rounded-full flex items-center justify-center`}>
-                      <span css={tw`text-xs text-white`}>{forumThread.threadData.posts.length}</span>
+                      <span css={tw`text-xs text-white`}>{forumThread.replyCount}</span>
                     </div>
                   </div>
                 )}
@@ -56,7 +56,7 @@ export const Forum: React.FC<{ slug: string | string[] }> = ({ slug }) => {
             onClick={e => openCommunityThreadInNewTab(forumThread.communitySlug!, e)}
             css={tw`border border-pink-200 rounded-md px-4 py-2 hover:bg-pink-100`}
           >
-            {forumThread.threadData ? "Join the Discussion" : "Start a Discussion"}
+            {forumThread.replyCount ? "Join the Discussion" : "Start a Discussion"}
           </button>
         </div>
       </div>
