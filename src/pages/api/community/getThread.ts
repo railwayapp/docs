@@ -6,11 +6,18 @@ export interface CommunitySlug {
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method == "POST") {
-    const { communitySlug }: CommunitySlug = req.body;
+  const { communitySlug }: CommunitySlug = req.body;
 
-    const { data } = await communityClient.thread({ slug: communitySlug });
+  try {
+    const response = await communityClient.thread({ slug: communitySlug });
 
-    res.status(200).json(data);
+    if (!response || !response.data) {
+      return res.status(400).json({ error: 'Error fetching thread data' });
+    }
+
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error('Error fetching thread data:', error);
+    res.status(500).json({ error: 'Error fetching thread data' });
   }
 };
