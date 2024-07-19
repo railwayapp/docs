@@ -9,6 +9,8 @@ directory they are contained in (eg. JS frontend and Python backend)
 2. **[Shared Monorepo](#deploying-a-shared-monorepo)** → A repository that contains components that share code or configuration from the
 root directory (eg. Yarn workspace or Lerna project)
 
+For a full step by step walk through on deploying an isolated Monorepo see our <a href="/tutorials/deploying-a-monorepo" target="_blank">tutorial</a> on the subject.
+
 ## Deploying an Isolated Monorepo
 
 The simplest form of a monorepo is a repository that contains two completely

@@ -14,6 +14,8 @@ This tutorial aims to provide a simple step-by-step on how to deploy a frontend 
 
 The procedure outlined in this tutorial can easily be adapted to deploy different apps that are contained within a isolated monorepo as well.
 
+For more information on deploying a shared monorepo check out our <a href="/guides/monorepo#deploying-a-shared-monorepo" target="_blank">guide</a> that explains some of the specific configurations you would need.
+
 **Objectives**
 
 In this tutorial, you will learn how to -
