@@ -31,6 +31,25 @@ To create a template from scratch, head over to the <a href="https://railway.app
 Note that your template will not be available on the template marketplace, nor will be eligible for a kickback, until you [publish](/guides/publish-and-share) it.
 
 
+### Private Repo Support
+
+It's now possible to specify a private GitHub repo when creating a template.
+
+This feature is intended for use among [Teams](/reference/teams) and [Organizations](/reference/teams). Users supporting a subscriber base may also find this feature helpful to distribute closed-source code. 
+
+To deploy a template that includes a private repo, look for the `GitHub` panel in the `Account Integrations` section of [General Settings](https://railway.app/account). Then select the `Edit Scope` option to grant Railway access to the desired private repos. 
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1721350229/docs/github-private-repo_m46wxu.png"
+alt="Create a template from a private GitHub repositories"
+layout="intrinsic"
+width={1599}
+height={899}
+quality={80}
+/>
+
+If you do not see the `Edit Scope` option, you may still need to connect GitHub to your Railway account.
+
 ### Convert a Project into a Template
 
 You can also convert an existing project into a ready-made Template for other users.
