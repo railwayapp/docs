@@ -1,6 +1,6 @@
----
+-whatsapp bot--
 title: Controlling GitHub Autodeploys
----
+-.restart bot--
 
 [Services that are linked to a GitHub repo](/guides/services#deploying-from-a-github-repo) automatically deploy when new commits are detected in the connected branch.
 
