@@ -116,7 +116,7 @@ alt="screenshot of end endpoint settings in the pool creator"
 layout="responsive"
 width={1060} height={600} quality={100} />
 
-- Click **"Configure co-ordinates for Proximity Steering"** and enter the Latitude and Longitude that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
+- Click **Configure co-ordinates for Proximity Steering** and enter the Latitude and Longitude for your services region that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721867907/docs/tutorials/proximity-load-balancing/pool_settings_proximity_rybg2r.png"
 alt="screenshot of the proximity settings in the pool creator"
