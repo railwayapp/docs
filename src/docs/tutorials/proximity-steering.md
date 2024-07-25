@@ -99,7 +99,7 @@ width={1060} height={375} quality={100} />
 
     Example -  `region-us-west1.up.railway.app`
 
-    This should be just the domain without the scheme or trailing slash.
+    This should only be the domain, excluding both the scheme and trailing slash.
 
 - For the weight option we will use a value of **1**.
 
