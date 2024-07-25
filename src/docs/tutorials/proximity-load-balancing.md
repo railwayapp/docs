@@ -20,16 +20,16 @@ In this tutorial, you will learn how to -
 
 - Create a Health monitor.
 - Create pools for each region.
-- Set up a Proximity Load Balancer. 
+- Set up a Proximity Load Balancer.
 
 **Prerequisites**
 
 - Have two or more identical services deployed into two or more different regions.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850558/docs/tutorials/proximity-load-balancing/region_services_nj83ni.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867908/docs/tutorials/proximity-load-balancing/region_services_u10ukp.png"
 alt="screenshot of two railway services in different regions"
 layout="responsive"
-width={820} height={365} quality={100} />
+width={890} height={435} quality={100} />
 
     Duplicate a service to another region is as simple as right clicking and selecting **Duplicate**, opening its service settings and changing the region, then clicking **Deploy**.
 
@@ -45,7 +45,7 @@ width={820} height={365} quality={100} />
 
 - Have a `/health` or similar endpoint that returns a status code of 200.
 
-    This allows Cloudflare to check the health of our Railway services so they can handle region failover. As a bonus this can also be used on Railway to achieve [zero-download deployments](https://docs.railway.app/reference/healthchecks).
+    This allows Cloudflare to check the health of our Railway services so they can handle region failover. As a bonus this can also be used on Railway to achieve [zero-downtime deployments](https://docs.railway.app/reference/healthchecks).
 
 
 ## 1. Creating a Health Monitor
@@ -54,10 +54,10 @@ width={820} height={365} quality={100} />
 
     **Traffic → Load Balancing**
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850555/docs/tutorials/proximity-load-balancing/load_balancing_page_cgqtga.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/load_balancing_page_yn5bm8.png"
 alt="screenshot of the load balancing page"
 layout="responsive"
-width={1036} height={556} quality={100} />
+width={1060} height={555} quality={100} />
 
 - Click "Manage Monitors" and then "Create"
 
@@ -69,10 +69,10 @@ width={1036} height={556} quality={100} />
 
 - Leave Port 443 as the default.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850556/docs/tutorials/proximity-load-balancing/pool_settings_health_dlqtig.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/pool_settings_health_ydlzvo.png"
 alt="screenshot of the cloudflare health monitor"
 layout="responsive"
-width={1036} height={351} quality={100} />
+width={1060} height={375} quality={100} />
 
 - Click "Save"
 
@@ -98,26 +98,26 @@ width={1036} height={351} quality={100} />
 
     **Note:** Our pool only needs to contain a single endpoint as Railway handles single region replicas for us.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850555/docs/tutorials/proximity-load-balancing/pool_settings_config_yulkcl.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/pool_settings_config_qh5s1k.png"
 alt="screenshot of end endpoint settings in the pool creator"
 layout="responsive"
-width={1036} height={581} quality={100} />
+width={1060} height={600} quality={100} />
 
 - Click **"Configure co-ordinates for Proximity Steering"** and enter the Latitude and Longitude that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850556/docs/tutorials/proximity-load-balancing/pool_settings_proximity_tdzn7u.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867907/docs/tutorials/proximity-load-balancing/pool_settings_proximity_rybg2r.png"
 alt="screenshot of the proximity settings in the pool creator"
 layout="responsive"
-width={1036} height={576} quality={100} />
+width={1060} height={600} quality={100} />
 
 - Select the Monitor dropdown and add our **Health** monitor we created earlier.
 
 - Choose the applicable health check region according to the region that the Railway service was deployed to.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850556/docs/tutorials/proximity-load-balancing/pool_settings_health_dlqtig.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/pool_settings_health_ydlzvo.png"
 alt="screenshot of the health settings in the pool creator"
 layout="responsive"
-width={1036} height={351} quality={100} />
+width={1060} height={375} quality={100} />
 
 - Click "Save"
 
@@ -125,10 +125,10 @@ width={1036} height={351} quality={100} />
 
 This should be the end result, two or more pools -
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850557/docs/tutorials/proximity-load-balancing/pools_llpjxd.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867907/docs/tutorials/proximity-load-balancing/pools_w1gext.png"
 alt="screenshot of adding pools in the load balancer creator"
 layout="responsive"
-width={1036} height={406} quality={100} />
+width={1060} height={435} quality={100} />
 
 ## 3. Creating the Load Balancer
 
@@ -140,26 +140,26 @@ width={1036} height={406} quality={100} />
 
     **Note:** You may need to remove the leading period from the default hostname.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850555/docs/tutorials/proximity-load-balancing/load_balancer_hostname_efu1zu.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867910/docs/tutorials/proximity-load-balancing/load_balancer_hostname_pfeolj.png"
 alt="screenshot of the hostname in the load balancer creator"
 layout="responsive"
-width={1036} height={286} quality={100} />  
+width={1060} height={315} quality={100} />  
 
 - Click "Next"
 
 - Add all the pools that were previously setup.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850555/docs/tutorials/proximity-load-balancing/load_balancer_pools_x5ujeg.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867911/docs/tutorials/proximity-load-balancing/load_balancer_pools_egolib.png"
 alt="screenshot of selected pools in the load balancer creator"
 layout="responsive"
-width={1036} height={561} quality={100} />
+width={1060} height={585} quality={100} />
 
 - Select the appropriate fallback pool.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850555/docs/tutorials/proximity-load-balancing/load_balancer_fallback_pool_g7cmfm.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867910/docs/tutorials/proximity-load-balancing/load_balancer_fallback_pool_krelrk.png"
 alt="screenshot of fallback pool in the load balancer creator"
 layout="responsive"
-width={1036} height={256} quality={100} />
+width={1060} height={260} quality={100} />
 
 - Click "Next"
 
@@ -167,10 +167,10 @@ width={1036} height={256} quality={100} />
 
 - Choose "Proximity steering"
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850555/docs/tutorials/proximity-load-balancing/load_balancer_traffic_steering_l7fgu7.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867911/docs/tutorials/proximity-load-balancing/load_balancer_traffic_steering_bv3kwm.png"
 alt="screenshot of traffic steering options in the load balancer creator"
 layout="responsive"
-width={1036} height={560} quality={100} />
+width={1060} height={585} quality={100} />
 
 - Click "Next"
 
@@ -182,9 +182,9 @@ width={1036} height={560} quality={100} />
 
 After that process you should see something like the following -
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721850555/docs/tutorials/proximity-load-balancing/load_balancer_gjgwrt.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1721867909/docs/tutorials/proximity-load-balancing/load_balancer_exgakv.png"
 alt="screenshot of the finished load balancer"
 layout="responsive"
-width={1036} height={560} quality={100} />
+width={1060} height={585} quality={100} />
 
 Thats all for the setup, you can now open your domain and Cloudflare will automatically route your request to the Railway service you are in closest proximity to.
