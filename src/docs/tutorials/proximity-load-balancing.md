@@ -20,11 +20,11 @@ In this tutorial, you will learn how to -
 
 - Create a Health monitor.
 - Create pools for each region.
-- Set up a Proximity Load Balancer.
+- Set up the Proximity Load Balancer.
 
 **Prerequisites**
 
-- Have two or more identical services deployed into two or more different regions.
+- Have two or more identical services deployed in two or more different regions.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721867908/docs/tutorials/proximity-load-balancing/region_services_u10ukp.png"
 alt="screenshot of two railway services in different regions"
@@ -45,7 +45,7 @@ width={890} height={435} quality={100} />
 
 - Have a `/health` or similar endpoint that returns a status code of 200.
 
-    This allows Cloudflare to check the health of our Railway services so they can handle region failover. As a bonus this can also be used on Railway to achieve [zero-downtime deployments](https://docs.railway.app/reference/healthchecks).
+    This allows Cloudflare to check the health of our Railway services so they can handle region failover. As a bonus this can also be used on Railway to achieve [zero-downtime deployments](/reference/healthchecks).
 
 
 ## 1. Creating a Health Monitor
@@ -59,7 +59,7 @@ alt="screenshot of the load balancing page"
 layout="responsive"
 width={1060} height={555} quality={100} />
 
-- Click "Manage Monitors" and then "Create"
+- Click **Manage Monitors** and then **Create**
 
 - Enter your desired name for this health monitor.
 
@@ -74,34 +74,34 @@ alt="screenshot of the cloudflare health monitor"
 layout="responsive"
 width={1060} height={375} quality={100} />
 
-- Click "Save"
+- Click **Save**
 
 ## 2. Creating the Pools
 
 - Go back to the Load Balancing page.
 
-- Click "Manage Pools" and then "Create"
+- Click **Manage Pools** and then **Create**
 
-- Fill out the name and description, leave "Endpoint Steering" as its default, it will not be used with only a single endpoint.
+- Fill out the name and description, leave **Endpoint Steering** as its default, it will not be used with only a single endpoint.
 
 - Enter the endpoint name, using the service name here is a good idea.
 
-- For the "Endpoint Address" we use the Railway generated domain for our us-west1 service, e.g. `region-us-west1.up.railway.app` without the scheme or a trailing slash.
+- For the **Endpoint Address** we use the Railway generated domain for our us-west1 service, e.g. `region-us-west1.up.railway.app` without the scheme or a trailing slash.
 
 - For the weight option we will use a value of 1.
 
-- Click "Add host header" and enter the same value as used for the Endpoint Address
+- Click **Add host header** and enter the same value as used for the Endpoint Address.
 
     **Note:** Railway does host based routing so we need to set the host header so they know how to route the incoming requests from Cloudflare.
 
 - Remove the second empty endpoint.
 
-    **Note:** Our pool only needs to contain a single endpoint as Railway handles single region replicas for us.
-
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/pool_settings_config_qh5s1k.png"
 alt="screenshot of end endpoint settings in the pool creator"
 layout="responsive"
 width={1060} height={600} quality={100} />
+
+    **Note:** Our pool only needs to contain a single endpoint as Railway handles single region replicas for us.
 
 - Click **"Configure co-ordinates for Proximity Steering"** and enter the Latitude and Longitude that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
 
@@ -119,7 +119,7 @@ alt="screenshot of the health settings in the pool creator"
 layout="responsive"
 width={1060} height={375} quality={100} />
 
-- Click "Save"
+- Click **Save**
 
 - Create another pool for your other services that are deployed into your desired regions, follow the same procedure.
 
@@ -134,7 +134,7 @@ width={1060} height={435} quality={100} />
 
 - Go back to the Load Balancing page.
 
-- Click "Create Load Balancer"
+- Click **Create Load Balancer**
 
 - Enter the desired hostname or leave as the default for the root hostname.
 
@@ -145,7 +145,7 @@ alt="screenshot of the hostname in the load balancer creator"
 layout="responsive"
 width={1060} height={315} quality={100} />  
 
-- Click "Next"
+- Click **Next**
 
 - Add all the pools that were previously setup.
 
@@ -161,22 +161,22 @@ alt="screenshot of fallback pool in the load balancer creator"
 layout="responsive"
 width={1060} height={260} quality={100} />
 
-- Click "Next"
+- Click **Next**
 
-- Monitors have already been setup on both pools, Click "Next"
+- Monitors have already been setup on both pools, Click **Next**
 
-- Choose "Proximity steering"
+- Choose **Proximity steering**
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721867911/docs/tutorials/proximity-load-balancing/load_balancer_traffic_steering_bv3kwm.png"
 alt="screenshot of traffic steering options in the load balancer creator"
 layout="responsive"
 width={1060} height={585} quality={100} />
 
-- Click "Next"
+- Click **Next**
 
-- If needed, Create a Custom Rule, otherwise click "Next"
+- If needed, Create Custom Rules, otherwise click **Next**
 
-- Review the Load Balancing setup, if all looks good click "Save and Deploy"
+- Review the Load Balancing setup, if all looks good click **Save and Deploy**
 
 ## Conclusion
 
