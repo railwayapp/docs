@@ -69,6 +69,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Healthchecks and Restarts", "guides"),
           makePage("Monorepo", "guides"),
           makePage("Cron Jobs", "guides"),
+          makePage("Resource Limits", "guides"),
           makePage("Optimize Usage", "guides"),
         ],
       },
@@ -144,7 +145,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Deploy an Otel Collector Stack", "tutorials"),
           makePage("Deploy and Monitor Mongo", "tutorials"),
           makePage("Add a CDN using CloudFront", "tutorials"),
-          makePage("Deploying a Monorepo", "tutorials")
+          makePage("Deploying a Monorepo", "tutorials"),
         ],
       },
       {
