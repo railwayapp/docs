@@ -1,8 +1,8 @@
 ---
-title: Setting up Proximity Load Balancing using Cloudflare
+title: Setting up Proximity Steering using Cloudflare
 ---
 
-### What is Proximity Load Balancing?
+### What is Proximity Steering?
 
 >Proximity steering routes visitors ... to the closest physical data center.
 
@@ -10,9 +10,9 @@ title: Setting up Proximity Load Balancing using Cloudflare
 
 ## About this Tutorial
 
-As Railway does not yet offer native Geo or Proximity Load Balancing we instead need to place Cloudflare in front of our services to do this for us.
+As Railway does not yet offer native Proximity Steering we instead need to place Cloudflare in front of our services to do this for us.
 
-This tutorial aims to provide a simple step-by-step on how to set up everything on Cloudflare in order to have Proximity Load Balancing working flawlessly!
+This tutorial aims to provide a simple step-by-step on how to set up everything on Cloudflare in order to have Proximity Steering working flawlessly!
 
 **Objectives**
 
@@ -26,20 +26,26 @@ In this tutorial, you will learn how to -
 
 - Have two or more identical services deployed in two or more different regions.
 
+    Duplicating a service can be done by right clicking and selecting **Duplicate**, opening its service settings and changing the region, then clicking **Deploy**.
+
+    The services you have deployed into the multiple regions **should only** have a Railway generated domain on them, it also helps to have the domains indicate the region.
+
+    Its recommended to use [shared variables](/guides/variables#shared-variables) or [reference variables](/guides/variables#referencing-another-services-variable) for duplicated services to keep variables in sync.
+
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721867908/docs/tutorials/proximity-load-balancing/region_services_u10ukp.png"
 alt="screenshot of two railway services in different regions"
 layout="responsive"
 width={890} height={435} quality={100} />
 
-    Duplicate a service to another region is as simple as right clicking and selecting **Duplicate**, opening its service settings and changing the region, then clicking **Deploy**.
-
-    The services you have deployed into the multiple regions **should only** have a Railway generated domain on them, it also helps to have the domains indicate the region.
-
 - Have your desired domain setup with Cloudflare's nameservers, they have a general guide for that [here](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/).
 
-- Have **SSL/TLS** mode set to **Full** - **SSL/TLS → Overview → Full**
+- Have **SSL/TLS** mode set to **Full**
 
-- Have **Always Use HTTPS** enabled - **SSL/TLS → Edge Certificates → Always Use HTTPS**
+    **SSL/TLS → Overview → Full**
+
+- Have **Always Use HTTPS** enabled
+    
+    **SSL/TLS → Edge Certificates → Always Use HTTPS**
     
     This is to prevent Railway from needing to handle the insecure redirect as that would result in being redirected away to an upstream endpoint.
 
