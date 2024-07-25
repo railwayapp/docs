@@ -10,7 +10,7 @@ title: Setting up Proximity Steering using Cloudflare
 
 ## About this Tutorial
 
-As Railway does not yet offer native Proximity Steering we instead need to place Cloudflare in front of our services to do this for us.
+As Railway does not offer native Proximity Steering at this time we instead need to place Cloudflare in front of our services to do this for us.
 
 This tutorial aims to provide a simple step-by-step on how to set up everything on Cloudflare in order to have Proximity Steering working flawlessly!
 
@@ -26,9 +26,10 @@ In this tutorial, you will learn how to -
 
 - Have two or more identical services deployed in two or more different regions.
 
+
     Duplicating a service can be done by right clicking and selecting **Duplicate**, opening its service settings and changing the region, then clicking **Deploy**.
 
-    The services you have deployed into the multiple regions **should only** have a Railway generated domain on them, it also helps to have the domains indicate the region.
+    The services you have deployed into the multiple regions should **only** have a Railway generated domain on them, it also helps to have the domains indicate the region.
 
     Its recommended to use [shared variables](/guides/variables#shared-variables) or [reference variables](/guides/variables#referencing-another-services-variable) for duplicated services to keep variables in sync.
 
@@ -47,7 +48,7 @@ width={890} height={435} quality={100} />
     
     **SSL/TLS → Edge Certificates → Always Use HTTPS**
     
-    This is to prevent Railway from needing to handle the insecure redirect as that would result in being redirected away to an upstream endpoint.
+    This is to prevent Railway from needing to handle the insecure redirect as that would result in being incorrectly redirected away to an upstream endpoint.
 
 - Have a `/health` or similar endpoint that returns a status code of 200.
 
@@ -71,7 +72,9 @@ width={1060} height={555} quality={100} />
 
 - Choose **HTTPS** as the type.
 
-- Enter your health endpoint path, e.g. `/health`
+- Enter your health endpoint path
+
+    Example - `/health`
 
 - Leave Port 443 as the default.
 
@@ -90,24 +93,28 @@ width={1060} height={375} quality={100} />
 
 - Fill out the name and description, leave **Endpoint Steering** as its default, it will not be used with only a single endpoint.
 
-- Enter the endpoint name, using the service name here is a good idea.
+- Enter the endpoint name, using the service name is ideal.
 
-- For the **Endpoint Address** we use the Railway generated domain for our us-west1 service, e.g. `region-us-west1.up.railway.app` without the scheme or a trailing slash.
+- For the **Endpoint Address** we use the Railway generated domain.
+
+    Example -  `region-us-west1.up.railway.app`
+
+    This should be just the domain without the scheme or trailing slash.
 
 - For the weight option we will use a value of 1.
 
 - Click **Add host header** and enter the same value as used for the Endpoint Address.
 
-    **Note:** Railway does host based routing so we need to set the host header so they know how to route the incoming requests from Cloudflare.
+    Railway does host based routing so we need to set the host header so they know how to route the incoming requests from Cloudflare.
 
 - Remove the second empty endpoint.
+
+    Our pool only needs to contain a single endpoint as Railway handles single region replicas for us.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/pool_settings_config_qh5s1k.png"
 alt="screenshot of end endpoint settings in the pool creator"
 layout="responsive"
 width={1060} height={600} quality={100} />
-
-    **Note:** Our pool only needs to contain a single endpoint as Railway handles single region replicas for us.
 
 - Click **"Configure co-ordinates for Proximity Steering"** and enter the Latitude and Longitude that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
 
@@ -144,7 +151,7 @@ width={1060} height={435} quality={100} />
 
 - Enter the desired hostname or leave as the default for the root hostname.
 
-    **Note:** You may need to remove the leading period from the default hostname.
+    You may need to remove the leading period from the default hostname.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721867910/docs/tutorials/proximity-load-balancing/load_balancer_hostname_pfeolj.png"
 alt="screenshot of the hostname in the load balancer creator"
@@ -180,7 +187,7 @@ width={1060} height={585} quality={100} />
 
 - Click **Next**
 
-- If needed, Create Custom Rules, otherwise click **Next**
+- If needed, create Custom Rules, otherwise click **Next**
 
 - Review the Load Balancing setup, if all looks good click **Save and Deploy**
 
@@ -193,4 +200,4 @@ alt="screenshot of the finished load balancer"
 layout="responsive"
 width={1060} height={585} quality={100} />
 
-Thats all for the setup, you can now open your domain and Cloudflare will automatically route your request to the Railway service you are in closest proximity to.
+Thats all for the setup, you can now open your domain and Cloudflare will automatically route your requests to the Railway service you are in closest proximity to.
