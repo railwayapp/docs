@@ -10,9 +10,9 @@ title: Setting up Proximity Steering using Cloudflare
 
 ## About this Tutorial
 
-As Railway does not offer native Proximity Steering at this time we instead need to place Cloudflare in front of our services to do this for us.
+As Railway does not offer native Proximity Steering at this time, we instead need to place Cloudflare in front of our services to do this for us.
 
-This tutorial aims to provide a simple step-by-step on how to set up everything on Cloudflare in order to have Proximity Steering working flawlessly!
+This tutorial aims to provide a simple step-by-step guide on setting everything up on Cloudflare to ensure Proximity Steering works flawlessly!
 
 **Objectives**
 
@@ -40,15 +40,15 @@ width={890} height={435} quality={100} />
 
 - Have your desired domain setup with Cloudflare's nameservers, they have a general guide for that [here](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/).
 
-- Have **SSL/TLS** mode set to **Full**
+- Have **SSL/TLS** mode set to **Full**.
 
     **SSL/TLS → Overview → Full**
 
-- Have **Always Use HTTPS** enabled
+- Have **Always Use HTTPS** enabled.
     
     **SSL/TLS → Edge Certificates → Always Use HTTPS**
     
-    This is to prevent Railway from needing to handle the insecure redirect as that would result in being incorrectly redirected away to an upstream endpoint.
+    This ensures that Railway avoids managing the insecure redirect, which would otherwise lead to an incorrect redirection to an upstream endpoint.
 
 - Have a `/health` or similar endpoint that returns a status code of 200.
 
@@ -66,7 +66,7 @@ alt="screenshot of the load balancing page"
 layout="responsive"
 width={1060} height={555} quality={100} />
 
-- Click **Manage Monitors** and then **Create**
+- Click **Manage Monitors** and then **Create**.
 
 - Enter your desired name for this health monitor.
 
@@ -83,15 +83,15 @@ alt="screenshot of the cloudflare health monitor"
 layout="responsive"
 width={1060} height={375} quality={100} />
 
-- Click **Save**
+- Click **Save**.
 
 ## 2. Creating the Pools
 
 - Go back to the Load Balancing page.
 
-- Click **Manage Pools** and then **Create**
+- Click **Manage Pools** and then **Create**.
 
-- Fill out the name and description, leave **Endpoint Steering** as its default, it will not be used with only a single endpoint.
+- Fill out the name and description and leave **Endpoint Steering** as its default, it will not be used with only a single endpoint.
 
 - Enter the endpoint name, using the service name is ideal.
 
@@ -101,7 +101,7 @@ width={1060} height={375} quality={100} />
 
     This should be just the domain without the scheme or trailing slash.
 
-- For the weight option we will use a value of 1.
+- For the weight option we will use a value of **1**.
 
 - Click **Add host header** and enter the same value as used for the Endpoint Address.
 
@@ -116,7 +116,7 @@ alt="screenshot of end endpoint settings in the pool creator"
 layout="responsive"
 width={1060} height={600} quality={100} />
 
-- Click **Configure co-ordinates for Proximity Steering** and enter the Latitude and Longitude for your services region that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
+- Click **Configure coordinates for Proximity Steering** and enter the Latitude and Longitude for your service region that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721867907/docs/tutorials/proximity-load-balancing/pool_settings_proximity_rybg2r.png"
 alt="screenshot of the proximity settings in the pool creator"
@@ -132,7 +132,7 @@ alt="screenshot of the health settings in the pool creator"
 layout="responsive"
 width={1060} height={375} quality={100} />
 
-- Click **Save**
+- Click **Save**.
 
 - Create another pool for your other services that are deployed into your desired regions, follow the same procedure.
 
@@ -147,7 +147,7 @@ width={1060} height={435} quality={100} />
 
 - Go back to the Load Balancing page.
 
-- Click **Create Load Balancer**
+- Click **Create Load Balancer**.
 
 - Enter the desired hostname or leave as the default for the root hostname.
 
@@ -158,7 +158,7 @@ alt="screenshot of the hostname in the load balancer creator"
 layout="responsive"
 width={1060} height={315} quality={100} />  
 
-- Click **Next**
+- Click **Next**.
 
 - Add all the pools that were previously setup.
 
@@ -174,22 +174,22 @@ alt="screenshot of fallback pool in the load balancer creator"
 layout="responsive"
 width={1060} height={260} quality={100} />
 
-- Click **Next**
+- Click **Next**.
 
-- Monitors have already been setup on both pools, Click **Next**
+- Monitors have already been setup on both pools, Click **Next**.
 
-- Choose **Proximity steering**
+- Choose **Proximity steering**.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721867911/docs/tutorials/proximity-load-balancing/load_balancer_traffic_steering_bv3kwm.png"
 alt="screenshot of traffic steering options in the load balancer creator"
 layout="responsive"
 width={1060} height={585} quality={100} />
 
-- Click **Next**
+- Click **Next**.
 
-- If needed, create Custom Rules, otherwise click **Next**
+- If needed, create Custom Rules, otherwise click **Next**.
 
-- Review the Load Balancing setup, if all looks good click **Save and Deploy**
+- Review the Load Balancing setup, if all looks good click **Save and Deploy**.
 
 ## Conclusion
 
@@ -200,4 +200,4 @@ alt="screenshot of the finished load balancer"
 layout="responsive"
 width={1060} height={585} quality={100} />
 
-Thats all for the setup, you can now open your domain and Cloudflare will automatically route your requests to the Railway service you are in closest proximity to.
+That's all for the setup! You can now open your domain and Cloudflare will automatically route your requests to the Railway service you are in closest proximity to.
