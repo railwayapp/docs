@@ -68,3 +68,29 @@ width={700} height={460} quality={100} />
 3. To _disable_ App Sleeping, toggle the setting again
 
 Read more about how App Sleeping works in the [App Sleeping Reference page](/reference/app-sleeping).
+
+## Resource Limits
+
+Resource limits are a way to limit the maximum amount of resources available to a service.
+
+To toggle resource limits, navigate to your service's settings > Deploy > Resource Limits.
+
+<Image
+  src="https://res.cloudinary.com/railway/image/upload/v1721917970/resource-limits.png"
+  alt="Resource Limits setting"
+  layout="intrinsic"
+  width={1298}
+  height={658}
+  quality={80}
+/>
+
+### Use Resource Limits
+
+Using resource limits makes sense in scenarios where:
+
+1. You don't want to risk a high bill due to unexpected spikes in usage.
+2. You are okay with the service possibly crashing if it exceeds the limit, possibly in non-production environments.
+
+<Banner variant="info">
+We do not recommend using resource limits in production environments as setting your limits too low can cause your service to crash.
+</Banner>
