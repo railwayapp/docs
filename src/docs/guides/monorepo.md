@@ -36,6 +36,8 @@ alt="Screenshot of root directory configuration"
 layout="intrinsic"
 width={980} height={380} quality={80} />
 
+**Note:** The **Railway Config File** does not follow the **Root Directory** path. You have to specify the absolute path for the `railway.json` or `railway.toml` file.
+
 ## Deploying a Shared Monorepo
 
 Popular in the JavaScript ecosystem, shared monorepos contain multiple components that all share a common root directory. 
