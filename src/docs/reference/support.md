@@ -28,7 +28,7 @@ Please ensure that you've searched for your issue before creating a new thread, 
 
 ### Priority Threads
 
-For Pro plan users, threads created in the [Help Station](https://help.railway.app) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 3-5 business days (if community members are unable to help).
+For Pro plan users, threads created in the [Help Station](https://help.railway.app) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 1 business day (if community members are unable to help).
 
 We pay special attention to threads created by Pro users and ensure that questions or concerns are resolved in a timely manner.
 
