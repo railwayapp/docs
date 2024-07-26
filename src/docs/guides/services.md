@@ -49,7 +49,7 @@ You must link your Railway account to GitHub, to enable Railway to connect to yo
 
 ### Deploying a public Docker Image
 
-To deploy from a public Docker image, specify the path of the image when prompted in the creation flow.
+To deploy a public Docker image, specify the path of the image when prompted in the creation flow.
 
 Railway can deploy images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> or <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>.  Example paths -
 
