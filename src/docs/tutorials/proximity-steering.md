@@ -78,7 +78,7 @@ width={1060} height={555} quality={100} />
 
 - Leave Port 443 as the default.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/pool_settings_health_ydlzvo.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015787/docs/tutorials/proximity-load-balancing/health_monitor_oty6pd.png"
 alt="screenshot of the cloudflare health monitor"
 layout="responsive"
 width={1060} height={375} quality={100} />
