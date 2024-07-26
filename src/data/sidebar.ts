@@ -69,7 +69,6 @@ export const sidebarContent: ISidebarContent = [
           makePage("Healthchecks and Restarts", "guides"),
           makePage("Monorepo", "guides"),
           makePage("Cron Jobs", "guides"),
-          makePage("Resource Limits", "guides"),
           makePage("Optimize Usage", "guides"),
         ],
       },
