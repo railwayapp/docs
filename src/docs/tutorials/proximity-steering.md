@@ -33,7 +33,7 @@ In this tutorial, you will learn how to -
 
     Its recommended to use [shared variables](/guides/variables#shared-variables) or [reference variables](/guides/variables#referencing-another-services-variable) for duplicated services to keep variables in sync.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867908/docs/tutorials/proximity-load-balancing/region_services_u10ukp.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015743/docs/tutorials/proximity-load-balancing/region_services_u10ukp.png"
 alt="screenshot of two railway services in different regions"
 layout="responsive"
 width={890} height={435} quality={100} />
@@ -61,7 +61,7 @@ width={890} height={435} quality={100} />
 
     **Traffic → Load Balancing**
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/load_balancing_page_yn5bm8.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015860/docs/tutorials/proximity-load-balancing/load_balancing_page_yn5bm8.png"
 alt="screenshot of the load balancing page"
 layout="responsive"
 width={1060} height={555} quality={100} />
@@ -111,14 +111,14 @@ width={1060} height={375} quality={100} />
 
     Our pool only needs to contain a single endpoint as Railway handles single region replicas for us.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/pool_settings_config_qh5s1k.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015878/docs/tutorials/proximity-load-balancing/pool_settings_config_qh5s1k.png"
 alt="screenshot of end endpoint settings in the pool creator"
 layout="responsive"
 width={1060} height={600} quality={100} />
 
 - Click **Configure coordinates for Proximity Steering** and enter the Latitude and Longitude for your service region that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867907/docs/tutorials/proximity-load-balancing/pool_settings_proximity_rybg2r.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015901/docs/tutorials/proximity-load-balancing/pool_settings_proximity_rybg2r.png"
 alt="screenshot of the proximity settings in the pool creator"
 layout="responsive"
 width={1060} height={600} quality={100} />
@@ -127,7 +127,7 @@ width={1060} height={600} quality={100} />
 
 - Choose the applicable health check region according to the region that the Railway service was deployed to.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867906/docs/tutorials/proximity-load-balancing/pool_settings_health_ydlzvo.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015844/docs/tutorials/proximity-load-balancing/pool_settings_health_ydlzvo.png"
 alt="screenshot of the health settings in the pool creator"
 layout="responsive"
 width={1060} height={375} quality={100} />
@@ -138,7 +138,7 @@ width={1060} height={375} quality={100} />
 
 This should be the end result, two or more pools -
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867907/docs/tutorials/proximity-load-balancing/pools_w1gext.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015821/docs/tutorials/proximity-load-balancing/pools_w1gext.png"
 alt="screenshot of adding pools in the load balancer creator"
 layout="responsive"
 width={1060} height={435} quality={100} />
@@ -153,7 +153,7 @@ width={1060} height={435} quality={100} />
 
     You may need to remove the leading period from the default hostname.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867910/docs/tutorials/proximity-load-balancing/load_balancer_hostname_pfeolj.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722016030/docs/tutorials/proximity-load-balancing/load_balancer_hostname_pfeolj.png"
 alt="screenshot of the hostname in the load balancer creator"
 layout="responsive"
 width={1060} height={315} quality={100} />  
@@ -162,14 +162,14 @@ width={1060} height={315} quality={100} />
 
 - Add all the pools that were previously setup.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867911/docs/tutorials/proximity-load-balancing/load_balancer_pools_egolib.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722016015/docs/tutorials/proximity-load-balancing/load_balancer_pools_egolib.png"
 alt="screenshot of selected pools in the load balancer creator"
 layout="responsive"
 width={1060} height={585} quality={100} />
 
 - Select the appropriate fallback pool.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867910/docs/tutorials/proximity-load-balancing/load_balancer_fallback_pool_krelrk.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015976/docs/tutorials/proximity-load-balancing/load_balancer_fallback_pool_krelrk.png"
 alt="screenshot of fallback pool in the load balancer creator"
 layout="responsive"
 width={1060} height={260} quality={100} />
@@ -180,7 +180,7 @@ width={1060} height={260} quality={100} />
 
 - Choose **Proximity steering**.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867911/docs/tutorials/proximity-load-balancing/load_balancer_traffic_steering_bv3kwm.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015998/docs/tutorials/proximity-load-balancing/load_balancer_traffic_steering_bv3kwm.png"
 alt="screenshot of traffic steering options in the load balancer creator"
 layout="responsive"
 width={1060} height={585} quality={100} />
@@ -195,7 +195,7 @@ width={1060} height={585} quality={100} />
 
 After that process you should see something like the following -
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721867909/docs/tutorials/proximity-load-balancing/load_balancer_exgakv.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722015766/docs/tutorials/proximity-load-balancing/load_balancer_exgakv.png"
 alt="screenshot of the finished load balancer"
 layout="responsive"
 width={1060} height={585} quality={100} />

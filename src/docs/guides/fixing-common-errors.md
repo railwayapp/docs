@@ -28,7 +28,7 @@ users commonly encounter.
 
 After deploying your application, you encounter this screen when accessing
 your application's domain:
-<Image src="https://res.cloudinary.com/railway/image/upload/v1721267135/docs/application-error_wgrwro_i4tjkl.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722017042/docs/application-error_wgrwro_i4tjkl.png"
 alt="Screenshot of application failed to respond error"
 width={1080} height={950}
 quality={100} />
