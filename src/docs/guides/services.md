@@ -47,9 +47,9 @@ width={708} height={245} quality={80} />
 
 You must link your Railway account to GitHub, to enable Railway to connect to your GitHub repositories.  <a href="https://github.com/apps/railway-app/installations/new" target="_blank">You can configure the Railway App in GitHub by clicking this link.</a>
 
-### Deploying from a Docker Image
+### Deploying a public Docker Image
 
-To deploy from a docker image, specify the path of the image when prompted in the creation flow.
+To deploy from a public Docker image, specify the path of the image when prompted in the creation flow.
 
 Railway can deploy images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> or <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>.  Example paths -
 
@@ -60,6 +60,14 @@ Docker Hub:
 GitHub Container Registry:
 
 - `ghcr.io/railwayapp-templates/postgres-ssl:latest`
+
+### Deploying a private Docker Image
+
+If you'd like to deploy from a private Docker registry, ensure you're on the [Pro plan](pricing/plans#plans).
+
+To deploy from a private Docker registry, specify the path of the image when prompted in the creation flow, as well as authentication credentials (username, password) to the registry.
+
+If deploying an image from <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>, provide a <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry" target="_blank">personal access token (classic)<a/>. 
 
 ## Deploying from a local directory
 
