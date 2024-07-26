@@ -81,7 +81,7 @@ width={1060} height={555} quality={100} />
 <Image src="https://res.cloudinary.com/railway/image/upload/v1722015787/docs/tutorials/proximity-load-balancing/health_monitor_oty6pd.png"
 alt="screenshot of the cloudflare health monitor"
 layout="responsive"
-width={1060} height={375} quality={100} />
+width={1060} height={315} quality={100} />
 
 - Click **Save**.
 
