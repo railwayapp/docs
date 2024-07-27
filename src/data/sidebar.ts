@@ -145,6 +145,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Deploy and Monitor Mongo", "tutorials"),
           makePage("Add a CDN using CloudFront", "tutorials"),
           makePage("Deploying a Monorepo", "tutorials"),
+          makePage("Proximity Steering", "tutorials"),
         ],
       },
       {
