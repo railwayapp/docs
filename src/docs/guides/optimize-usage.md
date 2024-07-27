@@ -86,11 +86,11 @@ To toggle resource limits, navigate to your service's settings > Deploy > Resour
 
 ### Use Resource Limits
 
+<Banner variant="warning">
+Setting resource limits too low will cause your service to crash.
+</Banner>
+
 Using resource limits makes sense in scenarios where:
 
-1. You don't want to risk a high bill due to unexpected spikes in usage.
-2. You are okay with the service possibly crashing if it exceeds the limit, possibly in non-production environments.
-
-<Banner variant="info">
-We do not recommend using resource limits in production environments as setting your limits too low can cause your service to crash.
-</Banner>
+1. You don't want to risk a high bill due to unexpected spikes in usage
+2. You are okay with the service crashing if it exceeds the limit
