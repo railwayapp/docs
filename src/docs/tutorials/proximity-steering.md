@@ -8,6 +8,8 @@ title: Setting up Proximity Steering using Cloudflare
 
 *Source: [Proximity steering](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/steering-policies/proximity-steering/)*
 
+Sometimes also referred to as Geo-Load Balancing.
+
 ## About this Tutorial
 
 As Railway does not offer native Proximity Steering at this time, we instead need to place Cloudflare in front of our services to do this for us.
@@ -16,7 +18,7 @@ This tutorial aims to provide a simple step-by-step guide on setting everything 
 
 **Objectives**
 
-In this tutorial, you will learn how to -
+In this tutorial, you will learn how to do the following in Cloudflare -
 
 - Create a Health monitor.
 - Create pools for each region.
@@ -24,19 +26,28 @@ In this tutorial, you will learn how to -
 
 **Prerequisites**
 
-- Have two or more identical services deployed in two or more different regions.
+**In Railway -**
+
+
+- Have two or more identical services deployed in two or more different regions in Railway.
 
 
     Duplicating a service can be done by right clicking and selecting **Duplicate**, opening its service settings and changing the region, then clicking **Deploy**.
 
-    The services you have deployed into the multiple regions should **only** have a Railway generated domain on them, it also helps to have the domains indicate the region.
+    The services should be configured with a Railway-generated domain, do not assign a custom domain. It is also helpful to indicate the region in the domain.
 
-    Its recommended to use [shared variables](/guides/variables#shared-variables) or [reference variables](/guides/variables#referencing-another-services-variable) for duplicated services to keep variables in sync.
+    It's recommended to use [shared variables](/guides/variables#shared-variables) or [reference variables](/guides/variables#referencing-another-services-variable) for duplicated services to keep variables in sync.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1722015743/docs/tutorials/proximity-load-balancing/region_services_u10ukp.png"
 alt="screenshot of two railway services in different regions"
 layout="responsive"
 width={890} height={435} quality={100} />
+
+- Have a `/health` or similar endpoint in the services deployed to Railway, which should return a 200 status code when queried.
+
+    This allows Cloudflare to check the health of our Railway services so they can handle region failover. As a bonus this can also be used on Railway to achieve [zero-downtime deployments](/reference/healthchecks).
+
+**In Cloudflare -**
 
 - Have your desired domain setup with Cloudflare's nameservers, they have a general guide for that [here](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/).
 
@@ -49,11 +60,6 @@ width={890} height={435} quality={100} />
     **SSL/TLS → Edge Certificates → Always Use HTTPS**
     
     This ensures that Railway avoids managing the insecure redirect, which would otherwise lead to an incorrect redirection to an upstream endpoint.
-
-- Have a `/health` or similar endpoint that returns a status code of 200.
-
-    This allows Cloudflare to check the health of our Railway services so they can handle region failover. As a bonus this can also be used on Railway to achieve [zero-downtime deployments](/reference/healthchecks).
-
 
 ## 1. Creating a Health Monitor
 
@@ -91,7 +97,7 @@ width={1060} height={315} quality={100} />
 
 - Click **Manage Pools** and then **Create**.
 
-- Fill out the name and description and leave **Endpoint Steering** as its default, it will not be used with only a single endpoint.
+- Fill out the name and description and leave **Endpoint Steering** as its default of **Random**, it will not be used with only a single endpoint.
 
 - Enter the endpoint name, using the service name is ideal.
 
@@ -105,7 +111,7 @@ width={1060} height={315} quality={100} />
 
 - Click **Add host header** and enter the same value as used for the Endpoint Address.
 
-    Railway does host based routing so we need to set the host header so they know how to route the incoming requests from Cloudflare.
+    This step is important since Railway uses host-based routing and requires the host header to know how to route the incoming requests from Cloudflare.
 
 - Remove the second empty endpoint.
 
@@ -117,6 +123,10 @@ layout="responsive"
 width={1060} height={600} quality={100} />
 
 - Click **Configure coordinates for Proximity Steering** and enter the Latitude and Longitude for your service region that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
+
+    To find the coordinates of a region, look up its location and copy the corresponding **latitude** and **longitude** values into Cloudflare.
+
+    You can find information on Railway's available regions and their locations [here](/reference/regions#region-options).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1722015901/docs/tutorials/proximity-load-balancing/pool_settings_proximity_rybg2r.png"
 alt="screenshot of the proximity settings in the pool creator"
@@ -201,3 +211,16 @@ layout="responsive"
 width={1060} height={585} quality={100} />
 
 That's all for the setup! You can now open your domain and Cloudflare will automatically route your requests to the Railway service you are in closest proximity to.
+
+**Additional Resources**
+
+This tutorial covers setting up a Proximity Load Balancer on Cloudflare but does not cover all the settings and configurations Cloudflare offers.
+
+We recommend checking out these resources from Cloudflare:
+
+- [What is load balancing?](https://developers.cloudflare.com/learning-paths/load-balancing/concepts/load-balancing/)
+- [Proximity steering](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/steering-policies/proximity-steering/)
+- [Components of a load balancer](https://developers.cloudflare.com/learning-paths/load-balancing/concepts/load-balancer-components/)
+- [Monitors and health checks](https://developers.cloudflare.com/learning-paths/load-balancing/concepts/health-checks/)
+- [Session affinity](https://developers.cloudflare.com/learning-paths/load-balancing/planning/session-affinity/)
+- [Override HTTP Host headers](https://developers.cloudflare.com/load-balancing/additional-options/override-http-host-headers/)
