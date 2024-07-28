@@ -51,9 +51,9 @@ width={1365} height={765} quality={100} />
 
 Some of the most commonly used project settings are -
 
-- Transfer Project
+- [Transfer Project](/reference/teams#transferring-projects)
 
-    Transfer your project between [workspaces](/reference/teams#transferring-projects).
+    Transfer your project between workspaces.
 
 - [Environments](/reference/environments)
 
