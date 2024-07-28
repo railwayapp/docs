@@ -114,7 +114,7 @@ Some of the most commonly used service settings are -
 
 ## Volumes
 
-[Volumes](/reference/volumes are a feature that allows services on Railway to [maintain persistent data](/guides/volumes).
+[Volumes](/reference/volumes) are a feature that allows services on Railway to [maintain persistent data](/guides/volumes).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1722144284/docs/the-basics/volumes_yom2km.png"
 alt="Screenshot of the project canvas with a volume highlighted"
