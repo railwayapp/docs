@@ -4,13 +4,26 @@ title: The Basics
 
 This document outlines the core concepts of Railway, providing foundational knowledge of the basic building blocks you'll work with in the platform.
 
+### In a Nutshell
+
+- **[Dashboard](/overview/the-basics#dashboard--projects):** Main entrypoint for all projects under your account.
+- **[Project](/overview/the-basics#project--project-canvas):** A collection of services under the same network.
+  - **[Project Settings](/overview/the-basics#project-settings):** Contains all project-level settings.
+- **[Service](/overview/the-basics#services):** A target for a deployment source (e.g. Web Application).
+  - **[Service Variables](/overview/the-basics#service-variables):** A collection of configurations and secrets.
+  - **[Service Metrics](/overview/the-basics#service-metrics):** Rundown of metrics for a service.
+  - **[Service Settings](/overview/the-basics#service-settings):** Contains all service-level settings.
+- **[Volumes](/overview/the-basics#volumes):** Persistent storage solution for services.
+  - **[Volume Metrics](/overview/the-basics#volume-metrics):** Rundown of metrics for volumes (e.g. disk usage over time).
+  - **[Volume Settings](/overview/the-basics#volume-settings):** Contains all volume-level settings.
+
 ## Dashboard / Projects
 
-Your main entrypoint to Railway where all your [projects](/overview/the-basics#projects) are shown in the order they where last opened.
+Your main entrypoint to Railway where all your [projects](/overview/the-basics#project--project-canvas) are shown in the order they where last opened.
 
-Projects contain your [services](/overview/the-basics#services) and [environments](https://docs.railway.app/overview/the-basics#environments).
+Projects contain your [services](/overview/the-basics#services) and [environments](/reference/environments).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144285/docs/the-basics/dashboard_ycmxnk.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722187321/docs/the-basics/dashboard_ycmxnk.png"
 alt="Screenshot of the Railway dashboard"
 layout="responsive"
 width={1305} height={735} quality={100} />
@@ -41,11 +54,11 @@ Some of the most commonly used project settings are -
 
     Transfer your project between [workspaces](/reference/teams#transferring-projects).
 
-- [Environments](https://docs.railway.app/reference/environments)
+- [Environments](/reference/environments)
 
     Manage various settings regarding environments.
 
-- [Members](https://docs.railway.app/reference/project-members)
+- [Members](reference/project-members)
 
     Add or remove members to collaborate on your project.
 
@@ -95,9 +108,9 @@ width={1365} height={765} quality={100} />
 
 Some of the most commonly used service settings are -
 
-- [Source](https://docs.railway.app/reference/services#service-source)
+- [Source](/reference/services#service-source)
 
-    Here, you can configure the deployment source, which can be either a GitHub repository with a specific branch or an image with optional credentials.
+    Here you can configure the deployment source, which can be either a GitHub repository with a specific branch or an image with optional credentials.
 
 - [Networking](/guides/public-networking#railway-provided-domain)
 
@@ -105,7 +118,7 @@ Some of the most commonly used service settings are -
 
 - Custom Build Command
 
-    Here, you can configure a custom build command if you need to overwrite the default, only applicable with [Nixpacks](https://nixpacks.com/docs) based builds.
+    Here you can configure a custom build command if you need to overwrite the default, only applicable with [Nixpacks](https://nixpacks.com/docs) based builds.
 
 - Custom Start Command
 
