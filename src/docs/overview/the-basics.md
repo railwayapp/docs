@@ -4,7 +4,7 @@ title: The Basics
 
 This document outlines the core concepts of Railway, providing foundational knowledge of the basic building blocks you'll work with in the platform.
 
-### In a Nutshell
+## In a Nutshell
 
 - **[Dashboard](/overview/the-basics#dashboard--projects):** Main entrypoint for all projects under your account.
 - **[Project](/overview/the-basics#project--project-canvas):** A collection of services under the same network.
@@ -13,6 +13,7 @@ This document outlines the core concepts of Railway, providing foundational know
   - **[Service Variables](/overview/the-basics#service-variables):** A collection of configurations and secrets.
   - **[Service Metrics](/overview/the-basics#service-metrics):** Rundown of metrics for a service.
   - **[Service Settings](/overview/the-basics#service-settings):** Contains all service-level settings.
+- **[Deployment](/overview/the-basics#deployments):** Built and deliverable unit of a service.
 - **[Volumes](/overview/the-basics#volumes):** Persistent storage solution for services.
   - **[Volume Metrics](/overview/the-basics#volume-metrics):** Rundown of metrics for volumes (e.g. disk usage over time).
   - **[Volume Settings](/overview/the-basics#volume-settings):** Contains all volume-level settings.
@@ -39,7 +40,7 @@ alt="Screenshot of the project canvas"
 layout="responsive"
 width={1365} height={765} quality={100} />
 
-## Project Settings
+### Project Settings
 
 This page contains all the project level settings.
 
@@ -77,7 +78,7 @@ width={1365} height={765} quality={100} />
 
 Out of the box, your service is deployed with a set of default configurations which can be overridden as needed.
 
-## Service Variables
+### Service Variables
 
 Service [Variables](/reference/variables) provide a powerful way to manage configuration and secrets across services in Railway.
 
@@ -88,7 +89,7 @@ alt="Screenshot of the service variables tab"
 layout="responsive"
 width={1365} height={765} quality={100} />
 
-## Service Metrics
+### Service Metrics
 
 Service [Metrics](/reference/metrics) provide an essential overview of CPU, memory, and network usage for a given service.
 
@@ -97,7 +98,7 @@ alt="Screenshot of the service metrics tab"
 layout="responsive"
 width={1365} height={770} quality={100} />
 
-## Service Settings
+### Service Settings
 
 This tab contains all the service level settings.
 
@@ -124,6 +125,14 @@ Some of the most commonly used service settings are -
 
     Here, you can configure a custom start command if you need to overwrite the default.
 
+## Deployments
+
+Deployments involve building and delivering your [Service](/overview/the-basics#services).
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722196270/docs/the-basics/deployment_l0trj8.png"
+alt="Screenshot of a service open with a deployment highlighted"
+layout="responsive"
+width={1365} height={790} quality={100} />
 
 ## Volumes
 
@@ -134,7 +143,7 @@ alt="Screenshot of the project canvas with a volume highlighted"
 layout="responsive"
 width={1365} height={765} quality={100} />
 
-## Volume Metrics
+### Volume Metrics
 
 Volume Metrics show the amount of data stored in the volume and its maximum capacity.
 
@@ -143,7 +152,7 @@ alt="Screenshot of the volume metrics tab"
 layout="responsive"
 width={1365} height={826} quality={100} />
 
-## Volume Settings
+### Volume Settings
 
 This tab contains all the volume centric settings.
 
