@@ -88,7 +88,7 @@ width={1365} height={770} quality={100} />
 
 This tab contains all the service level settings.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144286/docs/the-basics/service_metrics_dcbfms.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722144287/docs/the-basics/service_settings_lnyql0.png"
 alt="Screenshot of the service settings tab"
 layout="responsive"
 width={1365} height={765} quality={100} />
