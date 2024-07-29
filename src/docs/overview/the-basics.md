@@ -127,7 +127,7 @@ Some of the most commonly used service settings are -
 
 ## Deployments
 
-Deployments involve building and delivering your [Service](/overview/the-basics#services).
+[Deployments](/reference/deployments) involve building and delivering your [Service](/overview/the-basics#services).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1722196270/docs/the-basics/deployment_l0trj8.png"
 alt="Screenshot of a service open with a deployment highlighted"
