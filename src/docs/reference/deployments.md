@@ -36,14 +36,17 @@ Once the build succeeds, Railway will attempt to deploy your image and the Deplo
 #### Failed
 If an error occurs during the build or deploy process, the Deployment will stop and the status will become `Failed`.
 
-#### Success
-Once the Deployment is live and running, the status will change to `Success`. 
+#### Active
+Once the Deployment is live and running, the status will change to `Active`.
+
+### Completed
+This is the status of the Deployment when the running app exits with a non-zero exit code.
 
 #### Crashed
-A Deployment will remain in the `Success` state unless it [crashes](/guides/deployment-actions#restart-a-crashed-deployment), at which point it will become `Crashed`.
+A Deployment will remain in the `Active` state unless it [crashes](/guides/deployment-actions#restart-a-crashed-deployment), at which point it will become `Crashed`.
 
 #### Removed
-When a new Deployment is triggered, older deploys in a `Crashed` and `Success` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually.
+When a new Deployment is triggered, older deploys in a `Crashed` or `Active` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually.
 
 ## Ephermal Storage
 
