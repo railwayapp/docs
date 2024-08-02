@@ -14,11 +14,13 @@ We know that your businesses need to develop strong and lasting relationships wi
 
 ### SOC 2
 
-Railway is currently in the process of attaining SOC 2 certification. 
+Railway is SOC 2 Type I certified. 
 
-We are undergoing this process with our vendor, Drata. After completion, we plan to publish a compliance portal via our vendor. For updates, you can subscribe to the road-map item on [our road-map board](https://railway.canny.io/feature-requests/p/compliance).
+Highly motivated customers (Pro tier and higher) who are in the process of securing SOC 2 certification can request a copy of the Railway security audit. 
 
-Highly motivated customers who are in the process of securing SOC2 certification can request a security questionnaire where the Railway team will provide relevant information about vendor usage and Railway employee acesss procedures.
+To make this request, please book a session with a Railway team member [here](https://cal.com/team/railway/demonew).
+
+SOC 2 Type II certification is expected before the end of 2024.
 
 ### HIPAA BAA
 
