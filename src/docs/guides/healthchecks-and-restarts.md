@@ -43,3 +43,9 @@ If you are looking for a quick way to setup continuous monitoring of your servic
 The restart policy dictates what action Railway should take if a deployed service stops or otherwise becomes unhealthy, e.g. exits with a non-zero exit code.
 
 To configure a restart policy, go to the Service settings, set a restart policy of `Never`, `Always`, or `On-Failure` with an optional maximum number of restarts.
+
+- `Always`: This means Railway will automatically restart your service every time it stops, regardless of the reason. It's useful for services that are designed to run continuously and should always be available.
+
+- `On-Failure`: Railway will only restart your service if it stops due to an error (e.g., crashes, exits with a non-zero code). This is a good option if you want to avoid unnecessary restarts when the service stops intentionally.
+
+- `Never`: Railway will never automatically restart your service, even if it crashes. This is typically used for one-off tasks or scheduled jobs where you don't want the service to keep running after it completes.
