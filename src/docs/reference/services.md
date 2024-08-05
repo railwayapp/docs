@@ -26,7 +26,7 @@ If a [Dockerfile](/reference/dockerfiles) is found within the source repository,
 
 #### Docker Image
 
-Services can be deployed directly from a Docker image from Docker Hub or GitHub Container Registry.
+Services can be deployed directly from a Docker image from Docker Hub, GitHub Container Registry, or Quay.io.  The images can be public or private.
 
 #### GitHub Repository
 

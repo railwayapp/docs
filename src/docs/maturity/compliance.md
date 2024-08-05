@@ -6,7 +6,7 @@ Railway is designed to be used by companies of all sizes. We understand that com
 
 Companies choose Railway so that they can speed up their development velocity while also maintaining their security and compliance posture.
 
-We are happy to sign NDAs with your company to provide additional information about our security and compliance practices. Please reach out to us at [team@railway.app](mailto:team@railway.app) to get started.
+We are happy to sign NDAs with your company to provide additional information about our security and compliance practices. Please reach out to us at [team@railway.app](mailto:team@railway.app) to get started, or click [here](https://cal.com/team/railway/demonew) to book some time to chat.
 
 ## Certifications
 
@@ -26,9 +26,9 @@ SOC 2 Type II certification is expected before the end of 2024.
 
 Railway follows a shared responsibility model for HIPAA compliance. Railway will make its best effort to advise your company on setting up encryption for your data, auditing the storage of keys, establishing access control, and ensuring secure storage of sensitive patient data. When a BAA is in effect, the Railway team will no longer be able to directly access your running workloads. BAAs are only available on our Enterprise offerings.
 
-If your company needs a BAA, you can contact our solutions team at [team@railway.app](mailto:team@railway.app).
+If your company needs a BAA, you can contact our solutions team at [team@railway.app](mailto:team@railway.app), or click [here](https://cal.com/team/railway/demonew) to schedule some time to chat.
 
-We are working on operationalized BAAs and continually gathering requirements for health-focused workloads for Enterprises. You can subscribe to the road-map item and share your feedback on [our road-map board](https://railway.canny.io/feature-requests/p/compliance).
+We are working on operationalized BAAs and continually gathering requirements for health-focused workloads for Enterprises. You can share your feedback in [Help Station](https://help.railway.app/feedback).
 
 ## Privacy
 

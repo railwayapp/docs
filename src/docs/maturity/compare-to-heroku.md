@@ -67,4 +67,4 @@ We feel no project, big or small- is never not important. This is our guiding ph
 
 As a result, we make great pains to be very communicative in our support channels, [optimistically gather feedback](https://feedback.railway.app/), provide informative docs, and encourage our community to help each other.
 
-Having an issue with a deployment? [Join over 5k Railway users on our Discord Server!](https://discord.gg/railway) With our dedicated support channels, you can get help from the Railway team and our community of builders.
+Having an issue with a deployment? [Join over 20k Railway users on our Discord Server!](https://discord.gg/railway) With our dedicated support channels, you can get help from the Railway team and our community of builders.
