@@ -101,4 +101,6 @@ Railway is undergoing the SoC2 certification process, for more information see o
 
 ## General Recommendations
 
-A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.app](mailto:team@railway.app), or via our [Discord server](https://discord.gg/railway). We would be happy to answer any additional questions you may have.
+A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.app](mailto:team@railway.app), or via our [Discord server](https://discord.gg/railway).  You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/demonew).
+
+We would be happy to answer any additional questions you may have.

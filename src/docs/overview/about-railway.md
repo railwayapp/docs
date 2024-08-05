@@ -10,7 +10,7 @@ Point Railway to your deployment source and let the platform handle the rest.
 
 #### Flexible Deployment Sources
 - **Code Repositories**: With or without Dockerfiles.  Railway will build an [OCI compliant image](https://opencontainers.org/) based on what you provide.
-- **Docker Images**: Directly from Docker Hub or GitHub Container Registry.
+- **Docker Images**: Directly from Docker Hub, GitHub Container Registry, or Quay.io.  We support public and private image registries.
 
 #### Hassle-Free Setup
 - **Sane Defaults**: Out of the box, your project is deployed with sane defaults to get you up and running as fast as possible.
@@ -34,3 +34,7 @@ Software development extends far beyond code deployment.  Railway's feature set 
 ## Operational Model
 
 Railway operates with an emphasis on reliability and transparency. We utilize a combination of alerting tools, internal systems, and operational procedures to maintain high uptime.  Read more about product philosophy and maturity [here](/maturity/philosophy).
+
+## Book a Demo
+
+Looking to adopt Railway for your business?  We'd love to chat!  [Click here to book some time with us](https://cal.com/team/railway/demonew).

@@ -12,7 +12,7 @@ Create a service by clicking the `New` button in the top right corner of your pr
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1656640995/docs/CleanShot_2022-06-30_at_18.17.31_cl0wlr.gif"
 alt="GIF of the Services view"
-layout="intrinsic"
+layout="responsive"
 width={370} height={300} quality={100} />
 
 Services on Railway can be deployed from a GitHub repository, a local directory, or a Docker image.
@@ -51,7 +51,7 @@ You must link your Railway account to GitHub, to enable Railway to connect to yo
 
 To deploy a public Docker image, specify the path of the image when prompted in the creation flow.
 
-Railway can deploy images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> or <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>.  Example paths -
+Railway can deploy images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>, <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>, or <a href="https://quay.io/" target="_blank">Quay.io</a>.  Example paths -
 
 Docker Hub:
 
@@ -61,11 +61,19 @@ GitHub Container Registry:
 
 - `ghcr.io/railwayapp-templates/postgres-ssl:latest`
 
+Quay.io:
+- `quay.io/username/repo:tag`
+
 ### Deploying a private Docker Image
 
 If you'd like to deploy from a private Docker registry, ensure you're on the [Pro plan](pricing/plans#plans).
 
 To deploy from a private Docker registry, specify the path of the image when prompted in the creation flow, as well as authentication credentials (username, password) to the registry.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1722896145/docs/CleanShot_2024-08-05_at_17.12.55_2x_xi38sx.png"
+alt="GIF of the Services view"
+layout="intrinsic"
+width={370} height={280} quality={100} />
 
 If deploying an image from <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>, provide a <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry" target="_blank">personal access token (classic)</a>. 
 

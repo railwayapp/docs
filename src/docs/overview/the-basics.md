@@ -6,17 +6,17 @@ This document outlines the core concepts of Railway, providing foundational know
 
 ## In a Nutshell
 
-- **[Dashboard](/overview/the-basics#dashboard--projects):** Main entrypoint for all projects under your account.
-- **[Project](/overview/the-basics#project--project-canvas):** A collection of services under the same network.
-  - **[Project Settings](/overview/the-basics#project-settings):** Contains all project-level settings.
-- **[Service](/overview/the-basics#services):** A target for a deployment source (e.g. Web Application).
-  - **[Service Variables](/overview/the-basics#service-variables):** A collection of configurations and secrets.
-  - **[Service Metrics](/overview/the-basics#service-metrics):** Rundown of metrics for a service.
-  - **[Service Settings](/overview/the-basics#service-settings):** Contains all service-level settings.
-- **[Deployment](/overview/the-basics#deployments):** Built and deliverable unit of a service.
-- **[Volumes](/overview/the-basics#volumes):** Persistent storage solution for services.
-  - **[Volume Metrics](/overview/the-basics#volume-metrics):** Rundown of metrics for volumes (e.g. disk usage over time).
-  - **[Volume Settings](/overview/the-basics#volume-settings):** Contains all volume-level settings.
+- **[Dashboard](#dashboard--projects)** - Main entrypoint for all projects under your account.
+- **[Project](#project--project-canvas)** - A collection of services under the same network.
+  - **[Project Settings](#project-settings)** - Contains all project-level settings.
+- **[Service](#services)** - A target for a deployment source (e.g. Web Application).
+  - **[Service Variables](#service-variables)** - A collection of configurations and secrets.
+  - **[Service Metrics](#service-metrics)** - Rundown of metrics for a service.
+  - **[Service Settings](#service-settings)** - Contains all service-level settings.
+- **[Deployment](#deployments)** - Built and deliverable unit of a service.
+- **[Volumes](#volumes)** - Persistent storage solution for services.
+  - **[Volume Metrics](#volume-metrics)** - Rundown of metrics for volumes (e.g. disk usage over time).
+  - **[Volume Settings](#volume-settings)** - Contains all volume-level settings.
 
 ## Dashboard / Projects
 
@@ -51,21 +51,13 @@ width={1365} height={765} quality={100} />
 
 Some of the most commonly used project settings are -
 
-- [Transfer Project](/reference/teams#transferring-projects)
+- [Transfer Project](/reference/teams#transferring-projects) - Transfer your project between workspaces.
 
-    Transfer your project between workspaces.
+- [Environments](/reference/environments) - Manage various settings regarding environments.
 
-- [Environments](/reference/environments)
+- [Members](reference/project-members) - Add or remove members to collaborate on your project.
 
-    Manage various settings regarding environments.
-
-- [Members](reference/project-members)
-
-    Add or remove members to collaborate on your project.
-
-- Danger
-
-    Remove individual [services](/overview/the-basics#services) or delete the entire project.
+- Danger - Remove individual [services](/overview/the-basics#services) or delete the entire project.
 
 ## Services
 
@@ -109,21 +101,13 @@ width={1365} height={765} quality={100} />
 
 Some of the most commonly used service settings are -
 
-- [Source](/reference/services#service-source)
+- [Source](/reference/services#service-source) - Here you can configure the deployment source, which can be either a GitHub repository with a specific branch or an image with optional credentials.
 
-    Here you can configure the deployment source, which can be either a GitHub repository with a specific branch or an image with optional credentials.
+- [Networking](/guides/public-networking#railway-provided-domain) - Generate a Railway-provided domain or add your own custom one.
 
-- [Networking](/guides/public-networking#railway-provided-domain)
+- Custom Build Command - Here you can configure a custom build command if you need to overwrite the default, only applicable with [Nixpacks](https://nixpacks.com/docs) based builds.
 
-    Generate a Railway-provided domain or add your own custom one.
-
-- Custom Build Command
-
-    Here you can configure a custom build command if you need to overwrite the default, only applicable with [Nixpacks](https://nixpacks.com/docs) based builds.
-
-- Custom Start Command
-
-    Here, you can configure a custom start command if you need to overwrite the default.
+- Custom Start Command - Here, you can configure a custom start command if you need to overwrite the default.
 
 ## Deployments
 
@@ -163,17 +147,11 @@ width={1365} height={826} quality={100} />
 
 Some of the most commonly used volume settings are -
 
-- Mount path
+- Mount path - The absolute path where the volume will be mounted within the deployed service.
 
-    The absolute path where the volume will be mounted within the deployed service.
+- Volume Size - Displays the current volume capacity and offers the option to expand it if your plan permits.
 
-- Volume Size
-
-    Displays the current volume capacity and offers the option to expand it if your plan permits.
-
-- Wipe Volume
-
-    This action wipes all data in the volume and then redeploys the connected service.
+- Wipe Volume - This action wipes all data in the volume and then redeploys the connected service.
 
 ## What Next?
 
