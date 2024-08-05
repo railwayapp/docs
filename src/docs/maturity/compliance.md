@@ -28,7 +28,7 @@ Railway follows a shared responsibility model for HIPAA compliance. Railway will
 
 If your company needs a BAA, you can contact our solutions team at [team@railway.app](mailto:team@railway.app), or click [here](https://cal.com/team/railway/demonew) to schedule some time to chat.
 
-We are working on operationalized BAAs and continually gathering requirements for health-focused workloads for Enterprises. You can subscribe to the road-map item and share your feedback on [our road-map board](https://railway.canny.io/feature-requests/p/compliance).
+We are working on operationalized BAAs and continually gathering requirements for health-focused workloads for Enterprises. You can share your feedback in [Help Station](https://help.railway.app/feedback).
 
 ## Privacy
 
