@@ -29,7 +29,7 @@ All of these verticals deploy workloads that may require high bandwidth operatio
 
 However, service scale on the platform is not unbounded. As a foundational infrastructure company, we understand that customers may outpace our pace of improvement for the platform. Even though 32 vCPU and 32 GB of memory sounds like a lot (with up to 20 replicas) on the Pro plan, when faced with hyper-growth: throwing more resources at the issue might be your best bet until long term optimizations can be made by your team.
 
-Railway will gladly bump up your service limits within your tier of service to meet your needs. Even so, we will be frank and honest if you may need to seek elsewhere to augment your workloads with extra compute. If your compute needs outpace our Pro offering, consider our Enterprise plans where we offer even greater limits and capacity planning, [contact us to learn more](mailto:team@railway.app).
+Railway will gladly bump up your service limits within your tier of service to meet your needs. Even so, we will be frank and honest if you may need to seek elsewhere to augment your workloads with extra compute. If your compute needs outpace our Pro offering, consider our Enterprise plans where we offer even greater limits and capacity planning, [email us to learn more](mailto:team@railway.app), or [click here](https://cal.com/team/railway/demonew) to schedule some time to chat.
 
 ### Databases
 
@@ -94,10 +94,6 @@ Unfortunately, our platform isn't yet well-equipped to handle the following vert
 - Government
 - Traditional Banking
 - Machine Learning Compute
-
-### Status on Certifications
-
-Railway is undergoing the SoC2 certification process, for more information see our [compliance documentation page](/maturity/compliance).
 
 ## General Recommendations
 
