@@ -26,6 +26,18 @@ Currently, we support the following languages out of the box:
 - [Staticfile](https://nixpacks.com/docs/providers/staticfile)
 - [Elixir](https://nixpacks.com/docs/providers/elixir)
 
+## The Build Table / Build Plan
+
+When Railway builds your app with Nixpacks a Build Plan will be printed **at the top** of the build logs.
+
+This table displays a list of packages and commands that will be used in the build process for your application.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1722994637/docs/build_table_j6izfy.png"
+alt="nixpacks build table"
+layout="responsive"
+width={1365} height={790} quality={80} />
+
 ## Support
 
 If you have a language or feature that you want us to support, please don't hesitate to
