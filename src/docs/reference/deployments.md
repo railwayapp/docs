@@ -48,7 +48,7 @@ A Deployment will remain in the `Active` state unless it [crashes](/guides/deplo
 #### Removed
 When a new Deployment is triggered, older deploys in a `Crashed` or `Active` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually.
 
-## Ephermal Storage
+## Ephemeral Storage
 
 Every service deployment has access to 10GB of ephemeral storage.  If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
 
