@@ -11,17 +11,24 @@ There are three ways to view logs in Railway.
 - **Log Explorer** → Click on the Observability tab in the top navigation
 - **CLI** → Run the `railway logs` command
 
-## Build/Deploy Panel
+## Build / Deploy Panel
 
 Logs for a specific deployment can be viewed by clicking on the deployment 
-in dashboard, useful when debugging build or deployment failures.
+in the service window, useful when debugging application failures.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1694195763/docs/CleanShot_2023-09-08_at_10.55.06_2x_co6ztr.png"
-alt="Logs for a specific deployment"
+src="https://res.cloudinary.com/railway/image/upload/v1722993852/docs/CleanShot_2023-09-08_at_10.55.06_2x_co6ztr.png"
+alt="deploy logs for a specific deployment"
 layout="responsive"
-width={1385} height={816} quality={80} />
+width={1365} height={790} quality={80} />
 
+Similarly, logs for a specific build can be viewed by clicking on the **Build Logs** tab once you have a deployment open.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1722993947/docs/build_logs_og7uec.png"
+alt="deploy logs for a specific deployment"
+layout="responsive"
+width={1365} height={790} quality={80} />
 
 ## Log Explorer
 

@@ -15,7 +15,9 @@ width={1103} height={523} quality={80} />
 
 ## How it Works
 
-Upon service creation, or when changes are detected in the service source, Railway will build the service and package it into a container.  (If the source is a Docker Image, the build step is skipped.)  Railway then starts the service using either the detected or configured [Start Command](/reference/build-and-start-commands).
+Upon service creation, or when changes are detected in the service source, Railway will build the service and package it into a container with [Nixpacks](https://nixpacks.com/docs) or a [Dockerfile](/guides/dockerfiles) if present. If the source is a Docker Image, the build step is skipped.
+
+Railway then starts the service using either the detected or configured [Start Command](/reference/build-and-start-commands).
 
 This cycle represents a deployment in Railway.
 
@@ -48,7 +50,7 @@ A Deployment will remain in the `Active` state unless it [crashes](/guides/deplo
 #### Removed
 When a new Deployment is triggered, older deploys in a `Crashed` or `Active` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually.
 
-## Ephermal Storage
+## Ephemeral Storage
 
 Every service deployment has access to 10GB of ephemeral storage.  If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
 
