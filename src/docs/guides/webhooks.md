@@ -16,7 +16,7 @@ Complete the following steps to setup a webhook:
 4. Input your desired webhook URL.
 5. Click `Save Webhook`.
 
-The URL you provide will receive a webhook payload when any service's deployment status changes. This will be executed across all environments in the project.
+The URL you provide will receive a webhook payload when any service's deployment status changes or an alert is triggered. This will be executed across all environments in the project.
 
 To see what payload will be transmitted to the URL, you can expand the "Example webhook payload" panel.
 
