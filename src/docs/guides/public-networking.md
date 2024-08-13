@@ -140,7 +140,7 @@ The type of record to create is entirely dependent on your DNS provider.  Here a
 
 If your DNS provider doesn't support CNAME Flattening or dynamic ALIAS records, you can also change your domain's nameservers to point to Cloudflare's nameservers. This will allow you to use a CNAME record for the root domain. Follow the instructions listed on Cloudflare's documentation to <a href="https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/" target="_blank">change your nameservers</a>.
 
-**Adding a root domain with www. subdomain to Cloudflare**
+## Adding a root domain with www. subdomain to Cloudflare
 
 If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdomain to Cloudflare and redirect all `www.` traffic to the root domain:
 
@@ -156,26 +156,26 @@ If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdom
     - `Proxy status:` → on, should display an orange cloud.
     - Note: Cloudflare will automatically change the `Target` value to your root domain.
 4. Enable Full SSL/TLS encryption in Cloudflare:
-    1. Go to your domain on Cloudflare.
-    2. Navigate to `SSL/TLS -> Overview`.
-    3. Select `Full`, or `Full (strict)`.
+    - Go to your domain on Cloudflare.
+    - Navigate to `SSL/TLS -> Overview`.
+    - Select `Full`, or `Full (strict)`.
 5. Enable Universal SSL in Cloudflare:
-    1. Go to your domain on Cloudflare.
-    2. Navigate to `SSL/TLS -> Edge Certificates`.
-    3. Enable `Universal SSL`.
+    - Go to your domain on Cloudflare.
+    - Navigate to `SSL/TLS -> Edge Certificates`.
+    - Enable `Universal SSL`.
 6. After doing this, you should see `Cloudflare proxy detected` on your Custom Domain in Railway with a green cloud.
 7. Create a Bulk Redirect in Cloudflare:
-    1. Go to your [Cloudflare dashboard](https://dash.cloudflare.com/).
-    2. Navigate to `Bulk Redirects`.
-    3. Click `Create Bulk Redirect List`.
-    4. Give it a name, e.g., `www-redirect`.
-    5. Click `Or, manually add URL redirects`.
-    6. Add a `Source URL`: `https://www.mydomain.com`.
-    7. Add `Target URL`: `https://mydomain.com` with status `301`.
-    8. Tick all the parameter options: (`Preserve query string`, `Include subdomains`, `Subpath matching`, `Preserve path suffix`)
-    9. Click `Next`, then `Save and Deploy`.
+    - Go to your [Cloudflare dashboard](https://dash.cloudflare.com/).
+    - Navigate to `Bulk Redirects`.
+    - Click `Create Bulk Redirect List`.
+    - Give it a name, e.g., `www-redirect`.
+    - Click `Or, manually add URL redirects`.
+    - Add a `Source URL`: `https://www.mydomain.com`.
+    - Add `Target URL`: `https://mydomain.com` with status `301`.
+    - Tick all the parameter options: (`Preserve query string`, `Include subdomains`, `Subpath matching`, `Preserve path suffix`)
+    - Click `Next`, then `Save and Deploy`.
 
-> **Note:** DNS changes may take some time to propagate. You may want to refresh your DNS cache by using commands like `ipconfig /flushdns` on Windows or `dscacheutil -flushcache` on macOS. Testing the URLs in an incognito window can also help verify changes.
+**Note:** DNS changes may take some time to propagate. You may want to refresh your DNS cache by using commands like `ipconfig /flushdns` on Windows or `dscacheutil -flushcache` on macOS. Testing the URLs in an incognito window can also help verify changes.
 
 ## TCP Proxying
 
