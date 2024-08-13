@@ -140,6 +140,43 @@ The type of record to create is entirely dependent on your DNS provider.  Here a
 
 If your DNS provider doesn't support CNAME Flattening or dynamic ALIAS records, you can also change your domain's nameservers to point to Cloudflare's nameservers. This will allow you to use a CNAME record for the root domain. Follow the instructions listed on Cloudflare's documentation to <a href="https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/" target="_blank">change your nameservers</a>.
 
+## Adding a root domain with www. subdomain to Cloudflare
+
+If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdomain to Cloudflare and redirect all `www.` traffic to the root domain:
+
+1. Create a Custom Domain in Railway for your root domain (e.g., `mydomain.com`). Copy the `value` field. This will be in the form: `abc123.up.railway.app`.
+2. Add a `CNAME` DNS record to Cloudflare:
+    - `Name` → `@`.
+    - `Target` → the `value` field from Railway.
+    - `Proxy status` → `on`, should display an orange cloud.
+    - Note: Due to domain flattening, `Name` will automatically update to your root domain (e.g., `mydomain.com`).
+3. Add another `CNAME` DNS record to Cloudflare:
+    - `Name` → `www`.
+    - `Target` → `@`
+    - `Proxy status:` → on, should display an orange cloud.
+    - Note: Cloudflare will automatically change the `Target` value to your root domain.
+4. Enable Full SSL/TLS encryption in Cloudflare:
+    - Go to your domain on Cloudflare.
+    - Navigate to `SSL/TLS -> Overview`.
+    - Select `Full`, or `Full (strict)`.
+5. Enable Universal SSL in Cloudflare:
+    - Go to your domain on Cloudflare.
+    - Navigate to `SSL/TLS -> Edge Certificates`.
+    - Enable `Universal SSL`.
+6. After doing this, you should see `Cloudflare proxy detected` on your Custom Domain in Railway with a green cloud.
+7. Create a Bulk Redirect in Cloudflare:
+    - Go to your [Cloudflare dashboard](https://dash.cloudflare.com/).
+    - Navigate to `Bulk Redirects`.
+    - Click `Create Bulk Redirect List`.
+    - Give it a name, e.g., `www-redirect`.
+    - Click `Or, manually add URL redirects`.
+    - Add a `Source URL`: `https://www.mydomain.com`.
+    - Add `Target URL`: `https://mydomain.com` with status `301`.
+    - Tick all the parameter options: (`Preserve query string`, `Include subdomains`, `Subpath matching`, `Preserve path suffix`)
+    - Click `Next`, then `Save and Deploy`.
+
+**Note:** DNS changes may take some time to propagate. You may want to refresh your DNS cache by using commands like `ipconfig /flushdns` on Windows or `dscacheutil -flushcache` on macOS. Testing the URLs in an incognito window can also help verify changes.
+
 ## TCP Proxying
 
 You can proxy TCP traffic to your service by creating a TCP proxy in the service settings. Enter the port that you want traffic proxied to, Railway will generate a domain and port for you to use. All traffic sent to `domain:port` will be proxied to your service. This is useful for services that don't support HTTP, such as databases.
