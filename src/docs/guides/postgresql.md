@@ -59,7 +59,7 @@ We'll cover how to deploy, connect, and manage the High Availability (HA) Postgr
 
 ### Deploy
 
-You can deploy a HA PostgreSQL cluster via the [template in the template marketplace](https://railway.app/template/GsthnV).
+You can deploy a HA PostgreSQL cluster via the [template in the marketplace](https://railway.app/template/ha-postgres).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723589926/docs/databases/postgrescluster_ac7vld.png"
 alt="PostgreSQL HA in the marketplace"
@@ -70,11 +70,11 @@ width={405} height={396} quality={100} />
 
 Upon deployment, you will have a cluster of 3 PostgreSQL nodes deployed from the [bitnami/postgres-repmgr](https://hub.docker.com/r/bitnami/postgresql-repmgr) image, running in [replication mode](https://www.postgresql.org/docs/16/high-availability.html) and managed by [repmgr](https://www.repmgr.org/).
 
-You will also have a Pgpool-II service deployed from the [bitnami/pgpool](https://hub.docker.com/r/bitnami/pgpool) image which is intended to be used as a proxy to the cluster.
+You will also have a [Pgpool-II](https://www.pgpool.net/docs/latest/en/html/) service deployed from the [bitnami/pgpool](https://hub.docker.com/r/bitnami/pgpool) image which is intended to be used as a proxy to the cluster.
 
 ### Connect
 
-You should connect to the cluster via a proxy service which is aware of all of the cluster nodes.  We have included a Pgpool-II service in the template deployment for this purpose.
+You should connect to the cluster via a proxy service which is aware of all of the cluster nodes.  We have included a [Pgpool-II](https://www.pgpool.net/docs/latest/en/html/) service in the template deployment for this purpose.
 
 Connect to the cluster via Pgpool by [referencing the environment variable](/guides/variables#referencing-another-services-variable)`DATABASE_URL` available in the Pgpool service.
 
@@ -92,12 +92,26 @@ Since the deployed containers are all deployed from bitnami images available in 
 
 ## Backup and Monitoring
 
-We
+Especially for production environments, performing regular backups and monitoring the health of your database is essential.
 
+**Backups**
 
-## Timescale and PostGIS
+For PostgreSQL, we suggest reviewing the popular [PostgreSQL S3 backups](https://railway.app/template/I4zGrH) template as an example of a cron service which backs up Postgres on a defined schedule.
 
-The Postgres service deployed from the Command Palette no longer contains PostGIS or Timescale extensions. However, there are several options in the template marketplace that deploy a PostGIS or Timescale-enabled Postgres image.
+We would love to implement a native backup solution in the future.  If you agree, let us know your thoughts in our [community forums](https://help.railway.app/feature-request/native-database-backups-for-popular-data-8ec06824)!
+
+**Monitoring**
+
+A popular way to monitor Postgres services is through Prometheus and Grafana.  If you're not already running an observability stack, check out these templates to help you get started building one:
+- [Prometheus](https://railway.app/template/KmJatA)
+- [Grafana](https://railway.app/template/anURAt)
+- [PostgreSQL Exporter](https://railway.app/template/gDzHrM)
+
+## Extensions
+
+In an effort to maintain simplicity in the default templates, we do not plan to add exentions to the PostgreSQL templates covered in this guide.
+
+For some of the most popular extensions, like PostGIS and Timescale, there are several options in the template marketplace.
 
 - <a href="https://railway.app/template/VSbF5V" target="_blank">TimescaleDB</a>
 - <a href="https://railway.app/template/postgis" target="_blank">PostGIS</a>
