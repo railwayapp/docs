@@ -86,26 +86,20 @@ It is possible to connect to the PostgreSQL cluster externally (from outside of 
 
 ### Modify the deployment
 
-Since the deployed containers are all deployed from bitnami images available in Docker hub, you can modify them using the documentation for each:
+Since the containers are deployed from bitnami images, you can reference the documentation for each, to understand how to customize them:
 - [bitnami/postgres-repmgr](https://github.com/bitnami/containers/blob/main/bitnami/postgresql-repmgr/README.md#environment-variables)
 - [bitnami/pgpool](https://github.com/bitnami/containers/blob/main/bitnami/pgpool/README.md#environment-variables)
 
-## Backup and Monitoring
+## Backups and Observability
 
-Especially for production environments, performing regular backups and monitoring the health of your database is essential.
+Especially for production environments, performing regular backups and monitoring the health of your database is essential.  Consider adding:
 
-**Backups**
+- **Backup solutions**: Automate regular backups to ensure data recovery in case of failure.  We suggest reviewing the popular [PostgreSQL S3 backups](https://railway.app/template/I4zGrH) template as an example.
 
-For PostgreSQL, we suggest reviewing the popular [PostgreSQL S3 backups](https://railway.app/template/I4zGrH) template as an example of a cron service which backs up Postgres on a defined schedule.
-
-We would love to implement a native backup solution in the future.  If you agree, let us know your thoughts in our [community forums](https://help.railway.app/feature-request/native-database-backups-for-popular-data-8ec06824)!
-
-**Monitoring**
-
-A popular way to monitor Postgres services is through Prometheus and Grafana.  If you're not already running an observability stack, check out these templates to help you get started building one:
-- [Prometheus](https://railway.app/template/KmJatA)
-- [Grafana](https://railway.app/template/anURAt)
-- [PostgreSQL Exporter](https://railway.app/template/gDzHrM)
+- **Observability**: Implement monitoring for insights into performance and health of your databases.  If you're not already running an observability stack, check out these templates to help you get started building one:
+    - [Prometheus](https://railway.app/template/KmJatA)
+    - [Grafana](https://railway.app/template/anURAt)
+    - [PostgreSQL Exporter](https://railway.app/template/gDzHrM)
 
 ## Extensions
 
@@ -117,4 +111,6 @@ For some of the most popular extensions, like PostGIS and Timescale, there are s
 - <a href="https://railway.app/template/postgis" target="_blank">PostGIS</a>
 - <a href="https://railway.app/template/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
 
-To deploy a service from a template in an existing project, simply click `+ New` from your project canvas, select `Template` and search for the template you require.
+## Additional Resources
+
+Add links to all of the docs here
