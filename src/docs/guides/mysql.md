@@ -1,5 +1,5 @@
 ---
-title: MySQL
+title: Deploy MySQL
 ---
 
 Railway offers two MySQL deployment options to accommodate different needs: a **Standalone Instance** and a **High Availability (HA) Cluster**.
