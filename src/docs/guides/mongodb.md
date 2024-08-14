@@ -49,7 +49,7 @@ It is possible to connect to MongoDB externally (from outside of the [project](/
 
 ### Modify the deployment
 
-Since the deployed container is pulled from the official from the official [MongoDB](https://hub.docker.com/_/mongo) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/mongo).
+Since the deployed container is pulled from the official [MongoDB](https://hub.docker.com/_/mongo) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/mongo).
 
 ## High Availability MongoDB Replica Set
 
