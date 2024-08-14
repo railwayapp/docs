@@ -30,11 +30,10 @@ By default, services deployed from a template are attached to and deployed direc
 
 Follow these steps to eject from the template repository and create a mirror in your own GitHub account.
 
-1. Ensure you have the "Template Service Eject" <a href="https://railway.app/account/feature-flags" target="_blank">feature flag</a> enabled
-2. In the service settings, under Source, find the **Upstream Repo** setting
-3. Click the `Eject` button
-4. Select the appropriate GitHub organization to create the new repository
-5. Click `Eject service`
+1. In the [service settings](/overview/the-basics#service-settings), under Source, find the **Upstream Repo** setting
+2. Click the `Eject` button
+3. Select the appropriate GitHub organization to create the new repository
+4. Click `Eject service`
 
 ## Updatable Templates
 

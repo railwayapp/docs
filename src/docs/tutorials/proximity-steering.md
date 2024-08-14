@@ -2,7 +2,7 @@
 title: Setting up Proximity Steering using Cloudflare
 ---
 
-### What is Proximity Steering?
+## What is Proximity Steering?
 
 >Proximity steering routes visitors ... to the closest physical data center.
 

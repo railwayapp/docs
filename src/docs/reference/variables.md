@@ -52,6 +52,9 @@ Reference variables are those defined by referencing variables in other services
 
 Reference variables use Railway's [template syntax](/reference/variables#template-syntax).
 
+### Variable Functions
+
+[Template variable functions](/guides/create#template-variable-functions) allow you to dynamically generate variables (or parts of a variable) on demand when the template is deployed.
 
 ### Railway-Provided Variables
 
