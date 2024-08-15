@@ -6,7 +6,7 @@ Railway offers two PostgreSQL deployment options to accommodate different needs:
 
 - **Standalone Instance** - a single Postgres database server that is easy to manage; ideal for development environments, smaller projects, or services which are less sensitive to disruption.
 
-- **High Availability (HA) Cluster** - intended for production workloads where uptime is critical.  It consists of three Postgres nodes distributed across different regions.
+- **High Availability (HA) Cluster** - intended for production workloads where uptime is critical.  It consists of three Postgres nodes in replication mode complemented by a [Pgpool-II](https://www.pgpool.net/mediawiki/index.php/Main_Page) proxy service.
 
 ## Standalone PostgreSQL
 
@@ -45,7 +45,7 @@ it to connect to PostgreSQL but you can use these variables in whatever way work
 
 It is possible to connect to PostgreSQL externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
 
-Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.
+*Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
 ### Modify the deployment
 
@@ -72,11 +72,22 @@ Upon deployment, you will have a cluster of 3 PostgreSQL nodes deployed from the
 
 You will also have a [Pgpool-II](https://www.pgpool.net/docs/latest/en/html/) service deployed from the [bitnami/pgpool](https://hub.docker.com/r/bitnami/pgpool) image which is intended to be used as a proxy to the cluster.
 
+#### Multi-region deployment
+
+By default, each node is deployed to a different region (US West, US East, and EU West) for fault tolerance.
+
+Since region selection is a Pro-only feature, this only applies to Pro users.  If you deploy this template as a Hobby user, all nodes will deploy to US West.
+
 ### Connect
 
 You should connect to the cluster via a proxy service which is aware of all of the cluster nodes.  We have included a [Pgpool-II](https://www.pgpool.net/docs/latest/en/html/) service in the template deployment for this purpose.
 
-Connect to the cluster via Pgpool by [referencing the environment variable](/guides/variables#referencing-another-services-variable)`DATABASE_URL` available in the Pgpool service.
+Connect to the cluster via Pgpool by [referencing the environment variable](/guides/variables#referencing-another-services-variable) `DATABASE_URL` available in the Pgpool service.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723755568/docs/databases/CleanShot_2024-08-15_at_14.58.11_yyzinw.gif"
+alt="PostgreSQL HA in the marketplace"
+layout="responsive"
+width={655} height={396} quality={100} />
 
 #### Connecting externally
 
@@ -113,4 +124,10 @@ For some of the most popular extensions, like PostGIS and Timescale, there are s
 
 ## Additional Resources
 
-Add links to all of the docs here
+While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.  
+
+We *strongly encourage you* to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively.  Here are some links to help you get started:
+- [PostgreSQL Documentation](https://www.postgresql.org/)
+- [PostgreSQL High Availability Documentation](https://www.postgresql.org/docs/current/high-availability.html)
+- [Repmgr Documentation](https://www.repmgr.org/docs/current/getting-started.html)
+- [Pgpool-II Documentation](https://www.pgpool.net/docs/latest/en/html/)
