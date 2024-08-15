@@ -11,9 +11,20 @@ deployed, see [Build and Start Commands](/reference/build-and-start-commands) fo
 
 When necessary, start commands may be overridden, like for advanced use-cases such as deploying multiple projects from a single [monorepo](/guides/monorepo).
 
-When specifying a start command, the behavior of the image depends on type of build:
-- **Dockerfile**: the start command overrides the Docker image's ENTRYPOINT in <a href="https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example" target="_blank">exec form</a>
-- **Buildpack**: the start command is inserted as a <a href="https://buildpacks.io/docs/app-developer-guide/run-an-app/#user-provided-shell-process" target="_blank">buildpack launch process</a>.
+When specifying a start command, the behavior depends on the type of deployment:
+- **Dockerfile / Image**: the start command overrides the image's `ENTRYPOINT` in <a href="https://docs.docker.com/reference/dockerfile/#shell-and-exec-form" target="_blank">exec form</a>.
+
+    If you need to use environment variables in the start command for services deployed from a Dockerfile or image you will need to wrap your command in a shell -
+
+    ```shell
+    /bin/sh -c "exec python main.py --port $PORT"
+    ```
+
+    This is because commands ran in exec form do not support variable expansion.
+
+- **Nixpacks**: the start command is ran in a shell process.
+
+    This supports the use of environment variables without needing to wrap your command in a shell.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-start-command_a8vcxs.png"
@@ -21,6 +32,6 @@ alt="Screenshot of custom start command configuration"
 layout="intrinsic"
 width={1302} height={408} quality={80} />
 
-## Dockerfiles
+## Dockerfiles & Images
 
-If your code uses a Dockerfile, the start command defaults to the `ENTRYPOINT` and/or `CMD` defined in the Dockerfile.
+If your service deploys with a Dockerfile or from an image, the start command defaults to the `ENTRYPOINT` and / or `CMD` defined in the Dockerfile.

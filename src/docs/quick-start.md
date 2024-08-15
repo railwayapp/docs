@@ -6,13 +6,17 @@ Railway is a deployment platform that lets you provision infrastructure, develop
 
 **In this guide we will cover two different topics to get you quickly started with the platform -**
 
-2. **Deploying your project** - Bring your code and let Railway handle the rest.
+1. **Deploying your project** - Bring your code and let Railway handle the rest.
 
-2. **Deploying a template** - Ideal for deploying pre-configured software with minimal effort.
+    **[Option 1](/quick-start#deploying-your-project---from-github)** - Deploying from GitHub.
+
+    **[Option 2](/quick-start#deploying-your-project---with-the-cli)** - Deploying with the [CLI](/guides/cli).
+
+3. **Deploying a template** - Ideal for deploying pre-configured software with minimal effort.
 
 For our project, we'll utilize a basic <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>, and for the template deployment, we'll use the <a href="https://railway.app/template/umami-analytics" target="_blank">Umami template</a>.
 
-## Deploying Your Project
+## Deploying Your Project - From GitHub
 
 To deploy our NextJS app, we will make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
 
@@ -20,46 +24,76 @@ To deploy our NextJS app, we will make a new <a href="/overview/the-basics#proje
 
 - Choose the **GitHub repo** option.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723688396/docs/quick-start/new_project_yqozgu.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752559/docs/quick-start/new_project_uyqqpx.png"
 alt="screenshot of new project menu with deploy from github selected"
 layout="responsive"
 width={836} height={860} quality={100} />
 
-    *Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.*
+*Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.*
 
 - Search for your GitHub project and click on it.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723688396/docs/quick-start/new_github_project_wrwxu8.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752559/docs/quick-start/new_github_project_pzvabz.png"
 alt="screenshot of new project menu with nextjs repo selected"
 layout="responsive"
 width={836} height={596} quality={100} />
 
 - Choose either **Deploy Now** or **Add variables**.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723688396/docs/quick-start/deploy_now_dmvyhf.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/deploy_now_pmrqow.png"
 alt="screenshot of new project menu with deploy now option selected"
 layout="responsive"
 width={836} height={620} quality={100} />
 
-    **Deploy Now** will immediately start to build and deploy your selected repo.
+**Deploy Now** will immediately start to build and deploy your selected repo.
 
-    **Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the deployment.
+**Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the deployment.
 
-    *For brevity we will choose **Deploy Now**.*
+*For brevity we will choose **Deploy Now**.*
 
-Once the project and service are created you will land on your project canvas, This is your _mission control_. Your project's infrastructure, <a href="/guides/environments" target="_blank">environments</a>, and <a href="/guides/deployments" target="_blank">deployments</a> are all
+**You will now be dropped into your [Project Canvas](/quick-start#the-canvas)**.
+
+## Deploying Your Project - With the CLI
+
+The CLI can create a new project entirely from the command line, we will use it to scaffold our project.
+
+- Run `railway init`
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/railway_init_rglt5w.png"
+alt="screenshot of the command line after railway init was run"
+layout="responsive"
+width={836} height={233} quality={100} />
+
+Deploying your code is now only a single command away.
+
+- Run `railway up`
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/railway_up_vns3u4.png"
+alt="screenshot of the command line after railway up was run"
+layout="responsive"
+width={836} height={214} quality={100} />
+
+You can now open the link that was printed when running `railway init`
+
+**That link will take you to your [Project Canvas](/quick-start#the-canvas)**.
+
+## The Canvas
+
+Whether you deploy your project through the dashboard with GitHub or locally using the CLI, you'll ultimately arrive at your project canvas.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752560/docs/quick-start/project_canvas_nextjs_c6bjbq.png"
+alt="screenshot of the project canvas showing our nextjs deploy"
+layout="responsive"
+width={1363} height={817} quality={100} />
+
+This is your _mission control_. Your project's infrastructure, <a href="/guides/environments" target="_blank">environments</a>, and <a href="/guides/deployments" target="_blank">deployments</a> are all
 controlled from here.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723688396/docs/quick-start/project_canvas_nextjs_l1meyt.png"
-alt="screenshot of new project menu with deploy now option selected"
-layout="responsive"
-width={1365} height={820} quality={100} />
-
-Congrats! Once the initial deployment is complete, your app is ready to go. If applicable, generate a domain by clicking <a href="https://docs.railway.app/guides/public-networking#railway-provided-domain" target="_blank">Generate Domain</a> within the <a href="https://docs.railway.app/overview/the-basics#service-settings" target="_blank">service settings</a> panel.
+Once the initial deployment is complete, your app is ready to go. If applicable, generate a domain by clicking <a href="/guides/public-networking#railway-provided-domain" target="_blank">Generate Domain</a> within the <a href="/overview/the-basics#service-settings" target="_blank">service settings</a> panel.
 
 **Additional Information -**
 
-If anything fails during this time, you can explore your <a href="https://docs.railway.app/guides/logs#build--deploy-panel" target="_blank">build or deploy logs</a> for clues. A helpful tip is to scroll through the entire log; important details are often missed, and the actual error is rarely at the bottom!
+If anything fails during this time, you can explore your <a href="/guides/logs#build--deploy-panel" target="_blank">build or deploy logs</a> for clues. A helpful tip is to scroll through the entire log; important details are often missed, and the actual error is rarely at the bottom!
 
 If you're stuck don't hesitate to open a <a href="https://help.railway.app/questions" target="_blank">Help Thread</a>.
 
@@ -73,7 +107,7 @@ Deploying a template is not too dissimilar to deploying a GitHub repo -
 
 - Choose **Deploy a template**.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723688397/docs/quick-start/template_new_project_d316nq.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752559/docs/quick-start/template_new_project_k9kfrh.png"
 alt="screenshot of new project menu with deploy a template option selected"
 layout="responsive"
 width={836} height={860} quality={100} />
@@ -84,19 +118,19 @@ width={836} height={860} quality={100} />
 
 - Click on the template you want to deploy.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723688396/docs/quick-start/template_new_umami_syevx0.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/template_new_umami_j4la5d.png"
 alt="screenshot of new project menu the umami template selected"
 layout="responsive"
 width={836} height={644} quality={100} />
 
-    *Hint: Generally it's best to choose the template with a combined higher deployment and success count.*
+*Hint: Generally it's best to choose the template with a combined higher deployment and success count.*
 
 - Fill out any needed information that the template may require.
 
     In the case of our Umami template, we don't need to provide any extra information.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723688396/docs/quick-start/template_config_options_orzndo.png"
-alt="screenshot of the deploy umami template screen"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/template_config_options_zaxbko.png"
+alt="screenshot of the deploy umami screen with no extra configurations needed"
 layout="responsive"
 width={932} height={908} quality={100} />
 
@@ -106,16 +140,16 @@ Railway will now provision a new project with all services and configurations th
 
 That's it, deploying a template is as easy as a few clicks!
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723688397/docs/quick-start/project_canvas_umami_mxcmwo.png"
-alt="screenshot of project canvas showing umami and postgres"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723752560/docs/quick-start/project_canvas_umami_lb759i.png"
+alt="screenshot of the project canvas showing umami and postgres"
 layout="responsive"
-width={1365} height={820} quality={100} />
+width={1363} height={817} quality={100} />
 
 ## Closing
 
 Railway aims to be the simplest way to develop, deploy, and diagnose issues with your application.
 
-As your Project scales, Railway scales with you by supporting multiple Teams, and vertical scaling; leaving you to focus on what matters: your code.
+As your Project scales, Railway scales with you by supporting multiple Teams, vertical scaling, and horizontal scaling; leaving you to focus on what matters: your code.
 
 Happy Building!
 

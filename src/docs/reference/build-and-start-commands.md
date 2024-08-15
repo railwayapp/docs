@@ -24,7 +24,7 @@ width={745} height={238} quality={80} />
 
 Railway automatically configures the start command based on the code being deployed.  
 
-If your code uses a [Dockerfile](/reference/dockerfiles), the start command defaults to the `ENTRYPOINT` and/or `CMD` defined in the Dockerfile.
+If your service deploys with a [Dockerfile](/reference/dockerfiles) or from an [image](/reference/services#docker-image), the start command defaults to the `ENTRYPOINT` and / or `CMD` defined in the Dockerfile.
 
 Override the detected start command by setting a value in your service settings.
 
@@ -33,6 +33,14 @@ src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-sta
 alt="Screenshot of custom start command configuration"
 layout="intrinsic"
 width={1302} height={408} quality={80} />
+
+If you need to use environment variables in the start command for services deployed from a Dockerfile or image you will need to wrap your command in a shell -
+
+```shell
+/bin/sh -c "exec python main.py --port $PORT"
+```
+
+This is because commands ran in exec form do not support variable expansion.
 
 ## Support
 
