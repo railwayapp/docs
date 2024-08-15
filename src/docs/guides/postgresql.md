@@ -66,7 +66,7 @@ alt="PostgreSQL HA in the marketplace"
 layout="responsive"
 width={405} height={396} quality={100} />
 
-#### Service Source
+#### Deployed services
 
 Upon deployment, you will have a cluster of 3 PostgreSQL nodes deployed from the [bitnami/postgres-repmgr](https://hub.docker.com/r/bitnami/postgresql-repmgr) image, running in [replication mode](https://www.postgresql.org/docs/16/high-availability.html) and managed by [repmgr](https://www.repmgr.org/).
 

@@ -6,7 +6,7 @@ Railway offers two Redis deployment options to accommodate different needs: a **
 
 - **Standalone Instance** - a single Redis server that is easy to manage; ideal for development environments, smaller projects, or services that are less sensitive to disruption.
 
-- **High Availability (HA) Cluster** - intended for production workloads where uptime is critical. It consists of three Redis nodes in replication mode, complemented by three Sentinel services for automatic failover.
+- **High Availability (HA) Cluster** - intended for production workloads where uptime is critical. It consists of three Redis nodes in [replication mode](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/), complemented by three [Sentinel services](https://redis.io/learn/operate/redis-at-scale/high-availability/understanding-sentinels) for automatic failover.
 
 ## Standalone Redis
 
@@ -49,7 +49,7 @@ Since the deployed container is pulled from the [bitnami Redis](https://hub.dock
 
 ## High Availability Redis Cluster
 
-We'll cover how to deploy, connect, and manage the High Availability (HA) Redis Cluster in this section.
+We'll cover how to deploy, connect, and manage the [High Availability (HA) Redis Cluster](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) in this section.
 
 ### Deploy
 
@@ -60,17 +60,28 @@ alt="Redis HA in the marketplace"
 layout="responsive"
 width={376} height={396} quality={100} />
 
-#### Service Source
+#### Deployed services
 
 Upon deployment, you will have a cluster of 3 Redis nodes deployed from the [bitnami/redis](https://hub.docker.com/r/bitnami/redis) image, running in replication mode. 
 
 Additionally, 3 Sentinel nodes will be deployed from the [bitnami/redis-sentinel](https://hub.docker.com/r/bitnami/redis-sentinel) image to manage failover.
 
+#### Multi-region deployment
+
+By default, each node is deployed to a different region (US West, US East, and EU West) for fault tolerance.
+
+Since region selection is a Pro-only feature, this only applies to Pro users. If you deploy this template as a Hobby user, all nodes will deploy to US West.
+
 ### Connect
 
-To connect to the Redis cluster, you should connect via the Sentinel services. The exact method to configure your client will depend on the client library you are using. For example, a Node.js server using `ioredis` can connect using the configuration shown [here](https://github.com/railwayapp-templates/redis-ha-sentinel/blob/main/exampleApps/node/server.js#L4).
+To connect to the Redis cluster, you should connect via the Sentinel services using the environment variables available in the Sentinel services.
 
-Each node exposes the standard Redis environment variables (`REDISHOST`, `REDISPORT`, etc.), but connections should be made through the Sentinel services to take advantage of high availability.
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723761949/docs/databases/CleanShot_2024-08-15_at_16.43.46_ngja7a.gif"
+alt="MySQL Router variables"
+layout="responsive"
+width={655} height={396} quality={100} />
+
+The exact method to configure your client will depend on the client library you are using.  As an example, a Node.js server using `ioredis` can be found here [here](https://github.com/railwayapp-templates/redis-ha-sentinel/blob/main/exampleApps/node/server.js#L4).
 
 #### Connecting externally
 
@@ -95,4 +106,7 @@ Especially for production environments, performing backups and monitoring the he
 
 ## Additional Resources
 
-here
+- [Redis Documentation](https://redis.io/docs/latest/operate/oss_and_stack/)
+- [Redis Replication](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/)
+- [High Availability with Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/)
+- [Understanding Sentinels](https://redis.io/learn/operate/redis-at-scale/high-availability/understanding-sentinels)
