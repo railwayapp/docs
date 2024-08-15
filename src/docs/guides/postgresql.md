@@ -85,7 +85,7 @@ You should connect to the cluster via a proxy service which is aware of all of t
 Connect to the cluster via Pgpool by [referencing the environment variable](/guides/variables#referencing-another-services-variable) `DATABASE_URL` available in the Pgpool service.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723755568/docs/databases/CleanShot_2024-08-15_at_14.58.11_yyzinw.gif"
-alt="PostgreSQL HA in the marketplace"
+alt="Pgpool variables"
 layout="responsive"
 width={655} height={396} quality={100} />
 
