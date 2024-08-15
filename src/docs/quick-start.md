@@ -93,7 +93,7 @@ width={836} height={644} quality={100} />
 
 - Fill out any needed information that the template may require.
 
-    In the case of our Umami template we don't need to provide any extra information.
+    In the case of our Umami template, we don't need to provide any extra information.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723688396/docs/quick-start/template_config_options_orzndo.png"
 alt="screenshot of the deploy umami template screen"
@@ -102,9 +102,9 @@ width={932} height={908} quality={100} />
 
 - Click **Deploy**.
 
-Railway will now provision a new project with all services and configurations that where defined in the template.
+Railway will now provision a new project with all services and configurations that were defined in the template.
 
-Thats it, deploying a template is as easy as a few clicks!
+That's it, deploying a template is as easy as a few clicks!
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723688397/docs/quick-start/project_canvas_umami_mxcmwo.png"
 alt="screenshot of project canvas showing umami and postgres"
