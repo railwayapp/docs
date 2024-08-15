@@ -53,7 +53,7 @@ Since the deployed container is pulled from the official [MongoDB](https://hub.d
 
 ## High Availability MongoDB Replica Set
 
-We'll cover how to deploy, connect, and manage the High Availability (HA) MongoDB Replica Set in this section.
+We'll cover how to deploy, connect, and manage the [High Availability (HA) MongoDB Replica Set](https://www.mongodb.com/docs/manual/replication/) in this section.
 
 ### Deploy
 
@@ -64,21 +64,32 @@ alt="MongoDB HA in the marketplace"
 layout="responsive"
 width={405} height={396} quality={100} />
 
-#### Service Source
+#### Deployed services
 
 Upon deployment, a cluster of 3 MongoDB nodes will be added to your project.  The nodes are deployed from a [custom Dockerfile](https://github.com/railwayapp-templates/mongo-replica-set/tree/main/nodes). The Dockerfile pulls the [mongo Docker image](https://hub.docker.com/_/mongo) and copies a script into the container.  The script is run when the container starts to generate the [keyfile](https://www.mongodb.com/docs/manual/tutorial/deploy-replica-set-with-keyfile-access-control/) for authentication.
 
-An init service is deployed alongside the nodes to initiate the replica set once the nodes are up.  It should be deleted post-deploy.
+An [init service](https://github.com/railwayapp-templates/mongo-replica-set/tree/main/initService) is also deployed alongside the nodes to initiate the replica set once the nodes are up.  It should be deleted post-deploy.
+
+#### Multi-region deployment
+
+By default, each node is deployed to a different region (US West, US East, and EU West) for fault tolerance.
+
+Since region selection is a Pro-only feature, this only applies to Pro users. If you deploy this template as a Hobby user, all nodes will deploy to US West.
 
 ### Connect
 
-To connect to the MongoDB Replica Set, you should construct your MongoDB URI to include all nodes in the set. Unlike the PostgreSQL and MySQL clusters, there is no dedicated proxy service; instead, the MongoDB client will handle communication and failover between the nodes.
+To connect to the MongoDB Replica Set, you should construct your MongoDB URI to include all nodes in the set.  Each node exposes a `REPLICA_SET_PRIVATE_URI` environment variable that can be referenced to connect to the cluster.
 
-Each node exposes a `MONGO_PRIVATE_URL` environment variable that can be referenced to build your connection string.
+<Image src="https://res.cloudinary.com/railway/image/upload/v1723762488/docs/databases/CleanShot_2024-08-15_at_16.53.37_udssxa.gif"
+alt="Mongo URI variable"
+layout="responsive"
+width={655} height={396} quality={100} />
+
+For some examples, check out the [example apps](https://github.com/railwayapp-templates/mongo-replica-set/tree/main/exampleApps) within the source repo for the replica set.
 
 #### Connecting externally
 
-It is possible to connect to the MongoDB Replica Set externally (from outside of the [project](/develop/projects) in which it is deployed) by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying). To do so, you can reference the `MONGO_PUBLIC_URL` environment variable available in the nodes.
+It is possible to connect to the MongoDB Replica Set externally (from outside of the [project](/develop/projects) in which it is deployed) by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying).
 
 *Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
@@ -98,4 +109,9 @@ Especially for production environments, performing regular backups and monitorin
 
 ## Additional Resources
 
-Add links to all of the docs here
+While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.  
+
+We *strongly encourage you* to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively.  Here are some links to help you get started:
+
+- [Mongo Documentation](https://www.mongodb.com/docs/manual/introduction/)
+- [Replication in Mongo](https://www.mongodb.com/docs/manual/replication/)

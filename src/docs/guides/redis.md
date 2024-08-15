@@ -77,7 +77,7 @@ Since region selection is a Pro-only feature, this only applies to Pro users. If
 To connect to the Redis cluster, you should connect via the Sentinel services using the environment variables available in the Sentinel services.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723761949/docs/databases/CleanShot_2024-08-15_at_16.43.46_ngja7a.gif"
-alt="MySQL Router variables"
+alt="Sentinel variables"
 layout="responsive"
 width={655} height={396} quality={100} />
 
@@ -105,6 +105,10 @@ Especially for production environments, performing backups and monitoring the he
 - **Observability**: Implement monitoring for insights into performance and health of your Redis cluster. You can integrate a Redis exporter for Prometheus, although we do not provide a specific template at this time.
 
 ## Additional Resources
+
+While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.  
+
+We *strongly encourage you* to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively.  Here are some links to help you get started:
 
 - [Redis Documentation](https://redis.io/docs/latest/operate/oss_and_stack/)
 - [Redis Replication](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/)
