@@ -32,7 +32,7 @@ All projects have private networking enabled and services are assigned a DNS nam
 
 ### Railway-Provided Domains
 
-With the click of a button, Railway will expose your service to the internet and provide you with a domain.  In order to make this work, you must configure your application appropriately to ensure we know the IP and port it is listening on.  Instructions for how to do this can be found in the [Public Networking guide](/guides/public-networking).
+With the click of a button, Railway will expose your service to the internet and provide you with a domain.  In order to make this work, you must configure your application appropriately to ensure we know the port it is listening on.  Instructions for how to do this can be found in the [Public Networking guide](/guides/public-networking).
 
 #### Custom Domains
 
@@ -40,7 +40,7 @@ If you have a custom domain, you can easily add it to your Railway service.
 
 ## Integration Tools
 
-A CLI and API are available to wire your Railway projects into any workflow.
+A <a href="https://docs.railway.app/guides/cli" target="_blank">CLI</a> and an <a href="https://docs.railway.app/guides/public-api" target="_blank">API</a> are available to wire your Railway projects into any workflow.
 
 ### CLI
 
@@ -48,10 +48,11 @@ The Railway Command Line Interface (CLI) lets you interact with your Railway pro
 - Trigger deployments programmatically.
 - Run services locally using environment variables from your Railway project.
 - Create new Railway projects from the Terminal.
+- Deploy <a href="https://docs.railway.app/reference/templates" target="_blank">templates</a>.
 
 ### Public API
 
-The Railway public API is built with GraphQL and is the same API that powers the Railway dashboard.  Similar to the CLI, you can interact with your Railway project programmatically by communicating with the API.
+The Railway <a href="https://docs.railway.app/guides/public-api" target="_blank">public API</a> is built with GraphQL and is the same API that powers the Railway dashboard.  Similar to the CLI, you can interact with your Railway project programmatically by communicating with the API.
 
 ## Environments
 

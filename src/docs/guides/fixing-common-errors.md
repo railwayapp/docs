@@ -21,7 +21,7 @@ stick to this formula:
 */}
 
 When deploying to Railway, you may encounter some errors that prevent your
-application from working. These are descriptions and solutions to errors that
+application from working as expected. These are descriptions and solutions to errors that
 users commonly encounter.
 
 ## Application Error: This application failed to respond
@@ -121,3 +121,15 @@ func main() {
   // ...
 }
 ```
+
+## POST requests turn into GET requests
+
+You might encounter this issue when testing your backend with tools like curl, where your **POST** requests are all converted into **GET** requests when they reach your app.
+
+Depending on the application, this may result in your application returning either a 405 Method Not Allowed or a 404 Not Found status code.
+
+This occurs because your request was made using HTTP. Railway will attempt to redirect your insecure request with a 301 Moved Permanently status code.
+
+When an HTTP client encounters a 301 Moved Permanently redirect, the client will follow the redirect. However, according to the <a href="https://www.rfc-editor.org/rfc/rfc7231#section-6.4.2" target="_blank">HTTP/1.1 specifications</a>, the client will typically change the request method from POST to GET when it follows the redirect to the new URL.
+
+Fortunately, the solution is simple: Ensure you are using HTTPS when calling your Railway-hosted services.

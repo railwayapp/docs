@@ -20,7 +20,7 @@ You can always publish your template by going to the <a href="https://railway.ap
 
 ## Sharing your Templates
 
-After you create your template, you may want to share your work with the public and let others clone your project.  You are provided with the Template URL where your template can be found and deployed. 
+After you create your template, you may want to share your work with the public and let others clone your project. You are provided with the Template URL where your template can be found and deployed.
 
 ### Deploy on Railway Button 
 
