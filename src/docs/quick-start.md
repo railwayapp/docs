@@ -88,9 +88,7 @@ alt="screenshot of the command line after railway up was run"
 layout="responsive"
 width={836} height={214} quality={100} />
 
-You can now open the link that was printed when running `railway init`
-
-**That link will take you to your [Project Canvas](/quick-start#the-canvas)**.
+**You can now run `railway open` and you will taken to your [Project Canvas](/quick-start#the-canvas)**.
 
 ## The Canvas
 
