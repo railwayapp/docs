@@ -71,9 +71,32 @@ This requires you to have the database's appropriate shell/client installed in y
 * MongoDB: `mongosh` (https://www.mongodb.com/docs/mongodb-shell/)
 * MySQL: `mysql` (https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
 
+## Deploy
+
+*Deploy a template into your project*
+
+```txt
+railway deploy --help
+Provisions a template into your project
+
+Usage: railway deploy [OPTIONS]
+
+Options:
+  -t, --template <TEMPLATE>  The code of the template to deploy
+  -v, --variable <VARIABLE>  The "{key}={value}" environment variable pair to set the template variables
+          To specify the variable for a single service prefix it with "{service}." Example:
+          bash railway deploy -t postgres -v "MY_SPECIAL_ENV_VAR=1" -v "Backend.Port=3000"
+
+      --json                 Output in JSON format
+  -h, --help                 Print help (see a summary with '-h')
+  -V, --version              Print version
+
+```
 
 ## Domain
+
 *Create a domain for a service*
+
 ```txt
 ~ railway domain --help
 Generates a domain for a service if there is not a railway provided domain
@@ -141,47 +164,6 @@ View [environment docs](/reference/environments) for more information.
 
 If you run `railway environment` without specifying a name, you will be prompted
 with an environment selector that lists all your environments for the project.
-
-## Help
-
-*Help command reference*
-
-```txt
-~ railway help
-Interact with Railway via CLI
-
-Usage: railway [OPTIONS] <COMMAND>
-
-Commands:
-  add          Provision a database into your project
-  completion   Generate completion script
-  connect      Connect to a database's shell (psql for Postgres, mongosh for MongoDB, etc.)
-  domain       Generates a domain for a service if there is not a railway provided domain
-  docs         Open Railway Documentation in default browser
-  down         Remove the most recent deployment
-  environment  Change the active environment
-  init         Create a new project
-  link         Associate existing project with current directory, may specify projectId as an argument
-  list         List all projects in your Railway account
-  login        Login to your Railway account
-  logout       Logout of your Railway account
-  logs         View a deploy's logs
-  open         Open your project dashboard
-  run          Run a local command using variables from the active environment
-  service      Link a service to the current project
-  shell        Open a local subshell with Railway variables available
-  status       Show information about the current project
-  unlink       Disassociate project from current directory
-  up           Upload and deploy project from the current directory
-  variables    Show variables for active environment
-  whoami       Get the current logged in user
-  help         Print this message or the help of the given subcommand(s)
-
-Options:
-      --json     Output in JSON format
-  -h, --help     Print help
-  -V, --version  Print version
-```
 
 ## Init
 *Create a new Project from the CLI*
@@ -432,11 +414,15 @@ Arguments:
   [PATH]
 
 Options:
-  -d, --detach             Don't attach to the log stream
-  -s, --service <SERVICE>  Service to deploy to (defaults to linked service)
-      --json               Output in JSON format
-  -h, --help               Print help
-  -V, --version            Print version
+  -d, --detach                     Don't attach to the log stream
+  -c, --ci                         Only stream build logs and exit after it's done
+  -s, --service <SERVICE>          Service to deploy to (defaults to linked service)
+  -e, --environment <ENVIRONMENT>  Environment to deploy to (defaults to linked environment)
+      --no-gitignore               Don't ignore paths from .gitignore
+      --verbose                    Verbose output
+      --json                       Output in JSON format
+  -h, --help                       Print help
+  -V, --version                    Print version
 ```
 If no path is provided, the top linked directory is deployed. The currently selected environment is used.
 
@@ -467,6 +453,95 @@ Options:
 Get the current logged in user
 
 Usage: railway whoami [OPTIONS]
+
+Options:
+      --json     Output in JSON format
+  -h, --help     Print help
+  -V, --version  Print version
+```
+
+## Volume
+
+*Manage project volumes with options to list, add, delete, update, attach, and detach volumes*
+
+```txt
+~ railway volume --help
+Manage project volumes
+
+Usage: railway volume [OPTIONS] <COMMAND>
+
+Commands:
+  list    List volumes
+  add     Add a new volume
+  delete  Delete a volume
+  update  Update a volume
+  detach  Detach a volume from a service
+  attach  Attach a volume to a service
+  help    Print this message or the help of the given subcommand(s)
+
+Options:
+  -s, --service <SERVICE>          Service ID
+  -e, --environment <ENVIRONMENT>  Environment ID
+      --json                       Output in JSON format
+  -h, --help                       Print help
+  -V, --version                    Print version
+```
+
+## Redeploy
+
+*Redeploy the currently deployed version of a service*
+
+```txt
+~ railway redeploy --help
+Redeploy the latest deployment of a service
+
+Usage: railway redeploy [OPTIONS]
+
+Options:
+  -s, --service <SERVICE>  The service ID/name to redeploy from
+  -y, --yes                Skip confirmation dialog
+      --json               Output in JSON format
+  -h, --help               Print help
+  -V, --version            Print version
+```
+
+## Help
+
+*Help command reference*
+
+```txt
+~ railway help
+Interact with Railway via CLI
+
+Usage: railway [OPTIONS] <COMMAND>
+
+Commands:
+  add          Provision a database into your project
+  completion   Generate completion script
+  connect      Connect to a database's shell (psql for Postgres, mongosh for MongoDB, etc.)
+  deploy       Provisions a template into your project
+  domain       Generates a domain for a service if there is not a railway provided domain
+  docs         Open Railway Documentation in default browser
+  down         Remove the most recent deployment
+  environment  Change the active environment
+  init         Create a new project
+  link         Associate existing project with current directory, may specify projectId as an argument
+  list         List all projects in your Railway account
+  login        Login to your Railway account
+  logout       Logout of your Railway account
+  logs         View a deploy's logs
+  open         Open your project dashboard
+  run          Run a local command using variables from the active environment
+  service      Link a service to the current project
+  shell        Open a local subshell with Railway variables available
+  status       Show information about the current project
+  unlink       Disassociate project from current directory
+  up           Upload and deploy project from the current directory
+  variables    Show variables for active environment
+  whoami       Get the current logged in user
+  volume       Manage project volumes
+  redeploy     Redeploy the latest deployment of a service
+  help         Print this message or the help of the given subcommand(s)
 
 Options:
       --json     Output in JSON format

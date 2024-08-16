@@ -12,13 +12,18 @@ Railway is a deployment platform that lets you provision infrastructure, develop
 
     **[Option 2](/quick-start#deploying-your-project---with-the-cli)** - Deploying with the [CLI](/guides/cli).
 
-3. **Deploying a template** - Ideal for deploying pre-configured software with minimal effort.
+3. **Deploying a <a href="reference/templates" target="_blank">template</a>** - Ideal for deploying pre-configured software with minimal effort.
 
-For our project, we'll utilize a basic <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>, and for the template deployment, we'll use the <a href="https://railway.app/template/umami-analytics" target="_blank">Umami template</a>.
+To demonstrate deploying directly from a GitHub repository through Railway's dashboard, we'll be using a basic <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a> that was prepared for this guide.
+
+
+For the template deployment, we'll use the <a href="https://railway.app/template/umami-analytics" target="_blank">Umami template</a> from our <a href="https://railway.app/templates" target="_blank">template marketplace</a>.
 
 ## Deploying Your Project - From GitHub
 
-To deploy our NextJS app, we will make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
+If this is your first time deploying code on Railway, we recommend <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" target="_blank">forking</a> the previously mentioned <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>'s repository so that you can follow along.
+
+To get started deploying our NextJS app, we will first make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
 
 - Open up the <a href="/overview/the-basics#dashboard--projects" target="_blank">dashboard</a> → Click **New Project**.
 
@@ -40,24 +45,32 @@ width={836} height={596} quality={100} />
 
 - Choose either **Deploy Now** or **Add variables**.
 
+    **Deploy Now** will immediately start to build and deploy your selected repo.
+
+    **Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the first deployment.
+
+    *For brevity we will choose **Deploy Now**.*
+
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/deploy_now_pmrqow.png"
 alt="screenshot of new project menu with deploy now option selected"
 layout="responsive"
 width={836} height={620} quality={100} />
 
-**Deploy Now** will immediately start to build and deploy your selected repo.
+When you click **Deploy Now**, Railway will create a new project for you and kick off an initial deploy after the project is created.
 
-**Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the deployment.
-
-*For brevity we will choose **Deploy Now**.*
-
-**You will now be dropped into your [Project Canvas](/quick-start#the-canvas)**.
+**Once the project is created you will land on your <a href="/quick-start#the-canvas" target="_blank">Project Canvas</a>**.
 
 ## Deploying Your Project - With the CLI
 
+As with the [Deploy from GitHub guide](/quick-start#deploying-your-project---from-github), if you're deploying code with the CLI for the first time, it's recommended to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" target="_blank">fork</a> the <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>'s repository to follow along. Since we'll be deploying local code, you'll also need to <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository" target="_blank">clone</a> the forked repository.
+
 The CLI can create a new project entirely from the command line, we will use it to scaffold our project.
 
+- Open up a command prompt inside of our local project.
+
 - Run `railway init`
+
+    This will create a new empty project with the name we provided, which will be used for any subsequent commands.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/railway_init_rglt5w.png"
 alt="screenshot of the command line after railway init was run"
@@ -67,6 +80,8 @@ width={836} height={233} quality={100} />
 Deploying your code is now only a single command away.
 
 - Run `railway up`
+
+    The CLI will now scan our project files, compress them, and upload them to Railway's backend for deployment.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/railway_up_vns3u4.png"
 alt="screenshot of the command line after railway up was run"

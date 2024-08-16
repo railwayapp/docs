@@ -122,7 +122,7 @@ func main() {
 }
 ```
 
-## Post requests turn into GET requests
+## POST requests turn into GET requests
 
 You might encounter this issue when testing your backend with tools like curl, where your **POST** requests are all converted into **GET** requests when they reach your app.
 
