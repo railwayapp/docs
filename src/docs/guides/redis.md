@@ -23,7 +23,7 @@ width={450} height={396} quality={100} />
 
 You can also deploy it via the [template](https://railway.app/template/redis) from the template marketplace.
 
-#### Service Source
+#### Deployed Service
 
 Upon deployment, you will have a standalone Redis service running in your project, deployed from the [bitnami/redis](https://hub.docker.com/r/bitnami/redis) Docker image.
 
@@ -37,17 +37,23 @@ Connect to the Redis server from another service in your project by [referencing
 - `REDISPASSWORD`
 - `REDIS_URL`
 
-#### Connecting externally
+#### Connecting Externally
 
 It is possible to connect to Redis externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
 
 *Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
-### Modify the deployment
+### Modify the Deployment
 
 Since the deployed container is pulled from the [bitnami Redis](https://hub.docker.com/r/bitnami/redis) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/r/bitnami/redis).
 
 ## High Availability Redis Cluster
+
+<Banner>
+**Released August 2024** 
+
+Be aware that this template has been minimally tested.  We are actively seeking feedback to improve the experience using this template.  Please provide your input [here](https://help.railway.app/templates/redis-ha-with-sentinel-4c4c487d).
+</Banner>
 
 We'll cover how to deploy, connect, and manage the [High Availability (HA) Redis Cluster](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) in this section.
 
@@ -60,13 +66,13 @@ alt="Redis HA in the marketplace"
 layout="responsive"
 width={376} height={396} quality={100} />
 
-#### Deployed services
+#### Deployed Services
 
 Upon deployment, you will have a cluster of 3 Redis nodes deployed from the [bitnami/redis](https://hub.docker.com/r/bitnami/redis) image, running in replication mode. 
 
 Additionally, 3 Sentinel nodes will be deployed from the [bitnami/redis-sentinel](https://hub.docker.com/r/bitnami/redis-sentinel) image to manage failover.
 
-#### Multi-region deployment
+#### Multi-region Deployment
 
 By default, each node is deployed to a different region (US West, US East, and EU West) for fault tolerance.
 
@@ -83,13 +89,13 @@ width={655} height={396} quality={100} />
 
 The exact method to configure your client will depend on the client library you are using.  As an example, a Node.js server using `ioredis` can be found here [here](https://github.com/railwayapp-templates/redis-ha-sentinel/blob/main/exampleApps/node/server.js#L4).
 
-#### Connecting externally
+#### Connecting Externally
 
 It is possible to connect to the Redis cluster externally (from outside of the [project](/develop/projects) in which it is deployed) by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying).
 
 *Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
-### Modify the deployment
+### Modify the Deployment
 
 Since the deployed containers are based on the `bitnami/redis` and `bitnami/redis-sentinel` images, you can refer to the documentation for each to understand how to customize them:
 - [bitnami/redis](https://hub.docker.com/r/bitnami/redis)

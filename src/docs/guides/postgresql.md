@@ -6,7 +6,7 @@ Railway offers two PostgreSQL deployment options to accommodate different needs:
 
 - **Standalone Instance** - a single Postgres database server that is easy to manage; ideal for development environments, smaller projects, or services which are less sensitive to disruption.
 
-- **High Availability (HA) Cluster** - intended for production workloads where uptime is critical.  It consists of three Postgres nodes in replication mode complemented by a [Pgpool-II](https://www.pgpool.net/mediawiki/index.php/Main_Page) proxy service.
+- **High Availability (HA) Cluster** - intended for production workloads where uptime is critical.  It consists of three Postgres nodes in replication mode managed by [Repmgr](https://www.repmgr.org/docs/current/getting-started.html), complemented by a [Pgpool-II](https://www.pgpool.net/mediawiki/index.php/Main_Page) proxy service.
 
 ## Standalone PostgreSQL
 
@@ -23,7 +23,7 @@ width={450} height={396} quality={100} />
 
 You can also deploy it via the [template](https://railway.app/template/postgres) from the template marketplace.
 
-#### Service Source
+#### Deployed Service
 
 Upon deployment, you will have a standalone PostgreSQL service running in your project, deployed from Railway's [SSL-enabled Postgres image](https://github.com/railwayapp-templates/postgres-ssl/pkgs/container/postgres-ssl), which uses the official [postgres](https://hub.docker.com/_/postgres) image in Docker Hub as its base.
 
@@ -41,13 +41,13 @@ Connect to the PostgreSQL server from another service in your project by [refere
 _Note, Many libraries will automatically look for the `DATABASE_URL` variable and use
 it to connect to PostgreSQL but you can use these variables in whatever way works for you._
 
-#### Connecting externally
+#### Connecting Externally
 
 It is possible to connect to PostgreSQL externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
 
 *Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
-### Modify the deployment
+### Modify the Deployment
 
 Since the deployed container is based on an image built from the official [PostgreSQL](https://hub.docker.com/_/postgres) image in Docker hub, you can modify the deployment based on the [instructions in Docker hub](https://hub.docker.com/_/postgres#:~:text=How%20to%20extend%20this%20image).
 
@@ -55,7 +55,13 @@ We also encourage you to fork the [Railway postgres-ssl repository](https://gith
 
 ## High Availability PostgreSQL Cluster
 
-We'll cover how to deploy, connect, and manage the High Availability (HA) PostgreSQL cluster in this section.
+<Banner>
+**Released August 2024** 
+
+Be aware that this template has been minimally tested.  We are actively seeking feedback to improve the experience using this template.  Please provide your input [here](https://help.railway.app/templates/postgre-sql-ha-with-repmgr-33c997a9).
+</Banner>
+
+We'll cover how to deploy, connect, and manage the [High Availability (HA) PostgreSQL](https://www.postgresql.org/docs/current/high-availability.html) cluster in this section.
 
 ### Deploy
 
@@ -66,13 +72,13 @@ alt="PostgreSQL HA in the marketplace"
 layout="responsive"
 width={405} height={396} quality={100} />
 
-#### Deployed services
+#### Deployed Services
 
 Upon deployment, you will have a cluster of 3 PostgreSQL nodes deployed from the [bitnami/postgres-repmgr](https://hub.docker.com/r/bitnami/postgresql-repmgr) image, running in [replication mode](https://www.postgresql.org/docs/16/high-availability.html) and managed by [repmgr](https://www.repmgr.org/).
 
 You will also have a [Pgpool-II](https://www.pgpool.net/docs/latest/en/html/) service deployed from the [bitnami/pgpool](https://hub.docker.com/r/bitnami/pgpool) image which is intended to be used as a proxy to the cluster.
 
-#### Multi-region deployment
+#### Multi-region Deployment
 
 By default, each node is deployed to a different region (US West, US East, and EU West) for fault tolerance.
 
@@ -89,13 +95,13 @@ alt="Pgpool variables"
 layout="responsive"
 width={655} height={396} quality={100} />
 
-#### Connecting externally
+#### Connecting Externally
 
 It is possible to connect to the PostgreSQL cluster externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying).  To do so, you should reference the `DATABASE_PUBLIC_URL` environment variable available in the Pgpool service.
 
 *Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
-### Modify the deployment
+### Modify the Deployment
 
 Since the containers are deployed from bitnami images, you can reference the documentation for each, to understand how to customize them:
 - [bitnami/postgres-repmgr](https://github.com/bitnami/containers/blob/main/bitnami/postgresql-repmgr/README.md#environment-variables)

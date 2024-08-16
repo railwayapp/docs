@@ -23,7 +23,7 @@ width={450} height={396} quality={100} />
 
 You can also deploy it via the [template](https://railway.app/template/mongodb) from the template marketplace.
 
-#### Service Source
+#### Deployed Service
 
 Upon deployment, you will have a standalone MongoDB service running in your project, deployed from the official [mongo](https://hub.docker.com/_/mongo) Docker image.
 
@@ -41,17 +41,23 @@ Connect to MongoDB from another service in your project by [referencing the envi
 - `MONGOPASSWORD`
 - `MONGO_URL`
 
-#### Connecting externally
+#### Connecting Externally
 
 It is possible to connect to MongoDB externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
 
 *Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
-### Modify the deployment
+### Modify the Deployment
 
 Since the deployed container is pulled from the official [MongoDB](https://hub.docker.com/_/mongo) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/mongo).
 
 ## High Availability MongoDB Replica Set
+
+<Banner>
+**Released August 2024** 
+
+Be aware that this template has been minimally tested.  We are actively seeking feedback to improve the experience using this template.  Please provide your input [here](https://help.railway.app/templates/mongo-replica-set-948643d5).
+</Banner>
 
 We'll cover how to deploy, connect, and manage the [High Availability (HA) MongoDB Replica Set](https://www.mongodb.com/docs/manual/replication/) in this section.
 
@@ -64,13 +70,13 @@ alt="MongoDB HA in the marketplace"
 layout="responsive"
 width={405} height={396} quality={100} />
 
-#### Deployed services
+#### Deployed Services
 
 Upon deployment, a cluster of 3 MongoDB nodes will be added to your project.  The nodes are deployed from a [custom Dockerfile](https://github.com/railwayapp-templates/mongo-replica-set/tree/main/nodes). The Dockerfile pulls the [mongo Docker image](https://hub.docker.com/_/mongo) and copies a script into the container.  The script is run when the container starts to generate the [keyfile](https://www.mongodb.com/docs/manual/tutorial/deploy-replica-set-with-keyfile-access-control/) for authentication.
 
 An [init service](https://github.com/railwayapp-templates/mongo-replica-set/tree/main/initService) is also deployed alongside the nodes to initiate the replica set once the nodes are up.  It should be deleted post-deploy.
 
-#### Multi-region deployment
+#### Multi-region Deployment
 
 By default, each node is deployed to a different region (US West, US East, and EU West) for fault tolerance.
 
@@ -87,13 +93,13 @@ width={655} height={396} quality={100} />
 
 For some examples, check out the [example apps](https://github.com/railwayapp-templates/mongo-replica-set/tree/main/exampleApps) within the source repo for the replica set.
 
-#### Connecting externally
+#### Connecting Externally
 
 It is possible to connect to the MongoDB Replica Set externally (from outside of the [project](/develop/projects) in which it is deployed) by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying).
 
 *Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
-### Modify the deployment
+### Modify the Deployment
 
 Since the containers deployed are based on the MongoDB image, you can reference the [documentation in Docker hub](https://hub.docker.com/_/mongo) to understand how to customize them using environment variables.
 

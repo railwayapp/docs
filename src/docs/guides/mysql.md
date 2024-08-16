@@ -23,7 +23,7 @@ width={450} height={396} quality={100} />
 
 You can also deploy it via the [template](https://railway.app/template/mysql) from the template marketplace.
 
-#### Service Source
+#### Deployed Service
 
 Upon deployment, you will have a standalone MySQL service running in your project, deployed directly from the [mysql Docker image](https://hub.docker.com/_/mysql).
 
@@ -38,17 +38,23 @@ Connect to MySQL from another service in your project by [referencing the enviro
 - `MYSQLDATABASE`
 - `MYSQL_URL`
 
-#### Connecting externally
+#### Connecting Externally
 
 It is possible to connect to MySQL externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
 
 *Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
-### Modify the deployment
+### Modify the Deployment
 
 Since the deployed container is pulled from the official MySQL image in Docker hub, you can modify the deployment based on the [instructions in Docker hub](https://hub.docker.com/_/mysql).
 
 ## High Availability MySQL InnoDB Cluster
+
+<Banner>
+**Released August 2024** 
+
+Be aware that this template has been minimally tested.  We are actively seeking feedback to improve the experience using this template.  Please provide your input [here](https://help.railway.app/templates/my-sql-inno-db-cluster-6afff85d).
+</Banner>
 
 We'll cover how to deploy, connect, and manage the [High Availability (HA) MySQL InnoDB Cluster](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-innodb-cluster.html) in this section.
 
@@ -63,7 +69,7 @@ alt="MySQL HA in the marketplace"
 layout="responsive"
 width={380} height={396} quality={100} />
 
-#### Deployed services
+#### Deployed Services
 
 Upon deployment, a cluster of 3 MySQL nodes will be added to your project.  The nodes are deployed from a [custom Dockerfile](https://github.com/railwayapp-templates/mysql-cluster/tree/main/nodes).  The Dockerfile pulls the [mysql Docker image](https://hub.docker.com/_/mysql) and copies a `my.cnf` file into each container, configuring the necessary settings to prep the nodes to join the [InnoDB cluster](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-innodb-cluster.html).
 
@@ -71,7 +77,7 @@ An [initialization service](https://github.com/railwayapp-templates/mysql-cluste
 
 Lastly, a [MySQL Router](https://dev.mysql.com/doc/mysql-router/8.0/en/mysql-router-general.html) service is also deployed, which serves as a proxy to the cluster. This router is built from the [MySQL Router image](https://hub.docker.com/r/mysql/mysql-router).
 
-#### Multi-region deployment
+#### Multi-region Deployment
 
 By default, each node is deployed to a different region (US West, US East, and EU West) for fault tolerance.
 
@@ -96,13 +102,13 @@ Connect to the cluster via the environment variables provided in the MySQL Route
 
 For an example, check out the [example app](https://github.com/railwayapp-templates/mysql-cluster/blob/main/exampleApps/python/main.py#L19) in the template's source repo.
 
-#### Connecting externally
+#### Connecting Externally
 
 It is possible to connect to the MySQL cluster externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying).
 
 *Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
 
-### Modify the deployment
+### Modify the Deployment
 
 Since the containers deployed are based on MySQL images in Docker hub, you can reference the documentation for each, to understand how to customize them using environment variables.
 
