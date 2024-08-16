@@ -180,4 +180,4 @@ Happy Building!
 
 ### Join the Community
 
-Chat with Railway members, ask questions, and hang out in our <a href="https://discord.gg/railway" target="_blank">community Discord</a> with fellow builders! We'd love to have you!
+Chat with Railway members, ask questions, and hang out in our <a href="https://discord.gg/railway" target="_blank">Discord community</a> with fellow builders! We'd love to have you!
