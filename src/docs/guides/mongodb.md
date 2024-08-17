@@ -56,7 +56,7 @@ Since the deployed container is pulled from the official [MongoDB](https://hub.d
 <Banner>
 **Released August 2024** 
 
-Be aware that this template has been minimally tested.  We are actively seeking feedback to improve the experience using this template.  Please provide your input [here](https://help.railway.app/templates/mongo-replica-set-948643d5).
+Be aware that this template has not yet been battle-tested.  We are seeking feedback to improve the experience using this template.  Please provide your input [here](https://help.railway.app/templates/mongo-replica-set-948643d5).
 </Banner>
 
 We'll cover how to deploy, connect, and manage the [High Availability (HA) MongoDB Replica Set](https://www.mongodb.com/docs/manual/replication/) in this section.
