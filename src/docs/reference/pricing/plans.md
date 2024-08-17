@@ -26,6 +26,19 @@ Each Railway account needs an active subscription. The base subscription fee all
 
 Read more about our plans at <a href="https://railway.app/pricing" target="_blank">railway.app/pricing</a>.
 
+### Plan Resources
+
+Depending on the plan you are on, you are allowed to use up these resources per service.
+
+| Plan           | **RAM**    | **CPU**     | **Ephemeral Storage** | **Volume Storage** |
+| -------------- | ---------- | ----------- | --------------------- | ------------------ |
+| **Trial**      | **0.5 GB** | **2 vCPU**  | **1 GB**              | **0.5 GB**         | 
+| **Hobby**      | **8 GB**   | **8 vCPU**  | **100 GB**            | **5 GB**           |
+| **Pro**        | **32 GB**  | **32 vCPU** | **100 GB**            | **50 GB**          |
+| **Enterprise** | **64 GB**  | **64 vCPU** | **100 GB**            | **50 GB**          |
+
+Please note that these are initial values and users on the Pro and Enterprise plans can request limit increases.
+
 ### Resource Usage Pricing
 
 On top of the base subscription fee above, Railway charges for the resources that you consume.
