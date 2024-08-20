@@ -102,7 +102,7 @@ RAILWAY_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX railway up
 
 #### Account Tokens
 
-You can also use an [Account Tokens](https://railway.app/account/tokens) to authenticate all CLI actions.
+You can also use [Account Tokens](https://railway.app/account/tokens) to authenticate all CLI actions.
 
 Account Tokens allow the CLI to perform all actions on any project that the token's account owner has access to.
 
