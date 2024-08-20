@@ -84,21 +84,32 @@ Use the `--browserless` flag to authenticate manually:
 railway login --browserless
 ```
 
-This will print a URL and a Pairing Code to the Terminal, which you can use to
-authenticate your CLI session. Follow the instructions to complete the authentication
-process.
+### Tokens
 
-### Project Tokens
+In situations where user input or interaction isn't possible, such as in CI/CD pipelines, you can set either the `RAILWAY_TOKEN` or `RAILWAY_API_TOKEN` environment variable, based on your specific requirements as detailed below.
 
-You can use [Project Tokens](/deploy/integrations#project-tokens) to authenticate
-in cases where user input/interaction is not possible, such as in CI/CD pipelines.
+#### Project Tokens
 
-Project Tokens allow the CLI to access all the environment variables associated
-with a specific project and environment. Use the token by setting the
-`RAILWAY_TOKEN` environment variable and then running `railway <command>`.
+You can use [Project Tokens](/deploy/integrations#project-tokens) to authenticate project-level actions.
+
+Project Tokens allow the CLI to access all the project-level actions in the environment set when the token was created.
+
+Use the token by setting the `RAILWAY_TOKEN` environment variable and then running `railway <command>`.
 
 ```bash
-RAILWAY_TOKEN=XXXX railway run
+RAILWAY_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX railway up
+```
+
+#### Account Tokens
+
+You can also use an [Account Tokens](https://railway.app/account/tokens) to authenticate all CLI actions.
+
+Account Tokens allow the CLI to perform all actions on any project that the token's account owner has access to.
+
+Use the token by setting the `RAILWAY_API_TOKEN` environment variable and then running `railway <command>`.
+
+```bash
+RAILWAY_API_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX railway whoami
 ```
 
 ## Common Examples of CLI Usage
