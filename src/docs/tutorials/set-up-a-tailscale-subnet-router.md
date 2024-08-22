@@ -58,7 +58,7 @@ The Auth key will be used to authenticate the Tailscale machine.
 
 - Head over to the [Keys](https://login.tailscale.com/admin/settings/keys) page located within the settings menu on the Tailscale admin dashboard.
 
-<!-- Image here -->
+{/* Image Here */}
 
 - Click **Generate auth key**.
 
@@ -66,7 +66,7 @@ The Auth key will be used to authenticate the Tailscale machine.
 
 - Click **Generate key**.
 
-<!-- Image here -->
+{/* Image Here */}
 
 - Tailscale will now show you the newly generated auth key, be sure to copy it down.
 
@@ -80,7 +80,7 @@ Without our nameserver properly configured on Tailscale we would not be able to 
 
 - Under the **Nameservers** Header, click **Add Nameserver** -> Click **Custom**.
 
-<!-- Image here -->
+{/* Image Here */}
 
     This is where we will tell Tailscale how to route the DNS lookups for our `railway.internal` domains.
 
@@ -94,7 +94,7 @@ Without our nameserver properly configured on Tailscale we would not be able to 
 
     This makes sure only DNS lookups for our private domain are forwarded to the private DNS resolver.
     
-<!-- Image here -->
+{/* Image Here */}
 
 - Click **Save**.
 
@@ -106,7 +106,7 @@ This will be the gateway into our environment's private network.
 
     For this tutorial, we will deploy the Subnet Router into a project with a Postgres database service.
 
-<!-- Image here -->
+{/* Image Here */}
 
 - In the top right of the project canvas, click **Create** -> Choose **Template**.
 
@@ -114,11 +114,11 @@ This will be the gateway into our environment's private network.
 
     Choose the result that is published by **Railway Templates**.
 
-<!-- Image here -->
+{/* Image Here */}
 
 - A ghost service will appear, Paste in your Auth Key from earlier.
 
-<!-- Image here -->
+{/* Image Here */}
 
 - Click **Deploy Template**
 
@@ -130,7 +130,7 @@ Our subnet router will advertise the private network's CIDR range but we will ne
 
 - Head back over to our [Machines dashboard](https://login.tailscale.com/admin/machines).
 
-<!-- Image here -->
+{/* Image Here */}
 
 You will see your newly deployed machine with its name that was previously derived from the project and environment.
 
@@ -138,11 +138,11 @@ You will see your newly deployed machine with its name that was previously deriv
 
 - Click on the machine's 3-dot menu -> **Edit route settings**.
 
-<!-- Image here -->
+{/* Image Here */}
 
 - Click the radio button on the `fd12::/16` to accept it.
 
-<!-- Image here -->
+{/* Image Here */}
 
     This route covers the entire private networking range allowing us to access all services within the project.
 
@@ -158,7 +158,7 @@ You can use any database GUI tool of your liking or none at all because with wha
 
 Example: Your `prisma migrate deploy` or `python manage.py migrate` commands will now work locally without the need to use the public host and port for the database.
 
-<!-- Image here -->
+{/* Image Here */}
 
 *Note the use of our private domain and port in the database URL*
 
