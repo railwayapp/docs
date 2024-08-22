@@ -12,13 +12,13 @@ In the context of Railway, The "other devices" are the services within a project
 
 ## About this Tutorial
 
+The goal of this tutorial is to enable a connection to our production Postgres database without ever needing to expose it publicly.
+
 Since Railway doesn't currently offer a native way to access the private network from our local environment, we can use Tailscale as a subnet router to accomplish this.
 
 Deploying Tailscale as a subnet router into our project means that we can access the `railway.internal` private domains from any device connected to our tailnet.
 
 This tutorial aims to provide a simple step-by-step guide on setting up everything needed so that we can access the private domains of our services.
-
-The goal of this tutorial is to enable a connection to our production Postgres database without ever needing to expose it publicly.
 
 **Objectives**
 
