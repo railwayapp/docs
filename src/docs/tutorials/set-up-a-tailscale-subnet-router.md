@@ -86,7 +86,7 @@ Without our nameserver properly configured on Tailscale we would not be able to 
 
 - Enter `fd12::10` as the Nameserver.
 
-    This is the private network's DNS nameserver used in all private networks in every environment.
+    This DNS nameserver is used across all private networks in every environment and will handle our DNS queries for private domains.
 
 - Enable the **Restrict to domain** option, AKA Split DNS.
 
