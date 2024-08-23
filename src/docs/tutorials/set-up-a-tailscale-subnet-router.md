@@ -60,7 +60,7 @@ The Auth key will authenticate the Tailscale machine that we'll deploy into our 
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349121/docs/tutorials/tailscale-subnet-router/keys_page_vohahp.png"
 alt="screenshot of the tailscale settings page"
-layout="responsive"
+layout="intrinsic"
 width={1261} height={772} quality={100} />
 
 - Click **Generate auth key**.
@@ -69,7 +69,7 @@ width={1261} height={772} quality={100} />
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349121/docs/tutorials/tailscale-subnet-router/generate_auth_key_oxqr8m.png"
 alt="screenshot of the generate auth key modal in tailscale"
-layout="responsive"
+layout="intrinsic"
 width={602} height={855} quality={100} />
 
 - Click **Generate key**.
@@ -90,7 +90,7 @@ Without properly configuring our nameserver on Tailscale, we wouldn't be able to
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349122/docs/tutorials/tailscale-subnet-router/tailscale_nameservers_en8oma.png"
 alt="screenshot of the nameservers dropdown in tailscale"
-layout="responsive"
+layout="intrinsic"
 width={813} height={683} quality={100} />
 
 - Enter `fd12::10` as the Nameserver.
@@ -105,7 +105,7 @@ width={813} height={683} quality={100} />
     
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/add_nameserver_mlkk5y.png"
 alt="screenshot of the add nameserver modal in tailscale"
-layout="responsive"
+layout="intrinsic"
 width={602} height={572} quality={100} />
 
 - Click **Save**.
@@ -120,7 +120,7 @@ This will be the gateway into our environment's private network.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349122/docs/tutorials/tailscale-subnet-router/project_with_postgres_x19ggr.png"
 alt="screenshot of a project canvas on railway showing a single postgres service"
-layout="responsive"
+layout="intrinsic"
 width={1363} height={817} quality={100} />
 
 - In the top right of the project canvas, click **Create** → Choose **Template**.
@@ -131,14 +131,14 @@ width={1363} height={817} quality={100} />
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/tailscale_subnet_router_template_b9vzt4.png"
 alt="screenshot of the choose a template modal showing the tailscale template within railway"
-layout="responsive"
+layout="intrinsic"
 width={660} height={409} quality={100} />
 
 - A ghost service will appear, Paste in your Auth Key from earlier.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/tailscale_subnet_router_ghost_jjyt2s.png"
 alt="screenshot of the tailscale template asking for the auth key"
-layout="responsive"
+layout="intrinsic"
 width={1363} height={817} quality={100} />
 
 - Click **Deploy Template**
@@ -153,7 +153,7 @@ Our subnet router will advertise the private network's CIDR range but we will ne
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349122/docs/tutorials/tailscale-subnet-router/tailscale_machines_d3qcey.png"
 alt="screenshot of the machine's dashboard in tailscale that is showing a subnet needs approving"
-layout="responsive"
+layout="intrinsic"
 width={1261} height={560} quality={100} />
 
 You will see your newly deployed machine with its name that was previously derived from the project and environment.
@@ -168,14 +168,14 @@ You will see your newly deployed machine with its name that was previously deriv
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349121/docs/tutorials/tailscale-subnet-router/machine_3_dot_menu_ygqktw.png"
 alt="screenshot of the machines page in tailscale with the 3-dot menu open and edit route settings selected"
-layout="responsive"
+layout="intrinsic"
 width={1320} height={593} quality={100} />
 
 - Click the radio button on the `fd12::/16` to accept it.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/edit_route_settings_tyna0n.png"
 alt="screenshot of the edit route settings in tailscale showing our route being accepted"
-layout="responsive"
+layout="intrinsic"
 width={602} height={526} quality={100} />
 
     This route covers the entire private networking range allowing us to access all services within the project.
@@ -194,7 +194,7 @@ Example: Your `prisma migrate deploy` or `python manage.py migrate` commands wil
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/dbgate_priv_net_mdjnlh.png"
 alt="screenshot of dbgate showing that we have successfully connected to our database"
-layout="responsive"
+layout="intrinsic"
 width={1316} height={506} quality={100} />
 
 *Note the use of our private domain and port in the database URL.*
