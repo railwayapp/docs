@@ -12,9 +12,9 @@ In the context of Railway, The "other devices" are the services within a project
 
 ## About this Tutorial
 
-The goal of this tutorial is to enable us to connect to our production Postgres database without ever needing to expose it publicly.
+This tutorial will help you connect to your database via the private network without you having to use public endpoints.
 
-Since Railway doesn't currently offer a native way to access the <a href="https://docs.railway.app/reference/private-networking" target="_blank">private network</a> from our local environment, we can use Tailscale as a subnet router to accomplish this.
+Since Railway doesn't currently offer a native way to access the <a href="https://docs.railway.app/reference/private-networking" target="_blank">private network</a> from our local environment, we can use a Tailscale Subnet Router to accomplish this.
 
 Deploying Tailscale as a subnet router into our project means that we can access the `railway.internal` private domains from any device connected to our tailnet.
 
@@ -32,7 +32,7 @@ In this tutorial, you'll learn how to do the following: -
 
 **Prerequisites**
 
-If you're new to private networking, we strongly recommend checking out our private networking [guide](/guides/private-networking) and [reference](/reference/private-networking) page for a quick intro.
+This guide assumes you are familiar with the concepts of Private Network, for a quick explainer check out our <a href="/guides/private-networking" target="_blank">guide</a> and <a href="/reference/private-networking" target="_blank">reference</a> page.
 
 **In Railway -**
 
@@ -80,7 +80,7 @@ width={602} height={855} quality={100} />
 
 ## 2. Configure Split DNS
 
-Without properly configuring our nameserver on Tailscale, we wouldn't be able to perform local DNS lookups for our private domains.
+Properly configuring our nameserver in Tailscale is essential for enabling local DNS lookups for our private domains.
 
 - Open the <a href="https://login.tailscale.com/admin/dns" target="_blank">DNS</a> page.
 
