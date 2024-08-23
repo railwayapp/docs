@@ -28,9 +28,7 @@ In this tutorial, you will learn how to do the following in Cloudflare -
 
 **In Railway -**
 
-
 - Have two or more identical services deployed in two or more different regions in Railway.
-
 
     Duplicating a service can be done by right clicking and selecting **Duplicate**, opening its service settings and changing the region, then clicking **Deploy**.
 
