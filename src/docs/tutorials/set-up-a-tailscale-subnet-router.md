@@ -125,7 +125,7 @@ width={1363} height={817} quality={100} />
 
 - In the top right of the project canvas, click **Create** → Choose **Template**.
 
-- Search for the `Tailscale Subnet Router` template.
+- Search for the <a href="https://railway.app/template/tailscale" target="_blank">Tailscale Subnet Router</a> template.
 
     Choose the result that is published by **Railway Templates**.
 
@@ -188,7 +188,7 @@ width={602} height={526} quality={100} />
 
 During this tutorial we have used Postgres as an example service, so let's finally connect to it via its private domain and port!
 
-You can use any database GUI tool you prefer, or none at all, because, with our setup, you can connect to the database over the private network using any software.
+You can use any database GUI tool you prefer, or none at all, since our setup allows you to connect to the database over the private network using any software.
 
 Example: Your `prisma migrate deploy` or `python manage.py migrate` commands will now work locally without the need to use the public host and port for the database.
 
@@ -203,7 +203,7 @@ width={1316} height={506} quality={100} />
 
 This tutorial explains how to set up a Tailscale Subnet router on Railway but does not delve into all the terminology and settings related to Tailscale.
 
-We recommend reviewing the following Tailscale documentation::
+We recommend reviewing the following Tailscale documentation:
 
 - [Subnet router](https://tailscale.com/kb/1019/subnets)
 - [Auth keys](https://tailscale.com/kb/1085/auth-keys)
