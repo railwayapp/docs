@@ -25,9 +25,9 @@ If this is your first time deploying code on Railway, we recommend <a href="http
 
 To get started deploying our NextJS app, we will first make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
 
-- Open up the <a href="/overview/the-basics#dashboard--projects" target="_blank">dashboard</a> → Click **New Project**.
+1. Open up the <a href="/overview/the-basics#dashboard--projects" target="_blank">dashboard</a> → Click **New Project**.
 
-- Choose the **GitHub repo** option.
+2. Choose the **GitHub repo** option.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752559/docs/quick-start/new_project_uyqqpx.png"
 alt="screenshot of new project menu with deploy from github selected"
@@ -36,14 +36,14 @@ width={836} height={860} quality={100} />
 
 *Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.*
 
-- Search for your GitHub project and click on it.
+3. Search for your GitHub project and click on it.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752559/docs/quick-start/new_github_project_pzvabz.png"
 alt="screenshot of new project menu with nextjs repo selected"
 layout="responsive"
 width={836} height={596} quality={100} />
 
-- Choose either **Deploy Now** or **Add variables**.
+4. Choose either **Deploy Now** or **Add variables**.
 
     **Deploy Now** will immediately start to build and deploy your selected repo.
 
