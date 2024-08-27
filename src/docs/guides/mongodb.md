@@ -95,9 +95,9 @@ For some examples, check out the [example apps](https://github.com/railwayapp-te
 
 #### Connecting Externally
 
-It is possible to connect to the MongoDB Replica Set externally (from outside of the [project](/develop/projects) in which it is deployed) by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying).
+It is possible to connect to the MongoDB Replica Set externally (from outside of the [project](/develop/projects) in which it is deployed) by setting up a tunnel into the private network.
 
-*Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
+Check out this [tutorial](/tutorials/set-up-a-tailscale-subnet-router) for more information on how to implement a Tailscale subnet router, to tunnel into the private network and connect to the replica set.
 
 ### Modify the Deployment
 
