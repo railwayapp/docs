@@ -11,14 +11,17 @@ When mounting a volume to a service, a volume is made available to the service o
 
 ## Size Limits
 
-Volumes have a max size based on the [subscription plan](/reference/pricing#plans).
+Volumes have a default size based on the [subscription plan](/reference/pricing#plans).
+
 - Free and Trial plans: **0.5GB**
 - Hobby plans: **5GB**
 - Pro and team plans: **50GB**
 
 Volumes can be "Grown" after upgrading to a different plan.
 
-Please reach out to us at [team@railway.app](mailto:team@railway.app) if you need more space.
+Pro users and above can self-serve to increase their volume up to 250 GB.
+
+Please reach out to us on our [Help Station](https://help.railway.app/questions) or [Slack](/reference/support#slack) if you need more space.
 
 ## Pricing
 
