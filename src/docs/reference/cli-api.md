@@ -196,7 +196,7 @@ Arguments:
 
 Options:
   -e, --environment <ENVIRONMENT>  Environment to link to
-  -p, --project-id <PROJECT-ID>    Project ID to link to
+  -p, --project-id <PROJECT_ID>    Project ID to link to
   -s, --service <SERVICE>          The service to link to
       --json                       Output in JSON format
   -h, --help                       Print help
