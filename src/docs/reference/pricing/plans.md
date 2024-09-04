@@ -26,7 +26,7 @@ Each Railway account needs an active subscription. The base subscription fee all
 
 Read more about our plans at <a href="https://railway.app/pricing" target="_blank">railway.app/pricing</a>.
 
-### Plan Resources
+### Default Plan Resources
 
 Depending on the plan you are on, you are allowed to use up these resources per service.
 
@@ -38,6 +38,8 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 | **Enterprise** | **64 GB**  | **64 vCPU** | **100 GB**            | **50 GB**          |
 
 Please note that these are initial values and users on the Pro and Enterprise plans can request limit increases.
+
+Pro users and above can self-serve to increase their volume up to 250 GB.
 
 ### Resource Usage Pricing
 
