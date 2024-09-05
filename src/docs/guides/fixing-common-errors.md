@@ -13,7 +13,7 @@ stick to this formula:
     - Error as section title (`## Some Error`)
         - A description of the error. Explain to users what error this is (add
           a screenshot if applicable), why this happens, and what causes it.
-        - How to solve the error (`## Solution`). Solutions may have sections
+        - How to solve the error (`### Solution`). Solutions may have sections
           underneath it for language/framework/stack-specific solutions, e.g.:
             - Python
             - Go
@@ -131,5 +131,7 @@ Depending on the application, this may result in your application returning eith
 This occurs because your request was made using HTTP. Railway will attempt to redirect your insecure request with a 301 Moved Permanently status code.
 
 When an HTTP client encounters a 301 Moved Permanently redirect, the client will follow the redirect. However, according to the <a href="https://www.rfc-editor.org/rfc/rfc7231#section-6.4.2" target="_blank">HTTP/1.1 specifications</a>, the client will typically change the request method from POST to GET when it follows the redirect to the new URL.
+
+### Solution
 
 Fortunately, the solution is simple: Ensure you are using HTTPS when calling your Railway-hosted services.
