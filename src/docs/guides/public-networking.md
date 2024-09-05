@@ -146,7 +146,7 @@ In contrast there are many nameservers that don't support CNAME flattening or dy
 
 If your DNS provider doesn't support CNAME Flattening or dynamic ALIAS records at the root, you can also change your domain's nameservers to point to Cloudflare's nameservers. This will allow you to use a CNAME record for the root domain. Follow the instructions listed on Cloudflare's documentation to <a href="https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/" target="_blank">change your nameservers</a>.
 
-## Adding a root domain with www. subdomain to Cloudflare
+## Adding a root domain with www subdomain to Cloudflare
 
 If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdomain to Cloudflare and redirect all `www.` traffic to the root domain:
 
