@@ -54,6 +54,10 @@ Railway's pricing has two components: a monthly subscription fee, and resource u
 
 Learn more [here](/reference/pricing/plans#included-usage).
 
+### Why is there an "Applied balance" on my invoice?
+When the amount due on your invoice is less than $0.50, and you do not have a credit balance, Railway marks the invoice as paid and registers the amount to your credit balance as a debit to be charged on a future invoice.
+
+
 ### How do I view/manage/cancel my subscription?
 
 To view and manage your subscription, visit the [billing section](https://railway.app/account/billing) of the Railway dashboard.
