@@ -25,6 +25,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("About Railway", "overview"),
       makePage("The Basics", "overview"),
+      makePage("Best Practices", "overview"),
       makePage("Advanced Concepts", "overview"),
     ],
   },
