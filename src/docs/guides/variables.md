@@ -72,16 +72,18 @@ Use the following syntax to reference variables in another service:
 
 - `${{SERVICE_NAME.VAR}}`
 
-<Collapse title="Examples">
+<Collapse title="Example">
 - You have a variable set on your database service called `DATABASE_URL` which contains the connection string to connect to the database.  The database service name is **Clickhouse**.
 
-You need to make this connection string available to another service in the project. Go to the service's variables that needs the connection string and add a variable with the following value:
+- You need to make this connection string available to another service in the project. Go to the service's variables that needs the connection string and add a variable with the following value:
 
-- `DATABASE_URL=${{ Clickhouse.DATABASE_URL }}`
+  - `DATABASE_URL=${{ Clickhouse.DATABASE_URL }}`
 
-- Your frontend service needs to make requests to your backend. You do not want to hardcode the backend URL in your frontend code. Go to your frontend service settings and add the [Railway-provided variable](/develop/variables#railway-provided-variables) for the backend URL -
+- Your frontend service needs to make requests to your backend. You do not want to hardcode the backend URL in your frontend code. Go to your frontend service settings and add the [Railway-provided variable](/develop/variables#railway-provided-variables) for the backend URL
+
   - `API_URL=https://${{ backend.RAILWAY_PUBLIC_DOMAIN }}`
-    </Collapse>
+
+</Collapse>
 
 ### Referencing variables in the same service
 
