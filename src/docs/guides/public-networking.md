@@ -119,6 +119,30 @@ If you have a wildcard domain on Cloudflare, you must:
     layout="responsive"
     width={855} height={342} quality={80} />
 
+## Target Ports
+
+Target Ports, or Magic Ports, correlate a single domain to a specific internal port that the application listens on, enabling you to expose multiple HTTP ports through the use of multiple domains.
+
+Example -
+
+`https://example.com/` → `:8080`
+
+`https://management.example.com/` → `:9000`
+
+When you first generate a Railway-provided domain, if your application listens on a single port, Railway's magic automatically detects and sets it as the domain's target port. If your app listens on multiple ports, you're provided with a list to choose from.
+
+When you add a custom domain, you're given a list of ports to choose from, and the selected port will handle all traffic routed to the domain. You can also specify a custom port if needed.
+
+These target ports inform Railway which public domain corresponds to each internal port, ensuring that traffic from a specific domain is correctly routed to your application.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1726092043/docs/target_ports_custom_domain_qhgd5p.png"
+alt="Screenshot of target port selection on a custom domain"
+layout="intrinsic"
+width={700} height={582}
+quality={100} />
+
+You can change the automatically detected or manually set port at any time by clicking the edit icon next to the domain.
+
 ## Adding a custom domain
 
 When adding a root or apex domain to your Railway service, you must ensure that you add the appropriate DNS record to the domain within your DNS provider.  At this time, Railway supports <a href="https://developers.cloudflare.com/dns/cname-flattening/" target="_blank">CNAME Flattening</a> and ALIAS records.
@@ -141,6 +165,7 @@ In contrast there are many nameservers that don't support CNAME flattening or dy
 - <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register-other-dns-service.html" target="_blank">AWS Route 53</a>
 - <a href="https://support.hostinger.com/en/articles/1696789-how-to-change-nameservers-at-hostinger" target="_blank">Hostinger</a>
 - <a href="https://www.godaddy.com/en-ca/help/edit-my-domain-nameservers-664" target="_blank">GoDaddy</a>
+- <a href="https://www.namesilo.com/support/v2/articles/domain-manager/dns-manager" target="_blank">NameSilo</a>
 
 **Workaround - Changing your Domain's Nameservers**
 
