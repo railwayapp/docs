@@ -34,7 +34,7 @@ layout="intrinsic"
 width={1080} height={950}
 quality={100} />
 
-This error occurs when Railway is unable to communicate with your application, making your request fail with a status code of 502 (Bad Gateway).
+This error occurs when Railway cannot communicate with your application, causing your request to fail with a 502 (Bad Gateway) status code.
 
 For Railway to communicate with your application, your web server should be available at host `0.0.0.0` and listen on the port specified by the `PORT` environment variable, which Railway automatically injects into your application.
 
