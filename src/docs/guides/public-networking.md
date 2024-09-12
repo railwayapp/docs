@@ -119,6 +119,30 @@ If you have a wildcard domain on Cloudflare, you must:
     layout="responsive"
     width={855} height={342} quality={80} />
 
+## Target Ports
+
+Target Ports, or Magic Ports, correlate a single domain to a specific internal port that the application listens on, enabling you to expose multiple HTTP ports through the use of multiple domains.
+
+Example -
+
+`https://example.com/` → `:8080`
+
+`https://management.example.com/` → `:9000`
+
+When you first generate a Railway-provided domain, if your application listens on a single port, Railway's magic automatically detects and sets it as the domain's target port. If your app listens on multiple ports, you're provided with a list to choose from.
+
+When you add a custom domain, you're given a list of ports to choose from, and the selected port will handle all traffic routed to the domain. You can also specify a custom port if needed.
+
+These target ports inform Railway which public domain corresponds to each internal port, ensuring that traffic from a specific domain is correctly routed to your application.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1726092043/docs/target_ports_custom_domain_qhgd5p.png"
+alt="Screenshot of target port selection on a custom domain"
+layout="intrinsic"
+width={700} height={582}
+quality={100} />
+
+You can change the automatically detected or manually set port at any time by clicking the edit icon next to the domain.
+
 ## Adding a custom domain
 
 When adding a root or apex domain to your Railway service, you must ensure that you add the appropriate DNS record to the domain within your DNS provider.  At this time, Railway supports <a href="https://developers.cloudflare.com/dns/cname-flattening/" target="_blank">CNAME Flattening</a> and ALIAS records.
@@ -133,7 +157,7 @@ Generally, direct CNAME records at the root or apex level are incompatible with 
 The type of record to create is entirely dependent on your DNS provider.  Here are some examples -
 
 - <a href="https://developers.cloudflare.com/dns/zone-setups/partial-setup" target="_blank">Cloudflare CNAME</a> - Simply set up a CNAME record for your root domain in Cloudflare, and they take care of the rest under the hood.  Refer to <a href="https://support.cloudflare.com/hc/en-us/articles/205893698-Configure-Cloudflare-and-Heroku-over-HTTPS" target="_blank">this guide</a> for more detailed instructions.
-- <a href="https://support.dnsimple.com/articles/domain-apex-heroku/" target="_blank">DNSimple ALIAS</a> - Set up an ALIAS in DNSimple for your root domain.
+- <a href="https://support.dnsimple.com/articles/domain-apex-heroku/" target="_blank">DNSimple ALIAS</a> - Set up an dynamic ALIAS in DNSimple for your root domain.
 - <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/" target="_blank">Namecheap CNAME</a> - Set up an CNAME in Namecheap for your root domain.
 
 In contrast there are many nameservers that don't support CNAME flattening or dynamic ALIAS records -
@@ -141,6 +165,8 @@ In contrast there are many nameservers that don't support CNAME flattening or dy
 - <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register-other-dns-service.html" target="_blank">AWS Route 53</a>
 - <a href="https://support.hostinger.com/en/articles/1696789-how-to-change-nameservers-at-hostinger" target="_blank">Hostinger</a>
 - <a href="https://www.godaddy.com/en-ca/help/edit-my-domain-nameservers-664" target="_blank">GoDaddy</a>
+- <a href="https://www.namesilo.com/support/v2/articles/domain-manager/dns-manager" target="_blank">NameSilo</a>
+- <a href="https://dns.he.net/" target="_blank">Hurricane Electric</a>
 
 **Workaround - Changing your Domain's Nameservers**
 

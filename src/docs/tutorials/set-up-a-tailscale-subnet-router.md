@@ -182,6 +182,8 @@ width={602} height={526} quality={100} />
 
 - Click **Save**.
 
+- Ensure that the **Use Tailscale subnets** option is enabled in your Tailscale client's Settings or Preferences menu.
+
 **That is it for all the configurations needed, you can now call any service via its private domain and port just as if you were another service within the private network!**
 
 ## 5. Connecting to a service on the private network (Bonus)
