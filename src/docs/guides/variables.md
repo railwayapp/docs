@@ -109,11 +109,21 @@ width={2408} height={1150} quality={100} />
 
 Sealed variables are useful when you want to provide a value to your builds and deployments but not have it be visible in the UI (or via the API).
 
-#### Sealing a variable
+### Sealing a variable
 
 To seal a variable, click the 3-dot menu on the right-side of an existing variable and click the `Seal` button.
 
-Note: Once you seal a variable, it cannot be un-sealed. This means you will never be able to view the value again.
+### Caveats
+
+Variable sealing is a security-first feature and with that come some constraints:
+
+- Sealed variables cannot be un-sealed.
+- Sealed variable values are not available to the CLI when using `railway variables` or `railway run`.
+- Sealed variables are not copied over when creating PR environments.
+- Sealed variables are not copied when duplicating an environment.
+- Sealed variables are not copied when duplicating a service.
+- Sealed variables are not shown as part of the diff when syncing environment changes.
+- Sealed variables are not synced with external integrations.
 
 ## Railway-provided Variables
 
