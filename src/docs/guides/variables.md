@@ -107,18 +107,38 @@ width={2408} height={1150} quality={100} />
 
 ## Sealed Variables
 
-Sealed variables are useful when you want to provide a value to your builds and deployments but not have it be visible in the UI (or via the API).
+<PriorityBoardingBanner />
 
-### Sealing a variable
+Railway provides the ability to seal variable values for extra security. When a variable is sealed, its value is provided to builds and deployments but is never visible in the UI nor can it be retrieved via the API.
 
-To seal a variable, click the 3-dot menu on the right-side of an existing variable and click the `Seal` button.
+### Create a new sealed variable
+
+To create sealed variable, check the "Seal variable" option when adding a new variable.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1726224901/CleanShot_2024-09-13_at_14.43.18_2x_gcsk6h.png"
+alt="Create a new sealed variable"
+layout="responsive"
+width={2402} height={568} quality={100} />
+
+### Seal an existing variable
+
+To seal an existing variable, click the 3-dot menu on the right-side of the variable and choose the "Seal" option.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1726224584/CleanShot_2024-09-13_at_14.48.50_2x_ffr4ij.png"
+alt="Seal an existing variable"
+layout="responsive"
+width={502} height={533} quality={100} />
+
+### Updating a sealed variable
+
+Sealed variables can be updated by clicking the edit option in the 3-dot menu just like normal variables but they cannot be updated via the Raw Editor.
 
 ### Caveats
 
-Variable sealing is a security-first feature and with that come some constraints:
+Sealed variables are a security-first feature and with that come some constraints:
 
 - Sealed variables cannot be un-sealed.
-- Sealed variable values are not available to the CLI when using `railway variables` or `railway run`.
+- Sealed variable values are not provided when using `railway variables` or `railway run` via the CLI.
 - Sealed variables are not copied over when creating PR environments.
 - Sealed variables are not copied when duplicating an environment.
 - Sealed variables are not copied when duplicating a service.
