@@ -51,7 +51,7 @@ You must link your Railway account to GitHub, to enable Railway to connect to yo
 
 To deploy a public Docker image, specify the path of the image when prompted in the creation flow.
 
-Railway can deploy images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>, <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>, or <a href="https://quay.io/" target="_blank">Quay.io</a>. Example paths -
+Railway can deploy images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>, <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>, <a href="https://quay.io/" target="_blank">Quay.io</a>, or <a href="https://docs.gitlab.com/ee/user/packages/container_registry/">GitLab Container Registry</a>. Example paths -
 
 Docker Hub:
 
@@ -64,6 +64,10 @@ GitHub Container Registry:
 Quay.io:
 
 - `quay.io/username/repo:tag`
+
+GitLab Container Registry:
+
+- `registry.gitlab.com/gitlab-cicd15/django-project`
 
 ### Deploying a private Docker Image
 
