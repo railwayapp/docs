@@ -51,11 +51,15 @@ To fix this, start your application's server using:
 
 Next, ensure that the target port for your public domain is set to the port your application is now listening on.
 
+This setting can be found within your [service settings](/overview/the-basics#service-settings).
+
 <Image src="https://res.cloudinary.com/railway/image/upload/v1726092089/docs/target_ports_eiqgw0.png"
-alt="Screenshot of application failed to respond error"
+alt="Screenshot showing target ports on a domain"
 layout="intrinsic"
-width={700} height={634}
-quality={100} />
+width={700}
+height={634}
+quality={100}
+/>
 
 <span style={{'font-size': "0.9em"}}>Screenshot showing that the domain was previously configured with port 3000, and the correct 8080 port.</span>
 

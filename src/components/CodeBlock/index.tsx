@@ -11,7 +11,6 @@ import go from "react-syntax-highlighter/dist/cjs/languages/prism/go";
 
 import "twin.macro";
 import { useCopy } from "../../hooks/useCopy";
-import { useIsMounted } from "../../hooks/useIsMounted";
 import { darkCodeTheme, lightCodeTheme } from "../../styles/codeThemes";
 import { useTheme } from "../../styles/theme";
 import { Icon } from "../Icon";
@@ -68,7 +67,6 @@ export const CodeBlock: React.FC<Props> = ({
   className = children.props ? children.props.className : "",
   language,
 }) => {
-  const isMounted = useIsMounted();
   const [copied, copy] = useCopy();
 
   const { colorMode } = useTheme();
@@ -94,10 +92,6 @@ export const CodeBlock: React.FC<Props> = ({
       ),
     [children],
   );
-
-  if (!isMounted) {
-    return null;
-  }
 
   return (
     <div tw="relative" className="group">

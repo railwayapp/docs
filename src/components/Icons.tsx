@@ -1,10 +1,18 @@
-import { Twitter } from "react-feather";
 import tw, { styled } from "twin.macro";
+import { useTheme } from '../styles/theme';
 
-export const TwitterIcon = styled(Twitter)`
-  stroke: none;
-  fill: #1da1f2;
-`;
+export const XIcon = () => {
+  const { colorMode } = useTheme();
+
+  return (
+    <svg width="24px" height="24px" viewBox="0 0 300 301" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" style={{ fillRule: "evenodd", clipRule: "evenodd", strokeLinejoin: "round", strokeMiterlimit: 2 }}>
+      <path 
+        d="M178.57,127.15L290.27,0L263.81,0L166.78,110.38L89.34,0L0,0L117.13,166.93L0,300.25L26.46,300.25L128.86,183.66L210.66,300.25L300,300.25M36.01,19.54L76.66,19.54L263.79,281.67L223.13,281.67" 
+        style={{ fillRule: "nonzero", fill: colorMode == 'dark' ? 'white' : 'black' }}
+      />
+    </svg>
+  );
+};
 
 export const DiscordIcon = () => (
   <svg

@@ -1,14 +1,10 @@
 import { IPage, ISidebarContent } from "../types";
+import { slugify } from "@/utils/slugify";
 
 const makePage = (title: string, category?: string, slug?: string): IPage => ({
   title,
   category,
-  slug:
-    slug ??
-    `/${category != null ? category + "/" : ""}${title
-      .toLowerCase()
-      .replace(/!/g, "")
-      .replace(/[\s/]+/g, "-")}`,
+  slug: slug ?? `/${category != null ? category + "/" : ""}` + slugify(title),
 });
 
 export const sidebarContent: ISidebarContent = [

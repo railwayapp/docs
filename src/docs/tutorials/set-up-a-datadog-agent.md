@@ -237,26 +237,22 @@ If you have not already done so, please [install the CLI](/guides/cli#installing
 
 Each service requires unique variables listed below.  For each service, follow the steps to add the variables required for the service.
 
-Variables -
-<div style={{ display: 'flex', flexDirection: 'row', gap: '5px', fontSize: '0.9em', alignItems: 'stretch' }}>
-    <div style={{ flex: '1 1 50%', overflow: 'auto', minWidth: '200px', maxWidth: '350px' }}>
-        ```dockerfile
-          DD_API_KEY=<YOUR_API_KEY>
-        DD_HOSTNAME=${{RAILWAY_PRIVATE_DOMAIN}}
-        DD_SITE=<YOUR_DATADOG_SITE>
-        ```
-        <p style={{ marginTop: '-0.2em', fontSize: '1em'}}>`datadog-agent` variables</p>
-    </div>
-    <div style={{ flex: '1 1 50%', overflow: 'auto', minWidth: '200px', maxWidth: '350px' }}>
-        ```dockerfile
-          DD_AGENT_HOST=${{datadog-agent.DD_HOSTNAME}}
-        DD_AGENT_STATSD_PORT=8125
-        DD_AGENT_SYSLOG_PORT=514
-        DD_TRACE_AGENT_PORT=8126
-        ```
-        <p style={{ marginTop: '-0.2em', fontSize: '1em'}}>`expressapi` variables</p>
-    </div>
-</div>
+`datadog-agent` Variables -
+
+```plaintext
+DD_API_KEY=<YOUR_API_KEY>
+DD_HOSTNAME=${{RAILWAY_PRIVATE_DOMAIN}}
+DD_SITE=<YOUR_DATADOG_SITE>
+```
+
+`expressapi` Variables -
+
+```plaintext
+DD_AGENT_HOST=${{datadog-agent.DD_HOSTNAME}}
+DD_AGENT_STATSD_PORT=8125
+DD_AGENT_SYSLOG_PORT=514
+DD_TRACE_AGENT_PORT=8126
+```
 
 - Click on the service card
 - Click on the `Variables` tab

@@ -18,7 +18,6 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-
   .sidebar ::-webkit-scrollbar {
     display: none;
   }
@@ -33,5 +32,9 @@ export const GlobalStyles = createGlobalStyle`
 
   .docs-content td {
     vertical-align: middle;
+  }
+  
+  td {
+    white-space: break-spaces;
   }
 `;

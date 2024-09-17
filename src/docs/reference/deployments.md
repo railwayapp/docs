@@ -42,9 +42,13 @@ If an error occurs during the build or deploy process, the Deployment will stop 
 
 #### Active
 
-Once the Deployment is live and running, the status will change to `Active`.
+Railway will determine the deployment's active state with the following logic -
 
-### Completed
+- If the deployment **has** a healthcheck configured, Railway will mark the deployment as `Active` when the healthcheck succeeds.
+
+- If the deployment **does not** have a healthcheck configured, Railway will mark the deployment as `Active` after starting the container.
+
+#### Completed
 
 This is the status of the Deployment when the running app exits with a non-zero exit code.
 
@@ -54,7 +58,57 @@ A Deployment will remain in the `Active` state unless it [crashes](/guides/deplo
 
 #### Removed
 
-When a new Deployment is triggered, older deploys in a `Crashed` or `Active` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be removed manually.
+When a new [Deployment](/overview/the-basics#deployments) is triggered, older deploys in a `Active`, `Completed`, or a `Crashed` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be [removed manually](/reference/deployments#remove).
+
+The time from when a new deployment becomes `Active` until the previous deployment is removed can be controlled by setting a [`RAILWAY_DEPLOYMENT_OVERLAP_SECONDS`](/reference/variables#user-provided-configuration-variables) [service variable](/overview/the-basics#service-variables).
+
+## Deployment Menu
+
+The deployment menu contains actions you can take on a deployment.
+
+**Note:** Some actions are only available on **Active** or **Completed** deployments.
+
+<Image
+  src="https://res.cloudinary.com/railway/image/upload/v1726503037/docs/redeploy_remove_deploy_jescm0.png"
+  alt="Deployment Menu"
+  width={1007}
+  height={690}
+  quality={80}
+/>
+
+#### View logs
+
+Opens the deployment up to the corresponding logs, during build the build logs will be shown, during deploy the deploy logs will be shown.
+
+#### Restart
+
+Restarts the currently running process in the deployment, this is often used to bring a service back online after a crash or if you application has locked up.
+
+#### Redeploy
+
+Redeploys the selected deployment.
+
+This is often used to -
+
+- Bring a service back online after a crash.
+
+- Restart a service after a usage limit has been reached.
+
+- Restart a service after upgrading to Hobby when trial credits are depleted.
+
+- Restart a service if you were demoted from Hobby to trial.
+
+**Note:** The redeploy will use the source code from the currently selected deployment.
+
+#### Rollback
+
+Redeploys the selected deployment.
+
+**Note:** The rollback will use the source code from the selected deployment.
+
+#### Remove
+
+Stops the currently running deployment, this also marks the deployment as `REMOVED` and moves it to the history section.
 
 ## Ephemeral Storage
 

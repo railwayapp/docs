@@ -10,12 +10,11 @@ Point Railway to your deployment source and let the platform handle the rest.
 
 #### Flexible Deployment Sources
 - **Code Repositories**: With or without Dockerfiles.  Railway will build an [OCI compliant image](https://opencontainers.org/) based on what you provide.
-- **Docker Images**: Directly from Docker Hub, GitHub Container Registry, or Quay.io.  We support public and private image registries.
+- **Docker Images**: Directly from Docker Hub, GitHub Container Registry, GitLab Container Registry, or Quay.io.  We support public and private image registries.
 
 #### Hassle-Free Setup
 - **Sane Defaults**: Out of the box, your project is deployed with sane defaults to get you up and running as fast as possible.
 - **Configuration Tuning**: When you're ready, there are plenty of knobs and switches to optimize as needed.
-
 
 ## Development Lifecycle
 

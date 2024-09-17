@@ -20,6 +20,7 @@ To communicate over the private network, there are some specific things to know 
 Since the private network is an IPv6 network, applications that will receive requests over the private network must be configured to listen on IPv6.  On most web frameworks, you can do this via `::` and specifying the port(s) to which you want to bind.
 
 For example - 
+
 ```javascript
 const port = process.env.PORT || 3000;
 
@@ -27,6 +28,8 @@ app.listen(port, '::', () => {
     console.log(`Server listening on [::]${port}`);
 });
 ```
+
+**Note:** If your application needs to be accessible over both private and public networks, your application server must support dual stack binding. Most servers handle this automatically when listening on `::`, but some, like Uvicorn, do not.
 
 ### Use Internal Hostname and Port
 
