@@ -58,7 +58,7 @@ We also encourage you to fork the [Railway postgres-ssl repository](https://gith
 <Banner>
 **Released August 2024** 
 
-Be aware that this template has not yet been battle-tested.  We are seeking feedback to improve the experience using this template.  Please provide your input [here](https://help.railway.app/templates/mongo-replica-set-948643d5).
+Be aware that this template has not been battle-tested like the standalone instance.  We are seeking feedback to improve the experience using this template, please provide your input [here](https://help.railway.app/templates/postgre-sql-ha-with-repmgr-33c997a9).
 </Banner>
 
 We'll cover how to deploy, connect, and manage the [High Availability (HA) PostgreSQL](https://www.postgresql.org/docs/current/high-availability.html) cluster in this section.
