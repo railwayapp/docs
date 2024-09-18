@@ -74,7 +74,9 @@ Out of the box, your service is deployed with a set of default configurations wh
 
 Service [Variables](/reference/variables) provide a powerful way to manage configuration and secrets across services in Railway.
 
-You can configure variables scoped to services or to projects to be shared amongst all services in a project.
+You can configure variables scoped to services. These variables are specific to each service and are not shared across the project by default.
+
+If you want to access variables from this service in another service within the same project, you need to utilize a [Reference Variable](/reference/variables#reference-variables).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1722144282/docs/the-basics/service_variables_galkry.png"
 alt="Screenshot of the service variables tab"
