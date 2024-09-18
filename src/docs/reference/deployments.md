@@ -44,7 +44,7 @@ If an error occurs during the build or deploy process, the Deployment will stop 
 
 Railway will determine the deployment's active state with the following logic -
 
-- If the deployment **has** a healthcheck configured, Railway will mark the deployment as `Active` when the healthcheck succeeds.
+- If the deployment **has** a [healthcheck](/reference/healthchecks) configured, Railway will mark the deployment as `Active` when the healthcheck succeeds.
 
 - If the deployment **does not** have a healthcheck configured, Railway will mark the deployment as `Active` after starting the container.
 
@@ -98,13 +98,21 @@ This is often used to -
 
 - Restart a service if you were demoted from Hobby to trial.
 
-**Note:** The redeploy will use the source code from the currently selected deployment.
+**Notes** -
+
+- The redeploy will use the source code from the selected deployment.
+
+- Railway only retains deployment images for 2 weeks. You can only redeploy a deployment that is 2 weeks old or newer. Older deployments will not be available for redeployment.
 
 #### Rollback
 
 Redeploys the selected deployment.
 
-**Note:** The rollback will use the source code from the selected deployment.
+**Notes** -
+
+- The rollback will use the source code from the selected deployment.
+
+- Railway only retains deployment images for 2 weeks. You can only roll back to a deployment that is 2 weeks old or newer. Older deployments will not be available for rollback.
 
 #### Remove
 
