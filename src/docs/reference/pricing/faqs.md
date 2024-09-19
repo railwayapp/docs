@@ -88,6 +88,24 @@ If payment continues to fail, we flag your services to be stopped and send you a
 
 If we do not receive payment, your services are stopped until all open invoices have been paid.
 
+### My services were stopped, what do I do?
+
+Your [services](/overview/the-basics#services) may be stopped by Railway for the following reasons, along with their solutions -
+
+- **Usage limits reached:** You've hit your [usage limits](/reference/usage-limits). Increase your usage limit or wait until the next billing period.
+
+- **Trial credits exhausted:** You've run out of [trial credits](/reference/pricing/free-trial#how-does-the-trial-work). Consider upgrading to [a paid plan](/reference/pricing/plans#plans) to continue using the service.
+
+- **Hobby credits exhausted:** You've run out of [prepaid credits](/reference/pricing/plans#credits). Add more credits to your account.
+
+- **Failed payment:** Your payment method has failed. Update your payment method and [pay your outstanding invoice](https://railway.app/account/billing).
+
+- **Unpaid invoice:** You have an outstanding invoice. [Pay your outstanding invoice](https://railway.app/account/billing).
+
+In all cases, you can redeploy your services once the underlying issue is resolved, this can be done from the Removed deployment's [3-dot menu](/reference/deployments#deployment-menu).
+
+**Note:** Although Railway will remove your deployment for any of the above reasons, Railway will not remove the [volume](/overview/the-basics#volumes) attached to the service.
+
 ### I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?
 
 Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Help Station](https://help.railway.app).

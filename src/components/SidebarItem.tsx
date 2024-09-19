@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Link } from './Link';
 import tw from 'twin.macro';
 import { IPage, ISubSection, IExternalLink } from "../types";
+import { Arrow } from '@/components/Arrow'
 
 interface SidebarItemProps {
     item: IPage | ISubSection | IExternalLink;
@@ -13,15 +14,6 @@ interface SidebarItemProps {
   }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({ item, isCurrentPage, isExpanded, onToggleSubSection }) => {
-  const arrowSvg = isExpanded ? ( 
-    <svg css={[tw`h-4 w-4`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-    </svg> ) : (
-    <svg css={[tw`h-4 w-4`]} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z" clipRule="evenodd" />
-    </svg>
-  );
-
   const externalLinkSvg = 
     <svg css={[tw`w-3 h-3 text-gray-700`]} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 23">
         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
@@ -134,7 +126,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isCurrentPage, isExpand
                 tw`hover:bg-pink-200 hover:border-y-2 hover:border-l-4 hover:border-pink-200`,
             ]}
           >
-            {arrowSvg}
+            <Arrow isExpanded={isExpanded} />
           </button>
         </div>
         )

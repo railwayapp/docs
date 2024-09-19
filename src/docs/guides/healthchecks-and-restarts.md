@@ -16,9 +16,19 @@ To configure a healthcheck -
 
 ## Configure Healthcheck Port
 
-Railway will inject a `PORT` environment variable that your application should listen on. This variable's value is also used for performing health checks on your application.
+Railway will inject a `PORT` environment variable that your application should [listen on](/guides/fixing-common-errors#solution).
 
-If your application doesn't listen on the `PORT` variable, possibly due to using [target ports](/guides/public-networking#target-ports), you can manually set a `PORT` variable to inform Railway of the port to use for health checks.
+This variable's value is also used when performing health checks on your deployments.
+
+If your application doesn't listen on the `PORT` variable, possibly due to using [target ports](/guides/public-networking#target-ports), you can manually set a `PORT` [variable](/overview/the-basics#service-variables) to inform Railway of the port to use for health checks.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1726687666/docs/add_port_var_dbd3jc.png"
+alt="Screenshot showing PORT service variable configuration"
+layout="intrinsic"
+width={847} height={261} quality={100} />
+
+Not listening on the `PORT` variable or omitting it when using target ports can result in your health check returning a `service unavailable` error.
 
 ### Healthcheck Timeout
 

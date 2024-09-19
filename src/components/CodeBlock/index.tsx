@@ -11,11 +11,11 @@ import go from "react-syntax-highlighter/dist/cjs/languages/prism/go";
 
 import "twin.macro";
 import { useCopy } from "../../hooks/useCopy";
-import { useIsMounted } from "../../hooks/useIsMounted";
 import { darkCodeTheme, lightCodeTheme } from "../../styles/codeThemes";
 import { useTheme } from "../../styles/theme";
 import { Icon } from "../Icon";
 import { normalize } from "./normalize";
+import { useIsMounted } from "@/hooks/useIsMounted";
 
 SyntaxHighlighter.registerLanguage("js", javascript);
 SyntaxHighlighter.registerLanguage("javascript", javascript);
@@ -68,7 +68,6 @@ export const CodeBlock: React.FC<Props> = ({
   className = children.props ? children.props.className : "",
   language,
 }) => {
-  const isMounted = useIsMounted();
   const [copied, copy] = useCopy();
 
   const { colorMode } = useTheme();
@@ -95,13 +94,11 @@ export const CodeBlock: React.FC<Props> = ({
     [children],
   );
 
-  if (!isMounted) {
-    return null;
-  }
+  const isMounted = useIsMounted();
 
   return (
     <div tw="relative" className="group">
-      <SyntaxHighlighter language={lang} style={theme}>
+      <SyntaxHighlighter language={lang} style={theme} key={isMounted ? "mounted" : "unmounted"}>
         {content}
       </SyntaxHighlighter>
       <div tw="absolute top-0 right-0 mr-1 mt-1 text-gray-300 hover:text-gray-400 hidden group-hover:flex">

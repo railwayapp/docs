@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import tw, { TwStyle } from "twin.macro";
 import { Link } from "./Link";
+import { scrollToID } from "@/utils/scroll";
 
 export interface Props {
   title: string;
@@ -90,23 +91,29 @@ const nestingTw: Record<number, TwStyle> = {
 const HeaderList: React.FC<{ headers: IHeader[]; nesting: number }> = ({
   headers,
   nesting,
-}) => (
-  <>
-    {headers.map((h, i) => (
-      <React.Fragment key={`${h.id}-${i}`}>
-        <li key={h.id} css={[nestingTw[nesting]]}>
-          <Link
-            css={[tw`inline-block text-gray-600 text-sm`, tw`hover:underline`]}
-            href={`#${h.id}`}
-          >
-            {h.title}
-          </Link>
-        </li>
+}) => {
+  return (
+    <>
+      {headers.map((h, i) => (
+        <React.Fragment key={`${h.id}-${i}`}>
+          <li key={h.id} css={[nestingTw[nesting]]}>
+            <Link
+              css={[
+                tw`inline-block text-gray-600 text-sm`,
+                tw`hover:underline cursor-pointer`,
+              ]}
+              href={`#${h.id}`}
+              onClick={scrollToID(h.id)}
+            >
+              {h.title}
+            </Link>
+          </li>
 
-        {h.subHeaders.length > 0 && (
-          <HeaderList headers={h.subHeaders} nesting={nesting + 1} />
-        )}
-      </React.Fragment>
-    ))}
-  </>
-);
+          {h.subHeaders.length > 0 && (
+            <HeaderList headers={h.subHeaders} nesting={nesting + 1} />
+          )}
+        </React.Fragment>
+      ))}
+    </>
+  );
+};

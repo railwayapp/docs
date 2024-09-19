@@ -6,7 +6,7 @@ Cron Jobs allow you to start a service based on a crontab expression.
 
 ## How it Works
 
-Railway will look for a defined cron schedule on your service settings, and execute the start command for that service on the given schedule.  The service is expected to execute a task, and terminate as soon as that task is finished, not leaving any resources open, such as database connections.  More on [execution requirements](/reference/cron-jobs#service-execution-requirements) below.
+Railway will look for a defined cron schedule in your service settings, and execute the start command for that service on the given schedule.  The service is expected to execute a task, and exit as soon as that task is finished, not leaving any resources open, such as database connections. More on [execution requirements](/reference/cron-jobs#service-execution-requirements) below.
 
 #### Scheduling Libraries
 
@@ -16,14 +16,13 @@ If you are already using a scheduling library or system in your service such as 
 
 Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
 
-At this moment, Railway won't terminate your process in any scenario. However, cron jobs may be skipped if the service is in the build/deploy stage when the next scheduled execution happens.
+Currently, Railway does not automatically terminate deployments. As a result, if a previous execution is still running when the next scheduled execution is due, Railway will skip the new cron job.
 
 ## Crontab Expressions
 
 A crontab expression is a scheduling format used in Unix-like operating systems to specify when and how often a command or script should be executed automatically. 
 
 Crontab expressions consists of five fields separated by spaces, representing different units of time. These fields specify the minute, hour, day of the month, month, and day of the week when the command should be executed.
-
 
 ```
 * * * * *
@@ -57,41 +56,36 @@ The shortest time between successive executions of a cron job cannot be less tha
 
 ## Examples
 
-- Run a command every hour at the 30th minute:
+- Run a command every hour at the 30th minute: `30 * * * *`
 
-  `30 * * * *`
+- Run a command every day at 3:15 PM: `15 15 * * *`
 
-- Run a command every day at 3:15 PM:
+- Run a command every Monday at 8:00 AM: `0 8 * * 1`
 
-  `15 15 * * *`
+- Run a command every month on the 1st day at 12:00 AM: `0 0 1 * *`
 
-- Run a command every Monday at 8:00 AM:
+- Run a command every Sunday at 2:30 PM in January: `30 14 * 1 0`
 
-  `0 8 * * 1`
+- Run a command every weekday (Monday to Friday) at 9:30 AM: `30 9 * * 1-5`
 
-- Run a command every month on the 1st day at 12:00 AM:
+- Run a command every 15 minutes: `*/15 * * * *`
 
-  `0 0 1 * *`
+- Run a command every 2 hours: `0 */2 * * *`
 
-- Run a command every Sunday at 2:30 PM in January:
+- Run a command every 2nd day of the month at 6:00 AM: `0 6 2 * *`
 
-  `30 14 * 1 0`
+## FAQ
 
-- Run a command every weekday (Monday to Friday) at 9:30 AM:
+### When to use Railway's cron jobs -
 
-  `30 9 * * 1-5`
+- For short-lived tasks that complete quickly and exit properly, such as a daily database backup.
+- When you want to save resources between task executions, as opposed to having an in-code scheduler run 24/7.
 
-- Run a command every 15 minutes:
+### When not to use Railway's cron jobs -
 
-  `*/15 * * * *`
-
-- Run a command every 2 hours:
-
-  `0 */2 * * *`
-
-- Run a command every 2nd day of the month at 6:00 AM:
-
-  `0 6 2 * *`
+- For long-running processes that don't exit, such as a web server or discord bot.
+- When you need more frequent execution than every 5 minutes.
+- When you need absolute time precision. Railway does not guarantee execution times to the minute as they can vary by a few minutes.
 
 ## Support
 

@@ -5,105 +5,24 @@ import Layout from "@/mdxLayouts/index";
 import { allPages, Page } from "contentlayer/generated";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { default as NextImage, ImageProps } from "next/legacy/image";
 import Link from "next/link";
-import { Link as FeatherLinkIcon } from "react-feather";
-import styled from "styled-components";
-
-const StyledLinkIcon = styled.a`
-  text-decoration: none;
-  position: absolute;
-  width: 3rem;
-  height: 2rem;
-  display: none;
-  align-items: center;
-  left: -2rem;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const StyledLinkHeading = styled.a`
-  text-decoration: none;
-  position: absolute;
-  font-weight: bold;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const StyledHeadingH2 = styled.h2`
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 1.5rem 0 0;
-  margin-bottom: 2rem;
-
-  &:hover {
-    ${StyledLinkIcon} {
-      display: flex;
-    }
-    @media (max-width: 1300px) {
-      ${StyledLinkIcon} {
-        display: none;
-      }
-    }
-  }
-`;
-
-const StyledHeadingH3 = styled.h3`
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 1.5rem 0 0;
-  margin-bottom: 2rem;
-
-  &:hover {
-    ${StyledLinkIcon} {
-      display: flex;
-    }
-    @media (max-width: 1300px) {
-      ${StyledLinkIcon} {
-        display: none;
-      }
-    }
-  }
-`;
-
-const Image = (props: ImageProps) => (
-  <a
-    tw="block xl:-mx-8"
-    href={props.src as string}
-    target="_blank"
-    rel="noopener"
-  >
-    <NextImage {...props} />
-  </a>
-);
+import { Image } from "@/components/Image";
+import { InlineCode } from "@/components/InlineCode";
+import { H2, H3, H4 } from "@/components/Header";
+import { Anchor } from "@/components/Anchor";
 
 const components: Record<string, React.ElementType> = {
   pre: CodeBlock,
+  code: InlineCode,
   Collapse,
   Image,
   Banner,
   Link,
   PriorityBoardingBanner,
-  h2: ({ id, children }) => (
-    <StyledHeadingH2 id={id}>
-      <StyledLinkIcon href={`#${id}`}>
-        <FeatherLinkIcon className="icon" size={20} />
-      </StyledLinkIcon>
-      <StyledLinkHeading href={`#${id}`}>{children[1]}</StyledLinkHeading>
-    </StyledHeadingH2>
-  ),
-  h3: ({ id, children }) => (
-    <StyledHeadingH3 id={id}>
-      <StyledLinkIcon href={`#${id}`}>
-        <FeatherLinkIcon className="icon" size={20} />
-      </StyledLinkIcon>
-      <StyledLinkHeading href={`#${id}`}>{children[1]}</StyledLinkHeading>
-    </StyledHeadingH3>
-  ),
+  a: Anchor,
+  h2: H2,
+  h3: H3,
+  h4: H4,
 };
 
 export default function PostPage({ page }: { page: Page }) {

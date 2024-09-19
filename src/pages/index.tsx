@@ -9,7 +9,7 @@ import {
   Layers,
 } from "react-feather";
 import tw, { styled } from "twin.macro";
-import { DiscordIcon, RssIcon, TwitterIcon } from "../components/Icons";
+import { DiscordIcon, RssIcon, XIcon } from "../components/Icons";
 import { Link } from "../components/Link";
 
 export const Background = () => (
@@ -142,9 +142,9 @@ const Home: NextPage = () => {
             <RssIcon tw="w-8 h-8 bg-pink-700" />
             Check out the Changelog
           </OverviewSecondaryLink>
-          <OverviewSecondaryLink href="https://twitter.com/Railway">
-            <TwitterIcon tw="w-8 h-8" />
-            Follow @Railway on Twitter
+          <OverviewSecondaryLink href="https://x.com/Railway">
+            <XIcon tw="w-8 h-8" />
+            Follow @Railway on X
           </OverviewSecondaryLink>
         </div>
       </div>

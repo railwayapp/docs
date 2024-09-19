@@ -6,7 +6,7 @@ Public Networking refers to exposing your application to the internet, to be acc
 
 ## Port Variable
 
-An essential part of connecting your service to the internet, is properly handling the `PORT` variable.
+An essential part of connecting to your service from the internet, is properly handling the `PORT` variable.
 
 The easiest way to get up and running is by using the Railway-provided port.
 
@@ -16,7 +16,8 @@ As long as you have not defined a `PORT` variable, Railway will provide and expo
 
 To have your application use the Railway-provided port, you should ensure it is listening on `0.0.0.0:$PORT`, where `PORT` is the Railway-provided environment variable.
 
-**Examples**
+**Examples** -
+
 ```python
 # python web server
 if __name__ == '__main__':
@@ -30,8 +31,11 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App listening on port: ${port}`);
 });
-
 ```
+
+More information and examples for this can be found in the [Fixing Common Errors guide](/guides/fixing-common-errors).
+
+**Note:** If your application needs to be accessible over both public and private networks, your application server must support dual stack binding. Most servers handle this automatically when listening on `::`, but some, like Uvicorn, do not.
 
 ### User-defined port
 
@@ -159,6 +163,7 @@ The type of record to create is entirely dependent on your DNS provider.  Here a
 - <a href="https://developers.cloudflare.com/dns/zone-setups/partial-setup" target="_blank">Cloudflare CNAME</a> - Simply set up a CNAME record for your root domain in Cloudflare, and they take care of the rest under the hood.  Refer to <a href="https://support.cloudflare.com/hc/en-us/articles/205893698-Configure-Cloudflare-and-Heroku-over-HTTPS" target="_blank">this guide</a> for more detailed instructions.
 - <a href="https://support.dnsimple.com/articles/domain-apex-heroku/" target="_blank">DNSimple ALIAS</a> - Set up an dynamic ALIAS in DNSimple for your root domain.
 - <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/" target="_blank">Namecheap CNAME</a> - Set up an CNAME in Namecheap for your root domain.
+- <a href="https://bunny.net/blog/how-aname-dns-records-affect-cdn-routing/" target="_blank">bunny.net</a> - Set up a ANAME in bunny.net for your root domain.
 
 In contrast there are many nameservers that don't support CNAME flattening or dynamic ALIAS records -
 
@@ -167,6 +172,7 @@ In contrast there are many nameservers that don't support CNAME flattening or dy
 - <a href="https://www.godaddy.com/en-ca/help/edit-my-domain-nameservers-664" target="_blank">GoDaddy</a>
 - <a href="https://www.namesilo.com/support/v2/articles/domain-manager/dns-manager" target="_blank">NameSilo</a>
 - <a href="https://dns.he.net/" target="_blank">Hurricane Electric</a>
+- <a href="https://support.squarespace.com/hc/en-us/articles/4404183898125-Nameservers-and-DNSSEC-for-Squarespace-managed-domains#toc-open-the-domain-s-advanced-settings" target="_blank">SquareSpace</a>
 
 **Workaround - Changing your Domain's Nameservers**
 
@@ -226,7 +232,6 @@ Currently we use a random load balancing strategy for TCP traffic.
 At the moment, Railway does not support exposing both HTTP and TCP over public networking, in a single service.  Therefore, if you have a domain assigned, you will not see the option to enable TCP Proxy, and vice-versa.  Meaning, you will need to remove one before you can enable the other.
 
 If you have a usecase that requires exposing both HTTP and TCP over public networking, in one service, <a href="https://help.railway.app/feedback" target="_blank">let us know</a>!
-
 
 ## Let's Encrypt SSL Certificates
 
