@@ -13,22 +13,26 @@ type CodeTheme = {
   };
 };
 
-export const InlineCode: React.FC<PropsWithChildren> = ({ children }) => {
-  const { colorMode } = useTheme();
-  const theme = (
-    colorMode == "light" ? lightCodeTheme : darkCodeTheme
-  ) as CodeTheme;
+export interface Props {
+  children?: any;
+  colorModeSSR?: string | null;
+}
 
+export const InlineCode: React.FC<Props> = ({ children, colorModeSSR }) => {
   const isMounted = useIsMounted();
+
+  const colorMode = !isMounted ? colorModeSSR || "light" : useTheme().colorMode;
+
+  const theme = colorMode === "light" ? lightCodeTheme : darkCodeTheme;
 
   return (
     <code
       css={tw`px-2 py-1 rounded font-mono whitespace-nowrap before:content-[''] after:content-['']`}
       style={{
-        backgroundColor: theme['pre[class*="language-"]'].background,
+        backgroundColor: String(theme['pre[class*="language-"]'].background),
         color: theme['code[class*="language-"]'].color,
       }}
-      key={isMounted ? "mounted" : "unmounted"}
+      data-colorMode={colorMode}
     >
       {children}
     </code>
