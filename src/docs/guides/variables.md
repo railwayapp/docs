@@ -111,16 +111,7 @@ width={2408} height={1150} quality={100} />
 
 Railway provides the ability to seal variable values for extra security. When a variable is sealed, its value is provided to builds and deployments but is never visible in the UI nor can it be retrieved via the API.
 
-### Create a new sealed variable
-
-To create sealed variable, check the "Seal variable" option when adding a new variable.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1726224901/CleanShot_2024-09-13_at_14.43.18_2x_gcsk6h.png"
-alt="Create a new sealed variable"
-layout="responsive"
-width={2402} height={568} quality={100} />
-
-### Seal an existing variable
+### Sealing a variable
 
 To seal an existing variable, click the 3-dot menu on the right-side of the variable and choose the "Seal" option.
 
