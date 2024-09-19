@@ -7,7 +7,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Link from "next/link";
 import { Image } from "@/components/Image";
-import { InlineCode } from '@/components/InlineCode';
+import { InlineCode } from "@/components/InlineCode";
 import { H2, H3, H4 } from "@/components/Header";
 import { Anchor } from "@/components/Anchor";
 

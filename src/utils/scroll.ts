@@ -1,5 +1,7 @@
-export const scrollToID = (input: string, skipScroll: boolean = false) => (event: React.MouseEvent) => {
-    const id = input.split('#')[1] ?? input;
+export const scrollToID =
+  (input: string, skipScroll: boolean = false) =>
+  (event: React.MouseEvent) => {
+    const id = input.replace(/^#/, "");
 
     if (!id) return;
 
@@ -9,9 +11,9 @@ export const scrollToID = (input: string, skipScroll: boolean = false) => (event
 
     event.preventDefault();
 
-    history.pushState(null, '', `#${id}`);
+    history.pushState(null, "", `#${id}`);
 
     if (skipScroll) return;
 
-    element.scrollIntoView({ behavior: 'smooth' });
-};
+    element.scrollIntoView({ behavior: "smooth" });
+  };

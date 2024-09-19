@@ -98,7 +98,10 @@ const HeaderList: React.FC<{ headers: IHeader[]; nesting: number }> = ({
         <React.Fragment key={`${h.id}-${i}`}>
           <li key={h.id} css={[nestingTw[nesting]]}>
             <Link
-              css={[tw`inline-block text-gray-600 text-sm`, tw`hover:underline cursor-pointer`]}
+              css={[
+                tw`inline-block text-gray-600 text-sm`,
+                tw`hover:underline cursor-pointer`,
+              ]}
               href={`#${h.id}`}
               onClick={scrollToID(h.id)}
             >

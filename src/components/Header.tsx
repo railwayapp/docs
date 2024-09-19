@@ -1,7 +1,7 @@
-import { scrollToID } from '@/utils/scroll';
-import React from 'react';
+import { scrollToID } from "@/utils/scroll";
+import React from "react";
 import { Link as FeatherLinkIcon } from "react-feather";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledLinkIcon = styled.a`
   text-decoration: none;
@@ -44,39 +44,48 @@ const BaseStyledHeading = styled.div`
   }
 `;
 
-const StyledHeadingH2 = styled(BaseStyledHeading).attrs({ as: 'h2' })``;
-const StyledHeadingH3 = styled(BaseStyledHeading).attrs({ as: 'h3' })``;
+const StyledHeadingH2 = styled(BaseStyledHeading).attrs({ as: "h2" })``;
+const StyledHeadingH3 = styled(BaseStyledHeading).attrs({ as: "h3" })``;
 
-export const H2: React.FC<{ id: string; children: React.ReactNode[] }> = ({ id, children }) => {
+export const H2: React.FC<{ id: string; children: React.ReactNode[] }> = ({
+  id,
+  children,
+}) => {
   return (
     <StyledHeadingH2 id={id}>
       <StyledLinkIcon>
         <FeatherLinkIcon className="icon" size={20} />
       </StyledLinkIcon>
-      <StyledLinkHeading onClick={scrollToID(id)} style={{ cursor: 'pointer' }}>
+      <StyledLinkHeading onClick={scrollToID(id)} style={{ cursor: "pointer" }}>
         {children[1]}
       </StyledLinkHeading>
     </StyledHeadingH2>
   );
 };
 
-export const H3: React.FC<{ id: string; children: React.ReactNode[] }> = ({ id, children }) => {
+export const H3: React.FC<{ id: string; children: React.ReactNode[] }> = ({
+  id,
+  children,
+}) => {
   return (
     <StyledHeadingH3 id={id}>
       <StyledLinkIcon>
         <FeatherLinkIcon className="icon" size={20} />
       </StyledLinkIcon>
-      <StyledLinkHeading onClick={scrollToID(id)} style={{ cursor: 'pointer' }}>
+      <StyledLinkHeading onClick={scrollToID(id)} style={{ cursor: "pointer" }}>
         {children[1]}
       </StyledLinkHeading>
     </StyledHeadingH3>
   );
 };
 
-export const H4: React.FC<{ id: string; children: React.ReactNode[] }> = ({ id, children }) => {
+export const H4: React.FC<{ id: string; children: React.ReactNode[] }> = ({
+  id,
+  children,
+}) => {
   return (
-    <h4 id={id} onClick={scrollToID(id, true)} style={{ cursor: 'pointer' }}>
-        {children[1]}
+    <h4 id={id} onClick={scrollToID(id, true)} style={{ cursor: "pointer" }}>
+      {children[1]}
     </h4>
   );
 };
