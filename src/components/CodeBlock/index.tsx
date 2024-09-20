@@ -46,7 +46,6 @@ const getParams = (
   className = "",
 ): {
   language?: string;
-  languageFull?: string;
   for?: string;
   always?: boolean;
 } => {
@@ -65,7 +64,6 @@ const getParams = (
 
   return {
     language: language.split("language-")[1],
-    languageFull: language || "language-plaintext",
     ...splitParams,
   };
 };
