@@ -133,7 +133,7 @@ const Home: NextPage = () => {
             </ButtonLink>
           </div>
         </div>
-        <div tw="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div tw="mt-16 grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-5">
           <OverviewSecondaryLink href="https://discord.gg/railway">
             <DiscordIcon tw="w-8 h-8" />
             <div>Join our Discord Server </div>
@@ -182,4 +182,5 @@ const OverviewLinkText = styled.div`
 
 const OverviewSecondaryLink = styled(Link)`
   ${tw`flex items-center text-gray-600 gap-2 hover:text-pink-700`}
+  ${tw`justify-center text-center`}
 `;

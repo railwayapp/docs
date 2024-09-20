@@ -1,8 +1,11 @@
 import tw, { styled } from "twin.macro";
 import { useTheme } from "../styles/theme";
+import { useIsMounted } from "@/hooks/useIsMounted";
 
 export const XIcon = () => {
   const { colorMode } = useTheme();
+
+  const isMounted = useIsMounted();
 
   return (
     <svg
@@ -19,6 +22,7 @@ export const XIcon = () => {
         strokeLinejoin: "round",
         strokeMiterlimit: 2,
       }}
+      key={isMounted ? "mounted" : "unmounted"}
     >
       <path
         d="M178.57,127.15L290.27,0L263.81,0L166.78,110.38L89.34,0L0,0L117.13,166.93L0,300.25L26.46,300.25L128.86,183.66L210.66,300.25L300,300.25M36.01,19.54L76.66,19.54L263.79,281.67L223.13,281.67"
