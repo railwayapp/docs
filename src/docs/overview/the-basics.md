@@ -55,7 +55,7 @@ Some of the most commonly used project settings are -
 
 - [Environments](/reference/environments) - Manage various settings regarding environments.
 
-- [Members](reference/project-members) - Add or remove members to collaborate on your project.
+- [Members](/reference/project-members) - Add or remove members to collaborate on your project.
 
 - Danger - Remove individual [services](/overview/the-basics#services) or delete the entire project.
 
