@@ -39,11 +39,16 @@ export interface Props {
   language?: string;
   className?: string;
   children?: any;
+  colorModeSSR?: string | null;
 }
 
 const getParams = (
   className = "",
-): { language?: string; for?: string; always?: boolean } => {
+): {
+  language?: string;
+  for?: string;
+  always?: boolean;
+} => {
   const [language, params = ""] = className.split(":");
 
   const splitParams = params
@@ -67,11 +72,9 @@ export const CodeBlock: React.FC<Props> = ({
   children,
   className = children.props ? children.props.className : "",
   language,
+  colorModeSSR,
 }) => {
   const [copied, copy] = useCopy();
-
-  const { colorMode } = useTheme();
-  const theme = colorMode === "light" ? lightCodeTheme : darkCodeTheme;
 
   const params = useMemo(() => getParams(className), [className]);
 
@@ -96,9 +99,17 @@ export const CodeBlock: React.FC<Props> = ({
 
   const isMounted = useIsMounted();
 
+  const colorMode = !isMounted ? colorModeSSR || "light" : useTheme().colorMode;
+
+  const theme = colorMode === "light" ? lightCodeTheme : darkCodeTheme;
+
   return (
     <div tw="relative" className="group">
-      <SyntaxHighlighter language={lang} style={theme} key={isMounted ? "mounted" : "unmounted"}>
+      <SyntaxHighlighter
+        language={lang}
+        style={theme}
+        data-colorMode={colorMode}
+      >
         {content}
       </SyntaxHighlighter>
       <div tw="absolute top-0 right-0 mr-1 mt-1 text-gray-300 hover:text-gray-400 hidden group-hover:flex">

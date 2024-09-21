@@ -38,7 +38,7 @@ This error occurs when Railway cannot communicate with your application, causing
 
 For Railway to communicate with your application, your web server should be available at host `0.0.0.0` and listen on the port specified by the `PORT` environment variable, which Railway automatically injects into your application.
 
-Separately, you need to set the correct [target port](/guides/public-networking#target-ports) for your public domain.
+Additionally, if you're using [target ports](/guides/public-networking#target-ports) for your public domain, have your target port set to the correct value.
 
 Without these configurations, Railway cannot establish a connection to your running application.
 
@@ -49,7 +49,7 @@ To fix this, start your application's server using:
 - Host = `0.0.0.0`
 - Port = Value of the `PORT` environment variable provided by Railway.
 
-Next, ensure that the target port for your public domain is set to the port your application is now listening on.
+Next, if you're using [target ports](/guides/public-networking#target-ports), ensure that the target port for your public domain matches the port your application is now listening on.
 
 This setting can be found within your [service settings](/overview/the-basics#service-settings).
 
@@ -113,7 +113,7 @@ There is no additional configuration necessary.
 uvicorn main:app --host 0.0.0.0 --port $PORT
 ```
 
-#### Go / `net/http`
+#### Go / net/http
 
 This example is for `net/http` in the Go standard library, but you can also apply this to other frameworks:
 ```go

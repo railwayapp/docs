@@ -7,12 +7,14 @@ import React, {
   createContext,
   PropsWithChildren,
   useContext,
+  useEffect,
   useMemo,
 } from "react";
 import { transformThemeToCustomProperties } from "theme-custom-properties";
 import { GlobalStyles as TwinGlobalStyles } from "twin.macro";
 import { ColorMode, colorThemes, defaultColorMode } from "./colors";
 import { GlobalStyles } from "./GlobalStyles";
+import { setCookie } from "cookies-next";
 
 const themes = {
   light: { colors: colorThemes.light },
@@ -46,9 +48,14 @@ export const WrappedThemeProvider: React.FC<PropsWithChildren> = ({
   const themeState: ThemeState = {
     colorMode,
     setColorMode: value => {
+      setCookie("theme", value, { maxAge: 60 * 60 * 24 * 365 * 100 });
       setTheme(value);
     },
   };
+
+  useEffect(() => {
+    setCookie("theme", colorMode, { maxAge: 60 * 60 * 24 * 365 * 100 });
+  }, [colorMode]);
 
   return (
     <ThemeContext.Provider value={themeState}>
