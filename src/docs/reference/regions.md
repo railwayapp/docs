@@ -11,12 +11,13 @@ Railway has deploy regions in the Americas, Europe, and Asia-Pacific to provide 
 
 Within the service settings, you can select one of the following regions:
 
-| Name           | Location               | Variable Value    |
-|----------------|------------------------|-------------------|
-| US West        | Oregon, USA            | `us-west1`        |
-| US East        | Virginia, USA          | `us-east4`        |
-| EU West        | Amsterdam, Netherlands | `europe-west4`    |
-| Southeast Asia | Singapore              | `asia-southeast1` |
+| Name                 | Location               | Variable Value    |
+|----------------------|------------------------|-------------------|
+| US West              | Oregon, USA            | `us-west1`        |
+| US West (Metal Beta) | California, USA        | `us-west2`        |
+| US East              | Virginia, USA          | `us-east4`        |
+| EU West              | Amsterdam, Netherlands | `europe-west4`    |
+| Southeast Asia       | Singapore              | `asia-southeast1` |
 
 <Image
     quality={100}
