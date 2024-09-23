@@ -1,10 +1,9 @@
 {
   "index_uid": "docs_railway_app_production",
-  "stop_urls": [
-    "https://docs.railway.app/quick-start"
-  ],
-  "sitemap_urls": [
-    "https://docs.railway.app/sitemap.xml"
+  "start_urls": [
+    {
+      "url": "https://docs.railway.app/"
+    }
   ],
   "js_render": false,
   "scrape_start_urls": false,
