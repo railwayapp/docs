@@ -88,7 +88,8 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
             css={[tw`flex flex-col`, tw`rounded-lg pb-4 px-4`]}
           >
             <h4 css={[tw`font-medium text-[16px] mb-3 text-gray-500`]}>
-              {chapter}
+              {/* // some chapters are null, display the first hierarchy as a fallback instead of the literal word "null" */}
+              {chapter == "null" ? hits[0]?.hierarchies[0] : chapter}
             </h4>
             <ul>
               {hits.map(h => {
