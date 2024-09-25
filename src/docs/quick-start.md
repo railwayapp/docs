@@ -8,9 +8,11 @@ Railway is a deployment platform that lets you provision infrastructure, develop
 
 1. **Deploying your project** - Bring your code and let Railway handle the rest.
 
-    **[Option 1](/quick-start#deploying-your-project---from-github)** - Deploying from GitHub.
+    **[Option 1](/quick-start#deploying-your-project---from-github)**  - Deploying from **GitHub**.
 
-    **[Option 2](/quick-start#deploying-your-project---with-the-cli)** - Deploying with the [CLI](/guides/cli).
+    **[Option 2](/quick-start#deploying-your-project---with-the-cli)** - Deploying with the **[CLI](/guides/cli)**.
+
+    **[Option 3](/quick-start#deploying-your-project---from-a-docker-image)** - Deploying from a **Docker Image**.
 
 3. **Deploying a <a href="reference/templates" target="_blank">template</a>** - Ideal for deploying pre-configured software with minimal effort.
 
@@ -90,11 +92,66 @@ width={836} height={214} quality={100} />
 
 **You can now run `railway open` and you will taken to your [Project Canvas](/quick-start#the-canvas)**.
 
+## Deploying Your Project - From a Docker Image
+
+Railway supports deploying pre-built Docker images from the following registries:
+
+- <a href="https://hub.docker.com" target="_blank">Docker Hub</a>
+- <a href="https://ghcr.io" target="_blank">GitHub Container Registry</a>
+- <a href="https://quay.io" target="_blank">RedHat Container Registry</a>
+- <a href="https://docs.gitlab.com/ee/user/packages/container_registry" target="_blank">GitLab Container Registry</a>
+
+To get started deploying a Docker image, we will first make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
+
+- Open up the <a href="/overview/the-basics#dashboard--projects" target="_blank">dashboard</a> → Click **New Project**.
+
+- Choose the **Empty project** option.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727281981/docs/quick-start/emptyproject_q8vqfz.png"
+alt="screenshot of new project menu with deploy from github selected"
+width={836} height={714} quality={100} />
+
+After the project is created, you will land on the <a href="/quick-start#the-canvas" target="_blank">Project Canvas</a>. A panel will appear prompting you to Add a Service.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727281215/docs/quick-start/add_a_service.png"
+alt="screenshot of add a service panel on the canvas"
+layout="responsive"
+width={1422} height={1284} quality={100} />
+
+- Click **Add a Service** and select **Docker Image** option from the modal that pops up.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727280789/docs/quick-start/select_docker_image_bdyltc.png"
+alt="screenshot of select docker image option selected"
+layout="responsive"
+width={1693} height={1347} quality={100} />
+
+- In the **Image name** field, enter the name of the Docker image, e.g, `blueriver/nextjs` and press Enter.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727280788/docs/quick-start/blueriver_docker_image_zcn9py.png"
+alt="screenshot of example docker image name, blueriver/nextjs in modal"
+layout="responsive"
+width={1775} height={1157} quality={100} />
+
+If you're using a registry other than Docker Hub (such as GitHub, GitLab, Quay), you need to provide the full Docker image URL from the respective registry.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727280788/docs/quick-start/enter_docker_image_name_rzjbis.png"
+alt="screenshot of docker image name entry in modal"
+layout="responsive"
+width={1987} height={1409} quality={100} />
+
+- Press Enter and click **Deploy**.
+
+Railway will now provision a new service for your project based on the specified Docker image.
+
+And that's it! 🎉 Your project is now ready for use.
+
+**Note:** Deploying from a [private Docker registry is available on the Pro plan](guides/services#deploying-a-private-docker-image).
+
 ## The Canvas
 
 Whether you deploy your project through the dashboard with GitHub or locally using the CLI, you'll ultimately arrive at your project canvas.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723752560/docs/quick-start/project_canvas_nextjs_c6bjbq.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1723752560/docs/quick-start/project_canvas_nextjs_c6bjbq.png"
 alt="screenshot of the project canvas showing our nextjs deploy"
 layout="responsive"
 width={1363} height={817} quality={100} />
@@ -120,7 +177,7 @@ Deploying a template is not too dissimilar to deploying a GitHub repo -
 
 - Choose **Deploy a template**.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723752559/docs/quick-start/template_new_project_k9kfrh.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1723752559/docs/quick-start/template_new_project_k9kfrh.png"
 alt="screenshot of new project menu with deploy a template option selected"
 layout="responsive"
 width={836} height={860} quality={100} />
@@ -131,7 +188,7 @@ width={836} height={860} quality={100} />
 
 - Click on the template you want to deploy.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/template_new_umami_j4la5d.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1723752558/docs/quick-start/template_new_umami_j4la5d.png"
 alt="screenshot of new project menu the umami template selected"
 layout="responsive"
 width={836} height={644} quality={100} />
@@ -142,7 +199,7 @@ width={836} height={644} quality={100} />
 
     In the case of our Umami template, we don't need to provide any extra information.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/template_config_options_zaxbko.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1723752558/docs/quick-start/template_config_options_zaxbko.png"
 alt="screenshot of the deploy umami screen with no extra configurations needed"
 layout="responsive"
 width={932} height={908} quality={100} />
@@ -153,7 +210,7 @@ Railway will now provision a new project with all services and configurations th
 
 That's it, deploying a template is as easy as a few clicks!
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1723752560/docs/quick-start/project_canvas_umami_lb759i.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1723752560/docs/quick-start/project_canvas_umami_lb759i.png"
 alt="screenshot of the project canvas showing umami and postgres"
 layout="responsive"
 width={1363} height={817} quality={100} />
