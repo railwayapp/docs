@@ -42,3 +42,7 @@ yarn-error.log*
 public/sitemap*.xml
 public/robots.txt
 .contentlayer
+
+# docs-scraper
+docs-scraper/output.json
+
