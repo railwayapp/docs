@@ -33,6 +33,9 @@ Team tokens are tied to a team and will have access to all the team's resources.
 
 Non-team tokens will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
 
+#### Project token
+
+Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
 
 ## Schema
 

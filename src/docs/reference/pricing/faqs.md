@@ -84,36 +84,40 @@ If you are on the Hobby plan and using prepaid credits as your payment method, y
 
 At this time, we do not directly support switching between Hobby plan billing models, such as switching from a prepaid credit-based plan to an auto-renewing subscription, or vice versa.
 
-You can, however, cancel your current plan and sign back up with the desired billing model.
+You can, however, cancel your current plan, wait until the end of the current billing period or until you exhaust your remaining credits, and then sign back up with the desired billing model.
 
 **Note:** Cancelling your subscription does not immediately stop your [services](/overview/the-basics#services). The outcome depends on your previous plan -
 
-- For subscription-based plans: Services will continue until the end of your current billing period.
+- For subscription-based plans: Services will run until the end of your current billing period.
 - For prepaid credits-based plans: Services will run until you exhaust your remaining credits.
 
-**To switch between billing models, you first need to cancel your current plan** -
+<p><span style={{color: "var(--tw-prose-counters)"}}>1.</span> Cancel your current plan.</p>
 
-- Head over to the <a href="https://railway.app/account/billing" target="_blank">billing page</a> of your account.
-- Click on **Manage Subscription**.
-- Click on **Cancel Plan**.
+    - Head over to the <a href="https://railway.app/account/billing" target="_blank">billing page</a> of your account.
+    - Click on **Manage Subscription**.
+    - Click on **Cancel Plan**.
 
-**Sign back up for Railway using the prepaid credits model** -
+<p><span style={{color: "var(--tw-prose-counters)"}}>2.</span> Wait until the end of the current billing period or until you exhaust your remaining credits.</p>
 
-- Head over to the <a href="https://railway.app/account/upgrade" target="_blank">upgrade page</a>.
-- Scroll to the bottom and select **Looking for a prepaid subscription**.
-- Enter your billing information.
-- Enter the amount of credits you'd like to add to your account. (Minimum of $10)
-- Click on **Purchase Credits**.
+<p><span style={{color: "var(--tw-prose-counters)"}}>3.</span> Sign up for your desired billing model.</p>
 
-You are now on the prepaid credits model. Be sure to always keep a balance in your account to keep your services running.
+    1. Prepaid Credits Model.
 
-**Sign back up for Railway using the auto-renewing subscription model** -
+        - Head over to the <a href="https://railway.app/account/upgrade" target="_blank">upgrade page</a>.
+        - Scroll to the bottom and select **Looking for a prepaid subscription**.
+        - Enter your billing information.
+        - Enter the amount of credits you'd like to add to your account. (Minimum of $10)
+        - Click on **Purchase Credits**.
 
-- Head over to the <a href="https://railway.app/account/upgrade" target="_blank">upgrade page</a>.
-- Enter your billing information.
-- Click on **Subscribe to Hobby Plan**.
+        You are now on the prepaid credits model. Be sure to always keep a balance in your account to keep your services running.
 
-You are now on the auto-renewing subscription model.
+    2. Auto-renewing Subscription Model.
+
+        - Head over to the <a href="https://railway.app/account/upgrade" target="_blank">upgrade page</a>.
+        - Enter your billing information.
+        - Click on **Subscribe to Hobby Plan**.
+
+        You are now on the auto-renewing subscription model.
 
 ### What happens if the payment fails for my subscription?
 

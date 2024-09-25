@@ -2,6 +2,7 @@ import { scrollToID } from "@/utils/scroll";
 import React from "react";
 import { Link as FeatherLinkIcon } from "react-feather";
 import styled from "styled-components";
+import tw from "twin.macro";
 
 const StyledLinkIcon = styled.a`
   text-decoration: none;
@@ -84,7 +85,7 @@ export const H4: React.FC<{ id: string; children: React.ReactNode[] }> = ({
   children,
 }) => {
   return (
-    <h4 id={id} onClick={scrollToID(id, true)} style={{ cursor: "pointer" }}>
+    <h4 id={id} onClick={scrollToID(id, true)} style={{ cursor: "pointer" }} css={tw`mb-[1.5em]`}>
       {children[1]}
     </h4>
   );

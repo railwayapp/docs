@@ -66,7 +66,7 @@ The time from when a new deployment becomes `Active` until the previous deployme
 
 The deployment menu contains actions you can take on a deployment.
 
-**Note:** Some actions are only available on **Active** or **Completed** deployments.
+**Note:** Some actions are only available on certain deployment states.
 
 <Image
   src="https://res.cloudinary.com/railway/image/upload/v1726503037/docs/redeploy_remove_deploy_jescm0.png"
@@ -82,21 +82,18 @@ Opens the deployment up to the corresponding logs, during build the build logs w
 
 #### Restart
 
-Restarts the currently running process in the deployment, this is often used to bring a service back online after a crash or if you application has locked up.
+Restarts the process within the deployment's container, this is often used to bring a service back online after a crash or if you application has locked up.
 
 #### Redeploy
 
 Redeploys the selected deployment.
 
-This is often used to -
+This is often used to bring a service back online after -
 
-- Bring a service back online after a crash.
-
-- Restart a service after a usage limit has been reached.
-
-- Restart a service after upgrading to Hobby when trial credits are depleted.
-
-- Restart a service if you were demoted from Hobby to trial.
+- A crash.
+- A usage limit has been reached and raised.
+- Upgrading to Hobby when trial credits were previously depleted.
+- Being demoted from Hobby to free and then upgrading again.
 
 **Notes** -
 
@@ -116,7 +113,11 @@ Redeploys the selected deployment.
 
 #### Remove
 
-Stops the currently running deployment, this also marks the deployment as `REMOVED` and moves it to the history section.
+Stops the currently running deployment, this also marks the deployment as `REMOVED` and moves it into the history section.
+
+#### Abort
+
+Cancels the selected [initializing](#initializing) or [building](#building) deployment, this also marks the deployment as `REMOVED` and moves it into the history section.
 
 ## Ephemeral Storage
 

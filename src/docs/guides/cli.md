@@ -88,11 +88,26 @@ railway login --browserless
 
 In situations where user input or interaction isn't possible, such as in CI/CD pipelines, you can set either the `RAILWAY_TOKEN` or `RAILWAY_API_TOKEN` environment variable, based on your specific requirements as detailed below.
 
+A [Project Token](/guides/public-api#project-token) is set via the `RAILWAY_TOKEN` environment variable.
+
+An [Account](/guides/public-api#personal-token) or [Team](/guides/public-api#team-token) Token is set via the `RAILWAY_API_TOKEN` environment variable.
+
+**Note:** You can only use one type of token at a time. If both are set, the `RAILWAY_TOKEN` variable will take precedence.
+
 #### Project Tokens
 
-You can use [Project Tokens](/deploy/integrations#project-tokens) to authenticate project-level actions.
+You can use [Project Tokens](/guides/public-api#project-token) to authenticate project-level actions.
 
 Project Tokens allow the CLI to access all the project-level actions in the environment set when the token was created.
+
+Some actions you can perform with a project token include -
+- Deploying code - `railway up`
+- Redeploying a deployment - `railway redeploy`
+- Viewing build and deployment logs - `railway logs`
+
+Some actions you **cannot** perform with a project token include -
+- Creating a new project - `railway init`
+- Printing information about the user - `railway whoami`
 
 Use the token by setting the `RAILWAY_TOKEN` environment variable and then running `railway <command>`.
 
@@ -102,9 +117,21 @@ RAILWAY_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX railway up
 
 #### Account Tokens
 
-You can also use [Account Tokens](https://railway.app/account/tokens) to authenticate all CLI actions.
+Account Tokens come in two types - [Personal Account Tokens](/reference/public-api#personal-token) and [Team Tokens](/reference/public-api#team-token).
 
-Account Tokens allow the CLI to perform all actions on any project that the token's account owner has access to.
+You can use Account Tokens to authenticate all CLI actions across all workspaces.
+
+However, you can only use Team tokens to authenticate actions on projects within the workspace the token was scoped to when it was created.
+
+Some actions you can perform with a personal account token include -
+
+- Creating a new project - `railway init`
+- Printing information about the user - `railway whoami`
+
+Some actions you **cannot** perform with [Team Token](/reference/public-api#team-token) include -
+
+- Printing information about the user - `railway whoami`
+- Linking to another workspace - `railway link`
 
 Use the token by setting the `RAILWAY_API_TOKEN` environment variable and then running `railway <command>`.
 
@@ -172,7 +199,7 @@ railway run npm start
 
 ### Local Shell
 
-Open a new shell with Railway environment variables. Similar to `railway run` but opens a new shell.
+Open a new local shell with Railway environment variables. Similar to `railway run` but opens a new shell.
 
 ```bash
 # Open a new shell with Railway environment variables

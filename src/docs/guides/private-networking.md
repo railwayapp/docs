@@ -48,7 +48,7 @@ app.get('/fetch-secret', async (req, res) => {
 
 Note that you should use `http` in the address.
 
-**Using Reference Variables**
+#### Using Reference Variables
 
 Using [reference variables](/guides/variables), you can accomplish the same end as the above example.
 
