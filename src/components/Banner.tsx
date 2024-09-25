@@ -78,7 +78,7 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
       {...props}
     >
       {!hideIcon && icon != null && (
-        <Icon tw="mx-1" icon={icon} css={[iconStyles[variant]]} />
+        <Icon css={[tw`mx-1`, iconStyles[variant]]} icon={icon} />
       )}
       <div
         css={[
