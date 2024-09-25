@@ -2,17 +2,17 @@
 
 set -e
 
-local timeout=60  # 1 minute timeout
-local deadtime=5
-local curl_timeout=2
+timeout=60  # 1 minute timeout
+deadtime=5
+curl_timeout=2
 
-local start_time=$(date +%s)
+start_time=$(date +%s)
 
 echo "Starting health check..."
 
 while true; do
-    local current_time=$(date +%s)
-    local elapsed_time=$((current_time - start_time))
+    current_time=$(date +%s)
+    elapsed_time=$((current_time - start_time))
 
     if [ $elapsed_time -ge $timeout ]; then
         echo "Timeout reached. Health check failed."
