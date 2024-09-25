@@ -61,7 +61,7 @@ Use the following syntax to reference a shared variable:
 
 - `${{ shared.VARIABLE_KEY }}`
 
-<Collapse title="Example">
+<Collapse slug="referencing-a-shared-variable-example" title="Example">
 - You have a shared variable defined in your project called `API_KEY`, and you need to make the API key available to a service.  Go to the service's variables tab, and add a variable with the following value:
   - `API_KEY=${{shared.API_KEY}}`
 </Collapse>
@@ -72,7 +72,7 @@ Use the following syntax to reference variables in another service:
 
 - `${{SERVICE_NAME.VAR}}`
 
-<Collapse title="Example">
+<Collapse slug="referencing-another-services-variable-example" title="Example">
 - You have a variable set on your database service called `DATABASE_URL` which contains the connection string to connect to the database.  The database service name is **Clickhouse**.
 
 - You need to make this connection string available to another service in the project. Go to the service's variables that needs the connection string and add a variable with the following value:
@@ -91,7 +91,7 @@ Use the following syntax to reference variables in the same service:
 
 - `${{ VARIABLE_NAME }}`
 
-<Collapse title="Example">
+<Collapse slug="referencing-variables-in-the-same-service-example" title="Example">
 - You have the variables needed to construct an API endpoint already defined in your service - `BASE_URL` and `AUTH_PATH` - and you would like to combine them to create a single variable.  Go to your service variables and add a new variable referencing other variables in the same service -
   - `AUTH_ENDPOINT=https://${{ BASE_URL }}/${{ AUTH_PATH }}`
 </Collapse>

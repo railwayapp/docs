@@ -39,14 +39,18 @@ width={1618 } height={378} quality={80} />
 #### Team token
 
 Select a team in the `Team` dropdown to create a token tied to a team.  A team token -
-- has access to all the team's resources
-- cannot be used to access your personal resources on Railway
+- Has access to all the team's resources
+- Cannot be used to access your personal resources on Railway
 
 *Note that Teams are a Pro feature.*
 
 #### Personal token
 
 If you do not select a team, the token will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
+
+#### Project token
+
+Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
 
 ### Execute a Test Query
 
