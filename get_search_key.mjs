@@ -15,7 +15,7 @@ async function checkMeilisearchHealth(maxWaitTime = 60000) {
         }
 
         // Wait for 5 seconds before the next check
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
     console.error('Meilisearch health check timed out after 1 minute', lastError);
