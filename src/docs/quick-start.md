@@ -118,7 +118,7 @@ alt="screenshot of add a service panel on the canvas"
 layout="responsive"
 width={1422} height={1284} quality={100} />
 
-- Click **Add a Service** and select **Docker Image** option from the modal that pops up.
+- Click **Add a Service** and select the **Docker Image** option from the modal that pops up.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727280789/docs/quick-start/select_docker_image_bdyltc.png"
 alt="screenshot of select docker image option selected"
