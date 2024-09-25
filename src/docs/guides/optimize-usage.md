@@ -16,7 +16,7 @@ Visit the <a href="https://railway.app/account/usage" target="_blank">Account Us
 
 If you want to set a usage limit for your team, use the account switcher in the top left corner of your dashboard to access the team's usage page.
 
-#### Settings Limits for Prepaid Plans
+#### Setting Limits for Prepaid Plans
 
 If you are on a prepaid plan, you can not directly set a hard limit. Instead the amount of credits you load determines the hard limit.
 
