@@ -32,6 +32,8 @@ done
 
 echo "Health check succeeded. Starting Scrape Job..."
 
-jq ".start_urls[0].url = ${START_URL}" meilisearch-docs-scraper.config.json > output.json
+jq ".start_urls[0].url = \"$START_URL\"" meilisearch-docs-scraper.config.json > output.json
 
-pipenv run output.json
+pipenv run ./docs_scraper output.json 2>&1
+
+echo "Scrape Job completed."
