@@ -2,7 +2,7 @@
 FROM getmeili/docs-scraper:latest
 
 # install jq from apt-get
-RUN apt-get update && apt-get install -y jq
+RUN apt-get update && apt-get install -y --no-install-recommends jq curl
 
 # set working directory
 WORKDIR /scrape
