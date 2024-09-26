@@ -1,45 +1,60 @@
-let lastError = null;
+const maxWaitTime = 60000; // 1 minute in milliseconds
 
-async function checkMeilisearchHealth(maxWaitTime = 60000) {
+// meilisearch health check
+async function checkMeilisearchHealth(maxWaitTime) {
+    let lastError = null;
     const startTime = Date.now();
 
     while (Date.now() - startTime < maxWaitTime) {
         try {
-            const healthRes = await fetch(process.env.NEXT_PUBLIC_MEILISEARCH_HOST + '/health');
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 1000);
+
+            const healthRes = await fetch(process.env.NEXT_PUBLIC_MEILISEARCH_HOST + '/health', {
+                signal: controller.signal
+            });
+
+            clearTimeout(timeoutId);
 
             if (healthRes.ok) {
-                return true;
+                return null; // Return null for success
             }
         } catch (error) {
             lastError = error;
+            // Continue the loop, don't return immediately on error
         }
 
-        // Wait for 5 seconds before the next check
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // Wait for 500 ms before the next check
+        await new Promise(resolve => setTimeout(resolve, 500));
     }
 
-    console.error('Meilisearch health check timed out after 1 minute', lastError);
-
-    return false;
+    return lastError;
 }
 
-// Check Meilisearch health before proceeding
-const isHealthy = await checkMeilisearchHealth();
+// check if meilisearch is healthy
+const error = await checkMeilisearchHealth(maxWaitTime);
 
-if (isHealthy) {
-    const res = await fetch(process.env.NEXT_PUBLIC_MEILISEARCH_HOST + '/keys', {
-        headers: {
-            Authorization: `Bearer ${process.env.MEILI_MASTER_KEY}`
-        }
-    });
-
-    const data = await res.json();
-
-    const searchKey = data.results.find(key => key.actions.length == 1 && key.actions[0] == 'search');
-
-    console.log(searchKey.key);
-    process.exit(0);
-} else {
-    console.error('Unable to proceed due to Meilisearch health issues');
+if (error) {
+    const errorMessage = error.cause?.errors?.[0]?.message;
+    console.error(`Meilisearch health check timed out after: ${maxWaitTime}ms${errorMessage ? ` - ${errorMessage}` : ''}`);
     process.exit(1);
 }
+
+const controller = new AbortController();
+const timeoutId = setTimeout(() => controller.abort(), 1000);
+
+const res = await fetch(process.env.NEXT_PUBLIC_MEILISEARCH_HOST + '/keys', {
+    headers: {
+        Authorization: `Bearer ${process.env.MEILI_MASTER_KEY}`
+    },
+    signal: controller.signal
+});
+
+clearTimeout(timeoutId);
+
+const data = await res.json();
+
+const searchKey = data.results.find(key => key.actions.length == 1 && key.actions[0] == 'search');
+
+console.log(searchKey.key);
+process.exit(0);
