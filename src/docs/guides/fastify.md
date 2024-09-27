@@ -30,9 +30,9 @@ To deploy a Fastify app on Railway directly from GitHub, follow the steps below:
     - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
 5. Click **Deploy Now**.
 
-Once your Fastify app is successfully deployed, a Railway [service](/guides/services) (also referred to as an app) will be created for you. By default, this service will not be publicly accessible.
+Once the deployment is complete, a Railway [service](/guides/services) will be created for you. By default, this service will not be publicly accessible.
 
-To set up a publicly accessible URL for your app, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
+To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727377689/docs/languages-and-frameworks/fastifyhelloworld_xbkrry.png"
 alt="screenshot of new project menu with deploy from github selected"
@@ -40,7 +40,7 @@ layout="responsive"
 width={2447} height={1029} quality={100} />
 
 **Note:** Railway requires that Fastify's `.listen` method for the `host` be set to `::`. This allows the app to be available over the <a href="/guides/public-networking" target="_blank">public</a> and <a href="/guides/private-networking" target="_blank">private network</a>.
-You can find this in the <a href="https://github.com/railwayapp-templates/fastify/blob/main/src/app.ts#L23" target="_blank">sample Fastify GitHub repo</a>. 
+You can find this in the <a href="https://github.com/railwayapp-templates/fastify/blob/main/src/app.ts" target="_blank">sample Fastify GitHub repo</a>. 
 
 If you don’t set it correctly, you may encounter a 502 error page.
 
