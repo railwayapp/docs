@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo
+set -e
 
 # check for the existence of the $HEALTH_URL and $START_URL environment variables
 if [ -z "$HEALTH_URL" ] || [ -z "$START_URL" ]; then
