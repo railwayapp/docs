@@ -9,3 +9,6 @@ restartPolicyMaxRetries = 10
 
 [environments.pr.build]
 buildCommand = "NEXT_PUBLIC_MEILISEARCH_READ_API_KEY=$(node get_search_key.mjs) && yarn migrate:deploy && yarn generate && yarn build"
+
+[environments.pr.deploy]
+numReplicas = 1
