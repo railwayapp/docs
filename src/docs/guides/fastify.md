@@ -30,7 +30,7 @@ To deploy a Fastify app on Railway directly from GitHub, follow the steps below:
     - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
 5. Click **Deploy Now**.
 
-Once the deployment is complete, a Railway [service](/guides/services) will be created for you. By default, this service will not be publicly accessible.
+Once the deployment is successful, a Railway [service](/guides/services) will be created for you. By default, this service will not be publicly accessible.
 
 To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
 
