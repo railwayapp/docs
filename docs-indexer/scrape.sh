@@ -10,36 +10,57 @@ if [ -z "$HEALTH_URL" ] || [ -z "$START_URL" ]; then
     exit 1
 fi
 
-timeout=300  # 5 minute timeout
-deadtime=2  # 2 seconds between checks
-curl_timeout=1  # 1 second timeout for each check
+health_check() {
+    local health_url="$1"
+    local timeout=300  # 5 minute timeout
+    local deadtime=2  # 2 seconds between checks
+    local curl_timeout=1  # 1 second timeout for each check
 
-start_time=$(date +%s)
+    local start_time=$(date +%s)
 
-echo "Starting health check..."
+    echo "Starting health check..."
 
-while true; do
-    current_time=$(date +%s)
-    elapsed_time=$((current_time - start_time))
+    while true; do
+        local current_time=$(date +%s)
+        local elapsed_time=$((current_time - start_time))
 
-    if [ $elapsed_time -ge $timeout ]; then
-        echo "Timeout reached. Health check failed."
-        exit 1
-    fi
+        if [ $elapsed_time -ge $timeout ]; then
+            echo "Timeout reached. Health check failed."
+            return 1
+        fi
 
-    # check if the health check url is responding
-    status_code=$(curl -s -o /dev/null -w "%{http_code}" -m $curl_timeout "$HEALTH_URL")
+        # check if the health check url is responding
+        local status_code=$(curl -s -o /dev/null -w "%{http_code}" -m $curl_timeout "$health_url")
 
-    if [ "$status_code" -eq 200 ]; then
-        echo "Health check succeeded. Status code: 200"
-        break
-    else
-        echo "Health check failed. Status code: $status_code"
-        sleep $deadtime
-    fi
-done
+        if [ "$status_code" -eq 200 ]; then
+            echo "Health check succeeded. Status code: 200"
+            return 0
+        else
+            echo "Health check failed. Status code: $status_code"
+            sleep $deadtime
+        fi
+    done
+}
 
-echo "Health check succeeded. Starting Scrape Job..."
+echo "Starting health check for Meilisearch..."
+
+if ! health_check "$HEALTH_URL"; then
+    echo "Health check for Meilisearch failed. Exiting."
+    exit 1
+fi
+
+echo "Health check for Meilisearch succeeded."
+
+echo "Starting health check for the start URL..."
+
+if ! health_check "$START_URL"; then
+    echo "Health check for the start URL failed. Exiting."
+    exit 1
+fi
+
+echo "Health check for the start URL succeeded."
+
+echo "Starting Scrape Job..."
 
 # set the start_urls[0].url to the START_URL environment variable
 jq ".start_urls[0].url = \"$START_URL\"" meilisearch-docs-scraper.config.json > output.json
