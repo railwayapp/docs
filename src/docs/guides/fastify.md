@@ -24,9 +24,10 @@ We highly recommend that [you eject from the template after deployment](/guides/
 To deploy a Fastify app on Railway directly from GitHub, follow the steps below:
 
 1. Fork the basic <a href="https://github.com/railwayapp-templates/fastify" target="_blank">fastify GitHub repo</a>.
+    - If you already have a GitHub repo you want to deploy, you can skip this step.
 2. Create a <a href="https://railway.app/new" target="_blank">New Project.</a>
 3. Click **Deploy from GitHub repo**.
-4. Select your `fastify` repo.
+4. Select the `fastify` repo or your own GitHub repo.
     - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
 5. Click **Deploy Now**.
 
@@ -49,14 +50,16 @@ If you don’t set it correctly, you may encounter a 502 error page.
 
 1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the CLI.</a>
 2. Clone the forked <a href="https://github.com/railwayapp-templates/fastify" target="_blank">fastify GitHub repo</a> and `cd` into the directory.
-3. Run `railway init` to create a new project. 
+    - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
+3. Run `railway init` within the app directory to create a new project. 
 4. Run `railway up` to deploy.
     - The CLI will now scan, compress and upload our fastify app files to Railway's backend for deployment.
 
 ## Use a Dockerfile
 
 1. Clone the forked `fastify` repo and `cd` into the directory.
-2. Create a `Dockerfile` in the `fastify` root directory.
+    - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
+2. Create a `Dockerfile` in the `fastify` or app's root directory.
 3. Add the content below to the `Dockerfile`:
     ```bash
     # Use the Node.js 18 alpine official image

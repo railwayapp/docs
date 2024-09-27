@@ -23,10 +23,11 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 To deploy a FastAPI app on Railway directly from GitHub, follow the steps below:
 
-1. Fork the basic <a href="https://github.com/railwayapp-templates/fastapi" target="_blank">FastAPI GitHub repo</a>.
+1. Fork the basic <a href="https://github.com/railwayapp-templates/fastapi" target="_blank">FastAPI GitHub repo</a>. 
+    - If you already have a GitHub repo you want to deploy, you can skip this step.
 2. Create a <a href="https://railway.app/new" target="_blank">New Project.</a>
 3. Click **Deploy from GitHub repo**.
-4. Select your `fastapi` repo.
+4. Select the `fastapi` or your own GitHub repo.
     - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
 5. Click **Deploy Now**.
 
@@ -41,22 +42,25 @@ width={2435} height={919} quality={100} />
 
 The FastAPI app is run via a <a href="https://hypercorn.readthedocs.io/en/latest/" target="_blank">Hypercorn server</a> as defined by the `startCommand` in the <a href="https://github.com/railwayapp-templates/fastapi/blob/main/railway.json" target="_blank">railway.json</a> file in the GitHub repository.
 
-Railway makes it easy to define deployment configurations for your services directly in your project using a <a href="/guides/config-as-code" target="_blank">railway.toml or railway.json file</a>, alongside your code.
+Railway makes it easy to define deployment configurations for your services directly in your project using a <a href="/guides/config-as-code" target="_blank">railway.toml or railway.json file</a>, alongside your code. 
 
 ## Deploy from the CLI
 
 1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the CLI.</a>
-2. Clone the forked <a href="https://github.com/railwayapp-templates/fastify" target="_blank">fastapi GitHub repo</a> and `cd` into the directory.
-3. Run `railway init` to create a new project. 
+2. Clone the forked <a href="https://github.com/railwayapp-templates/fastify" target="_blank">fastapi GitHub repo</a> and `cd` into the directory. 
+    - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
+3. Run `railway init` within the app directory to create a new project. 
 4. Run `railway up` to deploy.
     - The CLI will now scan, compress and upload our fastapi app files to Railway's backend for deployment.
 
 ## Use a Dockerfile
 
+**Note:** If you already have an app directory or repo on your machine that you want to deploy, you can skip the first two steps.
+
 1. Clone the forked `fastapi` repo and `cd` into the directory.
 2. Delete the `railway.json` file.
-2. Create a `Dockerfile` in the `fastapi` root directory.
-3. Add the content below to the `Dockerfile`:
+3. Create a `Dockerfile` in the `fastapi` or app's root directory.
+4. Add the content below to the `Dockerfile`:
     ```bash
     # Use the Python 3 alpine official image
     # https://hub.docker.com/_/python
