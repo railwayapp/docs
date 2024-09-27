@@ -86,5 +86,5 @@ Explore these resources to learn how you can maximize your experience with Railw
 
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your app](/guides/monitoring)
-- [Running a Cron Job](guides/cron-jobs)
+- [Running a Cron Job](/guides/cron-jobs)
 
