@@ -3,9 +3,9 @@
 set -e
 
 # check for the existence of the $HEALTH_URL and $START_URL environment variables
-if [ -z "$HEALTH_URL" ] || [ -z "$START_URL" ]; then
+if [ -z "$MEILISEARCH_HOST_URL" ] || [ -z "$START_URL" ]; then
     echo "Error: Required environment variables are not set."
-    [ -z "$HEALTH_URL" ] && echo "HEALTH_URL is missing."
+    [ -z "$MEILISEARCH_HOST_URL" ] && echo "MEILISEARCH_HOST_URL is missing."
     [ -z "$START_URL" ] && echo "START_URL is missing."
     exit 1
 fi
@@ -44,7 +44,7 @@ health_check() {
 
 echo "Starting health check for Meilisearch..."
 
-if ! health_check "$HEALTH_URL"; then
+if ! health_check "${MEILISEARCH_HOST_URL}/health"; then
     echo "Health check for Meilisearch failed. Exiting."
     exit 1
 fi
