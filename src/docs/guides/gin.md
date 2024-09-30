@@ -47,7 +47,7 @@ width={2661} height={1019} quality={100} />
     - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
 3. Run `railway init` within the app directory to create a new project. 
 4. Run `railway up` to deploy.
-    - The CLI will now scan, compress and upload our fastapi app files to Railway's backend for deployment.
+    - The CLI will now scan, compress and upload our gin app files to Railway's backend for deployment.
 
 ## Use a Dockerfile
 
@@ -63,17 +63,20 @@ width={2661} height={1019} quality={100} />
     # Create and change to the app directory.
     WORKDIR /app
 
+    # Copy go mod and sum files
+    COPY go.mod go.sum ./
+
     # Copy local code to the container image.
     COPY . .
 
     # Install project dependencies
-    RUN go get
+    RUN go mod download
 
     # Build the app
     RUN go build -o app
    
     # Run the service on container startup.
-    CMD ["./app"]
+    ENTRYPOINT ["./app"]
     ```
 4. Either deploy via the CLI or from GitHub.
 
