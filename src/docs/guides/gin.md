@@ -67,7 +67,7 @@ width={2661} height={1019} quality={100} />
     COPY go.mod go.sum ./
 
     # Copy local code to the container image.
-    COPY . .
+    COPY . ./
 
     # Install project dependencies
     RUN go mod download
