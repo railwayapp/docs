@@ -52,7 +52,7 @@ Note that schedules are based on UTC (Coordinated Universal Time).
 
 ## Frequency
 
-The shortest time between successive executions of a cron job cannot be less than 15 minutes.
+The shortest time between successive executions of a cron job cannot be less than 5 minutes.
 
 ## Examples
 
