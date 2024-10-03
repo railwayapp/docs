@@ -21,22 +21,21 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 **Note:** If you see a "500 Server Error" on your deployed URL, it’s likely because Laravel is missing the **APP_KEY** or other required environment variables. To fix this, go to the Railway dashboard and add the necessary environment variables—especially the **APP_KEY**—and then redeploy the application. You can generate a new **APP_KEY** using this [Laravel APP KEY generator](https://generate-random.org/laravel-key-generator).
 
-
 ## Deploy from a GitHub Repo
 
-To deploy a Laravel app on Railway directly from GitHub, follow the steps below:
+To deploy a Laravel app on GitHub to Railway, follow the steps below:
 
-1. Fork the basic <a href="https://github.com/railwayapp-templates/laravel" target="_blank">Laravel GitHub repo</a>. 
-    - If you already have a GitHub repo you want to deploy, you can skip this step.
-2. Create a <a href="https://railway.app/new" target="_blank">New Project.</a>
-3. Click **Deploy from GitHub repo**.
-4. Select the `laravel` or your own GitHub repo.
+1. Create a <a href="https://railway.app/new" target="_blank">New Project.</a>
+2. Click **Deploy from GitHub repo**.
+3. Select your GitHub repo.
     - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
-5. Click **Add Variables**. 
+4. Click **Add Variables**. 
     - Add all your app environment variables.
 5. Click **Deploy**.
 
 Once the deployment is successful, a Railway [service](/guides/services) will be created for you. By default, this service will not be publicly accessible.
+
+**Note:** Railway will automatically detect that it's a Laravel app during [deploy and run your app via php-fpm and nginx](https://github.com/railwayapp/nixpacks/tree/main/src/providers/php). 
 
 To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
 
@@ -47,12 +46,21 @@ width={2855} height={2109} quality={100} />
 
 ## Deploy from the CLI
 
-1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the CLI.</a>
-2. Clone the forked <a href="https://github.com/railwayapp-templates/laravel" target="_blank">Laravel GitHub repo</a> and `cd` into the directory. 
-    - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
-3. Run `railway init` within the app directory to create a new project. 
-4. Run `railway up` to deploy.
+If you have your Laravel app locally, you can follow these steps:
+
+1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the Railway CLI.</a>
+2. Run `railway init` within your Laravel app root directory to create a new project on Railway. 
+    - Follow the steps in the prompt to give your project a name.
+3. Run `railway up` to deploy.
     - The CLI will now scan, compress and upload our Laravel app files to Railway's backend for deployment.
+    - Your terminal will display real-time logs as your app is being deployed on Railway.
+4. Once the deployment is successful, click on **View logs** on the recent deployment on the dashboard.
+    - You'll see that the server is running. However you'll also see logs prompting you to add your env variables.
+5. Click on the <a href="/overview/the-basics#service-variables">**Variables**</a> section of your service on the Railway dashboard.
+6. Click on **Raw Editor** and add all your app environment variables.
+7. Click on **Deploy** to redeploy your app.
+
+To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
 
 ## Deploy via Custom Scripts
 
