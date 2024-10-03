@@ -77,47 +77,47 @@ Please follow these steps:
     After creating the files, make them executable by running `chmod +x` on each file in the terminal. This will allow your scripts to run properly when executed.
     - Add the content below to the `run-app.sh` file:
         ```bash
-            #!/bin/bash
+        #!/bin/bash
 
-            # Make sure this file has executable permissions, run `chmod +x run-app.sh`
+        # Make sure this file has executable permissions, run `chmod +x run-app.sh`
 
-            # Build assets using NPM
-            npm run build
+        # Build assets using NPM
+        npm run build
 
-            # Clear cache
-            php artisan optimize:clear
+        # Clear cache
+        php artisan optimize:clear
 
-            # Cache the various components of the Laravel application
-            php artisan config:cache
-            php artisan event:cache
-            php artisan route:cache
-            php artisan view:cache
+        # Cache the various components of the Laravel application
+        php artisan config:cache
+        php artisan event:cache
+        php artisan route:cache
+        php artisan view:cache
 
-            # Run any database migrations
-            php artisan migrate --force
+        # Run any database migrations
+        php artisan migrate --force
         ```
     -  Add the content below to the `run-worker.sh` file:
         ```bash
-            #!/usr/bin/env bash
+        #!/usr/bin/env bash
 
-            # Make sure this file has executable permissions, run `chmod +x run-worker.sh`
+        # Make sure this file has executable permissions, run `chmod +x run-worker.sh`
 
-            # Run the queue worker
-            php artisan queue:work     
+        # Run the queue worker
+        php artisan queue:work     
         ```
     -  Add the content below to the `run-cron.sh` file:
         ```bash
-            #!/usr/bin/env bash
+        #!/usr/bin/env bash
 
-            # Make sure this file has executable permissions, run `chmod +x run-cron.sh`
+        # Make sure this file has executable permissions, run `chmod +x run-cron.sh`
 
-            # Runs the Laravel scheduler every minute
-            while [ true ]
-                do
-                    echo "Running the scheduler..."
-                    php artisan schedule:run --verbose --no-interaction &
-                    sleep 60
-                done
+        # Runs the Laravel scheduler every minute
+        while [ true ]
+            do
+                echo "Running the scheduler..."
+                php artisan schedule:run --verbose --no-interaction &
+                sleep 60
+            done
         ```
 2. Create a Database service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
      - Click on **Deploy**.
