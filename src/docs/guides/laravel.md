@@ -70,12 +70,17 @@ layout="responsive"
 width={3118} height={1776} quality={100} />
 _My Majestic Monolith Laravel app_
 
-Please follow these steps:
 
-1. Create three bash script files in the root directory of your Laravel app: `run-app.sh`, `run-worker.sh`, and `run-cron.sh`. 
+Please follow these steps to get started:
 
+1. Create three bash scripts in the root directory of your Laravel app: `run-app.sh`, `run-worker.sh`, and `run-cron.sh`. 
+
+    These scripts will contain the commands needed to deploy and run the app, worker, and cron services for your Laravel app on Railway. 
+    
     After creating the files, make them executable by running `chmod +x` on each file in the terminal. This will allow your scripts to run properly when executed.
     - Add the content below to the `run-app.sh` file:
+
+        **Note:** You can add any additional commands to the script that you want to run each time your App service is redeployed.
         ```bash
         #!/bin/bash
         # Make sure this file has executable permissions, run `chmod +x run-app.sh`
@@ -100,7 +105,8 @@ Please follow these steps:
         #!/bin/bash
         # Make sure this file has executable permissions, run `chmod +x run-worker.sh`
 
-        # Run the queue worker
+        # This command runs the queue worker. 
+        # An alternative is to use the php artisan queue:listen command
         php artisan queue:work     
         ```
     -  Add the content below to the `run-cron.sh` file:
@@ -108,7 +114,7 @@ Please follow these steps:
         #!/bin/bash
         # Make sure this file has executable permissions, run `chmod +x run-cron.sh`
 
-        # Runs the Laravel scheduler every minute
+        # This block of code runs the Laravel scheduler every minute
         while [ true ]
             do
                 echo "Running the scheduler..."
@@ -116,47 +122,46 @@ Please follow these steps:
                 sleep 60
             done
         ```
-2. Create a Database service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
+2. Create a Postgres Database service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
      - Click on **Deploy**.
 3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
-    -  Name this service **App service**, and click on **Settings** to configure it.
+    -  Name the service **App service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a> to configure it.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
-    - Add `sh ./run-app.sh` to the **Custom Build Command** in the **Build** section.
-    - Head back to the top of the service and click on **Variables**.
-    - Add all the environment variables.
+    - Add `sh ./run-app.sh` to the **Custom Build Command** in the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section.
+    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
+    - Add all the necessary environment variables required for the Laravel app.
     - Click **Deploy**.
 4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
-    - Name this service **cron service**, and click on **Settings**.
+    - Name the service **cron service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
-    - Add `sh ./run-cron.sh` to the **Custom Start Command** in the **Deploy** section.
-    - Head back to the top of the service and click on **Variables**.
-    - Add all the environment variables.
+    - Add `sh ./run-cron.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+    - Head back to the top of the service and click on  <a href="/overview/the-basics#service-variables">**Variables**</a>.
+    - Add all the necessary environment variables.
     - Click **Deploy**.
 5. Create a new service again. 
-    - Name this service **worker service**, and click on **Settings**.
+    - Name the service **worker service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
-    - Add `sh ./run-worker.sh` to the **Custom Start Command** in the **Deploy** section.
-    - Head back to the top of the service and click on **Variables**.
-    - Add all the environment variables.
+    - Add `sh ./run-worker.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
+    - Add all the necessary environment variables.
     - Click **Deploy**.
 
-
-At this point, you should have all three services connected to the Database service:
+At this point, you should have all three services deployed and connected to the Postgres Database service:
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727910244/docs/quick-start/deploy%20architecture.png"
 alt="screenshot of the deploy architecture of the Laravel app"
 layout="responsive"
 width={3118} height={1776} quality={100} />
 
-- **Cron Service**: This service should have the Laravel Scheduler running to handle scheduled tasks.
+- **Cron Service**: This service should run the Laravel Scheduler to manage scheduled tasks.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727912479/docs/quick-start/CleanShot_2024-10-03_at_00.40.40_2x_cwgazh.png"
 alt="screenshot of the cron service of the Laravel app"
 layout="responsive"
 width={2165} height={1873} quality={100} />
 
-- **Worker Service**: This service should be actively running and ready to process jobs from the queue.
-- **App Service**: This service should also be running and is the only one that should have a public domain, allowing users to access your app.
+- **Worker Service**: This service should be running and ready to process jobs from the queue.
+- **App Service**: This service should be running and is the only one that should have a public domain, allowing users to access your application.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727885952/docs/quick-start/CleanShot_2024-10-02_at_17.18.04_2x_nn78ga.png"
 alt="screenshot of the deployed Laravel service showing the Laravel home page"
