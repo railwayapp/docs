@@ -77,8 +77,6 @@ Please follow these steps:
     After creating the files, make them executable by running `chmod +x` on each file in the terminal. This will allow your scripts to run properly when executed.
     - Add the content below to the `run-app.sh` file:
         ```bash
-        #!/bin/bash
-
         # Make sure this file has executable permissions, run `chmod +x run-app.sh`
 
         # Build assets using NPM
@@ -98,8 +96,6 @@ Please follow these steps:
         ```
     -  Add the content below to the `run-worker.sh` file:
         ```bash
-        #!/usr/bin/env bash
-
         # Make sure this file has executable permissions, run `chmod +x run-worker.sh`
 
         # Run the queue worker
@@ -107,8 +103,6 @@ Please follow these steps:
         ```
     -  Add the content below to the `run-cron.sh` file:
         ```bash
-        #!/usr/bin/env bash
-
         # Make sure this file has executable permissions, run `chmod +x run-cron.sh`
 
         # Runs the Laravel scheduler every minute
