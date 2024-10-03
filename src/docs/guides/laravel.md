@@ -44,6 +44,10 @@ alt="screenshot of the deployed Laravel service showing the Laravel home page"
 layout="responsive"
 width={2855} height={2109} quality={100} />
 
+
+**Note**: [Jump to the **Deploy via Custom Scripts** section](#deploy-via-custom-scripts) to properly run your full Laravel app along with the database, cron jobs, and workers.
+
+
 ## Deploy from the CLI
 
 If you have your Laravel app locally, you can follow these steps:
@@ -61,6 +65,8 @@ If you have your Laravel app locally, you can follow these steps:
 7. Click on **Deploy** to redeploy your app.
 
 To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
+
+**Note:** The next step shows to properly run your full Laravel app along with a database, migrations, cron jobs, and workers.
 
 ## Deploy via Custom Scripts
 
