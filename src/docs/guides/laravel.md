@@ -4,12 +4,11 @@ title: Deploy a Laravel App
 
 Laravel is a PHP framework designed for web artisans who value simplicity and elegance in their code. It stands out for its clean and expressive syntax, and offers built-in tools to handle many common tasks found in modern web applications, making development smoother and more enjoyable.
 
-This guide covers how to deploy a Laravel app on Railway in four ways:
+This guide covers how to deploy a Laravel app on Railway in three ways:
 
 1. [One-click deploy from a template](#one-click-deploy-from-a-template).
 2. [From a GitHub repository](#deploy-from-a-github-repo).
 3. [Using the CLI](#deploy-from-the-cli).
-4. [Deploy via Custom Scripts](#deploy-via-custom-scripts).
 
 ## One-Click Deploy from a Template
 
@@ -44,8 +43,7 @@ alt="screenshot of the deployed Laravel service showing the Laravel home page"
 layout="responsive"
 width={2855} height={2109} quality={100} />
 
-
-**Note**: [Jump to the **Deploy via Custom Scripts** section](#deploy-via-custom-scripts) to properly run your full Laravel app along with the database, cron jobs, and workers.
+**Note**: [Jump to the **Set Up Database, Migrations, Crons and Workers** section](#deploy-via-custom-scripts) to learn how to run your Laravel app along with a Postgres(or MySQL) database, cron jobs, and workers.
 
 
 ## Deploy from the CLI
@@ -66,9 +64,9 @@ If you have your Laravel app locally, you can follow these steps:
 
 To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
 
-**Note:** The next step shows to properly run your full Laravel app along with a database, migrations, cron jobs, and workers.
+**Note:** The next step shows how to run your Laravel app along with a database, migrations, cron jobs, and workers.
 
-## Deploy via Custom Scripts
+## Set Up Database, Migrations, Crons and Workers
 
 This setup deploys your Laravel app on Railway, ensuring that your database, scheduled tasks (crons), and queue workers are all fully operational.
 
@@ -87,7 +85,7 @@ _My Majestic Monolith Laravel app_
 
 Please follow these steps to get started:
 
-1. Create three bash scripts in the root directory of your Laravel app: `run-app.sh`, `run-worker.sh`, and `run-cron.sh`. 
+1. Create three bash scripts in the root directory of your Laravel app directory: `run-app.sh`, `run-worker.sh`, and `run-cron.sh`. 
 
     These scripts will contain the commands needed to deploy and run the app, worker, and cron services for your Laravel app on Railway. 
     
