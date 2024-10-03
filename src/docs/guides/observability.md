@@ -2,8 +2,6 @@
 title: Observability Dashboard
 ---
 
-<PriorityBoardingBanner />
-
 Railway provides a built-in observability dashboard that provides a customizable view into chosen metrics, logs, and data all in one place.
 
 <Image
