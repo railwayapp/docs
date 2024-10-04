@@ -145,6 +145,53 @@ width={2375} height={1151} quality={100} />
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Rails apps effortlessly!
 
+## Set Up Workers & Cron Jobs with Sidekiq
+
+Sidekiq is a powerful and efficient background job processor for Ruby apps, and it integrates seamlessly with Rails. Follow the instructions below to configure and run Sidekiq in your Rails app on Railway:
+
+1. **Install Sidekiq**
+    - Start by adding `sidekiq` and `sidekiq-cron` to your Rails app. In your terminal, run the following command:
+        ```bash
+        bundle add sidekiq
+        bundle add sidekiq-cron
+        ```
+2. **Add a Redis Database Service**
+    - Sidekiq uses Redis as a job queue. To set this up:
+        - Right-click on the Railway dashboard canvas or click the **Create** button.
+        - Select **Database**.
+        - Select **Add Redis** from the available databases.
+            - This will create and deploy a new Redis service for your app.
+3. **Create and Configure a Worker Service**
+    - Now, set up a separate service to run your Sidekiq workers.
+        - Create a new **Empty Service** and name it **Worker Service**.
+        - Go to the <a href="/overview/the-basics#service-settings">**Settings**</a> tab of this service to configure it.
+        - In the **Source** section, connect your GitHub repository to the **Source Repo**.
+        - Under the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section, set `bundle install` as the **Custom Build Command**. This installs the necessary dependencies.
+        - In the **Deploy** section, set `bundle exec sidekiq` as the <a href="/guides/start-command">**Custom Start Command**</a>. This command will start Sidekiq and begin processing jobs.
+        - Click on <a href="/overview/the-basics#service-variables">**Variables**</a> at the top of the service settings.
+        - Add the following environment variables:
+            - `SECRET_KEY_BASE` or `RAILS_MASTER_KEY`: Set this to the value of your Rails app’s secret key.
+            - `REDIS_URL`: Set this to `${{Redis.REDIS_PUBLIC_URL}}` to reference the Redis database URL. This tells Sidekiq where to find the job queue. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+            - Include any other environment variables your app might need.
+        - Click **Deploy** to apply the changes and start the deployment.
+4. **Verify the Deployment**:
+    - Once the deployment is complete, click on **View Logs**. If everything is set up correctly, you should see Sidekiq starting up and processing any queued jobs.
+
+    <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1728065286/docs/quick-start/worker_service.png" alt="screenshot of the worker service running Sidekiq" 
+    layout="responsive" width={2210} height={1696} quality={100} />
+5. **Confirm All Services Are Connected**:
+    - At this stage, your application should have the following services set up and connected:
+        - **App Service**: Running the main Rails application.
+        - **Worker Service**: Running Sidekiq to process background jobs.
+        - **Postgres Service**: The database for your Rails app.
+        - **Redis Service**: Used by Sidekiq to manage background jobs
+
+Here’s how your setup should look:
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1728065005/docs/quick-start/rails_all_services_connected.png" alt="Diagram showing all Rails services connected on Railway" layout="responsive" width={3308} height={1920} quality={100} />
+
+By following these steps, you’ll have a fully functional Rails app with background job processing using Sidekiq on Railway. If you run into any issues or need to make adjustments, check the logs and revisit your environment variable configurations.
+ 
 ## Next Steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
