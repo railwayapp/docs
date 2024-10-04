@@ -34,7 +34,7 @@ To deploy a Laravel app on GitHub to Railway, follow the steps below:
 
 Once the deployment is successful, a Railway [service](/guides/services) will be created for you. By default, this service will not be publicly accessible.
 
-**Note:** Railway will automatically detect that it's a Laravel app during [deploy and run your app via php-fpm and nginx](https://github.com/railwayapp/nixpacks/tree/main/src/providers/php). 
+**Note:** Railway will automatically detect that it's a Laravel app during [deploy and run your app via php-fpm and nginx](https://nixpacks.com/docs/providers/php). 
 
 To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
 
@@ -85,7 +85,7 @@ _My Majestic Monolith Laravel app_
 
 Please follow these steps to get started:
 
-1. Create three bash scripts in the root directory of your Laravel app directory: `run-app.sh`, `run-worker.sh`, and `run-cron.sh`. 
+1. Create three bash scripts in the root directory of your Laravel app: `run-app.sh`, `run-worker.sh`, and `run-cron.sh`. 
 
     These scripts will contain the commands needed to deploy and run the app, worker, and cron services for your Laravel app on Railway. 
     
