@@ -18,8 +18,6 @@ This template sets up a basic Laravel application along with a Postgres database
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** If you see a "500 Server Error" on your deployed URL, it’s likely because Laravel is missing the **APP_KEY** or other required environment variables. To fix this, go to the Railway dashboard and add the necessary environment variables—especially the **APP_KEY**—and then redeploy the application. You can generate a new **APP_KEY** using this [Laravel APP KEY generator](https://generate-random.org/laravel-key-generator).
-
 ## Deploy from a GitHub Repo
 
 To deploy a Laravel app on GitHub to Railway, follow the steps below:
