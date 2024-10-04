@@ -88,8 +88,6 @@ Please follow these steps to get started:
 1. Create three bash scripts in the root directory of your Laravel app: `run-app.sh`, `run-worker.sh`, and `run-cron.sh`. 
 
     These scripts will contain the commands needed to deploy and run the app, worker, and cron services for your Laravel app on Railway. 
-    
-    After creating the files, make them executable by running `chmod +x` on each file in the terminal. This will allow your scripts to run properly when executed.
     - Add the content below to the `run-app.sh` file:
 
         **Note:** You can add any additional commands to the script that you want to run each time your App service is redeployed.
@@ -139,21 +137,21 @@ Please follow these steps to get started:
 3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
     -  Name the service **App service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a> to configure it.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
-    - Add `sh ./run-app.sh` to the **Custom Build Command** in the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section.
+    - Add `chmod +x ./run-app.sh && sh ./run-app.sh` to the **Custom Build Command** in the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section.
     - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
     - Add all the necessary environment variables required for the Laravel app.
     - Click **Deploy**.
 4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
     - Name the service **cron service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
-    - Add `sh ./run-cron.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+    - Add `chmod +x ./run-cron.sh && sh ./run-cron.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
     - Head back to the top of the service and click on  <a href="/overview/the-basics#service-variables">**Variables**</a>.
     - Add all the necessary environment variables.
     - Click **Deploy**.
 5. Create a new service again. 
     - Name the service **worker service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
-    - Add `sh ./run-worker.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+    - Add `chmod +x ./run-worker.sh && sh ./run-worker.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
     - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
     - Add all the necessary environment variables.
     - Click **Deploy**.
