@@ -13,14 +13,14 @@ alt="Screenshot of Expanded Project Usage Pane"
 layout="intrinsic"
 width={491} height={286} quality={80} />
 
-### Month-to-day Usage
+### Billing Period Usage
 
-This section outlines the current usage for the month as well as any discounts and credits the user has applied to their account.
+This section outlines the current usage within a billing period, as well as any discounts and credits the user has applied to their account.
 
-In addition to the current usage, the user can see their estimated resource usage by the end of the month. If this number is positive and the user is on the Developer plan, they will be charged at the end of the month.
+In addition to the current usage, the user can see their estimated resource usage for the current billing period.
 
 
 ### Usage by Project
-The chart shows the cumulative usage for the month. If you delete a project, Railway will still count the usage towards your total.
+The chart shows the cumulative usage for the billing period. If you delete a project, Railway will still count the usage towards your total.
 
-The Current and Estimated cost metrics show the current resource usage and the estimated usage by the end of the month.
+The Current and Estimated cost metrics show the current resource usage and the estimated usage by the end of the billing period.
