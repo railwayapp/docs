@@ -11,4 +11,6 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [FastAPI](/guides/fastapi)
 ### Go
     - [Gin](/guides/gin)
+### Ruby
+    - [Rails](/guides/rails)
 
