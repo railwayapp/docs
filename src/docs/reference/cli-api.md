@@ -147,7 +147,7 @@ Options:
 *Change which environment you are using*
 
 ```txt
-~ railway environment --help
+~ railway [env]ironment --help
 Change the active environment
 
 Usage: railway environment [OPTIONS] [ENVIRONMENT]
@@ -189,15 +189,13 @@ Options:
 ~ railway link --help
 Associate existing project with current directory, may specify projectId as an argument
 
-Usage: railway link [OPTIONS] [PROJECT_ID]
-
-Arguments:
-  [PROJECT_ID]  Project ID to link to
+Usage: railway link [OPTIONS]
 
 Options:
   -e, --environment <ENVIRONMENT>  Environment to link to
-  -p, --project-id <PROJECT_ID>    Project ID to link to
+  -p, --project <PROJECT>          Project to link to
   -s, --service <SERVICE>          The service to link to
+  -t, --team <TEAM>                The team to link to. Use "personal" for your personal account
       --json                       Output in JSON format
   -h, --help                       Print help
   -V, --version                    Print version
@@ -439,11 +437,14 @@ Show variables for active environment
 Usage: railway variables [OPTIONS]
 
 Options:
-  -s, --service <SERVICE>  Service to show variables for
-  -k, --kv                 Show variables in KV format
-      --json               Output in JSON format
-  -h, --help               Print help
-  -V, --version            Print version
+  -s, --service <SERVICE>          The service to show/set variables for
+  -e, --environment <ENVIRONMENT>  The environment to show/set variables for
+  -k, --kv                         Show variables in KV format
+      --set <SET>                  The "{key}={value}" environment variable pair to set the service variables. Example:
+                                      railway variables --set "MY_SPECIAL_ENV_VAR=1" --set "BACKEND_PORT=3000"
+      --json                       Output in JSON format
+  -h, --help                       Print help (see a summary with '-h')
+  -V, --version                    Print version
 ```
 
 ## Whoami
