@@ -9,6 +9,8 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [Next.js](/quick-start)
 ### Python
     - [FastAPI](/guides/fastapi)
+### PHP
+    - [Laravel](/guides/laravel)
 ### Go
     - [Gin](/guides/gin)
 ### Ruby
