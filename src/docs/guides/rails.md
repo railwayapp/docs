@@ -134,6 +134,8 @@ To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. O
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
 3. **Add Environment Variables**:
     - Click **Add Variables** and configure all the necessary environment variables for your app.
+        - E.g `RAILS_ENV`: Set the value to `production`.
+        - E.g `SECRET_KEY_BASE` or `RAILS_MASTER_KEY`: Set the value to the key from your app's `config/master.key`.
 4. **Deploy the App**: 
     - Click **Deploy** to start the deployment process.
     - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
@@ -144,17 +146,19 @@ To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. O
         - This will create and deploy a new Postgres database service for your project.
 6. **Configure Environment Variables**:
     - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
-        - `SECRET_KEY_BASE` or `RAILS_MASTER_KEY`: Set the value to the key from your app's `config/master.key`.
-        - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_PUBLIC_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).  
+        - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).  
     - Use the **Raw Editor** to add any other required environment variables in one go.
-6. **Redeploy the Service**:
+7. **Prepare Database and Start Server**:
+    - Go to your app service <a href="/overview/the-basics#service-settings">**Settings**</a> section.
+        - In the **Deploy** section, set `bin/rails db:prepare && bin/rails server -b ::` as the <a href="/guides/start-command">**Custom Start Command**</a>. This command will run your database migrations and start the server.
+8. **Redeploy the Service**:
     - Click **Deploy** on the Railway dashboard to apply your changes.
-7. **Verify the Deployment**:
+9. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
 **Note:** During the deployment process, Railway will automatically [detect that it’s a Rails app](https://nixpacks.com/docs/providers/ruby).
 
-8. **Set Up a Public URL**:
+10. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
@@ -187,8 +191,9 @@ Sidekiq is a powerful and efficient background job processor for Ruby apps, and 
         - In the **Deploy** section, set `bundle exec sidekiq` as the <a href="/guides/start-command">**Custom Start Command**</a>. This command will start Sidekiq and begin processing jobs.
         - Click on <a href="/overview/the-basics#service-variables">**Variables**</a> at the top of the service settings.
         - Add the following environment variables:
+            - `RAILS_ENV`: Set the value to `production`.
             - `SECRET_KEY_BASE` or `RAILS_MASTER_KEY`: Set this to the value of your Rails app’s secret key.
-            - `REDIS_URL`: Set this to `${{Redis.REDIS_PUBLIC_URL}}` to reference the Redis database URL. This tells Sidekiq where to find the job queue. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+            - `REDIS_URL`: Set this to `${{Redis.REDIS_URL}}` to reference the Redis database URL. This tells Sidekiq where to find the job queue. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
             - Include any other environment variables your app might need.
         - Click **Deploy** to apply the changes and start the deployment.
 4. **Verify the Deployment**:
