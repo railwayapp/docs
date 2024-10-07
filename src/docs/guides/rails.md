@@ -117,6 +117,12 @@ To deploy the Rails app using the Railway CLI, please follow the steps:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1728049734/docs/quick-start/railsapp_on_railway.png"
+alt="screenshot of the deployed Rails service showing the Hello world page"
+layout="responsive"
+width={2375} height={1151} quality={100} />
+
+
 ## Deploy from a GitHub Repo
 
 To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
@@ -131,19 +137,30 @@ To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. O
 4. **Deploy the App**: 
     - Click **Deploy** to start the deployment process.
     - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+5. **Add a Database Service**:
+    - Right-click on the Railway project canvas or click the **Create** button.
+    - Select **Database**.
+    - Select **Add PostgreSQL** from the available databases.
+        - This will create and deploy a new Postgres database service for your project.
+6. **Configure Environment Variables**:
+    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
+        - `SECRET_KEY_BASE` or `RAILS_MASTER_KEY`: Set the value to the key from your app's `config/master.key`.
+        - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_PUBLIC_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).  
+    - Use the **Raw Editor** to add any other required environment variables in one go.
+6. **Redeploy the Service**:
+    - Click **Deploy** on the Railway dashboard to apply your changes.
+7. **Verify the Deployment**:
+    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
 **Note:** During the deployment process, Railway will automatically [detect that it’s a Rails app](https://nixpacks.com/docs/providers/ruby).
 
-5. **Set Up a Public URL**:
+8. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1728049734/docs/quick-start/railsapp_on_railway.png"
-alt="screenshot of the deployed Rails service showing the Hello world page"
-layout="responsive"
-width={2375} height={1151} quality={100} />
-
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Rails apps effortlessly!
+
+Next, we'll cover how to set up workers and cron jobs for your Rails app on Railway.
 
 ## Set Up Workers & Cron Jobs with Sidekiq
 
