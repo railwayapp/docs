@@ -157,13 +157,13 @@ Sidekiq is a powerful and efficient background job processor for Ruby apps, and 
         ```
 2. **Add a Redis Database Service**
     - Sidekiq uses Redis as a job queue. To set this up:
-        - Right-click on the Railway dashboard canvas or click the **Create** button.
+        - Right-click on the Railway project canvas or click the **Create** button.
         - Select **Database**.
         - Select **Add Redis** from the available databases.
             - This will create and deploy a new Redis service for your app.
 3. **Create and Configure a Worker Service**
-    - Now, set up a separate service to run your Sidekiq workers.
-        - Create a new **Empty Service** and name it **Worker Service**.
+    - Now, set up a <a href="/guides/services#creating-a-service">separate service</a> to run your Sidekiq workers.
+        - Create a new <a href="/overview/the-basics#service-settings">**Empty Service**</a> and name it **Worker Service**.
         - Go to the <a href="/overview/the-basics#service-settings">**Settings**</a> tab of this service to configure it.
         - In the **Source** section, connect your GitHub repository to the **Source Repo**.
         - Under the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section, set `bundle install` as the **Custom Build Command**. This installs the necessary dependencies.
