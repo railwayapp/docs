@@ -13,4 +13,6 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [Laravel](/guides/laravel)
 ### Go
     - [Gin](/guides/gin)
+### Ruby
+    - [Rails](/guides/rails)
 

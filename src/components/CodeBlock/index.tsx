@@ -8,6 +8,11 @@ import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
 import toml from "react-syntax-highlighter/dist/cjs/languages/prism/toml";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
 import go from "react-syntax-highlighter/dist/cjs/languages/prism/go";
+import ruby from "react-syntax-highlighter/dist/cjs/languages/prism/ruby";
+import php from "react-syntax-highlighter/dist/cjs/languages/prism/php";
+import java from "react-syntax-highlighter/dist/cjs/languages/prism/java";
+import elixir from "react-syntax-highlighter/dist/cjs/languages/prism/elixir";
+import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 
 import "twin.macro";
 import { useCopy } from "../../hooks/useCopy";
@@ -25,6 +30,11 @@ SyntaxHighlighter.registerLanguage("json", json);
 SyntaxHighlighter.registerLanguage("graphql", graphql);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
 SyntaxHighlighter.registerLanguage("go", go);
+SyntaxHighlighter.registerLanguage("ruby", ruby);
+SyntaxHighlighter.registerLanguage("php", php);
+SyntaxHighlighter.registerLanguage("java", java);
+SyntaxHighlighter.registerLanguage("elixir", elixir);
+SyntaxHighlighter.registerLanguage("python", python);
 
 export type SupportedLanguage =
   | "javascript"
@@ -33,7 +43,12 @@ export type SupportedLanguage =
   | "toml"
   | "graphql"
   | "typescript"
-  | "go";
+  | "go"
+  | "ruby"
+  | "php"
+  | "java"
+  | "elixir"
+  | "python";
 
 export interface Props {
   language?: string;
