@@ -63,9 +63,9 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
     - After the project is created, click the provided link to view it in your browser.
 3. **Modify Sails Config**:
     - Open up `config/env/production.js` file and make some changes:
-        - set `http.trustProxy` to `true` because our app will be behind a proxy.
-        - set `session.cookie.secure` to `true`
-        - add this function to the `socket` object just after the `onlyAllowOrigins` array:
+        - Set `http.trustProxy` to `true` because our app will be behind a proxy.
+        - Set `session.cookie.secure` to `true`
+        - Add this function to the `socket` object just after the `onlyAllowOrigins` array:
             ```js
                 beforeConnect: function(handshake, proceed) {
 
@@ -93,11 +93,11 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
 7. **Modify Sails Database Config**:
     - Open up `config/env/production.js` file and make some changes to let your app know what database to connect to and where to save sessions:
         - In the `datastores:` section,
-            - add `adapter: 'sails-postgresql'`,
-            - add `url: process.env.DATABASE_URL`
+            - Add `adapter: 'sails-postgresql'`,
+            - Add `url: process.env.DATABASE_URL`
         - In the `session:` section, 
-            - add `adapter: '@sailshq/connect-redis'`,
-            - add `url: process.env.REDIS_URL`,
+            - Add `adapter: '@sailshq/connect-redis'`,
+            - Add `url: process.env.REDIS_URL`,
     - Run `npm install sails-postgresql --save` to add the new adapter to your app locally.
 8. **Configure Environment Variables on Railway**:
     - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
