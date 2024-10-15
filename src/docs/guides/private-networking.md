@@ -149,71 +149,19 @@ app := fiber.New(fiber.Config{
 
 </Collapse>
 
-## Initialization Time
-
-Currently, private networks take up to 3 seconds to initialize on deploy.  If you have services that immediately establish connections over the private network on startup, you may experience errors such as -
-```python
-## python
-socket.gaierror: [Errno -2] Name or service not known
-```
-
-```javascript
-// nodejs
-getaddrinfo ENOTFOUND
-```
-
-```javascript
-// prisma client
-Can’t reach database server at ‘postgres.railway.internal’
-```
-
-If you experience errors like those above, consider implementing a sleep or other wait mechanism in your app, before attempting to connect.  Depending on your specific implementation, you can accomplish this in various ways.  Some common patterns are:
-- In your `package.json` start command: 
-  ```
-  "start": "sleep 3 && node index.js"
-  ```
-- In your configured [start command](/guides/start-command#configure-the-start-command):
-  ```plaintext
-  sleep 3 && npm start
-  ```
-- In your Dockerfile:
-  ```dockerfile
-  CMD sleep 3 && npm run start
-  ```
-
-We agree, this is not ideal, and we are actively working on some big changes to properly fix this.
-
 ## Changing the service name for DNS
 
 Within the service settings you can change the service name to which you refer, e.g. `api-1.railway.internal` -> `api-2.railway.internal`
 
 The root of the domain, `railway.internal`, is static and **cannot** be changed.
 
-## Workaround for Alpine-based images
-
-During private networking initialization (the period under 100ms), DNS resolution is handled via a fallback DNS server 8.8.8.8 in the container DNS config.
-
-In Alpine-based images, due to how DNS resolution is handled, if that public DNS server's response is faster than the private networking DNS, it causes private resolution to fail.
-
-You can workaround this issue by adding `ENABLE_ALPINE_PRIVATE_NETWORKING=true` in your service environment variables.
-This will effectively remove the fallback DNS server 8.8.8.8 which is used during the private networking 100ms initialization period.
-
-<Banner variant="info">
-Note that using this workaround will cause the 100ms DNS initialization delay to impact both public and private networking.
-</Banner>
-
 ## Caveats
 
 During the feature development process we found a few caveats that you should be aware of:
 
 - Private networking is not available during the build phase.
-- You will need to establish a wireguard tunnel to external services if you wish to vendor requests in your application.
 - You will need to bind to a IPv6 port to receive traffic on the private network.
-- Private networking is enabled automatically for new projects/environments. If you want to use private networking in an existing environment, you will have to enable it manually in the settings panel of one of the environment services.
-- Private networks take up to 3 seconds to initialize on deploy, we ask that you set initial requests on a retry loop.
 - We don't support IPv4 private networking
-- Alpine-based images may not work with our internal DNS due to how it performs
-  resolution. See the [section above](#workaround-for-alpine-based-images) for a workaround.
 
 ## FAQ
 
