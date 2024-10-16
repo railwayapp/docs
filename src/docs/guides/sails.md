@@ -2,7 +2,9 @@
 title: Deploy a Sails App
 ---
 
+
 [Sails](https://sailsjs.com) is a MVC framework for Node.js. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture.
+
 
 Sails makes it easy to build custom, enterprise-grade Node.js apps.
 
@@ -94,18 +96,18 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
             - Add `adapter: '@sailshq/connect-redis'`,
             - Add `url: process.env.REDIS_URL`,
     - Run `npm install sails-postgresql --save` to add the new adapter to your app locally.
-8. **Configure Environment Variables on Railway**:
+7. **Configure Environment Variables on Railway**:
     - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
         - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
         - `REDIS_URL`: Set the value to  `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database)
     - Use the **Raw Editor** to add any other required environment variables in one go.
-9. **Redeploy the Service**:
+8. **Redeploy the Service**:
     - Click **Deploy** on the Railway dashboard to apply your changes.
-10. **Upload Local Changes**:
+9. **Upload Local Changes**:
     - Run `railway up` to upload all the changes we made locally and redeploy our service.
-11. **Verify the Deployment**:
+10. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
-12. **Set Up a Public URL**:
+11. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
@@ -118,7 +120,6 @@ width={2986} height={2140} quality={100} />
 ## Deploy from a GitHub Repo
 
 To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
-
 
 1. **Create a New Project on Railway**:
     - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
