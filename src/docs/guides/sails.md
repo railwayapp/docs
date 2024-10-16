@@ -2,7 +2,7 @@
 title: Deploy a Sails App
 ---
 
-Sails is a MVC framework for Node.js. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture.
+[Sails](https://sailsjs.com) is a MVC framework for Node.js. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture.
 
 Sails makes it easy to build custom, enterprise-grade Node.js apps.
 
@@ -67,12 +67,11 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
         - Set `session.cookie.secure` to `true`
         - Add this function to the `socket` object just after the `onlyAllowOrigins` array:
             ```js
-                beforeConnect: function(handshake, proceed) {
-
+            beforeConnect: function(handshake, proceed) {
                 // Send back `true` to allow the socket to connect.
                 // (Or send back `false` to reject the attempt.)
                 return proceed(undefined, false);
-                },
+            },
             ```
        **Note:** We only added this because we don't need sockets now. If you do, skip this step and add your public app URL to the `onlyAllowOrigins` array. The function simply rejects socket connection attempts.
 4. **Deploy the Application**:
@@ -82,15 +81,11 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
         ```
     - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
  - **Note:** You'll come across an error about how the default `sails-disk` adapter and `connect.session()` MemoryStore  is not designed for use as a production database, don’t worry. We’ll fix this in the next step.
-5. **Add a Database Service**:
+5. **Add PostgreSQL & Redis Database Services**:
     - Run `railway add`.
-    - Select `PostgreSQL` by pressing space and hit **Enter** to add it to your project.
-    - A database service will be added to your Railway project.
-6. **Add a Redis Database Service**:
-    - Run `railway add`.
-    - Select `Redis` by pressing space and hit **Enter** to add it to your project.
-    - A redis database service will be added to your Railway project.
-7. **Modify Sails Database Config**:
+    - Select `PostgreSQL` by pressing space
+    - Select `Redis` by also pressing space and hit **Enter** to add both database services to your project.
+6. **Modify Sails Database Config**:
     - Open up `config/env/production.js` file and make some changes to let your app know what database to connect to and where to save sessions:
         - In the `datastores:` section,
             - Add `adapter: 'sails-postgresql'`,
@@ -99,13 +94,15 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
             - Add `adapter: '@sailshq/connect-redis'`,
             - Add `url: process.env.REDIS_URL`,
     - Run `npm install sails-postgresql --save` to add the new adapter to your app locally.
-8. **Configure Environment Variables on Railway**:
+7. **Configure Environment Variables on Railway**:
     - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
         - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
         - `REDIS_URL`: Set the value to  `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database)
     - Use the **Raw Editor** to add any other required environment variables in one go.
-9. **Redeploy the Service**:
+8. **Redeploy the Service**:
     - Click **Deploy** on the Railway dashboard to apply your changes.
+9. **Upload Local Changes**:
+    - Run `railway up` to upload all the changes we made locally and redeploy our service.
 10. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 11. **Set Up a Public URL**:
@@ -147,6 +144,8 @@ To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. O
         - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
         - `REDIS_URL`: Set the value to  `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database) 
     - Use the **Raw Editor** to add any other required environment variables in one go.
+8. **Modify Sails Config**:
+    - Follow [steps 3 & 5 mentioned in the CLI guide](#deploy-from-the-cli).
 8. **Redeploy the Service**:
     - Click **Deploy** on the Railway dashboard to apply your changes.
 9. **Verify the Deployment**:
@@ -162,6 +161,16 @@ Here’s how your setup should look:
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1728580319/docs/quick-start/all_services_connected.png" alt="Diagram showing all sails services connected on Railway" layout="responsive" width={2985} height={1815} quality={100} />
 
 By following these steps, you’ll have a fully functional Sails app. If you run into any issues or need to make adjustments, check the logs and revisit your environment variable configurations.
+
+## The Boring JavaScript Stack Sails Starter
+
+If you're a fan of [The Boring JavaScript Stack](https://github.com/sailscastshq/boring-stack), we’ve got a one-click deploy option for you.
+
+Simply click the button below to get started:
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ia84_3)
+
+**Note:** After deploying, we recommend [ejecting from the template](/guides/deploy#eject-from-template-repository) to create your own GitHub repository. This will give you full control over the project and source code.
  
 ## Next Steps
 
