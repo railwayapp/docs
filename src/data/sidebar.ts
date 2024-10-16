@@ -49,7 +49,8 @@ export const sidebarContent: ISidebarContent = [
           makePage("Gin", "guides"),
           makePage("Rails", "guides"),
           makePage("Laravel", "guides"),
-          makePage("Sails", "guides")
+          makePage("Sails", "guides"),
+          makePage("Django", "guides")
         ],
       },
       {
