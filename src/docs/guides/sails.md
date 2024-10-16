@@ -2,7 +2,7 @@
 title: Deploy a Sails App
 ---
 
-Sails is a MVC framework for Node.js. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture.
+[Sails](https://sailsjs.com) is a MVC framework for Node.js. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture.
 
 Sails makes it easy to build custom, enterprise-grade Node.js apps.
 
@@ -67,12 +67,11 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
         - Set `session.cookie.secure` to `true`
         - Add this function to the `socket` object just after the `onlyAllowOrigins` array:
             ```js
-                beforeConnect: function(handshake, proceed) {
-
+            beforeConnect: function(handshake, proceed) {
                 // Send back `true` to allow the socket to connect.
                 // (Or send back `false` to reject the attempt.)
                 return proceed(undefined, false);
-                },
+            },
             ```
        **Note:** We only added this because we don't need sockets now. If you do, skip this step and add your public app URL to the `onlyAllowOrigins` array. The function simply rejects socket connection attempts.
 4. **Deploy the Application**:
@@ -82,15 +81,11 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
         ```
     - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
  - **Note:** You'll come across an error about how the default `sails-disk` adapter and `connect.session()` MemoryStore  is not designed for use as a production database, don’t worry. We’ll fix this in the next step.
-5. **Add a Database Service**:
+5. **Add PostgreSQL & Redis Database Services**:
     - Run `railway add`.
-    - Select `PostgreSQL` by pressing space and hit **Enter** to add it to your project.
-    - A database service will be added to your Railway project.
-6. **Add a Redis Database Service**:
-    - Run `railway add`.
-    - Select `Redis` by pressing space and hit **Enter** to add it to your project.
-    - A redis database service will be added to your Railway project.
-7. **Modify Sails Database Config**:
+    - Select `PostgreSQL` by pressing space
+    - Select `Redis` by also pressing space and hit **Enter** to add both database services to your project.
+6. **Modify Sails Database Config**:
     - Open up `config/env/production.js` file and make some changes to let your app know what database to connect to and where to save sessions:
         - In the `datastores:` section,
             - Add `adapter: 'sails-postgresql'`,
@@ -106,9 +101,11 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
     - Use the **Raw Editor** to add any other required environment variables in one go.
 9. **Redeploy the Service**:
     - Click **Deploy** on the Railway dashboard to apply your changes.
-10. **Verify the Deployment**:
+10. **Upload Local Changes**:
+    - Run `railway up` to upload all the changes we made locally and redeploy our service.
+11. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
-11. **Set Up a Public URL**:
+12. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
@@ -121,6 +118,7 @@ width={2986} height={2140} quality={100} />
 ## Deploy from a GitHub Repo
 
 To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
+
 
 1. **Create a New Project on Railway**:
     - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
@@ -147,6 +145,8 @@ To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. O
         - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
         - `REDIS_URL`: Set the value to  `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database) 
     - Use the **Raw Editor** to add any other required environment variables in one go.
+8. **Modify Sails Config**:
+    - Follow [steps 3 & 5 mentioned in the CLI guide](#deploy-from-the-cli).
 8. **Redeploy the Service**:
     - Click **Deploy** on the Railway dashboard to apply your changes.
 9. **Verify the Deployment**:
