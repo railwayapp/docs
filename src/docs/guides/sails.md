@@ -161,6 +161,16 @@ Here’s how your setup should look:
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1728580319/docs/quick-start/all_services_connected.png" alt="Diagram showing all sails services connected on Railway" layout="responsive" width={2985} height={1815} quality={100} />
 
 By following these steps, you’ll have a fully functional Sails app. If you run into any issues or need to make adjustments, check the logs and revisit your environment variable configurations.
+
+## The Boring JavaScript Stack Sails Starter
+
+If you're a fan of [The Boring JavaScript Stack](https://github.com/sailscastshq/boring-stack), we’ve got a one-click deploy option for you.
+
+Simply click the button below to get started:
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ia84_3)
+
+**Note:** After deploying, we recommend [ejecting from the template](/guides/deploy#eject-from-template-repository) to create your own GitHub repository. This will give you full control over the project and source code.
  
 ## Next Steps
 
