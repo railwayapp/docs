@@ -24,6 +24,8 @@ Activate the virtual environment
 source env/bin/activate
 ```
 
+**Note:** For windows developers, run it as `env\Scripts\activate` in your terminal.
+
 Install Django
 ```bash
 python -m pip install django
@@ -140,6 +142,8 @@ To track all the dependencies for deployment, create a `requirements.txt` file:
 pip freeze > requirements.txt
 ```
 
+**Note:** It's only safe to run the command above in a virtual environment, else it will freeze all python packages installed on your system. 
+
 With these changes, your Django app is now ready to be deployed to Railway!
 
 ## Deploy Django App on Railway
@@ -223,24 +227,21 @@ To deploy the Django app to Railway, start by pushing the app to a GitHub repo. 
         - `PGPASSWORD`: Set the value to `${{Postgres.PGPASSWORD}}`
         - `PGHOST`: Set the value to `${{Postgres.PGHOST}}`
         - `PGPORT`: Set the value to `${{Postgres.PGPORT}}`
+
     **Note:** We don't have the Postgres Database service yet. We'll add that soon.
-4. **Deploy the App**: 
-    - Click **Deploy** to start the deployment process.
-    - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
-    **Note:** You'll encounter an error about the PGDATABASE environment not set. Don't worry, we'll fix that soon.
-5. **Add a Database Service**:
+4. **Add a Database Service**:
     - Right-click on the Railway project canvas or click the **Create** button.
     - Select **Database**.
     - Select **Add PostgreSQL** from the available databases.
         - This will create and deploy a new Postgres database service for your project.
-6. **Redeploy the App Service**:
-    - Click **Deploy** on the app service on the Railway dashboard to apply your changes.
-7. **Verify the Deployment**:
+5. **Deploy the App**: 
+    - Click **Deploy** to start the deployment process and apply all changes.
+    - Once deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+6. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-**Note:** During the deployment process, Railway will automatically [detect that it’s a Django app](https://nixpacks.com/docs/providers/python).
-
-10. **Set Up a Public URL**:
+    **Note:** During the deployment process, Railway will automatically [detect that it’s a Django app](https://nixpacks.com/docs/providers/python).
+7. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
