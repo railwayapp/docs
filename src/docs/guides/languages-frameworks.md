@@ -8,6 +8,7 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [Fastify](/guides/fastify)
     - [Next.js](/quick-start)
     - [Sails](/guides/sails)
+    - [React](/guides/react)
 ### Python
     - [FastAPI](/guides/fastapi)
 ### PHP
