@@ -11,6 +11,7 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [React](/guides/react)
 ### Python
     - [FastAPI](/guides/fastapi)
+    - [Django](/guides/django)
 ### PHP
     - [Laravel](/guides/laravel)
 ### Go
