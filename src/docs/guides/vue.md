@@ -1,35 +1,37 @@
 ---
-title: Deploy a React App
+title: Deploy a Vue App
 ---
 
-[React](https://react.dev), also known as React.js or ReactJS, is a popular JavaScript library developed by Meta for building user interfaces, especially for web and native applications. 
+[Vue](https://vuejs.org), also known as Vue.js or VueJS, is a popular JavaScript library for building snappy, performant and versatile user interfaces for web applications. 
 
-React simplifies the process of creating interactive and dynamic UIs by breaking them down into reusable components.
+Vue prides itself as **The Progressive JavaScript Framework**.
 
-This guide covers how to deploy a React app to Railway in four ways:
+This guide covers how to deploy a Vue app to Railway in four ways:
 
 1. [One-click deploy from a template](#one-click-deploy-from-a-template).
 2. [From a GitHub repository](#deploy-from-a-github-repo).
 3. [Using the CLI](#deploy-from-the-cli).
 4. [Using a Dockerfile](#use-a-dockerfile).
 
-Now, let's create a React app!
+Now, let's create a Vue app!
 
-## Create a React App
+## Create a Vue App
 
-**Note:** If you already have a React app locally or on GitHub, you can skip this step and go straight to the [Deploy React App on Railway](#deploy-the-react-app-to-railway).
+**Note:** If you already have a Vue app locally or on GitHub, you can skip this step and go straight to the [Deploy Vue App on Railway](#deploy-the-vue-app-to-railway).
 
-To create a new React app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) installed on your machine.
+To create a new Vue app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) installed on your machine.
 
-Run the following command in your terminal to create a new React app using [Vite](https://vite.dev/guide/#scaffolding-your-first-vite-project):
+Run the following command in your terminal to create a new Vue app using [Vite](https://vite.dev/guide/#scaffolding-your-first-vite-project):
 
 ```bash
-npm create vite@latest helloworld -- --template react
+npm create vue@latest
 ```
 
-A new React app will be provisioned for you in the `helloworld` directory.
+You'll be presented with choices for different options in the prompts. Give the app a name, `helloworld` and answer `Yes` to the other options or select what you want.
 
-### Run the React App locally
+A new Vue app will be provisioned for you in the `helloworld` directory.
+
+### Run the Vue App locally
 
 Next, `cd` into the directory and install the dependencies.
 
@@ -45,28 +47,28 @@ npm run dev
 
 Open your browser and go to `http://localhost:5173` to see your app.
 
-## Deploy the React App to Railway
+## Deploy the Vue App to Railway
 
-Railway offers multiple ways to deploy your React app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your Vue app, depending on your setup and preference. 
 
 ### One-Click Deploy from a Template
 
-If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a React app with [Caddy](https://caddyserver.com) to serve the dist folder.
+If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Vue app with [Caddy](https://caddyserver.com) to serve the dist folder.
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/NeiLty)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/Qh0OAU)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=react" target="_blank">variety of React app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.app/templates?q=vue" target="_blank">variety of Vue app templates</a> created by the community.
 
 ### Deploy from the CLI
 
 1. **Install the Railway CLI**:
     - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your React app directory. 
+    - Run the command below in your Vue app directory. 
         ```bash
         railway init
         ```
@@ -152,14 +154,14 @@ We highly recommend that [you eject from the template after deployment](/guides/
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729182225/docs/quick-start/vite_react_app.png"
-alt="screenshot of the deployed React service"
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729252336/docs/quick-start/vue_app_on_railway.png"
+alt="screenshot of the deployed Vue service"
 layout="responsive"
-width={2431} height={2051} quality={100} />
+width={2642} height={2080} quality={100} />
 
 ### Deploy from a GitHub Repo
 
-To deploy a React app to Railway directly from GitHub, follow the steps below:
+To deploy a Vue app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
     - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
@@ -182,7 +184,7 @@ To deploy a React app to Railway directly from GitHub, follow the steps below:
 
 ### Use a Dockerfile
 
-1. Create a `Dockerfile` in the `helloworld` or React app's root directory.
+1. Create a `Dockerfile` in the `helloworld` or Vue app's root directory.
 2. Add the content below to the `Dockerfile`:
     ```bash
     # Use the Node alpine official image
@@ -226,7 +228,7 @@ To deploy a React app to Railway directly from GitHub, follow the steps below:
     # Use Caddy to run/serve the app
     CMD ["caddy", "run", "--config", "Caddyfile", "--adapter", "caddyfile"]
     ```
-    The `Dockerfile` will use Caddy to serve the React app.
+    The `Dockerfile` will use Caddy to serve the Vue app.
 3. Add a `Caddyfile` to the app's root directory:
     ```bash
     # global options
@@ -273,7 +275,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 
-This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your React apps seamlessly!
+This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Vue apps seamlessly!
 
 ## Next Steps
 
