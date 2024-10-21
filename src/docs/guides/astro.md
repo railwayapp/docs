@@ -146,7 +146,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
      host: '0.0.0.0'
     },
     ```
-    Railway needs to listen on either `0.0.0.0` or `::` to serve your web app correctly.
+    Railway needs to listen on either `0.0.0.0` or `::` to serve your web app correctly. If not configured properly, you'll encounter a 502 error.
 4. **Deploy the Application**:
     - Use the command below to deploy your app:
         ```bash
