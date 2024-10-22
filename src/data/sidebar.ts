@@ -53,7 +53,8 @@ export const sidebarContent: ISidebarContent = [
           makePage("Django", "guides"),
           makePage("React", "guides"),
           makePage("Vue", "guides"),
-          makePage("Nuxt", "guides")
+          makePage("Nuxt", "guides"),
+          makePage("Spring Boot", "guides")
         ],
       },
       {
