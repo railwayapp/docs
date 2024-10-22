@@ -86,6 +86,49 @@ In the config file, `output` is set to `server`, meaning every page in the app i
 
 For mostly static sites, set `output` to `hybrid`. This allows you to add `export const prerender = false` to any file that needs to be server-rendered on demand.
 
+### Modify Start Script and Astro config
+
+Astro builds your project into a `dist` directory. In `standalone` mode, a server starts when the server entry point is executed, which is by default located at `./dist/server/entry.mjs`. 
+
+In this mode, the server handles file serving as well as page and API routes.
+
+Open up the `package.json` file and modify the start script from `astro dev` to `node ./dist/server/entry.mjs`.
+
+```js
+{
+    "name": "astroblog",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "node ./dist/server/entry.mjs",
+        "build": "astro check && astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/check": "^0.9.4",
+        "@astrojs/mdx": "^3.1.8",
+        "@astrojs/node": "^8.3.4",
+        "@astrojs/rss": "^4.0.9",
+        "@astrojs/sitemap": "^3.2.1",
+        "astro": "^4.16.6",
+        "typescript": "^5.6.3"
+    }
+}
+```
+
+Open the `astro.config.mjs` file and configure the server to run on host `0.0.0.0` by adding the following block inside the `defineConfig` function.
+
+```js
+...
+server: {
+    host: '0.0.0.0'
+},
+```
+
+Your app needs to listen on either `0.0.0.0` or `::` to accept traffic. If not configured properly, you'll encounter a 502 error.
+
 ## Deploy the Astro App to Railway
 
 Railway offers multiple ways to deploy your Astro app, depending on your setup and preference. 
@@ -113,48 +156,14 @@ We highly recommend that [you eject from the template after deployment](/guides/
         ```
     - Follow the prompts to name your project.
     - After the project is created, click the provided link to view it in your browser.
-3. **Modify your app's start script and Astro config**:
-    - Astro builds your project into a `dist` directory. In `standalone` mode, a server starts when the server entry point is executed, which is by default located at `./dist/server/entry.mjs`. In this mode, the server handles file serving as well as page and API routes.
-    - Open up the `package.json` file and modify the start script from `astro dev` to `node ./dist/server/entry.mjs`.
-    ```js
-    {
-        "name": "astroblog",
-        "type": "module",
-        "version": "0.0.1",
-        "scripts": {
-            "dev": "astro dev",
-            "start": "node ./dist/server/entry.mjs",
-            "build": "astro check && astro build",
-            "preview": "astro preview",
-            "astro": "astro"
-        },
-        "dependencies": {
-            "@astrojs/check": "^0.9.4",
-            "@astrojs/mdx": "^3.1.8",
-            "@astrojs/node": "^8.3.4",
-            "@astrojs/rss": "^4.0.9",
-            "@astrojs/sitemap": "^3.2.1",
-            "astro": "^4.16.6",
-            "typescript": "^5.6.3"
-        }
-    }
-    ```
-    - Open the `astro.config.mjs` file and configure the server to run on host `0.0.0.0` by adding the following block inside the `defineConfig` function.
-    ```js
-    ...
-    server: {
-     host: '0.0.0.0'
-    },
-    ```
-    Railway needs to listen on either `0.0.0.0` or `::` to serve your web app correctly. If not configured properly, you'll encounter a 502 error.
-4. **Deploy the Application**:
+3. **Deploy the Application**:
     - Use the command below to deploy your app:
         ```bash
         railway up
         ```
     - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
     - Once the deployment completes, go to **View logs** to check if the service is running successfully.
-5. **Set Up a Public URL**:
+4. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
@@ -169,18 +178,15 @@ To deploy an Astro app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
     - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
-2. **Modify your app's start script and Astro config**:
-    - Follow [step 3 mentioned in the CLI guide](#deploy-from-the-cli).
-    - Ensure that your changes are pushed to GitHub.
-3. **Deploy from GitHub**: 
+2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
-4. **Deploy the App**: 
+3. **Deploy the App**: 
     - Click **Deploy** to start the deployment process.
     - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
-5. **Verify the Deployment**:
+4. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
-6. **Set Up a Public URL**:
+5. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
@@ -191,7 +197,7 @@ To deploy an Astro app to Railway directly from GitHub, follow the steps below:
     ```bash
     # Use the Node alpine official image
     # https://hub.docker.com/_/node
-    FROM node:lts-alpine AS build
+    FROM node:lts-alpine
 
     # Create and change to the app directory.
     WORKDIR /app
@@ -207,9 +213,6 @@ To deploy an Astro app to Railway directly from GitHub, follow the steps below:
 
     # Build the app.
     RUN npm run build
-
-    # Copy files to the container image.
-    COPY --from=build /app ./
     
     # Serve the app
     CMD ["npm", "run", "start"]

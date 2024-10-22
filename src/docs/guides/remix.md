@@ -107,7 +107,7 @@ To deploy a Remix app to Railway directly from GitHub, follow the steps below:
     ```bash
     # Use the Node alpine official image
     # https://hub.docker.com/_/node
-    FROM node:lts-alpine AS build
+    FROM node:lts-alpine
 
     # Create and change to the app directory.
     WORKDIR /app
@@ -123,9 +123,6 @@ To deploy a Remix app to Railway directly from GitHub, follow the steps below:
 
     # Build the app.
     RUN npm run build
-
-    # Copy files to the container image.
-    COPY --from=build /app ./
     
     # Serve the app
     CMD ["npm", "run", "start"]
