@@ -156,7 +156,7 @@ To deploy a Spring Boot app to Railway directly from GitHub, follow the steps be
     ```bash
     # Use the Node alpine official image
     # https://hub.docker.com/_/eclipse-temurin
-    FROM eclipse-temurin:17-jdk-alpine
+    FROM eclipse-temurin:21-jdk-alpine
 
     # Create and change to the app directory.
     WORKDIR /app
@@ -165,7 +165,7 @@ To deploy a Spring Boot app to Railway directly from GitHub, follow the steps be
     COPY . ./
 
     # Build the app.
-    RUN chmod +x ./mvnw && ./mvnw -DoutputFile=target/mvn-dependency-list.log -B -DskipTests clean dependency:list install
+    RUN ./mvnw -DoutputFile=target/mvn-dependency-list.log -B -DskipTests clean dependency:list install
 
     # Run the app by dynamically finding the JAR file in the target directory
     CMD ["sh", "-c", "java -jar target/*.jar"]
