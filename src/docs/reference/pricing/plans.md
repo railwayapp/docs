@@ -33,7 +33,7 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 | Plan           | **RAM**    | **CPU**     | **Ephemeral Storage** | **Volume Storage** |
 | -------------- | ---------- | ----------- | --------------------- | ------------------ |
 | **Trial**      | **0.5 GB** | **2 vCPU**  | **1 GB**              | **0.5 GB**         | 
-| **Hobby**      | **8 GB**   | **8 vCPU**  | **100 GB**            | **5 GB**           |
+| **Hobby**      | **8 GB**   | **8 vCPU**  | **10 GB**            | **5 GB**           |
 | **Pro**        | **32 GB**  | **32 vCPU** | **100 GB**            | **50 GB**          |
 | **Enterprise** | **64 GB**  | **64 vCPU** | **100 GB**            | **50 GB**          |
 
@@ -91,7 +91,7 @@ Credits as a payment method is only available for Hobby plan users.
 
 ### Purchasing credits
 
-You can purchase credits from your account's [billing page](https://railway.app/account/billing).
+You can purchase credits from your account's [usage page](https://railway.app/account/usage).
 
 ### One-time grant of credits on the Free Trial
 
