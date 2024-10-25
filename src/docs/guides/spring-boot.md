@@ -154,7 +154,7 @@ To deploy a Spring Boot app to Railway directly from GitHub, follow the steps be
 1. Create a `Dockerfile` in the `helloworld` or Spring Boot app's root directory.
 2. Add the content below to the `Dockerfile`:
     ```bash
-    # Use the Node alpine official image
+    # Use the Eclipse temurin alpine official image
     # https://hub.docker.com/_/eclipse-temurin
     FROM eclipse-temurin:21-jdk-alpine
 
