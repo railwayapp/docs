@@ -1,25 +1,25 @@
 ---
-title: Deploy a Rust Rocket App
+title: Deploy a Rust Axum App
 ---
 
-[Rocket](https://rocket.rs) is a web framework for Rust that makes it simple to write fast, type-safe, secure web applications with incredible usability, productivity and performance.
+[Axum](https://docs.rs/axum/latest/axum) is a web framework for Rust that focuses on ergonomics and modularity. It is designed to work with [tokio](https://docs.rs/tokio/1.40.0/x86_64-unknown-linux-gnu/tokio/index.html) and [hyper](https://docs.rs/hyper/1.4.1/x86_64-unknown-linux-gnu/hyper/index.html).
 
-This guide covers how to deploy a Rocket app to Railway in four ways:
+This guide covers how to deploy an Axum app to Railway in four ways:
 
 1. [One-click deploy from a template](#one-click-deploy-from-a-template).
 2. [From a GitHub repository](#deploy-from-a-github-repo).
 3. [Using the CLI](#deploy-from-the-cli).
 4. [Using a Dockerfile](#use-a-dockerfile).
 
-Now, let's create a Rocket app! 🚀
+Now, let's create an Axum app! 🚀
 
-## Create a Rocket App
+## Create an Axum App
 
-**Note:** If you already have a Rocket app locally or on GitHub, you can skip this step and go straight to the [Deploy Rocket App to Railway](#deploy-the-rocket-app-to-railway).
+**Note:** If you already have an Axum app locally or on GitHub, you can skip this step and go straight to the [Deploy Axum App to Railway](#deploy-the-axum-app-to-railway).
 
-To create a new Rocket app, ensure that you have [Rust](https://www.rust-lang.org/tools/install) installed on your machine.
+To create a new Axum app, ensure that you have [Rust](https://www.rust-lang.org/tools/install) installed on your machine.
 
-Run the following command in your terminal to create a new Rust app:
+Run the following command in your terminal to create a new Axum app:
 
 ```bash
 cargo new helloworld --bin
@@ -27,12 +27,15 @@ cargo new helloworld --bin
 
 The command creates a new binary-based Cargo project in a `helloworld` directory.
 
-Next, `cd` into the directory and add Rocket as a dependency in your `Cargo.toml`:
+Next, `cd` into the directory and add `axum` and `tokio` as a dependency in your `Cargo.toml`:
 
 ```bash
 [dependencies]
-rocket = "0.5.1"
+axum = "0.7.7"
+tokio = { version = "1.41.0", features = ["full"] }
 ```
+
+These dependencies are required to create a bare minimum axum application.
 
 ### Modify the Application File
 
@@ -41,29 +44,34 @@ Next, open the app in your IDE and navigate to the `src/main.rs` file.
 Replace the content with the code below:
 
 ```rust
-#[macro_use] 
-extern crate rocket;
+use axum::{
+    routing::get,
+    Router,
+};
 
-#[get("/")]
-fn index() -> &'static str {
-    "Hello world, Rocket!"
+#[tokio::main]
+async fn main() {
+    // build our application with a single route
+    let app = Router::new().route("/", get(root));
+
+    // run our app with hyper, listening globally on port 3000
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    axum::serve(listener, app).await.unwrap();
 }
 
-#[launch]
-fn rocket() -> _ {
-    rocket::build().mount("/", routes![index])
+// basic handler that responds with a static string
+async fn root() -> &'static str {
+    "Hello World, from Axum!"
 }
 ```
 
-The code above uses the Rocket framework to create a basic web server that responds to HTTP requests. It defines a simple route using the `#[get("/")]` macro, which tells Rocket to handle GET requests to the root URL `(/)`. 
+The code above sets up a simple web server using the Axum framework and the Tokio async runtime. The server listens on port `3000` and defines one route, `/`, which is mapped to a handler function called `root`. When a GET request is made to the root path, the handler responds with the static string "Hello World, from Axum!". 
 
-The `index()` function is the handler for this route and returns a static string, **"Hello world, Rocket!"**, which will be sent as the response when the root URL is accessed.
+The Router from Axum is used to configure the route, and `tokio::net::TcpListener` binds the server to listen for connections on all available network interfaces (address `0.0.0.0`).
 
-The `#[launch]` attribute on the `rocket()` function marks it as the entry point to launch the application. Inside `rocket()`, the server is built with `rocket::build()` and the index route is mounted to the root path `/` using `mount()`. 
+The asynchronous runtime, provided by the `#[tokio::main]` macro, ensures the server can handle requests efficiently. The `axum::serve` function integrates with the Hyper server to actually process requests.
 
-When the application runs, it listens for incoming requests and serves the "Hello world, Rocket!" response for requests made to the root URL, demonstrating a simple routing and response mechanism in Rocket.
-
-### Run the Rocket App locally
+### Run the Axum App locally
 
 Run the following command in the `helloworld` directory via the terminal:
 
@@ -73,11 +81,11 @@ cargo run
 
 All the dependencies will be installed and your app will be launched.
 
-Open your browser and go to `http://localhost:8000` to see your app.
+Open your browser and go to `http://localhost:3000` to see your app.
 
-## Deploy the Rocket App to Railway
+## Deploy the Axum App to Railway
 
-Railway offers multiple ways to deploy your Rocket app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your Axum app, depending on your setup and preference. 
 
 ### One-Click Deploy from a Template
 
@@ -85,18 +93,18 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/FkW8oU)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/5HAMxu)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=rocket" target="_blank">variety of Rocket templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.app/templates?q=axum" target="_blank">variety of Axum templates</a> created by the community.
 
 ### Deploy from the CLI
 
 1. **Install the Railway CLI**:
     - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Rocket app directory. 
+    - Run the command below in your Axum app directory. 
         ```bash
         railway init
         ```
@@ -108,38 +116,28 @@ We highly recommend that [you eject from the template after deployment](/guides/
         railway up
         ```
     - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-4. **Set Up a Public URL**:
+4. **Verify the Deployment**:
+    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+
+    **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://nixpacks.com/docs/providers/rust).
+5. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
-    **Note:** You'll come across a 502 error where your application doesn't respond. We'll fix that in the next step.
-5. **Configure Rocket app to accept non-local connections**:
-    - Rocket apps need to be configured to accept external connections by listening on the correct address, which is typically `0.0.0.0`. You can easily do this by setting the address through the environment variable.
-    Run the following command to set the Rocket address to `0.0.0.0`:
-        ```bash
-        railway variables --set "ROCKET_ADDRESS=0.0.0.0"
-        ```
-6. **Redeploy the Service**:
-    - Run `railway up` again to trigger a redeployment of the service.
-7. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully. Access your public URL again and you should see your app working well.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729858389/docs/quick-start/rocket_app_service.png"
-alt="screenshot of the deployed Rocket service"
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729880417/docs/quick-start/axum_app_service.png"
+alt="screenshot of the deployed Axum service"
 layout="responsive"
-width={2038} height={1698} quality={100} />
+width={1982} height={1822} quality={100} />
 
 ### Deploy from a GitHub Repo
 
-To deploy a Rocket app to Railway directly from GitHub, follow the steps below:
+To deploy an Axum app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
     - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
-3. **Add Environment Variables**:
-    - Click **Add Variables**, then add `ROCKET_ADDRESS` with the value `0.0.0.0`. This allows your Rocket app to accept external connections by listening on `0.0.0.0`.
 3. **Deploy the App**: 
     - Click **Deploy** to start the deployment process.
     - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
@@ -153,7 +151,7 @@ To deploy a Rocket app to Railway directly from GitHub, follow the steps below:
 
 ### Use a Dockerfile
 
-1. Create a `Dockerfile` in the `helloworld` or Rocket app's root directory.
+1. Create a `Dockerfile` in the `helloworld` or Axum app's root directory.
 2. Add the content below to the `Dockerfile`:
     ```bash
     FROM lukemathwalker/cargo-chef:latest-rust-1 AS chef
@@ -183,7 +181,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 
-This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Rocket apps seamlessly!
+This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Axum apps seamlessly!
 
 ## Next Steps
 
