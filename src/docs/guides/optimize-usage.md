@@ -44,9 +44,8 @@ Using [Private Networking](/guides/private-networking) when communicating with o
 
 ### With databases
 
-Communicate with your Railway database over private networking by using the `DATABASE_PRIVATE_URL` environment variable, instead of `DATABASE_PUBLIC_URL`:
+Communicate with your Railway database over private networking by using the `DATABASE_URL` environment variable, instead of `DATABASE_PUBLIC_URL`:
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1715870608/docs/privnet-db_iujd9g.png" alt="Database Private URL" layout="responsive" width={664} height={452} />
 
 ### With other services
 
