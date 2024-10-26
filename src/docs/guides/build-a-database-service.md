@@ -77,3 +77,4 @@ Here are some suggestions to check out -
 - <a href="https://railway.app/template/clickhouse" target="_blank">ClickHouse</a>
 - <a href="https://railway.app/template/dragonfly" target="_blank">Dragonfly</a>
 - <a href="https://railway.app/template/tifygm" target="_blank">Chroma</a>
+- <a href="https://railway.app/template/elasticsearch" target="_blank">Elastic Search</a>
