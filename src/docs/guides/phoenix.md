@@ -96,8 +96,7 @@ To deploy the Phoenix app using the Railway CLI, please follow the steps:
         ```
     - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 
-**Note:** You might encounter an error that states `warning: the VM is running with native name encoding of latin1 which` `may cause Elixir to malfunction as it expects utf8.` 
-`Please ensure your locale is set to UTF-8 (which can be verified by running "locale" in your shell)`, don't worry. We’ll fix this in the next step.
+    **Note:** You might encounter an error––`warning: the VM is running with native name encoding of latin1 which` `may cause Elixir to malfunction as it expects utf8....`. Don’t worry, we’ll address this in the next step.
 4. **Add a Database Service**:
     - Run `railway add`.
     - Select `PostgreSQL` by pressing space and hit **Enter** to add it to your project.
@@ -105,9 +104,9 @@ To deploy the Phoenix app using the Railway CLI, please follow the steps:
 5. **Configure Environment Variables**:
     - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
         - `SECRET_KEY_BASE` : Set the value to the your app's secret key. You can run `mix phx.gen.secret` locally to generate one.
-        - `LANG`and `LC_CTYPE`: Set both values to `en_US.UTF-8`. This sets our app's locale and gets rid of the _native name encoding of latin1_ warning.
+        - `LANG`and `LC_CTYPE`: Set both values to `en_US.UTF-8`. This sets your app's locale and gets rid of the _native name encoding of latin1_ warning.
         - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).  
-        - `ECTO_IPV6`: Set the value to `true` to enable our Phoenix app to connect to the database through the IPv6 private network. 
+        - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the IPv6 private network. 
     - Use the **Raw Editor** to add any other required environment variables in one go.
 6. **Redeploy the Service**:
     - Click **Deploy** on the Railway dashboard to apply your changes.
@@ -158,6 +157,16 @@ To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Phoenix apps effortlessly!
+
+## Want to Deploy Livebook?
+
+[Livebook](https://livebook.dev), an interactive notebook tool built specifically for Elixir, provides a powerful and intuitive environment for exploring data, running code, and documenting insights, all in one place. It’s perfect for experimenting with Elixir code, prototyping, and sharing live documentation.
+
+Click the button below to deploy an instance of Livebook quickly:
+
+[![Deploy Livebook on Railway](https://railway.app/button.svg)](https://railway.app/new/template/4uLt1s)
+
+Livebook allows developers to write and execute Elixir code in small, manageable chunks, making it easier to explore complex problems step by step. It's an excellent tool for learning Elixir, debugging, and brainstorming new ideas with others, transforming coding sessions into real-time, interactive, and shareable experiences.
  
 ## Next Steps
 
