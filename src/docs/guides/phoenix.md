@@ -162,11 +162,9 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 [Livebook](https://livebook.dev), an interactive notebook tool built specifically for Elixir, provides a powerful and intuitive environment for exploring data, running code, and documenting insights, all in one place. It’s perfect for experimenting with Elixir code, prototyping, and sharing live documentation.
 
-Click the button below to deploy an instance of Livebook quickly:
+Click the button below to deploy an instance of Livebook quickly.
 
 [![Deploy Livebook on Railway](https://railway.app/button.svg)](https://railway.app/new/template/4uLt1s)
-
-Livebook allows developers to write and execute Elixir code in small, manageable chunks, making it easier to explore complex problems step by step. It's an excellent tool for learning Elixir, debugging, and brainstorming new ideas with others, transforming coding sessions into real-time, interactive, and shareable experiences.
  
 ## Next Steps
 
