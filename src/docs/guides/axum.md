@@ -34,7 +34,7 @@ cargo add axum
 cargo add tokio --features full
 ```
 
-This will add `axum` and `tokio` as dependencies, and you’ll see them listed in your `Cargo.toml` file.
+This will add `axum` and `tokio` as dependencies, with `tokio` configured to use the "full" feature, which includes its complete set of capabilities. You’ll find both dependencies listed in your `Cargo.toml` file.
 
 These dependencies are required to create a bare minimum axum application.
 
