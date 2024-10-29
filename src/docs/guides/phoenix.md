@@ -34,6 +34,8 @@ Next, navigate into the `helloworld` directory using the `cd` command.
 
 Open up the `config/dev.exs` file. You'll notice that a new Phoenix app is already set up with PostgreSQL settings. It assumes the database has a `postgres` user with the right permissions and a default password of `postgres`. Update the username and password to match your local PostgreSQL account credentials.
 
+**Note**: If you prefer using a different database, like MySQL, you can easily switch the database adapter in the `mix.exs` file. Simply remove the `Postgrex` dependency and add `MyXQL` instead. For detailed instructions, check out this [guide on using other databases](https://hexdocs.pm/phoenix/ecto.html#using-other-databases) in Phoenix.
+
 The default database name is set to `helloworld_dev`, but feel free to change it to whatever you'd prefer.
 
 Next, create the database for our app by running the following command:
