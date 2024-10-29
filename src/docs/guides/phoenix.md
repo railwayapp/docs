@@ -106,12 +106,12 @@ To deploy the Phoenix app using the Railway CLI, please follow the steps:
         - `SECRET_KEY_BASE` : Set the value to the your app's secret key. You can run `mix phx.gen.secret` locally to generate one.
         - `LANG`and `LC_CTYPE`: Set both values to `en_US.UTF-8`. This sets your app's locale and gets rid of the _native name encoding of latin1_ warning.
         - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).  
-        - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the IPv6 private network. 
+        - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the [IPv6 private network](/guides/private-networking#listen-on-ipv6). 
     - Use the **Raw Editor** to add any other required environment variables in one go.
 6. **Redeploy the Service**:
-    - Click **Deploy** on the Railway dashboard to apply your changes.
+    - Click **Deploy** on the Railway Project Canvas to apply your changes.
 7. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+    - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
 8. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
