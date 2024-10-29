@@ -24,4 +24,7 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [Gin](/guides/gin)
 ### Ruby
     - [Rails](/guides/rails)
+### Rust
+    - [Axum](/guides/axum)
+    - [Rocket](/guides/rocket)
 
