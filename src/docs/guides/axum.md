@@ -75,7 +75,9 @@ async fn root() -> &'static str {
 }
 ```
 
-The code above sets up a simple web server using the Axum framework and the Tokio async runtime. The server listens on the port gotten from the environment variable, `PORT` and defaults to `3000` if there's none set. It defines one route, `/`, which is mapped to a handler function called `root`. When a GET request is made to the root path, the handler responds with the static string "Hello World, from Axum!". 
+The code above sets up a simple web server using the Axum framework and the Tokio async runtime. The server listens on the port gotten from the environment variable, `PORT` and defaults to `3000` if there's none set. 
+
+It defines one route, `/`, which is mapped to a handler function called `root`. When a GET request is made to the root path, the handler responds with the static string "Hello World, from Axum!". 
 
 The Router from Axum is used to configure the route, and `tokio::net::TcpListener` binds the server to listen for connections on all available network interfaces (address `0.0.0.0`).
 
