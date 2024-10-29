@@ -27,13 +27,14 @@ cargo new helloworld --bin
 
 The command creates a new binary-based Cargo project in a `helloworld` directory.
 
-Next, `cd` into the directory and add `axum` and `tokio` as a dependency in your `Cargo.toml`:
+Next, `cd` into the directory and add `axum` and `tokio` as dependencies by running the following command:
 
 ```bash
-[dependencies]
-axum = "0.7.7"
-tokio = { version = "1.41.0", features = ["full"] }
+cargo add axum
+cargo add tokio --features full
 ```
+
+This will add `axum` and `tokio` as dependencies, and you’ll see them listed in your `Cargo.toml` file.
 
 These dependencies are required to create a bare minimum axum application.
 

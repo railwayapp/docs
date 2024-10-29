@@ -27,12 +27,13 @@ cargo new helloworld --bin
 
 The command creates a new binary-based Cargo project in a `helloworld` directory.
 
-Next, `cd` into the directory and add Rocket as a dependency in your `Cargo.toml`:
+Next, `cd` into the directory and add Rocket as a dependency by running the following command:
 
 ```bash
-[dependencies]
-rocket = "0.5.1"
+cargo add rocket
 ```
+
+This will add Rocket as a dependency, and you’ll see it listed in your `Cargo.toml` file.
 
 ### Modify the Application File
 
