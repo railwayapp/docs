@@ -156,7 +156,7 @@ To deploy a Rocket app to Railway directly from GitHub, follow the steps below:
 
 1. Create a `Dockerfile` in the `helloworld` or Rocket app's root directory.
 2. Add the content below to the `Dockerfile`:
-    ```bash
+    ```docker
     FROM lukemathwalker/cargo-chef:latest-rust-1 AS chef
 
     # Create and change to the app directory.
