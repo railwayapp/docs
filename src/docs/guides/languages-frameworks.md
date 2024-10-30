@@ -27,4 +27,6 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
 ### Elixir
     - [Phoenix](/guides/phoenix)
     - [Phoenix with Distillery](/guides/phoenix-distillery)
-
+### Rust
+    - [Axum](/guides/axum)
+    - [Rocket](/guides/rocket)

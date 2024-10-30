@@ -13,6 +13,12 @@ import php from "react-syntax-highlighter/dist/cjs/languages/prism/php";
 import java from "react-syntax-highlighter/dist/cjs/languages/prism/java";
 import elixir from "react-syntax-highlighter/dist/cjs/languages/prism/elixir";
 import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
+import rust from "react-syntax-highlighter/dist/cjs/languages/prism/rust";
+import clojure from "react-syntax-highlighter/dist/cjs/languages/prism/clojure";
+import scala from "react-syntax-highlighter/dist/cjs/languages/prism/scala";
+import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
+import docker from "react-syntax-highlighter/dist/cjs/languages/prism/docker";
+
 
 import "twin.macro";
 import { useCopy } from "../../hooks/useCopy";
@@ -35,6 +41,12 @@ SyntaxHighlighter.registerLanguage("php", php);
 SyntaxHighlighter.registerLanguage("java", java);
 SyntaxHighlighter.registerLanguage("elixir", elixir);
 SyntaxHighlighter.registerLanguage("python", python);
+SyntaxHighlighter.registerLanguage("rust", rust);
+SyntaxHighlighter.registerLanguage("clojure", clojure);
+SyntaxHighlighter.registerLanguage("scala", scala);
+SyntaxHighlighter.registerLanguage("css", css);
+SyntaxHighlighter.registerLanguage("docker", docker);
+
 
 export type SupportedLanguage =
   | "javascript"
@@ -48,7 +60,12 @@ export type SupportedLanguage =
   | "php"
   | "java"
   | "elixir"
-  | "python";
+  | "python"
+  | "rust"
+  | "clojure"
+  | "scala"
+  | "css"
+  | "docker";
 
 export interface Props {
   language?: string;
