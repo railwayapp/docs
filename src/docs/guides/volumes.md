@@ -111,7 +111,7 @@ To increase capacity in a volume, you can "grow" it from the volume settings.
     width={1148}
     height={584}
     src="https://res.cloudinary.com/railway/image/upload/v1730326473/docs/volumes/growvolume_zbsjjq.png"
-    alt="Connect volume to service"
+    alt="Grow volume"
 />
 
 Note: growing a volume requires a restart of the attached service.
