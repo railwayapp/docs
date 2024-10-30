@@ -49,6 +49,21 @@ To choose a different region for your service, go to your service settings and s
 
 *Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
 
+### Set a default region
+
+To set a default, or preferred, region, do so from the command palette.  From your project settings:
+- Type `CMD+K` or `Ctrl+K` to access the command palette
+- Type "preferred region"
+- Select your preferred region
+
+<Image
+    quality={100}
+    width={959}
+    height={651}
+    src="https://res.cloudinary.com/railway/image/upload/v1730327915/docs/preferredRegion_i33w6q.png"
+    alt="Preferred Region Picker"
+/>
+
 ### Impact of Region Changes
 
 For information on the impact of changing a service's region, see the [Regions reference guide](/reference/deployment-regions#impact-of-region-changes).

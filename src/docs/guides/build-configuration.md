@@ -82,6 +82,17 @@ Here are a few examples of common use-cases:
 
 _Note, negations will only work if you include files in a preceding rule._
 
+## Install a specific package using Nixpacks
+
+When using Nixpacks, you can install specific packages by defining them in a nixpacks configuration file.  For example:
+
+```toml
+[phases.setup]
+    aptPkgs = ['wget']
+```
+
+See the [Nixpacks docs](https://nixpacks.com/docs/configuration/file) for more information.
+
 ## Build Providers
 
 With Nixpacks, we analyze the app source directory and generate a build plan. This determines for which language provider to install packages and runtimes.
@@ -118,3 +129,9 @@ By default, Railway will cache build layers to provide faster build times.  If y
 ```plaintext
 NO_CACHE=1
 ```
+
+## Why isn't my build using cache?
+
+Since Railway's build system scales up and down in response to demand, cache hit on builds is not guaranteed.
+
+If you have a need for faster builds and rely on build cache to satisfy that requirement, you should consider creating a pipeline to build your own image and deploy your image directly.
