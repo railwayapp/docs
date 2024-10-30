@@ -1,12 +1,14 @@
 ---
-title: Deploy a Phoenix App
+title: Deploy a Phoenix App with Distillery
 ---
 
 [Phoenix](https://phoenixframework.org) is popular Elixir framework designed for building scalable, maintainable, and high-performance web applications. It is known for its ability to handle real-time features efficiently, like WebSockets, while leveraging Elixir's concurrency model, which is built on the Erlang Virtual Machine (BEAM).
 
-## Create a Phoenix App
+In this guide, you'll learn how to deploy Phoenix apps with [Distillery](https://hexdocs.pm/distillery/home.html) to Railway.
 
-**Note:** If you already have a Phoenix app locally or on GitHub, you can skip this step and go straight to the [Deploy Phoenix App on Railway](#deploy-phoenix-app-on-railway).
+## Create a Phoenix App with Distillery
+
+**Note:** If you already have a Phoenix app locally or on GitHub, you can skip this step and go straight to the [Deploy Phoenix App with Distillery to Railway](#deploy-phoenix-app-on-railway).
 
 To create a new Phoenix app, ensure that you have [Elixir](https://elixir-lang.org/install.html) and [Hex package manager](https://hexdocs.pm/phoenix/installation.html) installed on your machine. Once everything is set up, run the following command in your terminal to install the Phoenix application generator:
 
@@ -17,12 +19,12 @@ mix archive.install hex phx_new
 Next, run the following command:
 
 ```bash
-mix phx.new helloworld
+mix phx.new helloworld_distillery
 ```
 
 Select `Y` to install all dependencies.
 
-This command will create a new Phoenix app named `helloworld` with some optional dependencies such as:
+This command will create a new Phoenix app named `helloworld_distillery` with some optional dependencies such as:
 
 - [Ecto](https://hexdocs.pm/phoenix/ecto.html) for communicating with a database such as PostgreSQL, MySQL etc
 - [Phoenix live view](https://hexdocs.pm/phoenix_live_view) for building realtime & interactive web apps.
@@ -46,19 +48,220 @@ mix ecto.create
 
 A database will be created for our app.
 
-### Run the Phoenix App locally
+### Add and Configure Distillery
 
-Start the app by running the following command:
+1. Open up the `mix.exs` file and add Distillery to the deps function:
 
-```bash
-mix phx.server
+```elixir
+  defp deps do
+    [ ...,
+     {:distillery, "~> 2.1"},
+      ...,
+    ]
+  end
 ```
 
-By default, Phoenix accepts requests on port `4000`.
+Now, run `mix deps.get` to update your dependencies.
 
-Open your browser and go to `http://localhost:4000` to see your app.
+2. Open up `config/prod.exs` file and update the endpoint section to the following:
 
-Now that your app is running locally, let’s move on to deploying it to Railway!
+```elixir
+config :helloworld_distillery, HelloworldDistilleryWeb.Endpoint,
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  server: true,
+  root: ".",
+  version: Application.spec(:phoenix_distillery, :vsn)
+```
+
+`server` configures the endpoint to boot the Cowboy application http endpoint on start.
+`root` configures the application root for serving static files
+`version` ensures that the asset cache will be busted on versioned application upgrades.
+
+3. Initialize your Distillery release by running the following command:
+
+```bash
+mix distillery.init
+```
+
+This will create the `rel/config.exs` and `rel/vm.args` files. A `rel/plugins` directory will be created too. 
+
+4. Create a Mix config file at `rel/config/config.exs`. Here, we are creating a mix config provider. Add the following to it:
+
+```elixir
+import Config
+
+port = String.to_integer(System.get_env("PORT") || "4000")
+default_secret_key_base = :crypto.strong_rand_bytes(43) |> Base.encode64
+
+config :helloworld_distillery, HelloworldDistilleryWeb.Endpoint,
+  http: [port: port],
+  url: [host: "localhost", port: port],
+  secret_key_base: System.get_env("SECRET_KEY_BASE") || default_secret_key_base
+```
+
+Now, update the `rel/config.exs` file to use our new provider. In the `environment :prod` part of the file, replace with the following:
+
+```elixir
+environment :prod do
+  set include_erts: true
+  set include_src: false
+  set cookie: :"Jo2*~U0C1x!*E}!o}W*(mx=pzd[XWG[bW)T~_Kjy3eJuEJ;M&!eqj7AUR1*9Vw]!"
+  set config_providers: [
+    {Distillery.Releases.Config.Providers.Elixir, ["${RELEASE_ROOT_DIR}/etc/config.exs"]}
+  ]
+  set overlays: [
+    {:copy, "rel/config/config.exs", "etc/config.exs"}
+  ]
+end
+```
+
+5. Finally, let's configure Ecto to fetch the database credentials from the runtime environment variables.
+
+Open the `lib/helloworld_distillery/repo.ex` file and modify it to this:
+
+```elixir
+defmodule HelloworldDistillery.Repo do
+  use Ecto.Repo,
+    otp_app: :helloworld_distillery,
+    adapter: Ecto.Adapters.Postgres,
+    pool_size: 10
+  def init(_type, config) do
+    {:ok, Keyword.put(config, :url, System.get_env("DATABASE_URL"))}
+  end
+end
+```
+
+### Build the Release with Distillery
+
+To build the release, run the following command:
+
+```bash
+npm run deploy --prefix assets && MIX_ENV=prod mix do phx.digest, distillery.release --env=prod
+```
+
+#### Handling Errors
+
+If you encounter the following error after running the command:
+
+```bash
+==> Invalid application `:sasl`! The file sasl.app does not exist or cannot be loaded.
+```
+
+You need to modify your `mix.exs` file to include `:sasl`. Open the file and add `:sasl` to the `extra_applications` list in the `application` function:
+
+```elixir
+def application do
+    [
+      mod: {HelloworldDistillery.Application, []},
+      extra_applications: [:logger, :runtime_tools, :sasl]
+    ]
+  end
+```
+
+After saving your changes, try running the command again as a super user to prevent access errors:
+
+```bash
+sudo npm run deploy --prefix assets && MIX_ENV=prod mix do phx.digest, distillery.release --env=prod
+```
+
+**Additional Errors**
+
+If you encounter this error:
+
+```bash
+Failed to archive release: _build/prod/rel/helloworld_distillery/releases/RELEASES: no such file or directory
+```
+
+You’ll need to create the `RELEASES` directory manually. Once created, run the command again.
+
+#### Successful Build
+
+Upon a successful build, you should see output similar to the following:
+
+```bash
+...
+==> Packaging release..
+Release successfully built!
+To start the release you have built, you can use one of the following tasks:
+
+    # start a shell, like 'iex -S mix'
+    > _build/prod/rel/helloworld_distillery/bin/helloworld_distillery console
+
+    # start in the foreground, like 'mix run --no-halt'
+    > _build/prod/rel/helloworld_distillery/bin/helloworld_distillery foreground
+
+    # start in the background, must be stopped with the 'stop' command
+    > _build/prod/rel/helloworld_distillery/bin/helloworld_distillery start
+
+If you started a release elsewhere, and wish to connect to it:
+
+    # connects a local shell to the running node
+    > _build/prod/rel/helloworld_distillery/bin/helloworld_distillery remote_console
+
+    # connects directly to the running node's console
+    > _build/prod/rel/helloworld_distillery/bin/helloworld_distillery attach
+
+For a complete listing of commands and their use:
+
+    > _build/prod/rel/helloworld_distillery/bin/helloworld_distillery help
+```
+
+### Test the Release with Distillery locally
+
+Now, let's test our release locally. First, create your database by running the following command:
+
+```bash
+mix ecto.create
+```
+
+Next, export the necessary environment variables by running:
+
+```bash
+export DATABASE_URL=postgresql://username:password@127.0.0.1:5432/helloworld_distillery
+export SECRET_KEY_BASE=<your-secret-key-base>
+```
+
+With the environment set up, you can start the release with:
+
+```bash
+_build/prod/rel/helloworld_distillery/bin/helloworld_distillery foreground
+```
+
+Once your app is running, open your browser and visit `http://localhost:4000` to see it in action.
+
+With your app up and running locally, let's move on to deploying the release to Railway!
+
+### Prepare App for Deployment
+
+Create a `nixpacks.toml` file in the root of your app directory and add the following content:
+
+```toml
+# nixpacks.toml
+[variables]
+MIX_ENV = 'prod'
+
+[phases.setup]
+nixPkgs = ['...', 'erlang']
+
+[phases.install]
+cmds = [
+  'mix local.hex --force',
+  'mix local.rebar --force',
+  'mix deps.get --only prod'
+]
+
+[phases.build]
+cmds = [
+  'mix compile',
+  'mkdir -p _build/prod/rel/helloworld_distillery/releases/RELEASES',
+  'mix do phx.digest, distillery.release --env=prod',
+]
+
+[start]
+cmd = "mix ecto.setup && _build/prod/rel/helloworld_distillery/bin/helloworld_distillery foreground"
+```
+
+This [`nixpacks.toml` file](/reference/config-as-code#nixpacks-config-path) instructs Railway to execute specific commands during the setup, install, build, and start phases of the deployment. It ensures your app is compiled, assets are digested, and the release is created correctly using Distillery.
 
 ## Deploy Phoenix App to Railway
 
@@ -150,20 +353,11 @@ To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo.
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
-This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Phoenix apps effortlessly!
-
-## Want to Deploy Livebook?
-
-[Livebook](https://livebook.dev), an interactive notebook tool built specifically for Elixir, provides a powerful and intuitive environment for exploring data, running code, and documenting insights, all in one place. It’s perfect for experimenting with Elixir code, prototyping, and sharing live documentation.
-
-Click the button below to deploy an instance of Livebook quickly.
-
-[![Deploy Livebook on Railway](https://railway.app/button.svg)](https://railway.app/new/template/4uLt1s)
+This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Phoenix apps with Distillery effortlessly!
  
 ## Next Steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Deploy Phoenix with Distillery](/guides/phoenix-distillery)
 - [Monitoring](/guides/monitoring)
 - [Deployments](/guides/deployments)
