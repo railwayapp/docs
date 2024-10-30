@@ -273,11 +273,11 @@ Railway offers multiple ways to deploy your Phoenix app, depending on your setup
 
 ## One-Click Deploy from a Template
 
-If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Phoenix app along with a Postgres database.
+If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Phoenix app with Distillery along with a Postgres database.
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/0LSBzw)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/_qWFnI)
 
 After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
