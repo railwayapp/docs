@@ -321,8 +321,9 @@ To deploy the Phoenix app using the Railway CLI, please follow the steps:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1730309171/docs/quick-start/phoenix_with_distillery.png"
-alt="screenshot of the deployed Phoenix service showing the welcome page"
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1730309171/docs/quick-start/phoenix_distillery.png"
+alt="screenshot of the deployed Phoenix with Distillery service"
 layout="responsive"
 width={2667} height={2177} quality={100} />
 
