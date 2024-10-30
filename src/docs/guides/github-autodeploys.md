@@ -22,7 +22,7 @@ To disable automatic deployment, simply hit `Disconnect` in the Service Settings
 
 *Currently, there is no way to force a deploy from a branch other than the Default without connecting it in your service settings.*
 
-## Check Suites
+## Wait for CI
 
 <Banner variant="info">
   Please make sure you have{" "}
@@ -30,7 +30,7 @@ To disable automatic deployment, simply hit `Disconnect` in the Service Settings
   required for this feature to work.
 </Banner>
 
-To ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment, you should enable Check Suites.
+To ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment, you should enable **Wait for CI**.
 
 #### Requirements
 
@@ -44,11 +44,11 @@ To ensure Railway waits for your GitHub Actions to run successfully before trigg
           - main
     ```
 
-### Enabling Check Suites
+### Enabling Wait for CI
 
-If your workflow satisfies the requirements above, you will see the `Check Suites` flag in service settings.
+If your workflow satisfies the requirements above, you will see the `Wait for CI` flag in service settings.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1671003153/docs/check-suites.png" alt="Check Suites Configuration" layout="responsive" width={1340} height={392} quality={80} />
+<Image src="https://res.cloudinary.com/railway/image/upload/v1730324753/docs/deployments/waitforci_dkfsxy.png" alt="Check Suites Configuration" layout="responsive" width={1340} height={392} quality={80} />
 
 Toggle this on to ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment.
 
