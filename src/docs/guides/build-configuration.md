@@ -82,6 +82,17 @@ Here are a few examples of common use-cases:
 
 _Note, negations will only work if you include files in a preceding rule._
 
+## Install a specific package using Nixpacks
+
+When using Nixpacks, you can install specific packages by defining them in a nixpacks configuration file.  For example:
+
+```toml
+[phases.setup]
+    aptPkgs = ['wget']
+```
+
+See the [Nixpacks docs](https://nixpacks.com/docs/configuration/file) for more information.
+
 ## Build Providers
 
 With Nixpacks, we analyze the app source directory and generate a build plan. This determines for which language provider to install packages and runtimes.
