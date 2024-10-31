@@ -111,10 +111,14 @@ The current template variable functions are:
 
 1. `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  
 
-    You can generate random Hex or Base64 secrets by passing the appropriate alphabet.
+    **Tip:**You can generate Hex or Base64 secrets by constructing the appropriate alphabet and length.
 
-    - Base64: `secret(32, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/')`
-    - Hex: `secret(32, '0123456789ABCDEF')`
+    - `openssl rand -base64 16` → `${{secret(22, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}==`
+    - `openssl rand -base64 32` → `${{secret(43, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}=`
+    - `openssl rand -base64 64` → `${{secret(86, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}==`
+    - `openssl rand -hex 16` → `${{secret(32, "abcdef0123456789")}}`
+    - `openssl rand -hex 32` → `${{secret(64, "abcdef0123456789")}}`
+    - `openssl rand -hex 64` → `${{secret(128, "abcdef0123456789")}}`
 
 2. `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
