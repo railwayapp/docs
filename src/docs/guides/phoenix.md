@@ -60,6 +60,57 @@ Open your browser and go to `http://localhost:4000` to see your app.
 
 Now that your app is running locally, let’s move on to deploying it to Railway!
 
+### Prepare our Phoenix App for deployment
+
+Go ahead and create a `nixpacks.toml` file in the root directory of our Phoenix app. 
+
+The [nixpacks.toml file](https://nixpacks.com/docs/configuration/file) is a configuration file used by Nixpacks, a build system developed and used by Railway, to set up and deploy applications. 
+
+In this file, you can specify the instructions for various build and deployment phases, along with environment variables and package dependencies.
+
+Add the following content to the file:
+
+```toml
+# nixpacks.toml
+[variables]
+MIX_ENV = 'prod'
+
+[phases.setup]
+nixPkgs = ['...', 'erlang']
+
+[phases.install]
+cmds = [
+  'mix local.hex --force',
+  'mix local.rebar --force',
+  'mix deps.get --only prod'
+]
+
+[phases.build]
+cmds = [
+  'mix compile',
+  'mix assets.deploy'
+]
+
+[start]
+cmd = "mix ecto.setup && mix phx.server"
+```
+
+1. `[variables]` This section contains the list of env variables you want to set for the app.
+    - `MIX_ENV = 'prod'`: It sets the Elixir environment to prod. 
+2. `[phases.setup]`: This defines a list of Nix packages to be installed during the setup phase. The placeholder `'...'` should be replaced with any additional packages needed for your application. The inclusion of erlang indicates that the Erlang runtime is required for the Elixir application.
+3. `[phases.install]`: This section contains a list of commands to run during the installation phase. 
+    - `mix local.hex --force`: Installs the Hex package manager for Elixir, which is necessary for managing dependencies.
+    - `mix local.rebar --force`: Installs Rebar, a build tool for Erlang.
+    - `mix deps.get --only prod`: Fetches only the production dependencies defined in the `mix.exs` file.
+4. `[phases.build]`: This section contains commands to run during the build phase.
+    - `mix compile`: Compiles the Elixir application.
+    - `mix assets.deploy`: This is a command to handle the deployment of static assets (e.g., JavaScript, CSS) for our app.
+5. `[start]`: This section contains commands to run when starting the application.
+    - `mix ecto.setup`: This command is used to set up the database by running migrations and seeding it. It prepares the database for the application to connect.
+    - `mix phx.server`: This starts the Phoenix server, allowing the application to begin accepting requests.
+
+Now, we are ready to deploy!
+
 ## Deploy Phoenix App to Railway
 
 Railway offers multiple ways to deploy your Phoenix app, depending on your setup and preference. Choose any of the following methods:
