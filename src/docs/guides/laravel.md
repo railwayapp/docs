@@ -157,7 +157,7 @@ Please follow these steps to get started:
     - Head back to the top of the service and click on  <a href="/overview/the-basics#service-variables">**Variables**</a>.
     - Add all the necessary environment variables especially those highlighted already in step 3.
     - Click **Deploy**.
-5. Create a new service again. 
+5. Create a new service again on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
     - Name the service **worker service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
     - Add `chmod +x ./run-worker.sh && sh ./run-worker.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
@@ -191,6 +191,15 @@ _App service_
 
 **Note:** There is a [community template](https://railway.app/template/Gkzn4k) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
 
+## Logging
+
+Laravel, by default, writes logs to a directory on disk. However, on Railway’s ephemeral filesystem, this setup won’t persist logs.
+
+To ensure logs and errors appear in Railway’s console or with `railway logs`, update the `LOG_CHANNEL` environment variable to `errorlog`. You can set it via the Railway dashboard or CLI as shown:
+
+```bash
+railway variables --set "LOG_CHANNEL=errorlog"
+```
 
 ## Can I deploy with Laravel Sail?
 You may be thinking about using [Laravel Sail](https://laravel.com/docs/11.x/sail), which is the standard approach for deploying Laravel applications with Docker. At its core, Sail relies on a `docker-compose.yml` file to manage the environment. 
