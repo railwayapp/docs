@@ -15,6 +15,7 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [Astro](/guides/astro)
 ### Python
     - [FastAPI](/guides/fastapi)
+    - [Flask](/guides/flask)
     - [Django](/guides/django)
 ### PHP
     - [Laravel](/guides/laravel)
