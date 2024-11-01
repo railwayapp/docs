@@ -191,7 +191,10 @@ To deploy a Flask app to Railway directly from GitHub, follow the steps below:
     ```docker
     # Use the Python 3 alpine official image
     # https://hub.docker.com/_/python
-    FROM python:3-alpine
+    FROM python:3
+
+    # Run in unbuffered mode
+    ENV PYTHONUNBUFFERED=1 
 
     # Create and change to the app directory.
     WORKDIR /app
