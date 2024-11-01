@@ -13,6 +13,7 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [Vue](/guides/vue)
     - [Nuxt](/guides/nuxt)
     - [Astro](/guides/astro)
+    - [SvelteKit](/guides/sveltekit)
 ### Python
     - [FastAPI](/guides/fastapi)
     - [Django](/guides/django)
