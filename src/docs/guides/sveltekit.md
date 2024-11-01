@@ -29,7 +29,7 @@ Follow the prompts:
 1. Select the `SvelteKit demo` template.
 2. Add typechecking with Typescript.
 3. Add prettier, eslint, and tailwindcss.
-4. Select "none" for the tailwindcss plugins.
+4. No tailwindcss plugins. Hit enter and move on.
 5. Select `npm` as the package manager to install dependencies.
 
 A new SvelteKit app will be provisioned for you in the `svelteapp` directory.
