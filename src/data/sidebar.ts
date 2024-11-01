@@ -59,6 +59,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Nuxt", "guides"),
           makePage("Spring Boot", "guides"),
           makePage("Astro", "guides"),
+          makePage("SvelteKit", "guides"),
           makePage("Phoenix", "guides"),
           makePage("Phoenix Distillery", "guides")
         ],
