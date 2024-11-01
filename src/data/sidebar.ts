@@ -46,6 +46,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Fastify", "guides"),
           makePage("FastAPI", "guides"),
+          makePage("Flask", "guides"),
           makePage("Gin", "guides"),
           makePage("Rails", "guides"),
           makePage("Axum", "guides"),
