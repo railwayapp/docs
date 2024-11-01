@@ -7,8 +7,8 @@ title: Deploy a Flask App
 This guide covers how to deploy a Flask app to Railway in four ways:
 
 1. [One-click deploy from a template](#one-click-deploy-from-a-template).
-2. [From a GitHub repository](#deploy-from-a-github-repo).
-3. [Using the CLI](#deploy-from-the-cli).
+2. [Using the CLI](#deploy-from-the-cli).
+3. [From a GitHub repository](#deploy-from-a-github-repo).
 4. [Using a Dockerfile](#use-a-dockerfile).
 
 Now, let's create a Flask app!
