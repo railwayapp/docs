@@ -10,20 +10,42 @@ For information on how to install the CLI and more examples of usage, see the [C
 
 ## Add
 
-*Add a database service to your project*
+*Add a service to your project*
 
 ```txt
 ~ railway add --help
-Provision a database into your project
+Add a service to your project
 
 Usage: railway add [OPTIONS]
 
 Options:
-  -d, --database <DATABASE>  The name of the database to add [possible values: postgre-sql, my-sql, redis, mongo-db]
-      --json                 Output in JSON format
-  -h, --help                 Print help
-  -V, --version              Print version
+  -d, --database <DATABASE>
+          The name of the database to add
 
+          [possible values: postgres, mysql, redis, mongo]
+
+  -s, --service [<SERVICE>]
+          The name of the service to create (leave blank for randomly generated)
+
+  -r, --repo <REPO>
+          The repo to link to the service
+
+  -i, --image <IMAGE>
+          The docker image to link to the service
+
+  -v, --variables <VARIABLES>
+          The "{key}={value}" environment variable pair to set the service variables. Example:
+
+          railway add --service --variables "MY_SPECIAL_ENV_VAR=1" --variables "BACKEND_PORT=3000"
+
+      --json
+          Output in JSON format
+
+  -h, --help
+          Print help (see a summary with '-h')
+
+  -V, --version
+          Print version
 ```
 
 ## Completion
