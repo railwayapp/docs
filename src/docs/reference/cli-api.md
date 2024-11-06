@@ -541,7 +541,7 @@ Interact with Railway via CLI
 Usage: railway [OPTIONS] <COMMAND>
 
 Commands:
-  add          Provision a database into your project
+  add          Add a service to your project
   completion   Generate completion script
   connect      Connect to a database's shell (psql for Postgres, mongosh for MongoDB, etc.)
   deploy       Provisions a template into your project
