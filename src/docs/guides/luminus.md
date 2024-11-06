@@ -113,25 +113,25 @@ We highly recommend that [you eject from the template after deployment](/guides/
         ```
     - Follow the prompts to name your project.
     - After the project is created, click the provided link to view it in your browser.
-3. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-    - Once the deployment completes, go to **View logs** to check if the service is running successfully.
-4. **Add a Database Service**:
-    - Run `railway add`.
-    - Select `PostgreSQL` by pressing space and hit **Enter** to add it to your project.
+3. **Add a Postgres Database Service**:
+    - Run `railway add -d postgres`.
+    - Hit **Enter** to add it to your project.
     - A database service will be added to your Railway project.
-5. **Configure Environment Variables**:
-    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
-        - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).  
-6. **Redeploy the Service**:
-    - Click **Deploy** on the Railway Project Canvas to apply your changes.
-
+4. **Add a Service and Environment Variable**:
+	- Run `railway add`.
+	- Select `Empty Service` from the list of options.
+	- In the `Enter a service name` prompt, enter `app-service`.
+	- In the `Enter a variable` prompt, enter `DATABASE_URL=${{Postgres.DATABASE_URL}}`. 
+		- The value, `${{Postgres.DATABASE_URL}}`, references the URL of your new Postgres database. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
+	
+	**Note:** Explore the [Railway CLI reference](/reference/cli-api#add) for a variety of options.
+3. **Deploy the Application**:
+    - Run `railway up` to deploy your app.
+		- This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+    - Once the deployment is complete, we can proceed to generate a domain for the app service.
 7. **Set Up a Public URL**:
     - Run `railway domain` to generate a public URL for your app.
+	- Visit the new URL to see your app live in action!
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1730897279/docs/quick-start/clojure_luminus_on_railway.png"
 alt="screenshot of the deployed Clojure service"
@@ -149,7 +149,8 @@ To deploy a Clojure Luminus app to Railway directly from GitHub, follow the step
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
 3. **Add Environment Variables and Provision a Database Service**:
     - Click **Add Variables**, but hold off on adding anything just yet. First, proceed with the next step. 
-    - Right-click on the Railway project canvas or click the **Create** button, then select **Database** and choose **Add PostgreSQL**. This will create and deploy a new PostgreSQL database for your project.
+    - Right-click on the Railway project canvas or click the **Create** button, then select **Database** and choose **Add PostgreSQL**. 
+		- This will create and deploy a new PostgreSQL database for your project.
     - Once the database is deployed, you can return to adding the necessary environment variables:
         -  `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
 4. **Deploy the App Service**:
