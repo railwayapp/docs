@@ -16,6 +16,7 @@ Within the service settings, you can select one of the following regions:
 | US West              | Oregon, USA            | `us-west1`        |
 | US West (Metal Beta) | California, USA        | `us-west2`        |
 | US East              | Virginia, USA          | `us-east4`        |
+| US East (Metal Beta) | Virginia, USA          | `us-east4-eqdc4a` |
 | EU West              | Amsterdam, Netherlands | `europe-west4`    |
 | Southeast Asia       | Singapore              | `asia-southeast1` |
 
@@ -27,34 +28,31 @@ Within the service settings, you can select one of the following regions:
     alt="Volume"
 />
 
+**Notes:**
 
-*Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
+- Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.
 
-By default, Railway deploys to `us-west1` located in Portland, Oregon.
+- Metal regions do not support services with volumes attached to them.
 
-All regions provide the same experience, performance, and reliability you expect from Railway.
+- Metal regions are available to all users as opposed to the other regions which are limited to Pro plan users.
 
-## Impact of Region Changes
+- By default, Railway deploys to `us-west1` located in Portland, Oregon.
 
-The region of a service can be changed at any time, without any changes to your domain, private networking, etc.
+- All regions provide the same experience, performance, and reliability you expect from Railway.
 
-There will be no downtime when changing the region of a service, except if it has a volume attached to it (see next section).
+- Impact of Region Changes
+
+- The region of a service can be changed at any time, without any changes to your domain, private networking, etc.
+
+- There will be no downtime when changing the region of a service, except if it has a volume attached to it (see next section).
 
 ### Volumes
 
-Volumes are following the region of the service they are attached to. This means if you attach a new volume to a service, it will be deployed in the same region as the service.
+Volumes follow the region of the service they are attached to. This means if you attach a new volume to a service, it will be deployed in the same region as the service.
 
-If you change the region of a service with an existing attached volume, you will get warned about the volume needing to be migrated to the new region.
+If you change the region of a service with an existing attached volume, that volume will need to be migrated to the new region. You will experience minimal downtime, even for volumes containing large amounts of data.
 
-<Image
-    quality={100}
-    src="https://res.cloudinary.com/railway/image/upload/v1695660986/docs/volume_migrate_modal.png"
-    alt="Volume"
-    width={669}
-    height={678}
-/>
-
-Note that this migration can take a while depending on the size of the volume, and will cause downtime of your service during that time.
+The same is true if you attach a detached volume to a service in a different region. It will need to be migrated to the new region.
 
 <Image
     quality={100}
@@ -63,9 +61,6 @@ Note that this migration can take a while depending on the size of the volume, a
     width={732}
     height={483}
 />
-
-
-The same is true if you attach a detached volume to a service in a different region. It will need to be migrated to the new region, which can take a while and cause downtime.
 
 ## Support
 

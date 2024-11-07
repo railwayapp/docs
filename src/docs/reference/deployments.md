@@ -129,6 +129,12 @@ If your service requires data to persist between deployments, or needs more than
 
 By default, Railway maintains only one deploy per service.
 
+In practice, this means that if you trigger a new deploy either [manually](/guides/deployment-actions#redeploy) or [automatically](/guides/github-autodeploys), the old version will be stopped and removed with a slight overlap for zero downtime.
+
+Once the new deployment is online, the old deployment is sent a SIGTERM signal and given 3 seconds to gracefully shutdown before being forcefully stopped with a SIGKILL. We do not send any other signals under any circumstances.
+
+The time given to gracefully shutdown can be controlled by setting a [`RAILWAY_DEPLOYMENT_OVERLAP_SECONDS`](/reference/variables#user-provided-configuration-variables) [service variable](/overview/the-basics#service-variables).
+
 ## Support
 
 For information on how to manage your deployments, explore [the guides in this section](/guides/deployments).
