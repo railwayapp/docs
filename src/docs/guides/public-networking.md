@@ -89,7 +89,7 @@ Note that changes to DNS settings may take up to 72 hours to propagate worldwide
 - Freenom domains are not allowed and not supported.
 - The Trial Plan is limited to 1 custom domain. It is therefore not possible to use both `yourdomain.com` and `www.yourdomain.com` as these are considered two distinct custom domains.
 - The [Hobby Plan](/reference/pricing#plans) is limited to 2 custom domains per service.
-- The [Pro Plan]() is limited to 10 domains per service by default.  This limit can be increased for Pro users on request, simply reach out to us via a [private thread](/reference/support#private-threads).
+- The [Pro Plan]() is limited to 20 domains per service by default.  This limit can be increased for Pro users on request, simply reach out to us via a [private thread](/reference/support#private-threads).
 
 ## Wildcard Domains
 
