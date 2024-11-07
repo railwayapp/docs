@@ -52,6 +52,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Axum", "guides"),
           makePage("Rocket", "guides"),
           makePage("Laravel", "guides"),
+          makePage("Luminus", "guides"),
           makePage("Sails", "guides"),
           makePage("Django", "guides"),
           makePage("React", "guides"),
