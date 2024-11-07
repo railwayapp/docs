@@ -19,7 +19,7 @@ Now, let's create a Luminus app!
 
 To create a new Luminus app, ensure that you have [JDK](https://www.oracle.com/java/technologies/downloads/) and [Leiningen](https://leiningen.org/#install) installed on your machine.
 
-Run the following command in your terminal to create a new Luminus app with postgres and a production ready server:
+Run the following command in your terminal to create a new Luminus app with Postgres and a production ready server:
 
 ```bash
 lein new luminus helloworld +postgres +immutant
