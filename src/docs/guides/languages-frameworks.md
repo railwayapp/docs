@@ -22,6 +22,8 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [Laravel](/guides/laravel)
 ### Java
     - [Spring Boot](/guides/spring-boot)
+### Scala
+    - [Play Framework](/guides/play)
 ### Go
     - [Gin](/guides/gin)
 ### Ruby
