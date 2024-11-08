@@ -33,7 +33,9 @@ A list of templates will be shown to select from. Select the `playframework/play
 
 A new Scala Play app will be provisioned in the `helloworld` directory.
 
-### Modify Scala Play Views
+### Modify Scala Play Views and Set Up Database Config
+
+*Step 1* : Modify the Index File
 
 Open the project in your editor. Head over to the `app/views/index.scala.html` file.
 
@@ -48,7 +50,103 @@ Modify it to the following:
 }
 ```
 
-Now, let's run the app locally.
+This change adds a new heading, which you'll see when you run the app locally.
+
+*Step 2* : Run the App Locally
+- Now, let’s run the app locally to verify our changes. You should see the new headers appear in the browser.
+
+*Step 3* : Add PostgreSQL Driver as a Dependency
+
+Play doesn’t provide built-in database drivers, so we need to add the PostgreSQL JDBC driver manually to our project.
+
+In your `build.sbt`, add the following dependency:
+
+```scala
+libraryDependencies += "org.postgresql" % "postgresql" % "42.7.4" // Always use the latest stable version
+```
+
+*Step 4* : Configure PostgreSQL in application.conf
+
+Next, configure the PostgreSQL database connection in `conf/application.conf`:
+
+```scala
+# Default database configuration using PostgreSQL
+db.default.driver = org.postgresql.Driver
+db.default.url = "jdbc:postgresql://username:password@127.0.0.1:5432/scala_play"  # Replace with correct credentials
+```
+
+Make sure to replace `username` and `password` with your PostgreSQL credentials.
+
+*Step 5* : Update Project Dependencies
+
+To download the PostgreSQL driver and any updated dependencies, run the following:
+
+```bash
+sbt update
+```
+
+*Step 6* : Add Database Migration Tool (Flyway)
+
+Play doesn’t include built-in support for database migrations, so we’ll use Flyway.
+
+1. Install Flyway Plugin: Open your `project/plugin.sbt` and add the Flyway plugin:
+
+```scala
+addSbtPlugin("io.github.davidmweber" % "flyway-sbt" % "7.4.0")
+```
+
+2. Configure Flyway in `build.sbt`: Enable Flyway and configure the database connection in your `build.sbt`:
+
+```scala
+name := """helloworld"""
+organization := "com.railwayguide"
+version := "1.0-SNAPSHOT"
+executableScriptName := "main"
+
+lazy val root = (project in file(".")).enablePlugins(PlayScala).enablePlugins(FlywayPlugin)
+
+scalaVersion := "2.13.15"
+
+libraryDependencies += guice
+libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.1" % Test
+libraryDependencies += "org.postgresql" % "postgresql" % "42.7.4" // Latest version
+
+flywayUrl := "jdbc:postgresql://127.0.0.1:5432/scala_play?user=<username>"  # Replace with correct credentials
+flywayLocations := Seq("filesystem:src/main/resources/db/migration")
+```
+
+Replace `username` with your database username.
+
+*Step 7* : Create the Migration Files
+
+1. **Create Migration Folder**: Create the folder structure for your migration files:
+```bash
+src/main/resources/db/migration
+```
+2. **Create Migration SQL File**: In `src/main/resources/db/migration`, create a schema migration file called `V1_0__create_employees_table.sql` with the following content:
+
+```sql
+CREATE TABLE employee (
+  id VARCHAR(20) PRIMARY KEY,
+  first_name VARCHAR(30),
+  last_name VARCHAR(30),
+  email VARCHAR(30),
+  admin BOOLEAN
+);
+```
+
+*Step 8* : Run Database Migrations
+
+Once your migration file is in place, run the Flyway migration with the following command:
+
+```bash
+sbt flywayMigrate
+```
+
+This will apply the migration and create the employee table in your PostgreSQL database.
+
+Check your database to confirm that the employee table has been successfully created. You can use a database tool like psql or any PostgreSQL client to view the table.
+
 
 ### Run the Play App locally
 
@@ -63,13 +161,46 @@ Open your browser and go to `http://localhost:9000` to see the app.
         ```scala
         play.http.secret.key=${?APPLICATION_SECRET}
         ```
-2. **Set Allowed Hosts**:
-    - By default, Play ships with a list of [default Allowed Hosts filter](https://www.playframework.com/documentation/3.0.x/resources/confs/play-filters-helpers/reference.conf). This is the list of allowed valid hosts = ["localhost", ".local", "127.0.0.1"]. We need to add an option to allow all hosts, `["."]`.
+2. **Set Database URL**:
+    - Open up the `application.conf` file and add the following to it to ensure the `DATABASE_URL` is read from the environment variable.
+        ```scala
+        db.default.url="jdbc:${?DATABASE_URL}"
+        ```
+3. **Set Allowed Hosts**:
+    - By default, Play ships with a list of [default Allowed Hosts filter](https://www.playframework.com/documentation/3.0.x/resources/confs/play-filters-helpers/reference.conf). This is the list of allowed valid hosts = ["localhost", ".local", "127.0.0.1"]. You need to add an option to allow Railway hosts, `[".up.railway.app"]`.
     - Add the following to the `application.conf` file:
         ```scala
         play.filters.hosts.allowed=[".up.railway.app"]
         ```
-    **Note:** Railway provided domains end in `.up.railway.app`.
+    **Note:** Railway provided domains end in `.up.railway.app`. Once you add your custom domain, please update the allowed hosts to the new URL.
+4. **Add sbt-native-packager sbt plugin**:
+    - Add the `sbt-native-packager` sbt plugin to `project/plugins.sbt`
+        ```scala
+        addSbtPlugin("com.github.sbt" % "sbt-native-packager" % "x.x.x")
+        ```
+    - Enable the `JavaAppPackaging` plugin in `build.sbt` and set the `executableScriptName` to `main`. Your `build.sbt` should be looking like this now:
+        ```scala
+        name := """helloworld"""
+        organization := "com.railwayguide"
+
+        version := "1.0-SNAPSHOT"
+
+        executableScriptName := "main"
+
+        lazy val root = (project in file(".")).enablePlugins(PlayScala).enablePlugins(JavaAppPackaging).enablePlugins(FlywayPlugin)
+
+        scalaVersion := "2.13.15"
+
+        libraryDependencies += guice
+        libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.1" % Test
+        libraryDependencies += "org.postgresql" % "postgresql" % "42.7.4" // Always use the latest stable version
+
+        flywayUrl := sys.env.getOrElse("DATABASE_URL", "jdbc:postgresql://127.0.0.1:5432/scala_play?user=username")
+
+        flywayLocations := Seq("filesystem:src/main/resources/db/migration")
+        ```
+    - Run `sbt update` to install the `sbt-native-packager` and update the dependencies.
+
 
 Now, we are ready to deploy to Railway!
 
@@ -83,11 +214,11 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/DsDYI2)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/my9q_q)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=clojure" target="_blank">variety of Clojure app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.app/templates?q=scala" target="_blank">variety of Scala app templates</a> created by the community.
 
 ### Deploy from the CLI
 

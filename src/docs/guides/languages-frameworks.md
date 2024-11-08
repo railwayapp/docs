@@ -22,14 +22,14 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [Laravel](/guides/laravel)
 ### Java
     - [Spring Boot](/guides/spring-boot)
+### Scala
+    - [Play Framework](/guides/play)
 ### Go
     - [Gin](/guides/gin)
 ### Ruby
     - [Rails](/guides/rails)
 ### Clojure
     - [Luminus](/guides/luminus)
-### Scala
-    - [Play](/guides/play)
 ### Elixir
     - [Phoenix](/guides/phoenix)
     - [Phoenix with Distillery](/guides/phoenix-distillery)
