@@ -15,9 +15,9 @@ Now, let's create a Play app!
 
 ## Create a Play App
 
-**Note:** If you already have a Play app locally or on GitHub, you can skip this step and go straight to the [Deploy Play App to Railway](#deploy-play-app-to-railway).
+**Note:** If you already have a Play app locally or on GitHub, you can skip this step and go straight to the [Deploy Play App to Railway](#deploy-the-play-app-to-railway).
 
-To create a new Scala Play app, ensure that you have [JDK](https://www.oracle.com/java/technologies/downloads/) and [sbt](https://https://www.scala-sbt.org/download/) installed on your machine.
+To create a new Scala Play app, ensure that you have [JDK](https://www.oracle.com/java/technologies/downloads/) and [sbt](https://www.scala-sbt.org/download/) installed on your machine.
 
 Run the following command in your terminal to create a new Play app:
 
