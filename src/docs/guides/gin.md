@@ -2,7 +2,7 @@
 title: Deploy a Gin App
 ---
 
-Gin is a high-performance web framework for Go (Golang) that provides a martini-like API while being significantly faster—up to 40 times—due to its use of `httprouter`. It's designed for developers seeking both speed and productivity.
+[Gin](https://gin-gonic.com) is a high-performance web framework for Go (Golang) that provides a martini-like API while being significantly faster—up to 40 times—due to its use of `httprouter`. It's designed for developers seeking both speed and productivity.
 
 This guide covers how to deploy a Gin app on Railway in four ways:
 
@@ -55,7 +55,7 @@ width={2661} height={1019} quality={100} />
     - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
 3. Create a `Dockerfile` in the `gin` or app's root directory.
 4. Add the content below to the `Dockerfile`:
-    ```bash
+    ```docker
     # Use the Go 1.23 alpine official image
     # https://hub.docker.com/_/golang
     FROM golang:1.23-alpine
