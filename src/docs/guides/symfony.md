@@ -182,6 +182,7 @@ Please follow these steps to get started:
         - `APP_SECRET=secret` where _secret_ is your generated app secret.
         - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation.
         - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct root directory path to serve the app. 
+        - `DATABASE_URL=${{Postgres.DATABASE_URL}}` (this references the URL of your Postgres database).
     - Click **Deploy**.
 4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
     - Name the service **cron service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
