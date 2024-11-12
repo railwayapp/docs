@@ -175,13 +175,13 @@ Please follow these steps to get started:
 3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
     -  Name the service **App service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a> to configure it.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
-    - Add `chmod +x ./build-app.sh && sh ./build-app.sh` to the **Custom Build Command** in the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section.
     - Add `chmod +x ./run-app.sh && sh ./run-app.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
     - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
     - Add all the necessary environment variables required for the Symfony app especially the ones listed below.
-        - `APP_KEY`: Set the value to what you get from the `php artisan key:generate` command.
-        - `APP_ENV`: Set the value to `prod`.
-        - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
+        - `APP_ENV=prod`
+        - `APP_SECRET=secret` where _secret_ is your generated app secret.
+        - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation.
+        - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct root directory path to serve the app. 
     - Click **Deploy**.
 4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
     - Name the service **cron service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
