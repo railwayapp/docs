@@ -185,11 +185,11 @@ We highly recommend that [you eject from the template after deployment](/guides/
         - The value, `${{Postgres.DATABASE_URL}}`, references the URL of your new Postgres database. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
     
     **Note:** Explore the [Railway CLI reference](/reference/cli-api#add) for a variety of options.
-3. **Deploy the Application**:
+5. **Deploy the Application**:
     - Run `railway up` to deploy your app.
         - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
     - Once the deployment is complete, we can proceed to generate a domain for the app service.
-7. **Set Up a Public URL**:
+6. **Set Up a Public URL**:
     - Run `railway domain` to generate a public URL for your app.
     - Visit the new URL to see your app live in action!
 
