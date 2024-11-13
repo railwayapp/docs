@@ -62,9 +62,17 @@ Please ask your questions in the <a href="https://discord.com/channels/713503345
 
 ## Slack
 
-Railway offers non-SLO Slack channels to companies and prospective customers of planned significant use. Customers can raise issues, coordinate their migration over to the platform, and provide feedback within a Slack connect channel.
+Railway offers Slack channels to companies and prospective customers. Customers can raise issues, coordinate their migration over to the platform, and provide feedback within a Slack connect channel.
 
-Sufficiently adopted Pro Workspaces can create a Slack Connect channel for their team and the Railway team within the Workspace settings page.
+All teams can create a Slack channel within the Team settings page.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1731463950/CleanShot_2024-11-12_at_21.12.16_k46jfu.png"
+alt="Screenshot of Slack Channel Creation Flow"
+layout="intrinsic"
+width={908} height={174} quality={100} />
+
+All users within a Slack connect channel can invite their team members within the Slack interface or press the create Slack channel button again to initiate an invite to the channel.
 
 ### Slack Account Linking
 
@@ -74,9 +82,9 @@ alt="Screenshot of Slack Account Linking"
 layout="intrinsic"
 width={534} height={278} quality={100} />
 
-The Railway team is building out functionality to natively conduct support operations within Slack connect channels. Connecting your Slack Account to your Railway Account allows the team to get insight into issues affecting your workloads. [To link your Slack account to your Railway account, you can navigate to your Account settings page on Railway and follow the instructions provided.](https://railway.app/account)
+Connecting your Slack Account to your Railway Account allows the team to get insight into issues affecting your workloads without having to ask for additional information. [To link your Slack account to your Railway account, you can navigate to your Account settings page on Railway and follow the instructions provided.](https://railway.app/account)
 
-_Permissions_ - Railway only asks for permissions to link your Slack ID and your Workspace ID, we can't see any messages outside of the Slack Connect channel if you have one set up.
+_Permissions_ - Railway only asks for permissions to link your Slack ID and your Workspace ID, our integration only can see messages within the shared Slack Connect channel.
 
 ## How To Ask For Help
 
