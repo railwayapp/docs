@@ -72,10 +72,10 @@ If you have your Symfony app locally, you can follow these steps:
     - In the `Enter a variable` prompt, enter `DATABASE_URL=${{Postgres.DATABASE_URL}}`. 
         - The value, `${{Postgres.DATABASE_URL}}`, references the URL of your new Postgres database. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
     - Set the other environment variables:
-        - `APP_ENV=prod`
+        - `APP_ENV=prod` - This setting informs Symfony that the app is running in a production environment, optimizing it for performance.
         - `APP_SECRET=secret` where _secret_ is your generated app secret.
         - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation.
-        - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct root directory path to serve the app.
+        - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://nixpacks.com/docs/providers/php).
     **Note:** Explore the [Railway CLI reference](/reference/cli-api#add) for a variety of options.
 5. **Deploy the Application**:
     - Run `railway up` to deploy your app.
@@ -105,12 +105,16 @@ To deploy a Symfony app to Railway directly from GitHub, follow the steps below:
         - This will create and deploy a new PostgreSQL database for your project.
     - Once the database is deployed, you can return to adding the necessary environment variables:
         -  `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+        - `APP_ENV=prod` - This setting informs Symfony that the app is running in a production environment, optimizing it for performance.
+        - `APP_SECRET=secret` where _secret_ is your generated app secret.
+        - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation.
+        - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://nixpacks.com/docs/providers/php).
 4. **Deploy the App Service**:
     - Click **Deploy** on the Railway project canvas to apply your changes.
 5. **Verify the Deployment**:
     - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
 
-    **Note:** During the deployment process, Railway will automatically [detect that it’s a PHP app](https://nixpacks.com/docs/providers/php).
+    **Note:** During the deployment process, Railway will automatically [detect that it’s a PHP app via Nixpacks](https://nixpacks.com/docs/providers/php).
 6. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
@@ -147,7 +151,7 @@ Please follow these steps to get started:
         #!/bin/bash
         # Make sure this file has executable permissions, run `chmod +x run-app.sh`
         # Run migrations, process the Nginx configuration template and start Nginx
-        php bin/console doctrine:migrations:migrate --no-interaction && node /assets/scripts/prestart.mjs /assets/nginx.template.conf  /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)
+        php bin/console doctrine:migrations:migrate --no-interaction && node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)
         ```
     -  Add the content below to the `run-worker.sh` file. This script will run the queue worker:
         ```bash
@@ -173,7 +177,7 @@ Please follow these steps to get started:
 2. Create a Postgres Database service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
      - Click on **Deploy**.
 3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
-    -  Name the service **App service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a> to configure it.
+    -  Name the service **App Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a> to configure it.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
     - Add `chmod +x ./run-app.sh && sh ./run-app.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
     - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
@@ -181,18 +185,18 @@ Please follow these steps to get started:
         - `APP_ENV=prod`
         - `APP_SECRET=secret` where _secret_ is your generated app secret.
         - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation.
-        - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct root directory path to serve the app. 
+        - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://nixpacks.com/docs/providers/php).
         - `DATABASE_URL=${{Postgres.DATABASE_URL}}` (this references the URL of your Postgres database).
     - Click **Deploy**.
 4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
-    - Name the service **cron service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
+    - Name the service **Cron Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
     - Add `chmod +x ./run-cron.sh && sh ./run-cron.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
     - Head back to the top of the service and click on  <a href="/overview/the-basics#service-variables">**Variables**</a>.
     - Add all the necessary environment variables especially those highlighted already in step 3.
     - Click **Deploy**.
 5. Create a new service again on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
-    - Name the service **worker service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
+    - Name the service **Worker Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
     - Add `chmod +x ./run-worker.sh && sh ./run-worker.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
     - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
