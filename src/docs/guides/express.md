@@ -47,7 +47,7 @@ Afterward, you can access the app at `http://localhost:8080`.
 
 ### Add and Configure Database
 
-**Note:** We'll use Postgres. If you don't have it locally, go ahead and install or use a different Node database package.
+**Note:** We will be using Postgres for this app. If you don’t have it installed locally, you can either [install it](https://www.postgresql.org/download) or use a different Node.js database package of your choice.
 
 1. Create a database named `expresshelloworld_dev`.
 
@@ -81,6 +81,12 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 ```
+
+The code above sets up a simple Express app with a route handler for the home page. It uses the `pg-promise` library to connect to a Postgres database and runs a query to fetch the current time from the database using `SELECT NOW()`. Upon receiving the data, it renders the index view with the fetched time, sending it to the client along with a title.
+
+If an error occurs during the database query, the code catches the error, logs it, and sends a 500 status response to the client, indicating that there was an issue querying the database.
+
+The page is only rendered after successfully receiving the database response to ensure proper handling of the data.
 
 4. Open the `views/index.pug` file, and update it to display the `timeFromDB` value on the page.
 
