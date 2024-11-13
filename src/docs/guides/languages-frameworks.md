@@ -6,6 +6,7 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
 
 ### JavaScript / TypeScript
     - [Fastify](/guides/fastify)
+    - [Express](/guides/express)
     - [Next.js](/quick-start)
     - [Sails](/guides/sails)
     - [React](/guides/react)

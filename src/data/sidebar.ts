@@ -44,6 +44,7 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Languages & Frameworks", "guides"),
         pages: [
+          makePage("Express", "guides"),
           makePage("Fastify", "guides"),
           makePage("FastAPI", "guides"),
           makePage("Flask", "guides"),
