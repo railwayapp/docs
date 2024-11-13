@@ -70,7 +70,7 @@ All teams can create a Slack channel within the Team settings page.
 src="https://res.cloudinary.com/railway/image/upload/v1731463950/CleanShot_2024-11-12_at_21.12.16_k46jfu.png"
 alt="Screenshot of Slack Channel Creation Flow"
 layout="intrinsic"
-width={534} height={278} quality={100} />
+width={908} height={174} quality={100} />
 
 All users within a Slack connect channel can invite their team members within the Slack interface or press the create Slack channel button again to initiate an invite to the channel.
 
