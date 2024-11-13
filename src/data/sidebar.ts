@@ -53,6 +53,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Axum", "guides"),
           makePage("Rocket", "guides"),
           makePage("Laravel", "guides"),
+          makePage("Symfony", "guides"),
           makePage("Luminus", "guides"),
           makePage("Play", "guides"),
           makePage("Sails", "guides"),

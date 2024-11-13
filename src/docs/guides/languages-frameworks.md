@@ -20,6 +20,7 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
     - [Django](/guides/django)
 ### PHP
     - [Laravel](/guides/laravel)
+    - [Symfony](/guides/symfony)
 ### Java
     - [Spring Boot](/guides/spring-boot)
 ### Scala
