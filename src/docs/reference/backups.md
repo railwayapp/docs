@@ -20,7 +20,7 @@ Schedules are beta and exist behind a feature-flag, that can be toggled in the s
 
 Backups are incremental and Copy-on-Write, we only charge for the data exclusive to them, that aren't from other snapshots or the volume itself.
 
-You are only billed for the incremental size of the backup at $025 / GB, billed monthly.
+You are only billed for the incremental size of the backup at **$0.25 / GB**, billed monthly.
 
 ## Caveats
 
