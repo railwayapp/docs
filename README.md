@@ -16,7 +16,7 @@ Develop with
 
 ```bash
 npm run dev
-# or
+#or
 yarn dev
 ```
 
