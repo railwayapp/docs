@@ -167,12 +167,12 @@ Open your browser and go to `http://localhost:9000` to see the app.
         db.default.url="jdbc:${?DATABASE_URL}"
         ```
 3. **Set Allowed Hosts**:
-    - By default, Play ships with a list of [default Allowed Hosts filter](https://www.playframework.com/documentation/3.0.x/resources/confs/play-filters-helpers/reference.conf). This is the list of allowed valid hosts = ["localhost", ".local", "127.0.0.1"]. You need to add an option to allow Railway hosts, `[".up.railway.com"]`.
+    - By default, Play ships with a list of [default Allowed Hosts filter](https://www.playframework.com/documentation/3.0.x/resources/confs/play-filters-helpers/reference.conf). This is the list of allowed valid hosts = ["localhost", ".local", "127.0.0.1"]. You need to add an option to allow Railway hosts, `[".up.railway.app"]`.
     - Add the following to the `application.conf` file:
         ```scala
-        play.filters.hosts.allowed=[".up.railway.com"]
+        play.filters.hosts.allowed=[".up.railway.app"]
         ```
-    **Note:** Railway provided domains end in `.up.railway.com`. Once you add your custom domain, please update the allowed hosts to the new URL.
+    **Note:** Railway provided domains end in `.up.railway.app`. Once you add your custom domain, please update the allowed hosts to the new URL.
 4. **Add sbt-native-packager sbt plugin**:
     - Add the `sbt-native-packager` sbt plugin to `project/plugins.sbt`
         ```scala

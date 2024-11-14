@@ -58,7 +58,7 @@ We provide LetsEncrypt SSL certificates using RSA 2048bit keys.  Certificates ar
 
 Certificate issuance should happen within an hour of your DNS being updated with the values we provide.
 
-For proxied domains (Cloudflare orange cloud), we may not always be able to issue a certificate for the domain, but Cloudflare to Railway traffic will be encrypted with TLS using our default `*.up.railway.com` certificate.
+For proxied domains (Cloudflare orange cloud), we may not always be able to issue a certificate for the domain, but Cloudflare to Railway traffic will be encrypted with TLS using our default `*.up.railway.app` certificate.
 </Collapse>
 
 <Collapse title="Does Railway protect my services against DDoS?">

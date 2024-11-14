@@ -70,7 +70,7 @@ Use popular tools like [Postman](https://www.postman.com/) or [Insomnia](https:/
 
 ### API Collection File
 
-We also provide a collection file which can be imported into your preferred API client.  Click [here](https://gql-collection-server.up.railway.com/railway_graphql_collection.json) to download it.
+We also provide a collection file which can be imported into your preferred API client.  Click [here](https://gql-collection-server.up.railway.app/railway_graphql_collection.json) to download it.
 
 Once imported, you should only need to add your API token to get connected and start executing queries in the collection.
 

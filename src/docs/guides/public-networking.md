@@ -72,7 +72,7 @@ Custom domains can be added to a Railway service and environment.
 1. Navigate to the Settings tab of your desired service
 2. Click `+ Custom Domain` in the Public Networking section of Settings
 3. Type in the custom domain (wildcard domains are supported, [see below](#wildcard-domains) for more details)
-4. In your DNS provider (Cloudflare, DNSimple, Namecheap, etc), update your domain's DNS settings by adding the appropriate DNS record(s) and associating it with the domain provided by Railway, e.g., `abc123.up.railway.com`
+4. In your DNS provider (Cloudflare, DNSimple, Namecheap, etc), update your domain's DNS settings by adding the appropriate DNS record(s) and associating it with the domain provided by Railway, e.g., `abc123.up.railway.app`
     - For subdomains, including "www", add a CNAME record
     - For root or apex domains, the record type will vary, [see below](#redirecting-a-root-domain) for more details
 4. Wait for Railway to verify your record.  When verified, you will see a greencheck mark next to the domain(s) -
@@ -182,7 +182,7 @@ If your DNS provider doesn't support CNAME Flattening or dynamic ALIAS records a
 
 If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdomain to Cloudflare and redirect all `www.` traffic to the root domain:
 
-1. Create a Custom Domain in Railway for your root domain (e.g., `mydomain.com`). Copy the `value` field. This will be in the form: `abc123.up.railway.com`.
+1. Create a Custom Domain in Railway for your root domain (e.g., `mydomain.com`). Copy the `value` field. This will be in the form: `abc123.up.railway.app`.
 2. Add a `CNAME` DNS record to Cloudflare:
     - `Name` → `@`.
     - `Target` → the `value` field from Railway.

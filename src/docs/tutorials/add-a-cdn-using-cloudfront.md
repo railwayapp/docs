@@ -227,7 +227,7 @@ Now let's create a CloudFront distribution using the AWS CDK.
     }
     }
     ```
-    **IMPORTANT: Be sure to replace the `HttpOrigin` in the code above with the Railway-provided domain (e.g. *fastify-server.up.railway.com*)**
+    **IMPORTANT: Be sure to replace the `HttpOrigin` in the code above with the Railway-provided domain (e.g. *fastify-server.up.railway.app*)**
 - Run the following command to bootstrap the environment for the CDK
     ```plaintext
     cdk bootstrap

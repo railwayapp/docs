@@ -43,7 +43,7 @@ The Railway API supports introspection meaning you can use popular tools like [P
 
 ### API Collection File
 
-We provide a collection file which can be imported into your preferred API client.  Once imported, you should only need to add your API token to get connected and start executing queries in the collection. Click [here](https://gql-collection-server.up.railway.com/railway_graphql_collection.json) to download it.
+We provide a collection file which can be imported into your preferred API client.  Once imported, you should only need to add your API token to get connected and start executing queries in the collection. Click [here](https://gql-collection-server.up.railway.app/railway_graphql_collection.json) to download it.
 
 ### GraphiQL Playground
 
