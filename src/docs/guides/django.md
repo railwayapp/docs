@@ -12,7 +12,7 @@ It’s free, open-source, and comes with a range of features to streamline tasks
 
 To create a new Django app, ensure that you have [Python](https://www.python.org/downloads/) and [Django](https://docs.djangoproject.com/en/5.1/intro/install/) installed on your machine.
 
-Follow the steps blow to set up the project in a directory.
+Follow the steps below to set up the project in a directory.
 
 Create a virtual environment
 ```bash
@@ -73,15 +73,26 @@ import os
 from pathlib import Path
 ```
 
-3. Configure the database:
+3. Configure the database and run migrations:
 
-A fresh Django project uses SQLite by default, but we need to switch to PostgreSQL. 
+A fresh Django project uses SQLite by default, but we need to switch to PostgreSQL.
+
+Create a database named `liftoff_dev` in your local Postgres instance.
 
 Open the `liftoff/settings.py` file. In the Database section, replace the existing configuration with:
 
 ```python
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+# Set default values for the environment variables if they’re not already set
+os.environ.setdefault("PGDATABASE", "liftoff_dev")
+os.environ.setdefault("PGUSER", "username")
+os.environ.setdefault("PGPASSWORD", "")
+os.environ.setdefault("PGHOST", "localhost")
+os.environ.setdefault("PGPORT", "5432")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -93,6 +104,10 @@ DATABASES = {
     }
 }
 ```
+
+Replace the values of `PGUSER`, `PGPASSWORD` with your local credentials.
+
+Run `python manage.py migrate` in your terminal to apply the database migrations. Once it completes successfully, check your database. You should see the auth and other Django tables created.
 
 4. Static files configuration:
 
@@ -246,7 +261,99 @@ To deploy the Django app to Railway, start by pushing the app to a GitHub repo. 
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Django apps effortlessly!
- 
+
+**Note:** The next step shows how to configure and run your Django app along with Celery and Celery beat.
+
+## Set Up Database, Migrations, Celery Beat and Celery
+
+This setup deploys your Django app on Railway, ensuring that your database, scheduled tasks (crons)--Celery Beat, and queue workers (Celery) are all fully operational.
+
+The deployment structure follows a "majestic monolith" architecture, where the entire Django app is managed as a single codebase but split into four separate services on Railway:
+- **App Service**: Handles HTTP requests and user interactions.
+- **Cron Service**: Manages scheduled tasks (e.g., sending emails or running reports) using Celery Beat.
+- **Worker Service**: Processes background jobs from the queue using Celery.
+- **Database Service**: Stores and retrieves your application's data.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727910244/docs/quick-start/deploy%20architecture.png"
+alt="screenshot of the deploy architecture of the Laravel app"
+layout="responsive"
+width={3118} height={1776} quality={100} />
+_My Monolith Django app_
+
+
+**Note:** This guide follows the assumption that you have installed Celery and Celery Beat in your app and the broker uses Redis. 
+
+Please follow these steps to get it setup on Railway:
+
+1. Create a Redis Database service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
+     - Click on **Deploy**.
+3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
+    -  Name the service **App Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a> to configure it.
+        **Note:** If you followed the guide from the beginning, simply rename the existing service to **App Service**.
+    - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
+    - Add `chmod +x ./build-app.sh && sh ./build-app.sh` to the **Custom Build Command** in the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section.
+    - Add `chmod +x ./run-app.sh && sh ./run-app.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
+    - Add all the necessary environment variables required for the Django app especially the ones listed below.
+        - `REDIS_URL`: Set the value to `${{Postgres.REDIS_URL}}`
+        - `DB_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
+    - Click **Deploy**.
+4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
+    - Name the service **cron service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
+    - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
+    - Add `celery -A liftoff beat -l info` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section. _Note:_ `liftoff` is the name of the app. 
+    - Head back to the top of the service and click on  <a href="/overview/the-basics#service-variables">**Variables**</a>.
+    - Add all the necessary environment variables especially those highlighted already in step 3.
+    - Click **Deploy**.
+5. Create a new service again on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
+    - Name the service **Worker Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
+    - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
+    - Add `celery -A liftoff worker -l info` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section. _Note:_ `liftoff` is the name of the app. 
+    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
+    - Add all the necessary environment variables especially those highlighted already in step 3.
+    - Click **Deploy**.
+
+At this point, you should have all three services deployed and connected to the Postgres Database service:
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727910244/docs/quick-start/deploy%20architecture.png"
+alt="screenshot of the deploy architecture of the Laravel app"
+layout="responsive"
+width={3118} height={1776} quality={100} />
+
+- **Cron Service**: This service should run the Laravel Scheduler to manage scheduled tasks.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727912479/docs/quick-start/CleanShot_2024-10-03_at_00.40.40_2x_cwgazh.png"
+alt="screenshot of the cron service of the Laravel app"
+layout="responsive"
+width={2165} height={1873} quality={100} />
+
+- **Worker Service**: This service should be running and ready to process jobs from the queue.
+- **App Service**: This service should be running and is the only one that should have a public domain, allowing users to access your application.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727885952/docs/quick-start/CleanShot_2024-10-02_at_17.18.04_2x_nn78ga.png"
+alt="screenshot of the deployed Laravel service showing the Laravel home page"
+layout="responsive"
+width={2855} height={2109} quality={100} />
+_App service_
+
+
+**Note:** There is a [community template](https://railway.app/template/Gkzn4k) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
+
+## Logging
+
+Laravel, by default, writes logs to a directory on disk. However, on Railway’s ephemeral filesystem, this setup won’t persist logs.
+
+To ensure logs and errors appear in Railway’s console or with `railway logs`, update the `LOG_CHANNEL` environment variable to `errorlog`. You can set it via the Railway dashboard or CLI as shown:
+
+```bash
+railway variables --set "LOG_CHANNEL=errorlog"
+```
+
+## Can I deploy with Laravel Sail?
+You may be thinking about using [Laravel Sail](https://laravel.com/docs/11.x/sail), which is the standard approach for deploying Laravel applications with Docker. At its core, Sail relies on a `docker-compose.yml` file to manage the environment. 
+
+However, it's important to note that Railway currently does not support Docker Compose.
+
 ## Next Steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
