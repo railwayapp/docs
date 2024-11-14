@@ -42,9 +42,9 @@ Railway offers multiple ways to deploy your Symfony app, depending on your setup
 
 ## One-Click Deploy from a Template
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/4tnH_D)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/4tnH_D)
 
-This template sets up a starter Symfony application along with a Postgres database on Railway. You can also choose from a <a href="https://railway.app/templates?q=symfony" target="_blank">variety of Symfony app templates</a> created by the community.
+This template sets up a starter Symfony application along with a Postgres database on Railway. You can also choose from a <a href="https://railway.com/templates?q=symfony" target="_blank">variety of Symfony app templates</a> created by the community.
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
@@ -95,7 +95,7 @@ width={2741} height={2193} quality={100} />
 To deploy a Symfony app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
@@ -233,7 +233,7 @@ width={2741} height={2193} quality={100} />
 _App service_
 
 
-**Note:** There is a [community template](https://railway.app/template/4tnH_D) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
+**Note:** There is a [community template](https://railway.com/template/4tnH_D) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
 
 
 ## Next Steps

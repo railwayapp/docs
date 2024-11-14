@@ -10,7 +10,7 @@ Railway understands the importance of effective incident management procedures. 
 
 Railway has a robust monitoring system in place to proactively detect and address any potential incidents. We continuously monitor our infrastructure, including servers, networks, and applications, to ensure their smooth operation. By monitoring key metrics and performance indicators, we can identify any anomalies or potential issues before they escalate into full-blown incidents.
 
-However, it's important to note that while we strive to stay ahead of incidents, there may be situations where unforeseen issues arise. In such cases, we rely on qualitative customer feedback to help us identify and address any issues promptly. We encourage our customers to report any problems they encounter through our forums, Discord, or [email support](mailto:team@railway.app).
+However, it's important to note that while we strive to stay ahead of incidents, there may be situations where unforeseen issues arise. In such cases, we rely on qualitative customer feedback to help us identify and address any issues promptly. We encourage our customers to report any problems they encounter through our forums, Discord, or [email support](mailto:team@railway.com).
 
 ## Status Page + Uptime
 
@@ -30,4 +30,4 @@ Railway catalogues incident's in the following buckets.
 
 ### Responsible Disclosure
 
-Enterprise customers get Root Cause Analysis, and we attempt to publish event retrospectives on [https://blog.railway.app/engineering](https://blog.railway.app/engineering)
+Enterprise customers get Root Cause Analysis, and we attempt to publish event retrospectives on [https://blog.railway.com/engineering](https://blog.railway.com/engineering)

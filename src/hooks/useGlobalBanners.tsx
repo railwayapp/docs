@@ -25,7 +25,7 @@ export interface GlobalBanner {
 //       <strong>Launch Week 01</strong> is now{" "}
 //       {isFirstStop ? "boarding" : "in service"}.{" "}
 //       {isFirstStop ? "First" : isLastStop ? "Last" : "Next"} stop:{" "}
-//       <Link href="https://railway.app/launch-week-01" tw="underline">
+//       <Link href="https://railway.com/launch-week-01" tw="underline">
 //         {linkText}
 //       </Link>
 //       !

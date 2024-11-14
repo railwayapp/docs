@@ -258,7 +258,7 @@ Options:
   -V, --version      Print version
 ```
 
-This will open the browser to `https://railway.app/cli-login`.
+This will open the browser to `https://railway.com/cli-login`.
 
 ### Browserless
 
@@ -270,10 +270,10 @@ perform a _browserless_ login.
 ~ railway login --browserless
 Browserless Login
 Please visit:
-  https://railway.app/cli-login?d=SGVsbG8sIGtpbmQgc3RyYW5nZXIhIFRoYW5rcyBmb3IgcmVhZGluZyB0aGUgZG9jdW1lbnRhdGlvbiEgSSBob3BlIHlvdSdyZSBoYXZpbmcgYSB3b25kZXJmdWwgZGF5IDopCg==
+  https://railway.com/cli-login?d=SGVsbG8sIGtpbmQgc3RyYW5nZXIhIFRoYW5rcyBmb3IgcmVhZGluZyB0aGUgZG9jdW1lbnRhdGlvbiEgSSBob3BlIHlvdSdyZSBoYXZpbmcgYSB3b25kZXJmdWwgZGF5IDopCg==
 Your pairing code is: friendly-malicious-electric-soup
 
-Logged in as Nebula (nebula@railway.app)
+Logged in as Nebula (nebula@railway.com)
 ```
 
 This will prompt you to go to a URL (you can copy and paste) and present you

@@ -13,11 +13,11 @@ This guide covers how to deploy a Fastify app on Railway in four ways:
 
 ## One-Click Deploy from a Template
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ZZ50Bj)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZZ50Bj)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=fastify" target="_blank">variety of Fastify app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.com/templates?q=fastify" target="_blank">variety of Fastify app templates</a> created by the community.
 
 ## Deploy from a GitHub Repo
 
@@ -25,7 +25,7 @@ To deploy a Fastify app on Railway directly from GitHub, follow the steps below:
 
 1. Fork the basic <a href="https://github.com/railwayapp-templates/fastify" target="_blank">fastify GitHub repo</a>.
     - If you already have a GitHub repo you want to deploy, you can skip this step.
-2. Create a <a href="https://railway.app/new" target="_blank">New Project.</a>
+2. Create a <a href="https://railway.com/new" target="_blank">New Project.</a>
 3. Click **Deploy from GitHub repo**.
 4. Select the `fastify` repo or your own GitHub repo.
     - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.

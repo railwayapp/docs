@@ -12,7 +12,7 @@ When a new deployment is triggered for a service, if a healthcheck endpoint is c
 
 The healthcheck endpoint is currently ***not intended for continuous monitoring*** as it is only called at the start of the deployment, to ensure it is healthy prior to routing traffic to it.
 
-If you are looking for a quick way to setup continuous monitoring of your service(s), check out the <a href="https://railway.app/template/p6dsil" target="_blank">Uptime Kuma template</a> in our template marketplace.
+If you are looking for a quick way to setup continuous monitoring of your service(s), check out the <a href="https://railway.com/template/p6dsil" target="_blank">Uptime Kuma template</a> in our template marketplace.
 
 ## Healthcheck Timeout
 

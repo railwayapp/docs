@@ -12,9 +12,9 @@ This guide covers how to deploy a Laravel app on Railway in three ways:
 
 ## One-Click Deploy from a Template
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/fWEWWf)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/fWEWWf)
 
-This template sets up a basic Laravel application along with a Postgres database on Railway. You can also choose from a <a href="https://railway.app/templates?q=laravel" target="_blank">variety of Laravel app templates</a> created by the community.
+This template sets up a basic Laravel application along with a Postgres database on Railway. You can also choose from a <a href="https://railway.com/templates?q=laravel" target="_blank">variety of Laravel app templates</a> created by the community.
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
@@ -22,7 +22,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 To deploy a Laravel app on GitHub to Railway, follow the steps below:
 
-1. Create a <a href="https://railway.app/new" target="_blank">New Project.</a>
+1. Create a <a href="https://railway.com/new" target="_blank">New Project.</a>
 2. Click **Deploy from GitHub repo**.
 3. Select your GitHub repo.
     - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
@@ -189,7 +189,7 @@ width={2855} height={2109} quality={100} />
 _App service_
 
 
-**Note:** There is a [community template](https://railway.app/template/Gkzn4k) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
+**Note:** There is a [community template](https://railway.com/template/Gkzn4k) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
 
 ## Logging
 

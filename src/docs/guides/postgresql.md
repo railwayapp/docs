@@ -21,7 +21,7 @@ alt="GIF of the Adding Database"
 layout="responsive"
 width={450} height={396} quality={100} />
 
-You can also deploy it via the [template](https://railway.app/template/postgres) from the template marketplace.
+You can also deploy it via the [template](https://railway.com/template/postgres) from the template marketplace.
 
 #### Deployed Service
 
@@ -58,14 +58,14 @@ We also encourage you to fork the [Railway postgres-ssl repository](https://gith
 <Banner>
 **Released August 2024** 
 
-Be aware that this template has not been battle-tested like the standalone instance.  We are seeking feedback to improve the experience using this template, please provide your input [here](https://help.railway.app/templates/postgre-sql-ha-with-repmgr-33c997a9).
+Be aware that this template has not been battle-tested like the standalone instance.  We are seeking feedback to improve the experience using this template, please provide your input [here](https://help.railway.com/templates/postgre-sql-ha-with-repmgr-33c997a9).
 </Banner>
 
 We'll cover how to deploy, connect, and manage the [High Availability (HA) PostgreSQL](https://www.postgresql.org/docs/current/high-availability.html) cluster in this section.
 
 ### Deploy
 
-You can deploy a HA PostgreSQL cluster via the [template in the marketplace](https://railway.app/template/ha-postgres).
+You can deploy a HA PostgreSQL cluster via the [template in the marketplace](https://railway.com/template/ha-postgres).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723589926/docs/databases/postgrescluster_ac7vld.png"
 alt="PostgreSQL HA in the marketplace"
@@ -111,12 +111,12 @@ Since the containers are deployed from bitnami images, you can reference the doc
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential.  Consider adding:
 
-- **Backup solutions**: Automate regular backups to ensure data recovery in case of failure.  We suggest reviewing the popular [PostgreSQL S3 backups](https://railway.app/template/I4zGrH) template as an example.
+- **Backup solutions**: Automate regular backups to ensure data recovery in case of failure.  We suggest reviewing the popular [PostgreSQL S3 backups](https://railway.com/template/I4zGrH) template as an example.
 
 - **Observability**: Implement monitoring for insights into performance and health of your databases.  If you're not already running an observability stack, check out these templates to help you get started building one:
-    - [Prometheus](https://railway.app/template/KmJatA)
-    - [Grafana](https://railway.app/template/anURAt)
-    - [PostgreSQL Exporter](https://railway.app/template/gDzHrM)
+    - [Prometheus](https://railway.com/template/KmJatA)
+    - [Grafana](https://railway.com/template/anURAt)
+    - [PostgreSQL Exporter](https://railway.com/template/gDzHrM)
 
 ## Extensions
 
@@ -124,9 +124,9 @@ In an effort to maintain simplicity in the default templates, we do not plan to 
 
 For some of the most popular extensions, like PostGIS and Timescale, there are several options in the template marketplace.
 
-- <a href="https://railway.app/template/VSbF5V" target="_blank">TimescaleDB</a>
-- <a href="https://railway.app/template/postgis" target="_blank">PostGIS</a>
-- <a href="https://railway.app/template/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
+- <a href="https://railway.com/template/VSbF5V" target="_blank">TimescaleDB</a>
+- <a href="https://railway.com/template/postgis" target="_blank">PostGIS</a>
+- <a href="https://railway.com/template/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
 
 ## Additional Resources
 

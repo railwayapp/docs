@@ -7,7 +7,7 @@ title: Migrating from Legacy Plugins to Database Services
 
 If you had a deprecated plugin that was active prior to this migration, your data has been archived. This archive is accurate up to **February 23rd, 2024**, and will be accessible until **August 23rd, 2024**.
 
-You can request for a download link to your archive by reaching out via our [Help Station](https://help.railway.app).
+You can request for a download link to your archive by reaching out via our [Help Station](https://help.railway.com).
 </Banner>
 
 We've introduced a more secure and flexible way to deploy databases on Railway.  The purpose of this guide is to provide an overview of why we are making these changes, what they mean for you, and how you can migrate.
@@ -17,9 +17,9 @@ We've introduced a more secure and flexible way to deploy databases on Railway. 
 In the early stages of Railway, we introduced "Plugins", a foundational part of our offering. They were databases deployed from Docker images with a fixed version, no data persistence, and no way to customize the database to your needs.
 
 ### Database Services
-Some of our newest features - [Volumes](/reference/volumes), [Docker Image Deployments](/develop/services#docker-image), [TCP Proxy](https://docs.railway.app/deploy/exposing-your-app#tcp-proxying) - open the door for deploying databases as services, complete with data persistence, flexible configuration and management, and connectivity over the public Internet or [private network](/reference/private-networking).
+Some of our newest features - [Volumes](/reference/volumes), [Docker Image Deployments](/develop/services#docker-image), [TCP Proxy](https://docs.railway.com/deploy/exposing-your-app#tcp-proxying) - open the door for deploying databases as services, complete with data persistence, flexible configuration and management, and connectivity over the public Internet or [private network](/reference/private-networking).
 
-In fact, we have [updated our official databases](https://blog.railway.app/p/launch-01-next-gen-databases) to deploy from templates, built as database services using all of the features above, utilizing the `latest` image versions available in Docker Hub.
+In fact, we have [updated our official databases](https://blog.railway.com/p/launch-01-next-gen-databases) to deploy from templates, built as database services using all of the features above, utilizing the `latest` image versions available in Docker Hub.
 
 ## Why Migrate?
 
@@ -79,10 +79,10 @@ Once you have performed the necessary actions to ensure data consistency between
 If you would prefer not to go through the migration flow as outlined above, there are other options for your migration path -
 
 1. **Template** - The template which is used in the automation can be deployed at-will.  Deploy this manually in your project if you prefer this method.
-    - [PostgreSQL](https://railway.app/template/postgres-plugin-migration)
-    - [MySQL](https://railway.app/template/mysql-plugin-migration)
-    - [MongoDB](https://railway.app/template/mongo-plugin-migration)
-    - [Redis](https://railway.app/template/redis-plugin-migration)
+    - [PostgreSQL](https://railway.com/template/postgres-plugin-migration)
+    - [MySQL](https://railway.com/template/mysql-plugin-migration)
+    - [MongoDB](https://railway.com/template/mongo-plugin-migration)
+    - [Redis](https://railway.com/template/redis-plugin-migration)
 2. **DIY** - If our tools don't align with your needs, or you have a unique migration process in mind, you're welcome to execute your own strategy.  We always recommend ensuring you have a backup and a process for testing.
 
 ### Switching Over Connections
@@ -124,7 +124,7 @@ If you need further assistance on this, please [reach out to us](#need-help).
 ## Migration Timeline
 
 <Banner variant="info">
-In light of recent [Denial-of-Service incidents](https://status.railway.app/)
+In light of recent [Denial-of-Service incidents](https://status.railway.com/)
 on and around January 27th, 2024, we have revised our timeline to give users
 sufficient time to migrate.
 </Banner>
@@ -137,7 +137,7 @@ sufficient time to migrate.
     - You will receive an **email with instructions** on how to proceed
   - We expect all database plugins to be shut down by **February 9th, 2024**
 - Between **February 1st, 2024** and **February 23rd, 2024**:
-  - You will be able to migrate your database plugin(s) to the new version by navigating to your projects in the [Railway Dashboard](https://railway.app/dashboard)
+  - You will be able to migrate your database plugin(s) to the new version by navigating to your projects in the [Railway Dashboard](https://railway.com/dashboard)
 - On **February 23rd, 2024**:
   - We will begin **deleting all database plugins**
   - We will start **archiving data of un-migrated database plugins** ([Data Archival](#data-archival))
@@ -174,7 +174,7 @@ While we encourage users to migrate as soon as possible to benefit from the enha
 
 ### What if something goes wrong?
 
-The old plugin remains intact until you verify the migration. If you encounter any issues, please reach out on our [Discord](https://discord.com/channels/713503345364697088/1200516735497945239), [Community Forum](https://community.railway.app/db-migration), or contact our support team at [support@railway.app](mailto:support@railway.app) (for Pro users).
+The old plugin remains intact until you verify the migration. If you encounter any issues, please reach out on our [Discord](https://discord.com/channels/713503345364697088/1200516735497945239), [Community Forum](https://community.railway.com/db-migration), or contact our support team at [support@railway.com](mailto:support@railway.com) (for Pro users).
 
 ## Conclusion
 
@@ -182,4 +182,4 @@ We're committed to providing the best solutions for your needs, and the new data
 
 ## Need Help?
 
-If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our [Discord](https://discord.com/channels/713503345364697088/1200516735497945239), [Community Forum](https://community.railway.app/db-migration), or over email at [support@railway.app](mailto:support@railway.app) (for Pro users).
+If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our [Discord](https://discord.com/channels/713503345364697088/1200516735497945239), [Community Forum](https://community.railway.com/db-migration), or over email at [support@railway.com](mailto:support@railway.com) (for Pro users).

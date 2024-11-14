@@ -29,9 +29,9 @@ To be successful using this tutorial, you should already have -
 **OpenTelemetry Collector Template and Demo**
 
 If you are looking for a quicker way to get started, you can deploy the collector and backend stack from a template by clicking the button below.
-<a href="https://railway.app/template/7KNDff" target="_blank"><img src="https://railway.app/button.svg" alt="Deploy on Railway" /></a>
+<a href="https://railway.com/template/7KNDff" target="_blank"><img src="https://railway.com/button.svg" alt="Deploy on Railway" /></a>
 
-We also have a live demo of the project you will build in this tutorial <a href="https://classy-writing-production.up.railway.app/" target="_blank">here</a>, and you can access the code repository <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack" target="_blank">here in Github</a>.  You can find some example apps, including the one we will build in this tutorial, in the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApps" target="_blank">exampleApps folder</a>.
+We also have a live demo of the project you will build in this tutorial <a href="https://classy-writing-production.up.railway.com/" target="_blank">here</a>, and you can access the code repository <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack" target="_blank">here in Github</a>.  You can find some example apps, including the one we will build in this tutorial, in the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApps" target="_blank">exampleApps folder</a>.
 
 **Let's get started!**
 
@@ -83,7 +83,7 @@ You should be able to acess the Zipkin UI by clicking on the service domain.
 
 - Add a New service by clicking `+ New`
 - Select Template as the Source
-- Type Prometheus and select the Prometheus template (be sure to select [this one](https://railway.app/template/KmJatA))
+- Type Prometheus and select the Prometheus template (be sure to select [this one](https://railway.com/template/KmJatA))
 - Click `Deploy` to apply and deploy the service
 
 *The template deploys with the proper UI port already configured to enable accessing the Prometheus UI from your browser*

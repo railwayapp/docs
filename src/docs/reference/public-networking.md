@@ -33,13 +33,13 @@ To ensure the integrity and performance of our network, we enforce the following
 | **HTTP Requests/Sec**  | 3,000 RPS    | The number of HTTP requests to a given domain per second. |
 | **Requests Per Connection** | 10,000 requests                          | The number of requests each connection can make.    |
 
-If your application requires higher limits, please don't hesitate to reach out to us at [team@railway.app](mailto:team@railway.app).
+If your application requires higher limits, please don't hesitate to reach out to us at [team@railway.com](mailto:team@railway.com).
 
 ## Custom Domain Count Limits
 
 The [Hobby plan](/reference/pricing#plans) is limited to 2 custom domains per service.
 
-The [Pro Plan](/reference/pricing#plans) is limited to 20 domains per service by default but can be increased for Pro users on request, by reaching out to us at [team@railway.app](mailto:team@railway.app) or via [private thread](/reference/support#private-threads).
+The [Pro Plan](/reference/pricing#plans) is limited to 20 domains per service by default but can be increased for Pro users on request, by reaching out to us at [team@railway.com](mailto:team@railway.com) or via [private thread](/reference/support#private-threads).
 
 ## FAQ
 
@@ -58,7 +58,7 @@ We provide LetsEncrypt SSL certificates using RSA 2048bit keys.  Certificates ar
 
 Certificate issuance should happen within an hour of your DNS being updated with the values we provide.
 
-For proxied domains (Cloudflare orange cloud), we may not always be able to issue a certificate for the domain, but Cloudflare to Railway traffic will be encrypted with TLS using our default `*.up.railway.app` certificate.
+For proxied domains (Cloudflare orange cloud), we may not always be able to issue a certificate for the domain, but Cloudflare to Railway traffic will be encrypted with TLS using our default `*.up.railway.com` certificate.
 </Collapse>
 
 <Collapse title="Does Railway protect my services against DDoS?">

@@ -36,13 +36,13 @@ Explore the guides in the How To section for information on how to use these tem
 
 ### Template Marketplace
 
-Our <a href="https://railway.app/templates" target="_blank">Template Marketplace</a> includes many solutions for database services.
+Our <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> includes many solutions for database services.
 
 Here are some examples - 
-- [Minio](https://railway.app/template/SMKOEA)
-- [ClickHouse](https://railway.app/template/clickhouse)
-- [Dragonfly](https://railway.app/template/dragonfly)
-- [Chroma](https://railway.app/template/tifygm)
+- [Minio](https://railway.com/template/SMKOEA)
+- [ClickHouse](https://railway.com/template/clickhouse)
+- [Dragonfly](https://railway.com/template/dragonfly)
+- [Chroma](https://railway.com/template/tifygm)
 
 ## Support
 

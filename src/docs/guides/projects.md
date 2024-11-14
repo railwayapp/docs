@@ -2,7 +2,7 @@
 title: Managing Projects
 ---
 
-A Railway project contains any services, environments, and deployments that an app needs. Projects can be found on <a href="https://railway.app/dashboard" target="_blank">your project dashboard</a>.
+A Railway project contains any services, environments, and deployments that an app needs. Projects can be found on <a href="https://railway.com/dashboard" target="_blank">your project dashboard</a>.
 
 Click on a project card to go to the project canvas:
 

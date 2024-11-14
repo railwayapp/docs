@@ -7,7 +7,7 @@
       "Why did my app root didn't return a 200?"
     ],
     "answer": "Your application needs to have a PORT variable configured to tell Railway to expose the right port to the internet. You can configure a PORT variable under the variables pane in your project.",
-    "link": "https://docs.railway.app/deploy/exposing-your-app"
+    "link": "https://docs.railway.com/deploy/exposing-your-app"
   },
   "account-verification": {
     "category": "security",
@@ -27,7 +27,7 @@
       "Where are the Railway servers located?"
     ],
     "answer": "Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located. This feature is only available to Pro plan workspaces.",
-    "link": "https://docs.railway.app/deploy/deployments#regions"
+    "link": "https://docs.railway.com/deploy/deployments#regions"
   },
   "db-backups": {
     "category": "general",
@@ -45,7 +45,7 @@
       "Can I use custom domains?"
     ],
     "answer": "Yes, you can set up multiple custom domains per project and environment!",
-    "link": "https://docs.railway.app/deploy/exposing-your-app"
+    "link": "https://docs.railway.com/deploy/exposing-your-app"
   },
   "ssh": {
     "category": "general",
@@ -63,7 +63,7 @@
       "Is there support for monorepos?"
     ],
     "answer": "Yes! See how in our documentation.",
-    "link": "https://docs.railway.app/deploy/monorepo"
+    "link": "https://docs.railway.com/deploy/monorepo"
   },
   "docker": {
     "category": "general",
@@ -74,7 +74,7 @@
       "Can I use docker compose on Railway?"
     ],
     "answer": "You can use a Dockerfile with Railway but we do not support using docker-compose at this moment.",
-    "link": "https://docs.railway.app/deploy/dockerfiles"
+    "link": "https://docs.railway.com/deploy/dockerfiles"
   },
   "plugin-connection": {
     "category": "general",
@@ -89,7 +89,7 @@
     "category": "general",
     "questions": ["Where do I submit a feature request?"],
     "answer": "Feature requests are greatly appreciated! You can submit a feature request on our feedback page.",
-    "link": "https://feedback.railway.app/"
+    "link": "https://feedback.railway.com/"
   },
   "fair-use": {
     "category": "security",
@@ -100,7 +100,7 @@
       "What repos are banned?"
     ],
     "answer": "You can see our Fair Use policy to determine what you can host",
-    "link": "https://railway.app/legal/fair-use"
+    "link": "https://railway.com/legal/fair-use"
   },
   "server-restart": {
     "category": "security",
@@ -131,7 +131,7 @@
       "Where can I set up 2FA?"
     ],
     "answer": "You can set up an TOTP (Time Based One Time Password) app under your Account Security page to enable Two-Factor Authentication.",
-    "link": "https://railway.app/account/security"
+    "link": "https://railway.com/account/security"
   },
   "free-plan-limits": {
     "category": "pricing",
@@ -142,13 +142,13 @@
       "How do I add a credit card?"
     ],
     "answer": "You can upgrade on your Account Management portal under the Billing page.",
-    "link": "https://railway.app/account/billing"
+    "link": "https://railway.com/account/billing"
   },
   "usage-calc": {
     "category": "pricing",
     "questions": ["How does Railway calculate usage?"],
     "answer": "We calculate RAM and CPU usage to the minute. Our rates are $0.000231 / GB / minute for RAM and $0.000463 / vCPU / minute for compute.",
-    "link": "https://railway.app/pricing"
+    "link": "https://railway.com/pricing"
   },
   "free-plan": {
     "category": "pricing",
@@ -157,7 +157,7 @@
       "Free plan limits?"
     ],
     "answer": "Deploys on the Trial plan get 512 MB memory and 1GB of disk, with up to $5 of usage per month.",
-    "link": "https://railway.app/pricing"
+    "link": "https://railway.com/pricing"
   },
   "no-credits": {
     "category": "pricing",
@@ -169,7 +169,7 @@
     "category": "pricing",
     "questions": ["How do I see my project's usage?"],
     "answer": "Under the project usage tab under the Account dropdown menu.",
-    "link": "https://railway.app/account/billing"
+    "link": "https://railway.com/account/billing"
   },
   "bug-reporting": {
     "category": "misc",
@@ -178,7 +178,7 @@
       "Where do I report a bug?"
     ],
     "answer": "You can report a bug on our dedicated Bug Report Canny page. Bug reports are happily accepted!",
-    "link": "https://feedback.railway.app/bug-reports"
+    "link": "https://feedback.railway.com/bug-reports"
   },
   "hiring": {
     "category": "misc",

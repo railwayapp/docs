@@ -6,7 +6,7 @@ Priority Boarding is Railway's **beta program** and is available to users who ha
 
 ## Connect Railway to Discord
 
-Visit <a href="https://railway.app/account" target="_blank">General Settings</a>, scroll down to Account Settings, and connect your account to the Railway Discord server.
+Visit <a href="https://railway.com/account" target="_blank">General Settings</a>, scroll down to Account Settings, and connect your account to the Railway Discord server.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1666373029/docs/discord-connect_ok03jw.png"
 alt="Screenshot of Account Settings - Priority Boarding"
@@ -30,7 +30,7 @@ width={1004} height={468} quality={80} />
 
 ## Keep Us Posted
 
-From this point forward, you'll have Priority Boarding features automatically enabled for your account. We'll notify you of any new features via the [Changelog](https://railway.app/changelog).
+From this point forward, you'll have Priority Boarding features automatically enabled for your account. We'll notify you of any new features via the [Changelog](https://railway.com/changelog).
 
 We kindly request that you report any issues you encounter in the <a href="https://discord.com/channels/713503345364697088/921233523719946260" target="_blank">Priority Boarding Discord channel</a>.
 

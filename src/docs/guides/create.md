@@ -6,7 +6,7 @@ Creating a template allows you to capture your infrastructure in a reusable and 
 
 By defining services, environment configuration, network settings, etc., you lay the foundation for others to deploy the same software stack with the click of a button.
 
-If you [publish your template](/guides/publish-and-share) to the <a href="https://railway.app/templates" target="_blank">marketplace</a>, you can even <a href="https://railway.app/open-source-kickback" target="_blank">collect a kickback</a> from the usage of it!
+If you [publish your template](/guides/publish-and-share) to the <a href="https://railway.com/templates" target="_blank">marketplace</a>, you can even <a href="https://railway.com/open-source-kickback" target="_blank">collect a kickback</a> from the usage of it!
 
 ## How to Create a Template
 
@@ -14,7 +14,7 @@ You can either create a template from scratch or base it off of an existing proj
 
 ### Starting from Scratch
 
-To create a template from scratch, head over to the <a href="https://railway.app/compose" target="_blank">template composer</a> then add and configure your services:
+To create a template from scratch, head over to the <a href="https://railway.com/compose" target="_blank">template composer</a> then add and configure your services:
 
 - Add a service by clicking the `Add New` button in the top right-hand corner, or through the command palette (`CMD + K` -> `+ New Service`)
 - Select the service source (GitHub repo or Docker Image)
@@ -37,7 +37,7 @@ It's now possible to specify a private GitHub repo when creating a template.
 
 This feature is intended for use among [Teams](/reference/teams) and [Organizations](/reference/teams). Users supporting a subscriber base may also find this feature helpful to distribute closed-source code. 
 
-To deploy a template that includes a private repo, look for the `GitHub` panel in the `Account Integrations` section of [General Settings](https://railway.app/account). Then select the `Edit Scope` option to grant Railway access to the desired private repos. 
+To deploy a template that includes a private repo, look for the `GitHub` panel in the `Account Integrations` section of [General Settings](https://railway.com/account). Then select the `Edit Scope` option to grant Railway access to the desired private repos. 
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1721350229/docs/github-private-repo_m46wxu.png"
@@ -71,7 +71,7 @@ quality={80}
 
 ## Configuring Services
 
-Configuring services using the <a href="https://railway.app/compose" target="_blank">template composer</a> is very similar to building a live project in the canvas.
+Configuring services using the <a href="https://railway.com/compose" target="_blank">template composer</a> is very similar to building a live project in the canvas.
 
 Once you add a new service and select the source, you can configure the following to enable successful deploys for template users:
 
@@ -124,7 +124,7 @@ The current template variable functions are:
 
 ## Managing your Templates
 
-You can see all of your templates on your <a href="https://railway.app/account/templates" target="_blank">Account's Template page</a>. Templates are separated into Personal and Published templates.
+You can see all of your templates on your <a href="https://railway.com/account/templates" target="_blank">Account's Template page</a>. Templates are separated into Personal and Published templates.
 
 You can edit, publish/unpublish and delete templates.
 

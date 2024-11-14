@@ -2,7 +2,7 @@
   "index_uid": "docs_railway_app_production",
   "start_urls": [
     {
-      "url": "https://docs.railway.app/"
+      "url": "https://docs.railway.com/"
     }
   ],
   "js_render": false,

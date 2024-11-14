@@ -1,8 +1,8 @@
 # 📚 Railway Documentation
 
-Visit [docs.railway.app](https://docs.railway.app)
+Visit [docs.railway.com](https://docs.railway.com)
 
-![og](https://railway.app/og.png)
+![og](https://railway.com/og.png)
 
 ## 💡 About
 

@@ -21,7 +21,7 @@ alt="GIF of the Adding Database"
 layout="responsive"
 width={450} height={396} quality={100} />
 
-You can also deploy it via the [template](https://railway.app/template/redis) from the template marketplace.
+You can also deploy it via the [template](https://railway.com/template/redis) from the template marketplace.
 
 #### Deployed Service
 
@@ -52,14 +52,14 @@ Since the deployed container is pulled from the [bitnami Redis](https://hub.dock
 <Banner>
 **Released August 2024** 
 
-Be aware that this template has not been battle-tested like the standalone instance.  We are seeking feedback to improve the experience using this template, please provide your input [here](https://help.railway.app/templates/redis-ha-with-sentinel-4c4c487d).
+Be aware that this template has not been battle-tested like the standalone instance.  We are seeking feedback to improve the experience using this template, please provide your input [here](https://help.railway.com/templates/redis-ha-with-sentinel-4c4c487d).
 </Banner>
 
 We'll cover how to deploy, connect, and manage the [High Availability (HA) Redis Cluster](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) in this section.
 
 ### Deploy
 
-You can deploy a HA Redis Cluster via the [template in the marketplace](https://railway.app/template/ha-redis).
+You can deploy a HA Redis Cluster via the [template in the marketplace](https://railway.com/template/ha-redis).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723667697/docs/databases/rediscluster_x6zzwd.png"
 alt="Redis HA in the marketplace"

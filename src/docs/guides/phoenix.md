@@ -125,7 +125,7 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/0LSBzw)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/0LSBzw)
 
 After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
@@ -179,7 +179,7 @@ width={2757} height={2111} quality={100} />
 To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
@@ -209,7 +209,7 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 Click the button below to deploy an instance of Livebook quickly.
 
-[![Deploy Livebook on Railway](https://railway.app/button.svg)](https://railway.app/new/template/4uLt1s)
+[![Deploy Livebook on Railway](https://railway.com/button.svg)](https://railway.com/new/template/4uLt1s)
  
 ## Next Steps
 

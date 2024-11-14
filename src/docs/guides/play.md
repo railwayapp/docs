@@ -167,12 +167,12 @@ Open your browser and go to `http://localhost:9000` to see the app.
         db.default.url="jdbc:${?DATABASE_URL}"
         ```
 3. **Set Allowed Hosts**:
-    - By default, Play ships with a list of [default Allowed Hosts filter](https://www.playframework.com/documentation/3.0.x/resources/confs/play-filters-helpers/reference.conf). This is the list of allowed valid hosts = ["localhost", ".local", "127.0.0.1"]. You need to add an option to allow Railway hosts, `[".up.railway.app"]`.
+    - By default, Play ships with a list of [default Allowed Hosts filter](https://www.playframework.com/documentation/3.0.x/resources/confs/play-filters-helpers/reference.conf). This is the list of allowed valid hosts = ["localhost", ".local", "127.0.0.1"]. You need to add an option to allow Railway hosts, `[".up.railway.com"]`.
     - Add the following to the `application.conf` file:
         ```scala
-        play.filters.hosts.allowed=[".up.railway.app"]
+        play.filters.hosts.allowed=[".up.railway.com"]
         ```
-    **Note:** Railway provided domains end in `.up.railway.app`. Once you add your custom domain, please update the allowed hosts to the new URL.
+    **Note:** Railway provided domains end in `.up.railway.com`. Once you add your custom domain, please update the allowed hosts to the new URL.
 4. **Add sbt-native-packager sbt plugin**:
     - Add the `sbt-native-packager` sbt plugin to `project/plugins.sbt`
         ```scala
@@ -214,11 +214,11 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/my9q_q)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/my9q_q)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=scala" target="_blank">variety of Scala app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.com/templates?q=scala" target="_blank">variety of Scala app templates</a> created by the community.
 
 ### Deploy from the CLI
 
@@ -262,7 +262,7 @@ width={1676} height={1490} quality={100} />
 To deploy a Scala Play app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.

@@ -67,7 +67,7 @@ builds and deployments.
 
 | Name                           | Description                                                                                                                                          |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RAILWAY_PUBLIC_DOMAIN`        | The public service or customer domain, of the form `example.up.railway.app`                                                                          |
+| `RAILWAY_PUBLIC_DOMAIN`        | The public service or customer domain, of the form `example.up.railway.com`                                                                          |
 | `RAILWAY_PRIVATE_DOMAIN`       | The private DNS name of the service.                                                                                                                 |
 | `RAILWAY_TCP_PROXY_DOMAIN`     | (see [TCP Proxy](/reference/tcp-proxy) for details) The public TCP proxy domain for the service, if applicable. Example: `roundhouse.proxy.rlwy.net` |
 | `RAILWAY_TCP_PROXY_PORT`       | (see [TCP Proxy](/reference/tcp-proxy) for details) The external port for the TCP Proxy, if applicable. Example: `11105`                             |

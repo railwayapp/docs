@@ -14,7 +14,7 @@ Railway offers numerous tiers of support for our users.
 
 ## Help Station
 
-Railway conducts its support over our [Help Station](https://help.railway.app) platform.
+Railway conducts its support over our [Help Station](https://help.railway.com) platform.
 
 It hosts our community of 500,000+ users and developers. It is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
 
@@ -24,11 +24,11 @@ alt="Screenshot of Railway Help Station"
 layout="intrinsic"
 width={2033} height={1380} quality={100} />
 
-Please ensure that you've searched for your issue before creating a new thread, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://help.railway.app/community-code-of-conduct).
+Please ensure that you've searched for your issue before creating a new thread, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://help.railway.com/community-code-of-conduct).
 
 ### Priority Threads
 
-For Pro plan users, threads created in the [Help Station](https://help.railway.app) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 1 business day (if community members are unable to help).
+For Pro plan users, threads created in the [Help Station](https://help.railway.com) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 1 business day (if community members are unable to help).
 
 We pay special attention to threads created by Pro users and ensure that questions or concerns are resolved in a timely manner.
 
@@ -42,7 +42,7 @@ For teams and companies requiring SLOs and higher-priority support over chat, si
 
 ### Private Threads
 
-You create a **Private Thread** on [Help Station](https://help.railway.app/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
+You create a **Private Thread** on [Help Station](https://help.railway.com/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1715282996/docs/priv-threads_lus6tx.png"
@@ -82,7 +82,7 @@ alt="Screenshot of Slack Account Linking"
 layout="intrinsic"
 width={534} height={278} quality={100} />
 
-Connecting your Slack Account to your Railway Account allows the team to get insight into issues affecting your workloads without having to ask for additional information. [To link your Slack account to your Railway account, you can navigate to your Account settings page on Railway and follow the instructions provided.](https://railway.app/account)
+Connecting your Slack Account to your Railway Account allows the team to get insight into issues affecting your workloads without having to ask for additional information. [To link your Slack account to your Railway account, you can navigate to your Account settings page on Railway and follow the instructions provided.](https://railway.com/account)
 
 _Permissions_ - Railway only asks for permissions to link your Slack ID and your Workspace ID, our integration only can see messages within the shared Slack Connect channel.
 
@@ -103,7 +103,7 @@ For teams and companies who need dedicated support, we offer Business Class.
 
 Business Class is support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company.
 
-Reach out to us at [team@railway.app](mailto:team@railway.app) for more information on how to sign up.
+Reach out to us at [team@railway.com](mailto:team@railway.com) for more information on how to sign up.
 
 ### Business Class SLOs
 
@@ -117,7 +117,7 @@ Reach out to us at [team@railway.app](mailto:team@railway.app) for more informat
 
 | Priority | Surface Areas                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1        | **Outages that impact production**. This covers the following components: incidents declared on <a href="https://status.railway.app/" target="_blank">status.railway.app</a> including and especially incidents with end-customer impact (e.g. inability to login to the Dashboard), customer workload-impacting issues due to high load requiring intervention from Railway (e.g. requiring additional resources beyond your current limits). |
+| 1        | **Outages that impact production**. This covers the following components: incidents declared on <a href="https://status.railway.com/" target="_blank">status.railway.com</a> including and especially incidents with end-customer impact (e.g. inability to login to the Dashboard), customer workload-impacting issues due to high load requiring intervention from Railway (e.g. requiring additional resources beyond your current limits). |
 | 2        | **Issues related to Railway features**. This covers features offered by Railway, including but not limited to our Dashboard, CLI, and platform-level features such as Deployments, Environments, Private Networking, Volumes.                                                                                                                                                                                                                  |
 | 3        | **Integration work and general questions related to Railway**. This covers customer-related requests involving integrating Railway with other services (e.g. fronting your Railway workload with a DDoS protection service), leveraging tools to use Railway the way you like (e.g. IaC provisioning/Terraform), or questions about Railway features or its platform.                                                                          |
 
@@ -143,4 +143,4 @@ Security audits can be provided by request.
 
 ## Enterprise
 
-For enterprises, we offer everything in [Business Class](#business-class) along with custom support tailored to your needs. Reach out to us at [team@railway.app](mailto:team@railway.app) for more information.
+For enterprises, we offer everything in [Business Class](#business-class) along with custom support tailored to your needs. Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.

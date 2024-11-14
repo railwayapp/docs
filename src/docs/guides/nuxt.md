@@ -49,11 +49,11 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/lQQgLR)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/lQQgLR)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=nuxt" target="_blank">variety of Nuxt app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.com/templates?q=nuxt" target="_blank">variety of Nuxt app templates</a> created by the community.
 
 ### Deploy from the CLI
 
@@ -114,7 +114,7 @@ width={2383} height={2003} quality={100} />
 To deploy a Nuxt app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Modify Package.json Config**:
     - Follow [step 3 mentioned in the CLI guide](#deploy-from-the-cli)
 3. **Deploy from GitHub**: 
