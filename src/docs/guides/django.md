@@ -285,9 +285,9 @@ _My Monolith Django app_
 
 Please follow these steps to get it setup on Railway:
 
-1. Create a Redis Database service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
+1. Create a Redis Database service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a> by clicking the **Create** button. Then select **Database** and choose **Add Redis**.
      - Click on **Deploy**.
-3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
+3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a> by clicking the **Create** button. Then select **Empty service**.
     -  Name the service **App Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a> to configure it.
         - **Note:** If you followed the guide from the beginning, simply rename the existing service to **App Service**.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
@@ -300,7 +300,7 @@ Please follow these steps to get it setup on Railway:
         - `PGPORT`: Set the value to `${{Postgres.PGPORT}}`
         - `PGDATABASE`: Set the value to `${{Postgres.PGDATABASE}}` (this references the Postgres database name). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
     - Click **Deploy**.
-4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
+4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a> by clicking the **Create** button. Then select **Empty service**. 
     - Name the service **Cron Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
     - Add `celery -A liftoff beat -l info --concurrency=3` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section. 
