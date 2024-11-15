@@ -312,7 +312,7 @@ Please follow these steps to get it setup on Railway:
 5. Create a new service again on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
     - Name the service **Worker Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
-    - Add `celery -A liftoff worker -l info` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section. 
+    - Add `celery -A liftoff worker -l info --concurrency=3` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section. 
         - _Note:_ `liftoff` is the name of the app. 
         - The `--concurrency=3` option here means it can process up to 3 tasks in parallel. You can adjust the [concurrency level](https://docs.celeryq.dev/en/latest/userguide/workers.html#concurrency) based on your system resources. The higher the level, the more memory and resources it consumes.
     - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
