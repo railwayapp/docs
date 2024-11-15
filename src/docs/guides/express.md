@@ -120,11 +120,15 @@ Railway offers multiple ways to deploy your Express app, depending on your setup
 
 ### One-Click Deploy from a Template
 
-If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
+If you’re looking for the fastest way to get started with Express, Pug and connected to a Postgres database, the one-click deploy option is ideal.
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/VUVlu3)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/BC51z6)
+
+For Express API, here's another template you can begin with:
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/Y6zLKF)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
