@@ -138,7 +138,7 @@ const Home: NextPage = () => {
             <DiscordIcon tw="w-8 h-8" />
             <div>Join our Discord Server </div>
           </OverviewSecondaryLink>
-          <OverviewSecondaryLink href="https://railway.app/changelog">
+          <OverviewSecondaryLink href="https://railway.com/changelog">
             <RssIcon tw="w-8 h-8 bg-pink-700" />
             Check out the Changelog
           </OverviewSecondaryLink>

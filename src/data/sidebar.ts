@@ -150,7 +150,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           {
             title: "Deploy Offen",
-            url: "https://blog.railway.app/p/offen-web-analytics",
+            url: "https://blog.railway.com/p/offen-web-analytics",
           },
         ],
       },
@@ -159,11 +159,11 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           {
             title: "Queues on Railway",
-            url: "https://blog.railway.app/p/queues",
+            url: "https://blog.railway.com/p/queues",
           },
           {
             title: "Gitlab CI/CD with Railway",
-            url: "https://blog.railway.app/p/gitlab-ci-cd",
+            url: "https://blog.railway.com/p/gitlab-ci-cd",
           },
           makePage("Set Up a Datadog Agent", "tutorials"),
           makePage("Deploy an Otel Collector Stack", "tutorials"),
@@ -179,11 +179,11 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           {
             title: "Backing Up Redis",
-            url: "https://blog.railway.app/p/redis-backup",
+            url: "https://blog.railway.com/p/redis-backup",
           },
           {
             title: "Backing Up Postgres",
-            url: "https://blog.railway.app/p/postgre-backup",
+            url: "https://blog.railway.com/p/postgre-backup",
           },
         ],
       },
@@ -192,7 +192,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           {
             title: "GitHub Actions",
-            url: "https://blog.railway.app/p/github-actions",
+            url: "https://blog.railway.com/p/github-actions",
           },
         ],
       },

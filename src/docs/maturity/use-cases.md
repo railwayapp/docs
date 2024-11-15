@@ -29,7 +29,7 @@ All of these verticals deploy workloads that may require high bandwidth operatio
 
 However, service scale on the platform is not unbounded. As a foundational infrastructure company, we understand that customers may outpace our pace of improvement for the platform. Even though 32 vCPU and 32 GB of memory sounds like a lot (with up to 20 replicas) on the Pro plan, when faced with hyper-growth: throwing more resources at the issue might be your best bet until long term optimizations can be made by your team.
 
-Railway will gladly bump up your service limits within your tier of service to meet your needs. Even so, we will be frank and honest if you may need to seek elsewhere to augment your workloads with extra compute. If your compute needs outpace our Pro offering, consider our Enterprise plans where we offer even greater limits and capacity planning, [email us to learn more](mailto:team@railway.app), or [click here](https://cal.com/team/railway/demonew) to schedule some time to chat.
+Railway will gladly bump up your service limits within your tier of service to meet your needs. Even so, we will be frank and honest if you may need to seek elsewhere to augment your workloads with extra compute. If your compute needs outpace our Pro offering, consider our Enterprise plans where we offer even greater limits and capacity planning, [email us to learn more](mailto:team@railway.com), or [click here](https://cal.com/team/railway/demonew) to schedule some time to chat.
 
 ### Databases
 
@@ -97,6 +97,6 @@ Unfortunately, our platform isn't yet well-equipped to handle the following vert
 
 ## General Recommendations
 
-A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.app](mailto:team@railway.app), or via our [Discord server](https://discord.gg/railway).  You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/demonew).
+A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.com](mailto:team@railway.com), or via our [Discord server](https://discord.gg/railway).  You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/demonew).
 
 We would be happy to answer any additional questions you may have.

@@ -70,7 +70,7 @@ Before you can use the Railway CLI, you must authenticate the CLI to your Railwa
 railway login
 ```
 
-This command opens a new tab in your default browser to the [https://railway.app](https://railway.app)
+This command opens a new tab in your default browser to the [https://railway.com](https://railway.com)
 authentication page. Follow the instructions to complete the authentication process.
 
 ### Manual Login

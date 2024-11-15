@@ -14,7 +14,7 @@ async function main() {
   }
 
   const response = await fetch(
-    "https://backboard.railway.app/railway.schema.json",
+    "https://backboard.railway.com/railway.schema.json",
   );
   if (!response.ok) {
     throw new Error("Could not fetch JSON schema");

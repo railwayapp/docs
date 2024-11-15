@@ -4,7 +4,7 @@ title: Templates
 
 Templates provide a way to jumpstart a project by giving users the means to package a service or set of services into a reusable and distributable format.
 
-As a user in Railway, you can create and publish templates for others to use, or you can deploy templates from our <a href="https://railway.app/templates" target="_blank">template marketplace</a>.
+As a user in Railway, you can create and publish templates for others to use, or you can deploy templates from our <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
 
 For information on how to create, publish, and deploy templates, visit our [Templates guides](/guides/templates).
 
@@ -14,7 +14,7 @@ If you publish a template, and it is deployed into other users' projects, you ar
 
 If a user deploys your template, and the usage of the services cost the user $100, you could receive $25 in Railway credits.
 
-Read more about the kickback program <a href="https://railway.app/open-source-kickback" target="_blank">here</a>.
+Read more about the kickback program <a href="https://railway.com/open-source-kickback" target="_blank">here</a>.
 
 ### Kickback Eligibility Requirements
 - Your template must be published to the marketplace to be eligible for kickback.
@@ -69,7 +69,7 @@ If it has received an upstream update, we will create a branch on the GitHub rep
 If you are happy with the changes, you can merge the pull request, and we will automatically deploy it to your production environment.
 
 <Banner variant="info">
-If you're curious, you can read more about how we built updatable templates in this <Link href="https://blog.railway.app/p/updatable-starters" target="_blank">blog post</Link>.
+If you're curious, you can read more about how we built updatable templates in this <Link href="https://blog.railway.com/p/updatable-starters" target="_blank">blog post</Link>.
 </Banner>
 
 Note that this feature only works for services based on GitHub repositories. At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced.

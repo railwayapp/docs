@@ -48,7 +48,7 @@ The backend, built with [Go](https://go.dev/), will stream quotes that will be d
 
 ## 1. Create a new empty project
 
-- From [your dashboard](https://railway.app/dashboard) click `+ New Project`
+- From [your dashboard](https://railway.com/dashboard) click `+ New Project`
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721269034/docs/tutorials/monorepo/dashboard_zojmjg.png"
 alt="Screenshot of dashboard"
@@ -167,11 +167,11 @@ width={1386} height={760} quality={100} />
 
 **Notes:**
 
-- The variables used here are reference variables, learn more about them [here](https://docs.railway.app/guides/variables#referencing-another-services-variable).
+- The variables used here are reference variables, learn more about them [here](https://docs.railway.com/guides/variables#referencing-another-services-variable).
 
 - Both the Frontend and Backend variables reference each other's public domains. The `RAILWAY_PUBLIC_DOMAIN` variable will be automatically updated whenever you deploy or re-deploy a service.
 
-- See a list of additional variables [here](https://docs.railway.app/reference/variables#railway-provided-variables).
+- See a list of additional variables [here](https://docs.railway.com/reference/variables#railway-provided-variables).
 
 ## 6. Directory setup
 

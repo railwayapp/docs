@@ -20,13 +20,13 @@ To understand how much your app will cost to run on Railway, we recommend you to
 
 1. Deploy your project with the [Trial](/reference/pricing/free-trial) or Hobby plan
 2. Allow it to run for one week
-3. Check your Estimated Usage in the [Usage Section](https://railway.app/account/usage) of your account
+3. Check your Estimated Usage in the [Usage Section](https://railway.com/account/usage) of your account
 
 Keeping it running for one week allows us to rack up sufficient metrics to provide you with an estimate of your usage for the current billing cycle. You can then use this information to extrapolate the cost you should expect.
 
 We are unable to give exact quotes or estimates for how much it will cost to run your app because it is highly dependent on what you're deploying.
 
-For a rough approximation of the cost for running your app, try our [pricing calculator](https://railway.app/pricing#usage-estimation).
+For a rough approximation of the cost for running your app, try our [pricing calculator](https://railway.com/pricing#usage-estimation).
 
 If you are supporting a commercial application, we highly recommend you to upgrade to the Pro plan for higher resource limits and access to [priority support](/reference/support#priority-threads).
 
@@ -36,7 +36,7 @@ Check out our [guide on optimizing usage](/guides/optimize-usage).
 
 ### Why is my resource usage higher than expected?
 
-You can check your resource usage in the [Usage Section](https://railway.app/account/usage) of your account. This includes a breakdown of your resource usage by project, along with the resource it's consuming (CPU, Memory, Network, etc.)
+You can check your resource usage in the [Usage Section](https://railway.com/account/usage) of your account. This includes a breakdown of your resource usage by project, along with the resource it's consuming (CPU, Memory, Network, etc.)
 
 Common reasons for high resource usage include:
 
@@ -60,7 +60,7 @@ When the amount due on your invoice is less than $0.50, and you do not have a cr
 
 ### How do I view/manage/cancel my subscription?
 
-To view and manage your subscription, visit the [billing section](https://railway.app/account/billing) of the Railway dashboard.
+To view and manage your subscription, visit the [billing section](https://railway.com/account/billing) of the Railway dashboard.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1715777336/docs/manage-subscription_ssyxhg.png"
@@ -93,7 +93,7 @@ You can, however, cancel your current plan, wait until the end of the current bi
 
 <p><span style={{color: "var(--tw-prose-counters)"}}>1.</span> Cancel your current plan.</p>
 
-    - Head over to the <a href="https://railway.app/account/billing" target="_blank">billing page</a> of your account.
+    - Head over to the <a href="https://railway.com/account/billing" target="_blank">billing page</a> of your account.
     - Click on **Manage Subscription**.
     - Click on **Cancel Plan**.
 
@@ -103,7 +103,7 @@ You can, however, cancel your current plan, wait until the end of the current bi
 
     1. Prepaid Credits Model.
 
-        - Head over to the <a href="https://railway.app/account/upgrade" target="_blank">upgrade page</a>.
+        - Head over to the <a href="https://railway.com/account/upgrade" target="_blank">upgrade page</a>.
         - Scroll to the bottom and select **Looking for a prepaid subscription**.
         - Enter your billing information.
         - Enter the amount of credits you'd like to add to your account. (Minimum of $10)
@@ -113,7 +113,7 @@ You can, however, cancel your current plan, wait until the end of the current bi
 
     2. Auto-renewing Subscription Model.
 
-        - Head over to the <a href="https://railway.app/account/upgrade" target="_blank">upgrade page</a>.
+        - Head over to the <a href="https://railway.com/account/upgrade" target="_blank">upgrade page</a>.
         - Enter your billing information.
         - Click on **Subscribe to Hobby Plan**.
 
@@ -137,9 +137,9 @@ Your [services](/overview/the-basics#services) may be stopped by Railway for the
 
 - **Hobby credits exhausted:** You've run out of [prepaid credits](/reference/pricing/plans#credits). Add more credits to your account.
 
-- **Failed payment:** Your payment method has failed. Update your payment method and [pay your outstanding invoice](https://railway.app/account/billing).
+- **Failed payment:** Your payment method has failed. Update your payment method and [pay your outstanding invoice](https://railway.com/account/billing).
 
-- **Unpaid invoice:** You have an outstanding invoice. [Pay your outstanding invoice](https://railway.app/account/billing).
+- **Unpaid invoice:** You have an outstanding invoice. [Pay your outstanding invoice](https://railway.com/account/billing).
 
 In all cases, you can redeploy your services once the underlying issue is resolved, this can be done from the Removed deployment's [3-dot menu](/reference/deployments#deployment-menu).
 
@@ -147,7 +147,7 @@ In all cases, you can redeploy your services once the underlying issue is resolv
 
 ### I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?
 
-Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Help Station](https://help.railway.app).
+Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Help Station](https://help.railway.com).
 
 ### Why did I receive another invoice after cancelling my subscription?
 

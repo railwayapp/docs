@@ -4,11 +4,11 @@ title: Teams
 
 Teams are how organizations are represented within Railway. Teams can be created via the Pro or Enterprise plans.
 
-For more information, visit our [documentation on pricing](/reference/pricing) or <a href="https://railway.app/pricing" target="_blank">railway.app/pricing</a>.
+For more information, visit our [documentation on pricing](/reference/pricing) or <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
 ## Creating a Team
 
-Organizations can create a team by heading to the <a href="https://railway.app/new/team" target="_blank">Create Team</a> page and entering the required information.
+Organizations can create a team by heading to the <a href="https://railway.com/new/team" target="_blank">Create Team</a> page and entering the required information.
 
 ## Managing Teams
 
@@ -33,4 +33,4 @@ Railway offers a consumption-based pricing model for your projects. You don't ge
 
 However, if you expect to use a consistent amount of resources for large companies, you can contact us for a quote and demo. Railway will work with you to find a solution that works for your needs. We are willing to offer Purchase Orders and concierge onboarding for large companies.
 
-Reach out to us at [team@railway.app](mailto:team@railway.app) for more information.
+Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.

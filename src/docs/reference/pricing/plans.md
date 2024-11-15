@@ -24,7 +24,7 @@ Each Railway account needs an active subscription. The base subscription fee all
 | **Pro**        | $20 / team member / month |
 | **Enterprise** | Custom                    |
 
-Read more about our plans at <a href="https://railway.app/pricing" target="_blank">railway.app/pricing</a>.
+Read more about our plans at <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
 ### Default Plan Resources
 
@@ -73,7 +73,7 @@ The Pro plan **does not include any usage credits**. You will be billed for reso
 
 ### Additional services
 
-Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.app) to get started.
+Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.com) to get started.
 
 ## Credits
 
@@ -91,7 +91,7 @@ Credits as a payment method is only available for Hobby plan users.
 
 ### Purchasing credits
 
-You can purchase credits from your account's [usage page](https://railway.app/account/usage).
+You can purchase credits from your account's [usage page](https://railway.com/account/usage).
 
 ### One-time grant of credits on the Free Trial
 

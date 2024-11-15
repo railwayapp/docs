@@ -48,9 +48,9 @@ To prevent data corruption, we prevent multiple deployments from being active an
 
 ### Healthcheck Hostname
 
-Railway uses the hostname `healthcheck.railway.app` when performing healthchecks on your service. This is the domain from which the healthcheck requests will originate.
+Railway uses the hostname `healthcheck.railway.com` when performing healthchecks on your service. This is the domain from which the healthcheck requests will originate.
 
-For applications that restrict incoming traffic based on the hostname, you'll need to add `healthcheck.railway.app` to your list of allowed hosts. This ensures that your application will accept healthcheck requests from Railway.
+For applications that restrict incoming traffic based on the hostname, you'll need to add `healthcheck.railway.com` to your list of allowed hosts. This ensures that your application will accept healthcheck requests from Railway.
 
 If your application does not permit requests from that hostname, you may encounter errors during the healthcheck process, such as "failed with service unavailable" or "failed with status 400".
 
@@ -58,7 +58,7 @@ If your application does not permit requests from that hostname, you may encount
 
 The healthcheck endpoint is currently ***not used for continuous monitoring*** as it is only called at the start of the deployment, to ensure it is healthy prior to routing traffic to it.
 
-If you are looking for a quick way to setup continuous monitoring of your service(s), check out the <a href="https://railway.app/template/p6dsil" target="_blank">Uptime Kuma template</a> in our template marketplace.
+If you are looking for a quick way to setup continuous monitoring of your service(s), check out the <a href="https://railway.com/template/p6dsil" target="_blank">Uptime Kuma template</a> in our template marketplace.
 
 ## Restart Policy
 

@@ -101,4 +101,4 @@ For more advanced operations, like migrating your databases from Heroku to Railw
 
 ## Need Help?
 
-If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our <a href="https://discord.gg/railway" target="_blank">Discord</a> or over email at [team@railway.app](mailto:team@railway.app).
+If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our <a href="https://discord.gg/railway" target="_blank">Discord</a> or over email at [team@railway.com](mailto:team@railway.com).

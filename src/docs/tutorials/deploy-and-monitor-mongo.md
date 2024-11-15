@@ -34,7 +34,7 @@ By the end of this tutorial, you will have a project similar to the one below.
 alt="Screenshot of Project Canvas"
 layout="responsive"
 width={1477} height={823} quality={100} />
-<p style={{ marginTop: '-0.2em', fontSize: '0.8em', opacity: '0.6' }}>[Live Demo in Railway](https://railway.app/project/0976c33d-031f-4c31-9f6c-1457c66273e6)</p>
+<p style={{ marginTop: '-0.2em', fontSize: '0.8em', opacity: '0.6' }}>[Live Demo in Railway](https://railway.com/project/0976c33d-031f-4c31-9f6c-1457c66273e6)</p>
 
 **Let's get started!**
 
@@ -44,7 +44,7 @@ width={1477} height={823} quality={100} />
 
 First, we will deploy the Mongo replica set using the template in the Railway marketplace.
 
-- <a href="https://railway.app/new/template/gFmvuY" target="_blank">Click here to open the deployment page for the Mongo replica set</a>
+- <a href="https://railway.com/new/template/gFmvuY" target="_blank">Click here to open the deployment page for the Mongo replica set</a>
 - Click `Configure` next to the **init-mongo-ha** service and add your [Railway API token](/guides/public-api#creating-a-token)
 - Click `Deploy`
 
@@ -231,7 +231,7 @@ This service will connect to the MongoDB and retrieve various metrics.  It makes
 
 - Add a New service by clicking `+ New`
 - Select `Template` as the Source
-- Type Prometheus, and select the Prometheus template (be sure to select [this one](https://railway.app/template/KmJatA))
+- Type Prometheus, and select the Prometheus template (be sure to select [this one](https://railway.com/template/KmJatA))
 - Click `Deploy Template` to apply and deploy the service
 
 Now we need to configure Prometheus to scrape metrics from the exporter.

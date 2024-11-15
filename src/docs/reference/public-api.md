@@ -9,16 +9,16 @@ The Railway public API is built with GraphQL and is the same API that powers the
 The public API is accessible at the following endpoint:
 
 ```bash
-https://backboard.railway.app/graphql/v2
+https://backboard.railway.com/graphql/v2
 ```
 
 ## Authentication
 
-To use the API, you will need an API token. You can create one by visiting the <a href="https://railway.app/account/tokens" target="_blank">tokens page</a> in your account settings.
+To use the API, you will need an API token. You can create one by visiting the <a href="https://railway.com/account/tokens" target="_blank">tokens page</a> in your account settings.
 
 ```bash
 curl --request POST \
-  --url https://backboard.railway.app/graphql/v2 \
+  --url https://backboard.railway.com/graphql/v2 \
   --header 'Authorization: Bearer <API_TOKEN_GOES_HERE>' \
   --header 'Content-Type: application/json' \
   --data '{"query":"query { me { name email } }"}'
@@ -47,7 +47,7 @@ We provide a collection file which can be imported into your preferred API clien
 
 ### GraphiQL Playground
 
-Use our [GraphiQL playground](https://railway.app/graphiql) to view the schema and test your queries.
+Use our [GraphiQL playground](https://railway.com/graphiql) to view the schema and test your queries.
 
 
 ## Rate Limits

@@ -6,7 +6,7 @@ Users are billed monthly based on their project's per-minute usage.  All service
 1. **RAM** → $0.000231 / GB / minute
 2. **CPU** → $0.000463 / vCPU / minute
 
-Users can see the usage of their projects under <a href="https://railway.app/account/usage" target="_blank">the usage page</a>.
+Users can see the usage of their projects under <a href="https://railway.com/account/usage" target="_blank">the usage page</a>.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/project-usage_gd43fq.png"
 alt="Screenshot of Expanded Project Usage Pane"

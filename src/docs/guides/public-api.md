@@ -24,12 +24,12 @@ To connect to and query the Public API, you will need the endpoint URL and a tok
 The public API is accessible at the following endpoint:
 
 ```bash
-https://backboard.railway.app/graphql/v2
+https://backboard.railway.com/graphql/v2
 ```
 
 ### Creating a token
 
-To use the API, you will need an API token. You can create one by visiting the [tokens page](https://railway.app/account/tokens) in your account settings. There are two types of tokens you can create.
+To use the API, you will need an API token. You can create one by visiting the [tokens page](https://railway.com/account/tokens) in your account settings. There are two types of tokens you can create.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1667386744/docs/new-token-form_rhrbw8.png"
 alt="New token form"
@@ -58,7 +58,7 @@ Once you have your token, you can pass it within the `Authorization` header of y
 
 ```bash
 curl --request POST \
-  --url https://backboard.railway.app/graphql/v2 \
+  --url https://backboard.railway.com/graphql/v2 \
   --header 'Authorization: Bearer <API_TOKEN_GOES_HERE>' \
   --header 'Content-Type: application/json' \
   --data '{"query":"query { me { name email } }"}'
@@ -76,7 +76,7 @@ Once imported, you should only need to add your API token to get connected and s
 
 ### GraphiQL Playground
 
-Alternatively, you can use our [GraphiQL playground](https://railway.app/graphiql) to view the schema and test your queries.
+Alternatively, you can use our [GraphiQL playground](https://railway.com/graphiql) to view the schema and test your queries.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1694611003/rw-graphiql_zs2l28.png" alt="GraphiQL Playground" layout="responsive" width={6568} height={3886} quality={80} />
 

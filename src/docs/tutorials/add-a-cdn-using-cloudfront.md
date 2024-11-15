@@ -287,14 +287,14 @@ Let's first generate an SSL certificate -
 - Under the General tab, click the `Edit` button
 - Under *Custom SSL certificate*, click the *"Request certificate"* link below the input field.  This will take you to AWS Certificate Manager.
 - Click the `Next` button to request a public certificate
-- Enter your fully qualified domain name, e.g. `www.railway.app`
-  - If you'd like the cert to include the apex domain, click `Add another name to this certificate` and enter it, e.g. `railway.app`
+- Enter your fully qualified domain name, e.g. `www.railway.com`
+  - If you'd like the cert to include the apex domain, click `Add another name to this certificate` and enter it, e.g. `railway.com`
 - Click the `Next` button to generate the certificate
 - In **Namecheap**, in the Advanced DNS section for the domain, add the host record(s).
   - If you set up the certificate for both www and the apex domain, you will add two **CNAME** records
   - The CNAME name value provided by AWS, should be used as the **Host** value in Namecheap.
   - The CNAME name value provided by AWS, includes the domain name, but in Namecheap, you should add everything except the domain, e.g. 
-    - if your CNAME name is `_6cf3abcd1234abcd1234aabb11cc22.www.railway.app` 
+    - if your CNAME name is `_6cf3abcd1234abcd1234aabb11cc22.www.railway.com` 
     - you should add `_6cf3abcd1234abcd1234aabb11cc22.www` to the **Host** value in Namecheap
 - Once you add the DNS records in Namecheap, refresh the Certificate status page in AWS to confirm the Status shows **Success**
 

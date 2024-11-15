@@ -21,7 +21,7 @@ Volumes can be "Grown" after upgrading to a different plan.
 
 Pro users and above can self-serve to increase their volume up to 250 GB.
 
-Please reach out to us on our [Help Station](https://help.railway.app/questions) or [Slack](/reference/support#slack) if you need more space.
+Please reach out to us on our [Help Station](https://help.railway.com/questions) or [Slack](/reference/support#slack) if you need more space.
 
 ## Pricing
 

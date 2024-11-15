@@ -41,7 +41,7 @@ For example, these configuration definitions are equivalent:
     <div style={{ flex: '1 1 50%', overflow: 'auto', minWidth: '200px', maxWidth: '350px' }}>
         ```json
         {
-          "$schema": "https://railway.app/railway.schema.json",
+          "$schema": "https://railway.com/railway.schema.json",
           "build": {
             "builder": "nixpacks",
             "buildCommand": "echo building!"
@@ -61,13 +61,13 @@ For example, these configuration definitions are equivalent:
 
 ## JSON Schema
 
-You can find an always up-to-date [JSON schema](https://json-schema.org/) at [railway.app/railway.schema.json](https://railway.app/railway.schema.json).
+You can find an always up-to-date [JSON schema](https://json-schema.org/) at [railway.com/railway.schema.json](https://railway.com/railway.schema.json).
 
 If you include it in your `railway.json` file, many editors (e.g. VSCode) will provide autocomplete and documentation.
 
 ```json
 {
-  "$schema": "https://railway.app/railway.schema.json"
+  "$schema": "https://railway.com/railway.schema.json"
 }
 ```
 

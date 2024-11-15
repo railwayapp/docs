@@ -4,7 +4,7 @@ title: Projects
 
 Projects are containers for environments and services in Railway.
 
-If you are logged in, projects can be found on <a href="https://railway.app/dashboard" target="_blank">your project dashboard</a>.
+If you are logged in, projects can be found on <a href="https://railway.com/dashboard" target="_blank">your project dashboard</a>.
 
 ## Project Canvas
 

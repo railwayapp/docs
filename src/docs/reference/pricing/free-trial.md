@@ -17,7 +17,7 @@ When you sign up for a free Trial, you can connect your GitHub account to initia
 
 If your account is not verified — either because you have not initiated the verification process or your account does not meet our criteria for verification — your trial experience will be limited to deploying databases.
 
-Verification is a necessary measure to prevent abuse of the free Trial, limiting users from creating multiple accounts and reducing the risk of trial users deploying or hosting content that violates Railway's [Terms of Service](https://railway.app/legal/fair-use).
+Verification is a necessary measure to prevent abuse of the free Trial, limiting users from creating multiple accounts and reducing the risk of trial users deploying or hosting content that violates Railway's [Terms of Service](https://railway.com/legal/fair-use).
 
 This is a fully automated process, and Railway does not respond to requests for verification. If your account is not verified, you can upgrade to the Hobby plan to unlock the full Railway experience.
 
@@ -25,7 +25,7 @@ This is a fully automated process, and Railway does not respond to requests for 
 
 ### How do I get started with the free Trial?
 
-If you do not already have a Railway account, you can sign up for a free Trial by clicking "Login" at [railway.app](https://railway.app/).
+If you do not already have a Railway account, you can sign up for a free Trial by clicking "Login" at [railway.com](https://railway.com/).
 
 ### How does the Trial work?
 
@@ -43,7 +43,7 @@ If you connect your GitHub account, and we are able to verify it against a set o
 
 If you do not connect a GitHub account, or we are not able to verify your account, you will be on the Limited Trial, where you can only deploy databases.
 
-While you're on the Limited Trial, you can initiate verification at any time by visiting [railway.app/verify](https://railway.app/verify) in order to access the Full Trial experience.
+While you're on the Limited Trial, you can initiate verification at any time by visiting [railway.com/verify](https://railway.com/verify) in order to access the Full Trial experience.
 
 ### How far will the $5 one-time Trial grant last?
 

@@ -8,7 +8,7 @@ Railway provides controls over resource usage in the form of usage limits and au
 
 Usage Limits allow you to set a maximum limit on your usage for a billing cycle.
 
-Visit the <a href="https://railway.app/account/usage" target="_blank">Account Usage page</a> to set the usage limits. Once you click the <kbd>Set Usage Limits</kbd> button, you will see a modal above where you can set a <kbd>Custom email alert</kbd> and a <kbd>Hard limit</kbd>.
+Visit the <a href="https://railway.com/account/usage" target="_blank">Account Usage page</a> to set the usage limits. Once you click the <kbd>Set Usage Limits</kbd> button, you will see a modal above where you can set a <kbd>Custom email alert</kbd> and a <kbd>Hard limit</kbd>.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1694775828/usage-limits_hzv9ee.png" alt="Usage Limits Modal" layout="responsive" width={1252} height={1150} />
 

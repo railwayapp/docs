@@ -40,7 +40,7 @@ If you have a custom domain, you can easily add it to your Railway service.
 
 ## Integration Tools
 
-A <a href="https://docs.railway.app/guides/cli" target="_blank">CLI</a> and an <a href="https://docs.railway.app/guides/public-api" target="_blank">API</a> are available to wire your Railway projects into any workflow.
+A <a href="https://docs.railway.com/guides/cli" target="_blank">CLI</a> and an <a href="https://docs.railway.com/guides/public-api" target="_blank">API</a> are available to wire your Railway projects into any workflow.
 
 ### CLI
 
@@ -48,11 +48,11 @@ The Railway Command Line Interface (CLI) lets you interact with your Railway pro
 - Trigger deployments programmatically.
 - Run services locally using environment variables from your Railway project.
 - Create new Railway projects from the Terminal.
-- Deploy <a href="https://docs.railway.app/reference/templates" target="_blank">templates</a>.
+- Deploy <a href="https://docs.railway.com/reference/templates" target="_blank">templates</a>.
 
 ### Public API
 
-The Railway <a href="https://docs.railway.app/guides/public-api" target="_blank">public API</a> is built with GraphQL and is the same API that powers the Railway dashboard.  Similar to the CLI, you can interact with your Railway project programmatically by communicating with the API.
+The Railway <a href="https://docs.railway.com/guides/public-api" target="_blank">public API</a> is built with GraphQL and is the same API that powers the Railway dashboard.  Similar to the CLI, you can interact with your Railway project programmatically by communicating with the API.
 
 ## Environments
 
