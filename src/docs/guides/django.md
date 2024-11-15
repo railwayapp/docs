@@ -274,10 +274,10 @@ The deployment structure follows a "majestic monolith" architecture, where the e
 - **Worker Service**: Processes background jobs from the queue using Celery.
 - **Database Service**: Stores and retrieves your application's data.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727910244/docs/quick-start/deploy%20architecture.png"
-alt="screenshot of the deploy architecture of the Laravel app"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1731604331/docs/quick-start/deployed_django_app_architecture.png"
+alt="screenshot of the deploy architecture of the Django app"
 layout="responsive"
-width={3118} height={1776} quality={100} />
+width={3237} height={1951} quality={100} />
 _My Monolith Django app_
 
 
