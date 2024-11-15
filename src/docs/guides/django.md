@@ -304,7 +304,7 @@ Please follow these steps to get it setup on Railway:
     - Name the service **Cron Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
     - Add `celery -A liftoff beat -l info --concurrency=3` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section. 
-        - _Note:_ `liftoff` is the name of the app. 
+        - _Note:_ `liftoff` is the name of the app. You can find the app name in your Django project’s main folder, typically in the directory containing `settings.py`.
         - The `--concurrency=3` option here means it can process up to 3 tasks in parallel. You can adjust the [concurrency level](https://docs.celeryq.dev/en/latest/userguide/workers.html#concurrency) based on your system resources. The higher the level, the more memory and resources it consumes.
     - Head back to the top of the service and click on  <a href="/overview/the-basics#service-variables">**Variables**</a>.
     - Add all the necessary environment variables especially those highlighted already in step 2.
@@ -313,7 +313,7 @@ Please follow these steps to get it setup on Railway:
     - Name the service **Worker Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
     - Add `celery -A liftoff worker -l info --concurrency=3` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section. 
-        - _Note:_ `liftoff` is the name of the app. 
+        - _Note:_ `liftoff` is the name of the app. You can find the app name in your Django project’s main folder, typically in the directory containing `settings.py`.
         - The `--concurrency=3` option here means it can process up to 3 tasks in parallel. You can adjust the [concurrency level](https://docs.celeryq.dev/en/latest/userguide/workers.html#concurrency) based on your system resources. The higher the level, the more memory and resources it consumes.
     - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
     - Add all the necessary environment variables especially those highlighted already in step 2.
