@@ -111,7 +111,7 @@ Since the containers are deployed from bitnami images, you can reference the doc
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential.  Consider adding:
 
-- **Backup solutions**: Automate regular backups to ensure data recovery in case of failure.  We suggest reviewing the popular [PostgreSQL S3 backups](https://railway.com/template/I4zGrH) template as an example.
+- **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/reference/backups) feature.
 
 - **Observability**: Implement monitoring for insights into performance and health of your databases.  If you're not already running an observability stack, check out these templates to help you get started building one:
     - [Prometheus](https://railway.com/template/KmJatA)

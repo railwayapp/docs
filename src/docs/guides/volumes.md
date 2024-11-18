@@ -115,3 +115,7 @@ To increase capacity in a volume, you can "grow" it from the volume settings.
 />
 
 Note: growing a volume requires a restart of the attached service.
+
+## Backups
+
+Services with volumes support manual and automated backups, backups are covered in the [backups](/reference/backups) reference guide.

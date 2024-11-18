@@ -107,7 +107,6 @@ export const sidebarContent: ISidebarContent = [
           makePage("Redis", "guides"),
           makePage("MongoDB", "guides"),
           makePage("Database View", "guides"),
-          makePage("Database Migration Guide", "guides"),
         ],
       },
       {
@@ -224,6 +223,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Deployment Regions", "reference"),
           makePage("Dockerfiles", "reference"),
           makePage("Healthchecks", "reference"),
+          makePage("Backups", "reference"),
           makePage("Integrations", "reference"),
           makePage("Nixpacks", "reference"),
           makePage("Private Networking", "reference"),

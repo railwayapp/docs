@@ -6,9 +6,9 @@ Backups are a feature that enables data recovery for [volumes](/reference/volume
 
 ## How it works
 
-When mounted to a service, backups can be manually created, deleted and restored. And they can also work on a Daily/Weekly/Monthly schedule.
+When a [volume](/reference/volumes) is mounted to a service, backups can be manually created, deleted and restored. And they can also work on a Daily/Weekly/Monthly schedule.
 
-Schedules are beta and exist behind a feature-flag, that can be toggled in the service settings panel.
+Schedules are beta and exist behind a feature-flag, that can be toggled in the service settings panel and then enabled in the Backups tab of a service.
 
 ## Retention
 
@@ -20,13 +20,13 @@ Schedules are beta and exist behind a feature-flag, that can be toggled in the s
 
 Backups are incremental and Copy-on-Write, we only charge for the data exclusive to them, that aren't from other snapshots or the volume itself.
 
-You are only billed for the incremental size of the backup at $025 / GB, billed monthly.
+You are only billed for the incremental size of the backup at $0.25 / GB, billed monthly.
 
 ## Caveats
 
 Backups are a newer feature that is still under development. Here are some limitations of which we are currently aware:
 
-- Backup incremental sizes are cached for a couple of hours when listed in the frontend, so they may show slightly stale data
-- Wiping a volume deletes all backups
-- Backups can only be restored to the same project + environment
+- Backup incremental sizes are cached for a couple of hours when listed in the frontend, so they may show slightly stale data.
+- Wiping a volume deletes all backups.
+- Backups can only be restored into the same project + environment.
 
