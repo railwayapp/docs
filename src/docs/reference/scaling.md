@@ -16,7 +16,7 @@ Scale horizontally by manually increasing the number of replicas for a service i
 
 #### Load Balancing Between Replicas
 
-Railway will round-robin requests to the replicas of a service. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
+Railway will randomly distribute requests to the replicas of a service. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
 
 We plan to add more advanced load balancing strategies in the future.
 

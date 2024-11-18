@@ -107,9 +107,9 @@ You can also fork the [Mongo Cluster](https://github.com/railwayapp-templates/mo
 
 ## Backup and Monitoring
 
-Especially for production environments, performing regular backups and monitoring the health of your database is essential.  Consider adding:
+Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
 
-- **Backup solutions**: Automate regular backups to ensure data recovery in case of failure.  We suggest checking out this [Database S3 backups](https://railway.com/template/U_wjYd) template as an example.
+- **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/reference/backups) feature.
 
 - **Observability**: Implement monitoring for insights into performance and health of your database.  Check out the tutorial which covers [setting up observability on a Mongo replica set](https://docs.railway.com/tutorials/deploy-and-monitor-mongo#4-set-up-monitoring-of-the-replica-set).
 

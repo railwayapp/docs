@@ -29,6 +29,10 @@ Volumes are billed at **$0.25 / GB**, billed monthly.
 
 You are only charged for the amount of storage used by your volumes. *Each volume requires a small amount of space to store metadata about the filesystem, so a new volume will start with a small amount of space used.*
 
+## Backups
+
+Services with volumes support manual and automated backups, backups are covered in the [backups](/reference/backups) reference guide.
+
 ## Caveats
 
 Volumes is a newer feature that is still under development. Here are some limitations of which we are currently aware:

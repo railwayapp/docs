@@ -38,11 +38,11 @@ We have customers using our databases for their production environment with no i
 Our databases are provided with no SLAs, are not highly available, and scale only to the limits of your plan. We don't think they are suitable for anything mission-critical, like if you wanted to start a bank.
 
 We advise developers to:
-- Configure backups 
+- [Configure backups](/reference/backups) 
 - Run-book and restore their backups
 - Configure secondaries to connect to in-case of a disaster situation
 
-Included in our planned near-term work for databases on Railway are built in backups, additional database metrics, and SSH access into the running database. 
+Included in our planned near-term work for databases on Railway are additional database metrics, and SSH access into the running database. 
 
 As mentioned before: we don't believe in vendor lock-in here at Railway, if your needs outpace us, consider other vendors like PlanetScale (for MySQL) or Cockroach (for Postgres).
 

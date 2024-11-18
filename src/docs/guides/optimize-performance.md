@@ -29,7 +29,7 @@ Each replica will be deployed with a Railway-provided environment variable named
 
 ### Load Balancing between Replicas
 
-At the moment, Railway will round-robin requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
+At the moment, Railway will randomly distribute requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
 
 **Note:** For now Railway does not support sticky sessions nor report the usage of the replicas within the metrics view.
 

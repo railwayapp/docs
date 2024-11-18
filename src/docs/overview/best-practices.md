@@ -40,6 +40,8 @@ There are a few key advantages of keeping related services within the same proje
 
 - **Project clutter** - Deploying a new service or database as an entire project will quickly become overwhelming and clutter your dashboard.
 
+- **Variable management** - Variables can be referenced between services within a project, reducing redundancy and making it easier to manage instead of having to manually copy variables between services.
+
 <Image src="https://res.cloudinary.com/railway/image/upload/v1725659271/docs/best-practices/related_services_in_a_project_mtxuis.png"
 alt="screenshot of the project canvas showing multiple linked services"
 layout="intrinsic"
