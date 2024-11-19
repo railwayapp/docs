@@ -121,14 +121,19 @@ Options:
 
 ```txt
 ~ railway domain --help
-Generates a domain for a service if there is not a railway provided domain
+Add a custom domain or generate a railway provided domain for a service
 
-Usage: railway domain [OPTIONS]
+Usage: railway domain [OPTIONS] [DOMAIN]
+
+Arguments:
+  [DOMAIN]  Optionally, specify a custom domain to use. If not specified, a domain will be generated
 
 Options:
-      --json     Output in JSON format
-  -h, --help     Print help
-  -V, --version  Print version
+  -p, --port <PORT>        The port to connect to the domain
+  -s, --service <SERVICE>  The name of the service to generate the domain for
+      --json               Output in JSON format
+  -h, --help               Print help (see more with '--help')
+  -V, --version            Print version
 ```
 
 ## Docs
