@@ -2,19 +2,23 @@
 title: Backups
 ---
 
-Backups are a feature that enables data recovery for [volumes](/reference/volumes) on Railway.
+The backup feature enables data recovery for all content stored in [volumes](/reference/volumes). This includes both our database offerings and any other data stored within a volume, such as an SQLite database.
 
 ## How it works
 
-When a [volume](/reference/volumes) is mounted to a service, backups can be manually created, deleted and restored. And they can also work on a Daily/Weekly/Monthly schedule.
+When a [volume](/reference/volumes) is mounted to a service, backups can be manually created, deleted and restored. And they can also be scheduled to run on a Daily / Weekly / Monthly schedule.
 
-Schedules are beta and exist behind a feature-flag, that can be toggled in the service settings panel and then enabled in the Backups tab of a service.
+## Backup Schedules
 
-## Retention
+Backups can be scheduled to run on a daily, weekly or monthly basis. They will be kept for a number of days / months based on the schedule.
 
-- Daily backups are taken every day and are kept for 6 days
-- Weekly backups are taken every week and are kept for 4 weeks
-- Monthly backups are taken every month and are kept for 3 months
+You can set the schedule in the service settings panel, under the Backups tab.
+
+- **Daily** - Backed up every 24 hours, kept for 6 days
+- **Weekly** - Backed up every 7 days, kept for 1 month
+- **Monthly** - Backed up every 30 days, kept for 3 months
+
+You can select multiple backup schedules for a single volume. These schedules can be modified at any time, and you can also manually trigger backups as needed.
 
 ## Pricing
 
