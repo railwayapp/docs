@@ -22,6 +22,9 @@ There are two scopes for Team members:
 
 - Admin: Full administration of the Team and all Team projects
 - Member: Access to all Team projects
+- Deployer: View projects and deploy through commits to repos via github integration.
+
+*Note*: Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their Github account is connected.
 
 ## Transferring Projects
 
