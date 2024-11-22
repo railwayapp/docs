@@ -18,7 +18,7 @@ You can open your team's settings page to manage team members and see billing in
 
 Under the General tab of the settings page, you can invite members to access the project.
 
-There are two scopes for Team members:
+There are three scopes for Team members:
 
 - Admin: Full administration of the Team and all Team projects
 - Member: Access to all Team projects
