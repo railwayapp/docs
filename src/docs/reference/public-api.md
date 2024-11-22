@@ -49,6 +49,11 @@ We provide a collection file which can be imported into your preferred API clien
 
 Use our [GraphiQL playground](https://railway.com/graphiql) to view the schema and test your queries.
 
+Make sure to set an Authorization header with an [auth token](/reference/public-api#authentication). Click the "Headers" tab at the bottom of the GraphiQL page and enter this json, using your own token:
+
+```json
+{"Authorization": "Bearer <API_TOKEN_GOES_HERE>"}
+```
 
 ## Rate Limits
 

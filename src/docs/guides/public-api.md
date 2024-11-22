@@ -80,6 +80,11 @@ Alternatively, you can use our [GraphiQL playground](https://railway.com/graphiq
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1694611003/rw-graphiql_zs2l28.png" alt="GraphiQL Playground" layout="responsive" width={6568} height={3886} quality={80} />
 
+Make sure to set an Authorization header with an [auth token](/reference/public-api#authentication). Click the "Headers" tab at the bottom of the GraphiQL page and enter this json, using your own token:
+
+```json
+{"Authorization": "Bearer <API_TOKEN_GOES_HERE>"}
+```
 
 ## Tips and Tricks
 

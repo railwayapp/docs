@@ -43,3 +43,6 @@ yarn-error.log*
 public/sitemap*.xml
 public/robots.txt
 .contentlayer
+
+/.envrc
+/.direnv/
