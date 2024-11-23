@@ -70,3 +70,11 @@ width={947} height={156} quality={80} />
 Restarting a crashed Deployment restores the exact image containing the code & configuration of the original build. Once the Deployment is back online, its status will change back to `Success`.
 
 You can also click within a deployment and using the Command Palette restart a deployment at any state.
+
+## Startup Order
+
+You can control the order your services start up with [Reference Variables](https://docs.railway.com/guides/variables#reference-variables).
+When one service references another, it will be deployed after the service it is referencing when
+applying a [staged change](https://docs.railway.com/guides/staged-changes) or [duplicating an environment](https://docs.railway.com/guides/environments#create-an-environment).
+
+An example of when this is useful is deploying an API service that depends on a [PostgreSQL database](https://docs.railway.com/guides/postgresql).
