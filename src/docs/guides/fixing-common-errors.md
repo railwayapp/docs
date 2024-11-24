@@ -65,6 +65,14 @@ quality={100}
 
 **Below are some solution examples for common languages and frameworks.**
 
+
+#### Node
+
+If you using a custom Node server ([example](https://nextjs.org/docs/pages/building-your-application/configuring/custom-server)) and trying to access it from another service via private networking, you will need to enable dual stack networking (IPv4 & IPv6) as Railway does not have support for IPv4. You may do so by passing the `HOSTNAME` environment variable like in the example below:
+```bash
+HOSTNAME=:: PORT=3000 node server.js
+```
+
 #### Node / Express
 
 ```javascript
@@ -105,6 +113,12 @@ gunicorn main:app
 ```
 
 There is no additional configuration necessary.
+
+If you using a Gunicorn server and trying to access it from another service via private networking, you will need to enable dual stack networking (IPv4 & IPv6) as Railway does not have support for IPv4. You may do so by passing the `-b` flag followed by `[::]:$PORT` like in the example below:
+
+```bash
+gunicorn -b '[::]:$PORT' main:app
+```
 
 #### Python / Uvicorn
 
