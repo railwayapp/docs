@@ -48,9 +48,9 @@ To prevent data corruption, we prevent multiple deployments from being active an
 
 ### Healthcheck Hostname
 
-Railway uses the hostname `healthcheck.railway.com` or the `healthcheck.railway.app` when performing healthchecks on your service. This is the domain from which the healthcheck requests will originate.
+Railway uses the hostname `healthcheck.railway.app` when performing healthchecks on your service. This is the domain from which the healthcheck requests will originate.
 
-For applications that restrict incoming traffic based on the hostname, you'll need to add `healthcheck.railway.com` and `healthcheck.railway.app` to your list of allowed hosts. This ensures that your application will accept healthcheck requests from Railway.
+For applications that restrict incoming traffic based on the hostname, you'll need to add `healthcheck.railway.app` to your list of allowed hosts. This ensures that your application will accept healthcheck requests from Railway.
 
 If your application does not permit requests from that hostname, you may encounter errors during the healthcheck process, such as "failed with service unavailable" or "failed with status 400".
 
