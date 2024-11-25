@@ -2,7 +2,7 @@
 title: Deploy a NestJS App
 ---
 
-[Nest](https://nestjs.com) is a progressive Node.js framework for building efficient, reliable and scalable server-side applications.
+[Nest](https://nestjs.com) is a modern Node.js framework designed to create efficient, reliable, and scalable server-side applications. Built on top of powerful HTTP server frameworks, it uses Express as the default but also offers seamless support for Fastify for enhanced performance and flexibility.
 
 This guide covers how to deploy a Nest app to Railway in four ways:
 
@@ -17,31 +17,27 @@ Now, let's go ahead and create a Nest app!
 
 **Note:** If you already have a Nest app locally or on GitHub, you can skip this step and go straight to the [Deploy Nest App to Railway](#deploy-the-nest-app-to-railway).
 
-To create a new Nest app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) installed on your machine.
+To create a new Nest app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) and [NestJS](https://docs.nestjs.com/#installation) installed on your machine.
 
-Create a directory, `helloworld`, and `cd` into it.
-
-Run the following command in your terminal to create a new Express app within the `helloworld` directory:
+Run the following command in your terminal to create a new Nest app:
 
 ```bash
-npx express-generator --view=pug
+nest new helloworld
 ```
 
-A new Express app will be provisioned for you in the `helloworld` directory using [pug](https://pugjs.org/api/getting-started.html) as the view engine.
+A new Nest app will be provisioned for you in the `helloworld` directory.
 
 ### Run the Nest App locally
 
-Run `npm install` to install all the dependencies.
-
-Next, start the app by running the following command:
+Next, start the app locally by running the following command:
 
 ```bash
-npm start
+npm run start
 ```
 
 Launch your browser and navigate to `http://localhost:3000` to view the app.
 
-If you'd prefer to run the app on a different port, simply use the command `PORT=8080 npm start` in the terminal.
+If you'd prefer to run the app on a different port, simply use the command `PORT=8080 npm run start` in the terminal.
 
 Afterward, you can access the app at `http://localhost:8080`.
 
@@ -49,97 +45,114 @@ Afterward, you can access the app at `http://localhost:8080`.
 
 **Note:** We will be using Postgres for this app. If you don’t have it installed locally, you can either [install it](https://www.postgresql.org/download) or use a different Node.js database package of your choice.
 
-1. Create a database named `expresshelloworld_dev`.
+1. Create a database named `nestjshelloworld_dev`.
 
-2. Install the [pg-promise](https://www.npmjs.com/package/pg-promise) package:
+2. Install the following packages:
 
 ```bash
-npm i pg-promise
+npm i @nestjs/typeorm typeorm pg
 ```
 
-3. Open the `routes/index.js` file and modify the content to the code below:
+- typeorm is an ORM library for Typescript and JavaScript.
+- pg is for communicating with Postgres database.
+
+3. Open the `src/app.module.ts` file and modify the content to the code below:
 
 ```js
-const express = require('express');
-const pgp = require('pg-promise')();
-const db = pgp('postgres://username:password@127.0.0.1:5432/expresshelloworld_dev');
-const router = express.Router();
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  db.one("SELECT NOW()")
-    .then(function (data) {
-      // Render the page only after receiving the data
-      res.render('index', { title: 'Hello World, Railway!', timeFromDB: data.now });
-    })
-    .catch(function (error) {
-      console.error("ERROR:", error);
-      // If there’s an error, send a 500 response and do not call res.render
-      res.status(500).send("Error querying the database");
-    });
-});
-
-module.exports = router;
+@Module({
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'username',
+      password: 'password',
+      database: 'nestjshelloworld_dev',
+      entities: [],
+      synchronize: true,
+    }),
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
 ```
 
-The code above sets up a simple Express app with a route handler for the home page. It uses the `pg-promise` library to connect to a Postgres database and runs a query to fetch the current time from the database using `SELECT NOW()`. Upon receiving the data, it renders the index view with the fetched time, sending it to the client along with a title.
+Start the app using the command, `npm run start:dev`. The code above tries to connect to the database once the app is started. If any of the credentials are wrong, you will see a warning stating that the app can't connect to the database.
 
-If an error occurs during the database query, the code catches the error, logs it, and sends a 500 status response to the client, indicating that there was an issue querying the database.
+4. Open `src/app.service.ts` file and modify the content to return `Hello World, Welcome to Railway!`. 
 
-The page is only rendered after successfully receiving the database response to ensure proper handling of the data.
+```js
+import { Injectable } from '@nestjs/common';
 
-4. Open the `views/index.pug` file, and update it to display the `timeFromDB` value on the page.
-
-```html
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-  p This is the time retrieved from the database:
-  p #{timeFromDB}
+@Injectable()
+export class AppService {
+  getHello(): string {
+    return 'Hello World, Welcome to Railway!';
+  }
+}
 ```
 
 5. Run the app again to see your changes in action!
 
-### Prepare Express App for deployment
+### Prepare NestJS App for deployment
 
-In the `routes/index.js` file, replace the hardcoded Postgres database URL with an environment variable:
+In the `src/app.module.ts` file, replace the hardcoded Postgres database credentials with environment variables:
 
 ```js
-...
-const db = pgp(process.env.DATABASE_URL);
-...
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+@Module({
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: process.env.DB_HOST,
+      port: 5432,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+      entities: [],
+      synchronize: true,
+    }),
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
 ```
 
 This allows the app to dynamically pull the correct database configuration from Railway during deployment.
 
-## Deploy the Express App to Railway
+## Deploy the Nest App to Railway
 
-Railway offers multiple ways to deploy your Express app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your Nest app, depending on your setup and preference. 
 
 ### One-Click Deploy from a Template
 
-If you’re looking for the fastest way to get started with Express, Pug and connected to a Postgres database, the one-click deploy option is ideal.
+If you’re looking for the fastest way to get started with Nest connected to a Postgres database, the one-click deploy option is ideal.
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/BC51z6)
-
-For Express API, here's another template you can begin with:
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/Y6zLKF)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/nvnuEH)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=express" target="_blank">variety of Express app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.app/templates?q=nest" target="_blank">variety of Nest app templates</a> created by the community.
 
 ### Deploy from the CLI
 
 1. **Install the Railway CLI**:
     - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Express app directory. 
+    - Run the command below in your Nest app directory. 
         ```bash
         railway init
         ```
@@ -153,8 +166,12 @@ We highly recommend that [you eject from the template after deployment](/guides/
     - Run `railway add`.
     - Select `Empty Service` from the list of options.
     - In the `Enter a service name` prompt, enter `app-service`.
-    - In the `Enter a variable` prompt, enter `DATABASE_URL=${{Postgres.DATABASE_URL}}`. 
-        - The value, `${{Postgres.DATABASE_URL}}`, references the URL of your new Postgres database. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
+    - In the `Enter a variable` prompt, enter 
+        - `DB_DATABASE=${{Postgres.PGDATABASE}}`. 
+        - `DB_USERNAME=${{Postgres.PGUSER}}`
+        - `DB_PASSWORD=${{Postgres.PGPASSWORD}}`
+        - `DB_HOST=${{Postgres.PGHOST}}`
+        - The Postgres values references the credentials of your new Postgres database. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
     
     **Note:** Explore the [Railway CLI reference](/reference/cli-api#add) for a variety of options.
 5. **Deploy the Application**:
@@ -165,14 +182,14 @@ We highly recommend that [you eject from the template after deployment](/guides/
     - Run `railway domain` to generate a public URL for your app.
     - Visit the new URL to see your app live in action!
 
-<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1731505753/express_on_railway.png"
-alt="screenshot of the deployed Express service"
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1732547945/docs/quick-start/nest_on_railway.png"
+alt="screenshot of the deployed Nest service"
 layout="responsive"
-width={2194} height={1652} quality={100} />
+width={2069} height={2017} quality={100} />
 
 ### Deploy from a GitHub Repo
 
-To deploy an Express app to Railway directly from GitHub, follow the steps below:
+To deploy a Nest app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
     - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
@@ -184,7 +201,11 @@ To deploy an Express app to Railway directly from GitHub, follow the steps below
     - Right-click on the Railway project canvas or click the **Create** button, then select **Database** and choose **Add PostgreSQL**. 
         - This will create and deploy a new PostgreSQL database for your project.
     - Once the database is deployed, you can return to adding the necessary environment variables:
-        -  `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+        - `DB_DATABASE=${{Postgres.PGDATABASE}}`. 
+        - `DB_USERNAME=${{Postgres.PGUSER}}`
+        - `DB_PASSWORD=${{Postgres.PGPASSWORD}}`
+        - `DB_HOST=${{Postgres.PGHOST}}`
+        - The Postgres values references the credentials of your new Postgres database. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
 4. **Deploy the App Service**:
     - Click **Deploy** on the Railway project canvas to apply your changes.
 5. **Verify the Deployment**:
@@ -197,7 +218,7 @@ To deploy an Express app to Railway directly from GitHub, follow the steps below
 
 ### Use a Dockerfile
 
-1. Create a `Dockerfile` in the Express app's root directory.
+1. Create a `Dockerfile` in the Nest app's root directory.
 2. Add the content below to the `Dockerfile`:
     ```bash
     # Use the Node official image
@@ -214,7 +235,7 @@ To deploy an Express app to Railway directly from GitHub, follow the steps below
     RUN npm ci
     
     # Serve the app
-    CMD ["npm", "run", "start"]
+    CMD ["npm", "run", "start:prod"]
     ```
 3. Either deploy via the CLI or from GitHub.
 
@@ -222,7 +243,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 
-This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Express apps seamlessly!
+This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Nest apps seamlessly!
 
 ## Next Steps
 
