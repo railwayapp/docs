@@ -93,6 +93,7 @@ async function bootstrap() {
 #### Node / Next
 
 Next needs an additional flag to listen on `PORT`:
+
 ```bash
 next start --port ${PORT-3000}
 ```
@@ -100,15 +101,15 @@ next start --port ${PORT-3000}
 #### Python / Gunicorn
 
 `gunicorn` listens on `0.0.0.0` and the `PORT` environment variable by default:
+
 ```bash
 gunicorn main:app
 ```
 
-There is no additional configuration necessary.
-
 #### Python / Uvicorn
 
 `uvicorn` needs additional configuration flags to listen on `0.0.0.0` and `PORT`:
+
 ```bash
 uvicorn main:app --host 0.0.0.0 --port $PORT
 ```

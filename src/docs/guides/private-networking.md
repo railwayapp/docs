@@ -17,9 +17,13 @@ To communicate over the private network, there are some specific things to know 
 
 ### Listen on IPv6
 
-Since the private network is an IPv6 network, applications that will receive requests over the private network must be configured to listen on IPv6.  On most web frameworks, you can do this via `::` and specifying the port(s) to which you want to bind.
+Since the private network is an IPv6 only network, applications that will receive requests over the private network must be configured to listen on IPv6. On most web frameworks, you can do this by binding to the host `::`.
 
-For example - 
+Some examples are below -
+
+#### Node / Express
+
+Listen on `::` to bind to both IPv4 and IPv6.
 
 ```javascript
 const port = process.env.PORT || 3000;
@@ -27,6 +31,64 @@ const port = process.env.PORT || 3000;
 app.listen(port, '::', () => {
     console.log(`Server listening on [::]${port}`);
 });
+```
+
+#### Node / Nest
+
+Listen on `::` to bind to both IPv4 and IPv6.
+
+```javascript
+const port = process.env.PORT || 3000;
+
+async function bootstrap() {
+  await app.listen(port, '::');
+}
+```
+
+#### Node / Next
+
+Update your start command to bind to both IPv4 and IPv6.
+
+```bash
+next start --hostname :: --port ${PORT-3000}
+```
+
+Or if you are using a custom server, set `hostname` to `::` in the configuration object passed to the `next()` function.
+
+```javascript
+const port = process.env.PORT || 3000;
+
+const app = next({
+  // ...
+  hostname: '::',
+  port: port
+});
+```
+
+If neither of these options are viable, you can set a `HOSTNAME` [service variable](/guides/variables#service-variables) with the value `::` to listen on both IPv4 and IPv6.
+
+#### Python / Gunicorn
+
+Update your start command to bind to both IPv4 and IPv6.
+
+```bash
+gunicorn app:app --bind [::]:${PORT-3000}
+```
+
+#### Python / Hypercorn
+
+Update your start command to bind to both IPv4 and IPv6.
+
+```bash
+hypercorn app:app --bind [::]:${PORT-3000}
+```
+
+#### Python / Uvicorn
+
+Update your start command to bind to IPv6.
+
+```bash
+uvicorn app:app --host :: --port ${PORT-3000}
 ```
 
 **Note:** If your application needs to be accessible over both private and public networks, your application server must support dual stack binding. Most servers handle this automatically when listening on `::`, but some, like Uvicorn, do not.
