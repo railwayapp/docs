@@ -16,15 +16,23 @@ You can open your team's settings page to manage team members and see billing in
 
 ## Inviting Members
 
-Under the General tab of the settings page, you can invite members to access the project.
+Under the People tab of the settings page, you can invite members to access the project.
 
-There are three scopes for Team members:
+There are three roles for Team members:
 
 - Admin: Full administration of the Team and all Team projects
 - Member: Access to all Team projects
 - Deployer: View projects and deploy through commits to repos via github integration.
 
 *Note*: Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their Github account is connected.
+
+## Trusted Domains
+
+You can automate the onboarding of new team members with trusted domains. Railway users that sign up with one of the trusted domains associated with your team will automatically be granted access to the team with the specified role (see above).
+
+For example, new users with `example.com` email addresses will automatically be added to your teams that have the `example.com` trusted domain.
+
+We verify that you have administrative access to the domain by looking for services in your team that use this domain or a subdomain. Make sure to [setup a custom domain](/guides/public-networking#custom-domains) on your service before adding it as a trusted domain.
 
 ## Transferring Projects
 
