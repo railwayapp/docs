@@ -280,4 +280,10 @@ export const sidebarContent: ISidebarContent = [
       makePage("Compare to Heroku", "maturity"),
     ],
   },
+  {
+    title: "Community",
+    content: [
+      makePage("The Conductor Program", "community"),
+    ],
+  },
 ];
