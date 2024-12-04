@@ -51,17 +51,6 @@ scoop install railway
 This installs a native Windows binary (`.exe`). To learn more about Scoop,
 see [https://scoop.sh/](https://scoop.sh/).
 
-### AUR (Arch Linux)
-
-In your terminal, enter the following command, depending on your AUR helper:
-```sh
-yay -S railwayapp-cli
-
-or
-
-paru -S railwayapp-cli
-```
-
 ### Pre-built Binaries
 
 We publish [pre-built binaries](https://github.com/railwayapp/cli/releases/latest)
