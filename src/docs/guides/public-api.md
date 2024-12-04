@@ -27,7 +27,7 @@ The public API is accessible at the following endpoint:
 https://backboard.railway.com/graphql/v2
 ```
 
-### Creating a token
+### Creating a Token
 
 To use the API, you will need an API token. You can create one by visiting the [tokens page](https://railway.com/account/tokens) in your account settings. There are two types of tokens you can create.
 
@@ -36,7 +36,7 @@ alt="New token form"
 layout="responsive"
 width={1618 } height={378} quality={80} />
 
-#### Team token
+#### Team Token
 
 Select a team in the `Team` dropdown to create a token tied to a team.  A team token -
 - Has access to all the team's resources
@@ -44,11 +44,11 @@ Select a team in the `Team` dropdown to create a token tied to a team.  A team t
 
 *Note that Teams are a Pro feature.*
 
-#### Personal token
+#### Personal Token
 
 If you do not select a team, the token will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
 
-#### Project token
+#### Project Token
 
 Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
 
@@ -94,11 +94,11 @@ While building your queries, if you quickly need to copy resource IDs, you can h
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1694616111/rw-cmd-palette_s5yilj.png" alt="Railway Command Palette" height={678} width={1176} quality={80} />
 
-### The network tab
+### The Network Tab
 
 If you're unsure about what query/mutation to use for what you are trying to achieve, you can always do the action in the dashboard and look for the request in the network tab. As we use the same API internally, you can simply grab the name and then look for specific query in the introspected schema.
 
-### External resources
+### External Resources
 
 1. The [awesome-graphql](https://github.com/chentsulin/awesome-graphql) repository is a great resource for all things GraphQL with implementations available across a variety of languages.
 2. The [GraphQL Discord](https://discord.graphql.org/) is the official Discord channel for graphql.org with a lot of active members and specific help channels.

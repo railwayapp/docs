@@ -82,7 +82,7 @@ Here are a few examples of common use-cases:
 
 _Note, negations will only work if you include files in a preceding rule._
 
-## Install a specific package using Nixpacks
+## Install a Specific Package Using Nixpacks
 
 When using Nixpacks, you can install specific packages by defining them in a nixpacks configuration file.  For example:
 
@@ -118,11 +118,11 @@ HTTP traffic.
 _Note: Some buildpacks specify a default start command_
 
 
-## Specify a custom install command
+## Specify a Custom Install Command
 
 We do not expose a way to configure a custom install command in the UI, but you can control this using [config as code](/reference/config-as-code#nixpacks-plan) (see Nixpacks Plan -> Install Command).
 
-## Disable build layer caching
+## Disable Build Layer Caching
 
 By default, Railway will cache build layers to provide faster build times.  If you have a need to disable this behavior, set the following environment variable in your service:
 
@@ -130,7 +130,7 @@ By default, Railway will cache build layers to provide faster build times.  If y
 NO_CACHE=1
 ```
 
-## Why isn't my build using cache?
+## Why Isn't My Build Using Cache?
 
 Since Railway's build system scales up and down in response to demand, cache hit on builds is not guaranteed.
 

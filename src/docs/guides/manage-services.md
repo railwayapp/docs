@@ -4,7 +4,7 @@ title: Manage Services with the Public API
 
 Here are some examples to help you get started managing your services using the Public API.
 
-### Create a new service with a GitHub repo
+### Create a New Service With a GitHub Repo
 
 The mutation below will create a new service with the specified GitHub repo attached. The response will contain the newly created service.
 

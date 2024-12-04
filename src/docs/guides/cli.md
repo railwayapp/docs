@@ -63,7 +63,7 @@ The Railway CLI is an open source project on [GitHub](https://github.com/railway
 You can build a binary [from source](https://github.com/railwayapp/cli#from-source)
 if you wish.
 
-## Authenticating with the CLI
+## Authenticating With the CLI
 
 Before you can use the Railway CLI, you must authenticate the CLI to your Railway account:
 ```bash

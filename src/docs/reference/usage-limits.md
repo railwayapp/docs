@@ -4,7 +4,7 @@ title: Usage Limits
 
 Usage Limits allow you to set a maximum limit on your usage for a billing cycle. If your resource usage for the billing cycle exceeds the limit you configured, we will shut down your workloads to prevent them from incurring further resource usage.
 
-## Configuring usage limits
+## Configuring Usage Limits
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1694775828/usage-limits_hzv9ee.png" alt="Usage Limits Modal" layout="responsive" width={1252} height={1150} />
 
@@ -12,11 +12,11 @@ Visit your [account usage page](https://railway.com/account/usage) to set the us
 
 <Banner variant="info">The link above takes you to the usage page for your personal account. If you want to set a usage limit for your team, you can use the account switcher in the top left corner of your dashboard to access the team's usage page.</Banner>
 
-## Custom email alert
+## Custom Email Alert
 
 You can think of this as a _soft limit_. When your resource usage reaches the specified amount, we will email you that this threshold has been met. Your resources will remain unaffected.
 
-## Hard limit
+## Hard Limit
 
 Once your resource usage hits the specified hard limit, all your workloads will be taken offline to prevent them from incurring further resource usage. Think of the hard limit as the absolute maximum amount you're willing to spend on your infrastructure.
 

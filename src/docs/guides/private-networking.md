@@ -11,7 +11,7 @@ width={1310} height={420} quality={100} />
 
 By default, all projects have private networking enabled and services will get a new DNS name under the `railway.internal` domain. This DNS name will resolve to the internal IPv6 address of the services within a project.
 
-## Communicating over the private network
+## Communicating Over the Private Network
 
 To communicate over the private network, there are some specific things to know to be successful.
 
@@ -211,7 +211,7 @@ app := fiber.New(fiber.Config{
 
 </Collapse>
 
-## Changing the service name for DNS
+## Changing the Service Name for DNS
 
 Within the service settings you can change the service name to which you refer, e.g. `api-1.railway.internal` -> `api-2.railway.internal`
 

@@ -186,7 +186,7 @@ width={602} height={526} quality={100} />
 
 **That is it for all the configurations needed, you can now call any service via its private domain and port just as if you were another service within the private network!**
 
-## 5. Connecting to a service on the private network (Bonus)
+## 5. Connecting To a Service On the Private Network (Bonus)
 
 During this tutorial we have used Postgres as an example service, so let's finally connect to it via its private domain and port!
 

@@ -4,7 +4,7 @@ title: Controlling GitHub Autodeploys
 
 [Services that are linked to a GitHub repo](/guides/services#deploying-from-a-github-repo) automatically deploy when new commits are detected in the connected branch.
 
-## Configure the GitHub branch for deployment triggers
+## Configure the GitHub Branch for Deployment Triggers
 
 To update the branch that triggers automatic deployments, go to your Service Settings and choose the appropriate trigger branch.
 

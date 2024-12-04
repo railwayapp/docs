@@ -6,7 +6,7 @@ title: Deploying a Monorepo to Railway
 
 A monorepo is a project directory structure in which multiple, co-dependent codebases (such as a frontend and a backend) are maintained within the same repository, and in some cases, share common packages.
 
-## About this Tutorial
+## About This Tutorial
 
 Deploying a monorepo in Railway requires some extra configuration to get the applications up and running.
 
@@ -46,7 +46,7 @@ The backend, built with [Go](https://go.dev/), will stream quotes that will be d
 
 **Let's get started!**
 
-## 1. Create a new empty project
+## 1. Create a New Empty Project
 
 - From [your dashboard](https://railway.com/dashboard) click `+ New Project`
 
@@ -64,7 +64,7 @@ width={345.5} height={388} quality={100} />
 
 **Note:** We chose an empty project instead of deploying from a GitHub repo since we want to set up the project before deploying.
 
-## 2. Project setup
+## 2. Project Setup
 
 - Give the project an applicable name, this makes the project recognizable in your dashboard. You can do this in the Settings tab on the top right of the page.
 
@@ -75,7 +75,7 @@ width={1381} height={731} quality={100} />
 
 - Click `Update`
 
-## 3. Service creation
+## 3. Service Creation
 
 - Add **two** new **empty** services from the `+ Create` button in the top right of the project canvas.
 
@@ -111,7 +111,7 @@ width={766} height={450} quality={100} />
 
 - Click the `Deploy` button to create these two services.
 
-## 4. Domain setup
+## 4. Domain Setup
 
 Both of these services will need to be exposed publicly, so let's add public domains to both of them -
 
@@ -126,7 +126,7 @@ width={1381} height={760} quality={100} />
 
 - Do these steps for both services, so that they both have public domains.
 
-## 5. Variable setup
+## 5. Variable Setup
 
 For our example monorepo the Frontend service needs a `VITE_BACKEND_HOST` variable, and our backend needs an `ALLOWED_ORIGINS` variable.
 
@@ -173,7 +173,7 @@ width={1386} height={760} quality={100} />
 
 - See a list of additional variables [here](https://docs.railway.com/reference/variables#railway-provided-variables).
 
-## 6. Directory setup
+## 6. Directory Setup
 
 Both of our apps deploy from subdirectories of our monorepo, so we need to tell Railway where they are located.
 

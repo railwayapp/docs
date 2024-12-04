@@ -4,7 +4,7 @@ title: Manage Deployments with the Public API
 
 Here are some examples to help you get started managing your deployments using the Public API.
 
-### Fetch latest active deployment
+### Fetch Latest Active Deployment
 
 The query below will fetch the latest active deployment for a service for a specific environment.
 
@@ -28,7 +28,7 @@ query deployments {
 }
 ```
 
-### Restarting a deployment
+### Restarting a Deployment
 
 The query below will restart the deployment with the specified `id`.
 

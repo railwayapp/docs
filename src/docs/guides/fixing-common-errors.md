@@ -24,7 +24,7 @@ When deploying to Railway, you may encounter some errors that prevent your
 application from working as expected. These are descriptions and solutions to errors that
 users commonly encounter.
 
-## Application failed to respond
+## Application Failed to Respond
 
 After deploying your application or making changes, you might encounter this screen when accessing your application's domain:
 

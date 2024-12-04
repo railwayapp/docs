@@ -6,7 +6,7 @@ Railway can support any type of Database service required for an application sta
 
 Databases can be deployed into a Railway project from a template, or by creating one through the service creation flow.
 
-## How Database Services work in Railway
+## How Database Services Work in Railway
 
 Below are the core concepts to understand when working with databases in Railway.
 

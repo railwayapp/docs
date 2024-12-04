@@ -20,11 +20,11 @@ If you want to set a usage limit for your team, use the account switcher in the 
 
 If you are on a prepaid plan, you can not directly set a hard limit. Instead the amount of credits you load determines the hard limit.
 
-### Custom email alert
+### Custom Email Alert
 
 Configure a soft limit by setting a threshold in Custom email alert. When your resource usage reaches the specified amount, we will email you that this threshold has been met and resources continue running.
 
-### Hard limit
+### Hard Limit
 
 Configure a hard limit to take resources offline once usage meets the specified threshold.
 
@@ -42,12 +42,12 @@ Find more information about Usage Limits in the [reference page](/reference/usag
 
 Using [Private Networking](/guides/private-networking) when communicating with other services (such as databases) within your Railway project will help you avoid unnecessary Network Egress costs.
 
-### With databases
+### With Databases
 
 Communicate with your Railway database over private networking by using the `DATABASE_URL` environment variable, instead of `DATABASE_PUBLIC_URL`:
 
 
-### With other services
+### With Other Services
 
 If your Railway services need to communicate with each other, you can find the service's private URL in the service settings:
 

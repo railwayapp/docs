@@ -32,7 +32,7 @@ To be successful using this tutorial, you should already have -
 
 **Let's get started!**
 
-## 1. Create and Deploy a Fastify server
+## 1. Create and Deploy a Fastify Server
 
 First, let's create and deploy a simple Fastify server using the [Railway CLI](guides/cli#installing-the-cli)
 
