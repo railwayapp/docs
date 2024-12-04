@@ -65,7 +65,7 @@ Within a service and environment, you can specify which branch to auto-deploy to
 
 ## Observability
 
-Any build or deployment logs emitted to standard output or standard error `( eg. console.log(...))` is captured by Railway so you can view or search for it later.
+Any build or deployment logs emitted to standard output or standard error `( eg. console.log(...))` are captured by Railway so you can view or search for it later.
 
 ### Service Logs
 

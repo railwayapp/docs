@@ -83,7 +83,7 @@ The Router from Axum is used to configure the route, and `tokio::net::TcpListene
 
 The asynchronous runtime, provided by the `#[tokio::main]` macro, ensures the server can handle requests efficiently. The `axum::serve` function integrates with the Hyper server to actually process requests.
 
-### Run the Axum App locally
+### Run the Axum App Locally
 
 Run the following command in the `helloworld` directory via the terminal:
 
@@ -99,7 +99,7 @@ Open your browser and go to `http://localhost:3000` to see your app.
 
 Railway offers multiple ways to deploy your Axum app, depending on your setup and preference. 
 
-### One-Click Deploy from a Template
+### One-Click Deploy From a Template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. 
 
@@ -111,7 +111,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=axum" target="_blank">variety of Axum templates</a> created by the community.
 
-### Deploy from the CLI
+### Deploy From the CLI
 
 1. **Install the Railway CLI**:
     - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
@@ -141,7 +141,7 @@ alt="screenshot of the deployed Axum service"
 layout="responsive"
 width={1982} height={1822} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy From a GitHub Repo
 
 To deploy an Axum app to Railway directly from GitHub, follow the steps below:
 

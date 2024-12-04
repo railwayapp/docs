@@ -50,7 +50,7 @@ quality={80}
 
 If you do not see the `Edit Scope` option, you may still need to connect GitHub to your Railway account.
 
-### Convert a Project into a Template
+### Convert a Project Into a Template
 
 You can also convert an existing project into a ready-made Template for other users.
 
@@ -122,7 +122,7 @@ The current template variable functions are:
 
 2. `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
-## Managing your Templates
+## Managing Your Templates
 
 You can see all of your templates on your <a href="https://railway.com/account/templates" target="_blank">Account's Template page</a>. Templates are separated into Personal and Published templates.
 

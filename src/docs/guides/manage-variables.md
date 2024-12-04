@@ -4,7 +4,7 @@ title: Manage Variables with the Public API
 
 Here are some examples to help you get started managing your variables using the Public API.
 
-### Fetch variables for a service
+### Fetch Variables For a Service
 
 The query below will fetch all the variables for a service for a specific environment. The response will contain all the variables in a key/value object.
 
@@ -20,7 +20,7 @@ query variables {
 }
 ```
 
-### Upsert variable for a service
+### Upsert Variable For a Service
 
 The mutation below will upsert a new variable for the specified service within the specified environment. You can use this to both create and update variables.
 

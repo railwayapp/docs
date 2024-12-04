@@ -19,7 +19,7 @@ In your terminal, ensure your current working directory is the same directory wh
 
 This is important so that as you complete the following steps, the [Railway CLI](/reference/cli-api) is properly linked.
 
-## 1. Login to Railway from the CLI
+## 1. Login to Railway From the CLI
 
 Ensure your CLI is authenticated to your Railway account:
 ```bash

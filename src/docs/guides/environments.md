@@ -44,7 +44,7 @@ width={480} height={156} quality={80} />
 
 When enabled, a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
 
-### How come my GitHub PR won't deploy?
+### How Come my GitHub PR Won't Deploy?
 
 Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
 

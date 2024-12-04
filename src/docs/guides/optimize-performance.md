@@ -27,7 +27,7 @@ To change the number of replicas per deploy within your service, go to the servi
 
 Each replica will be deployed with a Railway-provided environment variable named `RAILWAY_REPLICA_ID` which can be used for logging and monitoring, for example.
 
-### Load Balancing between Replicas
+### Load Balancing Between Replicas
 
 At the moment, Railway will randomly distribute requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
 
@@ -49,7 +49,7 @@ To choose a different region for your service, go to your service settings and s
 
 *Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
 
-### Set a default region
+### Set a Default Region
 
 To set a default, or preferred, region, do so from the command palette.  From your project settings:
 - Type `CMD+K` or `Ctrl+K` to access the command palette

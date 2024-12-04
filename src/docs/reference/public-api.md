@@ -25,15 +25,15 @@ curl --request POST \
 ```
 
 
-### Team token
+### Team Token
 
 Team tokens are tied to a team and will have access to all the team's resources. This token cannot be used to access your personal resources on Railway so feel free to share it with your teammates.
 
-### Personal token
+### Personal Token
 
 Non-team tokens will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
 
-#### Project token
+#### Project Token
 
 Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
 

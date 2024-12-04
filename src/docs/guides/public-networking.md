@@ -49,7 +49,7 @@ Railway services don't obtain a domain automatically, but it is easy to set one 
 
 To assign a domain to your service, go to your service's settings, find the Networking -> Public Networking section, and choose `Generate Domain`.
 
-#### Automated prompt
+#### Automated Prompt
 
 If Railway detects that a deployed service is listening correctly (as described above), you will see a prompt on the service tile in the canvas, and within the service panel.
 
@@ -147,7 +147,7 @@ quality={100} />
 
 You can change the automatically detected or manually set port at any time by clicking the edit icon next to the domain.
 
-## Adding a custom domain
+## Adding a Custom Domain
 
 When adding a root or apex domain to your Railway service, you must ensure that you add the appropriate DNS record to the domain within your DNS provider.  At this time, Railway supports <a href="https://developers.cloudflare.com/dns/cname-flattening/" target="_blank">CNAME Flattening</a> and dynamic ALIAS records.
 
@@ -178,7 +178,7 @@ In contrast there are many nameservers that don't support CNAME flattening or dy
 
 If your DNS provider doesn't support CNAME Flattening or dynamic ALIAS records at the root, you can also change your domain's nameservers to point to Cloudflare's nameservers. This will allow you to use a CNAME record for the root domain. Follow the instructions listed on Cloudflare's documentation to <a href="https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/" target="_blank">change your nameservers</a>.
 
-## Adding a root domain with www subdomain to Cloudflare
+## Adding a Root Domain With www Subdomain to Cloudflare
 
 If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdomain to Cloudflare and redirect all `www.` traffic to the root domain:
 
@@ -227,7 +227,7 @@ width={700} height={225} quality={100} />
 
 Currently we use a random load balancing strategy for TCP traffic.
 
-## Using HTTP and TCP together
+## Using HTTP and TCP Together
 
 At the moment, Railway does not support exposing both HTTP and TCP over public networking, in a single service.  Therefore, if you have a domain assigned, you will not see the option to enable TCP Proxy, and vice-versa.  Meaning, you will need to remove one before you can enable the other.
 

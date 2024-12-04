@@ -169,7 +169,7 @@ Railway offers multiple ways to deploy your Django app, depending on your setup 
 2. [Using the CLI](#deploy-from-the-cli).
 3. [From a GitHub repository](#deploy-from-a-github-repo).
 
-## One-Click Deploy from a Template
+## One-Click Deploy From a Template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Django app along with a Postgres database.
 
@@ -179,7 +179,7 @@ Click the button below to begin:
 
 After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
-## Deploy from the CLI
+## Deploy From the CLI
 
 To deploy the Django app using the Railway CLI, please follow the steps:
 
@@ -226,7 +226,7 @@ layout="responsive"
 width={2783} height={2135} quality={100} />
 
 
-## Deploy from a GitHub Repo
+## Deploy From a GitHub Repo
 
 To deploy the Django app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 

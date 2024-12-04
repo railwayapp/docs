@@ -102,7 +102,7 @@ block content
 
 5. Run the app again to see your changes in action!
 
-### Prepare Express App for deployment
+### Prepare Express App for Deployment
 
 In the `routes/index.js` file, replace the hardcoded Postgres database URL with an environment variable:
 
@@ -118,7 +118,7 @@ This allows the app to dynamically pull the correct database configuration from 
 
 Railway offers multiple ways to deploy your Express app, depending on your setup and preference. 
 
-### One-Click Deploy from a Template
+### One-Click Deploy From a Template
 
 If you’re looking for the fastest way to get started with Express, Pug and connected to a Postgres database, the one-click deploy option is ideal.
 
@@ -134,7 +134,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 **Note:** You can also choose from a <a href="https://railway.app/templates?q=express" target="_blank">variety of Express app templates</a> created by the community.
 
-### Deploy from the CLI
+### Deploy From the CLI
 
 1. **Install the Railway CLI**:
     - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
@@ -170,7 +170,7 @@ alt="screenshot of the deployed Express service"
 layout="responsive"
 width={2194} height={1652} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy From a GitHub Repo
 
 To deploy an Express app to Railway directly from GitHub, follow the steps below:
 

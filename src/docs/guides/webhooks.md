@@ -26,7 +26,7 @@ Webhooks contain Muxers which will automatically identify webhook URLs and trans
 - Discord
 - Slack
 
-## Setting up a webhook for Discord
+## Setting Up a Webhook for Discord
 
 Discord supports integrating directly with webhooks. To enable this on a server you will need to be an admin or otherwise have the appropriate permissions.
 
@@ -45,7 +45,7 @@ At this point, the Discord Muxer will identify the URL and change the payload to
 
 You are now done! When your project deploys again, that Discord channel will get updates on the deployment!
 
-## Setting up a webhook for Slack
+## Setting Up a Webhook for Slack
 
 Slack supports integrating directly with webhooks.
 

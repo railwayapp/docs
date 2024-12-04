@@ -103,7 +103,7 @@ Replace this `postgres://username:@localhost/helloworld_dev?sslmode=disable` wit
 - The `init()` function registers the Postgres driver, registers the Users model, and automatically creates the users table in the database. If any errors occur while inserting users, they are logged.
 - The `main()` function creates an ORM instance, defines sample user data (first name and last name), inserts the data into the users table, and starts the Beego web server to serve your app.
 
-### Run the Beego App locally
+### Run the Beego App Locally
 
 To start your app, run:
 
@@ -115,7 +115,7 @@ Once the app is running, open your browser and navigate to `http://localhost:808
 
 In your terminal, you’ll see logs indicating that the user data is being inserted. Head over to your database, and you should see the users table populated with the seeded data.
 
-### Prepare Beego App for deployment
+### Prepare Beego App for Deployment
 
 1. Open the `conf/app.conf` file and add an environment variable, `DATABASE_URL` to it.
 
@@ -150,7 +150,7 @@ func init() {
 
 Railway offers multiple ways to deploy your Beego app, depending on your setup and preference. 
 
-### One-Click Deploy from a Template
+### One-Click Deploy From a Template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -162,7 +162,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=beego" target="_blank">variety of Beego app templates</a> created by the community.
 
-### Deploy from the CLI
+### Deploy From the CLI
 
 1. **Install the Railway CLI**:
     - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
@@ -198,7 +198,7 @@ alt="screenshot of the deployed Beego service"
 layout="responsive"
 width={2420} height={1986} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy From a GitHub Repo
 
 To deploy a Beego app to Railway directly from GitHub, follow the steps below:
 

@@ -10,11 +10,11 @@ Each service keeps a log of [deployment attempts](/reference/deployments) and [p
 
 ## Types of Services
 
-#### Persistent services
+#### Persistent Services
 
 Services that are always running.  Examples include web applications, backend APIs, message queues, database services, etc.
 
-#### Scheduled jobs
+#### Scheduled Jobs
 
 Services that are run until completion, on a defined schedule, also called [Cron Jobs](/reference/cron-jobs).
 
