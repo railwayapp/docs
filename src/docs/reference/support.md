@@ -6,53 +6,53 @@ Railway offers numerous tiers of support for our users.
 
 ## Support Tiers
 
-| Plan          | Support                                                                               |
-| ------------- | ------------------------------------------------------------------------------------- |
-| Trial & Hobby | [Community](#help-station) only                                                       |
-| Pro           | [Community Priority Threads](#priority-threads) and [Business Class](#business-class) |
-| Enterprise    | [Custom](#enterprise) & all of the above                                              |
+We prioritize support requests based on the plan you're on and the urgency of your request.
+
+### Trial & Hobby
+
+Trial & Hobby plan users are only eligible for community support over [Help Station](#help-station) or [Discord](#discord). Railway may respond to community threads, but a response is not guaranteed.
+
+### Pro & Business Class
+
+Pro & [Business Class](#business-class) customers can select the urgency of their request when creating a new thread in [Help Station](#help-station) or [Slack](#slack).
+
+| Level    | Description                                                                | Eligibility                       |
+| -------- | -------------------------------------------------------------------------- | --------------------------------- |
+| Low      | Questions about how to use Railway or general feedback                     | Pro                               |
+| Normal   | Issues with Railway, such as bugs or unexpected behavior                   | Pro                               |
+| High     | Issues that are blocking you from using Railway                            | Pro                               |
+| Critical | Production outage or platform issues blocking your team from using Railway | [Business Class](#business-class) |
 
 ## Help Station
 
-Railway conducts its support over our [Help Station](https://help.railway.com) platform.
+Railway primarily conducts its support over our [Help Station](https://help.railway.com) platform.
 
 It hosts our community of 500,000+ users and developers. It is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1708556761/docs/help-station-3_b14jbh.png"
+src="https://res.cloudinary.com/railway/image/upload/v1733323523/docs/cs-2024-12-04-22.28_egl1hw.png"
 alt="Screenshot of Railway Help Station"
 layout="intrinsic"
-width={2033} height={1380} quality={100} />
+width={1737} height={1384} quality={100} />
 
 Please ensure that you've searched for your issue before creating a new thread, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://help.railway.com/community-code-of-conduct).
 
-### Priority Threads
+### Visibility
 
-For Pro plan users, threads created in the [Help Station](https://help.railway.com) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 1 business day (if community members are unable to help).
-
-We pay special attention to threads created by Pro users and ensure that questions or concerns are resolved in a timely manner.
+You can create a **Private Thread** on [Help Station](https://help.railway.com/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1715282870/docs/pro-priority-threads_pxyodo.png"
-alt="Screenshot of Railway Help Station - Priority Threads"
-layout="intrinsic"
-width={772} height={269} quality={100} />
-
-For teams and companies requiring SLOs and higher-priority support over chat, sign up for [Business Class](#business-class).
-
-### Private Threads
-
-You create a **Private Thread** on [Help Station](https://help.railway.com/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1715282996/docs/priv-threads_lus6tx.png"
+src="https://res.cloudinary.com/railway/image/upload/v1733324037/docs/cs-2024-12-04-22.53_jyhmsp.png"
 alt="Screenshot of Railway Help Station - Private Threads"
 layout="intrinsic"
-width={747} height={352} quality={100} />
+width={756} height={184} quality={100} />
 
-Private Threads have a slower response time (at most 2 business days) because only Railway employees can see them. We recommend you to only create a Private Thread if you need to share sensitive information.
+Private Threads have a slower response time because only Railway employees can
+see them. We recommend you to only create a Private Thread if you need to share
+sensitive information.
 
-We may make the thread public for community involvement if we determine that there is no sensitive information in your thread.
+We may make the thread public for community involvement if we determine that
+there is no sensitive information in your thread.
 
 ## Discord
 
@@ -62,29 +62,31 @@ Please ask your questions in the <a href="https://discord.com/channels/713503345
 
 ## Slack
 
-Railway offers Slack channels to companies and prospective customers. Customers can raise issues, coordinate their migration over to the platform, and provide feedback within a Slack connect channel.
-
-All teams can create a Slack channel within the Team settings page.
+Railway offers Slack channels to companies and prospective customers. Customers can raise issues, coordinate their migration over to Railway, and provide feedback within a Slack Connect channel.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1731463950/CleanShot_2024-11-12_at_21.12.16_k46jfu.png"
-alt="Screenshot of Slack Channel Creation Flow"
+src="https://res.cloudinary.com/railway/image/upload/v1733324712/docs/cs-2024-12-04-22.20_bms1sa.png"
+alt="Screenshot of Slack"
 layout="intrinsic"
-width={908} height={174} quality={100} />
+width={571} height={743} quality={100} />
 
-All users within a Slack connect channel can invite their team members within the Slack interface or press the create Slack channel button again to initiate an invite to the channel.
+All teams can create a Slack channel within the Team settings page:
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1733324438/docs/cs-2024-12-04-23.00_uvchnr.png"
+alt="Screenshot of Slack Account Linking"
+layout="intrinsic"
+width={845} height={157} quality={100} />
+
+Users in a Slack Connect channel can invite their team members using the Slack interface or by pressing the `Join Slack` button again to initiate new invites.
 
 ### Slack Account Linking
 
-<Image
-src="https://res.cloudinary.com/dbnvcdbk1/image/upload/v1718999607/CleanShot_2024-06-21_at_15.52.19_mh1uej.png"
-alt="Screenshot of Slack Account Linking"
-layout="intrinsic"
-width={534} height={278} quality={100} />
+We highly recommend connecting your Slack account if you have a shared Slack Connect channel with us. Doing so allows us to get insight into issues affecting your workloads without having to ask for additional information.
 
-Connecting your Slack Account to your Railway Account allows the team to get insight into issues affecting your workloads without having to ask for additional information. [To link your Slack account to your Railway account, you can navigate to your Account settings page on Railway and follow the instructions provided.](https://railway.com/account)
+To link your Slack account to your Railway account, navigate to your team's [settings page](https://railway.com/account) on Railway.
 
-_Permissions_ - Railway only asks for permissions to link your Slack ID and your Workspace ID, our integration only can see messages within the shared Slack Connect channel.
+_Railway only asks for permissions to link your Slack account's ID and your Slack Workspace's ID. Our integration can only see messages within the shared Slack Connect channel_.
 
 ## How To Ask For Help
 
@@ -107,11 +109,26 @@ Reach out to us at [team@railway.com](mailto:team@railway.com) for more informat
 
 ### Business Class SLOs
 
+We prioritize Business Class customers over all other support requests.
+
 | Severity                             | Acknowledgement Time |
 | ------------------------------------ | -------------------- |
 | P1 (Outages, Escalations)            | One hour - 24/7      |
 | P2 (Bugs)                            | Same Business Day    |
 | P3 (Integrations, General Questions) | Two Business Days    |
+
+For Business Class customers with a shared Slack Connect channel with us, you have access to
+"Critical" urgency level support requests:
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1733325632/docs/cs-2024-12-04-23.20_smvweu.png"
+alt="Screenshot of Slack Account Linking"
+layout="intrinsic"
+width={392} height={255} quality={100} />
+
+This allows you to page our support on-call directly for an immediate response.
+Please only use this for production outages or critical platform issues
+preventing your team from using Railway.
 
 ### Definition of Priorities
 
