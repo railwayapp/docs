@@ -16,12 +16,12 @@ Trial & Hobby plan users are only eligible for community support over [Help Stat
 
 Pro & [Business Class](#business-class) customers can select the urgency of their request when creating a new thread in [Help Station](#help-station) or [Slack](#slack).
 
-| Level    | Description                                                       | Eligibility                       |
-| -------- | ----------------------------------------------------------------- | --------------------------------- |
-| Low      | Questions about how to use Railway or general feedback            | Pro                               |
-| Normal   | Issues with Railway, such as bugs or unexpected behavior          | Pro                               |
-| High     | Issues that are blocking you from using Railway                   | Pro                               |
-| Critical | Production outage or issues blocking your team from using Railway | [Business Class](#business-class) |
+| Level    | Description                                                                | Eligibility                       |
+| -------- | -------------------------------------------------------------------------- | --------------------------------- |
+| Low      | Questions about how to use Railway or general feedback                     | Pro                               |
+| Normal   | Issues with Railway, such as bugs or unexpected behavior                   | Pro                               |
+| High     | Issues that are blocking you from using Railway                            | Pro                               |
+| Critical | Production outage or platform issues blocking your team from using Railway | [Business Class](#business-class) |
 
 ## Help Station
 
@@ -127,8 +127,8 @@ layout="intrinsic"
 width={392} height={255} quality={100} />
 
 This allows you to page our support on-call directly for an immediate response.
-Please only use this for production outages or critical issues preventing your
-team from using Railway.
+Please only use this for production outages or critical platform issues
+preventing your team from using Railway.
 
 ### Definition of Priorities
 
