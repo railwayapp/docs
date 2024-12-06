@@ -13,6 +13,7 @@ import { GetServerSidePropsContext } from "next";
 import { getCookie } from "cookies-next";
 import { Props as CodeBlockProps } from "@/components/CodeBlock";
 import { Props as InlineCodeProps } from "@/components/InlineCode";
+import { TallyButton } from "@/components/TallyButton";
 
 const components: Record<string, React.ElementType> = {
   Collapse,
@@ -24,6 +25,7 @@ const components: Record<string, React.ElementType> = {
   h2: H2,
   h3: H3,
   h4: H4,
+  TallyButton,
 };
 
 export default function PostPage({

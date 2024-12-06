@@ -40,6 +40,8 @@ Here's what we look for in potential Conductors -
 
 The ideal Conductor combines technical expertise with mentorship skills to help our community thrive!
 
+<TallyButton data-tally-open="nP2qqd" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" data-tally-auto-close="2000">Apply Now</TallyButton>
+
 ## Conductor Benefits
 
 Being a Conductor comes with several exciting perks and rewards to recognize your valuable contributions to the community.
