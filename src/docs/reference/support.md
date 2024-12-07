@@ -1,6 +1,5 @@
-test
 ---
-title: Support
+title: Support (test)
 ---
 
 Railway offers numerous tiers of support for our users.
