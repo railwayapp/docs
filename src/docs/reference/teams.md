@@ -27,6 +27,14 @@ There are three roles for Team members:
 *Note*: Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their Github account is connected.
 
 ## Trusted Domains
+Trusted domains may be configured on the team settings page. Note that team members added via trusted domain will be billed at the normal rate.
+
+<Image 
+    src="https://res.cloudinary.com/railway/image/upload/v1733955730/docs/t-d_jbtbm7.png"
+    width="600"
+    height="300"
+    alt="Trusted domains are configurable via the team settings"
+/>
 
 You can automate the onboarding of new team members with trusted domains. Railway users that sign up with one of the trusted domains associated with your team will automatically be granted access to the team with the specified role (see above).
 
