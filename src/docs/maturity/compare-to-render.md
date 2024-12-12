@@ -62,6 +62,12 @@ We offer a rewarding [kickback program](https://railway.com/open-source-kickback
 
 Render has example templates on GitHub that you can deploy and no incentives for community templates.
 
+### Private Networking
+
+Render’s private network is regional. Services in different regions can’t communicate directly over a private network.
+
+At Railway, private networking operates globally. This means services in different regions can communicate with each other privately without any barriers or extra configuration. Additionally, you have the flexibility to move services between regions effortlessly.
+
 ### Pricing
 
 We believe in the principle of **pay only for what you use**. With Railway, you pay an affordable flat fee for the plan you choose, and additional costs are based solely on the resources (compute) you consume each month. In summary, a flexible pay-as-you-go model!
