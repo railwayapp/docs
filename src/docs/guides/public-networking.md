@@ -115,13 +115,7 @@ If you have a wildcard domain on Cloudflare, you must:
 
 - Turn off Cloudflare proxying is on the `_acme-challenge` record (disable the orange cloud)
 
-- Disable Cloudflare's [Universal SSL](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/disable-universal-ssl/)
-
-    <Image
-    src="https://res.cloudinary.com/railway/image/upload/v1709065556/docs/cf-disable-uni-ssl_rc0zje.png"
-    alt="Screenshot of Disabling Cloudflare Universal SSL"
-    layout="responsive"
-    width={855} height={342} quality={80} />
+- Enable Cloudflare's [Universal SSL](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/enable-universal-ssl/)
 
 ## Target Ports
 
