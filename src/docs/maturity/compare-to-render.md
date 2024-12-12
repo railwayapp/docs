@@ -92,24 +92,6 @@ At Railway, we take pride in delivering a superior user experience—from the si
 
 One delightful feature we offer is real-time collaboration. You can see exactly which of your teammates are working on the same Project Canvas, fostering seamless teamwork and collaboration.
 
-### DDoS Protection
-
-Render provides free distributed denial-of-service (DDoS) protection for all apps and websites hosted on their platform through Cloudflare.
-
-At Railway, while our platform includes robust security measures and have DDoS protection, we currently do not offer configurable DDoS protection for individual user applications. For enhanced security and performance, we recommend integrating a service like Cloudflare, which provides both WAF (Web Application Firewall) and DDoS mitigation to safeguard your applications against web threats.
-
-### SSH
-
-Render provides SSH access to your services on their platform.
-
-Currently, we don’t provide SSH access at the moment, but it’s on the horizon and will be available by Q1 2025. In the meantime, our platform is designed to empower users to manage their applications seamlessly through code, scripts, and [Nixpacks configuration](https://docs.railway.com/guides/config-as-code), covering the majority of use cases without the need for direct SSH access.
-
-### Global CDN for Static Sites
-
-Render automatically provides a global CDN for static sites while we do not.
-
-We currently recommend [adding a CDN using Amazon Cloudfront.](https://docs.railway.com/tutorials/add-a-cdn-using-cloudfront)
-
 ### Customer Support and Community
 
 At Railway, we take pride in providing best-in-class support through our [vibrant Discord community](https://discord.gg/railway) and our custom-built [Help Station](https://help.railway.com/)—a platform powered by Railway itself. We firmly believe that no project is too small or unimportant when it comes to addressing support needs. If an issue arises, we’re here to help.
