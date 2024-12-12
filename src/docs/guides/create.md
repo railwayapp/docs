@@ -111,7 +111,7 @@ The current template variable functions are:
 
 1. `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  
 
-    **Tip:**You can generate Hex or Base64 secrets by constructing the appropriate alphabet and length.
+    **Tip:** You can generate Hex or Base64 secrets by constructing the appropriate alphabet and length.
 
     - `openssl rand -base64 16` → `${{secret(22, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}==`
     - `openssl rand -base64 32` → `${{secret(43, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}=`
