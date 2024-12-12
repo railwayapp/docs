@@ -26,6 +26,12 @@ We are similar in the following ways:
 
 ## Differences
 
+### Product and Deploy UX
+
+At Railway, we take pride in delivering a superior user experience—from the simplicity of starting with [dev.new](http://dev.new/) to managing multiple interconnected services on your Project Canvas. The interface is not only functional but visually appealing, redefining how DevOps can feel. Who says DevOps has to be ugly or boring? On our platform, it’s intuitive, refreshing, and even fun.
+
+One delightful feature we offer is real-time collaboration. You can see exactly which of your teammates are working on the same Project Canvas, fostering seamless teamwork and collaboration.
+
 ### Builds
 
 Render includes a build pipeline where each task consumes pipeline minutes. These minutes are allocated monthly based on your pricing tier and are billable. If you exceed your allotted pipeline minutes within a month, additional charges may apply, or your builds may be canceled.
@@ -85,30 +91,6 @@ We believe in the principle of **pay only for what you use**. With Railway, you 
 - **Enterprise**: Custom pricing
 
 Curious about the savings? Check out a [detailed breakdown of our pricing](https://docs.railway.com/reference/pricing/plans) and see how much you can save by running your workloads on Railway. It’s more cost-effective than [Render](https://render.com/pricing).
-
-### Product and Deploy UX
-
-At Railway, we take pride in delivering a superior user experience—from the simplicity of starting with [dev.new](http://dev.new/) to managing multiple interconnected services on your Project Canvas. The interface is not only functional but visually appealing, redefining how DevOps can feel. Who says DevOps has to be ugly or boring? On our platform, it’s intuitive, refreshing, and even fun.
-
-One delightful feature we offer is real-time collaboration. You can see exactly which of your teammates are working on the same Project Canvas, fostering seamless teamwork and collaboration.
-
-### DDoS Protection
-
-Render provides free distributed denial-of-service (DDoS) protection for all apps and websites hosted on their platform through Cloudflare.
-
-At Railway, while our platform includes robust security measures and have DDoS protection, we currently do not offer configurable DDoS protection for individual user applications. For enhanced security and performance, we recommend integrating a service like Cloudflare, which provides both WAF (Web Application Firewall) and DDoS mitigation to safeguard your applications against web threats.
-
-### SSH
-
-Render provides SSH access to your services on their platform.
-
-Currently, we don’t provide SSH access at the moment, but it’s on the horizon and will be available by Q1 2025. In the meantime, our platform is designed to empower users to manage their applications seamlessly through code, scripts, and [Nixpacks configuration](https://docs.railway.com/guides/config-as-code), covering the majority of use cases without the need for direct SSH access.
-
-### Global CDN for Static Sites
-
-Render automatically provides a global CDN for static sites while we do not.
-
-We currently recommend [adding a CDN using Amazon Cloudfront.](https://docs.railway.com/tutorials/add-a-cdn-using-cloudfront)
 
 ### Customer Support and Community
 
