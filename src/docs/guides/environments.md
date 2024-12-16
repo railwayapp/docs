@@ -64,6 +64,15 @@ Before using the feature, here are some things to consider:
   - For others tools like Redis, this is not an issue.
 - If you're using [Railway's Postgres template](https://railway.app/template/postgres), we'll make sure that password in the PR Environment matches the base one.
 
+<Image
+  src="https://res.cloudinary.com/railway/image/upload/v1734322198/docs/copy-volume-data-2.png"
+  alt="Copy Volume Data"
+  layout="responsive"
+  width={838}
+  height={226}
+  quality={90}
+/>
+
 ### Bot PR Environments
 
 You can enable automatic PR environment creation for PRs opened by GitHub bots (Dependabot, Renovatebot) using the `Enable Bot PR Environments` toggle on the Environments tab in the Project Settings page.
