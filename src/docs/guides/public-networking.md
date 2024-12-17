@@ -93,11 +93,37 @@ Note that changes to DNS settings may take up to 72 hours to propagate worldwide
 
 ## Wildcard Domains
 
-Wildcard domains allow for flexible subdomain management.  There are a few important things to know when using them:
+Wildcard domains allow for flexible subdomain management. There are a few important things to know when using them -
 
-1. Ensure that the CNAME record for `authorize.railwaydns.net` is not proxied by your provider (eg: Cloudflare). This is required for the verification process to work.
-2. Wildcards can be used for any subdomain level (e.g., `*.yourdomain.com` or `*.subdomain.yourdomain.com`).
-3. Wildcards cannot be nested (e.g., \*.\*.yourdomain.com).
+- Ensure that the CNAME record for `authorize.railwaydns.net` is not proxied by your provider (eg: Cloudflare). This is required for the verification process to work.
+
+- Wildcards cannot be nested (e.g., \*.\*.yourdomain.com).
+
+- Wildcards can be used for any subdomain level (e.g., `*.example.com` or `*.subdomain.example.com`).
+
+### Subdomains - 
+
+E.g. `*.example.com`
+
+- Make sure [Universal SSL is enabled](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/enable-universal-ssl/).
+
+- Enable [Full SSL/TLS encryption](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/#full-or-full-strict-encryption-mode).
+
+- Add CNAME records for the wildcard subdomain.
+
+### Nested Subdomains -
+
+E.g. `*.nested.example.com`
+
+- [Disable Universal SSL](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/disable-universal-ssl/).
+
+- Purchase Cloudflare's [Advanced Certificate Manager](https://developers.cloudflare.com/ssl/edge-certificates/advanced-certificate-manager/).
+
+- Enable [Edge Certificates](https://developers.cloudflare.com/ssl/edge-certificates/).
+
+- Enable [Full SSL/TLS encryption](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/#full-or-full-strict-encryption-mode).
+
+- Add CNAME records for the wildcard nested subdomain.
 
 When you add a wildcard domain, you will be provided with two domains for which you should add two CNAME records -
 
