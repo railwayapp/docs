@@ -101,7 +101,7 @@ Wildcard domains allow for flexible subdomain management. There are a few import
 
 - Wildcards can be used for any subdomain level (e.g., `*.example.com` or `*.subdomain.example.com`).
 
-### Subdomains - 
+### Subdomains
 
 E.g. `*.example.com`
 
@@ -111,7 +111,7 @@ E.g. `*.example.com`
 
 - Add CNAME records for the wildcard subdomain.
 
-### Nested Subdomains -
+### Nested Subdomains
 
 E.g. `*.nested.example.com`
 
