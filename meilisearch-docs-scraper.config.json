@@ -17,7 +17,7 @@
     "lvl2": ".docs-content h2",
     "lvl3": ".docs-content h3",
     "lvl4": ".docs-content h4",
-    "text": ".docs-content p, .docs-content li, .docs-content a, .docs-content code"
+    "text": ".docs-content p, .docs-content li, .docs-content a, .docs-content code, .docs-content td"
   },
   "strip_chars": " .,;:#",
   "custom_settings": {
