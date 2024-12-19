@@ -1,5 +1,5 @@
 const { withContentlayer } = require("next-contentlayer");
-const redirects = require("./redirects");
+const { redirects } = require("./redirects");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = withContentlayer({

@@ -145,7 +145,9 @@ Some libraries and components require you to be explicit when either listening o
 
 <Collapse title="ioredis">
 
-`ioredis` is a Redis client for node.js, commonly used for connecting to Redis from a node application.  When initializing a Redis client using `ioredis`, you must specify `family=0` in the connection string to support connecting to both IPv6 and IPv4 connections:
+`ioredis` is a Redis client for node.js, commonly used for connecting to Redis from a node application.
+
+When initializing a Redis client using `ioredis`, you must specify `family=0` in the connection string to support connecting to both IPv6 and IPv4 endpoints:
 
 ```javascript
 import Redis from 'ioredis';
@@ -156,6 +158,36 @@ const ping = await redis.ping();
 ```
 
 <a href="https://www.npmjs.com/package/ioredis" target="_blank">ioredis docs</a>
+
+</Collapse>
+
+<Collapse title="bullmq">
+
+`bullmq` is a message queue and batch processing library for node.js, commonly used for processing jobs in a queue.
+
+When initializing a bullmq client, you must specify `family: 0` in the connection object to support connecting to both IPv6 and IPv4 Redis endpoints:
+
+```javascript
+import { Queue } from "bullmq";
+
+const redisURL = new URL(process.env.REDIS_URL);
+
+const queue = new Queue("Queue", {
+    connection: {
+        family: 0,
+        host: redisURL.hostname,
+        port: redisURL.port,
+        username: redisURL.username,
+        password: redisURL.password
+    }
+});
+
+const jobs = await queue.getJobs();
+
+console.log(jobs);
+```
+
+<a href="https://docs.bullmq.io/" target="_blank">bullmq docs</a>
 
 </Collapse>
 

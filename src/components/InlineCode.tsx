@@ -32,7 +32,7 @@ export const InlineCode: React.FC<Props> = ({ children, colorModeSSR }) => {
         backgroundColor: String(theme['pre[class*="language-"]'].background),
         color: theme['code[class*="language-"]'].color,
       }}
-      data-colorMode={colorMode}
+      data-colormode={colorMode}
     >
       {children}
     </code>
