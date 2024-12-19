@@ -25,8 +25,8 @@ application from working as expected.
 
 These are pages that describe and provide solutions to errors that users commonly encounter.
 
-- [No Start Command Could Be Found](/reference/errors/no-start-command-could-be-found)
-
 - [Application Failed to Respond](/reference/errors/application-failed-to-respond)
+
+- [No Start Command Could Be Found](/reference/errors/no-start-command-could-be-found)
 
 - [405 Method Not Allowed](/reference/errors/405-method-not-allowed)
