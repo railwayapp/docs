@@ -56,7 +56,7 @@ module.exports = {
     },
     extend: {
       minWidth: {
-        sidebar: "280px",
+        sidebar: "290px",
         pageNav: "200px",
         "70vw": "70vw",
         "80vw": "80vw",

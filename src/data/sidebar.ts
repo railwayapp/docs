@@ -76,7 +76,6 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Public Networking", "guides"),
           makePage("Private Networking", "guides"),
-          makePage("Fixing Common Errors", "guides"),
         ],
       },
       {
@@ -202,6 +201,14 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Reference",
     content: [
+      {
+        subTitle: makePage("Errors", "/reference/errors", "/reference/errors"),
+        pages: [
+          makePage("Application Failed to Respond", "reference/errors"),
+          makePage("No Start Command Could Be Found", "reference/errors"),
+          makePage("405 Method Not Allowed", "reference/errors"),
+        ],
+      },
       {
         subTitle: "Develop",
         pages: [
