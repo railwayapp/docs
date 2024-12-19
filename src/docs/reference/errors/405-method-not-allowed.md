@@ -8,6 +8,8 @@ This error is returned by your application when you attempt to make a POST reque
 
 Depending on the application, this may result in your application returning either a 405 Method Not Allowed or a 404 Not Found status code.
 
+Seemingly POST requests are being turned into GET requests.
+
 ## Why This Error Can Occur
 
 This occurs because your request was made using HTTP. Railway will attempt to redirect your insecure request with a 301 Moved Permanently status code.
