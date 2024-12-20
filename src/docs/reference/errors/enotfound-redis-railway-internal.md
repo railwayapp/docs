@@ -57,3 +57,9 @@ const jobs = await queue.getJobs();
 
 console.log(jobs);
 ```
+
+### Other
+
+Above we covered the two most common packages that can cause this error, but there are other packages that use `ioredis` as a dependency that may also cause this error.
+
+If you are using a package that uses `ioredis` as a dependency, you can try to find a way to set the `family` option to `0` either in your connection object or in your `REDIS_URL` environment variable. Similar to the examples above.
