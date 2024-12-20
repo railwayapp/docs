@@ -39,7 +39,9 @@ More information and examples for this can be found in the [Fixing Common Errors
 
 ### User-defined port
 
-If you prefer to explicitly set a port, you *must* set the `PORT` variable in your service variables to the port on which your service is listening.
+If you prefer to explicitly set a port, you can set the `PORT` variable in your service variables to the port on which your service is listening.
+
+If your domain does not have a [target port set](/guides/public-networking#target-ports), Railway will direct incoming traffic to the port specified in the `PORT` variable, this is sometimes needed when creating a template.
 
 For information on how to configure variables, see the [Variables guide](/guides/variables).
 
@@ -245,13 +247,13 @@ alt="Screenshot of TCP proxy configuration"
 layout="responsive"
 width={700} height={225} quality={100} />
 
-Currently we use a random load balancing strategy for TCP traffic.
+Incomging traffic will be distributed across all replicas in the closest region using a random algorithm.
 
 ## Using HTTP and TCP Together
 
-At the moment, Railway does not support exposing both HTTP and TCP over public networking, in a single service.  Therefore, if you have a domain assigned, you will not see the option to enable TCP Proxy, and vice-versa.  Meaning, you will need to remove one before you can enable the other.
+Railway does support exposing both HTTP and TCP over public networking, in a single service. Therefore, if you have a domain assigned, you will still see the option to enable TCP Proxy, and vice-versa.
 
-If you have a usecase that requires exposing both HTTP and TCP over public networking, in one service, <a href="https://help.railway.com/feedback" target="_blank">let us know</a>!
+Note: While you can have multiple domains assigned to a single service, you cannot have multiple TCP proxies assigned to a single service.
 
 ## Let's Encrypt SSL Certificates
 
@@ -267,7 +269,7 @@ We currently do not support external SSL certificates since we provision one for
 ## Provider Specific Instructions
 
 If you have proxying enabled on Cloudflare (the orange cloud), you MUST set your
-SSL/TLS settings to full or above.
+SSL/TLS settings to **Full** -- Full (Strict) **will not work as intended**.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/cloudflare_zgeycj.png"
 alt="Screenshot of Custom Domain"
@@ -284,6 +286,6 @@ Also note that if proxying is enabled, you can NOT use a domain deeper than a fi
 
 ## Support
 
-Looking for the technical specs like timeouts, TLS information, rate limits etc?  Check out the [Public Networking reference page](/reference/public-networking).
+Looking for the technical specs like timeouts, TLS information, rate limits etc? Check out the [Public Networking reference page](/reference/public-networking).
 
-Having trouble connecting to your app from the internet?  Check out the [Fixing Common Errors guide](/guides/fixing-common-errors) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
+Having trouble connecting to your app from the internet? Check out the [Fixing Common Errors guide](/guides/fixing-common-errors) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.

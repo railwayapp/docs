@@ -4,6 +4,8 @@ title: No Start Command Could be Found
 
 ## What This Error Means
 
+Railway uses [Nixpacks](https://nixpacks.com/docs/how-it-works) to analyze your application's files to generate a container image for your application.s
+
 Seeing the `No start command could be found` error means that [Nixpacks](https://nixpacks.com/docs) was unable to automatically find an appropriate start command for your application.
 
 A start command is a command that will be executed by Railway to run your application.
@@ -20,7 +22,7 @@ For Python apps it will try to use `python main.py` if a `main.py` file is prese
 
 For Ruby apps it will try to use `bundle exec rails server -b 0.0.0.0` if a Rails application is detected.
 
-Failing the automatic detection, it will return the `No start command could be found` error.
+Failing the automatic detection, Nixpacks will return the `No start command could be found` error.
 
 ## Possible Solutions
 

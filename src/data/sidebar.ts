@@ -207,6 +207,8 @@ export const sidebarContent: ISidebarContent = [
           makePage("Application Failed to Respond", "reference/errors"),
           makePage("No Start Command Could Be Found", "reference/errors"),
           makePage("405 Method Not Allowed", "reference/errors"),
+          makePage("Unable to Generate a Build Plan", "reference/errors", "reference/errors/nixpacks-was-unable-to-generate-a-build-plan"),
+          makePage("ENOTFOUND redis.railway.internal", "reference/errors", "reference/errors/enotfound-redis-railway-internal"),
         ],
       },
       {
