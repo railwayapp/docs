@@ -8,7 +8,7 @@ The error code `ENOTFOUND` means that your application could not resolve the `re
 
 ## Why This Error Can Occur
 
-This error can occur for a few different reasons, but the main reason this error can occur is because your application uses the [`ioredis`](https://www.npmjs.com/package/ioredis) package to connect to the Redis database, or uses a package that uses ioredis as a dependency such as [`bullmq`](https://docs.bullmq.io/).
+This error can occur for a few different reasons, but the main reason is because your application uses the [`ioredis`](https://www.npmjs.com/package/ioredis) package to connect to the Redis database, or uses a package that uses ioredis as a dependency such as [`bullmq`](https://docs.bullmq.io/).
 
 By default, ioredis will only do an IPv4 (A record) lookup for the `redis.railway.internal` hostname.
 
