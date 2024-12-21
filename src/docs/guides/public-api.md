@@ -29,30 +29,31 @@ https://backboard.railway.com/graphql/v2
 
 ### Creating a Token
 
-To use the API, you will need an API token. You can create one by visiting the [tokens page](https://railway.com/account/tokens) in your account settings. There are two types of tokens you can create.
+To use the API, you will need an API token. There are three types of tokens you can create.
+
+#### Team Token and Personal Token
+
+You can create an API token from the [tokens page](https://railway.com/account/tokens) in your account settings.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1667386744/docs/new-token-form_rhrbw8.png"
 alt="New token form"
 layout="responsive"
 width={1618 } height={378} quality={80} />
 
-#### Team Token
-
-Select a team in the `Team` dropdown to create a token tied to a team.  A team token -
-- Has access to all the team's resources
-- Cannot be used to access your personal resources on Railway
+- **Team token** - Select a team in the `Team` dropdown to create a token tied to a team. A team token has access to all the team's resources, and cannot be used to access your personal resources on Railway. Feel free to share this token with your teammates.
+- **Personal token** - If you do not select a team, the token will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
 
 *Note that Teams are a Pro feature.*
 
-#### Personal Token
-
-If you do not select a team, the token will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
-
 #### Project Token
+
+You can create a project token from the tokens page in your project settings.
 
 Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
 
 ### Execute a Test Query
+
+#### Using a Team or Personal Token
 
 Once you have your token, you can pass it within the `Authorization` header of your request. You can try the query below in the terminal of your choice. It should return your name and email on Railway:
 
@@ -62,6 +63,18 @@ curl --request POST \
   --header 'Authorization: Bearer <API_TOKEN_GOES_HERE>' \
   --header 'Content-Type: application/json' \
   --data '{"query":"query { me { name email } }"}'
+```
+
+#### Using a Project Token
+
+If you have a project token, you can use it to authenticate requests to a specific environment within a project.  The query below should return the project and environment IDs:
+
+```bash
+curl --request POST \
+  --url https://backboard.railway.com/graphql/v2 \
+  --header 'Project-Access-Token: <PROJECT_TOKEN_GOES_HERE>' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query { projectToken { projectId environmentId } }"}'
 ```
 
 ## Viewing the Schema

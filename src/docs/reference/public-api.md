@@ -14,7 +14,14 @@ https://backboard.railway.com/graphql/v2
 
 ## Authentication
 
-To use the API, you will need an API token. You can create one by visiting the <a href="https://railway.com/account/tokens" target="_blank">tokens page</a> in your account settings.
+To use the API, you will need an API token. There are three types of tokens you can create.
+
+#### Team Token and Personal Token
+
+You can create an API token by visiting the <a href="https://railway.com/account/tokens" target="_blank">tokens page</a> in your account settings.
+
+- **Team tokens** are tied to a team and will have access to all the team's resources. This token cannot be used to access your personal resources on Railway so feel free to share it with your teammates.
+- **Non-team tokens** will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
 
 ```bash
 curl --request POST \
@@ -24,18 +31,19 @@ curl --request POST \
   --data '{"query":"query { me { name email } }"}'
 ```
 
-
-### Team Token
-
-Team tokens are tied to a team and will have access to all the team's resources. This token cannot be used to access your personal resources on Railway so feel free to share it with your teammates.
-
-### Personal Token
-
-Non-team tokens will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
-
 #### Project Token
 
+You can create a project token by visiting the tokens page in your project settings.
+
 Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
+
+```bash
+curl --request POST \
+  --url https://backboard.railway.com/graphql/v2 \
+  --header 'Project-Access-Token: <PROJECT_TOKEN_GOES_HERE>' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query { projectToken { projectId environmentId } }"}'
+```
 
 ## Schema
 
