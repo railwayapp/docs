@@ -4,6 +4,8 @@ title: Railway vs. Render
 
 Railway is a modern, developer-focused cloud platform that simplifies app deployment and scaling. We are optimised for developer happiness and efficiency!
 
+**Note:** [Migrate your app from Render to Railway in less than 4 steps.](/migration/migrate-from-render)
+
 We are similar in the following ways:
 
 - GitHub repo deployments
