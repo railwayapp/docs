@@ -11,7 +11,7 @@ Railway boasts of a superior and intuitive user experience that makes deploying 
 Railway offers:
 
 - **Broad Language and Framework Support**: Deploy apps in [any language or framework](https://docs.railway.com/guides/languages-frameworks).
-- **Flexible Deployment Options**: Use GitHub, Dockerfiles, Docker images from any registry, or local deployments via the Railway CLI.
+- **Flexible Deployment Options**: Use GitHub, Dockerfiles, Docker images from supported registries (Docker Hub, GitHub, RedHat, GitLab, Microsoft), or local deployments via the Railway CLI.
 - **Integrated Tools**: Simplify environment variable management, CI/CD, observability, and service scaling.
 - **Networking Features:** Public and private networking.
 - **Best in Class Support:** Very active community on [Discord](https://discord.gg/railway) and [Help Station](https://help.railway.com/).
