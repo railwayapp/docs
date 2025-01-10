@@ -4,7 +4,7 @@ title: GitHub Post-Deploy Actions
 
 [Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. In this post, we talk about using Github Actions to run post-deploy actions.
 
-At Railway, we've set up Github triggers for automatic deployments when you push to a selected branch, and with Github Actions, you can automate several parts of your development workflow. Recently, within our Discord and Slack, we've had a couple of users ask us how they'd go about running commands or webhooks after their app is deployed so we thought it'd be a good idea to publish a short tutorial doing just that, with Github Actions.
+At Railway, we've set up Github triggers for automatic deployments when you push to a selected branch, and with Github Actions, you can automate several parts of your development workflow. Recently, within our [Discord](https://discord.gg/railway) and [Slack](/reference/support#slack), we've had a couple of users ask us how they'd go about running commands or webhooks after their app is deployed so we thought it'd be a good idea to publish a short tutorial doing just that, with Github Actions.
 
 ## The Action
 
