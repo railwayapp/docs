@@ -31,7 +31,7 @@ https://backboard.railway.com/graphql/v2
 
 To use the API, you will need an API token. There are three types of tokens you can create.
 
-#### Team Token and Personal Token
+#### Team Tokens and Account Tokens
 
 You can create an API token from the [tokens page](https://railway.com/account/tokens) in your account settings.
 
@@ -41,7 +41,7 @@ layout="responsive"
 width={1618 } height={378} quality={80} />
 
 - **Team token** - Select a team in the `Team` dropdown to create a token tied to a team. A team token has access to all the team's resources, and cannot be used to access your personal resources on Railway. Feel free to share this token with your teammates.
-- **Personal token** - If you do not select a team, the token will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
+- **Account token** - If you do not select a team, the token will be tied to your Railway account and will have access to all your resources including the teams you are a part of. Do not share this token with anyone else.
 
 *Note that Teams are a Pro feature.*
 
@@ -53,9 +53,11 @@ Project tokens are scoped to a specific environment within a project and can onl
 
 ### Execute a Test Query
 
-#### Using a Team or Personal Token
+Once you have your token, you can pass it within the Authorization header of your request.
 
-Once you have your token, you can pass it within the `Authorization` header of your request. You can try the query below in the terminal of your choice. It should return your name and email on Railway:
+#### Using an Account Token
+
+You can try the query below in the terminal of your choice. It should return your name and email on Railway:
 
 ```bash
 curl --request POST \
@@ -64,6 +66,22 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{"query":"query { me { name email } }"}'
 ```
+
+**Note:** This query **cannot** be used with a team or project token because the data returned is scoped to your personal account.
+
+#### Using a Team Token
+
+If you have a team token, you can use it to authenticate requests to a specific team. The query below should return the team name and ID:
+
+```bash
+curl --request POST \
+  --url https://backboard.railway.com/graphql/v2 \
+  --header 'Team-Access-Token: <TEAM_TOKEN_GOES_HERE>' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query { team(id: \"<TEAM_ID_GOES_HERE>\") { name id } }"}'
+```
+
+**Note:** This query **can** also be used with an account token as long as you are a member of the team.
 
 #### Using a Project Token
 
