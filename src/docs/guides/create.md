@@ -120,6 +120,10 @@ The current template variable functions are:
     - `openssl rand -hex 32` → `${{secret(64, "abcdef0123456789")}}`
     - `openssl rand -hex 64` → `${{secret(128, "abcdef0123456789")}}`
 
+    Or even generate a UUIDv4 string -
+
+    `${{secret(8, "0123456789abcdef")}}-${{secret(4, "0123456789abcdef")}}-4${{secret(3, "0123456789abcdef")}}-${{secret(1, "89ab")}}${{secret(3, "0123456789abcdef")}}-${{secret(12, "0123456789abcdef")}}`
+
 2. `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
 ## Managing Your Templates
