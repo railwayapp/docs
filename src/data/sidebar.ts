@@ -68,7 +68,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Astro", "guides"),
           makePage("SvelteKit", "guides"),
           makePage("Phoenix", "guides"),
-          makePage("Phoenix Distillery", "guides")
+          makePage("Phoenix Distillery", "guides"),
         ],
       },
       {
@@ -88,6 +88,7 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Deployments", "guides"),
         pages: [
+          makePage("Pre-Deploy Command", "guides"),
           makePage("Start Command", "guides"),
           makePage("Deployment Actions", "guides"),
           makePage("GitHub Autodeploys", "guides"),
@@ -207,8 +208,16 @@ export const sidebarContent: ISidebarContent = [
           makePage("Application Failed to Respond", "reference/errors"),
           makePage("No Start Command Could Be Found", "reference/errors"),
           makePage("405 Method Not Allowed", "reference/errors"),
-          makePage("Unable to Generate a Build Plan", "reference/errors", "reference/errors/nixpacks-was-unable-to-generate-a-build-plan"),
-          makePage("ENOTFOUND redis.railway.internal", "reference/errors", "reference/errors/enotfound-redis-railway-internal"),
+          makePage(
+            "Unable to Generate a Build Plan",
+            "reference/errors",
+            "reference/errors/nixpacks-was-unable-to-generate-a-build-plan",
+          ),
+          makePage(
+            "ENOTFOUND redis.railway.internal",
+            "reference/errors",
+            "reference/errors/enotfound-redis-railway-internal",
+          ),
         ],
       },
       {
@@ -292,14 +301,10 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Migration",
-    content: [
-      makePage("Migrate from Render", "migration"),
-    ],
+    content: [makePage("Migrate from Render", "migration")],
   },
   {
     title: "Community",
-    content: [
-      makePage("The Conductor Program", "community"),
-    ],
+    content: [makePage("The Conductor Program", "community")],
   },
 ];
