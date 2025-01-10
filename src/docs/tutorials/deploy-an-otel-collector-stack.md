@@ -349,6 +349,7 @@ The OpenTelemetry Documentation is complete and easy to follow.  We encourage yo
 - [OpenTelemetry Components](https://opentelemetry.io/docs/concepts/components/)
 - [OTLP Spec](https://opentelemetry.io/docs/specs/otlp/)
 - [Collector Docs](https://opentelemetry.io/docs/collector/)
+- [Collector Configuration Tool OTelBin](https://www.otelbin.io)
 - [Supported Languages](https://opentelemetry.io/docs/languages/)
 - [Vendors with Native OTLP Support](https://opentelemetry.io/ecosystem/vendors/) (explore this list for different backend options)
 
