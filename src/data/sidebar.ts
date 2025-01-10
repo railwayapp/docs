@@ -189,12 +189,17 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       {
-        subTitle: "GitHub Tutorials",
+        subTitle: "Git Tutorials",
         pages: [
           {
             title: "GitHub Actions",
             url: "https://blog.railway.com/p/github-actions",
           },
+          {
+            title: "Gitlab CI/CD",
+            url: "https://blog.railway.com/p/gitlab-ci-cd",
+          },
+          makePage("GitHub Post-Deploy Actions", "tutorials"),
         ],
       },
     ],
