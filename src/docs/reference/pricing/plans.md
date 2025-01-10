@@ -141,7 +141,7 @@ No. The Hobby Plan is $5 a month, and it includes a resource usage credit of $5.
 
 Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform.
 
-Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. If you qualify, you will be notified in the Dashboard or when you upgrade to the Hobby plan. If you do not quality, you will not be eligible for the waiver.
+Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. If you qualify, you will be notified in the Dashboard or when you upgrade to the Hobby plan. If you do not qualify, you will not be eligible for the waiver.
 
 This is a fully automated process, and Railway does not respond to requests for waiver.
 
