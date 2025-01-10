@@ -108,6 +108,7 @@ Some actions you can perform with a project token include -
 Some actions you **cannot** perform with a project token include -
 - Creating a new project - `railway init`
 - Printing information about the user - `railway whoami`
+- Linking to another workspace - `railway link`
 
 Use the token by setting the `RAILWAY_TOKEN` environment variable and then running `railway <command>`.
 
