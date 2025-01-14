@@ -102,15 +102,16 @@ These variables are provided if the deploy originated from a GitHub trigger.
 
 Users can use the following environment variables to configure Railway's behavior.
 
-| Name                                  | Description                                                                                                                                          |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS`  | How long the old deploy will overlap with the newest one being deployed, its default value is `20`. Example: `0`                                     |
-| `RAILWAY_DOCKERFILE_PATH`             | The path to the Dockerfile to be used by the service, its default value is `Dockerfile`. Example: `Railway.dockerfile`                               |
-| `NIXPACKS_CONFIG_FILE`                | The path to the Nixpacks configuration file relative to the root of the app, its default value is `nixpacks.toml`. Example: `frontend.nixpacks.toml` |
-| `RAILWAY_HEALTHCHECK_TIMEOUT_SEC`     | The timeout length (in seconds) of healthchecks. Example: `300`                                                                                      |
-| `RAILWAY_DEPLOYMENT_DRAINING_SECONDS` | The SIGTERM to SIGKILL buffer time (in seconds), its default value is 3. Example: `30`                                                               |
-| `RAILWAY_RUN_UID`                     | The UID of the user which should run the main process inside the container. Set to `0` to explicitly run as root.                                    |
-| `RAILWAY_SHM_SIZE_BYTES`              | This variable accepts a value in binary bytes, with a default value of 67108864 bytes (64 MB)                                                        |
+| Name                                  | Description                                                                                                                                                                     |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS`  | How long the old deploy will overlap with the newest one being deployed, its default value is `20`. Example: `0`                                                                |
+| `RAILWAY_DOCKERFILE_PATH`             | The path to the Dockerfile to be used by the service, its default value is `Dockerfile`. Example: `Railway.dockerfile`                                                          |
+| `NIXPACKS_CONFIG_FILE`                | The path to the Nixpacks configuration file relative to the root of the app, its default value is `nixpacks.toml`. Example: `frontend.nixpacks.toml`                            |
+| `NIXPACKS_VERSION`                    | The <a href="https://github.com/railwayapp/nixpacks/releases" target="_blank">version</a> of Nixpacks to use, if unspecfied a default version will be used. Example: `1.29.1`   |
+| `RAILWAY_HEALTHCHECK_TIMEOUT_SEC`     | The timeout length (in seconds) of healthchecks. Example: `300`                                                                                                                 |
+| `RAILWAY_DEPLOYMENT_DRAINING_SECONDS` | The SIGTERM to SIGKILL buffer time (in seconds), its default value is 3. Example: `30`                                                                                          |
+| `RAILWAY_RUN_UID`                     | The UID of the user which should run the main process inside the container. Set to `0` to explicitly run as root.                                                               |
+| `RAILWAY_SHM_SIZE_BYTES`              | This variable accepts a value in binary bytes, with a default value of 67108864 bytes (64 MB)                                                                                   |
 
 ## Support
 
