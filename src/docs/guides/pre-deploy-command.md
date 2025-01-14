@@ -5,7 +5,7 @@ title: Add a Pre-Deploy Command
 Pre-deploy commands execute between building and deploying your application, handling tasks like database migrations or data seeding before your application runs.
 They execute within your private network and have access to your application's environment variables.
 
-If your command fails, the deployment will not proceed.
+If your command fails, the deployment will not proceed. Its [restart policy](/guides/healthchecks-and-restarts#restart-policy) is always `Never`, so the command will not be retried.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1736533539/docs/pre-deploy-command_sp1zqh.png"
