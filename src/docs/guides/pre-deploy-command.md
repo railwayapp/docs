@@ -20,4 +20,4 @@ For pre-deploy commands to work correctly, ensure that:
 - It does not rely on the application running.
 - It has the dependencies it needs to run installed in the application image.
 
-<Banner variant="warning">Pre-deploy commands execute in a separate container from your application. Changes to the filesystem are not persisted.</Banner>
+<Banner variant="warning">Pre-deploy commands execute in a separate container from your application. Changes to the filesystem are not persisted and [volumes](/reference/volumes) are not mounted.</Banner>
