@@ -201,6 +201,8 @@ Version of Nixpacks to use. Must be a valid Nixpacks version.
 
 This field can be set to `null`.
 
+You can also use the `NIXPACKS_VERSION` [configuration variable](https://docs.railway.com/reference/variables#user-provided-configuration-variables) to set the Nixpacks version.
+
 ### Start Command
 
 The command to run when starting the container.
