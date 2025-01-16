@@ -7,7 +7,7 @@ on:
 jobs:
   post-deploy:
     runs-on: ubuntu-latest
-    if: github.event.deployment_status.state == 'success'
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.payload.serviceId == 'c6252e1b-b2bd-4d39-bdc1-d6621abe6e2a' 
     steps:
       - name: Debug - Print github.event object
         run: |
