@@ -1,0 +1,20 @@
+name: Post-Deployment Actions
+
+on:
+  deployment_status:
+    states: [success]
+
+jobs:
+  post-deploy:
+    runs-on: ubuntu-latest
+    if: github.event.deployment_status.state == 'success'
+    steps:
+      - name: Debug - Print github.event object
+        run: |
+          echo "github.event context:"
+          echo '${{ toJSON(github.event) }}'
+          
+      # Only run if this is a production environment deployment that succeeded
+      - name: Run post-deploy actions
+        run: |
+          echo "deployment succeeded"

@@ -1,8 +1,0 @@
-[build]
-builder = "NIXPACKS"
-
-[deploy]
-numReplicas = 2
-sleepApplication = false
-restartPolicyType = "ALWAYS"
-restartPolicyMaxRetries = 10
