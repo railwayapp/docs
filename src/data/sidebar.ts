@@ -14,6 +14,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Home", undefined, "/"),
       makePage("Quick Start", undefined),
+      makePage("Railway Metal", undefined),
     ],
   },
   {
