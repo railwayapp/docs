@@ -44,7 +44,7 @@ If your **`fly.toml`** file includes environment variables, Railway will automat
 
 Railway will deploy the Gin app as a service, as shown in the image above. You can monitor the service building and deploying in the [Project Canvas](https://docs.railway.com/guides/projects#project-canvas).
 
-[**Serverless (App Sleep) activated](https://docs.railway.com/reference/app-sleeping):** In this [**Fly.io** app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), the HTTP service is configured with **`auto_stop_machines='stop'`** and **`auto_start_machines=true`**, enabling automatic stopping and restarting of machines. On Railway import, we automatically enable this setting to effortlessly optimize resource usage.
+[**Serverless (App Sleep) activated**](https://docs.railway.com/reference/app-sleeping): In this [**Fly.io** app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), the HTTP service is configured with **`auto_stop_machines='stop'`** and **`auto_start_machines=true`**, enabling automatic stopping and restarting of machines. On Railway import, we automatically enable this setting to effortlessly optimize resource usage.
 
 ![App sleep activated to optimize resource usage and spend](https://res.cloudinary.com/railway/image/upload/v1737143360/appsleep_cszmgf.png)
 
@@ -56,12 +56,12 @@ If you're migrating data to Railway from Fly, you can follow these steps:
 
 1. Provision a new database by right clicking on the dashboard canvas and selecting Postgres.
 2. Export your data from Flyio
-    1. Use `flyctl` to connect to your Flyio Postgres instance
-        1. `fly postgres connect -a <postgres-app-name>`
-    2. Use `pg_dump` to export your database
-        1. `pg_dump -Fc --no-acl --no-owner -h localhost -p 5432 -U <your-db-username> -d <your-db-name> -f flyio_db_backup.dump` 
-    3. Use `pg_restore` to connect to your Railway database and restore the data from the dump.
-        1. `pg_restore -U <username> -h <host> -p <port> -W -F t -d <db_name> <dump_file_name>`
+    - Use `flyctl` to connect to your Flyio Postgres instance
+        - `fly postgres connect -a <postgres-app-name>`
+    - Use `pg_dump` to export your database
+        - `pg_dump -Fc --no-acl --no-owner -h localhost -p 5432 -U <your-db-username> -d <your-db-name> -f flyio_db_backup.dump` 
+    - Use `pg_restore` to connect to your Railway database and restore the data from the dump.
+        - `pg_restore -U <username> -h <host> -p <port> -W -F t -d <db_name> <dump_file_name>`
 
 For detailed instructions, check out [this comprehensive tutorial on migrating PostgreSQL data between services.](https://blog.railway.com/p/postgre-backup)
 
@@ -69,7 +69,7 @@ Once the migration is complete, update the `DATABASE_URL` environment variable i
 
 ### **4. Replicas & Multi-region deployments**
 
-In this [**Fly.io** app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), the setting **`min_machines_running=2`** ensures that at least **two instances** of the service remain active.
+In this [Fly.io app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), the setting **`min_machines_running=2`** ensures that at least **two instances** of the service remain active.
 
 When imported to **Railway**, our platform **automatically detects and translates** this configuration—seamlessly ensuring that **two service instances** are running without any extra setup. Smart, intuitive, and effortless! 
 

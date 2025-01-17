@@ -19,7 +19,7 @@ We differ in the following:
 - A vibrant, highly engaged community with fast, reliable support.
 - A superior developer experience designed for simplicity and efficiency.
 - Transparent, flexible pricing that scales with your needs.
-- And much more…
+- And much more...
 
 ## Differences
 
@@ -73,8 +73,8 @@ Railway offers an intuitive and delightful variable management feature where you
 
 Additionally, Railway offers [variable functions](https://docs.railway.com/guides/create#template-variable-functions) that automatically generate secure secrets for your environment variables—eliminating the need for manual secret creation.
 
-- Need a random secret? Simply use: **`${{ secret() }}`**
-- Need a hex-encoded secret of a specific length? Just specify the length and character set: **`${{ secret(128, "abcdef0123456789") }}`**
+- Need a random secret? Simply use: `${{ secret() }}`
+- Need a hex-encoded secret of a specific length? Just specify the length and character set: `${{ secret(128, "abcdef0123456789") }}`
 
 Fly.io provides a basic secrets management feature, allowing users to store secrets with a digest. However, it lacks the advanced functionality of Railway’s shared variables and dynamic secret generation.
 
