@@ -302,6 +302,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Incident Management", "maturity"),
       makePage("Compare to Heroku", "maturity"),
       makePage("Compare to Render", "maturity"),
+      makePage("Compare to Fly", "maturity"),
     ],
   },
   {
