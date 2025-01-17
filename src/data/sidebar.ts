@@ -307,7 +307,10 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Migration",
-    content: [makePage("Migrate from Render", "migration")],
+    content: [
+      makePage("Migrate from Render", "migration"),
+      makePage("Migrate from Fly", "migration"),
+    ],
   },
   {
     title: "Community",

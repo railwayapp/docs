@@ -143,7 +143,7 @@ Fly.io offers paid support plans starting at $29/month for standard support, $19
 
 ## Migrate to Railway
 
-Thinking about migrating from [Fly.io](http://Fly.io) to Railway? We’ve put together a quick and simple guide to make the transition effortless and fast.
+Thinking about migrating from Fly.io to Railway? We’ve put together a [quick and simple guide](/migration/migrate-from-fly) to make the transition effortless and fast.
 
 [Sign up on Railway](https://railway.com/new) today and get a $5 in free credits to explore the platform. 
 
