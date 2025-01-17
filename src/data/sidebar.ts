@@ -302,11 +302,15 @@ export const sidebarContent: ISidebarContent = [
       makePage("Incident Management", "maturity"),
       makePage("Compare to Heroku", "maturity"),
       makePage("Compare to Render", "maturity"),
+      makePage("Compare to Fly", "maturity"),
     ],
   },
   {
     title: "Migration",
-    content: [makePage("Migrate from Render", "migration")],
+    content: [
+      makePage("Migrate from Render", "migration"),
+      makePage("Migrate from Fly", "migration"),
+    ],
   },
   {
     title: "Community",
