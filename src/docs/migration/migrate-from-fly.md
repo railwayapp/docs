@@ -30,9 +30,9 @@ Select the **Deploy from GitHub Repo** option and connect your repository. If yo
 
 ### 2. Deploy the App
 
-Railway automatically detects the presence of a `fly.toml` file in your repository and seamlessly translates its configuration to match your service requirements on Railway—no manual setup needed.
+Railway auto-imports all the build configurations, deploy commands, environment variables from your Fly.io app repo—no manual setup needed.
 
-If your `fly.toml` file includes environment variables, Railway will automatically import them into your service. If they are missing, you can easily add them manually by following these steps:
+If the environment variables are missing, you can easily add them manually by following these steps:
 
 ### Adding Environment Variables on Railway:
 
@@ -69,9 +69,7 @@ Once the migration is complete, update the `DATABASE_URL` environment variable i
 
 ### 4. Replicas & Multi-region deployments
 
-In this [Fly.io app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), the setting **`min_machines_running=2`** ensures that at least **two instances** of the service remain active.
-
-When imported to **Railway**, our platform **automatically detects and translates** this configuration—seamlessly ensuring that **two service instances** are running without any extra setup. Smart, intuitive, and effortless! 
+In this [Fly.io app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), the setting **`min_machines_running=2`** ensures that at least **two instances** of the service remain active. On Railway import, we automatically translate this configuration to ensure that two **service instances** are running without any extra setup.
 
 ![Replicas](https://res.cloudinary.com/railway/image/upload/v1737143335/replicas_zwtuwr.png)
 
