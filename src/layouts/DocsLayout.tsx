@@ -18,6 +18,8 @@ const getOGImage = (title: string) =>
     title,
   )}`;
 
+const domainUrl = "https://docs.railway.com";
+
 const flattenSidebarContent = (sidebarContent: ISidebarContent): IPage[] => {
   let flatPages: IPage[] = [];
   sidebarContent.forEach(section => {
@@ -73,11 +75,19 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
 
     return { prevPage, nextPage };
   }, [slug]);
+  
+  console.log("Title ", frontMatter.title);
+  console.log("Description ", frontMatter.description);
+  console.log("URL of the page", frontMatter.url);
+
 
   return (
     <>
+      
       <SEO
         title={`${frontMatter.title} | Railway Docs`}
+        description={`${frontMatter.description}`}
+        url={`${domainUrl}${frontMatter.url}`}
         image={getOGImage(frontMatter.title)}
       />
       <div tw="max-w-full">

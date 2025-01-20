@@ -7,6 +7,7 @@ export interface Props extends NextSeoProps {
   title?: string;
   description?: string;
   image?: string;
+  url?: string;
 }
 
 const title = "Railway Docs";
@@ -24,6 +25,7 @@ const config: DefaultSeoProps = {
     images: [{ url: image }],
   },
   twitter: {
+    site: "@Railway",
     handle: "@Railway",
     cardType: "summary_large_image",
   },
@@ -32,6 +34,7 @@ const config: DefaultSeoProps = {
 export const SEO: React.FC<Props> = ({ image, ...props }) => {
   const title = props.title ?? config.title;
   const description = props.description || config.description;
+  const url = props.url || config.openGraph?.url;
 
   return (
     <>
@@ -43,6 +46,9 @@ export const SEO: React.FC<Props> = ({ image, ...props }) => {
           ? {}
           : {
               openGraph: {
+                url,
+                description,
+                site_name: title,
                 images: [{ url: image }],
               },
             })}
@@ -50,8 +56,7 @@ export const SEO: React.FC<Props> = ({ image, ...props }) => {
 
       <Head>
         <title>{title}</title>
-
-        <meta name="description" content={description} />
+        <meta property="og:image:alt" content={title} />
       </Head>
     </>
   );
