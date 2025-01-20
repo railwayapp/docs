@@ -19,6 +19,7 @@ const getOGImage = (title: string) =>
   )}`;
 
 const domainUrl = "https://docs.railway.com";
+const fallbackDescription = "Documentation for Railway";
 
 const flattenSidebarContent = (sidebarContent: ISidebarContent): IPage[] => {
   let flatPages: IPage[] = [];
@@ -75,11 +76,6 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
 
     return { prevPage, nextPage };
   }, [slug]);
-  
-  console.log("Title ", frontMatter.title);
-  console.log("Description ", frontMatter.description);
-  console.log("URL of the page", frontMatter.url);
-
 
   return (
     <>
@@ -87,7 +83,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
       <SEO
         title={`${frontMatter.title} | Railway Docs`}
         twitterTitle={`${frontMatter.title}`}
-        description={`${frontMatter.description}`}
+        description={`${frontMatter.description || fallbackDescription}`}
         url={`${domainUrl}${frontMatter.url}`}
         image={getOGImage(frontMatter.title)}
       />
