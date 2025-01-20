@@ -86,6 +86,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
       
       <SEO
         title={`${frontMatter.title} | Railway Docs`}
+        twitterTitle={`${frontMatter.title}`}
         description={`${frontMatter.description}`}
         url={`${domainUrl}${frontMatter.url}`}
         image={getOGImage(frontMatter.title)}

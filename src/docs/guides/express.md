@@ -1,6 +1,6 @@
 ---
 title: Deploy an Express App
-description: Learn how to deploy an Express app to Railway using one-click templates, GitHub, CLI, or Docker. This guide covers setup, database configuration, and deployment options for a seamless experience.
+description: Learn how to deploy an Express app to Railway with one-click templates, GitHub, CLI, or Dockerfile. This guide covers setup, private networking, database integration, and deployment strategies.
 ---
 
 [Express](https://expressjs.com) is a fast and flexible web application framework for Node.js that provides a simple and minimalistic approach to building web servers and APIs. It is known for its speed and unopinionated nature, allowing developers to structure their applications as they see fit while offering powerful features.

@@ -5,6 +5,7 @@ import { DefaultSeoProps } from "next-seo";
 
 export interface Props extends NextSeoProps {
   title?: string;
+  twitterTitle?: string;
   description?: string;
   image?: string;
   url?: string;
@@ -33,6 +34,7 @@ const config: DefaultSeoProps = {
 
 export const SEO: React.FC<Props> = ({ image, ...props }) => {
   const title = props.title ?? config.title;
+  const twitterTitle = props.twitterTitle;
   const description = props.description || config.description;
   const url = props.url || config.openGraph?.url;
 
@@ -56,7 +58,10 @@ export const SEO: React.FC<Props> = ({ image, ...props }) => {
 
       <Head>
         <title>{title}</title>
-        <meta property="og:image:alt" content={title} />
+        <meta name="twitter:title" content={twitterTitle} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
+        <meta name="twitter:image:alt" content={twitterTitle} />
       </Head>
     </>
   );
