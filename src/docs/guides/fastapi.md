@@ -1,5 +1,6 @@
 ---
 title: Deploy a FastAPI App
+description: Learn how to deploy a FastAPI app to Railway with this step-by-step guide. It covers quick setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 FastAPI is a modern, fast (high-performance), web framework for building APIs with Python based on standard Python type hints.

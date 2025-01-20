@@ -1,5 +1,6 @@
 ---
 title: Migrate from Render to Railway
+description: Learn how to migrate your apps from Render to Railway with this step-by-step guide. Fast, seamless, and hassle-free.
 ---
 
 This guide walks you through the steps needed to seamlessly migrate your app and data from Render to Railway.

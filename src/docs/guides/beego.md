@@ -1,5 +1,6 @@
 ---
 title: Deploy a Beego App
+description: Learn how to deploy a Beego app to Railway with this step-by-step guide. It covers quick setup, private networking, database integration, one-click deploys and other deployment strategies.
 ---
 
 [Beego](https://github.com/beego/beego) is a high-performance, open-source web framework designed for building robust applications in Go (Golang). It is used for rapid development of enterprise apps, including RESTful APIs, web apps and backend services.

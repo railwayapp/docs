@@ -1,5 +1,6 @@
 ---
 title: Deploy a Spring Boot App
+description: Learn how to deploy a Spring Boot app to Railway with this step-by-step guide. It covers quick setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 [Spring Boot](https://spring.io/projects/spring-boot) is a Java framework designed to simplify the creation of stand-alone, production-ready Spring applications that are easy to run right out of the box.

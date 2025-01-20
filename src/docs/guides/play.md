@@ -1,5 +1,6 @@
 ---
 title: Deploy a Scala Play App
+description: Learn how to deploy a Scala Play app to Railway with this step-by-step guide. It covers quick setup, database integration, one-click deploys and other deployment strategies.
 ---
 
 [Play](https://www.playframework.co) is a high velocity and productive web framework for Java and Scala. It is based on a lightweight, stateless, web-friendly architecture and features predictable and minimal resource consumption (CPU, memory, threads) for highly-scalable applications thanks to its reactive model, based on Pekko Streams.

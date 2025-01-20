@@ -1,5 +1,6 @@
 ---
 title: Migrate from Fly to Railway
+description: Learn how to migrate your apps from Fly.io to Railway with this step-by-step guide. Fast, seamless, and hassle-free.
 ---
 
 This guide walks you through the steps needed to seamlessly migrate your app and data from Fly.io to Railway. This process is straightforward and typically takes an average of **5 - 20 minutes**, depending on the size of your database and app complexity.

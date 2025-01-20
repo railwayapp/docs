@@ -1,5 +1,6 @@
 ---
 title: Deploy a Symfony App
+description: Learn how to deploy a Symfony app to Railway with this step-by-step guide. It covers quick setup, database integration, cron and workers, one-click deploys and other deployment strategies.
 ---
 
 [Symfony](https://symfony.com) is a PHP web framework composed of a set of decoupled and reusable components all working together in harmony to create websites and web applications.

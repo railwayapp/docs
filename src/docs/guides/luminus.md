@@ -1,5 +1,6 @@
 ---
 title: Deploy a Clojure Luminus App
+description: Learn how to deploy your Clojure Luminus app to Railway with this step-by-step guide. It covers quick setup, database integration, one-click deploys and other deployment strategies.
 ---
 
 [Luminus](https://luminusweb.com) is a Clojure micro-framework based on a set of lightweight libraries. It aims to provide a robust, scalable, and easy to use platform. With Luminus you can focus on developing your app the way you want without any distractions.

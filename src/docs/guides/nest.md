@@ -1,5 +1,6 @@
 ---
 title: Deploy a NestJS App
+description: Learn how to deploy a NestJS app to Railway with this step-by-step guide. It covers quick setup, database integration, one-click deploys and other deployment strategies.
 ---
 
 [Nest](https://nestjs.com) is a modern Node.js framework designed to create efficient, reliable, and scalable server-side applications. Built on top of powerful HTTP server frameworks, it uses Express as the default but also offers seamless support for Fastify for enhanced performance and flexibility.

@@ -1,5 +1,6 @@
 ---
 title: Languages & Frameworks
+description: A comprehensive guide to deploying applications using different languages and frameworks on Railway.
 ---
 
 Learn how to deploy your apps quickly on Railway using your preferred languages and frameworks:

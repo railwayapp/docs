@@ -1,5 +1,6 @@
 ---
 title: Deploy a Gin App
+description: Learn how to deploy a Gin app to Railway with this step-by-step guide. It covers quick setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 [Gin](https://gin-gonic.com) is a high-performance web framework for Go (Golang) that provides a martini-like API while being significantly faster—up to 40 times—due to its use of `httprouter`. It's designed for developers seeking both speed and productivity.

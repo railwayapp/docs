@@ -1,5 +1,6 @@
 ---
 title: Deploy a Vue App
+description: Learn how to deploy a Vue app to Railway with this step-by-step guide. It covers quick setup, caddy server setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 [Vue](https://vuejs.org), also known as Vue.js or VueJS, is a popular JavaScript library for building snappy, performant and versatile user interfaces for web applications. 
