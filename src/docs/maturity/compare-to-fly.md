@@ -1,5 +1,6 @@
 ---
 title: Railway vs. Fly
+description: Looking for the best deployment platform? This guide breaks down Railway vs. Fly.io—covering scalability, pricing, features, and why Railway is the superior choice.
 ---
 
 Railway is a modern, developer-centric cloud platform designed to simplify app deployment, scaling, and management—all while optimizing for developer happiness and efficiency.

@@ -1,5 +1,6 @@
 ---
 title: Deploy a React App
+description: Learn how to deploy a React app to Railway with this step-by-step guide. It covers quick setup, caddy server setup, one-click deploys and other deployment strategies.
 ---
 
 [React](https://react.dev), also known as React.js or ReactJS, is a popular JavaScript library developed by Meta for building user interfaces, especially for web and native applications. 

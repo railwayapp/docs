@@ -1,5 +1,6 @@
 ---
 title: Deploy a Flask App
+description: Learn how to deploy a Flask app to Railway with this step-by-step guide. It covers quick setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 [Flask](https://flask.palletsprojects.com/en/stable) is a Python micro framework for building web applications.

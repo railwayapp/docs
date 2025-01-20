@@ -1,5 +1,6 @@
 ---
 title: Deploy PostgreSQL
+description: Learn how to deploy a PostgreSQL database on Railway, whether as a standalone instance or a high-availability cluster, for scalability and reliability.
 ---
 
 Railway offers two PostgreSQL deployment options to accommodate different needs: a **Standalone Instance** and a **High Availability (HA) Cluster**.

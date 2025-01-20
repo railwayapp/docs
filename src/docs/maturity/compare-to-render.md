@@ -1,5 +1,6 @@
 ---
 title: Railway vs. Render
+description: Looking for the best deployment platform? This guide breaks down Railway vs. Render—covering scalability, pricing, features, and why Railway is the superior choice.
 ---
 
 Railway is a modern, developer-focused cloud platform that simplifies app deployment and scaling. We are optimised for developer happiness and efficiency!

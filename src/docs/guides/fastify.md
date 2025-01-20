@@ -1,5 +1,6 @@
 ---
 title: Deploy a Fastify App
+description: Learn how to deploy a Fastify app to Railway with this step-by-step guide. It covers quick setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 Fastify is a high-performance, low-overhead web framework for Node.js, designed to deliver an exceptional developer experience.

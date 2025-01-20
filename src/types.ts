@@ -1,5 +1,7 @@
 export interface FrontMatter {
   title: string;
+  description?: string;
+  url: string;
 }
 
 export type ISidebarContent = ISidebarSection[];
@@ -7,6 +9,7 @@ export type ISidebarContent = ISidebarSection[];
 export interface IPage {
   title: string;
   slug: string;
+  description?: string;
   category?: string;
 }
 

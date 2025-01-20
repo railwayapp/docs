@@ -1,5 +1,6 @@
 ---
 title: Railway vs. Heroku
+description: Looking for the best deployment platform? This guide breaks down Railway vs. Heroku—covering community, pricing, features, and why Railway is the superior choice.
 ---
 
 ## Summary

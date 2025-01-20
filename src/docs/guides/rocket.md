@@ -1,5 +1,6 @@
 ---
 title: Deploy a Rust Rocket App
+description: Learn how to deploy a Rust Rocket app to Railway with this step-by-step guide. It covers quick setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 [Rocket](https://rocket.rs) is a web framework for Rust that makes it simple to write fast, type-safe, secure web applications with incredible usability, productivity and performance.

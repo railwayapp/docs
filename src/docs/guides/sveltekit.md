@@ -1,5 +1,6 @@
 ---
 title: Deploy a SvelteKit App
+description: Learn how to deploy a Sveltekit app to Railway with this step-by-step guide. It covers quick setup, adapter configuration, one-click deploys and other deployment strategies.
 ---
 
 [SvelteKit](https://svelte.dev/docs/kit/introduction) is a framework for rapidly developing robust, performant web applications using Svelte.

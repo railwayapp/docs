@@ -1,5 +1,6 @@
 ---
 title: Deploy a Nuxt App
+description: Learn how to deploy a Nuxt app to Railway with this step-by-step guide. It covers quick setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 [Nuxt](https://nuxt.com) is a Vue.js framework that makes web development intuitive and powerful. You can create performant and production-grade full-stack web apps and websites with confidence.
