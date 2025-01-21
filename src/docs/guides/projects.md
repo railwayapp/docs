@@ -1,5 +1,6 @@
 ---
 title: Managing Projects
+description: A guide to managing projects on Railway.
 ---
 
 A Railway project contains any services, environments, and deployments that an app needs. Projects can be found on <a href="https://railway.com/dashboard" target="_blank">your project dashboard</a>.

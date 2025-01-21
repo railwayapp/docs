@@ -1,5 +1,6 @@
 ---
 title: Using Variables
+description: Learn how to use variables and secrets across services on Railway.
 ---
 
 Variables provide a way to manage configuration and secrets across services in Railway.

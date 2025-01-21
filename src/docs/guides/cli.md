@@ -1,5 +1,6 @@
 ---
 title: Using the CLI
+description: Learn how to install and use the Railway CLI to manage your projects.
 ---
 
 The Railway Command Line Interface (CLI) lets you interact with your
