@@ -1,5 +1,6 @@
 ---
 title: GitHub Post-Deploy Actions
+description: Learn how to use GitHub Actions to run post-deployment commands.
 ---
 
 [Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. In this post, we talk about using Github Actions to run post-deploy actions.

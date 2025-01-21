@@ -1,5 +1,6 @@
 ---
 title: Running a Scheduled Job
+description: Learn how to run cron jobs on Railway.
 ---
 
 Scheduled Jobs, or Cron Jobs, allow you to start a service on a defined schedule.

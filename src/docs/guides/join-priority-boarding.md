@@ -1,5 +1,6 @@
 ---
 title: Join Priority Boarding!
+description: Priority Boarding is Railway's beta program for getting access early to new features. Learn how to be a part of it.
 ---
 
 Priority Boarding is Railway's **beta program** and is available to users who have connected their Railway account to Discord. 

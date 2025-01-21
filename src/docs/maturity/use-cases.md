@@ -1,5 +1,6 @@
 ---
 title: Use Cases
+description: Explore real-world use cases for deploying and managing applications on Railway.
 ---
 
 Railway is suited for a variety of use-cases. This page will walk-through what the platform is perfect for today and our recommendations for apps of all sizes.

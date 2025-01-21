@@ -1,5 +1,6 @@
 ---
 title: Errors
+description: List of common errors when deploying to Railway—and how to resolve them.
 ---
 
 {/**

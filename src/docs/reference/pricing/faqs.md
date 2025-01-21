@@ -1,5 +1,6 @@
 ---
 title: Pricing FAQs
+description: General common Questions & Answers related to Railway's pricing.
 ---
 
 General common Questions & Answers related to Railway's pricing.

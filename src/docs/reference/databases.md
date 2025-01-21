@@ -1,5 +1,6 @@
 ---
 title: Databases
+description: Database services on Railway.
 ---
 
 Railway can support any type of Database service required for an application stack.

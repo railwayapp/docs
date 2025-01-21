@@ -1,5 +1,6 @@
 ---
 title: Public Networking
+description: Learn everything about public networking on Railway.
 ---
 
 Public Networking refers to exposing your application to the internet, to be accessible from the public network.

@@ -1,5 +1,6 @@
 ---
 title: Using Volumes
+description: Use volumes on Railway to securely store and persist your data permanently.
 ---
 
 Volumes allow you to store persistent data for services on Railway.

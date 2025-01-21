@@ -1,5 +1,6 @@
 ---
 title: Public API Reference
+description: Learn about the Railway GraphQL Public API.
 ---
 
 The Railway public API is built with GraphQL and is the same API that powers the Railway dashboard.

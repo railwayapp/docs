@@ -1,5 +1,6 @@
 ---
 title: Deployments
+description: Learn how to configure deployments on Railway.
 ---
 
 Let's configure your deployments!

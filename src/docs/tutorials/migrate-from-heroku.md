@@ -1,5 +1,6 @@
 ---
 title: Migrate from Heroku
+description: Learn how to migrate your apps from Heroku to Railway with this step-by-step guide. Fast, seamless, and hassle-free.
 ---
 
 Migrating your app from Heroku to Railway is very simple.  We even support Procfiles out of the box. (Only a single process is supported for now).

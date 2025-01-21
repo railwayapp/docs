@@ -1,5 +1,6 @@
 ---
 title: Foundations
+description: Learn Railway's core components and fundamentals to build, deploy, and manage applications with confidence.
 ---
 
 Welcome!  Let's get started building in Railway!

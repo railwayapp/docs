@@ -1,5 +1,6 @@
 ---
 title: Setting up Proximity Steering using Cloudflare
+description: Learn how to set up proximity steering using Cloudflare in this step-by-step tutorial.
 ---
 
 ## What is Proximity Steering?

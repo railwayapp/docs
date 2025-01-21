@@ -1,5 +1,6 @@
 ---
 title: Networking
+description: Learn how to connect your services on Railway.
 ---
 
 Let's get your services connected!

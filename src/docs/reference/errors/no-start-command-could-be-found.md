@@ -1,5 +1,6 @@
 ---
 title: No Start Command Could be Found
+description: Learn how to troubleshoot and fix the 'No Start Command Could be Found' error.
 ---
 
 ## What This Error Means

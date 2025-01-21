@@ -1,5 +1,6 @@
 ---
 title: Nixpacks
+description: Railway uses Nixpacks to build and deploy your code with zero configuration.
 ---
 
 Railway uses <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> to build and deploy your code with

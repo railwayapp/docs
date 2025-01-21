@@ -1,5 +1,6 @@
 ---
 title: Static Outbound IPs
+description: Learn how to enable static outbound IPs on Railway.
 ---
 
 Static Outbound IPs allows customers on the Pro plan to assign a permanent outbound IPv4 address to a service. This IP address will **always** be used for outbound traffic from any replicas running within the service.

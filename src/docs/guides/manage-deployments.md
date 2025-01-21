@@ -1,5 +1,6 @@
 ---
 title: Manage Deployments with the Public API
+description: Learn how to manage deployments via the public GraphQL API.
 ---
 
 Here are some examples to help you get started managing your deployments using the Public API.

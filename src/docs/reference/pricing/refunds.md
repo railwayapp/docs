@@ -1,5 +1,6 @@
 ---
 title: Refunds
+description: Learn about Railway’s refund policy and how to request a refund if eligible.
 ---
 
 Refunds are for new customers who no longer wish to use Railway after initially trying it out. Railway offers refunds at its sole discretion, in line with our [Terms of Service](https://railway.com/legal/terms).

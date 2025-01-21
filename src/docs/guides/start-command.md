@@ -1,5 +1,6 @@
 ---
 title: Set a Start Command
+description: Learn how to set up a start command in your service to run your deployments on Railway.
 ---
 
 A start command is the process used to run a Deployment's code, for example `python main.py` or `npm run start`.

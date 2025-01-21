@@ -1,5 +1,6 @@
 ---
 title: Projects
+description: Projects are containers for environments and services in Railway.
 ---
 
 Projects are containers for environments and services in Railway.

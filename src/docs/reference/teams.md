@@ -1,5 +1,6 @@
 ---
 title: Teams
+description: Learn how you can manage a team within Railway.
 ---
 
 Teams are how organizations are represented within Railway. Teams can be created via the Pro or Enterprise plans.

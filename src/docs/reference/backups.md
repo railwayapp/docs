@@ -1,5 +1,6 @@
 ---
 title: Backups
+description: Learn how Railway handles backups for volume contents to ensure data safety and recovery.
 ---
 
 The backup feature enables data recovery for all content stored in [volumes](/reference/volumes). This includes both our database offerings and any other data stored within a volume, such as an SQLite database.

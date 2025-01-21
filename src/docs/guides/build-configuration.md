@@ -1,5 +1,6 @@
 ---
 title: Build Configuration
+description: Learn how to configure Nixpacks, optimize build caching, choose build providers, and set up watchpaths.
 ---
 
 Railway will build and deploy your code with zero configuration, but when necessary, there are several ways to configure this behavior to suit your needs.

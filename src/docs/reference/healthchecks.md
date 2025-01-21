@@ -1,5 +1,6 @@
 ---
 title: Healthchecks
+description: Learn about healthchecks on Railway.
 ---
 
 Healthchecks can be used to guarantee zero-downtime [deployments](/reference/deployments) of your [service](/reference/services) by ensuring the new version is live and able to handle requests.

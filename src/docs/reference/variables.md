@@ -1,5 +1,6 @@
 ---
 title: Variables
+description: Variables provide a powerful way to manage configuration and secrets across services in Railway.
 ---
 
 Variables provide a powerful way to manage configuration and secrets across services in Railway.

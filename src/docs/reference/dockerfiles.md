@@ -1,5 +1,6 @@
 ---
 title: Dockerfiles
+description: Learn Dockerfile configuration on Railway.
 ---
 
 Use a Dockerfile to instruct Railway how to build a service.

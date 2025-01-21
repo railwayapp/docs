@@ -1,5 +1,6 @@
 ---
 title: Metrics
+description: Discover resource usage for your services on Railway via the Metrics tab.
 ---
 
 Railway provides resource usage information on deployments within a service, which can be used to diagnose issues with a project's performance.

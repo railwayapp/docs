@@ -1,5 +1,6 @@
 ---
 title: Build a Database Service
+description: Learn how to build a database service on Railway.
 ---
 
 Railway's platform primitives allow you to build any type of service your system requires, including database services.  This guide aims to guide you through the essential features to build your own database service.

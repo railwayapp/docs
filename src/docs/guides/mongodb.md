@@ -1,5 +1,6 @@
 ---
 title: Deploy MongoDB
+description: Learn how to deploy a MongoDB database on Railway, whether as a standalone instance or a high-availability replica set, for scalability and reliability.
 ---
 
 Railway offers two MongoDB deployment options to accommodate different needs: a **Standalone Instance** and a **High Availability (HA) Replica Set**.

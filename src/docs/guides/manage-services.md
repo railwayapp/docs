@@ -1,5 +1,6 @@
 ---
 title: Manage Services with the Public API
+description: Learn how to create services via the public GraphQL API.
 ---
 
 Here are some examples to help you get started managing your services using the Public API.

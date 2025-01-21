@@ -1,5 +1,6 @@
 ---
 title: Scaling
+description: Learn how to scale your applications on Railway.
 ---
 
 Scaling your applications in Railway is made easy with configurable options for horizontal scaling as well as vertical autoscaling out-of-the-box.

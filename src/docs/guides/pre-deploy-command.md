@@ -1,5 +1,6 @@
 ---
 title: Add a Pre-Deploy Command
+description: Learn how to execute commands between building and deploying your application.
 ---
 
 Pre-deploy commands execute between building and deploying your application, handling tasks like database migrations or data seeding before your application runs.

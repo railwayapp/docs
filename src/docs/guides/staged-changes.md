@@ -1,5 +1,6 @@
 ---
 title: Staged Changes
+description: Discover how to use staged changes in Railway to deploy updates gradually.
 ---
 
 Changes made in your Railway project, like adding, removing, or making changes to components, will be staged in a changeset for you to review and apply.

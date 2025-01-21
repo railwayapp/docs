@@ -1,5 +1,6 @@
 ---
 title: TCP Proxy
+description: Learn how to proxy TCP traffic to a service by creating a TCP proxy on Railway.
 ---
 
 Proxy TCP traffic to a service by creating a TCP proxy. 

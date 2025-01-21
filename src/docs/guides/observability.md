@@ -1,5 +1,6 @@
 ---
 title: Observability Dashboard
+description: Explore the built-in observability dashboard on Railway.
 ---
 
 Railway provides a built-in observability dashboard that provides a customizable view into chosen metrics, logs, and data all in one place.

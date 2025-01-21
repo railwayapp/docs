@@ -1,5 +1,6 @@
 ---
 title: Optimize Usage
+description: Optimize your Railway projects for budget-friendly billing by setting limits and activating app sleep.
 ---
 
 Railway provides controls over resource usage in the form of usage limits and auto-sleeping of inactive services.

@@ -1,5 +1,6 @@
 ---
 title: Project Usage
+description: Learn how users can see the resource usage of their projects.
 ---
 
 Users are billed monthly based on their project's per-minute usage.  All services within a project's environments contribute to the resources billed. The rates are as follows:

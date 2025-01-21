@@ -1,5 +1,6 @@
 ---
 title: Environments
+description: Understanding environments and their use cases in your Railway projects.
 ---
 
 Railway environments give you an isolated instance of all services in a project.

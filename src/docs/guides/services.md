@@ -1,5 +1,6 @@
 ---
 title: Managing Services
+description: A step by step guide to managing services on Railway.
 ---
 
 A Railway Service is a deployment target for your application.

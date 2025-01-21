@@ -1,5 +1,6 @@
 ---
 title: Using the Database View
+description: Learn how to read, insert and edit data via the database view on Railway.
 ---
 
 Baked into the four, one-click database templates that Railway provides, is a Database Management Interface, this allows you to perform common actions on your Database such as viewing and editing the contents of your database services in Railway.
