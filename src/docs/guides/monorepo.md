@@ -1,5 +1,6 @@
 ---
 title: Deploying a Monorepo
+description: Learn how to deploy monorepos on Railway.
 ---
 
 Railway provides a few features to help improve support for deploying monorepos

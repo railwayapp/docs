@@ -1,5 +1,6 @@
 ---
 title: Configure Healthchecks and Restart Policy
+description: Learn how to configure health checks and restart policies to guarantee zero-downtime deployments of services on Railway.
 ---
 
 Railway provides controls for ensuring deployed services remain healthy.

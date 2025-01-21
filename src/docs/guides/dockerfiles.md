@@ -1,5 +1,6 @@
 ---
 title: Build from a Dockerfile
+description: Learn Dockerfile configuration on Railway.
 ---
 
 We will look for and use a `Dockerfile` at the service's root if it exists.

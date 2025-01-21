@@ -1,5 +1,6 @@
 ---
 title: Deployment Actions
+description: Explore the full range of actions available on the Service Deployments tab to manage your deployments.
 ---
 
 Various actions can be taken on Deployments from within the Service -> Deployments tab and clicking on the three dots at the end of a previous deployment.

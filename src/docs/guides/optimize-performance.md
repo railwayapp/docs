@@ -1,5 +1,6 @@
 ---
 title: Optimize Performance
+description: Explore quick ways to optimize your app's performance on Railway.
 ---
 
 Railway offers some quick and easy ways to configure deployments for achieving optimal performance.  
