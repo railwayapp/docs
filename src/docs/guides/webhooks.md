@@ -1,5 +1,6 @@
 ---
 title: Setup Webhooks
+description: Learn how to set up webhooks on Railway to receive real-time updates for deployments and events.
 ---
 
 Webhooks can be used to notify your own application of deployment status changes.  They are configured per project.

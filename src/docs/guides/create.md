@@ -1,5 +1,6 @@
 ---
 title: Create a Template
+description: Learn how to create reusable templates on Railway to enable effortless one-click deploys.
 ---
 
 Creating a template allows you to capture your infrastructure in a reusable and distributable format.  

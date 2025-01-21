@@ -1,5 +1,6 @@
 ---
 title: Using Config as Code
+description: Learn how to manage and deploy apps on Railway using config as code with toml and json files.
 ---
 
 Railway supports defining the configuration for a single deployment in a file

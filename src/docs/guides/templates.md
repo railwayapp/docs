@@ -1,5 +1,6 @@
 ---
 title: Templates
+description: Everything you need to know about Railway templates.
 ---
 
 Let's talk templates!

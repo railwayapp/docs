@@ -1,5 +1,6 @@
 ---
 title: Deploy a Template
+description: Learn how to deploy Railway templates.
 ---
 
 Templates allow you to deploy a fully configured project that is automatically

@@ -1,5 +1,6 @@
 ---
 title: Manage Variables with the Public API
+description: Learn how to manage variables via the public GraphQL API.
 ---
 
 Here are some examples to help you get started managing your variables using the Public API.

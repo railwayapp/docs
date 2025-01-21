@@ -1,5 +1,6 @@
 ---
 title: Deploy Redis
+description: Learn how to deploy a Redis database on Railway, whether as a standalone instance or a high-availability cluster, for scalability and reliability.
 ---
 
 Railway offers two Redis deployment options to accommodate different needs: a **Standalone Instance** and a **High Availability (HA) Cluster**.
