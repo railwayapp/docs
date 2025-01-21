@@ -60,9 +60,8 @@ Before using the feature, here are some things to consider:
 
 - If you're using this feature, we _strongly_ recommend against using a production environment as your base environment.
 - Using the Copy Volume Data feature means PR Environments will have a copy of your base environment data with no fancy modifications.
-  - For a Postgres database, that means the username/password of a PR Environment will have to be the same as the base environment.
-  - For others tools like Redis, this is not an issue.
-- If you're using [Railway's Postgres template](https://railway.app/template/postgres), we'll make sure that password in the PR Environment matches the base one.
+  - For a Postgres database (Mongo, etc.), that means the username/password of a PR Environment will have to be the same as the base environment.
+  - [Variables](https://docs.railway.com/guides/variables) of Services with volumes in the new PR Environment will match the base environment.
 
 <Image
   src="https://res.cloudinary.com/railway/image/upload/v1734322198/docs/copy-volume-data-2.png"
