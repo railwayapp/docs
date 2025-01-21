@@ -36,7 +36,6 @@ export const SEO: React.FC<Props> = ({ image, ...props }) => {
   const title = props.title ?? config.title;
   const twitterTitle = props.twitterTitle;
   const description = props.description;
-  console.log("Descriion ", description);
   const url = props.url || config.openGraph?.url;
 
   return (

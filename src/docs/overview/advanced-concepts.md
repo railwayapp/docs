@@ -1,5 +1,6 @@
 ---
-title:  Advanced Usage
+title: Advanced Usage
+description: A guide that outlines the advanced concepts of Railway.
 ---
 
 This document outlines the more advanced concepts of Railway.  It covers things like build and deploy options, networking, integrations, and observability.
@@ -22,7 +23,7 @@ Deployments are created with some default options that can be overridden.  Some 
 
 ## Networking
 
-Networking can be tricky and time-consuming.  We wanted to provide the best-in-class experience when it came to wiring things up.  There are two basic ways we accomplish this.
+Networking can be tricky and time-consuming. We wanted to provide the best-in-class experience when it came to wiring things up.  There are two basic ways we accomplish this.
 
 ### Private Networking
 

@@ -1,5 +1,6 @@
 ---
 title: Best Practices
+description: Learn the best practices to maximize performance, efficiency, and scalability of your apps on Railway.
 ---
 {/**
 To keep consistency we want each topic to follow the same convention -

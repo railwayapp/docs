@@ -1,5 +1,6 @@
 ---
 title: The Basics
+description: Learn about the core concepts of Railway.
 ---
 
 This document outlines the core concepts of Railway, providing foundational knowledge of the basic building blocks you'll work with in the platform.
