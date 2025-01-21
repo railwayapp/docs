@@ -48,7 +48,7 @@ Railway makes it easy to define deployment configurations for your services dire
 ## Deploy From the CLI
 
 1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the CLI.</a>
-2. Clone the forked <a href="https://github.com/railwayapp-templates/fastify" target="_blank">fastapi GitHub repo</a> and `cd` into the directory. 
+2. Clone the forked <a href="https://github.com/railwayapp-templates/fastapi" target="_blank">fastapi GitHub repo</a> and `cd` into the directory. 
     - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
 3. Run `railway init` within the app directory to create a new project. 
 4. Run `railway up` to deploy.
