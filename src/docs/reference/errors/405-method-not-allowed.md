@@ -1,5 +1,6 @@
 ---
 title: 405 Method Not Allowed
+description: Learn how to troubleshoot and fix the '405 Method Not Allowed' error.
 ---
 
 ## What This Error Means

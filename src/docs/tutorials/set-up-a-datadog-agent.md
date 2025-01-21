@@ -1,5 +1,6 @@
 ---
 title: Set Up a Datadog Agent in Railway
+description: Learn how to set up a Datadog agent in Railway.
 ---
 
 Datadog provides a centralized location for logs, metrics, and traces emitted from applications deployed in various locations.

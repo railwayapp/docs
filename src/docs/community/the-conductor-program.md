@@ -1,5 +1,6 @@
 ---
 title: The Conductor Program
+description: Learn about Railway’s Conductor Program and how it empowers the developer community.
 ---
 
 The Conductor Program brings together the amazing people who make Railway's community special. Conductors shepherd the experience for our 45K+ community members. They are the bridge between the Railway team and our thriving community.

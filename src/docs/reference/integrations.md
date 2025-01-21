@@ -1,5 +1,6 @@
 ---
 title: Integrations
+description: Discover Railway’s out-of-the-box integrations and how they enhance your development process.
 ---
 
 Railway offers integrations out of the box, as well as features to enable building your own integrations.

@@ -1,5 +1,6 @@
 ---
 title: Deploying a Monorepo to Railway
+description: Learn how to deploy a monorepo to Railway.
 ---
 
 ## What is a Monorepo?

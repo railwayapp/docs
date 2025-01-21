@@ -1,5 +1,6 @@
 ---
 title: Accounts
+description: Learn about Railway Accounts
 ---
 
 Railway Accounts are how a user interacts with the Railway platform.

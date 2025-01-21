@@ -1,5 +1,6 @@
 ---
 title: Pricing Plans
+description: Learn about Railway's plans and pricing.
 ---
 
 Railway plans and pricing are designed to support you however you work. We charge a base subscription fee for the plan you sign up to, on top of your resource and add-on usages.

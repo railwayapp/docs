@@ -1,5 +1,6 @@
 ---
 title: Philosophy
+description: Explore Railway’s core philosophy and the principles that drive our platform.
 ---
 
 Railway is a deployment platform that helps developers deliver their software through the entire application life-cycle through git native tooling, composable infrastructure, and built-in instrumentation. 

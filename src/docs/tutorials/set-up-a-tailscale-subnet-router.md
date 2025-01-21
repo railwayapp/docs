@@ -1,5 +1,6 @@
 ---
 title: Set up a Tailscale Subnet Router
+description: Learn how to access a private network on Railway by using a Tailscale Subnet Router.
 ---
 
 ## What is a Subnet router?

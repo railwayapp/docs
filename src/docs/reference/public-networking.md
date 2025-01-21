@@ -1,5 +1,6 @@
 ---
 title: Public Networking
+description: Learn everything about public networking on Railway.
 ---
 
 Public Networking refers to communicating over the public internet to services in Railway.

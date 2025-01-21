@@ -1,5 +1,6 @@
 ---
 title: App Sleeping
+description: Learn how app sleeping reduces cost usage on Railway.
 ---
 
 App Sleeping (aka "Serverless") allows you to increase the efficiency of resource utilization on Railway and may reduce the usage cost of a [service](/reference/services), by ensuring it is running only when necessary.

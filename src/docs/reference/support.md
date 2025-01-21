@@ -1,5 +1,6 @@
 ---
 title: Support
+description: Learn about Railway's support channels.
 ---
 
 Railway offers numerous tiers of support for our users.

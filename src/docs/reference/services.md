@@ -1,5 +1,6 @@
 ---
 title: Services
+description: Discover the different types of services available in your Railway projects.
 ---
 
 A Railway service is a deployment target.  Under the hood, services are containers deployed from an image.

@@ -1,5 +1,6 @@
 ---
 title: Welcome to Railway Tutorials!
+description: Discover tutorials to help you get the most out of Railway."
 ---
 
 The Railway Team and community provide content, like tutorials and blogs, on how to make the most out of Railway.

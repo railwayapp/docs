@@ -1,5 +1,6 @@
 ---
 title: Deploy an OpenTelemetry Collector and Backend on Railway
+description: Monitor and trace your applications by deploying an OpenTelemetry Collector and backend on Railway.
 ---
 
 ## What is OpenTelemetry?

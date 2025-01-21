@@ -1,5 +1,6 @@
 ---
 title: Free Trial
+description: Learn about Railway's free trial plan.
 ---
 
 New users can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5.

@@ -1,5 +1,6 @@
 ---
 title: Deploy and Monitor a Mongo Replica Set
+description: Learn how to deploy and monitor a Mongo replica set on Railway.
 ---
 
 ## What is a Mongo Replica Set?

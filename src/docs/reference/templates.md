@@ -1,5 +1,6 @@
 ---
 title: Templates
+description: Learn how Railway’s Kickback program rewards template publishers for their contributions.
 ---
 
 Templates provide a way to jumpstart a project by giving users the means to package a service or set of services into a reusable and distributable format.

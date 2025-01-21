@@ -1,5 +1,6 @@
 ---
 title: Production Readiness Checklist
+description: Ensure your app is production-ready with this comprehensive Railway checklist.
 ---
 
 *Is your application ready for production?*

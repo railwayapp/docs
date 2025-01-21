@@ -1,5 +1,6 @@
 ---
 title: Nixpacks Was Unable to Generate a Build Plan for This App
+description: Learn how to troubleshoot and fix the 'Nixpacks was unable to generate a build plan for this app' error.
 ---
 
 ## What This Error Means
