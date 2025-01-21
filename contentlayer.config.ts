@@ -16,7 +16,7 @@ const Page = defineDocumentType(() => ({
     description: {
       type: "string",
       description: "The description of the page",
-      required: false,
+      required: true,
     },
   },
   computedFields: {
