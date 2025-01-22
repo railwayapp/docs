@@ -34,7 +34,9 @@ Creating, deleting, and re-assigning replicas will trigger a staged change which
 
 #### Load Balancing Between Replicas
 
-Railway will randomly distribute requests to the replicas of a service. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
+If you are using multi-region replicas, Railway will automatically route public traffic to the nearest region and then randomly distribute requests to the replicas within that region.
+
+If you are using a single region with multiple replicas, Railway will randomly distribute public traffic to the replicas of that region.
 
 We plan to add more advanced load balancing strategies in the future.
 
