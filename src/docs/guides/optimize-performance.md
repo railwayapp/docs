@@ -16,39 +16,36 @@ Continue reading for information on how to configure these.
 
 Scale horizontally by manually increasing the number of replicas for a service.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1684534939/docs/Export-replica_lrtrvs.png"
-alt="Screenshot of replica setting"
-layout="responsive"
-width={800} height={317} quality={100} />
+Railway's infrastructure spans multiple regions across the globe, and by default Railway deploys to `us-west1` located in Portland, Oregon.
+
+<Image 
+    src="https://res.cloudinary.com/railway/image/upload/v1733386054/multi-region-replicas_zov7rv.png"
+    alt="Multi-region replicas"
+    layout="responsive"
+    width={1370}
+    height={934}
+/>
 
 
-To change the number of replicas per deploy within your service, go to the service settings view and look for the "Replicas" field in the "Deploy" section. This will create multiple instances of your service and distribute traffic between them.
+To change the number of replicas per deploy within your service, go to the service settings view and look for the "Regions" field in the "Deploy" section. This will create multiple instances of your service and distribute traffic between them.
+
+*Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
 
 ### Replica ID Environment Variable
 
 Each replica will be deployed with a Railway-provided environment variable named `RAILWAY_REPLICA_ID` which can be used for logging and monitoring, for example.
 
+### Replica Region Environment Variable
+
+Each replica will be deployed with a Railway-provided environment variable named `RAILWAY_REPLICA_REGION` which can be used for logging and monitoring, for example.
+
 ### Load Balancing Between Replicas
 
-At the moment, Railway will randomly distribute requests to the replicas of your service. We plan to add more advanced load balancing strategies in the future. If you need more advanced load balancing, you can use an external load balancer such as Cloudflare to distribute traffic between your services.
+If you are using multi-region replicas, Railway will automatically route public traffic to the nearest region and then randomly distribute requests to the replicas within that region.
 
-**Note:** For now Railway does not support sticky sessions nor report the usage of the replicas within the metrics view.
+If you are using a single region with multiple replicas, Railway will randomly distribute public traffic to the replicas of that region.
 
-## Configure a Region
-
-Railway's infrastructure spans multiple regions across the globe, and by default Railway deploys to `us-west1` located in Portland, Oregon.
-
-To choose a different region for your service, go to your service settings and select the desired region -
-
-<Image
-    quality={100}
-    width={1359}
-    height={651}
-    src="https://res.cloudinary.com/railway/image/upload/v1695660846/docs/service_region_picker.png"
-    alt="Region Picker"
-/>
-
-*Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
+**Note:** For now Railway does not support sticky sessions nor report the usage of the individual replicas within the metrics view, all metrics are aggregated across all replicas in all regions.
 
 ### Set a Default Region
 
