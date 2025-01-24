@@ -24,7 +24,7 @@ In this tutorial you will learn how to -
 
 To be successful using this tutorial, you should already have - 
 
-- Latest version of Railway [CLI installed](guides/cli#installing-the-cli)
+- Latest version of Railway [CLI installed](/guides/cli#installing-the-cli)
 - A GitHub account
 
 **OpenTelemetry Collector Template and Demo**
@@ -276,7 +276,7 @@ In the same Railway project -
 - In the Settings tab, under Networking, click `Generate Domain`
 
 ### Deploy from the Railway CLI
-*This step assumes you have the latest version of the [Railway CLI](guides/cli#installing-the-cli) installed.*
+*This step assumes you have the latest version of the [Railway CLI](/guides/cli#installing-the-cli) installed.*
 
 On your local machine -
 - Open your terminal and change directory to the `otel-example-app` folder
