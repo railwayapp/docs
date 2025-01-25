@@ -125,15 +125,15 @@ If you’re looking for the fastest way to get started with Express, Pug and con
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/BC51z6)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/BC51z6)
 
 For Express API, here's another template you can begin with:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/Y6zLKF)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/Y6zLKF)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=express" target="_blank">variety of Express app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.com/templates?q=express" target="_blank">variety of Express app templates</a> created by the community.
 
 ### Deploy From the CLI
 
@@ -176,7 +176,7 @@ width={2194} height={1652} quality={100} />
 To deploy an Express app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.

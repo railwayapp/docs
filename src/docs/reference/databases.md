@@ -43,7 +43,7 @@ Here are some examples -
 - [Minio](https://railway.com/template/SMKOEA)
 - [ClickHouse](https://railway.com/template/clickhouse)
 - [Dragonfly](https://railway.com/template/dragonfly)
-- [Chroma](https://railway.com/template/tifygm)
+- [Chroma](https://railway.com/template/kbvIRV)
 
 ## Support
 
