@@ -12,6 +12,7 @@ This document outlines the core concepts of Railway, providing foundational know
   - **[Project Settings](#project-settings)** - Contains all project-level settings.
 - **[Service](#services)** - A target for a deployment source (e.g. Web Application).
   - **[Service Variables](#service-variables)** - A collection of configurations and secrets.
+  - **[Backups](#backups)** - A collection of backups for a service.
   - **[Service Metrics](#service-metrics)** - Rundown of metrics for a service.
   - **[Service Settings](#service-settings)** - Contains all service-level settings.
 - **[Deployment](#deployments)** - Built and deliverable unit of a service.
