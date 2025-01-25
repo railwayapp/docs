@@ -22,7 +22,15 @@ jobs:
           cache: "yarn"
 
       - name: Install packages
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
-      - name: Build
-        run: yarn build
+      - name: Build Contentlayer
+        run: |
+          yarn contentlayer build 2>&1 | tee build.log
+          if grep -q "Warning: Found .* problems" build.log; then
+            echo "Contentlayer build produced warnings. Failing build."
+            exit 1
+          fi
+
+      - name: Build Next.js
+        run: next build

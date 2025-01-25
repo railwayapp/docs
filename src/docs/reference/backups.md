@@ -21,6 +21,32 @@ You can set the schedule in the service settings panel, under the Backups tab.
 
 You can select multiple backup schedules for a single volume. These schedules can be modified at any time, and you can also manually trigger backups as needed.
 
+## How to restore a backup
+
+The available backups for a volume are listed in the attached [service's](/overview/the-basics#services) Backups tab.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785142/docs/the-basics/backups_fdx09o.png"
+alt="Screenshot of the service backups tab"
+layout="responsive"
+width={1365} height={765} quality={100} />
+
+To restore a backup, first locate the backup you want to restore via its date stamp, then click the `Restore` button on the backup.
+
+**Note:** Depending on the size of the backup, this may take a few seconds to a few minutes to complete.
+
+Once completed, we will [stage the change](/guides/staged-changes) for you to review, click the `Details` button at the top of the [project canvas](/overview/the-basics#project--project-canvas) to view the changes.
+
+During this process, you will see a new [volume](/overview/the-basics#volumes) mounted to the same location as the original volume, its name will be the date stamp of the backup.
+
+The previous volume will be retained but has been unmounted from the service, it will have the original volume name such as `silk-volume`.
+
+**Note:** Restoring a backup will remove any newer backups you may have created after the backup you are restoring, you will still have access to backups older than the one you are restoring.
+
+If everything looks good and you're ready to proceed, click the `Deploy` button to complete the restore.
+
+The changes will be applied and your service will be redeployed.
+
+
 ## Pricing
 
 Backups are incremental and Copy-on-Write, we only charge for the data exclusive to them, that aren't from other snapshots or the volume itself.
