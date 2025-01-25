@@ -19,7 +19,7 @@ If you are looking for a quicker way to get started, you can also deploy this pr
 
 To be successfull, you should already have - 
 
-- Railway [CLI installed](guides/cli#installing-the-cli)
+- Railway [CLI installed](/guides/cli#installing-the-cli)
 - Datadog API key and site value
 
 **Caveats**
