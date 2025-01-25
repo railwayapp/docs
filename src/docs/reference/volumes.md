@@ -28,7 +28,7 @@ Please reach out to us on our [Help Station](https://help.railway.com/questions)
 
 Volumes are billed at **$0.25 / GB**, billed monthly.
 
-You are only charged for the amount of storage used by your volumes. *Each volume requires a small amount of space to store metadata about the filesystem, so a new volume will start with a small amount of space used.*
+You are only charged for the amount of storage used by your volumes. *Each volume requires aprox 2-3% of the total storage to store metadata about the filesystem, so a new volume will always start with some used amount of space used depending on the size.*
 
 ## Backups
 

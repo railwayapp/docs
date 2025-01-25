@@ -24,11 +24,17 @@ We highly recommend that [you eject from the template after deployment](/guides/
 To deploy a Laravel app on GitHub to Railway, follow the steps below:
 
 1. Create a <a href="https://railway.com/new" target="_blank">New Project.</a>
+
 2. Click **Deploy from GitHub repo**.
+
 3. Select your GitHub repo.
+
     - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
+
 4. Click **Add Variables**. 
+
     - Add all your app environment variables.
+
 5. Click **Deploy**.
 
 Once the deployment is successful, a Railway [service](/guides/services) will be created for you. By default, this service will not be publicly accessible.
@@ -50,15 +56,25 @@ width={2855} height={2109} quality={100} />
 If you have your Laravel app locally, you can follow these steps:
 
 1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the Railway CLI.</a>
-2. Run `railway init` within your Laravel app root directory to create a new project on Railway. 
+
+2. Run `railway init` within your Laravel app root directory to create a new project on Railway.
+
     - Follow the steps in the prompt to give your project a name.
+
 3. Run `railway up` to deploy.
+
     - The CLI will now scan, compress and upload our Laravel app files to Railway's backend for deployment.
+
     - Your terminal will display real-time logs as your app is being deployed on Railway.
+
 4. Once the deployment is successful, click on **View logs** on the recent deployment on the dashboard.
+
     - You'll see that the server is running. However you'll also see logs prompting you to add your env variables.
+
 5. Click on the <a href="/overview/the-basics#service-variables">**Variables**</a> section of your service on the Railway dashboard.
+
 6. Click on **Raw Editor** and add all your app environment variables.
+
 7. Click on **Deploy** to redeploy your app.
 
 To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
@@ -70,9 +86,13 @@ To set up a publicly accessible URL for the service, navigate to the **Networkin
 This setup deploys your Laravel app on Railway, ensuring that your database, scheduled tasks (crons), and queue workers are all fully operational.
 
 The deployment structure follows a "majestic monolith" architecture, where the entire Laravel app is managed as a single codebase but split into four separate services on Railway:
+
 - **App Service**: Handles HTTP requests and user interactions.
+
 - **Cron Service**: Manages scheduled tasks (e.g., sending emails or running reports).
+
 - **Worker Service**: Processes background jobs from the queue.
+
 - **Database Service**: Stores and retrieves your application's data.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727910244/docs/quick-start/deploy%20architecture.png"
@@ -81,10 +101,9 @@ layout="responsive"
 width={3118} height={1776} quality={100} />
 _My Majestic Monolith Laravel app_
 
-
 Please follow these steps to get started:
 
-1. Create four bash scripts in the root directory of your Laravel app: `build-app.sh`, `run-app.sh`, `run-worker.sh`, and `run-cron.sh`. 
+1. Create four bash scripts in the root directory of your Laravel app: `build-app.sh`, `run-worker.sh`, and `run-cron.sh`. 
 
     These scripts will contain the commands needed to deploy and run the app, worker, and cron services for your Laravel app on Railway.
     - Add the content below to the `build-app.sh` file:
@@ -93,6 +112,9 @@ Please follow these steps to get started:
         ```bash
         #!/bin/bash
         # Make sure this file has executable permissions, run `chmod +x build-app.sh`
+
+        # Exit the script if any command fails
+        set -e
 
         # Build assets using NPM
         npm run build
@@ -106,15 +128,7 @@ Please follow these steps to get started:
         php artisan route:cache
         php artisan view:cache
         ```
-    - Add the content below to the `run-app.sh` file:
 
-        **Note:** This is required to start your app service after the build phase is complete.
-        ```bash
-        #!/bin/bash
-        # Make sure this file has executable permissions, run `chmod +x run-app.sh`
-        # Run migrations, process the Nginx configuration template and start Nginx
-        php artisan migrate --force && node /assets/scripts/prestart.mjs /assets/nginx.template.conf  /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)
-        ```
     -  Add the content below to the `run-worker.sh` file:
         ```bash
         #!/bin/bash
@@ -124,6 +138,7 @@ Please follow these steps to get started:
         # An alternative is to use the php artisan queue:listen command
         php artisan queue:work     
         ```
+
     -  Add the content below to the `run-cron.sh` file:
         ```bash
         #!/bin/bash
@@ -137,33 +152,59 @@ Please follow these steps to get started:
                 sleep 60
             done
         ```
+
 2. Create a Postgres Database service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
      - Click on **Deploy**.
+
 3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas.</a>
     -  Name the service **App service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a> to configure it.
+
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
+
     - Add `chmod +x ./build-app.sh && sh ./build-app.sh` to the **Custom Build Command** in the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section.
-    - Add `chmod +x ./run-app.sh && sh ./run-app.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+
+    - Add `php artisan migrate` to the <a href="/guides/pre-deploy-command">**Pre-Deploy Command**</a> in the **Deploy** section.
+
     - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
+
     - Add all the necessary environment variables required for the Laravel app especially the ones listed below.
+
         - `APP_KEY`: Set the value to what you get from the `php artisan key:generate` command.
+
         - `DB_CONNECTION`: Set the value to `pgsql`.
+
         - `QUEUE_CONNECTION`: Set the value to `database`.
+
         - `DB_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
+
     - Click **Deploy**.
-4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
+
+4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>.
+
     - Name the service **cron service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
+
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
+
     - Add `chmod +x ./run-cron.sh && sh ./run-cron.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+
     - Head back to the top of the service and click on  <a href="/overview/the-basics#service-variables">**Variables**</a>.
+
     - Add all the necessary environment variables especially those highlighted already in step 3.
+
     - Click **Deploy**.
-5. Create a new service again on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
+
+5. Create a new service again on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>.
+
     - Name the service **worker service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
+
     - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
+
     - Add `chmod +x ./run-worker.sh && sh ./run-worker.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+
     - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
+
     - Add all the necessary environment variables especially those highlighted already in step 3.
+
     - Click **Deploy**.
 
 At this point, you should have all three services deployed and connected to the Postgres Database service:
@@ -181,6 +222,7 @@ layout="responsive"
 width={2165} height={1873} quality={100} />
 
 - **Worker Service**: This service should be running and ready to process jobs from the queue.
+
 - **App Service**: This service should be running and is the only one that should have a public domain, allowing users to access your application.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727885952/docs/quick-start/CleanShot_2024-10-02_at_17.18.04_2x_nn78ga.png"

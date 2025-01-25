@@ -27,10 +27,11 @@ export const InlineCode: React.FC<Props> = ({ children, colorModeSSR }) => {
 
   return (
     <code
-      css={tw`px-2 py-1 rounded font-mono whitespace-nowrap before:content-[''] after:content-['']`}
+      css={tw`rounded font-mono whitespace-nowrap inline-block before:content-[''] after:content-['']`}
       style={{
         backgroundColor: String(theme['pre[class*="language-"]'].background),
         color: theme['code[class*="language-"]'].color,
+        padding: "0 0.35rem",
       }}
       data-colormode={colorMode}
     >

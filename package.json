@@ -1,7 +1,8 @@
 {
   "name": "railway-docs",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --port ${PORT-3001}",
     "build": "contentlayer build && next build",
@@ -74,7 +75,7 @@
     "typescript": "^4.2.4"
   },
   "engines": {
-    "node": ">=18.17.0"
+    "node": "18"
   },
   "babelMacros": {
     "twin": {
