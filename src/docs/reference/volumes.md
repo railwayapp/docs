@@ -1,5 +1,6 @@
 ---
 title: Volumes
+description: Volumes are a feature that enables persistent data for services on Railway.
 ---
 
 Volumes are a feature that enables persistent data for [services](/reference/services) on Railway.
