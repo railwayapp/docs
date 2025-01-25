@@ -18,7 +18,7 @@ Currently, we support the following languages out of the box:
 - [Deno](https://nixpacks.com/docs/providers/deno)
 - [Elixir](https://nixpacks.com/docs/providers/elixir)
 - [F#](https://nixpacks.com/docs/providers/fsharp)
-- [Gleam](https://nixpacks.com/providers/gleam)
+- [Gleam](https://nixpacks.com/docs/providers/gleam)
 - [Go](https://nixpacks.com/docs/providers/go)
 - [Haskell](https://nixpacks.com/docs/providers/haskell)
 - [Java](https://nixpacks.com/docs/providers/java)
