@@ -33,4 +33,4 @@ jobs:
           fi
 
       - name: Build Next.js
-        run: next build
+        run: yarn next build
