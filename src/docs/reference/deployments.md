@@ -23,7 +23,9 @@ This cycle represents a deployment in Railway.
 
 ## Deployment States
 
-Deployments can be in any of the following states.
+A comprehensive up to date list of statues can be found in [Railway's GraphQL playground](https://railway.com/graphiql) under DeploymentStatus ([screenshot](https://res.cloudinary.com/railway/image/upload/v1737950391/docs/deploy-statuses.png)).
+
+Deployments can be in any of the following states:
 
 #### Initializing
 

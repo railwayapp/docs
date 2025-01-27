@@ -260,7 +260,7 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       {
-        subTitle: "Diagnose",
+        subTitle: "Monitoring",
         pages: [
           makePage("Logging", "reference"),
           makePage("Metrics", "reference"),
