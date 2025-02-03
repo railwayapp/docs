@@ -10,7 +10,7 @@ This can be useful if you need to create a branch on a [Neon](https://neon.tech)
 
 ## The Action
 
-Make a new file in your repository called `.github/workflows/railway.yml` and add the following -
+Make a new file in your repository called `.github/workflows/railway-pr-envs.yml` and add the following -
 
 ```yaml
 # NOTE
@@ -22,8 +22,8 @@ on:
   pull_request:
     types: [opened, closed]
 env:
-    RAILWAY_TOKEN: "YOUR RAILWAY TOKEN" # get this in project settings
-    SERVICE_NAME: "YOUR SERVICE ID" # service ID to inject database variable into
+    RAILWAY_API_TOKEN: "YOUR RAILWAY TOKEN" # get this in account settings (make sure this is NOT a project token)
+    SERVICE_ID: "YOUR SERVICE ID" # service ID to inject database variable into
     ENV_NAME: "DATABASE_URL" # the environment variable name to inject
     ENV_VALUE: "YOUR DATABASE URL" # the value to inject
     DUPLICATE_FROM: "ENV ID TO DUPLICATE FROM" # railway environment to duplicate from
