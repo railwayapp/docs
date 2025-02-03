@@ -1,0 +1,60 @@
+---
+title: GitHub PR environment actions
+description: Learn how to use GitHub Actions to create environments for PRs
+---
+
+[Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. In this post, we talk about using Github Actions to create specific environments for any PR that is created, alongside closing it whenever it is closed/merged.
+
+This can be useful if you need to create a branch on a [Neon](https://neon.tech) database, allowing you to automatically inject the correct database url.
+
+
+## The Action
+
+Make a new file in your repository called `.github/workflows/railway.yml` and add the following -
+
+```yaml
+# NOTE
+# if you have 2fa on your account, the pr close part of the action will hang (due to 2fa not being supported non-interactively)
+
+name: Railway
+
+on:
+  pull_request:
+    types: [opened, closed]
+env:
+    RAILWAY_TOKEN: "YOUR RAILWAY TOKEN" # get this in project settings
+    SERVICE_NAME: "YOUR SERVICE ID" # service ID to inject database variable into
+    ENV_NAME: "DATABASE_URL" # the environment variable name to inject
+    ENV_VALUE: "YOUR DATABASE URL" # the value to inject
+    DUPLICATE_FROM: "ENV ID TO DUPLICATE FROM" # railway environment to duplicate from
+
+jobs:
+    pr_opened:
+        if: github.event.action == 'opened'
+        runs-on: ubuntu-latest
+        steps:
+        - name: Install Railway CLI
+          run: bash <(curl -fsSL cli.new)
+        - name: Create Railway Environment for PR
+          run: |
+            railway environment create pr-${{ github.event.pull_request.number }} \
+              --copy ${{ env.DUPLICATE_FROM }} \
+              --service-variable ${{ env.SERVICE_NAME }} ${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}
+
+    pr_closed:
+        if: github.event.action == 'closed'
+        runs-on: ubuntu-latest
+        steps:
+        - name: Install Railway CLI
+          run: bash <(curl -fsSL cli.new)
+        - name: Delete Railway Environment for PR
+          run: railway environment delete pr-${{ github.event.pull_request.number }} || true
+```
+
+It's that simple! You can now customize the final run step to execute any commands or send webhooks using Curl or other methods of your choice.
+
+This can very easily be modified to run commands in order to find variables and values, and can simply be passed as flags to the railway environment create command.
+
+## Conclusion
+
+We hope this tutorial has been helpful and that you'll find it useful for your own projects. If you have any questions or feedback, please feel free to reach out to us on [Discord](https://discord.gg/railway), [Slack](/reference/support#slack) or the [Help Station](https://help.railway.com). Happy coding!

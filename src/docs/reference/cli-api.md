@@ -172,13 +172,18 @@ Options:
 
 ## Environment
 
-*Change which environment you are using*
+*Create, delete or link an environment*
 
 ```txt
 ~ railway [env]ironment --help
-Change the active environment
+Create, delete or link an environment
 
-Usage: railway environment [OPTIONS] [ENVIRONMENT]
+Usage: railway environment [OPTIONS] [ENVIRONMENT] [COMMAND]
+
+Commands:
+  new     Create a new environment
+  delete  Delete an environment [aliases: remove, rm]
+  help    Print this message or the help of the given subcommand(s)
 
 Arguments:
   [ENVIRONMENT]  The environment to link to
@@ -192,6 +197,8 @@ View [environment docs](/reference/environments) for more information.
 
 If you run `railway environment` without specifying a name, you will be prompted
 with an environment selector that lists all your environments for the project.
+
+**Note**: `railway environment delete` will not work if an account has 2FA and the terminal is not being run interactively.
 
 ## Init
 *Create a new Project from the CLI*
