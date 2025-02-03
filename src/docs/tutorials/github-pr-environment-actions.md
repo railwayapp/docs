@@ -26,7 +26,7 @@ env:
     SERVICE_ID: "YOUR SERVICE ID" # service ID to inject database variable into
     ENV_NAME: "DATABASE_URL" # the environment variable name to inject
     ENV_VALUE: "YOUR DATABASE URL" # the value to inject
-    DUPLICATE_FROM: "ENV ID TO DUPLICATE FROM" # railway environment to duplicate from
+    DUPLICATE_FROM_ID: "ENV ID TO DUPLICATE FROM" # railway environment to duplicate from
 
 jobs:
     pr_opened:
