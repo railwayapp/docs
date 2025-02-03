@@ -22,11 +22,12 @@ on:
   pull_request:
     types: [opened, closed]
 env:
-    RAILWAY_API_TOKEN: "YOUR RAILWAY TOKEN" # get this in account settings (make sure this is NOT a project token)
-    SERVICE_ID: "YOUR SERVICE ID" # service ID to inject database variable into
+    RAILWAY_API_TOKEN: "8fb34194-f874-487e-980d-99a77b29e19e" # get this in account settings (make sure this is NOT a project token)
+    SERVICE_ID: "4a069339-c78e-41e5-a5b3-32955cf75b7a" # service ID to inject database variable into
     ENV_NAME: "DATABASE_URL" # the environment variable name to inject
     ENV_VALUE: "YOUR DATABASE URL" # the value to inject
-    DUPLICATE_FROM_ID: "ENV ID TO DUPLICATE FROM" # railway environment to duplicate from
+    DUPLICATE_FROM_ID: "00c90062-24ca-4e05-8257-968cf366c945" # railway environment to duplicate from
+    LINK_PROJECT_ID: "dae53648-968b-4234-9612-cd4572eecf15"
 
 jobs:
     pr_opened:
@@ -34,17 +35,21 @@ jobs:
         runs-on: ubuntu-latest
         container: ghcr.io/railwayapp/cli:latest
         steps:
+        - name: Link to project
+          run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }}
         - name: Create Railway Environment for PR
           run: |
             railway environment create pr-${{ github.event.pull_request.number }} \
-              --copy ${{ env.DUPLICATE_FROM }} \
-              --service-variable ${{ env.SERVICE_NAME }} ${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}
+              --copy ${{ env.DUPLICATE_FROM_ID }} \
+              --service-variable ${{ env.SERVICE_ID }} ${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}
 
     pr_closed:
         if: github.event.action == 'closed'
         runs-on: ubuntu-latest
         container: ghcr.io/railwayapp/cli:latest
         steps:
+        - name: Link to project
+          run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }}
         - name: Delete Railway Environment for PR
           run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```
