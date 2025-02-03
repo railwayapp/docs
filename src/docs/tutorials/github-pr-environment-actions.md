@@ -32,9 +32,8 @@ jobs:
     pr_opened:
         if: github.event.action == 'opened'
         runs-on: ubuntu-latest
+        container: ghcr.io/railwayapp/cli:latest
         steps:
-        - name: Install Railway CLI
-          run: bash <(curl -fsSL cli.new)
         - name: Create Railway Environment for PR
           run: |
             railway environment create pr-${{ github.event.pull_request.number }} \
@@ -44,9 +43,8 @@ jobs:
     pr_closed:
         if: github.event.action == 'closed'
         runs-on: ubuntu-latest
+        container: ghcr.io/railwayapp/cli:latest
         steps:
-        - name: Install Railway CLI
-          run: bash <(curl -fsSL cli.new)
         - name: Delete Railway Environment for PR
           run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```
