@@ -21,14 +21,14 @@ name: Railway
 on:
   pull_request:
     types: [opened, closed]
-    
+
 env:
-    RAILWAY_API_TOKEN: "8fb34194-f874-487e-980d-99a77b29e19e" # get this in account settings (make sure this is NOT a project token)
-    SERVICE_ID: "4a069339-c78e-41e5-a5b3-32955cf75b7a" # service ID to inject database variable into
-    ENV_NAME: "DATABASE_URL" # the environment variable name to inject
-    ENV_VALUE: "YOUR DATABASE URL" # the value to inject
-    DUPLICATE_FROM_ID: "00c90062-24ca-4e05-8257-968cf366c945" # railway environment to duplicate from
-    LINK_PROJECT_ID: "dae53648-968b-4234-9612-cd4572eecf15"
+    RAILWAY_API_TOKEN: "" # get this in account settings (make sure this is NOT a project token)
+    SERVICE_ID: "" # service ID to inject database variable into
+    ENV_NAME: "" # the environment variable name to inject (e.g DATABASE_URL)
+    ENV_VALUE: "" # the value to inject
+    DUPLICATE_FROM_ID: "" # railway environment to duplicate from
+    LINK_PROJECT_ID: "" # project ID
 
 jobs:
     pr_opened:
