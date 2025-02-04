@@ -21,6 +21,7 @@ name: Railway
 on:
   pull_request:
     types: [opened, closed]
+    
 env:
     RAILWAY_API_TOKEN: "8fb34194-f874-487e-980d-99a77b29e19e" # get this in account settings (make sure this is NOT a project token)
     SERVICE_ID: "4a069339-c78e-41e5-a5b3-32955cf75b7a" # service ID to inject database variable into
@@ -38,10 +39,7 @@ jobs:
         - name: Link to project
           run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }}
         - name: Create Railway Environment for PR
-          run: |
-            railway environment create pr-${{ github.event.pull_request.number }} \
-              --copy ${{ env.DUPLICATE_FROM_ID }} \
-              --service-variable ${{ env.SERVICE_ID }} ${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}
+          run: railway environment new pr-${{ github.event.pull_request.number }} --copy ${{ env.DUPLICATE_FROM_ID }} --service-variable ${{ env.SERVICE_ID }} "${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}"
 
     pr_closed:
         if: github.event.action == 'closed'
