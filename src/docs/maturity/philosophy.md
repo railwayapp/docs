@@ -88,4 +88,4 @@ We do have a feature, [App Sleeping](/reference/app-sleeping), that allows you t
 
 ## Book a Demo
 
-If you're looking to adopt Railway for your business, we'd love to chat and ensure your questions are answered.  [Click here to book some time with us](https://cal.com/team/railway/demonew).
+If you're looking to adopt Railway for your business, we'd love to chat and ensure your questions are answered.  [Click here to book some time with us](https://cal.com/team/railway/work-with-railway?duration=30).
