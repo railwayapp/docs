@@ -37,4 +37,4 @@ Railway operates with an emphasis on reliability and transparency. We utilize a 
 
 ## Book a Demo
 
-Looking to adopt Railway for your business?  We'd love to chat!  [Click here to book some time with us](https://cal.com/team/railway/demonew).
+Looking to adopt Railway for your business?  We'd love to chat!  [Click here to book some time with us](https://cal.com/team/railway/work-with-railway?duration=30).
