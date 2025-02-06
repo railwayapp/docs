@@ -221,6 +221,24 @@ This field can be set to `null`.
 
 Read more about the start command [here](/reference/build-and-start-commands#start-command).
 
+### Pre-deploy Command
+
+The command to run before starting the container.
+
+```json
+
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "preDeployCommand": ["npm run db:migrate"]
+  }
+}
+```
+
+This field can be ommitted.
+
+Read more about the pre-deploy command [here](/guides/pre-deploy-command).
+
 ### Number of Replicas
 
 For horizontal scaling, the number of instances to run for the deployment.

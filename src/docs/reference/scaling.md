@@ -16,12 +16,11 @@ By default Railway will scale your service up to the specified vCPU and Memory l
 Scale horizontally by manually increasing the number of replicas for a service in the service settings.  Increasing the number of replicas on a service will create multiple instances of the service deployment.
 
 #### Multi-region replicas
-<Banner variant="info">
-    Multi-region replicas is currently available to Pro users behind a feature flag. To enable this feature, look for the feature flag at the bottom of the service settings panel. 
-</Banner>
+
 Multi-region replicas are exactly as advertised -- horizontally scaled replicas that are located in different geographic regions. 
 
-Once the feature flag is enabled, the service settings panel will reveal an interface for assigning replicas to different regions. 
+Once the feature flag is enabled, the service settings panel will reveal an interface for assigning replicas to different regions.
+
 <Image 
     src="https://res.cloudinary.com/railway/image/upload/v1733386054/multi-region-replicas_zov7rv.png"
     alt="Multi-region replicas"

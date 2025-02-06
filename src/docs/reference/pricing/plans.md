@@ -92,7 +92,7 @@ Credits as a payment method is only available for Hobby plan users.
 
 ### Purchasing Credits
 
-You can purchase credits from your account's [usage page](https://railway.com/account/usage).
+You can purchase credits from your account's [billing page](https://railway.com/account/billing).
 
 ### One-time Grant of Credits on the Free Trial
 

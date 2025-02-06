@@ -27,10 +27,12 @@ For example, these configuration definitions are equivalent:
         buildCommand = "echo building!"
 
         [deploy]
+        preDeployCommand = ["npm run db:migrate"]
         startCommand = "echo starting!"
         healthcheckPath = "/"
         healthcheckTimeout = 100
         restartPolicyType = "never"
+
 
 
 
@@ -48,6 +50,7 @@ For example, these configuration definitions are equivalent:
             "buildCommand": "echo building!"
             },
           "deploy": {
+            "preDeployCommand": ["npm run db:migrate"],
             "startCommand": "echo starting!",
             "healthcheckPath": "/",
             "healthcheckTimeout": 100,
