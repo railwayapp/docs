@@ -19,7 +19,7 @@ Scale horizontally by manually increasing the number of replicas for a service i
 
 Multi-region replicas are exactly as advertised -- horizontally scaled replicas that are located in different geographic regions. 
 
-Once the feature flag is enabled, the service settings panel will reveal an interface for assigning replicas to different regions.
+The service settings panel will reveal an interface for assigning replicas to different regions.
 
 <Image 
     src="https://res.cloudinary.com/railway/image/upload/v1733386054/multi-region-replicas_zov7rv.png"
