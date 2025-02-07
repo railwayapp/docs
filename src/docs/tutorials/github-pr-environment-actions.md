@@ -29,6 +29,7 @@ env:
     ENV_VALUE: "" # the value to inject
     DUPLICATE_FROM_ID: "" # railway environment to duplicate from
     LINK_PROJECT_ID: "" # project ID
+    # TEAM_ID: "" if you are linking to a project in team, uncomment this
 
 jobs:
     pr_opened:
@@ -37,7 +38,7 @@ jobs:
         container: ghcr.io/railwayapp/cli:latest
         steps:
         - name: Link to project
-          run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }}
+          run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project  
         - name: Create Railway Environment for PR
           run: railway environment new pr-${{ github.event.pull_request.number }} --copy ${{ env.DUPLICATE_FROM_ID }} --service-variable ${{ env.SERVICE_ID }} "${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}"
 
@@ -47,7 +48,7 @@ jobs:
         container: ghcr.io/railwayapp/cli:latest
         steps:
         - name: Link to project
-          run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }}
+          run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project       
         - name: Delete Railway Environment for PR
           run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```
