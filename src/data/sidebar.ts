@@ -235,6 +235,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Services", "reference"),
           makePage("Variables", "reference"),
           makePage("Volumes", "reference"),
+          makePage("Functions", "reference"),
         ],
       },
       {
