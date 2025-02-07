@@ -7,7 +7,6 @@ description: Learn how to use the CLI in a GitHub Action to create environments 
 
 This can be useful if you need to create a branch on a [Neon](https://neon.tech) database, allowing you to automatically inject the correct database url.
 
-
 ## The Action
 
 Make a new file in your repository called `.github/workflows/railway-pr-envs.yml` and add the following -
@@ -23,7 +22,7 @@ on:
     types: [opened, closed]
 
 env:
-    RAILWAY_API_TOKEN: "" # get this in account settings (make sure this is NOT a project token)
+    RAILWAY_API_TOKEN: "" # get this in account settings (make sure this is NOT a project token), and scope it to your account (not a workspace)
     SERVICE_ID: "" # service ID to inject database variable into
     ENV_NAME: "" # the environment variable name to inject (e.g DATABASE_URL)
     ENV_VALUE: "" # the value to inject
@@ -52,6 +51,8 @@ jobs:
         - name: Delete Railway Environment for PR
           run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```
+
+**Note:** if you are using a team project, you need to ensure that the token specified is scoped to your account, not a workspace.
 
 This can very easily be modified to run commands in order to find variables and values, and can simply be passed as flags to the railway environment create command.
 
