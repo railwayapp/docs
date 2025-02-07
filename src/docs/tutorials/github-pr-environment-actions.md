@@ -1,9 +1,9 @@
 ---
 title: GitHub PR environment actions
-description: Learn how to use GitHub Actions to create environments for PRs
+description: Learn how to use the CLI in a GitHub Action to create environments for PRs
 ---
 
-[Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. In this post, we talk about using Github Actions to create specific environments for any PR that is created, alongside closing it whenever it is closed/merged.
+[Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. In this post, we talk about using Github Actions alongside the [Railway CLI](https://github.com/railwayapp/cli) to create specific environments for any PR that is created, alongside closing it whenever it is closed/merged.
 
 This can be useful if you need to create a branch on a [Neon](https://neon.tech) database, allowing you to automatically inject the correct database url.
 
@@ -16,7 +16,7 @@ Make a new file in your repository called `.github/workflows/railway-pr-envs.yml
 # NOTE
 # if you have 2fa on your account, the pr close part of the action will hang (due to 2fa not being supported non-interactively)
 
-name: Railway
+name: Manage PR environments (Railway)
 
 on:
   pull_request:
@@ -51,8 +51,6 @@ jobs:
         - name: Delete Railway Environment for PR
           run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```
-
-It's that simple! You can now customize the final run step to execute any commands or send webhooks using Curl or other methods of your choice.
 
 This can very easily be modified to run commands in order to find variables and values, and can simply be passed as flags to the railway environment create command.
 
