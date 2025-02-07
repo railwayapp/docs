@@ -172,13 +172,18 @@ Options:
 
 ## Environment
 
-*Change which environment you are using*
+*Create, delete or link an environment*
 
 ```txt
 ~ railway [env]ironment --help
-Change the active environment
+Create, delete or link an environment
 
-Usage: railway environment [OPTIONS] [ENVIRONMENT]
+Usage: railway environment [OPTIONS] [ENVIRONMENT] [COMMAND]
+
+Commands:
+  new     Create a new environment
+  delete  Delete an environment [aliases: remove, rm]
+  help    Print this message or the help of the given subcommand(s)
 
 Arguments:
   [ENVIRONMENT]  The environment to link to
@@ -192,6 +197,68 @@ View [environment docs](/reference/environments) for more information.
 
 If you run `railway environment` without specifying a name, you will be prompted
 with an environment selector that lists all your environments for the project.
+
+### railway environment new
+
+*Create a new environment*
+
+```txt
+~ railway [env]ironment new --help
+Create a new environment
+
+Usage: railway environment new [OPTIONS] [NAME]
+
+Arguments:
+  [NAME]
+          The name of the environment to create
+
+Options:
+  -d, --duplicate <DUPLICATE>
+          The name of the environment to duplicate
+
+          [aliases: copy]
+          [short aliases: c]
+
+  -v, --service-variable <SERVICE> <VARIABLE>
+          Variables to assign in the new environment
+
+          Note: This will only work if the environment is being duplicated, and that the service specified is present in the original environment
+
+          Examples:
+
+          railway environment new foo --duplicate bar --service-variable <service name/service uuid> BACKEND_PORT=3000
+
+      --json
+          Output in JSON format
+
+  -h, --help
+          Print help (see a summary with '-h')
+
+  -V, --version
+          Print version
+```
+
+### railway environment delete
+
+*Delete an environment*
+
+```txt
+~ railway [env]ironment delete --help
+Delete an environment
+
+Usage: railway environment delete [OPTIONS] [ENVIRONMENT]
+
+Arguments:
+  [ENVIRONMENT]  The environment to delete
+
+Options:
+  -y, --yes      Skip confirmation dialog
+      --json     Output in JSON format
+  -h, --help     Print help
+  -V, --version  Print version
+```
+
+**Note**: `railway environment delete` will not work if an account has 2FA and the terminal is not being run interactively.
 
 ## Init
 *Create a new Project from the CLI*
