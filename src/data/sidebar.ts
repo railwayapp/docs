@@ -201,7 +201,7 @@ export const sidebarContent: ISidebarContent = [
             url: "https://blog.railway.com/p/gitlab-ci-cd",
           },
           makePage("GitHub Post-Deploy Actions", "tutorials"),
-          makePage("GitHub PR Environment Action", "tutorials")
+          makePage("GitHub PR Environment Actions", "tutorials")
         ],
       },
     ],
