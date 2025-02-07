@@ -195,7 +195,7 @@ Version of Nixpacks to use. Must be a valid Nixpacks version.
 {
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "nixpacksVersion": "1.30.0"
+    "nixpacksVersion": "1.29.1"
   }
 }
 ```
@@ -221,22 +221,23 @@ This field can be set to `null`.
 
 Read more about the start command [here](/reference/build-and-start-commands#start-command).
 
-### Number of Replicas
+### Pre-deploy Command
 
-For horizontal scaling, the number of instances to run for the deployment.
+The command to run before starting the container.
 
 ```json
+
 {
   "$schema": "https://railway.com/railway.schema.json",
   "deploy": {
-    "numReplicas": 5
+    "preDeployCommand": ["npm run db:migrate"]
   }
 }
 ```
 
-This field can be set to `null`.
+This field can be ommitted.
 
-Read more about horizontal scaling [here](/reference/scaling#horizontal-scaling-with-replicas).
+Read more about the pre-deploy command [here](/guides/pre-deploy-command).
 
 ### Multi-region Configuration
 

@@ -70,15 +70,19 @@ If you have previously assigned a TCP Proxy to your service, you will not see th
 
 ## Custom Domains
 
-Custom domains can be added to a Railway service and environment.
+Custom domains can be added to a Railway service and once setup we will automatically issue an SSL certificate for you.
 
-1. Navigate to the Settings tab of your desired service
+1. Navigate to the [Settings tab](/overview/the-basics#service-settings) of your desired [service](/overview/the-basics#services).
+
 2. Click `+ Custom Domain` in the Public Networking section of Settings
+
 3. Type in the custom domain (wildcard domains are supported, [see below](#wildcard-domains) for more details)
-4. In your DNS provider (Cloudflare, DNSimple, Namecheap, etc), update your domain's DNS settings by adding the appropriate DNS record(s) and associating it with the domain provided by Railway, e.g., `abc123.up.railway.app`
-    - For subdomains, including "www", add a CNAME record
-    - For root or apex domains, the record type will vary, [see below](#redirecting-a-root-domain) for more details
-4. Wait for Railway to verify your record.  When verified, you will see a greencheck mark next to the domain(s) -
+
+    You will be provided with a CNAME domain to use, e.g., `g05ns7.up.railway.app`.
+
+4. In your DNS provider (Cloudflare, DNSimple, Namecheap, etc), create a CNAME record with the CNAME value provided by Railway.
+
+4. Wait for Railway to verify your domain.  When verified, you will see a greencheck mark next to the domain(s) -
 
     <Image
     src="https://res.cloudinary.com/railway/image/upload/v1654563209/docs/domains_uhchsu.png"
@@ -86,7 +90,9 @@ Custom domains can be added to a Railway service and environment.
     layout="responsive"
     width={1338} height={808} quality={80} />
 
-Note that changes to DNS settings may take up to 72 hours to propagate worldwide.
+    You will also see a `Cloudflare proxy detected` message if we have detected that you are using Cloudflare.
+
+    **Note:** Changes to DNS settings may take up to 72 hours to propagate worldwide.
 
 **Important Considerations**
 - Freenom domains are not allowed and not supported.

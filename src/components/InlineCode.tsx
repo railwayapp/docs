@@ -31,7 +31,7 @@ export const InlineCode: React.FC<Props> = ({ children, colorModeSSR }) => {
       style={{
         backgroundColor: String(theme['pre[class*="language-"]'].background),
         color: theme['code[class*="language-"]'].color,
-        padding: "0 0.35rem",
+        padding: "0.15rem 0.50rem 0px 0.50rem",
       }}
       data-colormode={colorMode}
     >
