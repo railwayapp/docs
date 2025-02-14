@@ -87,7 +87,7 @@ You can deploy anything from a simple static site to a complex backend built out
 
 Instead of 3rd party integrations, we natively support PostgreSQL, MySQL, Redis, MongoDB, and more — all manageable directly from our platform without external providers, and best of all, they are billed the same as any other service on Railway.
 
-Our built-in database UI lets you view tables and manage data directly from the dashboard, eliminating the need for third-party tools. Plus, with our [native database backups](https://docs.railway.com/reference/backups), you can easily create, delete, and restore backups for your databases.
+Our built-in database UI lets you view tables and manage data directly from the dashboard, eliminating the need for third-party tools. Plus, with our [native database backups](/reference/backups), you can easily create, delete, and restore backups for your databases.
 
 ### Private Networking
 
@@ -113,7 +113,7 @@ Best of all, through our [Kickback Program](https://railway.com/open-source-kick
 
 ### Pricing
 
-Railway offers straightforward and transparent, [resource-based pricing](https://railway.com/pricing) that scales with your needs, pay only for the resources you use.
+Railway offers straightforward and transparent, [resource-based pricing](/reference/pricing/plans) that scales with your needs, pay only for the resources you use.
 
 - **Memory:** $10 per GB / month
 
@@ -137,7 +137,7 @@ Pro and enterprise users get priority support within Slack, and entrpise can als
 
 ## Ready to Switch?
 
-Thinking about migrating from Vercel to Railway? We've made it simple! Check out our [migration guide](https://www.notion.so/migration/migrate-from-vercel) to get started.
+Thinking about migrating from Vercel to Railway? We've made it simple! Check out our [migration guide](/migration/migrate-from-vercel) to get started.
 
 [Sign up on Railway](https://railway.com/new) today and get $5 in free credits to explore the platform.
 
