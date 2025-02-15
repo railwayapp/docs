@@ -47,7 +47,6 @@ Using [Private Networking](/guides/private-networking) when communicating with o
 
 Communicate with your Railway database over private networking by using the `DATABASE_URL` environment variable, instead of `DATABASE_PUBLIC_URL`:
 
-
 ### With Other Services
 
 If your Railway services need to communicate with each other, you can find the service's private URL in the service settings:
@@ -56,22 +55,22 @@ If your Railway services need to communicate with each other, you can find the s
 
 Learn more about Railway's Private Networking [here](/guides/private-networking).
 
-## Enabling App Sleeping
+## Enabling Serverless
 
-Enabling App Sleep on a service tells Railway to stop a service when it is inactive, effectively reducing the overall cost to run it.
+Enabling Serverless on a service tells Railway to stop a service when it is inactive, effectively reducing the overall cost to run it.
 
-To enable App Sleeping, toggle the feature on within the service configuration pane in your project:
+To enable Serverless, toggle the feature on within the service configuration pane in your project:
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1696548703/docs/scale-to-zero/appSleep_ksaewp.png"
 alt="Enable App Sleep"
 layout="intrinsic"
 width={700} height={460} quality={100} />
 
-1. Navigate to your service's settings > Deploy > App Sleeping
-2. Toggle "Enable App Sleeping"
-3. To _disable_ App Sleeping, toggle the setting again
+1. Navigate to your service's settings > Deploy > Serverless
+2. Toggle "Enable Serverless"
+3. To _disable_ Serverless, toggle the setting again
 
-Read more about how App Sleeping works in the [App Sleeping Reference page](/reference/app-sleeping).
+Read more about how Serverless works in the [Serverless Reference page](/reference/app-sleeping).
 
 ## Resource Limits
 

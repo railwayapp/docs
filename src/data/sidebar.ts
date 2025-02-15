@@ -201,7 +201,7 @@ export const sidebarContent: ISidebarContent = [
             url: "https://blog.railway.com/p/gitlab-ci-cd",
           },
           makePage("GitHub Post-Deploy Actions", "tutorials"),
-          makePage("GitHub PR Environment Actions", "tutorials")
+          makePage("GitHub PR Environment Actions", "tutorials"),
         ],
       },
     ],
@@ -291,6 +291,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Free Trial", "reference/pricing"),
           makePage("FAQs", "reference/pricing"),
           makePage("Refunds", "reference/pricing"),
+          makePage("AWS Marketplace", "reference/pricing"),
         ],
       },
       makePage("Production Readiness Checklist", "reference"),
