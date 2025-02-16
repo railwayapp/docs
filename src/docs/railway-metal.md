@@ -70,7 +70,7 @@ have all regions available by the end of Q1'2025 (by 31 March 2025).
 | -------------------------- | --------------------------------- |
 | US West (California)       | 🟢 Active                         |
 | US East (Virginia)         | 🟢 Active                         |
-| Europe West (Amsterdam)    | 🟠 End of Q1'2025 (31 March 2025) |
+| Europe West (Amsterdam)    | 🟢 Active                         |
 | Southeast Asia (Singapore) | 🟠 End of Q1'2025 (31 March 2025) |
 
 ## Gradual Upgrade
