@@ -214,6 +214,14 @@ We recommend switching back to the `US West (Oregon)` region if you are
 experiencing increased latency after upgrading to `US West (California)`.
 See [Manual rollback](#manual-rollback) for instructions.
 
+### Will Railway stay on GCP?
+
+No. We are migrating completely onto Railway managed hardware. For customers who would like Railway to deploy into their public cloud, you can contact sales via our [AWS Marketplace listing.](https://aws.amazon.com/marketplace/pp/prodview-cnib4vbrfgs5a)
+
+### Help! After migrating, why do I have increased latency?
+
+It's likely that your database, or service with a volume, isn't migrated over to Metal. Stateful Metal is availible starting March 2025. Users who migrate to a different region other than their stateful workload will see increased latency due to the additional physical distance from your service's region. Migrate when your desired region has stateful workloads availible after March 2025.
+
 ### How do I opt-out?
 
 There is no way to opt-out of Railway Metal. Please [reach out to us](#getting-help)
