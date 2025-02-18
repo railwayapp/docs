@@ -220,7 +220,7 @@ No. We are migrating completely onto Railway managed hardware. For customers who
 
 ### Help! After migrating, why do I have increased latency?
 
-It's likely that your database, or service with a volume, isn't migrated over to Metal. Stateful Metal is availible starting March 2025. Users who migrate to a different region other than their stateful workload will see increased latency due to the additional physical distance from your service's region. Migrate when your desired region has stateful workloads availible after March 2025.
+It's likely that your database, or service with a volume, isn't migrated over to Metal. Stateful Metal is availible starting March 2025. Users who migrate to a different region other than their stateful workload will see increased latency due to the additional physical distance from your service's region. Migrate when your desired region has stateful workloads available after March 2025.
 
 ### How do I opt-out?
 
