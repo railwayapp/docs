@@ -36,7 +36,7 @@ Services with volumes support manual and automated backups, backups are covered 
 
 ## Caveats
 
-Volumes is a newer feature that is still under development. Here are some limitations of which we are currently aware:
+Here are some limitations of which we are currently aware:
 - Each service can only have a single volume
 - Replicas cannot be used with volumes
 - There is no built-in S/FTP support
