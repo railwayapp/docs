@@ -20,7 +20,7 @@ export const GlobalBanners = () => {
         type="button"
         title="Dismiss"
         css={[
-          tw`absolute top-0 right-0`,
+          tw`absolute top-3 right-0`,
           tw`focus:outline-none text-gray-500 hover:text-gray-700`,
         ]}
         onClick={() => dismissGlobalBanner(currentBanner.id)}
