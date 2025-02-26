@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@nanostores/react": "^0.4.1",
-    "@next/env": "^13.2.1",
     "@prisma/client": "4.10.1",
     "@radix-ui/react-scroll-area": "^1.0.2",
     "@tailwindcss/typography": "^0.5.9",
