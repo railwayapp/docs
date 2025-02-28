@@ -120,6 +120,9 @@ Let's say you are setting up your frontend service to talk to the `api` service.
 BACKEND_URL=http://${{api.RAILWAY_PRIVATE_DOMAIN}}:${{api.PORT}}
 ```
 
+> [!NOTE]
+> `api.PORT` above refers to a service variable that must be set manually. It does not automatically resolve to the port the service is listening on, nor does it resolve to the `PORT` environment variable injected into the service at runtime.
+
 Then in the frontend code, you will simply reference the `BACKEND_URL` environment variable - 
 
 ```javascript
