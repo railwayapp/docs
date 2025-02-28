@@ -156,7 +156,7 @@ The migration is aimed to be completed by the 4th of July, 2025.
 
 ## Pricing Updates
 
-Beginning March 3rd
+_These billing rates will enter in effect on March 3rd_
 
 If you migrate 80 percent of your workloads to Railway Metal, you'll benefit from significantly reduced costs:
 
