@@ -31,4 +31,4 @@ After the migration period, we will remove this setting entirely and this refere
 
 ## Support
 
-For information and help on our new runtime during the rollout period, check out [this forum post](https://help.railway.app/feedback/new-runtime-v2-magic-port-detection-2b530a34).
+For information and help on our new runtime during the rollout period, check out [this forum post](https://station.railway.com/feedback/new-runtime-v2-magic-port-detection-2b530a34).

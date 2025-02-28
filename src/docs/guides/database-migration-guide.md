@@ -7,7 +7,7 @@ title: Migrating from Legacy Plugins to Database Services
 
 If you had a deprecated plugin that was active prior to this migration, your data has been archived. This archive is accurate up to **February 23rd, 2024**, and will be accessible until **August 23rd, 2024**.
 
-You can request for a download link to your archive by reaching out via our [Help Station](https://help.railway.app).
+You can request for a download link to your archive by reaching out via our [Help Station](https://station.railway.com).
 </Banner>
 
 We've introduced a more secure and flexible way to deploy databases on Railway.  The purpose of this guide is to provide an overview of why we are making these changes, what they mean for you, and how you can migrate.

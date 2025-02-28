@@ -14,7 +14,7 @@ Railway offers numerous tiers of support for our users.
 
 ## Help Station
 
-Railway conducts its support over our [Help Station](https://help.railway.app) platform.
+Railway conducts its support over our [Help Station](https://station.railway.com) platform.
 
 It hosts our community of 500,000+ users and developers. It is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
 
@@ -24,11 +24,11 @@ alt="Screenshot of Railway Help Station"
 layout="intrinsic"
 width={2033} height={1380} quality={100} />
 
-Please ensure that you've searched for your issue before creating a new thread, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://help.railway.app/community-code-of-conduct).
+Please ensure that you've searched for your issue before creating a new thread, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://station.railway.com/community-code-of-conduct).
 
 ### Priority Threads
 
-For Pro plan users, threads created in the [Help Station](https://help.railway.app) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 1 business day (if community members are unable to help).
+For Pro plan users, threads created in the [Help Station](https://station.railway.com) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 1 business day (if community members are unable to help).
 
 We pay special attention to threads created by Pro users and ensure that questions or concerns are resolved in a timely manner.
 
@@ -42,7 +42,7 @@ For teams and companies requiring SLOs and higher-priority support over chat, si
 
 ### Private Threads
 
-You create a **Private Thread** on [Help Station](https://help.railway.app/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
+You create a **Private Thread** on [Help Station](https://station.railway.com/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1715282996/docs/priv-threads_lus6tx.png"

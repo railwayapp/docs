@@ -147,7 +147,7 @@ In all cases, you can redeploy your services once the underlying issue is resolv
 
 ### I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?
 
-Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Help Station](https://help.railway.app).
+Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Help Station](https://station.railway.com).
 
 ### Why did I receive another invoice after cancelling my subscription?
 
