@@ -11,7 +11,7 @@ alt="Screenshot of the Observability Dashboard"
 layout="responsive"
 width={1111} height={649} quality={80} />
 
-[Shape the future of this dashboard! We are actively collecting feedback on usecases and bugs you may encounter.](https://help.railway.com/feedback/observability-dashboard-51871a24)
+[Shape the future of this dashboard! We are actively collecting feedback on usecases and bugs you may encounter.](https://station.railway.com/feedback/observability-dashboard-51871a24)
 
 ## Navigating to the Observability Dashboard
 

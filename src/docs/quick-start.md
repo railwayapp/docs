@@ -166,7 +166,7 @@ Once the initial deployment is complete, your app is ready to go. If applicable,
 
 If anything fails during this time, you can explore your <a href="/guides/logs#build--deploy-panel" target="_blank">build or deploy logs</a> for clues. A helpful tip is to scroll through the entire log; important details are often missed, and the actual error is rarely at the bottom!
 
-If you're stuck don't hesitate to open a <a href="https://help.railway.com/questions" target="_blank">Help Thread</a>.
+If you're stuck don't hesitate to open a <a href="https://station.railway.com/questions" target="_blank">Help Thread</a>.
 
 ## Deploying a Template
 
@@ -185,7 +185,7 @@ width={836} height={860} quality={100} />
 
 - Search for your desired template.
 
-    *Hint: If your desired template isn't found feel free to <a href="https://help.railway.com/questions" target="_blank">reach out to the community</a>.*
+    *Hint: If your desired template isn't found feel free to <a href="https://station.railway.com/questions" target="_blank">reach out to the community</a>.*
 
 - Click on the template you want to deploy.
 

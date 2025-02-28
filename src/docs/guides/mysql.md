@@ -54,7 +54,7 @@ Since the deployed container is pulled from the official MySQL image in Docker h
 <Banner>
 **Released August 2024** 
 
-Be aware that this template has not been battle-tested like the standalone instance.  We are seeking feedback to improve the experience using this template, please provide your input [here](https://help.railway.com/templates/my-sql-inno-db-cluster-6afff85d).
+Be aware that this template has not been battle-tested like the standalone instance.  We are seeking feedback to improve the experience using this template, please provide your input [here](https://station.railway.com/templates/my-sql-inno-db-cluster-6afff85d).
 </Banner>
 
 We'll cover how to deploy, connect, and manage the [High Availability (HA) MySQL InnoDB Cluster](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-innodb-cluster.html) in this section.

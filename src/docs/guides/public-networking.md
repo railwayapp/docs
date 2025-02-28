@@ -260,7 +260,7 @@ Incomging traffic will be distributed across all replicas in the closest region 
 
 Railway does support exposing both HTTP and TCP over public networking, in a single service. Therefore, if you have a domain assigned, you will still see the option to enable TCP Proxy, and vice-versa.
 
-Note: While you can have multiple domains assigned to a single service, you cannot have multiple TCP proxies assigned to a single service.
+If you have a usecase that requires exposing both HTTP and TCP over public networking, in one service, <a href="https://station.railway.com/feedback" target="_blank">let us know</a>!
 
 ## Let's Encrypt SSL Certificates
 

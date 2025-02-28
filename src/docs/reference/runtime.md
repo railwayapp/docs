@@ -25,3 +25,7 @@ The move to the new runtime enables new features already and yet to come on the 
 As of 2024/06/04 (YYYY/MM/DD), Runtime V2 is enabled by default for all new services and workloads created on Railway. We plan to fully cut-over all workloads on the new runtime and we expect no disruptions to service, however, the team will be monitoring all cut over activity observing performance on the platform. The Railway team will be first cutting over Trial then Hobby, Pro, and then lastly Enterprise customers in the final stage.
 
 After the migration period, we will remove this setting entirely and this reference page will be archived.
+
+## Support
+
+For information and help on our new runtime during the rollout period, check out [this forum post](https://station.railway.com/feedback/new-runtime-v2-magic-port-detection-2b530a34).
