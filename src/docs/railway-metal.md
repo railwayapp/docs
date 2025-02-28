@@ -154,6 +154,15 @@ expect:
 
 The migration is aimed to be completed by the 4th of July, 2025.
 
+## Pricing Updates
+
+If you migrate 80 percent of your workloads to Railway Metal, you'll benefit from significantly reduced costs:
+
+- **Egress Fees**: Reduced by 50%, from $0.10/GB to $0.05/GB.
+- **Disk Storage**: Reduced from $0.25/GB to $0.15/GB.
+
+These pricing updates are automatically applied once 80 percent of your workloads are running on Railway Metal.
+
 ## FAQ
 
 ### Is this a free upgrade?
