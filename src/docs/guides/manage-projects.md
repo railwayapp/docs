@@ -1,10 +1,11 @@
 ---
 title: Manage Projects with the Public API
+description: Learn how to manage projects via the public GraphQL API.
 ---
 
 Here are some examples to help you get started managing your projects using the Public API.
 
-### Fetch all your projects
+### Fetch All Your Projects
 
 The query below will fetch all your personal projects along with all the services, plugins and environment for them.
 
@@ -47,7 +48,7 @@ query me {
 }
 ```
 
-### Delete a project
+### Delete a Project
 
 <Banner variant="danger">This is a destructive action</Banner>
 

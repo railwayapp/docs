@@ -1,12 +1,13 @@
 ---
 title: Managing Services
+description: A step by step guide to managing services on Railway.
 ---
 
 A Railway Service is a deployment target for your application.
 
 _As you create and manage your services, your changes will be collected in a set of [staged changes](/guides/staged-changes) that you must review and deploy, in order to apply them._
 
-## Creating A Service
+## Creating a Service
 
 Create a service by clicking the `New` button in the top right corner of your project canvas, or by typing new service from the **command palette**, accessible via `CMD + K` (Mac) or `Ctrl + K`(Windows).
 
@@ -21,7 +22,7 @@ Services on Railway can be deployed from a GitHub repository, a local directory,
 
 To access a service's settings, simply click on the service tile from your project canvas and go to the Settings tab.
 
-## Defining a deployment source
+## Defining a Deployment Source
 
 If you've created an empty service, or would like to update the source for a deployed service, you can do so in the Service settings.
 
@@ -33,7 +34,7 @@ alt="Screenshot of how to connect a service to a GitHub repo or Docker image"
 layout="responsive"
 width={709} height={190} quality={80} />
 
-### Deploying from a GitHub Repo
+### Deploying From a GitHub Repo
 
 Define a GitHub repository as your service source by selecting `Connect Repo` and choosing the repository you'd like to deploy.
 
@@ -47,7 +48,7 @@ width={708} height={245} quality={80} />
 
 You must link your Railway account to GitHub, to enable Railway to connect to your GitHub repositories. <a href="https://github.com/apps/railway-app/installations/new" target="_blank">You can configure the Railway App in GitHub by clicking this link.</a>
 
-### Deploying a public Docker Image
+### Deploying a Public Docker Image
 
 To deploy a public Docker image, specify the path of the image when prompted in the creation flow.
 
@@ -61,15 +62,19 @@ GitHub Container Registry:
 
 - `ghcr.io/railwayapp-templates/postgres-ssl:latest`
 
-Quay.io:
-
-- `quay.io/username/repo:tag`
-
 GitLab Container Registry:
 
 - `registry.gitlab.com/gitlab-cicd15/django-project`
 
-### Deploying a private Docker Image
+Microsoft Container Registry:
+
+- `mcr.microsoft.com/dotnet/aspire-dashboard`
+
+Quay.io:
+
+- `quay.io/username/repo:tag`
+
+### Deploying a Private Docker Image
 
 If you'd like to deploy from a private Docker registry, ensure you're on the [Pro plan](pricing/plans#plans).
 
@@ -82,7 +87,7 @@ width={370} height={280} quality={100} />
 
 If deploying an image from <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>, provide a <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry" target="_blank">personal access token (classic)</a>.
 
-## Deploying from a local directory
+## Deploying From a Local Directory
 
 [Use the CLI](/guides/cli) to deploy a local directory to a service -
 
@@ -106,7 +111,7 @@ Customize your project canvas for easier readability by changing the service ico
 1. Right click on the service
 2. Choose `Update Info`
 3. Choose `Icon`
-4. Begin typing to see a list of available icons, pulled from our <a href="https://devicons.railway.app/" target="_blank">devicons</a>service.
+4. Begin typing to see a list of available icons, pulled from our <a href="https://devicons.railway.com/" target="_blank">devicons</a>service.
 
 You can also access this configuration from the command palette.
 

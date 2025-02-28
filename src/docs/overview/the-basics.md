@@ -1,5 +1,6 @@
 ---
 title: The Basics
+description: Learn about the core concepts of Railway.
 ---
 
 This document outlines the core concepts of Railway, providing foundational knowledge of the basic building blocks you'll work with in the platform.
@@ -11,6 +12,7 @@ This document outlines the core concepts of Railway, providing foundational know
   - **[Project Settings](#project-settings)** - Contains all project-level settings.
 - **[Service](#services)** - A target for a deployment source (e.g. Web Application).
   - **[Service Variables](#service-variables)** - A collection of configurations and secrets.
+  - **[Backups](#backups)** - A collection of backups for a service.
   - **[Service Metrics](#service-metrics)** - Rundown of metrics for a service.
   - **[Service Settings](#service-settings)** - Contains all service-level settings.
 - **[Deployment](#deployments)** - Built and deliverable unit of a service.
@@ -24,7 +26,7 @@ Your main entrypoint to Railway where all your [projects](/overview/the-basics#p
 
 Projects contain your [services](/overview/the-basics#services) and [environments](/reference/environments).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722187321/docs/the-basics/dashboard_ycmxnk.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785111/docs/the-basics/dashboard_ycmxnk.png"
 alt="Screenshot of the Railway dashboard"
 layout="responsive"
 width={1305} height={735} quality={100} />
@@ -35,7 +37,7 @@ A project represents a capsule for composing infrastructure in Railway.  You can
 
 Services within a project are automatically joined to a [private network](/reference/private-networking) scoped to that project.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144285/docs/the-basics/project_canvas_dxpzxe.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png"
 alt="Screenshot of the project canvas"
 layout="responsive"
 width={1365} height={765} quality={100} />
@@ -44,7 +46,7 @@ width={1365} height={765} quality={100} />
 
 This page contains all the project level settings.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144286/docs/the-basics/project_settings_ghwzih.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785164/docs/the-basics/project_settings_ghwzih.png"
 alt="Screenshot of the project settings page"
 layout="responsive"
 width={1365} height={765} quality={100} />
@@ -63,7 +65,7 @@ Some of the most commonly used project settings are -
 
 A Railway service is a deployment target for your deployment source. Deployment sources can be [code repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories) or [Docker Images](https://docs.docker.com/guides/docker-concepts/the-basics/what-is-an-image/). Once you create a service and choose a source, Railway will analyze the source, build a Docker image (if the source is a code repository), and deploy it to the service.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144283/docs/the-basics/services_zuyl56.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785212/docs/the-basics/services_zuyl56.png"
 alt="Screenshot of the project canvas with services highlighted"
 layout="responsive"
 width={1365} height={765} quality={100} />
@@ -78,16 +80,39 @@ You can configure variables scoped to services. These variables are specific to 
 
 If you want to access variables from this service in another service within the same project, you need to utilize a [Reference Variable](/reference/variables#reference-variables).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144282/docs/the-basics/service_variables_galkry.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785219/docs/the-basics/service_variables_galkry.png"
 alt="Screenshot of the service variables tab"
 layout="responsive"
 width={1365} height={765} quality={100} />
+
+### Backups
+
+If your service has a [volume](/overview/the-basics#volumes) attached, this is where you can manage backups.
+
+Backups are incremental and Copy-on-Write, we only charge for the data exclusive to them, that aren't from other snapshots or the volume itself.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785142/docs/the-basics/backups_fdx09o.png"
+alt="Screenshot of the service backups tab"
+layout="responsive"
+width={1365} height={765} quality={100} />
+
+From here you can perform the following actions -
+
+- Create a backup - Manually create a backup of the volume with a press of a button.
+
+- Delete a backup - Remove a backup from the list via the backup's 3-dot menu.
+
+- Lock a backup - Prevent a backup from being deleted via the backup's 3-dot menu.
+
+- [Restore a backup](/reference/backups#how-to-restore-a-backup) - Click the `Restore` button on the backup.
+
+- Modify the backup schedule - Click the `Edit schedule` button on the header to make changes to the schedule.
 
 ### Service Metrics
 
 Service [Metrics](/reference/metrics) provide an essential overview of CPU, memory, and network usage for a given service.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144286/docs/the-basics/service_metrics_dcbfms.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785153/docs/the-basics/service_metrics_dcbfms.png"
 alt="Screenshot of the service metrics tab"
 layout="responsive"
 width={1365} height={770} quality={100} />
@@ -96,7 +121,7 @@ width={1365} height={770} quality={100} />
 
 This tab contains all the service level settings.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144287/docs/the-basics/service_settings_lnyql0.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785132/docs/the-basics/service_settings_lnyql0.png"
 alt="Screenshot of the service settings tab"
 layout="responsive"
 width={1365} height={765} quality={100} />
@@ -115,7 +140,7 @@ Some of the most commonly used service settings are -
 
 [Deployments](/reference/deployments) involve building and delivering your [Service](/overview/the-basics#services).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722196270/docs/the-basics/deployment_l0trj8.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785123/docs/the-basics/deployment_l0trj8.png"
 alt="Screenshot of a service open with a deployment highlighted"
 layout="responsive"
 width={1365} height={790} quality={100} />
@@ -124,7 +149,7 @@ width={1365} height={790} quality={100} />
 
 [Volumes](/reference/volumes) are a feature that allows services on Railway to [maintain persistent data](/guides/volumes).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144284/docs/the-basics/volumes_yom2km.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785187/docs/the-basics/volumes_yom2km.png"
 alt="Screenshot of the project canvas with a volume highlighted"
 layout="responsive"
 width={1365} height={765} quality={100} />
@@ -133,7 +158,7 @@ width={1365} height={765} quality={100} />
 
 Volume Metrics show the amount of data stored in the volume and its maximum capacity.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144283/docs/the-basics/volume_metrics_thv60n.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785205/docs/the-basics/volume_metrics_thv60n.png"
 alt="Screenshot of the volume metrics tab"
 layout="responsive"
 width={1365} height={826} quality={100} />
@@ -142,7 +167,7 @@ width={1365} height={826} quality={100} />
 
 This tab contains all the volume centric settings.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722144283/docs/the-basics/volume_settings_kirpdn.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1737785195/docs/the-basics/volume_settings_kirpdn.png"
 alt="Screenshot of the volume settings tab"
 layout="responsive"
 width={1365} height={826} quality={100} />

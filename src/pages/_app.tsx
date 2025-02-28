@@ -5,11 +5,14 @@ import { Page } from "../layouts/Page";
 import "../styles/fonts.css";
 import { ThemeProvider } from "../styles/theme";
 import { useScrollToOpenCollapse } from "../hooks/useScrollToOpenCollapse";
+import { useHashRedirect } from "@/hooks/useHashRedirect";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  useFathom(process.env.NEXT_PUBLIC_FATHOM_CODE ?? "", "docs.railway.app");
+  useFathom(process.env.NEXT_PUBLIC_FATHOM_CODE ?? "", "docs.railway.com");
 
   useScrollToOpenCollapse();
+  
+  useHashRedirect();
 
   return (
     <ThemeProvider>

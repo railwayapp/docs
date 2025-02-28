@@ -1,5 +1,6 @@
 ---
 title: Volumes
+description: Volumes are a feature that enables persistent data for services on Railway.
 ---
 
 Volumes are a feature that enables persistent data for [services](/reference/services) on Railway.
@@ -27,11 +28,15 @@ Please reach out to us on our [Help Station](https://station.railway.com/questio
 
 Volumes are billed at **$0.25 / GB**, billed monthly.
 
-You are only charged for the amount of storage used by your volumes. *Each volume requires a small amount of space to store metadata about the filesystem, so a new volume will start with a small amount of space used.*
+You are only charged for the amount of storage used by your volumes. *Each volume requires aprox 2-3% of the total storage to store metadata about the filesystem, so a new volume will always start with some used amount of space used depending on the size.*
+
+## Backups
+
+Services with volumes support manual and automated backups, backups are covered in the [backups](/reference/backups) reference guide.
 
 ## Caveats
 
-Volumes is a newer feature that is still under development. Here are some limitations of which we are currently aware:
+Here are some limitations of which we are currently aware:
 - Each service can only have a single volume
 - Replicas cannot be used with volumes
 - There is no built-in S/FTP support

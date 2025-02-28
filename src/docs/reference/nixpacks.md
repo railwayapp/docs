@@ -1,5 +1,6 @@
 ---
 title: Nixpacks
+description: Railway uses Nixpacks to build and deploy your code with zero configuration.
 ---
 
 Railway uses <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> to build and deploy your code with
@@ -8,23 +9,30 @@ zero configuration.
 ## Supported Languages
 
 Currently, we support the following languages out of the box:
-- [NodeJS](https://nixpacks.com/docs/providers/node)
 - [Bun](https://nixpacks.com/docs/providers/node#bun-support) (Experimental)
-- [Deno](https://nixpacks.com/docs/providers/deno)
-- [Python](https://nixpacks.com/docs/providers/python)
-- [Go](https://nixpacks.com/docs/providers/go)
-- [Ruby](https://nixpacks.com/docs/providers/ruby)
-- [PHP](https://nixpacks.com/docs/providers/php)
-- [Java](https://nixpacks.com/docs/providers/java)
-- [Rust](https://nixpacks.com/docs/providers/rust)
-- [.NET](https://nixpacks.com/docs/providers/csharp)
-- [Haskell](https://nixpacks.com/docs/providers/haskell)
+- [Clojure](https://nixpacks.com/docs/providers/clojure)
+- [Cobol](https://nixpacks.com/docs/providers/cobol)
 - [Crystal](https://nixpacks.com/docs/providers/crystal)
-- [Swift](https://nixpacks.com/docs/providers/swift)
-- [Zig](https://nixpacks.com/docs/providers/zig-lang)
+- [C#/.NET](https://nixpacks.com/docs/providers/csharp)
 - [Dart](https://nixpacks.com/docs/providers/dart)
-- [Staticfile](https://nixpacks.com/docs/providers/staticfile)
+- [Deno](https://nixpacks.com/docs/providers/deno)
 - [Elixir](https://nixpacks.com/docs/providers/elixir)
+- [F#](https://nixpacks.com/docs/providers/fsharp)
+- [Gleam](https://nixpacks.com/docs/providers/gleam)
+- [Go](https://nixpacks.com/docs/providers/go)
+- [Haskell](https://nixpacks.com/docs/providers/haskell)
+- [Java](https://nixpacks.com/docs/providers/java)
+- [Lunatic](https://nixpacks.com/docs/providers/lunatic)
+- [Node](https://nixpacks.com/docs/providers/node)
+- [PHP](https://nixpacks.com/docs/providers/php)
+- [Python](https://nixpacks.com/docs/providers/python)
+- [Ruby](https://nixpacks.com/docs/providers/ruby)
+- [Rust](https://nixpacks.com/docs/providers/rust)
+- [Scheme](https://nixpacks.com/docs/providers/scheme)
+- [Staticfile](https://nixpacks.com/docs/providers/staticfile)
+- [Swift](https://nixpacks.com/docs/providers/swift)
+- [Scala](https://nixpacks.com/docs/providers/scala)
+- [Zig](https://nixpacks.com/docs/providers/zig-lang)
 
 ## The Build Table / Build Plan
 

@@ -1,5 +1,6 @@
 ---
 title: Deploy an Astro App
+description: Learn how to deploy an Astro app to Railway with this step-by-step guide. It covers quick setup, server side rendering, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 [Astro](https://astro.build) is the web framework for content-driven websites. It's a JavaScript framework optimized for building fast, content-driven websites. It also supports every major UI framework, allowing you to bring in your existing components and benefit from Astro's optimized client build performance.
@@ -33,7 +34,7 @@ For the remaining options, select the defaults and press Enter. All necessary de
 
 A new Astro app will be provisioned for you in the `blog` directory.
 
-### Run the Astro App locally
+### Run the Astro App Locally
 
 Enter your project directory using `cd blog`.
 
@@ -45,7 +46,7 @@ npm run dev
 
 Open your browser and go to `http://localhost:4321` to see your app.
 
-### Enable Server side rendering (SSR)
+### Enable Server Side Rendering (SSR)
 
 Astro has several [SSR adapters](https://docs.astro.build/en/guides/server-side-rendering/). These adapters are used to run your project on the server and handle SSR requests.
 
@@ -86,7 +87,7 @@ In the config file, `output` is set to `server`, meaning every page in the app i
 
 For mostly static sites, set `output` to `hybrid`. This allows you to add `export const prerender = false` to any file that needs to be server-rendered on demand.
 
-### Modify Start Script and Astro config
+### Modify Start Script and Astro Config
 
 Astro builds your project into a `dist` directory. In `standalone` mode, a server starts when the server entry point is executed, which is by default located at `./dist/server/entry.mjs`. 
 
@@ -133,19 +134,19 @@ Your app needs to listen on either `0.0.0.0` or `::` to accept traffic. If not c
 
 Railway offers multiple ways to deploy your Astro app, depending on your setup and preference. 
 
-### One-Click Deploy from a Template
+### One-Click Deploy From a Template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/Ic0JBh)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/Ic0JBh)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=astro" target="_blank">variety of Astro app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.com/templates?q=astro" target="_blank">variety of Astro app templates</a> created by the community.
 
-### Deploy from the CLI
+### Deploy From the CLI
 
 1. **Install the Railway CLI**:
     - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
@@ -172,12 +173,12 @@ alt="screenshot of the deployed Astro service"
 layout="responsive"
 width={2556} height={2164} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy From a GitHub Repo
 
 To deploy an Astro app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.

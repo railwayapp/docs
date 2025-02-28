@@ -1,11 +1,12 @@
 ---
 title: Deploy a Template
+description: Learn how to deploy Railway templates.
 ---
 
 Templates allow you to deploy a fully configured project that is automatically
 connected to infrastructure.
 
-You can find featured templates on our <a href="https://railway.app/templates" target="_blank">template marketplace</a>.
+You can find featured templates on our <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
 
 ## Template Deployment Flow
 
@@ -43,7 +44,7 @@ If it has received an upstream update, we will create a branch on the GitHub rep
 
 If you are happy with the changes, you can merge the pull request, and we will automatically deploy it to your production environment.
 
-If you're curious, you can read more about how we built updatable templates in this <a href="https://blog.railway.app/p/updatable-starters" target="_blank">blog post</a>
+If you're curious, you can read more about how we built updatable templates in this <a href="https://blog.railway.com/p/updatable-starters" target="_blank">blog post</a>
 
 *Note: This feature only works for services based on GitHub repositories.  At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced.*
 

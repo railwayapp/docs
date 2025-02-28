@@ -1,5 +1,6 @@
 ---
 title: Philosophy
+description: Explore Railway’s core philosophy and the principles that drive our platform.
 ---
 
 Railway is a deployment platform that helps developers deliver their software through the entire application life-cycle through git native tooling, composable infrastructure, and built-in instrumentation. 
@@ -21,7 +22,7 @@ Let's talk about the number one use case: delivering apps to users in a Producti
 
 The goal of this section is to describe the processes, internal and external that companies have requested in our years of operation to help them build confidence to determine if Railway is a good fit for their company.  Railway maintains a policy to be forthcoming and frank at all times. We would rather have a developer make the correct choice for their company than to adopt Railway and then come to regret that decision.
 
-If you have any additional questions or if you require any additional disclosure you can contact us to set up a call at [team@railway.app](mailto:team@railway.app).
+If you have any additional questions or if you require any additional disclosure you can contact us to set up a call at [team@railway.com](mailto:team@railway.com).
 
 ## Product Philosophy
 
@@ -47,7 +48,7 @@ On Railway, you can use the default pattern for deployment or opt to use vendor.
 - Supporting the development of a Terraform provider
 - Region based routing to workloads via Cloudflare
 
-We love working with our customers to solve interesting use cases. If you're not seeing a track for you, get in touch at [team@railway.app](mailto:team@railway.app) and we'll find it!
+We love working with our customers to solve interesting use cases. If you're not seeing a track for you, get in touch at [team@railway.com](mailto:team@railway.com) and we'll find it!
 
 ## High-level Architecture
 
@@ -87,4 +88,4 @@ We do have a feature, [App Sleeping](/reference/app-sleeping), that allows you t
 
 ## Book a Demo
 
-If you're looking to adopt Railway for your business, we'd love to chat and ensure your questions are answered.  [Click here to book some time with us](https://cal.com/team/railway/demonew).
+If you're looking to adopt Railway for your business, we'd love to chat and ensure your questions are answered.  [Click here to book some time with us](https://cal.com/team/railway/work-with-railway?duration=30).

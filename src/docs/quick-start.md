@@ -1,5 +1,6 @@
 ---
 title: Quick Start Tutorial
+description: Get started with Railway in minutes! This Quick Start tutorial walks you through deploying your first app via GitHub, the CLI, a Docker image, or a template.
 ---
 
 Railway is a deployment platform that lets you provision infrastructure, develop locally with that infrastructure, and deploy to the cloud or simply run ready-made software from our template marketplace.
@@ -19,7 +20,7 @@ Railway is a deployment platform that lets you provision infrastructure, develop
 To demonstrate deploying directly from a GitHub repository through Railway's dashboard, we'll be using a basic <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a> that was prepared for this guide.
 
 
-For the template deployment, we'll use the <a href="https://railway.app/template/umami-analytics" target="_blank">Umami template</a> from our <a href="https://railway.app/templates" target="_blank">template marketplace</a>.
+For the template deployment, we'll use the <a href="https://railway.com/template/umami-analytics" target="_blank">Umami template</a> from our <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
 
 ## Deploying Your Project - From GitHub
 
@@ -145,7 +146,7 @@ Railway will now provision a new service for your project based on the specified
 
 And that's it! 🎉 Your project is now ready for use.
 
-**Note:** Deploying from a [private Docker registry is available on the Pro plan](guides/services#deploying-a-private-docker-image).
+**Note:** Deploying from a [private Docker registry is available on the Pro plan](/guides/services#deploying-a-private-docker-image).
 
 ## The Canvas
 
@@ -169,7 +170,7 @@ If you're stuck don't hesitate to open a <a href="https://station.railway.com/qu
 
 ## Deploying a Template
 
-Railway's <a href="https://railway.app/templates" target="_blank">template marketplace</a> offers over 650+ unique templates that have been created both by the community and Railway!
+Railway's <a href="https://railway.com/templates" target="_blank">template marketplace</a> offers over 650+ unique templates that have been created both by the community and Railway!
 
 Deploying a template is not too dissimilar to deploying a GitHub repo -
 

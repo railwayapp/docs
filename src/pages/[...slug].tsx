@@ -9,10 +9,10 @@ import { Image } from "@/components/Image";
 import { InlineCode } from "@/components/InlineCode";
 import { H2, H3, H4 } from "@/components/Header";
 import { Anchor } from "@/components/Anchor";
-import { GetServerSidePropsContext } from "next";
-import { getCookie } from "cookies-next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { Props as CodeBlockProps } from "@/components/CodeBlock";
 import { Props as InlineCodeProps } from "@/components/InlineCode";
+import { TallyButton } from "@/components/TallyButton";
 
 const components: Record<string, React.ElementType> = {
   Collapse,
@@ -24,6 +24,7 @@ const components: Record<string, React.ElementType> = {
   h2: H2,
   h3: H3,
   h4: H4,
+  TallyButton,
 };
 
 export default function PostPage({
@@ -50,6 +51,8 @@ export default function PostPage({
     <Layout
       frontMatter={{
         title: page.title,
+        description: page.description,
+        url: page.url,
       }}
     >
       <MDXContent components={componentsWithProps} />
@@ -57,25 +60,24 @@ export default function PostPage({
   );
 }
 
-export const getServerSideProps = async (
-  context: GetServerSidePropsContext,
-) => {
-  const { slug } = context.params as { slug: string[] };
-  const page = allPages.find(p => p.url === `/${slug.join("/")}`);
-  const themeCookie = getCookie("theme", { req: context.req }) as
-    | string
-    | undefined;
-
-  if (!page) {
-    return {
-      notFound: true,
-    };
-  }
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const page = allPages.find(
+    page =>
+      page._raw.flattenedPath ===
+      (params?.slug as string[] | undefined)?.join("/"),
+  );
 
   return {
     props: {
       page,
-      colorModeSSR: themeCookie ?? null,
     },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = allPages.map(page => page.url);
+  return {
+    paths,
+    fallback: false,
   };
 };

@@ -1,5 +1,6 @@
 ---
 title: Deploy MongoDB
+description: Learn how to deploy a MongoDB database on Railway, whether as a standalone instance or a high-availability replica set, for scalability and reliability.
 ---
 
 Railway offers two MongoDB deployment options to accommodate different needs: a **Standalone Instance** and a **High Availability (HA) Replica Set**.
@@ -21,7 +22,7 @@ alt="GIF of the Adding Database"
 layout="responsive"
 width={450} height={396} quality={100} />
 
-You can also deploy it via the [template](https://railway.app/template/mongodb) from the template marketplace.
+You can also deploy it via the [template](https://railway.com/template/mongodb) from the template marketplace.
 
 #### Deployed Service
 
@@ -63,7 +64,7 @@ We'll cover how to deploy, connect, and manage the [High Availability (HA) Mongo
 
 ### Deploy
 
-You can deploy a HA MongoDB Replica Set via the [template in the marketplace](https://railway.app/template/ha-mongo).
+You can deploy a HA MongoDB Replica Set via the [template in the marketplace](https://railway.com/template/ha-mongo).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723605087/docs/databases/CleanShot_2024-08-13_at_21.10.13_2x_xs9enn.png"
 alt="MongoDB HA in the marketplace"
@@ -107,11 +108,11 @@ You can also fork the [Mongo Cluster](https://github.com/railwayapp-templates/mo
 
 ## Backup and Monitoring
 
-Especially for production environments, performing regular backups and monitoring the health of your database is essential.  Consider adding:
+Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
 
-- **Backup solutions**: Automate regular backups to ensure data recovery in case of failure.  We suggest checking out this [Database S3 backups](https://railway.app/template/U_wjYd) template as an example.
+- **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/reference/backups) feature.
 
-- **Observability**: Implement monitoring for insights into performance and health of your database.  Check out the tutorial which covers [setting up observability on a Mongo replica set](https://docs.railway.app/tutorials/deploy-and-monitor-mongo#4-set-up-monitoring-of-the-replica-set).
+- **Observability**: Implement monitoring for insights into performance and health of your database.  Check out the tutorial which covers [setting up observability on a Mongo replica set](https://docs.railway.com/tutorials/deploy-and-monitor-mongo#4-set-up-monitoring-of-the-replica-set).
 
 ## Additional Resources
 

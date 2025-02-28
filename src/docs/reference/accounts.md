@@ -1,5 +1,6 @@
 ---
 title: Accounts
+description: Learn about Railway Accounts
 ---
 
 Railway Accounts are how a user interacts with the Railway platform.
@@ -13,15 +14,15 @@ alt="Screenshot of Account Navigation"
 layout="fixed"
 width={450} height={311} quality={80} />
 
-The account settings page is accessible by clicking the profile photo in the top right and selecting <a href="https://railway.app/account" target="_blank">Account Settings</a>.
+The account settings page is accessible by clicking the profile photo in the top right and selecting <a href="https://railway.com/account" target="_blank">Account Settings</a>.
 
 ### Account Information
 
-Accounts can change their display name, profile photo, and account email under <a href="https://railway.app/account" target="_blank">Account Settings</a>.
+Accounts can change their display name, profile photo, and account email under <a href="https://railway.com/account" target="_blank">Account Settings</a>.
 
 ### Deleting an Account
 
-Selecting "Delete Account" at the bottom of the <a href="https://railway.app/account" target="_blank">Account Settings</a> page will delete an account. All data related to the account will be deleted.
+Selecting "Delete Account" at the bottom of the <a href="https://railway.com/account" target="_blank">Account Settings</a> page will delete an account. All data related to the account will be deleted.
 
 After a successful confirmation, Railway deletes all account information, project data, and removes the account from all email lists.
 
@@ -44,7 +45,7 @@ After scanning the provided QR code and entering the code for the initial pairin
 
 ### Account Sessions
 
-Users can view all active browser and CLI sessions on the <a href="https://railway.app/account/security" target="_blank">account security page</a>. Revoking a session will immediately log that device out.
+Users can view all active browser and CLI sessions on the <a href="https://railway.com/account/security" target="_blank">account security page</a>. Revoking a session will immediately log that device out.
 
 ## Referrals
 
@@ -57,13 +58,13 @@ Every account has an editable referral link. Users can copy and share their pers
 
 For every referral who incurs more than $10 worth of usage and pays their first bill, users receive 5$ of credit.
 
-Users can view their referral invite status on the <a href="https://railway.app/account/referrals" target="_blank">referrals page</a>.
+Users can view their referral invite status on the <a href="https://railway.com/account/referrals" target="_blank">referrals page</a>.
 
 ## Billing
 
 Accounts are billed monthly. Resources used by deleted projects up until deletion are still counted towards the total bill.
 
-Users can manage their billing plan as well as view historical payments on the <a href="https://railway.app/account/billing" target="_blank">billing page</a>.
+Users can manage their billing plan as well as view historical payments on the <a href="https://railway.com/account/billing" target="_blank">billing page</a>.
 
 ## Link Discord Account
 

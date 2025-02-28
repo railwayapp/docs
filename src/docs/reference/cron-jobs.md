@@ -1,5 +1,6 @@
 ---
 title: Cron Jobs
+description: Learn how to run cron jobs on Railway.
 ---
 
 Cron Jobs allow you to start a service based on a crontab expression. 
@@ -76,16 +77,22 @@ The shortest time between successive executions of a cron job cannot be less tha
 
 ## FAQ
 
-### When to use Railway's cron jobs -
+### When to use Railway's cron jobs?
 
 - For short-lived tasks that complete quickly and exit properly, such as a daily database backup.
 - When you want to save resources between task executions, as opposed to having an in-code scheduler run 24/7.
 
-### When not to use Railway's cron jobs -
+### When not to use Railway's cron jobs?
 
 - For long-running processes that don't exit, such as a web server or discord bot.
 - When you need more frequent execution than every 5 minutes.
 - When you need absolute time precision. Railway does not guarantee execution times to the minute as they can vary by a few minutes.
+
+### What time zone is used for cron jobs?
+
+Cron jobs are scheduled based on UTC (Coordinated Universal Time).
+
+You will need to account for timezone offsets when setting your cron schedule.
 
 ## Support
 

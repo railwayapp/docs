@@ -1,5 +1,6 @@
 ---
 title: Using the CLI
+description: Learn how to install and use the Railway CLI to manage your projects.
 ---
 
 The Railway Command Line Interface (CLI) lets you interact with your
@@ -63,14 +64,14 @@ The Railway CLI is an open source project on [GitHub](https://github.com/railway
 You can build a binary [from source](https://github.com/railwayapp/cli#from-source)
 if you wish.
 
-## Authenticating with the CLI
+## Authenticating With the CLI
 
 Before you can use the Railway CLI, you must authenticate the CLI to your Railway account:
 ```bash
 railway login
 ```
 
-This command opens a new tab in your default browser to the [https://railway.app](https://railway.app)
+This command opens a new tab in your default browser to the [https://railway.com](https://railway.com)
 authentication page. Follow the instructions to complete the authentication process.
 
 ### Manual Login
@@ -108,6 +109,7 @@ Some actions you can perform with a project token include -
 Some actions you **cannot** perform with a project token include -
 - Creating a new project - `railway init`
 - Printing information about the user - `railway whoami`
+- Linking to another workspace - `railway link`
 
 Use the token by setting the `RAILWAY_TOKEN` environment variable and then running `railway <command>`.
 

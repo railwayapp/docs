@@ -1,12 +1,13 @@
 ---
 title: Create a Template
+description: Learn how to create reusable templates on Railway to enable effortless one-click deploys.
 ---
 
 Creating a template allows you to capture your infrastructure in a reusable and distributable format.  
 
 By defining services, environment configuration, network settings, etc., you lay the foundation for others to deploy the same software stack with the click of a button.
 
-If you [publish your template](/guides/publish-and-share) to the <a href="https://railway.app/templates" target="_blank">marketplace</a>, you can even <a href="https://railway.app/open-source-kickback" target="_blank">collect a kickback</a> from the usage of it!
+If you [publish your template](/guides/publish-and-share) to the <a href="https://railway.com/templates" target="_blank">marketplace</a>, you can even <a href="https://railway.com/open-source-kickback" target="_blank">collect a kickback</a> from the usage of it!
 
 ## How to Create a Template
 
@@ -14,7 +15,7 @@ You can either create a template from scratch or base it off of an existing proj
 
 ### Starting from Scratch
 
-To create a template from scratch, head over to the <a href="https://railway.app/compose" target="_blank">template composer</a> then add and configure your services:
+To create a template from scratch, head over to the <a href="https://railway.com/compose" target="_blank">template composer</a> then add and configure your services:
 
 - Add a service by clicking the `Add New` button in the top right-hand corner, or through the command palette (`CMD + K` -> `+ New Service`)
 - Select the service source (GitHub repo or Docker Image)
@@ -37,7 +38,7 @@ It's now possible to specify a private GitHub repo when creating a template.
 
 This feature is intended for use among [Teams](/reference/teams) and [Organizations](/reference/teams). Users supporting a subscriber base may also find this feature helpful to distribute closed-source code. 
 
-To deploy a template that includes a private repo, look for the `GitHub` panel in the `Account Integrations` section of [General Settings](https://railway.app/account). Then select the `Edit Scope` option to grant Railway access to the desired private repos. 
+To deploy a template that includes a private repo, look for the `GitHub` panel in the `Account Integrations` section of [General Settings](https://railway.com/account). Then select the `Edit Scope` option to grant Railway access to the desired private repos. 
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1721350229/docs/github-private-repo_m46wxu.png"
@@ -50,7 +51,7 @@ quality={80}
 
 If you do not see the `Edit Scope` option, you may still need to connect GitHub to your Railway account.
 
-### Convert a Project into a Template
+### Convert a Project Into a Template
 
 You can also convert an existing project into a ready-made Template for other users.
 
@@ -71,7 +72,7 @@ quality={80}
 
 ## Configuring Services
 
-Configuring services using the <a href="https://railway.app/compose" target="_blank">template composer</a> is very similar to building a live project in the canvas.
+Configuring services using the <a href="https://railway.com/compose" target="_blank">template composer</a> is very similar to building a live project in the canvas.
 
 Once you add a new service and select the source, you can configure the following to enable successful deploys for template users:
 
@@ -111,7 +112,7 @@ The current template variable functions are:
 
 1. `secret(length?: number, alphabet?: string)`: Generates a random secret (32 chars by default).  
 
-    **Tip:**You can generate Hex or Base64 secrets by constructing the appropriate alphabet and length.
+    **Tip:** You can generate Hex or Base64 secrets by constructing the appropriate alphabet and length.
 
     - `openssl rand -base64 16` → `${{secret(22, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}==`
     - `openssl rand -base64 32` → `${{secret(43, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}=`
@@ -120,11 +121,15 @@ The current template variable functions are:
     - `openssl rand -hex 32` → `${{secret(64, "abcdef0123456789")}}`
     - `openssl rand -hex 64` → `${{secret(128, "abcdef0123456789")}}`
 
+    Or even generate a UUIDv4 string -
+
+    `${{secret(8, "0123456789abcdef")}}-${{secret(4, "0123456789abcdef")}}-4${{secret(3, "0123456789abcdef")}}-${{secret(1, "89ab")}}${{secret(3, "0123456789abcdef")}}-${{secret(12, "0123456789abcdef")}}`
+
 2. `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
-## Managing your Templates
+## Managing Your Templates
 
-You can see all of your templates on your <a href="https://railway.app/account/templates" target="_blank">Account's Template page</a>. Templates are separated into Personal and Published templates.
+You can see all of your templates on your <a href="https://railway.com/account/templates" target="_blank">Account's Template page</a>. Templates are separated into Personal and Published templates.
 
 You can edit, publish/unpublish and delete templates.
 

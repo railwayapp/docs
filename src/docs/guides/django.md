@@ -1,5 +1,6 @@
 ---
 title: Deploy a Django App
+description: Learn how to deploy a Python Django app to Railway with this step-by-step guide. It covers quick setup, database integration, private networking, Celery, one-click deploys and other deployment strategies.
 ---
 
 [Django](https://www.djangoproject.com) is a powerful Python web framework that simplifies web development by providing ready-to-use tools for rapid development and clean design. 
@@ -12,7 +13,7 @@ It’s free, open-source, and comes with a range of features to streamline tasks
 
 To create a new Django app, ensure that you have [Python](https://www.python.org/downloads/) and [Django](https://docs.djangoproject.com/en/5.1/intro/install/) installed on your machine.
 
-Follow the steps blow to set up the project in a directory.
+Follow the steps below to set up the project in a directory.
 
 Create a virtual environment
 ```bash
@@ -73,15 +74,26 @@ import os
 from pathlib import Path
 ```
 
-3. Configure the database:
+3. Configure the database and run migrations:
 
-A fresh Django project uses SQLite by default, but we need to switch to PostgreSQL. 
+A fresh Django project uses SQLite by default, but we need to switch to PostgreSQL.
+
+Create a database named `liftoff_dev` in your local Postgres instance.
 
 Open the `liftoff/settings.py` file. In the Database section, replace the existing configuration with:
 
 ```python
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+# Set default values for the environment variables if they’re not already set
+os.environ.setdefault("PGDATABASE", "liftoff_dev")
+os.environ.setdefault("PGUSER", "username")
+os.environ.setdefault("PGPASSWORD", "")
+os.environ.setdefault("PGHOST", "localhost")
+os.environ.setdefault("PGPORT", "5432")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -93,6 +105,10 @@ DATABASES = {
     }
 }
 ```
+
+Replace the values of `PGUSER`, `PGPASSWORD` with your local credentials.
+
+Run `python manage.py migrate` in your terminal to apply the database migrations. Once it completes successfully, check your database. You should see the auth and other Django tables created.
 
 4. Static files configuration:
 
@@ -154,17 +170,17 @@ Railway offers multiple ways to deploy your Django app, depending on your setup 
 2. [Using the CLI](#deploy-from-the-cli).
 3. [From a GitHub repository](#deploy-from-a-github-repo).
 
-## One-Click Deploy from a Template
+## One-Click Deploy From a Template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Django app along with a Postgres database.
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/GB6Eki)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/GB6Eki)
 
 After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
-## Deploy from the CLI
+## Deploy From the CLI
 
 To deploy the Django app using the Railway CLI, please follow the steps:
 
@@ -211,12 +227,12 @@ layout="responsive"
 width={2783} height={2135} quality={100} />
 
 
-## Deploy from a GitHub Repo
+## Deploy From a GitHub Repo
 
 To deploy the Django app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
@@ -246,7 +262,90 @@ To deploy the Django app to Railway, start by pushing the app to a GitHub repo. 
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Django apps effortlessly!
- 
+
+**Note:** The next step shows how to configure and run your Django app along with Celery and Celery beat.
+
+## Set Up Database, Migrations, Celery Beat and Celery
+
+This setup deploys your Django app on Railway, ensuring that your database, scheduled tasks (crons)--Celery Beat, and queue workers (Celery) are all fully operational.
+
+The deployment structure follows a "majestic monolith" architecture, where the entire Django app is managed as a single codebase but split into four separate services on Railway:
+- **App Service**: Handles HTTP requests and user interactions.
+- **Cron Service**: Manages scheduled tasks (e.g., sending emails or running reports) using Celery Beat.
+- **Worker Service**: Processes background jobs from the queue using Celery.
+- **Database Service**: Stores and retrieves your application's data.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1731604331/docs/quick-start/deployed_django_app_architecture.png"
+alt="screenshot of the deploy architecture of the Django app"
+layout="responsive"
+width={3237} height={1951} quality={100} />
+_My Monolith Django app_
+
+
+**Note:** This guide follows the assumption that you have installed Celery and Celery Beat in your app, the broker uses Redis and you already have a Postgres database service provisioned for your app as shown earlier. 
+
+Please follow these steps to get it setup on Railway:
+
+1. Create a Redis Database service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a> by clicking the **Create** button. Then select **Database** and choose **Add Redis**.
+     - Click on **Deploy**.
+3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a> by clicking the **Create** button. Then select **Empty service**.
+    -  Name the service **App Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a> to configure it.
+        - **Note:** If you followed the guide from the beginning, simply rename the existing service to **App Service**.
+    - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
+    - Go to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
+    - Add all the necessary environment variables required for the Django app especially the ones listed below.
+        - `REDIS_URL`: Set the value to `${{Postgres.REDIS_URL}}`
+        - `PGUSER`: Set the value to `${{Postgres.PGUSER}}`
+        - `PGPASSWORD`: Set the value to `${{Postgres.PGPASSWORD}}`
+        - `PGHOST`: Set the value to `${{Postgres.PGHOST}}`
+        - `PGPORT`: Set the value to `${{Postgres.PGPORT}}`
+        - `PGDATABASE`: Set the value to `${{Postgres.PGDATABASE}}` (this references the Postgres database name). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+    - Click **Deploy**.
+4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a> by clicking the **Create** button. Then select **Empty service**. 
+    - Name the service **Cron Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
+    - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
+    - Add `celery -A liftoff beat -l info --concurrency=3` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section. 
+        - _Note:_ `liftoff` is the name of the app. You can find the app name in your Django project’s main folder, typically in the directory containing `settings.py`.
+        - The `--concurrency=3` option here means it can process up to 3 tasks in parallel. You can adjust the [concurrency level](https://docs.celeryq.dev/en/latest/userguide/workers.html#concurrency) based on your system resources. The higher the level, the more memory and resources it consumes.
+    - Head back to the top of the service and click on  <a href="/overview/the-basics#service-variables">**Variables**</a>.
+    - Add all the necessary environment variables especially those highlighted already in step 2.
+    - Click **Deploy**.
+5. Create a new service again on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>. 
+    - Name the service **Worker Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
+    - Connect your GitHub repo to the  **Source Repo** in the **Source** section.
+    - Add `celery -A liftoff worker -l info --concurrency=3` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section. 
+        - _Note:_ `liftoff` is the name of the app. You can find the app name in your Django project’s main folder, typically in the directory containing `settings.py`.
+        - The `--concurrency=3` option here means it can process up to 3 tasks in parallel. You can adjust the [concurrency level](https://docs.celeryq.dev/en/latest/userguide/workers.html#concurrency) based on your system resources. The higher the level, the more memory and resources it consumes.
+    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
+    - Add all the necessary environment variables especially those highlighted already in step 2.
+    - Click **Deploy**.
+
+At this point, you should have all services deployed and connected to the Postgres and Redis Database service:
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1731604331/docs/quick-start/deployed_django_app_architecture.png"
+alt="screenshot of the deploy architecture of the Django app"
+layout="responsive"
+width={3237} height={1951} quality={100} />
+
+- **Cron Service**: This service should run Celery Beat Scheduler to manage scheduled tasks.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1731605926/docs/quick-start/django_cron_service.png"
+alt="screenshot of the cron service of the Django app"
+layout="responsive"
+width={2766} height={2056} quality={100} />
+
+- **Worker Service**: This service should be running Celery and ready to process jobs from the queue.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1731605981/docs/quick-start/django_worker_service.png"
+alt="screenshot of the worker service of the Django app" 
+layout="responsive"
+
+width={2752} height={2094} quality={100} />
+
+- **App Service**: This service should be running and is the only one that should have a public domain, allowing users to access your application.
+
+**Note:** There is a [community template](https://railway.com/template/yZDfUu) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
+
 ## Next Steps
 
 Explore these resources to learn how you can maximize your experience with Railway:

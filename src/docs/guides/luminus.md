@@ -1,5 +1,6 @@
 ---
 title: Deploy a Clojure Luminus App
+description: Learn how to deploy your Clojure Luminus app to Railway with this step-by-step guide. It covers quick setup, database integration, one-click deploys and other deployment strategies.
 ---
 
 [Luminus](https://luminusweb.com) is a Clojure micro-framework based on a set of lightweight libraries. It aims to provide a robust, scalable, and easy to use platform. With Luminus you can focus on developing your app the way you want without any distractions.
@@ -29,7 +30,7 @@ A new Luminus app will be provisioned for you in the `helloworld` directory with
 
 **Note:** If you use MySQL or another database, you can pass it as an option when trying to create a new app.
 
-### Run the Luminus App locally
+### Run the Luminus App Locally
 
 Open `dev-config.edn` and add your Postgres database URL like so:
 
@@ -47,7 +48,7 @@ Finally, run `lein run` to launch your app!
 
 Open your browser and go to `http://localhost:3000` to see the app.
 
-### Prepare Clojure Luminus App for deployment
+### Prepare Clojure Luminus App for Deployment
 
 1. We need to add the `ceshire` library to our dependencies. `cheshire` is a popular JSON encoding/decoding library in Clojure.
 
@@ -90,19 +91,19 @@ It starts by running the JAR file with the `migrate` option to apply database mi
 
 Railway offers multiple ways to deploy your Clojure app, depending on your setup and preference. 
 
-### One-Click Deploy from a Template
+### One-Click Deploy From a Template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/DsDYI2)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/DsDYI2)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=clojure" target="_blank">variety of Clojure app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.com/templates?q=clojure" target="_blank">variety of Clojure app templates</a> created by the community.
 
-### Deploy from the CLI
+### Deploy From the CLI
 
 1. **Install the Railway CLI**:
     - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
@@ -138,12 +139,12 @@ alt="screenshot of the deployed Clojure service"
 layout="responsive"
 width={2325} height={2187} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy From a GitHub Repo
 
 To deploy a Clojure Luminus app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.

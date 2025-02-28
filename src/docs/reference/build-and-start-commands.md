@@ -1,5 +1,6 @@
 ---
 title: Build and Start Commands
+description: Learn how to configure build and start commands.
 ---
 
 Railway uses [Nixpacks](/reference/nixpacks) to build and deploy your code with zero configuration.  Build and Start commands are automatically detected when an image is built and deployed to a [service](/reference/services) in Railway.

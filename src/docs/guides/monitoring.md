@@ -1,5 +1,6 @@
 ---
 title: Monitoring
+description: Learn how to monitor your services on Railway.
 ---
 
 Let's learn about monitoring your services!

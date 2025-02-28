@@ -1,5 +1,6 @@
 ---
 title: Deploy MySQL
+description: Learn how to deploy a MySQL database on Railway, whether as a standalone instance or a high-availability cluster, for scalability and reliability.
 ---
 
 Railway offers two MySQL deployment options to accommodate different needs: a **Standalone Instance** and a **High Availability (HA) Cluster**.
@@ -21,7 +22,7 @@ alt="GIF of the Adding Database"
 layout="responsive"
 width={450} height={396} quality={100} />
 
-You can also deploy it via the [template](https://railway.app/template/mysql) from the template marketplace.
+You can also deploy it via the [template](https://railway.com/template/mysql) from the template marketplace.
 
 #### Deployed Service
 
@@ -60,7 +61,7 @@ We'll cover how to deploy, connect, and manage the [High Availability (HA) MySQL
 
 ### Deploy
 
-You can deploy a HA MySQL InnoDB cluster via the [template in the marketplace](https://railway.app/template/ha-mysql).  
+You can deploy a HA MySQL InnoDB cluster via the [template in the marketplace](https://railway.com/template/ha-mysql).  
 
 You will need a [Railway API token](/guides/public-api#creating-a-token) to deploy the service.  You will be prompted for your token upon deploying the template.
 
@@ -121,11 +122,11 @@ We also encourage you to fork the [MySQL Cluster](https://github.com/railwayapp-
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential.  Consider adding:
 
-- **Backup solutions**: Automate regular backups to ensure data recovery in case of failure.  We suggest checking out this [Database S3 backups](https://railway.app/template/U_wjYd) template as an example.
+- **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/reference/backups) feature.
 
 - **Observability**: Implement monitoring for insights into performance and health of your databases.  If you're not already running an observability stack, check out these templates to help you get started building one:
-    - [Prometheus](https://railway.app/template/KmJatA)
-    - [Grafana](https://railway.app/template/anURAt)
+    - [Prometheus](https://railway.com/template/KmJatA)
+    - [Grafana](https://railway.com/template/anURAt)
 
 ## Additional Resources
 

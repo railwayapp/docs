@@ -14,9 +14,12 @@ export interface Props extends PageProps {
 }
 
 const getOGImage = (title: string) =>
-  `https://og.railway.app/api/image?fileType=png&layoutName=Docs&Theme=Dark&URL=&Page=${encodeURIComponent(
+  `https://og.railway.com/api/image?fileType=png&layoutName=Docs&Theme=Dark&URL=&Page=${encodeURIComponent(
     title,
   )}`;
+
+const domainUrl = "https://docs.railway.com";
+const fallbackDescription = "Documentation for Railway";
 
 const flattenSidebarContent = (sidebarContent: ISidebarContent): IPage[] => {
   let flatPages: IPage[] = [];
@@ -76,8 +79,12 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
 
   return (
     <>
+      
       <SEO
         title={`${frontMatter.title} | Railway Docs`}
+        twitterTitle={`${frontMatter.title}`}
+        description={`${frontMatter.description || fallbackDescription}`}
+        url={`${domainUrl}${frontMatter.url}`}
         image={getOGImage(frontMatter.title)}
       />
       <div tw="max-w-full">

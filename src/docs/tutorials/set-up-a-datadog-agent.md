@@ -1,5 +1,6 @@
 ---
 title: Set Up a Datadog Agent in Railway
+description: Learn how to set up a Datadog agent in Railway.
 ---
 
 Datadog provides a centralized location for logs, metrics, and traces emitted from applications deployed in various locations.
@@ -12,13 +13,13 @@ In this tutorial you will learn how to -
 - Deploy a Datadog agent in Railway - listening for metrics, logs, and traces.
 - Configure an application to send metrics, logs, and traces to the agent.
 
-If you are looking for a quicker way to get started, you can also deploy this project from a <a href="https://railway.app/template/saGmYG" target="_blank">template</a>.
+If you are looking for a quicker way to get started, you can also deploy this project from a <a href="https://railway.com/template/saGmYG" target="_blank">template</a>.
 
 **Prerequisites**
 
 To be successfull, you should already have - 
 
-- Railway [CLI installed](guides/cli#installing-the-cli)
+- Railway [CLI installed](/guides/cli#installing-the-cli)
 - Datadog API key and site value
 
 **Caveats**

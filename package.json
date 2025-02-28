@@ -1,7 +1,8 @@
 {
   "name": "railway-docs",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --port ${PORT-3001}",
     "build": "contentlayer build && next build",
@@ -18,7 +19,6 @@
   },
   "dependencies": {
     "@nanostores/react": "^0.4.1",
-    "@next/env": "^13.2.1",
     "@prisma/client": "4.10.1",
     "@radix-ui/react-scroll-area": "^1.0.2",
     "@tailwindcss/typography": "^0.5.9",
@@ -37,7 +37,6 @@
     "next-seo": "^5.15.0",
     "next-themes": "^0.2.1",
     "prismjs": "^1.29.0",
-    "prom-client": "^15.1.0",
     "react": "18.2.0",
     "react-aria": "^3.5.0",
     "react-dom": "18.2.0",
@@ -75,7 +74,7 @@
     "typescript": "^4.2.4"
   },
   "engines": {
-    "node": ">=18.17.0"
+    "node": "18"
   },
   "babelMacros": {
     "twin": {

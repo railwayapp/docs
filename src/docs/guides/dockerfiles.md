@@ -1,5 +1,6 @@
 ---
 title: Build from a Dockerfile
+description: Learn Dockerfile configuration on Railway.
 ---
 
 We will look for and use a `Dockerfile` at the service's root if it exists.
@@ -77,4 +78,6 @@ So the mount command is specified like this:
 
 ## Docker Compose
 
-Railway doesn't support docker compose at the moment.
+You can import services straight from your Docker Compose file! Just drag and drop your Compose file onto your [project canvas](/overview/the-basics#project--project-canvas), and your services (and any mounted volumes) will be auto-imported as staged changes. It’s like magic, but with YAML instead of wands. 🪄
+
+A quick heads-up: we don’t support every possible Compose config just yet (because Rome wasn’t built in a day). But don’t worry, we’re on it!

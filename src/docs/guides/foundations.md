@@ -1,5 +1,6 @@
 ---
 title: Foundations
+description: Learn Railway's core components and fundamentals to build, deploy, and manage applications with confidence.
 ---
 
 Welcome!  Let's get started building in Railway!
@@ -16,6 +17,6 @@ To start, you should be familiar with the core components and features of the pl
 | **CLI**          | The CLI is handy for local development, used for things like running services locally using variables stored in Railway, deploying local code repositories, etc.                                                                                                                    |
 |||
 
-The next pages will go through how to create and manage your Projects, Services, Variables and Environments.  They will also explain how to use Volumes to persist your data and how to install and use the CLI.
+The next pages will go through how to create and manage your Projects, Services, Variables, and Environments.  They will also explain how to use Volumes to persist your data and how to install and use the CLI.
 
 If you prefer a crash course, check out our [Quickstart guide](/quick-start)!

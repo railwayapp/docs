@@ -1,12 +1,13 @@
 ---
 title: Refunds
+description: Learn about Railway’s refund policy and how to request a refund if eligible.
 ---
 
-Refunds are for new customers who no longer wish to use Railway after initially trying it out. Railway offers refunds at its sole discretion, in line with our [Terms of Service](https://railway.app/legal/terms).
+Refunds are for new customers who no longer wish to use Railway after initially trying it out. Railway offers refunds at its sole discretion, in line with our [Terms of Service](https://railway.com/legal/terms).
 
 ## Requesting A Refund
 
-You can request for a refund in [Account -> Billing](https://railway.app/account/billing) under **Billing History**:
+You can request for a refund in [Account -> Billing](https://railway.com/account/billing) under **Billing History**:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1708555357/docs/billing-refund_wg7aja.png"
@@ -34,4 +35,4 @@ Refunds are issued at our sole discretion. If your refund request was denied, it
 
 - You have received a refund from Railway in the past
 
-- You have violated our [Fair Use Policy](https://railway.app/legal/fair-use) and/or [Terms of Service](https://railway.app/legal/terms)
+- You have violated our [Fair Use Policy](https://railway.com/legal/fair-use) and/or [Terms of Service](https://railway.com/legal/terms)

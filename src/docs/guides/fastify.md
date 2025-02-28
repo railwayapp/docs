@@ -1,5 +1,6 @@
 ---
 title: Deploy a Fastify App
+description: Learn how to deploy a Fastify app to Railway with this step-by-step guide. It covers quick setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 Fastify is a high-performance, low-overhead web framework for Node.js, designed to deliver an exceptional developer experience.
@@ -11,21 +12,21 @@ This guide covers how to deploy a Fastify app on Railway in four ways:
 3. [Using the CLI](#deploy-from-the-cli).
 4. [Using a Dockerfile](#use-a-dockerfile).
 
-## One-Click Deploy from a Template
+## One-Click Deploy From a Template
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ZZ50Bj)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZZ50Bj)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=fastify" target="_blank">variety of Fastify app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.com/templates?q=fastify" target="_blank">variety of Fastify app templates</a> created by the community.
 
-## Deploy from a GitHub Repo
+## Deploy From a GitHub Repo
 
 To deploy a Fastify app on Railway directly from GitHub, follow the steps below:
 
 1. Fork the basic <a href="https://github.com/railwayapp-templates/fastify" target="_blank">fastify GitHub repo</a>.
     - If you already have a GitHub repo you want to deploy, you can skip this step.
-2. Create a <a href="https://railway.app/new" target="_blank">New Project.</a>
+2. Create a <a href="https://railway.com/new" target="_blank">New Project.</a>
 3. Click **Deploy from GitHub repo**.
 4. Select the `fastify` repo or your own GitHub repo.
     - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
@@ -46,7 +47,7 @@ You can find this in the <a href="https://github.com/railwayapp-templates/fastif
 If you don’t set it correctly, you may encounter a 502 error page.
 
 
-## Deploy from the CLI
+## Deploy From the CLI
 
 1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the CLI.</a>
 2. Clone the forked <a href="https://github.com/railwayapp-templates/fastify" target="_blank">fastify GitHub repo</a> and `cd` into the directory.

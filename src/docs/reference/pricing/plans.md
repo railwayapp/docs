@@ -1,5 +1,6 @@
 ---
 title: Pricing Plans
+description: Learn about Railway's plans and pricing.
 ---
 
 Railway plans and pricing are designed to support you however you work. We charge a base subscription fee for the plan you sign up to, on top of your resource and add-on usages.
@@ -24,7 +25,7 @@ Each Railway account needs an active subscription. The base subscription fee all
 | **Pro**        | $20 / team member / month |
 | **Enterprise** | Custom                    |
 
-Read more about our plans at <a href="https://railway.app/pricing" target="_blank">railway.app/pricing</a>.
+Read more about our plans at <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
 ### Default Plan Resources
 
@@ -56,7 +57,7 @@ You are only charged for the resources you actually use, which helps prevent run
 
 To learn more about controlling your resource usage costs, read our FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
 
-## Included usage
+## Included Usage
 
 The Hobby plan includes $5 of resource usage per month.
 
@@ -71,15 +72,15 @@ Included resource usage is reset at the end of every billing cycle and does not 
 
 The Pro plan **does not include any usage credits**. You will be billed for resource usage on top of the full subscription fee.
 
-### Additional services
+### Additional Services
 
-Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.app) to get started.
+Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.com) to get started.
 
 ## Credits
 
 Credits are available on Railway as a payment method for Hobby plan users who prefer to pre-pay for their subscription and usage on Railway.
 
-### Credits as a payment method
+### Credits As a Payment Method
 
 On Railway, you can pay for your Hobby plan subscription and resource usage with pre-purchased credits. When using credits as a payment method, keep in mind that:
 
@@ -89,11 +90,11 @@ On Railway, you can pay for your Hobby plan subscription and resource usage with
 
 Credits as a payment method is only available for Hobby plan users.
 
-### Purchasing credits
+### Purchasing Credits
 
-You can purchase credits from your account's [usage page](https://railway.app/account/usage).
+You can purchase credits from your account's [Usage page](https://railway.com/account/usage).
 
-### One-time grant of credits on the Free Trial
+### One-time Grant of Credits on the Free Trial
 
 Users who create a new Trial account receive a free one-time grant of $5. Railway will expend any free credit before consuming any purchased credits. Trial plan users are unable to purchase credits without upgrading to the Hobby plan.
 
@@ -141,7 +142,7 @@ No. The Hobby Plan is $5 a month, and it includes a resource usage credit of $5.
 
 Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform.
 
-Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. If you qualify, you will be notified in the Dashboard or when you upgrade to the Hobby plan. If you do not quality, you will not be eligible for the waiver.
+Eligibility is automatically assessed based on several factors, including your usage on the platform, your GitHub account, and more. If you qualify, you will be notified in the Dashboard or when you upgrade to the Hobby plan. If you do not qualify, you will not be eligible for the waiver.
 
 This is a fully automated process, and Railway does not respond to requests for waiver.
 

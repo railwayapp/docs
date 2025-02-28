@@ -1,5 +1,6 @@
 ---
 title: Using Environments
+description: Manage complex development workflows via environments in your projects on Railway.
 ---
 
 Railway supports complex development workflows through environments, giving you isolated instances of all services in a project.
@@ -15,6 +16,8 @@ Railway supports complex development workflows through environments, giving you 
      _You must review and approve the [staged changes](/guides/staged-changes) before the services deploy._
 
    - **Empty Environment** creates an empty environment with no services.
+
+---
 
 ## Sync Environments
 
@@ -32,6 +35,8 @@ You can easily sync environments to _import_ one or more services from one envir
             layout="responsive"
             width={1108} height={770} quality={100} />
 
+---
+
 ## Enable PR Environments
 
 Railway can spin up a temporary environment whenever you open a Pull Request. To enable PR environments, go to your Project Settings -> Environments tab.
@@ -44,9 +49,29 @@ width={480} height={156} quality={80} />
 
 When enabled, a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
 
-### How come my GitHub PR won't deploy?
+#### How Come my GitHub PR Won't Deploy?
 
 Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
+
+### Copy Volume Data
+
+When enabled, any volume data from the base environment is copied to a new PR Environment. This is particularly useful if you've setup a staging environment with some seed data and want it copied into your new PR Environment.
+
+Before using the feature, here are some things to consider:
+
+- If you're using this feature, we _strongly_ recommend against using a production environment as your base environment.
+- Using the Copy Volume Data feature means PR Environments will have a copy of your base environment data with no fancy modifications.
+  - For a Postgres database (Mongo, etc.), that means the username/password of a PR Environment will have to be the same as the base environment.
+  - [Variables](https://docs.railway.com/guides/variables) of Services with volumes in the new PR Environment will match the base environment.
+
+<Image
+  src="https://res.cloudinary.com/railway/image/upload/v1734322198/docs/copy-volume-data-2.png"
+  alt="Copy Volume Data"
+  layout="responsive"
+  width={838}
+  height={226}
+  quality={90}
+/>
 
 ### Bot PR Environments
 

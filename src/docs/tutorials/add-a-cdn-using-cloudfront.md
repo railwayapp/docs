@@ -1,5 +1,6 @@
 ---
 title: Add a CDN using Amazon CloudFront
+description: Learn how to integrate Amazon CloudFront as a CDN for your Fastify app in this step-by-step guide.
 ---
 
 ## What is the purpose of a CDN?
@@ -24,7 +25,7 @@ In this tutorial, you will learn how to -
 **Prerequisites**
 
 To be successful using this tutorial, you should already have - 
-- Latest version of the Railway [CLI installed](guides/cli#installing-the-cli)
+- Latest version of the Railway [CLI installed](/guides/cli#installing-the-cli)
 - An [AWS account](https://aws.amazon.com/) with permissions to create new resources
 - Latest version of the [AWS CLI](https://aws.amazon.com/cli/) installed and authenticated to your AWS account
 - Latest version of the [AWS CDK](https://aws.amazon.com/cdk/) installed
@@ -32,9 +33,9 @@ To be successful using this tutorial, you should already have -
 
 **Let's get started!**
 
-## 1. Create and Deploy a Fastify server
+## 1. Create and Deploy a Fastify Server
 
-First, let's create and deploy a simple Fastify server using the [Railway CLI](guides/cli#installing-the-cli)
+First, let's create and deploy a simple Fastify server using the [Railway CLI](/guides/cli#installing-the-cli)
 
 - On your local machine, create a folder called "fastify"
 - Inside of the folder, create a file called "server.js"
@@ -287,14 +288,14 @@ Let's first generate an SSL certificate -
 - Under the General tab, click the `Edit` button
 - Under *Custom SSL certificate*, click the *"Request certificate"* link below the input field.  This will take you to AWS Certificate Manager.
 - Click the `Next` button to request a public certificate
-- Enter your fully qualified domain name, e.g. `www.railway.app`
-  - If you'd like the cert to include the apex domain, click `Add another name to this certificate` and enter it, e.g. `railway.app`
+- Enter your fully qualified domain name, e.g. `www.railway.com`
+  - If you'd like the cert to include the apex domain, click `Add another name to this certificate` and enter it, e.g. `railway.com`
 - Click the `Next` button to generate the certificate
 - In **Namecheap**, in the Advanced DNS section for the domain, add the host record(s).
   - If you set up the certificate for both www and the apex domain, you will add two **CNAME** records
   - The CNAME name value provided by AWS, should be used as the **Host** value in Namecheap.
   - The CNAME name value provided by AWS, includes the domain name, but in Namecheap, you should add everything except the domain, e.g. 
-    - if your CNAME name is `_6cf3abcd1234abcd1234aabb11cc22.www.railway.app` 
+    - if your CNAME name is `_6cf3abcd1234abcd1234aabb11cc22.www.railway.com` 
     - you should add `_6cf3abcd1234abcd1234aabb11cc22.www` to the **Host** value in Namecheap
 - Once you add the DNS records in Namecheap, refresh the Certificate status page in AWS to confirm the Status shows **Success**
 

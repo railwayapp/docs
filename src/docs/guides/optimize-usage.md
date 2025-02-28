@@ -1,5 +1,6 @@
 ---
 title: Optimize Usage
+description: Optimize your Railway projects for budget-friendly billing by setting limits and activating app sleep.
 ---
 
 Railway provides controls over resource usage in the form of usage limits and auto-sleeping of inactive services.
@@ -8,7 +9,7 @@ Railway provides controls over resource usage in the form of usage limits and au
 
 Usage Limits allow you to set a maximum limit on your usage for a billing cycle.
 
-Visit the <a href="https://railway.app/account/usage" target="_blank">Account Usage page</a> to set the usage limits. Once you click the <kbd>Set Usage Limits</kbd> button, you will see a modal above where you can set a <kbd>Custom email alert</kbd> and a <kbd>Hard limit</kbd>.
+Visit the <a href="https://railway.com/account/usage" target="_blank">Account Usage page</a> to set the usage limits. Once you click the <kbd>Set Usage Limits</kbd> button, you will see a modal above where you can set a <kbd>Custom email alert</kbd> and a <kbd>Hard limit</kbd>.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1694775828/usage-limits_hzv9ee.png" alt="Usage Limits Modal" layout="responsive" width={1252} height={1150} />
 
@@ -20,11 +21,11 @@ If you want to set a usage limit for your team, use the account switcher in the 
 
 If you are on a prepaid plan, you can not directly set a hard limit. Instead the amount of credits you load determines the hard limit.
 
-### Custom email alert
+### Custom Email Alert
 
 Configure a soft limit by setting a threshold in Custom email alert. When your resource usage reaches the specified amount, we will email you that this threshold has been met and resources continue running.
 
-### Hard limit
+### Hard Limit
 
 Configure a hard limit to take resources offline once usage meets the specified threshold.
 
@@ -42,12 +43,11 @@ Find more information about Usage Limits in the [reference page](/reference/usag
 
 Using [Private Networking](/guides/private-networking) when communicating with other services (such as databases) within your Railway project will help you avoid unnecessary Network Egress costs.
 
-### With databases
+### With Databases
 
 Communicate with your Railway database over private networking by using the `DATABASE_URL` environment variable, instead of `DATABASE_PUBLIC_URL`:
 
-
-### With other services
+### With Other Services
 
 If your Railway services need to communicate with each other, you can find the service's private URL in the service settings:
 
@@ -55,22 +55,22 @@ If your Railway services need to communicate with each other, you can find the s
 
 Learn more about Railway's Private Networking [here](/guides/private-networking).
 
-## Enabling App Sleeping
+## Enabling Serverless
 
-Enabling App Sleep on a service tells Railway to stop a service when it is inactive, effectively reducing the overall cost to run it.
+Enabling Serverless on a service tells Railway to stop a service when it is inactive, effectively reducing the overall cost to run it.
 
-To enable App Sleeping, toggle the feature on within the service configuration pane in your project:
+To enable Serverless, toggle the feature on within the service configuration pane in your project:
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1696548703/docs/scale-to-zero/appSleep_ksaewp.png"
 alt="Enable App Sleep"
 layout="intrinsic"
 width={700} height={460} quality={100} />
 
-1. Navigate to your service's settings > Deploy > App Sleeping
-2. Toggle "Enable App Sleeping"
-3. To _disable_ App Sleeping, toggle the setting again
+1. Navigate to your service's settings > Deploy > Serverless
+2. Toggle "Enable Serverless"
+3. To _disable_ Serverless, toggle the setting again
 
-Read more about how App Sleeping works in the [App Sleeping Reference page](/reference/app-sleeping).
+Read more about how Serverless works in the [Serverless Reference page](/reference/app-sleeping).
 
 ## Resource Limits
 

@@ -1,5 +1,6 @@
 ---
 title: Migrate from Heroku
+description: Learn how to migrate your apps from Heroku to Railway with this step-by-step guide. Fast, seamless, and hassle-free.
 ---
 
 Migrating your app from Heroku to Railway is very simple.  We even support Procfiles out of the box. (Only a single process is supported for now).
@@ -19,7 +20,7 @@ In your terminal, ensure your current working directory is the same directory wh
 
 This is important so that as you complete the following steps, the [Railway CLI](/reference/cli-api) is properly linked.
 
-## 1. Login to Railway from the CLI
+## 1. Login to Railway From the CLI
 
 Ensure your CLI is authenticated to your Railway account:
 ```bash
@@ -101,4 +102,4 @@ For more advanced operations, like migrating your databases from Heroku to Railw
 
 ## Need Help?
 
-If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our <a href="https://discord.gg/railway" target="_blank">Discord</a> or over email at [team@railway.app](mailto:team@railway.app).
+If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our <a href="https://discord.gg/railway" target="_blank">Discord</a> or over email at [team@railway.com](mailto:team@railway.com).

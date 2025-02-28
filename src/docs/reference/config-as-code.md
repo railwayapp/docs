@@ -1,5 +1,6 @@
 ---
 title: Config as Code
+description: Learn how to manage and deploy apps on Railway using config as code with toml and json files.
 ---
 
 Railway supports defining the configuration for a single deployment in a file
@@ -40,9 +41,13 @@ width={948} height={419} quality={100} />
 
 Set the builder for the deployment.
 
-```toml
-[build]
-builder = "NIXPACKS"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS"
+  }
+}
 ```
 
 Possible values are:
@@ -58,9 +63,13 @@ Read more about Builds [here](/guides/builds).
 
 Array of patterns used to conditionally trigger a deploys.
 
-```toml
-[build]
-watchPatterns = ["src/**"]
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "watchPatterns": ["src/**"]
+  }
+}
 ```
 
 Read more about watch patterns [here](/guides/build-configuration#configure-watch-paths).
@@ -69,9 +78,13 @@ Read more about watch patterns [here](/guides/build-configuration#configure-watc
 
 Build command to pass to the Nixpacks builder.
 
-```toml
-[build]
-buildCommand = "yarn run build"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "buildCommand": "yarn run build"
+  }
+}
 ```
 
 This field can be set to `null`.
@@ -82,9 +95,13 @@ Read more about the build command [here](/reference/build-and-start-commands#bui
 
 Location of non-standard Dockerfile.
 
-```toml
-[build]
-dockerfilePath = "Dockerfile.backend"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "dockerfilePath": "Dockerfile.backend"
+  }
+}
 ```
 
 This field can be set to `null`.
@@ -95,9 +112,13 @@ More about building from a Dockerfile [here](/reference/dockerfiles).
 
 Location of a non-standard [Nixpacks](https://nixpacks.com/docs/configuration/file) config file.
 
-```toml
-[build]
-nixpacksConfigPath = "nixpacks.toml"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "nixpacksConfigPath": "backend_nixpacks.toml"
+  }
+}
 ```
 
 This field can be set to `null`.
@@ -106,28 +127,62 @@ This field can be set to `null`.
 
 Full nixpacks plan. See [the Nixpacks documentation](https://nixpacks.com/docs/configuration/file) for more info.
 
-```toml
-[build]
-nixpacksPlan = "examples/node"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "nixpacksPlan": {
+      "providers": ["python", "node"],
+      "phases": {
+        "install": {
+          "dependsOn": ["setup"],
+          "cmds": ["npm ci"]
+        }
+      }
+    }
+  }
+}
 ```
 
 This field can be set to `null`.
 
 You can also define specific options as follows.
 
-```toml
-[build.nixpacksPlan.phases.setup]
-nixPkgs = ["...", "zlib"]
+In this example, we are adding ffmpeg to the setup phase.
+
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "nixpacksPlan": {
+      "phases": {
+        "setup": {
+          "nixPkgs": ["...", "ffmpeg"]
+        }
+      }
+    }
+  }
+}
 ```
 
 #### Custom Install Command
 
 Use nixpacksPlan to configure a custom install command.
 
-```toml
-[build.nixpacksPlan.phases.install]
-dependsOn = ["setup"]
-cmds = ["cd ../.. && yarn"]
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "nixpacksPlan": {
+      "phases": {
+        "install": {
+          "dependsOn": ["setup"],
+          "cmds": ["npm install --legacy-peer-deps"]
+        }
+      }
+    }
+  }
+}
 ```
 
 ### Nixpacks Version
@@ -136,46 +191,95 @@ EXPERIMENTAL: USE AT YOUR OWN RISK!.
 
 Version of Nixpacks to use. Must be a valid Nixpacks version. 
 
-```toml
-[build]
-nixpacksVersion = "1.13.0"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "nixpacksVersion": "1.29.1"
+  }
+}
 ```
 
 This field can be set to `null`.
+
+You can also use the `NIXPACKS_VERSION` [configuration variable](https://docs.railway.com/reference/variables#user-provided-configuration-variables) to set the Nixpacks version.
 
 ### Start Command
 
 The command to run when starting the container.
 
-```toml
-[deploy]
-startCommand = "echo starting"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "startCommand": "node index.js"
+  }
+}
 ```
 
 This field can be set to `null`.
 
 Read more about the start command [here](/reference/build-and-start-commands#start-command).
 
-### Number of Replicas
+### Pre-deploy Command
 
-For horizontal scaling, the number of instances to run for the deployment.
+The command to run before starting the container.
 
-```toml
-[deploy]
-numReplicas = 2
+```json
+
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "preDeployCommand": ["npm run db:migrate"]
+  }
+}
+```
+
+This field can be ommitted.
+
+Read more about the pre-deploy command [here](/guides/pre-deploy-command).
+
+### Multi-region Configuration
+
+Horizontal scaling across multiple regions, with two replicas in each region.
+
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "multiRegionConfig": {
+      "us-east4": {
+        "numReplicas": 2
+      },
+      "us-west1": {
+        "numReplicas": 2
+      },
+      "europe-west4": {
+        "numReplicas": 2
+      },
+      "asia-southeast1": {
+        "numReplicas": 2
+      }
+    }
+  }
+}
 ```
 
 This field can be set to `null`.
 
-Read more about horizontal scaling [here](/reference/scaling#horizontal-scaling-with-replicas).
+Read more about horizontal scaling with multiple regions [here](/reference/scaling#multi-region-replicas).
 
 ### Healthcheck Path
 
 Path to check after starting your deployment to ensure it is healthy.
 
-```toml
-[deploy]
-healthcheckPath = "/health"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "healthcheckPath": "/health"
+  }
+}
 ```
 
 This field can be set to `null`.
@@ -186,9 +290,14 @@ Read more about the healthcheck path [here](/reference/healthchecks).
 
 Number of seconds to wait for the healthcheck path to become healthy.
 
-```toml
-[deploy]
-healthcheckTimeout = 300
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "healthcheckPath": "/health",
+    "healthcheckTimeout": 300
+  }
+}
 ```
 
 This field can be set to `null`.
@@ -199,9 +308,13 @@ Read more about the healthcheck timeout [here](/reference/healthchecks).
 
 How to handle the deployment crashing.
 
-```toml
-[deploy]
-restartPolicyType = "ON_FAILURE"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "restartPolicyType": "ALWAYS"
+  }
+}
 ```
 
 Possible values are:
@@ -215,9 +328,14 @@ Read more about the Restart policy [here](/guides/healthchecks-and-restarts#rest
 
 Set the max number of retries for the restart policy.
 
-```toml
-[deploy]
-restartPolicyMaxRetries = 5
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "restartPolicyType": "ALWAYS",
+    "restartPolicyMaxRetries": 5
+  }
+}
 ```
 
 This field can be set to `null`.
@@ -226,9 +344,13 @@ This field can be set to `null`.
 
 [Cron schedule](/reference/cron-jobs) of the deployed service.
 
-```toml
-[deploy]
-cronSchedule = "0 0 * * *"
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "cronSchedule": "*/15 * * * *"
+  }
+}
 ```
 
 This field can be set to `null`.
@@ -246,19 +368,13 @@ When resolving the settings for a deployment, Railway will use this priority ord
 The following example changes the start command just in the production
 environment.
 
-In a `railway.toml` file:
-```toml
-[environments.production.deploy]
-startCommand = "echo starting production!"
-```
-
-In a `railway.json` file:
 ```json
 {
+  "$schema": "https://railway.com/railway.schema.json",
   "environments": {
-    "production": {
+    "staging": {
       "deploy": {
-        "startCommand": "echo starting production!"
+        "startCommand": "npm run staging"
       }
     }
   }
@@ -276,18 +392,16 @@ Deployments for pull requests can be configured using a special `pr` environment
 
 ```json
 {
+  "$schema": "https://railway.com/railway.schema.json",
   "environments": {
     "pr": {
       "deploy": {
-        "startCommand": "echo 'start command for all pull requests!'"
+        "startCommand": "npm run pr"
       }
     }
   }
 }
 ```
-
-
-{/* codegen:end do not edit this comment */}
 
 ### Configuring a Build provider with Nixpacks
 

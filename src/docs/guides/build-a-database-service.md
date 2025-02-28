@@ -1,5 +1,6 @@
 ---
 title: Build a Database Service
+description: Learn how to build a database service on Railway.
 ---
 
 Railway's platform primitives allow you to build any type of service your system requires, including database services.  This guide aims to guide you through the essential features to build your own database service.
@@ -70,11 +71,11 @@ Remember you can also deploy from a Dockerfile which would generally involve the
 
 ### Template Marketplace
 
-Need inspiration or looking for a specific database?  Our <a href="https://railway.app/templates" target="_blank">Template Marketplace</a> already includes solutions for many different database services.  You might even find a template for the database you need!
+Need inspiration or looking for a specific database?  Our <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> already includes solutions for many different database services.  You might even find a template for the database you need!
 
 Here are some suggestions to check out - 
-- <a href="https://railway.app/template/SMKOEA" target="_blank">Minio</a>
-- <a href="https://railway.app/template/clickhouse" target="_blank">ClickHouse</a>
-- <a href="https://railway.app/template/dragonfly" target="_blank">Dragonfly</a>
-- <a href="https://railway.app/template/tifygm" target="_blank">Chroma</a>
-- <a href="https://railway.app/template/elasticsearch" target="_blank">Elastic Search</a>
+- <a href="https://railway.com/template/SMKOEA" target="_blank">Minio</a>
+- <a href="https://railway.com/template/clickhouse" target="_blank">ClickHouse</a>
+- <a href="https://railway.com/template/dragonfly" target="_blank">Dragonfly</a>
+- <a href="https://railway.com/template/kbvIRV" target="_blank">Chroma</a>
+- <a href="https://railway.com/template/elasticsearch" target="_blank">Elastic Search</a>

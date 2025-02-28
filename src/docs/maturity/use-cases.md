@@ -1,5 +1,6 @@
 ---
 title: Use Cases
+description: Explore real-world use cases for deploying and managing applications on Railway.
 ---
 
 Railway is suited for a variety of use-cases. This page will walk-through what the platform is perfect for today and our recommendations for apps of all sizes.
@@ -29,7 +30,7 @@ All of these verticals deploy workloads that may require high bandwidth operatio
 
 However, service scale on the platform is not unbounded. As a foundational infrastructure company, we understand that customers may outpace our pace of improvement for the platform. Even though 32 vCPU and 32 GB of memory sounds like a lot (with up to 20 replicas) on the Pro plan, when faced with hyper-growth: throwing more resources at the issue might be your best bet until long term optimizations can be made by your team.
 
-Railway will gladly bump up your service limits within your tier of service to meet your needs. Even so, we will be frank and honest if you may need to seek elsewhere to augment your workloads with extra compute. If your compute needs outpace our Pro offering, consider our Enterprise plans where we offer even greater limits and capacity planning, [email us to learn more](mailto:team@railway.app), or [click here](https://cal.com/team/railway/demonew) to schedule some time to chat.
+Railway will gladly bump up your service limits within your tier of service to meet your needs. Even so, we will be frank and honest if you may need to seek elsewhere to augment your workloads with extra compute. If your compute needs outpace our Pro offering, consider our Enterprise plans where we offer even greater limits and capacity planning, [email us to learn more](mailto:team@railway.com), or [click here](https://cal.com/team/railway/work-with-railway?duration=30) to schedule some time to chat.
 
 ### Databases
 
@@ -38,11 +39,11 @@ We have customers using our databases for their production environment with no i
 Our databases are provided with no SLAs, are not highly available, and scale only to the limits of your plan. We don't think they are suitable for anything mission-critical, like if you wanted to start a bank.
 
 We advise developers to:
-- Configure backups 
+- [Configure backups](/reference/backups) 
 - Run-book and restore their backups
 - Configure secondaries to connect to in-case of a disaster situation
 
-Included in our planned near-term work for databases on Railway are built in backups, additional database metrics, and SSH access into the running database. 
+Included in our planned near-term work for databases on Railway are additional database metrics, and SSH access into the running database. 
 
 As mentioned before: we don't believe in vendor lock-in here at Railway, if your needs outpace us, consider other vendors like PlanetScale (for MySQL) or Cockroach (for Postgres).
 
@@ -97,6 +98,6 @@ Unfortunately, our platform isn't yet well-equipped to handle the following vert
 
 ## General Recommendations
 
-A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.app](mailto:team@railway.app), or via our [Discord server](https://discord.gg/railway).  You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/demonew).
+A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.com](mailto:team@railway.com), or via our [Discord server](https://discord.gg/railway).  You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/work-with-railway?duration=30).
 
 We would be happy to answer any additional questions you may have.

@@ -1,12 +1,15 @@
 ---
-title: App Sleeping
+title: Serverless
+description: Learn how Serverless reduces cost usage on Railway.
 ---
 
-App Sleeping (aka "Serverless") allows you to increase the efficiency of resource utilization on Railway and may reduce the usage cost of a [service](/reference/services), by ensuring it is running only when necessary.
+_Note: This feature is formerly called: App-Sleeping_
+
+Serverless (aka "Serverless") allows you to increase the efficiency of resource utilization on Railway and may reduce the usage cost of a [service](/reference/services), by ensuring it is running only when necessary.
 
 ## How it Works
 
-When App Sleeping is enabled for a service, Railway automatically detects inactivity based on outbound traffic.
+When Serverless is enabled for a service, Railway automatically detects inactivity based on outbound traffic.
 
 #### Inactive Service Detection
 
@@ -35,9 +38,9 @@ The first request made to a slept service wakes it. It may take a small amount o
 
 - There will be a small delay in the response time of the first request sent to a slept service (commonly known as "cold boot times")
 - For Railway to put a service to sleep, a service must not send _outbound_ traffic for at least 10 minutes. Outbound traffic can include telemetry, database connections, NTP, etc. Inbound traffic is excluded from considering when to sleep a service.
-- Enabling App Sleeping will apply the setting across all [Replicas](/reference/scaling#horizontal-scaling-with-replicas)
-- Slept services still consume a slot on our infrastructure, enabling App Sleeping de-prioritizes your workload and in remote cases, may require a rebuild to re-live the service.
+- Enabling Serverless will apply the setting across all [Replicas](/reference/scaling#horizontal-scaling-with-replicas)
+- Slept services still consume a slot on our infrastructure, enabling Serverless de-prioritizes your workload and in remote cases, may require a rebuild to re-live the service.
 
 ## Support
 
-For information on how to enable app sleeping on your services refer to the [how to guide](/guides/optimize-usage#enabling-app-sleeping).
+For information on how to enable Serverless on your services refer to the [how to guide](/guides/optimize-usage#enabling-app-sleeping).

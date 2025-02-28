@@ -14,6 +14,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Home", undefined, "/"),
       makePage("Quick Start", undefined),
+      makePage("Railway Metal", undefined),
     ],
   },
   {
@@ -44,6 +45,8 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Languages & Frameworks", "guides"),
         pages: [
+          makePage("Express", "guides"),
+          makePage("Nest", "guides"),
           makePage("Fastify", "guides"),
           makePage("FastAPI", "guides"),
           makePage("Flask", "guides"),
@@ -53,6 +56,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Axum", "guides"),
           makePage("Rocket", "guides"),
           makePage("Laravel", "guides"),
+          makePage("Symfony", "guides"),
           makePage("Luminus", "guides"),
           makePage("Play", "guides"),
           makePage("Sails", "guides"),
@@ -65,7 +69,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Astro", "guides"),
           makePage("SvelteKit", "guides"),
           makePage("Phoenix", "guides"),
-          makePage("Phoenix Distillery", "guides")
+          makePage("Phoenix Distillery", "guides"),
         ],
       },
       {
@@ -73,7 +77,6 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Public Networking", "guides"),
           makePage("Private Networking", "guides"),
-          makePage("Fixing Common Errors", "guides"),
         ],
       },
       {
@@ -86,6 +89,7 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Deployments", "guides"),
         pages: [
+          makePage("Pre-Deploy Command", "guides"),
           makePage("Start Command", "guides"),
           makePage("Deployment Actions", "guides"),
           makePage("GitHub Autodeploys", "guides"),
@@ -105,7 +109,6 @@ export const sidebarContent: ISidebarContent = [
           makePage("Redis", "guides"),
           makePage("MongoDB", "guides"),
           makePage("Database View", "guides"),
-          makePage("Database Migration Guide", "guides"),
         ],
       },
       {
@@ -149,7 +152,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           {
             title: "Deploy Offen",
-            url: "https://blog.railway.app/p/offen-web-analytics",
+            url: "https://blog.railway.com/p/offen-web-analytics",
           },
         ],
       },
@@ -158,11 +161,11 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           {
             title: "Queues on Railway",
-            url: "https://blog.railway.app/p/queues",
+            url: "https://blog.railway.com/p/queues",
           },
           {
             title: "Gitlab CI/CD with Railway",
-            url: "https://blog.railway.app/p/gitlab-ci-cd",
+            url: "https://blog.railway.com/p/gitlab-ci-cd",
           },
           makePage("Set Up a Datadog Agent", "tutorials"),
           makePage("Deploy an Otel Collector Stack", "tutorials"),
@@ -178,21 +181,27 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           {
             title: "Backing Up Redis",
-            url: "https://blog.railway.app/p/redis-backup",
+            url: "https://blog.railway.com/p/redis-backup",
           },
           {
             title: "Backing Up Postgres",
-            url: "https://blog.railway.app/p/postgre-backup",
+            url: "https://blog.railway.com/p/postgre-backup",
           },
         ],
       },
       {
-        subTitle: "GitHub Tutorials",
+        subTitle: "Git Tutorials",
         pages: [
           {
             title: "GitHub Actions",
-            url: "https://blog.railway.app/p/github-actions",
+            url: "https://blog.railway.com/p/github-actions",
           },
+          {
+            title: "Gitlab CI/CD",
+            url: "https://blog.railway.com/p/gitlab-ci-cd",
+          },
+          makePage("GitHub Post-Deploy Actions", "tutorials"),
+          makePage("GitHub PR Environment Actions", "tutorials"),
         ],
       },
     ],
@@ -200,6 +209,24 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Reference",
     content: [
+      {
+        subTitle: makePage("Errors", "/reference/errors", "/reference/errors"),
+        pages: [
+          makePage("Application Failed to Respond", "reference/errors"),
+          makePage("No Start Command Could Be Found", "reference/errors"),
+          makePage("405 Method Not Allowed", "reference/errors"),
+          makePage(
+            "Unable to Generate a Build Plan",
+            "reference/errors",
+            "reference/errors/nixpacks-was-unable-to-generate-a-build-plan",
+          ),
+          makePage(
+            "ENOTFOUND redis.railway.internal",
+            "reference/errors",
+            "reference/errors/enotfound-redis-railway-internal",
+          ),
+        ],
+      },
       {
         subTitle: "Develop",
         pages: [
@@ -209,6 +236,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Services", "reference"),
           makePage("Variables", "reference"),
           makePage("Volumes", "reference"),
+          makePage("Functions", "reference"),
         ],
       },
       {
@@ -222,6 +250,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Deployment Regions", "reference"),
           makePage("Dockerfiles", "reference"),
           makePage("Healthchecks", "reference"),
+          makePage("Backups", "reference"),
           makePage("Integrations", "reference"),
           makePage("Nixpacks", "reference"),
           makePage("Private Networking", "reference"),
@@ -233,7 +262,7 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       {
-        subTitle: "Diagnose",
+        subTitle: "Monitoring",
         pages: [
           makePage("Logging", "reference"),
           makePage("Metrics", "reference"),
@@ -262,6 +291,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Free Trial", "reference/pricing"),
           makePage("FAQs", "reference/pricing"),
           makePage("Refunds", "reference/pricing"),
+          makePage("AWS Marketplace", "reference/pricing"),
         ],
       },
       makePage("Production Readiness Checklist", "reference"),
@@ -275,6 +305,21 @@ export const sidebarContent: ISidebarContent = [
       makePage("Compliance", "maturity"),
       makePage("Incident Management", "maturity"),
       makePage("Compare to Heroku", "maturity"),
+      makePage("Compare to Render", "maturity"),
+      makePage("Compare to Fly", "maturity"),
+      makePage("Compare to Vercel", "maturity"),
     ],
+  },
+  {
+    title: "Migration",
+    content: [
+      makePage("Migrate from Render", "migration"),
+      makePage("Migrate from Fly", "migration"),
+      makePage("Migrate from Vercel", "migration"),
+    ],
+  },
+  {
+    title: "Community",
+    content: [makePage("The Conductor Program", "community")],
   },
 ];

@@ -1,5 +1,6 @@
 ---
-title:  Advanced Usage
+title: Advanced Usage
+description: A guide that outlines the advanced concepts of Railway.
 ---
 
 This document outlines the more advanced concepts of Railway.  It covers things like build and deploy options, networking, integrations, and observability.
@@ -22,7 +23,7 @@ Deployments are created with some default options that can be overridden.  Some 
 
 ## Networking
 
-Networking can be tricky and time-consuming.  We wanted to provide the best-in-class experience when it came to wiring things up.  There are two basic ways we accomplish this.
+Networking can be tricky and time-consuming. We wanted to provide the best-in-class experience when it came to wiring things up.  There are two basic ways we accomplish this.
 
 ### Private Networking
 
@@ -40,7 +41,7 @@ If you have a custom domain, you can easily add it to your Railway service.
 
 ## Integration Tools
 
-A <a href="https://docs.railway.app/guides/cli" target="_blank">CLI</a> and an <a href="https://docs.railway.app/guides/public-api" target="_blank">API</a> are available to wire your Railway projects into any workflow.
+A <a href="https://docs.railway.com/guides/cli" target="_blank">CLI</a> and an <a href="https://docs.railway.com/guides/public-api" target="_blank">API</a> are available to wire your Railway projects into any workflow.
 
 ### CLI
 
@@ -48,11 +49,11 @@ The Railway Command Line Interface (CLI) lets you interact with your Railway pro
 - Trigger deployments programmatically.
 - Run services locally using environment variables from your Railway project.
 - Create new Railway projects from the Terminal.
-- Deploy <a href="https://docs.railway.app/reference/templates" target="_blank">templates</a>.
+- Deploy <a href="https://docs.railway.com/reference/templates" target="_blank">templates</a>.
 
 ### Public API
 
-The Railway <a href="https://docs.railway.app/guides/public-api" target="_blank">public API</a> is built with GraphQL and is the same API that powers the Railway dashboard.  Similar to the CLI, you can interact with your Railway project programmatically by communicating with the API.
+The Railway <a href="https://docs.railway.com/guides/public-api" target="_blank">public API</a> is built with GraphQL and is the same API that powers the Railway dashboard.  Similar to the CLI, you can interact with your Railway project programmatically by communicating with the API.
 
 ## Environments
 
@@ -65,7 +66,7 @@ Within a service and environment, you can specify which branch to auto-deploy to
 
 ## Observability
 
-Any build or deployment logs emitted to standard output or standard error `( eg. console.log(...))` is captured by Railway so you can view or search for it later.
+Any build or deployment logs emitted to standard output or standard error `( eg. console.log(...))` are captured by Railway so you can view or search for it later.
 
 ### Service Logs
 

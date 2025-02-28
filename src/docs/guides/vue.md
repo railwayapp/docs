@@ -1,5 +1,6 @@
 ---
 title: Deploy a Vue App
+description: Learn how to deploy a Vue app to Railway with this step-by-step guide. It covers quick setup, caddy server setup, one-click deploys, Dockerfile and other deployment strategies.
 ---
 
 [Vue](https://vuejs.org), also known as Vue.js or VueJS, is a popular JavaScript library for building snappy, performant and versatile user interfaces for web applications. 
@@ -57,11 +58,11 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/Qh0OAU)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/Qh0OAU)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-**Note:** You can also choose from a <a href="https://railway.app/templates?q=vue" target="_blank">variety of Vue app templates</a> created by the community.
+**Note:** You can also choose from a <a href="https://railway.com/templates?q=vue" target="_blank">variety of Vue app templates</a> created by the community.
 
 ### Deploy from the CLI
 
@@ -164,7 +165,7 @@ width={2642} height={2080} quality={100} />
 To deploy a Vue app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.

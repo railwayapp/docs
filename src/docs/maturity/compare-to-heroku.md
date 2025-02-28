@@ -1,5 +1,6 @@
 ---
 title: Railway vs. Heroku
+description: Looking for the best deployment platform? This guide breaks down Railway vs. Heroku—covering community, pricing, features, and why Railway is the superior choice.
 ---
 
 ## Summary
@@ -65,6 +66,6 @@ Railway serves hundreds of thousands of thousands of builders who deploy applica
 
 We feel no project, big or small- is never not important. This is our guiding philosophy to our users.
 
-As a result, we make great pains to be very communicative in our support channels, [optimistically gather feedback](https://feedback.railway.app/), provide informative docs, and encourage our community to help each other.
+As a result, we make great pains to be very communicative in our support channels, [optimistically gather feedback](https://feedback.railway.com/), provide informative docs, and encourage our community to help each other.
 
 Having an issue with a deployment? [Join over 20k Railway users on our Discord Server!](https://discord.gg/railway) With our dedicated support channels, you can get help from the Railway team and our community of builders.

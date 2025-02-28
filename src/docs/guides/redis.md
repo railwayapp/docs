@@ -1,5 +1,6 @@
 ---
 title: Deploy Redis
+description: Learn how to deploy a Redis database on Railway, whether as a standalone instance or a high-availability cluster, for scalability and reliability.
 ---
 
 Railway offers two Redis deployment options to accommodate different needs: a **Standalone Instance** and a **High Availability (HA) Cluster**.
@@ -21,7 +22,7 @@ alt="GIF of the Adding Database"
 layout="responsive"
 width={450} height={396} quality={100} />
 
-You can also deploy it via the [template](https://railway.app/template/redis) from the template marketplace.
+You can also deploy it via the [template](https://railway.com/template/redis) from the template marketplace.
 
 #### Deployed Service
 
@@ -59,7 +60,7 @@ We'll cover how to deploy, connect, and manage the [High Availability (HA) Redis
 
 ### Deploy
 
-You can deploy a HA Redis Cluster via the [template in the marketplace](https://railway.app/template/ha-redis).
+You can deploy a HA Redis Cluster via the [template in the marketplace](https://railway.com/template/ha-redis).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723667697/docs/databases/rediscluster_x6zzwd.png"
 alt="Redis HA in the marketplace"
@@ -106,7 +107,7 @@ Since the deployed containers are based on the `bitnami/redis` and `bitnami/redi
 
 Especially for production environments, performing backups and monitoring the health of your data is essential. Consider adding:
 
-- **Backup solutions**: Automate regular backups to ensure data recovery in case of failure.
+- **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/reference/backups) feature.
 
 - **Observability**: Implement monitoring for insights into performance and health of your Redis cluster. You can integrate a Redis exporter for Prometheus, although we do not provide a specific template at this time.
 

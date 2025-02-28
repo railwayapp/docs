@@ -1,5 +1,6 @@
 ---
 title: Private Networking
+description: Learn everything about private networking on Railway.
 ---
 
 Private Networking is a feature within Railway that allows you to have a private network between your services, helpful for situations where you want to have a public gateway for your API but leave internal communication private.
@@ -11,15 +12,19 @@ width={1310} height={420} quality={100} />
 
 By default, all projects have private networking enabled and services will get a new DNS name under the `railway.internal` domain. This DNS name will resolve to the internal IPv6 address of the services within a project.
 
-## Communicating over the private network
+## Communicating Over the Private Network
 
 To communicate over the private network, there are some specific things to know to be successful.
 
 ### Listen on IPv6
 
-Since the private network is an IPv6 network, applications that will receive requests over the private network must be configured to listen on IPv6.  On most web frameworks, you can do this via `::` and specifying the port(s) to which you want to bind.
+Since the private network is an IPv6 only network, applications that will receive requests over the private network must be configured to listen on IPv6. On most web frameworks, you can do this by binding to the host `::`.
 
-For example - 
+Some examples are below -
+
+#### Node / Express
+
+Listen on `::` to bind to both IPv4 and IPv6.
 
 ```javascript
 const port = process.env.PORT || 3000;
@@ -27,6 +32,64 @@ const port = process.env.PORT || 3000;
 app.listen(port, '::', () => {
     console.log(`Server listening on [::]${port}`);
 });
+```
+
+#### Node / Nest
+
+Listen on `::` to bind to both IPv4 and IPv6.
+
+```javascript
+const port = process.env.PORT || 3000;
+
+async function bootstrap() {
+  await app.listen(port, '::');
+}
+```
+
+#### Node / Next
+
+Update your start command to bind to both IPv4 and IPv6.
+
+```bash
+next start --hostname :: --port ${PORT-3000}
+```
+
+Or if you are using a custom server, set `hostname` to `::` in the configuration object passed to the `next()` function.
+
+```javascript
+const port = process.env.PORT || 3000;
+
+const app = next({
+  // ...
+  hostname: '::',
+  port: port
+});
+```
+
+If neither of these options are viable, you can set a `HOSTNAME` [service variable](/guides/variables#service-variables) with the value `::` to listen on both IPv4 and IPv6.
+
+#### Python / Gunicorn
+
+Update your start command to bind to both IPv4 and IPv6.
+
+```bash
+gunicorn app:app --bind [::]:${PORT-3000}
+```
+
+#### Python / Hypercorn
+
+Update your start command to bind to both IPv4 and IPv6.
+
+```bash
+hypercorn app:app --bind [::]:${PORT-3000}
+```
+
+#### Python / Uvicorn
+
+Update your start command to bind to IPv6.
+
+```bash
+uvicorn app:app --host :: --port ${PORT-3000}
 ```
 
 **Note:** If your application needs to be accessible over both private and public networks, your application server must support dual stack binding. Most servers handle this automatically when listening on `::`, but some, like Uvicorn, do not.
@@ -83,7 +146,9 @@ Some libraries and components require you to be explicit when either listening o
 
 <Collapse title="ioredis">
 
-`ioredis` is a Redis client for node.js, commonly used for connecting to Redis from a node application.  When initializing a Redis client using `ioredis`, you must specify `family=0` in the connection string to support connecting to both IPv6 and IPv4 connections:
+`ioredis` is a Redis client for node.js, commonly used for connecting to Redis from a node application.
+
+When initializing a Redis client using `ioredis`, you must specify `family=0` in the connection string to support connecting to both IPv6 and IPv4 endpoints:
 
 ```javascript
 import Redis from 'ioredis';
@@ -94,6 +159,36 @@ const ping = await redis.ping();
 ```
 
 <a href="https://www.npmjs.com/package/ioredis" target="_blank">ioredis docs</a>
+
+</Collapse>
+
+<Collapse title="bullmq">
+
+`bullmq` is a message queue and batch processing library for node.js, commonly used for processing jobs in a queue.
+
+When initializing a bullmq client, you must specify `family: 0` in the connection object to support connecting to both IPv6 and IPv4 Redis endpoints:
+
+```javascript
+import { Queue } from "bullmq";
+
+const redisURL = new URL(process.env.REDIS_URL);
+
+const queue = new Queue("Queue", {
+    connection: {
+        family: 0,
+        host: redisURL.hostname,
+        port: redisURL.port,
+        username: redisURL.username,
+        password: redisURL.password
+    }
+});
+
+const jobs = await queue.getJobs();
+
+console.log(jobs);
+```
+
+<a href="https://docs.bullmq.io/" target="_blank">bullmq docs</a>
 
 </Collapse>
 
@@ -149,7 +244,7 @@ app := fiber.New(fiber.Config{
 
 </Collapse>
 
-## Changing the service name for DNS
+## Changing the Service Name for DNS
 
 Within the service settings you can change the service name to which you refer, e.g. `api-1.railway.internal` -> `api-2.railway.internal`
 

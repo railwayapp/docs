@@ -1,5 +1,6 @@
 ---
 title: Running a Scheduled Job
+description: Learn how to run cron jobs on Railway.
 ---
 
 Scheduled Jobs, or Cron Jobs, allow you to start a service on a defined schedule.
@@ -16,7 +17,7 @@ To configure a cron job -
 
 Find more information about cron jobs, including examples of cron expressions, in the [reference page for Cron Jobs](/reference/cron-jobs).
 
-## Why isn't my Cron running as scheduled?
+## Why Isn't My Cron Running as Scheduled?
 
 An important requirement of a service that runs as a Cron, is that it terminates on completion and leaves no open resources.  If the code that runs in your Cron service does not exit, subsequent executions of the Cron will be skipped.
 

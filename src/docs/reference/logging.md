@@ -1,5 +1,6 @@
 ---
 title: Logging
+description: Learn about log retention on Railway.
 ---
 
 Logs for services deployed to Railway are available to diagnose issues or track performance.

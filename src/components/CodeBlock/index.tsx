@@ -140,7 +140,7 @@ export const CodeBlock: React.FC<Props> = ({
       <SyntaxHighlighter
         language={lang}
         style={theme}
-        data-colorMode={colorMode}
+        data-colormode={colorMode}
       >
         {content}
       </SyntaxHighlighter>

@@ -1,5 +1,6 @@
 ---
 title: Public API Reference
+description: Learn about the Railway GraphQL Public API.
 ---
 
 The Railway public API is built with GraphQL and is the same API that powers the Railway dashboard.
@@ -9,33 +10,41 @@ The Railway public API is built with GraphQL and is the same API that powers the
 The public API is accessible at the following endpoint:
 
 ```bash
-https://backboard.railway.app/graphql/v2
+https://backboard.railway.com/graphql/v2
 ```
 
 ## Authentication
 
-To use the API, you will need an API token. You can create one by visiting the <a href="https://railway.app/account/tokens" target="_blank">tokens page</a> in your account settings.
+To use the API, you will need an API token. There are three types of tokens you can create.
+
+#### Team Token and Personal Token
+
+You can create an API token by visiting the <a href="https://railway.com/account/tokens" target="_blank">tokens page</a> in your account settings.
+
+- **Team tokens** are tied to a team and will have access to all the team's resources. This token cannot be used to access your personal resources on Railway so feel free to share it with your teammates.
+- **Non-team tokens** will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
 
 ```bash
 curl --request POST \
-  --url https://backboard.railway.app/graphql/v2 \
+  --url https://backboard.railway.com/graphql/v2 \
   --header 'Authorization: Bearer <API_TOKEN_GOES_HERE>' \
   --header 'Content-Type: application/json' \
   --data '{"query":"query { me { name email } }"}'
 ```
 
+#### Project Token
 
-### Team token
-
-Team tokens are tied to a team and will have access to all the team's resources. This token cannot be used to access your personal resources on Railway so feel free to share it with your teammates.
-
-### Personal token
-
-Non-team tokens will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
-
-#### Project token
+You can create a project token by visiting the tokens page in your project settings.
 
 Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
+
+```bash
+curl --request POST \
+  --url https://backboard.railway.com/graphql/v2 \
+  --header 'Project-Access-Token: <PROJECT_TOKEN_GOES_HERE>' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query { projectToken { projectId environmentId } }"}'
+```
 
 ## Schema
 
@@ -47,8 +56,13 @@ We provide a collection file which can be imported into your preferred API clien
 
 ### GraphiQL Playground
 
-Use our [GraphiQL playground](https://railway.app/graphiql) to view the schema and test your queries.
+Use our [GraphiQL playground](https://railway.com/graphiql) to view the schema and test your queries.
 
+Make sure to set an Authorization header with an [auth token](/reference/public-api#authentication). Click the "Headers" tab at the bottom of the GraphiQL page and enter this json, using your own token:
+
+```json
+{"Authorization": "Bearer <API_TOKEN_GOES_HERE>"}
+```
 
 ## Rate Limits
 

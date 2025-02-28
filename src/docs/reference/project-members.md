@@ -1,5 +1,6 @@
 ---
 title: Project Members
+description: Learn about the permissions for project members.
 ---
 
 Project members can be invited to access any project.

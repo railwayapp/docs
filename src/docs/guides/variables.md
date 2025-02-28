@@ -1,5 +1,6 @@
 ---
 title: Using Variables
+description: Learn how to use variables and secrets across services on Railway.
 ---
 
 Variables provide a way to manage configuration and secrets across services in Railway.
@@ -15,7 +16,7 @@ In Railway, there is also a notion of configuration variables which allow you to
 
 _Adding, updating, or removing variables, results in a set of [staged changes](/guides/staged-changes) that you must review and deploy, in order to apply them._
 
-## Service variables
+## Service Variables
 
 Variables scoped to individual services can be defined by navigating to a service's "Variables" tab.
 
@@ -24,7 +25,7 @@ alt="Screenshot of Variables Pane"
 layout="responsive"
 width={2026} height={933} quality={100} />
 
-#### Define a service variable
+#### Define a Service Variable
 
 From a service's variables tab, click on `New Variable` to enter your variable into a form field, or use the `RAW Editor` to paste the contents of your `.env` or json-formatted file.
 
@@ -37,11 +38,11 @@ alt="Screenshot of Shared Variables Settings"
 layout="responsive"
 width={2402} height={1388} quality={100} />
 
-#### Define a shared variable
+#### Define a Shared Variable
 
 From your Project Settings -> Shared Variables page, choose the Environment, enter the variable name and value, and click `Add`.
 
-#### Use a shared variable
+#### Use a Shared Variable
 
 To use a shared variable, either click the Share button from the Project Settings -> Shared Variables menu and select the services with which to share, or visit the Variables tab within the service itself and click "Shared Variable".
 
@@ -55,7 +56,7 @@ When using reference variables, you also have access to [Railway-provided variab
 
 Railway's [template syntax](/reference/variables#template-syntax) is used when defining reference variables.
 
-### Referencing a Shared variable
+### Referencing a Shared Variable
 
 Use the following syntax to reference a shared variable:
 
@@ -66,7 +67,7 @@ Use the following syntax to reference a shared variable:
   - `API_KEY=${{shared.API_KEY}}`
 </Collapse>
 
-### Referencing another service's variable
+### Referencing Another Service's Variable
 
 Use the following syntax to reference variables in another service:
 
@@ -85,7 +86,7 @@ Use the following syntax to reference variables in another service:
 
 </Collapse>
 
-### Referencing variables in the same service
+### Referencing Variables in the Same Service
 
 Use the following syntax to reference variables in the same service:
 
@@ -111,7 +112,7 @@ width={2408} height={1150} quality={100} />
 
 Railway provides the ability to seal variable values for extra security. When a variable is sealed, its value is provided to builds and deployments but is never visible in the UI nor can it be retrieved via the API.
 
-### Sealing a variable
+### Sealing a Variable
 
 To seal an existing variable, click the 3-dot menu on the right-side of the variable and choose the "Seal" option.
 
@@ -120,7 +121,7 @@ alt="Seal an existing variable"
 layout="responsive"
 width={502} height={533} quality={100} />
 
-### Updating a sealed variable
+### Updating a Sealed Variable
 
 Sealed variables can be updated by clicking the edit option in the 3-dot menu just like normal variables but they cannot be updated via the Raw Editor.
 
@@ -150,7 +151,7 @@ For an exhaustive list, please check out the [Variables Reference](/reference/va
 
 Variables can span multiple lines. Press `Control + Enter` (`Cmd + Enter` on Mac) in the variable value input field to add a newline, or simply type a newline in the Raw Editor.
 
-## Using Variables in your services
+## Using Variables in Your Services
 
 Variables are made available at runtime as environment variables. To use them in your application, simply use the interface appropriate for your language to retrieve environment variables.
 
@@ -160,7 +161,7 @@ For example, in a node app -
 process.env.VARIABLE_NAME;
 ```
 
-#### Local development
+#### Local Development
 
 Using the Railway CLI, you can run your code locally with the environment variables configured in your Railway project.
 

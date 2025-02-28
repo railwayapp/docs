@@ -1,5 +1,6 @@
 ---
 title: Deploy a Sails App
+description: Learn how to deploy a Sails app to Railway with this step-by-step guide. It covers quick setup, database integration, the Boring JavaScript stack, one-click deploys and other deployment strategies.
 ---
 
 [Sails](https://sailsjs.com) is a MVC framework for Node.js. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture.
@@ -44,7 +45,7 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/t3sAEH)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/t3sAEH)
 
 After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
@@ -120,7 +121,7 @@ width={2986} height={2140} quality={100} />
 To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.app/new" target="_blank">Railway</a> to create a new project.
+    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Deploy from GitHub**: 
     - Select **Deploy from GitHub repo** and choose your repository.
         - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
@@ -168,7 +169,7 @@ If you're a fan of [The Boring JavaScript Stack](https://github.com/sailscastshq
 
 Simply click the button below to get started:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ia84_3)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ia84_3)
 
 **Note:** After deploying, we recommend [ejecting from the template](/guides/deploy#eject-from-template-repository) to create your own GitHub repository. This will give you full control over the project and source code.
  

@@ -1,5 +1,6 @@
 ---
 title: Production Readiness Checklist
+description: Ensure your app is production-ready with this comprehensive Railway checklist.
 ---
 
 *Is your application ready for production?*
@@ -54,7 +55,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
 - Data is critical to most applications, and you should ensure that the data layer in your stack is highly available and fault tolerant.
 
-    Consider implementing a cluster or replica set, similar to the <a href="https://railway.app/template/q589Jl" target="_blank">Redis HA with Sentinel</a> template, to ensure that your data remains available even if one node becomes unstable.
+    Consider implementing a cluster or replica set, similar to the <a href="https://railway.com/template/q589Jl" target="_blank">Redis HA with Sentinel</a> template, to ensure that your data remains available even if one node becomes unstable.
 
     We are hard at work developing other templated solutions for more production-ready datastores, keep an eye on the template marketplace for more to become available.
 
@@ -78,7 +79,7 @@ Observability and monitoring refers to tracking the health and performance of yo
 
     Setup [webhooks](/reference/deployments#deployment-states) to have the alerts sent to another system, like Slack or Discord.
 
-*What's next for observability features in Railway?  We have a ton of ideas, but we would love to hear yours in our <a href="https://community.railway.app/feature-request/better-logging-support-1e6f5676" target="_blank">community forums</a>.*
+*What's next for observability features in Railway?  We have a ton of ideas, but we would love to hear yours in our <a href="https://help.railway.com/feature-request/better-logging-support-1e6f5676" target="_blank">community forums</a>.*
 
 ---
 
@@ -90,7 +91,7 @@ Quality assurance involves following practices to ensure changes to your applica
 
 - Common practice is to run a suite of tests, scans, or other automated jobs against your code before it is merged into production.  You may want to configure your deployments to wait until those jobs have completed successfully before triggering a build.
 
-  Enable [check suites](/guides/github-autodeploys#check-suites) to have Railway wait for your GitHub workflows to complete successfuly before triggering a deployment.
+  Enable [check suites](/guides/github-autodeploys#check-suites) to have Railway wait for your GitHub workflows to complete successfully before triggering a deployment.
 
 **&check; Use environments**
 
@@ -130,7 +131,7 @@ Protecting your application and user data from malicious threats and vulnerabili
 
    Consider using a service like Cloudflare that offers both WAF and DDoS mitigation, to protect your services against web threats and ensure availability and performance.
 
-    *In the future, we would love to offer a native security solution.  If you agree, <a href="https://community.railway.app/feature-request/implement-a-waf-firewall-security-54fe2aaf" target="_blank">let us know</a>.*
+    *In the future, we would love to offer a native security solution.  If you agree, <a href="https://help.railway.com/feature-request/implement-a-waf-firewall-security-54fe2aaf" target="_blank">let us know</a>.*
 
 ---
 
@@ -150,11 +151,7 @@ Being prepared for major and unexpected issues helps minimize downtime and data 
 
 - Data is critical to preserve in many applications.  You should ensure you have a backup strategy in place for your data.
 
-    Implement a [cron service](/guides/cron-jobs) to dump and store your data backups.
-
-    If you use Postgres, check out one of our popular templates - <a href="https://railway.app/template/I4zGrH" target="_blank">PostgreSQL S3 Backups</a>.
-
-    *We are exploring ways to implement a native solution for backing up your data.  If you have any thoughts, we would love to hear from you in our <a href="https://community.railway.app/feature-request/native-database-backups-for-popular-data-8ec06824" target="_blank">community forums</a>.*
+    Enable and configure [backups](/reference/backups) for your services with volumes to ensure you can restore your data in case of any data loss.
 
 ---
 
@@ -162,6 +159,6 @@ Being prepared for major and unexpected issues helps minimize downtime and data 
 
 Using a mix of native features and external tools, we hope you can feel confident that your applications on Railway meet the highest standards of performance, reliability, and security.
 
-Remember, our team is always here to assist you with solutions.  Reach out in <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">Discord</a> or over email at [team@railway.app](mailto:team@railway.app) for assistance.
+Remember, our team is always here to assist you with solutions.  Reach out in <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">Discord</a> or over email at [team@railway.com](mailto:team@railway.com) for assistance.
 
-Finally, as suggested on several sections above, we are working tirelessly to give you the best experience imaginable on Railway.  If you have requests or suggestions, please <a href="https://community.railway.app" target="_blank">let us know</a>!
+Finally, as suggested on several sections above, we are working tirelessly to give you the best experience imaginable on Railway.  If you have requests or suggestions, please <a href="https://help.railway.com" target="_blank">let us know</a>!

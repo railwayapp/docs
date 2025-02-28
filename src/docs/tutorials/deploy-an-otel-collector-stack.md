@@ -1,5 +1,6 @@
 ---
 title: Deploy an OpenTelemetry Collector and Backend on Railway
+description: Monitor and trace your applications by deploying an OpenTelemetry Collector and backend on Railway.
 ---
 
 ## What is OpenTelemetry?
@@ -23,13 +24,13 @@ In this tutorial you will learn how to -
 
 To be successful using this tutorial, you should already have - 
 
-- Latest version of Railway [CLI installed](guides/cli#installing-the-cli)
+- Latest version of Railway [CLI installed](/guides/cli#installing-the-cli)
 - A GitHub account
 
 **OpenTelemetry Collector Template and Demo**
 
 If you are looking for a quicker way to get started, you can deploy the collector and backend stack from a template by clicking the button below.
-<a href="https://railway.app/template/7KNDff" target="_blank"><img src="https://railway.app/button.svg" alt="Deploy on Railway" /></a>
+<a href="https://railway.com/template/7KNDff" target="_blank"><img src="https://railway.com/button.svg" alt="Deploy on Railway" /></a>
 
 We also have a live demo of the project you will build in this tutorial <a href="https://classy-writing-production.up.railway.app/" target="_blank">here</a>, and you can access the code repository <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack" target="_blank">here in Github</a>.  You can find some example apps, including the one we will build in this tutorial, in the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApps" target="_blank">exampleApps folder</a>.
 
@@ -83,7 +84,7 @@ You should be able to acess the Zipkin UI by clicking on the service domain.
 
 - Add a New service by clicking `+ New`
 - Select Template as the Source
-- Type Prometheus and select the Prometheus template (be sure to select [this one](https://railway.app/template/KmJatA))
+- Type Prometheus and select the Prometheus template (be sure to select [this one](https://railway.com/template/KmJatA))
 - Click `Deploy` to apply and deploy the service
 
 *The template deploys with the proper UI port already configured to enable accessing the Prometheus UI from your browser*
@@ -275,7 +276,7 @@ In the same Railway project -
 - In the Settings tab, under Networking, click `Generate Domain`
 
 ### Deploy from the Railway CLI
-*This step assumes you have the latest version of the [Railway CLI](guides/cli#installing-the-cli) installed.*
+*This step assumes you have the latest version of the [Railway CLI](/guides/cli#installing-the-cli) installed.*
 
 On your local machine -
 - Open your terminal and change directory to the `otel-example-app` folder
@@ -349,6 +350,7 @@ The OpenTelemetry Documentation is complete and easy to follow.  We encourage yo
 - [OpenTelemetry Components](https://opentelemetry.io/docs/concepts/components/)
 - [OTLP Spec](https://opentelemetry.io/docs/specs/otlp/)
 - [Collector Docs](https://opentelemetry.io/docs/collector/)
+- [Collector Configuration Tool OTelBin](https://www.otelbin.io)
 - [Supported Languages](https://opentelemetry.io/docs/languages/)
 - [Vendors with Native OTLP Support](https://opentelemetry.io/ecosystem/vendors/) (explore this list for different backend options)
 
