@@ -24,7 +24,7 @@ const LaunchWeekBanner = ({
     <span>
       <strong>Launch Week 02</strong> is{" "}
       {isFirstStop ? "boarding soon" : "in service"}.{" "}
-      {isFirstStop ? "First" : isLastStop ? "Last" : "Next"} stop:{" "}
+      {isFirstStop ? "First" : isLastStop ? "Last" : "First"} stop:{" "}
       <Link href="https://railway.com/launch-week-02" tw="underline">
         {linkText}
       </Link>
