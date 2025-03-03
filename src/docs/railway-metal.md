@@ -66,12 +66,12 @@ strategically to provide the best possible performance and reliability.
 We are in the process of expanding our Railway Metal regions, and we expect to
 have all regions available by the end of Q1'2025 (by 31 March 2025).
 
-| Railway Metal Region       | Status                            |
-| -------------------------- | --------------------------------- |
-| US West (California)       | 🟢 Active                         |
-| US East (Virginia)         | 🟢 Active                         |
-| Europe West (Amsterdam)    | 🟢 Active                         |
-| Southeast Asia (Singapore) | 🟠 End of Q1'2025 (31 March 2025) |
+| Railway Metal Region       | Status    |
+| -------------------------- | --------- |
+| US West (California)       | 🟢 Active |
+| US East (Virginia)         | 🟢 Active |
+| Europe West (Amsterdam)    | 🟢 Active |
+| Southeast Asia (Singapore) | 🟢 Active |
 
 ## Gradual Upgrade
 
@@ -237,6 +237,10 @@ It's likely that your database, or service with a volume, isn't migrated over to
 
 There is no way to opt-out of Railway Metal. Please [reach out to us](#getting-help)
 if you have any concerns.
+
+### How do I get the new Pro plan?
+
+On your invoice close date, if 80 percent of your usage costs come from Railway Metal instances, Railway waives all seat costs on the platform.
 
 ## Getting Help
 
