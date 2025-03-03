@@ -118,9 +118,9 @@ When you reach out for help, it's important that you help us help you! Please in
 
 For teams and companies who need dedicated support, we offer Business Class.
 
-Business Class is support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company.
+Business Class is support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company. Workspaces become eligible for Business Class response times after $500/mo in spend.
 
-Reach out to us at [team@railway.com](mailto:team@railway.com) for more information on how to sign up.
+Reach out to us at [team@railway.com](mailto:team@railway.com) to enable your SLO.
 
 ### Business Class SLOs
 
@@ -175,4 +175,4 @@ Security audits can be provided by request.
 
 ## Enterprise
 
-For enterprises, we offer everything in [Business Class](#business-class) along with custom support tailored to your needs. Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.
+For enterprises, we offer everything in [Business Class](#business-class) along with custom support tailored to your needs. Railway can enter into a contractual SLA under our negotiated pricing offering. Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.

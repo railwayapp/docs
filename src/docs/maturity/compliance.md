@@ -1,6 +1,6 @@
 ---
 title: Compliance
-description: Learn about Railway’s compliance standards and how we ensure security and regulatory adherence.
+description: Learn about Railway's compliance standards and how we ensure security and regulatory adherence.
 ---
 
 Railway is designed to be used by companies of all sizes. We understand that companies have different needs when it comes to compliance and security. We are happy to work with you to ensure that Railway meets your needs. We have worked with teams in gov't, healthcare, and finance to ensure that Railway meets their needs.
@@ -25,7 +25,9 @@ SOC 2 Type II certification is expected before the end of 2024.
 
 ### HIPAA BAA
 
-Railway follows a shared responsibility model for HIPAA compliance. Railway will make its best effort to advise your company on setting up encryption for your data, auditing the storage of keys, establishing access control, and ensuring secure storage of sensitive patient data. When a BAA is in effect, the Railway team will no longer be able to directly access your running workloads. BAAs are only available on our Enterprise offerings.
+Railway follows a shared responsibility model for HIPAA compliance. Railway will make its best effort to advise your company on setting up encryption for your data, auditing the storage of keys, establishing access control, and ensuring secure storage of sensitive patient data. When a BAA is in effect, the Railway team will no longer be able to directly access your running workloads.
+
+> **Note:** Effective March 3rd, 2024, Railway is moving from negotiated contract pricing for HIPAA BAA to committed spend tiers. Customers who meet the required monthly spend threshold (e.g., $1,000/month) and commit to that level can access HIPAA BAA as an add-on, with all pricing going towards their usage.
 
 If your company needs a BAA, you can contact our solutions team at [team@railway.com](mailto:team@railway.com), or click [here](https://cal.com/team/railway/work-with-railway?duration=30) to schedule some time to chat.
 

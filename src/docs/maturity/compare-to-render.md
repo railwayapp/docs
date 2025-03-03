@@ -45,9 +45,9 @@ We provide an exceptional deployment experience through [Nixpacks](https://githu
 
 ### Databases
 
-Many apps require the use of databases. We want to ensure that it’s very convenient and easy to use and deploy as part of your services so we offer the ability to provision PostgreSQL, MySQL, Redis and MongoDB natively in the platform. Render only offers PostgreSQL and Redis natively and allows you install other alternatives via blueprints. 
+Many apps require the use of databases. We want to ensure that it’s very convenient and easy to use and deploy as part of your services so we offer the ability to provision PostgreSQL, MySQL, Redis and MongoDB natively in the platform. Render only offers PostgreSQL and Redis natively and allows you install other alternatives via blueprints.
 
-Render charges a base amount for compute (CPU and Memory) for using a managed database plus storage while we charge **for only what you use** in compute and storage. For example, if you use only 2 GB (RAM) and 1 CPU, we will charge you for only that plus storage. 
+Render charges a base amount for compute (CPU and Memory) for using a managed database plus storage while we charge **for only what you use** in compute and storage. For example, if you use only 2 GB (RAM) and 1 CPU, we will charge you for only that plus storage.
 
 If you’re aware that there will be periods of inactivity, you can also enable [App Sleeping](https://docs.railway.com/reference/app-sleeping) which reduces [the cost of usage](https://docs.railway.com/guides/optimize-usage#resource-limits) by ensuring it runs only when absolutely necessary!
 
@@ -63,9 +63,9 @@ Render provides a Point-in-Time Recovery to restore your database from 3 or 7 da
 
 ### Templates
 
-We have an increasingly [growing templates marketplace (850+)](https://railway.com/templates) where any user can build and publish a pre-configured starter app setup or template to help developers quickly deploy apps or services on Railway. 
+We have an increasingly [growing templates marketplace (850+)](https://railway.com/templates) where any user can build and publish a pre-configured starter app setup or template to help developers quickly deploy apps or services on Railway.
 
-They simplify the deployment process by providing one-click deploy buttons for popular frameworks, tools, saving developers the time and effort of setting up projects from scratch. From your dashboard, you can turn your project into a reusable template in less than 2 minutes. For example, you can deploy [Django](https://railway.com/new/template/GB6Eki), [Laravel](https://railway.com/new/template/Gkzn4k), [Metabase](https://railway.com/new/template/metabase), [Strapi](https://railway.com/template/strapi), [MinIO](https://railway.com/new/template/SMKOEA), [ClickHouse](https://railway.com/new/template/clickhouse), [Redash](https://railway.com/new/template/mb8XJA), [Prometheus](https://railway.com/new/template/KmJatA) instantly just by clicking on these links. 
+They simplify the deployment process by providing one-click deploy buttons for popular frameworks, tools, saving developers the time and effort of setting up projects from scratch. From your dashboard, you can turn your project into a reusable template in less than 2 minutes. For example, you can deploy [Django](https://railway.com/new/template/GB6Eki), [Laravel](https://railway.com/new/template/Gkzn4k), [Metabase](https://railway.com/new/template/metabase), [Strapi](https://railway.com/template/strapi), [MinIO](https://railway.com/new/template/SMKOEA), [ClickHouse](https://railway.com/new/template/clickhouse), [Redash](https://railway.com/new/template/mb8XJA), [Prometheus](https://railway.com/new/template/KmJatA) instantly just by clicking on these links.
 
 We offer a rewarding [kickback program](https://railway.com/open-source-kickback) for our creators. When you publish a template and it’s deployed into other users’ projects, you become instantly eligible for a 25% kickback of the usage costs incurred—credited to you either as cash in USD or as Railway credits added to your account.
 
@@ -99,6 +99,6 @@ Curious about the savings? Check out a [detailed breakdown of our pricing](https
 
 At Railway, we take pride in providing best-in-class support through our [vibrant Discord community](https://discord.gg/railway) and our custom-built [Help Station](https://help.railway.com/)—a platform powered by Railway itself. We firmly believe that no project is too small or unimportant when it comes to addressing support needs. If an issue arises, we’re here to help.
 
-With over [800,000 users](https://railway.com/stats) who think we’re the best thing since sliced bread, we’re committed to continuously improving. [Week after week](https://railway.com/changelog), we ship new features and updates to better support our customers.
+With over [900,000 users](https://railway.com/stats) who think we’re the best thing since sliced bread, we’re committed to continuously improving. [Week after week](https://railway.com/changelog), we ship new features and updates to better support our customers.
 
 To meet the unique needs of our customers, we offer tailored [support tiers](https://docs.railway.com/reference/support#support-tiers), ensuring users receive the assistance they need at every step.

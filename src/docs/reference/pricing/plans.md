@@ -5,6 +5,8 @@ description: Learn about Railway's plans and pricing.
 
 Railway plans and pricing are designed to support you however you work. We charge a base subscription fee for the plan you sign up to, on top of your resource and add-on usages.
 
+> **Note:** Effective March 3rd, 2024, Railway is updating its pricing structure with reduced rates for network egress and volume storage, along with new benefits for Metal instance users.
+
 ## Plans
 
 Railway offers three plans in addition to a [Free Trial](/reference/pricing/free-trial):
@@ -17,13 +19,15 @@ Railway offers three plans in addition to a [Free Trial](/reference/pricing/free
 
 ### Subscription Pricing
 
-Each Railway account needs an active subscription. The base subscription fee allows you to use the Railway platform and features included in the tier of your subscription.
+Each Railway account needs an active subscription. The base subscription fee allows you to use the Railway platform and features included in the tier of your subscription. The subscription fee goes towards your usage-costs on the platform.
 
-| Plan           | Price                     |
-| -------------- | ------------------------- |
-| **Hobby**      | $5 / month                |
-| **Pro**        | $20 / team member / month |
-| **Enterprise** | Custom                    |
+| Plan           | Price       |
+| -------------- | ----------- |
+| **Hobby**      | $5 / month  |
+| **Pro**        | $20 / month |
+| **Enterprise** | Custom      |
+
+> **Note:** For users with at least 80 percent usage on Railway hosted metal instances, all seat costs will be waived as of March 3rd, 2024.
 
 Read more about our plans at <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
@@ -33,14 +37,14 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 
 | Plan           | **RAM**    | **CPU**     | **Ephemeral Storage** | **Volume Storage** |
 | -------------- | ---------- | ----------- | --------------------- | ------------------ |
-| **Trial**      | **0.5 GB** | **2 vCPU**  | **1 GB**              | **0.5 GB**         | 
-| **Hobby**      | **8 GB**   | **8 vCPU**  | **10 GB**            | **5 GB**           |
-| **Pro**        | **32 GB**  | **32 vCPU** | **100 GB**            | **50 GB****          |
-| **Enterprise** | **64 GB**  | **64 vCPU** | **100 GB**            | **50 GB****          |
+| **Trial**      | **0.5 GB** | **2 vCPU**  | **1 GB**              | **0.5 GB**         |
+| **Hobby**      | **8 GB**   | **8 vCPU**  | **10 GB**             | **5 GB**           |
+| **Pro**        | **32 GB**  | **32 vCPU** | **100 GB**            | **50 GB\*\***      |
+| **Enterprise** | **128 GB** | **64 vCPU** | **100 GB**            | **2 TB\*\***       |
 
-Note that these are initial values and users on the Pro and Enterprise plans can request limit increases.  
+Note that these are initial values and users on the Pro and Enterprise plans can request limit increases.
 
-**For Volumes, Pro users and above can self-serve to increase their volume up to 250 GB.  Check out [this guide](/guides/volumes#growing-the-volume) for information.
+\*\*For Volumes, Pro users and above can self-serve to increase their volume up to 250 GB. Check out [this guide](/guides/volumes#growing-the-volume) for information.
 
 ### Resource Usage Pricing
 
@@ -48,12 +52,12 @@ On top of the base subscription fee above, Railway charges for the resources tha
 
 You are only charged for the resources you actually use, which helps prevent runaway cloud costs and provides assurances that you're always getting the best deal possible on your cloud spend.
 
-| Resource                                                   | Resource Price                                               |
-| ---------------------------------------------------------- | ------------------------------------------------------------ |
-| **RAM**                                                    | $10 / GB / month ($0.000231 / GB / minute)                   |
-| **CPU**                                                    | $20 / vCPU / month ($0.000463 / vCPU / minute)               |
-| **Network Egress**                                         | $0.10 / GB ($0.000000095367432 / KB) ― _from August 1, 2023_ |
-| (Optional Add-on) [**Volume Storage**](/reference/volumes) | $0.25 / GB / month ($0.000005787037037 / GB / minute)        |
+| Resource                                                   | Resource Price                                                                                                                                                              |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **RAM**                                                    | $10 / GB / month ($0.000231 / GB / minute)                                                                                                                                  |
+| **CPU**                                                    | $20 / vCPU / month ($0.000463 / vCPU / minute)                                                                                                                              |
+| **Network Egress**                                         | $0.05 / GB ($0.000000047683716 / KB) ― _from March 3, 2024_ <br>_Previous rate: $0.10 / GB ($0.000000095367432 / KB) until March 2, 2024_                                   |
+| (Optional Add-on) [**Volume Storage**](/reference/volumes) | $0.15 / GB / month ($0.000003472222222 / GB / minute) ― _from March 3, 2024_ <br>_Previous rate: $0.25 / GB / month ($0.000005787037037 / GB / minute) until March 2, 2024_ |
 
 To learn more about controlling your resource usage costs, read our FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
 
@@ -75,6 +79,23 @@ The Pro plan **does not include any usage credits**. You will be billed for reso
 ### Additional Services
 
 Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.com) to get started.
+
+## Committed Spend Tiers
+
+As of March 3rd, 2024, Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
+
+For example, customers who commit to a $10,000/month spend rate can access dedicated hosts as an add-on, with all pricing going towards their usage. This approach provides more flexibility and transparency compared to traditional contract pricing.
+
+| Add-on Feature          | Commitment Spend | Description                                                                                                     |
+| ----------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- |
+| **2 TB RAM / 112 vCPU** | $500/month       | Access to increased computing resources at a committed monthly spend level.                                     |
+| **RBAC**                | $500/month       | Role-Based Access Control to manage user permissions and access.                                                |
+| **SLOs**                | $500/month       | Service Level Objectives to ensure and track application performance.                                           |
+| **90-day log history**  | $500/month       | Extended log retention for better historical analysis and auditing.                                             |
+| **HIPAA BAAs**          | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly |
+| **Dedicated Hosts**     | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                           |
+
+To learn more about committed spend tiers and available add-ons, please [contact our team](mailto:team@railway.com).
 
 ## Credits
 

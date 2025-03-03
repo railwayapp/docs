@@ -9,7 +9,6 @@ Volumes are a feature that enables persistent data for [services](/reference/ser
 
 When mounting a volume to a service, a volume is made available to the service on the specified mount path.
 
-
 ## Size Limits
 
 Volumes have a default size based on the [subscription plan](/reference/pricing#plans).
@@ -26,9 +25,11 @@ Please reach out to us on our [Help Station](https://station.railway.com/questio
 
 ## Pricing
 
-Volumes are billed at **$0.25 / GB**, billed monthly.
+Volumes are billed at **$0.15 / GB**, billed monthly (effective March 3rd, 2024).
 
-You are only charged for the amount of storage used by your volumes. *Each volume requires aprox 2-3% of the total storage to store metadata about the filesystem, so a new volume will always start with some used amount of space used depending on the size.*
+> **Note:** Previous rate was **$0.25 / GB** until March 2nd, 2024.
+
+You are only charged for the amount of storage used by your volumes. _Each volume requires aprox 2-3% of the total storage to store metadata about the filesystem, so a new volume will always start with some used amount of space used depending on the size._
 
 ## Backups
 
@@ -37,6 +38,7 @@ Services with volumes support manual and automated backups, backups are covered 
 ## Caveats
 
 Here are some limitations of which we are currently aware:
+
 - Each service can only have a single volume
 - Replicas cannot be used with volumes
 - There is no built-in S/FTP support
@@ -48,7 +50,7 @@ Here are some limitations of which we are currently aware:
   corruption
 - There is no file browser, or direct file download. To access your files,
   you must do so via the attached service's mount point
-- Docker images that run as a non-root UID by default will have permissions issues when performing operations within an attached volume.  If you are affected by this, you can set `RAILWAY_RUN_UID=0` environment variable in your service.
+- Docker images that run as a non-root UID by default will have permissions issues when performing operations within an attached volume. If you are affected by this, you can set `RAILWAY_RUN_UID=0` environment variable in your service.
 
 ## Support
 
