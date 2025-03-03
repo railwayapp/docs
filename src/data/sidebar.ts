@@ -61,6 +61,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Play", "guides"),
           makePage("Sails", "guides"),
           makePage("Django", "guides"),
+          makePage("Angular", "guides"),
           makePage("React", "guides"),
           makePage("Remix", "guides"),
           makePage("Vue", "guides"),
