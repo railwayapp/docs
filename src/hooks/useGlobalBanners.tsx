@@ -24,7 +24,7 @@ const LaunchWeekBanner = ({
     <span>
       <strong>Launch Week 02</strong> is{" "}
       {isFirstStop ? "boarding soon" : "in service"}.{" "}
-      {isFirstStop ? "First" : isLastStop ? "Last" : "Next"} stop:{" "}
+      {isFirstStop ? "First" : isLastStop ? "Last" : "First"} stop:{" "}
       <Link href="https://railway.com/launch-week-02" tw="underline">
         {linkText}
       </Link>
@@ -42,8 +42,8 @@ const useGlobalBannersLocalStorage = () =>
 export const allGlobalBanners: GlobalBanner[] = [
   // Day 0
   {
-    id: "day-0",
-    message: <LaunchWeekBanner linkText="03 Mar 2025" isFirstStop />,
+    id: "day-01",
+    message: <LaunchWeekBanner linkText="Railway Metal" />,
   },
 ];
 
