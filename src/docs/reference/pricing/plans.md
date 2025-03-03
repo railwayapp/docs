@@ -52,12 +52,12 @@ On top of the base subscription fee above, Railway charges for the resources tha
 
 You are only charged for the resources you actually use, which helps prevent runaway cloud costs and provides assurances that you're always getting the best deal possible on your cloud spend.
 
-| Resource                                                   | Resource Price                                                                                                                                                              |
-| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **RAM**                                                    | $10 / GB / month ($0.000231 / GB / minute)                                                                                                                                  |
-| **CPU**                                                    | $20 / vCPU / month ($0.000463 / vCPU / minute)                                                                                                                              |
-| **Network Egress**                                         | $0.05 / GB ($0.000000047683716 / KB) ― _from March 3, 2024_ <br>_Previous rate: $0.10 / GB ($0.000000095367432 / KB) until March 2, 2024_                                   |
-| (Optional Add-on) [**Volume Storage**](/reference/volumes) | $0.15 / GB / month ($0.000003472222222 / GB / minute) ― _from March 3, 2024_ <br>_Previous rate: $0.25 / GB / month ($0.000005787037037 / GB / minute) until March 2, 2024_ |
+| Resource                                                   | Resource Price                                        |
+| ---------------------------------------------------------- | ----------------------------------------------------- |
+| **RAM**                                                    | $10 / GB / month ($0.000231 / GB / minute)            |
+| **CPU**                                                    | $20 / vCPU / month ($0.000463 / vCPU / minute)        |
+| **Network Egress**                                         | $0.05 / GB ($0.000000047683716 / KB)                  |
+| (Optional Add-on) [**Volume Storage**](/reference/volumes) | $0.15 / GB / month ($0.000003472222222 / GB / minute) |
 
 To learn more about controlling your resource usage costs, read our FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
 
