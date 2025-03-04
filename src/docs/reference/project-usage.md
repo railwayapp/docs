@@ -7,12 +7,12 @@ Users are billed monthly based on their project's per-minute usage. All services
 
 1. **RAM** → $0.000231 / GB / minute
 2. **CPU** → $0.000463 / vCPU / minute
-3. **Network Egress** → $0.000000047683716 / KB (effective March 3rd, 2024)
-   - Previous rate: $0.000000095367432 / KB until March 2nd, 2024
-4. **Volume Storage** → $0.000003472222222 / GB / minute (effective March 3rd, 2024)
-   - Previous rate: $0.000005787037037 / GB / minute until March 2nd, 2024
+3. **Network Egress** → $0.000000047683716 / KB (effective March 3rd, 2025)
+   - Previous rate: $0.000000095367432 / KB until March 2nd, 2025
+4. **Volume Storage** → $0.000003472222222 / GB / minute (effective March 3rd, 2025)
+   - Previous rate: $0.000005787037037 / GB / minute until March 2nd, 2025
 
-> **Note:** Effective March 3rd, 2024, Railway has reduced the pricing for Network Egress from $0.10/GB to $0.05/GB and Volume Storage from $0.25/GB to $0.15/GB.
+> **Note:** Effective March 3rd, 2025, Railway has reduced the pricing for Network Egress from $0.10/GB to $0.05/GB and Volume Storage from $0.25/GB to $0.15/GB.
 
 Users can see the usage of their projects under <a href="https://railway.com/account/usage" target="_blank">the usage page</a>.
 
