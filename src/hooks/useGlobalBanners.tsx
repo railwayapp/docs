@@ -42,8 +42,8 @@ const useGlobalBannersLocalStorage = () =>
 export const allGlobalBanners: GlobalBanner[] = [
   // Day 0
   {
-    id: "day-01",
-    message: <LaunchWeekBanner linkText="Railway Metal" />,
+    id: "day-02",
+    message: <LaunchWeekBanner linkText="Railpack" />,
   },
 ];
 
