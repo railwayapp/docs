@@ -97,14 +97,7 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
 export const PriorityBoardingBanner: React.FC = () => {
   return (
     <Banner variant="primary" icon={Star}>
-      This feature is in beta. You can enable it from your&nbsp;
-      <Link
-        href="/reference/priority-boarding"
-        className="underline hover:opacity-60"
-      >
-        account settings
-      </Link>
-      &nbsp;page.
+      This feature is in beta.
     </Banner>
   );
 };
