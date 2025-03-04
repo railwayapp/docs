@@ -5,7 +5,7 @@ description: Learn about Railway's plans and pricing.
 
 Railway plans and pricing are designed to support you however you work. We charge a base subscription fee for the plan you sign up to, on top of your resource and add-on usages.
 
-> **Note:** Effective March 3rd, 2024, Railway is updating its pricing structure with reduced rates for network egress and volume storage, along with new benefits for Metal instance users.
+> **Note:** Effective March 3rd, 2025, Railway is updating its pricing structure with reduced rates for network egress and volume storage, along with new benefits for Metal instance users.
 
 ## Plans
 
@@ -27,7 +27,7 @@ Each Railway account needs an active subscription. The base subscription fee all
 | **Pro**        | $20 / month |
 | **Enterprise** | Custom      |
 
-> **Note:** For users with at least 80 percent usage on Railway hosted metal instances, all seat costs will be waived as of March 3rd, 2024.
+> **Note:** For users with at least 80 percent usage on Railway hosted metal instances, all seat costs will be waived as of March 3rd, 2025.
 
 Read more about our plans at <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
@@ -82,7 +82,7 @@ Railway offers [Business Class Support](/reference/support#business-class) as an
 
 ## Committed Spend Tiers
 
-As of March 3rd, 2024, Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
+As of March 3rd, 2025, Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
 
 For example, customers who commit to a $10,000/month spend rate can access dedicated hosts as an add-on, with all pricing going towards their usage. This approach provides more flexibility and transparency compared to traditional contract pricing.
 
