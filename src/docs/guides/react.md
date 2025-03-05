@@ -73,83 +73,14 @@ We highly recommend that [you eject from the template after deployment](/guides/
         ```
     - Follow the prompts to name your project.
     - After the project is created, click the provided link to view it in your browser.
-3. **Set Up Config for a Production Ready Server**:
-    - To ensure we're not running a development server in production, we'll add two files to our app directory to configure Railway to serve our app using the fast, reliable, and production-ready [Caddy server](https://caddyserver.com).
-    - A `Caddyfile` and `nixpacks.toml` file. 
-
-    **Caddyfile**
-    ```bash
-    # global options
-    {
-        admin off # theres no need for the admin api in railway's environment
-        persist_config off # storage isn't persistent anyway
-        auto_https off # railway handles https for us, this would cause issues if left enabled
-        # runtime logs
-        log {
-            format json # set runtime log format to json mode 
-        }
-        # server options
-        servers {
-            trusted_proxies static private_ranges 100.0.0.0/8 # trust railway's proxy
-        }
-    }
-
-    # site block, listens on the $PORT environment variable, automatically assigned by railway
-    :{$PORT:3000} {
-        # access logs
-        log {
-            format json # set access log format to json mode
-        }
-
-        # health check for railway
-        rewrite /health /*
-
-        # serve from the 'dist' folder (Vite builds into the 'dist' folder)
-        root * dist
-
-        # enable gzipping responses
-        encode gzip
-
-        # serve files from 'dist'
-        file_server
-
-        # if path doesn't exist, redirect it to 'index.html' for client side routing
-        try_files {path} /index.html
-    }
-    ```
-
-    **nixpacks.toml**
-    ```bash
-    # https://nixpacks.com/docs/configuration/file
-    # set up some variables to minimize annoyance
-    [variables]
-        NPM_CONFIG_UPDATE_NOTIFIER = 'false' # the update notification is relatively useless in a production environment
-        NPM_CONFIG_FUND = 'false' # the fund notification is also pretty useless in a production environment
-
-    # download caddy from nix
-    [phases.caddy]
-        dependsOn = ['setup'] # make sure this phase runs after the default 'setup' phase
-        nixpkgsArchive = 'ba913eda2df8eb72147259189d55932012df6301' # Caddy v2.8.4 - https://github.com/NixOS/nixpkgs/commit/ba913eda2df8eb72147259189d55932012df6301
-        nixPkgs = ['caddy'] # install caddy as a nix package
-
-    # format the Caddyfile with fmt
-    [phases.fmt]
-        dependsOn = ['caddy'] # make sure this phase runs after the 'caddy' phase so that we know we have caddy downloaded
-        cmds = ['caddy fmt --overwrite Caddyfile'] # format the Caddyfile to fix any formatting inconsistencies
-
-    # start the caddy web server
-    [start]
-        cmd = 'exec caddy run --config Caddyfile --adapter caddyfile 2>&1' # start caddy using the Caddyfile config and caddyfile adapter
-    ```
-    **Note:** Railway uses [Nixpacks](/reference/nixpacks) to build and deploy your code with zero configuration. You can customize your [deployment configuration](https://nixpacks.com/docs/configuration/file) by adding a `nixpacks.toml` or `nixpacks.json` file to your app.
-4. **Deploy the Application**:
+3. **Deploy the Application**:
     - Use the command below to deploy your app:
         ```bash
         railway up
         ```
     - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
     - Once the deployment completes, go to **View logs** to check if the service is running successfully.
-5. **Set Up a Public URL**:
+4. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
@@ -170,14 +101,9 @@ To deploy a React app to Railway directly from GitHub, follow the steps below:
 3. **Deploy the App**: 
     - Click **Deploy** to start the deployment process.
     - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
-    **Note:** Your app will be running via a development server, which is not ideal. We'll fix that in the next step.
-5. **Set Up Config for a Production Ready Server**:
-    - Follow [step 3 mentioned in the CLI guide](#deploy-from-the-cli).
-6. **Redeploy the Service**:
-    - Click **Deploy** on the Railway dashboard to apply your changes.
-7. **Verify the Deployment**:
+4. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
-8. **Set Up a Public URL**:
+5. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 

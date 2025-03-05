@@ -74,7 +74,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
         ```
     - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
     - Once the deployment completes, go to **View logs** to check if the service is running successfully.
-5. **Set Up a Public URL**:
+4. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
