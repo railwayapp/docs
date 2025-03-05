@@ -56,7 +56,7 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/NeiLty)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/w5OSVq)
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
@@ -154,8 +154,8 @@ To deploy a Solid app to Railway directly from GitHub, follow the steps below:
     The `Dockerfile` will use Caddy to serve the Solid app.
 3. Add a `Caddyfile` to the app's root directory:
     ```bash
-    # global options
     {
+        # global options
         admin off # theres no need for the admin api in railway's environment
         persist_config off # storage isn't persistent anyway
         auto_https off # railway handles https for us, this would cause issues if left enabled
