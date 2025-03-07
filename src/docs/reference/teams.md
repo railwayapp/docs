@@ -7,7 +7,7 @@ Workspaces are how organizations are represented within Railway. A default works
 
 For more information, visit our [documentation on pricing](/reference/pricing) or <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
-> **Note:** Effective March 3rd, 2024, for users on Railway hosted metal instances, all seat costs will be waived.
+> **Note:** Effective March 3rd, 2025, for users on Railway hosted metal instances, all seat costs will be waived.
 
 ## Creating a Team
 
@@ -58,7 +58,7 @@ However, if you expect to use a consistent amount of resources for large compani
 
 ### Committed Spend Tiers
 
-As of March 3rd, 2024, Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
+As of March 3rd, 2025, Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
 
 For example, customers who commit to a $10,000/month spend rate can access dedicated hosts as an add-on, with all pricing going towards their usage. This approach provides more flexibility and transparency compared to traditional contract pricing.
 
@@ -70,7 +70,7 @@ Reach out to us at [team@railway.com](mailto:team@railway.com) for more informat
 
 ### How do I get my Pro seat costs waived?
 
-As of March 3rd, 2024, Railway waives all seat costs for users on Railway hosted metal instances. To qualify for this benefit:
+As of March 3rd, 2025, Railway waives all seat costs for users on Railway hosted metal instances. To qualify for this benefit:
 
 1. Your workspace must be on the Pro plan
 2. Your services must be running on Railway hosted metal instances
