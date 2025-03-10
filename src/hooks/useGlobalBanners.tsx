@@ -10,28 +10,28 @@ export interface GlobalBanner {
   variant?: BannerVariant;
 }
 
-const LaunchWeekBanner = ({
-  linkText,
-  isFirstStop,
-  isLastStop,
-}: {
-  linkText: string;
-  isFirstStop?: boolean;
-  isLastStop?: boolean;
-}) => (
-  <>
-    <span role="img">🚅</span>{" "}
-    <span>
-      <strong>Launch Week 02</strong> is{" "}
-      {isFirstStop ? "boarding soon" : "in service"}.{" "}
-      {isFirstStop ? "First" : isLastStop ? "Last" : "Next"} stop:{" "}
-      <Link href="https://railway.com/launch-week-02/day-4" tw="underline">
-        {linkText}
-      </Link>
-      !
-    </span>
-  </>
-);
+// const LaunchWeekBanner = ({
+//   linkText,
+//   isFirstStop,
+//   isLastStop,
+// }: {
+//   linkText: string;
+//   isFirstStop?: boolean;
+//   isLastStop?: boolean;
+// }) => (
+//   <>
+//     <span role="img">🚅</span>{" "}
+//     <span>
+//       <strong>Launch Week 02</strong> is{" "}
+//       {isFirstStop ? "boarding soon" : "in service"}.{" "}
+//       {isFirstStop ? "First" : isLastStop ? "Last" : "Next"} stop:{" "}
+//       <Link href="https://railway.com/launch-week-02/day-4" tw="underline">
+//         {linkText}
+//       </Link>
+//       !
+//     </span>
+//   </>
+// );
 
 const GLOBAL_BANNERS_KEY = "@railway/globalBanners";
 const useGlobalBannersLocalStorage = () =>
@@ -40,11 +40,11 @@ const useGlobalBannersLocalStorage = () =>
   });
 
 export const allGlobalBanners: GlobalBanner[] = [
-  // Day 0
-  {
-    id: "day-04",
-    message: <LaunchWeekBanner linkText="Railway for Frontend" />,
-  },
+  // // Day 0
+  // {
+  //   id: "day-00",
+  //   message: <LaunchWeekBanner linkText="Railway for Frontend" />,
+  // },
 ];
 
 export const useGlobalBanners = () => {
