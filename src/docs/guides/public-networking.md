@@ -254,7 +254,7 @@ alt="Screenshot of TCP proxy configuration"
 layout="responsive"
 width={700} height={225} quality={100} />
 
-Incomging traffic will be distributed across all replicas in the closest region using a random algorithm.
+Incoming traffic will be distributed across all replicas in the closest region using a random algorithm.
 
 ## Using HTTP and TCP Together
 
