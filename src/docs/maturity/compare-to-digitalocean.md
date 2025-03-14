@@ -43,7 +43,7 @@ Railway offers a comprehensive platform that combines the best aspects of tradit
 
 ### Developer Experience
 
-DigitalOcean requires a not significant amount of DevOps knowledge and manual configuration. Railway provides an intuitive interface that makes deployment and management accessible to developers of all skill levels.
+DigitalOcean requires a not insignificant amount of DevOps knowledge and manual configuration. Railway provides an intuitive interface that makes deployment and management accessible to developers of all skill levels.
 
 Our Project Canvas offers a visual representation of your connected infrastructure, making it easy to understand and manage service relationships. This is a stark contrast to DigitalOcean's traditional and outdated dashboard approach.
 
