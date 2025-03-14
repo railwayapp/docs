@@ -310,6 +310,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Compare to Render", "maturity"),
       makePage("Compare to Fly", "maturity"),
       makePage("Compare to Vercel", "maturity"),
+      makePage("Compare to DigitalOcean", "maturity"),
     ],
   },
   {
@@ -318,6 +319,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Migrate from Render", "migration"),
       makePage("Migrate from Fly", "migration"),
       makePage("Migrate from Vercel", "migration"),
+      makePage("Migrate from DigitalOcean", "migration"),
     ],
   },
   {
