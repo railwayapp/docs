@@ -1,4 +1,6 @@
----
+---git init
+git add .
+git commit -m "Initial commit"
 title: Railway Metal
 description: Railway Metal is Railway’s own cloud infrastructure, built for high-performance, scalable, and cost-efficient app deployments. Learn how it works.
 ---
