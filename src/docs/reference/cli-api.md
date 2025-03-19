@@ -462,6 +462,36 @@ Options:
   -V, --version            Print version
 ```
 
+## SSH
+
+*SSH into a project/service*
+
+```txt
+~ railway ssh --help
+Connect to a service via SSH
+
+Usage: railway ssh [OPTIONS] [COMMAND]...
+
+Arguments:
+  [COMMAND]...  Command to execute instead of starting an interactive shell
+
+Options:
+  -p, --project <PROJECT>
+          Project to connect to (defaults to linked project)
+  -s, --service <SERVICE>
+          Service to connect to (defaults to linked service)
+  -e, --environment <ENVIRONMENT>
+          Environment to connect to (defaults to linked environment)
+  -d, --deployment-instance <deployment-instance-id>
+          Deployment instance ID to connect to (defaults to first active instance)
+      --json
+          Output in JSON format
+  -h, --help
+          Print help
+  -V, --version
+          Print version
+```
+
 ## Status
 
 *View the status of your Railway project and user*
