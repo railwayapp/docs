@@ -1,5 +1,5 @@
 ---
-title: CLI API Reference
+title: CLI Reference
 description: Learn about the Railway CLI commands.
 ---
 The Railway Command Line Interface (CLI) lets you interact with your
