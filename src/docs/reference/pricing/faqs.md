@@ -21,7 +21,7 @@ To understand how much your app will cost to run on Railway, we recommend you to
 
 1. Deploy your project with the [Trial](/reference/pricing/free-trial) or Hobby plan
 2. Allow it to run for one week
-3. Check your Estimated Usage in the [Usage Section](https://railway.com/account/usage) of your account
+3. Check your Estimated Usage in the [Usage Section](https://railway.com/workspace/usage) of your Workspace settings
 
 Keeping it running for one week allows us to rack up sufficient metrics to provide you with an estimate of your usage for the current billing cycle. You can then use this information to extrapolate the cost you should expect.
 
@@ -37,7 +37,7 @@ Check out our [guide on optimizing usage](/guides/optimize-usage).
 
 ### Why is my resource usage higher than expected?
 
-You can check your resource usage in the [Usage Section](https://railway.com/account/usage) of your account. This includes a breakdown of your resource usage by project, along with the resource it's consuming (CPU, Memory, Network, etc.)
+You can check your resource usage in the [Usage Section](https://railway.com/workspace/usage) of your Workspace settings. This includes a breakdown of your resource usage by project, along with the resource it's consuming (CPU, Memory, Network, etc.)
 
 Common reasons for high resource usage include:
 
@@ -61,7 +61,7 @@ When the amount due on your invoice is less than $0.50, and you do not have a cr
 
 ### How do I view/manage/cancel my subscription?
 
-To view and manage your subscription, visit the [billing section](https://railway.com/account/billing) of the Railway dashboard.
+To view and manage your subscription, visit the [billing section](https://railway.com/workspace/billing) of your workspace.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1715777336/docs/manage-subscription_ssyxhg.png"
@@ -81,40 +81,26 @@ When you cancel your subscription, if you're on Hobby, Pro, or Enterprise, your 
 
 If you are on the Hobby plan and using prepaid credits as your payment method, your subscription will be canceled immediately and any credit balance you may have will be forfeited.
 
-### How do I switch between Hobby plan billing models?
+### How do I switch to the auto-renewing Hobby plan billing model?
 
-At this time, we do not directly support switching between Hobby plan billing models, such as switching from a prepaid credit-based plan to an auto-renewing subscription, or vice versa.
+At this time, we do not directly support switching from a prepaid credit-based plan to an auto-renewing subscription.
 
-You can, however, cancel your current plan, wait until the end of the current billing period or until you exhaust your remaining credits, and then sign back up with the desired billing model.
+You can, however, cancel your current plan, wait until you exhaust your remaining credits, and then sign back up on the auto-renewing plan.
 
-**Note:** Cancelling your subscription does not immediately stop your [services](/overview/the-basics#services). The outcome depends on your previous plan -
-
-- For subscription-based plans: Services will run until the end of your current billing period.
-- For prepaid credits-based plans: Services will run until you exhaust your remaining credits.
+**Note:** Cancelling your subscription does not immediately stop your [services](/overview/the-basics#services). Services will run until you exhaust your remaining credits.
 
 <p><span style={{color: "var(--tw-prose-counters)"}}>1.</span> Cancel your current plan.</p>
 
-    - Head over to the <a href="https://railway.com/account/billing" target="_blank">billing page</a> of your account.
+    - Head over to the <a href="https://railway.com/workspace/billing" target="_blank">Billing page</a> of your workspace.
     - Click on **Manage Subscription**.
     - Click on **Cancel Plan**.
 
-<p><span style={{color: "var(--tw-prose-counters)"}}>2.</span> Wait until the end of the current billing period or until you exhaust your remaining credits.</p>
+<p><span style={{color: "var(--tw-prose-counters)"}}>2.</span> Wait until you exhaust your remaining credits.</p>
 
-<p><span style={{color: "var(--tw-prose-counters)"}}>3.</span> Sign up for your desired billing model.</p>
+<p><span style={{color: "var(--tw-prose-counters)"}}>3.</span> Sign up for the auto-renewing Hobby plan.</p>
 
-    1. Prepaid Credits Model.
-
-        - Head over to the <a href="https://railway.com/account/upgrade" target="_blank">upgrade page</a>.
-        - Scroll to the bottom and select **Looking for a prepaid subscription**.
-        - Enter your billing information.
-        - Enter the amount of credits you'd like to add to your account. (Minimum of $10)
-        - Click on **Purchase Credits**.
-
-        You are now on the prepaid credits model. Be sure to always keep a balance in your account to keep your services running.
-
-    2. Auto-renewing Subscription Model.
-
-        - Head over to the <a href="https://railway.com/account/upgrade" target="_blank">upgrade page</a>.
+        - Head over to the <a href="https://railway.com/workspace/plans" target="_blank">Plans page</a>.
+        - Click **Deploy with Hobby**.
         - Enter your billing information.
         - Click on **Subscribe to Hobby Plan**.
 
@@ -138,9 +124,9 @@ Your [services](/overview/the-basics#services) may be stopped by Railway for the
 
 - **Hobby credits exhausted:** You've run out of [prepaid credits](/reference/pricing/plans#credits). Add more credits to your account.
 
-- **Failed payment:** Your payment method has failed. Update your payment method and [pay your outstanding invoice](https://railway.com/account/billing).
+- **Failed payment:** Your payment method has failed. Update your payment method and [pay your outstanding invoice](https://railway.com/workspace/billing).
 
-- **Unpaid invoice:** You have an outstanding invoice. [Pay your outstanding invoice](https://railway.com/account/billing).
+- **Unpaid invoice:** You have an outstanding invoice. [Pay your outstanding invoice](https://railway.com/workspace/billing).
 
 In all cases, you can redeploy your services once the underlying issue is resolved, this can be done from the Removed deployment's [3-dot menu](/reference/deployments#deployment-menu).
 
@@ -148,7 +134,7 @@ In all cases, you can redeploy your services once the underlying issue is resolv
 
 ### I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?
 
-Create a Pro plan on Railway and add the client to the team. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Help Station](https://station.railway.com).
+Create a Pro plan on Railway and add the client to the workspace. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Central Station](https://station.railway.com).
 
 ### Why did I receive another invoice after cancelling my subscription?
 

@@ -143,6 +143,6 @@ Railway makes local development seamless with your production environment:
 
 This ensures development/production parity and helps catch issues before they reach production.
 
-That's all it takes to move your Next.js application to Railway! Need help? Our [team and community](https://help.railway.com/) are always ready to assist.
+That's all it takes to move your Next.js application to Railway! Need help? Our [team and community](https://station.railway.com/) are always ready to assist.
 
 Need more information on how we compare to Vercel? Check out our [comparison page](/maturity/compare-to-vercel).

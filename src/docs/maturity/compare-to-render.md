@@ -97,7 +97,7 @@ Curious about the savings? Check out a [detailed breakdown of our pricing](https
 
 ### Customer Support and Community
 
-At Railway, we take pride in providing best-in-class support through our [vibrant Discord community](https://discord.gg/railway) and our custom-built [Help Station](https://help.railway.com/)—a platform powered by Railway itself. We firmly believe that no project is too small or unimportant when it comes to addressing support needs. If an issue arises, we’re here to help.
+At Railway, we take pride in providing best-in-class support through our [vibrant Discord community](https://discord.gg/railway) and our custom-built [Central Station](https://station.railway.com/)—a platform powered by Railway itself. We firmly believe that no project is too small or unimportant when it comes to addressing support needs. If an issue arises, we’re here to help.
 
 With over [900,000 users](https://railway.com/stats) who think we’re the best thing since sliced bread, we’re committed to continuously improving. [Week after week](https://railway.com/changelog), we ship new features and updates to better support our customers.
 

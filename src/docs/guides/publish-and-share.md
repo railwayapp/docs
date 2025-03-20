@@ -17,7 +17,7 @@ After you create your template, simply click the publish button and fill out the
   quality={80}
 />
 
-You can always publish your template by going to the <a href="https://railway.com/account/templates" target="_blank">Templates page in Account Settings</a> and choose `Publish` next to the template you'd like to publish.
+You can always publish your template by going to the <a href="https://railway.com/workspace/templates" target="_blank">Templates page in your Workspace settings</a> and choose `Publish` next to the template you'd like to publish.
 
 ## Sharing your Templates
 

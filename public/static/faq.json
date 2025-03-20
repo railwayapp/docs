@@ -89,7 +89,7 @@
     "category": "general",
     "questions": ["Where do I submit a feature request?"],
     "answer": "Feature requests are greatly appreciated! You can submit a feature request on our feedback page.",
-    "link": "https://feedback.railway.com/"
+    "link": "https://station.railway.com/feedback"
   },
   "fair-use": {
     "category": "security",
@@ -139,10 +139,10 @@
       "I am reaching my free plan limits. How do I upgrade my account?",
       "How do I subscribe to the paid tier?",
       "Where do I upgrade my account?",
-      "How do I add a credit card?"
+      "How can I upgrade from Hobby to Pro?"
     ],
-    "answer": "You can upgrade on your Account Management portal under the Billing page.",
-    "link": "https://railway.com/account/billing"
+    "answer": "You can upgrade your account from within the 'Plans' page.",
+    "link": "https://railway.com/workspace/plans"
   },
   "usage-calc": {
     "category": "pricing",
@@ -168,8 +168,8 @@
   "see-usage": {
     "category": "pricing",
     "questions": ["How do I see my project's usage?"],
-    "answer": "Under the project usage tab under the Account dropdown menu.",
-    "link": "https://railway.com/account/billing"
+    "answer": "In the project settings, click on the 'Usage' tab.",
+    "link": ""
   },
   "bug-reporting": {
     "category": "misc",
@@ -177,8 +177,8 @@
       "I found a bug. Where can I report it?",
       "Where do I report a bug?"
     ],
-    "answer": "You can report a bug on our dedicated Bug Report Canny page. Bug reports are happily accepted!",
-    "link": "https://feedback.railway.com/bug-reports"
+    "answer": "You can report a bug in our Central Station. Bug reports are happily accepted!",
+    "link": "https://station.railway.com/feedback"
   },
   "hiring": {
     "category": "misc",

@@ -33,7 +33,7 @@ This is just scratching the surface of the similarities between Railway and Verc
 
 - **Persistent Disks** - We provide persistent disks for your application, so you don't have to worry about data loss.
 
-- **Best in Class Support** - Incredibly fast personalized support on Slack, and the [Help Station](https://help.railway.com/).
+- **Best in Class Support** - Incredibly fast personalized support on Slack, and the [Central Station](https://station.railway.com/).
 
 - **Private networking** - Seamlessly and securely connect your services together through the global wireguard network.
 
@@ -129,9 +129,9 @@ And fortunately, this simple pricing model does not change based on the region y
 
 ### Support
 
-We offer incredibly fast and personalized support on Slack, and the [Help Station](https://help.railway.com/).
+We offer incredibly fast and personalized support on Slack, and the [Central Station](https://station.railway.com/).
 
-Our help station is built in house from the ground up to allow us to provide the best possible support to you, the user.
+Our Central Station is built in house from the ground up to allow us to provide the best possible support to you, the user.
 
 Pro and enterprise users get priority support within Slack, and entrpise can also book a call with our team to get direct help from the Railway team.
 

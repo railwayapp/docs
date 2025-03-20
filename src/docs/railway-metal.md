@@ -244,6 +244,6 @@ On your invoice close date, if 80 percent of your usage costs come from Railway 
 
 ## Getting Help
 
-Please reach out to us [on our Help Station](https://help.railway.com/feedback/feedback-railway-metal-a41f03a1) if you run into any issues. You can also reach out to us over [Slack](/reference/support#slack) if you are
+Please reach out to us [on our Central Station](https://station.railway.com/feedback/feedback-railway-metal-a41f03a1) if you run into any issues. You can also reach out to us over [Slack](/reference/support#slack) if you are
 a Pro or [Business Class / Enterprise](/reference/support#business-class)
 customer.
