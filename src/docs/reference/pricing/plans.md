@@ -97,23 +97,9 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 
 To learn more about committed spend tiers and available add-ons, please [contact our team](mailto:team@railway.com).
 
-## Credits
-
-Credits are available on Railway as a payment method for Hobby plan users who prefer to pre-pay for their subscription and usage on Railway.
-
-### Credits As a Payment Method
-
-On Railway, you can pay for your Hobby plan subscription and resource usage with pre-purchased credits. When using credits as a payment method, keep in mind that:
-
-- You must carry a credit balance sufficient to cover usage + the Hobby plan fee, otherwise your project will be paused and your subscription cancelled. If your subscription is cancelled, you will be required to resubscribe
-- If your usage within a billing period exceeds your credit balance, you will no longer be able to deploy, and your projects will be paused
-- If you cancel your subscription, any remaining credit balance will be lost
-
-Credits as a payment method is only available for Hobby plan users.
-
 ### Purchasing Credits
 
-You can purchase credits from your account's [Usage page](https://railway.com/account/usage).
+If you are already on the Pre-Paid plan, you can purchase credits from your Workspace's [Usage page](https://railway.com/workspace/usage).
 
 ### One-time Grant of Credits on the Free Trial
 

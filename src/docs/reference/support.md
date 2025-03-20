@@ -11,11 +11,11 @@ We prioritize support requests based on the plan you're on and the urgency of yo
 
 ### Trial & Hobby
 
-Trial & Hobby plan users are only eligible for community support over [Help Station](#help-station) or [Discord](#discord). Railway may respond to community threads, but a response is not guaranteed.
+Trial & Hobby plan users are only eligible for community support over [Central Station](#help-station) or [Discord](#discord). Railway may respond to community threads, but a response is not guaranteed.
 
 ### Pro & Business Class
 
-Pro & [Business Class](#business-class) customers can select the urgency of their request when creating a new thread in [Help Station](#help-station) or [Slack](#slack).
+Pro & [Business Class](#business-class) customers can select the urgency of their request when creating a new thread in [Central Station](#help-station) or [Slack](#slack).
 
 | Level    | Description                                                                | Eligibility                       |
 | -------- | -------------------------------------------------------------------------- | --------------------------------- |
@@ -24,15 +24,15 @@ Pro & [Business Class](#business-class) customers can select the urgency of thei
 | High     | Issues that are blocking you from using Railway                            | Pro                               |
 | Critical | Production outage or platform issues blocking your team from using Railway | [Business Class](#business-class) |
 
-## Help Station
+## Central Station
 
-Railway conducts its support over our [Help Station](https://station.railway.com) platform.
+Railway conducts its support over our [Central Station](https://station.railway.com) platform.
 
 It hosts our community of 500,000+ users and developers. It is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1733323523/docs/cs-2024-12-04-22.28_egl1hw.png"
-alt="Screenshot of Railway Help Station"
+alt="Screenshot of Railway Central Station"
 layout="intrinsic"
 width={1737} height={1384} quality={100} />
 
@@ -40,13 +40,13 @@ Please ensure that you've searched for your issue before creating a new thread, 
 
 ### Visibility
 
-For Pro plan users, threads created in the [Help Station](https://station.railway.com) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 1 business day (if community members are unable to help).
+For Pro plan users, threads created in the [Central Station](https://station.railway.com) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 1 business day (if community members are unable to help).
 
 We pay special attention to threads created by Pro users and ensure that questions or concerns are resolved in a timely manner.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1715282870/docs/pro-priority-threads_pxyodo.png"
-alt="Screenshot of Railway Help Station - Priority Threads"
+alt="Screenshot of Railway Central Station - Priority Threads"
 layout="intrinsic"
 width={772} height={269} quality={100} />
 
@@ -54,11 +54,11 @@ For teams and companies requiring SLOs and higher-priority support over chat, si
 
 ### Private Threads
 
-You create a **Private Thread** on [Help Station](https://station.railway.com/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
+You create a **Private Thread** on [Central Station](https://station.railway.com/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1715282996/docs/priv-threads_lus6tx.png"
-alt="Screenshot of Railway Help Station - Private Threads"
+alt="Screenshot of Railway Central Station - Private Threads"
 layout="intrinsic"
 width={756} height={184} quality={100} />
 

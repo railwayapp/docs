@@ -64,7 +64,7 @@ Users can view their referral invite status on the <a href="https://railway.com/
 
 Accounts are billed monthly. Resources used by deleted projects up until deletion are still counted towards the total bill.
 
-Users can manage their billing plan as well as view historical payments on the <a href="https://railway.com/account/billing" target="_blank">billing page</a>.
+Users can manage their billing information as well as view historical payments on the <a href="https://railway.com/workspace/billing" target="_blank">billing page</a>.
 
 ## Link Discord Account
 

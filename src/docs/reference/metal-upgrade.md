@@ -87,7 +87,7 @@ For example, if your application in US West (California) Railway Metal region co
 
 If you need assistance with your Railway Metal upgrade:
 
-- Submit feedback through our [Help Station](https://help.railway.com/feedback/feedback-railway-metal-a41f03a1)
+- Submit feedback through our [Central Station](https://station.railway.com/feedback/feedback-railway-metal-a41f03a1)
 - Pro and Enterprise customers can reach out via [Slack](/reference/support#slack)
 - See our [FAQ on Railway Metal](/railway-metal#faq) for answers to common questions
 

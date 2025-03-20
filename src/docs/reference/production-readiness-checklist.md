@@ -79,7 +79,7 @@ Observability and monitoring refers to tracking the health and performance of yo
 
     Setup [webhooks](/reference/deployments#deployment-states) to have the alerts sent to another system, like Slack or Discord.
 
-*What's next for observability features in Railway?  We have a ton of ideas, but we would love to hear yours in our <a href="https://help.railway.com/feature-request/better-logging-support-1e6f5676" target="_blank">community forums</a>.*
+*What's next for observability features in Railway?  We have a ton of ideas, but we would love to hear yours in our <a href="https://station.railway.com/feature-request/better-logging-support-1e6f5676" target="_blank">community forums</a>.*
 
 ---
 
@@ -131,7 +131,7 @@ Protecting your application and user data from malicious threats and vulnerabili
 
    Consider using a service like Cloudflare that offers both WAF and DDoS mitigation, to protect your services against web threats and ensure availability and performance.
 
-    *In the future, we would love to offer a native security solution.  If you agree, <a href="https://help.railway.com/feature-request/implement-a-waf-firewall-security-54fe2aaf" target="_blank">let us know</a>.*
+    *In the future, we would love to offer a native security solution.  If you agree, <a href="https://station.railway.com/feature-request/implement-a-waf-firewall-security-54fe2aaf" target="_blank">let us know</a>.*
 
 ---
 
@@ -161,4 +161,4 @@ Using a mix of native features and external tools, we hope you can feel confiden
 
 Remember, our team is always here to assist you with solutions.  Reach out in <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">Discord</a> or over email at [team@railway.com](mailto:team@railway.com) for assistance.
 
-Finally, as suggested on several sections above, we are working tirelessly to give you the best experience imaginable on Railway.  If you have requests or suggestions, please <a href="https://help.railway.com" target="_blank">let us know</a>!
+Finally, as suggested on several sections above, we are working tirelessly to give you the best experience imaginable on Railway.  If you have requests or suggestions, please <a href="https://station.railway.com" target="_blank">let us know</a>!

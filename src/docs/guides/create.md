@@ -129,7 +129,7 @@ The current template variable functions are:
 
 ## Managing Your Templates
 
-You can see all of your templates on your <a href="https://railway.com/account/templates" target="_blank">Account's Template page</a>. Templates are separated into Personal and Published templates.
+You can see all of your templates on your <a href="https://railway.com/workspace/templates" target="_blank">Workspace's Template page</a>. Templates are separated into Personal and Published templates.
 
 You can edit, publish/unpublish and delete templates.
 

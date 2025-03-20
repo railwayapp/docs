@@ -58,4 +58,4 @@ This can very easily be modified to run commands in order to find variables and 
 
 ## Conclusion
 
-We hope this tutorial has been helpful and that you'll find it useful for your own projects. If you have any questions or feedback, please feel free to reach out to us on [Discord](https://discord.gg/railway), [Slack](/reference/support#slack) or the [Help Station](https://help.railway.com). Happy coding!
+We hope this tutorial has been helpful and that you'll find it useful for your own projects. If you have any questions or feedback, please feel free to reach out to us on [Discord](https://discord.gg/railway), [Slack](/reference/support#slack) or the [Central Station](https://station.railway.com). Happy coding!

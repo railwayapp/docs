@@ -27,7 +27,7 @@ const NoResults: React.FC = () => {
           <div css={tw`flex flex-row gap-4 items-center justify-center`}>
             <ContactButton href="https://station.railway.com/">
               <RailwayIcon />
-              Railway Help Station
+              Railway Central Station
             </ContactButton>
           </div>
         </div>

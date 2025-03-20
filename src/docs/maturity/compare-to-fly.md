@@ -13,7 +13,7 @@ Railway offers:
 - **Flexible Deployment Options**: Use GitHub, Dockerfiles, Docker images from any registry, or local deployments via the Railway CLI.
 - **Integrated Tools**: Simplify environment variable management, CI/CD, observability, and service scaling.
 - **Networking Features:** Public and private networking.
-- **Best in Class Support:** Very active community and support on Slack, [Discord](https://discord.gg/railway) and [Help Station](https://help.railway.com/).
+- **Best in Class Support:** Very active community and support on Slack, [Discord](https://discord.gg/railway) and our [Central Station](https://station.railway.com/).
 
 We differ in the following:
 
@@ -114,7 +114,7 @@ Explore our [detailed pricing breakdown](https://docs.railway.com/reference/pric
 
 ### Customer Support and Community
 
-At Railway, we take pride in offering best-in-class support through our [vibrant Discord community](https://discord.gg/railway) and our custom-built [Help Station](https://help.railway.com/)—a support platform powered by Railway itself. We believe that every project matters, no matter how big or small. If you run into an issue, we’re here to help, and our engineers are always available to ensure you get the support you need.
+At Railway, we take pride in offering best-in-class support through our [vibrant Discord community](https://discord.gg/railway) and our custom-built [Central Station](https://station.railway.com/)—a support platform powered by Railway itself. We believe that every project matters, no matter how big or small. If you run into an issue, we’re here to help, and our engineers are always available to ensure you get the support you need.
 
 With over [880,000 users](https://railway.com/stats) who love what we do, we’re committed to continuous improvement. [Every week](https://railway.com/changelog), we ship new features and updates to make Railway even better—because great support isn’t just about answering questions, it’s about building a platform that just works.
 
