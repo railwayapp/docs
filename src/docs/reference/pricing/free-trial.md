@@ -34,7 +34,7 @@ When you sign up for the free Trial, you will receive a one-time grant of $5 in 
 
 ### What resources can I access during the Trial?
 
-During the trial, you can access the same features as on the Hobby plan, however you will be limited to 500MB of RAM and shared (rather than dedicated) vCPU cores.
+During the trial, you can access the same features as on the Hobby plan, however you will be limited to 500MB of RAM and shared (rather than dedicated) vCPU cores. Additionally, your projects will be limited to 5 services per project.
 
 As a trial user, you can always spin-up databases. However, to deploy code, you must be on the [Full Trial](#full-vs-limited-trial).
 
