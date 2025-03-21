@@ -11,9 +11,9 @@ For information on how to create, publish, and deploy templates, visit our [Temp
 
 ## Kickback program
 
-If you publish a template, and it is deployed into other users' projects, you are immediately eligible for a 25% kickback of the usage cost incurred, in the form of Railway credits.  
+If you publish a template, and it is deployed into other users' projects, you are immediately eligible for a 50% kickback of the usage cost incurred, in the form of Railway credits.  
 
-If a user deploys your template, and the usage of the services cost the user $100, you could receive $25 in Railway credits.
+If a user deploys your template, and the usage of the services cost the user $100, you would receive $50 in Railway credits or $50 in cash (USD).
 
 Read more about the kickback program <a href="https://railway.com/open-source-kickback" target="_blank">here</a>.
 
@@ -26,7 +26,7 @@ Read more about the kickback program <a href="https://railway.com/open-source-ki
   - Cost of Subscription Plan ($5 for Hobby, $20 for Pro)
   - Additional Team Seats
 
-  As an example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $50 kickback (25% of $200).
+  As an example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $100 kickback (50% of $200).
 
 - The minimum kickback our program supports is $0.01, meaning usage of your template must incur at least $0.04 in usage after discounts and/or platform fees.
 - All service types and resource usage of those services (compute, volume, egress, etc) _do count_ towards the kickback.

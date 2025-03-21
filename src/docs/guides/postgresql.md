@@ -121,13 +121,53 @@ Especially for production environments, performing regular backups and monitorin
 
 ## Extensions
 
-In an effort to maintain simplicity in the default templates, we do not plan to add exentions to the PostgreSQL templates covered in this guide.
+In an effort to maintain simplicity in the default templates, we do not plan to add extensions to the PostgreSQL templates covered in this guide.
 
 For some of the most popular extensions, like PostGIS and Timescale, there are several options in the template marketplace.
 
 - <a href="https://railway.com/template/VSbF5V" target="_blank">TimescaleDB</a>
 - <a href="https://railway.com/template/postgis" target="_blank">PostGIS</a>
 - <a href="https://railway.com/template/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
+- <a href="https://railway.com/template/3jJFCA" target="_blank">pgvector</a>
+
+## Modifying The Postgres Configuration
+
+You can modify the Postgres configuration by using the [`ALTER SYSTEM`](https://www.postgresql.org/docs/current/sql-altersystem.html) command.
+
+```txt
+ALTER SYSTEM SET shared_buffers = '2GB';
+ALTER SYSTEM SET effective_cache_size = '6GB';
+ALTER SYSTEM SET maintenance_work_mem = '512MB';
+ALTER SYSTEM SET work_mem = '32MB';
+ALTER SYSTEM SET max_worker_processes = '8';
+ALTER SYSTEM SET max_parallel_workers_per_gather = '4';
+ALTER SYSTEM SET max_parallel_workers = '8';
+
+-- Reload the configuration to save the changes
+SELECT pg_reload_conf();
+```
+
+After running the SQL, you will need to restart the deployment for the changes to take effect.
+
+You can restart the deployment by clicking the `Restart` button in the deployment's 3-dot menu.
+
+## Increasing the SHM Size
+
+The SHM Size is the maximum amount of shared memory available to the container.
+
+By default it is set to 64MB.
+
+You would need to change the SHM Size if you are experiencing the following error -
+
+```txt
+ERROR: could not resize shared memory segment "PostgresSQL.1590182853" to 182853 bytes: no space left on device
+```
+
+You can modify the SHM Size by setting the `RAILWAY_SHM_SIZE_BYTES` variable in your service variables.
+
+This variable is a number in bytes, so you would need to convert the size you want to use.
+
+For example, to increase the SHM Size to 500MB, you would set the variable to `524288000`.
 
 ## Additional Resources
 

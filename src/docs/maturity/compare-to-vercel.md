@@ -109,7 +109,7 @@ Railway's [Templates Marketplace](https://railway.com/templates) features 940+ t
 
 The template marketplace contains templates for many popular OSS projects, including Supabase, N8N, and Typebot. Deploying these templates is as easy as clicking a button, and they are all configured to deploy with the best practices for Railway.
 
-Best of all, through our [Kickback Program](https://railway.com/open-source-kickback), template creators receive 25% of the usage costs when others deploy their templates—either as cash (USD) or Railway credits.
+Best of all, through our [Kickback Program](https://railway.com/open-source-kickback), template creators receive 50% of the usage costs when others deploy their templates—either as cash (USD) or Railway credits.
 
 ### Pricing
 

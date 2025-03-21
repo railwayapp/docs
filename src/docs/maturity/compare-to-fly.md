@@ -93,7 +93,7 @@ Railway's [Templates Marketplace](https://railway.com/templates) is rapidly expa
 
 Our templates cover a wide range of frameworks and tools, including [Django](https://railway.com/new/template/GB6Eki), [Laravel](https://railway.com/new/template/Gkzn4k), [Metabase](https://railway.com/new/template/metabase), [Strapi](https://railway.com/template/strapi), [MinIO](https://railway.com/new/template/SMKOEA), [ClickHouse](https://railway.com/new/template/clickhouse), [Redash](https://railway.com/new/template/mb8XJA), and [Prometheus](https://railway.com/new/template/KmJatA)—all deployable in seconds. From your dashboard, you can turn your project into a reusable template in under two minutes.
 
-We also reward our creators through the [Kickback Program](https://railway.com/open-source-kickback). When you publish a template and it’s deployed by other users, you receive 25% of the usage costs as a kickback, credited either as cash (USD) or Railway credits—allowing you to earn while supporting the developer community.
+We also reward our creators through the [Kickback Program](https://railway.com/open-source-kickback). When you publish a template and it’s deployed by other users, you receive 50% of the usage costs as a kickback, credited either as cash (USD) or Railway credits—allowing you to earn while supporting the developer community.
 
 Fly.io offers a selection of official and community-contributed application templates, mainly available through their GitHub fly-apps repositories. However, Fly does not have a centralized marketplace like Railway, nor does it provide any incentives for community templates.
 

@@ -67,7 +67,7 @@ We have an increasingly [growing templates marketplace (850+)](https://railway.c
 
 They simplify the deployment process by providing one-click deploy buttons for popular frameworks, tools, saving developers the time and effort of setting up projects from scratch. From your dashboard, you can turn your project into a reusable template in less than 2 minutes. For example, you can deploy [Django](https://railway.com/new/template/GB6Eki), [Laravel](https://railway.com/new/template/Gkzn4k), [Metabase](https://railway.com/new/template/metabase), [Strapi](https://railway.com/template/strapi), [MinIO](https://railway.com/new/template/SMKOEA), [ClickHouse](https://railway.com/new/template/clickhouse), [Redash](https://railway.com/new/template/mb8XJA), [Prometheus](https://railway.com/new/template/KmJatA) instantly just by clicking on these links.
 
-We offer a rewarding [kickback program](https://railway.com/open-source-kickback) for our creators. When you publish a template and it’s deployed into other users’ projects, you become instantly eligible for a 25% kickback of the usage costs incurred—credited to you either as cash in USD or as Railway credits added to your account.
+We offer a rewarding [kickback program](https://railway.com/open-source-kickback) for our creators. When you publish a template and it’s deployed into other users’ projects, you become instantly eligible for a 50% kickback of the usage costs incurred—credited to you either as cash in USD or as Railway credits added to your account.
 
 Render has example templates on GitHub that you can deploy and no incentives for community templates.
 
