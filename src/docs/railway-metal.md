@@ -147,8 +147,8 @@ expect:
 | Starting January 31st, 2025  | All new deploys on all services _without a [volume](/reference/volumes)_ by Trial & Hobby users will use Railway Metal by default.                                        | 🟢     |
 | Starting February 14th, 2025 | All new deploys on all services _without a [volume](/reference/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                     | 🟢     |
 | Starting March 14th, 2025    | All new deploys on services _with a [volume](/reference/volumes)_ by Trial & Hobby users will use Railway Metal by default.                                               | 🟢     |
+| Starting March 21st, 2025    | We will begin migrating services to Railway metal for Hobby Users                                                                                                         | 🟢     |
 | Starting March 28th, 2025    | All new deploys on services _with a [volume](/reference/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                            | 🟠     |
-| Starting April 4th, 2025     | We will begin migrating services to Railway metal for Hobby Users                                                                                                         | 🔘     |
 | Starting May 2nd, 2025       | We will begin migrating services to Railway metal for Pro Users                                                                                                           | 🔘     |
 | Starting June 6th, 2025      | We will begin migrating services to Railway metal for Enterprise Users                                                                                                    | 🔘     |
 
