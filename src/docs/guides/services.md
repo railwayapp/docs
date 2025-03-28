@@ -80,10 +80,10 @@ If you'd like to deploy from a private Docker registry, ensure you're on the [Pr
 
 To deploy from a private Docker registry, specify the path of the image when prompted in the creation flow, as well as authentication credentials (username, password) to the registry.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1722896145/docs/CleanShot_2024-08-05_at_17.12.55_2x_xi38sx.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743197249/docs/source-image_gn52ff.png"
 alt="GIF of the Services view"
 layout="intrinsic"
-width={370} height={280} quality={100} />
+width={1200} height={746} quality={100} />
 
 If deploying an image from <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>, provide a <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry" target="_blank">personal access token (classic)</a>.
 
