@@ -5,10 +5,10 @@ description: Learn about webhooks on Railway.
 
 Webhooks can be used to notify your own application of alerts or deployment status changes.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1737948617/docs/webhooks/rzty7jqdpp7cxxr2iwyj.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743196876/docs/new-webhook_lrfxxa.png"
 alt="New Webhook UI"
 layout="responsive"
-width={950} height={734} quality={80} />
+width={1200} height={754} quality={80} />
 
 
 ## Setting up a Project webhook
