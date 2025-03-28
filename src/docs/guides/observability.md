@@ -16,10 +16,10 @@ width={1111} height={649} quality={80} />
 ## Navigating to the Observability Dashboard
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1717179197/obnavigation_orplvx.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743129656/docs/observability_hsja97.png"
 alt="Screenshot of the Updated Project Navigation"
 layout="responsive"
-width={589} height={189} quality={80} />
+width={1200} height={260} quality={80} />
 
 _Users may notice that the project navigation is updated with the feature._
 
