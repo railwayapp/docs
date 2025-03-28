@@ -16,10 +16,10 @@ Overrides are exposed in the service configuration to enable customizing the Bui
 The command to build the service, for example `yarn run build`. Override the detected build command by setting a value in your service settings.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1664564851/docs/build-command_vhuify.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743192207/docs/build-command_bwdprb.png"
 alt="Screenshot of Railway Build Command"
 layout="responsive"
-width={745} height={238} quality={80} />
+width={1200} height={373} quality={80} />
 
 #### Start Command
 
