@@ -29,10 +29,10 @@ If you've created an empty service, or would like to update the source for a dep
 Click on the service, go to the Settings tab, and find the **Service Source** setting.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1688760102/docs/screenshot-2023-07-07-16.00.54_e2r6mk.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743121798/docs/deployment-source_sir4mo.png"
 alt="Screenshot of how to connect a service to a GitHub repo or Docker image"
 layout="responsive"
-width={709} height={190} quality={80} />
+width={1200} height={421} quality={80} />
 
 ### Deploying From a GitHub Repo
 
@@ -41,10 +41,10 @@ Define a GitHub repository as your service source by selecting `Connect Repo` an
 When a new commit is pushed to the linked branch, Railway will automatically build and deploy the new code.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1688759920/docs/screenshot-2023-07-07-15.58.09_dmufxl.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743121857/docs/github-repo_z8qkst.png"
 alt="Screenshot of a GitHub deployment trigger"
 layout="responsive"
-width={708} height={245} quality={80} />
+width={1200} height={371} quality={80} />
 
 You must link your Railway account to GitHub, to enable Railway to connect to your GitHub repositories. <a href="https://github.com/apps/railway-app/installations/new" target="_blank">You can configure the Railway App in GitHub by clicking this link.</a>
 
