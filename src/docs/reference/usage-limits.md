@@ -7,7 +7,7 @@ Usage Limits allow you to set a maximum limit on your usage for a billing cycle.
 
 ## Configuring Usage Limits
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1694775828/usage-limits_hzv9ee.png" alt="Usage Limits Modal" layout="responsive" width={1252} height={1150} />
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743193518/docs/usage-limits_pqlot9.png" alt="Usage Limits Modal" layout="responsive" width={1200} height={1075} />
 
 Visit your [Workspace Usage page](https://railway.com/workspace/usage) to set the usage limits. Once you click the <kbd>Set Usage Limits</kbd> button, you will see a modal above where you can set a <kbd>Custom email alert</kbd> and a <kbd>Hard limit</kbd>.
 
