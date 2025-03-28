@@ -168,10 +168,10 @@ When you add a custom domain, you're given a list of ports to choose from, and t
 
 These target ports inform Railway which public domain corresponds to each internal port, ensuring that traffic from a specific domain is correctly routed to your application.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1726092043/docs/target_ports_custom_domain_qhgd5p.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743196226/docs/custom-domain_ulvgap.png"
 alt="Screenshot of target port selection on a custom domain"
 layout="intrinsic"
-width={700} height={582}
+width={1200} height={1035}
 quality={100} />
 
 You can change the automatically detected or manually set port at any time by clicking the edit icon next to the domain.
@@ -249,10 +249,10 @@ If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdom
 You can proxy TCP traffic to your service by creating a TCP proxy in the service settings. Enter the port that you want traffic proxied to, Railway will generate a domain and port for you to use. All traffic sent to `domain:port` will be proxied to your service. This is useful for services that don't support HTTP, such as databases.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1694217808/docs/screenshot-2023-09-08-20.02.55_hhxn0a.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743194081/docs/tcp-proxy_edctub.png"
 alt="Screenshot of TCP proxy configuration"
 layout="responsive"
-width={700} height={225} quality={100} />
+width={1200} height={822} quality={100} />
 
 Incoming traffic will be distributed across all replicas in the closest region using a random algorithm.
 
