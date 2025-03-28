@@ -31,10 +31,10 @@ Railway conducts its support over our [Central Station](https://station.railway.
 It hosts our community of 500,000+ users and developers. It is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1733323523/docs/cs-2024-12-04-22.28_egl1hw.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743120744/central-station_x3txbu.png"
 alt="Screenshot of Railway Central Station"
 layout="intrinsic"
-width={1737} height={1384} quality={100} />
+width={1737} height={913} quality={100} />
 
 Please ensure that you've searched for your issue before creating a new thread, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://station.railway.com/community-code-of-conduct).
 
@@ -57,10 +57,10 @@ For teams and companies requiring SLOs and higher-priority support over chat, si
 You create a **Private Thread** on [Central Station](https://station.railway.com/support) if you need to share sensitive information, such as invoices or personal data. Private Threads are only visible to you and Railway employees.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1715282996/docs/priv-threads_lus6tx.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743120858/private-thread_en0bkd.png"
 alt="Screenshot of Railway Central Station - Private Threads"
 layout="intrinsic"
-width={756} height={184} quality={100} />
+width={1436} height={455} quality={100} />
 
 Private Threads have a slower response time because only Railway employees can
 see them. We recommend you to only create a Private Thread if you need to share
