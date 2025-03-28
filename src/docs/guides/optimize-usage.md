@@ -11,7 +11,7 @@ Usage Limits allow you to set a maximum limit on your usage for a billing cycle.
 
 Visit the <a href="https://railway.com/workspace/usage" target="_blank">Workspace Usage page</a> to set the usage limits. Once you click the <kbd>Set Usage Limits</kbd> button, you will see a modal above where you can set a <kbd>Custom email alert</kbd> and a <kbd>Hard limit</kbd>.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1694775828/usage-limits_hzv9ee.png" alt="Usage Limits Modal" layout="responsive" width={1252} height={1150} />
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743193518/docs/usage-limits_pqlot9.png" alt="Usage Limits Modal" layout="responsive" width={1200} height={1075} />
 
 #### Setting Limits for Teams
 
@@ -51,7 +51,7 @@ Communicate with your Railway database over private networking by using the `DAT
 
 If your Railway services need to communicate with each other, you can find the service's private URL in the service settings:
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1715870638/docs/privnet-services_iyqsgd.png" alt="Private Network URL" layout="responsive" width={758} height={573} />
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743193518/docs/private-networking_nycfyk.png" alt="Private Network URL" layout="responsive" width={1558} height={1156} />
 
 Learn more about Railway's Private Networking [here](/guides/private-networking).
 
