@@ -133,10 +133,10 @@ You can see all of your templates on your <a href="https://railway.com/workspace
 
 You can edit, publish/unpublish and delete templates.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1680281548/CleanShot_2023-03-31_at_20.51.43_2x_j8a83x.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743199089/docs/templates_xyphou.png"
  alt="Account templates page"
  layout="intrinsic"
- height={3080}
- width={3100}
+ height={1200}
+ width={668}
  quality={80}
 />
