@@ -14,10 +14,10 @@ As you create or update components within your project -
 1. The number of staged changes will be displayed in a banner on the canvas
 2. Staged changes will appear as purple in the UI
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1702077687/docs/staged-changes/wl1qxxj8mpbej70i042r.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/t_crop/v1743123181/docs/what-to-expect_f09bnp.png"
             alt="Staged changes on Railway canvas"
             layout="responsive"
-            width={1423} height={826} quality={100} />
+            width={1200} height={518} quality={100} />
 
 ### Review and Deploy Changes
 
@@ -25,10 +25,10 @@ To review the staged changes, click the "Details" button in the banner.  Here, y
 
 You can optionally add a commit message that will appear in the [activity feed](/guides/projects#viewing-recent-activity).
  
-<Image src="https://res.cloudinary.com/railway/image/upload/v1706310620/docs/staged-changes/details-modal_qbmujh.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743123181/docs/changes_qn15ls.png"
             alt="Staged changes on Railway canvas"
             layout="responsive"
-            width={1108} height={841} quality={100} />
+            width={1200} height={792} quality={100} />
 
 Clicking "Deploy" will deploy all of the changes at once. Any services that are affected will be redeployed.
 
