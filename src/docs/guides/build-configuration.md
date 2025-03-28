@@ -34,10 +34,10 @@ You can find a complete list of languages we support out of the box [here](/refe
 Using the default Nixpacks builder, you can customize the build command that is run from within your service settings.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1664564851/docs/build-command_vhuify.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743192207/docs/build-command_bwdprb.png"
 alt="Screenshot of Railway Build Command"
 layout="responsive"
-width={745} height={238} quality={80} />
+width={1200} height={373} quality={80} />
 
 For those familiar with Nixpacks, this gets set as the `--build-cmd` argument during the Nixpacks build.
 
@@ -47,10 +47,10 @@ The root directory defaults to `/` but can be changed for various use-cases like
 [monorepo](/guides/monorepo) projects.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/root-directory_nczles.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743192841/docs/root-directory_nfzkfi.png"
 alt="Screenshot of Root Directory"
 layout="responsive"
-width={1190} height={400} quality={80} />
+width={1200} height={421} quality={80} />
 
 When specified, all build and deploy
 commands will operate within the defined root directory.
@@ -64,10 +64,10 @@ that can be used to trigger a new deployment based on what file paths have
 changed.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/watch-paths_l4xozt.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743192841/docs/watch-paths_zv62py.png"
 alt="Screenshot of Railway Watch Paths"
 layout="responsive"
-width={1158} height={444} quality={80} />
+width={1200} height={456} quality={80} />
 
 For example, a monorepo might want to only trigger builds if files are
 changed in the `/packages/backend` directory.
