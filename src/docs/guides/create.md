@@ -60,11 +60,11 @@ You can also convert an existing project into a ready-made Template for other us
 - Click `Create Template`
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1680277820/CleanShot_2023-03-31_at_19.47.55_2x_yvr9hb.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743198969/docs/create-template_ml13wy.png"
 alt="Generate template from project"
 layout="intrinsic"
-width={1599}
-height={899}
+width={1200}
+height={428}
 quality={80}
 />
 
@@ -99,10 +99,10 @@ To specify a particular GitHub branch to deploy, simply enter the full URL to th
 
 Template variable functions allow you to dynamically generate variables (or parts of a variable) on demand when the template is deployed.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1690581532/docs/screenshot-2023-07-28-15.31.42_tjgp1e.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743198983/docs/template-variables_dp5pg5.png"
 alt="Template Variable Functions"
 layout="intrinsic"
-width={624} height={497} quality={100} />
+width={1200} height={428} quality={100} />
 
 When a template is deployed, all template variable functions are executed and the result replaces the `${{ ... }}` in the variable.
 
