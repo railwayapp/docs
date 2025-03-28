@@ -136,7 +136,7 @@ You can edit, publish/unpublish and delete templates.
 <Image src="https://res.cloudinary.com/railway/image/upload/v1743199089/docs/templates_xyphou.png"
  alt="Account templates page"
  layout="intrinsic"
- height={1200}
- width={668}
+ width={1200}
+ height={668}
  quality={80}
 />
