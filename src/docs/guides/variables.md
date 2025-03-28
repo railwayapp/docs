@@ -116,10 +116,10 @@ Railway provides the ability to seal variable values for extra security. When a 
 
 To seal an existing variable, click the 3-dot menu on the right-side of the variable and choose the "Seal" option.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1726224584/CleanShot_2024-09-13_at_14.48.50_2x_ffr4ij.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743199483/docs/seal_ky7w4s.png"
 alt="Seal an existing variable"
 layout="responsive"
-width={502} height={533} quality={100} />
+width={1200} height={552} quality={100} />
 
 ### Updating a Sealed Variable
 
