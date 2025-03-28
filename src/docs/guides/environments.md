@@ -30,10 +30,10 @@ You can easily sync environments to _import_ one or more services from one envir
 5. Review the [staged changes](/guides/staged-changes) by clicking Details on the staged changes banner
 6. Click "Deploy" once you are ready to apply the changes and re-deploy
 
-<Image src="https://res.cloudinary.com/railway/image/upload/t_crop/v1743189544/docs/sync-environments_mifq0b.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743192480/docs/sync-environments_sujrxq.png"
             alt="Staged changes on Railway canvas"
             layout="responsive"
-            width={1200} height={658} quality={100} />
+            width={1200} height={843} quality={100} />
 
 ---
 
