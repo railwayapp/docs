@@ -58,10 +58,10 @@ postgresql://postgres:password@postgres.railway.internal:5432/railway
 If you'd like to expose the database over the public network, you'll need to set up a [TCP Proxy](/guides/public-networking#tcp-proxying), to proxy public traffic to the Postgres port `5432`:
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1694217808/docs/screenshot-2023-09-08-20.02.55_hhxn0a.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743194081/docs/tcp-proxy_edctub.png"
 alt="Screenshot of TCP proxy configuration"
 layout="responsive"
-width={700} height={225} quality={100} />
+width={1200} height={822} quality={100} />
 
 ## Conclusion
 
