@@ -29,10 +29,10 @@ dashboard.
 On the deployment details page, all the settings that a deployment went out with are shown. For settings that come from a configuration file, there is a little file icon. Hovering over the icon will show exactly what part of the file the values originated from.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1666388941/docs/details-page-config-tooltip_jvy1qu.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743195106/docs/configuration_emrjth.png"
 alt="Screenshot of Deployment Details Pane"
 layout="responsive"
-width={948} height={419} quality={100} />
+width={1200} height={631} quality={100} />
 
 ## Configurable Settings
 
