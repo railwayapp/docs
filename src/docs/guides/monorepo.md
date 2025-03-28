@@ -76,10 +76,10 @@ To prevent code changes in one service from triggering a rebuild of other servic
 Watch paths are <a href="https://git-scm.com/docs/gitignore#_pattern_format" target="_blank">gitignore-style</a> patterns that can be used to trigger a new deployment based on what file paths have changed. 
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1664565164/docs/watch-paths_l4xozt.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743192841/docs/watch-paths_zv62py.png"
 alt="Screenshot of Railway Watch Paths"
 layout="responsive"
-width={1158} height={444} quality={80} />
+width={1200} height={456} quality={80} />
 
 A monorepo might want to only trigger builds if files are changed in the `/packages/backend` directory, for example.
 
