@@ -10,10 +10,10 @@ Proxy TCP traffic to a service by creating a TCP proxy.
 Enabling TCP Proxy on a service requires specification of a port to which the traffic should be proxied.  Railway then generates a domain and proxy port, and all traffic sent to `domain:port` will be proxied to the service. 
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1694217808/docs/screenshot-2023-09-08-20.02.55_hhxn0a.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743194081/docs/tcp-proxy_edctub.png"
 alt="Screenshot of TCP proxy configuration"
 layout="responsive"
-width={700} height={225} quality={100} />
+width={1200} height={882} quality={100} />
 
 #### Load Balancing 
 
