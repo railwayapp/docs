@@ -14,10 +14,10 @@ As you create or update components within your project -
 1. The number of staged changes will be displayed in a banner on the canvas
 2. Staged changes will appear as purple in the UI
 
-<Image src="https://res.cloudinary.com/railway/image/upload/t_crop/v1743123181/docs/what-to-expect_f09bnp.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743124679/docs/what-to-expect_dqinwd.png"
             alt="Staged changes on Railway canvas"
             layout="responsive"
-            width={1200} height={518} quality={100} />
+            width={1400} height={720} quality={100} />
 
 ### Review and Deploy Changes
 
