@@ -80,17 +80,17 @@ Note: If you do not see the Transfer Project section in your Project Settings, y
 
 The activity feed shows all the changes that have been made to a project. This includes changes to services and volumes. You can click on a change to see everything that was committed.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1702078916/docs/staged-changes/t16znkj2e7v88j5h4lb3.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743121231/docs/recent-activity_g2hupm.png"
             alt="Commit activity feed"
             layout="responsive"
-            width={1273} height={777} quality={100} />
+            width={1273} height={631} quality={100} />
 
 ## Updating Project Visibility
 
 Projects are private by default and only accessible to members of the project.  However, you can make your projects public to share in a read-only state by changing the visibility in project settings - 
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1663700589/docs/visible_vjqct8.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743121306/docs/project-visiblity_ksafj3.png"
 alt="Screenshot of Project Visibility Setting"
 layout="intrinsic"
-width={712} height={291} quality={80} />
+width={1273} height={451} quality={80} />
