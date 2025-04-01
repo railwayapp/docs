@@ -7,10 +7,10 @@ Webhooks can be used to notify your own application of deployment status changes
 
 ## Setup a Webhook
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1737944748/docs/webhooks/x6ckbtzhpnopdrnu0yd3.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743196876/docs/new-webhook_lrfxxa.png"
 alt="New Webhook"
 layout="responsive"
-width={933} height={752} quality={80} />
+width={1200} height={754} quality={80} />
 
 Complete the following steps to setup a webhook:
 1. Open an existing Project on Railway.
