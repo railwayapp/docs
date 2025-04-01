@@ -13,7 +13,7 @@ Enabling TCP Proxy on a service requires specification of a port to which the tr
 src="https://res.cloudinary.com/railway/image/upload/v1743194081/docs/tcp-proxy_edctub.png"
 alt="Screenshot of TCP proxy configuration"
 layout="responsive"
-width={1200} height={882} quality={100} />
+width={1200} height={822} quality={100} />
 
 #### Load Balancing 
 
