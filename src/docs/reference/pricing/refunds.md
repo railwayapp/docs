@@ -10,10 +10,10 @@ Refunds are for new customers who no longer wish to use Railway after initially 
 You can request for a refund in [Workspace Settings -> Billing](https://railway.com/workspace/billing) under **Billing History**:
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1708555357/docs/billing-refund_wg7aja.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743469117/refund_e0pzvw.png"
 alt="Screenshot of refund request button inside Account -> Billing"
 layout="intrinsic"
-width={989} height={231} quality={100} />
+width={1200} height={289} quality={100} />
 
 If you do not see a refund button next to your invoice, you are ineligible for a refund. **This decision is final** and we are unable to issue refunds for invoices that have been deemed ineligible.
 
