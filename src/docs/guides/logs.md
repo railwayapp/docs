@@ -12,7 +12,7 @@ There are three ways to view logs in Railway.
 - **Log Explorer** → Click on the Observability tab in the top navigation
 - **CLI** → Run the `railway logs` command
 
-## Build / Deploy Panel
+## Build / Panel
 
 Logs for a specific deployment can be viewed by clicking on the deployment 
 in the service window, useful when debugging application failures.
