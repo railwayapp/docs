@@ -24,10 +24,10 @@ This variable's value is also used when performing health checks on your deploym
 If your application doesn't listen on the `PORT` variable, possibly due to using [target ports](/guides/public-networking#target-ports), you can manually set a `PORT` [variable](/overview/the-basics#service-variables) to inform Railway of the port to use for health checks.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1726687666/docs/add_port_var_dbd3jc.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743469112/healthcheck-port_z0vj4o.png"
 alt="Screenshot showing PORT service variable configuration"
 layout="intrinsic"
-width={847} height={261} quality={100} />
+width={1200} height={307} quality={100} />
 
 Not listening on the `PORT` variable or omitting it when using target ports can result in your health check returning a `service unavailable` error.
 
