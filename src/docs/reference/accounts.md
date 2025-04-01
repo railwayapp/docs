@@ -9,10 +9,10 @@ Users are only allowed one account per person. This is enforced through email, G
 
 ## Account Settings
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/account-nav_jzyaeb.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/account-settings_najujk.png"
 alt="Screenshot of Account Navigation"
 layout="fixed"
-width={770} height={564} quality={80} />
+width={1200} height={857} quality={80} />
 
 The account settings page is accessible by clicking the profile photo in the top right and selecting <a href="https://railway.com/account" target="_blank">Account Settings</a>.
 
