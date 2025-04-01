@@ -31,11 +31,11 @@ If your domain is using a [target port](/guides/public-networking#target-ports),
 
 This setting can be found within your [service settings](/overview/the-basics#service-settings).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1726092089/docs/target_ports_eiqgw0.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743470803/docs/custom-port_r8vhbx.png"
 alt="Screenshot showing target ports on a domain"
 layout="intrinsic"
-width={700}
-height={634}
+width={1200}
+height={999}
 quality={100}
 />
 
