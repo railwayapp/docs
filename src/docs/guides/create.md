@@ -64,7 +64,7 @@ src="https://res.cloudinary.com/railway/image/upload/v1743198969/docs/create-tem
 alt="Generate template from project"
 layout="intrinsic"
 width={1200}
-height={428}
+height={380}
 quality={80}
 />
 
