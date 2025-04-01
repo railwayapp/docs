@@ -64,10 +64,10 @@ When the amount due on your invoice is less than $0.50, and you do not have a cr
 To view and manage your subscription, visit the [billing section](https://railway.com/workspace/billing) of your workspace.
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1715777336/docs/manage-subscription_ssyxhg.png"
+src="https://res.cloudinary.com/railway/image/upload/v1743469115/manage-subscription_qnqfjb.png"
 alt="Screenshot of refund request button inside Account -> Billing"
 layout="intrinsic"
-width={565} height={508} quality={100} />
+width={1200} height={635} quality={100} />
 
 Clicking on "Manage Subscription" will allow you to:
 
