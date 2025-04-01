@@ -130,10 +130,10 @@ width={1363} height={817} quality={100} />
 
     Choose the result that is published by **Railway Templates**.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/tailscale_subnet_router_template_b9vzt4.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743471191/docs/template-tailscale_ryph2o.png"
 alt="screenshot of the choose a template modal showing the tailscale template within railway"
 layout="intrinsic"
-width={660} height={409} quality={100} />
+width={1200} height={634} quality={100} />
 
 - A ghost service will appear, Paste in your Auth Key from earlier.
 
