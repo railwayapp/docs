@@ -45,7 +45,7 @@ Railway can spin up a temporary environment whenever you open a Pull Request. To
 src="https://res.cloudinary.com/railway/image/upload/v1699568846/docs/enablePrEnv_f5n2hx.png"
 alt="Screenshot of Deploy Options"
 layout="responsive"
-width={480} height={156} quality={80} />
+width={1622} height={506} quality={80} />
 
 When enabled, a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
 
