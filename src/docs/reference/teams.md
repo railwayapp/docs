@@ -35,8 +35,8 @@ Trusted domains may be configured on the team settings page. Note that team memb
 
 <Image 
     src="https://res.cloudinary.com/railway/image/upload/v1733955730/docs/t-d_jbtbm7.png"
-    width="600"
-    height="300"
+    width="1200"
+    height="548"
     alt="Trusted domains are configurable via the team settings"
 />
 
