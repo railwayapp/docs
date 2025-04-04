@@ -248,16 +248,16 @@ Horizontal scaling across multiple regions, with two replicas in each region.
   "$schema": "https://railway.com/railway.schema.json",
   "deploy": {
     "multiRegionConfig": {
-      "us-east4": {
+      "us-west2": {
         "numReplicas": 2
       },
-      "us-west1": {
+      "us-east4-eqdc4a": {
         "numReplicas": 2
       },
-      "europe-west4": {
+      "europe-west4-drams3a": {
         "numReplicas": 2
       },
-      "asia-southeast1": {
+      "asia-southeast1-eqsg3a": {
         "numReplicas": 2
       }
     }

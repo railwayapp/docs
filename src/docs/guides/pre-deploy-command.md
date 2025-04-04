@@ -20,5 +20,6 @@ For pre-deploy commands to work correctly, ensure that:
 - It runs in a reasonable amount of time. It will occupy a slot in your build queue.
 - It does not rely on the application running.
 - It has the dependencies it needs to run installed in the application image.
+- It does not attempt to read or write data to the volume or filesystem, that should instead be done as part of the start command.
 
 <Banner variant="warning">Pre-deploy commands execute in a separate container from your application. Changes to the filesystem are not persisted and [volumes](/reference/volumes) are not mounted.</Banner>

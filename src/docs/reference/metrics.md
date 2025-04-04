@@ -9,6 +9,10 @@ Railway provides resource usage information on deployments within a service, whi
 
 For each service, Railway captures metric data. These metrics are then made available in graphs within a service's panel, under the metrics tab.
 
+## How it works - with multiple replicas
+
+When a service has multiple replicas, the metrics from all replicas are summed up and displayed in the metrics tab, for example, if you have 2 replicas, each using 100 MB of memory, the memory usage displayed in the metrics tab will be 200 MB.
+
 ## Provided Metrics
 
 The following metrics are provided:

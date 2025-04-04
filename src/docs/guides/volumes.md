@@ -88,6 +88,8 @@ Volumes are mounted to your service's container when it is started, not during b
 
 If you write data to a directory at build time, it will not persist on the volume, even if it writes to the directory to which you have mounted the volume.
 
+**Note:** Volumes are not mounted during pre-deploy time, if your pre-deploy command attempts to read or write data to a volume, it should be done as part of the start command.
+
 Volumes are not mounted as overlays.
 
 ### Permissions

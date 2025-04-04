@@ -7,7 +7,7 @@ Railway offers some quick and easy ways to configure deployments for achieving o
 
 Specifically, we offer the following features:
 
-- Horizontal Scaling with Replicas ([vertical scaling](/reference/scaling#vertical-autoscaling) is done automatically)
+- Horizontal Scaling with Replicas where each individual replica can use the full resources your plan allows for. ([Vertical scaling](/reference/scaling#vertical-autoscaling) is done automatically)
 - Regional Deployments
 
 Continue reading for information on how to configure these.
@@ -16,7 +16,9 @@ Continue reading for information on how to configure these.
 
 Scale horizontally by manually increasing the number of replicas for a service.
 
-Railway's infrastructure spans multiple regions across the globe, and by default Railway deploys to `us-west1` located in Portland, Oregon.
+Each replica has access to the full resources allocated by your plan. For instance, with the `Pro` plan, each of your replicas can utilize up to 32 vCPU and 32GB of memory, for example, if you had 2 replicas, your service would be able to utilize up to 64 vCPU and 64GB of memory split between the 2 replicas.
+
+Railway's infrastructure spans multiple regions across the globe, and by default Railway deploys to your preferred region.
 
 <Image 
     src="https://res.cloudinary.com/railway/image/upload/v1733386054/multi-region-replicas_zov7rv.png"
