@@ -10,19 +10,24 @@ Consider factors like compliance needs and proximity to your users when choosing
 ## Region Options
 Railway has deploy regions in the Americas, Europe, and Asia-Pacific to provide broad coverage around the world.
 
-Within the service settings, you can select one of the following regions:
+Within the service settings, you can select one of the following regions -
 
-| Name           | Location               | Variable Value    |
-|----------------|------------------------|-------------------|
-| US West        | Oregon, USA            | `us-west1`        |
-| US East        | Virginia, USA          | `us-east4`        |
-| EU West        | Amsterdam, Netherlands | `europe-west4`    |
-| Southeast Asia | Singapore              | `asia-southeast1` |
-
+| Name                 | Location               | Region Identifier        |
+|----------------------|------------------------|--------------------------|
+| US West              | Oregon, USA            | `us-west1`               |
+| US West Metal        | California, USA        | `us-west2`               |
+| US East              | Virginia, USA          | `us-east4`               |
+| US East Metal        | North Carolina, USA    | `us-east4-eqdc4a`        |
+| EU West              | Amsterdam, Netherlands | `europe-west4`           |
+| EU West Metal        | Amsterdam, Netherlands | `europe-west4-drams3a`   |
+| Southeast Asia       | Singapore              | `asia-southeast1`        |
+| Southeast Asia Metal | Singapore              | `asia-southeast1-eqsg3a` |
 
 *Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
 
-By default, Railway deploys to `us-west1` located in Portland, Oregon.
+**Note:** The region identifier is the value that can be used in your [Config as Code file](/reference/config-as-code#multi-region-configuration).
+
+By default, Railway deploys to your preferred region, you can change this in your [Account Settings](https://railway.com/account).
 
 All regions provide the same experience, performance, and reliability you expect from Railway.
 
