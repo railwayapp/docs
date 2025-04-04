@@ -18,7 +18,7 @@ Scale horizontally by manually increasing the number of replicas for a service.
 
 Each replica has access to the full resources allocated by your plan. For instance, with the `Pro` plan, each of your replicas can utilize up to 32 vCPU and 32GB of memory, for example, if you had 2 replicas, your service would be able to utilize up to 64 vCPU and 64GB of memory split between the 2 replicas.
 
-Railway's infrastructure spans multiple regions across the globe, and by default Railway deploys to your preferred region.
+Railway's infrastructure spans multiple regions across the globe, and by default Railway deploys to your [preferred region](https://railway.com/account).
 
 <Image 
     src="https://res.cloudinary.com/railway/image/upload/v1733386054/multi-region-replicas_zov7rv.png"
@@ -51,18 +51,7 @@ If you are using a single region with multiple replicas, Railway will randomly d
 
 ### Set a Default Region
 
-To set a default, or preferred, region, do so from the command palette.  From your project settings:
-- Type `CMD+K` or `Ctrl+K` to access the command palette
-- Type "preferred region"
-- Select your preferred region
-
-<Image
-    quality={100}
-    width={959}
-    height={651}
-    src="https://res.cloudinary.com/railway/image/upload/v1730327915/docs/preferredRegion_i33w6q.png"
-    alt="Preferred Region Picker"
-/>
+To set a default, or preferred, region, do so from your [Account Settings](https://railway.com/account).
 
 ### Impact of Region Changes
 

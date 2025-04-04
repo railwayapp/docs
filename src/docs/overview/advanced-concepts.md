@@ -17,7 +17,7 @@ Railway uses <a href="https://nixpacks.com" target="_blank">Nixpacks</a> to buil
 
 Deployments are created with some default options that can be overridden.  Some of the options available are - 
 - **Replicas**:  By default, your deployment will go out with a single instance.  With replicas, you have the ability to scale up your deployment instances.
-- **Deployment Region**: Deployments by default are pushed to your preferred region.
+- **Deployment Region**: Deployments by default are pushed to your [preferred region](https://railway.com/account).
 - **Scheduled Executions**:  Your deployment will be run once by default.  If the service is intended to be a scheduled task of sorts, you can create a cron schedule.
 - **App Sleep**:  Services are serverful and always-on.  You can control this behavior, to spin down resources when they're not being used, by enabling App Sleep.
 
