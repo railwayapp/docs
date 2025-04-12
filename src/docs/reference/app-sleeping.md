@@ -5,7 +5,7 @@ description: Learn how Serverless reduces cost usage on Railway.
 
 _Note: This feature is formerly called: App-Sleeping_
 
-Serverless (aka "Serverless") allows you to increase the efficiency of resource utilization on Railway and may reduce the usage cost of a [service](/reference/services), by ensuring it is running only when necessary.
+Serverless allows you to increase the efficiency of resource utilization on Railway and may reduce the usage cost of a [service](/reference/services), by ensuring it is running only when necessary.
 
 ## How it Works
 
