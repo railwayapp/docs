@@ -225,7 +225,7 @@ If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdom
 4. Enable Full SSL/TLS encryption in Cloudflare:
     - Go to your domain on Cloudflare.
     - Navigate to `SSL/TLS -> Overview`.
-    - Select `Full`, or `Full (strict)`.
+    - Select `Full`. **Not** `Full (Strict)` **Strict mode will not work as intended**.
 5. Enable Universal SSL in Cloudflare:
     - Go to your domain on Cloudflare.
     - Navigate to `SSL/TLS -> Edge Certificates`.
