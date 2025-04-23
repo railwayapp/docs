@@ -48,4 +48,8 @@ While you're on the Limited Trial, you can initiate verification at any time by 
 
 ### How far will the $5 one-time Trial grant last?
 
-The longevity of your one-time trial grant depends on how many resources you consume. A project that uses most of the resources available on the Trial plan 24/7 will consume the credits in roughly a month, while a simple webserver may be able to run for several months before running out.
+The longevity of your one-time trial grant depends on how many resources you consume within the 30 day period you sign-up for the platform. The more resources you deploy, the greater the consumption. 
+
+### Data Rentention
+
+Railway deletes stateful volumes created by Trial accounts 30 days after the expiration of your credits. To retain your data, upgrade your account after the Trial period.
