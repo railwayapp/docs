@@ -163,7 +163,7 @@ Once we setup the CloudFront CDN, we will see how this behavior changes.
 Now let's create a CloudFront distribution using the AWS CDK.
 
 - In your "fastify" folder, create a new folder called "cloudfront"
-- Within the "cloudfront" folder, fun the following command to initialize a new CDK project in TypeScript
+- Within the "cloudfront" folder, run the following command to initialize a new CDK project in TypeScript
     ```plaintext
     cdk init app --language typescript
     ```
