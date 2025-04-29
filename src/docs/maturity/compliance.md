@@ -21,7 +21,7 @@ Highly motivated customers (Pro tier and higher) who are in the process of secur
 
 To make this request, please book a session with a Railway team member [here](https://cal.com/team/railway/work-with-railway?duration=30).
 
-SOC 2 Type II certification is expected before the end of 2024.
+SOC 2 Type II certification is expected by the **end of May 2025**.
 
 ### HIPAA BAA
 
