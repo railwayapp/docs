@@ -28,7 +28,8 @@ During the feature development process we found a few caveats that you should be
 
 - Private networking is not available during the build phase.
 - You will need to bind to a IPv6 port to receive traffic on the private network.
-- We don't support IPv4 private networking
+- We don't support IPv4 private networking.
+- Private networking does not function between [environments](/reference/environments).
 
 ## Support
 
