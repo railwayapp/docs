@@ -25,9 +25,7 @@ For Pro and above users, please reach out to us on our [Central Station](https:/
 
 ## Pricing
 
-Volumes are billed at **$0.15 / GB**, billed monthly (effective March 3rd, 2025).
-
-> **Note:** Previous rate was **$0.25 / GB** until March 2nd, 2025.
+Volumes are billed at a rate per GB / minutely, and invoiced monthly. You can find [specific per-minute pricing here](/reference/pricing/plans#default-plan-resources).
 
 You are only charged for the amount of storage used by your volumes. _Each volume requires aprox 2-3% of the total storage to store metadata about the filesystem, so a new volume will always start with some used amount of space used depending on the size._
 

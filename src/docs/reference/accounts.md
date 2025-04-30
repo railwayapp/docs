@@ -56,7 +56,7 @@ width={1141} height={604} quality={80} />
 
 Every account has an editable referral link. Users can copy and share their personal referral link to earn credits.
 
-For every referral who incurs more than $10 worth of usage and pays their first bill, users receive 5$ of credit.
+For every referral who incurs more than $10 worth of usage and pays their first bill, users receive $5 of credit.
 
 Users can view their referral invite status on the <a href="https://railway.com/account/referrals" target="_blank">referrals page</a>.
 

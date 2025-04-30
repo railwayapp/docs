@@ -81,11 +81,7 @@ We handle SSL/TLS certificates automatically, while DigitalOcean users need to m
 
 ### Pricing
 
-Railway's pricing is based on actual resource usage:
-- Memory: $1.00 per 100 MB /month
-- CPU: $2.00 per 0.1 vCPU /month
-- Storage: $0.15 per GB/month
-- Outbound Data: $0.05 per GB
+Railway's pricing is based on actual resource usage. You can find [specific per-minute pricing here](/reference/pricing/plans#default-plan-resources).
 
 DigitalOcean's pricing is based on fixed-size droplets or VMs and requires manual scaling, which will lead to overprovisioning and higher costs.
 
