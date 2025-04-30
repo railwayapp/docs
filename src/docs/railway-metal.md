@@ -130,11 +130,6 @@ alt="Manual rollback"
 layout="responsive"
 width={1140} height={560} quality={80} />
 
-## Known Limitations
-
-- Railway Metal is currently unavailable for services with a [volume](/reference/volumes)
-- For Pro users, [Static IPs](/reference/static-outbound-ips) is currently unavailable on Railway Metal regions
-
 ## Timeline
 
 Our transition to Railway Metal will happen in phases. Here's what you can
@@ -148,8 +143,8 @@ expect:
 | Starting February 14th, 2025 | All new deploys on all services _without a [volume](/reference/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                     | 🟢     |
 | Starting March 14th, 2025    | All new deploys on services _with a [volume](/reference/volumes)_ by Trial & Hobby users will use Railway Metal by default.                                               | 🟢     |
 | Starting March 21st, 2025    | We will begin migrating services to Railway metal for Hobby Users                                                                                                         | 🟢     |
-| Starting March 28th, 2025    | All new deploys on services _with a [volume](/reference/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                            | 🟠     |
-| Starting May 2nd, 2025       | We will begin migrating services to Railway metal for Pro Users                                                                                                           | 🔘     |
+| Starting March 28th, 2025    | All new deploys on services _with a [volume](/reference/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                            | 🟢     |
+| Starting May 2nd, 2025       | We will begin migrating services to Railway metal for Pro Users                                                                                                           | 🟠     |
 | Starting June 6th, 2025      | We will begin migrating services to Railway metal for Enterprise Users                                                                                                    | 🔘     |
 
 The migration is aimed to be completed by the 4th of July, 2025.
