@@ -9,46 +9,46 @@ For more information, visit our [documentation on pricing](/reference/pricing) o
 
 > **Note:** Effective March 3rd, 2025, for users on Railway hosted metal instances, all seat costs will be waived.
 
-## Creating a Team
+## Creating a Workspace
 
-Organizations can create a team by heading to the <a href="https://railway.com/new/team" target="_blank">Create Team</a> page and entering the required information.
+Organizations can create a workspace by heading to the <a href="https://railway.com/new/workspace" target="_blank">Create Workspace</a> page and entering the required information.
 
-## Managing Teams
+## Managing Workspaces
 
-You can open your team's settings page to manage team members and see billing information by clicking the gear icon next to the name of your team on the dashboard.
+You can open your workspace's settings page to manage members and see billing information by clicking the gear icon next to the name of your workspace on the dashboard.
 
 ## Inviting Members
 
-Under the People tab of the settings page, you can invite members to access the project.
+Under the People tab of the settings page, you can invite members.
 
-There are three roles for Team members:
+There are three roles for Workspace members:
 
-- Admin: Full administration of the Team and all Team projects
-- Member: Access to all Team projects
-- Deployer: View projects and deploy through commits to repos via github integration.
+- Admin: Full administration of the Workspace and all Workspace projects
+- Member: Access to all Workspace projects
+- Deployer: View projects and deploy through commits to repos via GitHub integration.
 
-_Note_: Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their Github account is connected.
+_Note_: Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their GitHub account is connected.
 
 ## Trusted Domains
 
-Trusted domains may be configured on the team settings page. Note that team members added via trusted domain will be billed at the normal rate.
+Trusted domains may be configured on the workspace settings page. Note that workspace members added via trusted domain will be billed at the normal rate.
 
 <Image 
     src="https://res.cloudinary.com/railway/image/upload/v1733955730/docs/t-d_jbtbm7.png"
     width="1200"
     height="548"
-    alt="Trusted domains are configurable via the team settings"
+    alt="Trusted domains are configurable via the workspace settings"
 />
 
-You can automate the onboarding of new team members with trusted domains. Railway users that sign up with one of the trusted domains associated with your team will automatically be granted access to the team with the specified role (see above).
+You can automate the onboarding of new workspace members with trusted domains. Railway users that sign up with one of the trusted domains associated with your workspace will automatically be granted access to the workspace with the specified role (see above).
 
-For example, new users with `example.com` email addresses will automatically be added to your teams that have the `example.com` trusted domain.
+For example, new users with `example.com` email addresses will automatically be added to your workspaces that have the `example.com` trusted domain.
 
-We verify that you have administrative access to the domain by looking for services in your team that use this domain or a subdomain. Make sure to [setup a custom domain](/guides/public-networking#custom-domains) on your service before adding it as a trusted domain.
+We verify that you have administrative access to the domain by looking for services in your workspace that use this domain or a subdomain. Make sure to [setup a custom domain](/guides/public-networking#custom-domains) on your service before adding it as a trusted domain.
 
 ## Transferring Projects
 
-Transfer projects from another Team or Hobby workspace easily. Detailed instructions can be found [here](/guides/projects#transferring-projects).
+Transfer projects from another Workspace or Hobby workspace easily. Detailed instructions can be found [here](/guides/projects#transferring-projects).
 
 ## Invoicing and Billing
 
@@ -76,4 +76,4 @@ As of March 3rd, 2025, Railway waives all seat costs for users on Railway hosted
 
 If you're interested in moving to Railway hosted metal instances to take advantage of this benefit, please [contact our team](mailto:team@railway.com) to discuss your requirements and set up a dedicated host solution.
 
-The seat cost waiver provides significant savings for teams of all sizes, especially as your team grows. This is part of our commitment to providing more flexible and cost-effective pricing options for our customers.
+The seat cost waiver provides significant savings for workspaces of all sizes, especially as your workspace grows. This is part of our commitment to providing more flexible and cost-effective pricing options for our customers.
