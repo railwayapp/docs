@@ -25,9 +25,9 @@ SOC 2 Type II certification is expected by the **end of May 2025**.
 
 ### HIPAA BAA
 
-Railway follows a shared responsibility model for HIPAA compliance. Railway will make its best effort to advise your company on setting up encryption for your data, auditing the storage of keys, establishing access control, and ensuring secure storage of sensitive patient data. When a BAA is in effect, the Railway team will no longer be able to directly access your running workloads.
+Railway follows a shared responsibility model for HIPAA compliance and PHI. Railway will make its best effort to advise your company on setting up encryption for your data, auditing the storage of keys, establishing access control, and ensuring secure storage of sensitive patient data. When a BAA is in effect, the Railway team will no longer be able to directly access your running workloads.
 
-> **Note:** Effective March 3rd, 2025, Railway is moving from negotiated contract pricing for HIPAA BAA to committed spend tiers. Customers who meet the required monthly spend threshold (e.g., $1,000/month) and commit to that level can access HIPAA BAA as an add-on, with all pricing going towards their usage.
+HIPAA BAA is an add-on with a paid monthly spend threshold. All pricing goes towards your [usage on Railway](/reference/pricing#committed-spend-tiers). Monthly thresholds for addons is found in our [commited spend pricing](/reference/pricing#committed-spend-tiers).
 
 If your company needs a BAA, you can contact our solutions team at [team@railway.com](mailto:team@railway.com), or click [here](https://cal.com/team/railway/work-with-railway?duration=30) to schedule some time to chat.
 
@@ -39,9 +39,15 @@ Railway is committed to protecting the privacy of our users. We understand that 
 
 [Click here to see our Privacy Policy.](https://railway.com/legal/privacy)
 
-## VAT / Address
+## VAT Tax ID and Address
 
-For customers who require VAT tax collection, you can add your company VAT Tax ID and company address via the Pro plan billing portal for your respective workspace.
+Customers in the EU may need to add their VAT Tax ID to their invoices for compliance and reporting purposes.
+
+You can add your VAT Tax ID and address in [Workspace settings](https://railway.com/workspace/billing) -> Billing -> Manage Subscription.
+
+If you have multiple workspaces, you need to add your VAT Tax information to each respective Workspace's Subscription.
+
+After adding your information, it will appear on your future invoices.
 
 ## EU Dora
 

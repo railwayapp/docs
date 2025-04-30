@@ -92,7 +92,7 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 | **RBAC**                | $500/month       | Role-Based Access Control to manage user permissions and access.                                                |
 | **SLOs**                | $500/month       | Service Level Objectives to ensure and track application performance.                                           |
 | **90-day log history**  | $500/month       | Extended log retention for better historical analysis and auditing.                                             |
-| **HIPAA BAAs**          | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly |
+| **HIPAA BAAs**          | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly. |
 | **Dedicated Hosts**     | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                           |
 
 To learn more about committed spend tiers and available add-ons, please [contact our team](mailto:team@railway.com).
