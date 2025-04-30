@@ -81,7 +81,7 @@ We handle SSL/TLS certificates automatically, while DigitalOcean users need to m
 
 ### Pricing
 
-Railway's pricing is based on actual resource usage. You can find [specific per-minute pricing here](/reference/pricing/plans#default-plan-resources).
+Railway's pricing is based on actual resource usage. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
 
 DigitalOcean's pricing is based on fixed-size droplets or VMs and requires manual scaling, which will lead to overprovisioning and higher costs.
 

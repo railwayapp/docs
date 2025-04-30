@@ -113,7 +113,7 @@ Best of all, through our [Kickback Program](https://railway.com/open-source-kick
 
 ### Pricing
 
-Railway offers straightforward and transparent, [resource-based pricing](/reference/pricing/plans) that scales with your needs, pay only for the resources you use. You can find [specific per-minute pricing here](/reference/pricing/plans#default-plan-resources).
+Railway offers straightforward and transparent, [resource-based pricing](/reference/pricing/plans) that scales with your needs, pay only for the resources you use. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
 
 Unlike Vercel's function-based pricing, we charge based on actual resource usage (CPU, Memory, Storage), making costs more predictable and often more economical for backend services.
 

@@ -25,7 +25,7 @@ For Pro and above users, please reach out to us on our [Central Station](https:/
 
 ## Pricing
 
-Volumes are billed at a rate per GB / minutely, and invoiced monthly. You can find [specific per-minute pricing here](/reference/pricing/plans#default-plan-resources).
+Volumes are billed at a rate per GB / minutely, and invoiced monthly. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
 
 You are only charged for the amount of storage used by your volumes. _Each volume requires aprox 2-3% of the total storage to store metadata about the filesystem, so a new volume will always start with some used amount of space used depending on the size._
 

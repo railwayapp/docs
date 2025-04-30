@@ -51,7 +51,7 @@ The changes will be applied and your service will be redeployed.
 
 Backups are incremental and Copy-on-Write, we only charge for the data exclusive to them, that aren't from other snapshots or the volume itself.
 
-You are only billed for the incremental size of the backup at a rate per GB / minutely, and invoiced monthly. Backups follow the same pricing as Volumes. You can find [specific per-minute pricing here](/reference/pricing/plans#default-plan-resources).
+You are only billed for the incremental size of the backup at a rate per GB / minutely, and invoiced monthly. Backups follow the same pricing as Volumes. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
 
 ## Caveats
 
