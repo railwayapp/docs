@@ -3,16 +3,7 @@ title: Project Usage
 description: Learn how users can see the resource usage of their projects.
 ---
 
-Users are billed monthly based on the project's per-minute usage. All services within a project's environments contribute to the resources billed. The rates are as follows:
-
-1. **RAM** → $0.000231 / GB / minute
-2. **CPU** → $0.000463 / vCPU / minute
-3. **Network Egress** → $0.000000047683716 / KB (effective March 3rd, 2025)
-   - Previous rate: $0.000000095367432 / KB until March 2nd, 2025
-4. **Volume Storage** → $0.000003472222222 / GB / minute (effective March 3rd, 2025)
-   - Previous rate: $0.000005787037037 / GB / minute until March 2nd, 2025
-
-> **Note:** Effective March 3rd, 2025, Railway has reduced the pricing for Network Egress from $0.10/GB to $0.05/GB and Volume Storage from $0.25/GB to $0.15/GB.
+Users are billed monthly based on the project's per-minute usage. All services within a project's environments contribute to the resources billed. You can find [specific per-minute pricing here](/reference/pricing/plans#default-plan-resources).
 
 Users can see the usage of a project under <a href="https://railway.com/workspace/usage" target="_blank">the Usage page</a> within the Workspace settings.
 

@@ -58,11 +58,9 @@ However, if you expect to use a consistent amount of resources for large compani
 
 ### Committed Spend Tiers
 
-As of March 3rd, 2025, Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
+Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly threshold to [unlock additional features and services.](/reference/pricing/plans#committed-spend-tiers)
 
-For example, customers who commit to a $10,000/month spend rate can access dedicated hosts as an add-on, with all pricing going towards their usage. This approach provides more flexibility and transparency compared to traditional contract pricing.
-
-To learn more about committed spend tiers and available add-ons, please [contact our team](mailto:team@railway.com).
+Monthly thresholds for addons is found in our [commited spend pricing](/reference/pricing#committed-spend-tiers).
 
 Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.
 
@@ -73,8 +71,8 @@ Reach out to us at [team@railway.com](mailto:team@railway.com) for more informat
 As of March 3rd, 2025, Railway waives all seat costs for users on Railway hosted metal instances. To qualify for this benefit:
 
 1. Your workspace must be on the Pro plan
-2. Your services must be running on Railway hosted metal instances
-3. This waiver will be automatically applied by the time of your invoice close date
+2. Your services must be quality for metal pricing and run on Railway hosted metal instances
+3. This waiver will be automatically applied for your next monthly invoice
 
 If you're interested in moving to Railway hosted metal instances to take advantage of this benefit, please [contact our team](mailto:team@railway.com) to discuss your requirements and set up a dedicated host solution.
 

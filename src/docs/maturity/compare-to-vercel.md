@@ -113,15 +113,7 @@ Best of all, through our [Kickback Program](https://railway.com/open-source-kick
 
 ### Pricing
 
-Railway offers straightforward and transparent, [resource-based pricing](/reference/pricing/plans) that scales with your needs, pay only for the resources you use.
-
-- **Memory:** $10 per GB / month
-
-- **CPU:** $10 per vCPU / month
-
-- **Storage:** $0.25 per GB / month
-
-- **Outbound Data:** $0.10 per GB used
+Railway offers straightforward and transparent, [resource-based pricing](/reference/pricing/plans) that scales with your needs, pay only for the resources you use. You can find [specific per-minute pricing here](/reference/pricing/plans#default-plan-resources).
 
 Unlike Vercel's function-based pricing, we charge based on actual resource usage (CPU, Memory, Storage), making costs more predictable and often more economical for backend services.
 
