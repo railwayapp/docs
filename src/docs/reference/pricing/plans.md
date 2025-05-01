@@ -141,6 +141,12 @@ Railway's Pro and Enterprise plans are designed for collaboration. These plans a
 
 Read more about adding members to your Pro or Enterprise team [here](/reference/teams#inviting-members).
 
+### How long does Railway keep my volume data if I am no longer on a paid plan?
+
+For Trial, Railway will delete your volumes 30 days after your Trial credits runout.
+
+For Hobby and Pro, Railway will retain your volumes for 90 days and then delete them from the platform after sufficient warning.
+
 ### Is the Hobby Plan free?
 
 No. The Hobby Plan is $5 a month, and it includes a resource usage credit of $5. Even if you do not use the $5 in usage (CPU, Memory, egress), you always pay the $5 subscription fee.
