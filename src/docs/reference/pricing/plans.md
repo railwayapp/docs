@@ -35,12 +35,12 @@ Read more about our plans at <a href="https://railway.com/pricing" target="_blan
 
 Depending on the plan you are on, you are allowed to use up these resources per service.
 
-| Plan           | **RAM**    | **CPU**     | **Ephemeral Storage** | **Volume Storage** |
-| -------------- | ---------- | ----------- | --------------------- | ------------------ |
-| **Trial**      | **0.5 GB** | **2 vCPU**  | **1 GB**              | **0.5 GB**         |
-| **Hobby**      | **8 GB**   | **8 vCPU**  | **10 GB**             | **5 GB**           |
-| **Pro**        | **32 GB**  | **32 vCPU** | **100 GB**            | **50 GB\*\***      |
-| **Enterprise** | **64 GB**  | **64 vCPU** | **100 GB**            | **2 TB\*\***       |
+| Plan           | **RAM**    | **CPU**     | **Ephemeral Storage** | **Volume Storage** | **Image Size** |
+| -------------- | ---------- | ----------- | --------------------- | ------------------ | ------------------ |
+| **Trial**      | **0.5 GB** | **2 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**         |
+| **Hobby**      | **8 GB**   | **8 vCPU**  | **10 GB**             | **5 GB**           | **100 GB**           |
+| **Pro**        | **32 GB**  | **32 vCPU** | **100 GB**            | **50 GB\*\***      | **100 GB**           |
+| **Enterprise** | **64 GB**  | **64 vCPU** | **100 GB**            | **2 TB\*\***       | **100 GB**           |
 
 Note that these are initial values and users on the Pro and Enterprise plans can request limit increases.
 
@@ -161,7 +161,7 @@ This is a fully automated process, and Railway does not respond to requests for 
 
 ### I prefer to prepay. Is that possible?
 
-Yes. You can use prepaid credits as a payment method on Railway if you prefer to prepay for Railway's services. You will still need to pay a monthly subscription fee, as well as for any usage. Those amounts will be deducted from your credit balance.
+Not anymore as of March 30th, Railway requires the use of a post-paid card.
 
 ### What happens if I use credits as a payment method and my account runs out of credits?
 
