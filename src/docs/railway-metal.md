@@ -144,8 +144,8 @@ expect:
 | Starting March 14th, 2025    | All new deploys on services _with a [volume](/reference/volumes)_ by Trial & Hobby users will use Railway Metal by default.                                               | 🟢     |
 | Starting March 21st, 2025    | We will begin migrating services to Railway metal for Hobby Users                                                                                                         | 🟢     |
 | Starting March 28th, 2025    | All new deploys on services _with a [volume](/reference/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                            | 🟢     |
-| Starting May 2nd, 2025       | We will begin migrating services to Railway metal for Pro Users                                                                                                           | 🟠     |
-| Starting June 6th, 2025      | We will begin migrating services to Railway metal for Enterprise Users                                                                                                    | 🔘     |
+| Starting May 2nd, 2025       | We will begin migrating services to Railway metal for Pro Users                                                                                                           | 🟢     |
+| Starting June 6th, 2025      | We will begin migrating services to Railway metal for Enterprise Users                                                                                                    | 🟠     |
 
 The migration is aimed to be completed by the 4th of July, 2025.
 
@@ -225,6 +225,10 @@ No. We are migrating completely onto Railway managed hardware. For customers who
 ### Help! After migrating, why do I have increased latency?
 
 It's likely that your database, or service with a volume, isn't migrated over to Metal. Stateful Metal is available starting March 2025. Users who migrate to a different region other than their stateful workload will see increased latency due to the additional physical distance from your service's region. Migrate when your desired region has stateful workloads available after March 2025.
+
+### Why did my costs increase when moving to Metal?
+
+Although not intended, Railway Metal, has a different metrics sampler than our legacy hardware. This means that metrics will be quicker to come in, this also meant that legacy was undercounting the amount of resources on the previous hardware. As a result, some metrics like CPU will increase, others, like RAM will usually decrease. 
 
 ### How do I opt-out?
 
