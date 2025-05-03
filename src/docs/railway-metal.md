@@ -57,9 +57,9 @@ With Railway Metal, you can expect the following benefits:
   Static Inbound IPs, Anycast Edge Network, High-Availability Volumes, etc.
 
 ## Metal Edge Network (Beta)
-Railway routes traffic through it's own anycast metal edge network.
+Railway routes traffic through it's own anycast Metal Edge network.
 
-You can check if it's enabled in your service in the Public Network section in the service settings tab.
+You can check if it's enabled for your service in the Public Network section in the service settings tab.
 
 <Image src="https://github.com/user-attachments/assets/05bd7097-a0db-4ea1-a05a-6baf91717200"
 alt="screenshot of a service with the metal edge network enabled"
