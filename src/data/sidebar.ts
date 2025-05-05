@@ -195,12 +195,16 @@ export const sidebarContent: ISidebarContent = [
         subTitle: "GitHub Actions",
         pages: [
           {
-            title: "Deploy with GitHub Actions",
+            title: "Deploy with Railway",
             url: "https://blog.railway.com/p/github-actions",
           },
           makePage("Post-Deploy", "tutorials", "tutorials/github-actions-post-deploy"),
           makePage("PR Environment", "tutorials", "tutorials/github-actions-pr-environment"),
           makePage("Self Hosted Runners", "tutorials", "tutorials/github-actions-runners"),
+          {
+            title: "Implementing a Testing Suite",
+            url: "https://blog.railway.com/p/implementing-gh-actions-testing",
+          },
         ],
       },
       {
