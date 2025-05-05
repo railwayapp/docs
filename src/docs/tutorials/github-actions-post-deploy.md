@@ -1,5 +1,5 @@
 ---
-title: GitHub Post-Deploy Actions
+title: GitHub Actions Post-Deploy
 description: Learn how to use GitHub Actions to run post-deployment commands.
 ---
 

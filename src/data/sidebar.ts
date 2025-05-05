@@ -192,18 +192,25 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       {
-        subTitle: "Git Tutorials",
+        subTitle: "GitHub Actions",
         pages: [
           {
-            title: "GitHub Actions",
+            title: "Deploy with Railway",
             url: "https://blog.railway.com/p/github-actions",
           },
+          makePage("Post-Deploy", "tutorials", "tutorials/github-actions-post-deploy"),
+          makePage("PR Environment", "tutorials", "tutorials/github-actions-pr-environment"),
+          makePage("Self Hosted Runners", "tutorials", "tutorials/github-actions-runners"),
           {
-            title: "Gitlab CI/CD",
-            url: "https://blog.railway.com/p/gitlab-ci-cd",
+            title: "Implementing a Testing Suite",
+            url: "https://blog.railway.com/p/implementing-gh-actions-testing",
           },
-          makePage("GitHub Post-Deploy Actions", "tutorials"),
-          makePage("GitHub PR Environment Actions", "tutorials"),
+        ],
+      },
+      {
+        subTitle: "Gitlab",
+        pages: [
+          makePage("Deploy with Gitlab CI/CD", "tutorials"),
         ],
       },
     ],
