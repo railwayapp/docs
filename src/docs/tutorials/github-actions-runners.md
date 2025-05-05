@@ -69,7 +69,7 @@ You can view all your runners by navigating to your organization's Actions -> Ru
 
 ## Routing Actions Jobs
 
-You can route jobs by simply changing the `LABELS` variable. By default, we include the `railway` label on runners you make through the [Template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9). `LABELS` is a comma (no spaces) delimited list of all the labels you want to appear on that runner. This enables you to [route jobs](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow#using-custom-labels-to-route-jobs) to the level of with the specificity that your workflows need, while still allowing you to make runners available for your entire Organization.
+You can route jobs by simply changing the `LABELS` variable. By default, we include the `railway` label on runners you make through the [Template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9). `LABELS` is a comma (no spaces) delimited list of all the labels you want to appear on that runner. This enables you to [route jobs](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow#using-custom-labels-to-route-jobs) with the specificity that your workflows need, while still allowing you to make runners available for your entire Organization.
 
 ## Setting up GitHub Actions workflows for Pull Requests
 
