@@ -133,7 +133,7 @@ jobs:
 
 1. **Only use private repositories and disable forks:** Make sure when using self-hosted runners, that you only attach them to private repositories. A known attack vector is for a malicious actor to fork a public repository and then exfiltrate your private keys from your self-hosted runners by executing workflows on them. Disabling forks can also mitigate this attack, and it's a good idea in general for locking down security on your repositories!
 
-1. **Seal your `ACCESS_KEY`:** While all variables are encrypted on Railway, you can prevent prying eyes (including your future self) from ever viewing your API Key. Navigate to the Variables tab and next to the `ACCESS_KEY` variable click the three-dots-menu `...` -> `Seal`.
+1. **Seal your `ACCESS_KEY`:** While all variables are encrypted on Railway, you can prevent prying eyes (including your future self) from ever viewing your API Key. Navigate to the Variables tab and next to the `ACCESS_KEY` variable click the three-dots-menu `...` -> `Seal`. Make sure your `ACCESS_KEY` is stored in a secure Password Vault before doing this!
 
 1. **Security Harden your self-hosted Runners:** [Security Hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) will make your runners robust and prevent any concerns about your build infrastructure. GitHub's [detailed guide](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) can help you secure secrets, authentication, auditing, and managing your runners.
 
