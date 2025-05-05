@@ -1,5 +1,5 @@
 ---
-title: GitHub PR Environment Actions
+title: GitHub Actions PR Environment
 description: Learn how to use the CLI in a GitHub Action to create environments for PRs
 ---
 
