@@ -25,6 +25,8 @@ In this guide you'll learn:
 
 If you have a GitHub Enterprise, you can similarly set up your runners using an `ACCESS_TOKEN`, you just need to set your `RUNNER_SCOPE` as `ent` instead.
 
+If you need additional configuration, then you can simply [add a variable to your Service](https://github.com/myoung34/docker-github-actions-runner?tab=readme-ov-file#environment-variables).
+
 ## Setup a GitHub ACCESS_TOKEN
 
 For this guide, we will create a new [GitHub Fine-Grained Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens). These are modern personal access tokens that obey the [principle of least priviledge](https://en.wikipedia.org/wiki/Principle_of_least_privilege), making them easy to secure, revoke, and audit!
@@ -135,7 +137,7 @@ jobs:
 
 1. **Seal your `ACCESS_KEY`:** While all variables are encrypted on Railway, you can prevent prying eyes (including your future self) from ever viewing your API Key. Navigate to the Variables tab and next to the `ACCESS_KEY` variable click the three-dots-menu `...` -> `Seal`. Make sure your `ACCESS_KEY` is stored in a secure Password Vault before doing this!
 
-1. **Security Harden your self-hosted Runners:** [Security Hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) will make your runners robust and prevent any concerns about your build infrastructure. GitHub's [detailed guide](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) can help you secure secrets, authentication, auditing, and managing your runners.
+1. **Security Harden your self-hosted Runners:** [Security Hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) will make your runners robust and prevent any concerns about your build infrastructure. GitHub's [detailed guide](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) can help you secure secrets, authentication, auditing, and managing your runners. Similarly [dduzgun-security](https://github.com/dduzgun-security/github-self-hosted-runners) has an excellent guide to securing your runners that's worth your time.
 
 ### Known Limitations
 
