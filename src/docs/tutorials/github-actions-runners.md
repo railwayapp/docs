@@ -17,6 +17,8 @@ In this guide you'll learn:
 1. How to scale up [replicas](/reference/scaling#horizontal-scaling-with-replicas) to serve bigger Actions workloads.
 1. Best Practices for configuring your self-hosted runners on Railway.
 
+**Quickstart:** [Deploy your self-hosted Runners with our Railway template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9).
+
 ## Deploy a GitHub self-hosted runner on Railway
 
 1. Navigate to the [GitHub Actions self-hosted Runner Template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9). You'll notice the template requires an `ACCESS_TOKEN`. This token, along with our `RUNNER_SCOPE` will determine *where* our self-hosted runners get registered on GitHub. Thankfully, this template supports self registration of your runners -- which means you can dynamically scale up or down the number of runners you have just by adjusting your `replicas`!
