@@ -64,7 +64,7 @@ You can check if its enabled for your service in the Public Network section in t
 <Image src="https://res.cloudinary.com/railway/image/upload/v1746495091/edge_enabled_pgferg.png"
 alt="screenshot of a service with the metal edge network enabled"
 layout="intrinsic"
-width={1048} height={480} quality={100} />
+width={910} height={254} quality={100} />
 
 <span style={{'font-size': "0.9em"}}>Screenshot showing a domain with the Metal Edge Network enabled</span>
 
