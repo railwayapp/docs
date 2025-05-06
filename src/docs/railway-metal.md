@@ -61,7 +61,7 @@ Railway routes traffic through its own anycast Metal Edge network.
 
 You can check if its enabled for your service in the Public Network section in the service settings tab.
 
-<Image src="https://github.com/user-attachments/assets/05bd7097-a0db-4ea1-a05a-6baf91717200"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1746495091/edge_enabled_pgferg.png"
 alt="screenshot of a service with the metal edge network enabled"
 layout="intrinsic"
 width={1048} height={818} quality={100} />
