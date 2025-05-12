@@ -165,10 +165,6 @@ export const sidebarContent: ISidebarContent = [
             title: "Queues on Railway",
             url: "https://blog.railway.com/p/queues",
           },
-          {
-            title: "Gitlab CI/CD with Railway",
-            url: "https://blog.railway.com/p/gitlab-ci-cd",
-          },
           makePage("Set Up a Datadog Agent", "tutorials"),
           makePage("Deploy an Otel Collector Stack", "tutorials"),
           makePage("Deploy and Monitor Mongo", "tutorials"),
@@ -210,7 +206,10 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: "Gitlab",
         pages: [
-          makePage("Deploy with Gitlab CI/CD", "tutorials"),
+          {
+            title: "Gitlab CI/CD with Railway",
+            url: "https://blog.railway.com/p/gitlab-ci-cd",
+          }
         ],
       },
     ],
