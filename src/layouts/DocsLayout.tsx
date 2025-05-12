@@ -21,7 +21,7 @@ const getOGImage = (title: string) =>
 const domainUrl = "https://docs.railway.com";
 const fallbackDescription = "Documentation for Railway";
 
-const flattenSidebarContent = (sidebarContent: ISidebarContent): IPage[] => {
+export const flattenSidebarContent = (sidebarContent: ISidebarContent): IPage[] => {
   let flatPages: IPage[] = [];
   sidebarContent.forEach(section => {
     section.content.forEach(item => {
