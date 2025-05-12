@@ -56,8 +56,8 @@ Railway's pricing has two components: a monthly subscription fee, and resource u
 Learn more [here](/reference/pricing/plans#included-usage).
 
 ### Why is there an "Applied balance" on my invoice?
-When the amount due on your invoice is less than $0.50, and you do not have a credit balance, Railway marks the invoice as paid and registers the amount to your credit balance as a debit to be charged on a future invoice.
 
+When the amount due on your invoice is less than $0.50, and you do not have a credit balance, Railway marks the invoice as paid and registers the amount to your credit balance as a debit to be charged on a future invoice.
 
 ### How do I view/manage/cancel my subscription?
 
@@ -143,3 +143,36 @@ You may receive an invoice containing charges for Resource Usage after you cance
 ### How do I request a refund?
 
 Please refer to [Pricing -> Refunds](/reference/pricing/refunds).
+
+### Requesting an invoice re-issuance
+
+If you encounter "This invoice can no longer be paid on Stripe" error or need
+your Tax ID added to a previous invoice, follow the steps below to get an
+invoice reissued.
+
+1. Go to your workspace's billing page at [https://railway.com/workspace/billing](https://railway.com/workspace/billing). Ensure you select the correct workspace using the Workspace Switcher in the top left corner.
+
+2. Scroll to **Billing History**. For the invoice you want to reissue, click on the Gear icon next to it and select **Re-issue**.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1747010826/docs/cs-2025-05-12-08.14_3_lrlrz9.png"
+alt="Screenshot of invoice options"
+layout="intrinsic"
+width={507} height={231} quality={100} />
+
+3. Follow the instructions in the pop-up:
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1747010832/docs/cs-2025-05-12-08.14_fyi63w.png"
+alt="Screenshot of invoice re-issuance"
+layout="intrinsic"
+width={876} height={557} quality={100} />
+
+Before you re-issue an invoice, please ensure your [billing information is
+up-to-date](#how-do-i-viewmanagecancel-my-subscription).
+
+Once your invoice has been re-issued, it will contain the latest billing
+information, and appear in your **Billing History**.
+
+If you do not receive the re-issued invoice within 24 hours, please reach
+out to us at [station.railway.com](https://station.railway.com).
