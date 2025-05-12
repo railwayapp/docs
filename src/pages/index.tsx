@@ -34,9 +34,9 @@ const Home: NextPage = () => {
             tw`flex relative rounded-md w-full overflow-hidden border`,
           ]}
         >
-          <div tw="py-6 pl-12 z-10">
+          <div tw="pl-12 z-10 mb-12 mt-12">
             <div tw="text-3xl font-bold text-white mb-4">Railway Documentation</div>
-            <div tw="text-xl font-normal text-white dark:text-gray-600 mb-12 max-w-md">
+            <div tw="text-xl font-normal text-white dark:text-gray-600 max-w-md">
               {/* Our docs are organized by use-case.  Review the options below to guide you to the appropriate pages. */}
               Find user guides, quickstarts, tutorials, use cases, deploy templates, functions and more.
             </div>
@@ -220,7 +220,7 @@ const Home: NextPage = () => {
 
         <div tw="text-center mt-8">
           <p tw="text-[#6c6a7b] text-sm font-normal leading-tight">
-            <a href="/guides/languages-frameworks">View all frameworks {">"}</a>
+            <a href="/guides/languages-frameworks">View all frameworks {"→"}</a>
           </p>
         </div>
 
@@ -387,7 +387,7 @@ const Home: NextPage = () => {
 
         <div tw="text-center mt-8">
           <p tw="text-[#6c6a7b] text-sm font-normal leading-tight">
-            <a href="https://railway.com/templates">View all templates {">"}</a>
+            <a href="https://railway.com/templates">View all templates {"→"}</a>
           </p>
         </div>
 
@@ -399,11 +399,10 @@ const Home: NextPage = () => {
             </div>
             <div tw="md:ml-4 flex-1">
               <p tw="py-2">
-                <span tw="font-bold">How to Contribute</span>{" "}
+                <span tw="font-bold">How to Contribute</span>
+                <span tw="text-gray-500">   —  </span>
                 <span tw="text-gray-500">
-                  — Each page footer contains an "
-                  <span tw="font-bold">Edit on GitHub</span>" Link. Change the
-                  markdown, make a pull request, and we'll merge it!
+                  Each page footer contains an "<span tw="font-bold">Edit on GitHub</span>" Link. Change the markdown, make a pull request, and we'll merge it!
                 </span>
               </p>
             </div>

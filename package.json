@@ -10,7 +10,6 @@
     "start": "next start --port ${PORT-3001}",
     "clean": "rm -rf .next",
     "tsc": "tsc -p .",
-    "generate:community-sdk": "graphql-code-generator --require tsconfig-paths/register --config src/graphql/community/generate.ts && prettier --write src/graphql/community/sdk.ts",
     "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
@@ -28,7 +27,6 @@
     "copy-to-clipboard": "^3.3.1",
     "dayjs": "^1.10.4",
     "fathom-client": "^3.1.0",
-    "graphql": "^16.8.1",
     "interweave": "^13.1.0",
     "meilisearch": "^0.32.3",
     "nanostores": "^0.7.4",
@@ -53,9 +51,6 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^5.0.0",
-    "@graphql-codegen/typescript-graphql-request": "^6.0.0",
-    "@graphql-codegen/typescript-operations": "^4.0.1",
     "@types/node": "^18.14.2",
     "@types/react": "^18.0.28",
     "@types/react-syntax-highlighter": "^15.5.6",
