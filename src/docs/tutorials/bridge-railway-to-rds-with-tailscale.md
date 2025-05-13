@@ -196,7 +196,6 @@ alt="screenshot of railtail"
 layout="intrinsic"
 width={1544} height={533} quality={100} />
 
-https://res.cloudinary.com/railway/image/upload/v1747163544/docs/tutorials/tailscale-subnet-router/railtail-to-rds_g10rrq.png
 ## 10. Cleanup
 
 When you're done with the tutorial, and so that AWS doesn't charge you money while your instances sit idle, you can destroy the resources you created automatically with:
