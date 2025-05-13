@@ -172,6 +172,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Deploying a Monorepo", "tutorials"),
           makePage("Proximity Steering", "tutorials"),
           makePage("Set up a Tailscale Subnet Router", "tutorials"),
+          makePage("Bridge Railway to RDS with Tailscale", "tutorials"),
         ],
       },
       {
