@@ -12,7 +12,7 @@ In this tutorial, you will set up a Tailscale bridge to AWS RDS. This creates a 
 In this tutorial, you will:
 
 1. Deploy a Tailscale subnet router EC2 instance
-1. Set up split DNS for seamless domain resolution
+1. Set up split DNS for domain resolution
 1. Verify and test connectivity to your RDS instance
 1. Route traffic from Railway to RDS using Railtail
 
@@ -22,15 +22,15 @@ This tutorial is in depth, so if it's your first time using Tailscale or setting
 
 1. You will need an [AWS IAM access key or IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) to stand up resources with Terraform or OpenTofu.
 
-**NOTE:** While you can just put these secrets in a `~/.aws` folder or a `terraform.tfvars` file, its a good practice to avoid putting secrets on disk unencrypted. If you have 1Password, you can use [1Password Secret References](https://developer.1password.com/docs/cli/secret-references/) so that your secrets are never stored permenantly on disk. This is especially important to prevent AI tools from reading your keys and as an extra layer of protection from commiting secrets to your git repositories.
+  **NOTE:** While you can just put these secrets in a `~/.aws` folder or a `terraform.tfvars` file, its a good practice to avoid putting secrets on disk unencrypted. If you have 1Password, you can use [1Password Secret References](https://developer.1password.com/docs/cli/secret-references/) so that your secrets are never stored permenantly on disk. This is especially important to prevent AI tools from reading your keys and as an extra layer of protection from commiting secrets to your git repositories.
 
-1. You'll need to install Terraform or OpenTofu.
+2. You'll need to install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) or [OpenTofu](https://opentofu.org/docs/intro/install/).
 
-1. You will need to generate a new ssh key that we can use to provision the AWS Instance that will serve as our tailscale subnet router.
+3. You will need to generate a new ssh key that we can use to provision the AWS Instance.
 
-1. If you don't already have one, you will need a [Tailscale account](https://tailscale.com/) and have [Tailscale installed](https://tailscale.com/kb/1347/installation) on your local machine. The free tier is generous and sufficient for this tutorial.
+4. You will need a [Tailscale account](https://tailscale.com/) and have [Tailscale installed](https://tailscale.com/kb/1347/installation) on your local machine. The free tier is generous and sufficient for this tutorial.
 
-1. You will need to generate, store, and reference a [Tailscale Auth Key](https://login.tailscale.com/admin/settings/keys)
+5. You will need to generate, store, and reference a [Tailscale Auth Key](https://login.tailscale.com/admin/settings/keys)
 
 ```bash
 # Set your AWS credentials
@@ -62,7 +62,7 @@ width={1261} height={772} quality={100} />
 
 - Click **Generate auth key**.
 
-    Put in a description like "AWS RDS Subnet Router" and leave all other settings as the default.
+  Put in a description like "AWS RDS Subnet Router" and leave all other settings as the default.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349121/docs/tutorials/tailscale-subnet-router/generate_auth_key_oxqr8m.png"
 alt="screenshot of the generate auth key modal in tailscale"
@@ -71,7 +71,7 @@ width={602} height={855} quality={100} />
 
 - Click **Generate key**.
 
-    Tailscale will now show you the newly generated auth key. **Be sure to copy it down, and store it in secret store (like 1Password)**.
+  Tailscale will now show you the newly generated auth key. **Be sure to copy it down, and store it in secret store (like 1Password)**.
 
 - Click **Done**.
 
@@ -95,7 +95,7 @@ tailscale_auth_key = "tskey-your-tailscale-auth-key"
 
 **!IMPORTANT**: Make sure you update your `userlist.txt` password to the same password as your new `rds_password`.
 
-## Deploy the Infrastructure
+## Deploy
 
 Initialize and apply the Terraform configuration:
 
@@ -145,8 +145,6 @@ For your local devices to access the subnet routes advertised by the subnet rout
 ```bash
 tailscale set --accept-routes=true
 ```
-
-
 
 ## 6. Verify Connectivity
 
@@ -212,21 +210,20 @@ terraform destroy -auto-approve
 If you encounter issues with connectivity check the `verify_tailscale_routing` script included with the repository. You may be encountering:
 
 1. **DNS Resolution**:
-   - Verify split DNS configuration in Tailscale.
-   - Check that the correct AWS DNS server IP is being used.
+  - Verify split DNS configuration in Tailscale.
+  - Check that the correct AWS DNS server IP is being used.
 
 2. **Route Acceptance**:
-   - Ensure subnet routes are being advertised by the subnet router.
-   - Verify your client is accepting routes with `tailscale status`.
+  - Ensure subnet routes are being advertised by the subnet router and that you've approve those routes in the Tailscale Admin Console.
+  - Verify your client is accepting routes with `tailscale status`.
 
 3. **Database Connection Failures**:
-   - Check security group rules to ensure the subnet router can access RDS.
-   - Verify the RDS instance is running and accepting connections.
-   - Confirm you're using the correct credentials. (!IMPORTANT `manage_master_user_password = false` must be set or else the RDS module will ignore using your set password)
+  - Check security group rules to ensure the subnet router can access RDS.
+  - Confirm you're using the correct credentials. (!IMPORTANT `manage_master_user_password = false` must be set or else the RDS module will ignore using your set password)
 
 4. **Subnet Router Issues**:
-   - Check that IP forwarding on is enabled with `cat /proc/sys/net/ipv4/ip_forward`.
-   - Verify Tailscale is running with `sudo systemctl status tailscaled`.
+  - Check that IP forwarding on is enabled with `cat /proc/sys/net/ipv4/ip_forward`.
+  - Verify Tailscale is running with `sudo systemctl status tailscaled`.
 
 ## Additional Resources
 
