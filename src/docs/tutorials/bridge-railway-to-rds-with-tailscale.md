@@ -7,19 +7,18 @@ description: Learn how to securely access your AWS RDS database from Railway usi
 
 In this tutorial, you will set up a Tailscale bridge to AWS RDS. This creates a secure tunnel between your Railway services and your AWS RDS database instances. This allows you to connect to your RDS databases privately without exposing traffic to the public internet.
 
-**Objectives**
+### Objectives
 
 In this tutorial, you will:
 
-1. Deploy a Tailscale subnet router EC2 instance configured as a Tailscale subnet router
-2. Configure PgBouncer for connection pooling (optional)
-3. Set up split DNS for seamless domain resolution
-4. Verify and test connectivity to your RDS instance
-5. Route traffic from Railway to RDS using Railtail
+1. Deploy a Tailscale subnet router EC2 instance
+1. Set up split DNS for seamless domain resolution
+1. Verify and test connectivity to your RDS instance
+1. Route traffic from Railway to RDS using Railtail
 
 This tutorial is in depth, so if it's your first time using Tailscale or setting up a bridge to your RDS instance, we'll cover every detail!
 
-**Prerequisites**
+### Prerequisites
 
 1. You will need an [AWS IAM access key or IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) to stand up resources with Terraform or OpenTofu.
 
@@ -133,13 +132,21 @@ width={602} height={572} quality={100} />
 
 - Click **Save**
 
-## 5. Enable Route Acceptance on Your Devices
+## 5. Approve Advertised Subnet Routes and/or Enable Route Acceptance on Your Devices
 
-For your local devices to access the subnet routes advertised by the subnet router, you need to enable route acceptance:
+For devices you can't install Tailscale on, you need to [approve the routes in the Tailscale admin UI](https://login.tailscale.com/admin/machines).
+- You will see a `Subnets !` badge on the machine you set up. This indicates it is advertising routes but hasn't been approved.
+- Click the `...` next to the machine
+- Click the checkbox and click save.
+- Now the `!` will be removed from the `Subnets` badge, indicating that the advertised routes are approved.
+
+For your local devices to access the subnet routes advertised by the subnet router, you can also enable route acceptance via the CLI:
 
 ```bash
 tailscale set --accept-routes=true
 ```
+
+
 
 ## 6. Verify Connectivity
 
