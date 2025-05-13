@@ -18,16 +18,22 @@ export const usePostHog = (apiKey: string, hostUrl: string) => {
         // Initialize PostHog
         posthog.init(apiKey, {
           api_host: hostUrl,
-          loaded: (ph) => {
+          loaded: ph => {
             // If we have an existing session ID and it differs from the current one, set it
-            if (existingSessionId && ph.get_distinct_id() !== existingSessionId) {
+            if (
+              existingSessionId &&
+              ph.get_distinct_id() !== existingSessionId
+            ) {
               ph.identify(existingSessionId);
             } else if (!existingSessionId) {
               // Store the new session ID
-              localStorage.setItem(POSTHOG_SESSION_ID_KEY, ph.get_distinct_id());
+              localStorage.setItem(
+                POSTHOG_SESSION_ID_KEY,
+                ph.get_distinct_id(),
+              );
             }
           },
-          capture_pageview: false, // We'll handle pageviews manually on route change
+          capture_pageview: false,
         });
 
         // Track page views when route changes
@@ -42,15 +48,13 @@ export const usePostHog = (apiKey: string, hostUrl: string) => {
           router.events.off("routeChangeComplete", onRouteChangeComplete);
           // Optionally flush any queued events before unmounting
           posthog.capture("$pageleave");
-          posthog.flush();
         };
       } catch (error) {
         console.error("Error initializing PostHog:", error);
       }
     }
-    
+
     // Return empty cleanup function if not initialized
     return () => {};
   }, [apiKey, hostUrl, router.events]);
 };
-
