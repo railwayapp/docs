@@ -95,7 +95,7 @@ tailscale_auth_key = "tskey-your-tailscale-auth-key"
 
 **!IMPORTANT**: Make sure you update your `userlist.txt` password to the same password as your new `rds_password`.
 
-## Deploy
+### Deploy
 
 Initialize and apply the Terraform configuration:
 
@@ -132,7 +132,7 @@ width={602} height={572} quality={100} />
 
 - Click **Save**
 
-## 5. Approve Advertised Subnet Routes and/or Enable Route Acceptance on Your Devices
+## Approve Advertised Subnet Routes and/or Enable Route Acceptance on Your Devices
 
 For devices you can't install Tailscale on, you need to [approve the routes in the Tailscale admin UI](https://login.tailscale.com/admin/machines).
 - You will see a `Subnets !` badge on the machine you set up. This indicates it is advertising routes but hasn't been approved.
@@ -146,7 +146,7 @@ For your local devices to access the subnet routes advertised by the subnet rout
 tailscale set --accept-routes=true
 ```
 
-## 6. Verify Connectivity
+## Verify Connectivity
 
 Run the verification script:
 
@@ -158,7 +158,7 @@ The endpoint and other details can be found in the Terraform outputs after deplo
 
 If you're running into issues at this point, head down to the Troubleshooting section to help figure out what might be wrong.
 
-## 7. Connect to Your RDS Instance
+## Connect to Your RDS Instance
 
 Once the verification passes, you can connect to your RDS instance directly from your local machine using standard PostgreSQL tools or any database client:
 
@@ -170,7 +170,7 @@ If you've never used Tailscale before, take a moment to familiarize yourself wit
 
 Similarly, you can now use this subnet router to route traffic from other devices in your Tailnet, including as a way to create a bridge between networks. Now we're ready to connect our Railway services! Let's do that next.
 
-## 8. Deploy Railtail into your project
+## Deploy Railtail into your project
 
 Railtail is a project that will forward SOCK5 traffic for us RDS, because right now Railway containers don't allow priviledge escalation. This way we can use private IPv6 networking to Railtail and forward our traffic privately to our AWS Subnet Router, which will then route to RDS.
 
@@ -185,7 +185,7 @@ You will need four variables to deploy Railtail and start bridging traffic to yo
 
 Click **Deploy Template**.
 
-## 9. Bridge Traffic to RDS
+## Bridge Traffic to RDS
 
 Now you can connect any service to your RDS backend. Add a variable to your connecting Service like: `DATABASE_URL="postgresql://USERNAME:PASSWORD@${{railtail.RAILWAY_PRIVATE_DOMAIN}}:${{railtail.LISTEN_PORT}}/postgres"`
 
@@ -196,7 +196,7 @@ alt="screenshot of railtail"
 layout="intrinsic"
 width={1544} height={533} quality={100} />
 
-## 10. Cleanup
+## Cleanup
 
 When you're done with the tutorial, and so that AWS doesn't charge you money while your instances sit idle, you can destroy the resources you created automatically with:
 
