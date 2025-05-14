@@ -3,9 +3,9 @@ title: Pricing Plans
 description: Learn about Railway's plans and pricing.
 ---
 
-Railway plans and pricing are designed to support you however you work. We charge a base subscription fee for the plan you sign up to, on top of your resource and add-on usages.
+Railway plans and pricing are designed to give you maximum resources while only charging you for your usage. We charge a base subscription price, which goes towards your resources and usage.
 
-> **Note:** Effective March 3rd, 2025, Railway is updating its pricing structure with reduced rates for network egress and volume storage, along with new benefits for Metal instance users.
+> **NEW** Effective March 3rd, 2025, Railway is updating its pricing structure with reduced rates for network egress and volume storage, along with new benefits for Metal instance users.
 
 ## Plans
 
@@ -27,7 +27,7 @@ Each Railway account needs an active subscription. The base subscription fee all
 | **Pro**        | $20 / month |
 | **Enterprise** | Custom      |
 
-> **Note:** For users with at least 80 percent usage on Railway hosted metal instances, all seat costs will be waived as of March 3rd, 2025.
+> **Note:** For users with at least 80 percent usage on Railway hosted metal instances, all seat costs will be waived.
 
 Read more about our plans at <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
@@ -78,24 +78,25 @@ The Pro plan **does not include any usage credits**. You will be billed for reso
 
 ### Additional Services
 
-Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.com) to get started.
+Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started.
 
 ## Committed Spend Tiers
 
-As of March 3rd, 2025, Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
+Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
 
-For example, customers who commit to a $10,000/month spend rate can access dedicated hosts as an add-on, with all pricing going towards their usage. This approach provides more flexibility and transparency compared to traditional contract pricing.
+For example, customers who commit to a $10,000/month spend rate can access dedicated hosts, with all pricing going towards their usage. This approach provides more flexibility and transparency compared to traditional contract pricing.
 
-| Add-on Feature          | Commitment Spend | Description                                                                                                     |
+| Feature                 | Commitment Spend | Description                                                                                                     |
 | ----------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- |
 | **2 TB RAM / 112 vCPU** | $500/month       | Access to increased computing resources at a committed monthly spend level.                                     |
 | **RBAC**                | $500/month       | Role-Based Access Control to manage user permissions and access.                                                |
 | **SLOs**                | $500/month       | Service Level Objectives to ensure and track application performance.                                           |
 | **90-day log history**  | $500/month       | Extended log retention for better historical analysis and auditing.                                             |
-| **HIPAA BAAs**          | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly. |
+| [**Business Class Support**](/reference/support#business-class)  | $500/month       | Improved support SLOs and response times. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started.                                             |
+| **HIPAA BAAs**          | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly.|
 | **Dedicated Hosts**     | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                           |
 
-To learn more about committed spend tiers and available add-ons, please [contact our team](mailto:team@railway.com).
+To learn more about committed spend tiers, please [contact our team](mailto:team@railway.com?subject=Business%20Class%20Support).
 
 ### Purchasing Credits
 
