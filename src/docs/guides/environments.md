@@ -53,26 +53,6 @@ When enabled, a temporary environment is spun up to support the Pull Request dep
 
 Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
 
-### Copy Volume Data
-
-When enabled, any volume data from the base environment is copied to a new PR Environment. This is particularly useful if you've setup a staging environment with some seed data and want it copied into your new PR Environment.
-
-Before using the feature, here are some things to consider:
-
-- If you're using this feature, we _strongly_ recommend against using a production environment as your base environment.
-- Using the Copy Volume Data feature means PR Environments will have a copy of your base environment data with no fancy modifications.
-  - For a Postgres database (Mongo, etc.), that means the username/password of a PR Environment will have to be the same as the base environment.
-  - [Variables](https://docs.railway.com/guides/variables) of Services with volumes in the new PR Environment will match the base environment.
-
-<Image
-  src="https://res.cloudinary.com/railway/image/upload/v1743191227/docs/copy-volume-data_wwrcki.png"
-  alt="Copy Volume Data"
-  layout="responsive"
-  width={1200}
-  height={320}
-  quality={90}
-/>
-
 ### Bot PR Environments
 
 You can enable automatic PR environment creation for PRs opened by GitHub bots (Dependabot, Renovatebot) using the `Enable Bot PR Environments` toggle on the Environments tab in the Project Settings page.
