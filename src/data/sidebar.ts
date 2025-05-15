@@ -303,6 +303,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("AWS Marketplace", "reference/pricing"),
         ],
       },
+      makePage("Migrate to Railway Metal", "reference"),
       makePage("Production Readiness Checklist", "reference"),
     ],
   },
