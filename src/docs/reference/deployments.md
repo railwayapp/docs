@@ -138,6 +138,14 @@ Once the new deployment is online, the old deployment is sent a SIGTERM signal a
 
 The time given to gracefully shutdown can be controlled by setting a [`RAILWAY_DEPLOYMENT_DRAINING_SECONDS`](/reference/variables#user-provided-configuration-variables) [service variable](/overview/the-basics#service-variables).
 
+## Railway Initiated Deployments
+
+Occasionally, Railway will initiate a new deployment to migrate your service from one host to another. **This is primarily for your service's security and performance.**
+
+We perform these migrations when implementing security patches or platform upgrades to the underlying infrastructure where your service was previously running. During platform-wide upgrades, your service might be redeployed multiple times as we roll out changes across our infrastructure. These deployments are mandatory and cannot be opted out of.
+
+These Railway-initiated deployments will display with a banner above the Active deployment to clearly identify them.
+
 ## Support
 
 For information on how to manage your deployments, explore [the guides in this section](/guides/deployments).
