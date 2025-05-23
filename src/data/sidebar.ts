@@ -126,6 +126,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Templates", "guides"),
         pages: [
           makePage("Create", "guides"),
+          makePage("Best Practices", "guides", "/guides/templates-best-practices"),
           makePage("Publish and Share", "guides"),
           makePage("Deploy", "guides"),
         ],
