@@ -30,7 +30,7 @@
     "interweave": "^13.1.0",
     "meilisearch": "^0.32.3",
     "nanostores": "^0.7.4",
-    "next": "^14.2.5",
+    "next": "^14.2.26",
     "next-contentlayer": "^0.3.4",
     "next-seo": "^5.15.0",
     "next-themes": "^0.2.1",
