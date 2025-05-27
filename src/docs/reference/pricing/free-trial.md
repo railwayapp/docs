@@ -30,7 +30,7 @@ If you do not already have a Railway account, you can sign up for a free Trial b
 
 ### How does the Trial work?
 
-When you sign up for the free Trial, you will receive a one-time grant of $5 in credits that you can use to try out Railway. The credits will be applied towards any usage on the platform and do not expire. If you upgrade to a plan while you still have a credit balance from the trial, the remaining balance will carry over to your new plan.
+When you sign up for the free Trial, you will receive a one-time grant of $5 in credits that you can use to try out Railway. The credits will be applied towards any usage on the platform and expire in 30 days. If you upgrade to a plan while you still have a credit balance from the trial, the remaining balance will carry over to your new plan.
 
 ### What resources can I access during the Trial?
 
@@ -48,7 +48,7 @@ While you're on the Limited Trial, you can initiate verification at any time by 
 
 ### How far will the $5 one-time Trial grant last?
 
-The longevity of your one-time trial grant depends on how many resources you consume within the 30 day period you sign-up for the platform. The more resources you deploy, the greater the consumption. 
+The longevity of your one-time trial grant depends on how many resources you consume within the 30 day period you sign-up for the platform. The more resources you deploy, the greater the consumption.
 
 ### Data Rentention
 
