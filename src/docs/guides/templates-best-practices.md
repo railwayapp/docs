@@ -59,19 +59,35 @@ The overview is the first thing users will see when they click on the template, 
 
 The overview should include the following:
 
-- Template Name or Title Logo
+- H1: Deploy and Host [X] with Railway
 
-- A description of the software the template deploys.
+    What is X? Your description in roughly ~ 50 words.
 
-- Infromation about hosting the software on Railway.
+- H2: About Hosting [X]
 
-- Why the user should use this template.
+    Roughly 100 word description what's involved in hosting/deploying X
 
-- Some common use cases of the software.
+- H2: Common Use Cases
 
-- Information on other dependencies the template requires.
+    In 3-5 bullets, what are the most common use cases for [X]?
 
-- Implementation notes, such as how to use the service, how to connect to the database, etc.
+- H2: Dependencies for [X] Hosting
+
+    In bullet form, what other technologies are incorporated in using this template besides [X]?
+
+- H3: Deployment Dependencies
+
+    Include any external links relevant to the template.
+
+- H3: Implementation Details <OPTIONAL>
+
+    Include any code snippets or implementation details. This section is optional. Exclude if nothing to add.
+
+- H3: Why Deploy [X] on Railway?
+
+    Railway is a singular platform to deploy your infrastructure stack. Railway will host your infrastructure so you don’t have to deal with configuration, while allowing you to vertically and horizontally scale it.
+
+    By deploying [X] on Railway, you are one step closer to supporting a complete full-stack application with minimal burden. Host your servers, databases, AI agents, and more on Railway.
 
 
 
