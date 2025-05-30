@@ -99,6 +99,11 @@ const redirects = [
     destination: "/reference/errors",
     permanent: true,
   },
+  {
+    source: "/guides/healthchecks-and-restarts",
+    destination: "/guides/healthchecks",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [

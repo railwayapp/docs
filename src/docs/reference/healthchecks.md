@@ -23,4 +23,4 @@ This timeout is configurable in the service settings.
 
 ## Support
 
-For information on how to configure healthchecks, click [here](/guides/healthchecks-and-restarts).
+For information on how to configure healthchecks, click [here](/guides/healthchecks).

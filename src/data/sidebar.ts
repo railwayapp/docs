@@ -96,7 +96,8 @@ export const sidebarContent: ISidebarContent = [
           makePage("Deployment Actions", "guides"),
           makePage("GitHub Autodeploys", "guides"),
           makePage("Optimize Performance", "guides"),
-          makePage("Healthchecks and Restarts", "guides"),
+          makePage("Healthchecks", "guides"),
+          makePage("Restart Policy", "guides"),
           makePage("Monorepo", "guides"),
           makePage("Cron Jobs", "guides"),
           makePage("Optimize Usage", "guides"),
@@ -268,7 +269,6 @@ export const sidebarContent: ISidebarContent = [
           makePage("Static Outbound IPs", "reference"),
           makePage("Scaling", "reference"),
           makePage("TCP Proxy", "reference"),
-          makePage("Runtime", "reference"),
         ],
       },
       {

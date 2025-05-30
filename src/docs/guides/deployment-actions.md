@@ -58,7 +58,7 @@ deployment and stop any further project usage.
 
 When a Deployment is `Crashed`, it is no longer running because the underlying process exited with a non-zero exit code - if your deployment exits successfully (exit code 0), the status will remain `Success`.
 
-Railway automatically restarts crashed Deployments up to 10 times (depending on your [Restart Policy](/guides/healthchecks-and-restarts#restart-policy)). After this limit is reached, your deployment status is changed to `Crashed` and notifying webhooks & emails are sent to the project's members.
+Railway automatically restarts crashed Deployments up to 10 times (depending on your [Restart Policy](/guides/restart-policy#plan-limitations)). After this limit is reached, your deployment status is changed to `Crashed` and notifying webhooks & emails are sent to the project's members.
 
 Restart a `Crashed` Deployment by visiting your project and clicking on the "Restart" button that appears in-line on the Deployment:
 

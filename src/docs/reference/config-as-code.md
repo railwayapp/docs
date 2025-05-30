@@ -322,7 +322,7 @@ Possible values are:
 - `ALWAYS`
 - `NEVER`
 
-Read more about the Restart policy [here](/guides/healthchecks-and-restarts#restart-policy).
+Read more about the Restart policy [here](/guides/restart-policy).
 
 ### Restart Policy Max Retries
 
@@ -339,6 +339,8 @@ Set the max number of retries for the restart policy.
 ```
 
 This field can be set to `null`.
+
+Read more about the Restart policy [here](/guides/restart-policy).
 
 ### Cron Schedule
 
