@@ -9,7 +9,7 @@ It is important to be familiar with this flow as you explore the upcoming guides
 
 ### What to Expect
 
-As you create or update components within your project -
+As you create or update components within your project:
 
 1. The number of staged changes will be displayed in a banner on the canvas
 2. Staged changes will appear as purple in the UI
