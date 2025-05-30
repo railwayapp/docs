@@ -1,6 +1,6 @@
 ---
 title: Viewing Logs
-description: Learn how to view and filter build and deployment logs on Railway.
+description: Learn how to view and filter build, deployment, environment, and HTTP logs on Railway.
 ---
 
 Any build or deployment logs emitted to standard output or standard error (e.g. `console.log(...)`) are captured by Railway to be viewed or searched later.
