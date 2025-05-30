@@ -9,11 +9,11 @@ Creating templates can get complex, but these best practices will help you creat
 
 Depending on the type of template, there are different things to consider:
 
-- [ ] Template and Service Icons
-- [ ] Naming Conventions
-- [ ] Environment Variables
-- [ ] Health Checks
-- [ ] Overview
+- [Template and Service Icons](#template-and-service-icons)
+- [Naming Conventions](#naming-conventions)
+- [Environment Variables](#environment-variables)
+- [Health Checks](#health-checks)
+- [Overview](#overview)
 
 ### Template and Service Icons
 
