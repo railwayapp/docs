@@ -36,5 +36,5 @@ Holding the "Alt" key while clicking the "Deploy" button allows you to commit th
 
 ### Caveats
 
-- Networking changes are not yet staged and are applied immediately.
-- Adding databases or templates will only affect the current environment. However, they do not yet create a commit in the history.
+- Networking changes are not yet staged and are applied immediately
+- Adding databases or templates will only affect the current environment. However, they do not yet create a commit in the history
