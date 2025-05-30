@@ -79,7 +79,7 @@ The overview should include the following:
 
     Include any external links relevant to the template.
 
-- H3: Implementation Details <OPTIONAL>
+- H3: Implementation Details (Optional)
 
     Include any code snippets or implementation details. This section is optional. Exclude if nothing to add.
 
