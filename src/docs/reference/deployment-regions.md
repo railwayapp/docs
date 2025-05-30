@@ -27,7 +27,7 @@ Within the service settings, you can select one of the following regions -
 
 **Note:** The region identifier is the value that can be used in your [Config as Code file](/reference/config-as-code#multi-region-configuration).
 
-By default, Railway deploys to your preferred region, you can change this in your [Account Settings](https://railway.com/account).
+By default, Railway deploys to your preferred region, you can change this in your [Account Settings](https://railway.com/workspace).
 
 All regions provide the same experience, performance, and reliability you expect from Railway.
 

@@ -18,7 +18,7 @@ Scale horizontally by manually increasing the number of replicas for a service.
 
 Each replica has access to the full resources allocated by your plan. For instance, with the `Pro` plan, each of your replicas can utilize up to 32 vCPU and 32GB of memory, for example, if you had 2 replicas, your service would be able to utilize up to 64 vCPU and 64GB of memory split between the 2 replicas.
 
-Railway's infrastructure spans multiple regions across the globe, and by default Railway deploys to your [preferred region](https://railway.com/account).
+Railway's infrastructure spans multiple regions across the globe, and by default Railway deploys to your [preferred region](https://railway.com/workspace).
 
 <Image 
     src="https://res.cloudinary.com/railway/image/upload/v1733386054/multi-region-replicas_zov7rv.png"
@@ -49,9 +49,9 @@ If you are using a single region with multiple replicas, Railway will randomly d
 
 **Note:** For now Railway does not support sticky sessions nor report the usage of the individual replicas within the metrics view, all metrics are aggregated across all replicas in all regions.
 
-### Set a Default Region
+### Set a Preferred Region
 
-To set a default, or preferred, region, do so from your [Account Settings](https://railway.com/account).
+To set a default or preferred region, do so from your [Workspace Settings](https://railway.com/workspace).
 
 ### Impact of Region Changes
 
