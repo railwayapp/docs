@@ -99,11 +99,6 @@ const redirects = [
     destination: "/reference/errors",
     permanent: true,
   },
-  {
-    source: "/guides/healthchecks-and-restarts",
-    destination: "/guides/healthchecks",
-    permanent: true,
-  },
 ];
 
 const hashRedirects = [
@@ -115,6 +110,41 @@ const hashRedirects = [
   {
     source: "#post-requests-turn-into-get-requests",
     destination: "/reference/errors/405-method-not-allowed",
+    permanent: true,
+  },
+  {
+    source: "/guides/healthchecks-and-restarts#restart-policy",
+    destination: "/guides/restart-policy",
+    permanent: true,
+  },
+  {
+    source: "/guides/healthchecks-and-restarts#configure-healthcheck-path",
+    destination: "/guides/healthchecks#configure-the-healthcheck-path",
+    permanent: true,
+  },
+  {
+    source: "/guides/healthchecks-and-restarts#configure-healthcheck-port",
+    destination: "/guides/healthchecks#configure-the-healthcheck-port",
+    permanent: true,
+  },
+  {
+    source: "/guides/healthchecks-and-restarts#healthcheck-timeout",
+    destination: "/guides/healthchecks#healthcheck-timeout",
+    permanent: true,
+  },
+  {
+    source: "/guides/healthchecks-and-restarts#services-with-attached-volumes",
+    destination: "/guides/healthchecks#services-with-attached-volumes",
+    permanent: true,
+  },
+  {
+    source: "/guides/healthchecks-and-restarts#healthcheck-hostname",
+    destination: "/guides/healthchecks#healthcheck-hostname",
+    permanent: true,
+  },
+  {
+    source: "/guides/healthchecks-and-restarts#continuous-healthchecks",
+    destination: "/guides/healthchecks#continuous-healthchecks",
     permanent: true,
   },
 ];

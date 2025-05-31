@@ -3,7 +3,7 @@ title: Configure Healthchecks
 description: Learn how to configure health checks to guarantee zero-downtime deployments of services on Railway.
 ---
 
-Railway provides controls for ensuring deployed services remain healthy.
+Railway provides controls for ensuring newly deployed services only receive traffic after they are healthy.
 
 ## Configure The Healthcheck Path
 
