@@ -83,7 +83,7 @@ Once you add a new service and select the source, you can configure the followin
   - Add a [Root Directory](/guides/monorepo) (Helpful for monorepos)
   - [Enable Public Networking](/guides/public-networking) with TCP Proxy or HTTP
   - Set a custom [Start command](/guides/start-command)
-  - Add a [Healthcheck Path](/guides/healthchecks-and-restarts#configure-healthcheck-endpoint)
+  - Add a [Healthcheck Path](/guides/healthchecks#configure-the-healthcheck-path)
 - **Add a volume**
   - To add a volume to a service, right-click on the service, select Attach Volume, and specify the [Volume mount path](/guides/volumes)
 
