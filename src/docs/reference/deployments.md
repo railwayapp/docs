@@ -102,7 +102,7 @@ This is often used to bring a service back online after -
 
 - The redeploy will use the source code from the selected deployment.
 
-- Railway only retains deployment images for 2 weeks. You can only redeploy a deployment that is 2 weeks old or newer. Older deployments will not be available for redeployment.
+- Deployments older than your [plan's retention policy](/reference/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible.
 
 #### Rollback
 
@@ -112,7 +112,7 @@ Redeploys the selected deployment.
 
 - The rollback will use the source code from the selected deployment.
 
-- Railway only retains deployment images for 2 weeks. You can only roll back to a deployment that is 2 weeks old or newer. Older deployments will not be available for rollback.
+- Deployments older than your [plan's retention policy](/reference/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible.
 
 #### Remove
 
