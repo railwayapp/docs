@@ -89,6 +89,7 @@ Railway retains images for a period of time after a deployment is removed. This 
 | **Free / Trial** | **24 hours**  |
 | **Hobby**        | **72 hours**  |
 | **Pro**          | **120 hours** |
+| **Enterprise**   | **360 hours** |
 
 When a deployment is removed, the image will be retained for the duration of the policy.
 
