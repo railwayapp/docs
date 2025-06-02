@@ -104,7 +104,7 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 
 | Feature                 | Commitment Spend | Description                                                                                                     |
 | ----------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- |
-| **2 TB RAM / 112 vCPU** | $500/month       | Access to increased computing resources at a committed monthly spend level.                                     |
+| **64 GB RAM / 64 vCPU** | $500/month       | Access to increased computing resources at a committed monthly spend level.                                     |
 | **RBAC**                | $500/month       | Role-Based Access Control to manage user permissions and access.                                                |
 | **SLOs**                | $500/month       | Service Level Objectives to ensure and track application performance.                                           |
 | **90-day log history**  | $500/month       | Extended log retention for better historical analysis and auditing.                                             |
