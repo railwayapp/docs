@@ -36,15 +36,15 @@ Read more about our plans at <a href="https://railway.com/pricing" target="_blan
 Depending on the plan you are on, you are allowed to use up these resources per service.
 
 | Plan           | **RAM**    | **CPU**     | **Ephemeral Storage** | **Volume Storage** | **Image Size** |
-| -------------- | ---------- | ----------- | --------------------- | ------------------ | ------------------ |
-| **Trial**      | **0.5 GB** | **2 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**         |
-| **Hobby**      | **8 GB**   | **8 vCPU**  | **10 GB**             | **5 GB**           | **100 GB**           |
-| **Pro**        | **32 GB**  | **32 vCPU** | **100 GB**            | **50 GB\*\***      | **100 GB**           |
-| **Enterprise** | **64 GB**  | **64 vCPU** | **100 GB**            | **2 TB\*\***       | **100 GB**           |
+| -------------- | ---------- | ----------- | --------------------- | ------------------ | -------------- |
+| **Trial**      | **0.5 GB** | **2 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**       |
+| **Hobby**      | **8 GB**   | **8 vCPU**  | **10 GB**             | **5 GB**           | **100 GB**     |
+| **Pro**        | **32 GB**  | **32 vCPU** | **100 GB**            | **50 GB \***       | **100 GB**     |
+| **Enterprise** | **64 GB**  | **64 vCPU** | **100 GB**            | **2 TB \***        | **100 GB**     |
 
 Note that these are initial values and users on the Pro and Enterprise plans can request limit increases.
 
-\*\*For Volumes, Pro users and above can self-serve to increase their volume up to 250 GB. Check out [this guide](/guides/volumes#growing-the-volume) for information.
+\* For Volumes, Pro users and above can self-serve to increase their volume up to 250 GB. Check out [this guide](/guides/volumes#growing-the-volume) for information.
 
 ### Resource Usage Pricing
 
@@ -80,6 +80,23 @@ The Pro plan **does not include any usage credits**. You will be billed for reso
 
 Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started.
 
+## Image Retention Policy
+
+Railway retains images for a period of time after a deployment is removed. This is to allow for rollback to a previous deployment.
+
+| Plan             | **Policy**    |
+| ---------------- | ------------- |
+| **Free / Trial** | **24 hours**  |
+| **Hobby**        | **72 hours**  |
+| **Pro**          | **120 hours** |
+| **Enterprise**   | **360 hours** |
+
+When a deployment is removed, the image will be retained for the duration of the policy.
+
+Rolling back a removed deployment within the retention policy will restore the previous image, settings, and all variables with a new deployment; no redeployment is required.
+
+A removed deployment that is outside of the retention policy will not have the option to rollback; instead, you will need to use the redeploy feature. This will rebuild the image from the original source code with the deployment's original variables.
+
 ## Committed Spend Tiers
 
 Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
@@ -88,7 +105,7 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 
 | Feature                 | Commitment Spend | Description                                                                                                     |
 | ----------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- |
-| **2 TB RAM / 112 vCPU** | $500/month       | Access to increased computing resources at a committed monthly spend level.                                     |
+| **64 GB RAM / 64 vCPU** | $500/month       | Access to increased computing resources at a committed monthly spend level.                                     |
 | **RBAC**                | $500/month       | Role-Based Access Control to manage user permissions and access.                                                |
 | **SLOs**                | $500/month       | Service Level Objectives to ensure and track application performance.                                           |
 | **90-day log history**  | $500/month       | Extended log retention for better historical analysis and auditing.                                             |

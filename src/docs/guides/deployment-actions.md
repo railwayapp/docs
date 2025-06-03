@@ -24,7 +24,7 @@ width={1518} height={502} quality={80} />
 A deployment rollback will revert to the previously successful deployment. Both the Docker
 image and custom variables are restored during the rollback process.
 
-*Note: Deployments older than 2 weeks cannot be restored via rollback due to Railway's 2 week image retention policy.*
+*Note: Deployments older than your [plan's retention policy](/reference/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible.*
 
 ## Redeploy
 
