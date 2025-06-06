@@ -29,11 +29,10 @@ Read more about the kickback program <a href="https://railway.com/open-source-ki
   As an example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $100 kickback (50% of $200).
 
 - The minimum kickback our program supports is $0.01, meaning usage of your template must incur at least $0.04 in usage after discounts and/or platform fees.
-- All service types and resource usage of those services (compute, volume, egress, etc) _do count_ towards the kickback.
 
 ## Earnings and Withdrawals
 
-By default, your template kickbacks are automatically converted into Railway Credits. But we also offer cash wishdrawals. Visit the `/earnings` tab inside your account settings for more details. There you can add your details and request a withdrawal.
+By default, your template kickbacks are automatically converted into Railway Credits. But we also offer cash withdrawals. Visit the `/earnings` tab inside your account settings for more details. There you can add your details and request a withdrawal.
 
 ### FAQ
 
@@ -43,7 +42,7 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 #### How do I request a withdrawal?
 
-- Follow the instructions inside the `Earnings` tab. We currently allow withdrawals to GitHub Sponsors and Buy Me a Coffee. After adding your account details you will request a withdrawal. Out team will receive the request and process it right away.
+- Follow the instructions inside the `Earnings` tab. We currently allow withdrawals to GitHub Sponsors and Buy Me a Coffee. After adding your account details you will request a withdrawal. Our team will receive the request and process it right away.
 
 #### Can I make manual withdrawals to credits too?
 
