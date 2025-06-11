@@ -72,10 +72,21 @@ Restarting a crashed Deployment restores the exact image containing the code & c
 
 You can also click within a deployment and using the Command Palette restart a deployment at any state.
 
-## Startup Order
+## Deployment Dependencies - Startup Ordering
 
 You can control the order your services start up with [Reference Variables](https://docs.railway.com/guides/variables#reference-variables).
-When one service references another, it will be deployed after the service it is referencing when
-applying a [staged change](https://docs.railway.com/guides/staged-changes) or [duplicating an environment](https://docs.railway.com/guides/environments#create-an-environment).
+When one service references another, it will be deployed after the service it is referencing when applying a [staged change](https://docs.railway.com/guides/staged-changes) or [duplicating an environment](https://docs.railway.com/guides/environments#create-an-environment).
 
-An example of when this is useful is deploying an API service that depends on a [PostgreSQL database](https://docs.railway.com/guides/postgresql).
+Services that have circular dependencies will simply ignore them and deploy as normal.
+
+### How It Works
+
+For example, let's say you're deploying an API service that depends on a [PostgreSQL database](https://docs.railway.com/guides/postgresql).
+
+When you have services with reference variables like:
+
+- API Service has DATABASE_URL=${{Postgres.DATABASE_URL}} which is defined on your Postgres Service in the same project.
+
+Railway will:
+1. Deploy the Postgres Service first
+2. Then deploy the API Service (since it has a reference variable to Postgres)
