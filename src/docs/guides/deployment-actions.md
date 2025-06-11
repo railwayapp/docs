@@ -84,7 +84,6 @@ Services that have circular dependencies will simply ignore them and deploy as n
 For example, let's say you're deploying an API service that depends on a [PostgreSQL database](https://docs.railway.com/guides/postgresql).
 
 When you have services with reference variables like:
-
 - API Service has DATABASE_URL=${{Postgres.DATABASE_URL}} which is defined on your Postgres Service in the same project.
 
 Railway will:
