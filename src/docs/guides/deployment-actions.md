@@ -79,8 +79,6 @@ When one service references another, it will be deployed after the service it is
 
 Services that have circular dependencies will simply ignore them and deploy as normal.
 
-### How It Works
-
 For example, let's say you're deploying an API service that depends on a [PostgreSQL database](https://docs.railway.com/guides/postgresql).
 
 When you have services with reference variables like:
