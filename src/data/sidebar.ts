@@ -4,7 +4,13 @@ import { slugify } from "@/utils/slugify";
 const makePage = (title: string, category?: string, slug?: string): IPage => ({
   title,
   category,
-  slug: slug ?? `/${category != null ? category + "/" : ""}` + slugify(title),
+  slug: (() => {
+    if (slug) {
+      return slug.startsWith('/') ? slug : '/' + slug;
+    }
+
+    return '/' + (category ? category + '/' : '') + slugify(title);
+  })(),
 });
 
 export const sidebarContent: ISidebarContent = [
