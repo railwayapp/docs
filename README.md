@@ -10,7 +10,9 @@ This is the place where all the documentation about Railway is hosted. Contribut
 
 ## 🧑‍🔬 Contributing
 
-This is a [NextJS](https://nextjs.org) project. Install Node 18 (or [nvm](https://github.com/nvm-sh/nvm)), and then develop with
+This is a [NextJS](https://nextjs.org) project. Install Node 18, or install [nvm](https://github.com/nvm-sh/nvm) and run `nvm install` and `nvm use`.
+
+Develop with:
 
 ```bash
 npm i
