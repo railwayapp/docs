@@ -86,7 +86,7 @@ If you are on the Hobby plan and using prepaid credits as your payment method, y
 If your subscription is canceled and you have no pending invoices, you can remove your saved payment method by doing the following:
 
 1. Go to the [billing page](https://railway.com/workspace/billing) for your workspace
-2. Click the "Delete" in the payment method section
+2. Click "Delete" in the payment method section
 
 ### How do I switch to the auto-renewing Hobby plan billing model?
 
