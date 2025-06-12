@@ -81,6 +81,13 @@ When you cancel your subscription, if you're on Hobby, Pro, or Enterprise, your 
 
 If you are on the Hobby plan and using prepaid credits as your payment method, your subscription will be canceled immediately and any credit balance you may have will be forfeited.
 
+### How do I remove my saved payment method from my account?
+
+If your subscription is canceled and you have no pending invoices, you can remove your saved payment method by doing the following:
+
+1. Go to the [billing page](https://railway.com/workspace/billing) for your workspace
+2. Click "Delete" in the payment method section
+
 ### How do I switch to the auto-renewing Hobby plan billing model?
 
 At this time, we do not directly support switching from a prepaid credit-based plan to an auto-renewing subscription.
