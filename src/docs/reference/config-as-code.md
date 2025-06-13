@@ -411,3 +411,33 @@ To define a build provider ahead of time, create a `nixpacks.toml` file and conf
 ```toml
 providers = ["...", "python"]
 ```
+
+### Overlap Seconds
+
+Time in seconds that the previous deploy will overlap with the newest one being deployed. Read more about the deployment's lifecycle [here](/reference/deployments).
+
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "overlapSeconds": "60"
+  }
+}
+```
+
+This field can be set to `null`.
+
+### Draining Seconds
+
+The time in seconds between when the previous deploy is sent a SIGTERM to the time it is sent a SIGKILL. Read more about the deployment's lifecycle [here](/reference/deployments).
+
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "drainingSeconds": "10"
+  }
+}
+```
+
+This field can be set to `null`.

@@ -4,7 +4,7 @@ const startComment = "{/* codegen:start do not edit this comment */}";
 const endComment = "{/* codegen:end do not edit this comment */}";
 
 async function main() {
-  const path = "./src/docs/deploy/config-as-code.md";
+  const path = "./src/docs/reference/config-as-code.md";
   let content = await fs.readFile(path, "utf-8");
   const startIndex = content.indexOf(startComment);
   const endIndex = content.indexOf(endComment);
@@ -74,7 +74,7 @@ ${key} = ${
     }
 
     if (unwrappedValue.enum) {
-      content += `Possible values are:\n${value.enum
+      content += `Possible values are:\n${unwrappedValue.enum
         .filter(v => !ignoredEnumValues.includes(v))
         .map(v => `- \`${v}\``)
         .join("\n")}\n\n`;
