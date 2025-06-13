@@ -146,9 +146,22 @@ We perform these migrations when implementing security patches or platform upgra
 
 These Railway-initiated deployments will display with a banner above the Active deployment to clearly identify them.
 
-## Deployment Pausing During High Traffic
+## Deployments Paused - Limited Access
 
-During periods of high platform traffic, Railway may temporarily pause new deployments for free and hobby tier customers to ensure platform stability and optimal performance for all users.
+Railway's core offering is dynamic, allowing you to verticially or horizontally scale with little-to-no-notice. To offer this flexibility to customers, Railway takes the stance that Pro user usage may be prioritized above Free/Hobby tiers.
+
+During periods where Pro+ users require additional resources, Railway may temporarily suspect resource allocation, including builds, to Free, and more rarely Hobby, customers.
+
+During this time, builds may temporarily pause for these tiers
+
+<Image
+  src="https://res.cloudinary.com/railway/image/upload/v1749837403/CleanShot_2025-06-13_at_10.55.34_2x_ks2adh.png"
+  alt="Limited Access indicator shown during high traffic periods"
+  layout="responsive"
+  width={1200}
+  height={800}
+  quality={80}
+/>
 
 ### How it Works
 
