@@ -156,8 +156,6 @@ During periods where Pro/Enterprise users require additional resources, Railway 
   src="https://res.cloudinary.com/railway/image/upload/v1749837403/CleanShot_2025-06-13_at_10.55.34_2x_ks2adh.png"
   alt="Limited Access indicator shown during high traffic periods"
   layout="responsive"
-  width={1200}
-  height={800}
   quality={80}
 />
 
