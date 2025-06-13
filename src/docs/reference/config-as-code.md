@@ -414,7 +414,7 @@ providers = ["...", "python"]
 
 ### Overlap Seconds
 
-Time in seconds that the previous deploy will overlap with the newest one being deployed. Read more about the deployment's lifecycle [here](/docs/reference/deploy).
+Time in seconds that the previous deploy will overlap with the newest one being deployed. Read more about the deployment's lifecycle [here](/reference/deployments).
 
 ```json
 {
@@ -429,7 +429,7 @@ This field can be set to `null`.
 
 ### Draining Seconds
 
-The time in seconds between when the previous deploy is sent a SIGTERM to the time it is sent a SIGKILL. Read more about the deployment's lifecycle [here](/docs/reference/deploy).
+The time in seconds between when the previous deploy is sent a SIGTERM to the time it is sent a SIGKILL. Read more about the deployment's lifecycle [here](/reference/deployments).
 
 ```json
 {
