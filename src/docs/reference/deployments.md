@@ -148,11 +148,9 @@ These Railway-initiated deployments will display with a banner above the Active 
 
 ## Deployments Paused - Limited Access
 
-Railway's core offering is dynamic, allowing you to verticially or horizontally scale with little-to-no-notice. To offer this flexibility to customers, Railway takes the stance that Pro user usage may be prioritized above Free/Hobby tiers.
+Railway's core offering is dynamic, allowing you to verticially or horizontally scale with little-to-no-notice. To offer this flexibility to customers, Railway takes the stance that Pro/Enterprise tiers may, in rare occassions, be prioritized above Free/Hobby tiers.
 
-During periods where Pro+ users require additional resources, Railway may temporarily suspect resource allocation, including builds, to Free, and more rarely Hobby, customers.
-
-During this time, builds may temporarily pause for these tiers
+During periods where Pro/Enterprise users require additional resources, Railway may temporarily suspend resource allocation, including builds, to Free, and more rarely Hobby, customers.
 
 <Image
   src="https://res.cloudinary.com/railway/image/upload/v1749837403/CleanShot_2025-06-13_at_10.55.34_2x_ks2adh.png"
@@ -162,13 +160,6 @@ During this time, builds may temporarily pause for these tiers
   height={800}
   quality={80}
 />
-
-### How it Works
-
-- **Affected Tiers**: Free and Hobby tier projects
-- **When it Occurs**: During detected periods of high platform traffic
-- **What Happens**: New deployment requests are queued and will resume once traffic normalizes
-- **Existing Deployments**: Running deployments remain unaffected
 
 ### During a Pause
 
