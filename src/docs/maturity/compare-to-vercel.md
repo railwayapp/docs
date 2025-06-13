@@ -1,5 +1,5 @@
 ---
-title: Compare to Vercel
+title: Railway vs. Vercel
 description: Looking for the best deployment platform? This guide breaks down Railway vs. Vercel, covering scalability, pricing, features, and why Railway is the superior choice.
 ---
 
