@@ -146,6 +146,34 @@ We perform these migrations when implementing security patches or platform upgra
 
 These Railway-initiated deployments will display with a banner above the Active deployment to clearly identify them.
 
+## Deployment Pausing During High Traffic
+
+During periods of high platform traffic, Railway may temporarily pause new deployments for free and hobby tier customers to ensure platform stability and optimal performance for all users.
+
+### How it Works
+
+- **Affected Tiers**: Free and Hobby tier projects
+- **When it Occurs**: During detected periods of high platform traffic
+- **What Happens**: New deployment requests are queued and will resume once traffic normalizes
+- **Existing Deployments**: Running deployments remain unaffected
+
+### During a Pause
+
+- You'll see a "Limited Access" indicator in your dashboard
+- New deployments will be queued rather than immediately processed
+- All other Railway features remain fully functional
+- No data or existing deployments are affected
+
+### Continue Deploying During High Traffic
+
+If you need to deploy immediately during a high traffic pause, you can upgrade to the Pro plan to bypass the deployment queue. Pro tier customers are not affected by deployment pausing and can continue deploying normally during high traffic periods.
+
+### When Normal Operations Resume
+
+- Queued deployments will automatically process in order
+- You'll receive a notification when deployment capabilities are restored
+- No action is required on your part
+
 ## Support
 
 For information on how to manage your deployments, explore [the guides in this section](/guides/deployments).
