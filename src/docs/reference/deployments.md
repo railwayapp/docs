@@ -157,7 +157,7 @@ During periods where Pro/Enterprise users require additional resources, Railway 
   alt="Limited Access indicator shown during high traffic periods"
   layout="responsive"
   width={1200}
-  height={800}
+  height={479}
   quality={80}
 />
 
