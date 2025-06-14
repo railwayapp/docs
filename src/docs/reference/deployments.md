@@ -158,7 +158,7 @@ During periods where Pro/Enterprise users require additional resources, Railway 
   layout="responsive"
   width={1200}
   height={479}
-  quality={80}
+  quality={100}
 />
 
 ### During a Pause
