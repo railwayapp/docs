@@ -412,7 +412,11 @@ To define a build provider ahead of time, create a `nixpacks.toml` file and conf
 providers = ["...", "python"]
 ```
 
-### Overlap Seconds
+### Deployment Teardown
+
+You can configure [Deployment Teardown](/guides/deployment-teardown) settings to tune the behavior of zero downtime deployments on Railway.
+
+#### Overlap Seconds
 
 Time in seconds that the previous deploy will overlap with the newest one being deployed. Read more about the deployment's lifecycle [here](/reference/deployments).
 
@@ -427,7 +431,7 @@ Time in seconds that the previous deploy will overlap with the newest one being 
 
 This field can be set to `null`.
 
-### Draining Seconds
+#### Draining Seconds
 
 The time in seconds between when the previous deploy is sent a SIGTERM to the time it is sent a SIGKILL. Read more about the deployment's lifecycle [here](/reference/deployments).
 
