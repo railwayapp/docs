@@ -12,10 +12,10 @@ To learn more about the full deployment lifecycle, see the [deploy reference](/r
 Once the new deployment is active, the previous deployment remains active for a configurable amount of time. You can control this via the "Settings" pane for the service:
 
 <Image
-src="https://res.cloudinary.com/railway/image/upload/v1749845308/docs/deployment-teardown-guide/f3iyxld1rqrxxgay0bot.png"
+src="https://res.cloudinary.com/railway/image/upload/v1750178677/docs/deployment-teardown-guide/s5pqob0j8nreoojbo6dj.png"
 alt="Screenshot of a teardown settings"
 layout="responsive"
-width={640} height={403} quality={80}/>
+width={642} height={324} quality={80}/>
 
 It can also be configured via [code](/reference/config-as-code#overlap-seconds) or the [`RAILWAY_DEPLOYMENT_OVERLAP_SECONDS` service variable](/reference/variables#user-provided-configuration-variables).
 
