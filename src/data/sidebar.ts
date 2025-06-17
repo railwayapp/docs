@@ -104,6 +104,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Optimize Performance", "guides"),
           makePage("Healthchecks", "guides"),
           makePage("Restart Policy", "guides"),
+          makePage("Deployment Teardown", "guides"),
           makePage("Monorepo", "guides"),
           makePage("Cron Jobs", "guides"),
           makePage("Optimize Usage", "guides"),
