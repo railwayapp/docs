@@ -146,6 +146,38 @@ We perform these migrations when implementing security patches or platform upgra
 
 These Railway-initiated deployments will display with a banner above the Active deployment to clearly identify them.
 
+## Deployments Paused - Limited Access
+
+Railway's core offering is dynamic, allowing you to verticially or horizontally scale with little-to-no-notice. To offer this flexibility to customers, Railway takes the stance that Pro/Enterprise tiers may, in rare occassions, be prioritized above Free/Hobby tiers.
+
+During periods where Pro/Enterprise users require additional resources, Railway may temporarily suspend resource allocation, including builds, to Free, and more rarely Hobby, customers.
+
+<Image
+  src="https://res.cloudinary.com/railway/image/upload/v1749837403/CleanShot_2025-06-13_at_10.55.34_2x_ks2adh.png"
+  alt="Limited Access indicator shown during high traffic periods"
+  layout="responsive"
+  width={1200}
+  height={479}
+  quality={100}
+/>
+
+### During a Pause
+
+- You'll see a "Limited Access" indicator in your dashboard
+- New deployments will be queued rather than immediately processed
+- All other Railway features remain fully functional
+- No data or existing deployments are affected
+
+### Continue Deploying During High Traffic
+
+If you need to deploy immediately during a high traffic pause, you can upgrade to the Pro plan to bypass the deployment queue. Pro tier customers are not affected by deployment pausing and can continue deploying normally during high traffic periods.
+
+### When Normal Operations Resume
+
+- Queued deployments will automatically process in order
+- You'll receive a notification when deployment capabilities are restored
+- No action is required on your part
+
 ## Support
 
 For information on how to manage your deployments, explore [the guides in this section](/guides/deployments).
