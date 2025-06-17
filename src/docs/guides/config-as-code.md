@@ -46,7 +46,7 @@ For example, these configuration definitions are equivalent:
         {
           "$schema": "https://railway.com/railway.schema.json",
           "build": {
-            "builder": "nixpacks",
+            "builder": "NIXPACKS",
             "buildCommand": "echo building!"
             },
           "deploy": {
