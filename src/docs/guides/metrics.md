@@ -23,7 +23,7 @@ The following metrics are provided -
 
 ## Understanding the Metrics Graphs
 
-Graphs include dotted lines to indicate when new deployments began. Only the past 7 days of data is available for each project.
+Graphs include dotted lines to indicate when new deployments began. Up to 30 days of data is available for each project.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1645223703/docs/usage-commit_fkvbqj.png"
 alt="Screenshot of Metric Timeseries Commit Information"
