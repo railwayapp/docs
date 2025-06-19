@@ -66,7 +66,11 @@ Make sure to set an Authorization header with an [auth token](/reference/public-
 
 ## Rate Limits
 
-In order to protect the Railway API from spam and misusage, we have established some basic rate limits. The current limits are **1000** requests per **hour** and **50** requests per **second** (for Pro users, **10** for Hobby users) to the API. To help you keep track of your usage, Railway sends a few headers with the response on each request.
+In order to protect the Railway API from spam and misusage, we have established some basic rate limits. The current limits to the API are:
+- **1000** requests per **hour**
+- Requests per second: **10** RPS for Hobby users; **50** RPS for Pro users; custom for Enterprise
+
+To help you keep track of your usage, Railway sends a few headers with the response on each request.
 
 | Header                | Description                                                                                                                                        |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
