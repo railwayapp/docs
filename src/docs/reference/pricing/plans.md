@@ -52,12 +52,12 @@ On top of the base subscription fee above, Railway charges for the resources tha
 
 You are only charged for the resources you actually use, which helps prevent runaway cloud costs and provides assurances that you're always getting the best deal possible on your cloud spend.
 
-| Resource                                                   | Resource Price                                        |
-| ---------------------------------------------------------- | ----------------------------------------------------- |
-| **RAM**                                                    | $10 / GB / month ($0.000231 / GB / minute)            |
-| **CPU**                                                    | $20 / vCPU / month ($0.000463 / vCPU / minute)        |
-| **Network Egress**                                         | $0.05 / GB ($0.000000047683716 / KB)                  |
-| [**Volume Storage**](/reference/volumes)                   | $0.15 / GB / month ($0.000003472222222 / GB / minute) |
+| Resource                                 | Resource Price                                        |
+| ---------------------------------------- | ----------------------------------------------------- |
+| **RAM**                                  | $10 / GB / month ($0.000231 / GB / minute)            |
+| **CPU**                                  | $20 / vCPU / month ($0.000463 / vCPU / minute)        |
+| **Network Egress**                       | $0.05 / GB ($0.000000047683716 / KB)                  |
+| [**Volume Storage**](/reference/volumes) | $0.15 / GB / month ($0.000003472222222 / GB / minute) |
 
 To learn more about controlling your resource usage costs, read our FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
 
@@ -103,15 +103,15 @@ Railway offers committed spend tiers for customers with consistent usage needs. 
 
 For example, customers who commit to a $10,000/month spend rate can access dedicated hosts, with all pricing going towards their usage. This approach provides more flexibility and transparency compared to traditional contract pricing.
 
-| Feature                 | Commitment Spend | Description                                                                                                     |
-| ----------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- |
-| **64 GB RAM / 64 vCPU** | $500/month       | Access to increased computing resources at a committed monthly spend level.                                     |
-| **RBAC**                | $500/month       | Role-Based Access Control to manage user permissions and access.                                                |
-| **SLOs**                | $500/month       | Service Level Objectives to ensure and track application performance.                                           |
-| **90-day log history**  | $500/month       | Extended log retention for better historical analysis and auditing.                                             |
-| [**Business Class Support**](/reference/support#business-class)  | $500/month       | Improved support SLOs and response times. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started.                                             |
-| **HIPAA BAAs**          | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly.|
-| **Dedicated Hosts**     | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                           |
+| Feature                                                         | Commitment Spend | Description                                                                                                                        |
+| --------------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **64 GB RAM / 64 vCPU**                                         | $500/month       | Access to increased computing resources at a committed monthly spend level.                                                        |
+| **RBAC**                                                        | $500/month       | Role-Based Access Control to manage user permissions and access.                                                                   |
+| **SLOs**                                                        | $500/month       | Service Level Objectives to ensure and track application performance.                                                              |
+| **90-day log history**                                          | $500/month       | Extended log retention for better historical analysis and auditing.                                                                |
+| [**Business Class Support**](/reference/support#business-class) | $500/month       | Improved support SLOs and response times. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started. |
+| **HIPAA BAAs**                                                  | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly.                   |
+| **Dedicated Hosts**                                             | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                                              |
 
 To learn more about committed spend tiers, please [contact our team](mailto:team@railway.com?subject=Business%20Class%20Support).
 
@@ -161,9 +161,13 @@ Read more about adding members to your Pro or Enterprise team [here](/reference/
 
 ### How long does Railway keep my volume data if I am no longer on a paid plan?
 
-For Trial, Railway will delete your volumes 30 days after your Trial credits runout.
+Railway will delete your data from the platform as per the timeline below after sufficient warning.
 
-For Hobby and Pro, Railway will retain your volumes for 90 days and then delete them from the platform after sufficient warning.
+| Plan                   | Days                       |
+| ---------------------- | -------------------------- |
+| **Free or Trial plan** | 30 days after expiry       |
+| **Hobby plan**         | 60 days after cancellation |
+| **Pro plan**           | 90 days after cancellation |
 
 ### Is the Hobby Plan free?
 
