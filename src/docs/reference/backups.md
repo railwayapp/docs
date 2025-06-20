@@ -53,6 +53,14 @@ Backups are incremental and Copy-on-Write, we only charge for the data exclusive
 
 You are only billed for the incremental size of the backup at a rate per GB / minutely, and invoiced monthly. Backups follow the same pricing as Volumes. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
 
+## Volume Backup Limits
+
+Volume backups have size limitations based on the volume capacity:
+
+- **Manual backups** are limited to 50% of the volume's total size
+- This limitation applies to prevent backup operations from consuming excessive storage resources
+- If your data exceeds this threshold, consider growing your volume capacity before creating backups or reaching out to support to raise the limit
+
 ## Caveats
 
 Backups are a newer feature that is still under development. Here are some limitations of which we are currently aware:
