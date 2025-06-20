@@ -107,7 +107,7 @@ width={1338} height={608} quality={80} />
 ### Manual rollback
 
 To rollback manually, modify your service's `Settings -> Deploy -> Regions`
-and select regions without the `Metal (New)` tag.
+and select regions without the `Metal` tag.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1736970930/docs/m3_kvwdgd.png"
