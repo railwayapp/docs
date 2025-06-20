@@ -48,17 +48,21 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 - Yes! Choose the `Credits` checkbox and then make your withdrawal request.
 
-#### I have earned a lot of kickbacks from a template, but this page says my available balance is 0. Why?
+#### I have earned a lot of kickbacks from a template, but this page says my available balance is $0. Why?
 
-- Cash withdrawals are a new feature. The current kickback method is to automatically apply your kickbacks as Railway Credits. You can opt out of this if you wish to start accruing cash.
+- The current kickback method is to automatically apply your kickbacks as Railway Credits. You can opt out of this if you wish to start accruing cash.
 
 #### Can I still use the older, automatic-credits setting?
 
 - Yes. This behavior is enabled by default. You can opt out of it, and back in to it, at any time. Simply use the switch on the Earnings page marked `Direct Deposit to Railway Credits`.
 
-#### What is the minimum withdrawal amount?
+#### What is the minimum and maximum withdrawal amount?
 
-- For now, withdrawals may be made in $100 - $500 increments.
+- For now, withdrawals may be made in $100 - $5000 increments.
+
+#### What is the timeframe from withdrawal request to payout?
+
+- We will process withdrawals within 5 - 7 business days of receiving your request.
 
 ## Updatable Templates
 

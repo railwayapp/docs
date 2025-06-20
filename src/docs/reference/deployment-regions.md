@@ -14,13 +14,9 @@ Within the service settings, you can select one of the following regions -
 
 | Name                 | Location               | Region Identifier        |
 |----------------------|------------------------|--------------------------|
-| US West              | Oregon, USA            | `us-west1`               |
 | US West Metal        | California, USA        | `us-west2`               |
-| US East              | Virginia, USA          | `us-east4`               |
 | US East Metal        | North Carolina, USA    | `us-east4-eqdc4a`        |
-| EU West              | Amsterdam, Netherlands | `europe-west4`           |
 | EU West Metal        | Amsterdam, Netherlands | `europe-west4-drams3a`   |
-| Southeast Asia       | Singapore              | `asia-southeast1`        |
 | Southeast Asia Metal | Singapore              | `asia-southeast1-eqsg3a` |
 
 *Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
