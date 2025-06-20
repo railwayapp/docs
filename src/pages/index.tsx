@@ -13,101 +13,67 @@ import tw, { styled } from "twin.macro";
 import { DiscordIcon, RssIcon, XIcon } from "../components/Icons";
 import { Link } from "../components/Link";
 
-export const Background = () => (
-  <div tw="opacity-50 md:opacity-100 absolute inset-0 pointer-events-none">
-    <img
-      src="/images/VectorGrid.svg"
-      tw="absolute top-0 right-0 transform scale-x-[-1] max-w-none"
-    />
-  </div>
-);
-
 const Home: NextPage = () => {
   return (
     <>
-      <div tw="max-w-4xl z-10">
-        {/* <h1 tw="text-5xl md:text-6xl font-bold mb-2">Railway Documentation</h1> */}
-
-        <div
-          css={[
-            tw`[background:linear-gradient(83.84deg,_rgba(149,_203,_233,_0.9)_-3.34%,_rgba(71,_201,_242,_0.135)_35.77%),_linear-gradient(101.71deg,_rgba(227,_167,_228,_0.048)_46.42%,_rgba(238,_96,_215,_0.8)_94.51%),_linear-gradient(149.12deg,_#3308AD_13.67%,_rgba(51,_8,_173,_0)_86.42%)] dark:[background:linear-gradient(31.2deg,_#0B4347_-25.4%,_rgba(9,_36,_45,_0.15)_80.73%),_linear-gradient(109.68deg,_rgba(60,_0,_61,_0.01)_30.31%,_#20041C_85.93%),_linear-gradient(149.12deg,_#1B0066_13.67%,_rgba(28,_0,_108,_0)_86.42%)]`,
-            tw`flex relative rounded-md w-full overflow-hidden border`,
-          ]}
-        >
-          <div tw="pl-12 z-10 mb-12 mt-12">
-            <div tw="text-3xl font-bold text-white mb-4">Railway Documentation</div>
-            <div tw="text-xl font-normal text-white dark:text-gray-600 max-w-md">
-              {/* Our docs are organized by use-case.  Review the options below to guide you to the appropriate pages. */}
-              Find user guides, quickstarts, tutorials, use cases, deploy templates, functions and more.
-            </div>
-            {/* <ButtonLink
-              href="/getting-started"
-              tw="w-40 bg-pink-400 text-white text-center text-lg hover:bg-pink-500"
-            >
-              <div tw="flex flex-row justify-center items-center font-semibold">
-                <ArrowRight tw="mr-1" />
-                Get Started
-              </div>
-            </ButtonLink> */}
-          </div>
-          <div tw="absolute -bottom-20 -right-4 opacity-25 z-0 lg:opacity-100">
-            <NextImage
-              src="/images/code-terminal.svg"
-              alt="Graphic of Terminal"
-              tw=""
-              layout="intrinsic"
-              height={460}
-              width={417}
-              quality={100}
-            />
-          </div>
+      <div tw="max-w-5xl mx-auto z-10">
+        <div tw="mb-12">
+            <h1 tw="text-4xl font-semibold mb-4 text-gray-900" style={{ letterSpacing: "-1.5px", fontSize: "2.5rem" }}>
+                Railway Documentation
+            </h1>
+            <p tw="text-xl text-gray-600" style={{ fontSize: '1.125rem', color: 'var(--colors-gray-700)' }} className="dark:!text-[var(--colors-gray-700)]">
+                Find user guides, quickstarts, tutorials, use cases, deploy templates, functions and more.
+            </p>
         </div>
 
-        <div tw="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-          <OverviewLink href="overview/about-railway">
-            <OverviewLinkIcon tw="bg-pink-100 border-pink-100 dark:bg-[#291839]">
-              <Layers size="28" tw="text-pink-800" />
-            </OverviewLinkIcon>
-            <OverviewLinkTextbox>
-              <OverviewLinkHeading>How Railway Works</OverviewLinkHeading>
-              <OverviewLinkText>
-                Understand what Railway offers, including the main components of the platform.
-              </OverviewLinkText>
-            </OverviewLinkTextbox>
-          </OverviewLink>
-          <OverviewLink href="/guides/foundations">
-            <OverviewLinkIcon tw="bg-blue-100 border-blue-100 dark:bg-[#0F1B33]">
-              <Code size="28" tw="text-blue-800" />
-            </OverviewLinkIcon>
-            <OverviewLinkTextbox>
-              <OverviewLinkHeading>Guides</OverviewLinkHeading>
-              <OverviewLinkText>
-                Explore our guides to learn how to configure or enable a specific feature on the platform.
-              </OverviewLinkText>
-            </OverviewLinkTextbox>
-          </OverviewLink>
-          <OverviewLink href="/quick-start">
-            <OverviewLinkIcon tw="bg-yellow-100 border-yellow-200 dark:border-yellow-100 dark:bg-[#1D190C]">
-              <Edit3 size="28" tw="text-yellow-800" />
-            </OverviewLinkIcon>
-            <OverviewLinkTextbox>
-              <OverviewLinkHeading>Quickstarts</OverviewLinkHeading>
-              <OverviewLinkText>
-                Deploy in minutes. Jump into our quickstart guide or deploy with your favorite stack below.
-              </OverviewLinkText>
-            </OverviewLinkTextbox>
-          </OverviewLink>
-          <OverviewLink href="/tutorials/getting-started">
-            <OverviewLinkIcon tw="bg-green-100 border-green-100 dark:bg-[#15231D]">
-              <Book size="28" tw="text-green-800" />
-            </OverviewLinkIcon>
-            <OverviewLinkTextbox>
-              <OverviewLinkHeading>Tutorials</OverviewLinkHeading>
-              <OverviewLinkText>
-                Step-by-step guides on common developer scenarios.
-              </OverviewLinkText>
-            </OverviewLinkTextbox>
-          </OverviewLink>
+        <div tw="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4">
+          {/* How Railway Works Card */}
+          <Link href="overview/about-railway">
+            <div className="group" tw="relative bg-gradient-to-br from-[#8CAEF2]/25 to-white hover:from-[#8CAEF2]/50 hover:to-white dark:from-[#1D4596]/25 dark:to-[#131415] dark:hover:from-[#1D4596]/50 dark:hover:to-[#131415] border border-gray-100 dark:border-gray-200 rounded-lg transition-all duration-200 cursor-pointer overflow-hidden h-40 md:h-56">
+              <img src="/images/card-light-how-railway-works.svg" alt="How Railway Works" tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden" />
+              <img src="/images/card-dark-how-railway-works.svg" alt="How Railway Works" tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block" />
+              <div tw="relative z-10 p-6">
+                <div tw="font-medium mb-1 text-gray-900" style={{ letterSpacing: '-0.25px', fontSize: '1.125rem' }}>How Railway Works</div>
+                <div tw="text-gray-600 text-base font-normal max-w-[20rem] md:max-w-[16rem]" className="dark:!text-[var(--colors-gray-700)]">Understand what Railway offers, including the main components of the platform.</div>
+              </div>
+            </div>
+          </Link>
+          
+          {/* Guides Card */}
+          <Link href="/guides/foundations">
+            <div className="group" tw="relative bg-gradient-to-br from-[#F1C1C0]/25 to-white hover:from-[#F1C1C0]/50 hover:to-white dark:from-[#741D1B]/25 dark:to-[#131415] dark:hover:from-[#741D1B]/50 dark:hover:to-[#131415] border border-gray-100 dark:border-gray-200 rounded-lg transition-all duration-200 cursor-pointer overflow-hidden h-40 md:h-56">
+              <img src="/images/card-light-guides.svg" alt="Guides" tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden" />
+              <img src="/images/card-dark-guides.svg" alt="Guides" tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block" />
+              <div tw="relative z-10 p-6">
+                <div tw="font-medium mb-1 text-gray-900" style={{ letterSpacing: '-0.25px', fontSize: '1.125rem' }}>Guides</div>
+                <div tw="text-gray-600 text-base font-normal max-w-[20rem] md:max-w-[16rem]" className="dark:!text-[var(--colors-gray-700)]">Explore our guides to learn how to configure or enable a specific feature on the platform.</div>
+              </div>
+            </div>
+          </Link>
+          
+          {/* Quickstart Card */}
+          <Link href="/quick-start">
+            <div className="group" tw="relative bg-gradient-to-br from-[#EFD580]/25 to-white hover:from-[#EFD580]/50 hover:to-white dark:from-[#675518]/25 dark:to-[#131415] dark:hover:from-[#675518]/50 dark:hover:to-[#131415] border border-gray-100 dark:border-gray-200 rounded-lg transition-all duration-200 cursor-pointer overflow-hidden h-40 md:h-56">
+              <img src="/images/card-light-quickstart.svg" alt="Quickstart" tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden" />
+              <img src="/images/card-dark-quickstart.svg" alt="Quickstart" tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block" />
+              <div tw="relative z-10 p-6">
+                <div tw="font-medium mb-1 text-gray-900" style={{ letterSpacing: '-0.25px', fontSize: '1.125rem' }}>Quickstart</div>
+                <div tw="text-gray-600 text-base font-normal max-w-[20rem] md:max-w-[16rem]" className="dark:!text-[var(--colors-gray-700)]">Deploy in minutes. Jump into our quickstart guide or deploy with your favorite stack below.</div>
+              </div>
+            </div>
+          </Link>
+          
+          {/* Tutorials Card */}
+          <Link href="/tutorials/getting-started">
+            <div className="group" tw="relative bg-gradient-to-br from-[#95D0B4]/25 to-white hover:from-[#95D0B4]/50 hover:to-white dark:from-[#26543F]/25 dark:to-[#131415] dark:hover:from-[#26543F]/50 dark:hover:to-[#131415] border border-gray-100 dark:border-gray-200 rounded-lg transition-all duration-200 cursor-pointer overflow-hidden h-40 md:h-56">
+              <img src="/images/card-light-tutorials.svg" alt="Tutorials" tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden" />
+              <img src="/images/card-dark-tutorials.svg" alt="Tutorials" tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block" />
+              <div tw="relative z-10 p-6">
+                <div tw="font-medium mb-1 text-gray-900" style={{ letterSpacing: '-0.25px', fontSize: '1.125rem' }}>Tutorials</div>
+                <div tw="text-gray-600 text-base font-normal max-w-[20rem] md:max-w-[16rem]" className="dark:!text-[var(--colors-gray-700)]">Step-by-step guides on common developer scenarios.</div>
+              </div>
+            </div>
+          </Link>
         </div>
 
         <hr tw="mt-10"/>
@@ -436,6 +402,7 @@ const Home: NextPage = () => {
           </OverviewSecondaryLink>
         </div>
       </div>
+      <Background />
     </>
   );
 };
@@ -488,3 +455,8 @@ const OverviewSecondaryLink = styled(Link)`
   ${tw`flex items-center text-gray-600 gap-2 hover:text-pink-700`}
   ${tw`justify-center text-center`}
 `;
+export const Background = () => (
+  <div tw="opacity-50 md:opacity-100 absolute inset-0 pointer-events-none">
+  </div>
+);
+
