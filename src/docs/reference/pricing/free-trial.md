@@ -1,4 +1,4 @@
----
+---y
 title: Free Trial
 description: Learn about Railway's free trial plan.
 ---
