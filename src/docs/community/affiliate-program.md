@@ -1,9 +1,9 @@
 ---
 title: Affiliate Program
-description: Show Railway to your network, earn 20% cash commission on referral revenue.
+description: Show Railway to your network, earn 15% cash commission on referral revenue.
 ---
 
-Railway's Affiliate Program is meant for creators to share the power of Railway through content and an extended network. For anyone that signs up from your link and becomes a Railway customer, you will receive 20% commission on all invoices from the new customer moving forward.
+Railway's Affiliate Program is meant for creators to share the power of Railway through content and an extended network. For anyone that signs up from your link and becomes a Railway customer, you will receive 15% commission on all invoices from the new customer moving forward.
 
 ## How Do I Become an Affiliate?
 
