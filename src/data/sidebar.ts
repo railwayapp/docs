@@ -340,6 +340,9 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Community",
-    content: [makePage("The Conductor Program", "community")],
+    content: [
+      makePage("The Conductor Program", "community"),
+      makePage("Affiliate Program", "community"),
+    ],
   },
 ];

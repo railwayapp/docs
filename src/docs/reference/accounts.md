@@ -49,16 +49,16 @@ Users can view all active browser and CLI sessions on the <a href="https://railw
 
 ## Referrals
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/referrals_iya9mz.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/referrals_cash_ashj73.png"
 alt="Screenshot of Referrals Page"
 layout="responsive"
 width={1141} height={604} quality={80} />
 
-Every account has an editable referral link. Users can copy and share their personal referral link to earn credits.
+Every account has an editable referral link. Users can copy and share their personal referral link to earn cash or credits.
 
-For every referral who incurs more than $10 worth of usage and pays their first bill, users receive $5 of credit.
+Upon every invoice a referral pays, the user who referred them receives 20% commission on that revenue.
 
-Users can view their referral invite status on the <a href="https://railway.com/account/referrals" target="_blank">referrals page</a>.
+Users can view their referral invite status on the <a href="https://railway.com/account/referrals" target="_blank">referrals page</a>, and their total earnings on the <a href="https://railway.com/account/earnings" target="_blank">earnings page</a>.
 
 ## Billing
 
