@@ -10,7 +10,7 @@ Railway's Affiliate Program is meant for creators to share the power of Railway 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/referrals_cash_ashj73.png"
 alt="Screenshot of Referrals Page"
 layout="intrinsic"
-width={1141} height={604} quality={80} />
+width={1784} height={1104} quality={80} />
 
 Follow these steps to start earning:
 
