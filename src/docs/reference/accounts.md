@@ -56,7 +56,7 @@ width={1141} height={604} quality={80} />
 
 Every account has an editable referral link. Users can copy and share their personal referral link to earn cash or credits.
 
-Upon every invoice a referral pays, the user who referred them receives 20% commission on that revenue.
+Upon every invoice a referral pays, the user who referred them receives 15% commission on that revenue.
 
 Users can view their referral invite status on the <a href="https://railway.com/account/referrals" target="_blank">referrals page</a>, and their total earnings on the <a href="https://railway.com/account/earnings" target="_blank">earnings page</a>.
 
