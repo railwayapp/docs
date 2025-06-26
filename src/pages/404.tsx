@@ -9,7 +9,7 @@ const NotFoundPage: React.FC = () => (
     <div tw="prose dark:prose-invert">
       <h1>Page not found</h1>
 
-      <p>Maybe you were looking for one of the following</p>
+      <p>Maybe you were looking for one of the followingg</p>
 
       <ul>
         <li>
