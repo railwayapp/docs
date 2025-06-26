@@ -86,51 +86,50 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
         url={`${domainUrl}${frontMatter.url}`}
         image={getOGImage(frontMatter.title)}
       />
-      <div tw="max-w-full">
+      <div tw="max-w-full flex flex-row min-h-screen">
         <div tw="flex-auto prose dark:prose-invert">
           <div className="docs-content">
             <h1>{frontMatter.title}</h1>
             {children}
           </div>
+
+          <hr tw="my-16" />
+
+          <div
+            tw="flex items-center justify-between space-x-4 mb-8 md:mb-16"
+            className="prev-next-buttons"
+          >
+            {prevPage != null ? (
+              <Link href={prevPage.slug} tw="hover:text-pink-500">
+                <div tw="max-w-full">
+                  <div tw="text-gray-600 text-sm mb-1">Prev</div>{" "}
+                  <div tw="font-medium text-lg">{prevPage.title}</div>
+                </div>
+              </Link>
+            ) : (
+              <div />
+            )}
+
+            {nextPage != null && (
+              <Link href={nextPage.slug} tw="hover:text-pink-500">
+                <div tw="text-right">
+                  <div tw="text-gray-600 text-sm mb-1">Next</div>{" "}
+                  <div tw="font-medium text-lg">{nextPage.title}</div>
+                </div>
+              </Link>
+            )}
+          </div>
+
+          <Link
+            className="edit-github-link"
+            tw="text-gray-500 text-sm underline hover:text-pink-500"
+            href={gitHubFileLink}
+          >
+            Edit this file on GitHub
+          </Link>
         </div>
-
-        <hr tw="my-16" />
-
-        <div
-          tw="flex items-center justify-between space-x-4 mb-8 md:mb-16"
-          className="prev-next-buttons"
-        >
-          {prevPage != null ? (
-            <Link href={prevPage.slug} tw="hover:text-pink-500">
-              <div tw="max-w-full">
-                <div tw="text-gray-600 text-sm mb-1">Prev</div>{" "}
-                <div tw="font-medium text-lg">{prevPage.title}</div>
-              </div>
-            </Link>
-          ) : (
-            <div />
-          )}
-
-          {nextPage != null && (
-            <Link href={nextPage.slug} tw="hover:text-pink-500">
-              <div tw="text-right">
-                <div tw="text-gray-600 text-sm mb-1">Next</div>{" "}
-                <div tw="font-medium text-lg">{nextPage.title}</div>
-              </div>
-            </Link>
-          )}
-        </div>
-
-        <Link
-          className="edit-github-link"
-          tw="text-gray-500 text-sm underline hover:text-pink-500"
-          href={gitHubFileLink}
-        >
-          Edit this file on GitHub
-        </Link>
+        <PageNav title={frontMatter.title} />
       </div>
-
-      <PageNav title={frontMatter.title} />
     </>
   );
 };
