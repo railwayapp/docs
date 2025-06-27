@@ -6,25 +6,12 @@ interface ArrowProps {
 }
 
 export const Arrow: React.FC<ArrowProps> = ({ isExpanded }) => {
-  if (isExpanded) {
-    return (
-      <svg
-        css={[tw`h-4 w-4`]}
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          fillRule="evenodd"
-          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
   return (
     <svg
-      css={[tw`h-4 w-4`]}
+      css={[
+        tw`h-4 w-4 transition-transform duration-200`,
+        { transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)' }
+      ]}
       viewBox="0 0 20 20"
       fill="currentColor"
       aria-hidden="true"

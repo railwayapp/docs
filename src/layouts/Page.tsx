@@ -35,7 +35,7 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
       <GlobalBanners />
       <div tw="min-h-screen relative flex">
         <Sidebar />
-        <div tw="flex flex-col flex-1 max-w-[100vw] overflow-x-hidden">
+        <div tw="flex flex-col flex-1 max-w-[100vw]">
           <Background />
 
           {/*This area would be perfect to add the bg image.*/}

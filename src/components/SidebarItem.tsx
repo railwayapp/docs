@@ -10,10 +10,11 @@ interface SidebarItemProps {
     item: IPage | ISubSection | IExternalLink;
     isCurrentPage: (pageSlug: string) => boolean;
     isExpanded: boolean;
-    onToggleSubSection: (isDirectToggle: boolean) => void;
+    onToggleSubSection: () => void;
+    activeLinkRef?: React.MutableRefObject<HTMLAnchorElement | null>;
   }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ item, isCurrentPage, isExpanded, onToggleSubSection }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ item, isCurrentPage, isExpanded, onToggleSubSection, activeLinkRef }) => {
   const externalLinkSvg = 
     <svg css={[tw`w-3 h-3 text-gray-700`]} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 23">
         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
@@ -46,17 +47,19 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isCurrentPage, isExpand
   };
 
   const renderPageLink = (item: IPage, isSubSectionItem=false) => {
+    const isActive = isCurrentPage(item.slug);
     return (
       <li key={item.slug}>
         <Link
           href={item.slug}
-          className={classNames(isCurrentPage(item.slug) && `current`)}
+          className={classNames(isActive && `current`)}
+          ref={isActive ? activeLinkRef : undefined}
           css={[
             tw`text-gray-700 text-sm`,
             tw`block px-4 py-2`,
             tw`hover:bg-gray-100 hover:text-foreground`,
             tw`focus:outline-none focus:bg-pink-100`,
-            isCurrentPage(item.slug) &&
+            isActive &&
               tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
             isSubSectionItem &&
               tw`py-2 ml-6 pl-2`,
@@ -73,23 +76,21 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isCurrentPage, isExpand
 
       const subTitleContents = typeof subTitle === 'string' ? (
         <span
-          onClick={() => {
-            onToggleSubSection(true);
-          }} 
+          onClick={onToggleSubSection}
           css={[
             tw`text-gray-700 flex-grow`,
             tw`hover:cursor-pointer`,
             tw`text-sm`,
-            tw`pl-4 py-2`]}>
+            tw`pl-4 py-2`]}
+        >
           {subTitle}
         </span>
       ) : (
         <Link
           className={classNames(isCurrentPage(subTitle.slug) && `current`)}
           href={subTitle.slug}
-          onClick={() => {
-            onToggleSubSection(false);
-          }}
+          onClick={onToggleSubSection}
+          ref={isCurrentPage(subTitle.slug) ? activeLinkRef : undefined}
           css={[
             tw`text-gray-700 flex-grow text-sm hover:text-foreground`,
             tw`pl-4 py-2`,
@@ -111,12 +112,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isCurrentPage, isExpand
             hasLanding && isCurrentPage(subTitle.slug) &&
               tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
             ]}
-          >
-            {subTitleContents}
+        >
+          {subTitleContents}
           <button
             onClick={(e) => {
               e.stopPropagation();
-              onToggleSubSection(true);
+              onToggleSubSection();
             }}
             css={[
               tw`pr-3 pl-2 py-2`,

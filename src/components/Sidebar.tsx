@@ -23,7 +23,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
       {...props}
     >
       <ScrollArea>
-        <div tw="pt-6 pb-6 px-4 sticky top-0 bg-background">
+        <div tw="pt-6 pb-6 px-4 sticky top-0 bg-background z-10">
           <div tw="flex items-center justify-between">
             <Link tw="w-full flex items-center" href="/">
               <div tw="flex items-center">
@@ -57,10 +57,17 @@ const SidebarContent: React.FC = () => {
   );
 
   const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]); 
+  const activeLinkRef = React.useRef<HTMLAnchorElement | null>(null);
 
   useEffect(() => {
     const newExpandedSubSections = findContainingSubSectionSlugs(sidebarContent, prefixedSlug ?? pathname);
-    setExpandedSubSections(prevExpandedSubSections =>Array.from(new Set([...prevExpandedSubSections, ...newExpandedSubSections])));
+    setExpandedSubSections(prevExpandedSubSections => Array.from(new Set([...prevExpandedSubSections, ...newExpandedSubSections])));
+  }, [prefixedSlug]);
+  
+  useEffect(() => {
+    if (activeLinkRef.current) {
+      activeLinkRef.current.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
   }, [prefixedSlug]);
   
 
@@ -70,7 +77,9 @@ const SidebarContent: React.FC = () => {
       for (const item of section.content) {
         if ('subTitle' in item) {
           const subTitleSlug = typeof item.subTitle === 'string' ? item.subTitle : item.subTitle.slug;
-          if (item.pages.some(p => 'slug' in p && p.slug === currentPageSlug) || subTitleSlug === currentPageSlug) {
+          const hasMatchingChild = item.pages.some(p => 'slug' in p && p.slug === currentPageSlug);
+          console.log('Checking subTitleSlug:', subTitleSlug, 'currentPageSlug:', currentPageSlug, 'childSlugs:', item.pages.filter(p => 'slug' in p).map(p => (p as IPage).slug));
+          if (hasMatchingChild || subTitleSlug === currentPageSlug) {
             slugs.push(subTitleSlug);
           }
         }
@@ -100,18 +109,12 @@ const SidebarContent: React.FC = () => {
     return isDirectPageCurrent || isSubTitlePageCurrent || isSubSectionPageCurrent;
   };
     
-  const toggleSubSection = (subTitleSlug: string, isDirectToggle:boolean = false) => {
-    setExpandedSubSections(prevState => {
-      if (isDirectToggle) {
-        // Direct toggle when SVG icon is clicked
-        return prevState.includes(subTitleSlug) 
-          ? prevState.filter(slug => slug !== subTitleSlug)
-          : [...prevState, subTitleSlug];
-      } else {
-        // Expand the clicked top-level section if it's not already expanded
-        return prevState.includes(subTitleSlug) ? prevState : [...prevState, subTitleSlug];
-      }
-    });
+  const toggleSubSection = (subTitleSlug: string) => {
+    setExpandedSubSections(prevState =>
+      prevState.includes(subTitleSlug)
+        ? prevState.filter(slug => slug !== subTitleSlug)
+        : [...prevState, subTitleSlug]
+    );
   };
   
   const renderContentItem = (item: IPage | ISubSection | IExternalLink) => {
@@ -125,13 +128,15 @@ const SidebarContent: React.FC = () => {
       itemSlug = item.url;
      };
     
+    const isActive = isCurrentPage(itemSlug);
     return (
       <SidebarItem
         key={itemSlug}
         item={item}
         isCurrentPage={isCurrentPage}
         isExpanded={expandedSubSections.includes(itemSlug)}
-        onToggleSubSection={(isDirectToggle) => toggleSubSection(itemSlug, isDirectToggle)}
+        onToggleSubSection={() => toggleSubSection(itemSlug)}
+        activeLinkRef={isActive ? activeLinkRef : undefined}
       />
     );
   };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import tw, { TwStyle } from "twin.macro";
 import { Link } from "./Link";
 import { scrollToID } from "@/utils/scroll";
@@ -59,23 +59,55 @@ const buildHeaderTree = (nodes: HTMLHeadingElement[]): IHeader[] => {
 
 export const PageNav: React.FC<Props> = ({ title }) => {
   const [headers, setHeaders] = useState<IHeader[]>([]);
+  const [activeId, setActiveId] = useState<string>("");
+  const [flatIds, setFlatIds] = useState<string[]>([]);
+  const linkRefs = useRef<{ [id: string]: HTMLAnchorElement | null }>({});
 
   useEffect(() => {
     const documentHeaders = Array.from(
       document.querySelectorAll(".docs-content h2, h3, h4"),
     ) as HTMLHeadingElement[];
-
     setHeaders(buildHeaderTree(documentHeaders));
+    setFlatIds(documentHeaders.map(h => h.id));
   }, [title]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const headings = Array.from(
+        document.querySelectorAll(".docs-content h2, h3, h4")
+      ) as HTMLHeadingElement[];
+      const scrollPosition = window.scrollY + 100;
+      let currentId = headings.length > 0 ? headings[0].id : "";
+      for (const heading of headings) {
+        if (heading.offsetTop <= scrollPosition) {
+          currentId = heading.id;
+        } else {
+          break;
+        }
+      }
+      setActiveId(currentId);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [title]);
+
+  useEffect(() => {
+    if (activeId && linkRefs.current[activeId]) {
+      linkRefs.current[activeId]?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+  }, [activeId]);
+
   return (
-    <div tw="flex-col w-[250px] pt-8 pl-12 xl:pl-16 pr-0 pb-6 min-w-pageNav hidden lg:flex">
+    <div tw="flex-col w-[300px] pt-4 pl-12 xl:pl-16 pr-0 pb-6 min-w-pageNav hidden lg:flex">
       {headers.length !== 0 && (
-        <aside tw="sticky top-24">
-          <h5 tw="text-sm text-gray-900 font-medium mb-3">On This Page</h5>
-          <ul tw="space-y-3">
-            <HeaderList headers={headers} nesting={0} />
-          </ul>
+        <aside tw="sticky top-12 h-[100vh] relative">
+          <div tw="overflow-y-auto h-full">
+            <h5 tw="text-sm text-gray-900 font-medium mb-3">On This Page</h5>
+            <ul tw="space-y-3">
+              <HeaderList headers={headers} nesting={0} activeId={activeId} linkRefs={linkRefs.current} />
+            </ul>
+          </div>
         </aside>
       )}
     </div>
@@ -88,32 +120,38 @@ const nestingTw: Record<number, TwStyle> = {
   2: tw`ml-10`,
 };
 
-const HeaderList: React.FC<{ headers: IHeader[]; nesting: number }> = ({
+const HeaderList: React.FC<{ headers: IHeader[]; nesting: number; activeId?: string; linkRefs?: { [id: string]: HTMLAnchorElement | null } }> = ({
   headers,
   nesting,
+  activeId = "",
+  linkRefs = {},
 }) => {
   return (
     <>
-      {headers.map((h, i) => (
-        <React.Fragment key={`${h.id}-${i}`}>
-          <li key={h.id} css={[nestingTw[nesting]]}>
-            <Link
-              css={[
-                tw`inline-block text-gray-600 text-sm`,
-                tw`hover:underline cursor-pointer`,
-              ]}
-              href={`#${h.id}`}
-              onClick={scrollToID(h.id)}
-            >
-              {h.title}
-            </Link>
-          </li>
-
-          {h.subHeaders.length > 0 && (
-            <HeaderList headers={h.subHeaders} nesting={nesting + 1} />
-          )}
-        </React.Fragment>
-      ))}
+      {headers.map((h, i) => {
+        const isActive = h.id === activeId;
+        return (
+          <React.Fragment key={`${h.id}-${i}`}>
+            <li key={h.id} css={[nestingTw[nesting]]}>
+              <Link
+                ref={el => { linkRefs[h.id] = el; }}
+                css={[
+                  tw`inline-block text-gray-600 text-sm`,
+                  tw`hover:text-pink-500`,
+                  isActive && tw`font-medium text-pink-500`,
+                ]}
+                href={`#${h.id}`}
+                onClick={scrollToID(h.id)}
+              >
+                {h.title}
+              </Link>
+            </li>
+            {h.subHeaders.length > 0 && (
+              <HeaderList headers={h.subHeaders} nesting={nesting + 1} activeId={activeId} linkRefs={linkRefs} />
+            )}
+          </React.Fragment>
+        );
+      })}
     </>
   );
 };
