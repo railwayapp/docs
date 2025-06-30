@@ -5,8 +5,6 @@ description: Learn about Railway's plans and pricing.
 
 Railway plans and pricing are designed to give you maximum resources while only charging you for your usage. We charge a base subscription price, which goes towards your resources and usage.
 
-> **NEW** Effective March 3rd, 2025, Railway is updating its pricing structure with reduced rates for network egress and volume storage, along with new benefits for Metal instance users.
-
 ## Plans
 
 Railway offers three plans in addition to a [Free Trial](/reference/pricing/free-trial):
@@ -26,8 +24,6 @@ Each Railway account needs an active subscription. The base subscription fee all
 | **Hobby**      | $5 / month  |
 | **Pro**        | $20 / month |
 | **Enterprise** | Custom      |
-
-> **Note:** For users with at least 80 percent usage on Railway hosted metal instances, all seat costs will be waived.
 
 Read more about our plans at <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
@@ -74,7 +70,7 @@ Included resource usage is reset at the end of every billing cycle and does not 
 - If your resource usage is $3, your total bill for the cycle will be $5. You are only charged the subscription fee because your resource usage is below $5 and therefore included in your subscription
 - If your resource usage is $7, your total bill for the cycle will be $7 ($5 subscription fee + $2 of usage), because your resource usage exceeds the included resource usage
 
-The Pro plan **does not include any usage credits**. You will be billed for resource usage on top of the full subscription fee.
+Similarly, the Pro plan includes $20 of resource usage per month and the same examples and billing logic apply. If your usage stays within $20, you'll only pay the subscription fee. If it exceeds $20, you'll be charged the difference on top of the subscription.
 
 ### Additional Services
 
@@ -105,10 +101,10 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 
 | Feature                                                         | Commitment Spend | Description                                                                                                                        |
 | --------------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **90-day log history**                                          | $200/month       | Extended log retention for better historical analysis and auditing.                                                                |
 | **64 GB RAM / 64 vCPU**                                         | $500/month       | Access to increased computing resources at a committed monthly spend level.                                                        |
 | **RBAC**                                                        | $500/month       | Role-Based Access Control to manage user permissions and access.                                                                   |
 | **SLOs**                                                        | $500/month       | Service Level Objectives to ensure and track application performance.                                                              |
-| **90-day log history**                                          | $500/month       | Extended log retention for better historical analysis and auditing.                                                                |
 | [**Business Class Support**](/reference/support#business-class) | $500/month       | Improved support SLOs and response times. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started. |
 | **HIPAA BAAs**                                                  | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly.                   |
 | **Dedicated Hosts**                                             | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                                              |
@@ -148,7 +144,7 @@ There are two main components to your bill:
 
 | Component          | Description                                                             |
 | ------------------ | ----------------------------------------------------------------------- |
-| **Subscription**   | Cost of the plan you're on: `[cost per seat] x [purchased seats]`       |
+| **Subscription**   | Cost of the plan you're on                                              |
 | **Resource Usage** | Cost of the resources you've consumed: `[cost per unit] x [used units]` |
 
 Subscription is a flat fee you pay monthly for the tier you're subscribed to, and Resource Usage varies according to your resource consumption for the month.
