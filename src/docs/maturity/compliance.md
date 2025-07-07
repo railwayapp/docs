@@ -17,11 +17,9 @@ We know that your businesses need to develop strong and lasting relationships wi
 
 Railway is SOC 2 Type I certified.
 
-Highly motivated customers (Pro tier and higher) who are in the process of securing SOC 2 certification can request a copy of the Railway security audit.
+Highly motivated customers (Pro tier and higher) who are in the process of securing SOC 2 certification can request a copy of the Railway security audit on our [Trust Center](https://trust.railway.com).
 
-To make this request, please book a session with a Railway team member [here](https://cal.com/team/railway/work-with-railway?duration=30).
-
-SOC 2 Type II certification is expected by the **end of May 2025**.
+SOC 2 Type II certification is expected by the **end of July 2025**.
 
 ### HIPAA BAA
 
