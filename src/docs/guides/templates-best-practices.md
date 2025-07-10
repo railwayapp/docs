@@ -29,7 +29,12 @@ Always follow the naming conventions for the software that the template is made 
 
 Example, if the template is for ClickHouse, the service and template name should be named `ClickHouse` with a capital C and H, since that is how the brand name is spelled.
 
-For anything else, such as custom software, use capital case and avoid using special characters or dashes, space-delimited is the way to go.
+For anything else, such as custom software:
+
+- Use capital case
+- Avoid using special characters or dashes, space-delimited is the way to go
+- Prefer shorter names over longer names for better readability
+- Keep names concise while maintaining clarity
 
 ### Environment Variables
 
@@ -52,6 +57,24 @@ Health checks are important for ensuring that the service is running properly, b
 Although a health check might not be needed for all software, such as Discord bots, when it is applicable, it is a good idea to include a health check.
 
 A readiness probe is the best option; if that's not possible, then a liveness probe should be used.
+
+### Authentication
+
+Authentication is a common feature for many software applications, and it is crucial to properly configure it to prevent unauthorized access.
+
+If the software provides a way to configure authentication, such as a username and password, or an API key, you should always configure it in the template.
+
+For example, ClickHouse can operate without authentication, but authentication should always be configured.
+
+Passwords, API keys, etc. should be generated using [template variable functions](/guides/create#template-variable-functions).
+
+### Dry Code
+
+This is most applicable to templates that deploy from GitHub.
+
+When creating templates that deploy from GitHub, include only the essential files needed for deployment. Avoid unnecessary documentation, example files, or unused code and configurations that don't contribute to the core functionality.
+
+A clean, minimal repository helps users quickly understand the template's structure and make customizations when needed.
 
 ### Overview
 
