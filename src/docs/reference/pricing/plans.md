@@ -106,6 +106,7 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 | **RBAC**                                                        | $500/month       | Role-Based Access Control to manage user permissions and access.                                                                   |
 | [**Business Class Support**](/reference/support#business-class) | $500/month       | Improved support SLOs and response times. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started. |
 | **HIPAA BAAs**                                                  | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly.                   |
+| **Slack Connect channels**                                       | $2,000/month     | Dedicated Slack Connect channels for enhanced communication and support with the Railway team.                                     |
 | **SLOs**                                                        | $2,000/month     | Service Level Objectives to ensure and track application performance.                                                              |
 | **Dedicated Hosts**                                             | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                                              |
 

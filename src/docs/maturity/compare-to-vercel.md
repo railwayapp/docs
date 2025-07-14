@@ -125,7 +125,7 @@ We offer incredibly fast and personalized support on Slack, and the [Central Sta
 
 Our Central Station is built in house from the ground up to allow us to provide the best possible support to you, the user.
 
-Pro and enterprise users get priority support within Slack, and entrpise can also book a call with our team to get direct help from the Railway team.
+Enterprise users with $2,000/month committed spend get priority support within Slack, and enterprise can also book a call with our team to get direct help from the Railway team.
 
 ## Ready to Switch?
 
