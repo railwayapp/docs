@@ -15,7 +15,7 @@ Trial & Hobby plan users are only eligible for community support over [Central S
 
 ### Pro & Business Class
 
-Pro & [Business Class](#business-class) customers can select the urgency of their request when creating a new thread in [Central Station](#help-station) or [Slack](#slack).
+Pro & [Business Class](#business-class) customers can select the urgency of their request when creating a new thread in [Central Station](#help-station). Enterprise customers with $2,000/month committed spend can also use [Slack](#slack).
 
 | Level    | Description                                                                | Eligibility                       |
 | -------- | -------------------------------------------------------------------------- | --------------------------------- |
@@ -134,7 +134,7 @@ We prioritize Business Class customers over all other support requests.
 | P2 (Bugs)                            | Same Business Day    |
 | P3 (Integrations, General Questions) | Two Business Days    |
 
-For Business Class customers with a shared Slack Connect channel with us, you have access to
+For Enterprise customers with $2,000/month committed spend who have a shared Slack Connect channel with us, you have access to
 "Critical" urgency level support requests:
 
 <Image

@@ -88,7 +88,7 @@ For example, if your application in US West (California) Railway Metal region co
 If you need assistance with your Railway Metal upgrade:
 
 - Submit feedback through our [Central Station](https://station.railway.com/feedback/feedback-railway-metal-a41f03a1)
-- Pro and Enterprise customers can reach out via [Slack](/reference/support#slack)
+- Enterprise customers with $2,000/month committed spend can reach out via [Slack](/reference/support#slack)
 - See our [FAQ on Railway Metal](/railway-metal#faq) for answers to common questions
 
 Remember, this is a free upgrade for all users and is designed to provide an improved experience across all aspects of the Railway platform.
