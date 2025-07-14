@@ -77,7 +77,9 @@ Please ask your questions in the <a href="https://discord.com/channels/713503345
 
 ## Slack
 
-Railway offers Slack channels to companies and prospective customers. Customers can raise issues, coordinate their migration over to Railway, and provide feedback within a Slack Connect channel.
+Railway offers Slack Connect channels to Enterprise plan customers with a minimum committed spend of $2,000/month. Customers can raise issues, coordinate their migration over to Railway, and provide feedback within a Slack Connect channel.
+
+Additionally, the solutions team at Railway may provide a shared Slack Connect channel to facilitate better communication and support.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1733324712/docs/cs-2024-12-04-22.20_bms1sa.png"
@@ -85,7 +87,7 @@ alt="Screenshot of Slack"
 layout="intrinsic"
 width={571} height={743} quality={100} />
 
-All teams can create a Slack channel within the Team settings page:
+Enterprise teams with $2,000/month committed spend can create a Slack Connect channel within the Team settings page:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1733324438/docs/cs-2024-12-04-23.00_uvchnr.png"
