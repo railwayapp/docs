@@ -56,7 +56,8 @@ With Railway Metal, you can expect the following benefits:
   can power more advanced features that were not possible before, such as
   Static Inbound IPs, Anycast Edge Network, High-Availability Volumes, etc.
 
-## Metal Edge Network (Beta)
+## Metal Edge Network
+
 Railway routes traffic through its own anycast Metal Edge network.
 
 You can check if its enabled for your service in the Public Network section in the service settings tab.
@@ -242,7 +243,7 @@ It's likely that your database, or service with a volume, isn't migrated over to
 
 ### Why did my costs increase when moving to Metal?
 
-Although not intended, Railway Metal, has a different metrics sampler than our legacy hardware. This means that metrics will be quicker to come in, this also meant that legacy was undercounting the amount of resources on the previous hardware. As a result, some metrics like CPU will increase, others, like RAM will usually decrease. 
+Although not intended, Railway Metal, has a different metrics sampler than our legacy hardware. This means that metrics will be quicker to come in, this also meant that legacy was undercounting the amount of resources on the previous hardware. As a result, some metrics like CPU will increase, others, like RAM will usually decrease.
 
 ### How do I opt-out?
 
