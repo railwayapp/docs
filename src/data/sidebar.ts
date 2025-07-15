@@ -154,10 +154,7 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Tutorials",
     content: [
-      {
-        subTitle: makePage("Getting Started", "tutorials"),
-        pages: [makePage("Migrate From Heroku", "tutorials")],
-      },
+      makePage("Getting Started", "tutorials"),
       {
         subTitle: "Self Hosted Applications",
         pages: [
