@@ -333,6 +333,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Migrate from Fly", "migration"),
       makePage("Migrate from Vercel", "migration"),
       makePage("Migrate from DigitalOcean", "migration"),
+      makePage("Migrate from Heroku", "migration"),
     ],
   },
   {
