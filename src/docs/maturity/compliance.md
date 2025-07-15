@@ -37,6 +37,14 @@ Railway is committed to protecting the privacy of our users. We understand that 
 
 [Click here to see our Privacy Policy.](https://railway.com/legal/privacy)
 
+## GDPR Compliance - Data Processing Agreement (DPA)
+
+Railway provides a Data Processing Agreement (DPA) to help customers comply with GDPR requirements when processing personal data through our platform. If you operate a business in the EU or process personal data of EU residents, you may need to execute a DPA with Railway to ensure compliance with GDPR Article 28 requirements for data processor relationships.
+
+You can access and execute Railway's standard DPA through our self-service link: [Sign Railway's DPA](https://powerforms.docusign.net/0c38a448-eda3-4139-99d6-f9c0eef94154?env=na4&acct=c0c04fce-9579-4f79-b028-7a946a40077d&accountId=c0c04fce-9579-4f79-b028-7a946a40077d)
+
+You can also review Railway's standard DPA terms at [railway.com/legal/dpa](https://railway.com/legal/dpa).
+
 ## VAT Tax ID and Address
 
 Customers in the EU may need to add their VAT Tax ID to their invoices for compliance and reporting purposes.
