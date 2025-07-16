@@ -108,8 +108,6 @@ width={2408} height={1150} quality={100} />
 
 ## Sealed Variables
 
-<Banner variant="info">This feature is in beta. For questions or feedback, please use the <Link target="_blank" rel="noopener" className="underline" href="https://station.railway.com/feedback/sealed-variables-c1317d54">feedback thread</Link>.</Banner>
-
 Railway provides the ability to seal variable values for extra security. When a variable is sealed, its value is provided to builds and deployments but is never visible in the UI nor can it be retrieved via the API.
 
 ### Sealing a Variable
