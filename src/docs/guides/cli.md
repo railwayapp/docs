@@ -247,6 +247,145 @@ Prompts you to select one or more databases to provision for your project.
 railway logout
 ```
 
+## SSH
+
+
+The Railway CLI enables you to start a shell session inside your deployed Railway services. This command is useful for:
+
+- **Debugging and development**: Live debugging production issues, running ad-hoc commands, accessing language REPLs, and comparing environments to identify discrepancies.
+- **Database operations**: Executing migrations and rollbacks, running recovery operations, importing database dumps, and managing job queues.
+- **System administration**: Inspecting log files, monitoring service status, examining file systems, troubleshooting network issues, and modifying application-level configurations within the container.
+- **Framework-specific tasks**: Accessing Rails console, Django shell, or NestJS CLI for model inspection, database queries, and large-scale data operations.
+- **Content and asset management**: Verifying asset deployment, debugging file uploads, and troubleshooting static asset issues.
+
+
+Note that this command differs from `railway run` and `railway shell`, which pull environment variables and execute commands locally
+
+
+### Prerequisites
+
+Ensure you have the necessary setup in place:
+
+1. **The Railway CLI installed** on your local machine.
+2. **Logged in with your Railway account** using `railway login`.
+
+### Usage
+
+You can copy the exact command directly from the Railway dashboard:
+
+1. Navigate to your project in the Railway dashboard.
+2. Right-click on the service you want to connect to.
+3. Select "Copy SSH Command" from the dropdown menu.
+
+![image.png](https://res.cloudinary.com/railway/image/upload/v1752862935/copy-ssh-command.png)
+
+This generates a complete command with all necessary IDs. Here’s an example
+
+```bash
+railway ssh --project=de609d2a-d70b-4457-8cb2-f1ce1410f779 --environment=f5bdd2a8-e2d1-4405-b814-eaa24fb9f7e8 --service=3ba723f0-5a20-44e1-9cff-7acd021d0a45
+
+```
+
+This command establishes a shell session with your running service container. You'll be dropped into either `/bin/bash` or `/bin/sh`, depending on what's available in your container.
+
+Alternatively, you can run `railway link`, followed by `railway ssh` to achieve the same result.
+
+The CLI also supports single command execution. This enables you to run commands and get their output instantly and exit without staying in an interactive session. Here's an example:
+
+```bash
+railway ssh -- ls
+```
+
+### How it works
+
+Railway SSH differs significantly from traditional SSH implementations. Understanding how it works helps explain its capabilities and limitations.
+
+Railway SSH does **not** use the standard SSH protocol (sshd). Instead, it establishes connections via a custom protocol built on top of websockets.
+
+This approach provides several advantages:
+
+- No need to configure SSH daemons in your containers.
+- Secure communication through Railway's existing authentication.
+- Works with any container that has a shell available.
+
+This approach is secure by design:
+
+- No SSH daemon exposed publicly on your containers.
+- All communication goes through Railway's authenticated infrastructure.
+- Services remain isolated from direct internet access.
+- Uses Railway's existing security and access control mechanisms.
+
+### Limitations and Workarounds
+
+Understanding Railway SSH's limitations helps you plan appropriate workflows and implement effective workarounds for tasks that aren't directly supported.
+
+**File Transfer Limitations**
+
+Railway SSH does not support traditional file transfer methods:
+
+- No SCP (Secure Copy Protocol) support for copying files between local and remote systems.
+- No sFTP (SSH File Transfer Protocol) functionality for file management.
+- No direct file download/upload capabilities through the SSH connection.
+
+
+File transfer workarounds
+  - **Connect volume to file explorer service**: Deploy a simple file browser service that mounts the same volume as your main application. This provides web-based access to your files for download and upload operations.
+  - **Use CURL for file uploads**: From within the SSH session, upload files to external services:
+  
+  ```bash
+  # Upload file to a temporary file sharing service
+  curl -X POST -F "file=@database_dump.sql" https://file.io/
+  
+  # Upload to cloud storage (example with AWS S3)
+  aws s3 cp database_dump.sql s3://your-bucket/backups/
+  
+  # Upload via HTTP to your own endpoint
+  curl -X POST -F "file=@logfile.txt" https://your-app.com/admin/upload
+  
+  ```
+  
+  - **Create temporary secure endpoints**: Modify your application to include a temporary, secured endpoint that serves specific files for download:
+  
+  ```jsx
+  // Express.js example
+  app.get('/admin/download/:filename', authenticateAdmin, (req, res) => {
+    const filename = req.params.filename;
+    const filePath = path.join('/app/data', filename);
+    res.download(filePath);
+  });
+  ```
+  
+
+**SSH Protocol Limitations**
+
+Railway SSH **does not implement the standard SSH protocol**, which means:
+
+- **No SSH tunneling**: Cannot create secure tunnels to access private services or databases through the SSH connection.
+- **No port forwarding**: Cannot forward ports from the remote container to your local machine for accessing internal services.
+- **No IDE integration**: Cannot use VS Code's Remote-SSH extension or similar tools that depend on the SSH protocol for remote development.
+
+**For private service access**: Use [Tailscale subnet router](https://docs.railway.com/tutorials/set-up-a-tailscale-subnet-router) to create secure network access to your Railway services without exposing them publicly.
+
+**Container and Image Limitations**
+
+- **Scratch images**: Containers built from scratch images typically don't include shell programs (`/bin/bash` or `/bin/sh`), making SSH connections impossible. These minimal images are designed for security and size optimization but sacrifice interactive access.
+- **Minimal containers**: Some optimized container images may not include common debugging tools, text editors, or system utilities that you might expect in a traditional server environment.
+
+### Troubleshooting
+
+When Railway SSH connections fail or behave unexpectedly, several common issues and solutions can help resolve the problems.
+
+1. The service must be actively running for SSH connections to work. If your service is configured with "serverless mode" and has gone to sleep, you'll need to wake it up by sending a request before attempting to SSH.
+2. Firewall or network restrictions: Corporate networks or restrictive firewalls may block WebSocket connections used by Railway SSH.
+
+### Best Practices
+
+- **Use SSH for debugging only**: Avoid making permanent changes through SSH sessions. Instead, implement changes in your application code and deploy them properly.
+- **Limit sensitive operations**: While SSH provides powerful access, avoid storing sensitive data or credentials in ways that might be exposed during SSH sessions.
+- **Monitor SSH usage**: Regularly review who has SSH access to your services and ensure permissions align with current team structure and responsibilities. Note that SSH usage is currently not displayed in the dashboard’s Activity tab.
+- **Temporary access patterns**: Consider SSH access for debugging and investigation rather than routine administrative tasks, which should be automated through proper deployment processes.
+
+
 ### Contributing
 
 Our CLI is open source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
