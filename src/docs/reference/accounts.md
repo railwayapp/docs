@@ -51,8 +51,8 @@ Users can view all active browser and CLI sessions on the <a href="https://railw
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/referrals_cash_ashj73.png"
 alt="Screenshot of Referrals Page"
-layout="responsive"
-width={1141} height={604} quality={80} />
+layout="intrinsic"
+width={1784} height={1104} quality={80} />
 
 Every account has an editable referral link. Users can copy and share their personal referral link to earn cash or credits.
 
