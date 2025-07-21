@@ -1,151 +1,203 @@
 ---
 title: Railway vs. Fly
-description: Looking for the best deployment platform? This guide breaks down Railway vs. Fly.io—covering scalability, pricing, features, and why Railway is the superior choice.
+description: Compare Railway and Fly.io on deployment model, scaling, pricing and developer workflow
 ---
 
-Railway is a modern, developer-centric cloud platform designed to simplify app deployment, scaling, and management—all while optimizing for developer happiness and efficiency.
+At a high level, both Railway and Fly.io can be used to deploy your app. Both platforms share several similarities:
 
-We provide a robust, feature-rich platform comparable to other cloud providers, with a focus on ease of use and developer productivity.
+- You can deploy your app from a Docker image or by importing your app’s source code from GitHub.
+- Apps are deployed to a long-running server.
+- Apps can have persistent storage through volumes.
+- Public and private networking are included out-of-the-box.
+- Multi-region deployments.
+- Both platforms’ infrastructure runs on hardware that’s owned and operated in data centers across the globe.
+- Healthchecks to guarantee zero-downtime deployments.
 
-Railway offers:
+That said, there are differences between both platforms when it comes to the overall developer experience that can make Railway a better fit for you.
 
-- **Broad Language and Framework Support**: Deploy apps in [any language or framework](https://docs.railway.com/guides/languages-frameworks).
-- **Flexible Deployment Options**: Use GitHub, Dockerfiles, Docker images from any registry, or local deployments via the Railway CLI.
-- **Integrated Tools**: Simplify environment variable management, CI/CD, observability, and service scaling.
-- **Networking Features:** Public and private networking.
-- **Best in Class Support:** Very active community and support on Slack, [Discord](https://discord.gg/railway) and our [Central Station](https://station.railway.com/).
+## Deployment model & scaling
 
-We differ in the following:
+### Fly
 
-- A vibrant, highly engaged community with fast, reliable support.
-- A superior developer experience designed for simplicity and efficiency.
-- Transparent, flexible pricing that scales with your needs.
-- And much more...
+When you deploy your app to Fly, your code runs on lightweight Virtual Machines (VMs) called [Fly Machines](https://fly.io/docs/machines/). Each machine needs a defined amount of CPU and memory. You can either choose from [preset sizes](https://fly.io/docs/about/pricing/#started-fly-machines) or configure them separately, depending on your app’s needs.
 
-## Differences
+Machines come with two types of virtual CPUs: `shared` and `performance`.
 
-### Product and Deploy UX
+Shared CPUs are the more affordable option. They guarantee a small slice of CPU time (around 6%) but can burst to full power when there’s extra capacity. This makes them ideal for apps that are mostly idle but occasionally need to handle traffic—like APIs or web servers. Just keep in mind that heavy usage can lead to throttling.
 
-At Railway, we believe DevOps should be effortless, intuitive, and even enjoyable. From the instant simplicity of [dev.new](http://dev.new/) to managing interconnected services with ease on your Project Canvas, our platform is designed to be both powerful and visually refined. Who says DevOps has to be ugly or boring? On our platform, it’s fluid, engaging, and a pleasure to use.
+Performance CPUs, by contrast, give you dedicated access to the CPU at all times. There’s no bursting or throttling, making them a better choice for workloads that require consistent, high performance.
 
-One of our standout features is **real-time collaboration**. See exactly which teammates are working alongside you on the Project Canvas, fostering seamless teamwork and collaboration.
+Scaling your app
 
-### Deploy UI and GitHub Repo Deployments
+When scaling your app, you have one of two options:
 
-Fly.io currently supports GitHub repository deployments for Node.js, Phoenix, Laravel, Django, Python, and Golang via their Launch UI, but these are still considered experimental. They strongly recommend using the CLI for more reliable and flexible deployments.
+1. Scale a machine’s CPU and RAM:  you will need to manually pick a larger instance. You can do this using the Fly CLI or API.
+2. Increase the number of running machines. There are two options:
+    1. You can manually increase the number of running machines using the Fly CLI or API.
+    2. Fly can automatically adjust the number of running or created Fly Machines dynamically. Two forms of autoscaling are supported.
+        1. Autostop/autostart Machines: You create a “pool” of Machines in one or more regions and Fly’s Proxy start/suspend Machines based on incoming requests.  With this option, Machines are never created or deleted, you need to specify how many machines your app will need.
+        2. Metrics-based autoscaling: this is not supported out-of-the-box. However, you can deploy [`fly-autoscaler`](https://github.com/superfly/fly-autoscaler) which polls metrics and automatically creates/deletes or starts/stops existing Machines based on the metrics you define.
+        
 
-At Railway, you can deploy any language repository seamlessly through our fast and intuitive deploy UI. Additionally, you have the flexibility to use our CLI whenever it suits your workflow.
+![Scaling your app on Fly.io](https://res.cloudinary.com/railway/image/upload/v1753083711/docs/scaling-your-app-on-fly_pe6clo.png)
 
-We make it incredibly simple to deploy exactly what you need—whether it's a template, database, Docker image, or even an empty service—all from the dashboard. With just a right-click on the Project Canvas or a tap on the Create button, you can instantly spin up new resources. Fly.io does not offer this level of convenience in its dashboard.
+### Railway
 
-### Native Crons
+Railway automatically manages compute resources for you. Your deployed services can scale up or down based on incoming workload without manual configuration of metrics/thresholds or picking instance sizes. Each plan includes defined CPU and memory limits that apply to your services.
 
-Railway provides [native cron jobs](https://docs.railway.com/reference/cron-jobs) directly in the dashboard—no setup, no extra packages, just seamless scheduling. Simply define a cron schedule in your service settings, and Railway will automatically execute the start command at the specified times.
+You can scale horizontally by deploying multiple replicas of your service. Railway automatically distributes public traffic randomly across replicas within each region. Each replica runs with the full resource limits of your plan.
 
-With Railway’s built-in cron management, you can:
+For example, if you're [on the Pro plan](/reference/pricing/plans), each replica gets 32 vCPU and 32 GB RAM. So, deploying 3 replicas gives your service a combined capacity of 96 vCPU and 96 GB RAM.
 
-- Easily create and manage cron jobs from the dashboard
-- View all past and running jobs in one place
-- Avoid unnecessary installations and configurations—just set and go!
+```text
+Total resources = number of replicas × maximum compute allocation per replica
+```
 
-Fly.io does not offer native crons. To schedule tasks, you’ll need to manually configure crontab using supercronic, adding extra setup and maintenance overhead.
+Replicas can be placed in different geographical locations. The platform automatically routes public traffic to the nearest region, then randomly distributes requests among the available replicas within that region.
 
-With Railway, scheduled tasks are simple, streamlined, and built-in. No extra steps—just reliable automation.
 
-### PR Environments
+<video
+  src="https://res.cloudinary.com/railway/video/upload/v1753083716/docs/replicas_dmvuxp.mp4"
+  muted
+  autoplay
+  loop
+  controls
+>
+Add replicas to your service
+</video>
 
-Railway offers a [powerful environments feature](https://docs.railway.com/guides/environments) that makes managing complex development workflows seamless—all from the dashboard. With just a few clicks, you can enable multiple environments such as **staging, development, QA,** **and more**, ensuring your project scales efficiently with your workflow.
+You can also set services to start on a schedule using a crontab expression. This lets you run scripts at specific times and only pay for the time they’re running.
 
-Additionally, Railway provides [PR environments](https://docs.railway.com/guides/environments#enable-pr-environments)—ephemeral environments automatically created when a pull request is opened and cleaned up when it’s closed. No need to manually configure or integrate with GitHub Actions—Railway handles everything for you, so you can focus on building and shipping faster.
+## Pricing
 
-Fly.io recommends setting up Git branch preview environments manually via GitHub Actions and workflows, requiring additional setup and maintenance.
+### Fly
 
-### Webhooks
+Fly charges for compute based on two primary factors: machine state and CPU type (`shared`  vs. `performance`)
 
-Railway provides native support for [webhooks](https://docs.railway.com/guides/webhooks), allowing you to receive real-time notifications about key project events such as **deployments, build status changes, and more**. Stay in sync with your workflow effortlessly and build anything on top of it!
+Machine state determines the base charge structure. Started machines incur full compute charges, while stopped machines are only charged for root file system (rootfs) storage. The rootfs size depends on your OCI image plus [containerd](https://containerd.io/) optimizations applied to the underlying file system. 
 
-Fly.io does not offer built-in webhook support, meaning users must rely on external integrations or manual setups to track application events.
+[Pricing for different preset sizes is available in Fly's documentation](https://fly.io/docs/about/pricing/#started-fly-machines). You can get a discount by reserving compute time blocks. This requires paying the annual amount upfront, then receiving monthly credits equal to the "per month" rate. Credits expire at month-end and do not roll over to subsequent months. The trade-off is you might end up paying for unused resources.
 
-With Railway, webhooks are built-in and ready to go—no extra setup required.
+![Fly compute presets pricing](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/fly-pricing_fpda5v.png)
 
-### Variables and Secrets
+One important consideration is that Fly Machines incur cost based *on running time*. Even with zero traffic or resource utilization, you pay for the entire duration a machine remains in a running state. While machines can be stopped to reduce costs, any time spent running generates full compute charges regardless of actual usage.
 
-Railway offers an intuitive and delightful variable management feature where you can [easily reference variables(a.k.a shared variables) in the same service or from another service](https://docs.railway.com/guides/variables#reference-variables) within your project. We also provide the ability to [seal variable values](https://docs.railway.com/guides/variables#sealed-variables) for extra security.
+### Railway
 
-Additionally, Railway offers [variable functions](https://docs.railway.com/guides/create#template-variable-functions) that automatically generate secure secrets for your environment variables—eliminating the need for manual secret creation.
+Railway follows a usage-based pricing model that depends on how long your service runs and the amount of resources it consumes.
 
-- Need a random secret? Simply use: `${{ secret() }}`
-- Need a hex-encoded secret of a specific length? Just specify the length and character set: `${{ secret(128, "abcdef0123456789") }}`
+```text
+Active compute time x compute size (memory and CPU)
+```
 
-Fly.io provides a basic secrets management feature, allowing users to store secrets with a digest. However, it lacks the advanced functionality of Railway’s shared variables and dynamic secret generation.
+If you spin up multiple replicas for a given service, you’ll only be charged for the active compute time for each replica.
 
-### Databases
+![Railway autoscaling](https://res.cloudinary.com/railway/image/upload/v1753083711/docs/railway-autoscaling_nf5hrc.png)
 
-Many applications rely on databases, and we believe managing them should be seamless and hassle-free. That’s why Railway allows you to natively provision and deploy PostgreSQL, MySQL, Redis, and MongoDB directly within the platform—no external setup required.
+## Developer Workflow & CI/CD
 
-Fly.io, on the other hand, provisions Postgres, Upstash Redis, Upstash Kafka, and Upstash Vector. If you need MySQL or MongoDB, you’ll have to manually set up and manage them via Docker. Alternatively, Fly recommends several external providers for these databases.
+### Fly
 
-Railway goes further by offering a built-in database UI, making management effortless. You can view tables, add and edit data directly from the platform—no need for third-party tools. Fly does not provide an equivalent UI, requiring external tools for database management.
+Fly provides a CLI-first experience through `flyctl`, allowing you to create and deploy apps, manage Machines and volumes, configure networking, and perform other infrastructure tasks directly from the command line.
 
-### Templates
+However, Fly lacks built-in CI/CD capabilities. This means you can't:
 
-Railway's [Templates Marketplace](https://railway.com/templates) is rapidly expanding, with 940+ templates and counting. Any user can create and publish pre-configured starter setups or templates, making it effortless for developers to deploy apps and services with just one click—eliminating the hassle of manual setup.
+- Connect your GitHub repository for automatic builds and deployments on code pushes.
+- Create isolated preview environments for every pull request.
+- Perform instant rollbacks.
 
-Our templates cover a wide range of frameworks and tools, including [Django](https://railway.com/new/template/GB6Eki), [Laravel](https://railway.com/new/template/Gkzn4k), [Metabase](https://railway.com/new/template/metabase), [Strapi](https://railway.com/template/strapi), [MinIO](https://railway.com/new/template/SMKOEA), [ClickHouse](https://railway.com/new/template/clickhouse), [Redash](https://railway.com/new/template/mb8XJA), and [Prometheus](https://railway.com/new/template/KmJatA)—all deployable in seconds. From your dashboard, you can turn your project into a reusable template in under two minutes.
+To access these features, you'll need to integrate third-party CI/CD tools like [GitHub Actions.](https://github.com/features/actions)
 
-We also reward our creators through the [Kickback Program](https://railway.com/open-source-kickback). When you publish a template and it’s deployed by other users, you receive 50% of the usage costs as a kickback, credited either as cash (USD) or Railway credits—allowing you to earn while supporting the developer community.
+Similarly, Fly doesn't include native environment support for development, staging, and production workflows. To achieve proper environment isolation, you must create separate organizations for each environment and link them to a parent organization for centralized billing management.
 
-Fly.io offers a selection of official and community-contributed application templates, mainly available through their GitHub fly-apps repositories. However, Fly does not have a centralized marketplace like Railway, nor does it provide any incentives for community templates.
+For monitoring, Fly automatically collects metrics from every application using a fully-managed Prometheus service based on VictoriaMetrics. The system scrapes metrics from all application instances and provides data on HTTP responses, TCP connections, memory usage, CPU performance, disk I/O, network traffic, and filesystem utilization.
 
-### Pricing
+The Fly dashboard includes a basic Metrics tab displaying this automatically collected data. Beyond the basic dashboard, Fly offers a managed Grafana instance at [fly-metrics.net](http://fly-metrics.net) with detailed dashboards and query capabilities using MetricsQL as the querying language. You can also connect external tools through the Prometheus API.
 
-At Railway, we believe in transparent, [flexible pricing](https://railway.com/pricing)—**you only pay for what you use**. With our pay-as-you-go model, you get an affordable flat fee for your selected plan, plus usage-based billing that scales with your needs. No overpaying, no hidden fees—just straightforward pricing.
+![fly-metrics.net](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/fly-metrics.net_d6r3cs.png)
 
-- **Trial:** Free + a one-time $5 credit for resource usage
-- **Hobby:** $5/month, includes $5 in usage credits every month
-- **Pro:** $20 per teammate/month
-- **Enterprise:** Custom pricing
 
-Fly.io follows a pure usage-based pricing model—there are no subscription tiers, meaning you pay based on the exact resources you consume. Check out [Fly’s pricing here](https://fly.io/pricing/).
+Advanced features like alerting and custom dashboards require working with multiple tools and query languages, creating a learning curve for teams wanting sophisticated monitoring capabilities. 
 
-### Want to see the savings?
+Additionally, Fly doesn't support webhooks, making it more difficult to build integrations with external services.
 
-Explore our [detailed pricing breakdown](https://docs.railway.com/reference/pricing/plans) to see how Railway keeps costs predictable while still giving you the flexibility to scale as needed.
+### Railway
 
-### Customer Support and Community
+Railway follows a dashboard-first experience, while [also providing a CLI](https://docs.railway.com/guides/cli). In Railway, you create a project for each app you’re building. A project is a collection of services and databases. This can include frontend, API, background workers, API, analytics database, queues and so much more. All in a unified deployment experience that supports real-time collaboration.
 
-At Railway, we take pride in offering best-in-class support through our [vibrant Discord community](https://discord.gg/railway) and our custom-built [Central Station](https://station.railway.com/)—a support platform powered by Railway itself. We believe that every project matters, no matter how big or small. If you run into an issue, we’re here to help, and our engineers are always available to ensure you get the support you need.
+![Railway architecture](https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png)
 
-With over [880,000 users](https://railway.com/stats) who love what we do, we’re committed to continuous improvement. [Every week](https://railway.com/changelog), we ship new features and updates to make Railway even better—because great support isn’t just about answering questions, it’s about building a platform that just works.
+Additionally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
 
-Fly.io offers paid support plans starting at $29/month for standard support, $199/month for premium, and $2,500+ for enterprise-level assistance. If you can’t afford these plans, your only option is their community forum for help.
+Check out all templates at [railway.com/deploy](http://railway.com/deploy) 
 
-## We are similar to Fly.io in the following ways:
+<video
+  src="https://res.cloudinary.com/railway/video/upload/v1753083712/docs/railway.com_templates_zcydjb.mp4"
+  muted
+  autoplay
+  loop
+  controls
+>
+Railway templates
+</video>
 
-- Database Backups
-- Bare Metal
-- Docker Image deployments
-- Dockerfile deployments
-- Health checks
-- Zero downtime deploys.
-- Custom domains
-- Stateful Services a.k.a Persistent Disks and Volumes
-- Private Networking
-- Instant Rollbacks
-- Infrastructure as code
-- CI/CD
-- Monitoring, Observability and In-Dashboard logs
-- Autoscaling and Scale to Zero
-- Monorepo and multi-environment deployments.
-- Multi-region deployments
-- CLI tooling
-- Programmatic deployments via API
-- Serving static sites
+You also get:
 
-## Migrate to Railway
+- First-class support for environments so you can isolate production, staging, development, testing, etc.
+- GitHub integration with support for provisioning isolated preview environments for every pull request.
+- Ability to do instant rollbacks for your deployments.
 
-Thinking about migrating from Fly.io to Railway? We’ve put together a [quick and simple guide](/migration/migrate-from-fly) to make the transition effortless and fast.
+Each Railway project includes a built-in observability dashboard that provides a customizable view into chosen metrics, logs, and data all in one place
 
-[Sign up on Railway](https://railway.com/new) today and get a $5 in free credits to explore the platform. 
+[Screenshot of the Observability Dashboard](https://docs.railway.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Frailway%2Fimage%2Fupload%2Fv1717179720%2FWholescreenshot_vc5l5e.png&w=3840&q=80)
 
-For companies and large organizations, we’d love to chat! [Book a call with us](https://cal.com/team/railway/work-with-railway) to see how Railway fit your needs.
+Finally, Railway supports creating webhooks which allow external services to listen to events from Railway
+
+![Webhooks](https://res.cloudinary.com/railway/image/upload/v1753083711/docs/railway-webhooks_r4ervy.png)
+
+
+## Summary
+
+| Category                 | Railway                                                                            | Fly.io                                                                                                                                       |
+| ------------------------ | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scaling                  | Auto-scaling included (no manual config); supports horizontal scaling via replicas | Manual vertical/horizontal scaling or horizontal autoscaling (via `fly-autoscaler`); two autoscaling options (autostop/start, metrics-based) |
+| Compute Pricing          | Usage-based where you’re only billed for active compute time                       | Based on machine uptime (started = full price); unused time still billed unless stopped                                                      |
+| CI/CD Integration        | Built-in GitHub integration with preview environments and instant rollbacks        | No built-in CI/CD; requires third-party tools like GitHub Actions                                                                            |
+| Environments Support     | First-class support for multiple environments (dev, staging, prod, etc.)           | Requires creating separate orgs per environment                                                                                              |
+| Monitoring & Metrics     | Built-in observability dashboard (metrics, logs, data all in one place)            | Prometheus-based metrics + optional Grafana (`fly-metrics.net`) for deep dives                                                               |
+| Webhooks & Extensibility | Webhook support for integrations                                                   | No support for outbound webhooks                                                                                                             |
+| Developer Experience     | Dashboard-first, supports real-time team collaboration, CLI available              | CLI-first (`flyctl`) for all management tasks                                                                                                |
+
+
+## Migrate from Fly.io to Railway
+
+To get started, [create an account on Railway](https://railway.com/new). You can sign up for free and receive $5 in credits to try out the platform.
+
+
+1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
+    
+    ![Railway Deploy New Project](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/railway-new-project_tte4eb.png)
+    
+
+2. If your project is using any environment variables or secrets:
+    1. Click on the deployed service.
+    2. Navigate to the “Variables” tab.
+    3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
+    
+
+![Railway Variables](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/railway-variables_iq3rgd.png)
+
+1. To make your project accessible over the internet, you will need to configure a domain:
+    1. From the project’s canvas, click on the service you would like to configure.
+    2. Navigate to the “Settings” tab.
+    3. Go to the “Networking” section.
+    4. You can either:
+        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+        2. Add a custom domain: follow the DNS configuration steps.
+
+
+## Need help or have questions?
+
+If you need help along the way, the [Railway Discord](http://discord.gg/railway) and [Help Station](https://station.railway.com/) are great resources to get support from the team and community.
+
+For larger workloads or specific requirements, you can [book a call with the Railway team](https://cal.com/team/railway/work-with-railway) to explore how we can best support your project.
