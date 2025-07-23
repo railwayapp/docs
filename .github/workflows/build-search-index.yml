@@ -2,15 +2,17 @@ name: Build Search Index
 
 on:
   workflow_dispatch:
-    # Manually hit button. Ideally this should be triggered automatically,
-    # after a build/deploy step, but it's not worth it to make a custom build
-    # right now.
+  push:
+    branches:
+      - main
 
 jobs:
   build-index:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Wait for Railway deployment
+        run: sleep 600
       - name: Scrape and index docs
         env:
           HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
