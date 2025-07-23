@@ -102,7 +102,6 @@ Fly provides a CLI-first experience through `flyctl`, allowing you to create and
 
 However, Fly lacks built-in CI/CD capabilities. This means you can't:
 
-- Connect your GitHub repository for automatic builds and deployments on code pushes.
 - Create isolated preview environments for every pull request.
 - Perform instant rollbacks.
 
