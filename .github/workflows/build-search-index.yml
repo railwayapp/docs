@@ -2,17 +2,17 @@ name: Build Search Index
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  deployment_status:
+    states: [success]
 
 jobs:
   build-index:
     runs-on: ubuntu-latest
+    if: >
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'production'
     steps:
       - uses: actions/checkout@master
-      - name: Wait for Railway deployment
-        run: sleep 600
       - name: Scrape and index docs
         env:
           HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
