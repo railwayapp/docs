@@ -41,7 +41,7 @@ Render includes a build pipeline where each task consumes pipeline minutes. Thes
 
 At Railway, there’s no need to worry about managing build costs or minutes. Builds are always free—no matter how often you run them. It’s one less thing to plan, letting you focus entirely on building and deploying your apps.
 
-We provide an exceptional deployment experience through [Nixpacks](https://github.com/railwayapp/nixpacks)—our custom-built, open-source solution that delivers incredibly fast, reproducible builds while automatically detecting and supporting over 22 languages. For advanced and customizable deployments, we also automatically detect and utilize your Dockerfile, giving you complete control.
+We provide an exceptional deployment experience through [Nixpacks](https://github.com/railwayapp/nixpacks) and [Railpack](https://github.com/railwayapp/railpack)—our custom-built, open-source solution that delivers incredibly fast, reproducible builds while automatically detecting and supporting over 22 languages. For advanced and customizable deployments, we also automatically detect and utilize your Dockerfile, giving you complete control.
 
 ### Databases
 
@@ -49,9 +49,7 @@ Many apps require the use of databases. We want to ensure that it’s very conve
 
 Render charges a base amount for compute (CPU and Memory) for using a managed database plus storage while we charge **for only what you use** in compute and storage. For example, if you use only 2 GB (RAM) and 1 CPU, we will charge you for only that plus storage.
 
-If you’re aware that there will be periods of inactivity, you can also enable [App Sleeping](https://docs.railway.com/reference/app-sleeping) which reduces [the cost of usage](https://docs.railway.com/guides/optimize-usage#resource-limits) by ensuring it runs only when absolutely necessary!
-
-There’s a resource-based calculator on our [pricing page](https://railway.com/pricing) that you can use to estimate how much you’ll be charged based on **CPU**, **Memory**, **Volume** and **Network Egress**.
+If you’re aware that there will be periods of inactivity, you can also enable [Serverless](https://docs.railway.com/reference/app-sleeping) which reduces [the cost of usage](https://docs.railway.com/guides/optimize-usage#resource-limits) by ensuring it runs only when absolutely necessary!
 
 We also provide built-in UI for managing your database easily without the need for external tools. You can see your tables, add and edit data. Render does not.
 
@@ -81,24 +79,24 @@ At Railway, private networking operates globally. This means services in differe
 
 We believe in the principle of **pay only for what you use**. With Railway, you pay an affordable flat fee for the plan you choose, and additional costs are based solely on the resources (compute) you consume each month. In summary, a flexible pay-as-you-go model!
 
-- **Trial**: Free, plus one-time $5 credit for resource usage
-- **Hobby**: $5/month, plus $5 credit for resource usage monthly
-- **Pro**: $20 per teammate/month
+- **Trial**: Free, plus one-time $5 credit for resource usage, valid for 30 days
+- **Hobby**: $5/month, includes $5 credit for resource usage monthly
+- **Pro**: $20/month, includes $20 credit for resource usage monthly and unlimited seats
 - **Enterprise**: Custom pricing
 
 **Render Pricing**:
 
 - **Hobby**: Free
-- **Pro**: $19/month
-- **Org**: $29 per teammate/month
+- **Pro**: $19 per user/month
+- **Org**: $29 per user/month
 - **Enterprise**: Custom pricing
 
-Curious about the savings? Check out a [detailed breakdown of our pricing](https://docs.railway.com/reference/pricing/plans) and see how much you can save by running your workloads on Railway. It’s more cost-effective than [Render](https://render.com/pricing).
+Curious about the savings? Check out a [detailed breakdown of our pricing](https://docs.railway.com/reference/pricing/plans) or [upload your current invoice](https://railway.com/pricing#pricing-invoice) and see how much you can save by running your workloads on Railway. It’s more cost-effective than [Render](https://render.com/pricing).
 
 ### Customer Support and Community
 
 At Railway, we take pride in providing best-in-class support through our [vibrant Discord community](https://discord.gg/railway) and our custom-built [Central Station](https://station.railway.com/)—a platform powered by Railway itself. We firmly believe that no project is too small or unimportant when it comes to addressing support needs. If an issue arises, we’re here to help.
 
-With over [900,000 users](https://railway.com/stats) who think we’re the best thing since sliced bread, we’re committed to continuously improving. [Week after week](https://railway.com/changelog), we ship new features and updates to better support our customers.
+With over [1,400,000 users](https://railway.com/stats) who think we’re the best thing since sliced bread, we’re committed to continuously improving. [Week after week](https://railway.com/changelog), we ship new features and updates to better support our customers.
 
 To meet the unique needs of our customers, we offer tailored [support tiers](https://docs.railway.com/reference/support#support-tiers), ensuring users receive the assistance they need at every step.
