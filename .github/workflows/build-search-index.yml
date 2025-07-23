@@ -2,13 +2,15 @@ name: Build Search Index
 
 on:
   workflow_dispatch:
-    # Manually hit button. Ideally this should be triggered automatically,
-    # after a build/deploy step, but it's not worth it to make a custom build
-    # right now.
+  deployment_status:
+    states: [success]
 
 jobs:
   build-index:
     runs-on: ubuntu-latest
+    if: >
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'production'
     steps:
       - uses: actions/checkout@master
       - name: Scrape and index docs
