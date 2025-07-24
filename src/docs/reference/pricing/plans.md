@@ -27,6 +27,8 @@ Each Railway account needs an active subscription. The base subscription fee all
 
 Read more about our plans at <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
+Curious about potential savings? [Upload your current invoice](https://railway.com/pricing#pricing-invoice) and see how much you can save by running your workloads on Railway.
+
 ### Default Plan Resources
 
 Depending on the plan you are on, you are allowed to use up these resources per service.
