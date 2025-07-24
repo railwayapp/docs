@@ -15,7 +15,7 @@ Within the service settings, you can select one of the following regions -
 | Name                 | Location               | Region Identifier        |
 |----------------------|------------------------|--------------------------|
 | US West Metal        | California, USA        | `us-west2`               |
-| US East Metal        | North Carolina, USA    | `us-east4-eqdc4a`        |
+| US East Metal        | Virginia, USA          | `us-east4-eqdc4a`        |
 | EU West Metal        | Amsterdam, Netherlands | `europe-west4-drams3a`   |
 | Southeast Asia Metal | Singapore              | `asia-southeast1-eqsg3a` |
 

@@ -102,7 +102,7 @@ width={1060} height={315} quality={100} />
 
 - For the **Endpoint Address** we use the Railway generated domain.
 
-    Example -  `region-us-west1.up.railway.app`
+    Example -  `my-service-us-west2.up.railway.app`
 
     This should only be the domain, excluding both the scheme and trailing slash.
 
@@ -121,20 +121,23 @@ alt="screenshot of end endpoint settings in the pool creator"
 layout="responsive"
 width={1060} height={600} quality={100} />
 
-- Click **Configure coordinates for Proximity Steering** and enter the Latitude and Longitude for your service region that can be found in this [JSON file](https://www.google.com/about/datacenters/json/locations.json).
+- Click **Configure coordinates for Proximity Steering** and enter the latitude and longitude for your service region.
 
-    To find the coordinates of a region, look up its location and copy the corresponding **latitude** and **longitude** values into Cloudflare.
-
-    You can find information on Railway's available regions and their locations [here](/reference/regions#region-options).
+    | Region    | Latitude  | Longitude   |
+    |-----------|----------:|------------:|
+    | US East   | 39.005111 | -77.491333  |
+    | US West   | 37.353111 | -121.936278 |
+    | EU West   | 52.379139 | 4.900278    |
+    | Singapore | 1.307222  | 103.790583  |
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1722015901/docs/tutorials/proximity-load-balancing/pool_settings_proximity_rybg2r.png"
 alt="screenshot of the proximity settings in the pool creator"
 layout="responsive"
 width={1060} height={600} quality={100} />
 
-- Select the Monitor dropdown and add our **Health** monitor we created earlier.
+- Select the Monitor dropdown and add our **Health** monitor that we created earlier.
 
-- Choose the applicable health check region according to the region that the Railway service was deployed to.
+- Choose the applicable health check region according to the region where the Railway service was deployed.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1722015844/docs/tutorials/proximity-load-balancing/pool_settings_health_ydlzvo.png"
 alt="screenshot of the health settings in the pool creator"
@@ -143,7 +146,7 @@ width={1060} height={375} quality={100} />
 
 - Click **Save**.
 
-- Create another pool for your other services that are deployed into your desired regions, follow the same procedure.
+- Create another pool for your other services that are deployed in your desired regions, and follow the same procedure.
 
 This should be the end result, two or more pools -
 

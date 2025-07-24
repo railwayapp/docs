@@ -27,6 +27,28 @@ There are three roles for Workspace members:
 - Member: Access to all Workspace projects
 - Deployer: View projects and deploy through commits to repos via GitHub integration.
 
+|                              | Admin | Member | Deployer |
+|:-----------------------------|:-----:|:------:|:--------:|
+| Automatic GitHub deployments | ✔️ | ✔️ | ✔️ |
+| CLI deployments              | ✔️ | ✔️ | ❌ |
+| Creating variables           | ✔️ | ✔️ | ❌ |
+| Modifying variables          | ✔️ | ✔️ | ❌ |
+| Deleting variables           | ✔️ | ✔️ | ❌ |
+| Modifying service settings   | ✔️ | ❌ | ❌ |
+| Creating services            | ✔️ | ✔️ | ❌ |
+| Deleting services            | ✔️ | ❌ | ❌ |
+| Viewing logs                 | ✔️ | ✔️ | ❌ |
+| Creating volumes             | ✔️ | ✔️ | ❌ |
+| Deleting volumes             | ✔️ | ❌ | ❌ |
+| Creating new projects        | ✔️ | ✔️ | ❌ |
+| Deleting projects            | ✔️ | ❌ | ❌ |
+| Adding additional members    | ✔️ | ❌ | ❌ |
+| Removing members             | ✔️ | ❌ | ❌ |
+| Changing member roles        | ✔️ | ❌ | ❌ |
+| Adding trusted domains       | ✔️ | ❌ | ❌ |
+| Making a withdrawal          | ✔️ | ❌ | ❌ |
+| Accessing billing settings   | ✔️ | ❌ | ❌ |
+
 _Note_: Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their GitHub account is connected.
 
 ## Trusted Domains

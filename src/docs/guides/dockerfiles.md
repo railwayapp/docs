@@ -62,6 +62,8 @@ Railway supports cache mounts in your Dockerfile in the following format:
 
 Replace `<service id>` with the id of the service.
 
+Note: Environment variables can't be used in cache mount IDs, since that is invalid syntax.
+
 ### Target Path
 
 Unsure of what your target path should be?  Refer to the <a href="https://github.com/railwayapp/nixpacks/tree/main" target="_blank">Nixpacks source code</a>.  Within the providers directory, find the file that aligns with your respective language or runtime, and check for the variable that indicates the CACHE_DIR.

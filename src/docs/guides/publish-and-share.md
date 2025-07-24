@@ -9,15 +9,17 @@ Once you create a template, you have the option to publish it. Publishing a temp
 
 After you create your template, simply click the publish button and fill out the form to publish your template.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1680281251/CleanShot_2023-03-31_at_20.46.28_2x_tjjpna.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1753243835/docs/reference/templates/mockup-1753242978376_skjt7w.png"
   alt="Template publishing form"
   layout="intrinsic"
-  width={510}
-  height={800}
+  width={2004}
+  height={3834}
   quality={80}
 />
 
 You can always publish your template by going to the <a href="https://railway.com/workspace/templates" target="_blank">Templates page in your Workspace settings</a> and choose `Publish` next to the template you'd like to publish.
+
+Optionally, you can add a demo project to your template. This will be used to showcase your template in a working project, and can be accessed by clicking on the `Live Demo` button in the template's overview page.
 
 ## Sharing your Templates
 
@@ -48,7 +50,7 @@ To render the button in HTML, copy the following code and replace the link with 
 
 Here are some example templates from the <a href="https://railway.com/templates" target="_blank">template marketplace</a> in button form:
 |Icon|Template|Button|
-|----|--------|------|
+|:--:|:------:|:----:|
 |<img src="https://devicons.railway.com/i/nodejs.svg" alt="Node" width="25" height="25" />|Node|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZweBXA)|
 |<img src="https://devicons.railway.com/i/deno.svg" alt="Deno" width="25" height="25" />|Deno|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/LsaSsU)|
 |<img src="https://devicons.railway.com/i/bun.svg" alt="Bun" width="25" height="25" />|Bun|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/gxxk5g)|
@@ -58,4 +60,4 @@ Here are some example templates from the <a href="https://railway.com/templates"
 
 ## Kickback program
 
-If your published template is deployed into other users' projects, you are immediately eligible for a 50% kickback, in the form of Railway credits. Refer to the [template reference page](/reference/templates#kickback-program) for more information.
+If your published template is deployed into other users' projects, you are immediately eligible for a 50% kickback, in the form of Railway creditsor cash. Refer to the [template reference page](/reference/templates#kickback-program) for more information.

@@ -80,7 +80,7 @@ builds and deployments.
 | `RAILWAY_SERVICE_NAME`         | The service name.                                                                                                                                    |
 | `RAILWAY_SERVICE_ID`           | The service id.                                                                                                                                      |
 | `RAILWAY_REPLICA_ID`           | The replica ID for the deployment.                                                                                                                   |
-| `RAILWAY_REPLICA_REGION`       | The region where the replica is deployed. Example: `us-west1`                                                                                        |
+| `RAILWAY_REPLICA_REGION`       | The region where the replica is deployed. Example: `us-west2`                                                                                        |
 | `RAILWAY_DEPLOYMENT_ID`        | The ID for the deployment.                                                                                                                           |
 | `RAILWAY_SNAPSHOT_ID`          | The snapshot ID for the deployment.                                                                                                                  |
 | `RAILWAY_VOLUME_NAME`          | The name of the attached volume, if any. Example: `foobar`                                                                                           |
@@ -117,3 +117,7 @@ Users can use the following environment variables to configure Railway's behavio
 ## Support
 
 For information on how to use variables refer to the [Variables guide](/guides/variables).
+
+## Dockerfiles
+
+For information on how to use variables in your Dockerfile refer to the [Dockerfiles guide](/guides/dockerfiles#using-variables-at-build-time).
