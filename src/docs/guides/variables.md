@@ -169,6 +169,10 @@ Using the Railway CLI, you can run your code locally with the environment variab
 
 Check out the [CLI guide](/guides/cli#local-development) for more information on using the CLI.
 
+## Using Variables in your Dockerfile
+
+For information on how to use variables in your Dockerfile refer to the [Dockerfiles guide](/guides/dockerfiles#using-variables-at-build-time).
+
 ## Import Variables from Heroku
 
 You can import variables from an existing Heroku app using the command palette

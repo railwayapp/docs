@@ -117,3 +117,7 @@ Users can use the following environment variables to configure Railway's behavio
 ## Support
 
 For information on how to use variables refer to the [Variables guide](/guides/variables).
+
+## Dockerfiles
+
+For information on how to use variables in your Dockerfile refer to the [Dockerfiles guide](/guides/dockerfiles#using-variables-at-build-time).

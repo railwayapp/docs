@@ -51,6 +51,12 @@ The URL you provide will receive a webhook payload when any service's deployment
 
 ```
 
+#### Testing Webhooks
+
+The `Test Webhook` button will send a test payload to the specified webhook URL.
+
+Note: For security reasons, test webhooks are sent from the frontend client, which may result in Cross-Origin Resource Sharing (CORS) restrictions. This typically presents as a delivery failure when using the test webhook functionality.
+
 ## Muxers: Provider-specific Webhooks
 
 For certain webhook URLs, Railway will automatically transform the payload to match the destination (we call the Muxers). This makes it easy to use webhooks without having to write your own middleware to format the request body. Below are the currently supported providers:
