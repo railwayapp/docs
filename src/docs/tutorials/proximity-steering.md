@@ -102,7 +102,7 @@ width={1060} height={315} quality={100} />
 
 - For the **Endpoint Address** we use the Railway generated domain.
 
-    Example -  `region-us-west1.up.railway.app`
+    Example -  `my-service-us-west2.up.railway.app`
 
     This should only be the domain, excluding both the scheme and trailing slash.
 
