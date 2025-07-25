@@ -27,16 +27,16 @@ Shared CPUs are the more affordable option. They guarantee a small slice of CPU 
 
 Performance CPUs, by contrast, give you dedicated access to the CPU at all times. There’s no bursting or throttling, making them a better choice for workloads that require consistent, high performance.
 
-Scaling your app
+**Scaling your app**
 
 When scaling your app, you have one of two options:
 
-1. Scale a machine’s CPU and RAM:  you will need to manually pick a larger instance. You can do this using the Fly CLI or API.
-2. Increase the number of running machines. There are two options:
-    1. You can manually increase the number of running machines using the Fly CLI or API.
-    2. Fly can automatically adjust the number of running or created Fly Machines dynamically. Two forms of autoscaling are supported.
-        1. Autostop/autostart Machines: You create a “pool” of Machines in one or more regions and Fly’s Proxy start/suspend Machines based on incoming requests.  With this option, Machines are never created or deleted, you need to specify how many machines your app will need.
-        2. Metrics-based autoscaling: this is not supported out-of-the-box. However, you can deploy [`fly-autoscaler`](https://github.com/superfly/fly-autoscaler) which polls metrics and automatically creates/deletes or starts/stops existing Machines based on the metrics you define.
+- Scale a machine’s CPU and RAM:  you will need to manually pick a larger instance. You can do this using the Fly CLI or API.
+- Increase the number of running machines. There are two options:
+    - You can manually increase the number of running machines using the Fly CLI or API.
+    - Fly can automatically adjust the number of running or created Fly Machines dynamically. Two forms of autoscaling are supported.
+        - Autostop/autostart Machines: You create a “pool” of Machines in one or more regions and Fly’s Proxy start/suspend Machines based on incoming requests.  With this option, Machines are never created or deleted, you need to specify how many machines your app will need.
+        - Metrics-based autoscaling: this is not supported out-of-the-box. However, you can deploy [`fly-autoscaler`](https://github.com/superfly/fly-autoscaler) which polls metrics and automatically creates/deletes or starts/stops existing Machines based on the metrics you define.
         
 
 ![Scaling your app on Fly.io](https://res.cloudinary.com/railway/image/upload/v1753083711/docs/scaling-your-app-on-fly_pe6clo.png)
