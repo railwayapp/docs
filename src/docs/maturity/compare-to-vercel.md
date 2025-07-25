@@ -1,136 +1,196 @@
 ---
 title: Railway vs. Vercel
-description: Looking for the best deployment platform? This guide breaks down Railway vs. Vercel, covering scalability, pricing, features, and why Railway is the superior choice.
+description: Compare Railway and Vercel on infrastructure, pricing model and deployment experience
 ---
+
+At a high level, both Railway and Vercel enable you to deploy your app without the hassle of managing infrastructure. Both platforms share several similarities:
+
+- Git-based automated deployments with support for instant rollbacks.
+- Automatic preview environments.
+- Built-in observability.
+- Autoscaling resources with usage-based pricing.
+
+That said, there are fundamental differences between both platforms, and certain use cases where Railway is a better fit.
+
+## Understanding the underlying infrastructure and ideal use cases
+
+### Vercel’s infrastructure
+
+Vercel has developed a proprietary deployment model where infrastructure components are derived from the application code (see [Framework-defined infrastructure](https://vercel.com/blog/framework-defined-infrastructure)). 
+
+At build time, application code is parsed and translated into the necessary infrastructure components. Server-side code is then deployed as serverless functions, powered by [AWS](https://aws.com) under the hood.
+
+To handle scaling, Vercel creates a new function instance for each incoming request with support for concurrent execution within the same instance (see [Fluid compute](https://vercel.com/docs/fluid-compute)). Over time, functions scale down to zero to save on compute resources.
+
+![https://vercel.com/blog/introducing-fluid-compute](https://res.cloudinary.com/railway/image/upload/v1753470541/docs/comparison-docs/vercel-fluid-compute_kiitdu.png)
+
+
+This deployment model abstracts away infrastructure, but introduces limitations:
+
+- Memory limits: the maximum amount of memory per function is 4GB
+- Execution time limit: the maximum amount of time a function can run is 800 seconds (~13.3 minutes)
+- Size (after gzip compression): the maximum is 250 MB
+- Cold starts: when a function instance is created for the first time, there’s an amount of added latency. Vercel includes [several optimizations](https://vercel.com/docs/fluid-compute#bytecode-caching), which reduces cold start frequency but won’t completely eliminate them.
+
+If you plan on running long-running workloads such as:
+
+- Data Processing: ETL jobs, large file imports/exports, analytics aggregation.
+- Media Processing: Video/audio transcoding, image resizing, thumbnail generation.
+- Report Generation: Creating large PDFs, financial reports, user summaries.
+- DevOps/Infrastructure: Backups, CI/CD tasks, server provisioning.
+- Billing & Finance: Usage calculation, invoice generation, payment retries.
+- User Operations: Account deletion, data merging, stat recalculations.
+
+Or if you plan on running workloads that require a persistent connection such as:
+
+- Chat messaging: live chats, typing indicators
+- Live dashboards: metrics, analytics, stock tickers
+- Collaboration: document editing, presence
+- Live tracking: delivery location updates
+- Push notifications: instant alerts
+- Voice/video calls: signaling, status updates
+
+Then deploying your backend services to Vercel functions will not be the right fit.
+
+### Railway’s infrastructure
+
+Railway's underlying infrastructure runs on hardware that’s owned and operated in data centers across the globe. By controlling the hardware, software, and networking stack end to end, the platform delivers best-in-class performance, reliability, and powerful features, all while keeping costs in check.
+
+![Railway regions](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-regions_syr9jf.png)
+
+Railway uses a [custom builder](https://docs.railway.com/guides/builds) that takes your source code or Dockerfile and automatically builds and deploys it, without needing configuration.
+
+Your code runs on a long-running server, making it ideal for apps that need to stay running or maintain a persistent connection.
+
+All deployments come with smart defaults out of the box, but you can tweak things as needed. This makes Railway flexible across [different runtimes and programming languages.](http://railway.com/deploy)
+
+Each service you deploy can automatically scale up vertically to handle incoming workload. You also get the option to horizontally scale a service by spinning up replicas. Replicas can be deployed in multiple regions simultaneously.
+
+<video src="https://res.cloudinary.com/railway/video/upload/v1753470552/docs/comparison-docs/railway-replicas_nt6tz8.mp4" controls autoplay loop muted></video>
+
+You can also set services to start on a schedule using a crontab expression. This lets you run scripts at specific times and only pay for the time they’re running.
+
+## Pricing model differences
+
+Both platforms follow a usage-based pricing model, but are different due to the underlying infrastructure.
+
+### Vercel
+
+Vercel functions are billed based on:
+
+- Active CPU: Time your code actively runs in milliseconds
+- Provisioned memory: Memory held by the function instance, for the full lifetime of the instance
+- Invocations: number of function requests, where you’re billed per request
+
+Each pricing plan includes a certain allocation of these metrics.
+
+This makes it possible for you to pay for what you use. However, since Vercel runs on AWS, the unit economics of the business need to be high to offset the cost of the underlying infrastructure. Those extra costs are then passed down to you as the user, so you end up paying extra for resources such as bandwidth, memory, CPU and storage.
+
+### Railway
+
+Railway follows a usage-based pricing model that depends on how long your service runs and the amount of resources it consumes.
+
+```
+Active compute time x compute size (memory and CPU)
+```
+
+![railway usage-based pricing](https://res.cloudinary.com/railway/image/upload/v1753470546/docs/comparison-docs/railway-usage-based-pricing_efrrjn.png)
+
+If you spin up multiple replicas for a given service, you’ll only be charged for the active compute time for each replica.
+
+## Deployment experience
+
+### Vercel
+
+**Managing multiple services**
+
+In Vercel, a project maps to a deployed application. If you would like to deploy multiple apps, you’ll do it by creating multiple projects.
+
+![Vercel dashboard](https://res.cloudinary.com/railway/image/upload/v1753470540/docs/comparison-docs/vercel-dashboard_rmb3st.png)
+
+**Integrating your application with external services**
+
+If you would like to integrate your app with other infrastructure primitives (e.g storage solutions for your application’s database, caching, analytical storage, etc.), you can do it through the Vercel marketplace. 
+
+![Vercel marketplace](https://res.cloudinary.com/railway/image/upload/v1753470543/docs/comparison-docs/vercel-marketplace_cwrir6.png)
+
+This gives you an integrated billing experience, however managing services is still done by accessing the original service provider. Making it necessary to switch back and forth between different dashboards when you’re building your app.
+
+### Railway
+
+**Managing projects**
+
+In Railway, a project is a collection of services and databases. This can include frontend, API, background workers, API, analytics database, queues and so much more. All in a unified deployment experience that supports real-time collaboration.
+
+![Railway canvas](https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png)
+
+**Databases**
+
+Additionally, Railway has first-class support for Databases. You can one-click deploy any open-source database:
+
+- Relational: Postgres, MySQL
+- Analytical: Clickhouse, Timescale
+- Key-value: Redis, Dragonfly
+- Vector: Chroma, Weviate
+- Document: MongoDB
+
+Check out all of the [different storage solutions](https://railway.com/deploy?category=Storage) you can deploy.
+
+Template directory 
+
+Finally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
+
+Check out all templates at [railway.com/deploy](http://railway.com/deploy) 
+
+<video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 
 ## Summary
 
-Railway is an intuitive cloud platform that streamlines your deployment workflow, letting developers focus on building great products instead of managing infrastructure.
+| Feature                    | Railway                                                         | Vercel                                             |
+| -------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------ |
+| Infrastructure Model   | Long-running servers on dedicated hardware                          | Serverless functions on AWS                            |
+| Scaling                | Vertical + horizontal scaling with replicas                         | Scales via stateless function instances                |
+| Persistent Connections | ✅ Yes (sockets, live updates, real-time apps)                       | ❌ Unsupported                                          |
+| Cold Starts            | ❌ No cold starts                                                    | ⚠️ Possible cold starts (with optimizations)            |
+| Max Memory Limit       | Up to full machine capacity                                         | 4GB per function                                       |
+| Execution Time Limit   | Unlimited (as long as the process runs)                             | 800 seconds (13.3 minutes)                             |
+| Databases              | Built-in one-click deployments for major databases                  | Integrated via marketplace (external providers)        |
+| Project Structure      | Unified project: multiple services + databases in one               | One service per project                                |
+| Usage-Based Billing    | Based on compute time and size per replica                          | Based on CPU time, memory provisioned, and invocations |
+| Ideal For              | Fullstack apps, real-time apps, backend servers, long-running tasks | Frontend-first apps, short-lived APIs                  |
+| Support for Docker     | ✅ Yes                                                               | ❌ No (function-based only)                             |
 
-### Railway also offers
 
-- **Zero configuration required** - We automatically detect your language and deploy your application.
+## Migrate from Vercel to Railway
 
-- **Framework templates** - We have templates for many popular frameworks, including Next.js, Nuxt, Express, [and more](https://railway.com/templates).
+To get started, [create an account on Railway](https://railway.com/new). You can sign up for free and receive $5 in credits to try out the platform.
 
-- **Zero maintenance** - We handle the underlying infrastructure, so you don't have to.
+### Deploying your app
 
-- **Global distribution** - We deploy your application to multiple regions, so you can serve your users faster.
+1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy
+    
+![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
+    
 
-- **Cron jobs** - Cron jobs are just another service that run on a schedule, no extra packages, no extra setup.
+1. If your project is using any environment variables or secrets:
+    1. Click on the deployed service
+    2. Navigate to the “Variables” tab 
+    3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
+    
 
-This is just scratching the surface of the similarities between Railway and Vercel!
+![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
-### Railway excels with
+1. To make your project accessible over the internet, you will need to configure a domain:
+    1. From the project’s canvas, click on the service you would like to configure
+    2. Navigate to the “Settings” tab
+    3. Go to the “Networking” section
+    4. You can either:
+        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain
+        2. Add a custom domain: follow the DNS configuration steps 
 
-- **Straightforward pricing** - We charge based on the resources your application uses, rather than function invocations, config reads, observability, etc.
 
-- **Universal deployment support** - Deploy any application or service, from static sites to complex backends.
+## Need help or have questions?
 
-- **Rich OSS ecosystem** - We have templates for many popular OSS projects, including Supabase, N8N, and Typebot.
+If you need help along the way, the [Railway Discord](http://discord.gg/railway) and [Help Station](https://station.railway.com/) are great resources to get support from the team and community.
 
-- **Developer-centric experience** - We prioritize intuitive workflows, providing a unique dashboard to manage your services, including scaling, logs, and more.
-
-- **Persistent Disks** - We provide persistent disks for your application, so you don't have to worry about data loss.
-
-- **Best in Class Support** - Incredibly fast personalized support on Slack, and the [Central Station](https://station.railway.com/).
-
-- **Private networking** - Seamlessly and securely connect your services together through the global wireguard network.
-
-- **Deploy any container** - We support Dockerfiles, and we also support deploying container images from both public and private registries.
-
-## Improvements over Vercel
-
-### Product and Deploy UX
-
-We offer a unique dashboard to manage your many projects, the services within them, and the collaborators on your projects.
-
-Within each project can be found the **Project Canvas** which is a real-time collaborative canvas that lets you see all your services and the connections between them. This visual approach makes it easy to understand your entire infrastructure at a glance - from databases and APIs to frontend services and their relationships.
-
-It is your mission control center, where all aspects of your project come together. Monitor your services in real-time, manage environment variables, scale resources up or down, and view logs - all from one unified interface. The Project Canvas makes infrastructure management intuitive by showing you exactly how your services connect and interact, while enabling real-time collaboration with your team.
-
-This unified view eliminates the need to jump between different dashboards and tools, making infrastructure management more intuitive and efficient.
-
-### Builds
-
-We provide native support for 22 languages (including Node.js, Python, Ruby, Go, and more) with our custom-built, open-source solution, [Nixpacks](https://github.com/railwayapp/nixpacks), delivering incredibly fast, reproducible builds.
-
-Simply give us a GitHub repository and we'll automatically detect the language and build it for you, completely hands off.
-
-For advanced and customizable deployments, we also automatically detect and utilize your Dockerfile, giving you complete control over your deployment.
-
-### Runtime
-
-We run with a serverfull container runtime for maximum compatibility and performance, this allows for greater flexibility in what you can deploy since you aren't limited by available runtimes.
-
-A container runtime also means your application will be ran as-is, meaning you don't have to worry about how a runtime will modify your application or its state, we just run your application as-is.
-
-Since we are serverfull, there are no cold starts, or pre-warming, your application will be up and running to handle requests at all times instantaneously.
-
-There are so many benefits to a serverfull runtime, and we are just scratching the surface of what benefits you get from it.
-
-### Multi-Region Deployments
-
-With a few clicks, you can deploy your application to multiple regions globally, and we'll automatically route your users to the closest region.
-
-This is incredibly useful for reducing latency and improving the performance of your application, and it is all managed from the dashboard and transparently handled by us.
-
-### Use Cases
-
-While Vercel's focus is on frontend, Railway is a complete platform for both frontend and backend deployments.
-
-This very website is built with Next.js and deployed on Railway, let alone [railway.com](http://railway.com/) itself is deployed on Railway, and it is also built with Next.js.
-
-You can deploy anything from a simple static site to a complex backend built out with microservices all connected privately through our global wireguard network.
-
-### Databases
-
-Instead of 3rd party integrations, we natively support PostgreSQL, MySQL, Redis, MongoDB, and more — all manageable directly from our platform without external providers, and best of all, they are billed the same as any other service on Railway.
-
-Our built-in database UI lets you view tables and manage data directly from the dashboard, eliminating the need for third-party tools. Plus, with our [native database backups](/reference/backups), you can easily create, delete, and restore backups for your databases.
-
-### Private Networking
-
-We provide a private wireguard network to connect your services together, this allows for private communication between services without the need for public internet, ex. between a backend and a database.
-
-This is incredibly useful for reducing latency and improving the performance of your application, and it is all managed from the dashboard and transparently handled by us.
-
-You don't pay egress fees for private networking, meaning you don't pay for the data that flows between your services, this is incredibly useful for reducing costs.
-
-### Cron Jobs
-
-Cron jobs are just another service that run on a schedule, no extra packages, no extra setup.
-
-Only pay for the time they run, and only for the resources they use while running, this makes them outstandingly cost effective.
-
-### Templates
-
-Railway's [Templates Marketplace](https://railway.com/templates) features 940+ templates and counting. Any user can deploy pre-configured starter setups, making it effortless to deploy apps and services with just one click.
-
-The template marketplace contains templates for many popular OSS projects, including Supabase, N8N, and Typebot. Deploying these templates is as easy as clicking a button, and they are all configured to deploy with the best practices for Railway.
-
-Best of all, through our [Kickback Program](https://railway.com/open-source-kickback), template creators receive 50% of the usage costs when others deploy their templates—either as cash (USD) or Railway credits.
-
-### Pricing
-
-Railway offers straightforward and transparent, [resource-based pricing](/reference/pricing/plans) that scales with your needs, pay only for the resources you use. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
-
-Unlike Vercel's function-based pricing, we charge based on actual resource usage (CPU, Memory, Storage), making costs more predictable and often more economical for backend services.
-
-And fortunately, this simple pricing model does not change based on the region you deploy to.
-
-### Support
-
-We offer incredibly fast and personalized support on Slack, and the [Central Station](https://station.railway.com/).
-
-Our Central Station is built in house from the ground up to allow us to provide the best possible support to you, the user.
-
-Enterprise users with $2,000/month committed spend get priority support within Slack, and enterprise can also book a call with our team to get direct help from the Railway team.
-
-## Ready to Switch?
-
-Thinking about migrating from Vercel to Railway? We've made it simple! Check out our [migration guide](/migration/migrate-from-vercel) to get started.
-
-[Sign up on Railway](https://railway.com/new) today and get $5 in free credits to explore the platform.
-
-For companies and large organizations, we'd love to chat! [Book a call with us](https://cal.com/team/railway/work-with-railway) to see how Railway will fit your needs.
+Working with a larger workload or have specific requirements? [Book a call with the Railway team](https://cal.com/team/railway/work-with-railway) to explore how we can best support your project.
