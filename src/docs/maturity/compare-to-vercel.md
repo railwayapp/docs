@@ -1,6 +1,6 @@
 ---
 title: Railway vs. Vercel
-description: Compare Railway and Vercel on infrastructure, pricing model and deployment experience
+description: Compare Railway and Vercel on infrastructure, pricing model and deployment experience.
 ---
 
 At a high level, both Railway and Vercel enable you to deploy your app without the hassle of managing infrastructure. Both platforms share several similarities:
@@ -27,9 +27,9 @@ To handle scaling, Vercel creates a new function instance for each incoming requ
 
 This deployment model abstracts away infrastructure, but introduces limitations:
 
-- Memory limits: the maximum amount of memory per function is 4GB
-- Execution time limit: the maximum amount of time a function can run is 800 seconds (~13.3 minutes)
-- Size (after gzip compression): the maximum is 250 MB
+- Memory limits: the maximum amount of memory per function is 4GB.
+- Execution time limit: the maximum amount of time a function can run is 800 seconds (~13.3 minutes).
+- Size (after gzip compression): the maximum is 250 MB.
 - Cold starts: when a function instance is created for the first time, there’s an amount of added latency. Vercel includes [several optimizations](https://vercel.com/docs/fluid-compute#bytecode-caching), which reduces cold start frequency but won’t completely eliminate them.
 
 If you plan on running long-running workloads such as:
@@ -43,12 +43,12 @@ If you plan on running long-running workloads such as:
 
 Or if you plan on running workloads that require a persistent connection such as:
 
-- Chat messaging: live chats, typing indicators
-- Live dashboards: metrics, analytics, stock tickers
-- Collaboration: document editing, presence
-- Live tracking: delivery location updates
-- Push notifications: instant alerts
-- Voice/video calls: signaling, status updates
+- Chat messaging: Live chats, typing indicators.
+- Live dashboards: Metrics, analytics, stock tickers.
+- Collaboration: Document editing, presence.
+- Live tracking: Delivery location updates.
+- Push notifications: Instant alerts.
+- Voice/video calls: Signaling, status updates.
 
 Then deploying your backend services to Vercel functions will not be the right fit.
 
@@ -62,7 +62,7 @@ Railway uses a [custom builder](https://docs.railway.com/guides/builds) that tak
 
 Your code runs on a long-running server, making it ideal for apps that need to stay running or maintain a persistent connection.
 
-All deployments come with smart defaults out of the box, but you can tweak things as needed. This makes Railway flexible across [different runtimes and programming languages.](http://railway.com/deploy)
+All deployments come with smart defaults out of the box, but you can tweak things as needed. This makes Railway flexible across [different runtimes and programming languages](http://railway.com/deploy).
 
 Each service you deploy can automatically scale up vertically to handle incoming workload. You also get the option to horizontally scale a service by spinning up replicas. Replicas can be deployed in multiple regions simultaneously.
 
@@ -97,6 +97,8 @@ Active compute time x compute size (memory and CPU)
 ![railway usage-based pricing](https://res.cloudinary.com/railway/image/upload/v1753470546/docs/comparison-docs/railway-usage-based-pricing_efrrjn.png)
 
 If you spin up multiple replicas for a given service, you’ll only be charged for the active compute time for each replica.
+
+Railway also has a [serverless](/reference/app-sleeping) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This makes it ideal for sporadic or bursty workloads, giving you the flexibility of a full server with the cost efficiency of serverless, with the benefit of only paying when your code is running.
 
 ## Deployment experience
 
@@ -167,26 +169,26 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 
 ### Deploying your app
 
-1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy
+1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
     
 ![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
     
 
-1. If your project is using any environment variables or secrets:
-    1. Click on the deployed service
-    2. Navigate to the “Variables” tab 
+2. If your project is using any environment variables or secrets:
+    1. Click on the deployed service.
+    2. Navigate to the “Variables” tab.
     3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
     
 
 ![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
-1. To make your project accessible over the internet, you will need to configure a domain:
-    1. From the project’s canvas, click on the service you would like to configure
-    2. Navigate to the “Settings” tab
-    3. Go to the “Networking” section
+3. To make your project accessible over the internet, you will need to configure a domain:
+    1. From the project’s canvas, click on the service you would like to configure.
+    2. Navigate to the “Settings” tab.
+    3. Go to the “Networking” section.
     4. You can either:
-        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain
-        2. Add a custom domain: follow the DNS configuration steps 
+        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+        2. Add a custom domain: follow the DNS configuration steps.
 
 
 ## Need help or have questions?

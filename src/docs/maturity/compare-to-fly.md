@@ -1,6 +1,6 @@
 ---
 title: Railway vs. Fly
-description: Compare Railway and Fly.io on deployment model, scaling, pricing and developer workflow
+description: Compare Railway and Fly.io on deployment model, scaling, pricing and developer workflow.
 ---
 
 At a high level, both Railway and Fly.io can be used to deploy your app. Both platforms share several similarities:
@@ -72,7 +72,7 @@ You can also set services to start on a schedule using a crontab expression. Thi
 
 ### Fly
 
-Fly charges for compute based on two primary factors: machine state and CPU type (`shared`  vs. `performance`)
+Fly charges for compute based on two primary factors: machine state and CPU type (`shared`  vs. `performance`).
 
 Machine state determines the base charge structure. Started machines incur full compute charges, while stopped machines are only charged for root file system (rootfs) storage. The rootfs size depends on your OCI image plus [containerd](https://containerd.io/) optimizations applied to the underlying file system. 
 
@@ -93,6 +93,8 @@ Active compute time x compute size (memory and CPU)
 If you spin up multiple replicas for a given service, you’ll only be charged for the active compute time for each replica.
 
 ![Railway autoscaling](https://res.cloudinary.com/railway/image/upload/v1753083711/docs/railway-autoscaling_nf5hrc.png)
+
+Railway also has a [serverless](/reference/app-sleeping) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This is ideal for workloads with sporadic or bursty traffic, so you only pay when your code is running.
 
 ## Developer Workflow & CI/CD
 
@@ -186,7 +188,7 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 
 ![Railway Variables](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/railway-variables_iq3rgd.png)
 
-1. To make your project accessible over the internet, you will need to configure a domain:
+3. To make your project accessible over the internet, you will need to configure a domain:
     1. From the project’s canvas, click on the service you would like to configure.
     2. Navigate to the “Settings” tab.
     3. Go to the “Networking” section.

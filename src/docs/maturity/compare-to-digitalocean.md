@@ -12,14 +12,14 @@ At a high level, both Railway and DigitalOcean App Platform can be used to deplo
 - Connect your GitHub repository for automatic builds and deployments on code pushes.
 - Support for instant rollbacks.
 - Integrated metrics and logs.
-- Define Infrastructure-as-Code (IaC)
-- Command-line-interface (CLI) to manage resources
+- Define Infrastructure-as-Code (IaC).
+- Command-line-interface (CLI) to manage resources.
 - Integrated build pipeline with the ability to define pre-deploy command.
-- Wildcard domains.
+- Support for wildcard domains.
 - Custom domains with fully managed TLS.
-- Run arbitrary commands against deployed services (SSH)
+- Run arbitrary commands against deployed services (SSH).
 - Shared environment variables across services.
-- Both platforms’ infrastructure runs on hardware that’s owned and operated in data centers across the globe
+- Both platforms’ infrastructure runs on hardware that’s owned and operated in data centers across the globe.
 
 That said, there are some differences between the platforms that might make Railway a better fit for you.
 
@@ -38,7 +38,7 @@ In the scenario where your deployed service needs more resources, you can either
 
 The main drawback of this setup is that it requires manual developer intervention. Either by:
 
-- Manually changing instance sizes/running instance count
+- Manually changing instance sizes/running instance count.
 - Manually adjusting thresholds because you can get into situations where your service scales up for spikes but doesn’t scale down quickly enough, leaving you paying for unused resources.
 
 Beyond scaling, there are other notable limitations. DigitalOcean App Platform doesn’t natively support multi-region deployments. To achieve that, you must create separate instances in different regions and set up an external load balancer to route traffic appropriately.
@@ -92,6 +92,8 @@ You don’t need to think about instance sizes or manually configure them. All d
 
 If you spin up multiple replicas for a given service, you’ll only be charged for the active compute time for each replica.
 
+Railway also has a [serverless](/reference/app-sleeping) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This is ideal for workloads with sporadic or bursty traffic, so you only pay when your code is running.
+
 ## Developer Workflow & CI/CD
 
 ### DigitalOcean App Platform
@@ -103,13 +105,13 @@ DigitalOcean App Platform’s dashboard offers a traditional dashboard where you
 However, DigitalOcean App Platform lacks built-in CI/CD capabilities around environments:
 
 - No concept of “environments” (e.g., development, staging, and production). To achieve proper environment isolation, you must create separate projects for each environment.
-- No native support for automatically creating isolated preview environments for every pull request. To achieve this, you'll need to integrate third-party CI/CD tools like [GitHub Actions.](https://github.com/features/actions)
+- No native support for automatically creating isolated preview environments for every pull request. To achieve this, you'll need to integrate third-party CI/CD tools like [GitHub Actions](https://github.com/features/actions).
 
 Finally, DigitalOcean App Platform doesn't support webhooks, making it more difficult to build integrations with external services.
 
 ### Railway
 
-Railway’s dashboard offers a real-time collaborative canvas where you can view all of your running services and databases at a glance. You can group the different infrastructure components and visualize how they’re related to one other .
+Railway’s dashboard offers a real-time collaborative canvas where you can view all of your running services and databases at a glance. You can group the different infrastructure components and visualize how they’re related to one another.
 
 ![Railway canvas](https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png)
 
@@ -140,26 +142,26 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 
 ### Deploying your app
 
-1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy
+1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
     
 ![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
     
 
-1. If your project is using any environment variables or secrets:
-    1. Click on the deployed service
-    2. Navigate to the “Variables” tab 
+2. If your project is using any environment variables or secrets:
+    1. Click on the deployed service.
+    2. Navigate to the “Variables” tab.
     3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
     
 
 ![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
-1. To make your project accessible over the internet, you will need to configure a domain:
-    1. From the project’s canvas, click on the service you would like to configure
-    2. Navigate to the “Settings” tab
-    3. Go to the “Networking” section
+3. To make your project accessible over the internet, you will need to configure a domain:
+    1. From the project’s canvas, click on the service you would like to configure.
+    2. Navigate to the “Settings” tab.
+    3. Go to the “Networking” section.
     4. You can either:
-        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain
-        2. Add a custom domain: follow the DNS configuration steps 
+        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+        2. Add a custom domain: follow the DNS configuration steps.
 
 
 ## Need help or have questions?

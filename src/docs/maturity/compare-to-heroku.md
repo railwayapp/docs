@@ -15,7 +15,7 @@ At a high level, both Railway and Heroku can be used to deploy your app. Both pl
 - Command-line-interface (CLI) to manage resources.
 - Integrated build pipeline with the ability to define pre-deploy command.
 - Custom domains with fully managed TLS.
-- Run arbitrary commands against deployed services (SSH)
+- Run arbitrary commands against deployed services (SSH).
 
 That said, there are some differences between the platforms that might make Railway a better fit for you.
 
@@ -34,7 +34,7 @@ In the scenario where your deployed service needs more resources, you can either
 
 The main drawback of this setup is that it requires manual developer intervention. Either by:
 
-- Manually changing instance sizes/running instance count
+- Manually changing instance sizes/running instance count.
 - Manually adjusting thresholds because you can get into situations where your service scales up for spikes but doesn’t scale down quickly enough, leaving you paying for unused resources.
 
 Beyond scaling, there are other notable limitations. Heroku doesn’t natively support multi-region deployments. To achieve that, you must create separate instances in different regions and set up an external load balancer to route traffic appropriately.
@@ -76,7 +76,7 @@ Enabling horizontal autoscaling can help with optimizing costs, but the trade-of
 
 Additionally, Heroku runs on AWS, so the unit economics of the business need to be high to offset the cost of the underlying infrastructure. Those extra costs are then passed down to you as the user, so you end up paying extra for:
 
-- Unlocking additional features (e.g. private networking is a paid enterprise add-on)
+- Unlocking additional features (e.g. private networking is a paid enterprise add-on).
 - Pay extra for resources (e.g., bandwidth, memory, CPU and storage).
 
 ### Railway
@@ -93,13 +93,15 @@ You don’t need to think about instance sizes or manually configure them. All d
 
 If you spin up multiple replicas for a given service, you’ll only be charged for the active compute time for each replica.
 
+Railway also has a [serverless](/reference/app-sleeping) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This is ideal for workloads with sporadic or bursty traffic, so you only pay when your code is running.
+
 Finally, Railway’s infrastructure runs on hardware that’s owned and operated in data centers across the globe. This means you’re not going to be overcharged for resources.
 
 ## Dashboard experience
 
 ### Heroku
 
-However, Heroku’s unit of deployment is the app, and each app is deployed independently. If you have a different infrastructure components (e.g. API, frontend, background workers, etc.) they will be treated as independent entities. There is no top‑level “project” object that groups related apps. 
+Heroku’s unit of deployment is the app, and each app is deployed independently. If you have a different infrastructure components (e.g. API, frontend, background workers, etc.) they will be treated as independent entities. There is no top‑level “project” object that groups related apps. 
 
 Additionally, Heroku does not support shared environment variables across apps. Each deployed app has its own isolated set of variables, making it harder to manage secrets or config values shared across multiple services.
 
@@ -147,26 +149,26 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 
 ### Deploying your app
 
-1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy
+1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
     
 ![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
     
 
-1. If your project is using any environment variables or secrets:
-    1. Click on the deployed service
-    2. Navigate to the “Variables” tab 
+2. If your project is using any environment variables or secrets:
+    1. Click on the deployed service.
+    2. Navigate to the “Variables” tab. 
     3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
     
 
 ![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
-1. To make your project accessible over the internet, you will need to configure a domain:
-    1. From the project’s canvas, click on the service you would like to configure
-    2. Navigate to the “Settings” tab
-    3. Go to the “Networking” section
+3. To make your project accessible over the internet, you will need to configure a domain:
+    1. From the project’s canvas, click on the service you would like to configure.
+    2. Navigate to the “Settings” tab.
+    3. Go to the “Networking” section.
     4. You can either:
-        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain
-        2. Add a custom domain: follow the DNS configuration steps 
+        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+        2. Add a custom domain: follow the DNS configuration steps.
 
 
 ## Need help or have questions?

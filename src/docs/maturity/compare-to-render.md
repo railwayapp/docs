@@ -15,13 +15,13 @@ At a high level, both Railway and Render can be used to deploy your app. Both pl
 - Create isolated preview environments for every pull request.
 - Support for instant rollbacks.
 - Integrated metrics and logs.
-- Define Infrastructure-as-Code (IaC)
-- Command-line-interface (CLI) to manage resources
+- Define Infrastructure-as-Code (IaC).
+- Command-line-interface (CLI) to manage resources.
 - Integrated build pipeline with the ability to define pre-deploy command.
-- Wildcard domains.
+- Support for wildcard domains.
 - Custom domains with fully managed TLS.
-- Cron Jobs
-- Run arbitrary commands against deployed services (SSH)
+- Schedule tasks with cron jobs.
+- Run arbitrary commands against deployed services (SSH).
 - Shared environment variables across services.
 
 That said, there are some differences between the platforms that might make Railway a better fit for you.
@@ -41,7 +41,7 @@ In the scenario where your deployed service needs more resources, you can either
 
 The main drawback of this setup is that it requires manual developer intervention. Either by:
 
-- Manually changing instance sizes/running instance count
+- Manually changing instance sizes/running instance count.
 - Manually adjusting thresholds because you can get into situations where your service scales up for spikes but doesn’t scale down quickly enough, leaving you paying for unused resources.
 
 ### Railway
@@ -79,9 +79,9 @@ Enabling horizontal autoscaling can help with optimizing costs, but the trade-of
 
 Additionally, Render runs on AWS and GCP, so the unit economics of the business need to be high to offset the cost of the underlying infrastructure. Those extra costs are then passed down to you as the user, so you end up paying extra for:
 
-- Unlocking additional features (e.g. horizontal autoscaling and environments are only available on paid plans)
+- Unlocking additional features (e.g. horizontal autoscaling and environments are only available on paid plans).
 - Pay extra for resources (e.g., bandwidth, memory, CPU and storage).
-- Pay for seats where each team member you invite adds a fixed monthly fee regardless of your usage
+- Pay for seats where each team member you invite adds a fixed monthly fee regardless of your usage.
 
 ### Railway
 
@@ -97,6 +97,8 @@ You don’t need to think about instance sizes or manually configure them. All d
 
 If you spin up multiple replicas for a given service, you’ll only be charged for the active compute time for each replica.
 
+Railway also has a [serverless](/reference/app-sleeping) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This is ideal for workloads with sporadic or bursty traffic, so you only pay when your code is running.
+
 Finally, Railway’s infrastructure runs on hardware that’s owned and operated in data centers across the globe. This means you’re not going to be overcharged for resources.
 
 ## Dashboard experience
@@ -109,7 +111,7 @@ Render’s dashboard offers a traditional dashboard where you can view all of yo
 
 ### Railway
 
-Railway’s dashboard offers a real-time collaborative canvas where you can view all of your running services and databases at a glance. You can group the different infrastructure components and visualize how they’re related to one other .
+Railway’s dashboard offers a real-time collaborative canvas where you can view all of your running services and databases at a glance. You can group the different infrastructure components and visualize how they’re related to one another.
 
 ![Railway canvas](https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png)
 
@@ -130,7 +132,7 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 | **Pricing Model** | Fixed monthly pricing per instance size. Seat-based pricing | Usage-based: charged by active compute time × compute size. You don't pay for seats. You can invite your whole team for no additional cost |
 | **Cost Optimization** | Requires tuning to avoid over/under-provisioning | Inherently optimized. Pay only for used compute |
 | **Infrastructure** | Runs on AWS and GCP; feature access and resources cost more | Railway-owned global infrastructure, lower unit costs and features aren't gated |
-| **Dashboard UX** | Traditional dashboard to view project resources. | Real-time collaborative canvas with visual infra relationships. Template directory for 1-click deployments. |
+| **Dashboard UX** | Traditional dashboard to view project resources | Real-time collaborative canvas with visual infra relationships. Template directory for 1-click deployments |
 
 ## Migrate from Render to Railway
 
@@ -138,26 +140,26 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 
 ### Deploying your app
 
-1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy
+1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
     
 ![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
     
 
-1. If your project is using any environment variables or secrets:
-    1. Click on the deployed service
-    2. Navigate to the “Variables” tab 
+2. If your project is using any environment variables or secrets:
+    1. Click on the deployed service.
+    2. Navigate to the “Variables” tab.
     3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
     
 
 ![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
-1. To make your project accessible over the internet, you will need to configure a domain:
-    1. From the project’s canvas, click on the service you would like to configure
-    2. Navigate to the “Settings” tab
-    3. Go to the “Networking” section
+3. To make your project accessible over the internet, you will need to configure a domain:
+    1. From the project’s canvas, click on the service you would like to configure.
+    2. Navigate to the “Settings” tab.
+    3. Go to the “Networking” section.
     4. You can either:
-        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain
-        2. Add a custom domain: follow the DNS configuration steps 
+        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+        2. Add a custom domain: follow the DNS configuration steps.
 
 
 ## Need help or have questions?
