@@ -167,12 +167,12 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 
 ### Deploying your app
 
-1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy
+1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
     
 ![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
     
 
-1. If your project is using any environment variables or secrets:
+2. If your project is using any environment variables or secrets:
     1. Click on the deployed service.
     2. Navigate to the “Variables” tab.
     3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
@@ -180,7 +180,7 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 
 ![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
-1. To make your project accessible over the internet, you will need to configure a domain:
+3. To make your project accessible over the internet, you will need to configure a domain:
     1. From the project’s canvas, click on the service you would like to configure.
     2. Navigate to the “Settings” tab.
     3. Go to the “Networking” section.
