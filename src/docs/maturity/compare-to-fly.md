@@ -1,6 +1,6 @@
 ---
 title: Railway vs. Fly
-description: Compare Railway and Fly.io on deployment model, scaling, pricing and developer workflow
+description: Compare Railway and Fly.io on deployment model, scaling, pricing and developer workflow.
 ---
 
 At a high level, both Railway and Fly.io can be used to deploy your app. Both platforms share several similarities:
@@ -72,7 +72,7 @@ You can also set services to start on a schedule using a crontab expression. Thi
 
 ### Fly
 
-Fly charges for compute based on two primary factors: machine state and CPU type (`shared`  vs. `performance`)
+Fly charges for compute based on two primary factors: machine state and CPU type (`shared`  vs. `performance`).
 
 Machine state determines the base charge structure. Started machines incur full compute charges, while stopped machines are only charged for root file system (rootfs) storage. The rootfs size depends on your OCI image plus [containerd](https://containerd.io/) optimizations applied to the underlying file system. 
 
