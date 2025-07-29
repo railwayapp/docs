@@ -186,7 +186,7 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 
 ![Railway Variables](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/railway-variables_iq3rgd.png)
 
-1. To make your project accessible over the internet, you will need to configure a domain:
+3. To make your project accessible over the internet, you will need to configure a domain:
     1. From the project’s canvas, click on the service you would like to configure.
     2. Navigate to the “Settings” tab.
     3. Go to the “Networking” section.
