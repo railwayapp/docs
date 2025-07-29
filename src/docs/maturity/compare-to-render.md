@@ -130,7 +130,7 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 | **Pricing Model** | Fixed monthly pricing per instance size. Seat-based pricing | Usage-based: charged by active compute time × compute size. You don't pay for seats. You can invite your whole team for no additional cost |
 | **Cost Optimization** | Requires tuning to avoid over/under-provisioning | Inherently optimized. Pay only for used compute |
 | **Infrastructure** | Runs on AWS and GCP; feature access and resources cost more | Railway-owned global infrastructure, lower unit costs and features aren't gated |
-| **Dashboard UX** | Traditional dashboard to view project resources. | Real-time collaborative canvas with visual infra relationships. Template directory for 1-click deployments. |
+| **Dashboard UX** | Traditional dashboard to view project resources | Real-time collaborative canvas with visual infra relationships. Template directory for 1-click deployments |
 
 ## Migrate from Render to Railway
 
