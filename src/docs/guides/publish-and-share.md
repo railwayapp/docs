@@ -35,15 +35,15 @@ To complement your template, we also provide a `Deploy on Railway` button which 
 The button is located at [https://railway.com/button.svg](https://railway.com/button.svg).
 
 #### Markdown
-To render the button in Markdown, copy the following code and replace the link with your desired template:
+To render the button in Markdown, copy the following code and replace the template code with your desired template. If you'd like to help us attribute traffic to your template, replace `utm_campaign=generic` in the URL with your template name.
 ```md
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZweBXA)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZweBXA?utm_medium=integration&utm_source=button&utm_campaign=generic)
 ```
 
 #### HTML
-To render the button in HTML, copy the following code and replace the link with your desired template:
+To render the button in HTML, copy the following code and replace the template code with your desired template. If you'd like to help us attribute traffic to your template, replace `utm_campaign=generic` in the URL with your template name.
 ```html
-<a href="https://railway.com/new/template/ZweBXA"><img src="https://railway.com/button.svg" alt="Deploy on Railway" /></a>
+<a href="https://railway.com/new/template/ZweBXA?utm_medium=integration&utm_source=button&utm_campaign=generic"><img src="https://railway.com/button.svg" alt="Deploy on Railway" /></a>
 ```
 
 ### Examples
@@ -51,11 +51,11 @@ To render the button in HTML, copy the following code and replace the link with 
 Here are some example templates from the <a href="https://railway.com/templates" target="_blank">template marketplace</a> in button form:
 |Icon|Template|Button|
 |:--:|:------:|:----:|
-|<img src="https://devicons.railway.com/i/nodejs.svg" alt="Node" width="25" height="25" />|Node|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZweBXA)|
-|<img src="https://devicons.railway.com/i/deno.svg" alt="Deno" width="25" height="25" />|Deno|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/LsaSsU)|
-|<img src="https://devicons.railway.com/i/bun.svg" alt="Bun" width="25" height="25" />|Bun|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/gxxk5g)|
-|<img src="https://devicons.railway.com/i/go.svg" alt="Gin" width="25" height="25" />|Gin|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/dTvvSf)|
-|<img src="https://devicons.railway.com/i/flask-dark.svg" alt="Flask" width="25" height="25" />|Flask|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/zUcpux)|
+|<img src="https://devicons.railway.com/i/nodejs.svg" alt="Node" width="25" height="25" />|Node|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZweBXA?utm_medium=integration&utm_source=button&utm_campaign=node)|
+|<img src="https://devicons.railway.com/i/deno.svg" alt="Deno" width="25" height="25" />|Deno|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/LsaSsU?utm_medium=integration&utm_source=button&utm_campaign=deno)|
+|<img src="https://devicons.railway.com/i/bun.svg" alt="Bun" width="25" height="25" />|Bun|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/gxxk5g?utm_medium=integration&utm_source=button&utm_campaign=bun)|
+|<img src="https://devicons.railway.com/i/go.svg" alt="Gin" width="25" height="25" />|Gin|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/dTvvSf?utm_medium=integration&utm_source=button&utm_campaign=gin)|
+|<img src="https://devicons.railway.com/i/flask-dark.svg" alt="Flask" width="25" height="25" />|Flask|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/zUcpux?utm_medium=integration&utm_source=button&utm_campaign=flask)|
 
 
 ## Kickback program
