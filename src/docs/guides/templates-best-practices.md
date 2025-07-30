@@ -13,13 +13,16 @@ Depending on the type of template, there are different things to consider:
 - [Naming Conventions](#naming-conventions)
 - [Environment Variables](#environment-variables)
 - [Health Checks](#health-checks)
+- [Authentication](#authentication)
+- [Dry Code](#dry-code)
+- [Workspace Naming](#workspace-naming)
 - [Overview](#overview)
 
 ### Template and Service Icons
 
-Template and service icons are important for branding and recognition, they give the template a more professional look and feel.
+Template and service icons are important for branding and recognition, as they give the template a more professional look and feel.
 
-Always use 1:1 Aspect Ratio icons with transparent backgrounds, for both the template itself and the services it includes.
+Always use 1:1 aspect ratio icons or logos with transparent backgrounds for both the template itself and the services the template includes.
 
 ### Naming Conventions
 
@@ -31,10 +34,10 @@ Example, if the template is for ClickHouse, the service and template name should
 
 For anything else, such as custom software:
 
-- Use capital case
-- Avoid using special characters or dashes, space-delimited is the way to go
-- Prefer shorter names over longer names for better readability
-- Keep names concise while maintaining clarity
+- Use capital case.
+- Avoid using special characters or dashes, space-delimited is the way to go.
+- Prefer shorter names over longer names for better readability.
+- Keep names concise while maintaining clarity.
 
 ### Environment Variables
 
@@ -44,7 +47,7 @@ When using environment variables:
 
 - Always include a description of what the variable is for.
 
-- For any secrets, passwords, keys, etc., use [template variable functions](/guides/create#template-variable-functions) to generate them.
+- For any secrets, passwords, keys, etc., use [template variable functions](/guides/create#template-variable-functions) to generate them, avoid hardcoding default credentials at all costs.
 
 - Use [reference variables](/guides/variables#referencing-another-services-variable) when possible.
 
@@ -56,7 +59,7 @@ Health checks are important for ensuring that the service is running properly, b
 
 Although a health check might not be needed for all software, such as Discord bots, when it is applicable, it is a good idea to include a health check.
 
-A readiness probe is the best option; if that's not possible, then a liveness probe should be used.
+A readiness endpoint is the best option; if that's not possible, then a liveness endpoint should be used.
 
 ### Authentication
 
@@ -64,9 +67,9 @@ Authentication is a common feature for many software applications, and it is cru
 
 If the software provides a way to configure authentication, such as a username and password, or an API key, you should always configure it in the template.
 
-For example, ClickHouse can operate without authentication, but authentication should always be configured.
+For example, ClickHouse can operate without authentication, but authentication should always be configured so as not to leave the database open and unauthenticated to the public.
 
-Passwords, API keys, etc. should be generated using [template variable functions](/guides/create#template-variable-functions).
+Passwords, API keys, etc. should be generated using [template variable functions](/guides/create#template-variable-functions), and not hardcoded.
 
 ### Dry Code
 
@@ -75,6 +78,20 @@ This is most applicable to templates that deploy from GitHub.
 When creating templates that deploy from GitHub, include only the essential files needed for deployment. Avoid unnecessary documentation, example files, or unused code and configurations that don't contribute to the core functionality.
 
 A clean, minimal repository helps users quickly understand the template's structure and make customizations when needed.
+
+### Workspace Naming
+
+When users deploy a template, the template author appears as the name of the <a href="/reference/teams" target="_blank">workspace</a> that created and published it.
+
+Since the author is publicly visible and shown with the template to the users, it is important to make sure the workspace name is professional and **accurately represents your relationship to the software**.
+
+**Important:** Only use a company or organization name as your workspace name if you are officially authorized to represent that entity. Misrepresenting your affiliation is misleading to users and violates trust.
+
+**If you are officially affiliated** with the software (e.g., you work for ClickHouse and are creating a ClickHouse template), then using the official company name "ClickHouse, Inc." is appropriate and helpful for users to identify official templates.
+
+**If you are not officially affiliated** with the software, always use your own professional name as the workspace name.
+
+**Note:** To transfer a template from one workspace to another, <a href="https://station.railway.com/" target="_blank">contact support</a>.
 
 ### Overview
 
