@@ -3,11 +3,13 @@ title: Compliance
 description: Learn about Railway's compliance standards and how we ensure security and regulatory adherence.
 ---
 
-Railway is designed to be used by companies of all sizes. We understand that companies have different needs when it comes to compliance and security. We are happy to work with you to ensure that Railway meets your needs. We have worked with teams in gov't, healthcare, and finance to ensure that Railway meets their needs.
+Railway is designed to be used by companies of all sizes. We understand that companies have different needs when it comes to compliance and security. We are happy to work with you to ensure that Railway meets your needs. We work with teams across regulated industries such as government, healthcare, and finance to ensure that Railway meets their needs.
 
 Companies choose Railway so that they can speed up their development velocity while also maintaining their security and compliance posture.
 
 We are happy to sign NDAs with your company to provide additional information about our security and compliance practices. Please reach out to us at [team@railway.com](mailto:team@railway.com) to get started, or click [here](https://cal.com/team/railway/work-with-railway?duration=30) to book some time to chat.
+
+You can request to view our audit, compliance, security, and regulatory documents and processes on our [Trust Center at trust.railway.com](https://trust.railway.com).
 
 ## Certifications
 
@@ -17,7 +19,7 @@ We know that your businesses need to develop strong and lasting relationships wi
 
 Railway is SOC 2 Type I certified.
 
-Highly motivated customers (Pro tier and higher) who are in the process of securing SOC 2 certification can request a copy of the Railway security audit on our [Trust Center](https://trust.railway.com).
+Customers who are in the process of securing SOC 2 certification can request a copy of the Railway security audit on our [Trust Center](https://trust.railway.com).
 
 SOC 2 Type II certification is expected by the **end of July 2025**.
 
@@ -49,7 +51,7 @@ You can also review Railway's standard DPA terms at [railway.com/legal/dpa](http
 
 Customers in the EU may need to add their VAT Tax ID to their invoices for compliance and reporting purposes.
 
-You can add your VAT Tax ID and address in [Workspace settings](https://railway.com/workspace/billing) -> Billing -> Manage Subscription.
+You can add your VAT Tax ID and address on Railway in your [Workspace settings](https://railway.com/workspace/billing) -> Billing -> Manage Subscription.
 
 If you have multiple workspaces, you need to add your VAT Tax information to each respective Workspace's Subscription.
 
