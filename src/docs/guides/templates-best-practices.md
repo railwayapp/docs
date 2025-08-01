@@ -11,8 +11,10 @@ Depending on the type of template, there are different things to consider:
 
 - [Template and Service Icons](#template-and-service-icons)
 - [Naming Conventions](#naming-conventions)
+- [Private Networking](#private-networking)
 - [Environment Variables](#environment-variables)
 - [Health Checks](#health-checks)
+- [Persistant Storage](#persistent-storage)
 - [Authentication](#authentication)
 - [Dry Code](#dry-code)
 - [Workspace Naming](#workspace-naming)
@@ -23,6 +25,8 @@ Depending on the type of template, there are different things to consider:
 Template and service icons are important for branding and recognition, as they give the template a more professional look and feel.
 
 Always use 1:1 aspect ratio icons or logos with transparent backgrounds for both the template itself and the services the template includes.
+
+Transparent backgrounds ensure logos integrate seamlessly with Railway's interface and provide a more polished, professional appearance.
 
 ### Naming Conventions
 
@@ -39,6 +43,14 @@ For anything else, such as custom software:
 - Prefer shorter names over longer names for better readability.
 - Keep names concise while maintaining clarity.
 
+### Private Networking
+
+Private networking provides faster, free communication between services and reduces costs compared to routing traffic through the public internet.
+
+Always configure service-to-service communication (such as backend to database connections) to use private network hostnames rather than public domains.
+
+For more details, see the [private networking guide](/guides/private-networking) and [reference documentation](/reference/private-networking).
+
 ### Environment Variables
 
 Properly set up environment variables are a great way to increase the usability of your template.
@@ -49,9 +61,11 @@ When using environment variables:
 
 - For any secrets, passwords, keys, etc., use [template variable functions](/guides/create#template-variable-functions) to generate them, avoid hardcoding default credentials at all costs.
 
-- Use [reference variables](/guides/variables#referencing-another-services-variable) when possible.
+- Use [reference variables](/guides/variables#referencing-another-services-variable) when possible for dynamic service configuration.
 
-- Include helpful pre-built variables that the user may need, such as database connection strings, API keys, ports, etc.
+- When referencing a hostname, use the private network hostname rather than the public domain, e.g., `RAILWAY_PRIVATE_DOMAIN` rather than `RAILWAY_PUBLIC_DOMAIN`.
+
+- Include helpful pre-built variables that the user may need, such as database connection strings, API keys, hostnames, ports, and so on.
 
 ### Health Checks
 
@@ -60,6 +74,28 @@ Health checks are important for ensuring that the service is running properly, b
 Although a health check might not be needed for all software, such as Discord bots, when it is applicable, it is a good idea to include a health check.
 
 A readiness endpoint is the best option; if that's not possible, then a liveness endpoint should be used.
+
+For more details, see the [healthchecks guide](/guides/healthchecks) and [reference documentation](/reference/healthchecks).
+
+### Persistant Storage
+
+Persistent storage is essential for templates that include databases, file servers, or other stateful services that need to retain data across deployments.
+
+Always include a volume for these services.
+
+Without persistent storage, data will be lost between redeployments, leading to unrecoverable data loss for template users.
+
+When configuring the service, ensure the volume is mounted to the correct path. An incorrect mount path will prevent data from being stored in the volume.
+
+Some examples of software that require persistent storage:
+
+- **Databases:** PostgreSQL, MySQL, MongoDB, etc.
+- **File servers:** Nextcloud, ownCloud, etc.
+- **Other services:** Redis, RabbitMQ, etc.
+
+The volume mount location depends entirely on where the software expects it to be mounted. Refer to the software's documentation for the correct mount path.
+
+For more details, see the [volumes guide](/guides/volumes) and [reference documentation](/reference/volumes).
 
 ### Authentication
 
