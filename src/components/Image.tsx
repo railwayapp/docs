@@ -8,12 +8,12 @@ interface ExtImageProps extends ImageProps {
 
 export const Image: React.FC<ExtImageProps> = ({ title, ...props }) => {
   return (
-      <a
-        tw="block xl:-mx-8"
-        href={props.href ?? props.src as string} 
-        target="_blank"
-        rel="noopener"
-      >
+    <a
+      tw="block xl:-mx-8"
+      href={props.href ?? (props.src as string)}
+      target="_blank"
+      rel="noopener"
+    >
       <NextImage {...props} title={title} />
     </a>
   );

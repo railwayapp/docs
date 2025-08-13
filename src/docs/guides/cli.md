@@ -26,6 +26,7 @@ brew install railway
 ### npm (macOS, Linux, Windows)
 
 In a Terminal, enter the following command:
+
 ```bash
 npm i -g @railway/cli
 ```
@@ -35,6 +36,7 @@ This requires version =>16 of [Node.js](https://nodejs.org/en/).
 ### Shell Script (macOS, Linux, Windows via WSL)
 
 In a Terminal, enter the following command:
+
 ```bash
 bash <(curl -fsSL cli.new)
 ```
@@ -45,6 +47,7 @@ with a Bash shell.
 ### Scoop (Windows)
 
 In a PowerShell terminal, enter the following command:
+
 ```ps1
 scoop install railway
 ```
@@ -67,6 +70,7 @@ if you wish.
 ## Authenticating With the CLI
 
 Before you can use the Railway CLI, you must authenticate the CLI to your Railway account:
+
 ```bash
 railway login
 ```
@@ -81,6 +85,7 @@ you're authenticating the CLI inside an environment without a browser (e.g. SSH
 sessions).
 
 Use the `--browserless` flag to authenticate manually:
+
 ```bash
 railway login --browserless
 ```
@@ -102,11 +107,13 @@ You can use [Project Tokens](/guides/public-api#project-token) to authenticate p
 Project Tokens allow the CLI to access all the project-level actions in the environment set when the token was created.
 
 Some actions you can perform with a project token include -
+
 - Deploying code - `railway up`
 - Redeploying a deployment - `railway redeploy`
 - Viewing build and deployment logs - `railway logs`
 
 Some actions you **cannot** perform with a project token include -
+
 - Creating a new project - `railway init`
 - Printing information about the user - `railway whoami`
 - Linking to another workspace - `railway link`
@@ -181,6 +188,7 @@ Create a new project directly from the command line.
 # Create a new project
 railway init
 ```
+
 This prompts you to name your project and select a team to create the project in.
 
 ### Local Development
@@ -239,6 +247,7 @@ Provision database services for a project.
 ```bash
 railway add
 ```
+
 Prompts you to select one or more databases to provision for your project.
 
 ### Logout
@@ -249,7 +258,6 @@ railway logout
 
 ## SSH
 
-
 The Railway CLI enables you to start a shell session inside your deployed Railway services. This command is useful for:
 
 - **Debugging and development**: Live debugging production issues, running ad-hoc commands, accessing language REPLs, and comparing environments to identify discrepancies.
@@ -258,9 +266,7 @@ The Railway CLI enables you to start a shell session inside your deployed Railwa
 - **Framework-specific tasks**: Accessing Rails console, Django shell, or NestJS CLI for model inspection, database queries, and large-scale data operations.
 - **Content and asset management**: Verifying asset deployment, debugging file uploads, and troubleshooting static asset issues.
 
-
 Note that this command differs from `railway run` and `railway shell`, which pull environment variables and execute commands locally
-
 
 ### Prerequisites
 
@@ -327,34 +333,33 @@ Railway SSH does not support traditional file transfer methods:
 - No sFTP (SSH File Transfer Protocol) functionality for file management.
 - No direct file download/upload capabilities through the SSH connection.
 
-
 File transfer workarounds
-  - **Connect volume to file explorer service**: Deploy a simple file browser service that mounts the same volume as your main application. This provides web-based access to your files for download and upload operations.
-  - **Use CURL for file uploads**: From within the SSH session, upload files to external services:
-  
-  ```bash
-  # Upload file to a temporary file sharing service
-  curl -X POST -F "file=@database_dump.sql" https://file.io/
-  
-  # Upload to cloud storage (example with AWS S3)
-  aws s3 cp database_dump.sql s3://your-bucket/backups/
-  
-  # Upload via HTTP to your own endpoint
-  curl -X POST -F "file=@logfile.txt" https://your-app.com/admin/upload
-  
-  ```
-  
-  - **Create temporary secure endpoints**: Modify your application to include a temporary, secured endpoint that serves specific files for download:
-  
-  ```jsx
-  // Express.js example
-  app.get('/admin/download/:filename', authenticateAdmin, (req, res) => {
-    const filename = req.params.filename;
-    const filePath = path.join('/app/data', filename);
-    res.download(filePath);
-  });
-  ```
-  
+
+- **Connect volume to file explorer service**: Deploy a simple file browser service that mounts the same volume as your main application. This provides web-based access to your files for download and upload operations.
+- **Use CURL for file uploads**: From within the SSH session, upload files to external services:
+
+```bash
+# Upload file to a temporary file sharing service
+curl -X POST -F "file=@database_dump.sql" https://file.io/
+
+# Upload to cloud storage (example with AWS S3)
+aws s3 cp database_dump.sql s3://your-bucket/backups/
+
+# Upload via HTTP to your own endpoint
+curl -X POST -F "file=@logfile.txt" https://your-app.com/admin/upload
+
+```
+
+- **Create temporary secure endpoints**: Modify your application to include a temporary, secured endpoint that serves specific files for download:
+
+```jsx
+// Express.js example
+app.get("/admin/download/:filename", authenticateAdmin, (req, res) => {
+  const filename = req.params.filename;
+  const filePath = path.join("/app/data", filename);
+  res.download(filePath);
+});
+```
 
 **SSH Protocol Limitations**
 
@@ -384,7 +389,6 @@ When Railway SSH connections fail or behave unexpectedly, several common issues 
 - **Limit sensitive operations**: While SSH provides powerful access, avoid storing sensitive data or credentials in ways that might be exposed during SSH sessions.
 - **Monitor SSH usage**: Regularly review who has SSH access to your services and ensure permissions align with current team structure and responsibilities. Note that SSH usage is currently not displayed in the dashboard’s Activity tab.
 - **Temporary access patterns**: Consider SSH access for debugging and investigation rather than routine administrative tasks, which should be automated through proper deployment processes.
-
 
 ### Contributing
 

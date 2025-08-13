@@ -3,8 +3,8 @@
 let
   inputs = with pkgs;
     [
-      nodejs-18_x
-      yarn
+      nodejs-20_x
+      pnpm
     ];
 in
 pkgs.mkShell

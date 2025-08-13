@@ -3,7 +3,7 @@ title: Services
 description: Discover the different types of services available in your Railway projects.
 ---
 
-A Railway service is a deployment target.  Under the hood, services are containers deployed from an image.
+A Railway service is a deployment target. Under the hood, services are containers deployed from an image.
 
 Each service keeps a log of [deployment attempts](/reference/deployments) and [performance metrics](/reference/metrics).
 
@@ -13,7 +13,7 @@ Each service keeps a log of [deployment attempts](/reference/deployments) and [p
 
 #### Persistent Services
 
-Services that are always running.  Examples include web applications, backend APIs, message queues, database services, etc.
+Services that are always running. Examples include web applications, backend APIs, message queues, database services, etc.
 
 #### Scheduled Jobs
 
@@ -27,7 +27,7 @@ If a [Dockerfile](/reference/dockerfiles) is found within the source repository,
 
 #### Docker Image
 
-Services can be deployed directly from a Docker image from Docker Hub, GitHub Container Registry, GitLab Container Registry, or Quay.io.  The images can be public or private.
+Services can be deployed directly from a Docker image from Docker Hub, GitHub Container Registry, GitLab Container Registry, or Quay.io. The images can be public or private.
 
 #### GitHub Repository
 
@@ -39,7 +39,7 @@ Services can be deployed from a local machine by using the [Railway CLI](/refere
 
 ## Ephemeral Storage
 
-Every service deployment has access to 10GB of ephemeral storage.  If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
+Every service deployment has access to 10GB of ephemeral storage. If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
 
 If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/reference/volumes).
 

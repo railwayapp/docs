@@ -29,7 +29,7 @@ A migration to Railway Metal is a simple region change.
 
 For Stateless deployments, meaning, a deployment with no volume- there is no downtime. Stateless deployments are just landing into a new region.
 
-For services with a volume attached, or Stateful deployments, there is a brief 30-45 second period of downtime as the volume re-mounts into the new deployment. *This is exactly the same as the existing cross region deployment functionality that exists in Railway today.*
+For services with a volume attached, or Stateful deployments, there is a brief 30-45 second period of downtime as the volume re-mounts into the new deployment. _This is exactly the same as the existing cross region deployment functionality that exists in Railway today._
 
 ## Initiating a migration
 
@@ -52,7 +52,7 @@ Depending on if the service is Stateful or Stateless- we then initiate one of tw
 1. Railway initates a backup of the volume for internal and customer use.
 2. Railway makes the backup of the volume accessible on the project canvas in the original region.
 3. Railway then copies the volume into the new region.
-4. (Optional) If there are backups in the volume, we also copy those backups into the new region. *Depending on the number and size of backups, this incurs a time penalty on the migration.*
+4. (Optional) If there are backups in the volume, we also copy those backups into the new region. _Depending on the number and size of backups, this incurs a time penalty on the migration._
 5. Railway then confirms the integrity of data.
 6. Railway attempts a build of the deployment after the volume is confirmed to be accessible in the new region.
 7. Railway mounts to the volume in the new region after a successful build.
@@ -68,6 +68,7 @@ Because Railway is copying the volume primitive using the same primitive that we
 For production applications on Railway, we advise customers to make sure your service has configuration to ensure it's online between deployments. Railway by default, attempts to only deploy a new instance of your service only when your application is live and healthy. However, there are a number of additional measures you can take to increase resilience.
 
 Before initiating a migration we recommend that users configure the following:
+
 - [Healthchecks](/reference/healthchecks)
 - [Build and start commands](/reference/build-and-start-commands)
 - [Volume Backups](/reference/backups)

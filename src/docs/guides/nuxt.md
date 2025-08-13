@@ -42,7 +42,7 @@ Open your browser and go to `http://localhost:3000` to see your app.
 
 ## Deploy the Nuxt App to Railway
 
-Railway offers multiple ways to deploy your Nuxt app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your Nuxt app, depending on your setup and preference.
 
 ### One-Click Deploy from a Template
 
@@ -59,51 +59,55 @@ We highly recommend that [you eject from the template after deployment](/guides/
 ### Deploy from the CLI
 
 1. **Install the Railway CLI**:
-    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
+   - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Vue app directory. 
-        ```bash
-        railway init
-        ```
-    - Follow the prompts to name your project.
-    - After the project is created, click the provided link to view it in your browser.
+   - Run the command below in your Vue app directory.
+     ```bash
+     railway init
+     ```
+   - Follow the prompts to name your project.
+   - After the project is created, click the provided link to view it in your browser.
 3. **Modify Package.json Config**:
-    - By default, Nuxt doesn't add a start script in the `package.json` file. We'll need to add that to instruct Railway on how to run our app. 
-    
-    - Add `"start":"node .output/server/index.mjs"` to the `package.json` file.
 
-    **package.json**
-    ```bash
-    {
-        "name": "nuxt-app",
-        "private": true,
-        "type": "module",
-        "scripts": {
-            "build": "nuxt build",
-            "dev": "nuxt dev",
-            "start": "node .output/server/index.mjs",
-            "generate": "nuxt generate",
-            "preview": "nuxt preview",
-            "postinstall": "nuxt prepare"
-        },
-        "dependencies": {
-            "nuxt": "^3.13.0",
-            "vue": "latest",
-            "vue-router": "latest"
-        }
-    }
-    ```
-    **Note:** Railway uses [Nixpacks](/reference/nixpacks) to build and deploy your code with zero configuration. The Nixpack Node provider will pick up the start script in the `package.json` file and use it to serve the app.
+   - By default, Nuxt doesn't add a start script in the `package.json` file. We'll need to add that to instruct Railway on how to run our app.
+
+   - Add `"start":"node .output/server/index.mjs"` to the `package.json` file.
+
+   **package.json**
+
+   ```bash
+   {
+       "name": "nuxt-app",
+       "private": true,
+       "type": "module",
+       "scripts": {
+           "build": "nuxt build",
+           "dev": "nuxt dev",
+           "start": "node .output/server/index.mjs",
+           "generate": "nuxt generate",
+           "preview": "nuxt preview",
+           "postinstall": "nuxt prepare"
+       },
+       "dependencies": {
+           "nuxt": "^3.13.0",
+           "vue": "latest",
+           "vue-router": "latest"
+       }
+   }
+   ```
+
+   **Note:** Railway uses [Nixpacks](/reference/nixpacks) to build and deploy your code with zero configuration. The Nixpack Node provider will pick up the start script in the `package.json` file and use it to serve the app.
+
 4. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-    - Once the deployment completes, go to **View logs** to check if the service is running successfully.
+   - Use the command below to deploy your app:
+     ```bash
+     railway up
+     ```
+   - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+   - Once the deployment completes, go to **View logs** to check if the service is running successfully.
 5. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729262446/docs/quick-start/nuxt_app.png"
 alt="screenshot of the deployed Nuxt service"
@@ -115,51 +119,53 @@ width={2383} height={2003} quality={100} />
 To deploy a Nuxt app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
+   - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
 2. **Modify Package.json Config**:
-    - Follow [step 3 mentioned in the CLI guide](#deploy-from-the-cli)
-3. **Deploy from GitHub**: 
-    - Select **Deploy from GitHub repo** and choose your repository.
-        - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
-4. **Deploy the App**: 
-    - Click **Deploy** to start the deployment process.
-    - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Follow [step 3 mentioned in the CLI guide](#deploy-from-the-cli)
+3. **Deploy from GitHub**:
+   - Select **Deploy from GitHub repo** and choose your repository.
+     - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
+4. **Deploy the App**:
+   - Click **Deploy** to start the deployment process.
+   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
 5. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+   - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 6. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
 1. Create a `Dockerfile` in the `helloworld` or Nuxt app's root directory.
 2. Add the content below to the `Dockerfile`:
-    ```bash
-    # Use the Node alpine official image
-    # https://hub.docker.com/_/node
-    FROM node:lts-alpine AS build
 
-    # Create and change to the app directory.
-    WORKDIR /app
+   ```bash
+   # Use the Node alpine official image
+   # https://hub.docker.com/_/node
+   FROM node:lts-alpine AS build
 
-    # Copy the files to the container image
-    COPY package*.json ./
+   # Create and change to the app directory.
+   WORKDIR /app
 
-    # Install packages
-    RUN npm ci
+   # Copy the files to the container image
+   COPY package*.json ./
 
-    # Copy local code to the container image.
-    COPY . ./
+   # Install packages
+   RUN npm ci
 
-    # Build the app.
-    RUN npm run build
+   # Copy local code to the container image.
+   COPY . ./
 
-    # Copy files to the container image.
-    COPY --from=build /app ./
-    
-    # Serve the app
-    CMD ["npm", "run", "start"]
-    ```
+   # Build the app.
+   RUN npm run build
+
+   # Copy files to the container image.
+   COPY --from=build /app ./
+
+   # Serve the app
+   CMD ["npm", "run", "start"]
+   ```
+
 3. Either deploy via the CLI or from GitHub.
 
 Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
@@ -174,4 +180,3 @@ Explore these resources to learn how you can maximize your experience with Railw
 
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your app](/guides/monitoring)
-

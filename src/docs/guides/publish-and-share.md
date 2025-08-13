@@ -25,7 +25,7 @@ Optionally, you can add a demo project to your template. This will be used to sh
 
 After you create your template, you may want to share your work with the public and let others clone your project. You are provided with the Template URL where your template can be found and deployed.
 
-### Deploy on Railway Button 
+### Deploy on Railway Button
 
 To complement your template, we also provide a `Deploy on Railway` button which you can include in your README or embed it into a website.
 
@@ -35,15 +35,22 @@ To complement your template, we also provide a `Deploy on Railway` button which 
 The button is located at [https://railway.com/button.svg](https://railway.com/button.svg).
 
 #### Markdown
+
 To render the button in Markdown, copy the following code and replace the template code with your desired template. If you'd like to help us attribute traffic to your template, replace `utm_campaign=generic` in the URL with your template name.
+
 ```md
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZweBXA?utm_medium=integration&utm_source=button&utm_campaign=generic)
 ```
 
 #### HTML
+
 To render the button in HTML, copy the following code and replace the template code with your desired template. If you'd like to help us attribute traffic to your template, replace `utm_campaign=generic` in the URL with your template name.
+
 ```html
-<a href="https://railway.com/new/template/ZweBXA?utm_medium=integration&utm_source=button&utm_campaign=generic"><img src="https://railway.com/button.svg" alt="Deploy on Railway" /></a>
+<a
+  href="https://railway.com/new/template/ZweBXA?utm_medium=integration&utm_source=button&utm_campaign=generic"
+  ><img src="https://railway.com/button.svg" alt="Deploy on Railway"
+/></a>
 ```
 
 ### Examples
@@ -56,7 +63,6 @@ Here are some example templates from the <a href="https://railway.com/templates"
 |<img src="https://devicons.railway.com/i/bun.svg" alt="Bun" width="25" height="25" />|Bun|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/gxxk5g?utm_medium=integration&utm_source=button&utm_campaign=bun)|
 |<img src="https://devicons.railway.com/i/go.svg" alt="Gin" width="25" height="25" />|Gin|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/dTvvSf?utm_medium=integration&utm_source=button&utm_campaign=gin)|
 |<img src="https://devicons.railway.com/i/flask-dark.svg" alt="Flask" width="25" height="25" />|Flask|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/zUcpux?utm_medium=integration&utm_source=button&utm_campaign=flask)|
-
 
 ## Kickback program
 

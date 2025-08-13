@@ -7,7 +7,11 @@ export const scrollToID =
     const splitInput = input.split("#");
 
     // if input links to a different page, then don't scroll, let the browser navigate to the path
-    if (splitInput.length == 2 && splitInput[0] && splitInput[0] != window.location.pathname) {
+    if (
+      splitInput.length == 2 &&
+      splitInput[0] &&
+      splitInput[0] != window.location.pathname
+    ) {
       return;
     }
 

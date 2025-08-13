@@ -29,8 +29,8 @@ Listen on `::` to bind to both IPv4 and IPv6.
 ```javascript
 const port = process.env.PORT || 3000;
 
-app.listen(port, '::', () => {
-    console.log(`Server listening on [::]${port}`);
+app.listen(port, "::", () => {
+  console.log(`Server listening on [::]${port}`);
 });
 ```
 
@@ -42,7 +42,7 @@ Listen on `::` to bind to both IPv4 and IPv6.
 const port = process.env.PORT || 3000;
 
 async function bootstrap() {
-  await app.listen(port, '::');
+  await app.listen(port, "::");
 }
 ```
 
@@ -61,8 +61,8 @@ const port = process.env.PORT || 3000;
 
 const app = next({
   // ...
-  hostname: '::',
-  port: port
+  hostname: "::",
+  port: port,
 });
 ```
 
@@ -101,12 +101,11 @@ For applications making requests to a service over the private network, you shou
 For example, if you have a service called `api` listening on port 3000, and you want to communicate with it from another service, you would use `api.railway.internal` as the hostname and specify the port -
 
 ```javascript
-app.get('/fetch-secret', async (req, res) => {
-    axios.get('http://api.railway.internal:3000/secret')
-    .then(response => {
-        res.json(response.data);
-    })
-})
+app.get("/fetch-secret", async (req, res) => {
+  axios.get("http://api.railway.internal:3000/secret").then(response => {
+    res.json(response.data);
+  });
+});
 ```
 
 Note that you should use `http` in the address.
@@ -115,28 +114,29 @@ Note that you should use `http` in the address.
 
 Using [reference variables](/guides/variables), you can accomplish the same end as the above example.
 
-Let's say you are setting up your frontend service to talk to the `api` service.  In the frontend service, set the following variable -
+Let's say you are setting up your frontend service to talk to the `api` service. In the frontend service, set the following variable -
+
 ```
 BACKEND_URL=http://${{api.RAILWAY_PRIVATE_DOMAIN}}:${{api.PORT}}
 ```
+
 <div style={{ marginTop: '1.5em' }}><Banner variant="info">
 `api.PORT` above refers to a service variable that must be set manually. It does not automatically resolve to the port the service is listening on, nor does it resolve to the `PORT` environment variable injected into the service at runtime.
 </Banner></div>
 
-Then in the frontend code, you will simply reference the `BACKEND_URL` environment variable - 
+Then in the frontend code, you will simply reference the `BACKEND_URL` environment variable -
 
 ```javascript
-app.get('/fetch-secret', async (req, res) => {
-    axios.get(`${process.env.BACKEND_URL}/secret`)
-    .then(response => {
-        res.json(response.data);
-    })
-})
+app.get("/fetch-secret", async (req, res) => {
+  axios.get(`${process.env.BACKEND_URL}/secret`).then(response => {
+    res.json(response.data);
+  });
+});
 ```
 
 ### Private Network Context
 
-The private network exists in the context of a project and environment and is not accessible over the public internet.  In other words -
+The private network exists in the context of a project and environment and is not accessible over the public internet. In other words -
 
 - A web application that makes client-side requests **cannot** communicate to another service over the private network.
 - Services in one project/environment **cannot** communicate with services in another project/environment over the private network.
@@ -154,9 +154,9 @@ Some libraries and components require you to be explicit when either listening o
 When initializing a Redis client using `ioredis`, you must specify `family=0` in the connection string to support connecting to both IPv6 and IPv4 endpoints:
 
 ```javascript
-import Redis from 'ioredis';
+import Redis from "ioredis";
 
-const redis = new Redis(process.env.REDIS_URL + '?family=0');
+const redis = new Redis(process.env.REDIS_URL + "?family=0");
 
 const ping = await redis.ping();
 ```
@@ -177,13 +177,13 @@ import { Queue } from "bullmq";
 const redisURL = new URL(process.env.REDIS_URL);
 
 const queue = new Queue("Queue", {
-    connection: {
-        family: 0,
-        host: redisURL.hostname,
-        port: redisURL.port,
-        username: redisURL.username,
-        password: redisURL.password
-    }
+  connection: {
+    family: 0,
+    host: redisURL.hostname,
+    port: redisURL.port,
+    username: redisURL.username,
+    password: redisURL.password,
+  },
 });
 
 const jobs = await queue.getJobs();
@@ -209,18 +209,18 @@ docker-entrypoint.sh mongod --ipv6 --bind_ip ::,0.0.0.0
 
 <Collapse title="hot-shots">
 
-`hot-shots` is a StatsD client for node.js, which can be used to ship metrics to a DataDog agent for example.  When initializing a StatsD client using `hot-shots`, you must specify that it should connect over IPv6:
+`hot-shots` is a StatsD client for node.js, which can be used to ship metrics to a DataDog agent for example. When initializing a StatsD client using `hot-shots`, you must specify that it should connect over IPv6:
 
 ```javascript
-const StatsD = require('hot-shots');
+const StatsD = require("hot-shots");
 
 const statsdClient = new StatsD({
   host: process.env.AGENT_HOST,
   port: process.env.AGENT_PORT,
-  protocol: 'udp',
+  protocol: "udp",
   cacheDns: true,
   udpSocketOptions: {
-    type: 'udp6',
+    type: "udp6",
     reuseAddr: true,
     ipv6Only: true,
   },
@@ -233,7 +233,7 @@ const statsdClient = new StatsD({
 
 <Collapse title="Go Fiber">
 
-`fiber` is a web framework for Go.  When configuring your Fiber app, you should set the Network field to `tcp` to have it listen on IPv6 as well as IPv4:
+`fiber` is a web framework for Go. When configuring your Fiber app, you should set the Network field to `tcp` to have it listen on IPv6 as well as IPv4:
 
 ```go
 app := fiber.New(fiber.Config{
@@ -266,10 +266,11 @@ During the feature development process we found a few caveats that you should be
 <Collapse title="What is a client side app, a server side app, and what kind of app am I running?">
 
 In the context of private networking, the key distinction between client- and server-side is from where requests are being made.
+
 - In client-side applications, requests to other resources (like other Railway services) are made from a browser, which exists on the public network and outside the private network.
 - In server-side applications, requests to other resources are made from the server hosting the application, which would exist within the private network (assuming the server hosting the app is in Railway).
 
-One way to determine whether your application is making client- or server-side requests is by inspecting the request in the Network tab of DevTools.  If the RequestURL is the resource to which the request is being made, e.g. a backend server, this is a good indication that the browser itself is making the request (client-side).
+One way to determine whether your application is making client- or server-side requests is by inspecting the request in the Network tab of DevTools. If the RequestURL is the resource to which the request is being made, e.g. a backend server, this is a good indication that the browser itself is making the request (client-side).
 
 </Collapse>
 

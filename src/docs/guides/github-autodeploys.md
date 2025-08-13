@@ -19,9 +19,9 @@ width={903} height={523} quality={80} />
 
 To disable automatic deployment, simply hit `Disconnect` in the Service Settings menu.
 
-*Note: To manually trigger a deployment from the latest commit, use the Command Pallette: `CMD + K` -> "Deploy Latest Commit".  This will deploy the latest commit from the **Default** branch in GitHub.*
+_Note: To manually trigger a deployment from the latest commit, use the Command Pallette: `CMD + K` -> "Deploy Latest Commit". This will deploy the latest commit from the **Default** branch in GitHub._
 
-*Currently, there is no way to force a deploy from a branch other than the Default without connecting it in your service settings.*
+_Currently, there is no way to force a deploy from a branch other than the Default without connecting it in your service settings._
 
 ## Wait for CI
 
@@ -35,15 +35,15 @@ To ensure Railway waits for your GitHub Actions to run successfully before trigg
 
 #### Requirements
 
-- You must have a GitHub workflow defined in your repository.  
+- You must have a GitHub workflow defined in your repository.
 - The GitHub workflow must contain a directive to run on push:
 
-    ```plaintext
-    on:
-      push:
-        branches:
-          - main
-    ```
+  ```plaintext
+  on:
+    push:
+      branches:
+        - main
+  ```
 
 ### Enabling Wait for CI
 

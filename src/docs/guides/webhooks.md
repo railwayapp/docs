@@ -3,7 +3,7 @@ title: Webhooks
 description: Learn how to set up webhooks on Railway to receive real-time updates for deployments and events.
 ---
 
-Webhooks can be used to notify your own application of deployment status changes.  They are configured per project.
+Webhooks can be used to notify your own application of deployment status changes. They are configured per project.
 
 ## Setup a Webhook
 
@@ -13,6 +13,7 @@ layout="responsive"
 width={1200} height={754} quality={80} />
 
 Complete the following steps to setup a webhook:
+
 1. Open an existing Project on Railway.
 1. Click on the `Settings` button in the top right-hand corner.
 1. Navigate to the Webhooks tab.
@@ -48,7 +49,6 @@ The URL you provide will receive a webhook payload when any service's deployment
     "meta": {}
   }
 }
-
 ```
 
 #### Testing Webhooks
@@ -60,6 +60,7 @@ Note: For security reasons, test webhooks are sent from the frontend client, whi
 ## Muxers: Provider-specific Webhooks
 
 For certain webhook URLs, Railway will automatically transform the payload to match the destination (we call the Muxers). This makes it easy to use webhooks without having to write your own middleware to format the request body. Below are the currently supported providers:
+
 - Discord
 - Slack
 
@@ -90,7 +91,6 @@ Slack supports integrating directly with webhooks.
 1. Generate a `hooks.slack.com` webhook URL for your channel (Tutorial <a href="https://api.slack.com/messaging/webhooks#create_a_webhook" target="_blank">here</a>)
 1. Open up Railway, navigate to your project's Webhook tab.
 1. Paste the url from slack
-
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1737947755/docs/webhooks/wo4tuyv9dy7gjgiq2j7j.png"

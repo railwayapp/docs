@@ -76,9 +76,9 @@ async fn root() -> &'static str {
 }
 ```
 
-The code above sets up a simple web server using the Axum framework and the Tokio async runtime. The server listens on the port gotten from the environment variable, `PORT` and defaults to `3000` if there's none set. 
+The code above sets up a simple web server using the Axum framework and the Tokio async runtime. The server listens on the port gotten from the environment variable, `PORT` and defaults to `3000` if there's none set.
 
-It defines one route, `/`, which is mapped to a handler function called `root`. When a GET request is made to the root path, the handler responds with the static string "Hello World, from Axum!". 
+It defines one route, `/`, which is mapped to a handler function called `root`. When a GET request is made to the root path, the handler responds with the static string "Hello World, from Axum!".
 
 The Router from Axum is used to configure the route, and `tokio::net::TcpListener` binds the server to listen for connections on all available network interfaces (address `0.0.0.0`).
 
@@ -98,11 +98,11 @@ Open your browser and go to `http://localhost:3000` to see your app.
 
 ## Deploy the Axum App to Railway
 
-Railway offers multiple ways to deploy your Axum app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your Axum app, depending on your setup and preference.
 
 ### One-Click Deploy From a Template
 
-If you’re looking for the fastest way to get started, the one-click deploy option is ideal. 
+If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
 Click the button below to begin:
 
@@ -115,27 +115,29 @@ We highly recommend that [you eject from the template after deployment](/guides/
 ### Deploy From the CLI
 
 1. **Install the Railway CLI**:
-    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
+   - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Axum app directory. 
-        ```bash
-        railway init
-        ```
-    - Follow the prompts to name your project.
-    - After the project is created, click the provided link to view it in your browser.
+   - Run the command below in your Axum app directory.
+     ```bash
+     railway init
+     ```
+   - Follow the prompts to name your project.
+   - After the project is created, click the provided link to view it in your browser.
 3. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+   - Use the command below to deploy your app:
+     ```bash
+     railway up
+     ```
+   - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 4. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-    **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://nixpacks.com/docs/providers/rust).
+   - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://nixpacks.com/docs/providers/rust).
+
 5. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729880417/docs/quick-start/axum_app_service.png"
 alt="screenshot of the deployed Axum service"
@@ -147,48 +149,52 @@ width={1982} height={1822} quality={100} />
 To deploy an Axum app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
-2. **Deploy from GitHub**: 
-    - Select **Deploy from GitHub repo** and choose your repository.
-        - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
-3. **Deploy the App**: 
-    - Click **Deploy** to start the deployment process.
-    - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
+2. **Deploy from GitHub**:
+   - Select **Deploy from GitHub repo** and choose your repository.
+     - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
+3. **Deploy the App**:
+   - Click **Deploy** to start the deployment process.
+   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
 4. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-    **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://nixpacks.com/docs/providers/rust).
+   - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://nixpacks.com/docs/providers/rust).
+
 5. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
 1. Create a `Dockerfile` in the `helloworld` or Axum app's root directory.
 2. Add the content below to the `Dockerfile`:
-    ```docker
-    FROM lukemathwalker/cargo-chef:latest-rust-1 AS chef
 
-    # Create and change to the app directory.
-    WORKDIR /app
+   ```docker
+   FROM lukemathwalker/cargo-chef:latest-rust-1 AS chef
 
-    FROM chef AS planner
-    COPY . ./
-    RUN cargo chef prepare --recipe-path recipe.json
+   # Create and change to the app directory.
+   WORKDIR /app
 
-    FROM chef AS builder 
-    COPY --from=planner /app/recipe.json recipe.json
+   FROM chef AS planner
+   COPY . ./
+   RUN cargo chef prepare --recipe-path recipe.json
 
-    # Build dependencies - this is the caching Docker layer!
-    RUN cargo chef cook --release --recipe-path recipe.json
+   FROM chef AS builder
+   COPY --from=planner /app/recipe.json recipe.json
 
-    # Build application
-    COPY . ./
-    RUN cargo build --release
+   # Build dependencies - this is the caching Docker layer!
+   RUN cargo chef cook --release --recipe-path recipe.json
 
-    CMD ["./target/release/helloworld"]
-    ```
-4. Either deploy via the CLI or from GitHub.
+   # Build application
+   COPY . ./
+   RUN cargo build --release
+
+   CMD ["./target/release/helloworld"]
+   ```
+
+3. Either deploy via the CLI or from GitHub.
 
 Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
 

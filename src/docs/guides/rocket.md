@@ -43,7 +43,7 @@ Next, open the app in your IDE and navigate to the `src/main.rs` file.
 Replace the content with the code below:
 
 ```rust
-#[macro_use] 
+#[macro_use]
 extern crate rocket;
 
 #[get("/")]
@@ -57,11 +57,11 @@ fn rocket() -> _ {
 }
 ```
 
-The code above uses the Rocket framework to create a basic web server that responds to HTTP requests. It defines a simple route using the `#[get("/")]` macro, which tells Rocket to handle GET requests to the root URL `(/)`. 
+The code above uses the Rocket framework to create a basic web server that responds to HTTP requests. It defines a simple route using the `#[get("/")]` macro, which tells Rocket to handle GET requests to the root URL `(/)`.
 
 The `index()` function is the handler for this route and returns a static string, **"Hello world, Rocket!"**, which will be sent as the response when the root URL is accessed.
 
-The `#[launch]` attribute on the `rocket()` function marks it as the entry point to launch the application. Inside `rocket()`, the server is built with `rocket::build()` and the index route is mounted to the root path `/` using `mount()`. 
+The `#[launch]` attribute on the `rocket()` function marks it as the entry point to launch the application. Inside `rocket()`, the server is built with `rocket::build()` and the index route is mounted to the root path `/` using `mount()`.
 
 When the application runs, it listens for incoming requests and serves the "Hello world, Rocket!" response for requests made to the root URL, demonstrating a simple routing and response mechanism in Rocket.
 
@@ -79,11 +79,11 @@ Open your browser and go to `http://localhost:8000` to see your app.
 
 ## Deploy the Rocket App to Railway
 
-Railway offers multiple ways to deploy your Rocket app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your Rocket app, depending on your setup and preference.
 
 ### One-Click Deploy from a Template
 
-If you’re looking for the fastest way to get started, the one-click deploy option is ideal. 
+If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
 Click the button below to begin:
 
@@ -96,35 +96,37 @@ We highly recommend that [you eject from the template after deployment](/guides/
 ### Deploy from the CLI
 
 1. **Install the Railway CLI**:
-    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
+   - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Rocket app directory. 
-        ```bash
-        railway init
-        ```
-    - Follow the prompts to name your project.
-    - After the project is created, click the provided link to view it in your browser.
+   - Run the command below in your Rocket app directory.
+     ```bash
+     railway init
+     ```
+   - Follow the prompts to name your project.
+   - After the project is created, click the provided link to view it in your browser.
 3. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+   - Use the command below to deploy your app:
+     ```bash
+     railway up
+     ```
+   - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 4. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
-    **Note:** You'll come across a 502 error where your application doesn't respond. We'll fix that in the next step.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+
+   **Note:** You'll come across a 502 error where your application doesn't respond. We'll fix that in the next step.
+
 5. **Configure Rocket app to accept non-local connections**:
-    - Rocket apps need to be configured to accept external connections by listening on the correct address, which is typically `0.0.0.0`. You can easily do this by setting the address through the environment variable.
-    Run the following command to set the Rocket address to `0.0.0.0`:
-        ```bash
-        railway variables --set "ROCKET_ADDRESS=0.0.0.0"
-        ```
+   - Rocket apps need to be configured to accept external connections by listening on the correct address, which is typically `0.0.0.0`. You can easily do this by setting the address through the environment variable.
+     Run the following command to set the Rocket address to `0.0.0.0`:
+     `bash
+    railway variables --set "ROCKET_ADDRESS=0.0.0.0"
+    `
 6. **Redeploy the Service**:
-    - Run `railway up` again to trigger a redeployment of the service.
+   - Run `railway up` again to trigger a redeployment of the service.
 7. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully. Access your public URL again and you should see your app working well.
+   - Once the deployment completes, go to **View logs** to check if the server is running successfully. Access your public URL again and you should see your app working well.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729858389/docs/quick-start/rocket_app_service.png"
 alt="screenshot of the deployed Rocket service"
@@ -136,50 +138,54 @@ width={2038} height={1698} quality={100} />
 To deploy a Rocket app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
-2. **Deploy from GitHub**: 
-    - Select **Deploy from GitHub repo** and choose your repository.
-        - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
+   - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
+2. **Deploy from GitHub**:
+   - Select **Deploy from GitHub repo** and choose your repository.
+     - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
 3. **Add Environment Variables**:
-    - Click **Add Variables**, then add `ROCKET_ADDRESS` with the value `0.0.0.0`. This allows your Rocket app to accept external connections by listening on `0.0.0.0`.
-3. **Deploy the App**: 
-    - Click **Deploy** to start the deployment process.
-    - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
-4. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+   - Click **Add Variables**, then add `ROCKET_ADDRESS` with the value `0.0.0.0`. This allows your Rocket app to accept external connections by listening on `0.0.0.0`.
+4. **Deploy the App**:
+   - Click **Deploy** to start the deployment process.
+   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+5. **Verify the Deployment**:
 
-    **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://nixpacks.com/docs/providers/rust).
-5. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://nixpacks.com/docs/providers/rust).
+
+6. **Set Up a Public URL**:
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
 1. Create a `Dockerfile` in the `helloworld` or Rocket app's root directory.
 2. Add the content below to the `Dockerfile`:
-    ```docker
-    FROM lukemathwalker/cargo-chef:latest-rust-1 AS chef
 
-    # Create and change to the app directory.
-    WORKDIR /app
+   ```docker
+   FROM lukemathwalker/cargo-chef:latest-rust-1 AS chef
 
-    FROM chef AS planner
-    COPY . ./
-    RUN cargo chef prepare --recipe-path recipe.json
+   # Create and change to the app directory.
+   WORKDIR /app
 
-    FROM chef AS builder 
-    COPY --from=planner /app/recipe.json recipe.json
+   FROM chef AS planner
+   COPY . ./
+   RUN cargo chef prepare --recipe-path recipe.json
 
-    # Build dependencies - this is the caching Docker layer!
-    RUN cargo chef cook --release --recipe-path recipe.json
+   FROM chef AS builder
+   COPY --from=planner /app/recipe.json recipe.json
 
-    # Build application
-    COPY . ./
-    RUN cargo build --release
+   # Build dependencies - this is the caching Docker layer!
+   RUN cargo chef cook --release --recipe-path recipe.json
 
-    CMD ["./target/release/helloworld"]
-    ```
-4. Either deploy via the CLI or from GitHub.
+   # Build application
+   COPY . ./
+   RUN cargo build --release
+
+   CMD ["./target/release/helloworld"]
+   ```
+
+3. Either deploy via the CLI or from GitHub.
 
 Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
 

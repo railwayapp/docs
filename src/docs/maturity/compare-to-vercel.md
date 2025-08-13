@@ -16,14 +16,13 @@ That said, there are fundamental differences between both platforms, and certain
 
 ### Vercel’s infrastructure
 
-Vercel has developed a proprietary deployment model where infrastructure components are derived from the application code (see [Framework-defined infrastructure](https://vercel.com/blog/framework-defined-infrastructure)). 
+Vercel has developed a proprietary deployment model where infrastructure components are derived from the application code (see [Framework-defined infrastructure](https://vercel.com/blog/framework-defined-infrastructure)).
 
 At build time, application code is parsed and translated into the necessary infrastructure components. Server-side code is then deployed as serverless functions, powered by [AWS](https://aws.com) under the hood.
 
 To handle scaling, Vercel creates a new function instance for each incoming request with support for concurrent execution within the same instance (see [Fluid compute](https://vercel.com/docs/fluid-compute)). Over time, functions scale down to zero to save on compute resources.
 
 ![https://vercel.com/blog/introducing-fluid-compute](https://res.cloudinary.com/railway/image/upload/v1753470541/docs/comparison-docs/vercel-fluid-compute_kiitdu.png)
-
 
 This deployment model abstracts away infrastructure, but introduces limitations:
 
@@ -112,7 +111,7 @@ In Vercel, a project maps to a deployed application. If you would like to deploy
 
 **Integrating your application with external services**
 
-If you would like to integrate your app with other infrastructure primitives (e.g storage solutions for your application’s database, caching, analytical storage, etc.), you can do it through the Vercel marketplace. 
+If you would like to integrate your app with other infrastructure primitives (e.g storage solutions for your application’s database, caching, analytical storage, etc.), you can do it through the Vercel marketplace.
 
 ![Vercel marketplace](https://res.cloudinary.com/railway/image/upload/v1753470543/docs/comparison-docs/vercel-marketplace_cwrir6.png)
 
@@ -138,30 +137,29 @@ Additionally, Railway has first-class support for Databases. You can one-click d
 
 Check out all of the [different storage solutions](https://railway.com/deploy?category=Storage) you can deploy.
 
-Template directory 
+Template directory
 
 Finally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
 
-Check out all templates at [railway.com/deploy](http://railway.com/deploy) 
+Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 
 ## Summary
 
-| Feature                    | Railway                                                         | Vercel                                             |
-| -------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------ |
+| Feature                | Railway                                                             | Vercel                                                 |
+| ---------------------- | ------------------------------------------------------------------- | ------------------------------------------------------ |
 | Infrastructure Model   | Long-running servers on dedicated hardware                          | Serverless functions on AWS                            |
 | Scaling                | Vertical + horizontal scaling with replicas                         | Scales via stateless function instances                |
-| Persistent Connections | ✅ Yes (sockets, live updates, real-time apps)                       | ❌ Unsupported                                          |
-| Cold Starts            | ❌ No cold starts                                                    | ⚠️ Possible cold starts (with optimizations)            |
+| Persistent Connections | ✅ Yes (sockets, live updates, real-time apps)                      | ❌ Unsupported                                         |
+| Cold Starts            | ❌ No cold starts                                                   | ⚠️ Possible cold starts (with optimizations)           |
 | Max Memory Limit       | Up to full machine capacity                                         | 4GB per function                                       |
 | Execution Time Limit   | Unlimited (as long as the process runs)                             | 800 seconds (13.3 minutes)                             |
 | Databases              | Built-in one-click deployments for major databases                  | Integrated via marketplace (external providers)        |
 | Project Structure      | Unified project: multiple services + databases in one               | One service per project                                |
 | Usage-Based Billing    | Based on compute time and size per replica                          | Based on CPU time, memory provisioned, and invocations |
 | Ideal For              | Fullstack apps, real-time apps, backend servers, long-running tasks | Frontend-first apps, short-lived APIs                  |
-| Support for Docker     | ✅ Yes                                                               | ❌ No (function-based only)                             |
-
+| Support for Docker     | ✅ Yes                                                              | ❌ No (function-based only)                            |
 
 ## Migrate from Vercel to Railway
 
@@ -170,26 +168,23 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 ### Deploying your app
 
 1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
-    
+
 ![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
-    
 
 2. If your project is using any environment variables or secrets:
-    1. Click on the deployed service.
-    2. Navigate to the “Variables” tab.
-    3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
-    
+   1. Click on the deployed service.
+   2. Navigate to the “Variables” tab.
+   3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
 
 ![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
 3. To make your project accessible over the internet, you will need to configure a domain:
-    1. From the project’s canvas, click on the service you would like to configure.
-    2. Navigate to the “Settings” tab.
-    3. Go to the “Networking” section.
-    4. You can either:
-        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
-        2. Add a custom domain: follow the DNS configuration steps.
-
+   1. From the project’s canvas, click on the service you would like to configure.
+   2. Navigate to the “Settings” tab.
+   3. Go to the “Networking” section.
+   4. You can either:
+      1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+      2. Add a custom domain: follow the DNS configuration steps.
 
 ## Need help or have questions?
 

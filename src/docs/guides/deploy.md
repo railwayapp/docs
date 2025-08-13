@@ -17,9 +17,9 @@ To deploy a template -
 - Upon deploy, you will be taken to your new project containing the template service(s)
   - Services are deployed directly from the defined source in the template configuration
   - After deploy, you can find the service source by going to the service's settings tab
-  - Should you need to make changes to the source code, you will need to [eject from the template repo](#eject-from-template-repository) to create your own copy.  See next section for more detail.
+  - Should you need to make changes to the source code, you will need to [eject from the template repo](#eject-from-template-repository) to create your own copy. See next section for more detail.
 
-*Note:  You can also deploy templates into existing projects, by clicking `+ New` from your project canvas and selecting `Template`.*
+_Note: You can also deploy templates into existing projects, by clicking `+ New` from your project canvas and selecting `Template`._
 
 ## Eject from Template Repository
 
@@ -27,7 +27,7 @@ To deploy a template -
 As of March 2024, the default behavior for deploying templates, is to attach to and deploy directly from the template repository.  Therefore, you will not automatically get a copy of the repository on deploy.  Follow the steps below to create a repository for yourself.
 </Banner>
 
-By default, services deployed from a template are attached to and deployed directly from the template repository.  In some cases, you may want to have your own copy of the template repository.  
+By default, services deployed from a template are attached to and deployed directly from the template repository. In some cases, you may want to have your own copy of the template repository.
 
 Follow these steps to eject from the template repository and create a mirror in your own GitHub account.
 
@@ -46,5 +46,4 @@ If you are happy with the changes, you can merge the pull request, and we will a
 
 If you're curious, you can read more about how we built updatable templates in this <a href="https://blog.railway.com/p/updatable-starters" target="_blank">blog post</a>
 
-*Note: This feature only works for services based on GitHub repositories.  At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced.*
-
+_Note: This feature only works for services based on GitHub repositories. At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced._

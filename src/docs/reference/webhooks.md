@@ -10,7 +10,6 @@ alt="New Webhook UI"
 layout="responsive"
 width={1200} height={754} quality={80} />
 
-
 ## Setting up a Project webhook
 
 For information on how to setup webhooks, visit [this guide](/guides/webhooks).
@@ -30,6 +29,7 @@ The thresholds that alert can be configured in the volume settings page.
 ## Muxers: Provider-specific Webhooks
 
 Webhooks contain Muxers which will automatically transform the payload based on the webhook URL. Below are the currently supported Muxers:
+
 - Discord
 - Slack
 

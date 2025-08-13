@@ -31,13 +31,12 @@ Performance CPUs, by contrast, give you dedicated access to the CPU at all times
 
 When scaling your app, you have one of two options:
 
-- Scale a machine’s CPU and RAM:  you will need to manually pick a larger instance. You can do this using the Fly CLI or API.
+- Scale a machine’s CPU and RAM: you will need to manually pick a larger instance. You can do this using the Fly CLI or API.
 - Increase the number of running machines. There are two options:
-    - You can manually increase the number of running machines using the Fly CLI or API.
-    - Fly can automatically adjust the number of running or created Fly Machines dynamically. Two forms of autoscaling are supported.
-        - Autostop/autostart Machines: You create a “pool” of Machines in one or more regions and Fly’s Proxy start/suspend Machines based on incoming requests.  With this option, Machines are never created or deleted, you need to specify how many machines your app will need.
-        - Metrics-based autoscaling: this is not supported out-of-the-box. However, you can deploy [`fly-autoscaler`](https://github.com/superfly/fly-autoscaler) which polls metrics and automatically creates/deletes or starts/stops existing Machines based on the metrics you define.
-        
+  - You can manually increase the number of running machines using the Fly CLI or API.
+  - Fly can automatically adjust the number of running or created Fly Machines dynamically. Two forms of autoscaling are supported.
+    - Autostop/autostart Machines: You create a “pool” of Machines in one or more regions and Fly’s Proxy start/suspend Machines based on incoming requests. With this option, Machines are never created or deleted, you need to specify how many machines your app will need.
+    - Metrics-based autoscaling: this is not supported out-of-the-box. However, you can deploy [`fly-autoscaler`](https://github.com/superfly/fly-autoscaler) which polls metrics and automatically creates/deletes or starts/stops existing Machines based on the metrics you define.
 
 ![Scaling your app on Fly.io](https://res.cloudinary.com/railway/image/upload/v1753083711/docs/scaling-your-app-on-fly_pe6clo.png)
 
@@ -55,15 +54,15 @@ Total resources = number of replicas × maximum compute allocation per replica
 
 Replicas can be placed in different geographical locations. The platform automatically routes public traffic to the nearest region, then randomly distributes requests among the available replicas within that region.
 
-
 <video
-  src="https://res.cloudinary.com/railway/video/upload/v1753083716/docs/replicas_dmvuxp.mp4"
-  muted
-  autoplay
-  loop
-  controls
->
+src="https://res.cloudinary.com/railway/video/upload/v1753083716/docs/replicas_dmvuxp.mp4"
+muted
+autoplay
+loop
+controls>
+
 Add replicas to your service
+
 </video>
 
 You can also set services to start on a schedule using a crontab expression. This lets you run scripts at specific times and only pay for the time they’re running.
@@ -72,15 +71,15 @@ You can also set services to start on a schedule using a crontab expression. Thi
 
 ### Fly
 
-Fly charges for compute based on two primary factors: machine state and CPU type (`shared`  vs. `performance`).
+Fly charges for compute based on two primary factors: machine state and CPU type (`shared` vs. `performance`).
 
-Machine state determines the base charge structure. Started machines incur full compute charges, while stopped machines are only charged for root file system (rootfs) storage. The rootfs size depends on your OCI image plus [containerd](https://containerd.io/) optimizations applied to the underlying file system. 
+Machine state determines the base charge structure. Started machines incur full compute charges, while stopped machines are only charged for root file system (rootfs) storage. The rootfs size depends on your OCI image plus [containerd](https://containerd.io/) optimizations applied to the underlying file system.
 
 [Pricing for different preset sizes is available in Fly's documentation](https://fly.io/docs/about/pricing/#started-fly-machines). You can get a discount by reserving compute time blocks. This requires paying the annual amount upfront, then receiving monthly credits equal to the "per month" rate. Credits expire at month-end and do not roll over to subsequent months. The trade-off is you might end up paying for unused resources.
 
 ![Fly compute presets pricing](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/fly-pricing_fpda5v.png)
 
-One important consideration is that Fly Machines incur cost based *on running time*. Even with zero traffic or resource utilization, you pay for the entire duration a machine remains in a running state. While machines can be stopped to reduce costs, any time spent running generates full compute charges regardless of actual usage.
+One important consideration is that Fly Machines incur cost based _on running time_. Even with zero traffic or resource utilization, you pay for the entire duration a machine remains in a running state. While machines can be stopped to reduce costs, any time spent running generates full compute charges regardless of actual usage.
 
 ### Railway
 
@@ -117,8 +116,7 @@ The Fly dashboard includes a basic Metrics tab displaying this automatically col
 
 ![fly-metrics.net](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/fly-metrics.net_d6r3cs.png)
 
-
-Advanced features like alerting and custom dashboards require working with multiple tools and query languages, creating a learning curve for teams wanting sophisticated monitoring capabilities. 
+Advanced features like alerting and custom dashboards require working with multiple tools and query languages, creating a learning curve for teams wanting sophisticated monitoring capabilities.
 
 Additionally, Fly doesn't support webhooks, making it more difficult to build integrations with external services.
 
@@ -130,16 +128,17 @@ Railway follows a dashboard-first experience, while [also providing a CLI](https
 
 Additionally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
 
-Check out all templates at [railway.com/deploy](http://railway.com/deploy) 
+Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 <video
-  src="https://res.cloudinary.com/railway/video/upload/v1753083712/docs/railway.com_templates_zcydjb.mp4"
-  muted
-  autoplay
-  loop
-  controls
->
+src="https://res.cloudinary.com/railway/video/upload/v1753083712/docs/railway.com_templates_zcydjb.mp4"
+muted
+autoplay
+loop
+controls>
+
 Railway templates
+
 </video>
 
 You also get:
@@ -156,7 +155,6 @@ Finally, Railway supports creating webhooks which allow external services to lis
 
 ![Webhooks](https://res.cloudinary.com/railway/image/upload/v1753083711/docs/railway-webhooks_r4ervy.png)
 
-
 ## Summary
 
 | Category                 | Railway                                                                            | Fly.io                                                                                                                                       |
@@ -169,33 +167,28 @@ Finally, Railway supports creating webhooks which allow external services to lis
 | Webhooks & Extensibility | Webhook support for integrations                                                   | No support for outbound webhooks                                                                                                             |
 | Developer Experience     | Dashboard-first, supports real-time team collaboration, CLI available              | CLI-first (`flyctl`) for all management tasks                                                                                                |
 
-
 ## Migrate from Fly.io to Railway
 
 To get started, [create an account on Railway](https://railway.com/new). You can sign up for free and receive $5 in credits to try out the platform.
 
-
 1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
-    
-    ![Railway Deploy New Project](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/railway-new-project_tte4eb.png)
-    
+
+   ![Railway Deploy New Project](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/railway-new-project_tte4eb.png)
 
 2. If your project is using any environment variables or secrets:
-    1. Click on the deployed service.
-    2. Navigate to the “Variables” tab.
-    3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
-    
+   1. Click on the deployed service.
+   2. Navigate to the “Variables” tab.
+   3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
 
 ![Railway Variables](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/railway-variables_iq3rgd.png)
 
 3. To make your project accessible over the internet, you will need to configure a domain:
-    1. From the project’s canvas, click on the service you would like to configure.
-    2. Navigate to the “Settings” tab.
-    3. Go to the “Networking” section.
-    4. You can either:
-        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
-        2. Add a custom domain: follow the DNS configuration steps.
-
+   1. From the project’s canvas, click on the service you would like to configure.
+   2. Navigate to the “Settings” tab.
+   3. Go to the “Networking” section.
+   4. You can either:
+      1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+      2. Add a custom domain: follow the DNS configuration steps.
 
 ## Need help or have questions?
 

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import tw from "twin.macro";
 import { useTheme } from "../styles/theme";
 import { darkCodeTheme, lightCodeTheme } from "../styles/codeThemes";

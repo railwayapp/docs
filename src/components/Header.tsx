@@ -85,7 +85,12 @@ export const H4: React.FC<{ id: string; children: React.ReactNode[] }> = ({
   children,
 }) => {
   return (
-    <h4 id={id} onClick={scrollToID(id, true)} style={{ cursor: "pointer" }} css={tw`mb-[1.5em]`}>
+    <h4
+      id={id}
+      onClick={scrollToID(id, true)}
+      style={{ cursor: "pointer" }}
+      css={tw`mb-[1.5em]`}
+    >
       {children[1]}
     </h4>
   );

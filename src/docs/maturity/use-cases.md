@@ -5,7 +5,7 @@ description: Explore real-world use cases for deploying and managing application
 
 Railway is suited for a variety of use-cases. This page will walk-through what the platform is perfect for today and our recommendations for apps of all sizes.
 
-As mentioned in our philosophy document. Railway will make a best effort to provide all the information a developer needs to make the best choice for their workload. 
+As mentioned in our philosophy document. Railway will make a best effort to provide all the information a developer needs to make the best choice for their workload.
 
 ## Is Railway Production Ready?
 
@@ -19,10 +19,9 @@ Many of our customers use Railway to reliably deploy their applications to custo
 - ML/AI
 - Agencies
 
-Companies on Railway range from hobby projects, to extremely fast growing startups, to publicly traded companies. Railway has been incrementally adopted from using the platform as a developer's scratchpad before writing Terraform to hand off to an Ops. team or being implemented end to end. 
+Companies on Railway range from hobby projects, to extremely fast growing startups, to publicly traded companies. Railway has been incrementally adopted from using the platform as a developer's scratchpad before writing Terraform to hand off to an Ops. team or being implemented end to end.
 
 Railway's been in operation for now for more than three years and we have served billions of requests, with 100s of millions of deploys serving millions of end-users simultaneously.
-
 
 ## Railway Scale
 
@@ -39,17 +38,19 @@ We have customers using our databases for their production environment with no i
 Our databases are provided with no SLAs, are not highly available, and scale only to the limits of your plan. We don't think they are suitable for anything mission-critical, like if you wanted to start a bank.
 
 We advise developers to:
-- [Configure backups](/reference/backups) 
+
+- [Configure backups](/reference/backups)
 - Run-book and restore their backups
 - Configure secondaries to connect to in-case of a disaster situation
 
-Included in our planned near-term work for databases on Railway are additional database metrics, and SSH access into the running database. 
+Included in our planned near-term work for databases on Railway are additional database metrics, and SSH access into the running database.
 
 As mentioned before: we don't believe in vendor lock-in here at Railway, if your needs outpace us, consider other vendors like PlanetScale (for MySQL) or Cockroach (for Postgres).
 
 ### Metrics
 
 Railway provides up to 7 days worth of data on service information such as:
+
 - CPU
 - Memory
 - Disk Usage
@@ -65,7 +66,7 @@ It is common for teams who wish to have additional observability to use an addit
 
 ### Networking
 
-Railway doesn't have a hard bandwidth limit to the broader internet. 
+Railway doesn't have a hard bandwidth limit to the broader internet.
 
 We may throttle your outbound bandwidth and reach out to you when it exceeds 100GB/month to ensure the legitimacy of your workloads. If you need to control where your traffic is allowed to come from such as setting up firewall rules, we recommend setting up Cloudflare or an external load balancer/L7 application firewall to handle it.
 
@@ -73,20 +74,17 @@ Private networking bandwidth is un-metered.
 
 We intend to provide advanced traffic-shaping controls within Railway in the future.
 
-
 ### Service Level Objectives
 
 Railway does meet SLOs for companies who have greater need for incident, support, and business planning responsiveness. We provide this via Business Class, offered as an add-on to Pro plans and included in all Enterprise plans. [More info.](/support/business-class)
 
-
 ### Will Railway exist in 10 years?
 
-A common question we get in conversations with (rightly) skeptical developers is the above question. Most documentation pages don't address the meta question of a company's existence but how we run *our* business affects yours. 
+A common question we get in conversations with (rightly) skeptical developers is the above question. Most documentation pages don't address the meta question of a company's existence but how we run _our_ business affects yours.
 
-The short and simple answer is: **Yes**. 
+The short and simple answer is: **Yes**.
 
 Railway aims to exist for a very long time. Railway has presence on existing public clouds, while also building out presence on co-location providers. As a company, we have been structured sustainably with a first principles approach to every expense while growing sustainably.
-
 
 ### Unsupported Use-Cases
 
@@ -98,6 +96,6 @@ Unfortunately, our platform isn't yet well-equipped to handle the following vert
 
 ## General Recommendations
 
-A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.com](mailto:team@railway.com), or via our [Discord server](https://discord.gg/railway).  You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/work-with-railway?duration=30).
+A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.com](mailto:team@railway.com), or via our [Discord server](https://discord.gg/railway). You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/work-with-railway?duration=30).
 
 We would be happy to answer any additional questions you may have.

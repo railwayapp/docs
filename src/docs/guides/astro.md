@@ -64,21 +64,21 @@ Open up the `astro.config.mjs` file:
 
 ```js
 // @ts-check
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
 
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 
-import node from '@astrojs/node';
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: "https://example.com",
   integrations: [mdx(), sitemap()],
-  output: 'server',
+  output: "server",
 
   adapter: node({
-    mode: 'standalone',
+    mode: "standalone",
   }),
 });
 ```
@@ -89,7 +89,7 @@ For mostly static sites, set `output` to `hybrid`. This allows you to add `expor
 
 ### Modify Start Script and Astro Config
 
-Astro builds your project into a `dist` directory. In `standalone` mode, a server starts when the server entry point is executed, which is by default located at `./dist/server/entry.mjs`. 
+Astro builds your project into a `dist` directory. In `standalone` mode, a server starts when the server entry point is executed, which is by default located at `./dist/server/entry.mjs`.
 
 In this mode, the server handles file serving as well as page and API routes.
 
@@ -132,7 +132,7 @@ Your app needs to listen on either `0.0.0.0` or `::` to accept traffic. If not c
 
 ## Deploy the Astro App to Railway
 
-Railway offers multiple ways to deploy your Astro app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your Astro app, depending on your setup and preference.
 
 ### One-Click Deploy From a Template
 
@@ -149,24 +149,24 @@ We highly recommend that [you eject from the template after deployment](/guides/
 ### Deploy From the CLI
 
 1. **Install the Railway CLI**:
-    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
+   - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Vue app directory. 
-        ```bash
-        railway init
-        ```
-    - Follow the prompts to name your project.
-    - After the project is created, click the provided link to view it in your browser.
+   - Run the command below in your Vue app directory.
+     ```bash
+     railway init
+     ```
+   - Follow the prompts to name your project.
+   - After the project is created, click the provided link to view it in your browser.
 3. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-    - Once the deployment completes, go to **View logs** to check if the service is running successfully.
+   - Use the command below to deploy your app:
+     ```bash
+     railway up
+     ```
+   - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+   - Once the deployment completes, go to **View logs** to check if the service is running successfully.
 4. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729535599/astro_blog_app.png"
 alt="screenshot of the deployed Astro service"
@@ -178,46 +178,48 @@ width={2556} height={2164} quality={100} />
 To deploy an Astro app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
-2. **Deploy from GitHub**: 
-    - Select **Deploy from GitHub repo** and choose your repository.
-        - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
-3. **Deploy the App**: 
-    - Click **Deploy** to start the deployment process.
-    - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
+2. **Deploy from GitHub**:
+   - Select **Deploy from GitHub repo** and choose your repository.
+     - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
+3. **Deploy the App**:
+   - Click **Deploy** to start the deployment process.
+   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
 4. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+   - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 5. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
 1. Create a `Dockerfile` in the `blog` or Astro app's root directory.
 2. Add the content below to the `Dockerfile`:
-    ```bash
-    # Use the Node alpine official image
-    # https://hub.docker.com/_/node
-    FROM node:lts-alpine
 
-    # Create and change to the app directory.
-    WORKDIR /app
+   ```bash
+   # Use the Node alpine official image
+   # https://hub.docker.com/_/node
+   FROM node:lts-alpine
 
-    # Copy the files to the container image
-    COPY package*.json ./
+   # Create and change to the app directory.
+   WORKDIR /app
 
-    # Install packages
-    RUN npm ci
+   # Copy the files to the container image
+   COPY package*.json ./
 
-    # Copy local code to the container image.
-    COPY . ./
+   # Install packages
+   RUN npm ci
 
-    # Build the app.
-    RUN npm run build
-    
-    # Serve the app
-    CMD ["npm", "run", "start"]
-    ```
+   # Copy local code to the container image.
+   COPY . ./
+
+   # Build the app.
+   RUN npm run build
+
+   # Serve the app
+   CMD ["npm", "run", "start"]
+   ```
+
 3. Either deploy via the CLI or from GitHub.
 
 Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
@@ -232,4 +234,3 @@ Explore these resources to learn how you can maximize your experience with Railw
 
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your app](/guides/monitoring)
-

@@ -26,8 +26,9 @@ Run the following command in your terminal to create a new Angular app:
 ng new gratitudeapp
 ```
 
-You'll be presented with some config options in the prompts for your project. 
-- Select `CSS` 
+You'll be presented with some config options in the prompts for your project.
+
+- Select `CSS`
 - Select `Yes` for enabling Server-Side Rendering (SSR) and Static Site Generation (SSG)
 - Select `Yes` for enabling Server Routing and App Engine APIs (Developer Preview)
 
@@ -75,14 +76,14 @@ Your scripts section should look like this:
     "test": "ng test",
     "start": "node dist/gratitudeapp/server/server.mjs"
   },
-... 
+...
 ```
- 
+
 Now, we are good to go!
 
 ## Deploy the Angular App to Railway
 
-Railway offers multiple ways to deploy your Angular app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your Angular app, depending on your setup and preference.
 
 ### One-Click Deploy from a Template
 
@@ -99,24 +100,24 @@ We highly recommend that [you eject from the template after deployment](/guides/
 ### Deploy from the CLI
 
 1. **Install the Railway CLI**:
-    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
+   - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Angular app directory. 
-        ```bash
-        railway init
-        ```
-    - Follow the prompts to name your project.
-    - After the project is created, click the provided link to view it in your browser.
+   - Run the command below in your Angular app directory.
+     ```bash
+     railway init
+     ```
+   - Follow the prompts to name your project.
+   - After the project is created, click the provided link to view it in your browser.
 3. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-    - Once the deployment completes, go to **View logs** to check if the service is running successfully.
+   - Use the command below to deploy your app:
+     ```bash
+     railway up
+     ```
+   - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+   - Once the deployment completes, go to **View logs** to check if the service is running successfully.
 4. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1741028014/CleanShot_2025-03-03_at_18.49.07_2x_ewelfy.png"
 alt="screenshot of the deployed Angular service"
@@ -128,46 +129,48 @@ width={2644} height={2114} quality={100} />
 To deploy an Angular app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
-2. **Deploy from GitHub**: 
-    - Select **Deploy from GitHub repo** and choose your repository.
-        - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
-3. **Deploy the App**: 
-    - Click **Deploy** to start the deployment process.
-    - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
+2. **Deploy from GitHub**:
+   - Select **Deploy from GitHub repo** and choose your repository.
+     - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
+3. **Deploy the App**:
+   - Click **Deploy** to start the deployment process.
+   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
 4. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+   - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 5. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
 1. Create a `Dockerfile` in the `gratitudeapp` or Angular app's root directory.
 2. Add the content below to the `Dockerfile`:
-    ```dockerfile
-    # Use the Node alpine official image
-    # https://hub.docker.com/_/node
-    FROM node:lts-alpine
 
-    # Create and change to the app directory.
-    WORKDIR /app
+   ```dockerfile
+   # Use the Node alpine official image
+   # https://hub.docker.com/_/node
+   FROM node:lts-alpine
 
-    # Copy the files to the container image
-    COPY package*.json ./
+   # Create and change to the app directory.
+   WORKDIR /app
 
-    # Install packages
-    RUN npm ci
+   # Copy the files to the container image
+   COPY package*.json ./
 
-    # Copy local code to the container image.
-    COPY . ./
+   # Install packages
+   RUN npm ci
 
-    # Build the app.
-    RUN npm run build
+   # Copy local code to the container image.
+   COPY . ./
 
-    # Serve the app
-    CMD ["npm", "run", "start"]
-    ```
+   # Build the app.
+   RUN npm run build
+
+   # Serve the app
+   CMD ["npm", "run", "start"]
+   ```
+
 3. Either deploy via the CLI or from GitHub.
 
 Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
@@ -182,4 +185,3 @@ Explore these resources to learn how you can maximize your experience with Railw
 
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your app](/guides/monitoring)
-

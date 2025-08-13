@@ -43,6 +43,6 @@ Projects can be transferred to other users or to Teams, depending on subscriptio
 
 - Project transfers to other users are only allowed for users subscribed to the [Hobby Plan](/reference/pricing#plans) (both the initiator and recipient of the transfer).
 
-- Project transfers to [Teams](/reference/teams) are only allowed for users who are Admin members of an existing Team.  Teams are a feature of the [Pro Plan](/reference/pricing#plans).
+- Project transfers to [Teams](/reference/teams) are only allowed for users who are Admin members of an existing Team. Teams are a feature of the [Pro Plan](/reference/pricing#plans).
 
 Detailed instructions on how to transfer projects can be found [here](/guides/projects#transferring-projects).

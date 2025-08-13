@@ -9,7 +9,6 @@ import {
 } from "react-feather";
 import tw, { TwStyle } from "twin.macro";
 import { Icon } from "./Icon";
-import { Link } from "./Link";
 
 export type BannerVariant =
   | "primary"

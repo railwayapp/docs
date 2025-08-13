@@ -33,12 +33,12 @@ Curious about potential savings? [Upload your current invoice](https://railway.c
 
 Depending on the plan you are on, you are allowed to use up these resources per service.
 
-| Plan           | **RAM**    | **CPU**     | **Ephemeral Storage** | **Volume Storage** | **Image Size** |
-| -------------- | ---------- | ----------- | --------------------- | ------------------ | -------------- |
-| **Trial**      | **1 GB**   | **2 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**       |
-| **Hobby**      | **8 GB**   | **8 vCPU**  | **10 GB**             | **5 GB**           | **100 GB**     |
-| **Pro**        | **32 GB**  | **32 vCPU** | **100 GB**            | **50 GB \***       | **100 GB**     |
-| **Enterprise** | **64 GB**  | **64 vCPU** | **100 GB**            | **2 TB \***        | **100 GB**     |
+| Plan           | **RAM**   | **CPU**     | **Ephemeral Storage** | **Volume Storage** | **Image Size** |
+| -------------- | --------- | ----------- | --------------------- | ------------------ | -------------- |
+| **Trial**      | **1 GB**  | **2 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**       |
+| **Hobby**      | **8 GB**  | **8 vCPU**  | **10 GB**             | **5 GB**           | **100 GB**     |
+| **Pro**        | **32 GB** | **32 vCPU** | **100 GB**            | **50 GB \***       | **100 GB**     |
+| **Enterprise** | **64 GB** | **64 vCPU** | **100 GB**            | **2 TB \***        | **100 GB**     |
 
 Note that these are initial values and users on the Pro and Enterprise plans can request limit increases.
 
@@ -101,14 +101,14 @@ Railway offers committed spend tiers for customers with consistent usage needs. 
 
 For example, customers who commit to a $10,000/month spend rate can access dedicated hosts, with all pricing going towards their usage. This approach provides more flexibility and transparency compared to traditional contract pricing.
 
-| Feature                                                         | Commitment Spend | Description                                                                                                                        |
-| --------------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **90-day log history**                                          | $200/month       | Extended log retention for better historical analysis and auditing.                                                                |
-| **64 GB RAM / 64 vCPU**                                         | $500/month       | Access to increased computing resources at a committed monthly spend level.                                                        |
-| **HIPAA BAAs**                                                  | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly.                   |
-| **Slack Connect channels**                                       | $2,000/month     | Dedicated Slack Connect channels for enhanced communication and support with the Railway team.                                     |
-| **SLOs**                                                        | $2,000/month     | Service Level Objectives to ensure and track application performance.                                                              |
-| **Dedicated Hosts**                                             | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                                              |
+| Feature                    | Commitment Spend | Description                                                                                                      |
+| -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **90-day log history**     | $200/month       | Extended log retention for better historical analysis and auditing.                                              |
+| **64 GB RAM / 64 vCPU**    | $500/month       | Access to increased computing resources at a committed monthly spend level.                                      |
+| **HIPAA BAAs**             | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly. |
+| **Slack Connect channels** | $2,000/month     | Dedicated Slack Connect channels for enhanced communication and support with the Railway team.                   |
+| **SLOs**                   | $2,000/month     | Service Level Objectives to ensure and track application performance.                                            |
+| **Dedicated Hosts**        | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                            |
 
 To learn more about committed spend tiers, please [contact our team](mailto:team@railway.com?subject=Business%20Class%20Support).
 

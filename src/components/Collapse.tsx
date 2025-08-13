@@ -4,7 +4,7 @@ import React, {
   useState,
   useCallback,
 } from "react";
-import tw, { TwStyle } from "twin.macro";
+import tw from "twin.macro";
 import { slugify } from "@/utils/slugify";
 import { Arrow } from "@/components/Arrow";
 

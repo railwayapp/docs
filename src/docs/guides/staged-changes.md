@@ -21,10 +21,10 @@ As you create or update components within your project:
 
 ### Review and Deploy Changes
 
-To review the staged changes, click the "Details" button in the banner.  Here, you will see a diff of old and new values.  You can discard a change by clicking the "x" to the right of the change.
+To review the staged changes, click the "Details" button in the banner. Here, you will see a diff of old and new values. You can discard a change by clicking the "x" to the right of the change.
 
 You can optionally add a commit message that will appear in the [activity feed](/guides/projects#viewing-recent-activity).
- 
+
 <Image src="https://res.cloudinary.com/railway/image/upload/v1743123181/docs/changes_qn15ls.png"
             alt="Staged changes on Railway canvas"
             layout="responsive"

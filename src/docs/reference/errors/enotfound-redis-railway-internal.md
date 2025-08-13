@@ -40,9 +40,9 @@ The solution depends on the package you are using to connect to the Redis databa
 To enable this, in your `REDIS_URL` environment variable, you can set the `family` to `0` to enable dual stack lookup.
 
 ```js
-import Redis from 'ioredis';
+import Redis from "ioredis";
 
-const redis = new Redis(process.env.REDIS_URL + '?family=0');
+const redis = new Redis(process.env.REDIS_URL + "?family=0");
 
 const ping = await redis.ping();
 ```
@@ -57,13 +57,13 @@ import { Queue } from "bullmq";
 const redisURL = new URL(process.env.REDIS_URL);
 
 const queue = new Queue("Queue", {
-    connection: {
-        family: 0,
-        host: redisURL.hostname,
-        port: redisURL.port,
-        username: redisURL.username,
-        password: redisURL.password
-    }
+  connection: {
+    family: 0,
+    host: redisURL.hostname,
+    port: redisURL.port,
+    username: redisURL.username,
+    password: redisURL.password,
+  },
 });
 
 const jobs = await queue.getJobs();
@@ -90,7 +90,7 @@ The easiest way to connect to a Redis database locally is to use the public netw
 You can do this is by using the `REDIS_PUBLIC_URL` environment variable to connect to the Redis database.
 
 ```js
-import Redis from 'ioredis';
+import Redis from "ioredis";
 
 const redis = new Redis(process.env.REDIS_PUBLIC_URL);
 

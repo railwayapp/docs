@@ -19,7 +19,6 @@ import scala from "react-syntax-highlighter/dist/cjs/languages/prism/scala";
 import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
 import docker from "react-syntax-highlighter/dist/cjs/languages/prism/docker";
 
-
 import "twin.macro";
 import { useCopy } from "../../hooks/useCopy";
 import { darkCodeTheme, lightCodeTheme } from "../../styles/codeThemes";
@@ -46,7 +45,6 @@ SyntaxHighlighter.registerLanguage("clojure", clojure);
 SyntaxHighlighter.registerLanguage("scala", scala);
 SyntaxHighlighter.registerLanguage("css", css);
 SyntaxHighlighter.registerLanguage("docker", docker);
-
 
 export type SupportedLanguage =
   | "javascript"

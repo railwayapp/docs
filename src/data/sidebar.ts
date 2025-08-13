@@ -6,10 +6,10 @@ const makePage = (title: string, category?: string, slug?: string): IPage => ({
   category,
   slug: (() => {
     if (slug) {
-      return slug.startsWith('/') ? slug : '/' + slug;
+      return slug.startsWith("/") ? slug : "/" + slug;
     }
 
-    return '/' + (category ? category + '/' : '') + slugify(title);
+    return "/" + (category ? category + "/" : "") + slugify(title);
   })(),
 });
 
@@ -134,7 +134,11 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Templates", "guides"),
         pages: [
           makePage("Create", "guides"),
-          makePage("Best Practices", "guides", "/guides/templates-best-practices"),
+          makePage(
+            "Best Practices",
+            "guides",
+            "/guides/templates-best-practices",
+          ),
           makePage("Publish and Share", "guides"),
           makePage("Deploy", "guides"),
         ],
@@ -200,9 +204,21 @@ export const sidebarContent: ISidebarContent = [
             title: "Deploy with Railway",
             url: "https://blog.railway.com/p/github-actions",
           },
-          makePage("Post-Deploy", "tutorials", "tutorials/github-actions-post-deploy"),
-          makePage("PR Environment", "tutorials", "tutorials/github-actions-pr-environment"),
-          makePage("Self Hosted Runners", "tutorials", "tutorials/github-actions-runners"),
+          makePage(
+            "Post-Deploy",
+            "tutorials",
+            "tutorials/github-actions-post-deploy",
+          ),
+          makePage(
+            "PR Environment",
+            "tutorials",
+            "tutorials/github-actions-pr-environment",
+          ),
+          makePage(
+            "Self Hosted Runners",
+            "tutorials",
+            "tutorials/github-actions-runners",
+          ),
           {
             title: "Implementing a Testing Suite",
             url: "https://blog.railway.com/p/implementing-gh-actions-testing",
@@ -215,7 +231,7 @@ export const sidebarContent: ISidebarContent = [
           {
             title: "Gitlab CI/CD with Railway",
             url: "https://blog.railway.com/p/gitlab-ci-cd",
-          }
+          },
         ],
       },
     ],

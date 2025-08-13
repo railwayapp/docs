@@ -6,6 +6,7 @@ description: Learn Dockerfile configuration on Railway.
 We will look for and use a `Dockerfile` at the service's root if it exists.
 
 Railway notifies you when it's using the `Dockerfile` in the build process with the following message in the logs:
+
 ```shell
 ==========================
 Using detected Dockerfile!
@@ -14,11 +15,12 @@ Using detected Dockerfile!
 
 ## Custom Dockerfile Path
 
-By default, we look for a file named `Dockerfile` in the root directory.  If you want to use a custom filename or path, you can set a variable defining the path.
+By default, we look for a file named `Dockerfile` in the root directory. If you want to use a custom filename or path, you can set a variable defining the path.
 
 In your [service variables](/guides/variables#service-variables), set a variable named `RAILWAY_DOCKERFILE_PATH` to specify the path to the file.
 
 For example, if your Dockerfile was called `Dockerfile.origin`, you would specify it like this:
+
 ```
 RAILWAY_DOCKERFILE_PATH=Dockerfile.origin
 ```
@@ -33,12 +35,12 @@ RAILWAY_DOCKERFILE_PATH=/build/Dockerfile
 
 You can also set your custom Dockerfile path using [config as code](/guides/config-as-code).
 
-
 ## Using Variables at Build Time
 
 If you need to use the environment variables that Railway injects at build time, which include [variables that you define](/guides/variables#service-variables) and [Railway-provided variables](/guides/variables#railway-provided-variables), you must specify them in the Dockerfile using the `ARG` command.
 
 For example:
+
 ```dockerfile
 # Specify the variable you need
 ARG RAILWAY_SERVICE_NAME
@@ -47,6 +49,7 @@ RUN echo $RAILWAY_SERVICE_NAME
 ```
 
 Be sure to declare your environment variables in the stage they are required in:
+
 ```dockerfile
 FROM node
 
@@ -56,6 +59,7 @@ ARG RAILWAY_ENVIRONMENT
 ## Cache Mounts
 
 Railway supports cache mounts in your Dockerfile in the following format:
+
 ```plaintext
 --mount=type=cache,id=s/<service id>-<target path>,target=<target path>
 ```
@@ -66,7 +70,7 @@ Note: Environment variables can't be used in cache mount IDs, since that is inva
 
 ### Target Path
 
-Unsure of what your target path should be?  Refer to the <a href="https://github.com/railwayapp/nixpacks/tree/main" target="_blank">Nixpacks source code</a>.  Within the providers directory, find the file that aligns with your respective language or runtime, and check for the variable that indicates the CACHE_DIR.
+Unsure of what your target path should be? Refer to the <a href="https://github.com/railwayapp/nixpacks/tree/main" target="_blank">Nixpacks source code</a>. Within the providers directory, find the file that aligns with your respective language or runtime, and check for the variable that indicates the CACHE_DIR.
 
 **Example**
 

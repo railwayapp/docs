@@ -54,56 +54,58 @@ After deploying, we recommend that you [eject from the template](/guides/deploy#
 To deploy the Sails app using the Railway CLI, please follow the steps:
 
 1. **Install the Railway CLI**:
-    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
+   - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Sails app directory. 
-        ```bash
-        railway init
-        ```
-    - Follow the prompts to name your project.
-    - After the project is created, click the provided link to view it in your browser.
+   - Run the command below in your Sails app directory.
+     ```bash
+     railway init
+     ```
+   - Follow the prompts to name your project.
+   - After the project is created, click the provided link to view it in your browser.
 3. **Modify Sails Config**:
-    - Open up `config/env/production.js` file and make some changes:
-        - Set `http.trustProxy` to `true` because our app will be behind a proxy.
-        - Set `session.cookie.secure` to `true`
-        - Add this function to the `socket` object just after the `onlyAllowOrigins` array:
-            ```js
-            beforeConnect: function(handshake, proceed) {
-                // Send back `true` to allow the socket to connect.
-                // (Or send back `false` to reject the attempt.)
-                return proceed(undefined, false);
-            },
-            ```
+   - Open up `config/env/production.js` file and make some changes:
+     - Set `http.trustProxy` to `true` because our app will be behind a proxy.
+     - Set `session.cookie.secure` to `true`
+     - Add this function to the `socket` object just after the `onlyAllowOrigins` array:
+       `` js
+     beforeConnect: function(handshake, proceed) {
+         // Send back `true` to allow the socket to connect.
+         // (Or send back `false` to reject the attempt.)
+         return proceed(undefined, false);
+     },
+      ``
        **Note:** We only added this because we don't need sockets now. If you do, skip this step and add your public app URL to the `onlyAllowOrigins` array. The function simply rejects socket connection attempts.
 4. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
- - **Note:** You'll come across an error about how the default `sails-disk` adapter and `connect.session()` MemoryStore  is not designed for use as a production database, don’t worry. We’ll fix this in the next step.
+   - Use the command below to deploy your app:
+     ```bash
+     railway up
+     ```
+   - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+
+- **Note:** You'll come across an error about how the default `sails-disk` adapter and `connect.session()` MemoryStore is not designed for use as a production database, don’t worry. We’ll fix this in the next step.
+
 5. **Add PostgreSQL & Redis Database Services**:
-    - Run `railway add`.
-    - Select `PostgreSQL` by pressing space
-    - Select `Redis` by also pressing space and hit **Enter** to add both database services to your project.
+   - Run `railway add`.
+   - Select `PostgreSQL` by pressing space
+   - Select `Redis` by also pressing space and hit **Enter** to add both database services to your project.
 6. **Modify Sails Database Config**:
-    - Open up `config/env/production.js` file and make some changes to let your app know what database to connect to and where to save sessions:
-        - In the `datastores:` section,
-            - Add `adapter: 'sails-postgresql'`,
-            - Add `url: process.env.DATABASE_URL`
-        - In the `session:` section, 
-            - Add `adapter: '@sailshq/connect-redis'`,
-            - Add `url: process.env.REDIS_URL`,
-    - Run `npm install sails-postgresql --save` to add the new adapter to your app locally.
+   - Open up `config/env/production.js` file and make some changes to let your app know what database to connect to and where to save sessions:
+     - In the `datastores:` section,
+       - Add `adapter: 'sails-postgresql'`,
+       - Add `url: process.env.DATABASE_URL`
+     - In the `session:` section,
+       - Add `adapter: '@sailshq/connect-redis'`,
+       - Add `url: process.env.REDIS_URL`,
+   - Run `npm install sails-postgresql --save` to add the new adapter to your app locally.
 7. **Configure Environment Variables on Railway**:
-    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
-        - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
-        - `REDIS_URL`: Set the value to  `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database)
-    - Use the **Raw Editor** to add any other required environment variables in one go.
+   - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `REDIS_URL`: Set the value to `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database)
+   - Use the **Raw Editor** to add any other required environment variables in one go.
 8. **Redeploy the Service**:
-    - Click **Deploy** on the Railway dashboard to apply your changes.
+   - Click **Deploy** on the Railway dashboard to apply your changes.
 9. **Upload Local Changes**:
-    - Run `railway up` to upload all the changes we made locally and redeploy our service.
+   - Run `railway up` to upload all the changes we made locally and redeploy our service.
 10. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 11. **Set Up a Public URL**:
@@ -115,43 +117,42 @@ alt="screenshot of the deployed Sails service"
 layout="responsive"
 width={2986} height={2140} quality={100} />
 
-
 ## Deploy from a GitHub Repo
 
 To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
-2. **Deploy from GitHub**: 
-    - Select **Deploy from GitHub repo** and choose your repository.
-        - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
+   - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
+2. **Deploy from GitHub**:
+   - Select **Deploy from GitHub repo** and choose your repository.
+     - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
 3. **Add Environment Variables**:
-    - Click **Add Variables** and configure all the necessary environment variables for your app.
-4. **Deploy the App**: 
-    - Click **Deploy** to start the deployment process.
-    - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Click **Add Variables** and configure all the necessary environment variables for your app.
+4. **Deploy the App**:
+   - Click **Deploy** to start the deployment process.
+   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
 5. **Add a Database Service**:
-    - Right-click on the Railway project canvas or click the **Create** button.
-    - Select **Database**.
-    - Select **Add PostgreSQL** from the available databases.
-        - This will create and deploy a new Postgres database service for your project.
+   - Right-click on the Railway project canvas or click the **Create** button.
+   - Select **Database**.
+   - Select **Add PostgreSQL** from the available databases.
+     - This will create and deploy a new Postgres database service for your project.
 6. **Add a Redis Database Service**:
-    - Right-click on the Railway project canvas or click the **Create** button.
-    - Select **Database**.
-    - Select **Add Redis** from the available databases.
-        - This will create and deploy a new Redis database service for your project.
+   - Right-click on the Railway project canvas or click the **Create** button.
+   - Select **Database**.
+   - Select **Add Redis** from the available databases.
+     - This will create and deploy a new Redis database service for your project.
 7. **Configure Environment Variables**:
-    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
-        - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable). 
-        - `REDIS_URL`: Set the value to  `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database) 
-    - Use the **Raw Editor** to add any other required environment variables in one go.
+   - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `REDIS_URL`: Set the value to `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database)
+   - Use the **Raw Editor** to add any other required environment variables in one go.
 8. **Modify Sails Config**:
-    - Follow [steps 3 & 5 mentioned in the CLI guide](#deploy-from-the-cli).
-8. **Redeploy the Service**:
-    - Click **Deploy** on the Railway dashboard to apply your changes.
-9. **Verify the Deployment**:
+   - Follow [steps 3 & 5 mentioned in the CLI guide](#deploy-from-the-cli).
+9. **Redeploy the Service**:
+   - Click **Deploy** on the Railway dashboard to apply your changes.
+10. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
-10. **Set Up a Public URL**:
+11. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
     - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
@@ -172,7 +173,7 @@ Simply click the button below to get started:
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ia84_3)
 
 **Note:** After deploying, we recommend [ejecting from the template](/guides/deploy#eject-from-template-repository) to create your own GitHub repository. This will give you full control over the project and source code.
- 
+
 ## Next Steps
 
 Explore these resources to learn how you can maximize your experience with Railway:

@@ -26,20 +26,20 @@ Go to [start.spring.io](https://start.spring.io) to initialize a new Spring Boot
 - Language: Java
 - Spring Boot: 3.3.4
 - Project Metadata:
-    - Group: com.railwayguide
-    - Artifact: helloworld
-    - Name: helloworld
-    - Description: Demo project for Railway Guide
-    - Package name: com.railwayguide.helloworld
-    - Packaging: jar
-    - Java: 17
-- Dependencies: 
-    - Click the **Add Dependencies** button and search for **Spring Web**. Select it.
+  - Group: com.railwayguide
+  - Artifact: helloworld
+  - Name: helloworld
+  - Description: Demo project for Railway Guide
+  - Package name: com.railwayguide.helloworld
+  - Packaging: jar
+  - Java: 17
+- Dependencies:
+  - Click the **Add Dependencies** button and search for **Spring Web**. Select it.
 
 ![Spring Boot App Initializer](https://res.cloudinary.com/railway/image/upload/v1729619101/springboot_app_on_railway.png)
 _Config to initialize our new app_
 
-Now, click on the **Generate** button, download the zipped file and unpack it into a folder on your machine. 
+Now, click on the **Generate** button, download the zipped file and unpack it into a folder on your machine.
 
 ### Modify the Application File
 
@@ -89,11 +89,11 @@ Open your browser and go to `http://localhost:8080` to see your app.
 
 ## Deploy the Spring Boot App to Railway
 
-Railway offers multiple ways to deploy your Spring Boot app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your Spring Boot app, depending on your setup and preference.
 
 ### One-Click Deploy from a Template
 
-If you’re looking for the fastest way to get started, the one-click deploy option is ideal. 
+If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
 Click the button below to begin:
 
@@ -106,24 +106,24 @@ We highly recommend that [you eject from the template after deployment](/guides/
 ### Deploy from the CLI
 
 1. **Install the Railway CLI**:
-    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
+   - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Spring Boot app directory. 
-        ```bash
-        railway init
-        ```
-    - Follow the prompts to name your project.
-    - After the project is created, click the provided link to view it in your browser.
+   - Run the command below in your Spring Boot app directory.
+     ```bash
+     railway init
+     ```
+   - Follow the prompts to name your project.
+   - After the project is created, click the provided link to view it in your browser.
 3. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-    - Once the deployment completes, go to **View logs** to check if the service is running successfully.
-5. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Use the command below to deploy your app:
+     ```bash
+     railway up
+     ```
+   - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+   - Once the deployment completes, go to **View logs** to check if the service is running successfully.
+4. **Set Up a Public URL**:
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729621960/springboot_service_on_railway.png"
 alt="screenshot of the deployed Spring Boot service"
@@ -135,43 +135,47 @@ width={2172} height={1590} quality={100} />
 To deploy a Spring Boot app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
-2. **Deploy from GitHub**: 
-    - Select **Deploy from GitHub repo** and choose your repository.
-        - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
-3. **Deploy the App**: 
-    - Click **Deploy** to start the deployment process.
-    - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
+2. **Deploy from GitHub**:
+   - Select **Deploy from GitHub repo** and choose your repository.
+     - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
+3. **Deploy the App**:
+   - Click **Deploy** to start the deployment process.
+   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
 4. **Verify the Deployment**:
-    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-    **Note:** During the deployment process, Railway will automatically [detect that it’s a Java app](https://nixpacks.com/docs/providers/java).
+   - Once the deployment completes, go to **View logs** to check if the server is running successfully.
+
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a Java app](https://nixpacks.com/docs/providers/java).
+
 5. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
 1. Create a `Dockerfile` in the `helloworld` or Spring Boot app's root directory.
 2. Add the content below to the `Dockerfile`:
-    ```bash
-    # Use the Eclipse temurin alpine official image
-    # https://hub.docker.com/_/eclipse-temurin
-    FROM eclipse-temurin:21-jdk-alpine
 
-    # Create and change to the app directory.
-    WORKDIR /app
+   ```bash
+   # Use the Eclipse temurin alpine official image
+   # https://hub.docker.com/_/eclipse-temurin
+   FROM eclipse-temurin:21-jdk-alpine
 
-    # Copy local code to the container image.
-    COPY . ./
+   # Create and change to the app directory.
+   WORKDIR /app
 
-    # Build the app.
-    RUN ./mvnw -DoutputFile=target/mvn-dependency-list.log -B -DskipTests clean dependency:list install
+   # Copy local code to the container image.
+   COPY . ./
 
-    # Run the app by dynamically finding the JAR file in the target directory
-    CMD ["sh", "-c", "java -jar target/*.jar"]
-    ```
-4. Either deploy via the CLI or from GitHub.
+   # Build the app.
+   RUN ./mvnw -DoutputFile=target/mvn-dependency-list.log -B -DskipTests clean dependency:list install
+
+   # Run the app by dynamically finding the JAR file in the target directory
+   CMD ["sh", "-c", "java -jar target/*.jar"]
+   ```
+
+3. Either deploy via the CLI or from GitHub.
 
 Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
 

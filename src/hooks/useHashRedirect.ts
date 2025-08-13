@@ -11,7 +11,7 @@ export function useHashRedirect() {
 
     const redirect = hashRedirects.find(redirect => {
       const sourceParts = redirect.source.split("#");
-      
+
       return sourceParts.length === 2 && sourceParts[0] !== ""
         ? pathname + hash === redirect.source
         : hash === redirect.source;

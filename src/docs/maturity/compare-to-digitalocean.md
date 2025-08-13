@@ -2,6 +2,7 @@
 title: Railway vs. DigitalOcean App Platform
 description: Compare Railway and DigitalOcean App Platform on infrastructure, pricing model and deployment experience.
 ---
+
 At a high level, both Railway and DigitalOcean App Platform can be used to deploy your app. Both platforms share many similarities:
 
 - You can deploy your app from a Docker image or by importing your app’s source code from GitHub.
@@ -33,8 +34,8 @@ In the scenario where your deployed service needs more resources, you can either
 
 - Vertically: you will need to manually upgrade to a large instance size to unlock more compute resources.
 - Horizontally: your workload will be distributed across multiple running instances. You can either:
-    - Manually specify the machine count.
-    - Autoscale by defining a minimum and maximum instance count. The number of running instances will increase/decrease based on a target CPU and/or memory utilization you specify.
+  - Manually specify the machine count.
+  - Autoscale by defining a minimum and maximum instance count. The number of running instances will increase/decrease based on a target CPU and/or memory utilization you specify.
 
 The main drawback of this setup is that it requires manual developer intervention. Either by:
 
@@ -67,7 +68,7 @@ You can also set services to start on a schedule using a crontab expression. Thi
 
 ### DigitalOcean App Platform
 
-DigitalOcean App Platform follows a traditional, instance-based pricing. You select the amount of compute resources you need from a list of instance sizes where each one has a fixed monthly price. 
+DigitalOcean App Platform follows a traditional, instance-based pricing. You select the amount of compute resources you need from a list of instance sizes where each one has a fixed monthly price.
 
 ![DigitalOcean App Platform instances](https://res.cloudinary.com/railway/image/upload/v1753470539/docs/comparison-docs/digital-ocean-instances_rdnbq1.png)
 
@@ -117,24 +118,24 @@ Railway’s dashboard offers a real-time collaborative canvas where you can view
 
 Additionally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
 
-Check out all templates at [railway.com/deploy](http://railway.com/deploy) 
+Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 
 ## Summary
 
-| **Category** | **DigitalOcean App Platform** | **Railway** |
-|--------------|-------------------------------|-------------|
-| **Scaling Model** | Manual instance-based scaling | Fully automated scaling |
-| **Vertical Scaling** | Manual upgrade to larger instance | N/A – no instance sizes to manage |
-| **Horizontal Scaling** | Manually add/remove instances or autoscaling (based on CPU/memory thresholds); requires tuning | Deploy multiple replicas; traffic auto-distributed; no thresholds required |
-| **Multi-region Support** | Manual via separate instances and load balancers | Built-in support; traffic routed to nearest region |
-| **Persistent volumes** | Not supported | Supported |
-| **Pricing Model** | Fixed monthly pricing per instance size | Usage-based: active compute time × memory/CPU used |
-| **Cost Optimization** | Requires tuning to avoid over/under-provisioning | Inherently optimized. Pay only for used compute |
-| **Developer Dashboard** | Traditional project dashboard | Real-time collaborative canvas with visual service layout |
-| **Environments & CI/CD** | No native concept of environments, requires manual project setup. Automated preview deployments not supported. Webhooks not supported | Native support for preview environments, CI/CD integrations, and webhooks |
-| **Templates & Ecosystem** | Limited | Extensive template directory; creators can earn from deployed usage |
+| **Category**              | **DigitalOcean App Platform**                                                                                                         | **Railway**                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Scaling Model**         | Manual instance-based scaling                                                                                                         | Fully automated scaling                                                    |
+| **Vertical Scaling**      | Manual upgrade to larger instance                                                                                                     | N/A – no instance sizes to manage                                          |
+| **Horizontal Scaling**    | Manually add/remove instances or autoscaling (based on CPU/memory thresholds); requires tuning                                        | Deploy multiple replicas; traffic auto-distributed; no thresholds required |
+| **Multi-region Support**  | Manual via separate instances and load balancers                                                                                      | Built-in support; traffic routed to nearest region                         |
+| **Persistent volumes**    | Not supported                                                                                                                         | Supported                                                                  |
+| **Pricing Model**         | Fixed monthly pricing per instance size                                                                                               | Usage-based: active compute time × memory/CPU used                         |
+| **Cost Optimization**     | Requires tuning to avoid over/under-provisioning                                                                                      | Inherently optimized. Pay only for used compute                            |
+| **Developer Dashboard**   | Traditional project dashboard                                                                                                         | Real-time collaborative canvas with visual service layout                  |
+| **Environments & CI/CD**  | No native concept of environments, requires manual project setup. Automated preview deployments not supported. Webhooks not supported | Native support for preview environments, CI/CD integrations, and webhooks  |
+| **Templates & Ecosystem** | Limited                                                                                                                               | Extensive template directory; creators can earn from deployed usage        |
 
 ## Migrate from DigitalOcean App Platform to Railway
 
@@ -143,26 +144,23 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 ### Deploying your app
 
 1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
-    
+
 ![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
-    
 
 2. If your project is using any environment variables or secrets:
-    1. Click on the deployed service.
-    2. Navigate to the “Variables” tab.
-    3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
-    
+   1. Click on the deployed service.
+   2. Navigate to the “Variables” tab.
+   3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
 
 ![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
 3. To make your project accessible over the internet, you will need to configure a domain:
-    1. From the project’s canvas, click on the service you would like to configure.
-    2. Navigate to the “Settings” tab.
-    3. Go to the “Networking” section.
-    4. You can either:
-        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
-        2. Add a custom domain: follow the DNS configuration steps.
-
+   1. From the project’s canvas, click on the service you would like to configure.
+   2. Navigate to the “Settings” tab.
+   3. Go to the “Networking” section.
+   4. You can either:
+      1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+      2. Add a custom domain: follow the DNS configuration steps.
 
 ## Need help or have questions?
 

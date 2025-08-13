@@ -74,7 +74,7 @@ export const PageNav: React.FC<Props> = ({ title }) => {
   useEffect(() => {
     const handleScroll = () => {
       const headings = Array.from(
-        document.querySelectorAll(".docs-content h2, h3, h4")
+        document.querySelectorAll(".docs-content h2, h3, h4"),
       ) as HTMLHeadingElement[];
       const scrollPosition = window.scrollY + 100;
       let currentId = headings.length > 0 ? headings[0].id : "";
@@ -94,7 +94,10 @@ export const PageNav: React.FC<Props> = ({ title }) => {
 
   useEffect(() => {
     if (activeId && linkRefs.current[activeId]) {
-      linkRefs.current[activeId]?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      linkRefs.current[activeId]?.scrollIntoView({
+        block: "nearest",
+        behavior: "smooth",
+      });
     }
   }, [activeId]);
 
@@ -105,7 +108,12 @@ export const PageNav: React.FC<Props> = ({ title }) => {
           <div tw="overflow-y-auto h-full">
             <h5 tw="text-sm text-gray-900 font-medium mb-3">On This Page</h5>
             <ul tw="space-y-3">
-              <HeaderList headers={headers} nesting={0} activeId={activeId} linkRefs={linkRefs.current} />
+              <HeaderList
+                headers={headers}
+                nesting={0}
+                activeId={activeId}
+                linkRefs={linkRefs.current}
+              />
             </ul>
           </div>
         </aside>
@@ -120,12 +128,12 @@ const nestingTw: Record<number, TwStyle> = {
   2: tw`ml-10`,
 };
 
-const HeaderList: React.FC<{ headers: IHeader[]; nesting: number; activeId?: string; linkRefs?: { [id: string]: HTMLAnchorElement | null } }> = ({
-  headers,
-  nesting,
-  activeId = "",
-  linkRefs = {},
-}) => {
+const HeaderList: React.FC<{
+  headers: IHeader[];
+  nesting: number;
+  activeId?: string;
+  linkRefs?: { [id: string]: HTMLAnchorElement | null };
+}> = ({ headers, nesting, activeId = "", linkRefs = {} }) => {
   return (
     <>
       {headers.map((h, i) => {
@@ -134,7 +142,9 @@ const HeaderList: React.FC<{ headers: IHeader[]; nesting: number; activeId?: str
           <React.Fragment key={`${h.id}-${i}`}>
             <li key={h.id} css={[nestingTw[nesting]]}>
               <Link
-                ref={el => { linkRefs[h.id] = el; }}
+                ref={el => {
+                  linkRefs[h.id] = el;
+                }}
                 css={[
                   tw`inline-block text-gray-600 text-sm`,
                   tw`hover:text-pink-500`,
@@ -147,7 +157,12 @@ const HeaderList: React.FC<{ headers: IHeader[]; nesting: number; activeId?: str
               </Link>
             </li>
             {h.subHeaders.length > 0 && (
-              <HeaderList headers={h.subHeaders} nesting={nesting + 1} activeId={activeId} linkRefs={linkRefs} />
+              <HeaderList
+                headers={h.subHeaders}
+                nesting={nesting + 1}
+                activeId={activeId}
+                linkRefs={linkRefs}
+              />
             )}
           </React.Fragment>
         );

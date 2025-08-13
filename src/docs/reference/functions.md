@@ -9,10 +9,9 @@ Use them like any other Service, but without the overhead of a repository.
 
 They are ideal for small tasks like handling webhooks, cron jobs, or simple APIs.
 
-
 ## Key features
 
-- **Instant deploys**: Deploy code changes *in seconds*. No need to wait for a build step.
+- **Instant deploys**: Deploy code changes _in seconds_. No need to wait for a build step.
 - **Import any NPM package**: Use any NPM package in your function. We will automatically install it for you when your code runs. Pin specific versions by using a `package@version` syntax in your imports, e.g. `import { Hono } from "hono@4"`
 - **Use native Bun APIs**: Access [Bun APIs](https://bun.sh/docs/runtime/bun-apis) like `Bun.file()` and `Bun.serve()`.
 - **Service variables**: Service [Variables](/reference/variables) are automatically available in the function editor via `import.meta.env`, `process.env`, or `Bun.env`

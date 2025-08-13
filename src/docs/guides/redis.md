@@ -34,7 +34,7 @@ Connect to the Redis server from another service in your project by [referencing
 
 It is possible to connect to Redis externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
 
-*Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
+_Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
 
 ### Modify the Deployment
 
@@ -50,9 +50,9 @@ Especially for production environments, performing backups and monitoring the he
 
 ## Additional Resources
 
-While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.  
+While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.
 
-We *strongly encourage you* to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively.  Here are some links to help you get started:
+We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 
 - [Redis Documentation](https://redis.io/docs/latest/operate/oss_and_stack/)
 - [Redis Replication](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/)

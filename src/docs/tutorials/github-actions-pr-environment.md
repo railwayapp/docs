@@ -22,34 +22,34 @@ on:
     types: [opened, closed]
 
 env:
-    RAILWAY_API_TOKEN: "" # get this in account settings (make sure this is NOT a project token), and scope it to your account (not a workspace)
-    SERVICE_ID: "" # service ID to inject database variable into
-    ENV_NAME: "" # the environment variable name to inject (e.g DATABASE_URL)
-    ENV_VALUE: "" # the value to inject
-    DUPLICATE_FROM_ID: "" # railway environment to duplicate from
-    LINK_PROJECT_ID: "" # project ID
-    # TEAM_ID: "" if you are linking to a project in team, uncomment this
+  RAILWAY_API_TOKEN: "" # get this in account settings (make sure this is NOT a project token), and scope it to your account (not a workspace)
+  SERVICE_ID: "" # service ID to inject database variable into
+  ENV_NAME: "" # the environment variable name to inject (e.g DATABASE_URL)
+  ENV_VALUE: "" # the value to inject
+  DUPLICATE_FROM_ID: "" # railway environment to duplicate from
+  LINK_PROJECT_ID: "" # project ID
+  # TEAM_ID: "" if you are linking to a project in team, uncomment this
 
 jobs:
-    pr_opened:
-        if: github.event.action == 'opened'
-        runs-on: ubuntu-latest
-        container: ghcr.io/railwayapp/cli:latest
-        steps:
-        - name: Link to project
-          run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project  
-        - name: Create Railway Environment for PR
-          run: railway environment new pr-${{ github.event.pull_request.number }} --copy ${{ env.DUPLICATE_FROM_ID }} --service-variable ${{ env.SERVICE_ID }} "${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}"
+  pr_opened:
+    if: github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    container: ghcr.io/railwayapp/cli:latest
+    steps:
+      - name: Link to project
+        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project
+      - name: Create Railway Environment for PR
+        run: railway environment new pr-${{ github.event.pull_request.number }} --copy ${{ env.DUPLICATE_FROM_ID }} --service-variable ${{ env.SERVICE_ID }} "${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}"
 
-    pr_closed:
-        if: github.event.action == 'closed'
-        runs-on: ubuntu-latest
-        container: ghcr.io/railwayapp/cli:latest
-        steps:
-        - name: Link to project
-          run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project       
-        - name: Delete Railway Environment for PR
-          run: railway environment delete pr-${{ github.event.pull_request.number }} || true
+  pr_closed:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    container: ghcr.io/railwayapp/cli:latest
+    steps:
+      - name: Link to project
+        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project
+      - name: Delete Railway Environment for PR
+        run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```
 
 **Note:** if you are using a team project, you need to ensure that the token specified is scoped to your account, not a workspace.

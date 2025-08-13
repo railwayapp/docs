@@ -53,7 +53,7 @@ export default function PostPage({
       frontMatter={{
         title: page.title,
         description: page.description,
-        url: page.url
+        url: page.url,
       }}
     >
       <MDXContent components={componentsWithProps} />

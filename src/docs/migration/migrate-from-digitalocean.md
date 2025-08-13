@@ -29,19 +29,19 @@ Let's walk through migrating a WordPress site from DigitalOcean to Railway. This
 
 - Ensure you have a backup of your existing site. Use a WordPress backup plugin of your choice to export your site data.
 
-    Make sure this backup includes, All WordPress files, All WordPress database tables, All WordPress uploads.
+  Make sure this backup includes, All WordPress files, All WordPress database tables, All WordPress uploads.
 
 - Document your current configuration
 
-    - Note any custom domain settings
+  - Note any custom domain settings
 
-    - Keep track of your username and password for wp-admin.
+  - Keep track of your username and password for wp-admin.
 
 ### 2. Deploy WordPress
 
 - Open the [WordPress Template](https://railway.com/template/EP4wIt) page
 
-    <Image src="https://res.cloudinary.com/railway/image/upload/v1741839172/docs/do-migration-guide/wordpress_template_pqnksc.png"
+  <Image src="https://res.cloudinary.com/railway/image/upload/v1741839172/docs/do-migration-guide/wordpress_template_pqnksc.png"
     alt="Screenshot of the WordPress template"
     layout="responsive"
     width={1301} height={799} quality={100} />
@@ -98,7 +98,7 @@ width={763} height={505} quality={100} />
 
 ### 5. Verify Migration
 
-Before finalizing your migration - 
+Before finalizing your migration -
 
 1. Test all WordPress functionality
 

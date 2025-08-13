@@ -3,7 +3,7 @@ title: Build a Database Service
 description: Learn how to build a database service on Railway.
 ---
 
-Railway's platform primitives allow you to build any type of service your system requires, including database services.  This guide aims to guide you through the essential features to build your own database service.
+Railway's platform primitives allow you to build any type of service your system requires, including database services. This guide aims to guide you through the essential features to build your own database service.
 
 For the purpose of this guide, we will use the official <a href="https://hub.docker.com/_/postgres" target="_blank">Postgres image</a> as an example.
 
@@ -21,7 +21,7 @@ width={559} height={168} quality={80} />
 
 ## Volumes
 
-Attach a [volume](/guides/volumes) to any service, to keep your data safe between deployments.  For the Postgres image, the default mount path is `/var/lib/postgresql/data`.
+Attach a [volume](/guides/volumes) to any service, to keep your data safe between deployments. For the Postgres image, the default mount path is `/var/lib/postgresql/data`.
 
 Just attach a volume to the service you created, at the mount path:
 
@@ -41,13 +41,13 @@ alt="Screenshot of environment variables"
 layout="responsive"
 width={460} height={458} quality={80} />
 
-Note the `DATABASE_URL` is configured with TCP Proxy variables, but you can also connect to the database service over the private network.  More information below.
+Note the `DATABASE_URL` is configured with TCP Proxy variables, but you can also connect to the database service over the private network. More information below.
 
 ## Connecting
 
 ### Private Network
 
-To connect to your database service from other services in your project, you can use the [private network](/guides/private-networking).  For a postgres database service listening on port `5432`, you can use a connection string like this - 
+To connect to your database service from other services in your project, you can use the [private network](/guides/private-networking). For a postgres database service listening on port `5432`, you can use a connection string like this -
 
 ```bash
 postgresql://postgres:password@postgres.railway.internal:5432/railway
@@ -65,15 +65,16 @@ width={1200} height={822} quality={100} />
 
 ## Conclusion
 
-That's all it takes to spin up a Postgres service in Railway directly from the official Postgres image.  Hopefully this gives you enough direction to feel comfortable exploring other database images to deploy.  
+That's all it takes to spin up a Postgres service in Railway directly from the official Postgres image. Hopefully this gives you enough direction to feel comfortable exploring other database images to deploy.
 
-Remember you can also deploy from a Dockerfile which would generally involve the same features and steps.  For an example of a Dockerfile that builds a custom image with the official Postgres image as base, take a look at <a href="https://github.com/railwayapp-templates/postgres-ssl" target="_blank">Railway's SSL-enabled Postgres image repo</a>.
+Remember you can also deploy from a Dockerfile which would generally involve the same features and steps. For an example of a Dockerfile that builds a custom image with the official Postgres image as base, take a look at <a href="https://github.com/railwayapp-templates/postgres-ssl" target="_blank">Railway's SSL-enabled Postgres image repo</a>.
 
 ### Template Marketplace
 
-Need inspiration or looking for a specific database?  Our <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> already includes solutions for many different database services.  You might even find a template for the database you need!
+Need inspiration or looking for a specific database? Our <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> already includes solutions for many different database services. You might even find a template for the database you need!
 
-Here are some suggestions to check out - 
+Here are some suggestions to check out -
+
 - <a href="https://railway.com/template/SMKOEA" target="_blank">Minio</a>
 - <a href="https://railway.com/template/clickhouse" target="_blank">ClickHouse</a>
 - <a href="https://railway.com/template/dragonfly" target="_blank">Dragonfly</a>

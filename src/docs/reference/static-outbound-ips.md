@@ -27,6 +27,7 @@ Customers on the Pro plan can enable Static Outbound IPs for any service they wi
   width={1328} height={710} quality={80} />
 
 ## Caveats
+
 - There is no guarantee that the IPv4 address assigned to your service is dedicated. It may be shared with other customers.
-- The  IP address cannot be used for inbound traffic.
+- The IP address cannot be used for inbound traffic.
 - If you wish to move your service to a different region, the IP address will change.

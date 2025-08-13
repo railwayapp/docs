@@ -19,7 +19,7 @@ Each replica has access to the full resources allocated by your plan. For instan
 
 #### Multi-region replicas
 
-Multi-region replicas are exactly as advertised -- horizontally scaled replicas that are located in different geographic regions. 
+Multi-region replicas are exactly as advertised -- horizontally scaled replicas that are located in different geographic regions.
 
 The service settings panel will reveal an interface for assigning replicas to different regions.
 

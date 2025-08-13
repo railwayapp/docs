@@ -9,6 +9,7 @@ zero configuration.
 ## Supported Languages
 
 Currently, we support the following languages out of the box:
+
 - [Bun](https://nixpacks.com/docs/providers/node#bun-support) (Experimental)
 - [Clojure](https://nixpacks.com/docs/providers/clojure)
 - [Cobol](https://nixpacks.com/docs/providers/cobol)

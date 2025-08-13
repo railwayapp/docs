@@ -27,6 +27,7 @@ npx sv create svelteapp
 ```
 
 Follow the prompts:
+
 1. Select the `SvelteKit demo` template.
 2. Add typechecking with Typescript.
 3. Add prettier, eslint, and tailwindcss.
@@ -62,29 +63,29 @@ Once it is installed, add the adapter to the app's `svelte.config.js` file.
 The `svelte.config.js` file should look like this:
 
 ```js
-import adapter from '@sveltejs/adapter-node';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from "@sveltejs/adapter-node";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
-	preprocess: vitePreprocess(),
+  // Consult https://svelte.dev/docs/kit/integrations
+  // for more information about preprocessors
+  preprocess: vitePreprocess(),
 
-	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
-	}
+  kit: {
+    // adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
+    // If your environment is not supported, or you settled on a specific environment, switch out the adapter.
+    // See https://svelte.dev/docs/kit/adapters for more information about adapters.
+    adapter: adapter(),
+  },
 };
 
 export default config;
 ```
 
-Next, we need to add the start script to the `package.json` file. 
+Next, we need to add the start script to the `package.json` file.
 
-Svelte builds your project into a `build` directory. The server starts when the server entry point is executed, which is by default located at `build/index.js`. 
+Svelte builds your project into a `build` directory. The server starts when the server entry point is executed, which is by default located at `build/index.js`.
 
 Open up the `package.json` file and add the start script. Set it to `node build/index.js` like so:
 
@@ -128,13 +129,14 @@ Open up the `package.json` file and add the start script. Set it to `node build/
 	}
 }
 ```
+
 _package.json_
 
 Now, we are ready to deploy!
 
 ## Deploy the SvelteKit App to Railway
 
-Railway offers multiple ways to deploy your SvelteKit app, depending on your setup and preference. 
+Railway offers multiple ways to deploy your SvelteKit app, depending on your setup and preference.
 
 ### One-Click Deploy from a Template
 
@@ -151,24 +153,24 @@ We highly recommend that [you eject from the template after deployment](/guides/
 ### Deploy from the CLI
 
 1. **Install the Railway CLI**:
-    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
+   - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your SvelteKit app directory. 
-        ```bash
-        railway init
-        ```
-    - Follow the prompts to name your project.
-    - After the project is created, click the provided link to view it in your browser.
+   - Run the command below in your SvelteKit app directory.
+     ```bash
+     railway init
+     ```
+   - Follow the prompts to name your project.
+   - After the project is created, click the provided link to view it in your browser.
 3. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-    - Once the deployment completes, go to **View logs** to check if the service is running successfully.
+   - Use the command below to deploy your app:
+     ```bash
+     railway up
+     ```
+   - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+   - Once the deployment completes, go to **View logs** to check if the service is running successfully.
 4. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1730489695/docs/quick-start/sveltekit_on_railway.png"
 alt="screenshot of the deployed SvelteKit service"
@@ -180,46 +182,48 @@ width={2695} height={2199} quality={100} />
 To deploy a SvelteKit app to Railway directly from GitHub, follow the steps below:
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
-2. **Deploy from GitHub**: 
-    - Select **Deploy from GitHub repo** and choose your repository.
-        - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
-3. **Deploy the App**: 
-    - Click **Deploy** to start the deployment process.
-    - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
+2. **Deploy from GitHub**:
+   - Select **Deploy from GitHub repo** and choose your repository.
+     - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
+3. **Deploy the App**:
+   - Click **Deploy** to start the deployment process.
+   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
 4. **Verify the Deployment**:
-    - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
+   - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
 5. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
 1. Create a `Dockerfile` in the SvelteKit app's root directory.
 2. Add the content below to the `Dockerfile`:
-    ```bash
-    # Use the Node alpine official image
-    # https://hub.docker.com/_/node
-    FROM node:lts-alpine
 
-    # Create and change to the app directory.
-    WORKDIR /app
+   ```bash
+   # Use the Node alpine official image
+   # https://hub.docker.com/_/node
+   FROM node:lts-alpine
 
-    # Copy the files to the container image
-    COPY package*.json ./
+   # Create and change to the app directory.
+   WORKDIR /app
 
-    # Install packages
-    RUN npm ci
+   # Copy the files to the container image
+   COPY package*.json ./
 
-    # Copy local code to the container image.
-    COPY . ./
+   # Install packages
+   RUN npm ci
 
-    # Build the app.
-    RUN npm run build
-    
-    # Serve the app
-    CMD ["npm", "run", "start"]
-    ```
+   # Copy local code to the container image.
+   COPY . ./
+
+   # Build the app.
+   RUN npm run build
+
+   # Serve the app
+   CMD ["npm", "run", "start"]
+   ```
+
 3. Either deploy via the CLI or from GitHub.
 
 Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
@@ -234,4 +238,3 @@ Explore these resources to learn how you can maximize your experience with Railw
 
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your app](/guides/monitoring)
-

@@ -15,7 +15,6 @@ If you haven't used GraphQL before, here are a few resources to get started:
 2. The [GraphQL Basics](https://hasura.io/learn/graphql/intro-graphql/introduction/) course by Hasura
 3. [GraphQL is the better REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/) to understand how it is different from a REST API
 
-
 ## Connecting to the Public API
 
 To connect to and query the Public API, you will need the endpoint URL and a token for authentication.
@@ -44,7 +43,7 @@ width={1618 } height={378} quality={80} />
 - **Team token** - Select a team in the `Team` dropdown to create a token tied to a team. A team token has access to all the team's resources, and cannot be used to access your personal resources on Railway. Feel free to share this token with your teammates.
 - **Account token** - If you do not select a team, the token will be tied to your Railway account and will have access to all your resources including the teams you are a part of. Do not share this token with anyone else.
 
-*Note that Teams are a Pro feature.*
+_Note that Teams are a Pro feature._
 
 #### Project Token
 
@@ -86,7 +85,7 @@ curl --request POST \
 
 #### Using a Project Token
 
-If you have a project token, you can use it to authenticate requests to a specific environment within a project.  The query below should return the project and environment IDs:
+If you have a project token, you can use it to authenticate requests to a specific environment within a project. The query below should return the project and environment IDs:
 
 ```bash
 curl --request POST \
@@ -98,11 +97,11 @@ curl --request POST \
 
 ## Viewing the Schema
 
-Use popular tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) to connect to the API and query the schema.  Simply set up your connection with the endpoint and Authorization token, and fetch the schema.
+Use popular tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) to connect to the API and query the schema. Simply set up your connection with the endpoint and Authorization token, and fetch the schema.
 
 ### API Collection File
 
-We also provide a collection file which can be imported into your preferred API client.  Click [here](https://gql-collection-server.up.railway.app/railway_graphql_collection.json) to download it.
+We also provide a collection file which can be imported into your preferred API client. Click [here](https://gql-collection-server.up.railway.app/railway_graphql_collection.json) to download it.
 
 Once imported, you should only need to add your API token to get connected and start executing queries in the collection.
 
@@ -115,7 +114,7 @@ Alternatively, you can use our [GraphiQL playground](https://railway.com/graphiq
 Make sure to set an Authorization header with an [auth token](/reference/public-api#authentication). Click the "Headers" tab at the bottom of the GraphiQL page and enter this json, using your own token:
 
 ```json
-{"Authorization": "Bearer <API_TOKEN_GOES_HERE>"}
+{ "Authorization": "Bearer <API_TOKEN_GOES_HERE>" }
 ```
 
 ## Tips and Tricks
@@ -137,7 +136,7 @@ If you're unsure about what query/mutation to use for what you are trying to ach
 
 ## Examples
 
-To help you get started, we have provided some example queries in the guides within this section - 
+To help you get started, we have provided some example queries in the guides within this section -
 
 - [Manage Projects](/guides/manage-projects)
 - [Manage Services](/guides/manage-services)
@@ -150,4 +149,4 @@ If you run into problems using the API or have any suggestions, feel free to joi
 
 ### Rate Limits
 
-Rate limits are enforced on the Public API.  For details on the limits visit the [Public API reference page](/reference/public-api#rate-limits).
+Rate limits are enforced on the Public API. For details on the limits visit the [Public API reference page](/reference/public-api#rate-limits).

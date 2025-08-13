@@ -29,8 +29,8 @@ In the scenario where your deployed service needs more resources, you can either
 
 - Vertically: you will need to manually upgrade to a large instance size to unlock more compute resources.
 - Horizontally: your workload will be distributed across multiple running instances. You can either:
-    - Manually specify the machine count.
-    - Autoscale by defining a minimum and maximum instance count. The number of running instances will increase/decrease based on a target CPU and/or memory utilization you specify.
+  - Manually specify the machine count.
+  - Autoscale by defining a minimum and maximum instance count. The number of running instances will increase/decrease based on a target CPU and/or memory utilization you specify.
 
 The main drawback of this setup is that it requires manual developer intervention. Either by:
 
@@ -63,7 +63,7 @@ You can also set services to start on a schedule using a crontab expression. Thi
 
 ### Heroku
 
-Heroku follows a traditional, instance-based pricing. You select the amount of compute resources you need from a list of instance sizes where each one has a fixed monthly price. 
+Heroku follows a traditional, instance-based pricing. You select the amount of compute resources you need from a list of instance sizes where each one has a fixed monthly price.
 
 ![Heroku instances](https://res.cloudinary.com/railway/image/upload/v1753470544/docs/comparison-docs/heroku-instances_migpfb.png)
 
@@ -101,47 +101,47 @@ Finally, Railway’s infrastructure runs on hardware that’s owned and operated
 
 ### Heroku
 
-Heroku’s unit of deployment is the app, and each app is deployed independently. If you have a different infrastructure components (e.g. API, frontend, background workers, etc.) they will be treated as independent entities. There is no top‑level “project” object that groups related apps. 
+Heroku’s unit of deployment is the app, and each app is deployed independently. If you have a different infrastructure components (e.g. API, frontend, background workers, etc.) they will be treated as independent entities. There is no top‑level “project” object that groups related apps.
 
 Additionally, Heroku does not support shared environment variables across apps. Each deployed app has its own isolated set of variables, making it harder to manage secrets or config values shared across multiple services.
 
 ![Heroku dashboard](https://res.cloudinary.com/railway/image/upload/v1753473858/docs/comparison-docs/heroku-dashboard_wxr3sw.png)
 
-Finally, Heroku lacks support for [wildcard domains](https://en.wikipedia.org/wiki/Wildcard_DNS_record), a common feature for multi-tenant or custom-subdomain applications. You’ll need to manually configure each subdomain, which adds operational overhead. 
+Finally, Heroku lacks support for [wildcard domains](https://en.wikipedia.org/wiki/Wildcard_DNS_record), a common feature for multi-tenant or custom-subdomain applications. You’ll need to manually configure each subdomain, which adds operational overhead.
 
 ### Railway
 
-Railway’s dashboard offers a real-time collaborative canvas where you can view all of your running services and databases at a glance. You can group the different infrastructure components and visualize how they’re related to one other. 
+Railway’s dashboard offers a real-time collaborative canvas where you can view all of your running services and databases at a glance. You can group the different infrastructure components and visualize how they’re related to one other.
 
-You can also share environment variables between services, streamlining config management across complex projects with multiple components. 
+You can also share environment variables between services, streamlining config management across complex projects with multiple components.
 
 ![Railway canvas](https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png)
 
-Additionally, Railway supports wildcard domains out-of-the-box. You can easily configure a wildcard domain at the project level to dynamically handle multiple subdomains. 
+Additionally, Railway supports wildcard domains out-of-the-box. You can easily configure a wildcard domain at the project level to dynamically handle multiple subdomains.
 
 Finally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
 
-Check out all templates at [railway.com/deploy](http://railway.com/deploy) 
+Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 
 ## Summary
 
-| **Category** | **Heroku** | **Railway** |
-|--------------|------------|-------------|
-| **Scaling Model** | Instance-based | Usage-based |
-| **Vertical Scaling** | Manual upgrade to larger instance sizes | Auto-scales to the plan's limits without manual intervention |
-| **Horizontal Scaling** | Manual or threshold-based autoscaling; requires setting CPU/memory limits | Add replicas manually; traffic routed automatically across replicas and regions |
-| **Autoscaling Flexibility** | Threshold-based, needs manual tuning | Fully automated; scales based on workload |
-| **Multi-region Support** | Not natively supported; must set up separate apps + external load balancer | Built-in; auto-routes traffic to nearest region and balances load across replicas |
-| **Persistent Storage** | Not supported; ephemeral file system only | Persistent volumes are supported |
-| **Private Networking** | Available with paid Enterprise add-on | Included at no extra cost |
-| **Pricing Model** | Fixed monthly pricing per instance size. Manual tuning required to avoid under/over-provisioning | Usage-based: Charged by active compute time × resource size (CPU & RAM). Inherently optimized by dynamic scaling |
-| **Infrastructure Provider** | AWS-based; higher base costs | Railway-owned global infrastructure; lower costs and no feature gating |
-| **Dashboard UX** | Traditional app-based dashboard; each app is independent | Visual, collaborative canvas view for full projects with interlinked services |
-| **Project Structure** | No concept of grouped services/projects | Groups all infra components visually under a unified project view |
-| **Environment Variables** | Isolated per app | Isolated per app but can be shared across services within a project |
-| **Wildcard Domains** | Not supported; manual configuration needed per subdomain | Fully supported; configure at the project level |
+| **Category**                | **Heroku**                                                                                       | **Railway**                                                                                                      |
+| --------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| **Scaling Model**           | Instance-based                                                                                   | Usage-based                                                                                                      |
+| **Vertical Scaling**        | Manual upgrade to larger instance sizes                                                          | Auto-scales to the plan's limits without manual intervention                                                     |
+| **Horizontal Scaling**      | Manual or threshold-based autoscaling; requires setting CPU/memory limits                        | Add replicas manually; traffic routed automatically across replicas and regions                                  |
+| **Autoscaling Flexibility** | Threshold-based, needs manual tuning                                                             | Fully automated; scales based on workload                                                                        |
+| **Multi-region Support**    | Not natively supported; must set up separate apps + external load balancer                       | Built-in; auto-routes traffic to nearest region and balances load across replicas                                |
+| **Persistent Storage**      | Not supported; ephemeral file system only                                                        | Persistent volumes are supported                                                                                 |
+| **Private Networking**      | Available with paid Enterprise add-on                                                            | Included at no extra cost                                                                                        |
+| **Pricing Model**           | Fixed monthly pricing per instance size. Manual tuning required to avoid under/over-provisioning | Usage-based: Charged by active compute time × resource size (CPU & RAM). Inherently optimized by dynamic scaling |
+| **Infrastructure Provider** | AWS-based; higher base costs                                                                     | Railway-owned global infrastructure; lower costs and no feature gating                                           |
+| **Dashboard UX**            | Traditional app-based dashboard; each app is independent                                         | Visual, collaborative canvas view for full projects with interlinked services                                    |
+| **Project Structure**       | No concept of grouped services/projects                                                          | Groups all infra components visually under a unified project view                                                |
+| **Environment Variables**   | Isolated per app                                                                                 | Isolated per app but can be shared across services within a project                                              |
+| **Wildcard Domains**        | Not supported; manual configuration needed per subdomain                                         | Fully supported; configure at the project level                                                                  |
 
 ## Migrate from Heroku to Railway
 
@@ -150,26 +150,23 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 ### Deploying your app
 
 1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
-    
+
 ![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
-    
 
 2. If your project is using any environment variables or secrets:
-    1. Click on the deployed service.
-    2. Navigate to the “Variables” tab. 
-    3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
-    
+   1. Click on the deployed service.
+   2. Navigate to the “Variables” tab.
+   3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
 
 ![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
 3. To make your project accessible over the internet, you will need to configure a domain:
-    1. From the project’s canvas, click on the service you would like to configure.
-    2. Navigate to the “Settings” tab.
-    3. Go to the “Networking” section.
-    4. You can either:
-        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
-        2. Add a custom domain: follow the DNS configuration steps.
-
+   1. From the project’s canvas, click on the service you would like to configure.
+   2. Navigate to the “Settings” tab.
+   3. Go to the “Networking” section.
+   4. You can either:
+      1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+      2. Add a custom domain: follow the DNS configuration steps.
 
 ## Need help or have questions?
 

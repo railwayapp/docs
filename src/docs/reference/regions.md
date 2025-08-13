@@ -5,15 +5,16 @@ description: Explore the multiple regions worldwide where you can deploy your ap
 
 Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located. **This feature is only available to Pro plan workspaces.**
 
- Consider factors like compliance needs and proximity to your users when choosing a region.
+Consider factors like compliance needs and proximity to your users when choosing a region.
 
 ## Region Options
+
 Railway has deploy regions in the Americas, Europe, and Asia-Pacific to provide broad coverage around the world.
 
 Within the service settings, you can select one of the following regions:
 
 | Name                 | Location               | Region Identifier        |
-|----------------------|------------------------|--------------------------|
+| -------------------- | ---------------------- | ------------------------ |
 | US West Metal        | California, USA        | `us-west2`               |
 | US East Metal        | Virginia, USA          | `us-east4-eqdc4a`        |
 | EU West Metal        | Amsterdam, Netherlands | `europe-west4-drams3a`   |

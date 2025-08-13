@@ -8,18 +8,19 @@ Railway's infrastructure spans multiple regions across the globe. This allows yo
 Consider factors like compliance needs and proximity to your users when choosing a region.
 
 ## Region Options
+
 Railway has deploy regions in the Americas, Europe, and Asia-Pacific to provide broad coverage around the world.
 
 Within the service settings, you can select one of the following regions -
 
 | Name                 | Location               | Region Identifier        |
-|----------------------|------------------------|--------------------------|
+| -------------------- | ---------------------- | ------------------------ |
 | US West Metal        | California, USA        | `us-west2`               |
 | US East Metal        | Virginia, USA          | `us-east4-eqdc4a`        |
 | EU West Metal        | Amsterdam, Netherlands | `europe-west4-drams3a`   |
 | Southeast Asia Metal | Singapore              | `asia-southeast1-eqsg3a` |
 
-*Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
+_Additional regions may be added in the future as Railway continues expanding its infrastructure footprint._
 
 **Note:** The region identifier is the value that can be used in your [Config as Code file](/reference/config-as-code#multi-region-configuration).
 
@@ -56,6 +57,5 @@ Note that this migration can take a while depending on the size of the volume, a
     width={732}
     height={483}
 />
-
 
 The same is true if you attach a detached volume to a service in a different region. It will need to be migrated to the new region, which can take a while and cause downtime.

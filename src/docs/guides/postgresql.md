@@ -38,7 +38,7 @@ it to connect to PostgreSQL but you can use these variables in whatever way work
 
 It is possible to connect to PostgreSQL externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
 
-*Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy.*
+_Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
 
 ### Modify the Deployment
 
@@ -48,14 +48,14 @@ We also encourage you to fork the [Railway postgres-ssl repository](https://gith
 
 ## Backups and Observability
 
-Especially for production environments, performing regular backups and monitoring the health of your database is essential.  Consider adding:
+Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
 
 - **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/reference/backups) feature.
 
-- **Observability**: Implement monitoring for insights into performance and health of your databases.  If you're not already running an observability stack, check out these templates to help you get started building one:
-    - [Prometheus](https://railway.com/template/KmJatA)
-    - [Grafana](https://railway.com/template/anURAt)
-    - [PostgreSQL Exporter](https://railway.com/template/gDzHrM)
+- **Observability**: Implement monitoring for insights into performance and health of your databases. If you're not already running an observability stack, check out these templates to help you get started building one:
+  - [Prometheus](https://railway.com/template/KmJatA)
+  - [Grafana](https://railway.com/template/anURAt)
+  - [PostgreSQL Exporter](https://railway.com/template/gDzHrM)
 
 ## Extensions
 
@@ -109,9 +109,10 @@ For example, to increase the SHM Size to 500MB, you would set the variable to `5
 
 ## Additional Resources
 
-While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.  
+While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.
 
-We *strongly encourage you* to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively.  Here are some links to help you get started:
+We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
+
 - [PostgreSQL Documentation](https://www.postgresql.org/)
 - [PostgreSQL High Availability Documentation](https://www.postgresql.org/docs/current/high-availability.html)
 - [Repmgr Documentation](https://www.repmgr.org/docs/current/getting-started.html)

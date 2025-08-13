@@ -41,7 +41,7 @@ alt="Railway Log Explorer"
 layout="responsive"
 width={1166} height={650} quality={80} />
 
-## Command Line 
+## Command Line
 
 Deployment logs can also be viewed from the command line to quickly check the current status of the latest deployment. Use `railway logs` to view them.
 
@@ -61,7 +61,7 @@ Filter syntax is available for all log types, but some log types have specific a
 
 - `<search term>` → Filter for a partial substring match
 
-- `"<search term>"` → Filter for an exact log message 
+- `"<search term>"` → Filter for an exact log message
 
 - `replica:<replica_id>` → Filter by a specific replica's UUID
 
@@ -129,7 +129,7 @@ Filter out logs from the Postgres database service.
 -@service:<postgres_service_id>
 ```
 
-Filter logs from the Postgres database service and the Redis cache service. 
+Filter logs from the Postgres database service and the Redis cache service.
 
 ```text
 -@service:<postgres_service_id> AND -@service:<redis_service_id>
@@ -208,8 +208,8 @@ Find all requests that originated from a specific IP address.
 ## View In Context
 
 Often, when searching for a log, it is useful to see the surrounding logs. To
-do this, either click the "Timestamp" column, or expand any log and click 
-the "View in Context" button. 
+do this, either click the "Timestamp" column, or expand any log and click
+the "View in Context" button.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1694195189/docs/CleanShot_2023-09-08_at_10.45.51_2x_nwxqid.png"
@@ -223,11 +223,13 @@ Structured logs are logs emitted in a structured JSON format, useful if you want
 to attach custom metadata to logs or preserve multi-line logs like stack traces.
 
 ```typescript
-console.log(JSON.stringify({
-  message: "A minimal structured log", // (required) The content of the log
-  level: "info", // Severity of the log (debug, info, warn, error)
-  customAttribute: "value", // Custom attributes (query via @name:value)
-}));
+console.log(
+  JSON.stringify({
+    message: "A minimal structured log", // (required) The content of the log
+    level: "info", // Severity of the log (debug, info, warn, error)
+    customAttribute: "value", // Custom attributes (query via @name:value)
+  }),
+);
 ```
 
 Structured logs are best generated with a library for your language. For example, the default <a href="https://github.com/winstonjs/winston" target="_blank">Winston</a>. JSON format emits logs in the correct structure by default.
@@ -243,19 +245,24 @@ Here are a few examples of structured logs.
 **Note:** The entire JSON log must be emitted on a single line to be parsed correctly.
 
 ```json
-{"level":"info","message":"A minimal structured log"}
+{ "level": "info", "message": "A minimal structured log" }
 ```
 
 ```json
-{"level":"error","message":"Something bad happened"}
+{ "level": "error", "message": "Something bad happened" }
 ```
 
 ```json
-{"level":"info","message":"New purchase!","productId":123,"userId":456}
+{ "level": "info", "message": "New purchase!", "productId": 123, "userId": 456 }
 ```
 
 ```json
-{"level":"info","message":"User roles updated","roles":["editor","viewer"],"userId":123}
+{
+  "level": "info",
+  "message": "User roles updated",
+  "roles": ["editor", "viewer"],
+  "userId": 123
+}
 ```
 
 ### Normalization Strategy
