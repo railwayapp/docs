@@ -15,11 +15,8 @@ This is a [NextJS](https://nextjs.org) project. Install Node 18, or install [nvm
 Develop with:
 
 ```bash
-npm i
-npm run dev
-# or
-yarn
-yarn dev
+pnpm i
+pnpm run dev
 ```
 
 Open [localhost:3001](http://localhost:3001) to see the result
