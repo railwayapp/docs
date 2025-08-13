@@ -27,6 +27,9 @@ jobs:
       - name: Install packages
         run: pnpm install --frozen-lockfile
 
+      - name: Generate Prisma Client
+        run: pnpm prisma generate
+
       - name: Build Contentlayer
         run: |
           pnpm contentlayer build 2>&1 | tee build.log

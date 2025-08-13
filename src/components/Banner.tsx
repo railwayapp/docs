@@ -27,6 +27,8 @@ export interface Props {
   hideIcon?: boolean;
   className?: string;
   textContainerStyles?: TwStyle;
+  tw?: string;
+  css?: TwStyle[];
 }
 
 const containerStyles: Record<BannerVariant, TwStyle> = {

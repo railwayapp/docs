@@ -1,11 +1,13 @@
 import React from "react";
-import tw, { styled } from "twin.macro";
+import tw, { styled, TwStyle } from "twin.macro";
 
 export type IconSize = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "none";
 
 export interface Props {
   icon: React.ComponentType;
   size?: IconSize;
+  tw?: string;
+  css?: TwStyle[];
 }
 
 const sizes: Record<IconSize, string | undefined> = {
