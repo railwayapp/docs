@@ -3,7 +3,7 @@ title: Errors
 description: List of common errors when deploying to Railway—and how to resolve them.
 ---
 
-{/**
+{/*
 The subpages of this page hold descriptions and solutions to common errors users may face
 when deploying to Railway.
 
@@ -19,7 +19,8 @@ We want to be consistent and complete. When in doubt, try to stick to this formu
             - Python
             - Go
             - ...
-**/}
+
+*/}
 
 When deploying to Railway, you may encounter some errors that prevent your
 application from working as expected.

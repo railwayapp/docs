@@ -7,7 +7,7 @@ description: Learn how to access a private network on Railway by using a Tailsca
 
 > A subnet router is a device within your tailnet that you use as a gateway that advertises routes for other devices that you want to connect to your tailnet without installing the Tailscale client.
 
-*Source: <a href="https://tailscale.com/kb/1019/subnets" target="_blank">Subnet routers</a> Via Tailscale's Documentation*
+_Source: <a href="https://tailscale.com/kb/1019/subnets" target="_blank">Subnet routers</a> Via Tailscale's Documentation_
 
 In the context of Railway, The "other devices" are the services within a project.
 
@@ -39,19 +39,19 @@ This guide assumes you are familiar with the concepts of Private Network, for a 
 
 - Have all the services you plan on connecting to via the tailnet, listening on IPv6.
 
-    This is necessary because the Tailscale tunnel will communicate with your services over Railway's IPv6-only private network.
+  This is necessary because the Tailscale tunnel will communicate with your services over Railway's IPv6-only private network.
 
-    All database services already do this but for information on configuring your service to listen on IPv6, see [here](/guides/private-networking#listen-on-ipv6).
+  All database services already do this but for information on configuring your service to listen on IPv6, see [here](/guides/private-networking#listen-on-ipv6).
 
 **In Tailscale -**
 
 - Have an account.
 
-    You can sign up <a href="https://login.tailscale.com/start" target="_blank">here</a> - For what this template achieves you do not need a paid plan.
+  You can sign up <a href="https://login.tailscale.com/start" target="_blank">here</a> - For what this template achieves you do not need a paid plan.
 
 - Have the Tailscale app installed on your computer.
 
-    You can find the downloads for your OS <a href="https://tailscale.com/download" target="_blank">here</a>.
+  You can find the downloads for your OS <a href="https://tailscale.com/download" target="_blank">here</a>.
 
 ## 1. Getting an Auth Key
 
@@ -66,7 +66,7 @@ width={1261} height={772} quality={100} />
 
 - Click **Generate auth key**.
 
-    Put in a description and leave all other settings as the default.
+  Put in a description and leave all other settings as the default.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349121/docs/tutorials/tailscale-subnet-router/generate_auth_key_oxqr8m.png"
 alt="screenshot of the generate auth key modal in tailscale"
@@ -75,7 +75,7 @@ width={602} height={855} quality={100} />
 
 - Click **Generate key**.
 
-    Tailscale will now show you the newly generated auth key, **be sure to copy it down**.
+  Tailscale will now show you the newly generated auth key, **be sure to copy it down**.
 
 - Click **Done**.
 
@@ -87,7 +87,7 @@ Properly configuring our nameserver in Tailscale is essential for enabling local
 
 - Under the **Nameservers** Header, click **Add Nameserver** → Click **Custom**.
 
-    This is where we'll tell Tailscale how to route the DNS lookups for our `railway.internal` domains.
+  This is where we'll tell Tailscale how to route the DNS lookups for our `railway.internal` domains.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349122/docs/tutorials/tailscale-subnet-router/tailscale_nameservers_en8oma.png"
 alt="screenshot of the nameservers dropdown in tailscale"
@@ -96,14 +96,14 @@ width={813} height={683} quality={100} />
 
 - Enter `fd12::10` as the Nameserver.
 
-    This DNS nameserver is used across all private networks in every environment and will handle our DNS queries for private domains.
+  This DNS nameserver is used across all private networks in every environment and will handle our DNS queries for private domains.
 
 - Enable the **Restrict to domain** option, AKA Split DNS.
 
 - Enter in `railway.internal` as our domain.
 
-    This makes sure only DNS lookups for our private domain are forwarded to the private DNS resolver.
-    
+  This makes sure only DNS lookups for our private domain are forwarded to the private DNS resolver.
+
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/add_nameserver_mlkk5y.png"
 alt="screenshot of the add nameserver modal in tailscale"
 layout="intrinsic"
@@ -117,7 +117,7 @@ This will be the gateway into our environment's private network.
 
 - Open the project that contains the services you want to access privately.
 
-    For this tutorial, we will deploy the Subnet Router into a project with a Postgres database service.
+  For this tutorial, we will deploy the Subnet Router into a project with a Postgres database service.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349122/docs/tutorials/tailscale-subnet-router/project_with_postgres_x19ggr.png"
 alt="screenshot of a project canvas on railway showing a single postgres service"
@@ -128,7 +128,7 @@ width={1363} height={817} quality={100} />
 
 - Search for the <a href="https://railway.com/template/tailscale" target="_blank">Tailscale Subnet Router</a> template.
 
-    Choose the result that is published by **Railway Templates**.
+  Choose the result that is published by **Railway Templates**.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1743471191/docs/template-tailscale_ryph2o.png"
 alt="screenshot of the choose a template modal showing the tailscale template within railway"
@@ -200,7 +200,7 @@ alt="screenshot of dbgate showing that we have successfully connected to our dat
 layout="intrinsic"
 width={1316} height={506} quality={100} />
 
-*Note the use of our private domain and port in the database URL.*
+_Note the use of our private domain and port in the database URL._
 
 **Additional Resources**
 

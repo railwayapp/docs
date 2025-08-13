@@ -13,7 +13,7 @@ Under the hood, Railway is using encrypted Wireguard tunnels to create an IPv6 m
 
 ### Internal DNS
 
-Every service in a project and environment gets an internal DNS name under the `railway.internal` domain that resolves to the internal IP address of the service. 
+Every service in a project and environment gets an internal DNS name under the `railway.internal` domain that resolves to the internal IP address of the service.
 
 This allows communication between services in an environment without exposing any ports publicly. Any valid IPv6 traffic is allowed, UDP, TCP and HTTP.
 

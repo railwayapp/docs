@@ -11,7 +11,7 @@ Services configured as cron jobs are expected to execute a task, and terminate a
 
 To configure a cron job -
 
-1. Select a service and go to the Settings section. 
+1. Select a service and go to the Settings section.
 2. Within "Cron Schedule", input a [crontab expression](/reference/cron-jobs#crontab-expressions).
 3. Once the setting is saved, the service will run according to the cron schedule.
 
@@ -19,7 +19,7 @@ Find more information about cron jobs, including examples of cron expressions, i
 
 ## Why Isn't My Cron Running as Scheduled?
 
-An important requirement of a service that runs as a Cron, is that it terminates on completion and leaves no open resources.  If the code that runs in your Cron service does not exit, subsequent executions of the Cron will be skipped.
+An important requirement of a service that runs as a Cron, is that it terminates on completion and leaves no open resources. If the code that runs in your Cron service does not exit, subsequent executions of the Cron will be skipped.
 
 If you see that a previous execution of your Cron service has a status of `Active`, the execution is still running and any new executions will not be run.
 

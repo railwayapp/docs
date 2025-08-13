@@ -13,7 +13,7 @@ width={1103} height={523} quality={80} />
 
 ## Rollback
 
-Rollback to previous deployments if mistakes were made.  To perform a rollback, click the three dots at the end of a previous deployment, you will then be asked to confirm your rollback.
+Rollback to previous deployments if mistakes were made. To perform a rollback, click the three dots at the end of a previous deployment, you will then be asked to confirm your rollback.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1645149734/docs/rollback_mhww2u.png"
@@ -24,7 +24,7 @@ width={1518} height={502} quality={80} />
 A deployment rollback will revert to the previously successful deployment. Both the Docker
 image and custom variables are restored during the rollback process.
 
-*Note: Deployments older than your [plan's retention policy](/reference/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible.*
+_Note: Deployments older than your [plan's retention policy](/reference/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible._
 
 ## Redeploy
 
@@ -38,9 +38,9 @@ width={888} height={493} quality={100} />
 
 This will create an new deployment with the exact same code and build/deploy configuration.
 
-*Note: To trigger a deployment from the latest commit, use the Command Pallette: `CMD + K` -> "Deploy Latest Commit".  This will deploy the latest commit from the **Default** branch in GitHub.*
+_Note: To trigger a deployment from the latest commit, use the Command Pallette: `CMD + K` -> "Deploy Latest Commit". This will deploy the latest commit from the **Default** branch in GitHub._
 
-*Currently, there is no way to force a deploy from a branch other than the Default without [connecting it in your service settings](/guides/github-autodeploys#configure-the-github-branch-for-deployment-triggers).*
+_Currently, there is no way to force a deploy from a branch other than the Default without [connecting it in your service settings](/guides/github-autodeploys#configure-the-github-branch-for-deployment-triggers)._
 
 ## Cancel
 
@@ -82,8 +82,10 @@ Services that have circular dependencies will simply ignore them and deploy as n
 For example, let's say you're deploying an API service that depends on a [PostgreSQL database](https://docs.railway.com/guides/postgresql).
 
 When you have services with reference variables like:
+
 - API Service has `DATABASE_URL=${{Postgres.DATABASE_URL}}` which is defined on your Postgres Service in the same project.
 
 Railway will:
+
 1. Deploy the Postgres Service first
 2. Then deploy the API Service (since it has a reference variable to Postgres)

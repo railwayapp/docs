@@ -1,5 +1,5 @@
 import { scrollToID } from "@/utils/scroll";
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 
 interface AnchorProps {
   href: string;

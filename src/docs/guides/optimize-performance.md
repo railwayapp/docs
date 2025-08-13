@@ -3,7 +3,7 @@ title: Optimize Performance
 description: Explore quick ways to optimize your app's performance on Railway.
 ---
 
-Railway offers some quick and easy ways to configure deployments for achieving optimal performance.  
+Railway offers some quick and easy ways to configure deployments for achieving optimal performance.
 
 Specifically, we offer the following features:
 
@@ -28,10 +28,9 @@ Railway's infrastructure spans multiple regions across the globe, and by default
     height={934}
 />
 
-
 To change the number of replicas per deploy within your service, go to the service settings view and look for the "Regions" field in the "Deploy" section. This will create multiple instances of your service and distribute traffic between them.
 
-*Additional regions may be added in the future as Railway continues expanding its infrastructure footprint.*
+_Additional regions may be added in the future as Railway continues expanding its infrastructure footprint._
 
 ### Replica ID Environment Variable
 

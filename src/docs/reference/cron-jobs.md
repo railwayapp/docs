@@ -3,11 +3,11 @@ title: Cron Jobs
 description: Learn how to run cron jobs on Railway.
 ---
 
-Cron Jobs allow you to start a service based on a crontab expression. 
+Cron Jobs allow you to start a service based on a crontab expression.
 
 ## How it Works
 
-Railway will look for a defined cron schedule in your service settings, and execute the start command for that service on the given schedule.  The service is expected to execute a task, and exit as soon as that task is finished, not leaving any resources open, such as database connections. More on [execution requirements](/reference/cron-jobs#service-execution-requirements) below.
+Railway will look for a defined cron schedule in your service settings, and execute the start command for that service on the given schedule. The service is expected to execute a task, and exit as soon as that task is finished, not leaving any resources open, such as database connections. More on [execution requirements](/reference/cron-jobs#service-execution-requirements) below.
 
 #### Scheduling Libraries
 
@@ -21,7 +21,7 @@ Currently, Railway does not automatically terminate deployments. As a result, if
 
 ## Crontab Expressions
 
-A crontab expression is a scheduling format used in Unix-like operating systems to specify when and how often a command or script should be executed automatically. 
+A crontab expression is a scheduling format used in Unix-like operating systems to specify when and how often a command or script should be executed automatically.
 
 Crontab expressions consists of five fields separated by spaces, representing different units of time. These fields specify the minute, hour, day of the month, month, and day of the week when the command should be executed.
 

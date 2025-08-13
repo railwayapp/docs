@@ -1,0 +1,11 @@
+# Ignore markdown files to prevent JSX comment syntax issues
+*.md
+**/*.md
+src/docs/**/*.md
+
+# Other common ignores
+.next/
+.contentlayer/
+node_modules/
+build/
+dist/

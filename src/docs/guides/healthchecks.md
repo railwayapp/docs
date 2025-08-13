@@ -13,7 +13,7 @@ To configure a healthcheck:
 
 1. Ensure your webserver has an endpoint (e.g. `/health`) that will return an HTTP status code of 200 when the application is live and ready.
 
-2. Under your service settings, input your health endpoint.  Railway will wait for this endpoint to serve a `200` status code before switching traffic to your new endpoint
+2. Under your service settings, input your health endpoint. Railway will wait for this endpoint to serve a `200` status code before switching traffic to your new endpoint
 
 **Note:** Railway does not monitor the healthcheck endpoint after the deployment has gone live.
 
@@ -59,6 +59,6 @@ If your application does not permit requests from that hostname, you may encount
 
 ### Continuous Healthchecks
 
-The healthcheck endpoint is currently ***not used for continuous monitoring*** as it is only called at the start of the deployment, to ensure it is healthy prior to routing traffic to it.
+The healthcheck endpoint is currently **_not used for continuous monitoring_** as it is only called at the start of the deployment, to ensure it is healthy prior to routing traffic to it.
 
 If you are looking for a quick way to setup continuous monitoring of your service(s), check out the <a href="https://railway.com/template/p6dsil" target="_blank">Uptime Kuma template</a> in our template marketplace.

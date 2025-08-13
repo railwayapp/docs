@@ -137,30 +137,30 @@ The overview should include the following:
 
 - **H1: Deploy and Host [X] with Railway**
 
-    What is X? Your description in roughly ~ 50 words.
+  What is X? Your description in roughly ~ 50 words.
 
 - **H2: About Hosting [X]**
 
-    Roughly 100 word description what's involved in hosting/deploying X
+  Roughly 100 word description what's involved in hosting/deploying X
 
 - **H2: Common Use Cases**
 
-    In 3-5 bullets, what are the most common use cases for [X]?
+  In 3-5 bullets, what are the most common use cases for [X]?
 
 - **H2: Dependencies for [X] Hosting**
 
-    In bullet form, what other technologies are incorporated in using this template besides [X]?
+  In bullet form, what other technologies are incorporated in using this template besides [X]?
 
 - **H3: Deployment Dependencies**
 
-    Include any external links relevant to the template.
+  Include any external links relevant to the template.
 
 - **H3: Implementation Details (Optional)**
 
-    Include any code snippets or implementation details. This section is optional. Exclude if nothing to add.
+  Include any code snippets or implementation details. This section is optional. Exclude if nothing to add.
 
 - **H3: Why Deploy [X] on Railway?**
 
-    Railway is a singular platform to deploy your infrastructure stack. Railway will host your infrastructure so you don't have to deal with configuration, while allowing you to vertically and horizontally scale it.
+  Railway is a singular platform to deploy your infrastructure stack. Railway will host your infrastructure so you don't have to deal with configuration, while allowing you to vertically and horizontally scale it.
 
-    By deploying [X] on Railway, you are one step closer to supporting a complete full-stack application with minimal burden. Host your servers, databases, AI agents, and more on Railway.
+  By deploying [X] on Railway, you are one step closer to supporting a complete full-stack application with minimal burden. Host your servers, databases, AI agents, and more on Railway.

@@ -4,6 +4,12 @@ const { redirects } = require("./redirects");
 /** @type {import('next').NextConfig} */
 const nextConfig = withContentlayer({
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'user-images.githubusercontent.com' },

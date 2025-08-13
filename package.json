@@ -16,10 +16,14 @@
     "migrate:status": "prisma migrate status",
     "toml-reference": "node src/scripts/toml-reference.mjs"
   },
+  "packageManager": "pnpm@8.10.2",
   "dependencies": {
     "@nanostores/react": "^0.4.1",
     "@prisma/client": "4.10.1",
     "@radix-ui/react-scroll-area": "^1.0.2",
+    "@react-aria/dialog": "^3.5.0",
+    "@react-aria/focus": "^3.5.0",
+    "@react-aria/overlays": "^3.5.0",
     "@tailwindcss/typography": "^0.5.9",
     "classnames": "^2.3.2",
     "contentlayer": "^0.3.4",
@@ -27,6 +31,7 @@
     "copy-to-clipboard": "^3.3.1",
     "dayjs": "^1.10.4",
     "fathom-client": "^3.1.0",
+    "gray-matter": "^4.0.3",
     "interweave": "^13.1.0",
     "meilisearch": "^0.32.3",
     "nanostores": "^0.7.4",

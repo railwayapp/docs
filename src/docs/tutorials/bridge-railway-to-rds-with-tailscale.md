@@ -22,7 +22,7 @@ This tutorial is in depth, so if it's your first time using Tailscale or setting
 
 1. You will need an [AWS IAM access key or IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) to stand up resources with Terraform or OpenTofu.
 
-  **NOTE:** While you can just put these secrets in a `~/.aws` folder or a `terraform.tfvars` file, its a good practice to avoid putting secrets on disk unencrypted. If you have 1Password, you can use [1Password Secret References](https://developer.1password.com/docs/cli/secret-references/) so that your secrets are never stored permenantly on disk. This is especially important to prevent AI tools from reading your keys and as an extra layer of protection from commiting secrets to your git repositories.
+   **NOTE:** While you can just put these secrets in a `~/.aws` folder or a `terraform.tfvars` file, its a good practice to avoid putting secrets on disk unencrypted. If you have 1Password, you can use [1Password Secret References](https://developer.1password.com/docs/cli/secret-references/) so that your secrets are never stored permenantly on disk. This is especially important to prevent AI tools from reading your keys and as an extra layer of protection from commiting secrets to your git repositories.
 
 2. You'll need to install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) or [OpenTofu](https://opentofu.org/docs/intro/install/).
 
@@ -135,6 +135,7 @@ width={602} height={572} quality={100} />
 ## Approve Advertised Subnet Routes and/or Enable Route Acceptance on Your Devices
 
 For devices you can't install Tailscale on, you need to [approve the routes in the Tailscale admin UI](https://login.tailscale.com/admin/machines).
+
 - You will see a `Subnets !` badge on the machine you set up. This indicates it is advertising routes but hasn't been approved.
 - Click the `...` next to the machine
 - Click the checkbox and click save.
@@ -209,20 +210,24 @@ terraform destroy -auto-approve
 If you encounter issues with connectivity check the `verify_tailscale_routing` script included with the repository. You may be encountering:
 
 1. **DNS Resolution**:
-  - Verify split DNS configuration in Tailscale.
-  - Check that the correct AWS DNS server IP is being used.
+
+- Verify split DNS configuration in Tailscale.
+- Check that the correct AWS DNS server IP is being used.
 
 2. **Route Acceptance**:
-  - Ensure subnet routes are being advertised by the subnet router and that you've approve those routes in the Tailscale Admin Console.
-  - Verify your client is accepting routes with `tailscale status`.
+
+- Ensure subnet routes are being advertised by the subnet router and that you've approve those routes in the Tailscale Admin Console.
+- Verify your client is accepting routes with `tailscale status`.
 
 3. **Database Connection Failures**:
-  - Check security group rules to ensure the subnet router can access RDS.
-  - Confirm you're using the correct credentials. (!IMPORTANT `manage_master_user_password = false` must be set or else the RDS module will ignore using your set password)
+
+- Check security group rules to ensure the subnet router can access RDS.
+- Confirm you're using the correct credentials. (!IMPORTANT `manage_master_user_password = false` must be set or else the RDS module will ignore using your set password)
 
 4. **Subnet Router Issues**:
-  - Check that IP forwarding on is enabled with `cat /proc/sys/net/ipv4/ip_forward`.
-  - Verify Tailscale is running with `sudo systemctl status tailscaled`.
+
+- Check that IP forwarding on is enabled with `cat /proc/sys/net/ipv4/ip_forward`.
+- Verify Tailscale is running with `sudo systemctl status tailscaled`.
 
 ## Additional Resources
 

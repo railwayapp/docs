@@ -2,15 +2,16 @@
 title: Best Practices
 description: Learn the best practices to maximize performance, efficiency, and scalability of your apps on Railway.
 ---
-{/**
+
+{/*
 To keep consistency we want each topic to follow the same convention -
+
 - What?
 - When?
 - Do X.
 - Why?
 - Image.
 */}
-
 
 Railway is a highly versatile platform, offering various ways to use it, though some may be less optimal than others for most use cases. These topics aim to help you maximize both your potential and the platform's capabilities.
 

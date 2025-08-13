@@ -46,7 +46,6 @@ If everything looks good and you're ready to proceed, click the `Deploy` button 
 
 The changes will be applied and your service will be redeployed.
 
-
 ## Pricing
 
 Backups are incremental and Copy-on-Write, we only charge for the data exclusive to them, that aren't from other snapshots or the volume itself.
@@ -68,4 +67,3 @@ Backups are a newer feature that is still under development. Here are some limit
 - Backup incremental sizes are cached for a couple of hours when listed in the frontend, so they may show slightly stale data.
 - Wiping a volume deletes all backups.
 - Backups can only be restored into the same project + environment.
-

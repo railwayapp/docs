@@ -3,13 +3,13 @@ title: Build and Start Commands
 description: Learn how to configure build and start commands.
 ---
 
-Railway uses [Nixpacks](/reference/nixpacks) to build and deploy your code with zero configuration.  Build and Start commands are automatically detected when an image is built and deployed to a [service](/reference/services) in Railway.
+Railway uses [Nixpacks](/reference/nixpacks) to build and deploy your code with zero configuration. Build and Start commands are automatically detected when an image is built and deployed to a [service](/reference/services) in Railway.
 
 If necessary, build and start commands can be manually configured.
 
 ## How it Works
 
-Overrides are exposed in the service configuration to enable customizing the Build and Start commands.  When an override is configured, Railway uses the commands specified to build and start the service.
+Overrides are exposed in the service configuration to enable customizing the Build and Start commands. When an override is configured, Railway uses the commands specified to build and start the service.
 
 #### Build Command
 
@@ -23,7 +23,7 @@ width={1200} height={373} quality={80} />
 
 #### Start Command
 
-Railway automatically configures the start command based on the code being deployed.  
+Railway automatically configures the start command based on the code being deployed.
 
 If your service deploys with a [Dockerfile](/reference/dockerfiles) or from an [image](/reference/services#docker-image), the start command defaults to the `ENTRYPOINT` and / or `CMD` defined in the Dockerfile.
 

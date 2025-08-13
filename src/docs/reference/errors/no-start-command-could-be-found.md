@@ -38,6 +38,7 @@ Some common start commands for various frameworks and languages are -
 ```bash
 node main.js
 ```
+
 Where `main.js` is the entry point for your application, could be `index.js`, `server.js`, `app.js`, etc.
 
 #### Next.js

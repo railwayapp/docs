@@ -29,7 +29,7 @@ This command will create a new Phoenix app named `helloworld` with some optional
 - [Phoenix live view](https://hexdocs.pm/phoenix_live_view) for building realtime & interactive web apps.
 - [Phoenix HTML and Tailwind CSS](https://hexdocs.pm/phoenix_html/Phoenix.HTML.html) for HTML apps.
 
-### Configure Database 
+### Configure Database
 
 Next, navigate into the `helloworld` directory using the `cd` command.
 
@@ -63,9 +63,9 @@ Now that your app is running locally, let’s move on to deploying it to Railway
 
 ### Prepare our Phoenix App for deployment
 
-Go ahead and create a `nixpacks.toml` file in the root directory of our Phoenix app. 
+Go ahead and create a `nixpacks.toml` file in the root directory of our Phoenix app.
 
-The [nixpacks.toml file](https://nixpacks.com/docs/configuration/file) is a configuration file used by Nixpacks, a build system developed and used by Railway, to set up and deploy applications. 
+The [nixpacks.toml file](https://nixpacks.com/docs/configuration/file) is a configuration file used by Nixpacks, a build system developed and used by Railway, to set up and deploy applications.
 
 In this file, you can specify the instructions for various build and deployment phases, along with environment variables and package dependencies.
 
@@ -97,18 +97,18 @@ cmd = "mix ecto.setup && mix phx.server"
 ```
 
 1. `[variables]` This section contains the list of env variables you want to set for the app.
-    - `MIX_ENV = 'prod'`: It sets the Elixir environment to prod. 
+   - `MIX_ENV = 'prod'`: It sets the Elixir environment to prod.
 2. `[phases.setup]`: This defines a list of Nix packages to be installed during the setup phase. The placeholder `'...'` should be replaced with any additional packages needed for your application. The inclusion of erlang indicates that the Erlang runtime is required for the Elixir application.
-3. `[phases.install]`: This section contains a list of commands to run during the installation phase. 
-    - `mix local.hex --force`: Installs the Hex package manager for Elixir, which is necessary for managing dependencies.
-    - `mix local.rebar --force`: Installs Rebar, a build tool for Erlang.
-    - `mix deps.get --only prod`: Fetches only the production dependencies defined in the `mix.exs` file.
+3. `[phases.install]`: This section contains a list of commands to run during the installation phase.
+   - `mix local.hex --force`: Installs the Hex package manager for Elixir, which is necessary for managing dependencies.
+   - `mix local.rebar --force`: Installs Rebar, a build tool for Erlang.
+   - `mix deps.get --only prod`: Fetches only the production dependencies defined in the `mix.exs` file.
 4. `[phases.build]`: This section contains commands to run during the build phase.
-    - `mix compile`: Compiles the Elixir application.
-    - `mix assets.deploy`: This is a command to handle the deployment of static assets (e.g., JavaScript, CSS) for our app.
+   - `mix compile`: Compiles the Elixir application.
+   - `mix assets.deploy`: This is a command to handle the deployment of static assets (e.g., JavaScript, CSS) for our app.
 5. `[start]`: This section contains commands to run when starting the application.
-    - `mix ecto.setup`: This command is used to set up the database by running migrations and seeding it. It prepares the database for the application to connect.
-    - `mix phx.server`: This starts the Phoenix server, allowing the application to begin accepting requests.
+   - `mix ecto.setup`: This command is used to set up the database by running migrations and seeding it. It prepares the database for the application to connect.
+   - `mix phx.server`: This starts the Phoenix server, allowing the application to begin accepting requests.
 
 Now, we are ready to deploy!
 
@@ -135,40 +135,42 @@ After deploying, we recommend that you [eject from the template](/guides/deploy#
 To deploy the Phoenix app using the Railway CLI, please follow the steps:
 
 1. **Install the Railway CLI**:
-    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
+   - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-    - Run the command below in your Phoenix app directory. 
-        ```bash
-        railway init
-        ```
-    - Follow the prompts to name your project.
-    - After the project is created, click the provided link to view it in your browser.
+   - Run the command below in your Phoenix app directory.
+     ```bash
+     railway init
+     ```
+   - Follow the prompts to name your project.
+   - After the project is created, click the provided link to view it in your browser.
 3. **Deploy the Application**:
-    - Use the command below to deploy your app:
-        ```bash
-        railway up
-        ```
-    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 
-    **Note:** You might encounter an error––`warning: the VM is running with native name encoding of latin1 which` `may cause Elixir to malfunction as it expects utf8....`. Don’t worry, we’ll address this in the next step.
+   - Use the command below to deploy your app:
+     ```bash
+     railway up
+     ```
+   - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
+
+   **Note:** You might encounter an error––`warning: the VM is running with native name encoding of latin1 which` `may cause Elixir to malfunction as it expects utf8....`. Don’t worry, we’ll address this in the next step.
+
 4. **Add a Database Service**:
-    - Run `railway add`.
-    - Select `PostgreSQL` by pressing space and hit **Enter** to add it to your project.
-    - A database service will be added to your Railway project.
+   - Run `railway add`.
+   - Select `PostgreSQL` by pressing space and hit **Enter** to add it to your project.
+   - A database service will be added to your Railway project.
 5. **Configure Environment Variables**:
-    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
-        - `SECRET_KEY_BASE` : Set the value to the your app's secret key. You can run `mix phx.gen.secret` locally to generate one.
-        - `LANG`and `LC_CTYPE`: Set both values to `en_US.UTF-8`. This sets your app's locale and gets rid of the _native name encoding of latin1_ warning.
-        - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).  
-        - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the [IPv6 private network](/guides/private-networking#listen-on-ipv6). 
-    - Use the **Raw Editor** to add any other required environment variables in one go.
+   - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
+     - `SECRET_KEY_BASE` : Set the value to the your app's secret key. You can run `mix phx.gen.secret` locally to generate one.
+     - `LANG`and `LC_CTYPE`: Set both values to `en_US.UTF-8`. This sets your app's locale and gets rid of the _native name encoding of latin1_ warning.
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the [IPv6 private network](/guides/private-networking#listen-on-ipv6).
+   - Use the **Raw Editor** to add any other required environment variables in one go.
 6. **Redeploy the Service**:
-    - Click **Deploy** on the Railway Project Canvas to apply your changes.
+   - Click **Deploy** on the Railway Project Canvas to apply your changes.
 7. **Verify the Deployment**:
-    - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
+   - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
 8. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1730139857/docs/quick-start/phoenix_elixir_app.png"
 alt="screenshot of the deployed Phoenix service showing the welcome page"
@@ -180,27 +182,29 @@ width={2757} height={2111} quality={100} />
 To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
 1. **Create a New Project on Railway**:
-    - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
-2. **Deploy from GitHub**: 
-    - Select **Deploy from GitHub repo** and choose your repository.
-        - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
+   - Go to <a href="https://railway.com/new" target="_blank">Railway</a> to create a new project.
+2. **Deploy from GitHub**:
+   - Select **Deploy from GitHub repo** and choose your repository.
+     - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
 3. **Add Environment Variables and Provision a Database Service**:
-    - Click **Add Variables**, but hold off on adding anything just yet. First, proceed with the next step. 
-    - Right-click on the Railway project canvas or click the **Create** button, then select **Database** and choose **Add PostgreSQL**. This will create and deploy a new PostgreSQL database for your project.
-    - Once the database is deployed, you can return to adding the necessary environment variables:
-        - `SECRET_KEY_BASE` : Set the value to the your app's secret key. You can run `mix phx.gen.secret` locally to generate one.
-        - `LANG`and `LC_CTYPE`: Set both values to `en_US.UTF-8` to ensure proper locale settings and avoid the _native name encoding of latin1 warning_. 
-        -  `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
-        - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the [IPv6 private network](/guides/private-networking#listen-on-ipv6).
+   - Click **Add Variables**, but hold off on adding anything just yet. First, proceed with the next step.
+   - Right-click on the Railway project canvas or click the **Create** button, then select **Database** and choose **Add PostgreSQL**. This will create and deploy a new PostgreSQL database for your project.
+   - Once the database is deployed, you can return to adding the necessary environment variables:
+     - `SECRET_KEY_BASE` : Set the value to the your app's secret key. You can run `mix phx.gen.secret` locally to generate one.
+     - `LANG`and `LC_CTYPE`: Set both values to `en_US.UTF-8` to ensure proper locale settings and avoid the _native name encoding of latin1 warning_.
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the [IPv6 private network](/guides/private-networking#listen-on-ipv6).
 4. **Deploy the App Service**:
-    - Click **Deploy** on the Railway project canvas to apply your changes.
+   - Click **Deploy** on the Railway project canvas to apply your changes.
 5. **Verify the Deployment**:
-    - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
 
-    **Note:** During the deployment process, Railway will automatically [detect that it’s an Elixir app](https://nixpacks.com/docs/providers/elixir).
+   - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
+
+   **Note:** During the deployment process, Railway will automatically [detect that it’s an Elixir app](https://nixpacks.com/docs/providers/elixir).
+
 6. **Set Up a Public URL**:
-    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
+   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Phoenix apps effortlessly!
 
@@ -211,7 +215,7 @@ This guide covers the main deployment options on Railway. Choose the approach th
 Click the button below to deploy an instance of Livebook quickly.
 
 [![Deploy Livebook on Railway](https://railway.com/button.svg)](https://railway.com/new/template/4uLt1s)
- 
+
 ## Next Steps
 
 Explore these resources to learn how you can maximize your experience with Railway:

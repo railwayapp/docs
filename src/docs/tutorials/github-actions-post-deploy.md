@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "github.event context:"
           echo '${{ toJSON(github.event) }}'
-          
+
       # Only run if this is a production environment deployment that succeeded
       - name: Run post-deploy actions
         if: github.event.deployment.environment == 'production'
@@ -42,6 +42,7 @@ If you have your repository deploying to multiple services, you can modify the `
 ```yaml
 if: github.event.deployment.environment == 'production' && github.event.deployment.payload.serviceId == '<service-id>'
 ```
+
 You can also see what `github.event` contains and build your own conditions from there.
 
 Information on how to find the Service ID and Environment IDs as needed can be found [here](https://docs.railway.com/guides/public-api#resource-ids).

@@ -10,7 +10,7 @@ export const Arrow: React.FC<ArrowProps> = ({ isExpanded }) => {
     <svg
       css={[
         tw`h-4 w-4 transition-transform duration-200`,
-        { transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)' }
+        { transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)" },
       ]}
       viewBox="0 0 20 20"
       fill="currentColor"

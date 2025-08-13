@@ -66,7 +66,7 @@ Simply follow the prompts to generate a domain and your app will be exposed to t
 
 **Don't see the Generate Domain Button?**
 
-If you have previously assigned a TCP Proxy to your service, you will not see the `Generate Domain` option.  You must remove the TCP Proxy (click the Trashcan icon), then you can add a domain.
+If you have previously assigned a TCP Proxy to your service, you will not see the `Generate Domain` option. You must remove the TCP Proxy (click the Trashcan icon), then you can add a domain.
 
 ## Custom Domains
 
@@ -78,27 +78,28 @@ Custom domains can be added to a Railway service and once setup we will automati
 
 3. Type in the custom domain (wildcard domains are supported, [see below](#wildcard-domains) for more details)
 
-    You will be provided with a CNAME domain to use, e.g., `g05ns7.up.railway.app`.
+   You will be provided with a CNAME domain to use, e.g., `g05ns7.up.railway.app`.
 
 4. In your DNS provider (Cloudflare, DNSimple, Namecheap, etc), create a CNAME record with the CNAME value provided by Railway.
 
-4. Wait for Railway to verify your domain.  When verified, you will see a greencheck mark next to the domain(s) -
+5. Wait for Railway to verify your domain. When verified, you will see a greencheck mark next to the domain(s) -
 
-    <Image
-    src="https://res.cloudinary.com/railway/image/upload/v1654563209/docs/domains_uhchsu.png"
-    alt="Screenshot of Custom Domain"
-    layout="responsive"
-    width={1338} height={808} quality={80} />
+   <Image
+   src="https://res.cloudinary.com/railway/image/upload/v1654563209/docs/domains_uhchsu.png"
+   alt="Screenshot of Custom Domain"
+   layout="responsive"
+   width={1338} height={808} quality={80} />
 
-    You will also see a `Cloudflare proxy detected` message if we have detected that you are using Cloudflare.
+   You will also see a `Cloudflare proxy detected` message if we have detected that you are using Cloudflare.
 
-    **Note:** Changes to DNS settings may take up to 72 hours to propagate worldwide.
+   **Note:** Changes to DNS settings may take up to 72 hours to propagate worldwide.
 
 **Important Considerations**
+
 - Freenom domains are not allowed and not supported.
 - The Trial Plan is limited to 1 custom domain. It is therefore not possible to use both `yourdomain.com` and `www.yourdomain.com` as these are considered two distinct custom domains.
 - The [Hobby Plan](/reference/pricing#plans) is limited to 2 custom domains per service.
-- The [Pro Plan]() is limited to 20 domains per service by default.  This limit can be increased for Pro users on request, simply reach out to us via a [private thread](/reference/support#private-threads).
+- The [Pro Plan]() is limited to 20 domains per service by default. This limit can be increased for Pro users on request, simply reach out to us via a [private thread](/reference/support#private-threads).
 
 ## Wildcard Domains
 
@@ -178,18 +179,18 @@ You can change the automatically detected or manually set port at any time by cl
 
 ## Adding a Custom Domain
 
-When adding a root or apex domain to your Railway service, you must ensure that you add the appropriate DNS record to the domain within your DNS provider.  At this time, Railway supports <a href="https://developers.cloudflare.com/dns/cname-flattening/" target="_blank">CNAME Flattening</a> and dynamic ALIAS records.
+When adding a root or apex domain to your Railway service, you must ensure that you add the appropriate DNS record to the domain within your DNS provider. At this time, Railway supports <a href="https://developers.cloudflare.com/dns/cname-flattening/" target="_blank">CNAME Flattening</a> and dynamic ALIAS records.
 
 **Additional context**
 
-Generally, direct CNAME records at the root or apex level are incompatible with DNS standards (which assert that you should use an "A" or "AAAA" record).  However, given the dynamic nature of the modern web and PaaS providers like Railway, some DNS providers have incorporated workarounds enabling CNAME-like records to be associated with root domains.
-*Check out <a href="https://www.ietf.org/rfc/rfc1912.txt#:~:text=root%20zone%20data).-,2.4%20CNAME%20records,-A%20CNAME%20record" target="_blank">RFC 1912</a> if you're interested in digging into this topic.*
+Generally, direct CNAME records at the root or apex level are incompatible with DNS standards (which assert that you should use an "A" or "AAAA" record). However, given the dynamic nature of the modern web and PaaS providers like Railway, some DNS providers have incorporated workarounds enabling CNAME-like records to be associated with root domains.
+_Check out <a href="https://www.ietf.org/rfc/rfc1912.txt#:~:text=root%20zone%20data).-,2.4%20CNAME%20records,-A%20CNAME%20record" target="_blank">RFC 1912</a> if you're interested in digging into this topic._
 
 **Choosing the correct record type**
 
-The type of record to create is entirely dependent on your DNS provider.  Here are some examples -
+The type of record to create is entirely dependent on your DNS provider. Here are some examples -
 
-- <a href="https://developers.cloudflare.com/dns/zone-setups/partial-setup" target="_blank">Cloudflare CNAME</a> - Simply set up a CNAME record for your root domain in Cloudflare, and they take care of the rest under the hood.  Refer to <a href="https://support.cloudflare.com/hc/en-us/articles/205893698-Configure-Cloudflare-and-Heroku-over-HTTPS" target="_blank">this guide</a> for more detailed instructions.
+- <a href="https://developers.cloudflare.com/dns/zone-setups/partial-setup" target="_blank">Cloudflare CNAME</a> - Simply set up a CNAME record for your root domain in Cloudflare, and they take care of the rest under the hood. Refer to <a href="https://support.cloudflare.com/hc/en-us/articles/205893698-Configure-Cloudflare-and-Heroku-over-HTTPS" target="_blank">this guide</a> for more detailed instructions.
 - <a href="https://support.dnsimple.com/articles/domain-apex-heroku/" target="_blank">DNSimple ALIAS</a> - Set up an dynamic ALIAS in DNSimple for your root domain.
 - <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/" target="_blank">Namecheap CNAME</a> - Set up an CNAME in Namecheap for your root domain.
 - <a href="https://bunny.net/blog/how-aname-dns-records-affect-cdn-routing/" target="_blank">bunny.net</a> - Set up a ANAME in bunny.net for your root domain.
@@ -213,34 +214,34 @@ If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdom
 
 1. Create a Custom Domain in Railway for your root domain (e.g., `mydomain.com`). Copy the `value` field. This will be in the form: `abc123.up.railway.app`.
 2. Add a `CNAME` DNS record to Cloudflare:
-    - `Name` → `@`.
-    - `Target` → the `value` field from Railway.
-    - `Proxy status` → `on`, should display an orange cloud.
-    - Note: Due to domain flattening, `Name` will automatically update to your root domain (e.g., `mydomain.com`).
+   - `Name` → `@`.
+   - `Target` → the `value` field from Railway.
+   - `Proxy status` → `on`, should display an orange cloud.
+   - Note: Due to domain flattening, `Name` will automatically update to your root domain (e.g., `mydomain.com`).
 3. Add another `CNAME` DNS record to Cloudflare:
-    - `Name` → `www`.
-    - `Target` → `@`
-    - `Proxy status:` → on, should display an orange cloud.
-    - Note: Cloudflare will automatically change the `Target` value to your root domain.
+   - `Name` → `www`.
+   - `Target` → `@`
+   - `Proxy status:` → on, should display an orange cloud.
+   - Note: Cloudflare will automatically change the `Target` value to your root domain.
 4. Enable Full SSL/TLS encryption in Cloudflare:
-    - Go to your domain on Cloudflare.
-    - Navigate to `SSL/TLS -> Overview`.
-    - Select `Full`. **Not** `Full (Strict)` **Strict mode will not work as intended**.
+   - Go to your domain on Cloudflare.
+   - Navigate to `SSL/TLS -> Overview`.
+   - Select `Full`. **Not** `Full (Strict)` **Strict mode will not work as intended**.
 5. Enable Universal SSL in Cloudflare:
-    - Go to your domain on Cloudflare.
-    - Navigate to `SSL/TLS -> Edge Certificates`.
-    - Enable `Universal SSL`.
+   - Go to your domain on Cloudflare.
+   - Navigate to `SSL/TLS -> Edge Certificates`.
+   - Enable `Universal SSL`.
 6. After doing this, you should see `Cloudflare proxy detected` on your Custom Domain in Railway with a green cloud.
 7. Create a Bulk Redirect in Cloudflare:
-    - Go to your [Cloudflare dashboard](https://dash.cloudflare.com/).
-    - Navigate to `Bulk Redirects`.
-    - Click `Create Bulk Redirect List`.
-    - Give it a name, e.g., `www-redirect`.
-    - Click `Or, manually add URL redirects`.
-    - Add a `Source URL`: `https://www.mydomain.com`.
-    - Add `Target URL`: `https://mydomain.com` with status `301`.
-    - Tick all the parameter options: (`Preserve query string`, `Include subdomains`, `Subpath matching`, `Preserve path suffix`)
-    - Click `Next`, then `Save and Deploy`.
+   - Go to your [Cloudflare dashboard](https://dash.cloudflare.com/).
+   - Navigate to `Bulk Redirects`.
+   - Click `Create Bulk Redirect List`.
+   - Give it a name, e.g., `www-redirect`.
+   - Click `Or, manually add URL redirects`.
+   - Add a `Source URL`: `https://www.mydomain.com`.
+   - Add `Target URL`: `https://mydomain.com` with status `301`.
+   - Tick all the parameter options: (`Preserve query string`, `Include subdomains`, `Subpath matching`, `Preserve path suffix`)
+   - Click `Next`, then `Save and Deploy`.
 
 **Note:** DNS changes may take some time to propagate. You may want to refresh your DNS cache by using commands like `ipconfig /flushdns` on Windows or `dscacheutil -flushcache` on macOS. Testing the URLs in an incognito window can also help verify changes.
 
@@ -283,7 +284,7 @@ alt="Screenshot of Custom Domain"
 layout="responsive"
 width={1205} height={901} quality={80} />
 
-If proxying is not enabled, Cloudflare will not associate the domain with your Railway project.  In this case, you will encounter the following error message:
+If proxying is not enabled, Cloudflare will not associate the domain with your Railway project. In this case, you will encounter the following error message:
 
 ```
 ERR_TOO_MANY_REDIRECTS

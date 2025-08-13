@@ -77,27 +77,27 @@ As a Conductor, you'll contribute regularly in these key areas -
 
 - Community Engagement
 
-    - Being an active, welcoming presence in community channels.
+  - Being an active, welcoming presence in community channels.
 
-    - Building connections with fellow community members.
+  - Building connections with fellow community members.
 
-    - Joining community conversations and sharing experiences.
+  - Joining community conversations and sharing experiences.
 
-    - Looking out for the community by making sure discussions stay positive and helpful.
+  - Looking out for the community by making sure discussions stay positive and helpful.
 
 - Support Activities
 
-    - Helping others in [Discord](https://discord.gg/railway) and the [Central Station](https://station.railway.com/).
+  - Helping others in [Discord](https://discord.gg/railway) and the [Central Station](https://station.railway.com/).
 
-    - Showing consistent engagement by regularly contributing to meaningful solutions across all Railway platforms.
+  - Showing consistent engagement by regularly contributing to meaningful solutions across all Railway platforms.
 
 - Open Source Contributions
 
-    - Contributing through either small improvements or substantial feature additions.
+  - Contributing through either small improvements or substantial feature additions.
 
-    - New features should address community-requested needs with demonstrated user demand.
+  - New features should address community-requested needs with demonstrated user demand.
 
-    - Bug fixes should focus on issues affecting multiple users.
+  - Bug fixes should focus on issues affecting multiple users.
 
 We understand that maintaining consistent participation across these areas requires dedication and time. As part of our commitment to supporting Conductors, we have quarterly check-ins to discuss your experience and ensure you have everything needed to succeed.
 

@@ -10,6 +10,7 @@ While Railway has a native, [centralized logging mechanism](/guides/logs#log-exp
 **Objectives**
 
 In this tutorial you will learn how to -
+
 - Deploy a Datadog agent in Railway - listening for metrics, logs, and traces.
 - Configure an application to send metrics, logs, and traces to the agent.
 
@@ -17,14 +18,14 @@ If you are looking for a quicker way to get started, you can also deploy this pr
 
 **Prerequisites**
 
-To be successfull, you should already have - 
+To be successfull, you should already have -
 
 - Railway [CLI installed](/guides/cli#installing-the-cli)
 - Datadog API key and site value
 
 **Caveats**
 
-Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost.  If this is a concern, you may be interested in exploring self-hosted solutions, and we encourage you to check out the [OpenTelemetry Tutorial](/tutorials/deploy-an-otel-collector-stack).
+Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost. If this is a concern, you may be interested in exploring self-hosted solutions, and we encourage you to check out the [OpenTelemetry Tutorial](/tutorials/deploy-an-otel-collector-stack).
 
 ## 1. Create the Project Structure
 
@@ -43,7 +44,6 @@ railway-project/
 └── expressapi/
 ```
 
-
 ## 2. Set Up the Datadog Agent
 
 Now we'll add files to the `agent` folder, which will build the Datadog Agent image.
@@ -55,7 +55,7 @@ Now we'll add files to the `agent` folder, which will build the Datadog Agent im
 
 #### Define the Dockerfile
 
-Let's define the Dockerfile.  
+Let's define the Dockerfile.
 
 - Within your Dockerfile, add the following contents.
 
@@ -91,7 +91,7 @@ Let's define the Dockerfile.
 
 The `syslog.yaml` file is used to instruct the agent to listen for syslogs to be forwarded on the configured port.
 
-- Within the `syslog.yaml` file, add the following contents - 
+- Within the `syslog.yaml` file, add the following contents -
 
   ```
   logs:
@@ -117,7 +117,7 @@ The `datadog.yaml` file is used to instruct the agent to send logs to Datadog ov
 Now let's build a Node Express App that will send logs and metrics to the Datadog Agent over the [Private Network](/reference/private-networking).
 
 - Create an `app.js` file inside of the `expressapi` folder you created in Step 1.
-- Use `npm` (or your preferred package manager) to install the required dependencies - 
+- Use `npm` (or your preferred package manager) to install the required dependencies -
 
   ```npm
   npm i express winston winston-syslog dd-trace
@@ -125,30 +125,30 @@ Now let's build a Node Express App that will send logs and metrics to the Datado
 
 #### Define the app.js file
 
-The `app.js` file defines your express server.  This is where we will import the DataDog tracer and initialize the StatsD client and the Winston logger, which will send traces, metrics, and logs, respectively, to the Datadog agent.
+The `app.js` file defines your express server. This is where we will import the DataDog tracer and initialize the StatsD client and the Winston logger, which will send traces, metrics, and logs, respectively, to the Datadog agent.
 
 - Within the `app.js` file, add the following contents -
 
   ```javascript
   // ** it is important to import the tracer before anything else **
-  const tracer = require('dd-trace').init();
+  const tracer = require("dd-trace").init();
 
-  const express = require('express');
+  const express = require("express");
   const app = express();
 
-  const StatsD = require('hot-shots');
-  const { createLogger, format, transports } = require('winston');
-  require('winston-syslog').Syslog;
+  const StatsD = require("hot-shots");
+  const { createLogger, format, transports } = require("winston");
+  require("winston-syslog").Syslog;
   const port = process.env.PORT || 3000;
 
   // Configure the StatsD client
   const statsdClient = new StatsD({
     host: process.env.DD_AGENT_HOST,
     port: process.env.DD_AGENT_STATSD_PORT,
-    protocol: 'udp',
+    protocol: "udp",
     cacheDns: true,
     udpSocketOptions: {
-      type: 'udp6',
+      type: "udp6",
       reuseAddr: true,
       ipv6Only: true,
     },
@@ -156,50 +156,49 @@ The `app.js` file defines your express server.  This is where we will import the
 
   // Configure Winston logger
   const logger = createLogger({
-    level: 'info',
+    level: "info",
     exitOnError: false,
     format: format.json(),
     transports: [
       new transports.Syslog({
         host: process.env.DD_AGENT_HOST,
         port: process.env.DD_AGENT_SYSLOG_PORT,
-        protocol: 'udp6',
+        protocol: "udp6",
         format: format.json(),
-        app_name: 'node-app',
+        app_name: "node-app",
       }),
     ],
   });
 
-  app.get('/', (req, res) => {
+  app.get("/", (req, res) => {
     // Increment a counter for the root path
-    statsdClient.increment('data_dog_example.homepage.hits');
-    statsdClient.gauge('data_dog_example.homepage.hits', 124);
+    statsdClient.increment("data_dog_example.homepage.hits");
+    statsdClient.gauge("data_dog_example.homepage.hits", 124);
 
     // forward logs from root path
-    logger.info('Root route was accessed');
+    logger.info("Root route was accessed");
 
-    res.send('Hello World!');
+    res.send("Hello World!");
   });
 
-  app.get('/test', (req, res) => {
+  app.get("/test", (req, res) => {
     // Increment a counter for the test path
-    statsdClient.increment('data_dog_example.testpage.hits');
+    statsdClient.increment("data_dog_example.testpage.hits");
 
     // forward logs from test path
-    logger.info('Test route was accessed');
+    logger.info("Test route was accessed");
 
-    res.send('This is the test endpoint!');
+    res.send("This is the test endpoint!");
   });
 
   app.listen(port, () => {
     console.log(`Example app listening at port ${port}`);
   });
-
   ```
 
 #### Winston and hot-shots
 
-In this example app, we are using `Winston` as the logger and `hot-shots` as the StatsD client.  
+In this example app, we are using `Winston` as the logger and `hot-shots` as the StatsD client.
 
 - `Winston` is configured using `winston-syslog` to transport **logs** to the Datadog agent via Syslog over `udp6`.
 - `hot-shots` is configured to send **metrics** to the Datadog agent over `udp6`.
@@ -216,27 +215,27 @@ If you have not already done so, please [install the CLI](/guides/cli#installing
 
 - In your terminal, run the following command to create a new project -
 
-    ```plaintext
-    railway init
-    ```
+  ```plaintext
+  railway init
+  ```
 
 - Name your project `datadog-project` when prompted (you can change this later).
 
-- Open your project in Railway by running the following - 
+- Open your project in Railway by running the following -
 
-    ```plaintext
-    railway open
-    ```
+  ```plaintext
+  railway open
+  ```
 
 #### Create the Services
 
--  In Railway, create an Empty Service by clicking `+ New` button in the top right-hand corner and choosing `Empty Service` in the prompt.
+- In Railway, create an Empty Service by clicking `+ New` button in the top right-hand corner and choosing `Empty Service` in the prompt.
 - Right click on the service that is created, select `Update Info` and name it `datadog-agent`.
 - Repeat the above steps to create a second service, but name the second service `expressapi`.
 
 #### Add the Variables
 
-Each service requires unique variables listed below.  For each service, follow the steps to add the variables required for the service.
+Each service requires unique variables listed below. For each service, follow the steps to add the variables required for the service.
 
 `datadog-agent` Variables -
 
@@ -263,14 +262,14 @@ DD_TRACE_AGENT_PORT=8126
 
 ## 5. Deploy to Railway
 
-Now we're ready to deploy our services.  We will use the CLI to push code from our local machine to Railway.
+Now we're ready to deploy our services. We will use the CLI to push code from our local machine to Railway.
 
 #### Railway Up
 
 Follow these steps for each service -
 
 - In your local terminal, change directory into the `agent` folder.
-- Link to `datadog-project` by running the following command - 
+- Link to `datadog-project` by running the following command -
   ```plaintext
   railway link
   ```
@@ -288,9 +287,10 @@ Follow these steps for each service -
 
 #### Create a Domain for the Express App
 
-The express app will send logs and metrics to the Datadog agent upon navigation to either of its two routes.  So let's give it a domain -
+The express app will send logs and metrics to the Datadog agent upon navigation to either of its two routes. So let's give it a domain -
+
 - Ensure that you are linked to the `datadog-project` and `expressapi` service (refer to the steps above)
-- Assign the `expressapi` a domain by running the following command - 
+- Assign the `expressapi` a domain by running the following command -
   ```plaintext
   railway domain
   ```
@@ -298,18 +298,19 @@ The express app will send logs and metrics to the Datadog agent upon navigation 
 ## 6. Test and Confirm
 
 Test that your Datadog Agent is receiving and forwarding data to Datadog by navigating to the routes in the Express app -
+
 - `/`
 - `/test`
 
 Generate some traffic to these two routes and verify in your Datadog instance that the data is there.
 
-*Note: it can take a few minutes to see the data in Datadog, check the Datadog Agent's logs in Railway*
+_Note: it can take a few minutes to see the data in Datadog, check the Datadog Agent's logs in Railway_
 
 ## Bonus - Add a Python service
 
-Once you have your agent setup and working with a node app.  It's easy to add more services and configure the agent to accept data from them.  In this bonus section, we'll quickly cover a Python implementation.
+Once you have your agent setup and working with a node app. It's easy to add more services and configure the agent to accept data from them. In this bonus section, we'll quickly cover a Python implementation.
 
-In the following example, we are using the <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Python framework</a>.  
+In the following example, we are using the <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Python framework</a>.
 
 **In the `main.py` file we have configured both metrics and logs to be sent over StatsD and SysLog respectively -**
 
@@ -379,12 +380,14 @@ async def test():
 ```
 
 **Ensure that you configure all of the required variables in the Python service in Railway -**
-- DD_AGENT_HOST - *should be the private domain of the DataDog agent*
+
+- DD_AGENT_HOST - _should be the private domain of the DataDog agent_
 - DD_API_KEY
-- DD_AGENT_STATSD_PORT - *should be 8125*
-- DD_AGENT_SYSLOG_PORT - *should be **515** to work with the configuration below*
+- DD_AGENT_STATSD_PORT - _should be 8125_
+- DD_AGENT_SYSLOG_PORT - _should be **515** to work with the configuration below_
 
 **Update the DataDog agent's `syslog.yaml` file to accept data from the new source -**
+
 ```plaintext
 logs:
   - type: udp
@@ -399,6 +402,6 @@ logs:
 
 ## Conclusion
 
-Congratulations!  You have deployed a Datadog Agent and a Node Express app (and maybe a Python service) that sends logs and metrics to Datadog.
+Congratulations! You have deployed a Datadog Agent and a Node Express app (and maybe a Python service) that sends logs and metrics to Datadog.
 
-This is a *very* basic implementation, and you should refer to the <a href="https://docs.datadoghq.com/" target="_blank">Datadog documentation</a> for information on how to customize the data you send.
+This is a _very_ basic implementation, and you should refer to the <a href="https://docs.datadoghq.com/" target="_blank">Datadog documentation</a> for information on how to customize the data you send.

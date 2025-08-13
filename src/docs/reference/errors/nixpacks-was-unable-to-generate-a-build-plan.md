@@ -19,34 +19,36 @@ This error can occur for a variety of reasons, here are some common ones and wha
 
 - You are attempting to deploy a monorepo.
 
-    ```txt
-    The contents of the app directory are:
+  ```txt
+  The contents of the app directory are:
 
-    /frontend
-    /backend
-    ```
-    Nixpacks doesn't know which directory you want to deploy from.
+  /frontend
+  /backend
+  ```
+
+  Nixpacks doesn't know which directory you want to deploy from.
 
 - Your application's files and or directory structure do not match any of the supported build plans.
 
-    ```txt
-    The contents of the app directory are:
+  ```txt
+  The contents of the app directory are:
 
-    web.py
-    requirements.txt
-    ```
+  web.py
+  requirements.txt
+  ```
 
-    This is obviously Python, a supported language, but Nixpacks doesn't know exactly to do with just a `web.py` file since it was never explicitly programmed to handle this.
+  This is obviously Python, a supported language, but Nixpacks doesn't know exactly to do with just a `web.py` file since it was never explicitly programmed to handle this.
 
 - Your application is using a language or framework that is not supported by Nixpacks.
 
-    ```txt
-    The contents of the app directory are:
+  ```txt
+  The contents of the app directory are:
 
-    main.nim
-    nimble.nimble
-    ```
-    This is [Nim](https://nim-lang.org/), but unfortunately, Nixpacks doesn't have a build plan for Nim.
+  main.nim
+  nimble.nimble
+  ```
+
+  This is [Nim](https://nim-lang.org/), but unfortunately, Nixpacks doesn't have a build plan for Nim.
 
 ## Possible Solutions
 

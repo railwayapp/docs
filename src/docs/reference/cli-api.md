@@ -2,6 +2,7 @@
 title: CLI Reference
 description: Learn about the Railway CLI commands.
 ---
+
 The Railway Command Line Interface (CLI) lets you interact with your
 Railway project from the command line.
 
@@ -11,7 +12,7 @@ For information on how to install the CLI and more examples of usage, see the [C
 
 ## Add
 
-*Add a service to your project*
+_Add a service to your project_
 
 ```txt
 ~ railway add --help
@@ -51,7 +52,8 @@ Options:
 
 ## Completion
 
-*Generate a shell-completions for the following shells: `bash`, `elvish`, `fish`, and `powershell`*
+_Generate a shell-completions for the following shells: `bash`, `elvish`, `fish`, and `powershell`_
+
 ```txt
 ~ railway completion --help
 Generate completion script
@@ -69,7 +71,7 @@ Options:
 
 ## Connect
 
-*Connect to a database's shell (`psql` for Postgres, `mongosh` for MongoDB, etc.)*
+_Connect to a database's shell (`psql` for Postgres, `mongosh` for MongoDB, etc.)_
 
 ```txt
 ~ railway connect --help
@@ -89,14 +91,14 @@ Options:
 
 This requires you to have the database's appropriate shell/client installed in your `$PATH`:
 
-* Postgres: `psql` (https://www.postgresql.org/docs/current/app-psql.html)
-* Redis: `redis-cli` (https://redis.io/docs/ui/cli/)
-* MongoDB: `mongosh` (https://www.mongodb.com/docs/mongodb-shell/)
-* MySQL: `mysql` (https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
+- Postgres: `psql` (https://www.postgresql.org/docs/current/app-psql.html)
+- Redis: `redis-cli` (https://redis.io/docs/ui/cli/)
+- MongoDB: `mongosh` (https://www.mongodb.com/docs/mongodb-shell/)
+- MySQL: `mysql` (https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
 
 ## Deploy
 
-*Deploy a template into your project*
+_Deploy a template into your project_
 
 ```txt
 railway deploy --help
@@ -118,7 +120,7 @@ Options:
 
 ## Domain
 
-*Create a domain for a service*
+_Create a domain for a service_
 
 ```txt
 ~ railway domain --help
@@ -139,9 +141,9 @@ Options:
 
 ## Docs
 
-*Open the Railway documentation site in the default browser*
+_Open the Railway documentation site in the default browser_
 
-```txt
+````txt
 ~ railway docs --help
 Open Railway Documentation in default browser
 
@@ -151,11 +153,11 @@ Options:
       --json     Output in JSON format
   -h, --help     Print help
   -V, --version  Print version```
-```
+````
 
 ## Down
 
-*Remove the most recent deployment*
+_Remove the most recent deployment_
 
 ```txt
 ~ railway down --help
@@ -172,7 +174,7 @@ Options:
 
 ## Environment
 
-*Create, delete or link an environment*
+_Create, delete or link an environment_
 
 ```txt
 ~ railway [env]ironment --help
@@ -193,6 +195,7 @@ Options:
   -h, --help     Print help
   -V, --version  Print version
 ```
+
 View [environment docs](/reference/environments) for more information.
 
 If you run `railway environment` without specifying a name, you will be prompted
@@ -200,7 +203,7 @@ with an environment selector that lists all your environments for the project.
 
 ### railway environment new
 
-*Create a new environment*
+_Create a new environment_
 
 ```txt
 ~ railway [env]ironment new --help
@@ -240,7 +243,7 @@ Options:
 
 ### railway environment delete
 
-*Delete an environment*
+_Delete an environment_
 
 ```txt
 ~ railway [env]ironment delete --help
@@ -261,7 +264,8 @@ Options:
 **Note**: `railway environment delete` will not work if an account has 2FA and the terminal is not being run interactively.
 
 ## Init
-*Create a new Project from the CLI*
+
+_Create a new Project from the CLI_
 
 ```txt
 ~ railway init --help
@@ -278,7 +282,7 @@ Options:
 
 ## Link
 
-*Connect to an existing Railway project*
+_Connect to an existing Railway project_
 
 ```txt
 ~ railway link --help
@@ -300,7 +304,7 @@ Running `link` with no project ID will prompt you to select a team and project.
 
 ## List
 
-*List all projects in your Railway account*
+_List all projects in your Railway account_
 
 ```txt
 ~ railway list --help
@@ -316,7 +320,7 @@ Options:
 
 ## Login
 
-*Login to your Railway account*
+_Login to your Railway account_
 
 ```txt
 ~ railway login --help
@@ -355,7 +359,7 @@ and you will be logged in.
 
 ## Logout
 
-*Logout of your Railway account*
+_Logout of your Railway account_
 
 ```txt
 ~ railway logout --help
@@ -371,7 +375,7 @@ Options:
 
 ## Logs
 
-*View logs for the most recent deployment*
+_View logs for the most recent deployment_
 
 ```txt
 ~ railway logs --help
@@ -389,7 +393,7 @@ Options:
 
 ## Open
 
-*Open your current Railway project in the browser*
+_Open your current Railway project in the browser_
 
 ```txt
 ~ railway open --help
@@ -405,7 +409,7 @@ Options:
 
 ## Run
 
-*Run a command using the Railway environment*
+_Run a command using the Railway environment_
 
 ```txt
 ~ railway run --help
@@ -428,7 +432,8 @@ This also injects all environment variables associated with the databases you ha
 installed in your project.
 
 ## Service
-*Link a service to the current project*
+
+_Link a service to the current project_
 
 ```txt
 ~ railway service --help
@@ -447,7 +452,7 @@ Options:
 
 ## Shell
 
-*Create a subshell (based on `$SHELL`) with all the variables from your project/environment/service loaded and accessible*
+_Create a subshell (based on `$SHELL`) with all the variables from your project/environment/service loaded and accessible_
 
 ```txt
 ~ railway shell --help
@@ -464,7 +469,7 @@ Options:
 
 ## SSH
 
-*SSH into a project/service*
+_SSH into a project/service_
 
 ```txt
 ~ railway ssh --help
@@ -494,7 +499,7 @@ Options:
 
 ## Status
 
-*View the status of your Railway project and user*
+_View the status of your Railway project and user_
 
 ```txt
 ~ railway status --help
@@ -510,7 +515,7 @@ Options:
 
 ## Unlink
 
-*Disconnects the current directory from Railway*
+_Disconnects the current directory from Railway_
 
 ```txt
 ~ Disassociate project from current directory
@@ -523,11 +528,12 @@ Options:
   -h, --help     Print help
   -V, --version  Print version
 ```
+
 You will need to rerun `railway link` to use `railway` in this directory again.
 
 ## Up
 
-*Deploy a directory to your Railway project*
+_Deploy a directory to your Railway project_
 
 ```txt
 ~ railway up --help
@@ -549,11 +555,12 @@ Options:
   -h, --help                       Print help
   -V, --version                    Print version
 ```
+
 If no path is provided, the top linked directory is deployed. The currently selected environment is used.
 
 ## Variables
 
-*View a table of all the environment variables associated with your project and environment*
+_View a table of all the environment variables associated with your project and environment_
 
 ```txt
 ~ railway variables --help
@@ -574,7 +581,7 @@ Options:
 
 ## Whoami
 
-*View what user is currently authenticated with Railway*
+_View what user is currently authenticated with Railway_
 
 ```txt
 ~ railway whoami --help
@@ -590,7 +597,7 @@ Options:
 
 ## Volume
 
-*Manage project volumes with options to list, add, delete, update, attach, and detach volumes*
+_Manage project volumes with options to list, add, delete, update, attach, and detach volumes_
 
 ```txt
 ~ railway volume --help
@@ -617,7 +624,7 @@ Options:
 
 ## Redeploy
 
-*Redeploy the currently deployed version of a service*
+_Redeploy the currently deployed version of a service_
 
 ```txt
 ~ railway redeploy --help
@@ -635,7 +642,7 @@ Options:
 
 ## Help
 
-*Help command reference*
+_Help command reference_
 
 ```txt
 ~ railway help

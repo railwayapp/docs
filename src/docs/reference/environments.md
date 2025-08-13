@@ -7,7 +7,7 @@ Railway environments give you an isolated instance of all services in a project.
 
 ## How it Works
 
-All projects in Railway are created with a `production` environment by default.  Once a project has been created, new environments can be created and configured to complement any development workflow.
+All projects in Railway are created with a `production` environment by default. Once a project has been created, new environments can be created and configured to complement any development workflow.
 
 ## Types of Environments
 
@@ -19,7 +19,7 @@ For example, it is a common pattern to maintain a `staging` environment that is 
 
 #### PR Environments
 
-[PR Environments](/guides/environments#enable-pr-environments) are temporary.  They are created when a Pull Request is opened on a branch and are deleted as soon as the PR is merged or closed.
+[PR Environments](/guides/environments#enable-pr-environments) are temporary. They are created when a Pull Request is opened on a branch and are deleted as soon as the PR is merged or closed.
 
 ## Environment Isolation
 
@@ -30,7 +30,7 @@ All changes made to a service are scoped to a single environment. This means tha
 Environments are generally used for isolating changes from the production environment, to iterate and test before pushing to production.
 
 - Have development environments for each team member that are identical to the
-production environment
+  production environment
 - Have separate staging and production environments that auto-deploy when changes are made to different branches in a code repository.
 
 ## Support

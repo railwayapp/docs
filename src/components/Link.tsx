@@ -28,8 +28,10 @@ export const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<Props>>(
 
     return (
       <NLink href={href} passHref legacyBehavior>
-        <a ref={ref} {...props}>{children}</a>
+        <a ref={ref} {...props}>
+          {children}
+        </a>
       </NLink>
     );
-  }
+  },
 );

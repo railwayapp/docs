@@ -9,7 +9,6 @@ import {
 } from "react-feather";
 import tw, { TwStyle } from "twin.macro";
 import { Icon } from "./Icon";
-import { Link } from "./Link";
 
 export type BannerVariant =
   | "primary"
@@ -28,6 +27,8 @@ export interface Props {
   hideIcon?: boolean;
   className?: string;
   textContainerStyles?: TwStyle;
+  tw?: string;
+  css?: TwStyle[];
 }
 
 const containerStyles: Record<BannerVariant, TwStyle> = {

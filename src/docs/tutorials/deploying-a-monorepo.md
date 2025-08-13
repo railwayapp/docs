@@ -11,7 +11,7 @@ A monorepo is a project directory structure in which multiple, co-dependent code
 
 Deploying a monorepo in Railway requires some extra configuration to get the applications up and running.
 
-This tutorial aims to provide a simple step-by-step on how to deploy a frontend and backend from an isolated monorepo, one of the most commonly deployed types of monorepo. 
+This tutorial aims to provide a simple step-by-step on how to deploy a frontend and backend from an isolated monorepo, one of the most commonly deployed types of monorepo.
 
 The procedure outlined in this tutorial can easily be adapted to deploy different apps that are contained within a isolated monorepo as well.
 
@@ -27,7 +27,7 @@ In this tutorial, you will learn how to -
 - Rename services.
 - Generate domains for services.
 - Set variables on a service.
-- Connect a GitHub repo to a service. 
+- Connect a GitHub repo to a service.
 
 **Prerequisites**
 
@@ -93,7 +93,7 @@ width={766} height={450} quality={100} />
 
 - Give them both applicable names.
 
-    **Note:** This can be done easiest via the right-click context menu.
+  **Note:** This can be done easiest via the right-click context menu.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721269022/docs/tutorials/monorepo/naming_a_service_qy7sg5.png"
 alt="Screenshot of naming a service"
@@ -149,7 +149,7 @@ alt="Screenshot showing the backend repo connected"
 layout="responsive"
 width={1386} height={760} quality={100} />
 
-- Click the `Deploy` button or  `⇧ Enter` to deploy your applications
+- Click the `Deploy` button or `⇧ Enter` to deploy your applications
 
 **Your services will now build and deploy.**
 
@@ -186,10 +186,11 @@ Let's add the Frontend variable first.
 
 - Add the required variable -
 
-    ```plaintext
-    VITE_BACKEND_HOST=${{Backend.RAILWAY_PUBLIC_DOMAIN}}
-    ```
-It should look like this once added:
+      ```plaintext
+      VITE_BACKEND_HOST=${{Backend.RAILWAY_PUBLIC_DOMAIN}}
+      ```
+
+  It should look like this once added:
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721269049/docs/tutorials/monorepo/adding_frontend_variables_jqn4rf.png"
 alt="Screenshot showing the frontend service variables"
@@ -202,9 +203,9 @@ Now let's add the Backend variable.
 
 - Add the required variable -
 
-    ```plaintext
-    ALLOWED_ORIGINS=${{Frontend.RAILWAY_PUBLIC_DOMAIN}}
-    ```
+  ```plaintext
+  ALLOWED_ORIGINS=${{Frontend.RAILWAY_PUBLIC_DOMAIN}}
+  ```
 
 It should look like this once added:
 
@@ -227,4 +228,4 @@ width={1386} height={760} quality={100} />
 
 ## Conclusion
 
-Congratulations! You have setup a project, setup services, added variables and deployed your monorepo project to Railway.  The Frontend service should be accessible on its public domain to access the deployed website.
+Congratulations! You have setup a project, setup services, added variables and deployed your monorepo project to Railway. The Frontend service should be accessible on its public domain to access the deployed website.

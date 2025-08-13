@@ -36,8 +36,8 @@ In the scenario where your deployed service needs more resources, you can either
 
 - Vertically: you will need to manually upgrade to a large instance size to unlock more compute resources.
 - Horizontally: your workload will be distributed across multiple running instances. You can either:
-    - Manually specify the machine count.
-    - Autoscale by defining a minimum and maximum instance count. The number of running instances will increase/decrease based on a target CPU and/or memory utilization you specify.
+  - Manually specify the machine count.
+  - Autoscale by defining a minimum and maximum instance count. The number of running instances will increase/decrease based on a target CPU and/or memory utilization you specify.
 
 The main drawback of this setup is that it requires manual developer intervention. Either by:
 
@@ -66,7 +66,7 @@ You can also set services to start on a schedule using a crontab expression. Thi
 
 ### Render
 
-Render follows a traditional, instance-based pricing. You select the amount of compute resources you need from a list of instance sizes where each one has a fixed monthly price. 
+Render follows a traditional, instance-based pricing. You select the amount of compute resources you need from a list of instance sizes where each one has a fixed monthly price.
 
 ![Render instances](https://res.cloudinary.com/railway/image/upload/v1753470541/docs/comparison-docs/render-instances_swcn49.png)
 
@@ -117,22 +117,22 @@ Railway’s dashboard offers a real-time collaborative canvas where you can view
 
 Additionally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
 
-Check out all templates at [railway.com/deploy](http://railway.com/deploy) 
+Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 
 ## Summary
 
-| **Category** | **Render** | **Railway** |
-|--------------|------------|-------------|
-| **Scaling Model** | Instance-based | Usage-based |
-| **Vertical Scaling** | Manual upgrade to larger instance sizes. | Scales to plan limits automatically |
-| **Horizontal Scaling** | Manually add/remove instances or autoscaling (based on CPU/memory thresholds); requires tuning | Manually add replicas, traffic is routed automatically across regions and replicas |
-| **Multi-region Support** | Not supported | Built-in support; traffic routed to nearest region |
-| **Pricing Model** | Fixed monthly pricing per instance size. Seat-based pricing | Usage-based: charged by active compute time × compute size. You don't pay for seats. You can invite your whole team for no additional cost |
-| **Cost Optimization** | Requires tuning to avoid over/under-provisioning | Inherently optimized. Pay only for used compute |
-| **Infrastructure** | Runs on AWS and GCP; feature access and resources cost more | Railway-owned global infrastructure, lower unit costs and features aren't gated |
-| **Dashboard UX** | Traditional dashboard to view project resources | Real-time collaborative canvas with visual infra relationships. Template directory for 1-click deployments |
+| **Category**             | **Render**                                                                                     | **Railway**                                                                                                                                |
+| ------------------------ | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Scaling Model**        | Instance-based                                                                                 | Usage-based                                                                                                                                |
+| **Vertical Scaling**     | Manual upgrade to larger instance sizes.                                                       | Scales to plan limits automatically                                                                                                        |
+| **Horizontal Scaling**   | Manually add/remove instances or autoscaling (based on CPU/memory thresholds); requires tuning | Manually add replicas, traffic is routed automatically across regions and replicas                                                         |
+| **Multi-region Support** | Not supported                                                                                  | Built-in support; traffic routed to nearest region                                                                                         |
+| **Pricing Model**        | Fixed monthly pricing per instance size. Seat-based pricing                                    | Usage-based: charged by active compute time × compute size. You don't pay for seats. You can invite your whole team for no additional cost |
+| **Cost Optimization**    | Requires tuning to avoid over/under-provisioning                                               | Inherently optimized. Pay only for used compute                                                                                            |
+| **Infrastructure**       | Runs on AWS and GCP; feature access and resources cost more                                    | Railway-owned global infrastructure, lower unit costs and features aren't gated                                                            |
+| **Dashboard UX**         | Traditional dashboard to view project resources                                                | Real-time collaborative canvas with visual infra relationships. Template directory for 1-click deployments                                 |
 
 ## Migrate from Render to Railway
 
@@ -141,26 +141,23 @@ To get started, [create an account on Railway](https://railway.com/new). You can
 ### Deploying your app
 
 1. “Choose Deploy from GitHub repo”, connect your GitHub account, and select the repo you would like to deploy.
-    
+
 ![Railway onboarding new project](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-onboarding-new-project_qqftnj.png)
-    
 
 2. If your project is using any environment variables or secrets:
-    1. Click on the deployed service.
-    2. Navigate to the “Variables” tab.
-    3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
-    
+   1. Click on the deployed service.
+   2. Navigate to the “Variables” tab.
+   3. Add a new variable by clicking the “New Variable” button. Alternatively, you can import a `.env` file by clicking “Raw Editor” and adding all variables at once.
 
 ![Railway environment variables](https://res.cloudinary.com/railway/image/upload/v1753470542/docs/comparison-docs/railway-service-environment-variables_hbvrct.png)
 
 3. To make your project accessible over the internet, you will need to configure a domain:
-    1. From the project’s canvas, click on the service you would like to configure.
-    2. Navigate to the “Settings” tab.
-    3. Go to the “Networking” section.
-    4. You can either:
-        1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
-        2. Add a custom domain: follow the DNS configuration steps.
-
+   1. From the project’s canvas, click on the service you would like to configure.
+   2. Navigate to the “Settings” tab.
+   3. Go to the “Networking” section.
+   4. You can either:
+      1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
+      2. Add a custom domain: follow the DNS configuration steps.
 
 ## Need help or have questions?
 

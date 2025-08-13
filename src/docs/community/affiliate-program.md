@@ -28,7 +28,7 @@ To see and withdraw earnings:
 
 - The `Earnings` page displays total earnings
 
-- Follow the instructions here to withdraw to GitHub Sponsors or Buy Me a Coffee. 
+- Follow the instructions here to withdraw to GitHub Sponsors or Buy Me a Coffee.
 
 - After adding your account details you will request a withdrawal. Our team will receive the request and process it.
 

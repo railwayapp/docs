@@ -19,6 +19,7 @@ declare module "react" {
   // The inline svg css prop
   interface SVGProps<T> extends SVGProps<SVGSVGElement> {
     css?: CSSProp;
+    tw?: string;
   }
 
   // <style jsx> and <style jsx global> support for styled-jsx
@@ -33,6 +34,8 @@ declare global {
   namespace JSX {
     interface IntrinsicAttributes<T> extends DOMAttributes<T> {
       as?: string | React.ComponentType;
+      tw?: string;
+      css?: CSSProp;
     }
   }
 }

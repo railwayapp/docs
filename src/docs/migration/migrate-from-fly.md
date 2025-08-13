@@ -23,7 +23,7 @@ Here’s the link to the [app](https://github.com/unicodeveloper/gin).
 
 ### 1. Set Up a Railway Project
 
-Navigate to [Railway's Project Creation Page](https://railway.com/new). 
+Navigate to [Railway's Project Creation Page](https://railway.com/new).
 
 Select the **Deploy from GitHub Repo** option and connect your repository. If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
 
@@ -57,12 +57,12 @@ If you're migrating data to Railway from Fly, you can follow these steps:
 
 1. Provision a new database by right clicking on the dashboard canvas and selecting Postgres.
 2. Export your data from Flyio
-    - Use `flyctl` to connect to your Flyio Postgres instance
-        - `fly postgres connect -a <postgres-app-name>`
-    - Use `pg_dump` to export your database
-        - `pg_dump -Fc --no-acl --no-owner -h localhost -p 5432 -U <your-db-username> -d <your-db-name> -f flyio_db_backup.dump` 
-    - Use `pg_restore` to connect to your Railway database and restore the data from the dump.
-        - `pg_restore -U <username> -h <host> -p <port> -W -F t -d <db_name> <dump_file_name>`
+   - Use `flyctl` to connect to your Flyio Postgres instance
+     - `fly postgres connect -a <postgres-app-name>`
+   - Use `pg_dump` to export your database
+     - `pg_dump -Fc --no-acl --no-owner -h localhost -p 5432 -U <your-db-username> -d <your-db-name> -f flyio_db_backup.dump`
+   - Use `pg_restore` to connect to your Railway database and restore the data from the dump.
+     - `pg_restore -U <username> -h <host> -p <port> -W -F t -d <db_name> <dump_file_name>`
 
 For detailed instructions, check out [this comprehensive tutorial on migrating PostgreSQL data between services.](https://blog.railway.com/p/postgre-backup)
 
@@ -74,7 +74,7 @@ In this [Fly.io app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), 
 
 ![Replicas](https://res.cloudinary.com/railway/image/upload/v1737143335/replicas_zwtuwr.png)
 
-If your app needs to use multi-region deployments, you can leverage Railway’s [multi-region replicas](https://docs.railway.com/reference/scaling#multi-region-replicas). 
+If your app needs to use multi-region deployments, you can leverage Railway’s [multi-region replicas](https://docs.railway.com/reference/scaling#multi-region-replicas).
 
 Enable this in the **Settings** section of your Railway service to keep your app close to users worldwide.
 

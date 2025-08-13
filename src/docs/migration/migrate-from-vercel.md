@@ -35,7 +35,7 @@ alt="screenshot of new project menu with deploy from github selected"
 layout="responsive"
 width={836} height={860} quality={100} />
 
-*Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.*
+_Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it._
 
 - Search for your GitHub project and click on it.
 
@@ -45,13 +45,9 @@ layout="responsive"
 width={836} height={596} quality={100} />
 
 - Choose either **Deploy Now** or **Add variables**.
-    
-    **Deploy Now** will immediately start to build and deploy your selected repo.
-    
-    **Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the first deployment.
-    
-    *For brevity we will choose **Deploy Now**.*
-    
+  **Deploy Now** will immediately start to build and deploy your selected repo.
+  **Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the first deployment.
+  _For brevity we will choose **Deploy Now**._
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/deploy_now_pmrqow.png"
 alt="screenshot of new project menu with deploy now option selected"
@@ -109,9 +105,9 @@ Railway makes it simple to set up custom domains or use our provided domains -
 
 3. Choose between:
 
-    - Generating a Railway service domain
+   - Generating a Railway service domain
 
-    - Adding your custom domain
+   - Adding your custom domain
 
 4. Follow the DNS configuration steps if using a custom domain
 

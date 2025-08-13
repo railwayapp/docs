@@ -9,9 +9,10 @@ alt="screenshot of a deployment of a self hosted GitHub Actions runner on Railwa
 layout="responsive"
 width={1211} height={820} quality={100} />
 
-Deploying [GitHub Actions Self Hosted Runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) on Railway is an excellent way to run your own CI infrastructure because you only [pay for what you use](/reference/pricing/plans). With self-hosted runners, you also unlock the ability to cache expensive and time-consuming dependencies (`node_modules`, `cargo`, etc.) or large git repositories. Best of all, Railway's built-in [replicas](/reference/scaling#horizontal-scaling-with-replicas) means you can scale your runners horizontally, or even distribute them to different regions with just a click and redeploy. You'll save build times and costs over using standard runners, *AND* you'll unlock more sophistocated workflows to streamline building your app.
+Deploying [GitHub Actions Self Hosted Runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) on Railway is an excellent way to run your own CI infrastructure because you only [pay for what you use](/reference/pricing/plans). With self-hosted runners, you also unlock the ability to cache expensive and time-consuming dependencies (`node_modules`, `cargo`, etc.) or large git repositories. Best of all, Railway's built-in [replicas](/reference/scaling#horizontal-scaling-with-replicas) means you can scale your runners horizontally, or even distribute them to different regions with just a click and redeploy. You'll save build times and costs over using standard runners, _AND_ you'll unlock more sophistocated workflows to streamline building your app.
 
 In this guide you'll learn:
+
 1. The basics to deploy a GitHub Actions Self Hosted Runner on Railway.
 1. How to authenticate self-hosted runners on Railway with your GitHub Organization or Enterprise.
 1. How to scale up [replicas](/reference/scaling#horizontal-scaling-with-replicas) to serve bigger Actions workloads.
@@ -21,7 +22,7 @@ In this guide you'll learn:
 
 ## Deploy a GitHub self-hosted runner on Railway
 
-1. Navigate to the [GitHub Actions self-hosted Runner Template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9). You'll notice the template requires an `ACCESS_TOKEN`. This token, along with our `RUNNER_SCOPE` will determine *where* our self-hosted runners get registered on GitHub. Thankfully, this template supports self registration of your runners -- which means you can dynamically scale up or down the number of runners you have just by adjusting your `replicas`!
+1. Navigate to the [GitHub Actions self-hosted Runner Template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9). You'll notice the template requires an `ACCESS_TOKEN`. This token, along with our `RUNNER_SCOPE` will determine _where_ our self-hosted runners get registered on GitHub. Thankfully, this template supports self registration of your runners -- which means you can dynamically scale up or down the number of runners you have just by adjusting your `replicas`!
 
 2. Set your `RUNNER_SCOPE` to `org`. We want to set up our self-hosted runners to register with a GitHub Organization, so any repositories within our organization can use the same pool of runners. This is super useful because you don't have to set up permissions for every single repository!
 
@@ -145,7 +146,7 @@ jobs:
 
 - Because Railway containers are non-priveleged, GitHub Workflows that [build-and-then-mount](https://github.com/super-linter/super-linter) containers on the same host (i.e. Docker-in-Docker) will fail.
 
-- Using the Serverless Setting on this Service is *not* recommended and will result in idle runners disconnecting from GitHub and needing to reauthenticate. GitHub Runners have a 50 second HTTP longpoll which keeps them alive. While the runners in this template can automatically reauth with an `ACCESS_TOKEN` it will result in unnecessary offline / abandoned runners. If you want your runners to deauthenticate and spin down, consider using ephemeral runners instead.
+- Using the Serverless Setting on this Service is _not_ recommended and will result in idle runners disconnecting from GitHub and needing to reauthenticate. GitHub Runners have a 50 second HTTP longpoll which keeps them alive. While the runners in this template can automatically reauth with an `ACCESS_TOKEN` it will result in unnecessary offline / abandoned runners. If you want your runners to deauthenticate and spin down, consider using ephemeral runners instead.
 
 ### Troubleshooting self-hosted runner communication
 
@@ -159,7 +160,7 @@ If you are using a [proxy server](https://docs.github.com/en/actions/hosting-you
 
 On Railway you only [pay for what you use](/reference/pricing/plans), so you'll find your GitHub workflows are significantly cheaper. For this guide we tested over ~2,300 1 minute builds on Railway self-hosted runners and our usage costs were `$1.80` compared to [GitHub's Estimated Hosted Runner](https://github.com/pricing/calculator?feature=actions) cost of `$18.40` for the same workload. Even better? We had 10x Railway replicas with 32 vCPU and 32GB RAM for this test, meaning that our actions workflows would never slow down.
 
-On other platforms you pay for the *maximum available* vCPUs and Memory. On Railway, you're only paying for usage, or in the below screenshot, the filled in purple area. This enables your workloads to still burst up to the *maximum available* resources you have configured, with no tradeoffs on cost.
+On other platforms you pay for the _maximum available_ vCPUs and Memory. On Railway, you're only paying for usage, or in the below screenshot, the filled in purple area. This enables your workloads to still burst up to the _maximum available_ resources you have configured, with no tradeoffs on cost.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1746386242/docs/github-actions/urc6rirvsb3folwoqoml.png"
 alt="screenshot of Railway's Observability dashboard demonstrating burstable usage of Memory"

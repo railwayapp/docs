@@ -56,29 +56,53 @@ const SidebarContent: React.FC = () => {
     [slug],
   );
 
-  const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]); 
+  const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]);
   const activeLinkRef = React.useRef<HTMLAnchorElement | null>(null);
 
   useEffect(() => {
-    const newExpandedSubSections = findContainingSubSectionSlugs(sidebarContent, prefixedSlug ?? pathname);
-    setExpandedSubSections(prevExpandedSubSections => Array.from(new Set([...prevExpandedSubSections, ...newExpandedSubSections])));
+    const newExpandedSubSections = findContainingSubSectionSlugs(
+      sidebarContent,
+      prefixedSlug ?? pathname,
+    );
+    setExpandedSubSections(prevExpandedSubSections =>
+      Array.from(
+        new Set([...prevExpandedSubSections, ...newExpandedSubSections]),
+      ),
+    );
   }, [prefixedSlug]);
-  
+
   useEffect(() => {
     if (activeLinkRef.current) {
-      activeLinkRef.current.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      activeLinkRef.current.scrollIntoView({
+        block: "nearest",
+        behavior: "smooth",
+      });
     }
   }, [prefixedSlug]);
-  
 
-  const findContainingSubSectionSlugs = (sections: ISidebarSection[], currentPageSlug: string): string[] => {
+  const findContainingSubSectionSlugs = (
+    sections: ISidebarSection[],
+    currentPageSlug: string,
+  ): string[] => {
     let slugs: string[] = [];
     for (const section of sections) {
       for (const item of section.content) {
-        if ('subTitle' in item) {
-          const subTitleSlug = typeof item.subTitle === 'string' ? item.subTitle : item.subTitle.slug;
-          const hasMatchingChild = item.pages.some(p => 'slug' in p && p.slug === currentPageSlug);
-          console.log('Checking subTitleSlug:', subTitleSlug, 'currentPageSlug:', currentPageSlug, 'childSlugs:', item.pages.filter(p => 'slug' in p).map(p => (p as IPage).slug));
+        if ("subTitle" in item) {
+          const subTitleSlug =
+            typeof item.subTitle === "string"
+              ? item.subTitle
+              : item.subTitle.slug;
+          const hasMatchingChild = item.pages.some(
+            p => "slug" in p && p.slug === currentPageSlug,
+          );
+          console.log(
+            "Checking subTitleSlug:",
+            subTitleSlug,
+            "currentPageSlug:",
+            currentPageSlug,
+            "childSlugs:",
+            item.pages.filter(p => "slug" in p).map(p => (p as IPage).slug),
+          );
           if (hasMatchingChild || subTitleSlug === currentPageSlug) {
             slugs.push(subTitleSlug);
           }
@@ -86,48 +110,58 @@ const SidebarContent: React.FC = () => {
       }
     }
     return slugs;
-  }; 
-  
+  };
+
   const isCurrentPage = (pageSlug: string) =>
     (prefixedSlug ?? pathname) === pageSlug;
 
-  const isCurrentSection = (section: ISidebarSection ) => {
-    const isDirectPageCurrent = section.content.some(item => 'slug' in item && isCurrentPage(item.slug));
+  const isCurrentSection = (section: ISidebarSection) => {
+    const isDirectPageCurrent = section.content.some(
+      item => "slug" in item && isCurrentPage(item.slug),
+    );
 
     const isSubTitlePageCurrent = section.content.some(item => {
-      if ('subTitle' in item) {
-        const subTitleSlug = typeof item.subTitle === 'string' ? item.subTitle : item.subTitle.slug;
+      if ("subTitle" in item) {
+        const subTitleSlug =
+          typeof item.subTitle === "string"
+            ? item.subTitle
+            : item.subTitle.slug;
         return isCurrentPage(subTitleSlug);
       }
       return false;
     });
 
-    const isSubSectionPageCurrent = section.content.some(item => 
-      'subTitle' in item && item.pages.some(page => 'slug' in page && isCurrentPage(page.slug))
+    const isSubSectionPageCurrent = section.content.some(
+      item =>
+        "subTitle" in item &&
+        item.pages.some(page => "slug" in page && isCurrentPage(page.slug)),
     );
 
-    return isDirectPageCurrent || isSubTitlePageCurrent || isSubSectionPageCurrent;
+    return (
+      isDirectPageCurrent || isSubTitlePageCurrent || isSubSectionPageCurrent
+    );
   };
-    
+
   const toggleSubSection = (subTitleSlug: string) => {
     setExpandedSubSections(prevState =>
       prevState.includes(subTitleSlug)
         ? prevState.filter(slug => slug !== subTitleSlug)
-        : [...prevState, subTitleSlug]
+        : [...prevState, subTitleSlug],
     );
   };
-  
-  const renderContentItem = (item: IPage | ISubSection | IExternalLink) => {
-    let itemSlug = '';
 
-    if ('slug' in item) {
+  const renderContentItem = (item: IPage | ISubSection | IExternalLink) => {
+    let itemSlug = "";
+
+    if ("slug" in item) {
       itemSlug = item.slug;
-     } else if ('subTitle' in item) {
-      itemSlug = typeof item.subTitle === 'string' ? item.subTitle : item.subTitle.slug;
-     } else if ('url' in item) {
+    } else if ("subTitle" in item) {
+      itemSlug =
+        typeof item.subTitle === "string" ? item.subTitle : item.subTitle.slug;
+    } else if ("url" in item) {
       itemSlug = item.url;
-     };
-    
+    }
+
     const isActive = isCurrentPage(itemSlug);
     return (
       <SidebarItem
@@ -156,9 +190,7 @@ const SidebarContent: React.FC = () => {
             </h5>
           )}
 
-          <ul tw="mb-8">
-            {section.content.map(renderContentItem)}
-          </ul>
+          <ul tw="mb-8">{section.content.map(renderContentItem)}</ul>
         </React.Fragment>
       ))}
     </>

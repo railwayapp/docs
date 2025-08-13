@@ -5,7 +5,7 @@ description: Learn how to manage and deploy apps on Railway using config as code
 
 Railway supports defining the configuration for a single deployment in a file
 alongside your code. By default, we will look for a `railway.toml` or
-`railway.json` file. 
+`railway.json` file.
 
 Everything in the build and deploy sections of the service
 settings can be specified in this configuration file.
@@ -13,10 +13,9 @@ settings can be specified in this configuration file.
 ## How does it work?
 
 When a new deployment is triggered, Railway will look for any config files in your
-code and combine these values with the settings from the dashboard. 
+code and combine these values with the settings from the dashboard.
 
 The resulting build and deploy config will be used **only for the current deployment**.
-
 
 The settings in the dashboard will not be updated with the settings defined in
 code.
@@ -37,6 +36,7 @@ width={1200} height={631} quality={100} />
 ## Configurable Settings
 
 {/* codegen:start do not edit this comment */}
+
 ### Specify the Builder
 
 Set the builder for the deployment.
@@ -51,13 +51,13 @@ Set the builder for the deployment.
 ```
 
 Possible values are:
+
 - `NIXPACKS`
 - `DOCKERFILE`
 
 Note: Railway will always build with a Dockerfile if it finds one. To build with nixpacks, you can remove or rename the Dockerfile.
 
 Read more about Builds [here](/guides/builds).
-
 
 ### Watch Patterns
 
@@ -189,7 +189,7 @@ Use nixpacksPlan to configure a custom install command.
 
 EXPERIMENTAL: USE AT YOUR OWN RISK!.
 
-Version of Nixpacks to use. Must be a valid Nixpacks version. 
+Version of Nixpacks to use. Must be a valid Nixpacks version.
 
 ```json
 {
@@ -226,7 +226,6 @@ Read more about the start command [here](/reference/build-and-start-commands#sta
 The command to run before starting the container.
 
 ```json
-
 {
   "$schema": "https://railway.com/railway.schema.json",
   "deploy": {
@@ -318,6 +317,7 @@ How to handle the deployment crashing.
 ```
 
 Possible values are:
+
 - `ON_FAILURE`
 - `ALWAYS`
 - `NEVER`
@@ -363,6 +363,7 @@ Configuration can be overridden for a specific environment by nesting it in a
 `environments.[name]` block.
 
 When resolving the settings for a deployment, Railway will use this priority order:
+
 1. Environment specific config in code
 2. Base config in code
 3. Service settings
@@ -386,6 +387,7 @@ environment.
 #### PR Environment Overrides
 
 Deployments for pull requests can be configured using a special `pr` environment. This configuration is applied only to deploys that belong to an ephemeral environment. When resolving the settings for a PR deployment, the following priority order is used:
+
 1. Environment with the name of the ephemeral environment
 2. Environment with the hardcoded name "pr"
 3. Base environment of the pull request
@@ -408,6 +410,7 @@ Deployments for pull requests can be configured using a special `pr` environment
 ### Configuring a Build provider with Nixpacks
 
 To define a build provider ahead of time, create a `nixpacks.toml` file and configure it like so:
+
 ```toml
 providers = ["...", "python"]
 ```

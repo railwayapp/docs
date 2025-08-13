@@ -18,7 +18,6 @@ The format you use for your config-as-code (toml or json) file is entirely depen
 
 For example, these configuration definitions are equivalent:
 
-
 <div style={{ display: 'flex', flexDirection: 'row', gap: '5px', fontSize: '0.9em', alignItems: 'stretch' }}>
     <div style={{ flex: '1 1 50%', overflow: 'auto', minWidth: '200px', maxWidth: '350px' }}>
         ```toml
@@ -61,6 +60,7 @@ For example, these configuration definitions are equivalent:
         ```
         <p style={{ marginTop: '-0.2em', fontSize: '0.8em', opacity: '0.6' }}>A `railway.json` file</p>
     </div>
+
 </div>
 
 ## JSON Schema
@@ -75,7 +75,6 @@ If you include it in your `railway.json` file, many editors (e.g. VSCode) will p
 }
 ```
 
-
 ## Understanding Config Source
 
 On a service's deployment details page, all the settings that a deployment went out with are shown.
@@ -87,7 +86,6 @@ src="https://res.cloudinary.com/railway/image/upload/v1743195106/docs/configurat
 alt="Screenshot of Deployment Details Pane"
 layout="responsive"
 width={1200} height={631} quality={100} />
-
 
 ## Using a Custom Config as Code File
 

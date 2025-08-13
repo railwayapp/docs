@@ -48,11 +48,11 @@ curl --request POST \
 
 ## Schema
 
-The Railway API supports introspection meaning you can use popular tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) to query the schema.  Simply set up your connection with the endpoint and Authorization token, and fetch the schema.
+The Railway API supports introspection meaning you can use popular tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) to query the schema. Simply set up your connection with the endpoint and Authorization token, and fetch the schema.
 
 ### API Collection File
 
-We provide a collection file which can be imported into your preferred API client.  Once imported, you should only need to add your API token to get connected and start executing queries in the collection. Click [here](https://gql-collection-server.up.railway.app/railway_graphql_collection.json) to download it.
+We provide a collection file which can be imported into your preferred API client. Once imported, you should only need to add your API token to get connected and start executing queries in the collection. Click [here](https://gql-collection-server.up.railway.app/railway_graphql_collection.json) to download it.
 
 ### GraphiQL Playground
 
@@ -61,12 +61,13 @@ Use our [GraphiQL playground](https://railway.com/graphiql) to view the schema a
 Make sure to set an Authorization header with an [auth token](/reference/public-api#authentication). Click the "Headers" tab at the bottom of the GraphiQL page and enter this json, using your own token:
 
 ```json
-{"Authorization": "Bearer <API_TOKEN_GOES_HERE>"}
+{ "Authorization": "Bearer <API_TOKEN_GOES_HERE>" }
 ```
 
 ## Rate Limits
 
 In order to protect the Railway API from spam and misusage, we have established some basic rate limits. The current limits to the API are:
+
 - **1000** requests per **hour**
 - Requests per second: **10** RPS for Hobby users; **50** RPS for Pro users; custom for Enterprise
 

@@ -20,7 +20,6 @@ A project's name and description can be changed from the General tab within a pr
 
 The project id can also be retrieved here.
 
-
 ## Deleting a Project
 
 A project can be deleted by selecting the `Delete Project` button in the Danger tab. Deleting a project will delete all services, environments, and deployments associated with the project.
@@ -35,13 +34,11 @@ You can invite a member by sending an invitation to their email address, or by g
 
 Click [here](/reference/project-members#scope-of-permissions) to view the scope definitions for permissions.
 
-
 ### Invite by Email
 
 Invite a new member via email by specifying their email address and scope of permissions, then click `Invite`.
 
 This will send an email to the address specified containing a link to join your project.
-
 
 ### Invite by Link
 
@@ -49,7 +46,6 @@ Each project generates a project invite link. To invite someone via a link:
 
 1. Select the desired invited member scope
 2. Copy link and send to the invitee
-
 
 ## Transferring Projects
 
@@ -70,11 +66,11 @@ The transferee receives an email requesting to transfer the project.
 
 #### Hobby User to Team || Team to Team
 
-You can transfer a Project in your Hobby workspace to a Team (or between Teams) in which you are an Admin.  Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
+You can transfer a Project in your Hobby workspace to a Team (or between Teams) in which you are an Admin. Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1692378671/project-transfer_iukfwb.png" alt="Project Transfer" layout="responsive" height={968} width={1240} />
 
-Note: If you do not see the Transfer Project section in your Project Settings, you may not be an Admin of the Team to which you wish to transfer the Project.  See the [reference page for Teams](/reference/teams#inviting-members) for more information on team member permissions.
+Note: If you do not see the Transfer Project section in your Project Settings, you may not be an Admin of the Team to which you wish to transfer the Project. See the [reference page for Teams](/reference/teams#inviting-members) for more information on team member permissions.
 
 ## Viewing Recent Activity
 
@@ -87,7 +83,7 @@ The activity feed shows all the changes that have been made to a project. This i
 
 ## Updating Project Visibility
 
-Projects are private by default and only accessible to members of the project.  However, you can make your projects public to share in a read-only state by changing the visibility in project settings - 
+Projects are private by default and only accessible to members of the project. However, you can make your projects public to share in a read-only state by changing the visibility in project settings -
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743121306/docs/project-visiblity_ksafj3.png"

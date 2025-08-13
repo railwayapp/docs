@@ -20,21 +20,23 @@ const getOGImage = (title: string) =>
 const domainUrl = "https://docs.railway.com";
 const fallbackDescription = "Documentation for Railway";
 
-export const flattenSidebarContent = (sidebarContent: ISidebarContent): IPage[] => {
+export const flattenSidebarContent = (
+  sidebarContent: ISidebarContent,
+): IPage[] => {
   let flatPages: IPage[] = [];
   sidebarContent.forEach(section => {
     section.content.forEach(item => {
-      if ('url' in item) {
+      if ("url" in item) {
         // Skip external links
         return;
-      } else if ('subTitle' in item) {
+      } else if ("subTitle" in item) {
         // this is the subTitle page
-        if (typeof item.subTitle !== 'string') {
+        if (typeof item.subTitle !== "string") {
           flatPages.push(item.subTitle);
         }
         // also used for skipping external links
         item.pages.forEach(page => {
-          if (!('url' in page)) {
+          if (!("url" in page)) {
             flatPages.push(page);
           }
         });
@@ -71,14 +73,14 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     const pageIndex = flatPages.findIndex(p => p.slug === prefixedSlug);
 
     const prevPage = pageIndex > 0 ? flatPages[pageIndex - 1] : null;
-    const nextPage = pageIndex < flatPages.length - 1 ? flatPages[pageIndex + 1] : null;
+    const nextPage =
+      pageIndex < flatPages.length - 1 ? flatPages[pageIndex + 1] : null;
 
     return { prevPage, nextPage };
   }, [slug]);
 
   return (
     <>
-      
       <SEO
         title={`${frontMatter.title} | Railway Docs`}
         twitterTitle={`${frontMatter.title}`}

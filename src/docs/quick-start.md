@@ -9,16 +9,15 @@ Railway is a deployment platform that lets you provision infrastructure, develop
 
 1. **Deploying your project** - Bring your code and let Railway handle the rest.
 
-    **[Option 1](/quick-start#deploying-your-project---from-github)**  - Deploying from **GitHub**.
+   **[Option 1](/quick-start#deploying-your-project---from-github)** - Deploying from **GitHub**.
 
-    **[Option 2](/quick-start#deploying-your-project---with-the-cli)** - Deploying with the **[CLI](/guides/cli)**.
+   **[Option 2](/quick-start#deploying-your-project---with-the-cli)** - Deploying with the **[CLI](/guides/cli)**.
 
-    **[Option 3](/quick-start#deploying-your-project---from-a-docker-image)** - Deploying from a **Docker Image**.
+   **[Option 3](/quick-start#deploying-your-project---from-a-docker-image)** - Deploying from a **Docker Image**.
 
-3. **Deploying a <a href="reference/templates" target="_blank">template</a>** - Ideal for deploying pre-configured software with minimal effort.
+2. **Deploying a <a href="reference/templates" target="_blank">template</a>** - Ideal for deploying pre-configured software with minimal effort.
 
 To demonstrate deploying directly from a GitHub repository through Railway's dashboard, we'll be using a basic <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a> that was prepared for this guide.
-
 
 For the template deployment, we'll use the <a href="https://railway.com/template/umami-analytics" target="_blank">Umami template</a> from our <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
 
@@ -37,7 +36,7 @@ alt="screenshot of new project menu with deploy from github selected"
 layout="responsive"
 width={836} height={860} quality={100} />
 
-*Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.*
+_Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it._
 
 - Search for your GitHub project and click on it.
 
@@ -48,11 +47,11 @@ width={836} height={596} quality={100} />
 
 - Choose either **Deploy Now** or **Add variables**.
 
-    **Deploy Now** will immediately start to build and deploy your selected repo.
+  **Deploy Now** will immediately start to build and deploy your selected repo.
 
-    **Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the first deployment.
+  **Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the first deployment.
 
-    *For brevity we will choose **Deploy Now**.*
+  _For brevity we will choose **Deploy Now**._
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/deploy_now_pmrqow.png"
 alt="screenshot of new project menu with deploy now option selected"
@@ -73,7 +72,7 @@ The CLI can create a new project entirely from the command line, we will use it 
 
 - Run `railway init`
 
-    This will create a new empty project with the name we provided, which will be used for any subsequent commands.
+  This will create a new empty project with the name we provided, which will be used for any subsequent commands.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/railway_init_rglt5w.png"
 alt="screenshot of the command line after railway init was run"
@@ -84,7 +83,7 @@ Deploying your code is now only a single command away.
 
 - Run `railway up`
 
-    The CLI will now scan our project files, compress them, and upload them to Railway's backend for deployment.
+  The CLI will now scan our project files, compress them, and upload them to Railway's backend for deployment.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/railway_up_vns3u4.png"
 alt="screenshot of the command line after railway up was run"
@@ -185,7 +184,7 @@ width={836} height={860} quality={100} />
 
 - Search for your desired template.
 
-    *Hint: If your desired template isn't found feel free to <a href="https://station.railway.com/questions" target="_blank">reach out to the community</a>.*
+  _Hint: If your desired template isn't found feel free to <a href="https://station.railway.com/questions" target="_blank">reach out to the community</a>._
 
 - Click on the template you want to deploy.
 
@@ -194,11 +193,11 @@ alt="screenshot of new project menu the umami template selected"
 layout="responsive"
 width={836} height={644} quality={100} />
 
-*Hint: Generally it's best to choose the template with a combined higher deployment and success count.*
+_Hint: Generally it's best to choose the template with a combined higher deployment and success count._
 
 - Fill out any needed information that the template may require.
 
-    In the case of our Umami template, we don't need to provide any extra information.
+  In the case of our Umami template, we don't need to provide any extra information.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1723752558/docs/quick-start/template_config_options_zaxbko.png"
 alt="screenshot of the deploy umami screen with no extra configurations needed"

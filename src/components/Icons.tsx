@@ -1,8 +1,7 @@
-import tw, { styled } from "twin.macro";
 import { useTheme } from "../styles/theme";
 import { useIsMounted } from "@/hooks/useIsMounted";
 
-export const XIcon: React.FC<any> = (props) => {
+export const XIcon: React.FC<any> = props => {
   const { colorMode } = useTheme();
 
   const isMounted = useIsMounted();
@@ -34,12 +33,8 @@ export const XIcon: React.FC<any> = (props) => {
   );
 };
 
-export const DiscordIcon: React.FC<any> = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 127.14 96.36"
-    {...props}
-  >
+export const DiscordIcon: React.FC<any> = props => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" {...props}>
     <g data-name="\\u56FE\\u5C42 2">
       <g data-name="Discord Logo">
         <path
