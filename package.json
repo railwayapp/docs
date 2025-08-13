@@ -16,6 +16,7 @@
     "migrate:status": "prisma migrate status",
     "toml-reference": "node src/scripts/toml-reference.mjs"
   },
+  "packageManager": "pnpm@8.10.2",
   "dependencies": {
     "@nanostores/react": "^0.4.1",
     "@prisma/client": "4.10.1",
