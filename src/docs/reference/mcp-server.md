@@ -90,7 +90,7 @@ claude mcp add Railway npx @railway/mcp-server
   ```
 
   ```text
-  Deploy a single node Clickhouse database
+  Deploy a single node ClickHouse database
   ```
 
 * **Pull environment variables**
