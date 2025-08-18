@@ -9,7 +9,12 @@ export interface FeedbackBody {
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method == "POST") {
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "Method not allowed" });
+    return;
+  }
+
+  try {
     const body: FeedbackBody = JSON.parse(req.body);
     const feedbackMessage =
       body.feedback?.trim() === "" ? null : body.feedback?.trim();
@@ -44,7 +49,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         },
       });
     }
-  }
 
-  res.status(200).json({ status: "Success" });
+    res.status(200).json({ status: "Success" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to process feedback" });
+    return;
+  }
 };
