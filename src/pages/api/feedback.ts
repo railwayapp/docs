@@ -1,6 +1,7 @@
 import { Sentiment } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../clients/prisma";
+import { DISCORD_WEBHOOK } from "@/config";
 
 export interface FeedbackBody {
   topic: string;
@@ -24,7 +25,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     // Only send Discord message if negative
-    if (!body.helpful) {
+    if (!body.helpful && DISCORD_WEBHOOK) {
       const discordBody = {
         content: `:speaking_head:
       Topic: ${body.topic}
@@ -36,7 +37,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       }`,
       };
 
-      await fetch(`${process.env.DISCORD_WEBHOOK}`, {
+      await fetch(DISCORD_WEBHOOK, {
         body: JSON.stringify(discordBody),
         method: "POST",
         headers: {

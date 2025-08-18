@@ -1,6 +1,11 @@
 import { useDebouncedSearch } from "@/hooks/useDebouncedSearch";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { Search } from "@/types";
+import {
+  MEILISEARCH_HOST,
+  MEILISEARCH_INDEX_NAME,
+  MEILISEARCH_READ_API_KEY,
+} from "@/config";
 import React from "react";
 import tw from "twin.macro";
 import NoResults from "./NoResults";
@@ -20,9 +25,9 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
   };
   const { clearResponse, isSearching, query, setQuery, results } =
     useDebouncedSearch<Search.Document, Search.Result>(
-      process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
-      process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
-      process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME ?? "",
+      MEILISEARCH_HOST,
+      MEILISEARCH_READ_API_KEY,
+      MEILISEARCH_INDEX_NAME,
       searchParams,
       200,
     );
