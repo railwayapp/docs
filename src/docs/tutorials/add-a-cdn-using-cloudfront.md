@@ -286,7 +286,7 @@ This cache control definition tells CloudFront to revalidate the data at the rou
 
 #### Cache Behavior
 
-When the initial request is made to the route, CloudFront retrieves the data from the server, then stores it. For 60s after the intial request, CloudFront will serve the cached response with **HTTP 304**, and after 60s, it will check the server for new data.
+When the initial request is made to the route, CloudFront retrieves the data from the server, then stores it. For 60s after the initial request, CloudFront will serve the cached response with **HTTP 304**, and after 60s, it will check the server for new data.
 
 #### Faster Response Time
 

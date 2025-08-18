@@ -7,9 +7,9 @@ description: Learn how to troubleshoot and fix the 'Nixpacks was unable to gener
 
 Railway uses [Nixpacks](https://nixpacks.com/docs/how-it-works) to analyze your application's files to generate a container image for your application.
 
-Seeing the `Nixpacks was unable to generate a build plan for this app` error means that Nixpacks was unable to corelate your application's files with a supported build plan.
+Seeing the `Nixpacks was unable to generate a build plan for this app` error means that Nixpacks was unable to correlate your application's files with a supported build plan.
 
-A build plan is a set of pre defined instructions that Nixpacks uses to build and run your application on the Railway platform.
+A build plan is a set of predefined instructions that Nixpacks uses to build and run your application on the Railway platform.
 
 A list of supported build plans can be found [here](https://nixpacks.com/docs/build-plans) under the `Language Support` section.
 
