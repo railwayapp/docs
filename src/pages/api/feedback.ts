@@ -1,5 +1,5 @@
 import { Sentiment } from "@prisma/client";
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiHandler } from "next";
 import { prisma } from "../../clients/prisma";
 
 export interface FeedbackBody {
@@ -8,7 +8,7 @@ export interface FeedbackBody {
   feedback?: string;
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler: NextApiHandler = async (req, res) => {
   if (req.method == "POST") {
     const body: FeedbackBody = JSON.parse(req.body);
     const feedbackMessage =
@@ -48,3 +48,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   res.status(200).json({ status: "Success" });
 };
+
+export default handler;
