@@ -17,7 +17,7 @@ declare module "react" {
   }
 
   // The inline svg css prop
-  interface SVGProps<T> extends SVGProps<SVGSVGElement> {
+  interface SVGProps<T> {
     css?: CSSProp;
     tw?: string;
   }
@@ -29,13 +29,4 @@ declare module "react" {
   }
 }
 
-// The 'as' prop on styled components
-declare global {
-  namespace JSX {
-    interface IntrinsicAttributes<T> extends DOMAttributes<T> {
-      as?: string | React.ComponentType;
-      tw?: string;
-      css?: CSSProp;
-    }
-  }
-}
+// Do not override JSX.IntrinsicAttributes to preserve React's built-in `key`/`ref` types
