@@ -1,8 +1,6 @@
 import { BannerVariant } from "@/components/Banner";
-import { Link } from "@/components/Link";
 import { useMemo } from "react";
 import useLocalStorageState from "use-local-storage-state";
-import tw from "twin.macro";
 
 export interface GlobalBanner {
   id: string;

@@ -1,7 +1,7 @@
 import { RailwayIcon } from "@/components/Icons";
 import { Link } from "@/components/Link";
 import React from "react";
-import { HelpCircle, Mail } from "react-feather";
+import { HelpCircle } from "react-feather";
 import tw, { styled } from "twin.macro";
 
 const ContactButton = styled(Link)`

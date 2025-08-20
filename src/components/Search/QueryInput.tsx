@@ -1,7 +1,6 @@
 import React from "react";
 import { Search as SearchIcon } from "react-feather";
 import tw from "twin.macro";
-import { Icon } from "../Icon";
 
 interface Props {
   clearResponse: () => void;

@@ -1,17 +1,11 @@
 import { NextPage } from "next";
-import NextImage from "next/legacy/image";
 import {
   ArrowRight,
-  Book,
-  Code,
-  Edit3,
-  GitPullRequest,
-  Layers,
   Youtube,
   GitHub,
 } from "react-feather";
 import tw, { styled } from "twin.macro";
-import { DiscordIcon, RssIcon, XIcon } from "../components/Icons";
+import { DiscordIcon, XIcon } from "../components/Icons";
 import { Link } from "../components/Link";
 
 const Home: NextPage = () => {
@@ -877,16 +871,6 @@ const Home: NextPage = () => {
 
 export default Home;
 
-const ButtonLink = styled(Link)`
-  ${tw`block font-medium rounded shadow`}
-  ${tw`px-3 py-2`}
-  ${tw`focus:outline-none`}
-`;
-
-const OverviewLink = styled(Link)`
-  ${tw`flex border border-gray-100 rounded-md dark:bg-[#181622] p-6 hover:bg-gray-100 hover:shadow-lg`}
-`;
-
 const FrameworkLink = styled(Link)`
   ${tw`flex flex-col items-center justify-center border transition`}
   border-radius: 0.5rem;
@@ -909,53 +893,9 @@ const FrameworkLink = styled(Link)`
   }
 `;
 
-const OverviewLinkIcon = styled.div`
-  ${tw`flex border items-center p-4 h-16 w-16 rounded-md bg-background`}
-`;
-
-const FrameworkLinkIcon = styled.div`
-  ${tw`mb-2 border-none flex items-center justify-center rounded-full`}
-  width: 28px;
-  height: 28px;
-  background: rgba(244, 244, 246, 0.4);
-  .dark & {
-    background: rgba(32, 31, 45, 0.2);
-  }
-  & > svg,
-  & > img {
-    width: 28px !important;
-    height: 28px !important;
-    display: block;
-    margin: 0 auto;
-  }
-`;
-
-const OverviewLinkTextbox = styled.div`
-  ${tw`ml-0 mt-2 flex flex-col items-center justify-center`}
-  font-size: 1rem;
-`;
-
-const FrameworkLinkTextbox = styled.div`
-  ${tw`ml-0 mt-2 flex flex-col items-center justify-center`}
-  font-size: 1rem;
-`;
-
-const OverviewLinkHeading = styled.div`
-  ${tw`font-semibold text-lg mb-1`}
-`;
-
 const FrameworkLinkHeading = styled.div`
   ${tw`font-normal text-lg mt-2 leading-7`}
   font-size: 1rem;
-`;
-
-const OverviewLinkText = styled.div`
-  ${tw`font-normal text-base text-gray-600`}
-`;
-
-const OverviewSecondaryLink = styled(Link)`
-  ${tw`flex items-center text-gray-600 gap-2 hover:text-pink-700`}
-  ${tw`justify-center text-center`}
 `;
 
 const FooterCard = styled(Link).attrs({ className: "group" })`
@@ -991,24 +931,3 @@ const FooterLink = styled(Link).attrs({ className: "group" })`
 export const Background = () => (
   <div tw="opacity-50 md:opacity-100 absolute inset-0 pointer-events-none"></div>
 );
-
-const FrameworkLinkText = styled.div`
-  ${tw`font-normal text-base text-gray-600`}
-`;
-
-const DeployCard = styled.div`
-  border-radius: 0.5rem;
-  border: 1px solid var(--colors-gray-100);
-  background: rgba(244, 244, 246, 0.4);
-  transition: background 0.2s, border-color 0.2s;
-  &:hover {
-    background: rgba(244, 244, 246, 1);
-  }
-  .dark & {
-    background: rgba(32, 31, 45, 0.2);
-    border-color: var(--colors-gray-200);
-  }
-  .dark &:hover {
-    background: rgba(32, 31, 45, 0.6);
-  }
-`;

@@ -60,7 +60,6 @@ const buildHeaderTree = (nodes: HTMLHeadingElement[]): IHeader[] => {
 export const PageNav: React.FC<Props> = ({ title }) => {
   const [headers, setHeaders] = useState<IHeader[]>([]);
   const [activeId, setActiveId] = useState<string>("");
-  const [flatIds, setFlatIds] = useState<string[]>([]);
   const linkRefs = useRef<{ [id: string]: HTMLAnchorElement | null }>({});
 
   useEffect(() => {
@@ -68,7 +67,6 @@ export const PageNav: React.FC<Props> = ({ title }) => {
       document.querySelectorAll(".docs-content h2, h3, h4"),
     ) as HTMLHeadingElement[];
     setHeaders(buildHeaderTree(documentHeaders));
-    setFlatIds(documentHeaders.map(h => h.id));
   }, [title]);
 
   useEffect(() => {

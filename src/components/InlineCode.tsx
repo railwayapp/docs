@@ -4,15 +4,6 @@ import { useTheme } from "../styles/theme";
 import { darkCodeTheme, lightCodeTheme } from "../styles/codeThemes";
 import { useIsMounted } from "@/hooks/useIsMounted";
 
-type CodeTheme = {
-  'pre[class*="language-"]': {
-    background: string;
-  };
-  'code[class*="language-"]': {
-    color: string;
-  };
-};
-
 export interface Props {
   children?: any;
   colorModeSSR?: string | null;
