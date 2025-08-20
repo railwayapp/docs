@@ -27,7 +27,7 @@ SOC 2 Type II certification is expected by the **end of July 2025**.
 
 Railway follows a shared responsibility model for HIPAA compliance and PHI. Railway will make its best effort to advise your company on setting up encryption for your data, auditing the storage of keys, establishing access control, and ensuring secure storage of sensitive patient data. When a BAA is in effect, the Railway team will no longer be able to directly access your running workloads.
 
-HIPAA BAA is an add-on with a paid monthly spend threshold. All pricing goes towards your [usage on Railway](/reference/pricing#committed-spend-tiers). Monthly thresholds for addons is found in our [commited spend pricing](/reference/pricing#committed-spend-tiers).
+HIPAA BAA is an add-on with a paid monthly spend threshold. All pricing goes towards your [usage on Railway](/reference/pricing#committed-spend-tiers). Monthly thresholds for addons is found in our [committed spend pricing](/reference/pricing#committed-spend-tiers).
 
 If your company needs a BAA, you can contact our solutions team at [team@railway.com](mailto:team@railway.com), or click [here](https://cal.com/team/railway/work-with-railway?duration=30) to schedule some time to chat.
 

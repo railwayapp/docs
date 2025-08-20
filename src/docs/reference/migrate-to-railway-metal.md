@@ -15,7 +15,7 @@ We announced on December 26th that we would be moving users to Railway Metal ove
 
 **We expect all user workloads to be on Railway Metal by July 4th, 2025.**
 
-Railway is **currently** initating migrations of user workloads to Railway Metal regions at off-peak times per region.
+Railway is **currently** initiating migrations of user workloads to Railway Metal regions at off-peak times per region.
 
 As such, we advise our customers to move all of their workloads to Railway Metal to avoid Railway initiated downtime.
 
@@ -23,7 +23,7 @@ As such, we advise our customers to move all of their workloads to Railway Metal
 
 A migration to Railway Metal is just like any deployment on Railway that would happen if you changed the region setting to a different value.
 
-Railway is built region agnostically, meaning, the choice of region doesn't impact the availibility of products or features depending on the region. In doing so, user workloads can be deployed into different geographic regions at will.
+Railway is built region agnostically, meaning, the choice of region doesn't impact the availability of products or features depending on the region. In doing so, user workloads can be deployed into different geographic regions at will.
 
 A migration to Railway Metal is a simple region change.
 
@@ -33,7 +33,7 @@ For services with a volume attached, or Stateful deployments, there is a brief 3
 
 ## Initiating a migration
 
-You can initate a migration by selecting a region in the service settings pane with any label that has: `Metal (New)`
+You can initiate a migration by selecting a region in the service settings pane with any label that has: `Metal (New)`
 
 After you select the region, you will get the Staged Change anchored modal at the center top position of the project canvas.
 
@@ -47,9 +47,9 @@ Depending on if the service is Stateful or Stateless- we then initiate one of tw
 
 **For Stateless:** Railway rebuilds your application onto our Metal region, and after the container image is built, then is landed on a running host in one of our datacenters.
 
-**For Stateful:** Railway detects if a volume is mounted to your service, if a volume is detected, Railway initates a volume migration and holds the deployment until the volume is ready to be mounted within the new region. The process is as follows:
+**For Stateful:** Railway detects if a volume is mounted to your service, if a volume is detected, Railway initiates a volume migration and holds the deployment until the volume is ready to be mounted within the new region. The process is as follows:
 
-1. Railway initates a backup of the volume for internal and customer use.
+1. Railway initiates a backup of the volume for internal and customer use.
 2. Railway makes the backup of the volume accessible on the project canvas in the original region.
 3. Railway then copies the volume into the new region.
 4. (Optional) If there are backups in the volume, we also copy those backups into the new region. _Depending on the number and size of backups, this incurs a time penalty on the migration._
@@ -59,7 +59,7 @@ Depending on if the service is Stateful or Stateless- we then initiate one of tw
 
 During the process, as of 2025/05/13 - Railway is able to report the transfer speed and progress of the volume migration to users.
 
-### What happens to writes on the DB on migrations that I initated?
+### What happens to writes on the DB on migrations that I initiated?
 
 Because Railway is copying the volume primitive using the same primitive that we use for the volume backup feature, writes persist until we unmount the running deployment of the DB. As such, you don't need to plan for downtime of your database except for the 30 to 40 seconds when a deployment remounts into the database.
 
@@ -77,25 +77,25 @@ Before initiating a migration we recommend that users configure the following:
 
 We also advise users to make sure that:
 
-- Data is being written to disk instead of the ephermeral container storage
+- Data is being written to disk instead of the ephemeral container storage
   - If unsure, you can check by SSHing into the container via the Railway CLI and running `ls` on the mount point.
 - On your DB, that the version is pinned to a major version instead of `:latest` on the image source
 - You are able to backup and restore your data
 - You test in a development environment before you migrate your production environment
 
-Railway is not responsible for data loss that occurs on re-deployment for data on the container's ephermeral disk.
+Railway is not responsible for data loss that occurs on re-deployment for data on the container's ephemeral disk.
 
 ## Post-migration
 
 The Railway team throughout this period is checking in with all customers to ensure:
 
-- They recieve their Metal seat discount
+- They receive their Metal seat discount
 - Application performance is within customer expectations
 - A great experience migrating with adequate communication
 
 ### Rollback
 
-If you encounter any issues with your service after a Railway initated upgrade, you can
+If you encounter any issues with your service after a Railway initiated upgrade, you can
 rollback to the previous version by clicking `Rollback` button in the banner
 above.
 

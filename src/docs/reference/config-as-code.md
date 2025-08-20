@@ -234,7 +234,7 @@ The command to run before starting the container.
 }
 ```
 
-This field can be ommitted.
+This field can be omitted.
 
 Read more about the pre-deploy command [here](/guides/pre-deploy-command).
 

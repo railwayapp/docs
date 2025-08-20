@@ -14,7 +14,7 @@ Depending on the type of template, there are different things to consider:
 - [Private Networking](#private-networking)
 - [Environment Variables](#environment-variables)
 - [Health Checks](#health-checks)
-- [Persistant Storage](#persistent-storage)
+- [Persistent Storage](#persistent-storage)
 - [Authentication](#authentication)
 - [Dry Code](#dry-code)
 - [Workspace Naming](#workspace-naming)
@@ -77,7 +77,7 @@ A readiness endpoint is the best option; if that's not possible, then a liveness
 
 For more details, see the [healthchecks guide](/guides/healthchecks) and [reference documentation](/reference/healthchecks).
 
-### Persistant Storage
+### Persistent Storage
 
 Persistent storage is essential for templates that include databases, file servers, or other stateful services that need to retain data across deployments.
 

@@ -38,7 +38,7 @@ width={888} height={493} quality={100} />
 
 This will create an new deployment with the exact same code and build/deploy configuration.
 
-_Note: To trigger a deployment from the latest commit, use the Command Pallette: `CMD + K` -> "Deploy Latest Commit". This will deploy the latest commit from the **Default** branch in GitHub._
+_Note: To trigger a deployment from the latest commit, use the Command Palette: `CMD + K` -> "Deploy Latest Commit". This will deploy the latest commit from the **Default** branch in GitHub._
 
 _Currently, there is no way to force a deploy from a branch other than the Default without [connecting it in your service settings](/guides/github-autodeploys#configure-the-github-branch-for-deployment-triggers)._
 
