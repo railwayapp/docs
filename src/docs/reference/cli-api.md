@@ -274,10 +274,11 @@ Create a new project
 Usage: railway init [OPTIONS]
 
 Options:
-  -n, --name <NAME>  Project name
-      --json         Output in JSON format
-  -h, --help         Print help
-  -V, --version      Print version
+  -n, --name <NAME>          Project name
+  -w, --workspace <NAME|ID>  Workspace to create the project in
+      --json                 Output in JSON format
+  -h, --help                 Print help
+  -V, --version              Print version
 ```
 
 ## Link
