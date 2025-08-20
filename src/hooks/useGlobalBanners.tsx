@@ -1,10 +1,8 @@
 import { BannerVariant } from "@/components/Banner";
-import { Link } from "@/components/Link";
 import { useMemo } from "react";
 import useLocalStorageState from "use-local-storage-state";
-import tw from "twin.macro";
 
-export interface GlobalBanner {
+interface GlobalBanner {
   id: string;
   message: string | React.ReactElement;
   variant?: BannerVariant;
@@ -39,7 +37,7 @@ const useGlobalBannersLocalStorage = () =>
     defaultValue: {},
   });
 
-export const allGlobalBanners: GlobalBanner[] = [
+const allGlobalBanners: GlobalBanner[] = [
   // // Day 0
   // {
   //   id: "day-00",

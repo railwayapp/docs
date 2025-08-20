@@ -20,7 +20,7 @@ export type BannerVariant =
 
 const defaultVariant: BannerVariant = "primary";
 
-export interface Props {
+interface Props {
   variant?: BannerVariant;
   icon?: React.ComponentType;
   iconName?: string;

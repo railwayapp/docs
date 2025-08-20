@@ -30,7 +30,7 @@ const ThemeContext = createContext<ThemeState>({} as ThemeState);
 
 export const useTheme = () => useContext(ThemeContext);
 
-export const WrappedThemeProvider: React.FC<PropsWithChildren> = ({
+const WrappedThemeProvider: React.FC<PropsWithChildren> = ({
   children,
 }) => {
   const { bodyCSS } = useMemo(

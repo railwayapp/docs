@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 // Define constant for localStorage key
-export const POSTHOG_SESSION_ID_KEY = "railway_posthog_session_id";
+const POSTHOG_SESSION_ID_KEY = "railway_posthog_session_id";
 
 export const usePostHog = (apiKey: string, hostUrl: string) => {
   const router = useRouter();

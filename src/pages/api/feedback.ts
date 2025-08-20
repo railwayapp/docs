@@ -2,7 +2,7 @@ import { Sentiment } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../clients/prisma";
 
-export interface FeedbackBody {
+interface FeedbackBody {
   topic: string;
   helpful: boolean;
   feedback?: string;

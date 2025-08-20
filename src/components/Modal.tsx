@@ -10,7 +10,7 @@ import React, { PropsWithChildren, useRef } from "react";
 import { VisuallyHidden } from "react-aria";
 import tw from "twin.macro";
 
-export interface Props {
+interface Props {
   title: string;
   isOpen: boolean;
   onClose: () => void;

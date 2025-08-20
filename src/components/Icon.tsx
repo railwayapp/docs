@@ -1,9 +1,9 @@
 import React from "react";
 import tw, { styled, TwStyle } from "twin.macro";
 
-export type IconSize = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "none";
+type IconSize = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "none";
 
-export interface Props {
+interface Props {
   icon: React.ComponentType;
   size?: IconSize;
   tw?: string;

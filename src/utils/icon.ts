@@ -1,7 +1,7 @@
 import { ComponentType } from "react";
 import { Star } from "react-feather";
 
-export const ICON_FROM_NAME: Record<string, ComponentType> = {
+const ICON_FROM_NAME: Record<string, ComponentType> = {
   star: Star,
 };
 

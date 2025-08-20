@@ -3,7 +3,7 @@ import tw, { TwStyle } from "twin.macro";
 import { Link } from "./Link";
 import { scrollToID } from "@/utils/scroll";
 
-export interface Props {
+interface Props {
   title: string;
 }
 

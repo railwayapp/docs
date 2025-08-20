@@ -1,7 +1,7 @@
 import NLink from "next/link";
 import React, { PropsWithChildren, useMemo, forwardRef } from "react";
 
-export interface Props {
+interface Props {
   href: string;
   external?: boolean;
   className?: string;
