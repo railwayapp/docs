@@ -18,7 +18,7 @@ If you are looking for a quicker way to get started, you can also deploy this pr
 
 **Prerequisites**
 
-To be successfull, you should already have -
+To be successful, you should already have -
 
 - Railway [CLI installed](/guides/cli#installing-the-cli)
 - Datadog API key and site value

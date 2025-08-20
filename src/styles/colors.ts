@@ -98,7 +98,7 @@ darkColors = {
   background: "#131415",
 };
 
-export const colorThemes: Record<ColorMode, any> = {
+export const colorThemes: Record<ColorMode, typeof lightColors> = {
   light: lightColors,
   dark: darkColors,
 };

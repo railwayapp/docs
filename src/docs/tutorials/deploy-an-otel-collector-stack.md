@@ -63,7 +63,7 @@ Each of the following steps should be completed in the same Railway project.
 - Click `Deploy` to apply and deploy the service
 - In the Settings tab, under Networking, click `Generate Domain`
 
-You should be able to acess the Jaeger UI by clicking on the service domain.
+You should be able to access the Jaeger UI by clicking on the service domain.
 
 ### Add Zipkin Service
 
@@ -79,7 +79,7 @@ You should be able to acess the Jaeger UI by clicking on the service domain.
 - Click `Deploy` to apply and deploy the service
 - In the Settings tab, under Networking, click `Generate Domain`
 
-You should be able to acess the Zipkin UI by clicking on the service domain.
+You should be able to access the Zipkin UI by clicking on the service domain.
 
 ### Add Prometheus Service
 
@@ -90,7 +90,7 @@ You should be able to acess the Zipkin UI by clicking on the service domain.
 
 _The template deploys with the proper UI port already configured to enable accessing the Prometheus UI from your browser_
 
-You should be able to acess the Prometheus UI by clicking on the service domain.
+You should be able to access the Prometheus UI by clicking on the service domain.
 
 ## 2. Deploy the OpenTelemetry Collector
 

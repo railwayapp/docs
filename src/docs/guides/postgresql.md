@@ -98,7 +98,7 @@ By default it is set to 64MB.
 You would need to change the SHM Size if you are experiencing the following error -
 
 ```txt
-ERROR: could not resize shared memory segment "PostgresSQL.1590182853" to 182853 bytes: no space left on device
+ERROR: could not resize shared memory segment "PostgreSQL.1590182853" to 182853 bytes: no space left on device
 ```
 
 You can modify the SHM Size by setting the `RAILWAY_SHM_SIZE_BYTES` variable in your service variables.

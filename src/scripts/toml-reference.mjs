@@ -44,7 +44,7 @@ function generateDocsForProperties(section, properties) {
   for (const [key, value] of Object.entries(properties)) {
     const { nullable, value: unwrappedValue } = unwrap(value);
     const propertyPath = `${section}.${key}`;
-    const title = titelize(key);
+    const title = titleize(key);
     const link = links[propertyPath];
     if (link) {
       content += `### [${title}](${link})\n\n`;
@@ -112,7 +112,7 @@ function unwrap(value) {
   return { value, nullable };
 }
 
-function titelize(key) {
+function titleize(key) {
   const s = key.replace(/([A-Z])/g, " $1");
   return s.charAt(0).toUpperCase() + s.substring(1);
 }

@@ -164,7 +164,7 @@ To deploy a Vue app to Railway directly from GitHub, follow the steps below:
    ```bash
    # global options
    {
-       admin off # theres no need for the admin api in railway's environment
+       admin off # there's no need for the admin api in railway's environment
        persist_config off # storage isn't persistent anyway
        auto_https off # railway handles https for us, this would cause issues if left enabled
        # runtime logs

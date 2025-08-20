@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { allPages, Page } from "contentlayer/generated";
+import { allPages } from "contentlayer/generated";
+
+const pageUrlSet = new Set(allPages.map(page => page.url));
 
 // This middleware is used to rewrite the pathname to the SSR path during runtime as middleware is not ran during build
 export function middleware(request: NextRequest) {
-  const page = allPages.find(p => p.url === request.nextUrl.pathname);
-
-  if (!page) {
+  if (!pageUrlSet.has(request.nextUrl.pathname)) {
     return NextResponse.next();
   }
 
