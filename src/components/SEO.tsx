@@ -1,7 +1,6 @@
 import * as React from "react";
-import { DefaultSeo, NextSeo, NextSeoProps } from "next-seo";
+import { DefaultSeo, NextSeo, NextSeoProps, DefaultSeoProps } from "next-seo";
 import Head from "next/head";
-import { DefaultSeoProps } from "next-seo";
 
 export interface Props extends NextSeoProps {
   title?: string;
