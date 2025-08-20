@@ -8,9 +8,9 @@ export const scrollToID =
 
     // if input links to a different page, then don't scroll, let the browser navigate to the path
     if (
-      splitInput.length == 2 &&
+      splitInput.length === 2 &&
       splitInput[0] &&
-      splitInput[0] != window.location.pathname
+      splitInput[0] !== window.location.pathname
     ) {
       return;
     }
