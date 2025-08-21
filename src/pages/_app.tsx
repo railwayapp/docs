@@ -7,13 +7,13 @@ import "../styles/fonts.css";
 import { ThemeProvider } from "../styles/theme";
 import { useScrollToOpenCollapse } from "../hooks/useScrollToOpenCollapse";
 import { useHashRedirect } from "@/hooks/useHashRedirect";
-import { FATHOM_CODE, POSTHOG_API_KEY, POSTHOG_HOST } from "@/config";
+import env from "@/config/env";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  useFathom(FATHOM_CODE, "docs.railway.com");
+  useFathom(env.NEXT_PUBLIC_FATHOM_CODE, "docs.railway.com");
 
   // Initialize PostHog analytics
-  usePostHog(POSTHOG_API_KEY, POSTHOG_HOST);
+  usePostHog(env.NEXT_PUBLIC_POSTHOG_API_KEY, env.NEXT_PUBLIC_POSTHOG_HOST);
 
   useScrollToOpenCollapse();
 
