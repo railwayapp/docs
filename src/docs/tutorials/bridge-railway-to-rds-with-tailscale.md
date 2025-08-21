@@ -22,7 +22,7 @@ This tutorial is in depth, so if it's your first time using Tailscale or setting
 
 1. You will need an [AWS IAM access key or IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) to stand up resources with Terraform or OpenTofu.
 
-   **NOTE:** While you can just put these secrets in a `~/.aws` folder or a `terraform.tfvars` file, its a good practice to avoid putting secrets on disk unencrypted. If you have 1Password, you can use [1Password Secret References](https://developer.1password.com/docs/cli/secret-references/) so that your secrets are never stored permenantly on disk. This is especially important to prevent AI tools from reading your keys and as an extra layer of protection from commiting secrets to your git repositories.
+   **NOTE:** While you can just put these secrets in a `~/.aws` folder or a `terraform.tfvars` file, it's a good practice to avoid putting secrets on disk unencrypted. If you have 1Password, you can use [1Password Secret References](https://developer.1password.com/docs/cli/secret-references/) so that your secrets are never stored permanently on disk. This is especially important to prevent AI tools from reading your keys and as an extra layer of protection from committing secrets to your git repositories.
 
 2. You'll need to install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) or [OpenTofu](https://opentofu.org/docs/intro/install/).
 
@@ -173,7 +173,7 @@ Similarly, you can now use this subnet router to route traffic from other device
 
 ## Deploy Railtail into your project
 
-Railtail is a project that will forward SOCK5 traffic for us RDS, because right now Railway containers don't allow priviledge escalation. This way we can use private IPv6 networking to Railtail and forward our traffic privately to our AWS Subnet Router, which will then route to RDS.
+Railtail is a project that will forward SOCK5 traffic for us RDS, because right now Railway containers don't allow privilege escalation. This way we can use private IPv6 networking to Railtail and forward our traffic privately to our AWS Subnet Router, which will then route to RDS.
 
 - In a project where you want to bridge services privately to RDS, click the Create button in the upper right corner. Then select Template -> Type in RailTail.
 

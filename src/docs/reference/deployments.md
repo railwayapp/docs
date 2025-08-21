@@ -148,7 +148,7 @@ These Railway-initiated deployments will display with a banner above the Active 
 
 ## Deployments Paused - Limited Access
 
-Railway's core offering is dynamic, allowing you to verticially or horizontally scale with little-to-no-notice. To offer this flexibility to customers, Railway takes the stance that Pro/Enterprise tiers may, in rare occassions, be prioritized above Free/Hobby tiers.
+Railway's core offering is dynamic, allowing you to vertically or horizontally scale with little-to-no-notice. To offer this flexibility to customers, Railway takes the stance that Pro/Enterprise tiers may, in rare occasions, be prioritized above Free/Hobby tiers.
 
 During periods where Pro/Enterprise users require additional resources, Railway may temporarily suspend resource allocation, including builds, to Free, and more rarely Hobby, customers.
 

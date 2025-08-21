@@ -82,7 +82,7 @@ However, if you expect to use a consistent amount of resources for large compani
 
 Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly threshold to [unlock additional features and services.](/reference/pricing/plans#committed-spend-tiers)
 
-Monthly thresholds for addons is found in our [commited spend pricing](/reference/pricing#committed-spend-tiers).
+Monthly thresholds for addons is found in our [committed spend pricing](/reference/pricing#committed-spend-tiers).
 
 Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.
 

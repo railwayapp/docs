@@ -31,7 +31,7 @@ In this tutorial, you will learn how to -
 
 **Prerequisites**
 
-For the sake of this tutorial, we have a simple [example monorepo](https://github.com/railwayapp-templates/monorepo-example) with a frontend and a backend service. In practice, your monorepo is probably alot more complicated, but the principles here will enable you to wire up each of your applications in your monorepo to a service and network those services together.
+For the sake of this tutorial, we have a simple [example monorepo](https://github.com/railwayapp-templates/monorepo-example) with a frontend and a backend service. In practice, your monorepo is probably a lot more complicated, but the principles here will enable you to wire up each of your applications in your monorepo to a service and network those services together.
 
 The frontend is built with [React](https://react.dev/) and [Vite](https://vitejs.dev/), and the static files are served with [Caddy](https://caddyserver.com/).
 

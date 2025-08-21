@@ -32,7 +32,7 @@ If you need additional configuration, then you can simply [add a variable to you
 
 ## Setup a GitHub ACCESS_TOKEN
 
-For this guide, we will create a new [GitHub Fine-Grained Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens). These are modern personal access tokens that obey the [principle of least priviledge](https://en.wikipedia.org/wiki/Principle_of_least_privilege), making them easy to secure, revoke, and audit!
+For this guide, we will create a new [GitHub Fine-Grained Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens). These are modern personal access tokens that obey the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), making them easy to secure, revoke, and audit!
 
 **Note:** You need to have Admin access to the organization for which you are making the `ACCESS_TOKEN`.
 
@@ -144,7 +144,7 @@ jobs:
 
 ### Known Limitations
 
-- Because Railway containers are non-priveleged, GitHub Workflows that [build-and-then-mount](https://github.com/super-linter/super-linter) containers on the same host (i.e. Docker-in-Docker) will fail.
+- Because Railway containers are non-privileged, GitHub Workflows that [build-and-then-mount](https://github.com/super-linter/super-linter) containers on the same host (i.e. Docker-in-Docker) will fail.
 
 - Using the Serverless Setting on this Service is _not_ recommended and will result in idle runners disconnecting from GitHub and needing to reauthenticate. GitHub Runners have a 50 second HTTP longpoll which keeps them alive. While the runners in this template can automatically reauth with an `ACCESS_TOKEN` it will result in unnecessary offline / abandoned runners. If you want your runners to deauthenticate and spin down, consider using ephemeral runners instead.
 

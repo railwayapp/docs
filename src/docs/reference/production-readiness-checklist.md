@@ -35,7 +35,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
 **&check; Configure a restart policy**
 
-- Services can crash for different reasons, frequently due to unhandled exceptions in code, and it is important to implement a strategy to mitigate performance degredation and user impact.
+- Services can crash for different reasons, frequently due to unhandled exceptions in code, and it is important to implement a strategy to mitigate performance degradation and user impact.
 
   Ensure that you have properly configured your services [restart policy](/guides/restart-policy).
 

@@ -35,8 +35,6 @@ width={1200} height={631} quality={100} />
 
 ## Configurable Settings
 
-{/* codegen:start do not edit this comment */}
-
 ### Specify the Builder
 
 Set the builder for the deployment.
@@ -234,7 +232,7 @@ The command to run before starting the container.
 }
 ```
 
-This field can be ommitted.
+This field can be omitted.
 
 Read more about the pre-deploy command [here](/guides/pre-deploy-command).
 

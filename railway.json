@@ -1,0 +1,36 @@
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "builder": "RAILPACK",
+    "buildCommand": "pnpm build && pnpm postbuild"
+  },
+  "deploy": {
+    "healthcheckPath": "/",
+    "startCommand": "pnpm run start",
+    "multiRegionConfig": {
+      "us-east4-eqdc4a": {
+        "numReplicas": 1
+      }
+    }
+  },
+  "environments": {
+    "production": {
+      "deploy": {
+        "multiRegionConfig": {
+          "us-west2": {
+            "numReplicas": 1
+          },
+          "us-east4-eqdc4a": {
+            "numReplicas": 1
+          },
+          "europe-west4-drams3a": {
+            "numReplicas": 1
+          },
+          "asia-southeast1-eqsg3a": {
+            "numReplicas": 1
+          }
+        }
+      }
+    }
+  }
+}
