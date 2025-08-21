@@ -21,13 +21,13 @@ Volumes can be "Grown" after upgrading to a different plan.
 
 Pro users and above can self-serve to increase their volume up to 250 GB.
 
-For Pro and above users, please reach out to us on our [Central Station](https://station.railway.com/questions) if you need more then 250GB. Enterprise users with $2,000/month committed spend can also use [Slack](/reference/support#slack).
+For Pro and above users, please reach out to us on our [Central Station](https://station.railway.com/questions) if you need more than 250GB. Enterprise users with $2,000/month committed spend can also use [Slack](/reference/support#slack).
 
 ## Pricing
 
 Volumes are billed at a rate per GB / minutely, and invoiced monthly. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
 
-You are only charged for the amount of storage used by your volumes. _Each volume requires aprox 2-3% of the total storage to store metadata about the filesystem, so a new volume will always start with some used amount of space used depending on the size._
+You are only charged for the amount of storage used by your volumes. _Each volume requires approx 2-3% of the total storage to store metadata about the filesystem, so a new volume will always start with some used amount of space used depending on the size._
 
 ## Backups
 

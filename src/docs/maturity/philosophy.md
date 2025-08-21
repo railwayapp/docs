@@ -70,7 +70,7 @@ As mentioned before, Railway at a high level takes your code, builds it, and thr
   - A suite of machines networked running Clickhouse that store container logs. This is accessed when you open the service logs pane.
 - Dashboard Layer
   - Infrastructure and code that is used to manage the above layers.
-  - This also incudes any monitors that Railway uses to maintain the state of the Deployment Layer to maintain application state. (ex. Removing a deployment.)
+  - This also includes any monitors that Railway uses to maintain the state of the Deployment Layer to maintain application state. (ex. Removing a deployment.)
 
 Your code will either be in some, or all steps depending on the amount of Railway that you choose to adopt.
 

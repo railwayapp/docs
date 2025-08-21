@@ -9,17 +9,11 @@
     "postbuild": "next-sitemap",
     "start": "next start --port ${PORT-3001}",
     "clean": "rm -rf .next",
-    "tsc": "tsc -p .",
-    "generate": "prisma generate",
-    "migrate:dev": "prisma migrate dev",
-    "migrate:deploy": "prisma migrate deploy",
-    "migrate:status": "prisma migrate status",
-    "toml-reference": "node src/scripts/toml-reference.mjs"
+    "tsc": "tsc -p ."
   },
   "packageManager": "pnpm@8.10.2",
   "dependencies": {
     "@nanostores/react": "^0.4.1",
-    "@prisma/client": "4.10.1",
     "@radix-ui/react-scroll-area": "^1.0.2",
     "@react-aria/dialog": "^3.5.0",
     "@react-aria/focus": "^3.5.0",
@@ -66,7 +60,6 @@
     "next-sitemap": "^3.1.54",
     "postcss": "^8.2.10",
     "prettier": "^2.2.1",
-    "prisma": "4.10.1",
     "remark-autolink-headings": "^7.0.1",
     "remark-slug": "^7.0.1",
     "tailwindcss": "^3.2.7",

@@ -18,7 +18,7 @@ Complete the following steps to setup a webhook:
 1. Click on the `Settings` button in the top right-hand corner.
 1. Navigate to the Webhooks tab.
 1. Input your desired webhook URL.
-1. Optional: specify which events to recieve notifications for.
+1. Optional: specify which events to receive notifications for.
 1. Click `Save Webhook`.
 
 The URL you provide will receive a webhook payload when any service's deployment status changes or an alert is triggered. This will be executed across all environments in the project.

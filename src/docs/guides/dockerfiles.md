@@ -44,7 +44,7 @@ For example:
 ```dockerfile
 # Specify the variable you need
 ARG RAILWAY_SERVICE_NAME
-# Use the varible
+# Use the variable
 RUN echo $RAILWAY_SERVICE_NAME
 ```
 
