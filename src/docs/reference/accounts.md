@@ -56,6 +56,8 @@ width={1784} height={1104} quality={80} />
 
 Every account has an editable referral link. Users can copy and share their personal referral link to earn cash or credits.
 
+Any user who is referred gets $20 in Railway credits, equivalent to a free month on the Pro tier.
+
 Upon every invoice a referral pays, the user who referred them receives 15% commission on that revenue.
 
 Users can view their referral invite status on the <a href="https://railway.com/account/referrals" target="_blank">referrals page</a>, and their total earnings on the <a href="https://railway.com/account/earnings" target="_blank">earnings page</a>.

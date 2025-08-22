@@ -3,7 +3,11 @@ title: Affiliate Program
 description: Show Railway to your network, earn 15% cash commission on referral revenue.
 ---
 
-Railway's Affiliate Program is meant for creators to share the power of Railway through content and an extended network. For anyone that signs up from your link and becomes a Railway customer, you will receive 15% commission on the first 12 months of invoices from the new customer moving forward.
+Railway's Affiliate Program is meant for creators to share the power of Railway through content and an extended network. 
+
+Anyone that signs up from your link will receive $20 in Railway credits, equivalent to a free month on the Pro tier.
+
+Once the signup becomes a Railway customer, you will receive 15% commission on the first 12 months of invoices from the new customer moving forward.
 
 ## How Do I Become an Affiliate?
 
