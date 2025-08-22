@@ -113,9 +113,6 @@ dependencies:
   uuid:
     specifier: ^9.0.0
     version: 9.0.1
-  zod:
-    specifier: ^3.25.76
-    version: 3.25.76
 
 devDependencies:
   '@types/node':

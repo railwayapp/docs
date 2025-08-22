@@ -1,0 +1,1 @@
+export const RAILWAY_DOCS_URL = process.env.NEXT_PUBLIC_RAILWAY_DOCS_URL;
