@@ -11,9 +11,10 @@ export interface Props extends NextSeoProps {
 }
 
 const title = "Railway Docs";
-export const url = "https://docs.railway.com";
 const description = "Documentation for Railway";
-const image = "https://docs.railway.com/og.png";
+
+export const url = "https://docs.railway.com";
+const image = url + "/og.png";
 
 const config: DefaultSeoProps = {
   title,
@@ -43,6 +44,7 @@ export const SEO: React.FC<Props> = ({ image, ...props }) => {
 
       <NextSeo
         {...props}
+        canonical={url}
         {...(image == null
           ? {}
           : {
