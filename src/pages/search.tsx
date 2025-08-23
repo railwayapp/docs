@@ -32,15 +32,12 @@ const SearchPage: React.FC = () => {
       200,
     );
 
-  // Initialize from q param
   useEffect(() => {
     if (q && q !== query) {
       setQuery(q);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q]);
 
-  // Keep URL in sync with input (shallow push, no scroll)
   useEffect(() => {
     const urlQ = typeof router.query.q === "string" ? router.query.q : "";
     if (query !== urlQ) {
