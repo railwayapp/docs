@@ -53,8 +53,8 @@ const SearchPage: React.FC = () => {
         description="Search Railway documentation"
         url="/search"
       />
-      <div css={[tw`w-full`]}>
-        <div css={[tw`bg-background border rounded-lg w-full`]}>
+      <div css={tw`w-full`}>
+        <div css={tw`bg-background border rounded-lg w-full`}>
           <div className="search-input">
             <QueryInput
               clearResponse={clearResponse}
