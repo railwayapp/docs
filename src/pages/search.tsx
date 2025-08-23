@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import React, { useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 import tw from "twin.macro";
@@ -9,7 +10,7 @@ import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { useDebouncedSearch } from "@/hooks/useDebouncedSearch";
 import { Search } from "@/types";
 
-const SearchPage: React.FC = () => {
+const SearchPage: NextPage = () => {
   const router = useRouter();
   const q = typeof router.query.q === "string" ? router.query.q : "";
 
