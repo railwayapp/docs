@@ -12,10 +12,10 @@ const nextConfig = withContentlayer({
   },
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: 'user-images.githubusercontent.com' },
-      { protocol: 'https', hostname: 'railway.com' },
-      { protocol: 'https', hostname: 'res.cloudinary.com' },
-      { protocol: 'https', hostname: 'devicons.railway.com' },
+      { protocol: "https", hostname: "user-images.githubusercontent.com" },
+      { protocol: "https", hostname: "railway.com" },
+      { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "devicons.railway.com" },
     ],
   },
   async redirects() {
