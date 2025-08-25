@@ -23,6 +23,15 @@ Pro users and above can self-serve to increase their volume up to 250 GB.
 
 For Pro and above users, please reach out to us on our [Central Station](https://station.railway.com/questions) if you need more than 250GB. Enterprise users with $2,000/month committed spend can also use [Slack](/reference/support#slack).
 
+## I/O Specifications
+
+Volumes have the following I/O characteristics:
+
+- **Read IOPS**: 3,000 operations per second
+- **Write IOPS**: 3,000 operations per second
+
+These specifications apply to all volume sizes and subscription plans.
+
 ## Pricing
 
 Volumes are billed at a rate per GB / minutely, and invoiced monthly. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
