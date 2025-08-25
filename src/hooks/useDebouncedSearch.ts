@@ -72,15 +72,10 @@ export const useDebouncedSearch = <
     Result
   > = defaultTransformResponse as Transformer<any, any>,
 ) => {
-  if (host === "") {
-    console.error(`useDebouncedSearch.host is missing`);
-  }
-  if (apiKey === "") {
-    console.error(`useDebouncedSearch.apiKey is missing`);
-  }
-  if (indexName === "") {
-    console.error(`useDebouncedSearch.indexName is missing`);
-  }
+  const isConfigured = useMemo(
+    () => host !== "" && apiKey !== "" && indexName !== "",
+    [host, apiKey, indexName],
+  );
 
   // Controlled input for rendering
   const [rawInput, setRawInput] = useState("");
@@ -93,16 +88,14 @@ export const useDebouncedSearch = <
 
   // Get index
   const index = useMemo(() => {
-    const meilisearch = new MeiliSearch({
-      host,
-      apiKey,
-    });
+    if (!isConfigured) return null;
+    const meilisearch = new MeiliSearch({ host, apiKey });
     return meilisearch.index<Response>(indexName);
-  }, [host, apiKey, indexName]);
+  }, [host, apiKey, indexName, isConfigured]);
 
   // Get search response
   const search = useCallback(async () => {
-    if (query === "") {
+    if (query === "" || !isConfigured || !index) {
       return;
     }
     setIsSearching(true);
@@ -114,7 +107,7 @@ export const useDebouncedSearch = <
       console.error(`Search for query "${query}" failed (${e})`);
     }
     setIsSearching(false);
-  }, [query, setIsSearching]);
+  }, [query, isConfigured, index, params, transformResponse]);
 
   // Perform search and clear search results if query is empty
   useEffect(() => {
@@ -141,5 +134,6 @@ export const useDebouncedSearch = <
     },
     setQuery: setRawInput,
     results,
+    isConfigured,
   };
 };

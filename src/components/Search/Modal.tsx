@@ -18,7 +18,7 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
     highlightPreTag: "<span>",
     highlightPostTag: "</span>",
   };
-  const { clearResponse, isSearching, query, setQuery, results } =
+  const { clearResponse, isSearching, query, setQuery, results, isConfigured } =
     useDebouncedSearch<Search.Document, Search.Result>(
       process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "",
       process.env.NEXT_PUBLIC_MEILISEARCH_READ_API_KEY ?? "",
@@ -43,10 +43,15 @@ const Modal: React.FC<Props> = ({ closeModal }) => {
             clearResponse={clearResponse}
             query={query}
             setQuery={setQuery}
+            disabled={!isConfigured}
           />
         </div>
         <div className="search-results">
-          {isSearching ? (
+          {!isConfigured ? (
+            <div tw="p-6 text-center text-gray-500 dark:text-gray-600">
+              Search is not configured
+            </div>
+          ) : isSearching ? (
             <span tw="p-10 flex items-center justify-center">
               <LoadingIndicator />
             </span>
