@@ -285,6 +285,7 @@ export const sidebarContent: ISidebarContent = [
 					makePage("Nixpacks", "reference"),
 					makePage("Private Networking", "reference"),
 					makePage("Public Networking", "reference"),
+					makePage("Outbound Networking", "reference"),
 					makePage("Static Outbound IPs", "reference"),
 					makePage("Scaling", "reference"),
 					makePage("TCP Proxy", "reference"),
