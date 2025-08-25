@@ -23,7 +23,6 @@
     "contentlayer": "^0.3.4",
     "cookies-next": "^4.2.1",
     "copy-to-clipboard": "^3.3.1",
-    "dayjs": "^1.10.4",
     "fathom-client": "^3.1.0",
     "gray-matter": "^4.0.3",
     "interweave": "^13.1.0",
@@ -47,8 +46,7 @@
     "theme-custom-properties": "^1.0.0",
     "tinykeys": "1.4.0",
     "twin.macro": "^3.1.0",
-    "use-local-storage-state": "^19.1.0",
-    "uuid": "^9.0.0"
+    "use-local-storage-state": "^19.1.0"
   },
   "devDependencies": {
     "@types/node": "^18.14.2",
