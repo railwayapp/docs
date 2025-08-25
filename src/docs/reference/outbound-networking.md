@@ -11,7 +11,7 @@ Railway blocks outbound SMTP traffic to prevent spam and abuse. For reliable ema
 
 ### Recommended Email Services
 
-Use a transactional email service that provides HTTP/HTTPS APIs such as:
+Use a transactional email service that provides HTTPS APIs such as:
 
 - [Resend](https://resend.com/features/email-api) - **Railway's recommended approach**
 - [SendGrid](https://sendgrid.com/en-us/solutions/email-api)
