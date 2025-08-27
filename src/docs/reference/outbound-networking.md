@@ -7,18 +7,20 @@ Outbound Networking refers to traffic flowing from your Railway services to exte
 
 ## Email Delivery
 
-Railway blocks outbound SMTP traffic to prevent spam and abuse. For reliable email delivery from your applications, use dedicated transactional email services instead.
+SMTP is only available on the Pro plan and above, while Free, Trial, and Hobby plans must use transactional email services with HTTPS APIs (SMTP is disabled on these plans to prevent spam and abuse). However, even when SMTP is available, we recommend transactional email services with HTTPS APIs for all plans due to their enhanced features and analytics.
 
-### Recommended Email Services
+### Email Service Examples
 
-Use a transactional email service that provides HTTPS APIs such as:
+Here are examples of transactional email services you can use:
+
+**Note:** These services are required for Free, Trial, and Hobby plans since outbound SMTP is disabled.
 
 - [Resend](https://resend.com/features/email-api) - **Railway's recommended approach**
 - [SendGrid](https://sendgrid.com/en-us/solutions/email-api)
 - [Mailgun](https://www.mailgun.com/products/send/)
 - [Postmark](https://postmarkapp.com/email-api)
 
-These services provide better deliverability, detailed analytics, and robust APIs designed for modern cloud applications.
+These services provide detailed analytics and robust APIs designed for modern applications. They also work on all Railway plans since they use HTTPS instead of SMTP.
 
 ## Static Outbound IPs
 

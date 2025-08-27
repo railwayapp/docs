@@ -20,7 +20,7 @@ Depending on the type of template, there are different things to consider:
 - [Workspace Naming](#workspace-naming)
 - [Overview](#overview)
 
-### Template and Service Icons
+## Template and Service Icons
 
 Template and service icons are important for branding and recognition, as they give the template a more professional look and feel.
 
@@ -28,7 +28,7 @@ Always use 1:1 aspect ratio icons or logos with transparent backgrounds for both
 
 Transparent backgrounds ensure logos integrate seamlessly with Railway's interface and provide a more polished, professional appearance.
 
-### Naming Conventions
+## Naming Conventions
 
 Naming conventions are important for readability and consistency; using proper names enhances the overall quality and credibility of your template.
 
@@ -43,7 +43,7 @@ For anything else, such as custom software:
 - Prefer shorter names over longer names for better readability.
 - Keep names concise while maintaining clarity.
 
-### Private Networking
+## Private Networking
 
 Private networking provides faster, free communication between services and reduces costs compared to routing traffic through the public internet.
 
@@ -51,13 +51,15 @@ Always configure service-to-service communication (such as backend to database c
 
 For more details, see the [private networking guide](/guides/private-networking) and [reference documentation](/reference/private-networking).
 
-### Environment Variables
+## Environment Variables
 
 Properly set up environment variables are a great way to increase the usability of your template.
 
 When using environment variables:
 
 - Always include a description of what the variable is for.
+
+- If a variable is optional, include a description explaining its purpose and what to set it to or where to find its value.
 
 - For any secrets, passwords, keys, etc., use [template variable functions](/guides/create#template-variable-functions) to generate them, avoid hardcoding default credentials at all costs.
 
@@ -67,7 +69,7 @@ When using environment variables:
 
 - Include helpful pre-built variables that the user may need, such as database connection strings, API keys, hostnames, ports, and so on.
 
-### Health Checks
+## Health Checks
 
 Health checks are important for ensuring that the service is running properly, before traffic is routed to it.
 
@@ -77,7 +79,7 @@ A readiness endpoint is the best option; if that's not possible, then a liveness
 
 For more details, see the [healthchecks guide](/guides/healthchecks) and [reference documentation](/reference/healthchecks).
 
-### Persistent Storage
+## Persistent Storage
 
 Persistent storage is essential for templates that include databases, file servers, or other stateful services that need to retain data across deployments.
 
@@ -97,7 +99,7 @@ The volume mount location depends entirely on where the software expects it to b
 
 For more details, see the [volumes guide](/guides/volumes) and [reference documentation](/reference/volumes).
 
-### Authentication
+## Authentication
 
 Authentication is a common feature for many software applications, and it is crucial to properly configure it to prevent unauthorized access.
 
@@ -107,7 +109,7 @@ For example, ClickHouse can operate without authentication, but authentication s
 
 Passwords, API keys, etc. should be generated using [template variable functions](/guides/create#template-variable-functions), and not hardcoded.
 
-### Dry Code
+## Dry Code
 
 This is most applicable to templates that deploy from GitHub.
 
@@ -115,7 +117,7 @@ When creating templates that deploy from GitHub, include only the essential file
 
 A clean, minimal repository helps users quickly understand the template's structure and make customizations when needed.
 
-### Workspace Naming
+## Workspace Naming
 
 When users deploy a template, the template author appears as the name of the <a href="/reference/teams" target="_blank">workspace</a> that created and published it.
 
@@ -129,7 +131,7 @@ Since the author is publicly visible and shown with the template to the users, i
 
 **Note:** To transfer a template from one workspace to another, <a href="https://station.railway.com/" target="_blank">contact support</a>.
 
-### Overview
+## Overview
 
 The overview is the first thing users will see when they click on the template, so it is important to make it count.
 
