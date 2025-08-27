@@ -7,10 +7,11 @@ Railway plans and pricing are designed to give you maximum resources while only 
 
 ## Plans
 
-Railway offers three plans in addition to a [Free Trial](/reference/pricing/free-trial):
+Railway offers four plans in addition to a [Trial](/reference/pricing/free-trial):
 
 |                |                                                                                                                                                    |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Free**       | For running small apps with $1 of free credit per month                                                                                             |
 | **Hobby**      | For indie hackers and developers to build and deploy personal projects                                                                             |
 | **Pro**        | For professional developers and their teams shipping to production                                                                                 |
 | **Enterprise** | For teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management |
@@ -21,6 +22,7 @@ Each Railway account needs an active subscription. The base subscription fee all
 
 | Plan           | Price       |
 | -------------- | ----------- |
+| **Free**       | $0 / month  |
 | **Hobby**      | $5 / month  |
 | **Pro**        | $20 / month |
 | **Enterprise** | Custom      |
@@ -36,6 +38,7 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 | Plan           | **RAM**   | **CPU**     | **Ephemeral Storage** | **Volume Storage** | **Image Size** |
 | -------------- | --------- | ----------- | --------------------- | ------------------ | -------------- |
 | **Trial**      | **1 GB**  | **2 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**       |
+| **Free**       | **0.5 GB**| **1 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**       | 
 | **Hobby**      | **8 GB**  | **8 vCPU**  | **10 GB**             | **5 GB**           | **100 GB**     |
 | **Pro**        | **32 GB** | **32 vCPU** | **100 GB**            | **50 GB \***       | **100 GB**     |
 | **Enterprise** | **64 GB** | **64 vCPU** | **100 GB**            | **2 TB \***        | **100 GB**     |
