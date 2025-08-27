@@ -3,7 +3,9 @@ title: Free Trial
 description: Learn about Railway's free trial plan.
 ---
 
-New users can take the platform for a spin by starting a free trial. The trial gives access to basic features and includes a one-time grant of $5.
+New users can take the platform for a spin by starting a free trial. The trial gives access to basic features for up to 30 days and includes a one-time grant of $5.
+
+After 30 days passes or $5 is spent, the free trial reverts to the [Free](/reference/pricing/plans#plans) plan, which provides $1 of free credit per month. The credit does not roll over month to month.
 
 ## Full vs Limited Trial
 
