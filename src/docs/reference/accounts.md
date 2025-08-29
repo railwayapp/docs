@@ -64,7 +64,9 @@ Users can view their referral invite status on the <a href="https://railway.com/
 
 ## Billing
 
-Accounts are billed monthly. Resources used by deleted projects up until deletion are still counted towards the total bill.
+Accounts are billed monthly. Resources used by deleted projects up until the time of deletion are still counted towards the total bill.
+
+Railway may collect applicable sales tax and VAT on your account based on your billing location and local tax requirements, where and when applicable. To ensure accurate tax assessment, Workspace Admins must verify that their billing information, including Billing Address, Organization Name, and Tax ID, is accurate. Organization Name and Tax ID are not required when using Railway for personal use.
 
 Users can manage their billing information as well as view historical payments on the <a href="https://railway.com/workspace/billing" target="_blank">billing page</a>.
 
