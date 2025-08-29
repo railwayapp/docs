@@ -67,3 +67,29 @@ layout="intrinsic"
 width={552} height={516} quality={80} />
 
 Within the Collections View, clicking the plus icon next to the top dropdown allows you to create a new Database.
+
+## Credentials Tab
+
+**This feature is gated by a feature flag that can be enabled here:** <a href="https://railway.com/account/feature-flags" target="_blank">https://railway.com/account/feature-flags</a>
+
+The Credentials tab allows you to safely regenerate your database password while keeping the database and environment variables synchronized, avoiding manual variable edits that can cause authentication mismatches.
+
+It's important to manually redeploy any service that depends on the updated password variable (or the derived database URL).
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1755557407/Credentials_Tab_b5yskl.png"
+alt="Screenshot of Credentials Data UI Tab"
+layout="intrinsic"
+width={664} height={512} quality={80} />
+
+## Extensions Tab for Postgres
+
+**This feature is gated by a feature flag that can be enabled here:** <a href="https://railway.com/account/feature-flags" target="_blank">https://railway.com/account/feature-flags</a>
+
+The Extensions tab enables postgres extensions management. You can view, install and uninstall extensions that are available in our Postgres image.
+
+Extensions that aren't available need to be deployed from templates, since they require additional features in the database's image, like pgvector.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1755557246/Extensions_Tab_mitg4p.png"
+alt="Screenshot of Extensions Data UI Tab"
+layout="intrinsic"
+width={660} height={512} quality={80} />
