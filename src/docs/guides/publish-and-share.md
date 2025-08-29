@@ -64,6 +64,12 @@ Here are some example templates from the <a href="https://railway.com/templates"
 |<img src="https://devicons.railway.com/i/go.svg" alt="Gin" width="25" height="25" />|Gin|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/dTvvSf?utm_medium=integration&utm_source=button&utm_campaign=gin)|
 |<img src="https://devicons.railway.com/i/flask-dark.svg" alt="Flask" width="25" height="25" />|Flask|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/zUcpux?utm_medium=integration&utm_source=button&utm_campaign=flask)|
 
-## Kickback program
+## Kickback Program
 
 If your published template is deployed into other users' projects, you are immediately eligible for a 50% kickback, in the form of Railway credits or cash. Refer to the [template reference page](/reference/templates#kickback-program) for more information.
+
+## Template Verification
+
+Templates are verified when the creator and maintainer of the technology becomes a partner and reviews the template.
+
+If you are or have a relationship with the creator, please reach out to us by submitting the form on our [partners page](https://railway.com/partners).
