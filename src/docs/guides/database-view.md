@@ -70,26 +70,22 @@ Within the Collections View, clicking the plus icon next to the top dropdown all
 
 ## Credentials Tab
 
-**This feature is gated by a feature flag that can be enabled here:** <a href="https://railway.com/account/feature-flags" target="_blank">https://railway.com/account/feature-flags</a>
-
 The Credentials tab allows you to safely regenerate your database password while keeping the database and environment variables synchronized, avoiding manual variable edits that can cause authentication mismatches.
 
 It's important to manually redeploy any service that depends on the updated password variable (or the derived database URL).
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1755557407/Credentials_Tab_b5yskl.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/t_crop/v1756840714/Database_Credentials_ctbwqb.png"
 alt="Screenshot of Credentials Data UI Tab"
 layout="intrinsic"
-width={664} height={512} quality={80} />
+width={542} height={422} quality={80} />
 
 ## Extensions Tab for Postgres
-
-**This feature is gated by a feature flag that can be enabled here:** <a href="https://railway.com/account/feature-flags" target="_blank">https://railway.com/account/feature-flags</a>
 
 The Extensions tab enables postgres extensions management. You can view, install and uninstall extensions that are available in our Postgres image.
 
 Extensions that aren't available need to be deployed from templates, since they require additional features in the database's image, like pgvector.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1755557246/Extensions_Tab_mitg4p.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/t_crop/v1756840713/Database_Extensions_flszw9.png"
 alt="Screenshot of Extensions Data UI Tab"
 layout="intrinsic"
-width={660} height={512} quality={80} />
+width={540} height={422} quality={80} />
