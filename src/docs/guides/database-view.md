@@ -67,3 +67,25 @@ layout="intrinsic"
 width={552} height={516} quality={80} />
 
 Within the Collections View, clicking the plus icon next to the top dropdown allows you to create a new Database.
+
+## Credentials Tab
+
+The Credentials tab allows you to safely regenerate your database password while keeping the database and environment variables synchronized, avoiding manual variable edits that can cause authentication mismatches.
+
+It's important to manually redeploy any service that depends on the updated password variable (or the derived database URL).
+
+<Image src="https://res.cloudinary.com/railway/image/upload/t_crop/v1756840714/Database_Credentials_ctbwqb.png"
+alt="Screenshot of Credentials Data UI Tab"
+layout="intrinsic"
+width={542} height={422} quality={80} />
+
+## Extensions Tab for Postgres
+
+The Extensions tab enables postgres extensions management. You can view, install and uninstall extensions that are available in our Postgres image.
+
+Extensions that aren't available need to be deployed from templates, since they require additional features in the database's image, like pgvector.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/t_crop/v1756840713/Database_Extensions_flszw9.png"
+alt="Screenshot of Extensions Data UI Tab"
+layout="intrinsic"
+width={540} height={422} quality={80} />
