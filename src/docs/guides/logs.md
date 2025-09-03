@@ -59,9 +59,7 @@ Filter syntax is available for all log types, but some log types have specific a
 
 ### Deployment Logs
 
-- `<search term>` → Filter for a partial substring match
-
-- `"<search term>"` → Filter for an exact log message
+- `"<search term>"` → Filter for a partial substring match
 
 - `replica:<replica_id>` → Filter by a specific replica's UUID
 
@@ -69,16 +67,16 @@ Filter syntax is available for all log types, but some log types have specific a
 
 **Examples:**
 
-Find logs that contain the word "request".
+Find logs that contain the word `request`.
 
 ```text
 request
 ```
 
-Find logs that exactly match the message "request handled".
+Find logs that contain the substring `POST /api`.
 
 ```text
-"request handled"
+"POST /api"
 ```
 
 Find logs with an error level.
@@ -93,7 +91,7 @@ Find logs with a warning level.
 @level:warn
 ```
 
-Find logs with an error level and specific text.
+Find logs with an error level that contain specific text.
 
 ```text
 @level:error AND "failed to send batch"
