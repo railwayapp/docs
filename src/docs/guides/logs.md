@@ -205,15 +205,8 @@ Find all requests that originated from a specific IP address.
 
 ## View In Context
 
-Often, when searching for a log, it is useful to see the surrounding logs. To
-do this, either click the "Timestamp" column, or expand any log and click
-the "View in Context" button.
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1694195189/docs/CleanShot_2023-09-08_at_10.45.51_2x_nwxqid.png"
-alt="Viewing a log in context"
-layout="responsive"
-width={1682} height={272} quality={80} />
+When searching for logs, it is often useful to see surrounding logs. To view a log in context:
+right-click any log, then select the "View in Context" option from the dropdown menu.
 
 ## Structured Logs
 
