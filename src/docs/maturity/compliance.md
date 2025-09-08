@@ -15,13 +15,11 @@ You can request to view our audit, compliance, security, and regulatory document
 
 We know that your businesses need to develop strong and lasting relationships with your vendors to build confidence that we can be trusted to deliver your workloads. Part of that is through certifications, audits, and continual refinement of our practices. Railway aims to comply with all the distributions of workloads and privacy procedures.
 
-### SOC 2
+### SOC 2 Type II and SOC 3
 
-Railway is SOC 2 Type I certified.
+Railway is SOC 2 Type II certified and SOC 3 certified.
 
 Customers who are in the process of securing SOC 2 certification can request a copy of the Railway security audit on our [Trust Center](https://trust.railway.com).
-
-SOC 2 Type II certification is expected by the **end of July 2025**.
 
 ### HIPAA BAA
 
