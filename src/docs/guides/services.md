@@ -74,6 +74,24 @@ Quay.io:
 
 - `quay.io/username/repo:tag`
 
+### Updating Docker Images
+
+Railway automatically monitors Docker images for new versions. When an update is available, an update button appears in your service settings. If your image tag specifies a version (e.g., `nginx:1.25.3`), updating will stage the new version tag. For tags without versions (e.g., `nginx:latest`), Railway redeploys the existing tag to pull the latest image digest.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1757369631/docs/screenshot-2025-09-08-18.09.17_rkxbqa.png"
+alt="Screenshot of a Docker image update button"
+layout="responsive"
+width={681} height={282} quality={100} />
+
+To enable automatic updates, configure the update settings in your service. You can specify an update schedule and maintenance window. Note that automatic updates trigger a redeployment, which may cause brief downtime (typically under 2 minutes) for services with attached volumes.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1757369630/docs/screenshot-2025-09-08-18.12.09_u2jiz4.png"
+alt="Screenshot of a auto update configuration"
+layout="responsive"
+width={836} height={684} quality={100} />
+
 ### Deploying a Private Docker Image
 
 If you'd like to deploy from a private Docker registry, ensure you're on the [Pro plan](pricing/plans#plans).
