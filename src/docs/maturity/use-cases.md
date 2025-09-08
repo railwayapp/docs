@@ -15,7 +15,7 @@ Many of our customers use Railway to reliably deploy their applications to custo
 - Consumer Social
 - Education
 - E-Commerce
-- FinTech
+- Crypto
 - ML/AI
 - Agencies
 
@@ -88,12 +88,11 @@ Railway aims to exist for a very long time. Railway has presence on existing pub
 
 ### Unsupported Use-Cases
 
-Unfortunately, our platform isn't yet well-equipped to handle the following verticals that require extensive Gov't certification:
+Unfortunately, our platform isn't yet well-equipped to handle the following verticals that require extensive Gov't certification or GPU compute:
 
 - Government
 - Traditional Banking
-
-We do not yet offer GPU compute, but can certainly handle most machine learning workloads.
+- Machine Learning Compute
 
 ## General Recommendations
 
