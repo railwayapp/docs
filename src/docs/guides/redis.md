@@ -18,7 +18,7 @@ You can also deploy it via the [template](https://railway.com/template/redis) fr
 
 #### Deployed Service
 
-Upon deployment, you will have a Redis service running in your project, deployed from the [bitnami/redis](https://hub.docker.com/r/bitnami/redis) Docker image.
+Upon deployment, you will have a Redis service running in your project, deployed from the [redis](https://hub.docker.com/_/redis) Docker image.
 
 ### Connect
 
@@ -38,7 +38,7 @@ _Keep in mind that you will be billed for [Network Egress](/reference/pricing/pl
 
 ### Modify the Deployment
 
-Since the deployed container is pulled from the [bitnami Redis](https://hub.docker.com/r/bitnami/redis) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/r/bitnami/redis).
+Since the deployed container is pulled from the [redis](https://hub.docker.com/_/redis) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/redis).
 
 ## Backup and Monitoring
 
