@@ -64,9 +64,11 @@ Railway supports cache mounts in your Dockerfile in the following format:
 --mount=type=cache,id=s/<service id>-<target path>,target=<target path>
 ```
 
-Replace `<service id>` with the id of the service.
+Replace `<service id>` with the id of the service. 
 
-Note: Environment variables can't be used in cache mount IDs, since that is invalid syntax.
+<Banner variant="info">
+    Environment variables can't be used in cache mount IDs, since that is invalid syntax.
+</Banner>
 
 ### Target Path
 

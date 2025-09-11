@@ -41,7 +41,7 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 | **Free**       | **0.5 GB**| **1 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**       | 
 | **Hobby**      | **8 GB**  | **8 vCPU**  | **10 GB**             | **5 GB**           | **100 GB**     |
 | **Pro**        | **32 GB** | **32 vCPU** | **100 GB**            | **50 GB \***       | **100 GB**     |
-| **Enterprise** | **64 GB** | **64 vCPU** | **100 GB**            | **2 TB \***        | **100 GB**     |
+| **Enterprise** | **48 GB** | **64 vCPU** | **100 GB**            | **2 TB \***        | **100 GB**     |
 
 Note that these are initial values and users on the Pro and Enterprise plans can request limit increases.
 
@@ -107,17 +107,13 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 | Feature                    | Commitment Spend | Description                                                                                                      |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
 | **90-day log history**     | $200/month       | Extended log retention for better historical analysis and auditing.                                              |
-| **64 GB RAM / 64 vCPU**    | $500/month       | Access to increased computing resources at a committed monthly spend level.                                      |
+| **48 GB RAM / 64 vCPU**    | $500/month       | Access to increased computing resources at a committed monthly spend level.                                      |
 | **HIPAA BAAs**             | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly. |
 | **Slack Connect channels** | $2,000/month     | Dedicated Slack Connect channels for enhanced communication and support with the Railway team.                   |
 | **SLOs**                   | $2,000/month     | Service Level Objectives to ensure and track application performance.                                            |
 | **Dedicated Hosts**        | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                            |
 
 To learn more about committed spend tiers, please [contact our team](mailto:team@railway.com?subject=Business%20Class%20Support).
-
-### Purchasing Credits
-
-If you are already on the Pre-Paid plan, you can purchase credits from your Workspace's [Usage page](https://railway.com/workspace/usage).
 
 ### One-time Grant of Credits on the Free Trial
 
