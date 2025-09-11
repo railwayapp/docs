@@ -6,11 +6,18 @@ on:
     states: [success]
 
 jobs:
+  log-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log GitHub event
+        run: echo '${{ toJSON(github.event) }}'
+
   build-index:
     runs-on: ubuntu-latest
     if: >
-      github.event.deployment_status.state == 'success' &&
-      github.event.deployment.environment == 'production'
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'production')
     steps:
       - uses: actions/checkout@master
       - name: Scrape and index docs
