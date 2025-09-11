@@ -33,9 +33,7 @@ We will send you another email if your workloads are taken down due to your spec
 ## FAQ
 
 <Collapse title="Can I set a usage limit?">
-Usage limits are available for all users on the Pro plan and for users on the automatic payment Hobby plan model.
-
-Usage limits are not available for users on the prepaid plans. Instead, the amount of credits you load determines the hard limit.
+Yes, usage limits are available for all subscription plans.
 </Collapse>
 
 <Collapse title="Do I need to set a hard limit to set a custom email alert?">

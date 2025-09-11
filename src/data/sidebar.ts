@@ -159,15 +159,15 @@ export const sidebarContent: ISidebarContent = [
 		title: "Tutorials",
 		content: [
 			makePage("Getting Started", "tutorials"),
-			{
-				subTitle: "Self Hosted Applications",
-				pages: [
-					{
-						title: "Deploy Offen",
-						url: "https://blog.railway.com/p/offen-web-analytics",
-					},
-				],
-			},
+			// {
+			// 	subTitle: "Self Hosted Applications",
+			// 	pages: [
+			// 		{
+			// 			title: "Deploy Offen",
+			// 			url: "https://blog.railway.com/p/offen-web-analytics",
+			// 		},
+			// 	],
+			// },
 			{
 				subTitle: "Technical Tutorials",
 				pages: [
@@ -182,19 +182,6 @@ export const sidebarContent: ISidebarContent = [
 					makePage("Proximity Steering", "tutorials"),
 					makePage("Set up a Tailscale Subnet Router", "tutorials"),
 					makePage("Bridge Railway to RDS with Tailscale", "tutorials"),
-				],
-			},
-			{
-				subTitle: "Database Backup Tutorials",
-				pages: [
-					{
-						title: "Backing Up Redis",
-						url: "https://blog.railway.com/p/redis-backup",
-					},
-					{
-						title: "Backing Up Postgres",
-						url: "https://blog.railway.com/p/postgre-backup",
-					},
 				],
 			},
 			{

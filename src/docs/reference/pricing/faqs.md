@@ -11,7 +11,7 @@ Yes. As a new Railway user, you can sign up for a [Free Trial](/reference/pricin
 
 ### What payment methods are accepted?
 
-Railway accepts credit cards for plan subscriptions, usage, and to purchase prepaid credits. We support invoice payments for customers on the Enterprise plan.
+Railway only accepts credit cards for plan subscriptions. We also support custom invoicing for customers on the Enterprise plan.
 
 ### What will it cost to run my app?
 
@@ -79,39 +79,12 @@ Clicking on "Manage Subscription" will allow you to:
 
 When you cancel your subscription, if you're on Hobby, Pro, or Enterprise, your plan will remain active through the end of your current billing period, and any usage will be charged at the end of the period.
 
-If you are on the Hobby plan and using prepaid credits as your payment method, your subscription will be canceled immediately and any credit balance you may have will be forfeited.
-
 ### How do I remove my saved payment method from my account?
 
 If your subscription is canceled and you have no pending invoices, you can remove your saved payment method by doing the following:
 
 1. Go to the [billing page](https://railway.com/workspace/billing) for your workspace
 2. Click "Delete" in the payment method section
-
-### How do I switch to the auto-renewing Hobby plan billing model?
-
-At this time, we do not directly support switching from a prepaid credit-based plan to an auto-renewing subscription.
-
-You can, however, cancel your current plan, wait until you exhaust your remaining credits, and then sign back up on the auto-renewing plan.
-
-**Note:** Cancelling your subscription does not immediately stop your [services](/overview/the-basics#services). Services will run until you exhaust your remaining credits.
-
-<p><span style={{color: "var(--tw-prose-counters)"}}>1.</span> Cancel your current plan.</p>
-
-    - Head over to the <a href="https://railway.com/workspace/billing" target="_blank">Billing page</a> of your workspace.
-    - Click on **Manage Subscription**.
-    - Click on **Cancel Plan**.
-
-<p><span style={{color: "var(--tw-prose-counters)"}}>2.</span> Wait until you exhaust your remaining credits.</p>
-
-<p><span style={{color: "var(--tw-prose-counters)"}}>3.</span> Sign up for the auto-renewing Hobby plan.</p>
-
-        - Head over to the <a href="https://railway.com/workspace/plans" target="_blank">Plans page</a>.
-        - Click **Deploy with Hobby**.
-        - Enter your billing information.
-        - Click on **Subscribe to Hobby Plan**.
-
-        You are now on the auto-renewing subscription model.
 
 ### What happens if the payment fails for my subscription?
 
@@ -128,8 +101,6 @@ Your [services](/overview/the-basics#services) may be stopped by Railway for the
 - **Usage limits reached:** You've hit your [usage limits](/reference/usage-limits). Increase your usage limit or wait until the next billing period.
 
 - **Trial credits exhausted:** You've run out of [trial credits](/reference/pricing/free-trial#how-does-the-trial-work). Consider upgrading to [a paid plan](/reference/pricing/plans#plans) to continue using the service.
-
-- **Hobby credits exhausted:** You've run out of [prepaid credits](/reference/pricing/plans#credits). Add more credits to your account.
 
 - **Failed payment:** Your payment method has failed. Update your payment method and [pay your outstanding invoice](https://railway.com/workspace/billing).
 
