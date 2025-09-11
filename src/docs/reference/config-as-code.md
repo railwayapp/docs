@@ -52,6 +52,9 @@ Possible values are:
 
 - `NIXPACKS`
 - `DOCKERFILE`
+- `RAILPACK`
+- `HEROKU`
+- `PAKETO`
 
 Note: Railway will always build with a Dockerfile if it finds one. To build with nixpacks, you can remove or rename the Dockerfile.
 
