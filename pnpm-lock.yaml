@@ -35,9 +35,6 @@ dependencies:
   copy-to-clipboard:
     specifier: ^3.3.1
     version: 3.3.3
-  dayjs:
-    specifier: ^1.10.4
-    version: 1.11.13
   fathom-client:
     specifier: ^3.1.0
     version: 3.7.2
@@ -110,9 +107,6 @@ dependencies:
   use-local-storage-state:
     specifier: ^19.1.0
     version: 19.5.0(react-dom@18.2.0)(react@18.2.0)
-  uuid:
-    specifier: ^9.0.0
-    version: 9.0.1
 
 devDependencies:
   '@types/node':
@@ -3502,10 +3496,6 @@ packages:
     engines: {node: '>= 12'}
     dev: false
 
-  /dayjs@1.11.13:
-    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
-    dev: false
-
   /debug@4.4.1(supports-color@5.5.0):
     resolution: {integrity: sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==}
     engines: {node: '>=6.0'}
@@ -6206,11 +6196,6 @@ packages:
 
   /uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    hasBin: true
-    dev: false
-
-  /uuid@9.0.1:
-    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
     dev: false
 
