@@ -31,7 +31,9 @@ These services provide detailed analytics and robust APIs designed for modern ap
 If you are experiencing issues with SMTP on the Pro plan, please the follow 
 the steps below to help us diagnose the problem:
 
-1. SSH into your service using the [Railway CLI](/reference/cli-api#ssh):
+1. First, ensure that you have tried re-deploying your service
+
+2. SSH into your service using the [Railway CLI](/reference/cli-api#ssh):
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1757952518/docs/smtp-copy-ssh_qtczce.png"
@@ -39,7 +41,7 @@ alt="Screenshot of SSH into your service"
 layout="responsive"
 width={767} height={729} quality={100} />
 
-2. Copy-paste this command and change the `SMTP_HOST` to the host you're trying to connect to:
+3. Copy-paste this command and change the `SMTP_HOST` to the host you're trying to connect to:
 
 ```bash
 SMTP_HOST="$REPLACE_THIS_WITH_YOUR_SMTP_HOST" bash -c '
@@ -51,7 +53,7 @@ done
 '
 ```
 
-3. Execute the command. You should see output similar to this:
+4. Execute the command. You should see output similar to this:
 
 ```
 smtp.yourhost.com port 25 reachable
@@ -70,12 +72,12 @@ width={767} height={729} quality={100} />
 
 Replace `smtp.resend.com` above with your SMTP host.
 
-4. If any of the ports are unreachable, please contact your email provider to 
+5. If any of the ports are unreachable, please contact your email provider to 
 ensure that they are not blocking connections from Railway's IPs. Port 2525 is
 a non-standard SMTP port that may be blocked on popular email providers, so
 2525 being unreachable is not an issue
 
-5. Otherwise, please reach out to us at [Central Station](https://station.railway.com)
+6. Otherwise, please reach out to us at [Central Station](https://station.railway.com)
 and share the output of the command for further assistance
 
 ## Static Outbound IPs
