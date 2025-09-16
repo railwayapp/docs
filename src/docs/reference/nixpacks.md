@@ -3,8 +3,10 @@ title: Nixpacks
 description: Railway uses Nixpacks to build and deploy your code with zero configuration.
 ---
 
+<DeprecationBanner />
+
 Railway uses <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> to build and deploy your code with
-zero configuration.
+zero configuration. This documentation is maintained for existing services using Nixpacks. For new services, we recommend using [Railpack](/reference/railpack).
 
 ## Supported Languages
 

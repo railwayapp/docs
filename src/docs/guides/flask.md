@@ -183,7 +183,7 @@ To deploy a Flask app to Railway directly from GitHub, follow the steps below:
 
    - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Python app](https://nixpacks.com/docs/providers/python).
+   **Note:** During the deployment process, Railway will automatically [detect that it's a Python app via Railpack](https://railpack.com/languages/python).
 
 5. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

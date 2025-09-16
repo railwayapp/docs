@@ -269,6 +269,7 @@ export const sidebarContent: ISidebarContent = [
 					makePage("Healthchecks", "reference"),
 					makePage("Backups", "reference"),
 					makePage("Integrations", "reference"),
+					makePage("Railpack", "reference"),
 					makePage("Nixpacks", "reference"),
 					makePage("Private Networking", "reference"),
 					makePage("Public Networking", "reference"),

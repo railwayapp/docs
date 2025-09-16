@@ -102,3 +102,11 @@ export const PriorityBoardingBanner: React.FC = () => {
     </Banner>
   );
 };
+
+export const DeprecationBanner: React.FC = () => {
+  return (
+    <Banner variant="warning">
+      Nixpacks is deprecated and in maintenance mode. New services default to Railpack.
+    </Banner>
+  );
+};
