@@ -1,4 +1,4 @@
-import { Banner, PriorityBoardingBanner } from "@/components/Banner";
+import { Banner, PriorityBoardingBanner, DeprecationBanner } from "@/components/Banner";
 import { Collapse } from "@/components/Collapse";
 import { CodeBlock } from "@/components/CodeBlock";
 import Layout from "@/mdxLayouts/index";
@@ -21,6 +21,7 @@ const components: Record<string, React.ElementType> = {
   Banner,
   Link,
   PriorityBoardingBanner,
+  DeprecationBanner,
   a: Anchor,
   h2: H2,
   h3: H3,
