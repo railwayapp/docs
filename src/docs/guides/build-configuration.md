@@ -7,19 +7,26 @@ Railway will build and deploy your code with zero configuration, but when necess
 
 ## Railpack
 
-Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to build your code. It works with zero configuration but can be customized using [environment variables](/guides/variables#service-variables) or a [Railpack config file](https://railpack.com/config/file). Configuration options include:
+Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to
+build your code. It works with zero configuration, but can be customized using
+[environment variables](/guides/variables#service-variables) or a [config
+file](https://railpack.com/config/file). Configuration options include:
 
-- Install/build/start commands
-- Package installation requirements  
+- Language versions
+- Build/install/start commands
+- Mise and Apt packages to install
 - Directories to cache
 
-For a full list of configuration options, please view the <a href="https://railpack.com/config/environment-variables" target="_blank">Railpack docs</a>.
-
-You can find a complete list of languages we support out of the box [here](/reference/railpack#supported-languages).
+For a full list of configuration options, please view the <a
+href="https://railpack.com/config/environment-variables"
+target="_blank">Railpack docs</a>. You can find a complete list of languages we
+support out of the box [here](/reference/railpack#supported-languages).
 
 ## Nixpacks
 
-<DeprecationBanner />
+<DeprecationBanner>
+Nixpacks is deprecated and in maintenance mode. New services default to Railpack.
+</DeprecationBanner>
 
 Existing services will continue to work with Nixpacks. To migrate to Railpack, update your service settings or set `"builder": "RAILPACK"` in your railway.json file.
 
@@ -29,7 +36,8 @@ You can find a complete list of languages we support out of the box [here](/refe
 
 ## Customize the Build Command
 
-Railpack automatically detects and configures build commands based on your project structure. If you need to override the detected build command, you can customize it from within your service settings.
+You can override the detected build command by setting a value in your service
+settings. This is run after languages and packages have been installed.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743192207/docs/build-command_bwdprb.png"
@@ -94,42 +102,34 @@ Here are a few examples of common use-cases:
 
 _Note, negations will only work if you include files in a preceding rule._
 
-## Install a Specific Package Using Nixpacks (Legacy)
+## Install Specific Packages using Railpack
 
-For services still using Nixpacks, you can install specific packages by defining them in a nixpacks configuration file. For example:
+| Environment variable            | Description                                                    |
+|---------------------------------|----------------------------------------------------------------|
+| `RAILPACK_PACKAGES`             | A list of [Mise](https://mise.jdx.dev/) packages to install    |
+| `RAILPACK_BUILD_APT_PACKAGES`   | Install additional Apt packages during build                   |
+| `RAILPACK_DEPLOY_APT_PACKAGES`  | Install additional Apt packages in the final image             |
 
-```toml
-[phases.setup]
-    aptPkgs = ['wget']
-```
+See the [Railpack docs](https://railpack.com/config/environment-variables) for more information.
 
-See the [Nixpacks docs](https://nixpacks.com/docs/configuration/file) for more information. For new services using Railpack, package installation is handled automatically.
+## Procfiles
 
-## Build Providers (Nixpacks Legacy)
+Railpack automatically detects commands defined in
+[Procfiles](https://railpack.com/config/procfile). Although this is not
+recommended and specifing the start command directly in your service settings is
+preferred.
 
-For services using Nixpacks, you can specify which language providers to use for builds. This is useful if you have code that calls libraries from multiple languages within your repo.
 
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1668662436/docs/multi-providers_lrxdbp.png"
-alt="Screenshot of Railway Build Providers"
-layout="responsive"
-width={745} height={238} quality={80} />
+## Specify a Custom Install Command
 
-Railpack automatically handles multi-language detection and doesn't require manual provider configuration.
-
-## Procfiles (Nixpacks Legacy)
-
-For services using Nixpacks, you can override the start command with a <a href="https://nixpacks.com/docs/configuration/procfile" target="_blank">Procfile</a> at the root of your app.
-
-Railpack automatically detects start commands and doesn't require Procfiles for most applications.
-
-## Specify a Custom Install Command (Nixpacks Legacy)
-
-For services using Nixpacks, you can control custom install commands using [config as code](/reference/config-as-code#nixpacks-plan). Railpack handles installation automatically based on your project's dependency files.
+You can override the install command by setting the `RAILPACK_INSTALL_COMMAND`
+environment variable in your service settings.
 
 ## Disable Build Layer Caching
 
-By default, Railway will cache build layers to provide faster build times. If you have a need to disable this behavior, set the following environment variable in your service:
+By default, Railway will cache build layers to provide faster build times. If
+you have a need to disable this behavior, set the following environment variable
+in your service:
 
 ```plaintext
 NO_CACHE=1
@@ -137,6 +137,9 @@ NO_CACHE=1
 
 ## Why Isn't My Build Using Cache?
 
-Since Railway's build system scales up and down in response to demand, cache hit on builds is not guaranteed.
+Since Railway's build system scales up and down in response to demand, cache hit
+on builds is not guaranteed.
 
-If you have a need for faster builds and rely on build cache to satisfy that requirement, you should consider creating a pipeline to build your own image and deploy your image directly.
+If you have a need for faster builds and rely on build cache to satisfy that
+requirement, you should consider creating a pipeline to build your own image and
+deploy your image directly.
