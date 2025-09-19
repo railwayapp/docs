@@ -329,6 +329,7 @@ export const sidebarContent: ISidebarContent = [
 			makePage("Compare to Fly", "maturity"),
 			makePage("Compare to Vercel", "maturity"),
 			makePage("Compare to DigitalOcean", "maturity"),
+			makePage("Compare to VPS", "maturity"),
 		],
 	},
 	{
