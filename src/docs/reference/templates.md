@@ -47,9 +47,9 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 - Follow the instructions inside the `Earnings` tab. We use Stripe Connect to handle withdrawals. After completing the onboarding process, you will be able to request a withdrawal.
 
-### Why is my country not supported?
+#### Why is my country not supported?
 
-- Due to local regulations and compliance requirements, certain regions are not eligible for withdrawals. You can choose from the 130+ countries that are supported in the onboarding process.
+- Due to local regulations and compliance requirements, certain regions are not eligible for cash withdrawals. You can choose from the 130+ countries that are supported in the onboarding process.
 
 #### Can I make manual withdrawals to credits too?
 
