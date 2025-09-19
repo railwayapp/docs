@@ -35,6 +35,8 @@ Read more about the kickback program <a href="https://railway.com/open-source-ki
 
 By default, your template kickbacks are automatically converted into Railway Credits. But we also offer cash withdrawals. Visit the `/earnings` tab inside your account settings for more details. There you can add your details and request a withdrawal.
 
+<Banner variant="info">Cash Withdrawals are unavailable in countries like Brazil, China, and Russia. A full list of supported countries is available on the earnings page.</Banner>
+
 ### FAQ
 
 #### How do I start earning cash?
