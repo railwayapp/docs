@@ -11,10 +11,6 @@ Railway is a modern deployment platform that enables you to deploy applications 
 
 Learn more about Railway's [core components and foundations](/guides/foundations).
 
-## What are Express.js and Node.js?
-
-[Express.js](https://expressjs.com/) is a fast and flexible web application framework for Node.js that provides a simple approach to building web servers and APIs. [Node.js](https://nodejs.org/) is a JavaScript runtime built on Chrome's V8 JavaScript engine that allows you to run JavaScript on the server.
-
 ## Prerequisites
 
 This is a beginner-friendly guide. However, it assumes basic knowledge of [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) or [TypeScript](https://www.typescriptlang.org/) (preferred). You'll also need to have Node.js installed on your machine.
