@@ -3,7 +3,7 @@ title: Deploy Node.js & Express API with Autoscaling, Secrets, and Zero Downtime
 description: Learn how to deploy Node.js and Express applications with automatic scaling, environment secrets, zero-downtime updates, and preview environments—all without managing servers or learning Kubernetes/container orchestration.
 ---
 
-In this guide, you'll learn how to deploy Node.js and Express applications to production using Railway's zero-configuration deployment platform. You'll build a complete application stack with automatic scaling, environment secrets management, and preview environments.
+In this guide, you'll learn how to deploy a [Node.js](https://nodejs.org/) and [Express.js](https://expressjs.com/) API to production using Railway. You'll build and deploy an API with automatic scaling, environment secrets management, and preview environments.
 
 ## What is Railway?
 
