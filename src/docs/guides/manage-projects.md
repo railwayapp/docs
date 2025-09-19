@@ -7,7 +7,7 @@ Here are some examples to help you get started managing your projects using the 
 
 ### Fetch All Your Projects
 
-The query below will fetch all your personal projects along with all the services, plugins and environment for them.
+The query below will fetch all your personal projects along with all the services and environments for them.
 
 ```graphql
 query me {
@@ -18,14 +18,6 @@ query me {
           id
           name
           services {
-            edges {
-              node {
-                id
-                name
-              }
-            }
-          }
-          plugins {
             edges {
               node {
                 id
