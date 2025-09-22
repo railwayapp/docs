@@ -27,7 +27,7 @@ In **Sum** view, metrics from all replicas are combined. For example, if you hav
 
 In **Replica** view, you can see metrics for each replica individually. This is useful for diagnosing issues with specific replicas or spotting if some regions are under- over overutilized.
 
-The total from all replicas may differ slightly from the Sum view due to rounding, or overlapping instances during zero-downtime deployments.
+The total from all replicas may differ slightly from the Sum view due to rounding or overlapping instances during zero-downtime deployments.
 
 ## Provided Metrics
 
