@@ -94,7 +94,9 @@ width={836} height={684} quality={100} />
 
 ### Deploying a Private Docker Image
 
-If you'd like to deploy from a private Docker registry, ensure you're on the [Pro plan](pricing/plans#plans).
+<Banner variant="info">
+Private Docker registry deployments require the [Pro plan](pricing/plans#plans).
+</Banner>
 
 To deploy from a private Docker registry, specify the path of the image when prompted in the creation flow, as well as authentication credentials (username, password) to the registry.
 

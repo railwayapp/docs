@@ -145,7 +145,9 @@ Railway will now provision a new service for your project based on the specified
 
 And that's it! 🎉 Your project is now ready for use.
 
-**Note:** Deploying from a [private Docker registry is available on the Pro plan](/guides/services#deploying-a-private-docker-image).
+<Banner variant="info">
+Private Docker registry deployments require the [Pro plan](/guides/services#deploying-a-private-docker-image).
+</Banner>
 
 ## The Canvas
 
