@@ -150,25 +150,13 @@ Railway Functions are [Services](/reference/services) that run a single file of 
 ### Create a Function
 
 1. Add a new service:
-   - In your Railway project, click the "+" button
+   - In your Railway project, click the "+ Create" button
    - Choose "Function" as the service type
+   - Deploy
 
 2. Write your function:
-   ```typescript
-   // API endpoint for contact form
-   export default {
-     async fetch(request: Request) {
-       if (request.method === 'POST') {
-         const data = await request.json();
-         // Process form data
-         return new Response(JSON.stringify({ success: true }), {
-           headers: { 'Content-Type': 'application/json' }
-         });
-       }
-       return new Response('Method not allowed', { status: 405 });
-     }
-   };
-   ```
+   - Click on the "Source Code" tab
+   - Write your function code
 
 3. Deploy instantly:
    - Press `Cmd+S` (or `Ctrl+S`) to stage changes
