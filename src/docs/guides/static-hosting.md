@@ -147,8 +147,6 @@ Railway Functions are [Services](/reference/services) that run a single file of 
 - Webhook handlers
 - Cron jobs
 
-### Create a Function
-
 1. Add a new service:
    - In your Railway project, click the "+ Create" button
    - Choose "Function" as the service type
