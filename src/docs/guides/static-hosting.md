@@ -15,26 +15,26 @@ Learn more about Railway's [core components and foundations](/guides/foundations
 
 Railway offers several advantages for static site hosting:
 
-- Zero configuration: Deploy from GitHub without build scripts or complex setup
-- Automatic builds: Every push triggers a new deployment automatically
-- Custom domains: automatically provisioned SSL certificates and custom domain setup
-- Preview environments: Test changes with automatic PR previews
-- Usage-based pricing: Pay only for what you use, starting at $5/month
-- Private repositories: Deploy from private GitHub repos without additional cost
+- Zero configuration: Deploy from GitHub without build scripts or complex setup.
+- Automatic builds: Every push triggers a new deployment automatically.
+- Custom domains: Automatically provisioned SSL certificates and custom domain setup.
+- Preview environments: Test changes with automatic PR previews.
+- Usage-based pricing: Pay only for what you use, starting at $5/month.
+- Private repositories: Deploy from private GitHub repos without additional cost.
 
 ## Prerequisites
 
 This is a beginner-friendly guide. You'll need:
 
 - A Railway account
-- [git](https://git-scm.com/) configured and a [GitHub](https://github.com/) account 
+- [Git](https://git-scm.com/) configured and a [GitHub](https://github.com/) account 
 
 ## Deploy a static site on Railway from your own GitHub repository
 
-  - Go to [railway.com/new](https://railway.com/new)
-  - Select "Deploy from GitHub repo"
-  - Connect your GitHub account and choose your repository
-  - Railway will automatically detect the build configuration and deploy your site
+1. Go to [railway.com/new](https://railway.com/new)
+2. Select "Deploy from GitHub repo"
+3. Connect your GitHub account and choose your repository
+4. Railway will automatically detect the build configuration and deploy your site
 
 ## Configure a custom domain
 
@@ -90,7 +90,7 @@ Learn more about [using environments](/guides/environments) and [PR environments
 
 ## Deploy replicas in different regions for global performance
 
-Railway enables youto deploy your static site across multiple regions for improved global performance and availability.
+Railway enables you to deploy your static site across multiple regions for improved global performance and availability.
 
 - Reduced latency: Serve content from the region closest to your users
 - High availability: If one region experiences issues, traffic automatically routes to healthy regions
@@ -98,9 +98,10 @@ Railway enables youto deploy your static site across multiple regions for improv
 - Automatic failover: Seamless traffic routing without manual intervention
 
 To get started:
-   1. In your Railway project, click on your deployed service
-   2. Go to the "Settings" tab
-   3. Under "Deploy", go to the "Regions" section and click "+ Add Region"
+
+1. In your Railway project, click on your deployed service
+2. Go to the "Settings" tab
+3. Under "Deploy", go to the "Regions" section and click "+ Add Region"
 
 Railway automatically distributes replicas across available regions and routes traffic to the nearest region.
 
@@ -109,7 +110,7 @@ Railway automatically distributes replicas across available regions and routes t
 
 Each replica runs with the full resource limits of your plan. So if you're on the Pro plan and deploy 3 replicas, you'll get a combined capacity of 96 vCPU and 96 GB RAM across all regions.
 
-```bash
+```
 Total resources = number of replicas × maximum compute allocation per replica
 ```
 
@@ -130,6 +131,10 @@ While Railway doesn't currently provide a built-in CDN, you can easily integrate
    - Create a CNAME record in Cloudflare
    - Point your domain to your Railway service URL
    - Enable "Proxy" (orange cloud) for CDN benefits
+
+3. Verify setup:
+   - Test your domain to ensure it's working correctly
+   - Monitor performance improvements in Cloudflare's dashboard
 
 ## Add API Endpoints with Railway Functions
 
