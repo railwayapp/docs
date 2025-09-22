@@ -9,9 +9,25 @@ Railway provides resource usage information on deployments within a service, whi
 
 For each service, Railway captures metric data. These metrics are then made available in graphs within a service's panel, under the metrics tab.
 
-## How it works - with multiple replicas
+## Metrics with multiple replicas
 
-When a service has multiple replicas, the metrics from all replicas are summed up and displayed in the metrics tab, for example, if you have 2 replicas, each using 100 MB of memory, the memory usage displayed in the metrics tab will be 200 MB.
+When a service runs multiple replicas, you can view metrics in two ways: **Sum** or **Replica**.
+
+_Note: Public network traffic metrics are only available in the Sum view._
+
+### Sum view
+
+![Viewing the sum of all replica metrics](https://res.cloudinary.com/railway/image/upload/v1758559063/docs/metrics-sum_tvdwlc.png)
+
+In **Sum** view, metrics from all replicas are combined. For example, if you have two replicas using 100 MB of memory each, the metrics tab will show 200 MB.
+
+### Replica view
+
+![Viewing metrics of individual replicas](https://res.cloudinary.com/railway/image/upload/v1758559063/docs/metrics-per-replica_skc17b.png)
+
+In **Replica** view, you can see metrics for each replica individually. This is useful for diagnosing issues with specific replicas or spotting if some regions are under- over overutilized.
+
+The total from all replicas may differ slightly from the Sum view due to rounding or overlapping instances during zero-downtime deployments.
 
 ## Provided Metrics
 

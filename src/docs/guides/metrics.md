@@ -9,7 +9,7 @@ Railway provides resource usage information on deployments within a service whic
 
 Access a service's metrics by clicking on a service in the project canvas, and going to the "Metrics" tab.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1645223702/docs/metrics_angr0b.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1758559063/docs/metrics-sum_tvdwlc.png"
 alt="Screenshot of Metrics Page"
 layout="intrinsic"
 width={1576} height={1100} quality={80} />
@@ -32,4 +32,4 @@ width={904} height={726} quality={80} />
 
 Projects maintain a continuous time-series for all deployments within a service, not just the latest one. Deployments appear on the graph so users can see which commit may have caused a spike in resources.
 
-For services with multiple replicas, the metrics from all replicas are summed up and displayed in the metrics tab, for example, if you have 2 replicas, each using 100 MB of memory, the memory usage displayed in the metrics tab will be 200 MB.
+If a service has multiple replicas, you can view metrics as a combined sum or per replica. Learn more in the [Metrics Reference](/reference/metrics#metrics-with-multiple-replicas).
