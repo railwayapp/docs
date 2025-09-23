@@ -15,7 +15,7 @@ You can either create a template from scratch or base it off of an existing proj
 
 ### Starting from Scratch
 
-To create a template from scratch, head over to the <a href="https://railway.com/compose" target="_blank">template composer</a> then add and configure your services:
+To create a template from scratch, head over to your <a href="https://railway.com/workspace/templates" target="_blank">Templates</a> page within your workspace settings and click on the `New Template` button.
 
 - Add a service by clicking the `Add New` button in the top right-hand corner, or through the command palette (`CMD + K` -> `+ New Service`)
 - Select the service source (GitHub repo or Docker Image)
@@ -71,7 +71,7 @@ quality={80}
 
 ## Configuring Services
 
-Configuring services using the <a href="https://railway.com/compose" target="_blank">template composer</a> is very similar to building a live project in the canvas.
+Configuring services using the template composer is very similar to building a live project in the canvas.
 
 Once you add a new service and select the source, you can configure the following to enable successful deploys for template users:
 
