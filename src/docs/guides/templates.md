@@ -18,3 +18,4 @@ Templates provide a way to jumpstart a project by giving users the means to pack
 |                                                               |                                                                                                                                                                                                                                      |
 
 Excited about templates? Dig into the next pages to learn how to create, publish, and deploy them.
+1
