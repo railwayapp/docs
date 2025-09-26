@@ -3,13 +3,11 @@ title: Deploying a Monorepo
 description: Learn how to deploy monorepos on Railway.
 ---
 
-Railway provides a few features to help improve support for deploying monorepos
-of various types:
+Railway provides a few features to help improve support for deploying monorepos of various types:
 
 1. **[Isolated Monorepo](#deploying-an-isolated-monorepo)** → A repository that contains components that are completely isolated to the
    directory they are contained in (eg. JS frontend and Python backend)
-2. **[Shared Monorepo](#deploying-a-shared-monorepo)** → A repository that contains components that share code or configuration from the
-   root directory (eg. Yarn workspace or Lerna project)
+1. **[Shared Monorepo](#deploying-a-shared-monorepo)** → A repository that contains components that share code or configuration from the root directory (eg. Yarn workspace or Lerna project). We support **[automated import of Javascript monorepos](#automatic-import-for-javascript-monorepos)** for pnpm, npm, yarn or bun monorepos.
 
 For a full step by step walk through on deploying an isolated Monorepo see our <a href="/tutorials/deploying-a-monorepo" target="_blank">tutorial</a> on the subject.
 
@@ -71,6 +69,32 @@ src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-sta
 alt="Screenshot of custom start command configuration"
 layout="intrinsic"
 width={1302} height={408} quality={80} />
+
+## Automatic Import for Javascript Monorepos
+
+When you import a Javascript monorepo via [the project creation page](https://railway.com/new), we automatically detect if it's a monorepo and stage a service for each deployable package. This works for pnpm, npm, yarn and bun.
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1758927698/docs/guides/monorepos/monorepo-import-new-page_izirrr.png"
+alt="Importing a monorepo from /new"
+layout="intrinsic"
+width={905} height={642} quality={80} />
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1758927701/docs/guides/monorepos/monorepo-import-result_jbtccl.png"
+alt="Staged monorepo services"
+layout="intrinsic"
+width={1369} height={714} quality={80} />
+
+For each package detected, Railway automatically configures:
+
+- **Service Name**: generated from the package name or directory
+- **Start Command**: workspace-specific commands like `pnpm --filter [package] start`
+- **Build Command**: workspace-specific commands like `pnpm --filter [package] build`
+- **Watch Paths**: set to the package directory (e.g., `/packages/backend/**`)
+- **Config as Code**: railway.json / railway.toml are detected at the root of the package directory
+
+Railway filters out non-deployable packages such as configuration packages (eslint, prettier, tsconfig) and test packages.
 
 ## Watch paths
 
