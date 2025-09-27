@@ -153,6 +153,7 @@ export const sidebarContent: ISidebarContent = [
 				],
 			},
 			makePage("Config as Code", "guides"),
+			makePage("Node.js SIGTERM", "guides"),
 		],
 	},
 	{
