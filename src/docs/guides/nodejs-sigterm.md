@@ -1,6 +1,6 @@
 ---
-title: Why SIGTERM handling may not work with Node.js runtime scripts
-description: SIGTERM might sometimes fail to process on shutdown. Here's why
+title: NodeJS SIGTERM Handling
+description: SIGTERM might sometimes fail to process on shutdown. Here's why.
 ---
 
 If you’ve tried to capture SIGTERM in your Node.js app and noticed your handler never runs, the cause is usually the package manager.
