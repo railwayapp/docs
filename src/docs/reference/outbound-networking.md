@@ -28,8 +28,7 @@ These services provide detailed analytics and robust APIs designed for modern ap
 
 ### Debugging SMTP Issues
 
-If you are experiencing issues with SMTP on the Pro plan, please the follow 
-the steps below to help us diagnose the problem:
+If you are experiencing issues with SMTP on the Pro plan, please the follow the steps below to help us diagnose the problem:
 
 1. First, ensure that you have tried re-deploying your service
 
@@ -62,7 +61,7 @@ smtp.yourhost.com port 587 reachable
 smtp.yourhost.com port 2525 reachable
 ```
 
-Example: 
+Example:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1757952876/docs/smtp-exec-cmd_ytqx7u.png"
@@ -72,7 +71,7 @@ width={767} height={729} quality={100} />
 
 Replace `smtp.resend.com` above with your SMTP host.
 
-5. If any of the ports are unreachable, please contact your email provider to 
+5. If any of the ports are unreachable, please contact your email provider to
 ensure that they are not blocking connections from Railway's IPs. Port 2525 is
 a non-standard SMTP port that may be blocked on popular email providers, so
 2525 being unreachable is not an issue
@@ -83,6 +82,9 @@ and share the output of the command for further assistance
 ## Static Outbound IPs
 
 Railway offers [Static Outbound IPs](/reference/static-outbound-ips) for Pro plan customers who need consistent IP addresses for firewall whitelisting or third-party integrations.
+
+## Outbound IPv6
+Railway does not currently support outbound IPv6. Any IPv6 request will fail showing "Network is unreachable" or `ENETUNREACH`.
 
 ## Related Features
 
