@@ -39,9 +39,9 @@ Services can be deployed from a local machine by using the [Railway CLI](/refere
 
 ## Ephemeral Storage
 
-Every service deployment has access to 10GB of ephemeral storage. If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
+Every service deployment has access ephemeral storage, with the limits being 1GB on the Free plan and 100GB on a paid plan. If a service deployment consumes more than its ephemeral storage limit, it can be forcefully stopped and redeployed.
 
-If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/reference/volumes).
+If your service requires data to persist between deployments, or needs more storage, you should add a [volume](/reference/volumes).
 
 ## Templates
 
