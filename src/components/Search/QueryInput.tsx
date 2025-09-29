@@ -7,15 +7,9 @@ interface Props {
   clearResponse: () => void;
   query: string;
   setQuery: (q: string) => void;
-  disabled?: boolean;
 }
 
-const QueryInput: React.FC<Props> = ({
-  clearResponse,
-  query,
-  setQuery,
-  disabled = false,
-}) => {
+const QueryInput: React.FC<Props> = ({ clearResponse, query, setQuery }) => {
   return (
     <div css={tw`flex flex-col`}>
       <form css={tw`flex flex-row`}>
@@ -26,8 +20,7 @@ const QueryInput: React.FC<Props> = ({
           autoFocus
           css={tw`w-full focus:outline-none bg-transparent`}
           type="text"
-          placeholder={disabled ? "Search is not configured" : "Search"}
-          disabled={disabled}
+          placeholder="Search"
           value={query}
           onChange={e => setQuery(e.target.value)}
         />
