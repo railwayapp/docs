@@ -52,6 +52,10 @@ This error can occur for a variety of reasons, here are some common ones and wha
 
 ## Possible Solutions
 
+### Try Railpack
+
+If you're encountering issues with Nixpacks, consider switching to [Railpack](/reference/railpack), Railway's default builder. Railpack provides better language support, smaller image sizes, and improved build performance. You can enable it in your service settings or by setting `"builder": "RAILPACK"` in your [railway.json file](/reference/config-as-code).
+
 ### Monorepo Without Root Directory
 
 If you are attempting to deploy a monorepo, you will need to set a [root directory](https://docs.railway.com/guides/build-configuration#set-the-root-directory) in your [service settings](https://docs.railway.com/overview/the-basics#service-settings) under the source repository section.

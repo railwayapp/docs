@@ -43,17 +43,18 @@ Set the builder for the deployment.
 {
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS"
+    "builder": "RAILPACK"
   }
 }
 ```
 
 Possible values are:
 
-- `NIXPACKS`
+- `RAILPACK` (default)
 - `DOCKERFILE`
+- `NIXPACKS` (deprecated)
 
-Note: Railway will always build with a Dockerfile if it finds one. To build with nixpacks, you can remove or rename the Dockerfile.
+Note: Railway will always build with a Dockerfile if it finds one. New services default to Railpack unless otherwise specified.
 
 Read more about Builds [here](/guides/builds).
 
@@ -106,9 +107,28 @@ This field can be set to `null`.
 
 More about building from a Dockerfile [here](/reference/dockerfiles).
 
+### Railpack Version
+
+Must be a valid [Railpack version](https://github.com/railwayapp/railpack/releases).
+
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "railpackVersion": "0.7.0"
+  }
+}
+```
+
+This field can be set to `null`.
+
+You can also use the `NIXPACKS_VERSION` [configuration
+variable](https://docs.railway.com/reference/variables#user-provided-configuration-variables)
+to set the Nixpacks version.
+
 ### Nixpacks Config Path
 
-Location of a non-standard [Nixpacks](https://nixpacks.com/docs/configuration/file) config file.
+Location of a non-standard [Nixpacks](https://nixpacks.com/docs/configuration/file) config file. This setting only applies to services using the deprecated Nixpacks builder.
 
 ```json
 {
@@ -185,9 +205,7 @@ Use nixpacksPlan to configure a custom install command.
 
 ### Nixpacks Version
 
-EXPERIMENTAL: USE AT YOUR OWN RISK!.
-
-Version of Nixpacks to use. Must be a valid Nixpacks version.
+Must be a valid Nixpacks version.
 
 ```json
 {
@@ -200,7 +218,9 @@ Version of Nixpacks to use. Must be a valid Nixpacks version.
 
 This field can be set to `null`.
 
-You can also use the `NIXPACKS_VERSION` [configuration variable](https://docs.railway.com/reference/variables#user-provided-configuration-variables) to set the Nixpacks version.
+You can also use the `NIXPACKS_VERSION` [configuration
+variable](https://docs.railway.com/reference/variables#user-provided-configuration-variables)
+to set the Nixpacks version.
 
 ### Start Command
 

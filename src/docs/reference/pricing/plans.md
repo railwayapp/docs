@@ -39,9 +39,9 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 | -------------- | --------- | ----------- | --------------------- | ------------------ | -------------- |
 | **Trial**      | **1 GB**  | **2 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**       |
 | **Free**       | **0.5 GB**| **1 vCPU**  | **1 GB**              | **0.5 GB**         | **4 GB**       | 
-| **Hobby**      | **8 GB**  | **8 vCPU**  | **10 GB**             | **5 GB**           | **100 GB**     |
-| **Pro**        | **32 GB** | **32 vCPU** | **100 GB**            | **50 GB \***       | **100 GB**     |
-| **Enterprise** | **48 GB** | **64 vCPU** | **100 GB**            | **2 TB \***        | **100 GB**     |
+| **Hobby**      | **8 GB**  | **8 vCPU**  | **100 GB**            | **5 GB**           | **100 GB**     |
+| **Pro**        | **32 GB** | **32 vCPU** | **100 GB**            | **50 GB \***       | **Unlimited**  |
+| **Enterprise** | **48 GB** | **64 vCPU** | **100 GB**            | **2 TB \***        | **Unlimited**  |
 
 Note that these are initial values and users on the Pro and Enterprise plans can request limit increases.
 

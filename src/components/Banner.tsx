@@ -102,3 +102,11 @@ export const PriorityBoardingBanner: React.FC = () => {
     </Banner>
   );
 };
+
+export const DeprecationBanner: React.FC<PropsWithChildren> = ({ children }) => {
+  return (
+    <Banner variant="warning">
+      {children}
+    </Banner>
+  );
+};

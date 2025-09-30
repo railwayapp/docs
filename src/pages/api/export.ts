@@ -1,8 +1,8 @@
 import { allPages } from "contentlayer/generated";
-import { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiHandler } from "next";
 import { randomBytes } from "crypto";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler: NextApiHandler = async (req, res) => {
   if (req.method == "GET") {
     const secret =
       process.env.EXPORT_ENDPOINT_PASSWORD ?? randomBytes(16).toString("hex");
@@ -18,3 +18,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     );
   }
 };
+
+export default handler;

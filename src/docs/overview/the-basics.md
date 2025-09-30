@@ -132,7 +132,7 @@ Some of the most commonly used service settings are -
 
 - [Networking](/guides/public-networking#railway-provided-domain) - Generate a Railway-provided domain or add your own custom one.
 
-- Custom Build Command - Here you can configure a custom build command if you need to overwrite the default, only applicable with [Nixpacks](https://nixpacks.com/docs) based builds.
+- Custom Build Command - Here you can configure a custom build command if you need to overwrite the default.
 
 - Custom Start Command - Here, you can configure a custom start command if you need to overwrite the default.
 

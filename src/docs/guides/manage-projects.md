@@ -9,7 +9,7 @@ Note: Authenticate your requests with your workspace token by setting the Author
 
 ### Fetch All Your Projects
 
-The query below will fetch all your personal projects along with all the services, plugins and environment for them.
+The query below will fetch all your personal projects along with all the services and environments for them.
 
 ```graphql
 query Projects {
@@ -25,20 +25,12 @@ query Projects {
               name
             }
           }
-        }
-        plugins {
-          edges {
-            node {
-              id
-              name
-            }
-          }
-        }
-        environments {
-          edges {
-            node {
-              id
-              name
+          environments {
+            edges {
+              node {
+                id
+                name
+              }
             }
           }
         }

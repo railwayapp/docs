@@ -59,25 +59,33 @@ Learn more [here](/reference/pricing/plans#included-usage).
 
 When the amount due on your invoice is less than $0.50, and you do not have a credit balance, Railway marks the invoice as paid and registers the amount to your credit balance as a debit to be charged on a future invoice.
 
-### How do I view/manage/cancel my subscription?
+### How do I view or upgrade my current plan?
+
+Your current plan is listed in the Account Selector in the top left corner of your Dashboard. You can also view your active plan and upgrade options from the [Plans](https://railway.com/workspace/plans) page. 
+
+### How do I cancel my subscription?
+
+To cancel your active subscription, go to the "Active Plan" section of your [Billing](https://railway.com/workspace/billing) page and click `Cancel Plan`. 
+
+When you cancel your subscription, Railway will stop all deployments in your workspace to prevent further charges. Your plan will remain active until the end of your billing cycle. 
+
+### How do I add or update billing information?
+
+To add or update your Billing information, go to the [Billing](https://railway.com/workspace/billing) page. In the "Billing Info" section, you can add or update the following information: 
+- Payment Method
+- Billing Email
+- Billing Address
+- Tax ID / VAT number
+
+When Billing Information is added or updated, it will be reflected on all future invoices from Railway. 
+
+### How is Salex Tax/VAT handled?
+
+Railway may collect applicable sales tax and VAT on your account based on your billing location and local tax requirements, where and when applicable. When assessed and collected, Sales Tax/VAT is explicitly outlined on your invoice.
+
+To ensure accurate tax assessment, Workspace Admins must verify that their billing information, including Billing Address, Organization Name, and Tax ID (when applicable), is accurate. Organization Name and Tax ID are not required when using Railway for personal use.
 
 To view and manage your subscription, visit the [billing section](https://railway.com/workspace/billing) of your workspace.
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1743469115/manage-subscription_qnqfjb.png"
-alt="Screenshot of refund request button inside Account -> Billing"
-layout="intrinsic"
-width={1200} height={635} quality={100} />
-
-Clicking on "Manage Subscription" will allow you to:
-
-- Update your billing information (billing address, tax ID, etc.)
-- Retrieve past invoices
-- Cancel your subscription
-
-### What happens when I cancel my subscription?
-
-When you cancel your subscription, if you're on Hobby, Pro, or Enterprise, your plan will remain active through the end of your current billing period, and any usage will be charged at the end of the period.
 
 ### How do I remove my saved payment method from my account?
 

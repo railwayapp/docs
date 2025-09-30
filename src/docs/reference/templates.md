@@ -35,6 +35,8 @@ Read more about the kickback program <a href="https://railway.com/open-source-ki
 
 By default, your template kickbacks are automatically converted into Railway Credits. But we also offer cash withdrawals. Visit the `/earnings` tab inside your account settings for more details. There you can add your details and request a withdrawal.
 
+<Banner variant="warning">Cash Withdrawals are **not** supported in countries like **Brazil, China, and Russia**. A full list of supported countries is available on the earnings page.</Banner>
+
 ### FAQ
 
 #### How do I start earning cash?
@@ -43,11 +45,15 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 #### How do I request a withdrawal?
 
-- Follow the instructions inside the `Earnings` tab. We currently allow withdrawals to GitHub Sponsors and Buy Me a Coffee. After adding your account details you will request a withdrawal. Our team will receive the request and process it right away.
+- Follow the instructions inside the `Earnings` tab. We use Stripe Connect to handle withdrawals. After completing the onboarding process, you will be able to request a withdrawal.
+
+#### Why is my country not supported?
+
+- Due to local regulations and compliance requirements, certain regions are not eligible for cash withdrawals. You can choose from the 130+ countries that are supported in the onboarding process.
 
 #### Can I make manual withdrawals to credits too?
 
-- Yes! Choose the `Credits` checkbox and then make your withdrawal request.
+- Yes! Choose `to Credits` in the dropdown and then make your withdrawal request.
 
 #### I have earned a lot of kickbacks from a template, but this page says my available balance is $0. Why?
 
@@ -59,11 +65,11 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 #### What is the minimum and maximum withdrawal amount?
 
-- For now, withdrawals may be made in $100 - $5000 increments.
+- For now, withdrawals may be made in $100 - $10,000 increments.
 
 #### What is the timeframe from withdrawal request to payout?
 
-- We will process withdrawals within 5 - 7 business days of receiving your request.
+- Withdrawals are usually processed instantly. Once processed, the funds will usually take up to 10 business days to reach your account. Depending on your region and bank, this may take longer.
 
 ## Updatable Templates
 

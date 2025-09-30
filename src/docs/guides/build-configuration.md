@@ -1,45 +1,49 @@
 ---
 title: Build Configuration
-description: Learn how to configure Nixpacks, optimize build caching, choose build providers, and set up watchpaths.
+description: Learn how to configure Railpack, optimize build caching, and set up watchpaths.
 ---
 
 Railway will build and deploy your code with zero configuration, but when necessary, there are several ways to configure this behavior to suit your needs.
 
 ## Railpack
 
-<PriorityBoardingBanner />
+Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to
+build your code. It works with zero configuration, but can be customized using
+[environment variables](/guides/variables#service-variables) or a [config
+file](https://railpack.com/config/file). Configuration options include:
 
-<a href="https://railpack.com" target="_blank">Railpack</a> is a new builder
-developed by Railway that produces smaller image sizes and supports all versions
-of packages. It is currently in beta and can be enabled from your service
-settings.
-
-Find the full list of configuration options in the [Railpack
-docs](https://railpack.com/config/environment-variables).
-
-## Nixpacks Options
-
-Railway uses <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> to build your code. It has a variety of options that can be configured with [environment variables](/guides/variables#service-variables) which can be defined in your services settings. These include things like:
-
-- Install/build/start commands
-- Nix/Apt packages to install
+- Language versions
+- Build/install/start commands
+- Mise and Apt packages to install
 - Directories to cache
 
-For a full list of these options, please view the <a href="https://nixpacks.com/docs/guides/configuring-builds" target="_blank">Nixpacks docs</a>.
+For a full list of configuration options, please view the <a
+href="https://railpack.com/config/environment-variables"
+target="_blank">Railpack docs</a>. You can find a complete list of languages we
+support out of the box [here](/reference/railpack#supported-languages).
+
+## Nixpacks
+
+<DeprecationBanner>
+Nixpacks is deprecated and in maintenance mode. New services default to Railpack.
+</DeprecationBanner>
+
+Existing services will continue to work with Nixpacks. To migrate to Railpack, update your service settings or set `"builder": "RAILPACK"` in your railway.json file.
+
+For services still using Nixpacks, it can be configured with [environment variables](/guides/variables#service-variables). For a full list of options, view the <a href="https://nixpacks.com/docs/guides/configuring-builds" target="_blank">Nixpacks docs</a>.
 
 You can find a complete list of languages we support out of the box [here](/reference/nixpacks#supported-languages).
 
 ## Customize the Build Command
 
-Using the default Nixpacks builder, you can customize the build command that is run from within your service settings.
+You can override the detected build command by setting a value in your service
+settings. This is run after languages and packages have been installed.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743192207/docs/build-command_bwdprb.png"
 alt="Screenshot of Railway Build Command"
 layout="responsive"
 width={1200} height={373} quality={80} />
-
-For those familiar with Nixpacks, this gets set as the `--build-cmd` argument during the Nixpacks build.
 
 ## Set the Root Directory
 
@@ -98,48 +102,34 @@ Here are a few examples of common use-cases:
 
 _Note, negations will only work if you include files in a preceding rule._
 
-## Install a Specific Package Using Nixpacks
+## Install Specific Packages using Railpack
 
-When using Nixpacks, you can install specific packages by defining them in a nixpacks configuration file. For example:
+| Environment variable            | Description                                                    |
+|---------------------------------|----------------------------------------------------------------|
+| `RAILPACK_PACKAGES`             | A list of [Mise](https://mise.jdx.dev/) packages to install    |
+| `RAILPACK_BUILD_APT_PACKAGES`   | Install additional Apt packages during build                   |
+| `RAILPACK_DEPLOY_APT_PACKAGES`  | Install additional Apt packages in the final image             |
 
-```toml
-[phases.setup]
-    aptPkgs = ['wget']
-```
-
-See the [Nixpacks docs](https://nixpacks.com/docs/configuration/file) for more information.
-
-## Build Providers
-
-With Nixpacks, we analyze the app source directory and generate a build plan. This determines for which language provider to install packages and runtimes.
-
-Within your Service's settings, under the Builds section, you can define within the multi-select box which Nixpacks language providers you would like to use for your builds. This is useful if you have code that calls libraries that need to be built from another language within your repo.
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1668662436/docs/multi-providers_lrxdbp.png"
-alt="Screenshot of Railway Build Providers"
-layout="responsive"
-width={745} height={238} quality={80} />
-
-When multiple providers are defined, Railway will build your service with the language providers (in the order you defined) and ensure your binaries are ready to be called. The runtime(s) will then initialize as soon as you start your application.
+See the [Railpack docs](https://railpack.com/config/environment-variables) for more information.
 
 ## Procfiles
 
-If using Nixpacks, you can override the start command with a <a href="https://nixpacks.com/docs/configuration/procfile" target="_blank">Procfile</a> at the root of your app. Only a single process type is supported at the moment.
+Railpack automatically detects commands defined in
+[Procfiles](https://railpack.com/config/procfile). Although this is not
+recommended and specifing the start command directly in your service settings is
+preferred.
 
-HTTP servers should use the `web` process type. This process should listen on
-the [PORT environment variable](/guides/public-networking#port-variable) and will receive
-HTTP traffic.
-
-_Note: Some buildpacks specify a default start command_
 
 ## Specify a Custom Install Command
 
-We do not expose a way to configure a custom install command in the UI, but you can control this using [config as code](/reference/config-as-code#nixpacks-plan) (see Nixpacks Plan -> Install Command).
+You can override the install command by setting the `RAILPACK_INSTALL_COMMAND`
+environment variable in your service settings.
 
 ## Disable Build Layer Caching
 
-By default, Railway will cache build layers to provide faster build times. If you have a need to disable this behavior, set the following environment variable in your service:
+By default, Railway will cache build layers to provide faster build times. If
+you have a need to disable this behavior, set the following environment variable
+in your service:
 
 ```plaintext
 NO_CACHE=1
@@ -147,6 +137,9 @@ NO_CACHE=1
 
 ## Why Isn't My Build Using Cache?
 
-Since Railway's build system scales up and down in response to demand, cache hit on builds is not guaranteed.
+Since Railway's build system scales up and down in response to demand, cache hit
+on builds is not guaranteed.
 
-If you have a need for faster builds and rely on build cache to satisfy that requirement, you should consider creating a pipeline to build your own image and deploy your image directly.
+If you have a need for faster builds and rely on build cache to satisfy that
+requirement, you should consider creating a pipeline to build your own image and
+deploy your image directly.

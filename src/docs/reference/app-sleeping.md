@@ -15,7 +15,7 @@ When Serverless is enabled for a service, Railway automatically detects inactivi
 
 Inactivity is based on the detection of any outbound packets, which could include network requests, database connections, or even NTP. If no packets are sent from the service for over 10 minutes, the service is considered inactive.
 
-Some things than can prevent a service from being put to sleep -
+Some things that can prevent a service from being put to sleep -
 
 - Keeping active database connections open, such as a database connection pooler.
 - Frameworks that report telemetry to their respective services, such as [Next.js](https://nextjs.org/telemetry).

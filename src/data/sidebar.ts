@@ -153,6 +153,7 @@ export const sidebarContent: ISidebarContent = [
 				],
 			},
 			makePage("Config as Code", "guides"),
+			makePage("Node.js SIGTERM", "guides"),
 		],
 	},
 	{
@@ -269,6 +270,7 @@ export const sidebarContent: ISidebarContent = [
 					makePage("Healthchecks", "reference"),
 					makePage("Backups", "reference"),
 					makePage("Integrations", "reference"),
+					makePage("Railpack", "reference"),
 					makePage("Nixpacks", "reference"),
 					makePage("Private Networking", "reference"),
 					makePage("Public Networking", "reference"),
@@ -328,6 +330,7 @@ export const sidebarContent: ISidebarContent = [
 			makePage("Compare to Fly", "maturity"),
 			makePage("Compare to Vercel", "maturity"),
 			makePage("Compare to DigitalOcean", "maturity"),
+			makePage("Compare to VPS", "maturity"),
 		],
 	},
 	{

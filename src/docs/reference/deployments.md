@@ -15,7 +15,7 @@ width={1103} height={523} quality={80} />
 
 ## How it Works
 
-Upon service creation, or when changes are detected in the service source, Railway will build the service and package it into a container with [Nixpacks](https://nixpacks.com/docs) or a [Dockerfile](/guides/dockerfiles) if present. If the source is a Docker Image, the build step is skipped.
+Upon service creation, or when changes are detected in the service source, Railway will build the service and package it into a container with [Railpack](/reference/railpack) or a [Dockerfile](/guides/dockerfiles) if present. If the source is a Docker Image, the build step is skipped.
 
 Railway then starts the service using either the detected or configured [Start Command](/reference/build-and-start-commands).
 

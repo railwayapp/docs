@@ -29,6 +29,21 @@ width={2026} height={933} quality={100} />
 
 From a service's variables tab, click on `New Variable` to enter your variable into a form field, or use the `RAW Editor` to paste the contents of your `.env` or json-formatted file.
 
+### Suggested Variables
+
+Your connected GitHub repository to your Service will automatically detect and suggest environment variables from `.env` files. This feature streamlines the setup process by populating your service variables at the click of a button. Railway scans the root directory of your repository for environment files and suggests their variables for import.
+
+#### Supported .env File Patterns
+
+Railway scans for the following `.env` file patterns in your repository's root directory:
+
+- `.env`
+- `.env.example`
+- `.env.local`
+- `.env.production`
+...
+- Or any other files matching the pattern `.env.<suffix>`
+
 ## Shared Variables
 
 Shared variables help reduce duplication of variables across multiple services within the same project.

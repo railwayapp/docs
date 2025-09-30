@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiHandler } from "next";
 import { sidebarContent } from "@/data/sidebar";
 import { flattenSidebarContent } from "@/layouts/DocsLayout";
 import { IPage } from "@/types";
@@ -6,7 +6,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+const handler: NextApiHandler = async (req, res) => {
   // Set the content type to text/plain
   res.setHeader("Content-Type", "text/plain");
 
@@ -155,4 +155,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   // Send the response
   res.status(200).send(content);
-}
+};
+
+export default handler;

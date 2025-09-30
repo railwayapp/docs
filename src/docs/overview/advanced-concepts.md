@@ -11,7 +11,7 @@ Out of the box, many defaults are applied to builds and deployments. However, th
 
 ### Build Options
 
-Railway uses <a href="https://nixpacks.com" target="_blank">Nixpacks</a> to build and deploy your code with zero configuration. When your needs require adjustments to the defaults, we make it easy to configure things like install, build, and start commands.
+Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to build and deploy your code with zero configuration. When your needs require adjustments to the defaults, we make it easy to configure things like install, build, and start commands.
 
 ### Deploy Options
 

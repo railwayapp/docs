@@ -3,8 +3,13 @@ title: Nixpacks
 description: Railway uses Nixpacks to build and deploy your code with zero configuration.
 ---
 
+<DeprecationBanner>
+Nixpacks is deprecated and no longer receiving new features. New services automatically use Railpack. 
+Existing services will continue to work with Nixpacks. To migrate to Railpack, update your service settings.
+</DeprecationBanner>
+
 Railway uses <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> to build and deploy your code with
-zero configuration.
+zero configuration. This documentation is maintained for existing services using Nixpacks. For new services, we recommend using [Railpack](/reference/railpack).
 
 ## Supported Languages
 
