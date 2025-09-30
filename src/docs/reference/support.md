@@ -3,32 +3,42 @@ title: Support
 description: Learn about Railway's support channels.
 ---
 
-Railway offers numerous tiers of support for our users.
+Railway provides support services tailored to customer needs across different subscription tiers. Support tier and prioritization is determined by your current plan level.
 
-## Support Tiers
+## Support Tier Overview
 
-We prioritize support requests based on the plan you're on and the urgency of your request.
+### Trial, Free, Hobby
 
-### Trial & Hobby
+Users on Trial, Free, and Hobby plans have access to community-driven support through [Central Station](#central-station) or [Discord](#discord). While Railway employees may participate in community discussions, responses are not guaranteed for these tiers.
 
-Trial & Hobby plan users are only eligible for community support over [Central Station](#help-station) or [Discord](#discord). Railway may respond to community threads, but a response is not guaranteed.
+### Pro 
 
-### Pro & Business Class
+Users on the Pro plan receive direct support from Railway through [Central Station](#central-station), with typical response times of 3-5 business days. Please note that the Pro tier does not include SLOs or [application-level support](#application-level-support).
 
-Pro & [Business Class](#business-class) customers can select the urgency of their request when creating a new thread in [Central Station](#help-station). Enterprise customers with $2,000/month committed spend can also use [Slack](#slack).
+### Enterprise & Business Class
 
-| Level    | Description                                                                | Eligibility                       |
-| -------- | -------------------------------------------------------------------------- | --------------------------------- |
-| Low      | Questions about how to use Railway or general feedback                     | Pro                               |
-| Normal   | Issues with Railway, such as bugs or unexpected behavior                   | Pro                               |
-| High     | Issues that are blocking you from using Railway                            | Pro                               |
-| Critical | Production outage or platform issues blocking your team from using Railway | [Business Class](#business-class) |
+Organizations requiring SLOs and enhanced support should consider upgrading to [Business Class](#business-class) support. Please refer to the [Business Class](#business-class) section for comprehensive details.
+
+## Email Support
+
+Railway does not provide support via email. All support requests should be directed to [Central Station](#central-station) or [Discord](#discord). Email communication is reserved for the following specific purposes:
+
+- Sales inquiries: [team@railway.com](mailto:team@railway.com)
+- Security reports: [bugbounty@railway.com](mailto:bugbounty@railway.com)
+- Abuse reports: [abuse@railway.com](mailto:abuse@railway.com)
+- Privacy inquiries: [privacy@railway.com](mailto:privacy@railway.com)
+
+Emails outside these categories may not receive a response.
+
+## Application-Level Support
+
+Railway generally does not provide application-level support, such as debugging your code, fixing bugs in your application, or helping you with third-party services. We may provide these services on a case-by-case basis for Business Class / Enterprise customers. If you need help with your application, we recommend reaching out to the community on [Central Station](https://station.railway.com) or [Discord](https://discord.gg/railway).
 
 ## Central Station
 
-Railway conducts its support over our [Central Station](https://station.railway.com) platform.
+Railway conducts its support over the [Central Station](https://station.railway.com) platform.
 
-It hosts our community of 500,000+ users and developers. It is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
+It hosts our community of 1,600,000+ users and developers. It is where you can find answers to common questions, ask questions, and get in touch with the Railway team.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743120744/central-station_x3txbu.png"
@@ -37,20 +47,6 @@ layout="intrinsic"
 width={1737} height={913} quality={100} />
 
 Please ensure that you've searched for your issue before creating a new thread, follow the guidelines in [How To Ask For Help](#how-to-ask-for-help), and abide by our [Code of Conduct](https://station.railway.com/community-code-of-conduct).
-
-### Visibility
-
-For Pro plan users, threads created in the [Central Station](https://station.railway.com) are treated as **High Priority**. These threads are guaranteed a response from the Railway team within 1 business day (if community members are unable to help).
-
-We pay special attention to threads created by Pro users and ensure that questions or concerns are resolved in a timely manner.
-
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1715282870/docs/pro-priority-threads_pxyodo.png"
-alt="Screenshot of Railway Central Station - Priority Threads"
-layout="intrinsic"
-width={772} height={269} quality={100} />
-
-For teams and companies requiring SLOs and higher-priority support over chat, sign up for [Business Class](#business-class).
 
 ### Private Threads
 
@@ -62,16 +58,13 @@ alt="Screenshot of Railway Central Station - Private Threads"
 layout="intrinsic"
 width={1436} height={455} quality={100} />
 
-Private Threads have a slower response time because only Railway employees can
-see them. We recommend you to only create a Private Thread if you need to share
-sensitive information.
+Private Threads have a slower response time because only Railway employees can see them. We recommend you to only create a Private Thread if you need to share sensitive information.
 
-We may make the thread public for community involvement if we determine that
-there is no sensitive information in your thread.
+Railway may make the thread public for community involvement if we determine that there is no sensitive information in your thread.
 
 ## Discord
 
-We have a vibrant Discord community of over 20,000+ users and developers. You can find the Railway Discord at [https://discord.gg/railway](https://discord.gg/railway).
+We have a vibrant Discord community of over 28,000+ users and deveYou can find the Railway Discord at [https://discord.gg/railway](https://discord.gg/railway).
 
 Please ask your questions in the <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> channel, and refrain from pinging anyone with the `Team` or `Conductor` roles.
 
@@ -87,7 +80,7 @@ alt="Screenshot of Slack"
 layout="intrinsic"
 width={571} height={743} quality={100} />
 
-Enterprise teams with $2,000/month committed spend can create a Slack Connect channel within the Team settings page:
+Enterprise teams with $2,000/month committed spend can create a Slack Connect channel within the Workspace settings page:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1733324438/docs/cs-2024-12-04-23.00_uvchnr.png"
@@ -97,30 +90,11 @@ width={845} height={157} quality={100} />
 
 Users in a Slack Connect channel can invite their team members using the Slack interface or by pressing the `Join Slack` button again to initiate new invites.
 
-### Slack Account Linking
-
-We highly recommend connecting your Slack account if you have a shared Slack Connect channel with us. Doing so allows us to get insight into issues affecting your workloads without having to ask for additional information.
-
-To link your Slack account to your Railway account, navigate to your team's [settings page](https://railway.com/account) on Railway.
-
-_Railway only asks for permissions to link your Slack account's ID and your Slack Workspace's ID. Our integration can only see messages within the shared Slack Connect channel_.
-
-## How To Ask For Help
-
-When you reach out for help, it's important that you help us help you! Please include as much information as you can, including but not limited to:
-
-- Description of the issue you're facing
-- IDs (Project ID, Service Name/ID, Deployment ID, etc.)
-- Railway environment of your service/deployment
-- Error messages and descriptions
-- Logs (build and/or deploy)
-- Link to GitHub repo/code or template you're using, if applicable
-
 ## Business Class
 
-For teams and companies who need dedicated support, we offer Business Class.
+For companies who need dedicated support, we offer Business Class.
 
-Business Class is support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company. Workspaces become eligible for Business Class response times after $2000/mo in spend.
+Business Class is support and success designed for those who need the full attention of Railway. Business Class support is a dedicated support channel with SLOs for your company. Workspaces become eligible for Business Class support after $2,000/mo in spend.
 
 Reach out to us at [team@railway.com](mailto:team@railway.com) to enable your SLO.
 
@@ -134,18 +108,25 @@ We prioritize Business Class customers over all other support requests.
 | P2 (Bugs)                            | Same Business Day    |
 | P3 (Integrations, General Questions) | Two Business Days    |
 
-For Enterprise customers with $2,000/month committed spend who have a shared Slack Connect channel with us, you have access to
-"Critical" urgency level support requests:
+For Enterprise customers with $2,000/month committed spend who have a shared 
+Slack Connect channel with us, you have access to "Critical" urgency level 
+support requests:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1733325632/docs/cs-2024-12-04-23.20_smvweu.png"
-alt="Screenshot of Slack Account Linking"
+alt="Screenshot of Critical urgency level in Slack"
 layout="intrinsic"
 width={392} height={255} quality={100} />
 
-This allows you to page our support on-call directly for an immediate response.
-Please only use this for production outages or critical platform issues
-preventing your team from using Railway.
+This feature is also available on [Central Station](#central-station) for Business Class customers:
+
+<Image
+src="https://res.cloudinary.com/railway/image/upload/v1759234073/docs/critical-issue-private-threads_kdxpvb.png"
+alt="Screenshot of Critical urgency level in Central Station"
+layout="intrinsic"
+width={781} height={282} quality={100} />
+
+Opening a Critical ticket allows you to page our support on-call directly for an immediate response. Please only use this for production outages or critical platform issues preventing your team from using Railway.
 
 ### Definition of Priorities
 
@@ -171,10 +152,23 @@ For Business Class customers, Railway increases resource limits beyond the stand
 
 As part of this offering, we agree to provide a monthly summary on the uptime of the components of Railway. Customers are provided an RCA to any outages on the Routing Layer.
 
-### Audits
+### Compliance & Audits
 
-Security audits can be provided by request.
+Security audits can be provided by request. For most customers, we can provide our security and compliance documentation can be accessed via Railway's Trust Center at [trust.railway.com](https://trust.railway.com). Please sign in with your Railway account's email address to access Trust Center.
 
 ## Enterprise
 
 For enterprises, we offer everything in [Business Class](#business-class) along with custom support tailored to your needs. Railway can enter into a contractual SLA under our negotiated pricing offering. Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.
+
+## How To Ask For Help
+
+When you reach out for help, it's important that you help us help you! Please include as much information as you can, including but not limited to:
+
+- Description of the issue you're facing
+- IDs (Project ID, Service Name/ID, Deployment ID, etc.)
+- Railway environment of your service/deployment
+- Error messages and descriptions
+- Logs (build and/or deploy)
+- Link to GitHub repo/code or template you're using, if applicable
+
+Please note that Railway does not provide [application-level support](#application-level-support).
