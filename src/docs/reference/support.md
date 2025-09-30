@@ -3,22 +3,36 @@ title: Support
 description: Learn about Railway's support channels.
 ---
 
-Railway offers numerous tiers of support for our users. We prioritize support 
-requests based on the plan you're on.
+Railway provides support services tailored to customer needs across different subscription tiers. Support tier and prioritization is determined by your current plan level.
 
-## Trial, Free, & Hobby
+## Support Tier Overview
 
-Trial & Hobby plan users are only eligible for community support over [Central Station](#central-station) or [Discord](#discord). Railway may respond to community threads, but a response is not guaranteed.
+### Trial, Free, Hobby
 
-## Pro 
+Users on Trial, Free, and Hobby plans have access to community-driven support through [Central Station](#central-station) or [Discord](#discord). While Railway employees may participate in community discussions, responses are not guaranteed for these tiers.
 
-Pro customers are eligible for direct support from Railway over [Central Station](#help-station). 
+### Pro 
 
-For companies requiring SLOs and higher priority support, please consider signing up for [Business Class](#business-class) support.
+Users on the Pro plan receive direct support from Railway through [Central Station](#central-station), with typical response times of 3-5 business days. Please note that the Pro tier does not include SLOs or [application-level support](#application-level-support).
 
-## Enterprise & Business Class
+### Enterprise & Business Class
 
-Please refer to the [Business Class](#business-class) section for more information. Enterprise customers with $2,000/month committed spend can also use [Slack](#slack).
+Organizations requiring SLOs and enhanced support should consider upgrading to [Business Class](#business-class) support. Please refer to the [Business Class](#business-class) section for comprehensive details.
+
+## Email Support
+
+Railway does not provide support via email. All support requests should be directed to [Central Station](#central-station) or [Discord](#discord). Email communication is reserved for the following specific purposes:
+
+- Sales inquiries: [team@railway.com](mailto:team@railway.com)
+- Security reports: [bugbounty@railway.com](mailto:bugbounty@railway.com)
+- Abuse reports: [abuse@railway.com](mailto:abuse@railway.com)
+- Privacy inquiries: [privacy@railway.com](mailto:privacy@railway.com)
+
+Emails outside these categories may not receive a response.
+
+## Application-Level Support
+
+Railway generally does not provide application-level support, such as debugging your code, fixing bugs in your application, or helping you with third-party services. We may provide these services on a case-by-case basis for Business Class / Enterprise customers. If you need help with your application, we recommend reaching out to the community on [Central Station](https://station.railway.com) or [Discord](https://discord.gg/railway).
 
 ## Central Station
 
@@ -76,17 +90,6 @@ width={845} height={157} quality={100} />
 
 Users in a Slack Connect channel can invite their team members using the Slack interface or by pressing the `Join Slack` button again to initiate new invites.
 
-## How To Ask For Help
-
-When you reach out for help, it's important that you help us help you! Please include as much information as you can, including but not limited to:
-
-- Description of the issue you're facing
-- IDs (Project ID, Service Name/ID, Deployment ID, etc.)
-- Railway environment of your service/deployment
-- Error messages and descriptions
-- Logs (build and/or deploy)
-- Link to GitHub repo/code or template you're using, if applicable
-
 ## Business Class
 
 For companies who need dedicated support, we offer Business Class.
@@ -115,7 +118,7 @@ alt="Screenshot of Critical urgency level in Slack"
 layout="intrinsic"
 width={392} height={255} quality={100} />
 
-This feature is also available on [Central Station](https://station.railway.com/support) for Business Class customers:
+This feature is also available on [Central Station](#central-station) for Business Class customers:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1759234073/docs/critical-issue-private-threads_kdxpvb.png"
@@ -156,3 +159,16 @@ Security audits can be provided by request. For most customers, we can provide o
 ## Enterprise
 
 For enterprises, we offer everything in [Business Class](#business-class) along with custom support tailored to your needs. Railway can enter into a contractual SLA under our negotiated pricing offering. Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.
+
+## How To Ask For Help
+
+When you reach out for help, it's important that you help us help you! Please include as much information as you can, including but not limited to:
+
+- Description of the issue you're facing
+- IDs (Project ID, Service Name/ID, Deployment ID, etc.)
+- Railway environment of your service/deployment
+- Error messages and descriptions
+- Logs (build and/or deploy)
+- Link to GitHub repo/code or template you're using, if applicable
+
+Please note that Railway does not provide [application-level support](#application-level-support).
