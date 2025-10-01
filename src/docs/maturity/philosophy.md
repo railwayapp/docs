@@ -17,7 +17,7 @@ Railway is a company staffed with people who know developers would prefer to use
 
 Companies should be as upfront as possible about their product and offerings to help you decide what is best for your team and users.
 
-Let's talk about the number one use case: delivering apps to users in a Production environment. Railway, the company, is sustainable, building our product, team, and company to last as your projects.
+Let's talk about the number one use case: delivering apps to users in a Production environment. Railway, the company, is sustainable, building our product, team, and company to last as long as your projects.
 
 ## Objective
 
