@@ -96,9 +96,14 @@ The page is only rendered after successfully receiving the database response to 
 
 4. Open the `views/index.pug` file, and update it to display the `timeFromDB` value on the page.
 
-```html
-extends layout block content h1= title p Welcome to #{title} p This is the time
-retrieved from the database: p #{timeFromDB}
+```pug
+extends layout 
+
+block content 
+  h1= title 
+  p Welcome to #{title} 
+  p This is the time retrieved from the database: 
+  p #{timeFromDB}
 ```
 
 5. Run the app again to see your changes in action!
