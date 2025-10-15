@@ -14,7 +14,7 @@ At a high level, both Railway and Heroku can be used to deploy your app. Both pl
 - Define Infrastructure-as-Code (IaC).
 - Command-line-interface (CLI) to manage resources.
 - Integrated build pipeline with the ability to define pre-deploy command.
-- Custom domains with fully managed TLS.
+- Custom domains with fully managed TLS, including wildcard domains.
 - Run arbitrary commands against deployed services (SSH).
 
 That said, there are some differences between the platforms that might make Railway a better fit for you.
@@ -107,8 +107,6 @@ Additionally, Heroku does not support shared environment variables across apps. 
 
 ![Heroku dashboard](https://res.cloudinary.com/railway/image/upload/v1753473858/docs/comparison-docs/heroku-dashboard_wxr3sw.png)
 
-Finally, Heroku lacks support for [wildcard domains](https://en.wikipedia.org/wiki/Wildcard_DNS_record), a common feature for multi-tenant or custom-subdomain applications. You’ll need to manually configure each subdomain, which adds operational overhead.
-
 ### Railway
 
 Railway’s dashboard offers a real-time collaborative canvas where you can view all of your running services and databases at a glance. You can group the different infrastructure components and visualize how they’re related to one other.
@@ -117,9 +115,7 @@ You can also share environment variables between services, streamlining config m
 
 ![Railway canvas](https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png)
 
-Additionally, Railway supports wildcard domains out-of-the-box. You can easily configure a wildcard domain at the project level to dynamically handle multiple subdomains.
-
-Finally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
+Additionally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
 
 Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
