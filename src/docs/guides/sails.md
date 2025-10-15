@@ -67,13 +67,13 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
      - Set `http.trustProxy` to `true` because our app will be behind a proxy.
      - Set `session.cookie.secure` to `true`
      - Add this function to the `socket` object just after the `onlyAllowOrigins` array:
-       `` js
-     beforeConnect: function(handshake, proceed) {
+       ```js
+       beforeConnect: function(handshake, proceed) {
          // Send back `true` to allow the socket to connect.
          // (Or send back `false` to reject the attempt.)
          return proceed(undefined, false);
-     },
-      ``
+       },
+       ```
        **Note:** We only added this because we don't need sockets now. If you do, skip this step and add your public app URL to the `onlyAllowOrigins` array. The function simply rejects socket connection attempts.
 4. **Deploy the Application**:
    - Use the command below to deploy your app:
