@@ -131,7 +131,7 @@ Customize your project canvas for easier readability by changing the service ico
 1. Right click on the service
 2. Choose `Update Info`
 3. Choose `Icon`
-4. Begin typing to see a list of available icons, pulled from our <a href="https://devicons.railway.com/" target="_blank">devicons</a>service.
+4. Begin typing to see a list of available icons, pulled from our <a href="https://devicons.railway.com/" target="_blank">devicons</a> service.
 
 You can also access this configuration from the command palette.
 
