@@ -89,7 +89,8 @@ width={1200} height={631} quality={100} />
 
 ## Using a Custom Config as Code File
 
-You can use a custom config file by setting it on the service settings page. The file is relative to your app source.
+You can use a custom config file by setting it on the service settings page. You should provide the absolute path to the file in your repository,
+for example: `/backend/railway.toml`
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743195631/docs/config-file_f1wf32.png"

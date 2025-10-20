@@ -59,7 +59,7 @@ width={1200} height={421} quality={80} />
 When specified, all build and deploy
 commands will operate within the defined root directory.
 
-**Note:** The **Railway Config File** does not follow the **Root Directory** path. You have to specify the absolute path for the `railway.json` or `railway.toml` file.
+**Note:** The **Railway Config File** does not follow the **Root Directory** path. You have to specify the absolute path for the `railway.json` or `railway.toml` file, for example: `/backend/railway.toml`
 
 ## Configure Watch Paths
 
