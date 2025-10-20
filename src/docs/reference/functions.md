@@ -16,7 +16,7 @@ They are ideal for small tasks like handling webhooks, cron jobs, or simple APIs
 - **Use native Bun APIs**: Access [Bun APIs](https://bun.sh/docs/runtime/bun-apis) like `Bun.file()` and `Bun.serve()`.
 - **Service variables**: Service [Variables](/reference/variables) are automatically available in the function editor via `import.meta.env`, `process.env`, or `Bun.env`
 - **Attach volumes**: Persist data in your function using [Volumes](/reference/volumes).
-- **Use Vim**: Enable Vim keybindings in the function editor by using the shortcut `Cmd+Option+V` on a Mac or `Ctrl+Alt+V` on Windows.
+- **Use Vim**: Enable Vim keybindings in the function editor by using the shortcut `Ctrl+Option+V` on a Mac or `Ctrl+Alt+V` on Windows.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1738958871/docs/railway-functions-2_vk0umf.png"
