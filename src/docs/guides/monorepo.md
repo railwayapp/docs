@@ -37,7 +37,7 @@ alt="Screenshot of root directory configuration"
 layout="intrinsic"
 width={980} height={380} quality={80} />
 
-**Note:** The **Railway Config File** does not follow the **Root Directory** path. You have to specify the absolute path for the `railway.json` or `railway.toml` file.
+**Note:** The **Railway Config File** does not follow the **Root Directory** path. You have to specify the absolute path for the `railway.json` or `railway.toml` file, for example: `/backend/railway.toml`
 
 ## Deploying a Shared Monorepo
 
