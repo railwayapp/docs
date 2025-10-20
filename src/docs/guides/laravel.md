@@ -102,23 +102,23 @@ _My Majestic Monolith Laravel app_
 
 Please follow these steps to get started:
 
-1. Create four bash scripts in the root directory of your Laravel app: `build-app.sh`, `run-worker.sh`, and `run-cron.sh`.
+1. Create four bash scripts in the `railway` directory of your Laravel app: `init-app.sh`, `run-worker.sh`, and `run-cron.sh`.
 
    These scripts will contain the commands needed to deploy and run the app, worker, and cron services for your Laravel app on Railway.
 
-   - Add the content below to the `build-app.sh` file:
+   - Add the content below to the `railway/init-app.sh` file:
 
      **Note:** You can add any additional commands to the script that you want to run each time your app service is built.
 
      ```bash
      #!/bin/bash
-     # Make sure this file has executable permissions, run `chmod +x build-app.sh`
+     # Make sure this file has executable permissions, run `chmod +x railway/init-app.sh`
 
      # Exit the script if any command fails
      set -e
 
-     # Build assets using NPM
-     npm run build
+     # Run migrations
+     php artisan migrate --force
 
      # Clear cache
      php artisan optimize:clear
@@ -130,22 +130,22 @@ Please follow these steps to get started:
      php artisan view:cache
      ```
 
-   - Add the content below to the `run-worker.sh` file:
+   - Add the content below to the `railway/run-worker.sh` file:
 
      ```bash
      #!/bin/bash
-     # Make sure this file has executable permissions, run `chmod +x run-worker.sh`
+     # Make sure this file has executable permissions, run `chmod +x railway/run-worker.sh`
 
      # This command runs the queue worker.
      # An alternative is to use the php artisan queue:listen command
      php artisan queue:work
      ```
 
-   - Add the content below to the `run-cron.sh` file:
+   - Add the content below to the `railway/run-cron.sh` file:
 
      ```bash
      #!/bin/bash
-     # Make sure this file has executable permissions, run `chmod +x run-cron.sh`
+     # Make sure this file has executable permissions, run `chmod +x railway/run-cron.sh`
 
      # This block of code runs the Laravel scheduler every minute
      while [ true ]
@@ -166,9 +166,9 @@ Please follow these steps to get started:
 
    - Connect your GitHub repo to the **Source Repo** in the **Source** section.
 
-   - Add `chmod +x ./build-app.sh && sh ./build-app.sh` to the **Custom Build Command** in the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section.
+   - Add `npm run build` to the **Custom Build Command** in the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section.
 
-   - Add `php artisan migrate` to the <a href="/guides/pre-deploy-command">**Pre-Deploy Command**</a> in the **Deploy** section.
+   - Add `chmod +x ./railway/init-app.sh && sh ./railway/init-app.sh` to the <a href="/guides/pre-deploy-command">**Pre-Deploy Command**</a> in the **Deploy** section.
 
    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
 
@@ -190,7 +190,7 @@ Please follow these steps to get started:
 
    - Connect your GitHub repo to the **Source Repo** in the **Source** section.
 
-   - Add `chmod +x ./run-cron.sh && sh ./run-cron.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+   - Add `chmod +x ./railway/run-cron.sh && sh ./railway/run-cron.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
 
    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
 
@@ -204,7 +204,7 @@ Please follow these steps to get started:
 
    - Connect your GitHub repo to the **Source Repo** in the **Source** section.
 
-   - Add `chmod +x ./run-worker.sh && sh ./run-worker.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+   - Add `chmod +x ./railway/run-worker.sh && sh ./railway/run-worker.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
 
    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
 
