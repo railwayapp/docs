@@ -244,13 +244,13 @@ Laravel, by default, writes logs to a directory on disk. However, on Railway’s
 
 To ensure logs and errors appear in Railway’s console or with `railway logs`, update the following environment variables:
 
-- `LOG_CHANNEL`: Set the value to `errorlog`.
+- `LOG_CHANNEL`: Set the value to `stderr`.
 
 - `LOG_STDERR_FORMATTER`: Set the value to `\Monolog\Formatter\JsonFormatter` in order to have [Structured logs](https://docs.railway.com/guides/logs#structured-logs).
 
 You can set variables via the Railway dashboard or CLI as shown:
 ```bash
-railway variables --set "LOG_CHANNEL=errorlog" --set "LOG_STDERR_FORMATTER=\Monolog\Formatter\JsonFormatter"
+railway variables --set "LOG_CHANNEL=stderr" --set "LOG_STDERR_FORMATTER=\Monolog\Formatter\JsonFormatter"
 ```
 
 ## Can I Deploy with Laravel Sail?
