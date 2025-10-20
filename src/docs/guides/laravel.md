@@ -184,7 +184,7 @@ Please follow these steps to get started:
 
    - Click **Deploy**.
 
-5. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>.
+4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>.
 
    - Name the service **cron service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
 
@@ -198,7 +198,7 @@ Please follow these steps to get started:
 
    - Click **Deploy**.
 
-6. Create a new service again on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>.
+5. Create a new service again on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>.
 
    - Name the service **worker service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
 
