@@ -3,7 +3,7 @@ title: Deployment Regions
 description: Deploy your apps across multiple regions worldwide with Railway’s powerful infrastructure.
 ---
 
-Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located. **This feature is only available to Pro plan workspaces.**
+Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located.
 
 Consider factors like compliance needs and proximity to your users when choosing a region.
 
