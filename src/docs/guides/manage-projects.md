@@ -5,24 +5,24 @@ description: Learn how to manage projects via the public GraphQL API.
 
 Here are some examples to help you get started managing your projects using the Public API.
 
+Note: Authenticate your requests with your workspace token by setting the Authorization header to `Bearer <your-workspace-token>`.
+
 ### Fetch All Your Projects
 
 The query below will fetch all your personal projects along with all the services and environments for them.
 
 ```graphql
-query me {
-  me {
-    projects {
-      edges {
-        node {
-          id
-          name
-          services {
-            edges {
-              node {
-                id
-                name
-              }
+query Projects {
+  projects {
+    edges {
+      node {
+        id
+        name
+        services {
+          edges {
+            node {
+              id
+              name
             }
           }
           environments {
