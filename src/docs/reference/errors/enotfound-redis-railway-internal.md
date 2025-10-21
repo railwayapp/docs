@@ -11,7 +11,7 @@ The error code `ENOTFOUND` means that your application could not resolve the `re
 
 This error can occur for a few different reasons, but the main reason is because your application uses the [`ioredis`](https://www.npmjs.com/package/ioredis) package to connect to the Redis database, or uses a package that uses ioredis as a dependency such as [`bullmq`](https://docs.bullmq.io/).
 
-By default, ioredis will only do an IPv4 (A record) lookup for the `redis.railway.internal` hostname.
+By default, ioredis (pre `v5.8.2`) will only do an IPv4 (A record) lookup for the `redis.railway.internal` hostname.
 
 That presents a problem given that Railway's private network uses only IPv6 (AAAA records).
 
@@ -35,6 +35,9 @@ The solution depends on the package you are using to connect to the Redis databa
 
 #### Using ioredis directly in your application
 
+`ioredis` starting with `v5.8.2` sets ip family to `0` by default and not manual configuration should be required.
+If upgrading is not an option, follow the instructions below.
+
 `ioredis` has an option to do a dual stack lookup, which will try to resolve the `redis.railway.internal` hostname using both IPv4 and IPv6 addresses (A and AAAA records).
 
 To enable this, in your `REDIS_URL` environment variable, you can set the `family` to `0` to enable dual stack lookup.
@@ -49,7 +52,7 @@ const ping = await redis.ping();
 
 #### Using bullmq
 
-Similarly, for `bullmq` since it uses `ioredis` as a dependency, you can set the `family` option to `0` in your connection object.
+Similarly, for `bullmq` since it uses `ioredis` as a dependency, you can update `ioredis` to `v5.8.2` (or later) or you can set the `family` option to `0` in your connection object.
 
 ```js
 import { Queue } from "bullmq";
@@ -75,7 +78,7 @@ console.log(jobs);
 
 Above we covered the two most common packages that can cause this error, but there are other packages that use `ioredis` as a dependency that may also cause this error.
 
-If you are using a package that uses `ioredis` as a dependency, you can try to find a way to set the `family` option to `0` either in your connection object or in your `REDIS_URL` environment variable. Similar to the examples above.
+If you are using a package that uses `ioredis` as a dependency, you can update `ioredis` to `v5.8.2` (or later) or you can try to find a way to set the `family` option to `0` either in your connection object or in your `REDIS_URL` environment variable. Similar to the examples above.
 
 ### Redis database in a different project
 

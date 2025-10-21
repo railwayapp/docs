@@ -151,6 +151,9 @@ Some libraries and components require you to be explicit when either listening o
 
 `ioredis` is a Redis client for node.js, commonly used for connecting to Redis from a node application.
 
+Versions prior to `ioredis@v5.8.2` have defaulted to selecting IPv4 family by default. Upgrading to `v5.8.2` (or later) should make `ioredis` connect
+to both IPv6 and IPv4 endpoints automatically. If upgrading is not an option, follow the instructions below.
+
 When initializing a Redis client using `ioredis`, you must specify `family=0` in the connection string to support connecting to both IPv6 and IPv4 endpoints:
 
 ```javascript
@@ -168,6 +171,9 @@ const ping = await redis.ping();
 <Collapse title="bullmq">
 
 `bullmq` is a message queue and batch processing library for node.js, commonly used for processing jobs in a queue.
+
+`bullmq` running on `ioredis` versions prior to `v5.8.2` has defaulted to selecting IPv4 family by default. Upgrading to `v5.8.2` (or later) should make `ioredis` (and thus `bullmq`) connect
+to both IPv6 and IPv4 endpoints automatically. If upgrading is not an option, follow the instructions below.
 
 When initializing a bullmq client, you must specify `family: 0` in the connection object to support connecting to both IPv6 and IPv4 Redis endpoints:
 
