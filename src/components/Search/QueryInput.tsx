@@ -12,7 +12,10 @@ interface Props {
 const QueryInput: React.FC<Props> = ({ clearResponse, query, setQuery }) => {
   return (
     <div css={tw`flex flex-col`}>
-      <form css={tw`flex flex-row`}>
+      <form 
+        css={tw`flex flex-row`}
+        onSubmit={e => e.preventDefault()}
+      >
         <span css={tw`flex items-center px-3`}>
           <SearchIcon css={tw`w-4 text-gray-300`} />
         </span>

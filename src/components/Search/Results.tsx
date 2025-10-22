@@ -63,12 +63,15 @@ const Results: React.FC<Props> = ({ closeModal, results }) => {
   }, [resultsFlat, setSelectedResult]);
 
   const onEnter = useCallback(() => {
-    if (selectedResult === null) {
+    const resultToOpen = selectedResult ?? resultsFlat[0];
+    
+    if (!resultToOpen) {
       return;
     }
+    
     closeModal();
-    router.push(selectedResult.slug);
-  }, [closeModal, router, selectedResult]);
+    router.push(resultToOpen.slug);
+  }, [closeModal, router, selectedResult, resultsFlat]);
 
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
