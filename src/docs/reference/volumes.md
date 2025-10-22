@@ -23,6 +23,21 @@ Pro users and above can self-serve to increase their volume up to 250 GB.
 
 For Pro and above users, please reach out to us on our [Central Station](https://station.railway.com/questions) if you need more than 250GB. Enterprise users with $2,000/month committed spend can also use [Slack](/reference/support#slack).
 
+## Volume Limits per Project
+
+Each project has a maximum number of volumes that can be created, based on your subscription plan:
+
+| Plan | Maximum Volumes per Project |
+|------|----------------------------|
+| **Free** | **1** |
+| **Trial** | **3** |
+| **Hobby** | **10** |
+| **Pro** | **20** |
+
+Volumes created for the same service in another environment do not count towards this limit.
+
+Pro users with substantial usage requirements may be eligible for increased volume limits. Please reach out to us on our [Central Station](https://station.railway.com/questions) to discuss your project's needs.
+
 ## I/O Specifications
 
 Volumes have the following I/O characteristics:
