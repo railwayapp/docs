@@ -99,7 +99,7 @@ To persist your changes, make sure you press Save at the top right corner.
 
 The Observability Dashboard includes configurable monitoring alerts that send email notifications when thresholds are reached.
 <Banner variant="info">
-Creating monitors requires a [Pro plan](/reference/pricing/plans#plans).
+Monitors requires a [Pro plan](/reference/pricing/plans#plans).
 </Banner>
 
 Alerting thresholds can be configured to trigger above or below specified limits for:
@@ -111,7 +111,19 @@ Alerting thresholds can be configured to trigger above or below specified limits
 
 ### Creating Monitors
 
+
 To create a monitor, navigate to any widget in the Observability Dashboard and click the three dot menu at the upper right corner of the widget. Select "Add monitor" from the dropdown menu to configure alerting for that specific widget.
+
+<video
+  src="https://res.cloudinary.com/railway/video/upload/v1761099058/docs/guides/observability/monitors-demo_hfklkm.webm"
+  autoPlay
+  loop
+  muted
+  playsInline
+  style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
+  style={{width: "100%", maxWidth: "800px", height: "auto", borderRadius: "8px"}}
+/>
+
 
 ### Editing Monitors
 
