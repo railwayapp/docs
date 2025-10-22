@@ -120,7 +120,6 @@ To create a monitor, navigate to any widget in the Observability Dashboard and c
   loop
   muted
   playsInline
-  style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
   style={{width: "100%", maxWidth: "800px", height: "auto", borderRadius: "8px"}}
 />
 
