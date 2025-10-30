@@ -39,20 +39,20 @@ All of Railway runs with zero-trust networking:
 
 ### Deployment Options
 
-Railway can be deployment globally, with availability across the Americas, EMEA, and APAC.
+Railway can be deployed globally, with availability across the Americas, EMEA, and APAC.
 
 **Railway-managed infrastructure**: This option lets you get started quickly, while continuing to stay secure. Our standard cloud offering can scale to thousands of requests per second seamlessly.
 
 **Railway-managed dedicated VMs**: Your workloads run on dedicated Railway hosts for complete resource isolation. Continue to benefit from Railway-managed infrastructure with added security.
 
-**Bring your own cloud**: Deploy Railway within your VPC for ultimate compliance within your infrastructure. By using your existing cloud account, consume credits you have already paid for while experiencing the smooth developer experience on Railway.
+**Bring your own cloud**: Deploy Railway within your VPC for ultimate compliance within your infrastructure. By using your existing cloud account, consume credits or use existing commercial commitments and EDP minimums while experiencing Railway's world-class developer experience.
 
 ### Premium Support
 
 On the enterprise tier, receive prioritized support from our world-class engineering team, with:
 - Private Slack channel
 - 24/7 support coverage
-- 1hr guaranteed response times
+- 1hr guaranteed and 5 minute median response times on critical issues
 - Custom contractual SLAs
 
 ## Why Railway Enterprise
