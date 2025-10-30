@@ -1,6 +1,6 @@
 ---
-title: Enterprise Scale
-description: Scale to trillions of requests with Railway Enterprise with ease. Enhanced security, premium support, and custom deployment options.
+title: Enterprise
+description: Railway Enterprise is for organizations that require enterprise-grade security, dedicated resources, and comprehensive control over their infrastructure.
 ---
 
 Railway Enterprise takes scale to a whole new level. The Enterprise tier delivers the reliability and compliance you need, with the experience your developers deserve. Built for organizations that require enterprise-grade security, dedicated resources, and comprehensive control over their infrastructure.
@@ -17,27 +17,29 @@ The platform supports your production-grade workloads with:
 - 1TB RAM memory limits
 - 1000 vCPU processor limits
 - 50TB disk storage limits
-- 99.999% SLA
-- 50ms p95 global network RTT
 
-## Enterprise Features
+## Security and Compliance
 
-### Security and Compliance
+Railway Enterprise supports your compliance requirements with industry-standard certifications including SOC 2 Type II, SOC 3, and HIPAA compliance. 
 
-Railway Enterprise supports your compliance requirements with industry-standard certifications including SOC 2 Type II and HIPAA compliance. For more detailed information, see [our compliance documentation](https://docs.railway.com/maturity/compliance).
+You can view our audit, compliance, security, and regulatory documents on our [Trust Center at trust.railway.com](https://trust.railway.com/).
 
-Authentication on Railway:
+## Authentication
+
 - Single Sign-On (SSO)
 - SAML authentication
 - Granular access control
 - Audit logs, including change tracking
 
-All of Railway runs with zero-trust networking:
-- End-to-end encryption
-- Private networking between services
-- No manual firewall configuration needed
+## Zero-Trust Networking
 
-### Deployment Options
+Railway supports secure zero-trust networking, with a 50ms p95 global network RTT.
+
+- End-to-end encryption
+- Automated firewall rules on private networking
+- Network isolation between projects and environments
+
+## Hosting Options
 
 Railway can be deployed globally, with availability across the Americas, EMEA, and APAC.
 
@@ -47,15 +49,16 @@ Railway can be deployed globally, with availability across the Americas, EMEA, a
 
 **Bring your own cloud**: Deploy Railway within your VPC for ultimate compliance within your infrastructure. By using your existing cloud account, consume credits or use existing commercial commitments and EDP minimums while experiencing Railway's world-class developer experience.
 
-### Premium Support
+## Support SLOs
 
-On the enterprise tier, receive prioritized support from our world-class engineering team, with:
-- Private Slack channel
+Enterprise support for reliable uptime and and performance, with:
+
 - 24/7 support coverage
-- 1hr guaranteed and 5 minute median response times on critical issues
-- Custom contractual SLAs
+- 1 hour SLO and 5 minute MttR on critical issues
+- Contractual SLAs
+- Private Slack channel
 
-## Why Railway Enterprise
+## Get Started with Railway Enterprise
 
 Railway helps teams save 65% on average on their cloud bill, and develop 90% faster as compared to traditional cloud workflows.
 

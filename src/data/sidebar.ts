@@ -324,7 +324,7 @@ export const sidebarContent: ISidebarContent = [
 			makePage("Philosophy", "maturity"),
 			makePage("Use Cases", "maturity"),
 			makePage("Compliance", "maturity"),
-			makePage("Enterprise Scale", "maturity"),
+			makePage("Enterprise", "maturity"),
 			makePage("Incident Management", "maturity"),
 			makePage("Compare to Heroku", "maturity"),
 			makePage("Compare to Render", "maturity"),
