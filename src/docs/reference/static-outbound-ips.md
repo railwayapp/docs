@@ -7,7 +7,7 @@ Static Outbound IPs allows customers on the Pro plan to assign a permanent outbo
 
 ## Use Cases
 
-This feature may be useful to you if you're using a third-party service provider or firewall which requires you to whitelist which IP addreseses your services will be connecting from, such as MongoDB Atlas.
+This feature may be useful to you if you're using a third-party service provider or firewall which requires you to whitelist which IP addresses your services will be connecting from, such as MongoDB Atlas.
 
 The IPv4 address assigned to your service through this feature **cannot** be used to receive inbound traffic.
 
