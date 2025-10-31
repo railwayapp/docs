@@ -37,7 +37,7 @@ width={1878} height={820} quality={80} />
 
 Workspace admins can **enforce SAML SSO** to ensure all members access the workspace with your Identity Provider.
 
-- **Enable enforcement** by toggling "Members need to log in with SAML SSO."
+- **Enable enforcement** by toggling "Members need to login with SAML SSO."
 - Only workspace admins already logged in with SAML SSO can enable enforcement.
 - When enforcement is active, users not authenticated with SAML SSO can’t open the workspace or access its resources.
 - Enforcement takes effect immediately. Active users without SAML authentication will be prompted to re-authenticate.
