@@ -17,7 +17,7 @@ Railway only accepts credit cards for plan subscriptions. We also support custom
 
 With Railway, you are billed for the [subscription fee](/reference/pricing/plans#plan-subscription-pricing) of the plan you're subscribed to, and the [resource usage](/reference/pricing/plans#resource-usage-pricing) of your workloads.
 
-To understand how much your app will cost to run on Railway, we recommend you to:
+To understand how much your app will cost to run on Railway, we recommend that you:
 
 1. Deploy your project with the [Trial](/reference/pricing/free-trial) or Hobby plan
 2. Allow it to run for one week
@@ -79,7 +79,7 @@ To add or update your Billing information, go to the [Billing](https://railway.c
 
 When Billing Information is added or updated, it will be reflected on all future invoices from Railway. 
 
-### How is Salex Tax/VAT handled?
+### How is Sales Tax/VAT handled?
 
 Railway may collect applicable sales tax and VAT on your account based on your billing location and local tax requirements, where and when applicable. When assessed and collected, Sales Tax/VAT is explicitly outlined on your invoice.
 
@@ -154,8 +154,7 @@ alt="Screenshot of invoice re-issuance"
 layout="intrinsic"
 width={876} height={557} quality={100} />
 
-Before you re-issue an invoice, please ensure your [billing information is
-up-to-date](#how-do-i-viewmanagecancel-my-subscription).
+Before you re-issue an invoice, please ensure your [billing information is up-to-date](/reference/pricing/faqs#how-do-i-add-or-update-billing-information).
 
 Once your invoice has been re-issued, it will contain the latest billing
 information, and appear in your **Billing History**.
