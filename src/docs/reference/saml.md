@@ -18,7 +18,7 @@ alt="Screenshot of SAML Settings and Trusted Domains"
 layout="responsive"
 width={1782} height={1660} quality={80} />
 
-To configure SAML SSO, go to your workspace’s <a href="https://railway.com/workspace/people" target="_blank">People settings</a>. To configure SAML, you must be a workspace admin with access to your Identity Provider’s configuration panel.
+To configure SAML SSO, go to your workspace’s <a href="https://railway.com/workspace/people" target="_blank">People settings</a>. You must be a workspace admin with access to your Identity Provider’s configuration panel.
 
 1. Add your organization’s email domain(s) as [**Trusted Domains**](/reference/teams#trusted-domains).
 2. In the **SAML Single Sign-On** section, click **Configure** and follow the guided setup to connect your Identity Provider to Railway.
