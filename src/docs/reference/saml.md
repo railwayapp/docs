@@ -26,7 +26,7 @@ To configure SAML SSO, go to your workspace’s <a href="https://railway.com/wor
 
 Once configured, users can [login using SAML SSO](#login-using-sso) using their organization email. Existing users must update their Railway email if it differs from their Identity Provider email.
 
-_If you don’t see SAML settings in your workspace, please contact us._
+_If you’re a Railway Enterprise customer and don’t see the SAML settings in your workspace, please contact us._
 
 ## Enforcing SAML SSO
 
