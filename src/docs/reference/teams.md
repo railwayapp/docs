@@ -49,24 +49,44 @@ There are three roles for Workspace members:
 | Making a withdrawal          |  ✔️   |   ❌   |    ❌    |
 | Accessing billing settings   |  ✔️   |   ❌   |    ❌    |
 
-_Note_: Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their GitHub account is connected.
+_Note:_ Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their GitHub account is connected.
 
 ## Trusted Domains
 
-Trusted domains may be configured on the workspace settings page. Note that workspace members added via trusted domain will be billed at the normal rate.
+Trusted Domains let you automatically onboard new members to your workspace. When a Railway user signs up with an email address matching one of your trusted domains, they're added to your workspace with the assigned role.
+
+For example, users signing up with `@railway.com` are automatically added to the workspace that has `railway.com` as a trusted domain.
 
 <Image 
-    src="https://res.cloudinary.com/railway/image/upload/v1733955730/docs/t-d_jbtbm7.png"
-    width="1200"
-    height="548"
-    alt="Trusted domains are configurable via the workspace settings"
+  src="https://res.cloudinary.com/railway/image/upload/v1733955730/docs/trusted-domains_oaqfgt.png"
+  width="1528"
+  height="898"
+  alt="Trusted domains are configurable via the workspace settings"
 />
 
-You can automate the onboarding of new workspace members with trusted domains. Railway users that sign up with one of the trusted domains associated with your workspace will automatically be granted access to the workspace with the specified role (see above).
+### Verifying a Trusted Domain
 
-For example, new users with `example.com` email addresses will automatically be added to your workspaces that have the `example.com` trusted domain.
+Before adding a Trusted Domain, you must verify ownership by adding your email domain as a [custom domain](/guides/public-networking#custom-domains) on a Railway service.
 
-We verify that you have administrative access to the domain by looking for services in your workspace that use this domain or a subdomain. Make sure to [setup a custom domain](/guides/public-networking#custom-domains) on your service before adding it as a trusted domain.
+You can verify a parent domain using a subdomain. For example, adding `verify.example.com` as a custom domain allows you to add `example.com` as trusted domain.
+
+If you don't already have a service using your domain, you can set up a temporary service to verify your domain:
+
+1. Create a new **empty service** in any project (a temporary new project works fine).
+2. **Deploy** the service.
+3. Open the service and go to the **Settings** tab.
+4. Scroll to **Networking -> Custom Domain**.
+5. **Add your email domain** (or a subdomain). Leave the port field empty.
+6. Click **Add Domain** and follow the DNS setup instructions. If you use Cloudflare or a similar provider, make sure to **disable the proxy**.
+7. Wait until the domain is verified.
+8. Go to the <a href="https://railway.com/workspace/people" target="_blank">**Trusted Domain settings**</a> and add your email domain. Assign the default role for new members.
+9. After the domain is verified and added, you can safely remove the temporary service and DNS record.
+
+Additional notes and troubleshooting:
+
+- You can verify a trusted domain by adding a subdomain (e.g., add `verify.example.com` as custom domain and use `example.com` as trusted domain).
+- Opening the domain in your browser can speed up verification.
+- Trusted Domains are only verified when added. Once verified, the custom domain and its DNS record can be removed safely.
 
 ## Transferring Projects
 
