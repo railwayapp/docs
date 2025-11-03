@@ -13,10 +13,10 @@ New users signing in with your Identity Provider are automatically added to your
 
 ## Configuring SAML SSO
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/saml-settings_zig2cw.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/saml-and-trusted-domains_snwbkn.png"
 alt="Screenshot of SAML Settings and Trusted Domains"
 layout="responsive"
-width={1782} height={1660} quality={80} />
+width={1620} height={1586} quality={80} />
 
 To configure SAML SSO, go to your workspace’s <a href="https://railway.com/workspace/people" target="_blank">People settings</a>. You must be a workspace admin with access to your Identity Provider’s configuration panel.
 
@@ -30,10 +30,10 @@ _If you’re a Railway Enterprise customer and don’t see the SAML settings in 
 
 ## Enforcing SAML SSO
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/enforce-saml_m0jqgn.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/saml-enforcement_zgg55p.png"
 alt="Screenshot of enforcing SAML SSO in a workspace"
 layout="responsive"
-width={1878} height={820} quality={80} />
+width={1624} height={886} quality={80} />
 
 Workspace admins can **enforce SAML SSO** to ensure all members access the workspace with your Identity Provider.
 
@@ -44,7 +44,7 @@ Workspace admins can **enforce SAML SSO** to ensure all members access the works
 
 Note: Enforcement will not limit which login methods a user can use. Because Railway users can be members of multiple workspaces, they can still log in with other methods, but must use SAML SSO to access the SAML-enforced workspace.
 
-<video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/saml-enforcement-demo_upg3hq.mp4" controls autoplay loop muted style={{ borderRadius: 10 }}></video>
+<video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/saml-enforcement-demo_upg3hq.mp4" controls autoPlay loop muted style={{ borderRadius: 10 }}></video>
 
 ## Login using SSO
 
@@ -53,3 +53,34 @@ After SAML SSO is enabled, users can log in using their organization’s email b
 Alternatively, go directly to https://railway.com/login#login-saml.
 
 Railway also supports IdP-initiated SSO, allowing users to access Railway directly from their Identity Provider’s dashboard.
+
+## Supported Identity Providers
+
+We support all identity providers that use **SAML** or **OIDC**, including:
+
+- Okta
+- Microsoft Entra ID (Azure AD)
+- Auth0
+- Google
+- JumpCloud
+- ADP
+- CAS
+- ClassLink
+- Cloudflare
+- Ping Identity
+- CyberArk
+- Duo
+- Keycloak
+- LastPass
+- Login.gov
+- miniOrange
+- NetIQ
+- OneLogin
+- Oracle
+- Rippling
+- Salesforce
+- Shibboleth
+- SimpleSAMLphp
+- VMware Workspace
+
+and any other provider compatible with **SAML** or **OIDC**.
