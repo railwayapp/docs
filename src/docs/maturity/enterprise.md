@@ -71,4 +71,4 @@ We support a variety of sectors, including but not limited to:
 - B2B/B2C SaaS
 - Government
 
-...and more. Build and scale on Railway today. For more information on our Enterprise plan, [see our pricing](https://railway.com/pricing).
+Build and scale on Railway today. [Read about our enterprise plan](https://railway.com/enterprise).
