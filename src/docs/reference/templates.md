@@ -28,6 +28,16 @@ To be eligible for template kickbacks, your template must meet the following req
 - **Calculation**: Kickbacks are calculated based on the proportional resource usage cost of your template services. For example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $100 kickback (50% of $200).
 - **Minimum Payout**: The minimum kickback payout is **$0.01**. Any kickback amount below this threshold will not be processed.
 
+### Verified Template Partners
+
+Verified Template Partners are part of Railway's official [partner program](https://railway.com/partners) and receive a 25% kickback rate. Verified partner templates receive significant benefits:
+
+- Featured placement in the template marketplace with verification badges
+- Access to Railway's user base as a new acquisition channel
+- Anonymous telemetry and aggregated user feedback on your templates
+
+Learn more on our [Verified Partner Program page](https://railway.com/partners)
+
 ## Earnings and Withdrawals
 
 By default, your template kickbacks are automatically converted into Railway Credits. But we also offer cash withdrawals. Visit the `/earnings` tab inside your account settings for more details. There you can add your details and request a withdrawal.
