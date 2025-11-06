@@ -33,7 +33,7 @@ To ensure the integrity and performance of our network, we enforce the following
 | Category                    | Limit                         | Description                                               |
 | --------------------------- | ----------------------------- | --------------------------------------------------------- |
 | **Maximum Connections**     | 10,000 concurrent connections | The number of concurrent connections.                     |
-| **HTTP Requests/Sec**       | 3,000 RPS                     | The number of HTTP requests to a given domain per second. |
+| **HTTP Requests/Sec**       | 11,000~ RPS                     | The number of HTTP requests to a given domain per second. |
 | **Requests Per Connection** | 10,000 requests               | The number of requests each connection can make.          |
 
 If your application requires higher limits, please don't hesitate to reach out to us at [team@railway.com](mailto:team@railway.com).
