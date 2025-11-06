@@ -5,43 +5,40 @@ description: Learn how Railway’s Kickback program rewards template publishers 
 
 Templates provide a way to jumpstart a project by giving users the means to package a service or set of services into a reusable and distributable format.
 
-As a user in Railway, you can create and publish templates for others to use, or you can deploy templates from our <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
+As a Railway user, you can create and publish templates for others to use, or you can deploy templates from our [template marketplace](https://railway.com/templates).
 
 For information on how to create, publish, and deploy templates, visit our [Templates guides](/guides/templates).
 
 ## Kickback program
 
-If you publish a template, and it is deployed into other users' projects, you are immediately eligible for a 50% kickback of the usage cost incurred, in the form of Railway credits.
+If you publish a template, and it is deployed into other users' projects, you are eligible for a 50% kickback of the usage cost incurred. You can receive kickback earnings in Railway Credits or with Cash Withdrawal.
 
-If a user deploys your template, and the usage of the services cost the user $100, you would receive $50 in Railway credits or $50 in cash (USD).
-
-Read more about the kickback program <a href="https://railway.com/open-source-kickback" target="_blank">here</a>.
+Read more about the kickback program [here](https://railway.com/open-source-kickback).
 
 ### Kickback Eligibility Requirements
 
-- Your template must be published to the marketplace to be eligible for kickback.
-- For Hobby users with a $5 discount, only usage in excess of the discount is counted in the kickback.
-- All service types and resource usage of those services (compute, volume, egress, etc) _do count_ towards the kickback.
-- Platform fees are not included in the kickback, but usage fees of the platform are included. Examples of platform fees are:
+To be eligible for template kickbacks, your template must meet the following requirements:
 
-  - Cost of Subscription Plan ($5 for Hobby, $20 for Pro)
-  - Additional Team Seats
+- **Marketplace**: Your template must be published to the [template marketplace](https://railway.com/templates). Private and unpublished templates are not eligible.
+- **Terms of Service**: Your project must abide by Railway's [Fair Use Policy](https://railway.com/legal/fair-use) and [Terms of Service](https://railway.com/legal/terms). Templates that violate Railway's Terms of Service may be removed and kickback payments deemed ineligible.
 
-  As an example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $100 kickback (50% of $200).
+### How Kickback Earnings Calculation Works
 
-- The minimum kickback our program supports is $0.01, meaning usage of your template must incur at least $0.04 in usage after discounts and/or platform fees.
+- **Kickback Rate**: Templates receive a **50%** kickback of the usage costs incurred by users deploying your template.
+- **Calculation**: Kickbacks are calculated based on the proportional resource usage cost of your template services. For example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $100 kickback (50% of $200).
+- **Minimum Payout**: The minimum kickback payout is **$0.01**. Any kickback amount below this threshold will not be processed.
 
 ## Earnings and Withdrawals
 
 By default, your template kickbacks are automatically converted into Railway Credits. But we also offer cash withdrawals. Visit the `/earnings` tab inside your account settings for more details. There you can add your details and request a withdrawal.
 
-<Banner variant="warning">Cash Withdrawals are **not** supported in countries like **Brazil, China, and Russia**. A full list of supported countries is available on the earnings page.</Banner>
+<Banner variant="warning">Cash withdrawals are **not** supported in countries like **Brazil, China, and Russia**. A full list of supported countries is available on the earnings page.</Banner>
 
 ### FAQ
 
 #### How do I start earning cash?
 
-- Simply flip the switch on the Earnings page marked `Direct Deposit to Railway Credits`. This will stop auto-depositing your earnings into our Credits system. You will then begin accruing cash in your `Available Balance`.
+- Simply flip the switch on the Earnings page marked `Direct Deposit to Railway Credits`. This will stop auto-depositing your earnings into our credits system. You will then begin accruing cash in your `Available Balance`.
 
 #### How do I request a withdrawal?
 
@@ -57,7 +54,7 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 #### I have earned a lot of kickbacks from a template, but this page says my available balance is $0. Why?
 
-- The current kickback method is to automatically apply your kickbacks as Railway Credits. You can opt out of this if you wish to start accruing cash.
+- The current kickback method is to automatically apply your kickbacks as Railway credits. You can opt out of this if you wish to start accruing cash.
 
 #### Can I still use the older, automatic-credits setting?
 
