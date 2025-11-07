@@ -7,8 +7,6 @@ Workspaces are how organizations are represented within Railway. A default works
 
 For more information, visit our [documentation on pricing](/reference/pricing) or <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
-> **Note:** Effective March 3rd, 2025, for users on Railway hosted metal instances, all seat costs will be waived.
-
 ## Creating a Workspace
 
 Organizations can create a workspace by heading to the <a href="https://railway.com/new/workspace" target="_blank">Create Workspace</a> page and entering the required information.
@@ -19,7 +17,7 @@ You can open your workspace's settings page to manage members and see billing in
 
 ## Inviting Members
 
-Under the People tab of the settings page, you can invite members.
+Under the People tab of the settings page, you can invite members. Adding or removing team members does not incur any additional seat cost.
 
 There are three roles for Workspace members:
 
@@ -105,17 +103,3 @@ Railway offers committed spend tiers for customers with consistent usage needs. 
 Monthly thresholds for addons is found in our [committed spend pricing](/reference/pricing#committed-spend-tiers).
 
 Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.
-
-## FAQs
-
-### How do I get my Pro seat costs waived?
-
-As of March 3rd, 2025, Railway waives all seat costs for users on Railway hosted metal instances. To qualify for this benefit:
-
-1. Your workspace must be on the Pro plan
-2. Your services must be quality for metal pricing and run on Railway hosted metal instances
-3. This waiver will be automatically applied for your next monthly invoice
-
-If you're interested in moving to Railway hosted metal instances to take advantage of this benefit, please [contact our team](mailto:team@railway.com) to discuss your requirements and set up a dedicated host solution.
-
-The seat cost waiver provides significant savings for workspaces of all sizes, especially as your workspace grows. This is part of our commitment to providing more flexible and cost-effective pricing options for our customers.

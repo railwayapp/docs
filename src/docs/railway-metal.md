@@ -250,10 +250,6 @@ Although not intended, Railway Metal, has a different metrics sampler than our l
 There is no way to opt-out of Railway Metal. Please [reach out to us](#getting-help)
 if you have any concerns.
 
-### How do I get the new Pro plan?
-
-On your invoice close date, if 80 percent of your usage costs come from Railway Metal instances, Railway waives all seat costs on the platform.
-
 ## Getting Help
 
 Please reach out to us [on our Central Station](https://station.railway.com/feedback/feedback-railway-metal-a41f03a1) if you run into any issues. You can also reach out to us over [Slack](/reference/support#slack) if you are
