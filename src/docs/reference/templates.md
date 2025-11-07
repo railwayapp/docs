@@ -11,7 +11,7 @@ For information on how to create, publish, and deploy templates, visit our [Temp
 
 ## Kickback program
 
-If you publish a template, and it is deployed into other users' projects, you are eligible for a 50% kickback of the usage cost incurred. You can receive kickback earnings in Railway Credits or with Cash Withdrawal.
+If you publish a template, and it is deployed into other users' projects, you are eligible for a 25% kickback of the usage cost incurred. You can receive kickback earnings in Railway Credits or with Cash Withdrawal.
 
 Read more about the kickback program [here](https://railway.com/open-source-kickback).
 
@@ -24,8 +24,8 @@ To be eligible for template kickbacks, your template must meet the following req
 
 ### How Kickback Earnings Calculation Works
 
-- **Kickback Rate**: Templates receive a **50%** kickback of the usage costs incurred by users deploying your template.
-- **Calculation**: Kickbacks are calculated based on the proportional resource usage cost of your template services. For example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $100 kickback (50% of $200).
+- **Kickback Rate**: Templates receive a **25%** kickback of the usage costs incurred by users deploying your template.
+- **Calculation**: Kickbacks are calculated based on the proportional resource usage cost of your template services. For example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $50 kickback (25% of $200).
 - **Minimum Payout**: The minimum kickback payout is **$0.01**. Any kickback amount below this threshold will not be processed.
 
 ### Verified Template Partners
