@@ -82,11 +82,6 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 As a template author, you can push updates to all users who have deployed your template. When you merge changes to the root branch (typically `main` or `master`) of your template's GitHub repository, Railway will automatically detect these changes and initiate an update request for all projects that were deployed from your template.
 
-This allows you to:
-- **Fix bugs** and deploy improvements to existing template deployments
-- **Add new features** that your template users can opt into
-- **Update dependencies** and security patches across all template instances
-
 When you push an update, Railway will:
 1. Detect the changes in your template's repository
 2. Create a pull request in each consumer's forked repository
