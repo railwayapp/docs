@@ -78,6 +78,27 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 - Withdrawals are usually processed instantly. Once processed, the funds will usually take up to 10 business days to reach your account. Depending on your region and bank, this may take longer.
 
+## Pushing Updates to Template Consumers
+
+As a template author, you can push updates to all users who have deployed your template. When you merge changes to the root branch (typically `main` or `master`) of your template's GitHub repository, Railway will automatically detect these changes and initiate an update request for all projects that were deployed from your template.
+
+This allows you to:
+- **Fix bugs** and deploy improvements to existing template deployments
+- **Add new features** that your template users can opt into
+- **Update dependencies** and security patches across all template instances
+
+When you push an update, Railway will:
+1. Detect the changes in your template's repository
+2. Create a pull request in each consumer's forked repository
+3. Allow the consumer to review and test the changes in a PR deploy environment
+4. Let the consumer merge when they're ready to adopt the updates
+
+<Banner variant="info">
+**Best Practice**: Keep your template's changelog up to date and document breaking changes clearly so that consumers understand what's changing when they receive update notifications.
+</Banner>
+
+Note that this feature only works for templates based on GitHub repositories. Docker image-based templates cannot be automatically updated through this mechanism.
+
 ## Updatable Templates
 
 When you deploy any services from a template based on a GitHub repo, every time you visit the project in Railway, we will check to see if the project it is based on has been updated by its creator.
