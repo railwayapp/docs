@@ -78,13 +78,23 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 - Withdrawals are usually processed instantly. Once processed, the funds will usually take up to 10 business days to reach your account. Depending on your region and bank, this may take longer.
 
+## Pushing Updates to Template Consumers
+
+As a template author, you can push updates to all users who have deployed your template. When you merge changes to the root branch (typically `main` or `master`) of your template's GitHub repository, Railway will automatically detect these changes and notify users who have deployed your template that an update is available.
+
+Users will receive a notification about the update and can choose to apply it to their deployment when they're ready.
+
+<Banner variant="info">
+**Best Practice**: Keep your template's changelog up to date and document breaking changes clearly so that consumers understand what's changing when they receive update notifications.
+</Banner>
+
+Note that this feature only works for templates based on GitHub repositories. Docker image-based templates cannot be automatically updated through this mechanism.
+
 ## Updatable Templates
 
-When you deploy any services from a template based on a GitHub repo, every time you visit the project in Railway, we will check to see if the project it is based on has been updated by its creator.
+When you deploy any services from a template based on a GitHub repo, Railway will check to see if the template has been updated by its creator.
 
-If it has received an upstream update, we will create a branch on the GitHub repo that was created when deploying the template, allowing for you to test it out within a PR deploy.
-
-If you are happy with the changes, you can merge the pull request, and we will automatically deploy it to your production environment.
+If an upstream update is available, you will receive a notification. You can then choose to apply the update to your deployment when you're ready.
 
 <Banner variant="info">
 If you're curious, you can read more about how we built updatable templates in this <Link href="https://blog.railway.com/p/updatable-starters" target="_blank">blog post</Link>.
