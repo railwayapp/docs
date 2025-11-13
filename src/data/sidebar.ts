@@ -180,7 +180,6 @@ export const sidebarContent: ISidebarContent = [
 					makePage("Deploy an Otel Collector Stack", "tutorials"),
 					makePage("Add a CDN using CloudFront", "tutorials"),
 					makePage("Deploying a Monorepo", "tutorials"),
-					makePage("Proximity Steering", "tutorials"),
 					makePage("Set up a Tailscale Subnet Router", "tutorials"),
 					makePage("Bridge Railway to RDS with Tailscale", "tutorials"),
 				],
