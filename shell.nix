@@ -3,7 +3,7 @@
 let
   inputs = with pkgs;
     [
-      nodejs-20_x
+      nodejs-22_x
       pnpm
     ];
 in
