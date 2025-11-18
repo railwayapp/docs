@@ -22,7 +22,8 @@ Storage Buckets are fully S3-compatible, so you can connect with any S3-capable 
 
 In some instances when attempting to establish a connection you’ll see things like:
 
-`Invalid client configuration: A behavior major version must be set when sending a request or constructing a client.`
+`Invalid client configuration:`
+`A behavior major version must be set when sending a request or constructing a client.`
 
 `Not authorized to perform: s3:CreateBucket on resource: arn:aws:s3:::resource`
 
