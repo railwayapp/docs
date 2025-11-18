@@ -3,8 +3,6 @@ title: Storage Buckets
 description: Persist assets in object storage.
 ---
 
-# Storage Buckets
-
 Buckets are a feature in Railway which allow you to have S3 compatible object storage in your project. Buckets are great if you need durable blob storage without having to wire up an external provider. 
 
 ## Setting up buckets.
