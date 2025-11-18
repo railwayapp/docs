@@ -57,3 +57,5 @@ The second method injects a predefined set of environment variables into the tar
 Interested in a native file explorer? You can show your support by upvoting [this feature request](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a).
 
 Want snapshots or backups? Upvote [this feature request](https://station.railway.com/feedback/railway-storage-buckets-backup-feature-8c44e697) too.
+
+Looking for public buckets? Upvote [this feature request](https://station.railway.com/feedback/public-railway-storage-buckets-1e3bdac8).
