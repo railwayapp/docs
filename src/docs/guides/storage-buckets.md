@@ -7,7 +7,7 @@ Buckets are a feature in Railway which allow you to have S3 compatible object st
 
 ## Setting up buckets.
 
-Creating a bucket is just like any other service on railway. Right click the canvas and select Buckets. Once you select your region, hit deploy and your S3 compatible bucket gets created.
+Creating a bucket is just like any other service on railway. Right click the canvas and select Bucket. Once you select your region, hit deploy and your S3 compatible bucket gets created.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419444/CreateABucket_naa0ss.mp4" controls autoplay loop muted playsinline />
 
@@ -48,7 +48,7 @@ Storage Buckets support [variable reference](https://docs.railway.com/guides/var
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419449/VariableReferenceManual_ld79zb.mp4" controls autoplay loop muted playsinline />
 
-The second method injects pre-configured variable styles into your service. Select your bucket, open the Credentials tab, choose “Add to Service”, pick the service and style, then click “Add Variables”. Redeploy the service for the changes to take effect.
+The second method injects a predefined set of environment variables into the target service. These presets, such as “AWS SDK,” “Bun,” “FastAPI,” or “n8n”, configure the variables in the format expected by that tool. Select your bucket, open the Credentials tab, choose “Add to Service”, pick the service and style, then click “Add Variables”. Redeploy the service for the changes to take effect.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419460/AutoInjectVariables_xborrx.mp4" controls autoplay loop muted playsinline />
 
