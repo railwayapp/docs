@@ -11,6 +11,13 @@ Creating a bucket is just like any other service on railway. Right click the can
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419444/CreateABucket_naa0ss.mp4" controls autoplay loop muted playsinline />
 
+## Naming buckets
+
+You can rename a bucket at any time, but that only changes its display name. The actual storage bucket name has to be set before creation. To do that, click the pre-generated name in the settings panel and choose your desired name. The underlying bucket name will still have extra characters added for uniqueness.
+
+
+<video src="https://res.cloudinary.com/railway/video/upload/v1763520962/SettingName_eyhi4k.mp4" controls autoplay loop muted playsinline />
+
 
 ### Connecting
 
