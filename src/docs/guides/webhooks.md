@@ -7,10 +7,10 @@ Webhooks can be used to notify your own application of deployment status changes
 
 ## Setup a Webhook
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1743196876/docs/new-webhook_lrfxxa.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1763768800/new-webhooks_lhw6p2.png"
 alt="New Webhook"
 layout="responsive"
-width={1200} height={754} quality={80} />
+width={821} height={485} quality={80} />
 
 Complete the following steps to setup a webhook:
 
@@ -27,27 +27,25 @@ The URL you provide will receive a webhook payload when any service's deployment
 
 ```json
 {
-  "type": "DEPLOY",
-  "timestamp": "2025-02-01T00:00:00.000Z",
-  "project": {
-    "id": "[project ID]",
-    "name": "[project name]",
-    "description": "...",
-    "createdAt": "2025-02-01T00:00:00.000Z"
+  "type": "Deployment.failed",
+  "details": {
+    "id": "8107edff-4b8e-44fc-b43a-04566e847a2a",
+    "source": "GitHub",
+    "status": "SUCCESS",
+    "branch": "...",
+    "commitHash": "...",
+    "commitAuthor": "...",
+    "commitMessage": "...",
   },
-  "environment": {
-    "id": "[environment ID]",
-    "name": "[environment name]"
+  "resource": {
+    "workspace": { "id": "<workspace id>", "name": "<workspace name>" },
+    "project": { "id": "<project id>", "name": "<project name>" },
+    "environment": { "id": "<environment id>", "name": "<environment name>", "isEphemeral": false },
+    "service": { "id": "<service id>", "name": "<service name>" },
+    "deployment": { "id": "<deployment id>" }
   },
-  "deployment": {
-    "id": "[deploy ID]",
-    "creator": {
-      "id": "[user id]",
-      "name": "...",
-      "avatar": "..."
-    },
-    "meta": {}
-  }
+  "severity": "WARNING",
+  "timestamp": "2025-11-21T23:48:42.311Z"
 }
 ```
 

@@ -71,11 +71,11 @@ Observability and monitoring refers to tracking the health and performance of yo
 
   Familiarize yourself with the [Log Explorer](/guides/logs#log-explorer) so you can query logs across all of your services in one place.
 
-**&check; Setup webhooks and email notifications**
+**&check; Setup webhooks, email, and in-app notifications**
 
 - Ensure you are alerted if the [deployment status](/reference/deployments#deployment-states) of your services change.
 
-  Enable email notifications in you Account Settings to receive these alerts via email.
+  Enable email and in-app notifications in you Account Settings to receive these alerts via email.
 
   Setup [webhooks](/reference/deployments#deployment-states) to have the alerts sent to another system, like Slack or Discord.
 
