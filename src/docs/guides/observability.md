@@ -97,7 +97,10 @@ To persist your changes, make sure you press Save at the top right corner.
 
 ## Monitors
 
-The Observability Dashboard includes configurable monitoring alerts that send email notifications when thresholds are reached.
+The Observability Dashboard includes configurable monitoring alerts that send
+email and in-app notifications when thresholds are reached. You can also
+configure [webhooks](/guides/webhooks) to receive notifications when thresholds are reached.
+
 <Banner variant="info">
 Monitors requires a [Pro plan](/reference/pricing/plans#plans).
 </Banner>
