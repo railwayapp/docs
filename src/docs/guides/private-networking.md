@@ -99,11 +99,11 @@ uvicorn app:app --host :: --port ${PORT-3000}
 Listen on `[::]` to bind to both IPv4 and IPv6.
 
 ```rust
-    let app = Router::new().route("/", get(health));
- 
-    let listener = tokio::net::TcpListener::bind("[::]:8080").await.unwrap();
+let app = Router::new().route("/", get(health));
 
-    axum::serve(listener, app).await;
+let listener = tokio::net::TcpListener::bind("[::]:8080").await.unwrap();
+
+axum::serve(listener, app).await;
 ```
 
 
