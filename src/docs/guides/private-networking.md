@@ -94,6 +94,19 @@ uvicorn app:app --host :: --port ${PORT-3000}
 
 **Note:** If your application needs to be accessible over both private and public networks, your application server must support dual stack binding. Most servers handle this automatically when listening on `::`, but some, like Uvicorn, do not.
 
+#### Rust / Axum
+
+Listen on `[::]` to bind to both IPv4 and IPv6.
+
+```rust
+let app = Router::new().route("/", get(health));
+
+let listener = tokio::net::TcpListener::bind("[::]:8080").await.unwrap();
+
+axum::serve(listener, app).await;
+```
+
+
 ### Use Internal Hostname and Port
 
 For applications making requests to a service over the private network, you should use the internal DNS name of the service, plus the `PORT` on which the service is listening.
