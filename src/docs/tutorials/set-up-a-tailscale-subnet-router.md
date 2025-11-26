@@ -37,11 +37,11 @@ This guide assumes you are familiar with the concepts of Private Network, for a 
 
 **In Railway -**
 
-- Have all the services you plan on connecting to via the tailnet, listening on IPv6.
+- Have all the services you plan on connecting to via the tailnet, listening on `::` (all interfaces).
 
-  This is necessary because the Tailscale tunnel will communicate with your services over Railway's IPv6-only private network.
+  This is necessary because the Tailscale tunnel will communicate with your services over Railway's private network.
 
-  All database services already do this but for information on configuring your service to listen on IPv6, see [here](/guides/private-networking#listen-on-ipv6).
+  All database services already do this but for information on configuring your service to listen on `::`, see [here](/guides/private-networking#service-configuration).
 
 **In Tailscale -**
 
