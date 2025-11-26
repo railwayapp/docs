@@ -78,13 +78,11 @@ You can enable automatic PR environment creation for PRs opened by GitHub bots (
 Restricted environments are available on [Railway Enterprise](https://railway.com/enterprise).
 </Banner>
 
-Restrict access to sensitive environments like production. Non-admin members can see these environments exist but cannot access their resources—variables, logs, metrics, services, and configurations. They can still trigger deployments via git push.
+Restrict access to sensitive environments like production. Non-admin members can see these environments exist but cannot access their resources (variables, logs, metrics, services, and configurations). They can still trigger deployments via git push.
 
 [Contact us](https://railway.com/enterprise) to enable it for your enterprise workspace.
 
 Once enabled, go to **Project Settings → Environments** and toggle the **Restricted** switch for any environment you want to restrict.
-
-**Tip:** Add trusted members as project admins to grant them access to restricted environments in that project, without elevating their workspace-wide permissions.
 
 <Image
   src="https://res.cloudinary.com/railway/image/upload/v1764189412/CleanShot_2025-11-26_at_17.33.18_2x_xzaztj.png"
@@ -97,7 +95,7 @@ Once enabled, go to **Project Settings → Environments** and toggle the **Restr
 
 | Role | Can access | Can toggle |
 | :--- | :---: | :---: |
-| Admin (workspace or project) | ✔️ | ✔️ |
+| Admin | ✔️ | ✔️ |
 | Member | ❌ | ❌ |
 | Deployer | ❌ | ❌ |
 
