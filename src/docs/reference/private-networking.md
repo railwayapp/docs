@@ -28,6 +28,13 @@ During the feature development process we found a few caveats that you should be
 
 - Private networking is not available during the build phase.
 - Private networking does not function between [environments](/reference/environments).
+- [Legacy environments](#legacy-environments) (created before October 16th, 2025) only support IPv6 addresses.
+
+## Legacy Environments
+
+Environments created before October 16th, 2025 are considered legacy environments and only support IPv6 addressing for private networking. *Railway will migrate all legacy environments to support both IPv4 and IPv6 addressing at a later date.*
+
+If you want to utilize private networking in a legacy environment, you will need to configure your service to bind to `::` (the IPv6 all-interfaces address). See [this guide](/guides/private-networking) for more information on configuring your listener. This will continue to work after your environment receives IPv4 support.
 
 ## Support
 

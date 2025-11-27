@@ -10,14 +10,14 @@ alt="Preview of What The Guide is Building"
 layout="intrinsic"
 width={1310} height={420} quality={100} />
 
-By default, all projects have private networking enabled and services will get a new DNS name under the `railway.internal` domain. For new environments (created after October 16, 2025), this DNS name will resolve to both internal IPv4 and IPv6 addresses. Legacy environments resolve to IPv6 only.
+By default, all projects have private networking enabled and services will get a new DNS name under the `railway.internal` domain. For new environments (created after October 16, 2025), this DNS name will resolve to both internal IPv4 and IPv6 addresses. [Legacy environments](/reference/private-networking#legacy-environments) resolve to IPv6 only.
 
 ## Communicating Over the Private Network
 
 To communicate over the private network, there are some specific things to know to be successful.
 
 <div style={{ marginTop: '1.5em' }}><Banner variant="info">
-[Railway now supports both IPv6 and IPv4 private networking in all newly deployed environments](https://railway.com/changelog/2025-10-17-repo-aware-settings#ipv4-private-networks). Environments created before October 16th 2025 will still be restricted to IPv6. With that in mind, we've preserved the IPv6 only guides below.
+[Railway now supports both IPv6 and IPv4 private networking in all newly deployed environments](https://railway.com/changelog/2025-10-17-repo-aware-settings#ipv4-private-networks). [Legacy environments](/reference/private-networking#legacy-environments) (created before October 16th 2025) will still be restricted to IPv6. With that in mind, we've preserved the IPv6 only guides below.
 
 However, if you've setup a new service or environment after IPv4 support is released you're good to use IPv4 or IPv6! whatever suits you best!
 </Banner></div>
@@ -276,7 +276,7 @@ The root of the domain, `railway.internal`, is static and **cannot** be changed.
 During the feature development process we found a few caveats that you should be aware of:
 
 - Private networking is not available during the build phase.
-- Environments created before October 16, 2025 only support IPv6. New environments support both IPv4 and IPv6.
+- [Legacy environments](/reference/private-networking#legacy-environments) (created before October 16, 2025) only support IPv6. New environments support both IPv4 and IPv6.
 
 ## FAQ
 
