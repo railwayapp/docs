@@ -17,14 +17,14 @@ By default, all projects have private networking enabled and services will get a
 To communicate over the private network, there are some specific things to know to be successful.
 
 <div style={{ marginTop: '1.5em' }}><Banner variant="info">
-[Railway now supports both IPv6 and IPv4 private networking in all newly deployed environments](https://railway.com/changelog/2025-10-17-repo-aware-settings#ipv4-private-networks). [Legacy environments](/reference/private-networking#legacy-environments) (created before October 16th 2025) will still be restricted to IPv6. With that in mind, we've preserved the IPv6 only guides below.
+[Railway now supports both IPv6 and IPv4 private networking in all newly created environments](https://railway.com/changelog/2025-10-17-repo-aware-settings#ipv4-private-networks). [Legacy environments](/reference/private-networking#legacy-environments) (created before October 16th 2025) will still be limited to IPv6. With that in mind, we've preserved the IPv6 only guides below.
 
 However, if you've setup a new service or environment after IPv4 support is released you're good to use IPv4 or IPv6! whatever suits you best!
 </Banner></div>
 
 ### Service Configuration
 
-We recommend configuring your application to listen on `::` (all interfaces). This ensures your app works in both new (IPv4/IPv6) and old (IPv6-only) environments.
+We recommend configuring your application to listen on `::` (all interfaces). This ensures your app works in both new (IPv4/IPv6) and legacy (IPv6-only) environments.
 
 Some examples are below -
 
