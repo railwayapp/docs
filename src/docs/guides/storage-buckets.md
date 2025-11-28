@@ -9,7 +9,7 @@ Buckets are a feature in Railway which allow you to have S3 compatible object st
 
 <Banner variant="info">Storage Buckets are currently only available behind a feature flag in Priority Boarding. To learn more about Priority Boarding and how to join, visit [this page](https://docs.railway.com/guides/join-priority-boarding).</Banner>
 
-To create a new bucket, right-click on your canvas and select Bucket. Here you can choose what region to host the bucket in and its name. By defualt, buckets are created with a pre-generated name. This acts as both the display name in your project and the bucket's S3 name. Once your bucket is created, you can change its display name, but you can't change the S3 name. Make sure you change it at creation if you want to customize it. We do add a few extra characters on the end of your custom name to keep it unique between accounts.
+To create a new bucket, right-click on your canvas and select Bucket. Here you can choose what region to host the bucket in and its name. By defualt, buckets are created with a pre-generated name. This acts as both the display name in your project and the bucket's S3 name. Once your bucket is created, you can change its display name, but you can't change the S3 name. Make sure you change it at creation if you want to customize it. We add a few extra characters on the end of your custom name to keep it unique between accounts.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763520962/SettingName_eyhi4k.mp4" controls autoplay loop muted playsinline />
 
@@ -19,7 +19,7 @@ After you deploy your bucket, it'll become available to use in just a couple of 
 
 ### Using buckets
 
-Storage Buckets are fully S3-compatible! You can use any S3 client library and expect it to work just like a normal S3 bucket. You can view your connection credentials in the Credentials tab when clicking on the bucket service.
+Storage Buckets are fully S3-compatible. You can use any S3 client library and expect it to work just like a normal S3 bucket. You can view your connection credentials in the Credentials tab when clicking on the bucket service.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419442/GetCredentials_y69ge4.mp4" controls autoplay loop muted playsinline />
 
@@ -43,7 +43,7 @@ Doing this sets the names for the credentials based on what each library expects
 
 ### Path-style URLs
 
-If when using your bucket you see an error like this coming from your service:
+If you see an error like this coming from your service:
 
 - `Invalid client configuration:`
 - `A behavior major version must be set when sending a request or constructing a client.`
@@ -65,7 +65,7 @@ const client = new S3Client({
 });
 ```
 
-### Help us improve Storage Buckets!
+### Help us improve Storage Buckets
 
 Upvote these feature requests on our feedback page if these features sound useful to you:
 
@@ -73,4 +73,4 @@ Upvote these feature requests on our feedback page if these features sound usefu
 - [Snapshots and backups](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a)
 - [Publicly-accessible buckets](https://station.railway.com/feedback/railway-storage-buckets-backup-feature-8c44e697)
 
-If you have an idea for other features, let us know on [this feedback page](https://station.railway.com/feedback/object-storage-tell-us-what-you-need-924b88fc)!
+If you have an idea for other features, let us know on [this feedback page](https://station.railway.com/feedback/object-storage-tell-us-what-you-need-924b88fc).
