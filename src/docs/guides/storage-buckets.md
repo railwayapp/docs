@@ -5,38 +5,53 @@ description: Persist assets in object storage.
 
 Buckets are a feature in Railway which allow you to have S3 compatible object storage in your project. Buckets are great if you need durable blob storage without having to wire up an external provider. 
 
-## Setting up buckets.
+## Getting started
 
-Creating a bucket is just like any other service on railway. Right click the canvas and select Bucket. Once you select your region, hit deploy and your S3 compatible bucket gets created.
+<Banner variant="info">Storage Buckets are currently only available behind a feature flag in Priority Boarding. To learn more about Priority Boarding and how to join, visit [this page](https://docs.railway.com/guides/join-priority-boarding).</Banner>
 
-<video src="https://res.cloudinary.com/railway/video/upload/v1763419444/CreateABucket_naa0ss.mp4" controls autoplay loop muted playsinline />
-
-## Naming buckets
-
-You can rename a bucket at any time, but that only changes its display name. The actual storage bucket name has to be set before creation. To do that, click the pre-generated name in the settings panel and choose your desired name. The underlying bucket name will still have extra characters added for uniqueness.
-
+To create a new bucket, right-click on your canvas and select Bucket. Here you can choose what region to host the bucket in and its name. By defualt, buckets are created with a pre-generated name. This acts as both the display name in your project and the bucket's S3 name. Once your bucket is created, you can change its display name, but you can't change the S3 name. Make sure you change it at creation if you want to customize it. We do add a few extra characters on the end of your custom name to keep it unique between accounts.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763520962/SettingName_eyhi4k.mp4" controls autoplay loop muted playsinline />
 
+After you deploy your bucket, it'll become available to use in just a couple of seconds.
 
-### Connecting
+<video src="https://res.cloudinary.com/railway/video/upload/v1763419444/CreateABucket_naa0ss.mp4" controls autoplay loop muted playsinline />
 
-Storage Buckets are fully S3-compatible, so you can connect with any S3-capable library or tool with full functionality out of the box. Your connection credentials are available in the Credentials tab of the bucket’s settings.
+### Using buckets
+
+Storage Buckets are fully S3-compatible! You can use any S3 client library and expect it to work just like a normal S3 bucket. You can view your connection credentials in the Credentials tab when clicking on the bucket service.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419442/GetCredentials_y69ge4.mp4" controls autoplay loop muted playsinline />
 
+### Variable References
+
+Storage Buckets can provide the S3 authentication credentials to your other services by using [Variable References](https://docs.railway.com/guides/variables#referencing-a-shared-variable). You can do this in two ways:
+
+<Collapse slug="storage-buckets-manual-credentials-variables" title="Manually configuring your service's variables">
+You can use regular Shared Variables by creating a new variable in your service and referencing each authentication credential from your bucket service:
+
+<video src="https://res.cloudinary.com/railway/video/upload/v1763419449/VariableReferenceManual_ld79zb.mp4" controls autoplay loop muted playsinline />
+</Collapse>
+
+<Collapse slug="storage-buckets-automatic-credentials-variables" title="Automatically provisioning the variables to your service">
+You can insert all the required authentication variables into your service's variables depending on your S3 client. We have presets for the AWS SDK, Bun's built-in S3 driver, FastAPI, Laravel, and more.
+
+Doing this sets the names for the credentials based on what each library expects as the default environment variable names. Supported libraries (notably the official AWS SDKs) can automatically pick them up so you don't have to provide each variable to the S3 client.
+
+<video src="https://res.cloudinary.com/railway/video/upload/v1763419460/AutoInjectVariables_xborrx.mp4" controls autoplay loop muted playsinline />
+</Collapse>
+
 ### Path-style URLs
 
-In some instances when attempting to establish a connection you’ll see things like:
+If when using your bucket you see an error like this coming from your service:
 
-`Invalid client configuration:`
-`A behavior major version must be set when sending a request or constructing a client.`
+- `Invalid client configuration:`
+- `A behavior major version must be set when sending a request or constructing a client.`
+- `Not authorized to perform: s3:CreateBucket on resource: arn:aws:s3:::resource`
 
-`Not authorized to perform: s3:CreateBucket on resource: arn:aws:s3:::resource`
+You have to configure your S3 client to utilize **path-style URLs**. This is a requirement when using Railway buckets, and can be enabled by most S3 client libraries. 
 
-Railway buckets *require* path style URLs which can be forced by most AWS S3 libraries. 
-
-Using the official [@aws-sdk/client-s3](https://www.npmjs.com/package/@aws-sdk/client-s3) here’s an example of forcing path style. 
+With the Node.js [@aws-sdk/client-s3](https://www.npmjs.com/package/@aws-sdk/client-s3) library, for example, you can configure path-style URLs like so:
 
 ```jsx
 const client = new S3Client({
@@ -47,23 +62,15 @@ const client = new S3Client({
       secretAccessKey: "Secret Access Key",
     },
     forcePathStyle: true, // This bit is required
-  });
+});
 ```
 
-### Variable References
+### Help us improve Storage Buckets!
 
-Storage Buckets support [variable reference](https://docs.railway.com/guides/variables#referencing-a-shared-variable) in two ways. The first is manually entering fields you want linked by navigating to your service’s variable tab and selecting “Add Reference”.
+Upvote these feature requests on our feedback page if these features sound useful to you:
 
-<video src="https://res.cloudinary.com/railway/video/upload/v1763419449/VariableReferenceManual_ld79zb.mp4" controls autoplay loop muted playsinline />
+- [Native file explorer](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a)
+- [Snapshots and backups](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a)
+- [Publicly-accessible buckets](https://station.railway.com/feedback/railway-storage-buckets-backup-feature-8c44e697)
 
-The second method injects a predefined set of environment variables into the target service. These presets, such as “AWS SDK,” “Bun,” “FastAPI,” or “n8n”, configure the variables in the format expected by that tool. Select your bucket, open the Credentials tab, choose “Add to Service”, pick the service and style, then click “Add Variables”. Redeploy the service for the changes to take effect.
-
-<video src="https://res.cloudinary.com/railway/video/upload/v1763419460/AutoInjectVariables_xborrx.mp4" controls autoplay loop muted playsinline />
-
-### Notes
-
-Interested in a native file explorer? You can show your support by upvoting [this feature request](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a).
-
-Want snapshots or backups? Upvote [this feature request](https://station.railway.com/feedback/railway-storage-buckets-backup-feature-8c44e697) too.
-
-Looking for public buckets? Upvote [this feature request](https://station.railway.com/feedback/public-railway-storage-buckets-1e3bdac8).
+If you have an idea for other features, let us know on [this feedback page](https://station.railway.com/feedback/object-storage-tell-us-what-you-need-924b88fc)!
