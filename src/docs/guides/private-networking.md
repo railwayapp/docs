@@ -10,15 +10,21 @@ alt="Preview of What The Guide is Building"
 layout="intrinsic"
 width={1310} height={420} quality={100} />
 
-By default, all projects have private networking enabled and services will get a new DNS name under the `railway.internal` domain. This DNS name will resolve to the internal IPv6 address of the services within a project.
+By default, all projects have private networking enabled and services will get a new DNS name under the `railway.internal` domain. For new environments (created after October 16, 2025), this DNS name will resolve to both internal IPv4 and IPv6 addresses. [Legacy environments](/reference/private-networking#legacy-environments) resolve to IPv6 only.
 
 ## Communicating Over the Private Network
 
 To communicate over the private network, there are some specific things to know to be successful.
 
-### Listen on IPv6
+<div style={{ marginTop: '1.5em' }}><Banner variant="info">
+[Railway now supports both IPv6 and IPv4 private networking in all newly created environments](https://railway.com/changelog/2025-10-17-repo-aware-settings#ipv4-private-networks). [Legacy environments](/reference/private-networking#legacy-environments) (created before October 16th 2025) will still be limited to IPv6. With that in mind, we've preserved the IPv6 only guides below.
 
-Since the private network is an IPv6 only network, applications that will receive requests over the private network must be configured to listen on IPv6. On most web frameworks, you can do this by binding to the host `::`.
+However, if you've setup a new service or environment after IPv4 support is released you're good to use IPv4 or IPv6! whatever suits you best!
+</Banner></div>
+
+### Service Configuration
+
+We recommend configuring your application to listen on `::` (all interfaces). This ensures your app works in both new (IPv4/IPv6) and legacy (IPv6-only) environments.
 
 Some examples are below -
 
@@ -106,7 +112,6 @@ let listener = tokio::net::TcpListener::bind("[::]:8080").await.unwrap();
 axum::serve(listener, app).await;
 ```
 
-
 ### Use Internal Hostname and Port
 
 For applications making requests to a service over the private network, you should use the internal DNS name of the service, plus the `PORT` on which the service is listening.
@@ -156,9 +161,9 @@ The private network exists in the context of a project and environment and is no
 
 Check out the [FAQ](#faq) section for more information.
 
-### Known Configuration Requirements for IPv6
+### Library-Specific Configuration
 
-Some libraries and components require you to be explicit when either listening or establishing a connection over IPv6.
+Some libraries and components require explicit configuration for dual-stack (IPv4/IPv6) networking or to work properly in legacy IPv6-only environments.
 
 <Collapse title="ioredis">
 
@@ -271,8 +276,7 @@ The root of the domain, `railway.internal`, is static and **cannot** be changed.
 During the feature development process we found a few caveats that you should be aware of:
 
 - Private networking is not available during the build phase.
-- You will need to bind to a IPv6 port to receive traffic on the private network.
-- We don't support IPv4 private networking
+- [Legacy environments](/reference/private-networking#legacy-environments) (created before October 16, 2025) only support IPv6. New environments support both IPv4 and IPv6.
 
 ## FAQ
 

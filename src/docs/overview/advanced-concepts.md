@@ -28,9 +28,9 @@ Networking can be tricky and time-consuming. We wanted to provide the best-in-cl
 
 ### Private Networking
 
-Private Networking is a feature within Railway that will open network communication through a IPv6 wireguard mesh only accessible to your Railway services within a project.
+Private Networking is a feature within Railway that will open network communication through a private wireguard mesh only accessible to your Railway services within a project.
 
-All projects have private networking enabled and services are assigned a DNS name under the `railway.internal` domain. This DNS name resolves to the internal IPv6 address of the services in a project.
+All projects have private networking enabled and services are assigned a DNS name under the `railway.internal` domain. This DNS name resolves to the internal IP addresses of the services in a project.
 
 ### Railway-Provided Domains
 

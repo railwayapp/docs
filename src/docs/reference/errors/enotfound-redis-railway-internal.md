@@ -13,9 +13,9 @@ This error can occur for a few different reasons, but the main reason is because
 
 By default, ioredis will only do an IPv4 (A record) lookup for the `redis.railway.internal` hostname.
 
-That presents a problem given that Railway's private network uses only IPv6 (AAAA records).
+In environments created before October 16th 2025, Railway's private network uses only IPv6 (AAAA records). In these legacy environments, the lookup will fail because the A records for `redis.railway.internal` do not exist.
 
-The lookup will fail because the A records for `redis.railway.internal` do not exist.
+**Note: New environments support both IPv4 and IPv6, so this specific cause is less likely to occur unless you are explicitly forcing an IPv4 connection in a legacy environment.**
 
 Some other reasons that this error can occur would be -
 
