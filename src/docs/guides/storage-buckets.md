@@ -64,11 +64,11 @@ Each environment gets its own separate bucket instance with isolated credentials
 
 ## How buckets are billed
 
-Buckets are billed at **$0.015** per GB per month (30 days), based on the total amount of data stored across all bucket instances in your workspace, including Environments. All S3 API operations are unlimited and free. Egress is also unlimited or free, whether that's using presigned URLs or to your other services. 
+Buckets are billed at **$0.015** per GB per month (30 days), based on the total amount of data stored across all bucket instances in your workspace, including Environments. All S3 API operations are unlimited and free. Egress is also unlimited or free, whether that's using presigned URLs or via the S3 API your other services. 
 
-<Banner variant="info">Even though *buckets* don't charge for ingress or egress, buckets live on the public network and are subject to egress usage from your other Railway services when they upload files to them. Buckets are currently not available on the private network.</Banner>
+<Banner variant="info">Even though *buckets* don't charge for ingress or egress, buckets live on the public network and are subject to egress usage from your other Railway services when they upload files to your buckets. Buckets are currently not available on the private network.</Banner>
 
-Usage (GBs per month) is calculated by averaging day-to-day usage and rounding the final accumulation to the next whole number, so if you used 5.1 GB-month you'd get charged for 6 GBs.
+Usage (GBs per month) is calculated by averaging day-to-day usage and rounding the final accumulation to the next whole number if it is a fractional amount (5.1 GB-month gets billed as 6 GB-month).
 
 For example, if you stored **10GB for 30 days**, you'd get charged for for 10 GB-month. If you stored **10GB for 15 days** then emptied your bucket and stored **0GB for another 15 days**, those totals will be averaged out and you will be charged for **5 GB-month**.
 
