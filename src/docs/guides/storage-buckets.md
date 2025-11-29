@@ -100,14 +100,18 @@ Buckets are currently only available in the Standard storage tier. There's no mi
 Buckets are fully S3-compatible, which means you can use them with any S3-capable library, tool, or framework. Most use cases work out of the box with full functionality.
 
 Supported features include:
+- Put, Get, Head, Delete objects
+- List objects, List objects V2
+- Copy objects
 - Presigned URLs
+- Object tagging
 - Multipart uploads
-- Server-side encryption
 
 Not yet supported:
-- Object Versioning
-- Object Locks
-- Bucket Lifecycle configuration
+- Server-side encryption
+- Object versioning
+- Object locks
+- Bucket lifecycle configuration
 
 <Banner variant="info">
 Missing a feature you need? Let us know in [Central Station](https://station.railway.com/) and tell us what you're building with it.
