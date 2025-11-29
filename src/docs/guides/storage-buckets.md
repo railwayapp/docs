@@ -140,9 +140,9 @@ Want this feature? Leave your feedback [in this feature request](https://station
 
 </Collapse>
 
-<Collapse title="What infrastructure are buckets using?">
+<Collapse title="What hardware do buckets run on?">
 
-Railway Buckets run on [Tigris's](https://www.tigrisdata.com/) bare-metal infrastructure, which provides real object storage with high performance and durability.
+Railway Buckets run on [Tigris's](https://www.tigrisdata.com/) metal servers, which provides real object storage with high performance and durability.
 
 This is true object storage, not block storage like Volumes, so concepts like IOPS don't apply here.
 
