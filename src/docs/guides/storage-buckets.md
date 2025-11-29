@@ -3,7 +3,7 @@ title: Storage Buckets
 description: Persist assets in object storage.
 ---
 
-Railway Buckets are private, S3-compatible object storage buckets for your projects. They give you durable blob storage on Railway without needing to wire up an external provider. Use them for file uploads, user-generated content, static assets, backups, or any data that needs reliable object storage.
+Railway Buckets are private, S3-compatible object storage buckets for your projects. They give you durable object storage on Railway without needing to wire up an external provider. Use them for file uploads, user-generated content, static assets, backups, or any data that needs reliable object storage.
 
 ## Creating a Bucket
 
