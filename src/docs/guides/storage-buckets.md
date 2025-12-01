@@ -19,7 +19,7 @@ When connecting to your bucket with an S3 client, you'll need to use this unique
 
 ## Connecting to your bucket
 
-Railway Buckets are private by default, meaning you can only edit and upload your files by authenticating with the S3 API using the bucket's credentials. Presigned URLs are the only way for bucket objects to be accessed publicly, and global public access to your entire bucket is not supported.
+Railway Buckets are private by default, meaning you can only edit and upload your files by authenticating with the S3 API using the bucket's credentials. Presigned URLs are the only native way for bucket objects to be accessed or uploaded to publicly, and global public access to your entire bucket is not supported. If you want to make files accessible publicly outside of presigned URLs, you'll have to proxy them through your backend services.
 
 Presigned URLs are temporary URLs that grant access to individual objects in your bucket for a specific time. You can create them using your S3 client library of choice and they can expire up to 90 days in the future. They're used to share individual files to the public without making your entire bucket public.
 
@@ -29,7 +29,7 @@ If you want to make your entire bucket publicly accessible, you'll need to creat
 If public buckets is something you're interested in, leave your feedback in [Central Station](https://station.railway.com/feedback/public-railway-storage-buckets-1e3bdac8) and tell us your use-case. We're excited to hear what you'd like to build!
 </Banner> 
 
-Once your bucket is deployed, you'll find S3-compatible authentication credentials in the Credentials tab of the bucket service. These include the necessary details for you to connect to your bucket using your S3 client library.
+Once your bucket is deployed, you'll find S3-compatible authentication credentials in the Credentials tab of the bucket. These include the necessary details for you to connect to your bucket using your S3 client library.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1764373635/docs/bucket_credentials_pcvjup.png"
 alt="Screenshot of bucket credentials"
@@ -64,11 +64,11 @@ Each environment gets its own separate bucket instance with isolated credentials
 
 ## How buckets are billed
 
-Buckets are billed at **$0.015** per GB per month (30 days), based on the total amount of data stored across all bucket instances in your workspace, including Environments. All S3 API operations are unlimited and free. Egress is also unlimited and free, whether that's using presigned URLs or via the S3 API.
+Buckets are billed at **$0.015** per GB-month (30 days), based on the total amount of data stored across all bucket instances in your workspace, including Environments. All S3 API operations are unlimited and free. Egress is also unlimited and free, whether that's using presigned URLs or via the S3 API.
 
-<Banner variant="info">Even though *buckets* don't charge for ingress or egress, buckets live on the public network and are subject to egress usage from your other Railway services when they upload files to your buckets. Buckets are currently not available on the private network.</Banner>
+<Banner variant="info">Even though *buckets* don't charge for ingress or egress, buckets still live on the public network. When you upload files from your Railway services to your buckets, those *services* will incur egress usages, since you're uploading over the public network. Buckets are currently not available on the private network.</Banner>
 
-Usage (GBs per month) is calculated by averaging the day-to-day usages and rounding the final accumulation to the next whole number if it totaled a fractional amount (5.1 GB-month gets billed as 6 GB-month).
+Usage (GB-months) is calculated by averaging the day-to-day usages and rounding the final accumulation to the next whole number if it totaled a fractional amount (5.1 GB-month gets billed as 6 GB-month).
 
 For example, if you stored **10 GBs for 30 days**, you'd get charged for for 10 GB-month. If you stored **10 GBs for 15 days** then emptied your bucket and stored **0 GBs for another 15 days**, those totals will be averaged out and you will be charged for **5 GB-month**.
 
@@ -94,7 +94,7 @@ Not yet supported:
 
 ## Deleting a Bucket
 
-You can delete your bucket by clicking on its project card in your canvas, going to Settings, and selecting Delete Bucket. 
+You can delete your bucket by clicking on it in your canvas, going to Settings, and selecting Delete Bucket. 
 
 Buckets without any data in them will be deleted immediately, and non-empty buckets will be scheduled for permanent deletion two days after you select the deletion to protect against [accidental deletions](https://blog.railway.com/p/how-we-oops-proofed-infrastructure-deletion-on-railway).
 
