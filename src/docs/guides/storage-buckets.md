@@ -5,75 +5,58 @@ description: Persist assets in object storage.
 
 Railway Buckets are private, S3-compatible object storage buckets for your projects. They give you durable object storage on Railway without needing to wire up an external provider. Use them for file uploads, user-generated content, static assets, backups, or any data that needs reliable object storage.
 
-## Creating a Bucket
+## Getting started
 
-To create a bucket, click the "Create" button on your canvas and select a region. Note that once you deploy the bucket, you won't be able to change its region.
+To create a bucket in your project, click the Create button on your canvas, select Bucket, and select its region and optionally change its name. You aren't able to change your region after you create your bucket.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419444/CreateABucket_naa0ss.mp4" controls autoPlay loop muted playsInline />
 
-### No public access to buckets
+Unlike traditional S3, you can choose any display name you want for your bucket. It doesn't need to be globally unique. To identify it in the S3 API, its S3 or Bucket Name will be created from the display name the bucket was given at creation, plus a short hash on the end to ensure uniqueness between workspaces.
 
-Railway Buckets are private by default. Objects can only be publicly accessed using presigned URLs. Direct public access isn't currently supported.
+<video src="https://res.cloudinary.com/railway/video/upload/v1763520962/SettingName_eyhi4k.mp4" controls autoPlay loop muted playsInline />
 
-Presigned URLs are temporary, signed URLs that grant time-limited access to specific objects in your bucket. You generate them using your S3 client library, and can set expiration times up to 90 days. They're perfect for sharing files securely without making your entire bucket public.
+When connecting to your bucket with an S3 client, you'll need to use this unique S3 name. You can find it in the bucket Credentials tab under Bucket Name. Even if you rename your bucket's display name later, this unique identifier stays the same.
 
-Want to make your entire bucket publicly accessible? You'll need to create a dedicated proxy service or proxy files through your backend.
+## Connecting to your bucket
+
+Railway Buckets are private by default, meaning you can only edit and upload your files by authenticating with the S3 API using the bucket's credentials. Presigned URLs are the only native way for bucket objects to be accessed or uploaded to publicly, and global public access to your entire bucket is not supported. If you want to make files accessible publicly outside of presigned URLs, you'll have to proxy them through your backend services.
+
+Presigned URLs are temporary URLs that grant access to individual objects in your bucket for a specific time. You can create them using your S3 client library of choice and they can expire up to 90 days in the future. They're used to share individual files to the public without making your entire bucket public.
+
+If you want to make your entire bucket publicly accessible, you'll need to create a proxy service or serve them through your backend.
 
 <Banner variant="info">
-If you want public buckets, leave your feedback in [Central Station](https://station.railway.com/feedback/public-railway-storage-buckets-1e3bdac8) and tell us your usecase. We're excited to hear what you'd like to build!
-</Banner>
+If public buckets is something you're interested in, leave your feedback in [Central Station](https://station.railway.com/feedback/public-railway-storage-buckets-1e3bdac8) and tell us your use-case. We're excited to hear what you'd like to build!
+</Banner> 
 
-## Using Credentials to connect to a Bucket
-
-Once your bucket is deployed, you'll find S3-compatible credentials in the "Credentials" tab. These include an access key ID and secret access key that your S3 client uses to authenticate.
-
-The credentials are scoped to your bucket. They only grant access to objects in this specific bucket, so you can't use them to view objects in other buckets or modify the bucket itself.
-
-Each bucket has a single credential pair. If you need to rotate credentials, click "Regenerate Credentials" and Railway will automatically suggest redeploying affected services so they can pick up the new credentials.
+Once your bucket is deployed, you'll find S3-compatible authentication credentials in the Credentials tab of the bucket. These include the necessary details for you to connect to your bucket using your S3 client library.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1764373635/docs/bucket_credentials_pcvjup.png"
 alt="Screenshot of bucket credentials"
 layout="responsive"
 width={2554} height={1970} quality={80} />
 
-### Use virtual-hosted–style URLs
+Railway Buckets use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#virtual-hosted–style-access">virtual-hosted–style URLs</a>, which add your bucket name as a subdomain in the S3 endpoint. This is the modern S3 standard and is what most libraries either expect or support. Most S3 client libraries will only need the base endpoint (`https://storage.railway.app`) and call the virtual-hosted–style URL underneath.
 
-Railway Buckets use virtual-hosted–style URLs, which include your bucket name in the subdomain. This is the modern S3 standard and what most libraries expect.
+Buckets that were created before this change (like those who used them during Priority Boarding) might require you to use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#path-style-access">path-style URLs</a> instead. The Credentials tab of your bucket will tell you which style you should use.
 
-Here's the format:
+### Variable References
 
-```
-https://your-bucket-name-hash.storage.railway.app/key-name
-```
+Storage Buckets can provide the S3 authentication credentials to your other services by using [Variable References](https://docs.railway.com/guides/variables#referencing-a-shared-variable). You can do this in two ways:
 
-When working with S3 libraries or tools, you'll typically only need to provide the endpoint `https://storage.railway.app` and your bucket name. The library handles creating the virtual-hosted–style URL for you.
+<Collapse slug="storage-buckets-manual-credentials-variables" title="Manually configuring your service's variables">
+You can use regular Shared Variables by creating a new variable in your service and referencing each authentication credential from your bucket service:
 
-If you're using an older bucket created before this standard, it might require path-style URLs instead (like `https://storage.railway.app/bucket-name/key-name`). Check the Bucket Credentials tab to see which URL style your bucket needs.
+<video src="https://res.cloudinary.com/railway/video/upload/v1763419449/VariableReferenceManual_ld79zb.mp4" controls autoplay loop muted playsinline />
+</Collapse>
 
-### Use the globally unique bucket name
+<Collapse slug="storage-buckets-automatic-credentials-variables" title="Automatically provisioning the variables to your service">
+You can insert all the required authentication variables into your service's variables depending on your S3 client. We have presets for the AWS SDK, Bun's built-in S3 driver, FastAPI, Laravel, and more.
 
-Unlike traditional S3, you can choose any display name you want for your bucket in Railway. It doesn't need to be globally unique. However, Railway automatically generates a globally unique identifier behind the scenes for the actual S3 connection.
-
-When connecting to your bucket with an S3 client, you'll need to use this globally unique identifier. You can find it in the Bucket Credentials tab under "Bucket Name". Even if you rename your bucket's display name later, this unique identifier stays the same.
-
-The globally unique identifier is generated from the bucket name you provide before deployment.
-
-<video src="https://res.cloudinary.com/railway/video/upload/v1763520962/SettingName_eyhi4k.mp4" controls autoPlay loop muted playsInline />
-
-## Bucket Variables
-
-Railway buckets expose several variables that you can reference in your services using [variable references](/guides/variables#referencing-a-shared-variable). These include the bucket name, region, endpoint, access key ID, and secret access key. Everything your S3 client needs to connect.
-
-You can reference these directly in your service's environment variables without copy-pasting credentials manually.
-
-<Image src="https://res.cloudinary.com/railway/image/upload/v1764373717/docs/bucket_variables_q6vevd.png"
-alt="Screenshot of bucket variables in a service"
-layout="responsive"
-width={1908} height={1378} quality={80} />
-
-To bulk-add all bucket credentials to a service, head to the "Credentials" tab in your bucket and click "Add to Service". You can choose environment variable naming conventions from popular libraries and frameworks (like AWS SDK, Bun, etc.), or define your own variable names.
+Doing this sets the names for the credentials based on what each library expects as the default environment variable names. Supported libraries (notably the official AWS SDKs) can automatically pick them up so you don't have to provide each variable to the S3 client.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419460/AutoInjectVariables_xborrx.mp4" controls autoplay loop muted playsinline />
+</Collapse>
 
 ## Buckets in Environments
 
@@ -81,23 +64,19 @@ Each environment gets its own separate bucket instance with isolated credentials
 
 ## How buckets are billed
 
-Buckets are billed as GB-month, based on the total amount of data stored across all bucket instances in your workspace.
+Buckets are billed at **$0.015** per GB-month (30 days), based on the total amount of data stored across all bucket instances in your workspace, including Environments. All S3 API operations are unlimited and free. Egress is also unlimited and free, whether that's using presigned URLs or via the S3 API.
 
-- $0.015 per GB-month of storage
-- S3 API operations (PUT, GET, DELETE, LIST, etc.) are unlimited and free
-- Egress from buckets is unlimited and free
+<Banner variant="info">Even though *buckets* don't charge for ingress or egress, buckets still live on the public network. When you upload files from your Railway services to your buckets, those *services* will incur egress usages, since you're uploading over the public network. Buckets are currently not available on the private network.</Banner>
 
-Billing works by adding each day's average usage to your workspace total. At the end of the billing period, fractional GB-month values are rounded up to the next whole number (so 5.1 GB-month becomes 6 GB-month). A GB-month is calculated as 30 days.
+Usage (GB-months) is calculated by averaging the day-to-day usages and rounding the final accumulation to the next whole number if it totaled a fractional amount (5.1 GB-month gets billed as 6 GB-month).
 
-Here are some examples:
-- Store 10 GB for 30 days → charged for 10 GB-month
-- Store 10 GB for 15 days and 0 GB for 15 days → charged for 5 GB-month
+For example, if you stored **10 GBs for 30 days**, you'd get charged for for 10 GB-month. If you stored **10 GBs for 15 days** then emptied your bucket and stored **0 GBs for another 15 days**, those totals will be averaged out and you will be charged for **5 GB-month**.
 
-Buckets are currently only available in the Standard storage tier. There's no minimum storage retention and no data retrieval fees.
+Buckets are currently only available in the Standard storage tier - there's no minimum storage retention and no data retrieval fees.
 
 ## S3 Compatibility
 
-Buckets are fully S3-compatible, which means you can use them with any S3-capable library, tool, or framework. Most use cases work out of the box with full functionality.
+Buckets are fully S3-compatible. You can use them with any S3 client library for any language, tool, or framework, and you can expect the same functionality on Railway Buckets as if you were using a normal S3 bucket.
 
 Supported features include:
 - Put, Get, Head, Delete objects
@@ -113,18 +92,13 @@ Not yet supported:
 - Object locks
 - Bucket lifecycle configuration
 
-<Banner variant="info">
-Missing a feature you need? Let us know in [Central Station](https://station.railway.com/) and tell us what you're building with it.
-</Banner>
-
 ## Deleting a Bucket
 
-You can delete a bucket from your project canvas.
+You can delete your bucket by clicking on it in your canvas, going to Settings, and selecting Delete Bucket. 
 
-- Empty buckets are deleted immediately
-- Non-empty buckets are scheduled for deletion 2 days later, to prevent [accidental file deletion](https://blog.railway.com/p/how-we-oops-proofed-infrastructure-deletion-on-railway)
+Buckets without any data in them will be deleted immediately, and non-empty buckets will be scheduled for permanent deletion two days after you select the deletion to protect against [accidental deletions](https://blog.railway.com/p/how-we-oops-proofed-infrastructure-deletion-on-railway).
 
-Note that you'll continue to be billed for files until they're actually deleted after the 2-day period. If you'd prefer to delete them right away, you can manually remove the files before deleting the bucket.
+You will continue to be billed for your accumulated storage size until your bucket has been permanently deleted at the two-day mark.
 
 ## FAQ
 
@@ -173,3 +147,13 @@ Egress from buckets to the internet or to your services is free and unlimited.
 Note that egress from your services to buckets (uploads) is billed at the standard public egress rate.
 
 </Collapse>
+
+### Help us improve Storage Buckets
+
+Upvote these feature requests on our feedback page if these features sound useful to you:
+
+- [Native file explorer](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a)
+- [Snapshots and backups](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a)
+- [Publicly-accessible buckets](https://station.railway.com/feedback/railway-storage-buckets-backup-feature-8c44e697)
+
+If you have an idea for other features, let us know on [this feedback page](https://station.railway.com/feedback/object-storage-tell-us-what-you-need-924b88fc).
