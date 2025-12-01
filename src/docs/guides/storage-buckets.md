@@ -11,11 +11,11 @@ To create a bucket in your project, click the Create button on your canvas, sele
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419444/CreateABucket_naa0ss.mp4" controls autoPlay loop muted playsInline />
 
-Unlike traditional S3, you can choose any display name you want for your bucket. It doesn't need to be globally unique. To identify it in the S3 API, it's S3 or Bucket Name will be created from the display name the bucket was given at creation, plus a short hash on the end to ensure uniqueness between workspaces.
+Unlike traditional S3, you can choose any display name you want for your bucket. It doesn't need to be globally unique. To identify it in the S3 API, its S3 or Bucket Name will be created from the display name the bucket was given at creation, plus a short hash on the end to ensure uniqueness between workspaces.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763520962/SettingName_eyhi4k.mp4" controls autoPlay loop muted playsInline />
 
-When connecting to your bucket with an S3 client, you'll need to use this unique S3 name. You can find it in the bucket Credentials tab under Bucket Name. Even if you rename your bucket's display name later, this unique identifier stays the same
+When connecting to your bucket with an S3 client, you'll need to use this unique S3 name. You can find it in the bucket Credentials tab under Bucket Name. Even if you rename your bucket's display name later, this unique identifier stays the same.
 
 ## Connecting to your bucket
 
