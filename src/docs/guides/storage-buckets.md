@@ -19,11 +19,9 @@ When connecting to your bucket with an S3 client, you'll need to use this unique
 
 ## Connecting to Your Bucket
 
-Railway Buckets are private by default, meaning you can only edit and upload your files by authenticating with the S3 API using the bucket's credentials. Presigned URLs are the only native way for bucket objects to be accessed or uploaded to publicly, and global public access to your entire bucket is not supported. If you want to make files accessible publicly outside of presigned URLs, you'll have to proxy them through your backend services.
+Railway Buckets are private by default, meaning you can only edit and upload your files by authenticating with the S3 API using the bucket's credentials. To make files accessible publicly, you can use [presigned URLs](#presigned-urls), or proxy files through a backend service. Read more about [Serving and Uploading Files](#serving-and-uploading-files).
 
-Presigned URLs are temporary URLs that grant access to individual objects in your bucket for a specific time. You can create them using your S3 client library of choice and they can expire up to 90 days in the future. They're used to share individual files to the public without making your entire bucket public.
-
-If you want to make your entire bucket publicly accessible, you'll need to create a proxy service or serve them through your backend.
+Global public access to your entire bucket is currently not supported.
 
 <Banner variant="info">
 If public buckets is something you're interested in, leave your feedback in [Central Station](https://station.railway.com/feedback/public-railway-storage-buckets-1e3bdac8) and tell us your use-case. We're excited to hear what you'd like to build!
@@ -75,6 +73,142 @@ Railway provides the following variables which can be used as [Variable Referenc
 | `RAILWAY_ENVIRONMENT_ID`   | The environment id of the bucket instance.                                                       |
 | `RAILWAY_BUCKET_NAME`      | The bucket name.This is not the bucket name to use for the S3 API. Use `BUCKET` instead.         |
 | `RAILWAY_BUCKET_ID`        | The bucket id.                                                                                   |
+
+## Serving and Uploading Files
+
+Buckets let you deliver and accept files without managing storage yourself. You can serve files directly from object storage, proxy them through your backend, or upload them from clients or services depending on what your application needs.
+
+Bucket egress is free, but service egress is not free. Service egress occurs when you send data from a service to users, but also upload from a service to the bucket. This section includes more information about how you can prevent unnecessary egress.
+
+### Presigned URLs
+
+Presigned URLs are temporary URLs that grant access to individual objects in your bucket for a specific time. They can be created with any S3 client library and can live for up to 90 days. They're ideal for exposing individual files in a private bucket.
+
+Files served through presigned URLs come directly from the bucket and incur no egress costs.
+
+### Serve Files with Presigned URLs
+
+You can deliver files directly from your bucket by redirecting users to a presigned URL. This avoids egress costs from your service, because the service isn't serving the file itself.
+
+```ts
+import { s3 } from 'bun'
+
+async function handleFileRequest(fileKey: string) {
+  const isAuthorized = isUserAuthorized(currentUser, fileKey)
+  if (!isAuthorized) throw unauthorized()
+
+  const presignedUrl = s3.presign(fileKey, {
+    expiresIn: 3600 // 1 hour
+  })
+  return Response.redirect(presignedUrl, 302)
+}
+```
+
+Use-cases:
+- Returning user-uploaded assets like profile photos
+- Handing out temporary links for downloads
+- Serving large files without passing them through your service
+- Enforcing authorization before serving a file
+- Redirecting static URLs to presigned URLs
+
+### Serve Files with a Backend Proxy
+
+You can fetch the object from the bucket in your backend and send it to the client. This gives you full control over the response format, headers, and transformations. It does incur service egress, but it also enables CDN caching on your backend routes, which can dramatically reduce repeated fetches from your service. Some web frameworks have built-in support to proxy files through the backend, for example for built-in image optimization.
+
+Example use-cases:
+- Transforming or optimizing images (resizing, cropping, compressing)
+- Sanitizing files or validating metadata before returning them
+- Taking advantage of CDN caching for frequently accessed files
+- Web frameworks that already use a proxy for image optimization
+
+### Upload Files with Presigned URLs
+
+You can generate a presigned URL that lets the client upload a file directly to the bucket, without handling the upload in your service. Doing so prevents service egress and reduces memory consumption.
+
+```ts
+// server-side
+import { S3Client } from '@aws-sdk/client-s3'
+import { createPresignedPost } from '@aws-sdk/s3-presigned-post'
+
+async function prepareImageUpload(fileName: string) {
+  const isAuthorized = isUserAuthorized(currentUser, fileKey)
+  if (!isAuthorized) throw unauthorized()
+
+  // The key under which the uploaded file will be stored.
+  // Make sure that it's unique and users cannot override
+  // each others files.
+  const Key = `user-uploads/${currentUser.id}/${fileName}`
+
+  const { url, fields } = await createPresignedPost(new S3Client(), {
+    Bucket: process.env.S3_BUCKET,
+    Key,
+    Expires: 3600,
+    Conditions: [
+      { bucket: process.env.S3_BUCKET },
+      ['eq', '$key', Key],
+
+      // restrict which content types can be uploaded
+      ['starts-with', '$Content-Type', 'image/'],
+
+      // restrict content length, to prevent users
+      // from uploading suspiciously large files.
+      // max 2 MB in this example.
+      ['content-length-range', 5_000, 2_000_000],
+    ],
+  })
+
+  return Response.json({ url, fields })
+}
+
+// client-side
+async function uploadFile(file) {
+  const res = await fetch('/prepare-image-upload', {
+    method: 'POST',
+    body: JSON.stringify({ fileName: file.name })
+  })
+  const { url, fields } = await res.json()
+
+  const form = new FormData()
+  Object.entries(fields).forEach(([key, value]) => {
+    form.append(key, value)
+  })
+  form.append('Content-Type', file.type)
+  form.append('file', file)
+
+  await fetch(url, {
+    method: 'POST',
+    body: form
+  })
+}
+```
+
+Similar to handling uploads through your service, be mindful that users may try to upload HTML, JavaScript, or other executable files. Treat all uploads as untrusted. Consider validating or scanning the file after the upload completes, and remove anything that shouldn't be served.
+
+Use-cases:
+- Uploading files from the browser
+- Mobile apps uploading content directly
+- Large file uploads where you want to avoid streaming through your service
+
+### Upload Files from a Service
+
+A service can upload directly to the bucket using the S3 API. This will incur service egress.
+
+```ts
+import { s3 } from 'bun'
+
+async function generateReport() {
+  const report = await createPdfReport()
+
+  await s3.putObject("reports/monthly.pdf", report, {
+    contentType: "application/pdf"
+  })
+}
+```
+
+Example use-case:
+- Background jobs generating files such as PDFs, exports, or thumbnails
+- Writing logs or analytics dumps to storage
+- Importing data from a third-party API and persisting it in the bucket
 
 ## Buckets in Environments
 
