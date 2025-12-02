@@ -78,7 +78,7 @@ Railway provides the following variables which can be used as [Variable Referenc
 
 Even though buckets are private, you can still serve files directly from the bucket, proxy them through your backend, and upload files directly from clients or from your services depending on what your application needs.
 
-Bucket egress is free, but service egress is not free. Service egress occurs when you send data from a service to users, but also upload from a service to the bucket. This section includes more information about how you can prevent unnecessary egress.
+Bucket egress is free, but service egress is not free. Service egress occurs when you send data from a service to users, but also when you upload from a service to the bucket. This section includes ways to prevent unnecessary service egress.
 
 ### Presigned URLs
 
@@ -88,7 +88,7 @@ Files served through presigned URLs come directly from the bucket and incur no e
 
 ### Serve Files with Presigned URLs
 
-You can deliver files directly from your bucket by redirecting users to a presigned URL. This avoids egress costs from your service, because the service isn't serving the file itself.
+You can deliver files directly from your bucket by redirecting users to a presigned URL. This avoids most egress costs from your service, because the service is only serving the redirect, not the file itself.
 
 ```ts
 import { s3 } from 'bun'
@@ -115,7 +115,7 @@ Use-cases:
 
 You can fetch the object from the bucket in your backend and send it to the client. This gives you full control over the response format, headers, and transformations. It does incur service egress, but it also enables CDN caching on your backend routes, which can dramatically reduce repeated fetches from your service. Some web frameworks have built-in support to proxy files through the backend, for example for built-in image optimization.
 
-Example use-cases:
+Use-cases:
 - Transforming or optimizing images (resizing, cropping, compressing)
 - Sanitizing files or validating metadata before returning them
 - Taking advantage of CDN caching for frequently accessed files
@@ -136,7 +136,7 @@ async function prepareImageUpload(fileName: string) {
 
   // The key under which the uploaded file will be stored.
   // Make sure that it's unique and users cannot override
-  // each others files.
+  // each other's files.
   const Key = `user-uploads/${currentUser.id}/${fileName}`
 
   const { url, fields } = await createPresignedPost(new S3Client(), {
@@ -205,7 +205,7 @@ async function generateReport() {
 }
 ```
 
-Example use-case:
+Use-cases:
 - Background jobs generating files such as PDFs, exports, or thumbnails
 - Writing logs or analytics dumps to storage
 - Importing data from a third-party API and persisting it in the bucket
