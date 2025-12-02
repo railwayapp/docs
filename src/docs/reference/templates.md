@@ -28,6 +28,7 @@ To be eligible for template kickbacks, your template must meet the following req
 
 - Templates receive a **15%** kickback of the usage costs incurred by users deploying your template.
 - Support Bonus: Additional 10% (25% total) when actively supporting users via your [Template Queue](https://station.railway.com/my-template-queue)
+- Open source templates receive 2x the rate (30% base, 50% with support)
 
 **Calculation:** Kickbacks are calculated based on the proportional resource usage cost of your template services. For example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for up to a $100 kickback (50% of $200 for an open source template with active support).
 
