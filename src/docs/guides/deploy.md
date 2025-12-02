@@ -31,6 +31,8 @@ If you need help with a template you have deployed, you can ask the template cre
 
 Template creators are notified when questions are posted and are incentivized to provide helpful responses through Railway's kickback program.
 
+<Image src="https://res.cloudinary.com/railway/image/upload/v1764639364/Ask_the_Template_Creator_wwzlca.png" alt = "Ask the Template Creator" width={1538} height={1618} quality={100} />
+
 ## Eject from Template Repository
 
 <Banner variant="info">
