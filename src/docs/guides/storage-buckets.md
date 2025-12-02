@@ -76,7 +76,7 @@ Railway provides the following variables which can be used as [Variable Referenc
 
 ## Serving and Uploading Files
 
-Buckets let you deliver and accept files without managing storage yourself. You can serve files directly from object storage, proxy them through your backend, or upload them from clients or services depending on what your application needs.
+Even though buckets are private, you can still serve files directly from the bucket, proxy them through your backend, and upload files directly from clients or from your services depending on what your application needs.
 
 Bucket egress is free, but service egress is not free. Service egress occurs when you send data from a service to users, but also upload from a service to the bucket. This section includes more information about how you can prevent unnecessary egress.
 
@@ -105,7 +105,7 @@ async function handleFileRequest(fileKey: string) {
 ```
 
 Use-cases:
-- Returning user-uploaded assets like profile photos
+- Delivering user-uploaded assets like profile photos
 - Handing out temporary links for downloads
 - Serving large files without passing them through your service
 - Enforcing authorization before serving a file
