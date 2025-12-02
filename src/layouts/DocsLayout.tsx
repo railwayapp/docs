@@ -83,6 +83,11 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
   const handleCopyMarkdown = async () => {
     setLoading(true);
     try {
+      // Only allow fetch if prefixedSlug matches a valid page slug
+      const validSlugs = flattenSidebarContent(sidebarContent).map(p => p.slug);
+      if (!validSlugs.includes(prefixedSlug)) {
+        throw new Error("Invalid page slug: SSRF protection");
+      }
       const response = await fetch(gitHubRawLink);
       const markdown = await response.text();
       copyText(markdown);
@@ -124,7 +129,11 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
               >
                 <Icon icon={copied ? CheckCircle : Copy} size="sm" />
                 <span>
-                  {loading ? "Copying..." : copied ? "Copied!" : "Copy as Markdown"}
+                  {loading
+                    ? "Copying..."
+                    : copied
+                    ? "Copied!"
+                    : "Copy as Markdown"}
                 </span>
               </button>
             </div>
