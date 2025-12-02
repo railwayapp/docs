@@ -11,17 +11,16 @@ To create a bucket in your project, click the Create button on your canvas, sele
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419444/CreateABucket_naa0ss.mp4" controls autoPlay loop muted playsInline />
 
-Unlike traditional S3, you can choose any display name you want for your bucket. It doesn't need to be globally unique. To identify it in the S3 API, a unique S3 Bucket Name will be generated from the display name the bucket was given at creation, plus a short hash on the end to ensure uniqueness between workspaces.
+Unlike traditional S3, you can choose a custom display name for your bucket. The actual S3 bucket name is that display name plus a short hash, ensuring it stays unique across workspaces.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763520962/SettingName_eyhi4k.mp4" controls autoPlay loop muted playsInline />
 
-When connecting to your bucket with an S3 client, you'll need to use this unique S3 name. You can find it in the bucket Credentials tab under Bucket Name. Even if you rename your bucket's display name later, this unique identifier stays the same.
 
 ## Connecting to Your Bucket
 
-Railway Buckets are private by default, meaning you can only edit and upload your files by authenticating with the S3 API using the bucket's credentials. To make files accessible publicly, you can use [presigned URLs](#presigned-urls), or proxy files through a backend service. Read more about [Serving and Uploading Files](#serving-and-uploading-files).
+Railway Buckets are private, meaning you can only edit and upload your files by authenticating with the bucket's credentials. To make files accessible publicly, you can use [presigned URLs](#presigned-urls), or proxy files through a backend service. Read more in [Serving and Uploading Files](#serving-and-uploading-files).
 
-Global public access to your entire bucket is currently not supported.
+Public buckets are currently not supported.
 
 <Banner variant="info">
 If public buckets is something you're interested in, leave your feedback in [Central Station](https://station.railway.com/feedback/public-railway-storage-buckets-1e3bdac8) and tell us your use-case. We're excited to hear what you'd like to build!
@@ -29,21 +28,24 @@ If public buckets is something you're interested in, leave your feedback in [Cen
 
 Once your bucket is deployed, you'll find S3-compatible authentication credentials in the Credentials tab of the bucket. These include the necessary details for you to connect to your bucket using your S3 client library.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1764373635/docs/bucket_credentials_pcvjup.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1764706763/PathStyle_lgev9e.png"
 alt="Screenshot of bucket credentials"
 layout="responsive"
 width={2554} height={1970} quality={80} />
 
-Railway Buckets use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#virtual-hosted–style-access">virtual-hosted–style URLs</a>, which add your bucket name as a subdomain in the S3 endpoint. This is the modern S3 standard and is what most libraries either expect or support. Most S3 client libraries will only need the base endpoint (`https://storage.railway.app`) and call the virtual-hosted–style URL underneath.
+### URL Style
 
-Buckets that were created before this change (like those who used them during Priority Boarding) might require you to use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#path-style-access">path-style URLs</a> instead. The Credentials tab of your bucket will tell you which style you should use.
+
+Railway Buckets use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#virtual-hosted–style-access">virtual-hosted–style URLs</a>, where the bucket name appears as the subdomain of the S3 endpoint. This is the standard S3 URL format, and most libraries support it out of the box. In most cases you only need to provide the base endpoint (`https://storage.railway.app`) and the client builds the full virtual-hosted URL automatically.
+
+Buckets that were created before this change might require you to use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#path-style-access">path-style URLs</a> instead. The Credentials tab of your bucket will tell you which style you should use.
 
 ### Variable References
 
 Storage Buckets can provide the S3 authentication credentials to your other services by using [Variable References](https://docs.railway.com/guides/variables#referencing-a-shared-variable). You can do this in two ways:
 
 <Collapse slug="storage-buckets-manual-credentials-variables" title="Manually configuring your service's variables">
-You can use regular Shared Variables by creating a new variable in your service and referencing each authentication credential from your bucket service:
+You can use regular Shared Variables by adding one to your service and pointing it at the values provided by your bucket.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419449/VariableReferenceManual_ld79zb.mp4" controls autoplay loop muted playsinline />
 </Collapse>
@@ -76,19 +78,19 @@ Railway provides the following variables which can be used as [Variable Referenc
 
 ## Serving and Uploading Files
 
-Even though buckets are private, you can still serve files directly from the bucket, proxy them through your backend, and upload files directly from clients or from your services depending on what your application needs.
+Buckets are private, but you can still work with their files in a few ways. You can serve files straight from the bucket, proxy them through your backend, or upload files directly from clients or services.
 
-Bucket egress is free, but service egress is not free. Service egress occurs when you send data from a service to users, but also when you upload from a service to the bucket. This section includes ways to prevent unnecessary service egress.
+Bucket egress is free. Service egress is not. If your service sends data to users or uploads files to a bucket, that traffic counts as service egress. The sections below explain these patterns and how to avoid unnecessary egress.
 
 ### Presigned URLs
 
-Presigned URLs are temporary URLs that grant access to individual objects in your bucket for a specific time. They can be created with any S3 client library and can live for up to 90 days. They're ideal for exposing individual files in a private bucket.
+Presigned URLs are temporary URLs that grant access to individual objects in your bucket for a specific amount of time. They can be created with any S3 client library and can live for up to 90 days.
 
 Files served through presigned URLs come directly from the bucket and incur no egress costs.
 
 ### Serve Files with Presigned URLs
 
-You can deliver files directly from your bucket by redirecting users to a presigned URL. This avoids most egress costs from your service, because the service is only serving the redirect, not the file itself.
+You can deliver files directly from your bucket by redirecting users to a presigned URL. This avoids egress costs from your service, as the service isn't serving the file itself.
 
 ```ts
 import { s3 } from 'bun'
@@ -105,7 +107,7 @@ async function handleFileRequest(fileKey: string) {
 ```
 
 Use-cases:
-- Delivering user-uploaded assets like profile photos
+- Delivering user-uploaded assets like profile pictures
 - Handing out temporary links for downloads
 - Serving large files without passing them through your service
 - Enforcing authorization before serving a file
@@ -113,7 +115,7 @@ Use-cases:
 
 ### Serve Files with a Backend Proxy
 
-You can fetch the object from the bucket in your backend and send it to the client. This gives you full control over the response format, headers, and transformations. It does incur service egress, but it also enables CDN caching on your backend routes, which can dramatically reduce repeated fetches from your service. Some web frameworks have built-in support to proxy files through the backend, for example for built-in image optimization.
+You can fetch a file in your backend and return it to the client. This gives you full control over headers, formatting, and any transformations. It does incur **service** egress, but it also lets you use CDN caching on your backend routes. Many frameworks support this pattern natively, especially for image optimization.
 
 Use-cases:
 - Transforming or optimizing images (resizing, cropping, compressing)
@@ -228,8 +230,8 @@ Even though *buckets* don't charge for ingress or egress, buckets still live on 
 
 ### Billing Examples
 
-- If you stored **10 GBs for 30 days**, you'd get charged for for 10 GB-month.
-- If you stored **10 GBs for 15 days** then emptied your bucket and stored **0 GBs for another 15 days**, those totals will be averaged out and you will be charged for **5 GB-month**.
+- If you stored **10 GBs for 30 days**, you'd get charged for for **10 GB**-month.
+- If you stored **10 GBs for 15 days** and **0 GB** for the next 15, your usage averages to **5 GB**-month.
 
 ### Free Plan
 
@@ -253,7 +255,7 @@ The Pro Plan has **unlimited** storage capacity.
 
 ### Usage Limit
 
-If you exceed your [Hard Usage Limit](/reference/usage-limits#hard-limit), bucket access is suspended and files cannot be read or uploaded anymore. Think of this to prevent that even more data will be uploaded. Existing stored data is still billed. You can access your files again once you raise or remove the Hard Limit, or when the next billing period starts.
+If you exceed your [Hard Usage Limit](/reference/usage-limits#hard-limit), bucket access is suspended and files cannot be read or uploaded anymore. Existing stored data is still billed. You can access your files again once you raise or remove the Hard Limit, or when the next billing period starts.
 
 ## S3 Compatibility
 
