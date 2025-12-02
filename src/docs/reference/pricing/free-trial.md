@@ -11,10 +11,10 @@ After 30 days passes or $5 is spent, the free trial reverts to the [Free](/refer
 
 Your trial experience depends on whether Railway can verify your account.
 
-| Trial Type        | Deploy Code | Deploy Databases |
-| ----------------- | ----------- | ---------------- |
-| **Full Trial**    | ✅          | ✅               |
-| **Limited Trial** | ❌          | ✅               |
+| Trial Type        | Deploy Code | Deploy Databases | Deploy Buckets |
+| ----------------- | ----------- | ---------------- | -------------- |
+| **Full Trial**    | ✅          | ✅               | ✅             |
+| **Limited Trial** | ❌          | ✅               | ❌             |
 
 When you sign up for a free Trial, you can connect your GitHub account to initiate verification. Your verification status depends on a number of factors, including the age and activity of your GitHub account.
 
