@@ -105,7 +105,7 @@ async function handleFileRequest(fileKey: string) {
 ```
 
 Use-cases:
-- Returning user-uploaded assets like profile photos
+- Delivering user-uploaded assets like profile photos
 - Handing out temporary links for downloads
 - Serving large files without passing them through your service
 - Enforcing authorization before serving a file
