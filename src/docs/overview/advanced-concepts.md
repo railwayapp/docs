@@ -11,9 +11,7 @@ Railway applies many defaults to your build and deploy configurations that work 
 
 ### Build Options
 
-Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to build and deploy your code with zero configuration. When your needs require adjustments to the defaults, we make it easy to configure things like install, build, and start commands.
-
-Under the hood, Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to package your code into a container image that we then deploy to our infrastructure, with zero configuration for most workloads. For advanced projects, you might need to configure some of these defaults. You can do this by going to your Service > Settings > Build, and underneath that, Deploy. Here are two things you might want to configure:
+Under the hood, Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to package your code into a container image that we then deploy to our infrastructure, with zero configuration for most workloads. For advanced projects, you might need to configure some of these defaults. You can do this by going to your Service > Settings > Build, and underneath that, Deploy. Here are three things you might want to configure:
 
 - **Custom Build Command**: This is the command that will be ran to build your final application. Railpack will find the best command for this, usually `npm run build` for JS-based projects, `cargo build --release` for Rust projects, and more. If your application needs to trigger something else to build your project, customize that command here.
 - [**Pre-Deploy Command**](https://docs.railway.com/guides/pre-deploy-command): These are one or more commands that will be ran before running the main start command. A common use for this is database migrations. If your application needs to run a command before starting your main application, put that in a Pre-Deploy Command.
@@ -25,9 +23,9 @@ Some default options are applied when your application is deployed on Railway. T
 
 - [**Replicas**](https://docs.railway.com/reference/scaling#horizontal-scaling-with-replicas): By default, your deployment will go out with a single instance in your preferred region. With replicas, you can deploy multiple instances of your application in one or more regions. The Railway network will load balance incoming requests between the available replicas and serve the ones closest to your users.
 - **Deployment Region**: If you haven't configured any Replicas, your services will be deployed to the [preferred region](https://railway.com/workspace) configured in your workspace. To change an individual service's region, go to Settings > Deploy > Regions.
-- **Scheduled Executions**: If your deployment isn't a long-running service, like most web or backend services, your deployment will be run once then exit. If the service is intended to be a repeated task, you can create a cron schedule under Settings > Deploy that will re-run your deployment according to the schedule.
+- **Scheduled Executions**: If your deployment isn't a long-running service, like most web or backend services are, your deployment will be run once then exit. If the service is intended to be a repeated task, you can create a cron schedule under Settings > Deploy that will re-run your deployment according to the schedule.
 - [**Serverless Deployments**](https://docs.railway.com/reference/app-sleeping): By default, services are long-running and will continue to run unless they error. You can configure your services to pause if no traffic is going to them, and start it back up once a request comes in. Sleeping services don't incur resource usage. While your service is starting back up, the requests will be queued and delivered to the service once its fully up and running.
-- [**Healthchecks**](https://docs.railway.com/reference/healthchecks): By default, if your service hasn't exited with a non-zero exit code, it's considered "healthy". You can configure an endpoint path under Deploy > Healthcheck Path that Railway will fetch once it deploys your service to ensure that your service actually started up before it removes the previous deployment.
+- [**Healthchecks**](https://docs.railway.com/reference/healthchecks): By default, as soon as your deployment is launched, it's considered "healthy". You can configure an endpoint path under Deploy > Healthcheck Path that Railway will fetch once it deploys your service to ensure that your service actually started up before it removes the previous deployment.
 
 ## Networking
 
