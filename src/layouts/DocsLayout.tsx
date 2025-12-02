@@ -71,24 +71,15 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     [prefixedSlug],
   );
 
-  const gitHubRawLink = useMemo(
-    () =>
-      `https://raw.githubusercontent.com/railwayapp/docs/main/src/docs${prefixedSlug}.md`,
-    [prefixedSlug],
-  );
-
   const [copied, copyText] = useCopy();
   const [loading, setLoading] = useState(false);
 
   const handleCopyMarkdown = async () => {
     setLoading(true);
     try {
-      // Only allow fetch if prefixedSlug matches a valid page slug
-      const validSlugs = flattenSidebarContent(sidebarContent).map(p => p.slug);
-      if (!validSlugs.includes(prefixedSlug)) {
-        throw new Error("Invalid page slug: SSRF protection");
-      }
-      const response = await fetch(gitHubRawLink);
+      const response = await fetch(
+        `https://raw.githubusercontent.com/railwayapp/docs/main/src/docs${prefixedSlug}.md`,
+      );
       const markdown = await response.text();
       copyText(markdown);
     } finally {
