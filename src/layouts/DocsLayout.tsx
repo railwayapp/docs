@@ -1,7 +1,10 @@
 import { useRouter } from "next/router";
-import React, { PropsWithChildren, useMemo } from "react";
+import React, { PropsWithChildren, useMemo, useState } from "react";
+import { CheckCircle, Copy } from "react-feather";
 import "twin.macro";
+import { Icon } from "../components/Icon";
 import { Link } from "../components/Link";
+import { useCopy } from "../hooks/useCopy";
 import { PageNav } from "../components/PageNav";
 import { SEO } from "../components/SEO";
 import { sidebarContent } from "../data/sidebar";
@@ -68,6 +71,26 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     [prefixedSlug],
   );
 
+  const gitHubRawLink = useMemo(
+    () =>
+      `https://raw.githubusercontent.com/railwayapp/docs/main/src/docs${prefixedSlug}.md`,
+    [prefixedSlug],
+  );
+
+  const [copied, copyText] = useCopy();
+  const [loading, setLoading] = useState(false);
+
+  const handleCopyMarkdown = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(gitHubRawLink);
+      const markdown = await response.text();
+      copyText(markdown);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const { prevPage, nextPage } = useMemo(() => {
     const flatPages = flattenSidebarContent(sidebarContent);
     const pageIndex = flatPages.findIndex(p => p.slug === prefixedSlug);
@@ -92,6 +115,19 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
         <div tw="flex-auto prose dark:prose-invert">
           <div className="docs-content">
             <h1>{frontMatter.title}</h1>
+            <div tw="flex items-center gap-3 -mt-4 mb-6 text-sm text-gray-500">
+              <button
+                tw="flex items-center gap-1.5 hover:text-pink-500 transition-colors"
+                onClick={handleCopyMarkdown}
+                disabled={loading}
+                type="button"
+              >
+                <Icon icon={copied ? CheckCircle : Copy} size="sm" />
+                <span>
+                  {loading ? "Copying..." : copied ? "Copied!" : "Copy as Markdown"}
+                </span>
+              </button>
+            </div>
             {children}
           </div>
 
