@@ -66,7 +66,7 @@ Here are some example templates from the <a href="https://railway.com/templates"
 
 ## Kickback Program
 
-If your published template is deployed into other users' projects, you are immediately eligible for a 50% kickback, in the form of Railway credits or cash. Refer to the [template reference page](/reference/templates#kickback-program) for more information.
+If your published template is deployed into other users' projects, you are eligible for kickbacks based on your support engagement. Learn more about the [kickback program](/reference/templates#kickback-program).
 
 ## Template Verification
 

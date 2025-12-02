@@ -24,9 +24,25 @@ To be eligible for template kickbacks, your template must meet the following req
 
 ### How Kickback Earnings Calculation Works
 
-- **Kickback Rate**: Templates receive a **50%** kickback of the usage costs incurred by users deploying your template.
-- **Calculation**: Kickbacks are calculated based on the proportional resource usage cost of your template services. For example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for a $100 kickback (50% of $200).
-- **Minimum Payout**: The minimum kickback payout is **$0.01**. Any kickback amount below this threshold will not be processed.
+**Kickback Rates:**
+
+- Templates receive a **15%** kickback of the usage costs incurred by users deploying your template.
+- Support Bonus: Additional 10% (25% total) when actively supporting users via your [Template Queue](https://station.railway.com/my-template-queue)
+- Open source templates receive 2x the rate (30% base, 50% with support)
+
+**Calculation:** Kickbacks are calculated based on the proportional resource usage cost of your template services. For example, if a user pays $20 in platform fees, then incurs $200 of usage from your template, you are eligible for up to a $100 kickback (50% of $200 for an open source template with active support).
+
+**Minimum Payout:** The minimum kickback payout is $0.01. Any kickback amount below this threshold will not be processed.
+
+### Supporting Your Template Users
+
+When users have questions about your template, they'll appear in your [Template Queue](https://station.railway.com/my-template-queue) in Central Station. You'll get an email when new questions come in, plus occasional reminders if questions are waiting. 
+
+Answering these questions earns you the additional 10% support bonus and helps users deploy your template successfully.
+
+Manage notification preferences in your [account settings](https://railway.com/account/notifications) under "Template Queue Emails".
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1764639904/Template_Queue_Email_Notifications_qbfqg9.png" alt="Template Queue Emails" width={1800} height={1284} quality={100} />
 
 ### Verified Template Partners
 

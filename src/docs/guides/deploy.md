@@ -21,6 +21,18 @@ To deploy a template -
 
 _Note: You can also deploy templates into existing projects, by clicking `+ New` from your project canvas and selecting `Template`._
 
+## Getting Help with a Template
+
+If you need help with a template you have deployed, you can ask the template creator directly:
+
+1. Find the template page in our [marketplace](https://railway.com/templates)
+2. Click **"Discuss this Template"** on the template details page
+3. Your question will be posted to the template's queue where the creator can help
+
+Template creators are notified when questions are posted and are incentivized to provide helpful responses through Railway's kickback program.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1764639364/Ask_the_Template_Creator_wwzlca.png" alt = "Ask the Template Creator" width={1538} height={1618} quality={100} />
+
 ## Eject from Template Repository
 
 <Banner variant="info">
@@ -47,3 +59,4 @@ If you are happy with the changes, you can merge the pull request, and we will a
 If you're curious, you can read more about how we built updatable templates in this <a href="https://blog.railway.com/p/updatable-starters" target="_blank">blog post</a>
 
 _Note: This feature only works for services based on GitHub repositories. At this time, we do not have a mechanism to check for updates to Docker images from which services may be sourced._
+

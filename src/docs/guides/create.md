@@ -7,7 +7,7 @@ Creating a template allows you to capture your infrastructure in a reusable and 
 
 By defining services, environment configuration, network settings, etc., you lay the foundation for others to deploy the same software stack with the click of a button.
 
-If you [publish your template](/guides/publish-and-share) to the <a href="https://railway.com/templates" target="_blank">marketplace</a>, you can even <a href="https://railway.com/open-source-kickback" target="_blank">collect a kickback</a> from the usage of it!
+If you [publish your template](/guides/publish-and-share) to the <a href="https://railway.com/templates" target="_blank">marketplace</a>, you can earn kickbacks from usage, up to 50% for open source templates with active community support. Learn more about the [kickback program](/reference/templates#kickback-program).
 
 ## How to Create a Template
 
