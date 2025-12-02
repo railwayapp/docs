@@ -5,19 +5,19 @@ description: Persist assets in object storage.
 
 Railway Buckets are private, S3-compatible object storage buckets for your projects. They give you durable object storage on Railway without needing to wire up an external provider. Use them for file uploads, user-generated content, static assets, backups, or any data that needs reliable object storage.
 
-## Getting started
+## Getting Started
 
 To create a bucket in your project, click the Create button on your canvas, select Bucket, and select its region and optionally change its name. You aren't able to change your region after you create your bucket.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419444/CreateABucket_naa0ss.mp4" controls autoPlay loop muted playsInline />
 
-Unlike traditional S3, you can choose any display name you want for your bucket. It doesn't need to be globally unique. To identify it in the S3 API, its S3 or Bucket Name will be created from the display name the bucket was given at creation, plus a short hash on the end to ensure uniqueness between workspaces.
+Unlike traditional S3, you can choose any display name you want for your bucket. It doesn't need to be globally unique. To identify it in the S3 API, a unique S3 Bucket Name will be generated from the display name the bucket was given at creation, plus a short hash on the end to ensure uniqueness between workspaces.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1763520962/SettingName_eyhi4k.mp4" controls autoPlay loop muted playsInline />
 
 When connecting to your bucket with an S3 client, you'll need to use this unique S3 name. You can find it in the bucket Credentials tab under Bucket Name. Even if you rename your bucket's display name later, this unique identifier stays the same.
 
-## Connecting to your bucket
+## Connecting to Your Bucket
 
 Railway Buckets are private by default, meaning you can only edit and upload your files by authenticating with the S3 API using the bucket's credentials. Presigned URLs are the only native way for bucket objects to be accessed or uploaded to publicly, and global public access to your entire bucket is not supported. If you want to make files accessible publicly outside of presigned URLs, you'll have to proxy them through your backend services.
 
@@ -58,21 +58,68 @@ Doing this sets the names for the credentials based on what each library expects
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419460/AutoInjectVariables_xborrx.mp4" controls autoplay loop muted playsinline />
 </Collapse>
 
+### Railway-Provided Variables
+
+Railway provides the following variables which can be used as [Variable References](https://docs.railway.com/guides/variables#referencing-a-shared-variable).
+
+| Name                       | Description                                                                                      |
+| -------------------------- | ------------------------------------------------------------------------------------------------ |
+| `BUCKET`                   | The globally unique bucket name for the S3 API. Example: `my-bucket-jdhhd8oe18xi`                |
+| `SECRET_ACCESS_KEY`        | The secret key for the S3 API.                                                                   |
+| `ACCESS_KEY_ID`            | The key id for the S3 API.                                                                       |
+| `REGION`                   | The region for the S3 API. Example: `auto`                                                       |
+| `ENDPOINT`                 | The S3 API endpoint. Example: `https://storage.railway.app`                                      |
+| `RAILWAY_PROJECT_NAME`     | The project name the bucket belongs to.                                                          |
+| `RAILWAY_PROJECT_ID`       | The project id the bucket belongs to.                                                            |
+| `RAILWAY_ENVIRONMENT_NAME` | The environment name of the bucket instance.                                                     |
+| `RAILWAY_ENVIRONMENT_ID`   | The environment id of the bucket instance.                                                       |
+| `RAILWAY_BUCKET_NAME`      | The bucket name.This is not the bucket name to use for the S3 API. Use `BUCKET` instead.         |
+| `RAILWAY_BUCKET_ID`        | The bucket id.                                                                                   |
+
 ## Buckets in Environments
 
 Each environment gets its own separate bucket instance with isolated credentials. When you [duplicate an environment](/guides/environments#create-an-environment) or use [PR environments](/guides/environments#enable-pr-environments), you won't need to worry about accidentally deleting production objects, exposing sensitive data in pull requests, or polluting your production environment with test data.
 
-## How buckets are billed
+## How Buckets are Billed
 
-Buckets are billed at **$0.015** per GB-month (30 days), based on the total amount of data stored across all bucket instances in your workspace, including Environments. All S3 API operations are unlimited and free. Egress is also unlimited and free, whether that's using presigned URLs or via the S3 API.
+Buckets are billed at **$0.015** per GB-month (30 days), based on the total amount of data stored across all bucket instances in your workspace, including Environments. All S3 API operations are unlimited and free. Egress is also unlimited and free, whether that's using presigned URLs or via the S3 API. Note that service egress is not free, as explained in [Bucket Egress vs. Service Egress](#bucket-egress-vs-service-egress)
 
-<Banner variant="info">Even though *buckets* don't charge for ingress or egress, buckets still live on the public network. When you upload files from your Railway services to your buckets, those *services* will incur egress usages, since you're uploading over the public network. Buckets are currently not available on the private network.</Banner>
+Usage (GB-month) is calculated by averaging the day-to-day usages and rounding the final accumulation to the next whole number if it totaled a fractional amount (5.1 GB-month gets billed as 6 GB-month).
 
-Usage (GB-months) is calculated by averaging the day-to-day usages and rounding the final accumulation to the next whole number if it totaled a fractional amount (5.1 GB-month gets billed as 6 GB-month).
+Buckets are currently only available in the Standard storage tier – there's no minimum storage retention and no data retrieval fees.
 
-For example, if you stored **10 GBs for 30 days**, you'd get charged for for 10 GB-month. If you stored **10 GBs for 15 days** then emptied your bucket and stored **0 GBs for another 15 days**, those totals will be averaged out and you will be charged for **5 GB-month**.
+### Bucket Egress vs. Service Egress
 
-Buckets are currently only available in the Standard storage tier - there's no minimum storage retention and no data retrieval fees.
+Even though *buckets* don't charge for ingress or egress, buckets still live on the public network. When you upload files from your Railway services to your buckets, those *services* will incur egress usages, since you're uploading over the public network. Buckets are currently not available on the private network.
+
+### Billing Examples
+
+- If you stored **10 GBs for 30 days**, you'd get charged for for 10 GB-month.
+- If you stored **10 GBs for 15 days** then emptied your bucket and stored **0 GBs for another 15 days**, those totals will be averaged out and you will be charged for **5 GB-month**.
+
+### Free Plan
+
+You can use up to **10 GB-month** each month on the free plan. Bucket usage counts against your $1 monthly credit. Once the credit is fully used, bucket access is suspended and files become unavailable, but your files will not be deleted. You can access your files again at the next billing cycle when credits refresh, or immediately if you upgrade to a paid plan.
+
+### Trial Plan
+
+You can use up to **50 GB-month** during the trial. Bucket usage counts against your trial credits. When the trial ends, bucket access is suspended and files become unavailable. You can access your files again when you switch to the Free Plan or upgrade to a paid plan.
+
+### Limited Trial
+
+Buckets are not available in the [Limited Trial](/reference/pricing/free-trial#full-vs-limited-trial).
+
+### Hobby
+
+The Hobby Plan has a combined maximum storage capacity of **1TB**. Any uploads that would exceed this limit will fail.
+
+### Pro
+
+The Pro Plan has **unlimited** storage capacity.
+
+### Usage Limit
+
+If you exceed your [Hard Usage Limit](/reference/usage-limits#hard-limit), bucket access is suspended and files cannot be read or uploaded anymore. Think of this to prevent that even more data will be uploaded. Existing stored data is still billed. You can access your files again once you raise or remove the Hard Limit, or when the next billing period starts.
 
 ## S3 Compatibility
 
@@ -144,11 +191,11 @@ In traditional S3 pricing, these are categorized as Class A operations (PUT, POS
 
 Egress from buckets to the internet or to your services is free and unlimited.
 
-Note that egress from your services to buckets (uploads) is billed at the standard public egress rate.
+Note that egress from your services to buckets (uploads) is billed at the standard public egress rate. Learn more about [Bucket Egress vs. Service Egress](#bucket-egress-vs-service-egress).
 
 </Collapse>
 
-### Help us improve Storage Buckets
+## Help us improve Storage Buckets
 
 Upvote these feature requests on our feedback page if these features sound useful to you:
 
