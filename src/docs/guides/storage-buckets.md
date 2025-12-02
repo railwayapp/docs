@@ -117,7 +117,7 @@ Use-cases:
 
 You can fetch a file in your backend and return it to the client. This gives you full control over headers, formatting, and any transformations. It does incur **service** egress, but it also lets you use CDN caching on your backend routes. Many frameworks support this pattern natively, especially for image optimization.
 
-Example use-cases:
+Use-cases:
 - Transforming or optimizing images (resizing, cropping, compressing)
 - Sanitizing files or validating metadata before returning them
 - Taking advantage of CDN caching for frequently accessed files
@@ -138,7 +138,7 @@ async function prepareImageUpload(fileName: string) {
 
   // The key under which the uploaded file will be stored.
   // Make sure that it's unique and users cannot override
-  // each others files.
+  // each other's files.
   const Key = `user-uploads/${currentUser.id}/${fileName}`
 
   const { url, fields } = await createPresignedPost(new S3Client(), {
@@ -207,7 +207,7 @@ async function generateReport() {
 }
 ```
 
-Example use-case:
+Use-cases:
 - Background jobs generating files such as PDFs, exports, or thumbnails
 - Writing logs or analytics dumps to storage
 - Importing data from a third-party API and persisting it in the bucket

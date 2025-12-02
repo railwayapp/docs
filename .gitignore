@@ -47,3 +47,4 @@ public/robots.txt
 /.envrc
 /.direnv/
 .turbo
+.claude/
