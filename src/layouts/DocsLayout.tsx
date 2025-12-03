@@ -11,6 +11,11 @@ import { sidebarContent } from "../data/sidebar";
 import { FrontMatter, ISidebarContent, IPage } from "../types";
 import { Props as PageProps } from "./Page";
 import { reconstructMarkdownWithFrontmatter } from "../utils/markdown";
+import {
+  extractHeadersFromMarkdown,
+  buildBreadcrumbs,
+  getLastModifiedDate,
+} from "../utils/seo";
 
 export interface Props extends PageProps {
   frontMatter: FrontMatter;
@@ -97,6 +102,22 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     return { prevPage, nextPage };
   }, [slug]);
 
+  // Extract headers from markdown for SEO
+  const headers = useMemo(() => {
+    if (!rawMarkdown) return [];
+    return extractHeadersFromMarkdown(rawMarkdown);
+  }, [rawMarkdown]);
+
+  // Build breadcrumbs from sidebar structure
+  const breadcrumbs = useMemo(() => {
+    return buildBreadcrumbs(frontMatter.url, sidebarContent);
+  }, [frontMatter.url]);
+
+  // Get last modified date (could be enhanced to get from git)
+  const lastModified = useMemo(() => {
+    return getLastModifiedDate();
+  }, []);
+
   return (
     <>
       <SEO
@@ -105,6 +126,9 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
         description={`${frontMatter.description || fallbackDescription}`}
         url={`${domainUrl}${frontMatter.url}`}
         image={getOGImage(frontMatter.title)}
+        headers={headers}
+        breadcrumbs={breadcrumbs}
+        lastModified={lastModified}
       />
       <div tw="max-w-full flex flex-row min-h-screen">
         <div tw="flex-auto prose dark:prose-invert">
@@ -130,7 +154,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
             className="prev-next-buttons"
           >
             {prevPage != null ? (
-              <Link href={prevPage.slug} tw="hover:text-pink-500">
+              <Link href={prevPage.slug} className="hover:text-pink-500">
                 <div tw="max-w-full">
                   <div tw="text-gray-600 text-sm mb-1">Prev</div>{" "}
                   <div tw="font-medium text-lg">{prevPage.title}</div>
@@ -141,7 +165,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
             )}
 
             {nextPage != null && (
-              <Link href={nextPage.slug} tw="hover:text-pink-500">
+              <Link href={nextPage.slug} className="hover:text-pink-500">
                 <div tw="text-right">
                   <div tw="text-gray-600 text-sm mb-1">Next</div>{" "}
                   <div tw="font-medium text-lg">{nextPage.title}</div>
@@ -151,8 +175,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
           </div>
 
           <Link
-            className="edit-github-link"
-            tw="text-gray-500 text-sm underline hover:text-pink-500"
+            className="edit-github-link text-gray-500 text-sm underline hover:text-pink-500"
             href={gitHubFileLink}
           >
             Edit this file on GitHub
