@@ -32,9 +32,11 @@ const components: Record<string, React.ElementType> = {
 export default function PostPage({
   page,
   colorModeSSR,
+  rawMarkdown,
 }: {
   page: Page;
   colorModeSSR: string | null;
+  rawMarkdown: string;
 }) {
   const MDXContent = useMDXComponent(page.body.code);
 
@@ -56,6 +58,7 @@ export default function PostPage({
         description: page.description,
         url: page.url,
       }}
+      rawMarkdown={rawMarkdown}
     >
       <MDXContent components={componentsWithProps} />
     </Layout>
@@ -81,6 +84,7 @@ export const getServerSideProps = async (
     props: {
       page,
       colorModeSSR: themeCookie ?? null,
+      rawMarkdown: page.body.raw,
     },
   };
 };
