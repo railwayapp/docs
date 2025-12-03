@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { PropsWithChildren, useMemo, useState } from "react";
+import React, { PropsWithChildren, useMemo } from "react";
 import { CheckCircle, Copy } from "react-feather";
 import "twin.macro";
 import { Icon } from "../components/Icon";
@@ -10,9 +10,11 @@ import { SEO } from "../components/SEO";
 import { sidebarContent } from "../data/sidebar";
 import { FrontMatter, ISidebarContent, IPage } from "../types";
 import { Props as PageProps } from "./Page";
+import { reconstructMarkdownWithFrontmatter } from "../utils/markdown";
 
 export interface Props extends PageProps {
   frontMatter: FrontMatter;
+  rawMarkdown?: string;
 }
 
 const getOGImage = (title: string) =>
@@ -54,6 +56,7 @@ export const flattenSidebarContent = (
 
 export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
   frontMatter,
+  rawMarkdown,
   children,
   ...props
 }) => {
@@ -72,18 +75,14 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
   );
 
   const [copied, copyText] = useCopy();
-  const [loading, setLoading] = useState(false);
 
-  const handleCopyMarkdown = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/railwayapp/docs/main/src/docs${prefixedSlug}.md`,
+  const handleCopyMarkdown = () => {
+    if (rawMarkdown) {
+      const fullMarkdown = reconstructMarkdownWithFrontmatter(
+        frontMatter,
+        rawMarkdown,
       );
-      const markdown = await response.text();
-      copyText(markdown);
-    } finally {
-      setLoading(false);
+      copyText(fullMarkdown);
     }
   };
 
@@ -115,17 +114,10 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
               <button
                 tw="flex items-center gap-1.5 hover:text-pink-500 transition-colors"
                 onClick={handleCopyMarkdown}
-                disabled={loading}
                 type="button"
               >
                 <Icon icon={copied ? CheckCircle : Copy} size="sm" />
-                <span>
-                  {loading
-                    ? "Copying..."
-                    : copied
-                    ? "Copied!"
-                    : "Copy as Markdown"}
-                </span>
+                <span>{copied ? "Copied!" : "Copy as Markdown"}</span>
               </button>
             </div>
             {children}
