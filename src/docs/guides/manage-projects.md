@@ -9,20 +9,22 @@ Note: Authenticate your requests with your workspace token by setting the Author
 
 ### Fetch All Your Projects
 
-The query below will fetch all your personal projects along with all the services and environments for them.
+The query below will fetch all projects in a workspace along with their services and environments.
 
 ```graphql
 query Projects {
-  projects {
-    edges {
-      node {
-        id
-        name
-        services {
-          edges {
-            node {
-              id
-              name
+  workspace(workspaceId: "<workspace_id>") {
+    projects {
+      edges {
+        node {
+          id
+          name
+          services {
+            edges {
+              node {
+                id
+                name
+              }
             }
           }
           environments {
@@ -39,6 +41,13 @@ query Projects {
   }
 }
 ```
+
+Replace `<workspace_id>` with your active workspace ID.
+
+You can find your current workspace's ID by:
+
+1. Pressing `Cmd/Ctrl + K` in the Railway dashboard
+2. Searching for and selecting the "Copy Active Workspace ID" option
 
 ### Delete a Project
 
