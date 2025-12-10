@@ -116,6 +116,10 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 - Withdrawals are usually processed instantly. Once processed, the funds will usually take up to 10 business days to reach your account. Depending on your region and bank, this may take longer.
 
+#### What if I there are no questions for my template?
+
+- If there are no questions, you will reveive the full 25% kickback for your template.
+
 ## Pushing Updates to Template Consumers
 
 As a template author, you can push updates to all users who have deployed your template. When you merge changes to the root branch (typically `main` or `master`) of your template's GitHub repository, Railway will automatically detect these changes and notify users who have deployed your template that an update is available.
