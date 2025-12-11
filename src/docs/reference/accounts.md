@@ -82,4 +82,4 @@ Discord users can access the <a href="https://discord.gg/railway" target="_blank
 
 ### Priority Boarding Enrollment
 
-For the most adventurous, we offer a beta program called Priority Boarding. Integration with Discord is required. To learn more, visit [Priority Boarding](/reference/priority-boarding).
+For the most adventurous, we offer a beta program called Priority Boarding. You can join by flipping the "Priority Boarding" switch on the <a href="https://railway.com/account/feature-flags" target="_blank">Feature Flags page</a>. To learn more, visit [Priority Boarding](/reference/priority-boarding).
