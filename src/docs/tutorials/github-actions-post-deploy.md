@@ -37,15 +37,7 @@ jobs:
           echo "Production deployment succeeded"
 ```
 
-If you have your repository deploying to multiple services, you can modify the `if` condition to check for the service you want to run the command for -
-
-```yaml
-if: github.event.deployment.environment == 'production' && github.event.deployment.payload.serviceId == '<service-id>'
-```
-
-You can also see what `github.event` contains and build your own conditions from there.
-
-Information on how to find the Service ID and Environment IDs as needed can be found [here](https://docs.railway.com/guides/public-api#resource-ids).
+Check out the contents of `github.event` to build your own conditions.
 
 It's that simple! You can now customize the final run step to execute any commands or send webhooks using Curl or other methods of your choice.
 
