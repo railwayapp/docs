@@ -46,6 +46,7 @@ There are three roles for Workspace members:
 | Adding trusted domains       |  ✔️   |   ❌   |    ❌    |
 | Making a withdrawal          |  ✔️   |   ❌   |    ❌    |
 | Accessing billing settings   |  ✔️   |   ❌   |    ❌    |
+| Accessing audit logs         |  ✔️   |   ❌   |    ❌    |
 
 _Note:_ Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their GitHub account is connected.
 
