@@ -108,7 +108,7 @@ Use the `auditLogs` query to retrieve audit log entries for a specific workspace
 
 For more information on using the GraphQL API, see the [Public API Guide](/guides/public-api).
 
-## Log Retention
+## Audit Log Retention
 
 Audit logs are retained for different periods depending on your Railway plan:
 
