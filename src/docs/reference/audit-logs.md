@@ -5,6 +5,8 @@ description: Learn more about how Railway keeps a record of actions in workspace
 
 Audit logs provide a record of actions performed within your Railway [workspace](/reference/teams). This includes changes to projects, services, deployments, variables, and workspace settings.
 
+Audit logs can be accessed by workspace admins through the <a href="https://railway.com/workspace/audit-logs" target="_blank">**Audit Logs**</a> link in the workspace settings.
+
 Audit logs help teams with:
 
 - **Security:** Track who made changes to sensitive resources like environment variables, integrations, or workspace settings
@@ -13,14 +15,14 @@ Audit logs help teams with:
 - **Team Coordination:** Understand what changes team members are making across projects
 - **Change Management:** Review the history of deployments and configuration changes
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/audit-log-details_e1wipe.png"
-alt="Screenshot of audit log details"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/audit-logs-list_ryluzl.png"
+alt="Screenshot of audit log list"
 layout="responsive"
-width={1559} height={1339} quality={80} />
+width={1652} height={1538} quality={80} />
 
 ## Accessing Audit Logs
 
-Audit logs are available at the workspace level and can be accessed by workspace Admins through the workspace settings page.
+Audit logs are available at the workspace level and can be accessed by workspace admins through the workspace settings page.
 
 To view audit logs:
 1. Navigate to your workspace dashboard
@@ -39,6 +41,11 @@ Each audit log entry contains detailed information about the action that was per
 - **Environment:** The environment affected by the action (if applicable)
 - **Event Data:** Specific details about the change, such as resource data that was created, modified, or deleted
 - **Actor:** Information about who or what performed the action
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/audit-log-details_e1wipe.png"
+alt="Screenshot of audit log details"
+layout="responsive"
+width={1559} height={1339} quality={80} />
 
 ### Actor Types
 
