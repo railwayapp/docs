@@ -13,6 +13,11 @@ Audit logs help teams with:
 - **Team Coordination:** Understand what changes team members are making across projects
 - **Change Management:** Review the history of deployments and configuration changes
 
+<Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/audit-log-details_e1wipe.png"
+alt="Screenshot of audit log details"
+layout="responsive"
+width={1559} height={1339} quality={80} />
+
 ## Accessing Audit Logs
 
 Audit logs are available at the workspace level and can be accessed by workspace Admins through the workspace settings page.
