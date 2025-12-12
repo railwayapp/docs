@@ -295,6 +295,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Priority Boarding", "reference"),
           makePage("Project Members", "reference"),
           makePage("Project Usage", "reference"),
+          makePage("Audit Logs", "reference", "reference/audit-logs"),
           makePage("SAML SSO", "reference", "reference/saml"),
           makePage("Support", "reference"),
           makePage("Teams", "reference"),
