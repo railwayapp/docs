@@ -21,11 +21,11 @@ Under the hood, Railway uses <a href="https://railpack.com" target="_blank">Rail
 
 Some default options are applied when your application is deployed on Railway. They can change where your deployments are ran, how they are ran, and what happens to them while they're running. Here are some things you can change:
 
-- [**Replicas**](https://docs.railway.com/reference/scaling#horizontal-scaling-with-replicas): By default, your deployment will go out with a single instance in your preferred region. With replicas, you can deploy multiple instances of your application in one or more regions. The Railway network will load balance incoming requests between the available replicas and serve the ones closest to your users.
-- **Deployment Region**: If you haven't configured any Replicas, your services will be deployed to the [preferred region](https://railway.com/workspace) configured in your workspace. To change an individual service's region, go to Settings > Deploy > Regions.
+- [**Replicas**](https://docs.railway.com/reference/scaling#horizontal-scaling-with-replicas): By default, your deployment will go out with a single instance in your [preferred region](https://docs.railway.com/guides/optimize-performance#set-a-preferred-region). With replicas, you can deploy multiple instances of your application in one or more regions. The Railway network will load balance incoming requests between the available replicas and serve the ones closest to your users.
+- **Deployment Region**: If you haven't configured any Replicas, your services will be deployed to the [preferred region](https://docs.railway.com/guides/optimize-performance#set-a-preferred-region) configured in your workspace. To change an individual service's region, go to Settings > Deploy > Regions.
 - **Scheduled Executions**: If your deployment isn't a long-running service, like most web or backend services are, your deployment will be run once then exit. If the service is intended to be a repeated task, you can create a cron schedule under Settings > Deploy that will re-run your deployment according to the schedule.
 - [**Serverless Deployments**](https://docs.railway.com/reference/app-sleeping): By default, services are long-running and will continue to run unless they error. You can configure your services to pause if no traffic is going to them, and start it back up once a request comes in. Sleeping services don't incur resource usage. While your service is starting back up, the requests will be queued and delivered to the service once its fully up and running.
-- [**Healthchecks**](https://docs.railway.com/reference/healthchecks): By default, as soon as your deployment is launched, it's considered "healthy". You can configure an endpoint path under Deploy > Healthcheck Path that Railway will fetch once it deploys your service to ensure that your service actually started up before it removes the previous deployment.
+- [**Healthchecks**](https://docs.railway.com/reference/healthchecks): By default, as soon as your deployment is launched, it's considered "healthy". You can configure an endpoint path under Deploy > Healthcheck Path that Railway will fetch once it deploys your service to ensure that your service actually started up before it removes the previous deployment. This lets Railway know when your services are fully healthy and ready to receive traffic, so it doesn't start serving requests to a service that hasn't fully started yet.
 
 ## Networking
 
@@ -33,11 +33,11 @@ Constructing efficient networking setups yourself can be tricky and time-consumi
 
 ### Private Networking
 
-[Private Networking](https://docs.railway.com/guides/private-networking) is a feature that lets your services communicate to other running services within your project simply by its service name. Under Settings > Networking, you can configure the specific domain that is given to your service. You can use either `service-name.railway.internal`, or simply `service-name`, with the magic of DNS.
+[Private Networking](https://docs.railway.com/guides/private-networking) is a feature that lets your services communicate to other running services within your project simply by its service name. Under Settings > Networking, you can configure the specific domain that is given to your service. You can provide this private networking domain name to your services with [Reference Variables](https://docs.railway.com/guides/variables#reference-variables).
 
 Private Networking domains are available with [Railway-provided Variables](https://docs.railway.com/guides/variables#railway-provided-variables) that you can [provide to your other services](https://docs.railway.com/guides/variables#referencing-a-shared-variable), elimiating the need to hard-code their values.
 
-Under the hood, Railway connects your services together with a WireGuard mesh and a DNS resolver that is scoped to your project. Services running inside of one project aren't able to reach the services running in a different project. This also applies to environments within a project.
+Under the hood, Railway connects your services together with a WireGuard mesh and a DNS resolver that is scoped to your project and environment. Services running inside of one project or environment aren't able to reach the services running in a different project. This also applies to environments within a project being unable to reach other environments.
 
 ### Railway-provided Domains
 
@@ -70,7 +70,7 @@ Projects can also configure [Webhook URLs](https://docs.railway.com/guides/webho
 
 ## Environments
 
-Railway environments are sort of sub-workspaces inside of your workspace that let you separate instances of each service between environments. This lets you:
+Railway environments are isolated instances of the services running in your production environment that let you iterate on your workspace without affecting your production workloads. You can:
 
 - Have development environments for each team member that mirror your production environment
 - Have separate staging and production environments
@@ -79,6 +79,6 @@ Within a service and environment, you can specify which branch of your GitHub re
 
 ## Observability
 
-Railway services and deployments will probably output logs to describe how they are being built, what they are doing while running, or errors during either of these.
+Railway services and deployments will likely output logs to describe how they are being built, what they are doing while running, or errors during either of these.
 
-These logs, when sent to the standard output or standard error (like when using `console.log()`, `print()`, and `console.error()`) will be shown in both the [Build or Deploy logs](https://docs.railway.com/guides/logs#build--deploy-panel) of each service and can be viewed in the [Observability](https://docs.railway.com/guides/logs#log-explorer) page of your project, from which you can view logs from all the services in your project.
+These logs, when sent to the standard output or standard error (like when using `console.log()`, `print()`, and `console.error()`) will be shown in the [Build and Deploy tabs](https://docs.railway.com/guides/logs#build--deploy-panel) (depending on where they originated) of each service and can be viewed in the [Observability](https://docs.railway.com/guides/logs#log-explorer) page of your project, from which you can view logs from all your services.
