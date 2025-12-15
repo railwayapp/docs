@@ -106,7 +106,7 @@ If we do not receive payment, your services are stopped until all open invoices 
 
 Your [services](/overview/the-basics#services) may be stopped by Railway for the following reasons, along with their solutions -
 
-- **Usage limits reached:** You've hit your [usage limits](/reference/usage-limits). Increase your usage limit or wait until the next billing period.
+- **Usage limits reached:** You've hit your [usage limits](/reference/usage-limits). Increase your usage limit, remove it entirely, or wait for the usage limit to reset.
 
 - **Trial credits exhausted:** You've run out of [trial credits](/reference/pricing/free-trial#how-does-the-trial-work). Consider upgrading to [a paid plan](/reference/pricing/plans#plans) to continue using the service.
 
@@ -114,7 +114,7 @@ Your [services](/overview/the-basics#services) may be stopped by Railway for the
 
 - **Unpaid invoice:** You have an outstanding invoice. [Pay your outstanding invoice](https://railway.com/workspace/billing).
 
-In all cases, you can redeploy your services once the underlying issue is resolved, this can be done from the Removed deployment's [3-dot menu](/reference/deployments#deployment-menu).
+Railway will automatically redeploy your services once the underlying issue is resolved, as long as it is resolved within a period of 30 days. After that, you will have to redeploy them manually from the Removed deployment's [3-dot menu](/reference/deployments#deployment-menu).
 
 **Note:** Although Railway will remove your deployment for any of the above reasons, Railway will not remove the [volume](/overview/the-basics#volumes) attached to the service.
 
