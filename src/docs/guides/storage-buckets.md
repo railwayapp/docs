@@ -184,6 +184,32 @@ async function uploadFile(file) {
 }
 ```
 
+<Collapse title="Configuring CORS to upload files from a browser">
+
+To upload a file from a browser frontend to the bucket, you need to configure CORS for your bucket and allow your frontend domain. You can do this with the `aws` CLI:
+
+```shell
+AWS_ACCESS_KEY_ID=your_access_key_id \
+AWS_SECRET_ACCESS_KEY=your_secret_access_key \
+  aws s3api put-bucket-cors \
+  --bucket your_bucket_name \
+  --endpoint-url https://storage.railway.app \
+  --cors-configuration '{
+    "CORSRules": [
+      {
+        "AllowedHeaders": ["*"],
+        "AllowedMethods": ["PUT","POST"],
+        "AllowedOrigins": ["https://your_domain.tld"],
+        "MaxAgeSeconds": 3000
+      }
+    ]
+  }'
+```
+
+Make sure to replace `your_access_key_id`, `your_secret_access_key`, `your-bucket_name` and `your_domain.tld`.
+
+</Collapse>
+
 Similar to handling uploads through your service, be mindful that users may try to upload HTML, JavaScript, or other executable files. Treat all uploads as untrusted. Consider validating or scanning the file after the upload completes, and remove anything that shouldn't be served.
 
 Use-cases:
