@@ -357,6 +357,12 @@ Note that egress from your services to buckets (uploads) is billed at the standa
 
 </Collapse>
 
+<Collapse title="Are buckets encrypted?">
+
+Railway Storage Buckets are encrypted at rest.
+
+</Collapse>
+
 ## Help us improve Storage Buckets
 
 Upvote these feature requests on our feedback page if these features sound useful to you:
