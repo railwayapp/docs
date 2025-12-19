@@ -45,11 +45,9 @@ The minimum amount you can specify as the hard limit is $10.
 </Collapse>
 
 <Collapse title="How can I restart my resources if I hit my usage limit?">
-To restart your resources, you can either increase your usage limit or remove it entirely.
-
-For guidance on restarting your resources, please refer to our [FAQ](/reference/pricing/faqs#my-services-were-stopped-what-do-i-do) section.
+To restart your resources, increase your usage limit or remove it entirely. Railway will automatically redeploy your stopped services once the limit is raised or removed. If automatic recovery fails for any service, you can manually redeploy from the deployment's [3-dot menu](/reference/deployments#deployment-menu).
 </Collapse>
 
 <Collapse title="Will my resources be automatically started during the next billing cycle?">
-No. Once your resources are shut down, it is your responsibility to restart them.
+Railway will try to automatically restart your resources during the next billing cycle, but if automatic recovery fails for any service, you can manually redeploy from the deployment's [3-dot menu](/reference/deployments#deployment-menu).
 </Collapse>
