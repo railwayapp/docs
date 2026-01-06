@@ -92,6 +92,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Build Configuration", "guides"),
           makePage("Dockerfiles", "guides"),
+          makePage("Private Registries", "guides"),
         ],
       },
       {
@@ -101,6 +102,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Start Command", "guides"),
           makePage("Deployment Actions", "guides"),
           makePage("GitHub Autodeploys", "guides"),
+          makePage("Image Auto Updates", "guides"),
           makePage("Optimize Performance", "guides"),
           makePage("Healthchecks", "guides"),
           makePage("Restart Policy", "guides"),
