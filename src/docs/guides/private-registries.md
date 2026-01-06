@@ -21,14 +21,14 @@ Any registry that supports standard Docker authentication works with Railway. He
 
 ## Requirements
 
-Private registry credentials are available on the **Pro plan**. If you're on a free, trial, or hobby plan, you'll need to upgrade to use private registries.
+Private registry credentials are available on the **Pro plan**. If you're on a Free, Trial, or Hobby plan, you'll need to upgrade to use private registries.
 
 ## Configure Registry Credentials
 
 To deploy from a private registry:
 
 1. Navigate to your service's **Settings** page
-2. Under the **Deploy** section, locate **Registry Credentials**
+2. Under the **Source** section, locate **Registry Credentials**
 3. Enter your credentials and save
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1767657773/AddCredentials_dkhoyx.mp4" controls autoplay loop muted playsinline/>

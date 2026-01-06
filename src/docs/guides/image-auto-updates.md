@@ -28,7 +28,7 @@ Railway periodically checks the Docker registry for new versions of your configu
 To enable automatic image updates:
 
 1. Navigate to your service's **Settings** page
-2. Under the **Source** section, select **Auto Updates**
+2. Under the **Source** section, select **Configure Auto Updates**
 3. Choose your preferred update type
 4. Choose a maintenance window
 
@@ -42,8 +42,10 @@ Maintenance windows define when Railway is allowed to apply automatic updates. A
 | ------ | -------- |
 | **Weekends** | Saturday and Sunday, all day |
 | **Night** | 02:00 - 06:00 UTC daily |
-| **Anytime** | Updates are applied as soon as they are detected |
+| **Anytime** | Updates are applied immediately after detection |
 | **Custom** | User-defined day and hour ranges |
+
+Note that updates are applied after Railway detects new versions, not the moment they're published. To avoid overwhelming registries, detection results are cached for up to a few hours.
 
 ### Custom Schedules
 
@@ -63,6 +65,10 @@ For Pro plan users, Railway automatically creates a backup of all volumes attach
 
 If a specific version causes issues, you can skip it to prevent Railway from automatically updating to that version. Skipped versions will be excluded from future auto-update checks.
 
+When prompted select the dropdown and click "Skip this version" 
+
+![Skip version dialog](https://res.cloudinary.com/railway/image/upload/v1767663458/skipversion_v7dcux.png)
+
 ## Notifications
 
 When an automatic update is applied, workspace admins receive a notification containing:
@@ -72,4 +78,4 @@ When an automatic update is applied, workspace admins receive a notification con
 - New version
 - Update type
 
-You can configure notification preferences in your workspace settings under the `service-auto-updates` notification rule.
+To disable these notifications, create a custom rule setting "ServiceInstance Auto Updated" to "None" for a project.
