@@ -22,7 +22,7 @@ This document outlines the core concepts of Railway, providing foundational know
 
 ## Dashboard / Projects
 
-Your main entrypoint to Railway where all your [projects](/overview/the-basics#project--project-canvas) are shown in the order they where last opened.
+Your main entrypoint to Railway where all your [projects](/overview/the-basics#project--project-canvas) are shown in the order they were last opened.
 
 Projects contain your [services](/overview/the-basics#services) and [environments](/reference/environments).
 

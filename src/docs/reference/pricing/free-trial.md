@@ -32,7 +32,9 @@ If you do not already have a Railway account, you can sign up for a free Trial b
 
 ### How does the Trial work?
 
-When you sign up for the free Trial, you will receive a one-time grant of $5 in credits that you can use to try out Railway. The credits will be applied towards any usage on the platform and expire in 30 days. If you upgrade to a plan while you still have a credit balance from the trial, the remaining balance will carry over to your new plan.
+When you sign up for the free Trial, you will receive a one-time grant of $5 in credits that you can use to try out Railway. The credits will be applied towards any usage on the platform and expire in 30 days.
+
+If you upgrade to a plan while you still have a credit balance from the Trial, the remaining balance will carry over to your new plan. To prevent fraud and ensure your payment method is valid and in good standing, the carried-over Trial credits may not be applied to your first billing cycle, and will instead be applied as a discount to subsequent charges once a successful payment has been processed.
 
 ### What resources can I access during the Trial?
 
