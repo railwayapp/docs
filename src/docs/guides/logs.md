@@ -1,4 +1,4 @@
----
+access to write logs ---
 title: Viewing Logs
 description: Learn how to view and filter build, deployment, environment, and HTTP logs on Railway.
 ---
