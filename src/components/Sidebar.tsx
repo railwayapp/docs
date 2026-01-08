@@ -25,7 +25,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
       <ScrollArea>
         <div tw="pt-6 pb-6 px-4 sticky top-0 bg-background z-10">
           <div tw="flex items-center justify-between">
-            <Link tw="w-full flex items-center" href="/">
+            <Link tw="flex items-center" href="/">
               <div tw="flex items-center">
                 <Logo tw="w-8 h-8 mr-4" /> <span tw="font-bold">Docs</span>
               </div>
