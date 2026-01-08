@@ -54,6 +54,7 @@ export const MobileNav: React.FC = () => {
       >
         <Link href="/">
           <Logo tw="w-10 h-10" />
+          <span tw="sr-only">Docs</span>
         </Link>
 
         <div tw="w-full block">
