@@ -303,11 +303,9 @@ Not yet supported:
 
 ## Deleting a Bucket
 
-You can delete your bucket by clicking on it in your canvas, going to Settings, and selecting Delete Bucket. 
+You can delete your bucket by clicking on it in your canvas, going to Settings, and selecting Delete Bucket. The bucket will disappear immediately from your project, but it's not permanently deleted yet. It will only be permanently deleted after two days to protect against [accidental deletions](https://blog.railway.com/p/how-we-oops-proofed-infrastructure-deletion-on-railway).
 
-Buckets without any data in them will be deleted immediately, and non-empty buckets will be scheduled for permanent deletion two days after you select the deletion to protect against [accidental deletions](https://blog.railway.com/p/how-we-oops-proofed-infrastructure-deletion-on-railway).
-
-You will continue to be billed for your accumulated storage size until your bucket has been permanently deleted at the two-day mark.
+You will continue to be billed for your accumulated storage size until your bucket has been permanently deleted at the two-day mark. To prevent being billed for the storage, remove all files from the bucket before deleting it.
 
 ## FAQ
 
