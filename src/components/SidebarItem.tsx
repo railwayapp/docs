@@ -82,7 +82,6 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             tw`text-gray-700 text-sm`,
             tw`block px-4 py-2`,
             tw`hover:bg-gray-100 hover:text-foreground`,
-            tw`focus:outline-none focus:bg-pink-100`,
             isActive &&
               tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
             isSubSectionItem && tw`py-2 ml-6 pl-2`,
