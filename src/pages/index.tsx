@@ -43,12 +43,12 @@ const Home: NextPage = () => {
             >
               <img
                 src="/images/card-light-how-railway-works.svg"
-                alt="How Railway Works"
+                alt=""
                 tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
               />
               <img
                 src="/images/card-dark-how-railway-works.svg"
-                alt="How Railway Works"
+                alt=""
                 tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
               />
               <div tw="relative z-10 p-6">
@@ -75,12 +75,12 @@ const Home: NextPage = () => {
             >
               <img
                 src="/images/card-light-guides.svg"
-                alt="Guides"
+                alt=""
                 tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
               />
               <img
                 src="/images/card-dark-guides.svg"
-                alt="Guides"
+                alt=""
                 tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
               />
               <div tw="relative z-10 p-6">
@@ -107,12 +107,12 @@ const Home: NextPage = () => {
             >
               <img
                 src="/images/card-light-quickstart.svg"
-                alt="Quickstart"
+                alt=""
                 tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
               />
               <img
                 src="/images/card-dark-quickstart.svg"
-                alt="Quickstart"
+                alt=""
                 tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
               />
               <div tw="relative z-10 p-6">
@@ -139,12 +139,12 @@ const Home: NextPage = () => {
             >
               <img
                 src="/images/card-light-tutorials.svg"
-                alt="Tutorials"
+                alt=""
                 tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
               />
               <img
                 src="/images/card-dark-tutorials.svg"
-                alt="Tutorials"
+                alt=""
                 tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
               />
               <div tw="relative z-10 p-6">
