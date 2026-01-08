@@ -734,6 +734,7 @@ const Home: NextPage = () => {
               width="28"
               height="28"
               tw="mx-auto"
+              alt=""
             />
             <FrameworkLinkHeading
               tw="text-center"
