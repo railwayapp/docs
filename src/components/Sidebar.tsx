@@ -179,7 +179,7 @@ const SidebarContent: React.FC = () => {
     <>
       {sidebarContent.map((section, i) => (
         <React.Fragment key={i}>
-          {section.title != null && (
+          {section.title && (
             <h5
               tw="px-4 my-2 text-foreground text-sm font-bold"
               className={classNames(
