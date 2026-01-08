@@ -378,7 +378,7 @@ const Home: NextPage = () => {
             </FrameworkLinkHeading>
           </FrameworkLink>
         </div>
-        <div tw="mt-8 text-left">
+        <div tw="mt-8 text-left w-fit">
           <a
             href="/guides/languages-frameworks"
             className="group"
@@ -804,7 +804,7 @@ const Home: NextPage = () => {
           </FrameworkLink>
         </div>
 
-        <div tw="text-center mt-8">
+        <div tw="text-center mt-8 w-fit">
           <a
             href="https://railway.com/templates"
             className="group"
