@@ -15,7 +15,7 @@ export const ThemeSwitcher: React.FC = () => {
     <>
       {isMounted && (
         <button
-          tw="w-5 h-5 md:w-4 md:h-4 cursor-pointer focus:outline-none"
+          tw="w-5 h-5 md:w-4 md:h-4 cursor-pointer outline-offset-4"
           onClick={toggleColorMode}
         >
           {colorMode === "dark" ? (
@@ -23,6 +23,7 @@ export const ThemeSwitcher: React.FC = () => {
           ) : (
             <Moon width="100%" height="100%" />
           )}
+          <span tw="sr-only" aria-live="polite">Toggle {colorMode === "dark" ? "light" : "dark"} mode</span>
         </button>
       )}
     </>
