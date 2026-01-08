@@ -5,6 +5,7 @@ import { Link } from "./Link";
 import tw from "twin.macro";
 import { IPage, ISubSection, IExternalLink } from "../types";
 import { Arrow } from "@/components/Arrow";
+import { slugify } from "@/utils/slugify";
 
 interface SidebarItemProps {
   item: IPage | ISubSection | IExternalLink;
@@ -117,6 +118,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             href={subTitle.slug}
             onClick={onToggleSubSection}
             ref={isCurrentPage(subTitle.slug) ? activeLinkRef : undefined}
+            id={`sidebar-subtitle-${slugify(subTitle.slug)}`}
             css={[
               tw`text-gray-700 flex-grow text-sm hover:text-foreground`,
               tw`pl-4 py-2`,
@@ -154,6 +156,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                 isCurrentPage(subTitle.slug) &&
                 tw`hover:bg-pink-200 hover:border-y-2 hover:border-l-4 hover:border-pink-200`,
             ]}
+            aria-labelledby={`sidebar-subtitle-${slugify(typeof subTitle === "string" ? subTitle : subTitle.slug)}`}
+            aria-expanded={isExpanded}
           >
             <Arrow isExpanded={isExpanded} />
           </button>
