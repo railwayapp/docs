@@ -62,8 +62,14 @@ export const MobileNav: React.FC = () => {
         </div>
 
         <div tw="flex items-center space-x-4 md:space-x-4">
+          <div tw="flex items-center">
+            <ThemeSwitcher />
+          </div>
+
           <button
-            tw=" w-6 h-6 md:w-4 md:h-4 cursor-pointer focus:outline-none"
+            tw="w-6 h-6 md:w-4 md:h-4 cursor-pointer outline-offset-4"
+            aria-label="Menu"
+            aria-expanded={isNavOpen}
             onClick={() => setIsNavOpen(!isNavOpen)}
           >
             {isNavOpen ? (
@@ -72,10 +78,6 @@ export const MobileNav: React.FC = () => {
               <Menu width="100%" height="100%" />
             )}
           </button>
-
-          <div tw="flex items-center">
-            <ThemeSwitcher />
-          </div>
         </div>
       </header>
 
