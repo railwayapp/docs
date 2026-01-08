@@ -176,7 +176,7 @@ const Home: NextPage = () => {
             tw="text-[#6c6a7b] text-lg font-normal leading-relaxed text-left"
             style={{ color: "var(--colors-gray-700)" }}
           >
-            Use your favorite language and framework
+            Use your favorite language and framework.
           </p>
         </div>
         <div tw="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -384,7 +384,7 @@ const Home: NextPage = () => {
             className="group"
             tw="text-[var(--colors-pink-700)] text-sm font-medium leading-tight flex items-center gap-1 transition"
           >
-            View all Frameworks{" "}
+            View all frameworks{" "}
             <span tw="text-base transition-transform duration-200 group-hover:translate-x-1">
               →
             </span>
@@ -402,7 +402,7 @@ const Home: NextPage = () => {
             tw="text-[#6c6a7b] text-lg font-normal leading-relaxed text-left"
             style={{ color: "var(--colors-gray-700)" }}
           >
-            Quickly set up a project with popular templates
+            Quickly set up a project with popular templates.
           </p>
         </div>
 
@@ -809,7 +809,7 @@ const Home: NextPage = () => {
             className="group"
             tw="text-[var(--colors-pink-700)] text-sm font-medium leading-tight flex items-center gap-1 transition"
           >
-            View all Templates{" "}
+            View all templates{" "}
             <span tw="text-base transition-transform duration-200 group-hover:translate-x-1">
               →
             </span>
@@ -831,8 +831,8 @@ const Home: NextPage = () => {
                   />
                 </CardTitle>
                 <CardDesc>
-                  Each page footer contains an "Edit on GitHub" Link. Change the
-                  markdown, make a pull request, and we'll merge it!
+                  Each page footer contains an "Edit this file on GitHub" link. Change the
+                  Markdown, make a pull request, and we'll merge it!
                 </CardDesc>
               </CardContent>
             </FooterCard>
