@@ -141,7 +141,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
                 type="button"
               >
                 <Icon icon={copied ? CheckCircle : Copy} size="sm" />
-                <span>{copied ? "Copied!" : "Copy as Markdown"}</span>
+                <span aria-live="polite">{copied ? "Copied!" : "Copy as Markdown"}</span>
               </button>
             </div>
             {children}
