@@ -166,12 +166,12 @@ const Home: NextPage = () => {
         </div>
 
         <div tw="mt-24">
-          <h3
+          <h2
             tw="text-3xl md:text-4xl font-semibold mb-2 leading-10 text-left"
             style={{ fontSize: "2rem", letterSpacing: "-0.5px" }}
           >
             Your stack, your way
-          </h3>
+          </h2>
           <p
             tw="text-[#6c6a7b] text-lg font-normal leading-relaxed text-left"
             style={{ color: "var(--colors-gray-700)" }}
