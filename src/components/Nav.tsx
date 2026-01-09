@@ -17,7 +17,7 @@ export const Nav: React.FC = () => {
         <li>
           <Link
             href="https://railway.com/login"
-            tw="flex items-center space-x-2 text-gray-400 text-sm hover:text-pink-500"
+            tw="flex items-center space-x-2 text-gray-600 text-sm hover:text-pink-500"
           >
             <Home tw="w-4 h-4" />
             <span>Go to Railway</span>
