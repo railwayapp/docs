@@ -102,6 +102,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         typeof subTitle === "string" ? (
           <span
             onClick={onToggleSubSection}
+            id={`sidebar-subtitle-${slugify(subTitle)}`}
             css={[
               tw`text-gray-700 flex-grow`,
               tw`hover:cursor-pointer`,
