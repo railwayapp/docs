@@ -13,7 +13,7 @@ import SidebarItem from "./SidebarItem";
 
 export const Sidebar: React.FC = ({ ...props }) => {
   return (
-    <div
+    <nav
       css={[
         tw`hidden`,
         tw`md:h-screen md:sticky md:top-0 md:overflow-hidden md:block md:min-w-sidebar`,
@@ -41,7 +41,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
 
         <SidebarContent />
       </ScrollArea>
-    </div>
+    </nav>
   );
 };
 
@@ -179,7 +179,7 @@ const SidebarContent: React.FC = () => {
     <>
       {sidebarContent.map((section, i) => (
         <React.Fragment key={i}>
-          {section.title != null && (
+          {section.title && (
             <h5
               tw="px-4 my-2 text-foreground text-sm font-bold"
               className={classNames(
@@ -199,8 +199,8 @@ const SidebarContent: React.FC = () => {
 
 export const MobileSidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
   return (
-    <div css={[isOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}>
+    <nav css={[isOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}>
       <SidebarContent />
-    </div>
+    </nav>
   );
 };
