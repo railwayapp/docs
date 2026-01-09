@@ -216,10 +216,10 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       {
-        subTitle: "Gitlab",
+        subTitle: "GitLab",
         pages: [
           {
-            title: "Gitlab CI/CD with Railway",
+            title: "GitLab CI/CD with Railway",
             url: "https://blog.railway.com/p/gitlab-ci-cd",
           },
         ],
