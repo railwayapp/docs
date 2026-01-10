@@ -25,7 +25,7 @@ alt="Screenshot of Variables Pane"
 layout="responsive"
 width={2026} height={933} quality={100} />
 
-#### Define a Service Variable
+**Define a Service Variable**
 
 From a service's variables tab, click on `New Variable` to enter your variable into a form field, or use the `RAW Editor` to paste the contents of your `.env` or json-formatted file.
 
@@ -53,11 +53,11 @@ alt="Screenshot of Shared Variables Settings"
 layout="responsive"
 width={2402} height={1388} quality={100} />
 
-#### Define a Shared Variable
+**Define a Shared Variable**
 
 From your Project Settings -> Shared Variables page, choose the Environment, enter the variable name and value, and click `Add`.
 
-#### Use a Shared Variable
+**Use a Shared Variable**
 
 To use a shared variable, either click the Share button from the Project Settings -> Shared Variables menu and select the services with which to share, or visit the Variables tab within the service itself and click "Shared Variable".
 
@@ -174,7 +174,7 @@ For example, in a node app -
 process.env.VARIABLE_NAME;
 ```
 
-#### Local Development
+**Local Development**
 
 Using the Railway CLI, you can run your code locally with the environment variables configured in your Railway project.
 
