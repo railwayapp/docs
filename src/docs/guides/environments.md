@@ -49,11 +49,11 @@ width={1622} height={506} quality={80} />
 
 When enabled, a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
 
-#### How Come my GitHub PR Won't Deploy?
+**How Come my GitHub PR Won't Deploy?**
 
 Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
 
-#### Domains in PR Environments
+**Domains in PR Environments**
 
 To enable automatic domain provisioning in PR environments, ensure that services in your base environment use Railway-provided domains. Services in PR environments will only receive domains automatically when their corresponding base environment services have Railway-provided domains.
 
