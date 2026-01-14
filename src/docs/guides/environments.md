@@ -59,14 +59,24 @@ To enable automatic domain provisioning in PR environments, ensure that services
 
 ### Bot PR Environments
 
-You can enable automatic PR environment creation for PRs opened by GitHub bots (Dependabot, Renovatebot) using the `Enable Bot PR Environments` toggle on the Environments tab in the Project Settings page.
+You can enable automatic PR environment creation for PRs opened by supported GitHub bots using the `Enable Bot PR Environments` toggle on the Environments tab in the Project Settings page.
+
+**Supported bots:**
+- [Dependabot](https://github.com/dependabot)
+- [Renovate](https://github.com/renovatebot)
+- [Devin AI](https://github.com/apps/devin-ai-integration)
+- [GitHub Actions](https://docs.github.com/en/actions)
+- [GitHub Copilot](https://github.com/features/copilot)
+- [Jules (Google)](https://jules.google/)
+- [Roo Code](https://roocode.com/)
+- [Claude Code (Anthropic)](https://claude.com/product/claude-code)
 
 <Image
-  src="https://res.cloudinary.com/railway/image/upload/v1720605990/bot-pr-envs_sa3tlo.png"
+  src="https://res.cloudinary.com/railway/image/upload/v1768408949/docs/guides/environments/mockup-1768408821891_wxdyrr.png"
   alt="Bot PR Environments toggle"
   layout="responsive"
-  width={1468}
-  height={439}
+  width={3096}
+  height={940}
   quality={80}
 />
 
