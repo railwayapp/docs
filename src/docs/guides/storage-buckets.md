@@ -366,7 +366,7 @@ Railway Storage Buckets are encrypted at rest.
 Upvote these feature requests on our feedback page if these features sound useful to you:
 
 - [Native file explorer](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a)
-- [Snapshots and backups](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a)
+- [Snapshots and backups](https://station.railway.com/feedback/railway-storage-buckets-backup-feature-8c44e697)
 - [Publicly-accessible buckets](https://station.railway.com/feedback/public-railway-storage-buckets-1e3bdac8)
 
 If you have an idea for other features, let us know on [this feedback page](https://station.railway.com/feedback/object-storage-tell-us-what-you-need-924b88fc).
