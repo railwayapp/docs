@@ -257,6 +257,28 @@ width={1200} height={822} quality={100} />
 
 Incoming traffic will be distributed across all replicas in the closest region using a random algorithm.
 
+### Using a Custom Domain for TCP Proxying
+
+You can use your own domain instead of Railway's provided TCP proxy domain.
+
+To set this up:
+
+1. Create a TCP proxy in your service settings. Railway will provide you with a proxy domain and port (e.g., `shuttle.proxy.rlwy.net:15140`).
+
+2. In your DNS provider, create a CNAME record pointing to the Railway-provided TCP proxy domain (without the port).
+
+   For example, if Railway provides `shuttle.proxy.rlwy.net:15140`:
+   - **Name**: `db.yourdomain.com` (or your preferred subdomain)
+   - **Target**: `shuttle.proxy.rlwy.net`
+
+3. Connect to your service using your custom domain with the Railway-provided port (e.g., `db.yourdomain.com:15140`).
+
+**Note:** The port number is provided by Railway and must be used when connecting. Only the hostname is replaced with your custom domain.
+
+**Caveats:**
+- If using Cloudflare, proxying must be disabled (DNS only, grey cloud).
+- If your client validates or looks for a specific hostname in the connection, it may fail when using a custom domain.
+
 ## Using HTTP and TCP Together
 
 Railway does support exposing both HTTP and TCP over public networking, in a single service. Therefore, if you have a domain assigned, you will still see the option to enable TCP Proxy, and vice-versa.
