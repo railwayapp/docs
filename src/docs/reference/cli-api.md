@@ -174,7 +174,7 @@ Options:
 
 ## Environment
 
-_Create, delete or link an environment_
+_Create, delete, edit or link an environment_
 
 ```txt
 ~ railway [env]ironment --help
@@ -183,8 +183,10 @@ Create, delete or link an environment
 Usage: railway environment [OPTIONS] [ENVIRONMENT] [COMMAND]
 
 Commands:
+  link    Link an environment to the current project
   new     Create a new environment
-  delete  Delete an environment [aliases: remove, rm]
+  delete  Delete an environment
+  edit    Edit an environment's configuration
   help    Print this message or the help of the given subcommand(s)
 
 Arguments:
@@ -217,19 +219,16 @@ Arguments:
 
 Options:
   -d, --duplicate <DUPLICATE>
-          The name of the environment to duplicate
+          The name/ID of the environment to duplicate
 
-          [aliases: copy]
-          [short aliases: c]
+          [aliases: -c, --copy]
 
-  -v, --service-variable <SERVICE> <VARIABLE>
-          Variables to assign in the new environment
+  -s, --service-config <SERVICE> <PATH> <VALUE>
+          Configure a service using dot-path notation
 
-          Note: This will only work if the environment is being duplicated, and that the service specified is present in the original environment
+          Format: --service-config <SERVICE> <PATH> <VALUE>
 
-          Examples:
-
-          railway environment new foo --duplicate bar --service-variable <service name/service uuid> BACKEND_PORT=3000
+          Examples: --service-config backend variables.API_KEY.value "secret" --service-config api deploy.startCommand "npm start" --service-config web source.image "nginx:latest"
 
       --json
           Output in JSON format
@@ -262,6 +261,42 @@ Options:
 ```
 
 **Note**: `railway environment delete` will not work if an account has 2FA and the terminal is not being run interactively.
+
+### railway environment edit
+
+_Edit an environment_
+
+```txt
+Edit an environment's configuration
+
+Usage: railway environment edit [OPTIONS]
+
+Options:
+  -e, --environment <ENVIRONMENT>
+          The environment to edit (defaults to linked environment)
+
+  -s, --service-config <SERVICE> <PATH> <VALUE>
+          Configure a service using dot-path notation
+
+          Format: --service-config <SERVICE> <PATH> <VALUE>
+
+          Examples: --service-config backend variables.API_KEY.value "secret" --service-config api deploy.startCommand "npm start" --service-config web source.image "nginx:latest"
+
+  -m, --message <MESSAGE>
+          Commit message for the changes
+
+      --stage
+          Stage changes without committing
+
+      --json
+          Output in JSON format
+
+  -h, --help
+          Print help (see a summary with '-h')
+
+  -V, --version
+          Print version
+```
 
 ## Init
 
