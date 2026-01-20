@@ -203,6 +203,100 @@ Find all requests that originated from a specific IP address.
 @srcIp:66.33.22.11
 ```
 
+#### Numeric Filters
+
+HTTP logs support numeric filtering with comparison operators and ranges. This is useful for filtering by response times, status codes, and payload sizes.
+
+The following fields support numeric filtering:
+
+- `@totalDuration` → Total request duration in milliseconds
+
+- `@responseTime` → Time to first byte in milliseconds
+
+- `@upstreamRqDuration` → Upstream request duration in milliseconds
+
+- `@httpStatus` → HTTP status code
+
+- `@txBytes` → Bytes transmitted (response size)
+
+- `@rxBytes` → Bytes received (request size)
+
+**Supported operators:**
+
+- `>` → Greater than
+- `>=` → Greater than or equal to
+- `<` → Less than
+- `<=` → Less than or equal to
+- `..` → Range (inclusive)
+
+**Examples:**
+
+Find slow responses taking more than 500ms.
+
+```text
+@responseTime:>500
+```
+
+Find responses taking 1 second or more.
+
+```text
+@responseTime:>=1000
+```
+
+Find fast responses under 100ms.
+
+```text
+@responseTime:<100
+```
+
+Find responses between 100-500ms.
+
+```text
+@responseTime:100..500
+```
+
+Find all error responses (4xx and 5xx).
+
+```text
+@httpStatus:>=400
+```
+
+Find only server errors (5xx).
+
+```text
+@httpStatus:500..599
+```
+
+Find all successful responses (1xx, 2xx, 3xx).
+
+```text
+@httpStatus:<400
+```
+
+Find large responses over 1MB.
+
+```text
+@txBytes:>1000000
+```
+
+Find requests with body larger than 5KB.
+
+```text
+@rxBytes:>5000
+```
+
+Combine filters to find slow requests that errored.
+
+```text
+@totalDuration:>5000 @httpStatus:>=500
+```
+
+Find slow, large responses.
+
+```text
+@responseTime:>1000 @txBytes:>100000
+```
+
 ## View In Context
 
 When searching for logs, it is often useful to see surrounding logs. To view a log in context:
