@@ -1,15 +1,20 @@
 import { Modal } from "@/components/Modal";
-import { SearchModal } from "@/components/Search";
 import { searchStore } from "@/store";
 import { useStore } from "@nanostores/react";
+import dynamic from "next/dynamic";
 import React, { PropsWithChildren, useEffect } from "react";
-import tinykeys from "tinykeys";
 import "twin.macro";
 import { MobileNav, Nav } from "../components/Nav";
 import { Props as SEOProps, SEO } from "../components/SEO";
 import { Sidebar } from "../components/Sidebar";
 import { Background } from "../pages";
 import { GlobalBanners } from "@/components/GlobalBanner";
+
+// Lazy load SearchModal to reduce initial bundle size
+const SearchModal = dynamic(
+  () => import("@/components/Search").then(mod => ({ default: mod.SearchModal })),
+  { ssr: false }
+);
 
 export interface Props {
   seo?: SEOProps;
@@ -19,15 +24,18 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
   const isSearchOpen = useStore(searchStore);
 
   useEffect(() => {
-    const unsubscribe = tinykeys(window, {
-      "$mod+K": e => {
-        e.preventDefault();
-        searchStore.set(!isSearchOpen);
-      },
-    });
+    // Dynamically import tinykeys to reduce initial bundle
+    import("tinykeys").then(({ default: tinykeys }) => {
+      const unsubscribe = tinykeys(window, {
+        "$mod+K": e => {
+          e.preventDefault();
+          searchStore.set(!searchStore.get());
+        },
+      });
 
-    return () => unsubscribe();
-  }, [isSearchOpen]);
+      return () => unsubscribe();
+    });
+  }, []);
 
   return (
     <>
@@ -47,13 +55,15 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
           </main>
         </div>
       </div>
-      <Modal
-        title="Search Docs"
-        isOpen={isSearchOpen}
-        onClose={() => searchStore.set(false)}
-      >
-        <SearchModal closeModal={() => searchStore.set(false)} />
-      </Modal>
+      {isSearchOpen && (
+        <Modal
+          title="Search Docs"
+          isOpen={isSearchOpen}
+          onClose={() => searchStore.set(false)}
+        >
+          <SearchModal closeModal={() => searchStore.set(false)} />
+        </Modal>
+      )}
     </>
   );
 };

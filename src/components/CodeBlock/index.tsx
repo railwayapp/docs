@@ -1,23 +1,7 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 import { CheckCircle, Copy } from "react-feather";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
-import graphql from "react-syntax-highlighter/dist/cjs/languages/prism/graphql";
-import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
-import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
-import toml from "react-syntax-highlighter/dist/cjs/languages/prism/toml";
-import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
-import go from "react-syntax-highlighter/dist/cjs/languages/prism/go";
-import ruby from "react-syntax-highlighter/dist/cjs/languages/prism/ruby";
-import php from "react-syntax-highlighter/dist/cjs/languages/prism/php";
-import java from "react-syntax-highlighter/dist/cjs/languages/prism/java";
-import elixir from "react-syntax-highlighter/dist/cjs/languages/prism/elixir";
-import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
-import rust from "react-syntax-highlighter/dist/cjs/languages/prism/rust";
-import clojure from "react-syntax-highlighter/dist/cjs/languages/prism/clojure";
-import scala from "react-syntax-highlighter/dist/cjs/languages/prism/scala";
-import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
-import docker from "react-syntax-highlighter/dist/cjs/languages/prism/docker";
 
 import "twin.macro";
 import { useCopy } from "../../hooks/useCopy";
@@ -26,25 +10,10 @@ import { useTheme } from "../../styles/theme";
 import { Icon } from "../Icon";
 import { normalize } from "./normalize";
 import { useIsMounted } from "@/hooks/useIsMounted";
+import { loadLanguage, isLanguageLoaded } from "./languages";
 
-SyntaxHighlighter.registerLanguage("js", javascript);
-SyntaxHighlighter.registerLanguage("javascript", javascript);
+// Pre-register bash since it's the most common and needed for SSR
 SyntaxHighlighter.registerLanguage("bash", bash);
-SyntaxHighlighter.registerLanguage("toml", toml);
-SyntaxHighlighter.registerLanguage("json", json);
-SyntaxHighlighter.registerLanguage("graphql", graphql);
-SyntaxHighlighter.registerLanguage("typescript", typescript);
-SyntaxHighlighter.registerLanguage("go", go);
-SyntaxHighlighter.registerLanguage("ruby", ruby);
-SyntaxHighlighter.registerLanguage("php", php);
-SyntaxHighlighter.registerLanguage("java", java);
-SyntaxHighlighter.registerLanguage("elixir", elixir);
-SyntaxHighlighter.registerLanguage("python", python);
-SyntaxHighlighter.registerLanguage("rust", rust);
-SyntaxHighlighter.registerLanguage("clojure", clojure);
-SyntaxHighlighter.registerLanguage("scala", scala);
-SyntaxHighlighter.registerLanguage("css", css);
-SyntaxHighlighter.registerLanguage("docker", docker);
 
 export type SupportedLanguage =
   | "javascript"
@@ -105,6 +74,7 @@ export const CodeBlock: React.FC<Props> = ({
   colorModeSSR,
 }) => {
   const [copied, copy] = useCopy();
+  const [isLanguageReady, setIsLanguageReady] = useState(false);
 
   const params = useMemo(() => getParams(className), [className]);
 
@@ -127,16 +97,31 @@ export const CodeBlock: React.FC<Props> = ({
     [children],
   );
 
+  // Dynamically load language if not already loaded
+  useEffect(() => {
+    if (lang === "bash" || isLanguageLoaded(lang)) {
+      setIsLanguageReady(true);
+      return;
+    }
+
+    loadLanguage(lang).then(() => {
+      setIsLanguageReady(true);
+    });
+  }, [lang]);
+
   const isMounted = useIsMounted();
 
   const colorMode = !isMounted ? colorModeSSR || "light" : useTheme().colorMode;
 
   const theme = colorMode === "light" ? lightCodeTheme : darkCodeTheme;
 
+  // Use bash as fallback while loading other languages
+  const effectiveLang = isLanguageReady ? lang : "bash";
+
   return (
     <div tw="relative" className="group">
       <SyntaxHighlighter
-        language={lang}
+        language={effectiveLang}
         style={theme}
         data-colormode={colorMode}
       >
