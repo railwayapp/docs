@@ -3,7 +3,7 @@ export const defaultColorMode: ColorMode = "dark";
 
 const lightColors: Record<string, Record<number, string>> = {
   foreground: "#181622",
-  background: "#ffffff",
+  background: "#F1F0EF",
   gray: {
     100: "#f4f4f6",
     200: "#D6D8DC",

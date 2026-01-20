@@ -17,13 +17,13 @@ export const Sidebar: React.FC = ({ ...props }) => {
       css={[
         tw`hidden`,
         tw`md:h-screen md:sticky md:top-0 md:overflow-hidden md:block md:min-w-sidebar`,
-        tw`md:border-r md:border-gray-200 bg-background`,
+        tw`md:border-r md:border-[rgba(0,0,0,0.1)] dark:md:border-gray-200 bg-[#EDEBE9] dark:bg-background`,
       ]}
       className="sidebar"
       {...props}
     >
       <ScrollArea>
-        <div tw="pt-6 pb-6 px-4 sticky top-0 bg-background z-10">
+        <div tw="pt-6 pb-6 px-4 sticky top-0 bg-[#EDEBE9] dark:bg-background z-10">
           <div tw="flex items-center justify-between">
             <Link tw="flex items-center" href="/">
               <div tw="flex items-center">
