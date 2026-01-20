@@ -10,6 +10,9 @@ const handler: NextApiHandler = async (req, res) => {
   // Set the content type to text/plain
   res.setHeader("Content-Type", "text/plain");
 
+  // Add caching headers for better LLM consumer performance
+  res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=86400");
+
   // Get all pages from the sidebar content
   const allPages = flattenSidebarContent(sidebarContent);
 
