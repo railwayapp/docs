@@ -84,7 +84,9 @@ module.exports = {
 
             h1: {
               color: theme("colors.foreground"),
-              fontWeight: theme("fontWeight.bold"),
+              fontFamily: "'IBM Plex Serif', serif",
+              fontWeight: "500",
+              letterSpacing: "-0.035em",
             },
             h2: {
               color: theme("colors.foreground"),

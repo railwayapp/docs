@@ -133,7 +133,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
       <div tw="max-w-full flex flex-row min-h-screen">
         <div tw="flex-auto prose dark:prose-invert">
           <div className="docs-content">
-            <h1>{frontMatter.title}</h1>
+            <h1 style={{ fontFamily: "'IBM Plex Serif', serif", fontWeight: 500, letterSpacing: "-0.035em" }}>{frontMatter.title}</h1>
             <div tw="flex items-center gap-3 -mt-4 mb-6 text-sm text-gray-500">
               <button
                 tw="flex items-center gap-1.5 hover:text-pink-500 transition-colors"
