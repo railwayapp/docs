@@ -57,15 +57,62 @@ Railway supports a custom filter syntax that can be used to query logs.
 
 Filter syntax is available for all log types, but some log types have specific attributes.
 
-### Deployment Logs
+### Filter syntax
 
-- `"<search term>"` → Filter for a partial substring match
-
+- `<keyword>` or `"key phrase"` → Filter for a partial substring match
+- `@attribute:value` → Filter by custom attribute (see structured logs below)
+- `@arrayAttribute[i]:value` → Filter by an array element
 - `replica:<replica_id>` → Filter by a specific replica's UUID
 
-- `@attribute:value` → Filter by custom attribute (see structured logs below)
+You can combine expressions with boolean operators `AND`, `OR`, and `-` (negation). Parentheses can be used for grouping.
 
-**Examples:**
+#### Numeric comparisons
+
+Numeric filtering uses comparison operators and ranges, and works for deployment logs with JSON logging. It's also supported for these HTTP log attributes:
+
+- `@totalDuration` → Total request duration in milliseconds
+- `@responseTime` → Time to first byte in milliseconds
+- `@upstreamRqDuration` → Upstream request duration in milliseconds
+- `@httpStatus` → HTTP status code
+- `@txBytes` → Bytes transmitted (response size)
+- `@rxBytes` → Bytes received (request size)
+
+**Supported operators:**
+
+- `>` → Greater than
+- `>=` → Greater than or equal to
+- `<` → Less than
+- `<=` → Less than or equal to
+- `..` → Range (inclusive)
+
+### Log type attributes
+
+#### Environment logs
+
+Environment logs allow you to query for logs from the environment they were emitted in. This means that you can search for logs emitted by all services in an environment at the same time, all in one central location.
+
+In addition to the filters available for deployment logs, an additional filter is available for environment logs:
+
+- `@service:<service_id>` → Filter by a specific service's UUID
+
+#### HTTP logs
+
+HTTP logs use the same filter syntax, but have a specific set of attributes for HTTP-specific data.
+
+- `@requestId:<request_id>` → Filter by request ID
+- `@timestamp:<timestamp>` → Filter by timestamp (Formatted in RFC3339)
+- `@method:<method>` → Filter by method
+- `@path:<path>` → Filter by path
+- `@host:<host>` → Filter by host
+- `@httpStatus:<status_code>` → Filter by HTTP status code
+- `@responseDetails:<details>` → Filter by response details (Only populated when the application fails to respond)
+- `@clientUa:<user_agent>` → Filter by a specific client's user agent
+- `@srcIp:<ip>` → Filter by source IP (The client's IP address that made the request)
+- `@edgeRegion:<region>` → Filter by edge region (The region of the edge node that handled the request)
+
+### Examples
+
+#### Deployment logs
 
 Find logs that contain the word `request`.
 
@@ -109,17 +156,25 @@ Find logs with a specific array attribute.
 @arrayAttribute[i]:value
 ```
 
-### Environment Logs
+Find tasks that take 10 minutes or more.
 
-Environment logs allow you to query for logs from the environment they were emitted in.
+```text
+@task_duration:>=600
+```
 
-This means that you can search for logs emitted by all services in an environment at the same time, all in one central location.
+Find batches with more than 100 items.
 
-In addition to the filters available for deployment logs, an additional filter is available for environment logs:
+```text
+@batch_size:>100
+```
 
-- `@service:<service_id>` → Filter by a specific service's UUID
+Find retries between 1 and 3.
 
-**Examples:**
+```text
+@retries:1..3
+```
+
+#### Environment logs
 
 Filter out logs from the Postgres database service.
 
@@ -139,33 +194,7 @@ Show only logs from the Postgres database and Redis cache services.
 @service:<postgres_service_id> OR @service:<redis_service_id>
 ```
 
-### HTTP Logs
-
-HTTP logs use the same filter syntax, but have a specific set of attributes for HTTP-specific data.
-
-Some commonly used filters for HTTP logs are:
-
-- `@requestId:<request_id>` → Filter by request ID
-
-- `@timestamp:<timestamp>` → Filter by timestamp (Formatted in RFC3339)
-
-- `@method:<method>` → Filter by method
-
-- `@path:<path>` → Filter by path
-
-- `@host:<host>` → Filter by host
-
-- `@httpStatus:<status_code>` → Filter by HTTP status code
-
-- `@responseDetails:<details>` → Filter by response details (Only populated when the application fails to respond)
-
-- `@clientUa:<user_agent>` → Filter by a specific client's user agent
-
-- `@srcIp:<ip>` → Filter by source IP (The client's IP address that made the request)
-
-- `@edgeRegion:<region>` → Filter by edge region (The region of the edge node that handled the request)
-
-**Examples:**
+#### HTTP logs
 
 Find logs for a specific path.
 
@@ -202,34 +231,6 @@ Find all requests that originated from a specific IP address.
 ```text
 @srcIp:66.33.22.11
 ```
-
-#### Numeric Filters
-
-HTTP logs support numeric filtering with comparison operators and ranges. This is useful for filtering by response times, status codes, and payload sizes.
-
-The following fields support numeric filtering:
-
-- `@totalDuration` → Total request duration in milliseconds
-
-- `@responseTime` → Time to first byte in milliseconds
-
-- `@upstreamRqDuration` → Upstream request duration in milliseconds
-
-- `@httpStatus` → HTTP status code
-
-- `@txBytes` → Bytes transmitted (response size)
-
-- `@rxBytes` → Bytes received (request size)
-
-**Supported operators:**
-
-- `>` → Greater than
-- `>=` → Greater than or equal to
-- `<` → Less than
-- `<=` → Less than or equal to
-- `..` → Range (inclusive)
-
-**Examples:**
 
 Find slow responses taking more than 500ms.
 
