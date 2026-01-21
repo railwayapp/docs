@@ -17,7 +17,7 @@ export const Nav: React.FC = () => {
         <li>
           <Link
             href="https://railway.com/login"
-            tw="flex items-center space-x-2 text-gray-400 text-sm hover:text-pink-500"
+            tw="flex items-center space-x-2 text-gray-600 text-sm hover:text-pink-500"
           >
             <Home tw="w-4 h-4" />
             <span>Go to Railway</span>
@@ -54,6 +54,7 @@ export const MobileNav: React.FC = () => {
       >
         <Link href="/">
           <Logo tw="w-10 h-10" />
+          <span tw="sr-only">Docs</span>
         </Link>
 
         <div tw="w-full block">
@@ -61,8 +62,14 @@ export const MobileNav: React.FC = () => {
         </div>
 
         <div tw="flex items-center space-x-4 md:space-x-4">
+          <div tw="flex items-center">
+            <ThemeSwitcher />
+          </div>
+
           <button
-            tw=" w-6 h-6 md:w-4 md:h-4 cursor-pointer focus:outline-none"
+            tw="w-6 h-6 md:w-4 md:h-4 cursor-pointer outline-offset-4"
+            aria-label="Menu"
+            aria-expanded={isNavOpen}
             onClick={() => setIsNavOpen(!isNavOpen)}
           >
             {isNavOpen ? (
@@ -71,10 +78,6 @@ export const MobileNav: React.FC = () => {
               <Menu width="100%" height="100%" />
             )}
           </button>
-
-          <div tw="flex items-center">
-            <ThemeSwitcher />
-          </div>
         </div>
       </header>
 

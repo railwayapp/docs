@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { PropsWithChildren, useMemo } from "react";
-import { CheckCircle, Copy } from "react-feather";
+import { CheckCircle, Copy, Edit } from "react-feather";
 import "twin.macro";
 import { Icon } from "../components/Icon";
 import { Link } from "../components/Link";
@@ -133,7 +133,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
       <div tw="max-w-full flex flex-row min-h-screen">
         <div tw="flex-auto prose dark:prose-invert">
           <div className="docs-content">
-            <h1>{frontMatter.title}</h1>
+            <h1 style={{ fontFamily: "'IBM Plex Serif', serif", fontWeight: 500, letterSpacing: "-0.035em" }}>{frontMatter.title}</h1>
             <div tw="flex items-center gap-3 -mt-4 mb-6 text-sm text-gray-500">
               <button
                 tw="flex items-center gap-1.5 hover:text-pink-500 transition-colors"
@@ -141,20 +141,28 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
                 type="button"
               >
                 <Icon icon={copied ? CheckCircle : Copy} size="sm" />
-                <span>{copied ? "Copied!" : "Copy as Markdown"}</span>
+                <span aria-live="polite">{copied ? "Copied!" : "Copy as Markdown"}</span>
               </button>
             </div>
             {children}
           </div>
 
-          <hr tw="my-16" />
+          <Link
+            tw="mt-16 flex items-center space-x-2 text-gray-600 text-sm no-underline hover:text-pink-500 w-fit"
+            href={gitHubFileLink}
+          >
+            <Edit tw="w-4 h-4" />
+            <span>Edit this file on GitHub</span>
+          </Link>
+
+          <hr tw="my-4" />
 
           <div
             tw="flex items-center justify-between space-x-4 mb-8 md:mb-16"
             className="prev-next-buttons"
           >
             {prevPage != null ? (
-              <Link href={prevPage.slug} className="hover:text-pink-500">
+              <Link href={prevPage.slug} tw="hover:text-pink-500 no-underline">
                 <div tw="max-w-full">
                   <div tw="text-gray-600 text-sm mb-1">Prev</div>{" "}
                   <div tw="font-medium text-lg">{prevPage.title}</div>
@@ -165,7 +173,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
             )}
 
             {nextPage != null && (
-              <Link href={nextPage.slug} className="hover:text-pink-500">
+              <Link href={nextPage.slug} tw="hover:text-pink-500 no-underline">
                 <div tw="text-right">
                   <div tw="text-gray-600 text-sm mb-1">Next</div>{" "}
                   <div tw="font-medium text-lg">{nextPage.title}</div>
@@ -174,12 +182,6 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
             )}
           </div>
 
-          <Link
-            className="edit-github-link text-gray-500 text-sm underline hover:text-pink-500"
-            href={gitHubFileLink}
-          >
-            Edit this file on GitHub
-          </Link>
         </div>
         <PageNav title={frontMatter.title} />
       </div>

@@ -5,6 +5,7 @@ export interface Props {
   href: string;
   external?: boolean;
   className?: string;
+  id?: string;
   onClick?: (e: React.MouseEvent) => void;
 }
 

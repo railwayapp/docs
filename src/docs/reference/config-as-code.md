@@ -122,9 +122,9 @@ Must be a valid [Railpack version](https://github.com/railwayapp/railpack/releas
 
 This field can be set to `null`.
 
-You can also use the `NIXPACKS_VERSION` [configuration
+You can also use the `RAILPACK_VERSION` [configuration
 variable](https://docs.railway.com/reference/variables#user-provided-configuration-variables)
-to set the Nixpacks version.
+to set the Railpack version.
 
 ### Nixpacks Config Path
 

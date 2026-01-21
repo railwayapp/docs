@@ -37,7 +37,18 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <script async src="https://tally.so/widgets/embed.js"></script>
+          {/* Font Preloads */}
+          <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+          <link rel="preload" href="/fonts/IBMPlexSerif-Medium-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
+          {/* Preconnect to external domains */}
+          <link rel="preconnect" href="https://res.cloudinary.com" />
+          <link rel="preconnect" href="https://devicons.railway.com" />
+          <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+          <link rel="dns-prefetch" href="https://devicons.railway.com" />
+
+          {/* Defer Tally script */}
+          <script async defer src="https://tally.so/widgets/embed.js"></script>
         </Head>
         <body>
           <Main />

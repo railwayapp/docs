@@ -49,7 +49,7 @@ Being a Conductor comes with several exciting perks and rewards to recognize you
 
 As part of the program, conductors will receive -
 
-- 100% off discount for the Hobby plan's subscription and resource costs.
+- 100% off discount for the Pro plan's subscription and resource costs.
 
 - Cash payouts for solving complex issues for users.
 

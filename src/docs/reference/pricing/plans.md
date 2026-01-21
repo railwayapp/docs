@@ -107,7 +107,6 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 | Feature                    | Commitment Spend | Description                                                                                                      |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
 | **90-day log history**     | $200/month       | Extended log retention for better historical analysis and auditing.                                              |
-| **48 GB RAM / 64 vCPU**    | $500/month       | Access to increased computing resources at a committed monthly spend level.                                      |
 | **HIPAA BAAs**             | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly. |
 | **Slack Connect channels** | $2,000/month     | Dedicated Slack Connect channels for enhanced communication and support with the Railway team.                   |
 | **SLOs**                   | $2,000/month     | Service Level Objectives to ensure and track application performance.                                            |

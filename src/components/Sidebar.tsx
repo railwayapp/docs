@@ -13,19 +13,19 @@ import SidebarItem from "./SidebarItem";
 
 export const Sidebar: React.FC = ({ ...props }) => {
   return (
-    <div
+    <nav
       css={[
         tw`hidden`,
         tw`md:h-screen md:sticky md:top-0 md:overflow-hidden md:block md:min-w-sidebar`,
-        tw`md:border-r md:border-gray-200 bg-background`,
+        tw`md:border-r md:border-[rgba(0,0,0,0.1)] dark:md:border-gray-200 bg-[#EDEBE9] dark:bg-background`,
       ]}
       className="sidebar"
       {...props}
     >
       <ScrollArea>
-        <div tw="pt-6 pb-6 px-4 sticky top-0 bg-background z-10">
+        <div tw="pt-6 pb-6 px-4 sticky top-0 bg-[#EDEBE9] dark:bg-background z-10">
           <div tw="flex items-center justify-between">
-            <Link tw="w-full flex items-center" href="/">
+            <Link tw="flex items-center" href="/">
               <div tw="flex items-center">
                 <Logo tw="w-8 h-8 mr-4" /> <span tw="font-bold">Docs</span>
               </div>
@@ -41,7 +41,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
 
         <SidebarContent />
       </ScrollArea>
-    </div>
+    </nav>
   );
 };
 
@@ -179,7 +179,7 @@ const SidebarContent: React.FC = () => {
     <>
       {sidebarContent.map((section, i) => (
         <React.Fragment key={i}>
-          {section.title != null && (
+          {section.title && (
             <h5
               tw="px-4 my-2 text-foreground text-sm font-bold"
               className={classNames(
@@ -199,8 +199,8 @@ const SidebarContent: React.FC = () => {
 
 export const MobileSidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
   return (
-    <div css={[isOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}>
+    <nav css={[isOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}>
       <SidebarContent />
-    </div>
+    </nav>
   );
 };

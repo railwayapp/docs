@@ -46,7 +46,7 @@ That's why we've designed the platform for flexibility, wherever you need it.
 
 On Railway, you can use the default pattern for deployment or opt to use vendor. In fact, we will even support you in your effort to integrate Railway in a unique way. Here are a couple of use cases we've helped customers take advantage of -
 
-- Deploying to Railway from Gitlab CI/CD
+- Deploying to Railway from GitLab CI/CD
 - Supporting the development of a Terraform provider
 - Region based routing to workloads via Cloudflare
 

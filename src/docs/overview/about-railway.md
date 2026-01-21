@@ -9,12 +9,12 @@ Railway is a deployment platform designed to streamline the software development
 
 Point Railway to your deployment source and let the platform handle the rest.
 
-#### Flexible Deployment Sources
+**Flexible Deployment Sources**
 
 - **Code Repositories**: With or without Dockerfiles. Railway will build an [OCI compliant image](https://opencontainers.org/) based on what you provide.
 - **Docker Images**: Directly from Docker Hub, GitHub Container Registry, GitLab Container Registry, Microsoft Container Registry, or Quay.io. We support public and private image registries.
 
-#### Hassle-Free Setup
+**Hassle-Free Setup**
 
 - **Sane Defaults**: Out of the box, your project is deployed with sane defaults to get you up and running as fast as possible.
 - **Configuration Tuning**: When you're ready, there are plenty of knobs and switches to optimize as needed.
@@ -23,16 +23,16 @@ Point Railway to your deployment source and let the platform handle the rest.
 
 Software development extends far beyond code deployment. Railway's feature set is tailor-made, and continuously evolving, to provide the best developer experience we can imagine.
 
-#### Configuration Management
+**Configuration Management**
 
 - **Variables & Secrets**: Easily manage configuration values and sensitive data with variable management tools.
 
-#### Environment and Workflow
+**Environment and Workflow**
 
 - **Environment Management**: Create both static and ephemeral environments to create workflows that complement your processes.
 - **Orchestration & Tooling**: Build Railway into any workflow using our CLI or API.
 
-#### Deployment Monitoring
+**Deployment Monitoring**
 
 - **Observability**: Keep a pulse on your deployments with Railway's built-in observability tools.
 
