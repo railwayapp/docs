@@ -3,11 +3,11 @@ title: Bounties
 description: Learn how to earn money by helping others in the community.
 ---
 
-Bounties are a community program where you can earn money by answering questions in [Central Station](https://station.railway.com). When you help solve another user's problem, you get rewarded — and you can withdraw your earnings as cash via Stripe Connect or keep them as Railway credits.
+Bounties are a community program where you can earn money by answering questions in [Central Station](https://station.railway.com). When you help solve another user's problem, you get rewarded. You can use your earnings as Railway credits or withdraw them as cash via Stripe Connect.
 
 ## How Bounties Work
 
-Bounties are questions from the community that have a cash reward attached. When your answer is accepted as the solution, the bounty amount is added to your Railway earnings — which you can withdraw as cash or use as Railway credits.
+Bounties are questions from the community that have a cash reward attached. When your answer is accepted as the solution, the bounty amount is added to your Railway earnings. You can use this as Railway credits or withdraw as cash.
 
 ### The Bounty Lifecycle
 
@@ -27,7 +27,7 @@ Railway reviews questions in Central Station and selects some to become bounties
 
 - You'll receive an email notification letting you know your question was added to the Bounty Board.
 - Your question becomes visible on the [Bounty Board](https://station.railway.com/bounties) where the community can help answer it.
-- You don't need to do anything differently — just wait for helpful answers and mark one as the solution when your problem is solved.
+- You don't need to do anything differently. Just wait for helpful answers and mark one as the solution when your problem is solved.
 
 ### Why Some Questions Are Selected
 
@@ -64,7 +64,7 @@ Railway reviews your request to determine if it's a good fit for the bounty prog
 - Your question is made public and added to the [Bounty Board](https://station.railway.com/bounties).
 - You'll receive an email notification confirming your question is now a bounty.
 - The community can start answering, and you can mark the best answer as the solution.
-- Railway funds 100% of the bounty reward — you don't pay anything.
+- Railway funds 100% of the bounty reward. You don't pay anything.
 
 **If your request is not approved:**
 
@@ -114,7 +114,7 @@ If you prefer to withdraw your earnings as cash:
 2. Set up your cash withdrawal account by connecting Stripe Connect.
 3. Withdraw your available balance.
 
-Once Stripe Connect is set up, you can withdraw earnings from bounties, templates, and referrals — all from the same page.
+Once Stripe Connect is set up, you can withdraw earnings from bounties, templates, and referrals, all from the same page.
 
 ## Notifications
 
@@ -138,10 +138,10 @@ When your answer is accepted and the payout is processed, you'll receive an emai
 
 Here are some ways to increase your chances of having your answer accepted:
 
-- **Be clear and specific** — Explain your solution step-by-step so anyone can follow along.
-- **Include relevant context** — Reference documentation, configuration examples, or code snippets where helpful.
-- **Test your solution** — If possible, verify your answer works before posting.
-- **Be respectful** — Remember there's a person on the other end who needs help.
+- **Be clear and specific:** Explain your solution step-by-step so anyone can follow along.
+- **Include relevant context:** Reference documentation, configuration examples, or code snippets where helpful.
+- **Test your solution:** If possible, verify your answer works before posting.
+- **Be respectful:** Remember there's a person on the other end who needs help.
 
 ## Top Contributors
 
@@ -158,4 +158,4 @@ Ready to start earning?
 5. Set up your withdrawal account on your [Earnings page](https://railway.com/workspace/earnings).
 6. Withdraw your earnings as cash or use them as Railway credits.
 
-The more you help, the more you earn — and you'll be contributing to a community that helps developers ship faster.
+The more you help, the more you earn. Plus, you'll be contributing to a community that helps developers ship faster.
