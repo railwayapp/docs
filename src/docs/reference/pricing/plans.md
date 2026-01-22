@@ -40,8 +40,8 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 | **Trial**      | **0**        | **1 GB**     | **2 vCPU**     | **1 GB**              | **0.5 GB**         | **4 GB**       |
 | **Free**       | **0**        | **0.5 GB**.  | **1 vCPU**     | **1 GB**              | **0.5 GB**         | **4 GB**       | 
 | **Hobby**      | **10**       | **50 GB**    | **50 vCPU**    | **100 GB**            | **5 GB**           | **100 GB**     |
-| **Pro**        | **40**       | **1,000 GB** | **1,000 vCPU** | **100 GB**            | **1 TB \***        | **Unlimited**  |
-| **Enterprise** | **50**       | **2,400 GB** | **2,400 vCPU** | **100 GB**            | **5 TB \***        | **Unlimited**  |
+| **Pro**        | **40**       | **1 TB**.    | **1,000 vCPU** | **100 GB**            | **1 TB \***        | **Unlimited**  |
+| **Enterprise** | **50**       | **2.4 TB**   | **2,400 vCPU** | **100 GB**            | **5 TB \***        | **Unlimited**  |
 
 Note that these are maximum values and include replica multiplication.
 
