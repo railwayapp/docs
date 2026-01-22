@@ -57,6 +57,31 @@ Railway will not deploy a PR branch from a user who is not in your team or invit
 
 To enable automatic domain provisioning in PR environments, ensure that services in your base environment use Railway-provided domains. Services in PR environments will only receive domains automatically when their corresponding base environment services have Railway-provided domains.
 
+### Focused PR Environments
+
+<PriorityBoardingBanner />
+
+For monorepos and multi-service projects, Focused PR Environments only deploy services affected by files changed in the pull request. This speeds up PR environments and reduces resource usage.
+
+#### How It Works
+
+When a PR is opened, Railway determines which services to deploy:
+
+1. Services connected to the PR repo that are affected by changed files (based on [watch paths](/guides/monorepo#watch-paths) or [root directory](/guides/monorepo#deploying-an-isolated-monorepo))
+2. Dependencies of affected services (via variable references like `${{service.URL}}`)
+
+All other services are skipped and indicated on the canvas. The GitHub PR comment shows which services were skipped.
+
+#### Deploying Skipped Services
+
+Skipped services can be deployed manually from the canvas. Click on the skipped service and select "Deploy" to add it to the PR environment.
+
+#### Enabling Focused PR Environments
+
+1. Go to **Project Settings → Environments**
+2. Ensure PR Environments are enabled
+3. Toggle **Enable Focused PR Environments**
+
 ### Bot PR Environments
 
 You can enable automatic PR environment creation for PRs opened by supported GitHub bots using the `Enable Bot PR Environments` toggle on the Environments tab in the Project Settings page.
