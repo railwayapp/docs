@@ -314,6 +314,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: "Pricing",
         pages: [
           makePage("Plans", "reference/pricing"),
+          makePage("Understanding Your Bill", "reference/pricing"),
           makePage("Free Trial", "reference/pricing"),
           makePage("FAQs", "reference/pricing"),
           makePage("Refunds", "reference/pricing"),
