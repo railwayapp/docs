@@ -85,6 +85,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Public Networking", "guides"),
           makePage("Private Networking", "guides"),
+          makePage("Troubleshooting SSL", "guides"),
         ],
       },
       {
