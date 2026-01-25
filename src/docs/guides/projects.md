@@ -51,7 +51,7 @@ Each project generates a project invite link. To invite someone via a link:
 
 Depending on your plan, you can transfer Projects to other users or Teams.
 
-#### Hobby User to Hobby User
+**Hobby User to Hobby User**
 
 To transfer a project from one Hobby User to another Hobby User, you must first [add the user as a member](#inviting-members) in the project.
 
@@ -64,7 +64,7 @@ width={411} height={253} quality={80} />
 
 The transferee receives an email requesting to transfer the project.
 
-#### Hobby User to Team || Team to Team
+**Hobby User to Team or Team to Team**
 
 You can transfer a Project in your Hobby workspace to a Team (or between Teams) in which you are an Admin. Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
 
