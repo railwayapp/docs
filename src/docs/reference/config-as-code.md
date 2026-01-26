@@ -103,6 +103,10 @@ Location of non-standard Dockerfile.
 }
 ```
 
+**Path resolution:** `dockerfilePath` is resolved relative to the service’s Root Directory (Service Settings → Root Directory). If Root Directory is not set, it’s relative to the repository root.
+
+**Build context:** The Docker build context is the same Root Directory used for the service build.
+
 This field can be set to `null`.
 
 More about building from a Dockerfile [here](/reference/dockerfiles).
