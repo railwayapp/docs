@@ -92,13 +92,11 @@ hypercorn app:app --bind [::]:${PORT-3000}
 
 #### Python / Uvicorn
 
-Update your start command to bind to IPv6.
+Update your start command to bind to both IPv4 and IPv6.
 
 ```bash
-uvicorn app:app --host :: --port ${PORT-3000}
+uvicorn app:app --host "" --port ${PORT-3000}
 ```
-
-**Note:** If your application needs to be accessible over both private and public networks, your application server must support dual stack binding. Most servers handle this automatically when listening on `::`, but some, like Uvicorn, do not.
 
 #### Rust / Axum
 
