@@ -108,7 +108,7 @@ Railway automatically distributes replicas across available regions and routes t
 ![Multi-region deployment](https://res.cloudinary.com/railway/image/upload/v1758247839/docs/multi-region_deployment_h5fxqz.png)
 
 
-Each replica runs with the full resource limits of your plan. So if you're on the Pro plan and deploy 3 replicas, you'll get a combined capacity of 96 vCPU and 96 GB RAM across all regions.
+Each replica runs with the full resource limits of your plan. So if you're on the Pro plan and deploy 3 replicas, you'll get a combined capacity of 72 vCPU and 72 GB RAM across all regions.
 
 ```
 Total resources = number of replicas × maximum compute allocation per replica

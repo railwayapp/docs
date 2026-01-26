@@ -14,8 +14,8 @@ At scale Railway processes:
 - 1+ trillion edge network requests
 
 The platform supports your production-grade workloads with:
-- 1TB RAM memory limits
-- 1000 vCPU processor limits
+- 2.4TB RAM memory limits
+- 2400 vCPU processor limits
 - 50TB disk storage limits
 
 ## Security and Compliance

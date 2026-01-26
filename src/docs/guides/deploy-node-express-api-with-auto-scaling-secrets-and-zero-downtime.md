@@ -243,7 +243,7 @@ For high-traffic applications, you can scale horizontally by deploying multiple 
 
 ![Horizontal scaling](https://res.cloudinary.com/railway/image/upload/v1758247839/docs/horizontal_scaling_xil1q0.png)
 
-Each replica runs with the full resource limits of your plan. So if you're on the Pro plan and deploy 3 replicas, you get a combined capacity of 96 vCPU and 96 GB RAM.
+Each replica runs with the full resource limits of your plan. So if you're on the Pro plan and deploy 3 replicas, you get a combined capacity of 72 vCPU and 72 GB RAM.
 
 ```bash
 Total resources = number of replicas × maximum compute allocation per replica
