@@ -49,7 +49,7 @@ If your Railway services need to communicate with each other, you can find the s
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1743193518/docs/private-networking_nycfyk.png" alt="Private Network URL" layout="responsive" width={1558} height={1156} />
 
-Learn more about Railway's Private Networking [here](/guides/private-networking).
+Learn more about [Railway's Private Networking](/guides/private-networking).
 
 ## Enabling Serverless
 
