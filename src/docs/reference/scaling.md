@@ -15,7 +15,7 @@ By default Railway will scale your service up to the specified vCPU and Memory l
 
 Scale horizontally by manually increasing the number of replicas for a service in the service settings. Increasing the number of replicas on a service will create multiple instances of the service deployment.
 
-Each replica has access to the full resources allocated by your plan. For instance, with the `Pro` plan, each of your replicas can utilize up to 32 vCPU and 32GB of memory, for example, if you had 2 replicas, your service would be able to utilize up to 64 vCPU and 64GB of memory split between the 2 replicas.
+Each replica has access to the full resources allocated by your plan. For instance, with the `Pro` plan, each of your replicas can utilize up to 24 vCPU and 24GB of memory, for example, if you had 2 replicas, your service would be able to utilize up to 48 vCPU and 48GB of memory split between the 2 replicas.
 
 #### Multi-region replicas
 

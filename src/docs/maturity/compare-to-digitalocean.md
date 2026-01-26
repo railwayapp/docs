@@ -52,7 +52,7 @@ Railway automatically manages compute resources for you. Your deployed services 
 
 You can scale horizontally by deploying multiple replicas of your service. Railway automatically distributes public traffic randomly across replicas within each region. Each replica runs with the full resource limits of your plan.
 
-For example, if you're on the Pro plan, each replica gets 32 vCPU and 32 GB RAM. So, deploying 3 replicas gives your service a combined capacity of 96 vCPU and 96 GB RAM.
+For example, if you're on the Pro plan, each replica gets 24 vCPU and 24 GB RAM. So, deploying 3 replicas gives your service a combined capacity of 72 vCPU and 72 GB RAM.
 
 ```bash
 Total resources = number of replicas × maximum compute allocation per replica
