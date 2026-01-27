@@ -67,7 +67,7 @@ If your application takes time to:
 
 #### Post-Deploy (Drain Instances)
 
-Railway stops and removes the previous deployment. By default, old deployments are given 3 seconds to gracefully shut down (configurable via \`RAILWAY_DEPLOYMENT_DRAINING_SECONDS\`).
+Railway stops and removes the previous deployment. By default, old deployments are given 3 seconds to gracefully shut down (configurable via `RAILWAY_DEPLOYMENT_DRAINING_SECONDS`).
 
 ## Is It Railway or My App?
 
@@ -77,17 +77,24 @@ Before diving into optimization, determine whether the slowness is on Railway's 
 
 Visit [status.railway.com](https://status.railway.com) to see if there are any ongoing incidents or degraded performance affecting the platform.
 
-### Check Deployment Logs
+### Check Build Logs
 
-The deployment view shows each phase with timing information. Click on a deployment to see:
-- Build logs with timestamps
-- Which phase is currently running
-- How long each phase took
+Build logs show output from the build phase (installing dependencies, compiling code, creating the container image). The deployment view shows each phase with timing information.
 
 Look for:
-- Build steps that take disproportionately long
-- Healthcheck failures causing retries
-- Volume migration in progress
+- Dependency installation steps that take disproportionately long
+- Cache misses causing full rebuilds
+- Large assets being processed
+
+### Check Deployment Logs
+
+Deployment logs show your application's stdout/stderr while it's running. These help diagnose runtime issues that occur after your app starts.
+
+Look for:
+- Database connection errors or timeouts
+- Slow query warnings
+- Application exceptions or errors
+- Healthcheck failures
 
 ### Check Your Application Metrics
 
@@ -122,36 +129,35 @@ Slow database queries are one of the most common causes of application latency.
 
 ### Wrong Region Configuration
 
-If your application is in one region but your database is in another, every query crosses the internet.
+If your application is in one region but your database is in another, every query incurs geographic latency as traffic travels between regions on Railway's network.
 
 **Symptoms:**
-- Consistently high latency on all database operations
-- \`x-railway-edge\` header shows a different region than your database
+- Consistently high latency on all database operations (typically 50-150ms+ per query depending on distance)
 
 **Solutions:**
 - Deploy your application in the same region as your database
-- Use [multi-region replicas](/reference/scaling#multi-region-replicas) to serve users from the nearest region
 
 ### Not Using Private Networking
 
-If services within the same project communicate over the public internet instead of [private networking](/guides/private-networking), you add unnecessary latency.
+If services within the same project communicate over the public internet instead of [private networking](/guides/private-networking), you add unnecessary latency and incur [egress costs](/reference/pricing/plans#resource-usage-pricing).
 
 **Symptoms:**
-- Using public URLs (e.g., \`your-app.up.railway.app\`) for inter-service communication
+- Using public URLs (e.g., `your-app.up.railway.app`) for inter-service communication
 - Connection strings using public hostnames
+- Unexpectedly high network egress charges on your bill
 
 **Solutions:**
-- Use \`*.railway.internal\` hostnames for service-to-service communication
+- Use `*.railway.internal` hostnames for service-to-service communication
 - Update connection strings to use private networking addresses and ports
 
 **Example:**
-\`\`\`javascript
+```javascript
 // Slower: Going through public internet
 const apiUrl = "https://api.up.railway.app";
 
 // Faster: Private networking
 const apiUrl = "http://api.railway.internal:3000";
-\`\`\`
+```
 
 ### Resource Constraints
 
@@ -179,7 +185,7 @@ Large images take longer to pull, especially on first deployment to a new comput
 **Solutions:**
 - Use multi-stage Docker builds to reduce final image size
 - Use smaller base images (e.g., Alpine variants)
-- Exclude unnecessary files with \`.dockerignore\`
+- Exclude unnecessary files with `.dockerignore`
 - Remove development dependencies from production builds
 
 ### Slow Application Startup
@@ -205,8 +211,8 @@ Upgrading your plan increases your **resource limits**, not guaranteed performan
 | Plan | Per-Replica vCPU Limit | Per-Replica Memory Limit |
 |------|------------------------|--------------------------|
 | **Hobby** | 8 vCPU | 8 GB |
-| **Pro** | 24 vCPU | 24 GB |
-| **Enterprise** | 48 vCPU | 48 GB |
+| **Pro** | 32 vCPU | 32 GB |
+| **Enterprise** | Custom | Custom |
 
 Upgrading raises the ceiling on how many resources a single replica can use. Your application only uses what it needs, up to the limit.
 
@@ -239,15 +245,15 @@ When a request comes in:
 2. The edge proxy routes it to your service in the configured region
 3. Your service processes the request and responds
 
-You can see which edge handled a request via the \`x-railway-edge\` response header.
+You can see which edge handled a request via the `X-Railway-Edge` response header.
 
 ### Checking the Edge Header
 
-\`\`\`bash
-curl -I https://your-app.up.railway.app | grep -i x-railway-edge
-\`\`\`
+```bash
+curl -I https://your-app.up.railway.app | grep -i X-Railway-Edge
+```
 
-The header value shows the region, e.g., \`railway/us-west2\`.
+The header value shows the region, e.g., `railway/us-west2`.
 
 ### Why Traffic Might Hit the Wrong Edge
 
@@ -257,14 +263,16 @@ The header value shows the region, e.g., \`railway/us-west2\`.
 
 ### Optimizing for Global Users
 
-If you have users worldwide:
-1. Use [multi-region replicas](/reference/scaling#multi-region-replicas) to deploy in regions close to your users
-2. Railway automatically routes traffic to the nearest region
-3. Consider a CDN for static assets
+If you have users worldwide, you can use [multi-region replicas](/reference/scaling#multi-region-replicas) to deploy stateless services closer to your users. Railway automatically routes traffic to the nearest region.
+
+**Note:** Multi-region works well for stateless application servers, but databases typically run in a single region. If your app is deployed globally but your database is in one region, replicas far from the database will still experience latency on database queries. To mitigate this:
+- Use application-level caching to reduce database round-trips
+- Consider database read replicas in additional regions for read-heavy workloads
+- Accept the latency trade-off for writes, which must go to the primary database
 
 ### Private Networking and Edge
 
-Private networking (\`*.railway.internal\`) bypasses the edge entirely. Services communicate directly within Railway's infrastructure, which is faster than going through the public internet.
+Private networking (`*.railway.internal`) bypasses the edge entirely. Services communicate directly within Railway's infrastructure, which is faster than going through the public internet.
 
 ## Quick Diagnostic Checklist
 
@@ -274,7 +282,7 @@ When troubleshooting slow deployments or applications:
 2. **Review deployment logs** to identify which phase is slow
 3. **Check metrics** for CPU, memory, and network usage
 4. **Verify region configuration** - are all your services in the same region?
-5. **Confirm private networking** - are services using \`*.railway.internal\`?
+5. **Confirm private networking** - are services using `*.railway.internal`?
 6. **Review database performance** - are queries optimized?
 7. **Check container image size** - can it be reduced?
 8. **Test healthcheck endpoint** - does it respond quickly?
@@ -287,3 +295,5 @@ Contact Railway support through [Central Station](https://station.railway.com) i
 - You see platform errors in your logs
 - The status page shows no issues but you're experiencing degraded performance
 - You need help optimizing your deployment configuration
+
+**Tip:** When reporting issues, include the `X-Railway-Request-Id` header from affected requests. This unique identifier helps Railway support trace your request through the infrastructure. You can find it in your HTTP response headers.
