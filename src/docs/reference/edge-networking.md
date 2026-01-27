@@ -29,9 +29,10 @@ For any given request, traffic enters at the nearest edge region, then routes in
 
 When a request reaches your Railway service, it follows this path:
 
-\`\`\`
-User → ISP → Internet (BGP routing) → Nearest Edge → Internal Routing → Deployment Region → Your Service
-\`\`\`
+```
+User → ISP → Internet (BGP) → Nearest Edge
+  → Internal Routing → Deployment Region → Your Service
+```
 
 1. **User to Edge**: Anycast routing directs traffic to the nearest edge location
 2. **Edge Processing**: The edge proxy (tcp-proxy) terminates TLS, adds headers, and looks up routing information
@@ -68,24 +69,7 @@ The header does **not** indicate:
 
 ### Accessing the Header
 
-You can read this header in your application to understand where traffic is entering Railway's network:
-
-\`\`\`javascript
-// Express.js example
-app.get('/debug', (req, res) => {
-  const edgeRegion = req.headers['x-railway-edge'];
-  console.log(\`Request entered via: \${edgeRegion}\`);
-  res.json({ edge: edgeRegion });
-});
-\`\`\`
-
-\`\`\`python
-# Flask example
-@app.route('/debug')
-def debug():
-    edge_region = request.headers.get('X-Railway-Edge')
-    return {'edge': edge_region}
-\`\`\`
+You can see this header in your deployment's HTTP logs, or read it programmatically in your application like any other HTTP request header.
 
 ## Why Traffic Hits "Wrong" Regions
 
@@ -143,11 +127,10 @@ Consider reaching out to support if:
 
 1. **Check the header**: Inspect `X-Railway-Edge` in your application logs or by making test requests
 
-2. **Run traceroute**: Test network paths to Railway's anycast IPs
-   \`\`\`bash
+2. **Run traceroute**: Test network paths to Railway's anycast IP
+   ```bash
    traceroute 66.33.22.11
-   traceroute 66.33.22.1
-   \`\`\`
+   ```
 
 3. **Compare from multiple locations**: Use tools like [check-host.net](https://check-host.net) to test routing from different geographic locations
 
@@ -158,7 +141,7 @@ Consider reaching out to support if:
 If you need to report a routing issue, include:
 - The `X-Railway-Edge` header value from affected requests
 - Your deployment ID (found in the Railway dashboard)
-- Traceroute results to `66.33.22.11` and `66.33.22.1`
+- Traceroute results to `66.33.22.11`
 - The geographic location where the issue is observed
 - Whether you're using a CDN or proxy
 
