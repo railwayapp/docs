@@ -47,11 +47,12 @@ Every HTTP request to your Railway service includes the `X-Railway-Edge` header,
 
 The header value follows the format: `railway/{region-identifier}`
 
-Examples:
-- `railway/us-west1` - US West edge
-- `railway/us-east4` - US East edge
-- `railway/europe-west4` - Europe West edge
-- `railway/asia-southeast1` - Southeast Asia edge
+| Header | Region | Location |
+| ------ | ------ | -------- |
+| `railway/us-west2` | US West | California, USA |
+| `railway/us-east4-eqdc4a` | US East | Virginia, USA |
+| `railway/europe-west4-drams3a` | Europe West | Amsterdam, Netherlands |
+| `railway/asia-southeast1-eqsg3a` | Southeast Asia | Singapore |
 
 ### What It Tells You
 
@@ -79,7 +80,7 @@ A common question from users is: "Why does `X-Railway-Edge` show a different reg
 
 The edge region is determined by anycast routing, which optimizes for network path, not geographic proximity. Your deployment region is a separate configuration that determines where your application runs.
 
-**Example**: A user in Chicago might see `X-Railway-Edge: railway/us-east4` even though their service is deployed in `us-west2`. This is normal - the request entered via the US East edge (nearest by network path) and was then routed internally to the US West deployment.
+**Example**: A user in Chicago might see `X-Railway-Edge: railway/us-east4-eqdc4a` even though their service is deployed in `us-west2`. This is normal - the request entered via the US East edge (nearest by network path) and was then routed internally to the US West deployment.
 
 ### ISP and Network Factors
 
