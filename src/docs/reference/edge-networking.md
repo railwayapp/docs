@@ -19,21 +19,18 @@ The key insight is that **"nearest" is determined by network topology, not geogr
 
 ### Edge Regions vs Deployment Regions
 
-Railway has two types of regions that serve different purposes:
+Railway operates in four locations: **US West**, **US East**, **Europe West**, and **Asia Southeast**. Each location can serve as both an entry point for traffic (edge region) and a deployment target for your applications (deployment region).
 
-| Type | Purpose | Examples |
-|------|---------|----------|
-| **Edge Regions** | Where traffic enters Railway's network | `us-west1`, `us-east4`, `europe-west4`, `asia-southeast1` |
-| **Deployment Regions** | Where your application runs | `us-west2`, `us-east4-eqdc4a`, `europe-west4-drams3a`, `asia-southeast1-eqsg3a` |
+You choose which locations to deploy your app to, but all edge regions are available automatically. Your users always enter Railway at the location nearest to them, regardless of where your app is deployed.
 
-Edge regions and deployment regions are independent. Traffic enters at the nearest edge and is then routed internally to wherever your deployment is running.
+For any given request, traffic enters at the nearest edge region, then routes internally to the nearest deployment region where your app is running. If your app is deployed in multiple locations, traffic is routed to the closest one. If your app is only in one location, traffic routes there regardless of where it entered.
 
 ### Request Flow
 
 When a request reaches your Railway service, it follows this path:
 
 \`\`\`
-User -> ISP -> Internet (BGP routing) -> Nearest Edge -> Internal Routing -> Deployment Region -> Your Service
+User → ISP → Internet (BGP routing) → Nearest Edge → Internal Routing → Deployment Region → Your Service
 \`\`\`
 
 1. **User to Edge**: Anycast routing directs traffic to the nearest edge location
