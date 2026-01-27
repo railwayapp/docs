@@ -111,6 +111,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Monorepo", "guides"),
           makePage("Cron Jobs", "guides"),
           makePage("Optimize Usage", "guides"),
+          makePage("Troubleshooting Slow Apps", "guides"),
         ],
       },
       {
