@@ -7,7 +7,7 @@ If you've worked with REST APIs, GraphQL might feel unfamiliar at first. This gu
 
 ## What is GraphQL?
 
-GraphQL is a query language for APIs. Instead of hitting different endpoints to get different pieces of data, you write a query that describes exactly what you want. The server returns exactly that—nothing more, nothing less.
+GraphQL is a query language for APIs. Instead of hitting different endpoints to get different pieces of data, you write a query that describes exactly what you want. The server returns nothing more, nothing less. Just exactly what you ask for.
 
 Here's a simple example. Say you want to fetch a project's name and the names of its services:
 
@@ -54,7 +54,7 @@ GET /projects/123/services  → returns list of services
 GET /services/456           → returns one service's details
 ```
 
-To get a project with its services, you might need multiple requests, then stitch the data together yourself. Each endpoint returns whatever fields the API designer decided to include—you can't ask for less (to save bandwidth) or more (to avoid extra calls).
+To get a project with its services, you might need multiple requests, then stitch the data together yourself. Each endpoint returns whatever fields the API designer decided to include; you can't ask for less (to save bandwidth) or more (to avoid extra calls).
 
 GraphQL inverts this. There's one endpoint, and you decide what data you need by writing a query.
 
@@ -126,9 +126,9 @@ The best way to discover what's available in Railway's API is through the [Graph
 
 Click the "Docs" button (or press Ctrl/Cmd+Shift+D) to open the documentation explorer. From here you can:
 
-1. **Browse root operations** — Start with `Query` to see all available queries, or `Mutation` for all mutations
-2. **Search for types** — Use the search box to find types like `Project`, `Service`, or `Deployment`
-3. **Navigate relationships** — Click on any type to see its fields, then click on field types to explore further
+1. **Browse root operations:** Start with `Query` to see all available queries, or `Mutation` for all mutations
+2. **Search for types:** Use the search box to find types like `Project`, `Service`, or `Deployment`
+3. **Navigate relationships:** Click on any type to see its fields, then click on field types to explore further
 
 ### Understanding type signatures
 
@@ -155,9 +155,9 @@ input ProjectCreateInput {
 
 When writing a query, you can request any field defined on a type. For example, if you're querying a `Project`, click on the `Project` type in GraphiQL's Docs panel to see all available fields:
 
-- `id`, `name`, `description` — basic info
-- `services`, `environments`, `volumes` — related resources
-- `createdAt`, `updatedAt` — timestamps
+- `id`, `name`, `description`: basic info
+- `services`, `environments`, `volumes`: related resources
+- `createdAt`, `updatedAt`: timestamps
 - And more...
 
 You don't need to request all fields. Just include the ones you need:
@@ -177,8 +177,8 @@ query {
 
 For mutations, check the input type to see what you can pass. For example, `projectCreate` takes a `ProjectCreateInput`. Click on that type in GraphiQL to see:
 
-- **Required fields** — Must be provided (marked with `!`)
-- **Optional fields** — Can be omitted for default behavior
+- **Required fields:** Must be provided (marked with `!`)
+- **Optional fields:** Can be omitted for default behavior
 
 The examples in our [API Cookbook](/guides/api-cookbook) show common optional fields, but GraphiQL always has the complete list.
 
@@ -186,7 +186,7 @@ The examples in our [API Cookbook](/guides/api-cookbook) show common optional fi
 
 In GraphiQL's editor, press Ctrl+Space to trigger autocomplete. It shows all valid fields at your current position in the query, with descriptions.
 
-## Relay-style pagination
+## Pagination
 
 Railway's API uses Relay-style pagination for lists. Instead of returning a flat array, lists are wrapped in `edges` and `node`:
 
@@ -201,9 +201,50 @@ services {
 }
 ```
 
-This pattern supports cursor-based pagination for large datasets. The actual items are inside `node`. Once you recognize the pattern, it becomes second nature.
+This structure enables cursor-based pagination for large datasets.
 
-For simple cases where you just want all items, you can ignore pagination and just drill into `edges { node { ... } }`.
+### Basic usage
+
+For small lists, just request `edges` and `node` to get all items:
+
+<CodeTabs query={`query project($id: String!) {
+  project(id: $id) {
+    services {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+}`} variables={{ id: "project-id" }} />
+
+### Paginating through results
+
+For larger lists, use `first` to limit results and `after` to fetch the next page:
+
+<CodeTabs query={`query deployments($input: DeploymentListInput!, $first: Int, $after: String) {
+  deployments(input: $input, first: $first, after: $after) {
+    edges {
+      node {
+        id
+        status
+        createdAt
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}`} variables={{ input: { projectId: "project-id" }, first: 10 }} />
+
+The `pageInfo` object tells you:
+- `hasNextPage`: whether more results exist
+- `endCursor`: the cursor to pass as `after` to get the next page
+
+To fetch the next page, run the same query with `after` set to the `endCursor` from the previous response.
 
 ## Making your first request
 
@@ -243,7 +284,7 @@ Once that works, gradually expand to include related data.
 
 **Think in graphs.** GraphQL shines when you need related data. Instead of "what endpoint do I call?", think "what data do I need, and how is it connected?"
 
-For example, to get a project with its services and each service's latest deployment status—data that might require 3+ REST calls—you write one query:
+For example, to get a project with its services and each service's latest deployment status (data that might require 3+ REST calls), you write one query:
 
 <CodeTabs query={`query project($id: String!) {
   project(id: $id) {
@@ -269,6 +310,6 @@ For example, to get a project with its services and each service's latest deploy
 
 ## Next steps
 
-- **[API Cookbook](/guides/api-cookbook)** — Copy-paste examples for common operations
-- **[GraphiQL Playground](https://railway.com/graphiql)** — Interactive query explorer
-- **[Public API Reference](/reference/public-api)** — Authentication, rate limits, and more
+- **[API Cookbook](/guides/api-cookbook):** Copy-paste examples for common operations
+- **[GraphiQL Playground](https://railway.com/graphiql):** Interactive query explorer
+- **[Public API Reference](/reference/public-api):** Authentication, rate limits, and more
