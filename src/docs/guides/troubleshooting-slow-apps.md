@@ -67,7 +67,7 @@ If your application takes time to:
 
 #### Post-Deploy (Drain Instances)
 
-Railway stops and removes the previous deployment. By default, old deployments are given 3 seconds to gracefully shut down (configurable via `RAILWAY_DEPLOYMENT_DRAINING_SECONDS`).
+Railway stops and removes the previous deployment. By default, old deployments are given 0 seconds to gracefully shut down (configurable via `RAILWAY_DEPLOYMENT_DRAINING_SECONDS`).
 
 ## Is It Railway or My App?
 
