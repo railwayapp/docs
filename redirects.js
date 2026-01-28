@@ -105,6 +105,36 @@ const redirects = [
     destination: "/overview/production-readiness-checklist",
     permanent: true,
   },
+  {
+    source: "/overview/about-railway",
+    destination: "/platform/about-railway",
+    permanent: true,
+  },
+  {
+    source: "/maturity/philosophy",
+    destination: "/platform/philosophy",
+    permanent: true,
+  },
+  {
+    source: "/maturity/use-cases",
+    destination: "/platform/use-cases",
+    permanent: true,
+  },
+  {
+    source: "/reference/support",
+    destination: "/platform/support",
+    permanent: true,
+  },
+  {
+    source: "/maturity/incident-management",
+    destination: "/platform/incident-management",
+    permanent: true,
+  },
+  {
+    source: "/railway-metal",
+    destination: "/platform/railway-metal",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
