@@ -345,6 +345,11 @@ const redirects = [
     destination: "/builds/nixpacks",
     permanent: true,
   },
+  {
+    source: "/reference/functions",
+    destination: "/functions",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
