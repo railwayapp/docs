@@ -624,6 +624,16 @@ const redirects = [
     destination: "/builds/dockerfiles",
     permanent: true,
   },
+  {
+    source: "/guides/cron-jobs",
+    destination: "/cron-jobs",
+    permanent: true,
+  },
+  {
+    source: "/reference/cron-jobs",
+    destination: "/cron-jobs",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
