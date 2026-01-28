@@ -469,6 +469,41 @@ const redirects = [
     destination: "/public-api/manage-variables",
     permanent: true,
   },
+  {
+    source: "/reference/errors",
+    destination: "/troubleshooting",
+    permanent: true,
+  },
+  {
+    source: "/reference/errors/application-failed-to-respond",
+    destination: "/troubleshooting/application-failed-to-respond",
+    permanent: true,
+  },
+  {
+    source: "/reference/errors/no-start-command-could-be-found",
+    destination: "/troubleshooting/no-start-command-could-be-found",
+    permanent: true,
+  },
+  {
+    source: "/reference/errors/405-method-not-allowed",
+    destination: "/troubleshooting/405-method-not-allowed",
+    permanent: true,
+  },
+  {
+    source: "/reference/errors/nixpacks-was-unable-to-generate-a-build-plan",
+    destination: "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    permanent: true,
+  },
+  {
+    source: "/reference/errors/enotfound-redis-railway-internal",
+    destination: "/troubleshooting/enotfound-redis-railway-internal",
+    permanent: true,
+  },
+  {
+    source: "/guides/nodejs-sigterm",
+    destination: "/troubleshooting/nodejs-sigterm",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
