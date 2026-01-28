@@ -1,9 +1,15 @@
 ---
-title: Build from a Dockerfile
+title: Dockerfiles
 description: Learn Dockerfile configuration on Railway.
 ---
 
-We will look for and use a `Dockerfile` at the service's root if it exists.
+Use a Dockerfile to instruct Railway how to build a service.
+
+## How it Works
+
+When building a service, Railway will look for and use a `Dockerfile` at the root of the source directory.
+
+**Note:** For the automatic Dockerfile detection to work, the Dockerfile must be named `Dockerfile` with a capital D, otherwise Railway will not use it by default.
 
 Railway notifies you when it's using the `Dockerfile` in the build process with the following message in the logs:
 
@@ -17,7 +23,7 @@ Using detected Dockerfile!
 
 By default, we look for a file named `Dockerfile` in the root directory. If you want to use a custom filename or path, you can set a variable defining the path.
 
-In your [service variables](/guides/variables#service-variables), set a variable named `RAILWAY_DOCKERFILE_PATH` to specify the path to the file.
+In your [service variables](/variables), set a variable named `RAILWAY_DOCKERFILE_PATH` to specify the path to the file.
 
 For example, if your Dockerfile was called `Dockerfile.origin`, you would specify it like this:
 
@@ -33,11 +39,11 @@ RAILWAY_DOCKERFILE_PATH=/build/Dockerfile
 
 ### Use Config as Code
 
-You can also set your custom Dockerfile path using [config as code](/guides/config-as-code).
+You can also set your custom Dockerfile path using [config as code](/config-as-code).
 
 ## Using Variables at Build Time
 
-If you need to use the environment variables that Railway injects at build time, which include [variables that you define](/guides/variables#service-variables) and [Railway-provided variables](/guides/variables#railway-provided-variables), you must specify them in the Dockerfile using the `ARG` command.
+If you need to use the environment variables that Railway injects at build time, which include [variables that you define](/variables) and [Railway-provided variables](/variables#railway-provided-variables), you must specify them in the Dockerfile using the `ARG` command.
 
 For example:
 
@@ -86,6 +92,6 @@ So the mount command is specified like this:
 
 ## Docker Compose
 
-You can import services straight from your Docker Compose file! Just drag and drop your Compose file onto your [project canvas](/overview/the-basics#project--project-canvas), and your services (and any mounted volumes) will be auto-imported as staged changes. It’s like magic, but with YAML instead of wands. 🪄
+You can import services straight from your Docker Compose file! Just drag and drop your Compose file onto your [project canvas](/overview/the-basics#project--project-canvas), and your services (and any mounted volumes) will be auto-imported as staged changes. It's like magic, but with YAML instead of wands. 🪄
 
-A quick heads-up: we don’t support every possible Compose config just yet (because Rome wasn’t built in a day). But don’t worry, we’re on it!
+A quick heads-up: we don't support every possible Compose config just yet (because Rome wasn't built in a day). But don't worry, we're on it!

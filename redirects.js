@@ -614,6 +614,16 @@ const redirects = [
     destination: "/deployments/regions",
     permanent: true,
   },
+  {
+    source: "/guides/dockerfiles",
+    destination: "/builds/dockerfiles",
+    permanent: true,
+  },
+  {
+    source: "/reference/dockerfiles",
+    destination: "/builds/dockerfiles",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
