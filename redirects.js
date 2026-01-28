@@ -754,6 +754,31 @@ const redirects = [
     destination: "/cli",
     permanent: true,
   },
+  {
+    source: "/migration/migrate-from-heroku",
+    destination: "/platform/migrate-from-heroku",
+    permanent: true,
+  },
+  {
+    source: "/migration/migrate-from-render",
+    destination: "/platform/migrate-from-render",
+    permanent: true,
+  },
+  {
+    source: "/migration/migrate-from-fly",
+    destination: "/platform/migrate-from-fly",
+    permanent: true,
+  },
+  {
+    source: "/migration/migrate-from-vercel",
+    destination: "/platform/migrate-from-vercel",
+    permanent: true,
+  },
+  {
+    source: "/migration/migrate-from-digitalocean",
+    destination: "/platform/migrate-from-digitalocean",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
