@@ -9,8 +9,7 @@ Here are examples to help you manage your environment variables using the Public
 
 Fetch all variables for a service in a specific environment:
 
-```graphql
-query variables(
+<CodeTabs query={`query variables(
   $projectId: String!
   $environmentId: String!
   $serviceId: String
@@ -20,17 +19,7 @@ query variables(
     environmentId: $environmentId
     serviceId: $serviceId
   )
-}
-```
-
-**Variables:**
-```json
-{
-  "projectId": "your-project-id",
-  "environmentId": "your-environment-id",
-  "serviceId": "your-service-id"
-}
-```
+}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>" }} />
 
 **Response:**
 ```json
@@ -49,25 +38,27 @@ query variables(
 
 Omit the `serviceId` to get shared variables for an environment:
 
-```json
-{
-  "projectId": "your-project-id",
-  "environmentId": "your-environment-id"
-}
-```
+<CodeTabs query={`query variables($projectId: String!, $environmentId: String!) {
+  variables(projectId: $projectId, environmentId: $environmentId)
+}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>" }} />
 
 ## Get Unrendered Variables
 
 Get variables with references intact (not resolved):
 
-```json
-{
-  "projectId": "your-project-id",
-  "environmentId": "your-environment-id",
-  "serviceId": "your-service-id",
-  "unrendered": true
-}
-```
+<CodeTabs query={`query variables(
+  $projectId: String!
+  $environmentId: String!
+  $serviceId: String
+  $unrendered: Boolean
+) {
+  variables(
+    projectId: $projectId
+    environmentId: $environmentId
+    serviceId: $serviceId
+    unrendered: $unrendered
+  )
+}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", unrendered: "true" }} />
 
 This returns variables like `${{Postgres.DATABASE_URL}}` instead of the resolved value.
 
@@ -75,100 +66,41 @@ This returns variables like `${{Postgres.DATABASE_URL}}` instead of the resolved
 
 Upsert a single variable:
 
-```graphql
-mutation variableUpsert($input: VariableUpsertInput!) {
+<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
   variableUpsert(input: $input)
-}
-```
-
-**Variables:**
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "environmentId": "your-environment-id",
-    "serviceId": "your-service-id",
-    "name": "API_KEY",
-    "value": "secret-key-here"
-  }
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", name: "API_KEY", value: "secret-key-here" } }} />
 
 ### Create a Shared Variable
 
 Omit `serviceId` to create a shared variable:
 
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "environmentId": "your-environment-id",
-    "name": "SHARED_SECRET",
-    "value": "shared-value"
-  }
-}
-```
+<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
+  variableUpsert(input: $input)
+}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", name: "SHARED_SECRET", value: "shared-value" } }} />
 
 ### Skip Automatic Redeploy
 
 By default, changing a variable triggers a redeploy. To prevent this:
 
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "environmentId": "your-environment-id",
-    "serviceId": "your-service-id",
-    "name": "API_KEY",
-    "value": "new-value",
-    "skipDeploys": true
-  }
-}
-```
+<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
+  variableUpsert(input: $input)
+}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", name: "API_KEY", value: "new-value", skipDeploys: "true" } }} />
 
 ## Upsert Multiple Variables
 
 Update multiple variables at once:
 
-```graphql
-mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
+<CodeTabs query={`mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
   variableCollectionUpsert(input: $input)
-}
-```
-
-**Variables:**
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "environmentId": "your-environment-id",
-    "serviceId": "your-service-id",
-    "variables": {
-      "DATABASE_URL": "postgres://...",
-      "REDIS_URL": "redis://...",
-      "NODE_ENV": "production"
-    }
-  }
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", variables: { DATABASE_URL: "postgres://...", REDIS_URL: "redis://...", NODE_ENV: "production" } } }} />
 
 ### Replace All Variables
 
 To replace all existing variables (delete any not in the new set):
 
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "environmentId": "your-environment-id",
-    "serviceId": "your-service-id",
-    "variables": {
-      "NEW_VAR": "value"
-    },
-    "replace": true
-  }
-}
-```
+<CodeTabs query={`mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
+  variableCollectionUpsert(input: $input)
+}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", variables: { NEW_VAR: "value" }, replace: "true" } }} />
 
 <Banner variant="warning">Using `replace: true` will delete all variables not included in the `variables` object.</Banner>
 
@@ -176,30 +108,15 @@ To replace all existing variables (delete any not in the new set):
 
 Delete a single variable:
 
-```graphql
-mutation variableDelete($input: VariableDeleteInput!) {
+<CodeTabs query={`mutation variableDelete($input: VariableDeleteInput!) {
   variableDelete(input: $input)
-}
-```
-
-**Variables:**
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "environmentId": "your-environment-id",
-    "serviceId": "your-service-id",
-    "name": "OLD_VARIABLE"
-  }
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", name: "OLD_VARIABLE" } }} />
 
 ## Get Rendered Variables for Deployment
 
 Get all variables as they would appear during a deployment (with all references resolved):
 
-```graphql
-query variablesForServiceDeployment(
+<CodeTabs query={`query variablesForServiceDeployment(
   $projectId: String!
   $environmentId: String!
   $serviceId: String!
@@ -209,8 +126,7 @@ query variablesForServiceDeployment(
     environmentId: $environmentId
     serviceId: $serviceId
   )
-}
-```
+}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>" }} />
 
 ## Variable References
 
@@ -222,17 +138,9 @@ ${{ServiceName.VARIABLE_NAME}}
 
 For example, to reference a database URL from a Postgres service:
 
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "environmentId": "your-environment-id",
-    "serviceId": "your-service-id",
-    "name": "DATABASE_URL",
-    "value": "${{Postgres.DATABASE_URL}}"
-  }
-}
-```
+<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
+  variableUpsert(input: $input)
+}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", name: "DATABASE_URL", value: "${{Postgres.DATABASE_URL}}" } }} />
 
 ## Common Patterns
 

@@ -9,8 +9,7 @@ Here are examples to help you manage your projects using the Public API.
 
 Fetch all projects in your personal account:
 
-```graphql
-query projects {
+<CodeTabs query={`query {
   projects {
     edges {
       node {
@@ -22,15 +21,13 @@ query projects {
       }
     }
   }
-}
-```
+}`} />
 
 ### List Projects in a Workspace
 
 Fetch all projects in a specific workspace:
 
-```graphql
-query workspaceProjects($workspaceId: String!) {
+<CodeTabs query={`query workspaceProjects($workspaceId: String!) {
   projects(workspaceId: $workspaceId) {
     edges {
       node {
@@ -40,22 +37,13 @@ query workspaceProjects($workspaceId: String!) {
       }
     }
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "workspaceId": "your-workspace-id"
-}
-```
+}`} variables={{ workspaceId: "<your-workspace-id>" }} />
 
 ## Get a Single Project
 
 Fetch a project by ID with its services and environments:
 
-```graphql
-query project($id: String!) {
+<CodeTabs query={`query project($id: String!) {
   project(id: $id) {
     id
     name
@@ -79,131 +67,70 @@ query project($id: String!) {
       }
     }
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-project-id"
-}
-```
+}`} variables={{ id: "<your-project-id>" }} />
 
 ## Create a Project
 
 Create a new empty project:
 
-```graphql
-mutation projectCreate($input: ProjectCreateInput!) {
+<CodeTabs query={`mutation projectCreate($input: ProjectCreateInput!) {
   projectCreate(input: $input) {
     id
     name
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "input": {
-    "name": "My New Project",
-    "description": "A project created via the API"
-  }
-}
-```
+}`} variables={{ input: { name: "My New Project", description: "A project created via the API" } }} />
 
 ### Create a Project in a Workspace
 
-```json
-{
-  "input": {
-    "name": "Team Project",
-    "workspaceId": "your-workspace-id"
+<CodeTabs query={`mutation projectCreate($input: ProjectCreateInput!) {
+  projectCreate(input: $input) {
+    id
+    name
   }
-}
-```
+}`} variables={{ input: { name: "Team Project", workspaceId: "<your-workspace-id>" } }} />
 
 ### Create a Project from a GitHub Repo
 
-```json
-{
-  "input": {
-    "name": "My App",
-    "repo": {
-      "fullRepoName": "username/repo-name"
-    }
+<CodeTabs query={`mutation projectCreate($input: ProjectCreateInput!) {
+  projectCreate(input: $input) {
+    id
+    name
   }
-}
-```
+}`} variables={{ input: { name: "My App", repo: { fullRepoName: "username/repo-name" } } }} />
 
 ## Update a Project
 
 Update project name or description:
 
-```graphql
-mutation projectUpdate($id: String!, $input: ProjectUpdateInput!) {
+<CodeTabs query={`mutation projectUpdate($id: String!, $input: ProjectUpdateInput!) {
   projectUpdate(id: $id, input: $input) {
     id
     name
     description
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-project-id",
-  "input": {
-    "name": "Updated Project Name",
-    "description": "Updated description"
-  }
-}
-```
+}`} variables={{ id: "<your-project-id>", input: { name: "Updated Project Name", description: "Updated description" } }} />
 
 ## Delete a Project
 
 <Banner variant="danger">This is a destructive action and cannot be undone.</Banner>
 
-```graphql
-mutation projectDelete($id: String!) {
+<CodeTabs query={`mutation projectDelete($id: String!) {
   projectDelete(id: $id)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-project-id"
-}
-```
+}`} variables={{ id: "<your-project-id>" }} />
 
 ## Transfer a Project to a Workspace
 
 Transfer a project to a different workspace:
 
-```graphql
-mutation projectTransfer($id: String!, $input: ProjectTransferInput!) {
+<CodeTabs query={`mutation projectTransfer($id: String!, $input: ProjectTransferInput!) {
   projectTransfer(id: $id, input: $input)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-project-id",
-  "input": {
-    "workspaceId": "target-workspace-id"
-  }
-}
-```
+}`} variables={{ id: "<your-project-id>", input: { workspaceId: "<target-workspace-id>" } }} />
 
 ## Get Project Members
 
 List all members of a project:
 
-```graphql
-query projectMembers($projectId: String!) {
+<CodeTabs query={`query projectMembers($projectId: String!) {
   projectMembers(projectId: $projectId) {
     id
     role
@@ -213,34 +140,15 @@ query projectMembers($projectId: String!) {
       email
     }
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "projectId": "your-project-id"
-}
-```
+}`} variables={{ projectId: "<your-project-id>" }} />
 
 ## Invite a User to a Project
 
-```graphql
-mutation projectInviteUser($id: String!, $email: String!, $role: ProjectRole!) {
+<CodeTabs query={`mutation projectInviteUser($id: String!, $email: String!, $role: ProjectRole!) {
   projectInviteUser(id: $id, email: $email, role: $role) {
     id
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-project-id",
-  "email": "user@example.com",
-  "role": "MEMBER"
-}
-```
+}`} variables={{ id: "<your-project-id>", email: "user@example.com", role: "MEMBER" }} />
 
 Valid roles: `ADMIN`, `MEMBER`, `VIEWER`
 

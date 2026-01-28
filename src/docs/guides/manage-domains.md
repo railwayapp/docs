@@ -9,8 +9,7 @@ Here are examples to help you manage domains using the Public API.
 
 Get all domains (both Railway-provided and custom) for a service:
 
-```graphql
-query domains($projectId: String!, $environmentId: String!, $serviceId: String!) {
+<CodeTabs query={`query domains($projectId: String!, $environmentId: String!, $serviceId: String!) {
   domains(
     projectId: $projectId
     environmentId: $environmentId
@@ -35,17 +34,7 @@ query domains($projectId: String!, $environmentId: String!, $serviceId: String!)
       }
     }
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "projectId": "your-project-id",
-  "environmentId": "your-environment-id",
-  "serviceId": "your-service-id"
-}
-```
+}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>" }} />
 
 ## Service Domains (*.railway.app)
 
@@ -53,53 +42,29 @@ query domains($projectId: String!, $environmentId: String!, $serviceId: String!)
 
 Generate a Railway-provided domain:
 
-```graphql
-mutation serviceDomainCreate($input: ServiceDomainCreateInput!) {
+<CodeTabs query={`mutation serviceDomainCreate($input: ServiceDomainCreateInput!) {
   serviceDomainCreate(input: $input) {
     id
     domain
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "input": {
-    "serviceId": "your-service-id",
-    "environmentId": "your-environment-id"
-  }
-}
-```
+}`} variables={{ input: { serviceId: "<your-service-id>", environmentId: "<your-environment-id>" } }} />
 
 ### Create with Custom Port
 
 Route traffic to a specific port:
 
-```json
-{
-  "input": {
-    "serviceId": "your-service-id",
-    "environmentId": "your-environment-id",
-    "targetPort": 8080
+<CodeTabs query={`mutation serviceDomainCreate($input: ServiceDomainCreateInput!) {
+  serviceDomainCreate(input: $input) {
+    id
+    domain
   }
-}
-```
+}`} variables={{ input: { serviceId: "<your-service-id>", environmentId: "<your-environment-id>", targetPort: 8080 } }} />
 
 ### Delete a Service Domain
 
-```graphql
-mutation serviceDomainDelete($id: String!) {
+<CodeTabs query={`mutation serviceDomainDelete($id: String!) {
   serviceDomainDelete(id: $id)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-service-domain-id"
-}
-```
+}`} variables={{ id: "<your-service-domain-id>" }} />
 
 ## Custom Domains
 
@@ -107,26 +72,16 @@ mutation serviceDomainDelete($id: String!) {
 
 Check if a custom domain can be added:
 
-```graphql
-query customDomainAvailable($domain: String!) {
+<CodeTabs query={`query customDomainAvailable($domain: String!) {
   customDomainAvailable(domain: $domain) {
     available
     message
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "domain": "api.example.com"
-}
-```
+}`} variables={{ domain: "api.example.com" }} />
 
 ### Add a Custom Domain
 
-```graphql
-mutation customDomainCreate($input: CustomDomainCreateInput!) {
+<CodeTabs query={`mutation customDomainCreate($input: CustomDomainCreateInput!) {
   customDomainCreate(input: $input) {
     id
     domain
@@ -138,41 +93,29 @@ mutation customDomainCreate($input: CustomDomainCreateInput!) {
       }
     }
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "environmentId": "your-environment-id",
-    "serviceId": "your-service-id",
-    "domain": "api.example.com"
-  }
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", domain: "api.example.com" } }} />
 
 ### Add Custom Domain with Target Port
 
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "environmentId": "your-environment-id",
-    "serviceId": "your-service-id",
-    "domain": "api.example.com",
-    "targetPort": 3000
+<CodeTabs query={`mutation customDomainCreate($input: CustomDomainCreateInput!) {
+  customDomainCreate(input: $input) {
+    id
+    domain
+    status {
+      dnsRecords {
+        hostlabel
+        requiredValue
+        status
+      }
+    }
   }
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", domain: "api.example.com", targetPort: 3000 } }} />
 
 ### Get Custom Domain Status
 
 Check DNS configuration status:
 
-```graphql
-query customDomain($id: String!, $projectId: String!) {
+<CodeTabs query={`query customDomain($id: String!, $projectId: String!) {
   customDomain(id: $id, projectId: $projectId) {
     id
     domain
@@ -186,41 +129,19 @@ query customDomain($id: String!, $projectId: String!) {
       certificateStatus
     }
   }
-}
-```
+}`} variables={{ id: "<your-custom-domain-id>", projectId: "<your-project-id>" }} />
 
 ### Update a Custom Domain
 
-```graphql
-mutation customDomainUpdate($id: String!, $input: CustomDomainUpdateInput!) {
+<CodeTabs query={`mutation customDomainUpdate($id: String!, $input: CustomDomainUpdateInput!) {
   customDomainUpdate(id: $id, input: $input)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-custom-domain-id",
-  "input": {
-    "targetPort": 8080
-  }
-}
-```
+}`} variables={{ id: "<your-custom-domain-id>", input: { targetPort: 8080 } }} />
 
 ### Delete a Custom Domain
 
-```graphql
-mutation customDomainDelete($id: String!) {
+<CodeTabs query={`mutation customDomainDelete($id: String!) {
   customDomainDelete(id: $id)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-custom-domain-id"
-}
-```
+}`} variables={{ id: "<your-custom-domain-id>" }} />
 
 ## DNS Configuration
 

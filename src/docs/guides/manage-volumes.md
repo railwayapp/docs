@@ -9,8 +9,7 @@ Here are examples to help you manage persistent volumes using the Public API.
 
 List all volumes in a project:
 
-```graphql
-query project($id: String!) {
+<CodeTabs query={`query project($id: String!) {
   project(id: $id) {
     volumes {
       edges {
@@ -22,22 +21,13 @@ query project($id: String!) {
       }
     }
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-project-id"
-}
-```
+}`} variables={{ id: "<your-project-id>" }} />
 
 ## Get Volume Instance Details
 
 Get details about a volume instance (volume in a specific environment):
 
-```graphql
-query volumeInstance($id: String!) {
+<CodeTabs query={`query volumeInstance($id: String!) {
   volumeInstance(id: $id) {
     id
     mountPath
@@ -51,125 +41,63 @@ query volumeInstance($id: String!) {
       serviceName
     }
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-volume-instance-id"
-}
-```
+}`} variables={{ id: "<your-volume-instance-id>" }} />
 
 ## Create a Volume
 
 Create a new persistent volume attached to a service:
 
-```graphql
-mutation volumeCreate($input: VolumeCreateInput!) {
+<CodeTabs query={`mutation volumeCreate($input: VolumeCreateInput!) {
   volumeCreate(input: $input) {
     id
     name
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "serviceId": "your-service-id",
-    "mountPath": "/data"
-  }
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", serviceId: "<your-service-id>", mountPath: "/data" } }} />
 
 ### Create in a Specific Environment
 
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "serviceId": "your-service-id",
-    "environmentId": "your-environment-id",
-    "mountPath": "/data"
+<CodeTabs query={`mutation volumeCreate($input: VolumeCreateInput!) {
+  volumeCreate(input: $input) {
+    id
+    name
   }
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", serviceId: "<your-service-id>", environmentId: "<your-environment-id>", mountPath: "/data" } }} />
 
 ### Create in a Specific Region
 
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "serviceId": "your-service-id",
-    "mountPath": "/data",
-    "region": "us-west1"
+<CodeTabs query={`mutation volumeCreate($input: VolumeCreateInput!) {
+  volumeCreate(input: $input) {
+    id
+    name
   }
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", serviceId: "<your-service-id>", mountPath: "/data", region: "us-west1" } }} />
 
 ## Update a Volume
 
 Rename a volume:
 
-```graphql
-mutation volumeUpdate($id: String!, $input: VolumeUpdateInput!) {
+<CodeTabs query={`mutation volumeUpdate($id: String!, $input: VolumeUpdateInput!) {
   volumeUpdate(id: $id, input: $input) {
     id
     name
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-volume-id",
-  "input": {
-    "name": "database-storage"
-  }
-}
-```
+}`} variables={{ id: "<your-volume-id>", input: { name: "database-storage" } }} />
 
 ## Update Volume Instance
 
 Update the mount path for a volume instance:
 
-```graphql
-mutation volumeInstanceUpdate($id: String!, $input: VolumeInstanceUpdateInput!) {
+<CodeTabs query={`mutation volumeInstanceUpdate($id: String!, $input: VolumeInstanceUpdateInput!) {
   volumeInstanceUpdate(id: $id, input: $input)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-volume-instance-id",
-  "input": {
-    "mountPath": "/new/path"
-  }
-}
-```
+}`} variables={{ id: "<your-volume-instance-id>", input: { mountPath: "/new/path" } }} />
 
 ## Delete a Volume
 
 <Banner variant="danger">This will permanently delete the volume and all its data.</Banner>
 
-```graphql
-mutation volumeDelete($id: String!) {
+<CodeTabs query={`mutation volumeDelete($id: String!) {
   volumeDelete(id: $id)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-volume-id"
-}
-```
+}`} variables={{ id: "<your-volume-id>" }} />
 
 ## Volume Backups
 
@@ -177,8 +105,7 @@ mutation volumeDelete($id: String!) {
 
 Get all backups for a volume instance:
 
-```graphql
-query volumeInstanceBackupList($volumeInstanceId: String!) {
+<CodeTabs query={`query volumeInstanceBackupList($volumeInstanceId: String!) {
   volumeInstanceBackupList(volumeInstanceId: $volumeInstanceId) {
     id
     createdAt
@@ -187,82 +114,48 @@ query volumeInstanceBackupList($volumeInstanceId: String!) {
     lockedAt
     expiresAt
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "volumeInstanceId": "your-volume-instance-id"
-}
-```
+}`} variables={{ volumeInstanceId: "<your-volume-instance-id>" }} />
 
 ### Create a Backup
 
-```graphql
-mutation volumeInstanceBackupCreate($volumeInstanceId: String!) {
+<CodeTabs query={`mutation volumeInstanceBackupCreate($volumeInstanceId: String!) {
   volumeInstanceBackupCreate(volumeInstanceId: $volumeInstanceId)
-}
-```
-
-**Variables:**
-```json
-{
-  "volumeInstanceId": "your-volume-instance-id"
-}
-```
+}`} variables={{ volumeInstanceId: "<your-volume-instance-id>" }} />
 
 ### Restore from Backup
 
-```graphql
-mutation volumeInstanceBackupRestore($backupId: String!, $volumeInstanceId: String!) {
+<CodeTabs query={`mutation volumeInstanceBackupRestore($backupId: String!, $volumeInstanceId: String!) {
   volumeInstanceBackupRestore(backupId: $backupId, volumeInstanceId: $volumeInstanceId)
-}
-```
-
-**Variables:**
-```json
-{
-  "backupId": "your-backup-id",
-  "volumeInstanceId": "your-volume-instance-id"
-}
-```
+}`} variables={{ backupId: "<your-backup-id>", volumeInstanceId: "<your-volume-instance-id>" }} />
 
 ### Lock a Backup (Prevent Expiration)
 
-```graphql
-mutation volumeInstanceBackupLock($backupId: String!) {
+<CodeTabs query={`mutation volumeInstanceBackupLock($backupId: String!) {
   volumeInstanceBackupLock(backupId: $backupId)
-}
-```
+}`} variables={{ backupId: "<your-backup-id>" }} />
 
 ### Delete a Backup
 
-```graphql
-mutation volumeInstanceBackupDelete($backupId: String!) {
+<CodeTabs query={`mutation volumeInstanceBackupDelete($backupId: String!) {
   volumeInstanceBackupDelete(backupId: $backupId)
-}
-```
+}`} variables={{ backupId: "<your-backup-id>" }} />
 
 ## Backup Schedules
 
 ### List Backup Schedules
 
-```graphql
-query volumeInstanceBackupScheduleList($volumeInstanceId: String!) {
+<CodeTabs query={`query volumeInstanceBackupScheduleList($volumeInstanceId: String!) {
   volumeInstanceBackupScheduleList(volumeInstanceId: $volumeInstanceId) {
     id
     schedule
     nextRunAt
     retentionDays
   }
-}
-```
+}`} variables={{ volumeInstanceId: "<your-volume-instance-id>" }} />
 
 ### Update Backup Schedule
 
-```graphql
-mutation volumeInstanceBackupScheduleUpdate(
+<CodeTabs query={`mutation volumeInstanceBackupScheduleUpdate(
   $volumeInstanceId: String!
   $input: VolumeInstanceBackupScheduleUpdateInput!
 ) {
@@ -270,19 +163,7 @@ mutation volumeInstanceBackupScheduleUpdate(
     volumeInstanceId: $volumeInstanceId
     input: $input
   )
-}
-```
-
-**Variables:**
-```json
-{
-  "volumeInstanceId": "your-volume-instance-id",
-  "input": {
-    "schedule": "0 0 * * *",
-    "retentionDays": 7
-  }
-}
-```
+}`} variables={{ volumeInstanceId: "<your-volume-instance-id>", input: { schedule: "0 0 * * *", retentionDays: 7 } }} />
 
 ## Common Mount Paths
 

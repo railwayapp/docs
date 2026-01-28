@@ -9,8 +9,7 @@ Here are examples to help you manage your deployments using the Public API.
 
 Get all deployments for a service in an environment:
 
-```graphql
-query deployments($input: DeploymentListInput!, $first: Int) {
+<CodeTabs query={`query deployments($input: DeploymentListInput!, $first: Int) {
   deployments(input: $input, first: $first) {
     edges {
       node {
@@ -22,27 +21,13 @@ query deployments($input: DeploymentListInput!, $first: Int) {
       }
     }
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "serviceId": "your-service-id",
-    "environmentId": "your-environment-id"
-  },
-  "first": 10
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", serviceId: "<your-service-id>", environmentId: "<your-environment-id>" }, first: 10 }} />
 
 ## Get a Single Deployment
 
 Fetch a deployment by ID:
 
-```graphql
-query deployment($id: String!) {
+<CodeTabs query={`query deployment($id: String!) {
   deployment(id: $id) {
     id
     status
@@ -53,22 +38,13 @@ query deployment($id: String!) {
     canRedeploy
     canRollback
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-deployment-id"
-}
-```
+}`} variables={{ id: "<your-deployment-id>" }} />
 
 ## Get Latest Active Deployment
 
 Get the currently running deployment:
 
-```graphql
-query latestDeployment($input: DeploymentListInput!) {
+<CodeTabs query={`query latestDeployment($input: DeploymentListInput!) {
   deployments(input: $input, first: 1) {
     edges {
       node {
@@ -79,94 +55,57 @@ query latestDeployment($input: DeploymentListInput!) {
       }
     }
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "input": {
-    "projectId": "your-project-id",
-    "serviceId": "your-service-id",
-    "environmentId": "your-environment-id",
-    "status": {
-      "successfulOnly": true
-    }
-  }
-}
-```
+}`} variables={{ input: { projectId: "<your-project-id>", serviceId: "<your-service-id>", environmentId: "<your-environment-id>", status: { successfulOnly: true } } }} />
 
 ## Get Build Logs
 
 Fetch build logs for a deployment:
 
-```graphql
-query buildLogs($deploymentId: String!, $limit: Int) {
+<CodeTabs query={`query buildLogs($deploymentId: String!, $limit: Int) {
   buildLogs(deploymentId: $deploymentId, limit: $limit) {
     timestamp
     message
     severity
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "deploymentId": "your-deployment-id",
-  "limit": 500
-}
-```
+}`} variables={{ deploymentId: "<your-deployment-id>", limit: 500 }} />
 
 ## Get Runtime Logs
 
 Fetch runtime logs for a deployment:
 
-```graphql
-query deploymentLogs($deploymentId: String!, $limit: Int) {
+<CodeTabs query={`query deploymentLogs($deploymentId: String!, $limit: Int) {
   deploymentLogs(deploymentId: $deploymentId, limit: $limit) {
     timestamp
     message
     severity
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "deploymentId": "your-deployment-id",
-  "limit": 500
-}
-```
+}`} variables={{ deploymentId: "<your-deployment-id>", limit: 500 }} />
 
 ### Filter Logs by Time
 
-```json
-{
-  "deploymentId": "your-deployment-id",
-  "limit": 100,
-  "startDate": "2024-01-01T00:00:00Z",
-  "endDate": "2024-01-02T00:00:00Z"
-}
-```
+<CodeTabs query={`query deploymentLogs($deploymentId: String!, $limit: Int, $startDate: DateTime, $endDate: DateTime) {
+  deploymentLogs(deploymentId: $deploymentId, limit: $limit, startDate: $startDate, endDate: $endDate) {
+    timestamp
+    message
+    severity
+  }
+}`} variables={{ deploymentId: "<your-deployment-id>", limit: 100, startDate: "2024-01-01T00:00:00Z", endDate: "2024-01-02T00:00:00Z" }} />
 
 ### Filter Logs by Text
 
-```json
-{
-  "deploymentId": "your-deployment-id",
-  "limit": 100,
-  "filter": "error"
-}
-```
+<CodeTabs query={`query deploymentLogs($deploymentId: String!, $limit: Int, $filter: String) {
+  deploymentLogs(deploymentId: $deploymentId, limit: $limit, filter: $filter) {
+    timestamp
+    message
+    severity
+  }
+}`} variables={{ deploymentId: "<your-deployment-id>", limit: 100, filter: "error" }} />
 
 ## Get HTTP Logs
 
 Fetch HTTP request logs for a deployment:
 
-```graphql
-query httpLogs($deploymentId: String!, $limit: Int) {
+<CodeTabs query={`query httpLogs($deploymentId: String!, $limit: Int) {
   httpLogs(deploymentId: $deploymentId, limit: $limit) {
     timestamp
     requestId
@@ -176,65 +115,37 @@ query httpLogs($deploymentId: String!, $limit: Int) {
     responseTimeMs
     clientIp
   }
-}
-```
+}`} variables={{ deploymentId: "<your-deployment-id>", limit: 100 }} />
 
 ## Trigger a Redeploy
 
 Redeploy an existing deployment:
 
-```graphql
-mutation deploymentRedeploy($id: String!) {
+<CodeTabs query={`mutation deploymentRedeploy($id: String!) {
   deploymentRedeploy(id: $id) {
     id
     status
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-deployment-id"
-}
-```
+}`} variables={{ id: "<your-deployment-id>" }} />
 
 ## Restart a Deployment
 
 Restart a running deployment without rebuilding:
 
-```graphql
-mutation deploymentRestart($id: String!) {
+<CodeTabs query={`mutation deploymentRestart($id: String!) {
   deploymentRestart(id: $id)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-deployment-id"
-}
-```
+}`} variables={{ id: "<your-deployment-id>" }} />
 
 ## Rollback to a Deployment
 
 Rollback to a previous deployment:
 
-```graphql
-mutation deploymentRollback($id: String!) {
+<CodeTabs query={`mutation deploymentRollback($id: String!) {
   deploymentRollback(id: $id) {
     id
     status
   }
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-deployment-id"
-}
-```
+}`} variables={{ id: "<your-deployment-id>" }} />
 
 <Banner variant="info">You can only rollback to deployments that have `canRollback: true`.</Banner>
 
@@ -242,55 +153,33 @@ mutation deploymentRollback($id: String!) {
 
 Stop a running deployment:
 
-```graphql
-mutation deploymentStop($id: String!) {
+<CodeTabs query={`mutation deploymentStop($id: String!) {
   deploymentStop(id: $id)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-deployment-id"
-}
-```
+}`} variables={{ id: "<your-deployment-id>" }} />
 
 ## Cancel a Deployment
 
 Cancel a deployment that is building or queued:
 
-```graphql
-mutation deploymentCancel($id: String!) {
+<CodeTabs query={`mutation deploymentCancel($id: String!) {
   deploymentCancel(id: $id)
-}
-```
-
-**Variables:**
-```json
-{
-  "id": "your-deployment-id"
-}
-```
+}`} variables={{ id: "<your-deployment-id>" }} />
 
 ## Remove a Deployment
 
 Remove a deployment from the history:
 
-```graphql
-mutation deploymentRemove($id: String!) {
+<CodeTabs query={`mutation deploymentRemove($id: String!) {
   deploymentRemove(id: $id)
-}
-```
+}`} variables={{ id: "<your-deployment-id>" }} />
 
 ## Deploy All Services in an Environment
 
 Trigger deployments for all services in an environment:
 
-```graphql
-mutation environmentTriggersDeploy($environmentId: String!, $projectId: String!) {
+<CodeTabs query={`mutation environmentTriggersDeploy($environmentId: String!, $projectId: String!) {
   environmentTriggersDeploy(environmentId: $environmentId, projectId: $projectId)
-}
-```
+}`} variables={{ environmentId: "<your-environment-id>", projectId: "<your-project-id>" }} />
 
 ## Deployment Statuses
 
