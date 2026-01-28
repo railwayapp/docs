@@ -694,6 +694,17 @@ const redirects = [
     destination: "/observability/webhooks",
     permanent: true,
   },
+  // Phase 38: Merge Environments
+  {
+    source: "/guides/environments",
+    destination: "/environments",
+    permanent: true,
+  },
+  {
+    source: "/reference/environments",
+    destination: "/environments",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
