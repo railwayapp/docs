@@ -439,6 +439,16 @@ const redirects = [
     destination: "/observability",
     permanent: true,
   },
+  {
+    source: "/guides/config-as-code",
+    destination: "/config-as-code",
+    permanent: true,
+  },
+  {
+    source: "/reference/config-as-code",
+    destination: "/config-as-code/reference",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
