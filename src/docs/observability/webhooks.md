@@ -3,14 +3,14 @@ title: Webhooks
 description: Learn how to set up webhooks on Railway to receive real-time updates for deployments and events.
 ---
 
-Webhooks can be used to notify your own application of deployment status changes. They are configured per project.
-
-## Setup a Webhook
+Webhooks can be used to notify your own application of deployment status changes and alerts. They are configured per project.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1763768800/new-webhooks_lhw6p2.png"
 alt="New Webhook"
 layout="responsive"
 width={821} height={485} quality={80} />
+
+## Setup a Webhook
 
 Complete the following steps to setup a webhook:
 
@@ -23,7 +23,19 @@ Complete the following steps to setup a webhook:
 
 The URL you provide will receive a webhook payload when any service's deployment status changes or an alert is triggered. This will be executed across all environments in the project.
 
-#### Example Payload
+## Platform Events
+
+Webhooks can be used to receive notifications for a variety of events on the platform:
+
+- **Deployment status changes** - Available deployment states can be found in the [Deployments reference](/deployments#deployment-states).
+- **Volume usage alerts** - Notifications when volumes approach capacity.
+- **CPU/RAM monitor alerts** - Notifications when resource usage exceeds thresholds.
+
+## Webhook Payload
+
+When an event occurs, Railway sends a JSON payload to your configured webhook URL.
+
+### Example Payload
 
 ```json
 {
@@ -49,7 +61,7 @@ The URL you provide will receive a webhook payload when any service's deployment
 }
 ```
 
-#### Testing Webhooks
+## Testing Webhooks
 
 The `Test Webhook` button will send a test payload to the specified webhook URL.
 
@@ -57,7 +69,9 @@ Note: For security reasons, test webhooks are sent from the frontend client, whi
 
 ## Muxers: Provider-specific Webhooks
 
-For certain webhook URLs, Railway will automatically transform the payload to match the destination (we call the Muxers). This makes it easy to use webhooks without having to write your own middleware to format the request body. Below are the currently supported providers:
+For certain webhook URLs, Railway will automatically transform the payload to match the destination (we call these Muxers). This makes it easy to use webhooks without having to write your own middleware to format the request body.
+
+Currently supported providers:
 
 - Discord
 - Slack
@@ -95,3 +109,7 @@ src="https://res.cloudinary.com/railway/image/upload/v1737947755/docs/webhooks/w
 alt="Slack Webhook"
 layout="responsive"
 width={1466} height={810} quality={80} />
+
+## Troubleshooting
+
+Having issues with webhooks? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.

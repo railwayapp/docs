@@ -684,6 +684,16 @@ const redirects = [
     destination: "/observability/metrics",
     permanent: true,
   },
+  {
+    source: "/guides/webhooks",
+    destination: "/observability/webhooks",
+    permanent: true,
+  },
+  {
+    source: "/reference/webhooks",
+    destination: "/observability/webhooks",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
