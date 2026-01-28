@@ -129,29 +129,18 @@ You can enable automatic PR environment creation for PRs opened by supported Git
 ## Environment RBAC
 
 <Banner variant="info">
-Restricted environments are available on [Railway Enterprise](https://railway.com/enterprise).
+Environment RBAC is available on [Railway Enterprise](https://railway.com/enterprise).
 </Banner>
 
 Restrict access to sensitive environments like production. Non-admin members can see these environments exist but cannot access their resources (variables, logs, metrics, services, and configurations). They can still trigger deployments via git push.
-
-[Contact us](https://railway.com/enterprise) to enable it for your enterprise workspace.
-
-Once enabled, go to **Project Settings → Environments** and toggle the **Restricted** switch for any environment you want to restrict.
-
-<Image
-  src="https://res.cloudinary.com/railway/image/upload/v1764189412/CleanShot_2025-11-26_at_17.33.18_2x_xzaztj.png"
-  alt="Restricted environments toggle in Project Settings"
-  layout="responsive"
-  width={817}
-  height={528}
-  quality={80}
-/>
 
 | Role | Can access | Can toggle |
 | :--- | :---: | :---: |
 | Admin | ✔️ | ✔️ |
 | Member | ❌ | ❌ |
 | Deployer | ❌ | ❌ |
+
+For detailed setup instructions and best practices, see the [Environment RBAC guide](/enterprise/environment-rbac).
 
 ## Forked Environments (Deprecated)
 
