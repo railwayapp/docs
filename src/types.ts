@@ -20,6 +20,7 @@ export interface IExternalLink {
 
 export interface ISidebarSection {
   title?: string;
+  slug?: string;
   content: (IPage | ISubSection | IExternalLink)[];
 }
 
