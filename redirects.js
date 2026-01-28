@@ -744,6 +744,16 @@ const redirects = [
     destination: "/pricing/cost-control",
     permanent: true,
   },
+  {
+    source: "/guides/cli",
+    destination: "/cli",
+    permanent: true,
+  },
+  {
+    source: "/reference/cli-api",
+    destination: "/cli",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
