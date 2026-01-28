@@ -330,6 +330,21 @@ const redirects = [
     destination: "/builds/private-registries",
     permanent: true,
   },
+  {
+    source: "/reference/build-and-start-commands",
+    destination: "/builds/build-and-start-commands",
+    permanent: true,
+  },
+  {
+    source: "/reference/railpack",
+    destination: "/builds/railpack",
+    permanent: true,
+  },
+  {
+    source: "/reference/nixpacks",
+    destination: "/builds/nixpacks",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
