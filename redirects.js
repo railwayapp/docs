@@ -249,6 +249,56 @@ const redirects = [
     destination: "/variables/reference",
     permanent: true,
   },
+  {
+    source: "/guides/pre-deploy-command",
+    destination: "/deployments/pre-deploy-command",
+    permanent: true,
+  },
+  {
+    source: "/guides/start-command",
+    destination: "/deployments/start-command",
+    permanent: true,
+  },
+  {
+    source: "/guides/deployment-actions",
+    destination: "/deployments/deployment-actions",
+    permanent: true,
+  },
+  {
+    source: "/guides/github-autodeploys",
+    destination: "/deployments/github-autodeploys",
+    permanent: true,
+  },
+  {
+    source: "/guides/image-auto-updates",
+    destination: "/deployments/image-auto-updates",
+    permanent: true,
+  },
+  {
+    source: "/guides/optimize-performance",
+    destination: "/deployments/optimize-performance",
+    permanent: true,
+  },
+  {
+    source: "/guides/restart-policy",
+    destination: "/deployments/restart-policy",
+    permanent: true,
+  },
+  {
+    source: "/guides/deployment-teardown",
+    destination: "/deployments/deployment-teardown",
+    permanent: true,
+  },
+  {
+    source: "/guides/monorepo",
+    destination: "/deployments/monorepo",
+    permanent: true,
+  },
+  {
+    source: "/guides/staged-changes",
+    destination: "/deployments/staged-changes",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
