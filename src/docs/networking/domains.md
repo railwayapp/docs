@@ -1,52 +1,18 @@
 ---
-title: Public Networking
-description: Learn everything about public networking on Railway.
+title: Domains
+description: Learn how to configure public and private domains for your Railway services.
 ---
 
-Public Networking refers to exposing your application to the internet, to be accessible from the public network.
+Railway provides two types of domain resolution for your services: **public domains** for internet access and **private domains** for internal service-to-service communication.
 
-## Port Variable
+## Public Domains
 
-An essential part of connecting to your service from the internet, is properly handling the `PORT` variable.
+Public domains expose your services to the internet. Railway offers two options:
 
-The easiest way to get up and running is by using the Railway-provided port.
+- **Railway-provided domains** - Auto-generated `*.up.railway.app` domains for quick setup
+- **Custom domains** - Bring your own domain with automatic SSL certificate provisioning
 
-### Railway-provided port
-
-As long as you have not defined a `PORT` variable, Railway will provide and expose one for you.
-
-To have your application use the Railway-provided port, you should ensure it is listening on `0.0.0.0:$PORT`, where `PORT` is the Railway-provided environment variable.
-
-**Examples** -
-
-```python
-# python web server
-if __name__ == '__main__':
-    app.run(debug=True, port=os.getenv("PORT", default=5000))
-```
-
-```javascript
-// node web server
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-  console.log(`App listening on port: ${port}`);
-});
-```
-
-More information and examples for this can be found in the [Fixing Common Errors guide](/guides/fixing-common-errors).
-
-**Note:** If your application needs to be accessible over both public and private networks, your application server must support dual stack binding. Most servers handle this automatically when listening on `::`, but some, like Uvicorn, do not.
-
-### User-defined port
-
-If you prefer to explicitly set a port, you can set the `PORT` variable in your service variables to the port on which your service is listening.
-
-If your domain does not have a [target port set](/guides/public-networking#target-ports), Railway will direct incoming traffic to the port specified in the `PORT` variable, this is sometimes needed when creating a template.
-
-For information on how to configure variables, see the [Variables guide](/guides/variables).
-
-## Railway-Provided Domain
+### Railway-Provided Domains
 
 Railway services don't obtain a domain automatically, but it is easy to set one up.
 
@@ -54,7 +20,7 @@ To assign a domain to your service, go to your service's settings, find the Netw
 
 #### Automated Prompt
 
-If Railway detects that a deployed service is listening correctly (as described above), you will see a prompt on the service tile in the canvas, and within the service panel.
+If Railway detects that a deployed service is listening correctly, you will see a prompt on the service tile in the canvas, and within the service panel.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1654560212/docs/add-domain_prffyh.png"
@@ -68,7 +34,7 @@ Simply follow the prompts to generate a domain and your app will be exposed to t
 
 If you have previously assigned a TCP Proxy to your service, you will not see the `Generate Domain` option. You must remove the TCP Proxy (click the Trashcan icon), then you can add a domain.
 
-## Custom Domains
+### Custom Domains
 
 Custom domains can be added to a Railway service and once setup we will automatically issue an SSL certificate for you.
 
@@ -82,7 +48,7 @@ Custom domains can be added to a Railway service and once setup we will automati
 
 4. In your DNS provider (Cloudflare, DNSimple, Namecheap, etc), create a CNAME record with the CNAME value provided by Railway.
 
-5. Wait for Railway to verify your domain. When verified, you will see a greencheck mark next to the domain(s) -
+5. Wait for Railway to verify your domain. When verified, you will see a green check mark next to the domain(s) -
 
    <Image
    src="https://res.cloudinary.com/railway/image/upload/v1654563209/docs/domains_uhchsu.png"
@@ -94,14 +60,14 @@ Custom domains can be added to a Railway service and once setup we will automati
 
    **Note:** Changes to DNS settings may take up to 72 hours to propagate worldwide.
 
-**Important Considerations**
+#### Important Considerations
 
 - Freenom domains are not allowed and not supported.
 - The Trial Plan is limited to 1 custom domain. It is therefore not possible to use both `yourdomain.com` and `www.yourdomain.com` as these are considered two distinct custom domains.
-- The [Hobby Plan](/reference/pricing#plans) is limited to 2 custom domains per service.
-- The [Pro Plan]() is limited to 20 domains per service by default. This limit can be increased for Pro users on request, simply reach out to us via a [private thread](/reference/support#private-threads).
+- The [Hobby Plan](/pricing/plans) is limited to 2 custom domains per service.
+- The [Pro Plan](/pricing/plans) is limited to 20 domains per service by default. This limit can be increased for Pro users on request, simply reach out to us via a [private thread](/platform/support#private-threads).
 
-## Wildcard Domains
+### Wildcard Domains
 
 Wildcard domains allow for flexible subdomain management. There are a few important things to know when using them -
 
@@ -111,7 +77,7 @@ Wildcard domains allow for flexible subdomain management. There are a few import
 
 - Wildcards can be used for any subdomain level (e.g., `*.example.com` or `*.subdomain.example.com`).
 
-### Subdomains
+#### Subdomains
 
 E.g. `*.example.com`
 
@@ -121,7 +87,7 @@ E.g. `*.example.com`
 
 - Add CNAME records for the wildcard subdomain.
 
-### Nested Subdomains
+#### Nested Subdomains
 
 E.g. `*.nested.example.com`
 
@@ -145,15 +111,15 @@ width={1048} height={842} quality={80} />
 
 One record is for the wildcard domain, and one for the \_acme-challenge. The \_acme-challenge CNAME is required for Railway to issue the SSL Certificate for your domain.
 
-### Wildcard Domains on Cloudflare
+#### Wildcard Domains on Cloudflare
 
 If you have a wildcard domain on Cloudflare, you must:
 
-- Turn off Cloudflare proxying is on the `_acme-challenge` record (disable the orange cloud)
+- Turn off Cloudflare proxying on the `_acme-challenge` record (disable the orange cloud)
 
 - Enable Cloudflare's [Universal SSL](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/enable-universal-ssl/)
 
-## Target Ports
+### Target Ports
 
 Target Ports, or Magic Ports, correlate a single domain to a specific internal port that the application listens on, enabling you to expose multiple HTTP ports through the use of multiple domains.
 
@@ -177,7 +143,7 @@ quality={100} />
 
 You can change the automatically detected or manually set port at any time by clicking the edit icon next to the domain.
 
-## Adding a Custom Domain
+### Adding a Root Domain
 
 When adding a root or apex domain to your Railway service, you must ensure that you add the appropriate DNS record to the domain within your DNS provider. At this time, Railway supports <a href="https://developers.cloudflare.com/dns/cname-flattening/" target="_blank">CNAME Flattening</a> and dynamic ALIAS records.
 
@@ -191,8 +157,8 @@ _Check out <a href="https://www.ietf.org/rfc/rfc1912.txt#:~:text=root%20zone%20d
 The type of record to create is entirely dependent on your DNS provider. Here are some examples -
 
 - <a href="https://developers.cloudflare.com/dns/zone-setups/partial-setup" target="_blank">Cloudflare CNAME</a> - Simply set up a CNAME record for your root domain in Cloudflare, and they take care of the rest under the hood. Refer to <a href="https://support.cloudflare.com/hc/en-us/articles/205893698-Configure-Cloudflare-and-Heroku-over-HTTPS" target="_blank">this guide</a> for more detailed instructions.
-- <a href="https://support.dnsimple.com/articles/domain-apex-heroku/" target="_blank">DNSimple ALIAS</a> - Set up an dynamic ALIAS in DNSimple for your root domain.
-- <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/" target="_blank">Namecheap CNAME</a> - Set up an CNAME in Namecheap for your root domain.
+- <a href="https://support.dnsimple.com/articles/domain-apex-heroku/" target="_blank">DNSimple ALIAS</a> - Set up a dynamic ALIAS in DNSimple for your root domain.
+- <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/" target="_blank">Namecheap CNAME</a> - Set up a CNAME in Namecheap for your root domain.
 - <a href="https://bunny.net/blog/how-aname-dns-records-affect-cdn-routing/" target="_blank">bunny.net</a> - Set up a ANAME in bunny.net for your root domain.
 
 In contrast there are many nameservers that don't support CNAME flattening or dynamic ALIAS records -
@@ -208,7 +174,7 @@ In contrast there are many nameservers that don't support CNAME flattening or dy
 
 If your DNS provider doesn't support CNAME Flattening or dynamic ALIAS records at the root, you can also change your domain's nameservers to point to Cloudflare's nameservers. This will allow you to use a CNAME record for the root domain. Follow the instructions listed on Cloudflare's documentation to <a href="https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/" target="_blank">change your nameservers</a>.
 
-## Adding a Root Domain With www Subdomain to Cloudflare
+### Adding a Root Domain With www Subdomain to Cloudflare
 
 If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdomain to Cloudflare and redirect all `www.` traffic to the root domain:
 
@@ -245,61 +211,23 @@ If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdom
 
 **Note:** DNS changes may take some time to propagate. You may want to refresh your DNS cache by using commands like `ipconfig /flushdns` on Windows or `dscacheutil -flushcache` on macOS. Testing the URLs in an incognito window can also help verify changes.
 
-## TCP Proxying
+### SSL Certificates
 
-You can proxy TCP traffic to your service by creating a TCP proxy in the service settings. Enter the port that you want traffic proxied to, Railway will generate a domain and port for you to use. All traffic sent to `domain:port` will be proxied to your service. This is useful for services that don't support HTTP, such as databases.
+Once a custom domain has been correctly configured, Railway will automatically generate and apply a Let's Encrypt certificate. This means that any custom domain on Railway will automatically be accessible via `https://`.
 
-<Image
-src="https://res.cloudinary.com/railway/image/upload/v1743194081/docs/tcp-proxy_edctub.png"
-alt="Screenshot of TCP proxy configuration"
-layout="responsive"
-width={1200} height={822} quality={100} />
+We provide LetsEncrypt SSL certificates using RSA 2048bit keys. Certificates are valid for 90 days and are automatically renewed when 30 days of validity remain.
 
-Incoming traffic will be distributed across all replicas in the closest region using a random algorithm.
+Certificate issuance should happen within an hour of your DNS being updated with the values we provide.
 
-### Using a Custom Domain for TCP Proxying
+For proxied domains (Cloudflare orange cloud), we may not always be able to issue a certificate for the domain, but Cloudflare to Railway traffic will be encrypted with TLS using our default `*.up.railway.app` certificate.
 
-You can use your own domain instead of Railway's provided TCP proxy domain.
-
-To set this up:
-
-1. Create a TCP proxy in your service settings. Railway will provide you with a proxy domain and port (e.g., `shuttle.proxy.rlwy.net:15140`).
-
-2. In your DNS provider, create a CNAME record pointing to the Railway-provided TCP proxy domain (without the port).
-
-   For example, if Railway provides `shuttle.proxy.rlwy.net:15140`:
-   - **Name**: `db.yourdomain.com` (or your preferred subdomain)
-   - **Target**: `shuttle.proxy.rlwy.net`
-
-3. Connect to your service using your custom domain with the Railway-provided port (e.g., `db.yourdomain.com:15140`).
-
-**Note:** The port number is provided by Railway and must be used when connecting. Only the hostname is replaced with your custom domain.
-
-**Caveats:**
-- If using Cloudflare, proxying must be disabled (DNS only, grey cloud).
-- If your client validates or looks for a specific hostname in the connection, it may fail when using a custom domain.
-
-## Using HTTP and TCP Together
-
-Railway does support exposing both HTTP and TCP over public networking, in a single service. Therefore, if you have a domain assigned, you will still see the option to enable TCP Proxy, and vice-versa.
-
-If you have a usecase that requires exposing both HTTP and TCP over public networking, in one service, <a href="https://station.railway.com/feedback" target="_blank">let us know</a>!
-
-## Let's Encrypt SSL Certificates
-
-Once a custom domain has been correctly configured, Railway will automatically
-generate and apply a Let's Encrypt certificate. This means that any custom
-domain on Railway will automatically be accessible
-via `https://`.
-
-### External SSL Certificates
+#### External SSL Certificates
 
 We currently do not support external SSL certificates since we provision one for you.
 
-## Provider Specific Instructions
+### Cloudflare Configuration
 
-If you have proxying enabled on Cloudflare (the orange cloud), you MUST set your
-SSL/TLS settings to **Full** -- Full (Strict) **will not work as intended**.
+If you have proxying enabled on Cloudflare (the orange cloud), you MUST set your SSL/TLS settings to **Full** -- Full (Strict) **will not work as intended**.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917785/docs/cloudflare_zgeycj.png"
 alt="Screenshot of Custom Domain"
@@ -314,8 +242,72 @@ ERR_TOO_MANY_REDIRECTS
 
 Also note that if proxying is enabled, you can NOT use a domain deeper than a first level subdomain without Cloudflare's Advanced Certificate Manager. For example, anything falling under \*.yourdomain.com can be proxied through Cloudflare without issue, however if you have a custom domain under \*.subdomain.yourdomain.com, you MUST disable Cloudflare Proxying and set the CNAME record to DNS Only (the grey cloud), unless you have Cloudflare's Advanced Certificate Manager.
 
-## Support
+---
 
-Looking for the technical specs like timeouts, TLS information, rate limits etc? Check out the [Public Networking reference page](/reference/public-networking).
+## Private Domains
 
-Having trouble connecting to your app from the internet? Check out the [Fixing Common Errors guide](/guides/fixing-common-errors) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
+Private domains enable service-to-service communication within Railway's [private network](/private-networking). Every service automatically gets an internal DNS name under the `railway.internal` domain.
+
+### How Private DNS Works
+
+By default, all projects have private networking enabled and services will get a DNS name in the format:
+
+```
+<service-name>.railway.internal
+```
+
+For example, if you have a service called `api`, its internal hostname would be `api.railway.internal`.
+
+For new environments (created after October 16, 2025), this DNS name resolves to both internal IPv4 and IPv6 addresses. [Legacy environments](/private-networking#legacy-environments) resolve to IPv6 only.
+
+### Using Private Domains
+
+To communicate with a service over the private network, use the internal hostname and the port on which the service is listening:
+
+```javascript
+// Example: Frontend service calling an API service
+app.get("/fetch-data", async (req, res) => {
+  axios.get("http://api.railway.internal:3000/data").then(response => {
+    res.json(response.data);
+  });
+});
+```
+
+**Note:** Use `http` (not `https`) for internal communication - traffic stays within the private network.
+
+### Using Reference Variables
+
+You can use [reference variables](/variables#reference-variables) to dynamically reference another service's private domain:
+
+```bash
+BACKEND_URL=http://${{api.RAILWAY_PRIVATE_DOMAIN}}:${{api.PORT}}
+```
+
+Then in your code:
+
+```javascript
+app.get("/fetch-data", async (req, res) => {
+  axios.get(`${process.env.BACKEND_URL}/data`).then(response => {
+    res.json(response.data);
+  });
+});
+```
+
+### Changing the Service Name
+
+Within the service settings, you can change the service name which updates the DNS name, e.g., `api-1.railway.internal` → `api-2.railway.internal`.
+
+The root of the domain, `railway.internal`, is static and **cannot** be changed.
+
+### Private Domain Scope
+
+The private network exists in the context of a project and environment:
+
+- Services in one project/environment **cannot** communicate with services in another project/environment over the private network.
+- Client-side requests from browsers **cannot** reach the private network - they must go through a public domain.
+
+For complete information on configuring services for private networking, see the [Private Networking guide](/private-networking).
+
+## Troubleshooting
+
+Having trouble with your domain configuration? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
