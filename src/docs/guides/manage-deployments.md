@@ -111,9 +111,9 @@ Fetch HTTP request logs for a deployment:
     requestId
     method
     path
-    statusCode
-    responseTimeMs
-    clientIp
+    httpStatus
+    totalDuration
+    srcIp
   }
 }`} variables={{ deploymentId: "<your-deployment-id>", limit: 100 }} />
 

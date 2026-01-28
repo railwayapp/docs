@@ -313,22 +313,18 @@ See [Manage Volumes](/guides/manage-volumes) for more details.
 
 ### Get Workspace
 
-<CodeTabs query={`query {
-  workspace(workspaceId: "<your-workspace-id>") {
+<CodeTabs query={`query workspace($workspaceId: String!) {
+  workspace(workspaceId: $workspaceId) {
     id
     name
     members {
-      edges {
-        node {
-          id
-          name
-          email
-          role
-        }
-      }
+      id
+      name
+      email
+      role
     }
   }
-}`} />
+}`} variables={{ workspaceId: "<your-workspace-id>" }} />
 
 ### Invite User to Workspace
 
@@ -370,7 +366,8 @@ Use with a project token:
 <CodeTabs query={`query {
   regions {
     name
-    displayName
+    country
+    location
   }
 }`} />
 
