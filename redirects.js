@@ -674,6 +674,16 @@ const redirects = [
     destination: "/observability/logs",
     permanent: true,
   },
+  {
+    source: "/guides/metrics",
+    destination: "/observability/metrics",
+    permanent: true,
+  },
+  {
+    source: "/reference/metrics",
+    destination: "/observability/metrics",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
