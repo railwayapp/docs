@@ -405,6 +405,11 @@ const redirects = [
     destination: "/volumes/backups",
     permanent: true,
   },
+  {
+    source: "/guides/storage-buckets",
+    destination: "/storage-buckets",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
