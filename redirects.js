@@ -315,6 +315,21 @@ const redirects = [
     destination: "/deployments/scaling",
     permanent: true,
   },
+  {
+    source: "/guides/builds",
+    destination: "/builds",
+    permanent: true,
+  },
+  {
+    source: "/guides/build-configuration",
+    destination: "/builds/build-configuration",
+    permanent: true,
+  },
+  {
+    source: "/guides/private-registries",
+    destination: "/builds/private-registries",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
