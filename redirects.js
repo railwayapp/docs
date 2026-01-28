@@ -724,6 +724,16 @@ const redirects = [
     destination: "/templates",
     permanent: true,
   },
+  {
+    source: "/reference/priority-boarding",
+    destination: "/platform/priority-boarding",
+    permanent: true,
+  },
+  {
+    source: "/guides/join-priority-boarding",
+    destination: "/platform/priority-boarding",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
