@@ -11,7 +11,7 @@ This guide walks you through the steps needed to seamlessly migrate your app and
 - Export data from Fly.io and Import into Railway DB
 - Deploy app (including auto-migration of app config & variables)
 
-We provide everything Fly.io offers—and more! Check out our [comparison guide](/maturity/compare-to-fly) to see the differences and make an informed choice.
+We provide everything Fly.io offers—and more! Check out our [comparison guide](/platform/compare-to-fly) to see the differences and make an informed choice.
 
 Why take our word for it? Experience the [Railway advantage yourself—give it a spin today!](https://railway.com/new)
 

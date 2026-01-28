@@ -25,7 +25,7 @@ To be successful, you should already have -
 
 **Caveats**
 
-Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost. If this is a concern, you may be interested in exploring self-hosted solutions, and we encourage you to check out the [OpenTelemetry Tutorial](/tutorials/deploy-an-otel-collector-stack).
+Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost. If this is a concern, you may be interested in exploring self-hosted solutions, and we encourage you to check out the [OpenTelemetry Tutorial](/guides/deploy-an-otel-collector-stack).
 
 ## 1. Create the Project Structure
 

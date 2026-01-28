@@ -90,6 +90,6 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Add a CDN using Amazon CloudFront to your Fastify app](/tutorials/add-a-cdn-using-cloudfront)
+- [Add a CDN using Amazon CloudFront to your Fastify app](/guides/add-a-cdn-using-cloudfront)
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your app](/guides/monitoring)

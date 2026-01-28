@@ -4,7 +4,7 @@ description: Learn about how to configure and use SAML Single Sign-On (SSO) for 
 ---
 
 <Banner variant="info">
-SAML SSO is available on [Railway Enterprise](/maturity/enterprise).
+SAML SSO is available on [Railway Enterprise](/enterprise).
 </Banner>
 
 **SAML Single Sign-On (SSO)** allows workspace members to sign in using your organization’s Identity Provider (IdP), including Okta, Auth0, Microsoft Entra ID, Google Workspace, and more.

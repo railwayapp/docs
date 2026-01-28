@@ -114,7 +114,7 @@ Each replica runs with the full resource limits of your plan. So if you're on th
 Total resources = number of replicas × maximum compute allocation per replica
 ```
 
-Learn more about [scaling applications](/deployments/scaling) and [multi-region deployments](/maturity/compare-to-vps#multi-region-deployment) in Railway.
+Learn more about [scaling applications](/deployments/scaling) and [multi-region deployments](/platform/compare-to-vps#multi-region-deployment) in Railway.
 
 Alternatively, you can integrate a CDN like Cloudflare for global content delivery and improved performance.
 
