@@ -1,6 +1,6 @@
 ---
-title: Viewing Logs
-description: Learn how to view and filter build, deployment, environment, and HTTP logs on Railway.
+title: Logs
+description: Learn how to view, filter, and search build, deployment, environment, and HTTP logs on Railway.
 ---
 
 Any build or deployment logs emitted to standard output or standard error (e.g. `console.log(...)`) are captured by Railway to be viewed or searched later.
@@ -318,7 +318,7 @@ console.log(
 );
 ```
 
-Structured logs are best generated with a library for your language. For example, the default <a href="https://github.com/winstonjs/winston" target="_blank">Winston</a>. JSON format emits logs in the correct structure by default.
+Structured logs are best generated with a library for your language. For example, the default <a href="https://github.com/winstonjs/winston" target="_blank">Winston</a> JSON format emits logs in the correct structure by default.
 
 Logs with a `level` field will be coloured accordingly in the log explorer.
 
@@ -366,3 +366,35 @@ In order to ensure a consistent query format across Railway services, incoming l
 - Logs from `stdout` are converted to `level.info`
 
 - Levels are lowercased and matched to the closest of `debug`, `info`, `warn`, `error`
+
+## Log Retention
+
+Depending on your plan, logs are retained for a certain amount of time.
+
+| Plan          | Retention\*   |
+| ------------- | ------------- |
+| Hobby / Trial | 7 days        |
+| Pro           | 30 days       |
+| Enterprise    | Up to 90 days |
+
+_\* Upgrading plans will immediately restore logs that were previously outside of the retention period._
+
+## Logging Throughput
+
+To maintain quality of service for all users, Railway enforces a logging rate limit of **500 log lines per second per [replica](/deployments/scaling#horizontal-scaling-with-replicas)** across all plans. When this limit is exceeded, additional logs are dropped and you'll see a warning message like this:
+
+```txt
+Railway rate limit of 500 logs/sec reached for replica, update your application to reduce the logging rate. Messages dropped: 50
+```
+
+If you encounter this limit, here are some strategies to reduce your logging volume:
+
+- Reduce log verbosity in production
+- Use structured logging with minimal formatting (e.g., minified JSON instead of pretty-printed objects)
+- Implement log sampling for high-frequency events
+- Conditionally disable verbose logging based on the environment
+- Combine multiple related log entries into single messages
+
+## Troubleshooting
+
+Having issues with logs? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
