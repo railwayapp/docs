@@ -299,6 +299,22 @@ const redirects = [
     destination: "/deployments/staged-changes",
     permanent: true,
   },
+  // Phase 12: Move Deployments Reference
+  {
+    source: "/reference/app-sleeping",
+    destination: "/deployments/app-sleeping",
+    permanent: true,
+  },
+  {
+    source: "/reference/deployments",
+    destination: "/deployments/reference",
+    permanent: true,
+  },
+  {
+    source: "/reference/scaling",
+    destination: "/deployments/scaling",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
