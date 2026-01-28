@@ -151,6 +151,7 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Public API", "guides"),
         pages: [
+          makePage("GraphQL Overview", "guides"),
           makePage("API Cookbook", "guides"),
           makePage("Manage Projects", "guides"),
           makePage("Manage Services", "guides"),
