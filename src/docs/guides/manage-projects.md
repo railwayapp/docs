@@ -122,9 +122,9 @@ Update project name or description:
 
 Transfer a project to a different workspace:
 
-<CodeTabs query={`mutation projectTransfer($id: String!, $input: ProjectTransferInput!) {
-  projectTransfer(id: $id, input: $input)
-}`} variables={{ id: "<your-project-id>", input: { workspaceId: "<target-workspace-id>" } }} />
+<CodeTabs query={`mutation projectTransfer($projectId: String!, $input: ProjectTransferInput!) {
+  projectTransfer(projectId: $projectId, input: $input)
+}`} variables={{ projectId: "<your-project-id>", input: { workspaceId: "<target-workspace-id>" } }} />
 
 ## Get Project Members
 
@@ -144,11 +144,11 @@ List all members of a project:
 
 ## Invite a User to a Project
 
-<CodeTabs query={`mutation projectInviteUser($id: String!, $email: String!, $role: ProjectRole!) {
-  projectInviteUser(id: $id, email: $email, role: $role) {
+<CodeTabs query={`mutation projectInviteUser($id: String!, $input: ProjectInviteUserInput!) {
+  projectInviteUser(id: $id, input: $input) {
     id
   }
-}`} variables={{ id: "<your-project-id>", email: "user@example.com", role: "MEMBER" }} />
+}`} variables={{ id: "<your-project-id>", input: { email: "user@example.com", link: "https://railway.com/project/<your-project-id>" } }} />
 
 Valid roles: `ADMIN`, `MEMBER`, `VIEWER`
 

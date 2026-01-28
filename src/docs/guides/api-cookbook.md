@@ -7,6 +7,12 @@ This cookbook provides quick copy-paste examples for common API operations. For 
 
 ## Quick Setup
 
+**GraphQL Endpoint:**
+```
+https://backboard.railway.com/graphql/v2
+```
+
+**Authentication:**
 ```bash
 # Set your token (get one from railway.com/account/tokens)
 export RAILWAY_TOKEN="<your-token>"
@@ -328,13 +334,9 @@ See [Manage Volumes](/guides/manage-volumes) for more details.
 
 ### Invite User to Workspace
 
-<CodeTabs query={`mutation {
-  workspaceUserInvite(
-    workspaceId: "<your-workspace-id>"
-    email: "user@example.com"
-    role: MEMBER
-  )
-}`} />
+<CodeTabs query={`mutation workspaceUserInvite($workspaceId: String!, $input: WorkspaceUserInviteInput!) {
+  workspaceUserInvite(workspaceId: $workspaceId, input: $input)
+}`} variables={{ workspaceId: "<your-workspace-id>", input: { email: "user@example.com", code: "<invite-code>" } }} />
 
 ---
 

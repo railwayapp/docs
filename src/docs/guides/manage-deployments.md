@@ -173,13 +173,13 @@ Remove a deployment from the history:
   deploymentRemove(id: $id)
 }`} variables={{ id: "<your-deployment-id>" }} />
 
-## Deploy All Services in an Environment
+## Deploy a Specific Service in an Environment
 
-Trigger deployments for all services in an environment:
+Trigger a deployment for a specific service:
 
-<CodeTabs query={`mutation environmentTriggersDeploy($environmentId: String!, $projectId: String!) {
-  environmentTriggersDeploy(environmentId: $environmentId, projectId: $projectId)
-}`} variables={{ environmentId: "<your-environment-id>", projectId: "<your-project-id>" }} />
+<CodeTabs query={`mutation environmentTriggersDeploy($input: EnvironmentTriggersDeployInput!) {
+  environmentTriggersDeploy(input: $input)
+}`} variables={{ input: { environmentId: "<your-environment-id>", projectId: "<your-project-id>", serviceId: "<your-service-id>" } }} />
 
 ## Deployment Statuses
 

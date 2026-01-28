@@ -76,28 +76,28 @@ Create a new persistent volume attached to a service:
 
 Rename a volume:
 
-<CodeTabs query={`mutation volumeUpdate($id: String!, $input: VolumeUpdateInput!) {
-  volumeUpdate(id: $id, input: $input) {
+<CodeTabs query={`mutation volumeUpdate($volumeId: String!, $input: VolumeUpdateInput!) {
+  volumeUpdate(volumeId: $volumeId, input: $input) {
     id
     name
   }
-}`} variables={{ id: "<your-volume-id>", input: { name: "database-storage" } }} />
+}`} variables={{ volumeId: "<your-volume-id>", input: { name: "database-storage" } }} />
 
 ## Update Volume Instance
 
 Update the mount path for a volume instance:
 
-<CodeTabs query={`mutation volumeInstanceUpdate($id: String!, $input: VolumeInstanceUpdateInput!) {
-  volumeInstanceUpdate(id: $id, input: $input)
-}`} variables={{ id: "<your-volume-instance-id>", input: { mountPath: "/new/path" } }} />
+<CodeTabs query={`mutation volumeInstanceUpdate($volumeId: String!, $input: VolumeInstanceUpdateInput!) {
+  volumeInstanceUpdate(volumeId: $volumeId, input: $input)
+}`} variables={{ volumeId: "<your-volume-id>", input: { mountPath: "/new/path" } }} />
 
 ## Delete a Volume
 
 <Banner variant="danger">This will permanently delete the volume and all its data.</Banner>
 
-<CodeTabs query={`mutation volumeDelete($id: String!) {
-  volumeDelete(id: $id)
-}`} variables={{ id: "<your-volume-id>" }} />
+<CodeTabs query={`mutation volumeDelete($volumeId: String!) {
+  volumeDelete(volumeId: $volumeId)
+}`} variables={{ volumeId: "<your-volume-id>" }} />
 
 ## Volume Backups
 
@@ -108,11 +108,11 @@ Get all backups for a volume instance:
 <CodeTabs query={`query volumeInstanceBackupList($volumeInstanceId: String!) {
   volumeInstanceBackupList(volumeInstanceId: $volumeInstanceId) {
     id
+    name
     createdAt
-    sizeBytes
-    status
-    lockedAt
     expiresAt
+    usedMB
+    referencedMB
   }
 }`} variables={{ volumeInstanceId: "<your-volume-instance-id>" }} />
 
@@ -124,21 +124,21 @@ Get all backups for a volume instance:
 
 ### Restore from Backup
 
-<CodeTabs query={`mutation volumeInstanceBackupRestore($backupId: String!, $volumeInstanceId: String!) {
-  volumeInstanceBackupRestore(backupId: $backupId, volumeInstanceId: $volumeInstanceId)
-}`} variables={{ backupId: "<your-backup-id>", volumeInstanceId: "<your-volume-instance-id>" }} />
+<CodeTabs query={`mutation volumeInstanceBackupRestore($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
+  volumeInstanceBackupRestore(volumeInstanceBackupId: $volumeInstanceBackupId, volumeInstanceId: $volumeInstanceId)
+}`} variables={{ volumeInstanceBackupId: "<your-backup-id>", volumeInstanceId: "<your-volume-instance-id>" }} />
 
 ### Lock a Backup (Prevent Expiration)
 
-<CodeTabs query={`mutation volumeInstanceBackupLock($backupId: String!) {
-  volumeInstanceBackupLock(backupId: $backupId)
-}`} variables={{ backupId: "<your-backup-id>" }} />
+<CodeTabs query={`mutation volumeInstanceBackupLock($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
+  volumeInstanceBackupLock(volumeInstanceBackupId: $volumeInstanceBackupId, volumeInstanceId: $volumeInstanceId)
+}`} variables={{ volumeInstanceBackupId: "<your-backup-id>", volumeInstanceId: "<your-volume-instance-id>" }} />
 
 ### Delete a Backup
 
-<CodeTabs query={`mutation volumeInstanceBackupDelete($backupId: String!) {
-  volumeInstanceBackupDelete(backupId: $backupId)
-}`} variables={{ backupId: "<your-backup-id>" }} />
+<CodeTabs query={`mutation volumeInstanceBackupDelete($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
+  volumeInstanceBackupDelete(volumeInstanceBackupId: $volumeInstanceBackupId, volumeInstanceId: $volumeInstanceId)
+}`} variables={{ volumeInstanceBackupId: "<your-backup-id>", volumeInstanceId: "<your-volume-instance-id>" }} />
 
 ## Backup Schedules
 
@@ -147,23 +147,13 @@ Get all backups for a volume instance:
 <CodeTabs query={`query volumeInstanceBackupScheduleList($volumeInstanceId: String!) {
   volumeInstanceBackupScheduleList(volumeInstanceId: $volumeInstanceId) {
     id
-    schedule
-    nextRunAt
-    retentionDays
+    name
+    cron
+    kind
+    retentionSeconds
+    createdAt
   }
 }`} variables={{ volumeInstanceId: "<your-volume-instance-id>" }} />
-
-### Update Backup Schedule
-
-<CodeTabs query={`mutation volumeInstanceBackupScheduleUpdate(
-  $volumeInstanceId: String!
-  $input: VolumeInstanceBackupScheduleUpdateInput!
-) {
-  volumeInstanceBackupScheduleUpdate(
-    volumeInstanceId: $volumeInstanceId
-    input: $input
-  )
-}`} variables={{ volumeInstanceId: "<your-volume-instance-id>", input: { schedule: "0 0 * * *", retentionDays: 7 } }} />
 
 ## Common Mount Paths
 

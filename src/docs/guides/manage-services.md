@@ -251,14 +251,10 @@ Redeploy the latest deployment:
 
 ## Get Resource Limits
 
-Get the resource limits for a service instance:
+Get the resource limits for a service instance (returns a JSON object):
 
 <CodeTabs query={`query serviceInstanceLimits($serviceId: String!, $environmentId: String!) {
-  serviceInstanceLimits(serviceId: $serviceId, environmentId: $environmentId) {
-    cpu
-    memory
-    disk
-  }
+  serviceInstanceLimits(serviceId: $serviceId, environmentId: $environmentId)
 }`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>" }} />
 
 ## Delete a Service

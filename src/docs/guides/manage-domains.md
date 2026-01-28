@@ -133,9 +133,9 @@ Check DNS configuration status:
 
 ### Update a Custom Domain
 
-<CodeTabs query={`mutation customDomainUpdate($id: String!, $input: CustomDomainUpdateInput!) {
-  customDomainUpdate(id: $id, input: $input)
-}`} variables={{ id: "<your-custom-domain-id>", input: { targetPort: 8080 } }} />
+<CodeTabs query={`mutation customDomainUpdate($id: String!, $environmentId: String!, $targetPort: Int) {
+  customDomainUpdate(id: $id, environmentId: $environmentId, targetPort: $targetPort)
+}`} variables={{ id: "<your-custom-domain-id>", environmentId: "<your-environment-id>", targetPort: 8080 }} />
 
 ### Delete a Custom Domain
 

@@ -107,9 +107,9 @@ Create a temporary environment (useful for PR previews):
 
 ## Rename an Environment
 
-<CodeTabs query={`mutation environmentRename($id: String!, $name: String!) {
-  environmentRename(id: $id, name: $name)
-}`} variables={{ id: "<your-environment-id>", name: "new-name" }} />
+<CodeTabs query={`mutation environmentRename($id: String!, $input: EnvironmentRenameInput!) {
+  environmentRename(id: $id, input: $input)
+}`} variables={{ id: "<your-environment-id>", input: { name: "new-name" } }} />
 
 ## Delete an Environment
 
@@ -119,13 +119,13 @@ Create a temporary environment (useful for PR previews):
   environmentDelete(id: $id)
 }`} variables={{ id: "<your-environment-id>" }} />
 
-## Deploy All Services
+## Deploy a Service
 
-Trigger deployments for all services in an environment:
+Trigger a deployment for a specific service in an environment:
 
-<CodeTabs query={`mutation environmentTriggersDeploy($environmentId: String!, $projectId: String!) {
-  environmentTriggersDeploy(environmentId: $environmentId, projectId: $projectId)
-}`} variables={{ environmentId: "<your-environment-id>", projectId: "<your-project-id>" }} />
+<CodeTabs query={`mutation environmentTriggersDeploy($input: EnvironmentTriggersDeployInput!) {
+  environmentTriggersDeploy(input: $input)
+}`} variables={{ input: { environmentId: "<your-environment-id>", projectId: "<your-project-id>", serviceId: "<your-service-id>" } }} />
 
 ## Get Environment Logs
 
