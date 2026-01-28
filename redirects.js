@@ -604,6 +604,16 @@ const redirects = [
     destination: "/deployments/healthchecks",
     permanent: true,
   },
+  {
+    source: "/reference/deployment-regions",
+    destination: "/deployments/regions",
+    permanent: true,
+  },
+  {
+    source: "/reference/regions",
+    destination: "/deployments/regions",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
