@@ -434,6 +434,11 @@ const redirects = [
     destination: "/networking/troubleshooting-ssl",
     permanent: true,
   },
+  {
+    source: "/guides/observability",
+    destination: "/observability",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
