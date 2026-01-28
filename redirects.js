@@ -99,7 +99,6 @@ const redirects = [
     destination: "/reference/errors",
     permanent: true,
   },
-  // Phase 2: Move Overview Section
   {
     source: "/reference/production-readiness-checklist",
     destination: "/overview/production-readiness-checklist",
@@ -193,6 +192,11 @@ const redirects = [
   {
     source: "/reference/pricing/understanding-your-bill",
     destination: "/pricing/understanding-your-bill",
+    permanent: true,
+  },
+  {
+    source: "/reference/mcp-server",
+    destination: "/ai/mcp-server",
     permanent: true,
   },
 ];
