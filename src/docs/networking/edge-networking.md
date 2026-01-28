@@ -151,6 +151,6 @@ If you need to report a routing issue, include:
 ## Related Documentation
 
 - [Deployment Regions](/deployments/regions) - Configure where your services run
-- [Public Networking](/public-networking) - Overview of public networking features
+- [Public Networking](/networking/public-networking) - Overview of public networking features
 - [Network Diagnostics](/reference/network-diagnostics) - Tools for troubleshooting network issues
 - [TCP Proxy](/networking/tcp-proxy) - Proxy TCP traffic to your services

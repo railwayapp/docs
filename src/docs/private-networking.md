@@ -175,7 +175,7 @@ Check out the [FAQ](#faq) section for more information.
 
 Some libraries and components require explicit configuration for dual-stack (IPv4/IPv6) networking or to work properly in legacy IPv6-only environments.
 
-See the [Library Configuration guide](/private-networking/library-configuration) for detailed setup instructions for:
+See the [Library Configuration guide](/networking/private-networking/library-configuration) for detailed setup instructions for:
 - **Node.js**: ioredis, bullmq, hot-shots
 - **Go**: Fiber
 - **Docker**: MongoDB

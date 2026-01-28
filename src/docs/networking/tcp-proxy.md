@@ -66,7 +66,7 @@ Railway supports exposing both HTTP and TCP over public networking in a single s
 
 ## TCP with Private Networking
 
-TCP Proxy can also be used in conjunction with [Private Networking](/private-networking) for internal service-to-service communication. Services within the same project or environment can communicate over TCP using internal DNS names without exposing traffic to the public internet.
+TCP Proxy can also be used in conjunction with [Private Networking](/networking/private-networking) for internal service-to-service communication. Services within the same project or environment can communicate over TCP using internal DNS names without exposing traffic to the public internet.
 
 ## Troubleshooting
 

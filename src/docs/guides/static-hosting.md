@@ -173,7 +173,7 @@ Now that you've deployed your static site, explore these resources:
 
 - [Add a Database Service](/guides/build-a-database-service) for dynamic content
 - [Monitor your application](/guides/monitoring) with built-in metrics
-- [Set up custom domains](/public-networking) and SSL certificates
+- [Set up custom domains](/networking/public-networking) and SSL certificates
 - [Configure environment variables](/variables) for different environments
 - [Use Railway Functions](/functions) for API endpoints
 - [Optimize performance](/guides/optimize-performance) and [usage](/guides/optimize-usage)

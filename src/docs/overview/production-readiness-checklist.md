@@ -31,7 +31,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
 - When communicating between services over the public network, latency is introduced by the network hops that requests must make to reach their destination.
 
-  To reduce latency, ensure communication between services in the same project and environment happens over the [private network](/private-networking).
+  To reduce latency, ensure communication between services in the same project and environment happens over the [private network](/networking/private-networking).
 
 **&check; Configure a restart policy**
 
@@ -119,7 +119,7 @@ Protecting your application and user data from malicious threats and vulnerabili
 
 - The easiest way to protect your services from malicious threats, is to keep them unexposed to the public network.
 
-  Secure communication between services in the same project and environment by using the [private network](/private-networking).
+  Secure communication between services in the same project and environment by using the [private network](/networking/private-networking).
 
 **&check; Implement a security layer**
 

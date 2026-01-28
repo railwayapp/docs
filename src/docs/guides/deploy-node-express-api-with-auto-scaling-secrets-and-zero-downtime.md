@@ -216,7 +216,7 @@ Now let's deploy this API to Railway. First, create a Railway account by going t
    - Click "Generate Domain"
    - Your API is now live at `https://your-app.up.railway.app`. When you visit this URL, you should see your Express API running.
 
-Learn more about [deploying applications](/guides/deploy), [public networking](/public-networking), and [staged changes](/guides/staged-changes) in Railway.
+Learn more about [deploying applications](/guides/deploy), [public networking](/networking/public-networking), and [staged changes](/guides/staged-changes) in Railway.
 
 
 ## Scaling and pricing
@@ -430,7 +430,7 @@ To add more microservices to your project:
 
 ![Deploy multiple services](https://res.cloudinary.com/railway/image/upload/v1758274862/microservice_cpul8g.png)
 
-Each service runs in its own container with its own resources, but they can communicate with each other through Railway's [private networking](/private-networking).
+Each service runs in its own container with its own resources, but they can communicate with each other through Railway's [private networking](/networking/private-networking).
 
 ### Shared Variables Between Services
 
@@ -471,7 +471,7 @@ Now that you've deployed your Node.js applications, explore these resources:
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your application](/guides/monitoring)
 - [View logs and metrics](/observability/logs) and [metrics](/observability/metrics)
-- [Set up custom domains](/public-networking)
+- [Set up custom domains](/networking/public-networking)
 - [Configure environment variables](/variables)
 - [Deploy with Docker](/builds/dockerfiles)
 - [Customize builds](/guides/builds)

@@ -89,6 +89,6 @@ Private networking offers several performance advantages:
 
 ## Related
 
-- [Private Networking Overview](/private-networking) - Getting started with private networking
+- [Private Networking Overview](/networking/private-networking) - Getting started with private networking
 - [Domains](/networking/domains) - Configure public and private domains
-- [Library Configuration](/private-networking/library-configuration) - Configure libraries for dual-stack networking
+- [Library Configuration](/networking/private-networking/library-configuration) - Configure libraries for dual-stack networking

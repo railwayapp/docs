@@ -9,8 +9,8 @@ Railway provides several networking features to connect your services to the int
 
 | Feature | Description |
 | ------- | ----------- |
-| [**Public Networking**](/public-networking) | Expose your services to the internet via HTTP/HTTPS with automatic SSL certificates. |
-| [**Private Networking**](/private-networking) | Secure service-to-service communication within your project using internal DNS. |
+| [**Public Networking**](/networking/public-networking) | Expose your services to the internet via HTTP/HTTPS with automatic SSL certificates. |
+| [**Private Networking**](/networking/private-networking) | Secure service-to-service communication within your project using internal DNS. |
 
 ## Domain Configuration
 

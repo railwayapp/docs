@@ -25,7 +25,7 @@ Railway will inject a `PORT` environment variable that your application should l
 
 This variable's value is also used when performing health checks on your deployments.
 
-If your application doesn't listen on the `PORT` variable, possibly due to using [target ports](/public-networking#target-ports), you can manually set a `PORT` [variable](/overview/the-basics#service-variables) to inform Railway of the port to use for health checks.
+If your application doesn't listen on the `PORT` variable, possibly due to using [target ports](/networking/public-networking#target-ports), you can manually set a `PORT` [variable](/overview/the-basics#service-variables) to inform Railway of the port to use for health checks.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743469112/healthcheck-port_z0vj4o.png"

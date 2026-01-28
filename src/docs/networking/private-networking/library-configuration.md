@@ -3,7 +3,7 @@ title: Library Configuration
 description: Configure libraries and frameworks for Railway's private networking.
 ---
 
-Some libraries and components require explicit configuration for dual-stack (IPv4/IPv6) networking or to work properly in [legacy IPv6-only environments](/private-networking#legacy-environments).
+Some libraries and components require explicit configuration for dual-stack (IPv4/IPv6) networking or to work properly in [legacy IPv6-only environments](/networking/private-networking#legacy-environments).
 
 ## Node.js Libraries
 

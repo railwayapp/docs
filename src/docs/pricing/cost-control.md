@@ -81,7 +81,7 @@ Using resource limits makes sense in scenarios where:
 
 ## Use Private Networking
 
-Using [Private Networking](/private-networking) when communicating with other services (such as databases) within your Railway project will help you avoid unnecessary Network Egress costs.
+Using [Private Networking](/networking/private-networking) when communicating with other services (such as databases) within your Railway project will help you avoid unnecessary Network Egress costs.
 
 ### With Databases
 
@@ -93,7 +93,7 @@ If your Railway services need to communicate with each other, you can find the s
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1743193518/docs/private-networking_nycfyk.png" alt="Private Network URL" layout="responsive" width={1558} height={1156} />
 
-Learn more about Railway's Private Networking [here](/private-networking).
+Learn more about Railway's Private Networking [here](/networking/private-networking).
 
 ## Enabling Serverless
 

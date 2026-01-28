@@ -134,7 +134,7 @@ The Railway templates marketplace provides pre-configured services that can be d
 4. Search for the service you need (PostgreSQL, Redis, MongoDB, etc.).
 5. Click **Deploy** to add the template to your project.
 
-The template service deploys in the same project as your Lovable application. Services within a project can communicate through [private networking](/private-networking), and connection details are available as environment variables.
+The template service deploys in the same project as your Lovable application. Services within a project can communicate through [private networking](/networking/private-networking), and connection details are available as environment variables.
 
 After deploying a template, configure your Lovable application to use the service by adding the connection variables to your Railway service's environment variables.
 
@@ -169,5 +169,5 @@ Explore these resources to enhance your Lovable application on Railway:
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your app](/guides/monitoring)
 - [Configure environment variables](/variables)
-- [Set up custom domains](/public-networking)
+- [Set up custom domains](/networking/public-networking)
 

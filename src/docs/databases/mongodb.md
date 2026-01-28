@@ -22,7 +22,7 @@ Upon deployment, you will have a MongoDB service running in your project, deploy
 
 #### Custom Start Command
 
-The MongoDB database service starts with the following [Start Command](/deploy/deployments#start-command) to enable communication over [Private Network](/private-networking): `mongod --ipv6 --bind_ip ::,0.0.0.0  --setParameter diagnosticDataCollectionEnabled=false`
+The MongoDB database service starts with the following [Start Command](/deploy/deployments#start-command) to enable communication over [Private Network](/networking/private-networking): `mongod --ipv6 --bind_ip ::,0.0.0.0  --setParameter diagnosticDataCollectionEnabled=false`
 
 ## Connect
 

@@ -21,7 +21,7 @@ const redirects = [
   },
   {
     source: "/deploy/exposing-your-app",
-    destination: "/guides/public-networking",
+    destination: "/networking/public-networking",
     permanent: true,
   },
   {
@@ -636,12 +636,22 @@ const redirects = [
   },
   {
     source: "/guides/public-networking",
-    destination: "/public-networking",
+    destination: "/networking/public-networking",
     permanent: true,
   },
   {
     source: "/reference/public-networking",
-    destination: "/public-networking",
+    destination: "/networking/public-networking",
+    permanent: true,
+  },
+  {
+    source: "/public-networking",
+    destination: "/networking/public-networking",
+    permanent: true,
+  },
+  {
+    source: "/public-networking/:slug*",
+    destination: "/networking/public-networking/:slug*",
     permanent: true,
   },
   {
@@ -656,12 +666,22 @@ const redirects = [
   },
   {
     source: "/guides/private-networking",
-    destination: "/private-networking",
+    destination: "/networking/private-networking",
     permanent: true,
   },
   {
     source: "/reference/private-networking",
-    destination: "/private-networking",
+    destination: "/networking/private-networking",
+    permanent: true,
+  },
+  {
+    source: "/private-networking",
+    destination: "/networking/private-networking",
+    permanent: true,
+  },
+  {
+    source: "/private-networking/:slug*",
+    destination: "/networking/private-networking/:slug*",
     permanent: true,
   },
   {

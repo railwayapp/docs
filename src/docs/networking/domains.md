@@ -246,7 +246,7 @@ Also note that if proxying is enabled, you can NOT use a domain deeper than a fi
 
 ## Private Domains
 
-Private domains enable service-to-service communication within Railway's [private network](/private-networking). Every service automatically gets an internal DNS name under the `railway.internal` domain.
+Private domains enable service-to-service communication within Railway's [private network](/networking/private-networking). Every service automatically gets an internal DNS name under the `railway.internal` domain.
 
 ### How Private DNS Works
 
@@ -258,7 +258,7 @@ By default, all projects have private networking enabled and services will get a
 
 For example, if you have a service called `api`, its internal hostname would be `api.railway.internal`.
 
-For new environments (created after October 16, 2025), this DNS name resolves to both internal IPv4 and IPv6 addresses. [Legacy environments](/private-networking#legacy-environments) resolve to IPv6 only.
+For new environments (created after October 16, 2025), this DNS name resolves to both internal IPv4 and IPv6 addresses. [Legacy environments](/networking/private-networking#legacy-environments) resolve to IPv6 only.
 
 ### Using Private Domains
 
@@ -306,7 +306,7 @@ The private network exists in the context of a project and environment:
 - Services in one project/environment **cannot** communicate with services in another project/environment over the private network.
 - Client-side requests from browsers **cannot** reach the private network - they must go through a public domain.
 
-For complete information on configuring services for private networking, see the [Private Networking guide](/private-networking).
+For complete information on configuring services for private networking, see the [Private Networking guide](/networking/private-networking).
 
 ## Troubleshooting
 

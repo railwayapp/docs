@@ -65,7 +65,7 @@ For more information, see the [TCP Proxy guide](/networking/tcp-proxy).
 
 ## Specs & Limits
 
-For detailed technical specifications, rate limits, TLS information, and DDoS protection details, see the [Specs & Limits](/public-networking/specs-and-limits) page.
+For detailed technical specifications, rate limits, TLS information, and DDoS protection details, see the [Specs & Limits](/networking/public-networking/specs-and-limits) page.
 
 ## FAQ
 
