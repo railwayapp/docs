@@ -664,6 +664,16 @@ const redirects = [
     destination: "/private-networking",
     permanent: true,
   },
+  {
+    source: "/guides/logs",
+    destination: "/observability/logs",
+    permanent: true,
+  },
+  {
+    source: "/reference/logging",
+    destination: "/observability/logs",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
