@@ -5,19 +5,35 @@ description: Learn how to run cron jobs on Railway.
 
 Cron Jobs allow you to start a service based on a crontab expression.
 
+Services configured as cron jobs are expected to execute a task, and terminate as soon as that task is finished, leaving no open resources.
+
 ## How it Works
 
-Railway will look for a defined cron schedule in your service settings, and execute the start command for that service on the given schedule. The service is expected to execute a task, and exit as soon as that task is finished, not leaving any resources open, such as database connections. More on [execution requirements](/reference/cron-jobs#service-execution-requirements) below.
+Railway will look for a defined cron schedule in your service settings, and execute the start command for that service on the given schedule. The service is expected to execute a task, and exit as soon as that task is finished, not leaving any resources open, such as database connections.
 
 #### Scheduling Libraries
 
 If you are already using a scheduling library or system in your service such as [node-cron](https://www.npmjs.com/package/node-cron) or [Quartz](http://www.quartz-scheduler.org/), Railway cron jobs are a substitute of them that allows you to save resources between executions.
+
+## Configuring a Cron Job
+
+To configure a cron job:
+
+1. Select a service and go to the Settings section.
+2. Within "Cron Schedule", input a [crontab expression](#crontab-expressions).
+3. Once the setting is saved, the service will run according to the cron schedule.
 
 ## Service Execution Requirements
 
 Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
 
 Currently, Railway does not automatically terminate deployments. As a result, if a previous execution is still running when the next scheduled execution is due, Railway will skip the new cron job.
+
+### Why Isn't My Cron Running as Scheduled?
+
+An important requirement of a service that runs as a Cron, is that it terminates on completion and leaves no open resources. If the code that runs in your Cron service does not exit, subsequent executions of the Cron will be skipped.
+
+If you see that a previous execution of your Cron service has a status of `Active`, the execution is still running and any new executions will not be run.
 
 ## Crontab Expressions
 
@@ -93,7 +109,3 @@ The shortest time between successive executions of a cron job cannot be less tha
 Cron jobs are scheduled based on UTC (Coordinated Universal Time).
 
 You will need to account for timezone offsets when setting your cron schedule.
-
-## Support
-
-For information on how to configure cron jobs, refer to [this guide](/guides/cron-jobs).
