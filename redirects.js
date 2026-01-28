@@ -504,6 +504,26 @@ const redirects = [
     destination: "/troubleshooting/nodejs-sigterm",
     permanent: true,
   },
+  {
+    source: "/guides/deploy",
+    destination: "/templates/deploy",
+    permanent: true,
+  },
+  {
+    source: "/guides/create",
+    destination: "/templates/create",
+    permanent: true,
+  },
+  {
+    source: "/guides/templates-best-practices",
+    destination: "/templates/best-practices",
+    permanent: true,
+  },
+  {
+    source: "/guides/publish-and-share",
+    destination: "/templates/publish-and-share",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
