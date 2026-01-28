@@ -71,11 +71,11 @@ Railway stops and removes the previous deployment. By default, old deployments a
 
 ## Is It Railway or My App?
 
-Before diving into optimization, determine whether the slowness is on Railway's side or within your application.
+Before diving into optimization, determine whether the slowness is on Railway's side or within your application. In the vast majority of cases, performance issues originate from the application itself—inefficient queries, resource constraints, or configuration problems—rather than the platform.
 
 ### Check Railway Status
 
-Visit [status.railway.com](https://status.railway.com) to see if there are any ongoing incidents or degraded performance affecting the platform.
+Visit [status.railway.com](https://status.railway.com) to see if there are any ongoing incidents or degraded performance affecting the platform. If there's a platform-wide issue, it will be reported here. If status shows all systems operational, the issue is almost certainly within your application or its dependencies.
 
 ### Check Build Logs
 
@@ -102,6 +102,54 @@ Railway provides [metrics](/guides/metrics) for CPU, memory, and network usage. 
 - Your application is resource-constrained
 - Inefficient code paths
 - Memory leaks causing garbage collection pressure
+
+For deeper insights, consider integrating an Application Performance Monitoring (APM) tool like Datadog, New Relic, or open-source alternatives like OpenTelemetry. APM tools provide distributed tracing, helping you identify slow database queries, external API calls, and bottlenecks that Railway's built-in metrics don't capture.
+
+### Analyze HTTP Logs
+
+Railway captures detailed HTTP request logs for every request to your service. These logs are invaluable for identifying slow endpoints and understanding request patterns. For complete documentation on log features and filtering syntax, see the [Logs guide](/guides/logs).
+
+**Key fields for performance troubleshooting:**
+
+| Field | Description |
+|-------|-------------|
+| `totalDuration` | Total time from request received to response sent (ms) |
+| `upstreamRqDuration` | Time your application took to respond (ms) |
+| `httpStatus` | Response status code |
+| `path` | Request path—identify which endpoints are slow |
+| `responseDetails` | Error details if the request failed |
+| `txBytes` / `rxBytes` | Response and request sizes |
+
+**Finding slow requests:**
+
+Use the log filter syntax to find requests exceeding a duration threshold:
+
+```
+@totalDuration:>1000
+```
+
+This finds all requests taking longer than 1 second. You can combine filters to narrow down:
+
+```
+@totalDuration:>500 @path:/api/users @method:GET
+```
+
+**Understanding the timing fields:**
+
+- **`totalDuration`** includes everything: network time to/from the edge, time in the proxy, and your application's response time
+- **`upstreamRqDuration`** is specifically how long your application took to respond
+
+If `totalDuration` is high but `upstreamRqDuration` is low, the latency is in the network path (edge routing, DNS). If `upstreamRqDuration` is high, the slowness is in your application.
+
+**Identifying error patterns:**
+
+Filter by status code to find failing requests:
+
+```
+@httpStatus:>=500
+```
+
+Check `responseDetails` for specific error information, and `upstreamErrors` for details about connection failures to your application.
 
 ### Test Locally
 
@@ -139,7 +187,7 @@ If your application is in one region but your database is in another, every quer
 
 ### Not Using Private Networking
 
-If services within the same project communicate over the public internet instead of [private networking](/guides/private-networking), you add unnecessary latency and incur [egress costs](/reference/pricing/plans#resource-usage-pricing).
+If services within the same project communicate over the public internet instead of [private networking](/guides/private-networking), you add unnecessary latency and incur [egress costs](/reference/pricing/plans#resource-usage-pricing). Private networking is for **server-to-server communication only**—it won't work for requests originating from a user's browser.
 
 **Symptoms:**
 - Using public URLs (e.g., `your-app.up.railway.app`) for inter-service communication
@@ -149,14 +197,15 @@ If services within the same project communicate over the public internet instead
 **Solutions:**
 - Use `*.railway.internal` hostnames for service-to-service communication
 - Update connection strings to use private networking addresses and ports
+- For frontend applications that need to call backend APIs, use private networking from your server-side code (API routes, SSR) while keeping public URLs for client-side browser requests
 
 **Example:**
 ```javascript
-// Slower: Going through public internet
-const apiUrl = "https://api.up.railway.app";
-
-// Faster: Private networking
+// Server-side code (API routes, SSR): use private networking
 const apiUrl = "http://api.railway.internal:3000";
+
+// Client-side code (browser): must use public URL
+const apiUrl = "https://api.up.railway.app";
 ```
 
 ### Resource Constraints
@@ -236,7 +285,7 @@ Upgrading won't help when:
 
 ## Edge Routing and Latency
 
-Railway operates edge proxies in multiple regions. Understanding how traffic is routed helps diagnose latency issues.
+Railway operates edge proxies in multiple regions. For a complete overview of edge infrastructure, see the [Edge Networking reference](/reference/edge-networking). Understanding how traffic is routed helps diagnose latency issues.
 
 ### How Edge Routing Works
 
@@ -274,25 +323,12 @@ If you have users worldwide, you can use [multi-region replicas](/reference/scal
 
 Private networking (`*.railway.internal`) bypasses the edge entirely. Services communicate directly within Railway's infrastructure, which is faster than going through the public internet.
 
-## Quick Diagnostic Checklist
-
-When troubleshooting slow deployments or applications:
-
-1. **Check [status.railway.com](https://status.railway.com)** for platform issues
-2. **Review deployment logs** to identify which phase is slow
-3. **Check metrics** for CPU, memory, and network usage
-4. **Verify region configuration** - are all your services in the same region?
-5. **Confirm private networking** - are services using `*.railway.internal`?
-6. **Review database performance** - are queries optimized?
-7. **Check container image size** - can it be reduced?
-8. **Test healthcheck endpoint** - does it respond quickly?
-
 ## When to Contact Support
 
 Contact Railway support through [Central Station](https://station.railway.com) if:
 
 - Deployments are consistently slow with no apparent cause
-- You see platform errors in your logs
+- You see **544 Railway Proxy Error** responses, which indicate a platform-side issue (as opposed to 502 errors, which indicate application issues)
 - The status page shows no issues but you're experiencing degraded performance
 - You need help optimizing your deployment configuration
 
