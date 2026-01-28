@@ -99,6 +99,12 @@ const redirects = [
     destination: "/reference/errors",
     permanent: true,
   },
+  // Phase 2: Move Overview Section
+  {
+    source: "/reference/production-readiness-checklist",
+    destination: "/overview/production-readiness-checklist",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
