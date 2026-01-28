@@ -57,19 +57,72 @@ const SidebarContent: React.FC = () => {
   );
 
   const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]);
+  const [expandedSections, setExpandedSections] = useState<string[]>([]);
   const activeLinkRef = React.useRef<HTMLAnchorElement | null>(null);
 
+  // Find which section contains the current page
+  const findContainingSectionTitle = (
+    sections: ISidebarSection[],
+    currentPageSlug: string,
+  ): string | null => {
+    for (const section of sections) {
+      // Check section's own slug
+      if (section.slug === currentPageSlug && section.title) {
+        return section.title;
+      }
+
+      // Check direct pages
+      const hasDirectPage = section.content.some(
+        item => "slug" in item && item.slug === currentPageSlug,
+      );
+      if (hasDirectPage && section.title) return section.title;
+
+      // Check subsection pages
+      for (const item of section.content) {
+        if ("subTitle" in item) {
+          const subTitleSlug =
+            typeof item.subTitle === "string"
+              ? item.subTitle
+              : item.subTitle.slug;
+          if (subTitleSlug === currentPageSlug && section.title)
+            return section.title;
+          const hasMatchingChild = item.pages.some(
+            p => "slug" in p && p.slug === currentPageSlug,
+          );
+          if (hasMatchingChild && section.title) return section.title;
+        }
+      }
+    }
+    return null;
+  };
+
   useEffect(() => {
+    const currentSlug = prefixedSlug ?? pathname;
+
+    // Expand subsections containing the current page
     const newExpandedSubSections = findContainingSubSectionSlugs(
       sidebarContent,
-      prefixedSlug ?? pathname,
+      currentSlug,
     );
     setExpandedSubSections(prevExpandedSubSections =>
       Array.from(
         new Set([...prevExpandedSubSections, ...newExpandedSubSections]),
       ),
     );
-  }, [prefixedSlug]);
+
+    // Expand the section containing the current page
+    const containingSection = findContainingSectionTitle(
+      sidebarContent,
+      currentSlug,
+    );
+    if (containingSection) {
+      setExpandedSections(prevExpandedSections =>
+        prevExpandedSections.includes(containingSection)
+          ? prevExpandedSections
+          : [...prevExpandedSections, containingSection],
+      );
+    }
+  }, [prefixedSlug, pathname]);
 
   useEffect(() => {
     if (activeLinkRef.current) {
@@ -95,14 +148,6 @@ const SidebarContent: React.FC = () => {
           const hasMatchingChild = item.pages.some(
             p => "slug" in p && p.slug === currentPageSlug,
           );
-          console.log(
-            "Checking subTitleSlug:",
-            subTitleSlug,
-            "currentPageSlug:",
-            currentPageSlug,
-            "childSlugs:",
-            item.pages.filter(p => "slug" in p).map(p => (p as IPage).slug),
-          );
           if (hasMatchingChild || subTitleSlug === currentPageSlug) {
             slugs.push(subTitleSlug);
           }
@@ -116,6 +161,9 @@ const SidebarContent: React.FC = () => {
     (prefixedSlug ?? pathname) === pageSlug;
 
   const isCurrentSection = (section: ISidebarSection) => {
+    // Check if the section's own slug matches
+    const isSectionSlugCurrent = section.slug && isCurrentPage(section.slug);
+
     const isDirectPageCurrent = section.content.some(
       item => "slug" in item && isCurrentPage(item.slug),
     );
@@ -138,7 +186,10 @@ const SidebarContent: React.FC = () => {
     );
 
     return (
-      isDirectPageCurrent || isSubTitlePageCurrent || isSubSectionPageCurrent
+      isSectionSlugCurrent ||
+      isDirectPageCurrent ||
+      isSubTitlePageCurrent ||
+      isSubSectionPageCurrent
     );
   };
 
@@ -148,6 +199,20 @@ const SidebarContent: React.FC = () => {
         ? prevState.filter(slug => slug !== subTitleSlug)
         : [...prevState, subTitleSlug],
     );
+  };
+
+  const toggleSection = (sectionTitle: string) => {
+    setExpandedSections(prevState =>
+      prevState.includes(sectionTitle)
+        ? prevState.filter(title => title !== sectionTitle)
+        : [...prevState, sectionTitle],
+    );
+  };
+
+  const isSectionExpanded = (section: ISidebarSection) => {
+    // Sections without titles are always expanded (like Quick Start at root level)
+    if (!section.title) return true;
+    return expandedSections.includes(section.title);
   };
 
   const renderContentItem = (item: IPage | ISubSection | IExternalLink) => {
@@ -177,22 +242,109 @@ const SidebarContent: React.FC = () => {
 
   return (
     <>
-      {sidebarContent.map((section, i) => (
-        <React.Fragment key={i}>
-          {section.title && (
-            <h5
-              tw="px-4 my-2 text-foreground text-sm font-bold"
-              className={classNames(
-                isCurrentSection(section) && "current-section",
-              )}
-            >
-              {section.title}
-            </h5>
-          )}
+      {sidebarContent.map((section, i) => {
+        const isExpanded = isSectionExpanded(section);
+        const isCurrent = isCurrentSection(section);
+        const hasContent = section.content.length > 0;
+        const isLinkOnly = section.slug && !hasContent;
 
-          <ul tw="mb-8">{section.content.map(renderContentItem)}</ul>
-        </React.Fragment>
-      ))}
+        return (
+          <React.Fragment key={i}>
+            {section.title ? (
+              isLinkOnly ? (
+                // Render as simple link when slug exists but no nested content
+                <Link
+                  href={section.slug!}
+                  css={[
+                    tw`flex items-center px-4 my-2 py-1`,
+                    tw`hover:bg-gray-100 cursor-pointer`,
+                    tw`rounded-sm`,
+                    tw`text-foreground text-sm font-medium`,
+                    tw`hover:text-pink-700`,
+                    isCurrent && tw`text-pink-700`,
+                  ]}
+                  className={classNames(isCurrent && "current-section")}
+                >
+                  {section.title}
+                </Link>
+              ) : (
+                // Render as accordion when there's nested content
+                <div
+                  css={[
+                    tw`flex justify-between items-center px-4 my-2`,
+                    tw`hover:bg-gray-100 cursor-pointer`,
+                    tw`rounded-sm`,
+                  ]}
+                  onClick={() => {
+                    if (!section.slug) {
+                      toggleSection(section.title!);
+                    }
+                  }}
+                >
+                  {section.slug ? (
+                    <Link
+                      href={section.slug}
+                      css={[
+                        tw`text-foreground text-sm font-medium py-1 flex-1`,
+                        tw`hover:text-pink-700`,
+                        isCurrent && tw`text-pink-700`,
+                      ]}
+                      className={classNames(isCurrent && "current-section")}
+                    >
+                      {section.title}
+                    </Link>
+                  ) : (
+                    <h5
+                      css={[
+                        tw`text-foreground text-sm font-medium py-1`,
+                        isCurrent && tw`text-pink-700`,
+                      ]}
+                      className={classNames(isCurrent && "current-section")}
+                    >
+                      {section.title}
+                    </h5>
+                  )}
+                  <button
+                    onClick={e => {
+                      e.stopPropagation();
+                      toggleSection(section.title!);
+                    }}
+                    css={[
+                      tw`p-1 hover:bg-gray-200 rounded`,
+                      tw`text-gray-600 hover:text-foreground`,
+                    ]}
+                    aria-expanded={isExpanded}
+                    aria-label={`Toggle ${section.title} section`}
+                  >
+                    <svg
+                      css={[
+                        tw`w-4 h-4 transition-transform duration-200`,
+                        isExpanded && tw`transform rotate-90`,
+                      ]}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              )
+            ) : null}
+
+            {isExpanded && hasContent && (
+              <ul css={[tw`mb-4`, section.title && tw`mb-2`]}>
+                {section.content.map(renderContentItem)}
+              </ul>
+            )}
+          </React.Fragment>
+        );
+      })}
     </>
   );
 };
