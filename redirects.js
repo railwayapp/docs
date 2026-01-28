@@ -654,6 +654,16 @@ const redirects = [
     destination: "/networking/tcp-proxy",
     permanent: true,
   },
+  {
+    source: "/guides/private-networking",
+    destination: "/private-networking",
+    permanent: true,
+  },
+  {
+    source: "/reference/private-networking",
+    destination: "/private-networking",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [

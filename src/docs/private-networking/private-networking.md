@@ -10,14 +10,26 @@ alt="Preview of What The Guide is Building"
 layout="intrinsic"
 width={1310} height={420} quality={100} />
 
-By default, all projects have private networking enabled and services will get a new DNS name under the `railway.internal` domain. For new environments (created after October 16, 2025), this DNS name will resolve to both internal IPv4 and IPv6 addresses. [Legacy environments](/reference/private-networking#legacy-environments) resolve to IPv6 only.
+## How it Works
+
+Under the hood, Railway uses encrypted Wireguard tunnels to create a private mesh network between all services within an environment. This allows traffic to route between services without exposing ports publicly.
+
+By default, all projects have private networking enabled and services will get a DNS name under the `railway.internal` domain. For new environments (created after October 16, 2025), this DNS name will resolve to both internal IPv4 and IPv6 addresses. [Legacy environments](#legacy-environments) resolve to IPv6 only.
+
+### Internal DNS
+
+Every service in a project and environment gets an internal DNS name under the `railway.internal` domain that resolves to the internal IP addresses of the service.
+
+This allows communication between services in an environment without exposing any ports publicly. Any valid IPv6 or IPv4 traffic is allowed, including UDP, TCP, and HTTP.
+
+For more details on internal DNS names, see the [Domains guide](/networking/domains#private-domains).
 
 ## Communicating Over the Private Network
 
 To communicate over the private network, there are some specific things to know to be successful.
 
 <div style={{ marginTop: '1.5em' }}><Banner variant="info">
-[Railway now supports both IPv6 and IPv4 private networking in all newly created environments](https://railway.com/changelog/2025-10-17-repo-aware-settings#ipv4-private-networks). [Legacy environments](/reference/private-networking#legacy-environments) (created before October 16th 2025) will still be limited to IPv6. With that in mind, we've preserved the IPv6 only guides below.
+[Railway now supports both IPv6 and IPv4 private networking in all newly created environments](https://railway.com/changelog/2025-10-17-repo-aware-settings#ipv4-private-networks). [Legacy environments](#legacy-environments) (created before October 16th 2025) will still be limited to IPv6. With that in mind, we've preserved the IPv6 only guides below.
 
 However, if you've setup a new service or environment after IPv4 support is released you're good to use IPv4 or IPv6! whatever suits you best!
 </Banner></div>
@@ -72,7 +84,7 @@ const app = next({
 });
 ```
 
-If neither of these options are viable, you can set a `HOSTNAME` [service variable](/guides/variables#service-variables) with the value `::` to listen on both IPv4 and IPv6.
+If neither of these options are viable, you can set a `HOSTNAME` [service variable](/variables#service-variables) with the value `::` to listen on both IPv4 and IPv6.
 
 #### Python / Gunicorn
 
@@ -128,7 +140,7 @@ Note that you should use `http` in the address.
 
 #### Using Reference Variables
 
-Using [reference variables](/guides/variables), you can accomplish the same end as the above example.
+Using [reference variables](/variables#reference-variables), you can accomplish the same end as the above example.
 
 Let's say you are setting up your frontend service to talk to the `api` service. In the frontend service, set the following variable -
 
@@ -163,105 +175,10 @@ Check out the [FAQ](#faq) section for more information.
 
 Some libraries and components require explicit configuration for dual-stack (IPv4/IPv6) networking or to work properly in legacy IPv6-only environments.
 
-<Collapse title="ioredis">
-
-`ioredis` is a Redis client for node.js, commonly used for connecting to Redis from a node application.
-
-When initializing a Redis client using `ioredis`, you must specify `family=0` in the connection string to support connecting to both IPv6 and IPv4 endpoints:
-
-```javascript
-import Redis from "ioredis";
-
-const redis = new Redis(process.env.REDIS_URL + "?family=0");
-
-const ping = await redis.ping();
-```
-
-<a href="https://www.npmjs.com/package/ioredis" target="_blank">ioredis docs</a>
-
-</Collapse>
-
-<Collapse title="bullmq">
-
-`bullmq` is a message queue and batch processing library for node.js, commonly used for processing jobs in a queue.
-
-When initializing a bullmq client, you must specify `family: 0` in the connection object to support connecting to both IPv6 and IPv4 Redis endpoints:
-
-```javascript
-import { Queue } from "bullmq";
-
-const redisURL = new URL(process.env.REDIS_URL);
-
-const queue = new Queue("Queue", {
-  connection: {
-    family: 0,
-    host: redisURL.hostname,
-    port: redisURL.port,
-    username: redisURL.username,
-    password: redisURL.password,
-  },
-});
-
-const jobs = await queue.getJobs();
-
-console.log(jobs);
-```
-
-<a href="https://docs.bullmq.io/" target="_blank">bullmq docs</a>
-
-</Collapse>
-
-<Collapse title="Mongo Docker image">
-
-If you are creating a service using the official Mongo Docker image in Docker Hub and would like to connect to it over the private network, you must start the container with some options to instruct the Mongo instance to listen on IPv6. For example, this would be set in your [Start Command](/guides/start-command):
-
-```bash
-docker-entrypoint.sh mongod --ipv6 --bind_ip ::,0.0.0.0
-```
-
-**Note that the official template provided by Railway is already deployed with this Start Command.**
-
-</Collapse>
-
-<Collapse title="hot-shots">
-
-`hot-shots` is a StatsD client for node.js, which can be used to ship metrics to a DataDog agent for example. When initializing a StatsD client using `hot-shots`, you must specify that it should connect over IPv6:
-
-```javascript
-const StatsD = require("hot-shots");
-
-const statsdClient = new StatsD({
-  host: process.env.AGENT_HOST,
-  port: process.env.AGENT_PORT,
-  protocol: "udp",
-  cacheDns: true,
-  udpSocketOptions: {
-    type: "udp6",
-    reuseAddr: true,
-    ipv6Only: true,
-  },
-});
-```
-
-<a href="https://www.npmjs.com/package/hot-shots" target="_blank">hot-shots docs</a>
-
-</Collapse>
-
-<Collapse title="Go Fiber">
-
-`fiber` is a web framework for Go. When configuring your Fiber app, you should set the Network field to `tcp` to have it listen on IPv6 as well as IPv4:
-
-```go
-app := fiber.New(fiber.Config{
-    Network:       "tcp",
-    ServerHeader:  "Fiber",
-    AppName: "Test App v1.0.1",
-})
-```
-
-<a href="https://docs.gofiber.io/api/fiber#:~:text=json.Marshal-,Network,-string" target="_blank">Fiber docs</a>
-
-</Collapse>
+See the [Library Configuration guide](/private-networking/library-configuration) for detailed setup instructions for:
+- **Node.js**: ioredis, bullmq, hot-shots
+- **Go**: Fiber
+- **Docker**: MongoDB
 
 ## Changing the Service Name for DNS
 
@@ -274,7 +191,20 @@ The root of the domain, `railway.internal`, is static and **cannot** be changed.
 During the feature development process we found a few caveats that you should be aware of:
 
 - Private networking is not available during the build phase.
-- [Legacy environments](/reference/private-networking#legacy-environments) (created before October 16, 2025) only support IPv6. New environments support both IPv4 and IPv6.
+- Private networking does not function between [environments](/environments).
+- [Legacy environments](#legacy-environments) (created before October 16, 2025) only support IPv6. New environments support both IPv4 and IPv6.
+
+## Legacy Environments
+
+Environments created before October 16th, 2025 are considered legacy environments and only support IPv6 addressing for private networking.
+
+<div style={{marginTop: '1.5em'}}>
+<Banner variant="info">
+Railway will migrate all legacy environments to support both IPv4 and IPv6 addressing at a later date.
+</Banner>
+</div>
+
+If you want to utilize private networking in a legacy environment, you will need to configure your service to bind to `::` (the IPv6 all-interfaces address). See the [Service Configuration](#service-configuration) section for more information on configuring your listener. This will continue to work after your environment receives IPv4 support.
 
 ## FAQ
 
@@ -294,3 +224,7 @@ One way to determine whether your application is making client- or server-side r
 Since an application hosted on Vercel exists outside of the private network in Railway, requests coming from Vercel servers cannot be made over the private network.
 
 </Collapse>
+
+## Troubleshooting
+
+Having issues with private networking? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
