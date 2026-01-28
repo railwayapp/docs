@@ -61,7 +61,7 @@ Upsert a single variable:
   variableUpsert(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "API_KEY", value: "secret-key-here" } }}
 optionalFields={[
-  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change" },
+  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change", apiDefault: "false" },
 ]} />
 
 ### Create a Shared Variable
@@ -73,7 +73,7 @@ Omit `serviceId` to create a shared variable:
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", name: "SHARED_SECRET", value: "shared-value" } }}
 optionalFields={[
   { name: "input.serviceId", type: "String", description: "Set on a specific service instead of shared" },
-  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change" },
+  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change", apiDefault: "false" },
 ]} />
 
 ## Upsert Multiple Variables
@@ -84,8 +84,8 @@ Update multiple variables at once:
   variableCollectionUpsert(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", variables: { DATABASE_URL: "postgres://...", REDIS_URL: "redis://...", NODE_ENV: "production" } } }}
 optionalFields={[
-  { name: "input.replace", type: "Boolean", description: "Replace all existing variables (delete any not in the new set)" },
-  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change" },
+  { name: "input.replace", type: "Boolean", description: "Replace all existing variables (delete any not in the new set)", apiDefault: "false" },
+  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change", apiDefault: "false" },
 ]} />
 
 <Banner variant="warning">Using `replace: true` will delete all variables not included in the `variables` object.</Banner>

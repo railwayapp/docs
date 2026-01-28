@@ -82,9 +82,9 @@ Create a new empty project:
 optionalFields={[
   { name: "input.description", type: "String", description: "Project description" },
   { name: "input.workspaceId", type: "String", description: "Create in a specific workspace" },
-  { name: "input.isPublic", type: "Boolean", description: "Make project publicly visible" },
-  { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments" },
-  { name: "input.defaultEnvironmentName", type: "String", description: "Name for default environment" },
+  { name: "input.isPublic", type: "Boolean", description: "Make project publicly visible", apiDefault: "false" },
+  { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments", apiDefault: "false" },
+  { name: "input.defaultEnvironmentName", type: "String", description: "Name for default environment", apiDefault: "production" },
   { name: "input.repo", type: "ProjectCreateRepo", description: "Connect to a GitHub repository" },
 ]} />
 
@@ -101,8 +101,8 @@ Update project name or description:
 }`} variables={{ id: "project-id", input: { name: "Updated Project Name" } }}
 optionalFields={[
   { name: "input.description", type: "String", description: "Project description" },
-  { name: "input.isPublic", type: "Boolean", description: "Make project publicly visible" },
-  { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments" },
+  { name: "input.isPublic", type: "Boolean", description: "Make project publicly visible", apiDefault: "false" },
+  { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments", apiDefault: "false" },
 ]} />
 
 ## Delete a Project

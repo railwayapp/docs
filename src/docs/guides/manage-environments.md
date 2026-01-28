@@ -73,9 +73,9 @@ Create a new environment:
 }`} variables={{ input: { projectId: "project-id", name: "staging" } }}
 optionalFields={[
   { name: "input.sourceEnvironmentId", type: "String", description: "Clone variables and settings from this environment" },
-  { name: "input.ephemeral", type: "Boolean", description: "Create as ephemeral (for PR previews)" },
-  { name: "input.skipInitialDeploys", type: "Boolean", description: "Don't trigger deployments on creation" },
-  { name: "input.stageInitialChanges", type: "Boolean", description: "Stage changes instead of applying immediately" },
+  { name: "input.ephemeral", type: "Boolean", description: "Create as ephemeral (for PR previews)", apiDefault: "false" },
+  { name: "input.skipInitialDeploys", type: "Boolean", description: "Don't trigger deployments on creation", apiDefault: "false" },
+  { name: "input.stageInitialChanges", type: "Boolean", description: "Stage changes instead of applying immediately", apiDefault: "false" },
 ]} />
 
 ## Rename an Environment

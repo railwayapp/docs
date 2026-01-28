@@ -76,9 +76,9 @@ See [Manage Projects](/guides/manage-projects) for more details.
 optionalFields={[
   { name: "input.description", type: "String", description: "Project description" },
   { name: "input.workspaceId", type: "String", description: "Create in a specific workspace" },
-  { name: "input.isPublic", type: "Boolean", description: "Make project publicly visible" },
-  { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments" },
-  { name: "input.defaultEnvironmentName", type: "String", description: "Name for default environment" },
+  { name: "input.isPublic", type: "Boolean", description: "Make project publicly visible", apiDefault: "false" },
+  { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments", apiDefault: "false" },
+  { name: "input.defaultEnvironmentName", type: "String", description: "Name for default environment", apiDefault: "production" },
 ]} />
 
 ---
@@ -120,11 +120,11 @@ optionalFields={[
 optionalFields={[
   { name: "input.buildCommand", type: "String", description: "Custom build command" },
   { name: "input.healthcheckPath", type: "String", description: "Health check endpoint path" },
-  { name: "input.numReplicas", type: "Int", description: "Number of replicas" },
+  { name: "input.numReplicas", type: "Int", description: "Number of replicas", apiDefault: "1" },
   { name: "input.region", type: "String", description: "Deployment region" },
   { name: "input.rootDirectory", type: "String", description: "Root directory for monorepos" },
   { name: "input.cronSchedule", type: "String", description: "Cron schedule for cron jobs" },
-  { name: "input.sleepApplication", type: "Boolean", description: "Enable sleep when idle" },
+  { name: "input.sleepApplication", type: "Boolean", description: "Enable sleep when idle", apiDefault: "false" },
 ]} />
 
 ---
@@ -191,7 +191,7 @@ See [Manage Variables](/guides/manage-variables) for more details.
   variableUpsert(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "API_KEY", value: "secret" } }}
 optionalFields={[
-  { name: "input.skipDeploys", type: "Boolean", description: "Skip automatic redeploy after change" },
+  { name: "input.skipDeploys", type: "Boolean", description: "Skip automatic redeploy after change", apiDefault: "false" },
 ]} />
 
 ### Set Multiple Variables
@@ -200,8 +200,8 @@ optionalFields={[
   variableCollectionUpsert(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", variables: { KEY1: "value1", KEY2: "value2" } } }}
 optionalFields={[
-  { name: "input.replace", type: "Boolean", description: "Replace all existing variables" },
-  { name: "input.skipDeploys", type: "Boolean", description: "Skip automatic redeploy after change" },
+  { name: "input.replace", type: "Boolean", description: "Replace all existing variables", apiDefault: "false" },
+  { name: "input.skipDeploys", type: "Boolean", description: "Skip automatic redeploy after change", apiDefault: "false" },
 ]} />
 
 ---
@@ -232,8 +232,8 @@ See [Manage Environments](/guides/manage-environments) for more details.
 }`} variables={{ input: { projectId: "project-id", name: "staging" } }}
 optionalFields={[
   { name: "input.sourceEnvironmentId", type: "String", description: "Clone from this environment" },
-  { name: "input.ephemeral", type: "Boolean", description: "Create as ephemeral (PR preview)" },
-  { name: "input.skipInitialDeploys", type: "Boolean", description: "Don't trigger deploys on creation" },
+  { name: "input.ephemeral", type: "Boolean", description: "Create as ephemeral (PR preview)", apiDefault: "false" },
+  { name: "input.skipInitialDeploys", type: "Boolean", description: "Don't trigger deploys on creation", apiDefault: "false" },
 ]} />
 
 ---

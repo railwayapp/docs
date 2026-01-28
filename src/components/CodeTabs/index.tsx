@@ -17,8 +17,10 @@ export interface OptionalField {
   type: string;
   /** Description of what this field does */
   description?: string;
-  /** Default/placeholder value when added */
+  /** Default/placeholder value when added to the query */
   defaultValue?: string;
+  /** What the API defaults to if this field is omitted (shown to user) */
+  apiDefault?: string;
 }
 
 export interface CodeTabsProps {
@@ -192,41 +194,66 @@ export const CodeTabs: React.FC<CodeTabsProps> = ({
         {/* Variable input fields */}
         {hasVariables && (
           <div tw="bg-gray-100 px-4 py-3 border-b border-gray-200">
-            <div tw="grid gap-2" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
-              {variableEntries.map(([path, value]) => {
-                const isOptionalField = !initialFieldKeys.has(path);
-                return (
-                  <div key={path} tw="flex flex-col gap-1">
-                    <label
-                      htmlFor={`var-${path}`}
-                      tw="text-xs font-medium text-gray-600 flex items-center gap-1"
-                    >
-                      {formatLabel(path)}
-                      {isOptionalField && (
-                        <button
-                          type="button"
-                          onClick={() => handleRemoveField(path)}
-                          tw="text-gray-400 hover:text-red-500 transition-colors"
-                          title="Remove field"
-                        >
-                          <svg style={{ width: 12, height: 12 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                          </svg>
-                        </button>
-                      )}
-                    </label>
-                    <input
-                      id={`var-${path}`}
-                      type="text"
-                      value={value}
-                      onChange={(e) => handleValueChange(path, e.target.value)}
-                      tw="px-2 py-1 text-sm border border-gray-300 rounded font-mono focus:outline-none focus:ring-1"
-                      css="focus:ring-color: var(--colors-pink-500); focus:border-color: var(--colors-pink-500);"
-                    />
-                  </div>
-                );
-              })}
-            </div>
+            {/* Required fields */}
+            {variableEntries.some(([path]) => initialFieldKeys.has(path)) && (
+              <>
+                <div tw="text-xs font-medium text-gray-500 mb-2">Required</div>
+                <div tw="grid gap-2 mb-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
+                  {variableEntries
+                    .filter(([path]) => initialFieldKeys.has(path))
+                    .map(([path, value]) => (
+                      <div key={path} tw="flex flex-col gap-1">
+                        <label htmlFor={`var-${path}`} tw="text-xs font-medium text-gray-600">
+                          {formatLabel(path)}
+                        </label>
+                        <input
+                          id={`var-${path}`}
+                          type="text"
+                          value={value}
+                          onChange={(e) => handleValueChange(path, e.target.value)}
+                          tw="px-2 py-1 text-sm border border-gray-300 rounded font-mono focus:outline-none focus:ring-1"
+                          css="focus:ring-color: var(--colors-pink-500); focus:border-color: var(--colors-pink-500);"
+                        />
+                      </div>
+                    ))}
+                </div>
+              </>
+            )}
+            {/* Added optional fields */}
+            {variableEntries.some(([path]) => !initialFieldKeys.has(path)) && (
+              <>
+                <div tw="text-xs font-medium text-gray-500 mb-2">Optional (added)</div>
+                <div tw="grid gap-2" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
+                  {variableEntries
+                    .filter(([path]) => !initialFieldKeys.has(path))
+                    .map(([path, value]) => (
+                      <div key={path} tw="flex flex-col gap-1">
+                        <label htmlFor={`var-${path}`} tw="text-xs font-medium text-gray-600 flex items-center gap-1">
+                          {formatLabel(path)}
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveField(path)}
+                            tw="text-gray-400 hover:text-red-500 transition-colors"
+                            title="Remove field"
+                          >
+                            <svg style={{ width: 12, height: 12 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </label>
+                        <input
+                          id={`var-${path}`}
+                          type="text"
+                          value={value}
+                          onChange={(e) => handleValueChange(path, e.target.value)}
+                          tw="px-2 py-1 text-sm border border-gray-300 rounded font-mono focus:outline-none focus:ring-1"
+                          css="focus:ring-color: var(--colors-pink-500); focus:border-color: var(--colors-pink-500);"
+                        />
+                      </div>
+                    ))}
+                </div>
+              </>
+            )}
           </div>
         )}
 
@@ -306,8 +333,8 @@ export const CodeTabs: React.FC<CodeTabsProps> = ({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
               {availableOptionalFields.length > 0
-                ? `Additional options (${availableOptionalFields.length} more fields)`
-                : "Additional options (all fields added)"}
+                ? `Optional fields (${availableOptionalFields.length} available)`
+                : "Optional fields (all added)"}
             </button>
             {showOptionalFields && (
               <div tw="px-4 py-3 bg-gray-100 text-sm">
@@ -319,6 +346,9 @@ export const CodeTabs: React.FC<CodeTabsProps> = ({
                         <th tw="pb-2 font-medium">Field</th>
                         <th tw="pb-2 font-medium">Type</th>
                         <th tw="pb-2 font-medium">Description</th>
+                        {availableOptionalFields.some(f => f.apiDefault !== undefined) && (
+                          <th tw="pb-2 font-medium">Default</th>
+                        )}
                       </tr>
                     </thead>
                     <tbody>
@@ -339,6 +369,9 @@ export const CodeTabs: React.FC<CodeTabsProps> = ({
                           <td tw="py-2 font-mono text-pink-600">{field.name.split('.').pop()}</td>
                           <td tw="py-2 font-mono text-gray-600">{field.type}</td>
                           <td tw="py-2 text-gray-600">{field.description || "—"}</td>
+                          {availableOptionalFields.some(f => f.apiDefault !== undefined) && (
+                            <td tw="py-2 font-mono text-gray-500">{field.apiDefault ?? "—"}</td>
+                          )}
                         </tr>
                       ))}
                     </tbody>
