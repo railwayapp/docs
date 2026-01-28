@@ -136,12 +136,16 @@ If you're unsure about what query/mutation to use for what you are trying to ach
 
 ## Examples
 
-To help you get started, we have provided some example queries in the guides within this section -
+To help you get started, we have provided example queries and mutations organized by resource type:
 
-- [Manage Projects](/guides/manage-projects)
-- [Manage Services](/guides/manage-services)
-- [Manage Deployments](/guides/manage-deployments)
-- [Manage Variables](/guides/manage-variables)
+- [API Cookbook](/guides/api-cookbook) - Quick reference for common operations
+- [Manage Projects](/guides/manage-projects) - Create, update, delete projects
+- [Manage Services](/guides/manage-services) - Create services, configure settings
+- [Manage Deployments](/guides/manage-deployments) - Deploy, rollback, view logs
+- [Manage Variables](/guides/manage-variables) - Set and manage environment variables
+- [Manage Environments](/guides/manage-environments) - Create and configure environments
+- [Manage Domains](/guides/manage-domains) - Add custom domains, configure DNS
+- [Manage Volumes](/guides/manage-volumes) - Create volumes, manage backups
 
 ## Support
 

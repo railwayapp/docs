@@ -151,10 +151,14 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Public API", "guides"),
         pages: [
+          makePage("API Cookbook", "guides"),
           makePage("Manage Projects", "guides"),
           makePage("Manage Services", "guides"),
           makePage("Manage Deployments", "guides"),
           makePage("Manage Variables", "guides"),
+          makePage("Manage Environments", "guides"),
+          makePage("Manage Domains", "guides"),
+          makePage("Manage Volumes", "guides"),
         ],
       },
       makePage("Config as Code", "guides"),
