@@ -24,11 +24,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("The Basics", "overview"),
       makePage("Best Practices", "overview"),
       makePage("Advanced Concepts", "overview"),
-      makePage(
-        "Production Readiness Checklist",
-        "overview",
-        "/reference/production-readiness-checklist",
-      ),
+      makePage("Production Readiness Checklist", "overview"),
     ],
   },
   {
@@ -37,9 +33,9 @@ export const sidebarContent: ISidebarContent = [
       makePage("About Railway", "platform"),
       makePage("Philosophy", "platform"),
       makePage("Use Cases", "platform"),
-      makePage("Support", "platform", "/reference/support"),
+      makePage("Support", "platform"),
       makePage("Incident Management", "platform"),
-      makePage("Railway Metal", "platform", "/railway-metal"),
+      makePage("Railway Metal", "platform"),
       makePage("Priority Boarding", "platform"),
       {
         subTitle: "Compare to Railway",
@@ -57,22 +53,18 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Pricing",
     content: [
-      makePage("Plans", "pricing", "/reference/pricing/plans"),
-      makePage("Free Trial", "pricing", "/reference/pricing/free-trial"),
-      makePage("FAQs", "pricing", "/reference/pricing/faqs"),
-      makePage("Refunds", "pricing", "/reference/pricing/refunds"),
+      makePage("Plans", "pricing"),
+      makePage("Free Trial", "pricing"),
+      makePage("FAQs", "pricing"),
+      makePage("Refunds", "pricing"),
       makePage("Cost Control", "pricing"),
-      makePage(
-        "AWS Marketplace",
-        "pricing",
-        "/reference/pricing/aws-marketplace",
-      ),
+      makePage("AWS Marketplace", "pricing"),
     ],
   },
   {
     title: "Templates",
     content: [
-      makePage("Templates", "templates"),
+      makePage("Templates", undefined, "/templates"),
       makePage("Deploy", "templates"),
       makePage("Create", "templates"),
       makePage("Best Practices", "templates", "/templates/best-practices"),
@@ -85,142 +77,123 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "AI",
     content: [
-      makePage("AI", "ai"),
+      makePage("AI", undefined, "/ai"),
       makePage("Agent Skills", "ai"),
-      makePage("MCP Server", "ai", "/reference/mcp-server"),
+      makePage("MCP Server", "ai"),
     ],
   },
   {
     title: "CLI",
-    content: [makePage("CLI", "cli"), makePage("Deploying", "cli")],
+    content: [makePage("CLI", undefined, "/cli"), makePage("Deploying", "cli")],
   },
   {
     title: "Access",
     content: [
-      makePage("Accounts", "access", "/reference/accounts"),
-      makePage(
-        "Two-Factor Enforcement",
-        "access",
-        "/reference/two-factor-enforcement",
-      ),
+      makePage("Accounts", "access"),
+      makePage("Two-Factor Enforcement", "access"),
       makePage("Multi-Factor Authentication", "access"),
     ],
   },
   {
     title: "Enterprise",
     content: [
-      makePage("Enterprise", "enterprise", "/platform/enterprise"),
-      makePage("Audit Logs", "enterprise", "/reference/audit-logs"),
-      makePage("Compliance", "enterprise", "/platform/compliance"),
-      makePage("SAML SSO", "enterprise", "/reference/saml"),
+      makePage("Enterprise", undefined, "/enterprise"),
+      makePage("Audit Logs", "enterprise"),
+      makePage("Compliance", "enterprise"),
+      makePage("SAML SSO", "enterprise", "/enterprise/saml"),
       makePage("Environment RBAC", "enterprise"),
     ],
   },
   {
     title: "Projects",
     content: [
-      makePage("Projects", "projects"),
-      makePage("Project Members", "projects", "/reference/project-members"),
-      makePage("Project Usage", "projects", "/reference/project-usage"),
-      makePage("Teams", "projects", "/reference/teams"),
+      makePage("Projects", undefined, "/projects"),
+      makePage("Project Members", "projects"),
+      makePage("Project Usage", "projects"),
+      makePage("Teams", "projects"),
     ],
   },
   {
     title: "Services",
-    content: [makePage("Services", "services")],
+    content: [makePage("Services", undefined, "/services")],
   },
   {
     title: "Variables",
-    content: [makePage("Variables", "variables")],
+    content: [makePage("Variables", undefined, "/variables")],
   },
   {
     title: "Deployments",
     content: [
-      makePage(
-        "Pre-Deploy Command",
-        "deployments",
-        "/guides/pre-deploy-command",
-      ),
-      makePage("Start Command", "deployments", "/guides/start-command"),
+      makePage("Pre-Deploy Command", "deployments"),
+      makePage("Start Command", "deployments"),
       makePage("Deployment Actions", "deployments"),
       makePage("GitHub Autodeploys", "deployments"),
-      makePage(
-        "Image Auto Updates",
-        "deployments",
-        "/guides/image-auto-updates",
-      ),
-      makePage(
-        "Optimize Performance",
-        "deployments",
-        "/guides/optimize-performance",
-      ),
+      makePage("Image Auto Updates", "deployments"),
+      makePage("Optimize Performance", "deployments"),
       makePage("Healthchecks", "deployments"),
-      makePage("Restart Policy", "deployments", "/guides/restart-policy"),
+      makePage("Restart Policy", "deployments"),
       makePage("Deployment Teardown", "deployments"),
-      makePage("Monorepo", "deployments", "/builds/monorepo"),
-      makePage("Staged Changes", "deployments", "/guides/staged-changes"),
+      makePage("Monorepo", "deployments"),
+      makePage("Staged Changes", "deployments"),
       makePage("Serverless", "deployments"),
       makePage("Regions", "deployments"),
-      makePage("Scaling", "deployments", "/reference/scaling"),
+      makePage("Scaling", "deployments"),
     ],
   },
   {
     title: "Builds",
     content: [
-      makePage("Build Configuration", "builds", "/guides/build-configuration"),
+      makePage("Builds", undefined, "/builds"),
+      makePage("Build Configuration", "builds"),
       makePage("Dockerfiles", "builds"),
-      makePage("Private Registries", "builds", "/guides/private-registries"),
-      makePage("Railpack", "builds", "/reference/railpack"),
-      makePage("Nixpacks", "builds", "/reference/nixpacks"),
+      makePage("Private Registries", "builds"),
+      makePage("Railpack", "builds"),
+      makePage("Nixpacks", "builds"),
     ],
   },
   {
     title: "Cron Jobs",
-    content: [makePage("Cron Jobs", "cron-jobs")],
+    content: [makePage("Cron Jobs", undefined, "/cron-jobs")],
   },
   {
     title: "Functions",
-    content: [makePage("Functions", "functions", "/reference/functions")],
+    content: [makePage("Functions", undefined, "/functions")],
   },
   {
     title: "Databases",
     content: [
-      makePage("Databases", "databases", "/reference/databases"),
-      makePage(
-        "Build a Database Service",
-        "databases",
-        "/guides/build-a-database-service",
-      ),
-      makePage("PostgreSQL", "databases", "/guides/postgresql"),
-      makePage("MySQL", "databases", "/guides/mysql"),
-      makePage("Redis", "databases", "/guides/redis"),
-      makePage("MongoDB", "databases", "/guides/mongodb"),
-      makePage("Database View", "databases", "/guides/database-view"),
+      makePage("Databases", undefined, "/databases"),
+      makePage("Build a Database Service", "databases"),
+      makePage("PostgreSQL", "databases"),
+      makePage("MySQL", "databases"),
+      makePage("Redis", "databases"),
+      makePage("MongoDB", "databases"),
+      makePage("Database View", "databases"),
     ],
   },
   {
     title: "Volumes",
     content: [
-      makePage("Volumes", "volumes", "/guides/volumes"),
-      makePage("Backups", "volumes", "/reference/backups"),
+      makePage("Volumes", undefined, "/volumes"),
+      makePage("Backups", "volumes"),
     ],
   },
   {
     title: "Storage Buckets",
     content: [
-      makePage("Storage Buckets", "storage-buckets"),
+      makePage("Storage Buckets", undefined, "/storage-buckets"),
       makePage(
         "Uploading & Serving",
         "storage-buckets",
         "/storage-buckets/uploading-serving",
       ),
-      makePage("Billing", "storage-buckets", "/storage-buckets/billing"),
+      makePage("Billing", "storage-buckets"),
     ],
   },
   {
     title: "Public Networking",
     content: [
-      makePage("Public Networking", "public-networking"),
+      makePage("Public Networking", undefined, "/public-networking"),
       makePage(
         "Specs & Limits",
         "public-networking",
@@ -231,36 +204,26 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Private Networking",
     content: [
-      makePage("Private Networking", "private-networking"),
+      makePage("Private Networking", undefined, "/private-networking"),
       makePage("Library Configuration", "private-networking"),
     ],
   },
   {
     title: "Networking",
     content: [
+      makePage("Networking", undefined, "/networking"),
       makePage("Domains", "networking"),
       makePage("TCP Proxy", "networking"),
-      makePage(
-        "Outbound Networking",
-        "networking",
-        "/reference/outbound-networking",
-      ),
-      makePage(
-        "Static Outbound IPs",
-        "networking",
-        "/reference/static-outbound-ips",
-      ),
-      makePage("Edge Networking", "networking", "/reference/edge-networking"),
-      makePage(
-        "Troubleshooting SSL",
-        "networking",
-        "/guides/troubleshooting-ssl",
-      ),
+      makePage("Outbound Networking", "networking"),
+      makePage("Static Outbound IPs", "networking"),
+      makePage("Edge Networking", "networking"),
+      makePage("Troubleshooting SSL", "networking"),
     ],
   },
   {
     title: "Observability",
     content: [
+      makePage("Observability", undefined, "/observability"),
       makePage("Logs", "observability"),
       makePage("Metrics", "observability"),
       makePage("Webhooks", "observability"),
@@ -268,13 +231,11 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Environments",
-    content: [makePage("Environments", "environments")],
+    content: [makePage("Environments", undefined, "/environments")],
   },
   {
     title: "Config as Code",
-    content: [
-      makePage("Config as Code", "config-as-code", "/guides/config-as-code"),
-    ],
+    content: [makePage("Config as Code", undefined, "/config-as-code")],
   },
   {
     title: "Community",
@@ -287,15 +248,11 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Public API",
     content: [
-      makePage("Public API", "public-api"),
-      makePage("Manage Projects", "public-api", "/guides/manage-projects"),
-      makePage("Manage Services", "public-api", "/guides/manage-services"),
-      makePage(
-        "Manage Deployments",
-        "public-api",
-        "/guides/manage-deployments",
-      ),
-      makePage("Manage Variables", "public-api", "/guides/manage-variables"),
+      makePage("Public API", undefined, "/public-api"),
+      makePage("Manage Projects", "public-api"),
+      makePage("Manage Services", "public-api"),
+      makePage("Manage Deployments", "public-api"),
+      makePage("Manage Variables", "public-api"),
     ],
   },
   {
@@ -339,7 +296,7 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Tutorials",
     content: [
-      makePage("Getting Started", "tutorials"),
+      makePage("Getting Started", "guides"),
       {
         subTitle: "Technical Tutorials",
         pages: [
@@ -347,12 +304,12 @@ export const sidebarContent: ISidebarContent = [
             title: "Queues on Railway",
             url: "https://blog.railway.com/p/queues",
           },
-          makePage("Set Up a Datadog Agent", "tutorials"),
-          makePage("Deploy an Otel Collector Stack", "tutorials"),
-          makePage("Add a CDN using CloudFront", "tutorials"),
-          makePage("Deploying a Monorepo", "tutorials"),
-          makePage("Set up a Tailscale Subnet Router", "tutorials"),
-          makePage("Bridge Railway to RDS with Tailscale", "tutorials"),
+          makePage("Set Up a Datadog Agent", "guides"),
+          makePage("Deploy an Otel Collector Stack", "guides"),
+          makePage("Add a CDN using CloudFront", "guides"),
+          makePage("Deploying a Monorepo", "guides"),
+          makePage("Set up a Tailscale Subnet Router", "guides"),
+          makePage("Bridge Railway to RDS with Tailscale", "guides"),
         ],
       },
       {
@@ -364,18 +321,18 @@ export const sidebarContent: ISidebarContent = [
           },
           makePage(
             "Post-Deploy",
-            "tutorials",
-            "tutorials/github-actions-post-deploy",
+            "guides",
+            "/guides/github-actions-post-deploy",
           ),
           makePage(
             "PR Environment",
-            "tutorials",
-            "tutorials/github-actions-pr-environment",
+            "guides",
+            "/guides/github-actions-pr-environment",
           ),
           makePage(
             "Self Hosted Runners",
-            "tutorials",
-            "tutorials/github-actions-runners",
+            "guides",
+            "/guides/github-actions-runners",
           ),
           {
             title: "Implementing a Testing Suite",
@@ -397,33 +354,17 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Troubleshooting",
     content: [
-      makePage("Troubleshooting", "troubleshooting", "/troubleshooting"),
-      makePage(
-        "Application Failed to Respond",
-        "troubleshooting",
-        "/reference/errors/application-failed-to-respond",
-      ),
-      makePage(
-        "No Start Command Could Be Found",
-        "troubleshooting",
-        "/reference/errors/no-start-command-could-be-found",
-      ),
-      makePage(
-        "405 Method Not Allowed",
-        "troubleshooting",
-        "/reference/errors/405-method-not-allowed",
-      ),
+      makePage("Troubleshooting", undefined, "/troubleshooting"),
+      makePage("Application Failed to Respond", "troubleshooting"),
+      makePage("No Start Command Could Be Found", "troubleshooting"),
+      makePage("405 Method Not Allowed", "troubleshooting"),
       makePage(
         "Unable to Generate a Build Plan",
         "troubleshooting",
-        "/reference/errors/nixpacks-was-unable-to-generate-a-build-plan",
+        "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
       ),
-      makePage(
-        "ENOTFOUND redis.railway.internal",
-        "troubleshooting",
-        "/reference/errors/enotfound-redis-railway-internal",
-      ),
-      makePage("Node.js SIGTERM", "troubleshooting", "/guides/nodejs-sigterm"),
+      makePage("ENOTFOUND redis.railway.internal", "troubleshooting"),
+      makePage("Node.js SIGTERM", "troubleshooting"),
     ],
   },
 ];

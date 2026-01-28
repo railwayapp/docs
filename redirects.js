@@ -55,11 +55,6 @@ const redirects = [
     permanent: true,
   },
   {
-    source: "/databases/:slug*",
-    destination: "/guides/:slug*",
-    permanent: true,
-  },
-  {
     source: "/diagnose/project-usage",
     destination: "/reference/project-usage",
     permanent: true,
