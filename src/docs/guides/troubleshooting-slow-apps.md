@@ -71,7 +71,7 @@ Railway stops and removes the previous deployment. By default, old deployments a
 
 ## Is It Railway or My App?
 
-Before diving into optimization, determine whether the slowness is on Railway's side or within your application. In the vast majority of cases, performance issues originate from the application itself—inefficient queries, resource constraints, or configuration problems—rather than the platform.
+Before diving into optimization, determine whether the slowness is on Railway's side or within your application. In the vast majority of cases, performance issues originate from the application itself, rather than the platform. This could be from inefficient queries, resource constraints, or configuration problems.
 
 ### Check Railway Status
 
@@ -116,7 +116,7 @@ Railway captures detailed HTTP request logs for every request to your service. T
 | `totalDuration` | Total time from request received to response sent (ms) |
 | `upstreamRqDuration` | Time your application took to respond (ms) |
 | `httpStatus` | Response status code |
-| `path` | Request path—identify which endpoints are slow |
+| `path` | Request path to identify which endpoints are slow |
 | `responseDetails` | Error details if the request failed |
 | `txBytes` / `rxBytes` | Response and request sizes |
 
@@ -187,7 +187,7 @@ If your application is in one region but your database is in another, every quer
 
 ### Not Using Private Networking
 
-If services within the same project communicate over the public internet instead of [private networking](/guides/private-networking), you add unnecessary latency and incur [egress costs](/reference/pricing/plans#resource-usage-pricing). Private networking is for **server-to-server communication only**—it won't work for requests originating from a user's browser.
+If services within the same project communicate over the public internet instead of [private networking](/guides/private-networking), you add unnecessary latency and incur [egress costs](/reference/pricing/plans#resource-usage-pricing). Private networking is for **server-to-server communication only**. It won't work for requests originating from a user's browser.
 
 **Symptoms:**
 - Using public URLs (e.g., `your-app.up.railway.app`) for inter-service communication
