@@ -199,6 +199,16 @@ const redirects = [
     destination: "/ai/mcp-server",
     permanent: true,
   },
+  {
+    source: "/reference/accounts",
+    destination: "/access/accounts",
+    permanent: true,
+  },
+  {
+    source: "/reference/two-factor-enforcement",
+    destination: "/access/two-factor-enforcement",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
