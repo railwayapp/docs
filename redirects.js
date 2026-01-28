@@ -694,7 +694,6 @@ const redirects = [
     destination: "/observability/webhooks",
     permanent: true,
   },
-  // Phase 38: Merge Environments
   {
     source: "/guides/environments",
     destination: "/environments",
@@ -705,7 +704,6 @@ const redirects = [
     destination: "/environments",
     permanent: true,
   },
-  // Phase 39: Merge Public API
   {
     source: "/guides/public-api",
     destination: "/public-api",
@@ -714,6 +712,16 @@ const redirects = [
   {
     source: "/reference/public-api",
     destination: "/public-api",
+    permanent: true,
+  },
+  {
+    source: "/guides/templates",
+    destination: "/templates",
+    permanent: true,
+  },
+  {
+    source: "/reference/templates",
+    destination: "/templates",
     permanent: true,
   },
 ];
