@@ -1,6 +1,6 @@
 ---
 title: Regions
-description: Deploy your apps across multiple regions worldwide with Railway's powerful infrastructure.
+description: Deploy your apps across multiple Railway regions worldwide.
 ---
 
 Railway's infrastructure spans multiple regions across the globe. This allows you to deploy your applications closer to your users no matter where they are located.
