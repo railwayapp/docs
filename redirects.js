@@ -524,6 +524,56 @@ const redirects = [
     destination: "/templates/publish-and-share",
     permanent: true,
   },
+  {
+    source: "/tutorials/getting-started",
+    destination: "/guides/getting-started",
+    permanent: true,
+  },
+  {
+    source: "/tutorials/set-up-a-datadog-agent",
+    destination: "/guides/set-up-a-datadog-agent",
+    permanent: true,
+  },
+  {
+    source: "/tutorials/deploy-an-otel-collector-stack",
+    destination: "/guides/deploy-an-otel-collector-stack",
+    permanent: true,
+  },
+  {
+    source: "/tutorials/add-a-cdn-using-cloudfront",
+    destination: "/guides/add-a-cdn-using-cloudfront",
+    permanent: true,
+  },
+  {
+    source: "/tutorials/deploying-a-monorepo",
+    destination: "/guides/deploying-a-monorepo",
+    permanent: true,
+  },
+  {
+    source: "/tutorials/set-up-a-tailscale-subnet-router",
+    destination: "/guides/set-up-a-tailscale-subnet-router",
+    permanent: true,
+  },
+  {
+    source: "/tutorials/bridge-railway-to-rds-with-tailscale",
+    destination: "/guides/bridge-railway-to-rds-with-tailscale",
+    permanent: true,
+  },
+  {
+    source: "/tutorials/github-actions-post-deploy",
+    destination: "/guides/github-actions-post-deploy",
+    permanent: true,
+  },
+  {
+    source: "/tutorials/github-actions-pr-environment",
+    destination: "/guides/github-actions-pr-environment",
+    permanent: true,
+  },
+  {
+    source: "/tutorials/github-actions-runners",
+    destination: "/guides/github-actions-runners",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
