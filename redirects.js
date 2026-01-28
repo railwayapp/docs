@@ -820,6 +820,11 @@ const redirects = [
     destination: "/deployments/serverless",
     permanent: true,
   },
+  {
+    source: "/reference/integrations",
+    destination: "/public-api",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
