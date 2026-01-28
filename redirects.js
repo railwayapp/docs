@@ -779,6 +779,47 @@ const redirects = [
     destination: "/platform/migrate-from-digitalocean",
     permanent: true,
   },
+  {
+    source: "/guides/foundations",
+    destination: "/overview/the-basics",
+    permanent: true,
+  },
+  {
+    source: "/guides/networking",
+    destination: "/networking",
+    permanent: true,
+  },
+  {
+    source: "/guides/monitoring",
+    destination: "/observability",
+    permanent: true,
+  },
+  {
+    source: "/guides/deployments",
+    destination: "/deployments",
+    permanent: true,
+  },
+  {
+    source: "/guides/healthchecks-and-restarts",
+    destination: "/deployments/healthchecks",
+    permanent: true,
+  },
+  {
+    source: "/reference/migrate-to-railway-metal",
+    destination: "/",
+    permanent: true,
+  },
+  {
+    source: "/guides/variables",
+    destination: "/variables",
+    permanent: true,
+  },
+  // Serverless redirect (previously app-sleeping)
+  {
+    source: "/deployments/app-sleeping",
+    destination: "/deployments/serverless",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
