@@ -106,7 +106,7 @@ If we do not receive payment, your services are stopped until all open invoices 
 
 Your [services](/overview/the-basics#services) may be stopped by Railway for the following reasons, along with their solutions -
 
-- **Usage limits reached:** You've hit your [usage limits](/reference/usage-limits). Increase your usage limit, remove it entirely, or wait for the usage limit to reset.
+- **Usage limits reached:** You've hit your [usage limits](/pricing/cost-control). Increase your usage limit, remove it entirely, or wait for the usage limit to reset.
 
 - **Trial credits exhausted:** You've run out of [trial credits](/reference/pricing/free-trial#how-does-the-trial-work). Consider upgrading to [a paid plan](/reference/pricing/plans#plans) to continue using the service.
 

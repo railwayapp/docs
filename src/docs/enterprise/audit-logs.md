@@ -3,7 +3,7 @@ title: Audit Logs
 description: Learn more about how Railway keeps a record of actions in workspaces.
 ---
 
-Audit logs provide a record of actions performed within your Railway [workspace](/reference/teams). This includes changes to projects, services, deployments, variables, and workspace settings.
+Audit logs provide a record of actions performed within your Railway [workspace](/projects/teams). This includes changes to projects, services, deployments, variables, and workspace settings.
 
 Audit logs can be accessed by workspace admins through the <a href="https://railway.com/workspace/audit-logs" target="_blank">**Audit Logs**</a> link in the workspace settings.
 
@@ -28,7 +28,7 @@ To view audit logs:
 1. Navigate to your workspace dashboard
 2. Click on <a href="https://railway.com/workspace/audit-logs" target="_blank">**Audit Logs**</a> in the sidebar
 
-For more information about workspace roles and permissions, see the [Workspaces documentation](/reference/teams).
+For more information about workspace roles and permissions, see the [Workspaces documentation](/projects/teams).
 
 ## Log Contents
 
@@ -61,7 +61,7 @@ Historic events from before audit logs were released may not contain information
 
 ## Listing all Audit Logs Event Types
 
-The complete documentation of all audit log event types and their descriptions can be retrieved using the [Railway GraphQL API](/reference/public-api).
+The complete documentation of all audit log event types and their descriptions can be retrieved using the [Railway GraphQL API](/public-api).
 
 You can explore this information using the <a href="https://railway.com/graphiql" target="_blank">GraphiQL playground</a>:
 
@@ -78,7 +78,7 @@ This query returns all available event types in audit logs, along with a descrip
 
 ## Exporting Audit Logs via the API
 
-You can export audit logs programmatically using the [Railway GraphQL API](/reference/public-api).
+You can export audit logs programmatically using the [Railway GraphQL API](/public-api).
 
 Use the `auditLogs` query to retrieve audit log entries for a specific workspace. You can test this query in the <a href="https://railway.com/graphiql" target="_blank">GraphiQL playground</a>:
 

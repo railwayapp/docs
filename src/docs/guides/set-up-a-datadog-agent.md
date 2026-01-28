@@ -114,7 +114,7 @@ The `datadog.yaml` file is used to instruct the agent to send logs to Datadog ov
 
 ## 3. Set Up the Node Express App
 
-Now let's build a Node Express App that will send logs and metrics to the Datadog Agent over the [Private Network](/reference/private-networking).
+Now let's build a Node Express App that will send logs and metrics to the Datadog Agent over the [Private Network](/private-networking).
 
 - Create an `app.js` file inside of the `expressapi` folder you created in Step 1.
 - Use `npm` (or your preferred package manager) to install the required dependencies -

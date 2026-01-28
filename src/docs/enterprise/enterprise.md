@@ -27,9 +27,9 @@ You can view our audit, compliance, security, and regulatory documents on our [T
 ## Authentication
 
 - Single Sign-On (SSO)
-- [SAML authentication](/reference/saml)
+- [SAML authentication](/enterprise/saml)
 - Granular access control
-- [Audit logs](/reference/audit-logs), including change tracking
+- [Audit logs](/enterprise/audit-logs), including change tracking
 - [Environment-based RBAC](/environments)
 
 ## Zero-Trust Networking

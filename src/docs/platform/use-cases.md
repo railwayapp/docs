@@ -39,7 +39,7 @@ Our databases are provided with no SLAs, are not highly available, and scale onl
 
 We advise developers to:
 
-- [Configure backups](/reference/backups)
+- [Configure backups](/volumes/backups)
 - Run-book and restore their backups
 - Configure secondaries to connect to in-case of a disaster situation
 

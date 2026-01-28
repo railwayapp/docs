@@ -93,7 +93,7 @@ You don’t need to think about instance sizes or manually configure them. All d
 
 If you spin up multiple replicas for a given service, you’ll only be charged for the active compute time for each replica.
 
-Railway also has a [serverless](/reference/app-sleeping) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This is ideal for workloads with sporadic or bursty traffic, so you only pay when your code is running.
+Railway also has a [serverless](/deployments/serverless) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This is ideal for workloads with sporadic or bursty traffic, so you only pay when your code is running.
 
 Finally, Railway’s infrastructure runs on hardware that’s owned and operated in data centers across the globe. This means you’re not going to be overcharged for resources.
 

@@ -23,7 +23,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
 - Deploying your application as close to your users as possible minimizes the number of network hops, reducing latency and improving performance.
 
-  Railway offers multiple [deployment regions](/reference/deployment-regions) around the globe.
+  Railway offers multiple [deployment regions](/deployments/regions) around the globe.
 
   You may also consider implementing a CDN to cache server responses on an edge network.
 
@@ -31,7 +31,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
 - When communicating between services over the public network, latency is introduced by the network hops that requests must make to reach their destination.
 
-  To reduce latency, ensure communication between services in the same project and environment happens over the [private network](/reference/private-networking).
+  To reduce latency, ensure communication between services in the same project and environment happens over the [private network](/private-networking).
 
 **&check; Configure a restart policy**
 
@@ -119,7 +119,7 @@ Protecting your application and user data from malicious threats and vulnerabili
 
 - The easiest way to protect your services from malicious threats, is to keep them unexposed to the public network.
 
-  Secure communication between services in the same project and environment by using the [private network](/reference/private-networking).
+  Secure communication between services in the same project and environment by using the [private network](/private-networking).
 
 **&check; Implement a security layer**
 
@@ -137,15 +137,15 @@ Being prepared for major and unexpected issues helps minimize downtime and data 
 
 - In the event of a major disaster, an entire region may become unavailable.
 
-  Using [deployment regions](/reference/deployment-regions), you can deploy an entire instance of your application in another region.
+  Using [deployment regions](/deployments/regions), you can deploy an entire instance of your application in another region.
 
-  To save on cost of running a separate instance of your application, use [App Sleep](/reference/app-sleeping) to turn down resource usage on the inactive services.
+  To save on cost of running a separate instance of your application, use [App Sleep](/deployments/serverless) to turn down resource usage on the inactive services.
 
 **&check; Regularly back up your data**
 
 - Data is critical to preserve in many applications. You should ensure you have a backup strategy in place for your data.
 
-  Enable and configure [backups](/reference/backups) for your services with volumes to ensure you can restore your data in case of any data loss.
+  Enable and configure [backups](/volumes/backups) for your services with volumes to ensure you can restore your data in case of any data loss.
 
 ---
 

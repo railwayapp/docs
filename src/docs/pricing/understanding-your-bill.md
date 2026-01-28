@@ -35,8 +35,8 @@ Think of it like electricity: you pay for appliances that are plugged in and run
 
 | Solution                                            | Description                                              |
 | --------------------------------------------------- | -------------------------------------------------------- |
-| [Serverless](/reference/app-sleeping)               | Automatically stops services when inactive               |
-| [Usage Limits](/reference/usage-limits)             | Set spending caps to prevent unexpected charges          |
+| [Serverless](/deployments/serverless)               | Automatically stops services when inactive               |
+| [Usage Limits](/pricing/cost-control)             | Set spending caps to prevent unexpected charges          |
 | Delete unused services                              | Remove services you no longer need                       |
 | [Private Networking](/private-networking)    | Reduce egress costs by keeping traffic internal          |
 
@@ -140,7 +140,7 @@ If you have 5 open PRs, you may be running 5x your normal workload.
 
 Services consume resources even when not handling traffic. If you have development, staging, or test environments running continuously, they add up.
 
-**Solution:** Enable [Serverless](/reference/app-sleeping) on services that don't need to be always-on, or delete unused services.
+**Solution:** Enable [Serverless](/deployments/serverless) on services that don't need to be always-on, or delete unused services.
 
 ### Memory Leaks
 
@@ -153,6 +153,6 @@ If your application has a memory leak, it will gradually consume more RAM over t
 - [Plans and Pricing](/reference/pricing/plans) - Detailed pricing information
 - [Pricing FAQs](/reference/pricing/faqs) - Common pricing questions
 - [Optimize Usage](/guides/optimize-usage) - Guide to reducing costs
-- [Usage Limits](/reference/usage-limits) - Set spending caps
-- [Serverless](/reference/app-sleeping) - Auto-stop inactive services
+- [Usage Limits](/pricing/cost-control) - Set spending caps
+- [Serverless](/deployments/serverless) - Auto-stop inactive services
 - [Private Networking](/private-networking) - Reduce egress costs

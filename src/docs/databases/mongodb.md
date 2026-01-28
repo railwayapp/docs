@@ -22,7 +22,7 @@ Upon deployment, you will have a MongoDB service running in your project, deploy
 
 #### Custom Start Command
 
-The MongoDB database service starts with the following [Start Command](/deploy/deployments#start-command) to enable communication over [Private Network](/reference/private-networking): `mongod --ipv6 --bind_ip ::,0.0.0.0  --setParameter diagnosticDataCollectionEnabled=false`
+The MongoDB database service starts with the following [Start Command](/deploy/deployments#start-command) to enable communication over [Private Network](/private-networking): `mongod --ipv6 --bind_ip ::,0.0.0.0  --setParameter diagnosticDataCollectionEnabled=false`
 
 ## Connect
 
@@ -48,7 +48,7 @@ Since the deployed container is pulled from the official [MongoDB](https://hub.d
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
 
-- **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/reference/backups) feature.
+- **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/volumes/backups) feature.
 
 - **Observability**: Implement monitoring for insights into performance and health of your database. Check out the tutorial which covers [setting up observability on a Mongo replica set](https://docs.railway.com/tutorials/deploy-and-monitor-mongo#4-set-up-monitoring-of-the-replica-set).
 

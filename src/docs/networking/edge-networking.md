@@ -64,7 +64,7 @@ The `X-Railway-Edge` header indicates:
 ### What It Does NOT Tell You
 
 The header does **not** indicate:
-- Where your deployment is running (use [Deployment Regions](/reference/deployment-regions) for that)
+- Where your deployment is running (use [Deployment Regions](/deployments/regions) for that)
 - The user's actual geographic location
 - The optimal routing path
 
@@ -150,7 +150,7 @@ If you need to report a routing issue, include:
 
 ## Related Documentation
 
-- [Deployment Regions](/reference/deployment-regions) - Configure where your services run
-- [Public Networking](/reference/public-networking) - Overview of public networking features
+- [Deployment Regions](/deployments/regions) - Configure where your services run
+- [Public Networking](/public-networking) - Overview of public networking features
 - [Network Diagnostics](/reference/network-diagnostics) - Tools for troubleshooting network issues
-- [TCP Proxy](/reference/tcp-proxy) - Proxy TCP traffic to your services
+- [TCP Proxy](/networking/tcp-proxy) - Proxy TCP traffic to your services

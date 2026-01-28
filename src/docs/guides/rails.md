@@ -117,7 +117,7 @@ To deploy the Rails app using the Railway CLI, please follow the steps:
 7. **Verify the Deployment**:
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-**Note:** If your app has a `Dockerfile` (which newer Rails apps typically include by default), Railway will [automatically detect and use it to build](/reference/dockerfiles) your app. If not, Railway will still handle the deployment process for you.
+**Note:** If your app has a `Dockerfile` (which newer Rails apps typically include by default), Railway will [automatically detect and use it to build](/builds/dockerfiles) your app. If not, Railway will still handle the deployment process for you.
 
 8. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

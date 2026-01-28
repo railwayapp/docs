@@ -125,4 +125,4 @@ Note: growing a volume requires a restart of the attached service.
 
 ## Backups
 
-Services with volumes support manual and automated backups, backups are covered in the [backups](/reference/backups) reference guide.
+Services with volumes support manual and automated backups, backups are covered in the [backups](/volumes/backups) reference guide.

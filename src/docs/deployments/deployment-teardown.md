@@ -11,7 +11,7 @@ alt="Screenshot of a teardown settings"
 layout="responsive"
 width={642} height={324} quality={80}/>
 
-To learn more about the full deployment lifecycle, see the [deploy reference](/reference/deployments).
+To learn more about the full deployment lifecycle, see the [deploy reference](/deployments).
 
 #### Overlap Time
 

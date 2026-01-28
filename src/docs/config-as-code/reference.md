@@ -105,7 +105,7 @@ Location of non-standard Dockerfile.
 
 This field can be set to `null`.
 
-More about building from a Dockerfile [here](/reference/dockerfiles).
+More about building from a Dockerfile [here](/builds/dockerfiles).
 
 ### Railpack Version
 
@@ -301,7 +301,7 @@ Path to check after starting your deployment to ensure it is healthy.
 
 This field can be set to `null`.
 
-Read more about the healthcheck path [here](/reference/healthchecks).
+Read more about the healthcheck path [here](/deployments/healthchecks).
 
 ### Healthcheck Timeout
 
@@ -319,7 +319,7 @@ Number of seconds to wait for the healthcheck path to become healthy.
 
 This field can be set to `null`.
 
-Read more about the healthcheck timeout [here](/reference/healthchecks).
+Read more about the healthcheck timeout [here](/deployments/healthchecks).
 
 ### Restart Policy Type
 
@@ -362,7 +362,7 @@ Read more about the Restart policy [here](/guides/restart-policy).
 
 ### Cron Schedule
 
-[Cron schedule](/reference/cron-jobs) of the deployed service.
+[Cron schedule](/cron-jobs) of the deployed service.
 
 ```json
 {
@@ -439,7 +439,7 @@ You can configure [Deployment Teardown](/guides/deployment-teardown) settings to
 
 #### Overlap Seconds
 
-Time in seconds that the previous deploy will overlap with the newest one being deployed. Read more about the deployment's lifecycle [here](/reference/deployments).
+Time in seconds that the previous deploy will overlap with the newest one being deployed. Read more about the deployment's lifecycle [here](/deployments).
 
 ```json
 {
@@ -454,7 +454,7 @@ This field can be set to `null`.
 
 #### Draining Seconds
 
-The time in seconds between when the previous deploy is sent a SIGTERM to the time it is sent a SIGKILL. Read more about the deployment's lifecycle [here](/reference/deployments).
+The time in seconds between when the previous deploy is sent a SIGTERM to the time it is sent a SIGKILL. Read more about the deployment's lifecycle [here](/deployments).
 
 ```json
 {

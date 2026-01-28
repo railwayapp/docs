@@ -54,7 +54,7 @@ This error can occur for a variety of reasons, here are some common ones and wha
 
 ### Try Railpack
 
-If you're encountering issues with Nixpacks, consider switching to [Railpack](/reference/railpack), Railway's default builder. Railpack provides better language support, smaller image sizes, and improved build performance. You can enable it in your service settings or by setting `"builder": "RAILPACK"` in your [railway.json file](/reference/config-as-code).
+If you're encountering issues with Nixpacks, consider switching to [Railpack](/builds/railpack), Railway's default builder. Railpack provides better language support, smaller image sizes, and improved build performance. You can enable it in your service settings or by setting `"builder": "RAILPACK"` in your [railway.json file](/config-as-code).
 
 ### Monorepo Without Root Directory
 

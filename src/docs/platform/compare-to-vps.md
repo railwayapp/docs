@@ -256,7 +256,7 @@ Pricing plans start at $5/month. You can check out the [pricing page](https://ra
 
 **Cost Optimization**
 
-If you would like to further reduce costs, you can enable the [serverless](/reference/app-sleeping) feature. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This makes it ideal for sporadic or bursty workloads, giving you the flexibility of a full server with the cost efficiency of serverless, with the benefit of only paying when your code is running.
+If you would like to further reduce costs, you can enable the [serverless](/deployments/serverless) feature. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This makes it ideal for sporadic or bursty workloads, giving you the flexibility of a full server with the cost efficiency of serverless, with the benefit of only paying when your code is running.
 
 ![serverless](https://res.cloudinary.com/railway/image/upload/v1758247841/docs/enable-serverless_sv32cr.png)
 
