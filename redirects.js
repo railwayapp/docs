@@ -135,6 +135,36 @@ const redirects = [
     destination: "/platform/railway-metal",
     permanent: true,
   },
+  {
+    source: "/maturity/compare-to-heroku",
+    destination: "/platform/compare-to-heroku",
+    permanent: true,
+  },
+  {
+    source: "/maturity/compare-to-render",
+    destination: "/platform/compare-to-render",
+    permanent: true,
+  },
+  {
+    source: "/maturity/compare-to-fly",
+    destination: "/platform/compare-to-fly",
+    permanent: true,
+  },
+  {
+    source: "/maturity/compare-to-vercel",
+    destination: "/platform/compare-to-vercel",
+    permanent: true,
+  },
+  {
+    source: "/maturity/compare-to-digitalocean",
+    destination: "/platform/compare-to-digitalocean",
+    permanent: true,
+  },
+  {
+    source: "/maturity/compare-to-vps",
+    destination: "/platform/compare-to-vps",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
