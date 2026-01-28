@@ -209,6 +209,26 @@ const redirects = [
     destination: "/access/two-factor-enforcement",
     permanent: true,
   },
+  {
+    source: "/maturity/enterprise",
+    destination: "/enterprise",
+    permanent: true,
+  },
+  {
+    source: "/reference/audit-logs",
+    destination: "/enterprise/audit-logs",
+    permanent: true,
+  },
+  {
+    source: "/maturity/compliance",
+    destination: "/enterprise/compliance",
+    permanent: true,
+  },
+  {
+    source: "/reference/saml",
+    destination: "/enterprise/saml",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
