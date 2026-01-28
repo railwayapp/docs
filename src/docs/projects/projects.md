@@ -1,18 +1,29 @@
 ---
-title: Managing Projects
-description: A guide to managing projects on Railway.
+title: Projects
+description: Projects are containers for environments and services in Railway.
 ---
 
-A Railway project contains any services, environments, and deployments that an app needs. Projects can be found on <a href="https://railway.com/dashboard" target="_blank">your project dashboard</a>.
+Projects are containers for environments and services in Railway.
 
-Click on a project card to go to the project canvas:
+If you are logged in, projects can be found on <a href="https://railway.com/dashboard" target="_blank">your project dashboard</a>.
+
+## Project Canvas
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1644620884/docs/ProjectPage_new_pa52tp.png"
 alt="Screenshot of Project Canvas"
 layout="responsive"
 width={1377} height={823} quality={100} />
 
+The project canvas is the default view for a project. Within it, a user can manage services and environments or select a service to view its configuration.
+
 Project settings can be managed through the `Settings` button at the top right of the project canvas.
+
+## Project Resources
+
+- 100 GB outbound network bandwidth
+- Ability to deploy multiple [services](/services)
+- Unlimited inbound network bandwidth
+- Unlimited database services
 
 ## Managing Project Info
 
@@ -20,19 +31,13 @@ A project's name and description can be changed from the General tab within a pr
 
 The project id can also be retrieved here.
 
-## Deleting a Project
-
-A project can be deleted by selecting the `Delete Project` button in the Danger tab. Deleting a project will delete all services, environments, and deployments associated with the project.
-
-Specific services within a project can also be deleted from this page.
-
 ## Inviting Members
 
 Invite members to access a project through the Members tab in your Project Settings.
 
 You can invite a member by sending an invitation to their email address, or by generating an invite link to send to them directly.
 
-Click [here](/reference/project-members#scope-of-permissions) to view the scope definitions for permissions.
+Click [here](/projects/project-members#scope-of-permissions) to view the scope definitions for permissions.
 
 ### Invite by Email
 
@@ -49,9 +54,13 @@ Each project generates a project invite link. To invite someone via a link:
 
 ## Transferring Projects
 
-Depending on your plan, you can transfer Projects to other users or Teams.
+Projects can be transferred to other users or to Teams, depending on subscription plan.
 
-#### Hobby User to Hobby User
+- Project transfers to other users are only allowed for users subscribed to the [Hobby Plan](/pricing/plans) (both the initiator and recipient of the transfer).
+
+- Project transfers to [Teams](/projects/teams) are only allowed for users who are Admin members of an existing Team. Teams are a feature of the [Pro Plan](/pricing/plans).
+
+### Hobby User to Hobby User
 
 To transfer a project from one Hobby User to another Hobby User, you must first [add the user as a member](#inviting-members) in the project.
 
@@ -64,13 +73,13 @@ width={411} height={253} quality={80} />
 
 The transferee receives an email requesting to transfer the project.
 
-#### Hobby User to Team || Team to Team
+### Hobby User to Team or Team to Team
 
 You can transfer a Project in your Hobby workspace to a Team (or between Teams) in which you are an Admin. Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1692378671/project-transfer_iukfwb.png" alt="Project Transfer" layout="responsive" height={968} width={1240} />
 
-Note: If you do not see the Transfer Project section in your Project Settings, you may not be an Admin of the Team to which you wish to transfer the Project. See the [reference page for Teams](/reference/teams#inviting-members) for more information on team member permissions.
+Note: If you do not see the Transfer Project section in your Project Settings, you may not be an Admin of the Team to which you wish to transfer the Project. See the [reference page for Teams](/projects/teams#inviting-members) for more information on team member permissions.
 
 ## Viewing Recent Activity
 
@@ -81,12 +90,28 @@ The activity feed shows all the changes that have been made to a project. This i
             layout="responsive"
             width={1273} height={631} quality={100} />
 
-## Updating Project Visibility
+## Project Visibility
 
-Projects are private by default and only accessible to members of the project. However, you can make your projects public to share in a read-only state by changing the visibility in project settings -
+Projects are private by default and only accessible to members of the project.
+
+Projects can be made public, to be shared in a read-only state with anyone on the internet.
+
+Public visibility is helpful for educators who want to show students how their projects look before a user deploys their own.
+
+- Viewers don't need a Railway account to see the project
+- Environment variables are private from viewers
+- Services and Deployment logs are public
+
+To update your project's visibility, change the setting in your project settings:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743121306/docs/project-visiblity_ksafj3.png"
 alt="Screenshot of Project Visibility Setting"
 layout="intrinsic"
 width={1273} height={451} quality={80} />
+
+## Deleting a Project
+
+A project can be deleted by selecting the `Delete Project` button in the Danger tab. Deleting a project will delete all services, environments, and deployments associated with the project.
+
+Specific services within a project can also be deleted from this page.

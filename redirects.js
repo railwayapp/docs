@@ -574,6 +574,16 @@ const redirects = [
     destination: "/guides/github-actions-runners",
     permanent: true,
   },
+  {
+    source: "/guides/projects",
+    destination: "/projects",
+    permanent: true,
+  },
+  {
+    source: "/reference/projects",
+    destination: "/projects",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
