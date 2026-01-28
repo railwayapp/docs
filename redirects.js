@@ -594,6 +594,16 @@ const redirects = [
     destination: "/services",
     permanent: true,
   },
+  {
+    source: "/guides/healthchecks",
+    destination: "/deployments/healthchecks",
+    permanent: true,
+  },
+  {
+    source: "/reference/healthchecks",
+    destination: "/deployments/healthchecks",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
