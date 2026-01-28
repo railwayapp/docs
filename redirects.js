@@ -449,6 +449,26 @@ const redirects = [
     destination: "/config-as-code/reference",
     permanent: true,
   },
+  {
+    source: "/guides/manage-projects",
+    destination: "/public-api/manage-projects",
+    permanent: true,
+  },
+  {
+    source: "/guides/manage-services",
+    destination: "/public-api/manage-services",
+    permanent: true,
+  },
+  {
+    source: "/guides/manage-deployments",
+    destination: "/public-api/manage-deployments",
+    permanent: true,
+  },
+  {
+    source: "/guides/manage-variables",
+    destination: "/public-api/manage-variables",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
