@@ -142,16 +142,6 @@ List all members of a project:
   }
 }`} variables={{ projectId: "<your-project-id>" }} />
 
-## Invite a User to a Project
-
-<CodeTabs query={`mutation projectInviteUser($id: String!, $input: ProjectInviteUserInput!) {
-  projectInviteUser(id: $id, input: $input) {
-    id
-  }
-}`} variables={{ id: "<your-project-id>", input: { email: "user@example.com", link: "https://railway.com/project/<your-project-id>" } }} />
-
-Valid roles: `ADMIN`, `MEMBER`, `VIEWER`
-
 ## Finding IDs
 
 You can find your project, service, and environment IDs by:

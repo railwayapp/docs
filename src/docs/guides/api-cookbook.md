@@ -332,12 +332,6 @@ See [Manage Volumes](/guides/manage-volumes) for more details.
   }
 }`} variables={{ workspaceId: "<your-workspace-id>" }} />
 
-### Invite User to Workspace
-
-<CodeTabs query={`mutation workspaceUserInvite($workspaceId: String!, $input: WorkspaceUserInviteInput!) {
-  workspaceUserInvite(workspaceId: $workspaceId, input: $input)
-}`} variables={{ workspaceId: "<your-workspace-id>", input: { email: "user@example.com", code: "<invite-code>" } }} />
-
 ---
 
 ## Useful Queries
