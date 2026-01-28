@@ -299,7 +299,6 @@ const redirects = [
     destination: "/deployments/staged-changes",
     permanent: true,
   },
-  // Phase 12: Move Deployments Reference
   {
     source: "/reference/app-sleeping",
     destination: "/deployments/app-sleeping",
@@ -408,6 +407,31 @@ const redirects = [
   {
     source: "/guides/storage-buckets",
     destination: "/storage-buckets",
+    permanent: true,
+  },
+  {
+    source: "/reference/outbound-networking",
+    destination: "/networking/outbound-networking",
+    permanent: true,
+  },
+  {
+    source: "/reference/static-outbound-ips",
+    destination: "/networking/static-outbound-ips",
+    permanent: true,
+  },
+  {
+    source: "/reference/edge-networking",
+    destination: "/networking/edge-networking",
+    permanent: true,
+  },
+  {
+    source: "/reference/network-diagnostics",
+    destination: "/networking/network-diagnostics",
+    permanent: true,
+  },
+  {
+    source: "/guides/troubleshooting-ssl",
+    destination: "/networking/troubleshooting-ssl",
     permanent: true,
   },
 ];
