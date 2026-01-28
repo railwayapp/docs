@@ -15,6 +15,7 @@ As a Railway user, you can create and publish templates for others to use, or yo
 | **Best Practices**                               | Creating templates can get complex, but these best practices will help you create templates that are easy to use and maintain.                                                                                                       |
 | **Community Clout**                              | When you publish a template, it is placed into our template marketplace for all users of the Railway community to take advantage.                                                                                                    |
 | [**Kickback Program**](/templates/kickbacks)     | Earn kickbacks from template usage, up to 50% for open source templates with active community support. Get rewarded for building quality templates that help the community.                                                          |
+| [**Partner Program**](/templates/partners)       | Technology owners can join Railway's partner program to receive commission on templates, get featured placement, and participate in co-marketing.                                                                                     |
 | [**Template Updates**](/templates/updates)       | Push updates to users who deployed your template, or receive notifications when templates you've deployed have been updated.                                                                                                          |
 
 ## Private Docker Images
