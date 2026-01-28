@@ -1,5 +1,5 @@
 ---
-title: Use the Public API
+title: Public API
 description: Discover the Railway GraphQL Public API.
 ---
 
@@ -39,7 +39,7 @@ You can create an API token from the [tokens page](https://railway.com/account/t
 <Image src="https://res.cloudinary.com/railway/image/upload/v1667386744/docs/new-token-form_rhrbw8.png"
 alt="New token form"
 layout="responsive"
-width={1618 } height={378} quality={80} />
+width={1618 } height={378} quality={80} />
 
 - **Team token** - Select a team in the `Team` dropdown to create a token tied to a team. A team token has access to all the team's resources, and cannot be used to access your personal resources on Railway. Feel free to share this token with your teammates.
 - **Account token** - If you do not select a team, the token will be tied to your Railway account and will have access to all your resources including the teams you are a part of. Do not share this token with anyone else.
@@ -102,7 +102,7 @@ curl --request POST \
 
 ## Viewing the Schema
 
-Use popular tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) to connect to the API and query the schema. Simply set up your connection with the endpoint and Authorization token, and fetch the schema.
+The Railway API supports introspection meaning you can use popular tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) to connect to the API and query the schema. Simply set up your connection with the endpoint and Authorization token, and fetch the schema.
 
 ### API Collection File
 
@@ -116,11 +116,27 @@ Alternatively, you can use our [GraphiQL playground](https://railway.com/graphiq
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1694611003/rw-graphiql_zs2l28.png" alt="GraphiQL Playground" layout="responsive" width={6568} height={3886} quality={80} />
 
-Make sure to set an Authorization header with an [auth token](/reference/public-api#authentication). Click the "Headers" tab at the bottom of the GraphiQL page and enter this json, using your own token:
+Make sure to set an Authorization header with an auth token. Click the "Headers" tab at the bottom of the GraphiQL page and enter this json, using your own token:
 
 ```json
 { "Authorization": "Bearer <API_TOKEN_GOES_HERE>" }
 ```
+
+## Rate Limits
+
+In order to protect the Railway API from spam and misuse, we have established some basic rate limits. The current limits to the API are:
+
+- **Requests per hour**: 100 RPH for Free customers, 1000 RPH for Hobby customers, 10000 RPH for Pro customers; custom for Enterprise.
+- **Requests per second**: 10 RPS for Hobby customers; 50 RPS for Pro customers; custom for Enterprise.
+
+To help you keep track of your usage, Railway sends a few headers with the response on each request.
+
+| Header                | Description                                                                                                                                        |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| X-RateLimit-Limit     | The maximum number of API requests allowed per day.                                                                                                |
+| X-RateLimit-Remaining | The number of API requests your token can make in the current window.                                                                              |
+| X-RateLimit-Reset     | The time at which the current window ends and your remaining requests reset.                                                                       |
+| Retry-After           | The amount of time after which you can make another request. This header is only sent once you've used up all your requests in the current window. |
 
 ## Tips and Tricks
 
@@ -143,19 +159,15 @@ If you're unsure about what query/mutation to use for what you are trying to ach
 
 To help you get started, we have provided example queries and mutations organized by resource type:
 
-- [API Cookbook](/guides/api-cookbook) - Quick reference for common operations
-- [Manage Projects](/guides/manage-projects) - Create, update, delete projects
-- [Manage Services](/guides/manage-services) - Create services, configure settings
-- [Manage Deployments](/guides/manage-deployments) - Deploy, rollback, view logs
-- [Manage Variables](/guides/manage-variables) - Set and manage environment variables
-- [Manage Environments](/guides/manage-environments) - Create and configure environments
-- [Manage Domains](/guides/manage-domains) - Add custom domains, configure DNS
-- [Manage Volumes](/guides/manage-volumes) - Create volumes, manage backups
+- [API Cookbook](/public-api/api-cookbook) - Quick reference for common operations
+- [Manage Projects](/public-api/manage-projects) - Create, update, delete projects
+- [Manage Services](/public-api/manage-services) - Create services, configure settings
+- [Manage Deployments](/public-api/manage-deployments) - Deploy, rollback, view logs
+- [Manage Variables](/public-api/manage-variables) - Set and manage environment variables
+- [Manage Environments](/public-api/manage-environments) - Create and configure environments
+- [Manage Domains](/public-api/manage-domains) - Add custom domains, configure DNS
+- [Manage Volumes](/public-api/manage-volumes) - Create volumes, manage backups
 
 ## Support
 
 If you run into problems using the API or have any suggestions, feel free to join our [Discord server](https://discord.gg/railway) where you can interact with the engineers working on the API directly.
-
-### Rate Limits
-
-Rate limits are enforced on the Public API. For details on the limits visit the [Public API reference page](/reference/public-api#rate-limits).

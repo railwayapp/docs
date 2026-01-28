@@ -705,6 +705,17 @@ const redirects = [
     destination: "/environments",
     permanent: true,
   },
+  // Phase 39: Merge Public API
+  {
+    source: "/guides/public-api",
+    destination: "/public-api",
+    permanent: true,
+  },
+  {
+    source: "/reference/public-api",
+    destination: "/public-api",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
