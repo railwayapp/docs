@@ -734,6 +734,16 @@ const redirects = [
     destination: "/platform/priority-boarding",
     permanent: true,
   },
+  {
+    source: "/guides/optimize-usage",
+    destination: "/pricing/cost-control",
+    permanent: true,
+  },
+  {
+    source: "/reference/usage-limits",
+    destination: "/pricing/cost-control",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
