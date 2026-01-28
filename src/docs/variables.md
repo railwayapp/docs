@@ -14,7 +14,7 @@ When defined, they are made available to your application as environment variabl
 
 In Railway, there is also a notion of configuration variables which allow you to control the behavior of the platform.
 
-_Adding, updating, or removing variables, results in a set of [staged changes](/guides/staged-changes) that you must review and deploy, in order to apply them._
+_Adding, updating, or removing variables, results in a set of [staged changes](/deployments/staged-changes) that you must review and deploy, in order to apply them._
 
 ## Service Variables
 
@@ -61,7 +61,7 @@ From your Project Settings -> Shared Variables page, choose the Environment, ent
 
 To use a shared variable, either click the Share button from the Project Settings -> Shared Variables menu and select the services with which to share, or visit the Variables tab within the service itself and click "Shared Variable".
 
-Adding a shared variables to a service creates a [Reference Variable](/guides/variables#referencing-a-shared-variable) in the service.
+Adding a shared variables to a service creates a [Reference Variable](/variables#referencing-a-shared-variable) in the service.
 
 ## Reference Variables
 
@@ -69,7 +69,7 @@ Reference variables are those defined by referencing variables in other services
 
 When using reference variables, you also have access to [Railway-provided variables](#railway-provided-variables).
 
-Railway's [template syntax](/reference/variables#template-syntax) is used when defining reference variables.
+Railway's [template syntax](/variables/reference#template-syntax) is used when defining reference variables.
 
 ### Referencing a Shared Variable
 
@@ -95,7 +95,7 @@ Use the following syntax to reference variables in another service:
 
   - `DATABASE_URL=${{ Clickhouse.DATABASE_URL }}`
 
-- Your frontend service needs to make requests to your backend. You do not want to hardcode the backend URL in your frontend code. Go to your frontend service settings and add the [Railway-provided variable](/develop/variables#railway-provided-variables) for the backend URL
+- Your frontend service needs to make requests to your backend. You do not want to hardcode the backend URL in your frontend code. Go to your frontend service settings and add the [Railway-provided variable](/variables/reference#railway-provided-variables) for the backend URL
 
   - `API_URL=https://${{ backend.RAILWAY_PUBLIC_DOMAIN }}`
 
@@ -158,7 +158,7 @@ Railway provides many variables to help with development operations. Some of the
 - `RAILWAY_PRIVATE_DOMAIN`
 - `RAILWAY_TCP_PROXY_PORT`
 
-For an exhaustive list, please check out the [Variables Reference](/reference/variables#railway-provided-variables) page.
+For an exhaustive list, please check out the [Variables Reference](/variables/reference#railway-provided-variables) page.
 
 ## Multiline Variables
 
@@ -182,11 +182,11 @@ Using the Railway CLI, you can run your code locally with the environment variab
 - In your terminal, execute `railway run <run command>`
   -> for example, `railway run npm run dev`
 
-Check out the [CLI guide](/guides/cli#local-development) for more information on using the CLI.
+Check out the [CLI guide](/cli#local-development) for more information on using the CLI.
 
 ## Using Variables in your Dockerfile
 
-For information on how to use variables in your Dockerfile refer to the [Dockerfiles guide](/guides/dockerfiles#using-variables-at-build-time).
+For information on how to use variables in your Dockerfile refer to the [Dockerfiles guide](/builds/dockerfiles#using-variables-at-build-time).
 
 ## Import Variables from Heroku
 

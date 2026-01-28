@@ -10,6 +10,11 @@ const redirects = [
     permanent: true,
   },
   {
+    source: "/develop/variables",
+    destination: "/variables",
+    permanent: true,
+  },
+  {
     source: "/develop/:slug*",
     destination: "/guides/:slug*",
     permanent: true,

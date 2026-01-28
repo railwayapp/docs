@@ -1,20 +1,7 @@
 ---
-title: Variables
-description: Variables provide a powerful way to manage configuration and secrets across services in Railway.
+title: Variables Reference
+description: Reference documentation for Railway variables, including template syntax and all available system variables.
 ---
-
-Variables provide a powerful way to manage configuration and secrets across services in Railway.
-
-## How it Works
-
-When defined, variables are made available to your application as environment variables in the following scenarios:
-
-- The build process for each service deployment.
-- The running service deployment.
-- The command invoked by `railway run <COMMAND>`
-- The local shell via `railway shell`
-
-In Railway, there is also a notion of configuration variables which allow you to control the behavior of the platform.
 
 ## Template Syntax
 
@@ -35,33 +22,11 @@ GRAPHQL_PATH=/v1/gql
 GRAPHQL_ENDPOINT=https://${{DOMAIN}}/${{GRAPHQL_PATH}}
 ```
 
-## Types of Variables
+## Variable Functions
 
-In Railway, there is a notion of service variables, shared variables, reference variables, sealed variables, and a few kinds of reserved variables.
+[Template variable functions](/templates/create#template-variable-functions) allow you to dynamically generate variables (or parts of a variable) on demand when the template is deployed.
 
-### Service Variables
-
-Service variables are scoped to a specific service. They can be referenced in other services by using a Reference Variable.
-
-### Shared Variables
-
-Shared variables are scoped to a project and environment. They help reduce duplication of variables across multiple services within the same project.
-
-### Reference Variables
-
-Reference variables are those defined by referencing variables in other services, shared variables, or even variables in the same service. This is useful for ease of maintenance, allowing you to set a variable in a single place and reference it as needed.
-
-Reference variables use Railway's [template syntax](/reference/variables#template-syntax).
-
-### Sealed Variables
-
-Sealed variables are scoped to a specific service. Once a variable is sealed, its value is not visible via the UI or the Railway API.
-
-### Variable Functions
-
-[Template variable functions](/guides/create#template-variable-functions) allow you to dynamically generate variables (or parts of a variable) on demand when the template is deployed.
-
-### Railway-Provided Variables
+## Railway-Provided Variables
 
 Railway provides the following additional system environment variables to all
 builds and deployments.
@@ -111,11 +76,3 @@ Users can use the following environment variables to configure Railway's behavio
 | `RAILWAY_DEPLOYMENT_DRAINING_SECONDS` | The SIGTERM to SIGKILL buffer time (in seconds), its default value is 0. Example: `30`                                                                                        |
 | `RAILWAY_RUN_UID`                     | The UID of the user which should run the main process inside the container. Set to `0` to explicitly run as root.                                                             |
 | `RAILWAY_SHM_SIZE_BYTES`              | This variable accepts a value in binary bytes, with a default value of 67108864 bytes (64 MB)                                                                                 |
-
-## Support
-
-For information on how to use variables refer to the [Variables guide](/variables).
-
-## Dockerfiles
-
-For information on how to use variables in your Dockerfile refer to the [Dockerfiles guide](/guides/dockerfiles#using-variables-at-build-time).
