@@ -229,6 +229,22 @@ const redirects = [
     destination: "/enterprise/saml",
     permanent: true,
   },
+  // Phase 9: Move Projects Section
+  {
+    source: "/reference/project-members",
+    destination: "/projects/project-members",
+    permanent: true,
+  },
+  {
+    source: "/reference/project-usage",
+    destination: "/projects/project-usage",
+    permanent: true,
+  },
+  {
+    source: "/reference/teams",
+    destination: "/projects/teams",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
