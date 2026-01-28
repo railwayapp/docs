@@ -390,6 +390,21 @@ const redirects = [
     destination: "/databases/reference",
     permanent: true,
   },
+  {
+    source: "/guides/volumes",
+    destination: "/volumes",
+    permanent: true,
+  },
+  {
+    source: "/reference/volumes",
+    destination: "/volumes/reference",
+    permanent: true,
+  },
+  {
+    source: "/reference/backups",
+    destination: "/volumes/backups",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
