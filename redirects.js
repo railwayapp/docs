@@ -634,6 +634,26 @@ const redirects = [
     destination: "/cron-jobs",
     permanent: true,
   },
+  {
+    source: "/guides/public-networking",
+    destination: "/public-networking",
+    permanent: true,
+  },
+  {
+    source: "/reference/public-networking",
+    destination: "/public-networking",
+    permanent: true,
+  },
+  {
+    source: "/reference/public-domains",
+    destination: "/networking/domains",
+    permanent: true,
+  },
+  {
+    source: "/reference/tcp-proxy",
+    destination: "/networking/tcp-proxy",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
