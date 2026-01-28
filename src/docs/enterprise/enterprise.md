@@ -30,7 +30,7 @@ You can view our audit, compliance, security, and regulatory documents on our [T
 - [SAML authentication](/reference/saml)
 - Granular access control
 - [Audit logs](/reference/audit-logs), including change tracking
-- [Environment-based RBAC](/guides/environments)
+- [Environment-based RBAC](/environments)
 
 ## Zero-Trust Networking
 

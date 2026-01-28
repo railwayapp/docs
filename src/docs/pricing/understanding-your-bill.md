@@ -38,7 +38,7 @@ Think of it like electricity: you pay for appliances that are plugged in and run
 | [Serverless](/reference/app-sleeping)               | Automatically stops services when inactive               |
 | [Usage Limits](/reference/usage-limits)             | Set spending caps to prevent unexpected charges          |
 | Delete unused services                              | Remove services you no longer need                       |
-| [Private Networking](/guides/private-networking)    | Reduce egress costs by keeping traffic internal          |
+| [Private Networking](/private-networking)    | Reduce egress costs by keeping traffic internal          |
 
 ## Understanding Included Usage
 
@@ -126,7 +126,7 @@ Network egress (outbound data transfer) is charged at $0.05/GB. Common causes of
 - **Large file transfers**: Serving large files, images, or videos directly from your service.
 - **API responses**: High-traffic APIs returning large payloads.
 
-**Solution:** Use [private networking](/guides/private-networking) for all service-to-service communication within Railway.
+**Solution:** Use [private networking](/private-networking) for all service-to-service communication within Railway.
 
 ### PR Deploys / Ephemeral Environments
 
@@ -155,4 +155,4 @@ If your application has a memory leak, it will gradually consume more RAM over t
 - [Optimize Usage](/guides/optimize-usage) - Guide to reducing costs
 - [Usage Limits](/reference/usage-limits) - Set spending caps
 - [Serverless](/reference/app-sleeping) - Auto-stop inactive services
-- [Private Networking](/guides/private-networking) - Reduce egress costs
+- [Private Networking](/private-networking) - Reduce egress costs

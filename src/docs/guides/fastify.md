@@ -32,7 +32,7 @@ To deploy a Fastify app on Railway directly from GitHub, follow the steps below:
    - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
 5. Click **Deploy Now**.
 
-Once the deployment is successful, a Railway [service](/guides/services) will be created for you. By default, this service will not be publicly accessible.
+Once the deployment is successful, a Railway [service](/services) will be created for you. By default, this service will not be publicly accessible.
 
 To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
 
@@ -82,7 +82,7 @@ If you don’t set it correctly, you may encounter a 502 error page.
 
 4. Either deploy via the CLI or from GitHub.
 
-Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
+Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/builds/dockerfiles)
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 

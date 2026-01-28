@@ -146,7 +146,7 @@ This ensures that sensitive environment variables, installed dependencies, and b
 
 Learn more about [`.gitignore` patterns](https://git-scm.com/docs/gitignore) and [environment variable security best practices](https://12factor.net/config).
 
-Learn more about [managing variables](/guides/variables) in Railway.
+Learn more about [managing variables](/variables) in Railway.
 
 ### Update package.json scripts
 
@@ -216,7 +216,7 @@ Now let's deploy this API to Railway. First, create a Railway account by going t
    - Click "Generate Domain"
    - Your API is now live at `https://your-app.up.railway.app`. When you visit this URL, you should see your Express API running.
 
-Learn more about [deploying applications](/guides/deploy), [public networking](/guides/public-networking), and [staged changes](/guides/staged-changes) in Railway.
+Learn more about [deploying applications](/guides/deploy), [public networking](/public-networking), and [staged changes](/guides/staged-changes) in Railway.
 
 
 ## Scaling and pricing
@@ -369,7 +369,7 @@ With the healthcheck configured, Railway will:
 - Automatically rollback if the healthcheck fails
 - Ensure zero-downtime deployments by only switching traffic when the new version is healthy
 
-Learn more about [configuring healthchecks](/guides/healthchecks) in Railway.
+Learn more about [configuring healthchecks](/deployments/healthchecks) in Railway.
 
 
 ## Set up preview environments
@@ -415,7 +415,7 @@ Railway will automatically create a temporary environment for your pull request,
 
 **Note**: Railway will only deploy PR branches from team members or users invited to your project. For automatic domain provisioning, ensure your base environment services use Railway-provided domains.
 
-Learn more about [using environments](/guides/environments) and [PR environments](/guides/environments#enable-pr-environments) in the Railway documentation.
+Learn more about [using environments](/environments) and [PR environments](/guides/environments#enable-pr-environments) in the Railway documentation.
 
 ## Deploy multiple services
 
@@ -430,7 +430,7 @@ To add more microservices to your project:
 
 ![Deploy multiple services](https://res.cloudinary.com/railway/image/upload/v1758274862/microservice_cpul8g.png)
 
-Each service runs in its own container with its own resources, but they can communicate with each other through Railway's [private networking](/guides/private-networking).
+Each service runs in its own container with its own resources, but they can communicate with each other through Railway's [private networking](/private-networking).
 
 ### Shared Variables Between Services
 
@@ -447,7 +447,7 @@ DATABASE_URL=${{shared.DATABASE_URL}}
 
 This eliminates duplication and makes it easy to manage configuration across your entire microservice architecture.
 
-Learn more about [managing services](/guides/services), [shared variables](/guides/variables#shared-variables), and [service communication](/reference/services) in the Railway documentation.
+Learn more about [managing services](/services), [shared variables](/guides/variables#shared-variables), and [service communication](/reference/services) in the Railway documentation.
 
 ## Conclusion
 
@@ -470,10 +470,10 @@ Now that you've deployed your Node.js applications, explore these resources:
 
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your application](/guides/monitoring)
-- [View logs and metrics](/guides/logs) and [metrics](/guides/metrics)
-- [Set up custom domains](/guides/public-networking)
-- [Configure environment variables](/guides/variables)
-- [Deploy with Docker](/guides/dockerfiles)
+- [View logs and metrics](/observability/logs) and [metrics](/observability/metrics)
+- [Set up custom domains](/public-networking)
+- [Configure environment variables](/variables)
+- [Deploy with Docker](/builds/dockerfiles)
 - [Customize builds](/guides/builds)
 - [Manage deployments](/guides/manage-deployments)
 

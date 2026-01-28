@@ -86,7 +86,7 @@ Railway can automatically create preview environments for every pull request, le
    - Once you create a pull request, Railway will automatically deploy a preview environment with a unique URL where you can preview your changes.
    - When the PR is merged or closed, the PR environment is automatically deleted.
 
-Learn more about [using environments](/guides/environments) and [PR environments](/guides/environments#enable-pr-environments).
+Learn more about [using environments](/environments) and [PR environments](/guides/environments#enable-pr-environments).
 
 ## Deploy replicas in different regions for global performance
 
@@ -173,8 +173,8 @@ Now that you've deployed your static site, explore these resources:
 
 - [Add a Database Service](/guides/build-a-database-service) for dynamic content
 - [Monitor your application](/guides/monitoring) with built-in metrics
-- [Set up custom domains](/guides/public-networking) and SSL certificates
-- [Configure environment variables](/guides/variables) for different environments
+- [Set up custom domains](/public-networking) and SSL certificates
+- [Configure environment variables](/variables) for different environments
 - [Use Railway Functions](/reference/functions) for API endpoints
 - [Optimize performance](/guides/optimize-performance) and [usage](/guides/optimize-usage)
 

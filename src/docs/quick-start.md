@@ -11,7 +11,7 @@ Railway is a deployment platform that lets you provision infrastructure, develop
 
    **[Option 1](/quick-start#deploying-your-project---from-github)** - Deploying from **GitHub**.
 
-   **[Option 2](/quick-start#deploying-your-project---with-the-cli)** - Deploying with the **[CLI](/guides/cli)**.
+   **[Option 2](/quick-start#deploying-your-project---with-the-cli)** - Deploying with the **[CLI](/cli)**.
 
    **[Option 3](/quick-start#deploying-your-project---from-a-docker-image)** - Deploying from a **Docker Image**.
 
@@ -227,9 +227,9 @@ Happy Building!
 
 ### What to Explore Next
 
-- **[Environments](/guides/environments)** - Railway lets you create parallel, identical environments for PRs/testing.
+- **[Environments](/environments)** - Railway lets you create parallel, identical environments for PRs/testing.
 
-- **[Observability Dashboard](/guides/observability)** - Railway's built-in observability dashboard offers a customizable view of metrics, logs, and usage in one place.
+- **[Observability Dashboard](/observability)** - Railway's built-in observability dashboard offers a customizable view of metrics, logs, and usage in one place.
 
 - **[Project Members](/reference/project-members)** - Adding members to your projects is as easy as sending them an invite link.
 

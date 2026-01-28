@@ -230,7 +230,7 @@ To deploy an Express app to Railway directly from GitHub, follow the steps below
 
 3. Either deploy via the CLI or from GitHub.
 
-Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
+Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/builds/dockerfiles)
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 

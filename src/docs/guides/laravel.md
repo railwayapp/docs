@@ -37,7 +37,7 @@ To deploy a Laravel app on GitHub to Railway, follow the steps below:
 
 5. Click **Deploy**.
 
-Once the deployment is successful, a Railway [service](/guides/services) will be created for you. By default, this service will not be publicly accessible.
+Once the deployment is successful, a Railway [service](/services) will be created for you. By default, this service will not be publicly accessible.
 
 **Note:** Railway will automatically detect that it's a Laravel app during [deploy and run your app via php-fpm and nginx](https://nixpacks.com/docs/providers/php).
 

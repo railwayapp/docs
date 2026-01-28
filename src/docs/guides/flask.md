@@ -217,7 +217,7 @@ To deploy a Flask app to Railway directly from GitHub, follow the steps below:
 
 3. Either deploy via the CLI or from GitHub.
 
-Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
+Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/builds/dockerfiles)
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 
@@ -227,4 +227,4 @@ Explore these resources to learn how you can maximize your experience with Railw
 
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your app](/guides/monitoring)
-- [Running a Cron Job](/guides/cron-jobs)
+- [Running a Cron Job](/cron-jobs)

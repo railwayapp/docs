@@ -130,7 +130,7 @@ To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. O
    - Click **Add Variables** and configure all the necessary environment variables for your app.
 4. **Deploy the App**:
    - Click **Deploy** to start the deployment process.
-   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Once the deployed, a Railway [service](/services) will be created for your app, but it won’t be publicly accessible by default.
 5. **Add a Database Service**:
    - Right-click on the Railway project canvas or click the **Create** button.
    - Select **Database**.

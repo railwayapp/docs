@@ -76,15 +76,15 @@ Configuring services using the template composer is very similar to building a l
 Once you add a new service and select the source, you can configure the following to enable successful deploys for template users:
 
 - **Variables tab**
-  - Add required [Variables](/guides/variables).
+  - Add required [Variables](/variables).
     _Use [reference variables](/guides/variables#reference-variables) where possible for a better quality template_
 - **Settings tab**
   - Add a [Root Directory](/guides/monorepo) (Helpful for monorepos)
-  - [Enable Public Networking](/guides/public-networking) with TCP Proxy or HTTP
+  - [Enable Public Networking](/public-networking) with TCP Proxy or HTTP
   - Set a custom [Start command](/guides/start-command)
   - Add a [Healthcheck Path](/guides/healthchecks#configure-the-healthcheck-path)
 - **Add a volume**
-  - To add a volume to a service, right-click on the service, select Attach Volume, and specify the [Volume mount path](/guides/volumes)
+  - To add a volume to a service, right-click on the service, select Attach Volume, and specify the [Volume mount path](/volumes)
 
 ### Specifying a Branch
 

@@ -147,7 +147,7 @@ width={1365} height={790} quality={100} />
 
 ## Volumes
 
-[Volumes](/reference/volumes) are a feature that allows services on Railway to [maintain persistent data](/guides/volumes).
+[Volumes](/reference/volumes) are a feature that allows services on Railway to [maintain persistent data](/volumes).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1737785187/docs/the-basics/volumes_yom2km.png"
 alt="Screenshot of the project canvas with a volume highlighted"
