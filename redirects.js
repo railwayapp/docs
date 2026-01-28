@@ -385,6 +385,11 @@ const redirects = [
     destination: "/databases/database-view",
     permanent: true,
   },
+  {
+    source: "/reference/databases",
+    destination: "/databases/reference",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
