@@ -257,7 +257,7 @@ To deploy the Django app to Railway, start by pushing the app to a GitHub repo. 
      - This will create and deploy a new Postgres database service for your project.
 5. **Deploy the App**:
    - Click **Deploy** to start the deployment process and apply all changes.
-   - Once deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Once deployed, a Railway [service](/services) will be created for your app, but it won’t be publicly accessible by default.
 6. **Verify the Deployment**:
 
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.

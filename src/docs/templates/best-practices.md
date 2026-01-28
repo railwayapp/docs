@@ -49,7 +49,7 @@ Private networking provides faster, free communication between services and redu
 
 Always configure service-to-service communication (such as backend to database connections) to use private network hostnames rather than public domains.
 
-For more details, see the [private networking guide](/guides/private-networking) and [reference documentation](/reference/private-networking).
+For more details, see the [private networking guide](/private-networking) and [reference documentation](/reference/private-networking).
 
 ## Environment Variables
 
@@ -77,7 +77,7 @@ Although a health check might not be needed for all software, such as Discord bo
 
 A readiness endpoint is the best option; if that's not possible, then a liveness endpoint should be used.
 
-For more details, see the [healthchecks guide](/guides/healthchecks) and [reference documentation](/reference/healthchecks).
+For more details, see the [healthchecks guide](/deployments/healthchecks) and [reference documentation](/reference/healthchecks).
 
 ## Persistent Storage
 
@@ -97,7 +97,7 @@ Some examples of software that require persistent storage:
 
 The volume mount location depends entirely on where the software expects it to be mounted. Refer to the software's documentation for the correct mount path.
 
-For more details, see the [volumes guide](/guides/volumes) and [reference documentation](/reference/volumes).
+For more details, see the [volumes guide](/volumes) and [reference documentation](/reference/volumes).
 
 ## Authentication
 

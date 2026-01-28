@@ -106,7 +106,7 @@ Use the `auditLogs` query to retrieve audit log entries for a specific workspace
 }
 ```
 
-For more information on using the GraphQL API, see the [Public API Guide](/guides/public-api).
+For more information on using the GraphQL API, see the [Public API Guide](/public-api).
 
 ## Audit Log Retention
 

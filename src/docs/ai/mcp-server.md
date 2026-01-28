@@ -21,11 +21,11 @@ The **Model Context Protocol (MCP)** defines a standard for how AI applications 
 * **Clients**: The layer within hosts that maintains one-to-one connections with individual MCP servers.
 * **Servers**: Standalone programs (like the Railway MCP Server) that expose tools and workflows for managing external systems.
 
-The **Railway MCP Server** acts as the server in this architecture, translating natural language requests into CLI workflows powered by the [Railway CLI](/guides/cli).
+The **Railway MCP Server** acts as the server in this architecture, translating natural language requests into CLI workflows powered by the [Railway CLI](/cli).
 
 ## Prerequisites
 
-To get started with the MCP server, you need to have the [Railway CLI](/guides/cli) installed and authenticated.
+To get started with the MCP server, you need to have the [Railway CLI](/cli) installed and authenticated.
 
 ## Installation
 
@@ -143,7 +143,7 @@ The Railway MCP Server provides a curated set of tools. Your AI assistant will a
 
 ## Security Considerations
 
-Under the hood, the Railway MCP Server runs the [Railway CLI](/guides/cli) commands. While destructive operations are intentionally excluded and not exposed as MCP tools, you should still:
+Under the hood, the Railway MCP Server runs the [Railway CLI](/cli) commands. While destructive operations are intentionally excluded and not exposed as MCP tools, you should still:
 
 * **Review actions** requested by the LLM before running them.
 * **Restrict access** to ensure only trusted users can invoke the MCP server.

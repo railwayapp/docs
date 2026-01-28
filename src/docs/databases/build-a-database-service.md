@@ -9,7 +9,7 @@ For the purpose of this guide, we will use the official <a href="https://hub.doc
 
 ## Service Source
 
-As discussed in the [Services guide](/guides/services), a crucial step in creating a service is [defining a source](/guides/services#defining-a-deployment-source) from which to deploy.
+As discussed in the [Services guide](/services), a crucial step in creating a service is [defining a source](/guides/services#defining-a-deployment-source) from which to deploy.
 
 To deploy the official Postgres image, we'll simply enter postgres into the Source Image field:
 
@@ -21,7 +21,7 @@ width={559} height={168} quality={80} />
 
 ## Volumes
 
-Attach a [volume](/guides/volumes) to any service, to keep your data safe between deployments. For the Postgres image, the default mount path is `/var/lib/postgresql/data`.
+Attach a [volume](/volumes) to any service, to keep your data safe between deployments. For the Postgres image, the default mount path is `/var/lib/postgresql/data`.
 
 Just attach a volume to the service you created, at the mount path:
 
@@ -47,7 +47,7 @@ Note the `DATABASE_URL` is configured with TCP Proxy variables, but you can also
 
 ### Private Network
 
-To connect to your database service from other services in your project, you can use the [private network](/guides/private-networking). For a postgres database service listening on port `5432`, you can use a connection string like this -
+To connect to your database service from other services in your project, you can use the [private network](/private-networking). For a postgres database service listening on port `5432`, you can use a connection string like this -
 
 ```bash
 postgresql://postgres:password@postgres.railway.internal:5432/railway

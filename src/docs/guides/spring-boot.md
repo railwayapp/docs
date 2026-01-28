@@ -141,7 +141,7 @@ To deploy a Spring Boot app to Railway directly from GitHub, follow the steps be
      - If your Railway account isn’t linked to GitHub yet, you’ll be prompted to do so.
 3. **Deploy the App**:
    - Click **Deploy** to start the deployment process.
-   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Once the deployed, a Railway [service](/services) will be created for your app, but it won’t be publicly accessible by default.
 4. **Verify the Deployment**:
 
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
@@ -177,7 +177,7 @@ To deploy a Spring Boot app to Railway directly from GitHub, follow the steps be
 
 3. Either deploy via the CLI or from GitHub.
 
-Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
+Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/builds/dockerfiles)
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 

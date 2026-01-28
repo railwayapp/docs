@@ -91,4 +91,4 @@ To unblock yourself, you can try to deploy your application using a [Dockerfile]
 
 If your project contains a `Dockerfile` Railway will automatically use it to build your application.
 
-Read more about [using a Dockerfile](/guides/dockerfiles).
+Read more about [using a Dockerfile](/builds/dockerfiles).

@@ -66,7 +66,7 @@ Once your Lovable project is connected to GitHub, deploy it to Railway by import
 3. **Deploy the App**:
    - Click **Deploy** to start the deployment process.
    - Railway detects the build configuration from your Lovable-generated code and provisions the necessary resources.
-   - Once deployed, a Railway [service](/guides/services) will be created for your app, but it won't be publicly accessible by default.
+   - Once deployed, a Railway [service](/services) will be created for your app, but it won't be publicly accessible by default.
 4. **Verify the Deployment**:
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
    - Review any build or runtime errors in the deployment logs.
@@ -87,7 +87,7 @@ Lovable-generated applications may require environment variables for API keys, d
 3. Add the required variables as key-value pairs.
 4. Railway automatically redeploys with the new configuration.
 
-See the [Variables guide](/guides/variables) for detailed information on managing environment variables.
+See the [Variables guide](/variables) for detailed information on managing environment variables.
 
 ## Iterate on Your Application
 
@@ -134,7 +134,7 @@ The Railway templates marketplace provides pre-configured services that can be d
 4. Search for the service you need (PostgreSQL, Redis, MongoDB, etc.).
 5. Click **Deploy** to add the template to your project.
 
-The template service deploys in the same project as your Lovable application. Services within a project can communicate through [private networking](/guides/private-networking), and connection details are available as environment variables.
+The template service deploys in the same project as your Lovable application. Services within a project can communicate through [private networking](/private-networking), and connection details are available as environment variables.
 
 After deploying a template, configure your Lovable application to use the service by adding the connection variables to your Railway service's environment variables.
 
@@ -168,6 +168,6 @@ Explore these resources to enhance your Lovable application on Railway:
 
 - [Add a Database Service](/guides/build-a-database-service)
 - [Monitor your app](/guides/monitoring)
-- [Configure environment variables](/guides/variables)
-- [Set up custom domains](/guides/public-networking)
+- [Configure environment variables](/variables)
+- [Set up custom domains](/public-networking)
 

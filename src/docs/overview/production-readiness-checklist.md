@@ -93,7 +93,7 @@ Quality assurance involves following practices to ensure changes to your applica
 
 - Maintaining separate environments for production and development is good practice for controlling changes in a production environment.
 
-  Consider setting up [environments](/guides/environments) to properly test changes before merging to production.
+  Consider setting up [environments](/environments) to properly test changes before merging to production.
 
   Additionally, [PR environments](/guides/environments#enable-pr-environments) can be enabled to create environments when PRs are opened on your production branch.
 
@@ -101,7 +101,7 @@ Quality assurance involves following practices to ensure changes to your applica
 
 - Along with your source code, you can maintain your Railway configuration in a `json` or `toml` file, enabling you to keep track of changes, just as you do with your source code.
 
-  Take advantage of [config as code](/guides/config-as-code) to control and track changes to your Railway configuration.
+  Take advantage of [config as code](/config-as-code) to control and track changes to your Railway configuration.
 
 **&check; Understand the deployment rollback feature**
 

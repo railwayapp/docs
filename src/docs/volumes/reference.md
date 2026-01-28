@@ -76,4 +76,4 @@ Here are some limitations of which we are currently aware:
 
 ## Support
 
-Refer to the guide on [how to use volumes](/guides/volumes) for more details on how to use the feature.
+Refer to the guide on [how to use volumes](/volumes) for more details on how to use the feature.

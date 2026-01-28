@@ -146,7 +146,7 @@ To deploy a Rocket app to Railway directly from GitHub, follow the steps below:
    - Click **Add Variables**, then add `ROCKET_ADDRESS` with the value `0.0.0.0`. This allows your Rocket app to accept external connections by listening on `0.0.0.0`.
 4. **Deploy the App**:
    - Click **Deploy** to start the deployment process.
-   - Once the deployed, a Railway [service](/guides/services) will be created for your app, but it won’t be publicly accessible by default.
+   - Once the deployed, a Railway [service](/services) will be created for your app, but it won’t be publicly accessible by default.
 5. **Verify the Deployment**:
 
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
@@ -187,7 +187,7 @@ To deploy a Rocket app to Railway directly from GitHub, follow the steps below:
 
 3. Either deploy via the CLI or from GitHub.
 
-Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/guides/dockerfiles)
+Railway automatically detects the `Dockerfile`, [and uses it to build and deploy the app.](/builds/dockerfiles)
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 
