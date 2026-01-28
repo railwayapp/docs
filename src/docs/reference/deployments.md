@@ -140,7 +140,11 @@ The time given to gracefully shutdown can be controlled by setting a [`RAILWAY_D
 
 ## Railway Initiated Deployments
 
-Occasionally, Railway will initiate a new deployment to migrate your service from one host to another. **This is primarily for your service's security and performance.**
+Occasionally, Railway will initiate a new deployment to migrate your service from one host to another. This may happen for one of three reasons:
+
+1. At your plan tier, such as Trial or Hobby, you may be pre-emptively moved to a different host to help us optimize workload distribution.
+2. A host requires security or performance updates and requires there to be no running workloads on the machine. We provide advance warning for these events.
+3. A host has a fault and we migrate workloads off the machine to another to maintain customer service continutity.
 
 We perform these migrations when implementing security patches or platform upgrades to the underlying infrastructure where your service was previously running. During platform-wide upgrades, your service might be redeployed multiple times as we roll out changes across our infrastructure. These deployments are mandatory and cannot be opted out of.
 
