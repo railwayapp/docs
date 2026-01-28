@@ -1,15 +1,22 @@
 ---
 title: Templates
-description: Learn how Railway’s Kickback program rewards template publishers for their contributions.
+description: Everything you need to know about Railway templates.
 ---
 
 Templates provide a way to jumpstart a project by giving users the means to package a service or set of services into a reusable and distributable format.
 
 As a Railway user, you can create and publish templates for others to use, or you can deploy templates from our [template marketplace](https://railway.com/templates).
 
-For information on how to create, publish, and deploy templates, visit our [Templates guides](/guides/templates).
+## Highlights
 
-## Kickback program
+|                                                  |                                                                                                                                                                                                                                      |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Bootstrap Projects**                           | Templates are the best way to bootstrap a project by enabling you to provision a service or set of services in a matter of clicks. Choose a template to deploy from the marketplace, or create your own from your personal scaffold. |
+| **Best Practices**                               | Creating templates can get complex, but these best practices will help you create templates that are easy to use and maintain.                                                                                                       |
+| **Community Clout**                              | When you publish a template, it is placed into our template marketplace for all users of the Railway community to take advantage.                                                                                                    |
+| [**Kickback Program**](#kickback-program)        | Earn kickbacks from template usage, up to 50% for open source templates with active community support. Get rewarded for building quality templates that help the community.                                                          |
+
+## Kickback Program
 
 If you publish a template, and it is deployed into other users' projects, you are eligible for a 50% kickback of the usage cost incurred. You can receive kickback earnings in Railway Credits or with Cash Withdrawal.
 
@@ -57,7 +64,7 @@ With Railway's [Partner Program](https://railway.com/partners), partners can:
 
 ### Basic Partners
 
-Basic Partners are part of Railway's official [partner program](https://railway.com/partners) and receive a the same kickback rate as creators. They verify templates to suggest optimal use of their technology on the template marketplace. Verified partner templates receive significant benefits:
+Basic Partners are part of Railway's official [partner program](https://railway.com/partners) and receive the same kickback rate as creators. They verify templates to suggest optimal use of their technology on the template marketplace. Verified partner templates receive significant benefits:
 
 - Featured placement in the template marketplace with verification badges
 - Access to Railway's user base as a new acquisition channel
@@ -86,39 +93,39 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 #### How do I start earning cash?
 
-- Simply flip the switch on the Earnings page marked `Direct Deposit to Railway Credits`. This will stop auto-depositing your earnings into our credits system. You will then begin accruing cash in your `Available Balance`.
+Simply flip the switch on the Earnings page marked `Direct Deposit to Railway Credits`. This will stop auto-depositing your earnings into our credits system. You will then begin accruing cash in your `Available Balance`.
 
 #### How do I request a withdrawal?
 
-- Follow the instructions inside the `Earnings` tab. We use Stripe Connect to handle withdrawals. After completing the onboarding process, you will be able to request a withdrawal.
+Follow the instructions inside the `Earnings` tab. We use Stripe Connect to handle withdrawals. After completing the onboarding process, you will be able to request a withdrawal.
 
 #### Why is my country not supported?
 
-- Due to local regulations and compliance requirements, certain regions are not eligible for cash withdrawals. You can choose from the 130+ countries that are supported in the onboarding process.
+Due to local regulations and compliance requirements, certain regions are not eligible for cash withdrawals. You can choose from the 130+ countries that are supported in the onboarding process.
 
 #### Can I make manual withdrawals to credits too?
 
-- Yes! Choose `to Credits` in the dropdown and then make your withdrawal request.
+Yes! Choose `to Credits` in the dropdown and then make your withdrawal request.
 
 #### I have earned a lot of kickbacks from a template, but this page says my available balance is $0. Why?
 
-- The current kickback method is to automatically apply your kickbacks as Railway credits. You can opt out of this if you wish to start accruing cash.
+The current kickback method is to automatically apply your kickbacks as Railway credits. You can opt out of this if you wish to start accruing cash.
 
 #### Can I still use the older, automatic-credits setting?
 
-- Yes. This behavior is enabled by default. You can opt out of it, and back in to it, at any time. Simply use the switch on the Earnings page marked `Direct Deposit to Railway Credits`.
+Yes. This behavior is enabled by default. You can opt out of it, and back in to it, at any time. Simply use the switch on the Earnings page marked `Direct Deposit to Railway Credits`.
 
 #### What is the minimum and maximum withdrawal amount?
 
-- For now, withdrawals may be made in $100 - $10,000 increments.
+For now, withdrawals may be made in $100 - $10,000 increments.
 
 #### What is the timeframe from withdrawal request to payout?
 
-- Withdrawals are usually processed instantly. Once processed, the funds will usually take up to 10 business days to reach your account. Depending on your region and bank, this may take longer.
+Withdrawals are usually processed instantly. Once processed, the funds will usually take up to 10 business days to reach your account. Depending on your region and bank, this may take longer.
 
-#### What if I there are no questions for my template?
+#### What if there are no questions for my template?
 
-- If there are no questions, you will reveive the full 25% kickback for your template.
+If there are no questions, you will receive the full 25% kickback for your template.
 
 ## Pushing Updates to Template Consumers
 
