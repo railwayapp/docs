@@ -38,7 +38,7 @@ Software development extends far beyond code deployment. Railway's feature set i
 
 ## Operational Model
 
-Railway operates with an emphasis on reliability and transparency. We utilize a combination of alerting tools, internal systems, and operational procedures to maintain high uptime. Read more about product philosophy and maturity [here](/maturity/philosophy).
+Railway operates with an emphasis on reliability and transparency. We utilize a combination of alerting tools, internal systems, and operational procedures to maintain high uptime. Read more about product philosophy and maturity [here](/platform/philosophy).
 
 ## Book a Demo
 

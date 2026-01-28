@@ -314,7 +314,7 @@ File transfer workarounds:
 - **No port forwarding**: Cannot forward ports from the remote container to your local machine.
 - **No IDE integration**: Cannot use VS Code's Remote-SSH extension or similar tools.
 
-**For private service access**: Use [Tailscale subnet router](/tutorials/set-up-a-tailscale-subnet-router) to create secure network access to your Railway services.
+**For private service access**: Use [Tailscale subnet router](/guides/set-up-a-tailscale-subnet-router) to create secure network access to your Railway services.
 
 **Container and Image Limitations**
 
