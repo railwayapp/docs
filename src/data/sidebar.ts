@@ -15,10 +15,6 @@ const makePage = (title: string, category?: string, slug?: string): IPage => ({
 
 export const sidebarContent: ISidebarContent = [
   {
-    title: "",
-    content: [makePage("Quick Start", undefined)],
-  },
-  {
     title: "Overview",
     content: [
       makePage("The Basics", "overview"),
@@ -62,9 +58,29 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Templates",
+    title: "Enterprise",
+    slug: "/enterprise",
     content: [
-      makePage("Templates", undefined, "/templates"),
+      makePage("Audit Logs", "enterprise"),
+      makePage("Compliance", "enterprise"),
+      makePage("SAML SSO", "enterprise", "/enterprise/saml"),
+      makePage("Environment RBAC", "enterprise"),
+    ],
+  },
+  {
+    title: "AI",
+    slug: "/ai",
+    content: [makePage("Agent Skills", "ai"), makePage("MCP Server", "ai")],
+  },
+  {
+    title: "CLI",
+    slug: "/cli",
+    content: [makePage("Deploying", "cli")],
+  },
+  {
+    title: "Templates",
+    slug: "/templates",
+    content: [
       makePage("Deploy", "templates"),
       makePage("Create", "templates"),
       makePage("Best Practices", "templates", "/templates/best-practices"),
@@ -75,18 +91,6 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "AI",
-    content: [
-      makePage("AI", undefined, "/ai"),
-      makePage("Agent Skills", "ai"),
-      makePage("MCP Server", "ai"),
-    ],
-  },
-  {
-    title: "CLI",
-    content: [makePage("CLI", undefined, "/cli"), makePage("Deploying", "cli")],
-  },
-  {
     title: "Access",
     content: [
       makePage("Accounts", "access"),
@@ -94,20 +98,11 @@ export const sidebarContent: ISidebarContent = [
       makePage("Multi-Factor Authentication", "access"),
     ],
   },
-  {
-    title: "Enterprise",
-    content: [
-      makePage("Enterprise", undefined, "/enterprise"),
-      makePage("Audit Logs", "enterprise"),
-      makePage("Compliance", "enterprise"),
-      makePage("SAML SSO", "enterprise", "/enterprise/saml"),
-      makePage("Environment RBAC", "enterprise"),
-    ],
-  },
+
   {
     title: "Projects",
+    slug: "/projects",
     content: [
-      makePage("Projects", undefined, "/projects"),
       makePage("Project Members", "projects"),
       makePage("Project Usage", "projects"),
       makePage("Teams", "projects"),
@@ -115,11 +110,13 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Services",
-    content: [makePage("Services", undefined, "/services")],
+    slug: "/services",
+    content: [],
   },
   {
     title: "Variables",
-    content: [makePage("Variables", undefined, "/variables")],
+    slug: "/variables",
+    content: [makePage("Reference", "variables")],
   },
   {
     title: "Deployments",
@@ -142,8 +139,8 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Builds",
+    slug: "/builds",
     content: [
-      makePage("Builds", undefined, "/builds"),
       makePage("Build Configuration", "builds"),
       makePage("Dockerfiles", "builds"),
       makePage("Private Registries", "builds"),
@@ -153,16 +150,18 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Cron Jobs",
-    content: [makePage("Cron Jobs", undefined, "/cron-jobs")],
+    slug: "/cron-jobs",
+    content: [],
   },
   {
     title: "Functions",
-    content: [makePage("Functions", undefined, "/functions")],
+    slug: "/functions",
+    content: [],
   },
   {
     title: "Databases",
+    slug: "/databases",
     content: [
-      makePage("Databases", undefined, "/databases"),
       makePage("Build a Database Service", "databases"),
       makePage("PostgreSQL", "databases"),
       makePage("MySQL", "databases"),
@@ -173,15 +172,13 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Volumes",
-    content: [
-      makePage("Volumes", undefined, "/volumes"),
-      makePage("Backups", "volumes"),
-    ],
+    slug: "/volumes",
+    content: [makePage("Backups", "volumes")],
   },
   {
     title: "Storage Buckets",
+    slug: "/storage-buckets",
     content: [
-      makePage("Storage Buckets", undefined, "/storage-buckets"),
       makePage(
         "Uploading & Serving",
         "storage-buckets",
@@ -191,27 +188,30 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Public Networking",
-    content: [
-      makePage("Public Networking", undefined, "/public-networking"),
-      makePage(
-        "Specs & Limits",
-        "public-networking",
-        "/public-networking/specs-and-limits",
-      ),
-    ],
-  },
-  {
-    title: "Private Networking",
-    content: [
-      makePage("Private Networking", undefined, "/private-networking"),
-      makePage("Library Configuration", "private-networking"),
-    ],
-  },
-  {
     title: "Networking",
     content: [
-      makePage("Networking", undefined, "/networking"),
+      {
+        subTitle: makePage(
+          "Public Networking",
+          undefined,
+          "/public-networking",
+        ),
+        pages: [
+          makePage(
+            "Specs & Limits",
+            "public-networking",
+            "/public-networking/specs-and-limits",
+          ),
+        ],
+      },
+      {
+        subTitle: makePage(
+          "Private Networking",
+          undefined,
+          "/private-networking",
+        ),
+        pages: [makePage("Library Configuration", "private-networking")],
+      },
       makePage("Domains", "networking"),
       makePage("TCP Proxy", "networking"),
       makePage("Outbound Networking", "networking"),
@@ -222,8 +222,8 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Observability",
+    slug: "/observability",
     content: [
-      makePage("Observability", undefined, "/observability"),
       makePage("Logs", "observability"),
       makePage("Metrics", "observability"),
       makePage("Webhooks", "observability"),
@@ -231,11 +231,13 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Environments",
-    content: [makePage("Environments", undefined, "/environments")],
+    slug: "/environments",
+    content: [],
   },
   {
     title: "Config as Code",
-    content: [makePage("Config as Code", undefined, "/config-as-code")],
+    slug: "/config-as-code",
+    content: [],
   },
   {
     title: "Community",
@@ -247,8 +249,8 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Public API",
+    slug: "/public-api",
     content: [
-      makePage("Public API", undefined, "/public-api"),
       makePage("Manage Projects", "public-api"),
       makePage("Manage Services", "public-api"),
       makePage("Manage Deployments", "public-api"),
@@ -256,115 +258,8 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Guides",
-    content: [
-      makePage("Static Hosting", "guides"),
-      {
-        subTitle: "Languages & Frameworks",
-        pages: [
-          makePage("Express", "guides"),
-          makePage("Nest", "guides"),
-          makePage("Fastify", "guides"),
-          makePage("FastAPI", "guides"),
-          makePage("Flask", "guides"),
-          makePage("Beego", "guides"),
-          makePage("Gin", "guides"),
-          makePage("Rails", "guides"),
-          makePage("Axum", "guides"),
-          makePage("Rocket", "guides"),
-          makePage("Laravel", "guides"),
-          makePage("Symfony", "guides"),
-          makePage("Luminus", "guides"),
-          makePage("Play", "guides"),
-          makePage("Sails", "guides"),
-          makePage("Django", "guides"),
-          makePage("Angular", "guides"),
-          makePage("React", "guides"),
-          makePage("Remix", "guides"),
-          makePage("Vue", "guides"),
-          makePage("Nuxt", "guides"),
-          makePage("Spring Boot", "guides"),
-          makePage("Astro", "guides"),
-          makePage("SvelteKit", "guides"),
-          makePage("Solid", "guides"),
-          makePage("Phoenix", "guides"),
-          makePage("Phoenix Distillery", "guides"),
-        ],
-      },
-    ],
-  },
-  {
-    title: "Tutorials",
-    content: [
-      makePage("Getting Started", "guides"),
-      {
-        subTitle: "Technical Tutorials",
-        pages: [
-          {
-            title: "Queues on Railway",
-            url: "https://blog.railway.com/p/queues",
-          },
-          makePage("Set Up a Datadog Agent", "guides"),
-          makePage("Deploy an Otel Collector Stack", "guides"),
-          makePage("Add a CDN using CloudFront", "guides"),
-          makePage("Deploying a Monorepo", "guides"),
-          makePage("Set up a Tailscale Subnet Router", "guides"),
-          makePage("Bridge Railway to RDS with Tailscale", "guides"),
-        ],
-      },
-      {
-        subTitle: "GitHub Actions",
-        pages: [
-          {
-            title: "Deploy with Railway",
-            url: "https://blog.railway.com/p/github-actions",
-          },
-          makePage(
-            "Post-Deploy",
-            "guides",
-            "/guides/github-actions-post-deploy",
-          ),
-          makePage(
-            "PR Environment",
-            "guides",
-            "/guides/github-actions-pr-environment",
-          ),
-          makePage(
-            "Self Hosted Runners",
-            "guides",
-            "/guides/github-actions-runners",
-          ),
-          {
-            title: "Implementing a Testing Suite",
-            url: "https://blog.railway.com/p/implementing-gh-actions-testing",
-          },
-        ],
-      },
-      {
-        subTitle: "GitLab",
-        pages: [
-          {
-            title: "GitLab CI/CD with Railway",
-            url: "https://blog.railway.com/p/gitlab-ci-cd",
-          },
-        ],
-      },
-    ],
-  },
-  {
     title: "Troubleshooting",
-    content: [
-      makePage("Troubleshooting", undefined, "/troubleshooting"),
-      makePage("Application Failed to Respond", "troubleshooting"),
-      makePage("No Start Command Could Be Found", "troubleshooting"),
-      makePage("405 Method Not Allowed", "troubleshooting"),
-      makePage(
-        "Unable to Generate a Build Plan",
-        "troubleshooting",
-        "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
-      ),
-      makePage("ENOTFOUND redis.railway.internal", "troubleshooting"),
-      makePage("Node.js SIGTERM", "troubleshooting"),
-    ],
+    slug: "/troubleshooting",
+    content: [],
   },
 ];
