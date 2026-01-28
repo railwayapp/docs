@@ -194,13 +194,13 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage(
           "Public Networking",
           undefined,
-          "/public-networking",
+          "/networking/public-networking",
         ),
         pages: [
           makePage(
             "Specs & Limits",
-            "public-networking",
-            "/public-networking/specs-and-limits",
+            "networking/public-networking",
+            "/networking/public-networking/specs-and-limits",
           ),
         ],
       },
@@ -208,9 +208,11 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage(
           "Private Networking",
           undefined,
-          "/private-networking",
+          "/networking/private-networking",
         ),
-        pages: [makePage("Library Configuration", "private-networking")],
+        pages: [
+          makePage("Library Configuration", "networking/private-networking"),
+        ],
       },
       makePage("Domains", "networking"),
       makePage("TCP Proxy", "networking"),

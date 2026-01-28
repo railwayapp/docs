@@ -17,7 +17,7 @@ Railway is a highly versatile platform, offering various ways to use it, though 
 
 ## Use Private Networking When Possible
 
-[Private networking](/private-networking) allows services within a [project](/overview/the-basics#project--project-canvas) to communicate internally without the need to expose them [publicly](/public-networking), while also providing faster communication and increased throughput.
+[Private networking](/networking/private-networking) allows services within a [project](/overview/the-basics#project--project-canvas) to communicate internally without the need to expose them [publicly](/networking/public-networking), while also providing faster communication and increased throughput.
 
 When configuring environment variables in your service to reference domains or URLs of other services, ensure you use the private versions of these variables, such as `RAILWAY_PRIVATE_DOMAIN` or `DATABASE_URL`.
 

@@ -89,5 +89,5 @@ Railway does not currently support outbound IPv6. Any IPv6 request will fail sho
 ## Related Features
 
 - [Static Outbound IPs](/networking/static-outbound-ips) - Assign permanent outbound IP addresses
-- [Private Networking](/private-networking) - Internal service communication
-- [Public Networking](/public-networking) - Inbound traffic to your services
+- [Private Networking](/networking/private-networking) - Internal service communication
+- [Public Networking](/networking/public-networking) - Inbound traffic to your services

@@ -80,7 +80,7 @@ Once you add a new service and select the source, you can configure the followin
     _Use [reference variables](/guides/variables#reference-variables) where possible for a better quality template_
 - **Settings tab**
   - Add a [Root Directory](/guides/monorepo) (Helpful for monorepos)
-  - [Enable Public Networking](/public-networking) with TCP Proxy or HTTP
+  - [Enable Public Networking](/networking/public-networking) with TCP Proxy or HTTP
   - Set a custom [Start command](/guides/start-command)
   - Add a [Healthcheck Path](/guides/healthchecks#configure-the-healthcheck-path)
 - **Add a volume**

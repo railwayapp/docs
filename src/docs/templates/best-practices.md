@@ -49,7 +49,7 @@ Private networking provides faster, free communication between services and redu
 
 Always configure service-to-service communication (such as backend to database connections) to use private network hostnames rather than public domains.
 
-For more details, see the [private networking guide](/private-networking) and [reference documentation](/private-networking).
+For more details, see the [private networking guide](/networking/private-networking) and [reference documentation](/networking/private-networking).
 
 ## Environment Variables
 

@@ -35,7 +35,7 @@ width={1305} height={735} quality={100} />
 
 A project represents a capsule for composing infrastructure in Railway. You can think of a project as an application stack, a service group, or even a collection of service groups.
 
-Services within a project are automatically joined to a [private network](/private-networking) scoped to that project.
+Services within a project are automatically joined to a [private network](/networking/private-networking) scoped to that project.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png"
 alt="Screenshot of the project canvas"

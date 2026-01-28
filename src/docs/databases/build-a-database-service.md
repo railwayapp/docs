@@ -47,7 +47,7 @@ Note the `DATABASE_URL` is configured with TCP Proxy variables, but you can also
 
 ### Private Network
 
-To connect to your database service from other services in your project, you can use the [private network](/private-networking). For a postgres database service listening on port `5432`, you can use a connection string like this -
+To connect to your database service from other services in your project, you can use the [private network](/networking/private-networking). For a postgres database service listening on port `5432`, you can use a connection string like this -
 
 ```bash
 postgresql://postgres:password@postgres.railway.internal:5432/railway

@@ -44,7 +44,7 @@ Common reasons for high resource usage include:
 - Memory leaks in your application, causing it to consume more memory than necessary
 - Higher traffic than usual, causing your app to consume more CPU and/or Network
 - Certain templates or apps may be inherently more resource-intensive than others
-- If you notice high egress cost in your bill, ensure that you are connecting to your Railway databases over [Private Networking](/private-networking)
+- If you notice high egress cost in your bill, ensure that you are connecting to your Railway databases over [Private Networking](/networking/private-networking)
 - If you have [PR deploys](/develop/environments#ephemeral-environments) enabled in your project, Railway will deploy a mirror copy of your workload(s) based on the environment it forks from (`production` by default). You are billed for those workload(s) running in the ephemeral environment
 
 Unfortunately, we are unable to assist with figuring out why your bill is higher than normal, as it is entirely dependent on what you have deployed. Resource usage is billed in a manner akin to how a utility company operates: they can tell you the amount of electricity you've consumed, but they can't explain the reasons for your high usage. Similarly, we can only provide information on the quantity of resources you consume, not the reasons behind it.

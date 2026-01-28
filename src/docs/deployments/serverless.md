@@ -19,7 +19,7 @@ Some things that can prevent a service from being put to sleep -
 
 - Keeping active database connections open, such as a database connection pooler.
 - Frameworks that report telemetry to their respective services, such as [Next.js](https://nextjs.org/telemetry).
-- Making requests to other services in the same [project](/overview/the-basics#project--project-canvas) over the [private network](/private-networking).
+- Making requests to other services in the same [project](/overview/the-basics#project--project-canvas) over the [private network](/networking/private-networking).
 - Making requests to other Railway services over the public internet.
 - Making requests to external services over the public internet.
 - Receiving traffic from other services in the same project over the private network.
@@ -30,7 +30,7 @@ It's important to note that the networking graph in the metrics tab only display
 
 #### Waking a Service Up
 
-A service is woken when it receives traffic from the internet or from another service in the same project through the [private network](/private-networking).
+A service is woken when it receives traffic from the internet or from another service in the same project through the [private network](/networking/private-networking).
 
 The first request made to a slept service wakes it. It may take a small amount of time for the service to spin up again on the first request (commonly known as "cold boot time").
 
