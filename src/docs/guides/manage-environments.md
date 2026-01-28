@@ -19,7 +19,7 @@ Get all environments for a project:
       }
     }
   }
-}`} variables={{ projectId: "<your-project-id>" }} />
+}`} variables={{ projectId: "project-id" }} />
 
 ### Exclude Ephemeral Environments
 
@@ -35,7 +35,7 @@ Filter out PR/preview environments:
       }
     }
   }
-}`} variables={{ projectId: "<your-project-id>", isEphemeral: "false" }} />
+}`} variables={{ projectId: "project-id", isEphemeral: false }} />
 
 ## Get a Single Environment
 
@@ -59,7 +59,7 @@ Fetch an environment by ID with its service instances:
       }
     }
   }
-}`} variables={{ id: "<your-environment-id>" }} />
+}`} variables={{ id: "environment-id" }} />
 
 ## Create an Environment
 
@@ -70,46 +70,19 @@ Create a new environment:
     id
     name
   }
-}`} variables={{ input: { projectId: "<your-project-id>", name: "staging" } }} />
-
-### Clone from Another Environment
-
-Create an environment that copies variables and settings from an existing one:
-
-<CodeTabs query={`mutation environmentCreate($input: EnvironmentCreateInput!) {
-  environmentCreate(input: $input) {
-    id
-    name
-  }
-}`} variables={{ input: { projectId: "<your-project-id>", name: "staging", sourceEnvironmentId: "<production-environment-id>" } }} />
-
-### Skip Initial Deploys
-
-Create an environment without triggering deployments:
-
-<CodeTabs query={`mutation environmentCreate($input: EnvironmentCreateInput!) {
-  environmentCreate(input: $input) {
-    id
-    name
-  }
-}`} variables={{ input: { projectId: "<your-project-id>", name: "staging", skipInitialDeploys: "true" } }} />
-
-### Create an Ephemeral Environment
-
-Create a temporary environment (useful for PR previews):
-
-<CodeTabs query={`mutation environmentCreate($input: EnvironmentCreateInput!) {
-  environmentCreate(input: $input) {
-    id
-    name
-  }
-}`} variables={{ input: { projectId: "<your-project-id>", name: "pr-123", ephemeral: "true" } }} />
+}`} variables={{ input: { projectId: "project-id", name: "staging" } }}
+optionalFields={[
+  { name: "input.sourceEnvironmentId", type: "String", description: "Clone variables and settings from this environment" },
+  { name: "input.ephemeral", type: "Boolean", description: "Create as ephemeral (for PR previews)" },
+  { name: "input.skipInitialDeploys", type: "Boolean", description: "Don't trigger deployments on creation" },
+  { name: "input.stageInitialChanges", type: "Boolean", description: "Stage changes instead of applying immediately" },
+]} />
 
 ## Rename an Environment
 
 <CodeTabs query={`mutation environmentRename($id: String!, $input: EnvironmentRenameInput!) {
   environmentRename(id: $id, input: $input)
-}`} variables={{ id: "<your-environment-id>", input: { name: "new-name" } }} />
+}`} variables={{ id: "environment-id", input: { name: "new-name" } }} />
 
 ## Delete an Environment
 
@@ -117,7 +90,7 @@ Create a temporary environment (useful for PR previews):
 
 <CodeTabs query={`mutation environmentDelete($id: String!) {
   environmentDelete(id: $id)
-}`} variables={{ id: "<your-environment-id>" }} />
+}`} variables={{ id: "environment-id" }} />
 
 ## Deploy a Service
 
@@ -125,7 +98,7 @@ Trigger a deployment for a specific service in an environment:
 
 <CodeTabs query={`mutation environmentTriggersDeploy($input: EnvironmentTriggersDeployInput!) {
   environmentTriggersDeploy(input: $input)
-}`} variables={{ input: { environmentId: "<your-environment-id>", projectId: "<your-project-id>", serviceId: "<your-service-id>" } }} />
+}`} variables={{ input: { environmentId: "environment-id", projectId: "project-id", serviceId: "service-id" } }} />
 
 ## Get Environment Logs
 
@@ -141,21 +114,10 @@ Fetch logs from all services in an environment:
       deploymentId
     }
   }
-}`} variables={{ environmentId: "<your-environment-id>" }} />
-
-### Filter by Text
-
-<CodeTabs query={`query environmentLogs($environmentId: String!, $filter: String) {
-  environmentLogs(environmentId: $environmentId, filter: $filter) {
-    timestamp
-    message
-    severity
-    tags {
-      serviceId
-      deploymentId
-    }
-  }
-}`} variables={{ environmentId: "<your-environment-id>", filter: "error" }} />
+}`} variables={{ environmentId: "environment-id" }}
+optionalFields={[
+  { name: "filter", type: "String", description: "Filter logs by text (e.g., 'error')" },
+]} />
 
 ## Staged Changes
 
@@ -165,10 +127,10 @@ Railway supports staging variable changes before deploying them.
 
 <CodeTabs query={`query environmentStagedChanges($environmentId: String!) {
   environmentStagedChanges(environmentId: $environmentId)
-}`} variables={{ environmentId: "<your-environment-id>" }} />
+}`} variables={{ environmentId: "environment-id" }} />
 
 ### Commit Staged Changes
 
 <CodeTabs query={`mutation environmentPatchCommitStaged($environmentId: String!) {
   environmentPatchCommitStaged(environmentId: $environmentId)
-}`} variables={{ environmentId: "<your-environment-id>" }} />
+}`} variables={{ environmentId: "environment-id" }} />

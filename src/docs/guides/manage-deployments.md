@@ -21,7 +21,7 @@ Get all deployments for a service in an environment:
       }
     }
   }
-}`} variables={{ input: { projectId: "<your-project-id>", serviceId: "<your-service-id>", environmentId: "<your-environment-id>" }, first: 10 }} />
+}`} variables={{ input: { projectId: "project-id", serviceId: "service-id", environmentId: "environment-id" }, first: 10 }} />
 
 ## Get a Single Deployment
 
@@ -38,7 +38,7 @@ Fetch a deployment by ID:
     canRedeploy
     canRollback
   }
-}`} variables={{ id: "<your-deployment-id>" }} />
+}`} variables={{ id: "deployment-id" }} />
 
 ## Get Latest Active Deployment
 
@@ -55,7 +55,7 @@ Get the currently running deployment:
       }
     }
   }
-}`} variables={{ input: { projectId: "<your-project-id>", serviceId: "<your-service-id>", environmentId: "<your-environment-id>", status: { successfulOnly: true } } }} />
+}`} variables={{ input: { projectId: "project-id", serviceId: "service-id", environmentId: "environment-id", status: { successfulOnly: true } } }} />
 
 ## Get Build Logs
 
@@ -67,7 +67,7 @@ Fetch build logs for a deployment:
     message
     severity
   }
-}`} variables={{ deploymentId: "<your-deployment-id>", limit: 500 }} />
+}`} variables={{ deploymentId: "deployment-id", limit: 500 }} />
 
 ## Get Runtime Logs
 
@@ -79,27 +79,12 @@ Fetch runtime logs for a deployment:
     message
     severity
   }
-}`} variables={{ deploymentId: "<your-deployment-id>", limit: 500 }} />
-
-### Filter Logs by Time
-
-<CodeTabs query={`query deploymentLogs($deploymentId: String!, $limit: Int, $startDate: DateTime, $endDate: DateTime) {
-  deploymentLogs(deploymentId: $deploymentId, limit: $limit, startDate: $startDate, endDate: $endDate) {
-    timestamp
-    message
-    severity
-  }
-}`} variables={{ deploymentId: "<your-deployment-id>", limit: 100, startDate: "2024-01-01T00:00:00Z", endDate: "2024-01-02T00:00:00Z" }} />
-
-### Filter Logs by Text
-
-<CodeTabs query={`query deploymentLogs($deploymentId: String!, $limit: Int, $filter: String) {
-  deploymentLogs(deploymentId: $deploymentId, limit: $limit, filter: $filter) {
-    timestamp
-    message
-    severity
-  }
-}`} variables={{ deploymentId: "<your-deployment-id>", limit: 100, filter: "error" }} />
+}`} variables={{ deploymentId: "deployment-id", limit: 500 }}
+optionalFields={[
+  { name: "filter", type: "String", description: "Filter logs by text" },
+  { name: "startDate", type: "DateTime", description: "Start of time range (ISO 8601)" },
+  { name: "endDate", type: "DateTime", description: "End of time range (ISO 8601)" },
+]} />
 
 ## Get HTTP Logs
 
@@ -115,7 +100,7 @@ Fetch HTTP request logs for a deployment:
     totalDuration
     srcIp
   }
-}`} variables={{ deploymentId: "<your-deployment-id>", limit: 100 }} />
+}`} variables={{ deploymentId: "deployment-id", limit: 100 }} />
 
 ## Trigger a Redeploy
 
@@ -126,7 +111,7 @@ Redeploy an existing deployment:
     id
     status
   }
-}`} variables={{ id: "<your-deployment-id>" }} />
+}`} variables={{ id: "deployment-id" }} />
 
 ## Restart a Deployment
 
@@ -134,7 +119,7 @@ Restart a running deployment without rebuilding:
 
 <CodeTabs query={`mutation deploymentRestart($id: String!) {
   deploymentRestart(id: $id)
-}`} variables={{ id: "<your-deployment-id>" }} />
+}`} variables={{ id: "deployment-id" }} />
 
 ## Rollback to a Deployment
 
@@ -145,7 +130,7 @@ Rollback to a previous deployment:
     id
     status
   }
-}`} variables={{ id: "<your-deployment-id>" }} />
+}`} variables={{ id: "deployment-id" }} />
 
 <Banner variant="info">You can only rollback to deployments that have `canRollback: true`.</Banner>
 
@@ -155,7 +140,7 @@ Stop a running deployment:
 
 <CodeTabs query={`mutation deploymentStop($id: String!) {
   deploymentStop(id: $id)
-}`} variables={{ id: "<your-deployment-id>" }} />
+}`} variables={{ id: "deployment-id" }} />
 
 ## Cancel a Deployment
 
@@ -163,7 +148,7 @@ Cancel a deployment that is building or queued:
 
 <CodeTabs query={`mutation deploymentCancel($id: String!) {
   deploymentCancel(id: $id)
-}`} variables={{ id: "<your-deployment-id>" }} />
+}`} variables={{ id: "deployment-id" }} />
 
 ## Remove a Deployment
 
@@ -171,7 +156,7 @@ Remove a deployment from the history:
 
 <CodeTabs query={`mutation deploymentRemove($id: String!) {
   deploymentRemove(id: $id)
-}`} variables={{ id: "<your-deployment-id>" }} />
+}`} variables={{ id: "deployment-id" }} />
 
 ## Deploy a Specific Service in an Environment
 
@@ -179,7 +164,7 @@ Trigger a deployment for a specific service:
 
 <CodeTabs query={`mutation environmentTriggersDeploy($input: EnvironmentTriggersDeployInput!) {
   environmentTriggersDeploy(input: $input)
-}`} variables={{ input: { environmentId: "<your-environment-id>", projectId: "<your-project-id>", serviceId: "<your-service-id>" } }} />
+}`} variables={{ input: { environmentId: "environment-id", projectId: "project-id", serviceId: "service-id" } }} />
 
 ## Deployment Statuses
 

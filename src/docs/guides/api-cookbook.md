@@ -15,7 +15,7 @@ https://backboard.railway.com/graphql/v2
 **Authentication:**
 ```bash
 # Set your token (get one from railway.com/account/tokens)
-export RAILWAY_TOKEN="<your-token>"
+export RAILWAY_TOKEN="your-token"
 ```
 
 Test your connection:
@@ -64,15 +64,22 @@ See [Manage Projects](/guides/manage-projects) for more details.
       }
     }
   }
-}`} variables={{ id: "<your-project-id>" }} />
+}`} variables={{ id: "project-id" }} />
 
 ### Create a Project
 
-<CodeTabs query={`mutation {
-  projectCreate(input: { name: "My Project" }) {
+<CodeTabs query={`mutation projectCreate($input: ProjectCreateInput!) {
+  projectCreate(input: $input) {
     id
   }
-}`} />
+}`} variables={{ input: { name: "My Project" } }}
+optionalFields={[
+  { name: "input.description", type: "String", description: "Project description" },
+  { name: "input.workspaceId", type: "String", description: "Create in a specific workspace" },
+  { name: "input.isPublic", type: "Boolean", description: "Make project publicly visible" },
+  { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments" },
+  { name: "input.defaultEnvironmentName", type: "String", description: "Name for default environment" },
+]} />
 
 ---
 
@@ -82,40 +89,43 @@ See [Manage Services](/guides/manage-services) for more details.
 
 ### Create Service from GitHub
 
-<CodeTabs query={`mutation {
-  serviceCreate(input: {
-    projectId: "<your-project-id>"
-    name: "API"
-    source: { repo: "username/repo" }
-  }) {
+<CodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
+  serviceCreate(input: $input) {
     id
   }
-}`} />
+}`} variables={{ input: { projectId: "project-id", name: "API", source: { repo: "username/repo" } } }}
+optionalFields={[
+  { name: "input.branch", type: "String", description: "Git branch to deploy" },
+  { name: "input.icon", type: "String", description: "Service icon URL" },
+  { name: "input.variables", type: "JSON", description: "Initial environment variables" },
+]} />
 
 ### Create Service from Docker Image
 
-<CodeTabs query={`mutation {
-  serviceCreate(input: {
-    projectId: "<your-project-id>"
-    name: "Redis"
-    source: { image: "redis:7-alpine" }
-  }) {
+<CodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
+  serviceCreate(input: $input) {
     id
   }
-}`} />
+}`} variables={{ input: { projectId: "project-id", name: "Redis", source: { image: "redis:7-alpine" } } }}
+optionalFields={[
+  { name: "input.icon", type: "String", description: "Service icon URL" },
+  { name: "input.variables", type: "JSON", description: "Initial environment variables" },
+]} />
 
 ### Update Service Settings
 
-<CodeTabs query={`mutation {
-  serviceInstanceUpdate(
-    serviceId: "<your-service-id>"
-    environmentId: "<your-environment-id>"
-    input: {
-      startCommand: "npm start"
-      healthcheckPath: "/health"
-    }
-  )
-}`} />
+<CodeTabs query={`mutation serviceInstanceUpdate($serviceId: String!, $environmentId: String!, $input: ServiceInstanceUpdateInput!) {
+  serviceInstanceUpdate(serviceId: $serviceId, environmentId: $environmentId, input: $input)
+}`} variables={{ serviceId: "service-id", environmentId: "environment-id", input: { startCommand: "npm start" } }}
+optionalFields={[
+  { name: "input.buildCommand", type: "String", description: "Custom build command" },
+  { name: "input.healthcheckPath", type: "String", description: "Health check endpoint path" },
+  { name: "input.numReplicas", type: "Int", description: "Number of replicas" },
+  { name: "input.region", type: "String", description: "Deployment region" },
+  { name: "input.rootDirectory", type: "String", description: "Root directory for monorepos" },
+  { name: "input.cronSchedule", type: "String", description: "Cron schedule for cron jobs" },
+  { name: "input.sleepApplication", type: "Boolean", description: "Enable sleep when idle" },
+]} />
 
 ---
 
@@ -135,33 +145,33 @@ See [Manage Deployments](/guides/manage-deployments) for more details.
       }
     }
   }
-}`} variables={{ input: { projectId: "<your-project-id>", serviceId: "<your-service-id>" } }} />
+}`} variables={{ input: { projectId: "project-id", serviceId: "service-id" } }} />
 
 ### Get Deployment Logs
 
-<CodeTabs query={`query {
-  deploymentLogs(deploymentId: "<your-deployment-id>", limit: 100) {
+<CodeTabs query={`query deploymentLogs($deploymentId: String!, $limit: Int) {
+  deploymentLogs(deploymentId: $deploymentId, limit: $limit) {
     timestamp
     message
     severity
   }
-}`} />
+}`} variables={{ deploymentId: "deployment-id", limit: 100 }} />
 
 ### Redeploy
 
-<CodeTabs query={`mutation {
-  deploymentRedeploy(id: "<your-deployment-id>") {
+<CodeTabs query={`mutation deploymentRedeploy($id: String!) {
+  deploymentRedeploy(id: $id) {
     id
   }
-}`} />
+}`} variables={{ id: "deployment-id" }} />
 
 ### Rollback
 
-<CodeTabs query={`mutation {
-  deploymentRollback(id: "<your-deployment-id>") {
+<CodeTabs query={`mutation deploymentRollback($id: String!) {
+  deploymentRollback(id: $id) {
     id
   }
-}`} />
+}`} variables={{ id: "deployment-id" }} />
 
 ---
 
@@ -171,39 +181,28 @@ See [Manage Variables](/guides/manage-variables) for more details.
 
 ### Get Variables
 
-<CodeTabs query={`query {
-  variables(
-    projectId: "<your-project-id>"
-    environmentId: "<your-environment-id>"
-    serviceId: "<your-service-id>"
-  )
-}`} />
+<CodeTabs query={`query variables($projectId: String!, $environmentId: String!, $serviceId: String) {
+  variables(projectId: $projectId, environmentId: $environmentId, serviceId: $serviceId)
+}`} variables={{ projectId: "project-id", environmentId: "environment-id", serviceId: "service-id" }} />
 
 ### Set a Variable
 
-<CodeTabs query={`mutation {
-  variableUpsert(input: {
-    projectId: "<your-project-id>"
-    environmentId: "<your-environment-id>"
-    serviceId: "<your-service-id>"
-    name: "API_KEY"
-    value: "secret"
-  })
-}`} />
+<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
+  variableUpsert(input: $input)
+}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "API_KEY", value: "secret" } }}
+optionalFields={[
+  { name: "input.skipDeploys", type: "Boolean", description: "Skip automatic redeploy after change" },
+]} />
 
 ### Set Multiple Variables
 
-<CodeTabs query={`mutation {
-  variableCollectionUpsert(input: {
-    projectId: "<your-project-id>"
-    environmentId: "<your-environment-id>"
-    serviceId: "<your-service-id>"
-    variables: {
-      "KEY1": "value1"
-      "KEY2": "value2"
-    }
-  })
-}`} />
+<CodeTabs query={`mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
+  variableCollectionUpsert(input: $input)
+}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", variables: { KEY1: "value1", KEY2: "value2" } } }}
+optionalFields={[
+  { name: "input.replace", type: "Boolean", description: "Replace all existing variables" },
+  { name: "input.skipDeploys", type: "Boolean", description: "Skip automatic redeploy after change" },
+]} />
 
 ---
 
@@ -213,8 +212,8 @@ See [Manage Environments](/guides/manage-environments) for more details.
 
 ### List Environments
 
-<CodeTabs query={`query {
-  environments(projectId: "<your-project-id>") {
+<CodeTabs query={`query environments($projectId: String!) {
+  environments(projectId: $projectId) {
     edges {
       node {
         id
@@ -222,18 +221,20 @@ See [Manage Environments](/guides/manage-environments) for more details.
       }
     }
   }
-}`} />
+}`} variables={{ projectId: "project-id" }} />
 
 ### Create Environment
 
-<CodeTabs query={`mutation {
-  environmentCreate(input: {
-    projectId: "<your-project-id>"
-    name: "staging"
-  }) {
+<CodeTabs query={`mutation environmentCreate($input: EnvironmentCreateInput!) {
+  environmentCreate(input: $input) {
     id
   }
-}`} />
+}`} variables={{ input: { projectId: "project-id", name: "staging" } }}
+optionalFields={[
+  { name: "input.sourceEnvironmentId", type: "String", description: "Clone from this environment" },
+  { name: "input.ephemeral", type: "Boolean", description: "Create as ephemeral (PR preview)" },
+  { name: "input.skipInitialDeploys", type: "Boolean", description: "Don't trigger deploys on creation" },
+]} />
 
 ---
 
@@ -243,24 +244,19 @@ See [Manage Domains](/guides/manage-domains) for more details.
 
 ### Add Railway Domain
 
-<CodeTabs query={`mutation {
-  serviceDomainCreate(input: {
-    serviceId: "<your-service-id>"
-    environmentId: "<your-environment-id>"
-  }) {
+<CodeTabs query={`mutation serviceDomainCreate($input: ServiceDomainCreateInput!) {
+  serviceDomainCreate(input: $input) {
     domain
   }
-}`} />
+}`} variables={{ input: { serviceId: "service-id", environmentId: "environment-id" } }}
+optionalFields={[
+  { name: "input.targetPort", type: "Int", description: "Route traffic to this port" },
+]} />
 
 ### Add Custom Domain
 
-<CodeTabs query={`mutation {
-  customDomainCreate(input: {
-    projectId: "<your-project-id>"
-    environmentId: "<your-environment-id>"
-    serviceId: "<your-service-id>"
-    domain: "api.example.com"
-  }) {
+<CodeTabs query={`mutation customDomainCreate($input: CustomDomainCreateInput!) {
+  customDomainCreate(input: $input) {
     id
     status {
       dnsRecords {
@@ -269,7 +265,10 @@ See [Manage Domains](/guides/manage-domains) for more details.
       }
     }
   }
-}`} />
+}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", domain: "api.example.com" } }}
+optionalFields={[
+  { name: "input.targetPort", type: "Int", description: "Route traffic to this port" },
+]} />
 
 ---
 
@@ -279,21 +278,21 @@ See [Manage Volumes](/guides/manage-volumes) for more details.
 
 ### Create Volume
 
-<CodeTabs query={`mutation {
-  volumeCreate(input: {
-    projectId: "<your-project-id>"
-    serviceId: "<your-service-id>"
-    mountPath: "/data"
-  }) {
+<CodeTabs query={`mutation volumeCreate($input: VolumeCreateInput!) {
+  volumeCreate(input: $input) {
     id
   }
-}`} />
+}`} variables={{ input: { projectId: "project-id", serviceId: "service-id", mountPath: "/data" } }}
+optionalFields={[
+  { name: "input.environmentId", type: "String", description: "Create in specific environment" },
+  { name: "input.region", type: "String", description: "Volume region (e.g., us-west1)" },
+]} />
 
 ### Create Backup
 
-<CodeTabs query={`mutation {
-  volumeInstanceBackupCreate(volumeInstanceId: "<your-volume-instance-id>")
-}`} />
+<CodeTabs query={`mutation volumeInstanceBackupCreate($volumeInstanceId: String!) {
+  volumeInstanceBackupCreate(volumeInstanceId: $volumeInstanceId)
+}`} variables={{ volumeInstanceId: "volume-instance-id" }} />
 
 ---
 
@@ -301,17 +300,14 @@ See [Manage Volumes](/guides/manage-volumes) for more details.
 
 ### List TCP Proxies
 
-<CodeTabs query={`query {
-  tcpProxies(
-    serviceId: "<your-service-id>"
-    environmentId: "<your-environment-id>"
-  ) {
+<CodeTabs query={`query tcpProxies($serviceId: String!, $environmentId: String!) {
+  tcpProxies(serviceId: $serviceId, environmentId: $environmentId) {
     id
     domain
     proxyPort
     applicationPort
   }
-}`} />
+}`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
 ---
 
@@ -330,7 +326,7 @@ See [Manage Volumes](/guides/manage-volumes) for more details.
       role
     }
   }
-}`} variables={{ workspaceId: "<your-workspace-id>" }} />
+}`} variables={{ workspaceId: "workspace-id" }} />
 
 ---
 

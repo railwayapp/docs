@@ -9,17 +9,13 @@ Here are examples to help you manage your environment variables using the Public
 
 Fetch all variables for a service in a specific environment:
 
-<CodeTabs query={`query variables(
-  $projectId: String!
-  $environmentId: String!
-  $serviceId: String
-) {
+<CodeTabs query={`query variables($projectId: String!, $environmentId: String!, $serviceId: String) {
   variables(
     projectId: $projectId
     environmentId: $environmentId
     serviceId: $serviceId
   )
-}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>" }} />
+}`} variables={{ projectId: "project-id", environmentId: "environment-id", serviceId: "service-id" }} />
 
 **Response:**
 ```json
@@ -40,25 +36,20 @@ Omit the `serviceId` to get shared variables for an environment:
 
 <CodeTabs query={`query variables($projectId: String!, $environmentId: String!) {
   variables(projectId: $projectId, environmentId: $environmentId)
-}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>" }} />
+}`} variables={{ projectId: "project-id", environmentId: "environment-id" }} />
 
 ## Get Unrendered Variables
 
 Get variables with references intact (not resolved):
 
-<CodeTabs query={`query variables(
-  $projectId: String!
-  $environmentId: String!
-  $serviceId: String
-  $unrendered: Boolean
-) {
+<CodeTabs query={`query variables($projectId: String!, $environmentId: String!, $serviceId: String, $unrendered: Boolean) {
   variables(
     projectId: $projectId
     environmentId: $environmentId
     serviceId: $serviceId
     unrendered: $unrendered
   )
-}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", unrendered: "true" }} />
+}`} variables={{ projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", unrendered: true }} />
 
 This returns variables like `${{Postgres.DATABASE_URL}}` instead of the resolved value.
 
@@ -68,7 +59,10 @@ Upsert a single variable:
 
 <CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
   variableUpsert(input: $input)
-}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", name: "API_KEY", value: "secret-key-here" } }} />
+}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "API_KEY", value: "secret-key-here" } }}
+optionalFields={[
+  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change" },
+]} />
 
 ### Create a Shared Variable
 
@@ -76,15 +70,11 @@ Omit `serviceId` to create a shared variable:
 
 <CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
   variableUpsert(input: $input)
-}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", name: "SHARED_SECRET", value: "shared-value" } }} />
-
-### Skip Automatic Redeploy
-
-By default, changing a variable triggers a redeploy. To prevent this:
-
-<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
-  variableUpsert(input: $input)
-}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", name: "API_KEY", value: "new-value", skipDeploys: "true" } }} />
+}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", name: "SHARED_SECRET", value: "shared-value" } }}
+optionalFields={[
+  { name: "input.serviceId", type: "String", description: "Set on a specific service instead of shared" },
+  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change" },
+]} />
 
 ## Upsert Multiple Variables
 
@@ -92,15 +82,11 @@ Update multiple variables at once:
 
 <CodeTabs query={`mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
   variableCollectionUpsert(input: $input)
-}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", variables: { DATABASE_URL: "postgres://...", REDIS_URL: "redis://...", NODE_ENV: "production" } } }} />
-
-### Replace All Variables
-
-To replace all existing variables (delete any not in the new set):
-
-<CodeTabs query={`mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
-  variableCollectionUpsert(input: $input)
-}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", variables: { NEW_VAR: "value" }, replace: "true" } }} />
+}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", variables: { DATABASE_URL: "postgres://...", REDIS_URL: "redis://...", NODE_ENV: "production" } } }}
+optionalFields={[
+  { name: "input.replace", type: "Boolean", description: "Replace all existing variables (delete any not in the new set)" },
+  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change" },
+]} />
 
 <Banner variant="warning">Using `replace: true` will delete all variables not included in the `variables` object.</Banner>
 
@@ -110,23 +96,19 @@ Delete a single variable:
 
 <CodeTabs query={`mutation variableDelete($input: VariableDeleteInput!) {
   variableDelete(input: $input)
-}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", name: "OLD_VARIABLE" } }} />
+}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "OLD_VARIABLE" } }} />
 
 ## Get Rendered Variables for Deployment
 
 Get all variables as they would appear during a deployment (with all references resolved):
 
-<CodeTabs query={`query variablesForServiceDeployment(
-  $projectId: String!
-  $environmentId: String!
-  $serviceId: String!
-) {
+<CodeTabs query={`query variablesForServiceDeployment($projectId: String!, $environmentId: String!, $serviceId: String!) {
   variablesForServiceDeployment(
     projectId: $projectId
     environmentId: $environmentId
     serviceId: $serviceId
   )
-}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>" }} />
+}`} variables={{ projectId: "project-id", environmentId: "environment-id", serviceId: "service-id" }} />
 
 ## Variable References
 
@@ -140,7 +122,7 @@ For example, to reference a database URL from a Postgres service:
 
 <CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
   variableUpsert(input: $input)
-}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", name: "DATABASE_URL", value: "${{Postgres.DATABASE_URL}}" } }} />
+}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "DATABASE_URL", value: "${{Postgres.DATABASE_URL}}" } }} />
 
 ## Common Patterns
 

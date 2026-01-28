@@ -22,7 +22,7 @@ Here's a simple example. Say you want to fetch a project's name and the names of
       }
     }
   }
-}`} variables={{ id: "<your-project-id>" }} />
+}`} variables={{ id: "project-id" }} />
 
 The response mirrors the shape of your query:
 
@@ -110,13 +110,81 @@ Instead of hardcoding values in your query, use variables:
     name
     description
   }
-}`} variables={{ id: "<your-project-id>" }} />
+}`} variables={{ id: "project-id" }} />
 
 Variables are passed separately from the query. This keeps queries reusable and makes it easier to work with dynamic values.
 
 ### The schema
 
-Every GraphQL API is backed by a schema that defines all available types, queries, and mutations. You don't need to read the raw schema—tools like GraphiQL surface it for you—but it's what makes autocomplete and validation possible.
+Every GraphQL API is backed by a schema that defines all available types, queries, and mutations. The schema is what makes autocomplete and validation possible.
+
+## Exploring the schema
+
+The best way to discover what's available in Railway's API is through the [GraphiQL playground](https://railway.com/graphiql). Here's how to use it effectively.
+
+### Using the Docs panel
+
+Click the "Docs" button (or press Ctrl/Cmd+Shift+D) to open the documentation explorer. From here you can:
+
+1. **Browse root operations** — Start with `Query` to see all available queries, or `Mutation` for all mutations
+2. **Search for types** — Use the search box to find types like `Project`, `Service`, or `Deployment`
+3. **Navigate relationships** — Click on any type to see its fields, then click on field types to explore further
+
+### Understanding type signatures
+
+GraphQL types follow consistent patterns:
+
+```graphql
+# Scalar types
+name: String          # Optional string
+name: String!         # Required string (the ! means non-null)
+
+# Lists
+services: [Service!]! # Required list of non-null Service objects
+
+# Input types (for mutations)
+input ProjectCreateInput {
+  name: String!       # Required
+  description: String # Optional
+}
+```
+
+**The `!` suffix means "required"** (non-null). When you see `String!`, a value must be provided. When you see `String` without `!`, it's optional.
+
+### Finding available fields
+
+When writing a query, you can request any field defined on a type. For example, if you're querying a `Project`, click on the `Project` type in GraphiQL's Docs panel to see all available fields:
+
+- `id`, `name`, `description` — basic info
+- `services`, `environments`, `volumes` — related resources
+- `createdAt`, `updatedAt` — timestamps
+- And more...
+
+You don't need to request all fields. Just include the ones you need:
+
+```graphql
+query {
+  project(id: "...") {
+    name                    # Just the fields you want
+    services {
+      edges { node { name } }
+    }
+  }
+}
+```
+
+### Finding mutation input fields
+
+For mutations, check the input type to see what you can pass. For example, `projectCreate` takes a `ProjectCreateInput`. Click on that type in GraphiQL to see:
+
+- **Required fields** — Must be provided (marked with `!`)
+- **Optional fields** — Can be omitted for default behavior
+
+The examples in our [API Cookbook](/guides/api-cookbook) show common optional fields, but GraphiQL always has the complete list.
+
+### Pro tip: Use autocomplete
+
+In GraphiQL's editor, press Ctrl+Space to trigger autocomplete. It shows all valid fields at your current position in the query, with descriptions.
 
 ## Relay-style pagination
 
@@ -197,7 +265,7 @@ For example, to get a project with its services and each service's latest deploy
       }
     }
   }
-}`} variables={{ id: "<your-project-id>" }} />
+}`} variables={{ id: "project-id" }} />
 
 ## Next steps
 

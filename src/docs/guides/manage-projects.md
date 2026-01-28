@@ -37,7 +37,7 @@ Fetch all projects in a specific workspace:
       }
     }
   }
-}`} variables={{ workspaceId: "<your-workspace-id>" }} />
+}`} variables={{ workspaceId: "workspace-id" }} />
 
 ## Get a Single Project
 
@@ -67,7 +67,7 @@ Fetch a project by ID with its services and environments:
       }
     }
   }
-}`} variables={{ id: "<your-project-id>" }} />
+}`} variables={{ id: "project-id" }} />
 
 ## Create a Project
 
@@ -78,25 +78,15 @@ Create a new empty project:
     id
     name
   }
-}`} variables={{ input: { name: "My New Project", description: "A project created via the API" } }} />
-
-### Create a Project in a Workspace
-
-<CodeTabs query={`mutation projectCreate($input: ProjectCreateInput!) {
-  projectCreate(input: $input) {
-    id
-    name
-  }
-}`} variables={{ input: { name: "Team Project", workspaceId: "<your-workspace-id>" } }} />
-
-### Create a Project from a GitHub Repo
-
-<CodeTabs query={`mutation projectCreate($input: ProjectCreateInput!) {
-  projectCreate(input: $input) {
-    id
-    name
-  }
-}`} variables={{ input: { name: "My App", repo: { fullRepoName: "username/repo-name" } } }} />
+}`} variables={{ input: { name: "My New Project" } }}
+optionalFields={[
+  { name: "input.description", type: "String", description: "Project description" },
+  { name: "input.workspaceId", type: "String", description: "Create in a specific workspace" },
+  { name: "input.isPublic", type: "Boolean", description: "Make project publicly visible" },
+  { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments" },
+  { name: "input.defaultEnvironmentName", type: "String", description: "Name for default environment" },
+  { name: "input.repo", type: "ProjectCreateRepo", description: "Connect to a GitHub repository" },
+]} />
 
 ## Update a Project
 
@@ -108,7 +98,12 @@ Update project name or description:
     name
     description
   }
-}`} variables={{ id: "<your-project-id>", input: { name: "Updated Project Name", description: "Updated description" } }} />
+}`} variables={{ id: "project-id", input: { name: "Updated Project Name" } }}
+optionalFields={[
+  { name: "input.description", type: "String", description: "Project description" },
+  { name: "input.isPublic", type: "Boolean", description: "Make project publicly visible" },
+  { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments" },
+]} />
 
 ## Delete a Project
 
@@ -116,7 +111,7 @@ Update project name or description:
 
 <CodeTabs query={`mutation projectDelete($id: String!) {
   projectDelete(id: $id)
-}`} variables={{ id: "<your-project-id>" }} />
+}`} variables={{ id: "project-id" }} />
 
 ## Transfer a Project to a Workspace
 
@@ -124,7 +119,7 @@ Transfer a project to a different workspace:
 
 <CodeTabs query={`mutation projectTransfer($projectId: String!, $input: ProjectTransferInput!) {
   projectTransfer(projectId: $projectId, input: $input)
-}`} variables={{ projectId: "<your-project-id>", input: { workspaceId: "<target-workspace-id>" } }} />
+}`} variables={{ projectId: "project-id", input: { workspaceId: "target-workspace-id" } }} />
 
 ## Get Project Members
 
@@ -140,7 +135,7 @@ List all members of a project:
       email
     }
   }
-}`} variables={{ projectId: "<your-project-id>" }} />
+}`} variables={{ projectId: "project-id" }} />
 
 ## Finding IDs
 

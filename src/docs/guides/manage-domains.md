@@ -34,7 +34,7 @@ Get all domains (both Railway-provided and custom) for a service:
       }
     }
   }
-}`} variables={{ projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>" }} />
+}`} variables={{ projectId: "project-id", environmentId: "environment-id", serviceId: "service-id" }} />
 
 ## Service Domains (*.railway.app)
 
@@ -47,24 +47,16 @@ Generate a Railway-provided domain:
     id
     domain
   }
-}`} variables={{ input: { serviceId: "<your-service-id>", environmentId: "<your-environment-id>" } }} />
-
-### Create with Custom Port
-
-Route traffic to a specific port:
-
-<CodeTabs query={`mutation serviceDomainCreate($input: ServiceDomainCreateInput!) {
-  serviceDomainCreate(input: $input) {
-    id
-    domain
-  }
-}`} variables={{ input: { serviceId: "<your-service-id>", environmentId: "<your-environment-id>", targetPort: 8080 } }} />
+}`} variables={{ input: { serviceId: "service-id", environmentId: "environment-id" } }}
+optionalFields={[
+  { name: "input.targetPort", type: "Int", description: "Route traffic to this port" },
+]} />
 
 ### Delete a Service Domain
 
 <CodeTabs query={`mutation serviceDomainDelete($id: String!) {
   serviceDomainDelete(id: $id)
-}`} variables={{ id: "<your-service-domain-id>" }} />
+}`} variables={{ id: "service-domain-id" }} />
 
 ## Custom Domains
 
@@ -93,23 +85,10 @@ Check if a custom domain can be added:
       }
     }
   }
-}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", domain: "api.example.com" } }} />
-
-### Add Custom Domain with Target Port
-
-<CodeTabs query={`mutation customDomainCreate($input: CustomDomainCreateInput!) {
-  customDomainCreate(input: $input) {
-    id
-    domain
-    status {
-      dnsRecords {
-        hostlabel
-        requiredValue
-        status
-      }
-    }
-  }
-}`} variables={{ input: { projectId: "<your-project-id>", environmentId: "<your-environment-id>", serviceId: "<your-service-id>", domain: "api.example.com", targetPort: 3000 } }} />
+}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", domain: "api.example.com" } }}
+optionalFields={[
+  { name: "input.targetPort", type: "Int", description: "Route traffic to this port" },
+]} />
 
 ### Get Custom Domain Status
 
@@ -129,19 +108,19 @@ Check DNS configuration status:
       certificateStatus
     }
   }
-}`} variables={{ id: "<your-custom-domain-id>", projectId: "<your-project-id>" }} />
+}`} variables={{ id: "custom-domain-id", projectId: "project-id" }} />
 
 ### Update a Custom Domain
 
 <CodeTabs query={`mutation customDomainUpdate($id: String!, $environmentId: String!, $targetPort: Int) {
   customDomainUpdate(id: $id, environmentId: $environmentId, targetPort: $targetPort)
-}`} variables={{ id: "<your-custom-domain-id>", environmentId: "<your-environment-id>", targetPort: 8080 }} />
+}`} variables={{ id: "custom-domain-id", environmentId: "environment-id", targetPort: 8080 }} />
 
 ### Delete a Custom Domain
 
 <CodeTabs query={`mutation customDomainDelete($id: String!) {
   customDomainDelete(id: $id)
-}`} variables={{ id: "<your-custom-domain-id>" }} />
+}`} variables={{ id: "custom-domain-id" }} />
 
 ## DNS Configuration
 

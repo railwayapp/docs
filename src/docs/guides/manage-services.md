@@ -17,7 +17,7 @@ Fetch a service by ID:
     createdAt
     projectId
   }
-}`} variables={{ id: "<your-service-id>" }} />
+}`} variables={{ id: "service-id" }} />
 
 ## Get a Service Instance
 
@@ -41,7 +41,7 @@ Get detailed service configuration for a specific environment:
       createdAt
     }
   }
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>" }} />
+}`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
 ## Create a Service
 
@@ -52,7 +52,12 @@ Get detailed service configuration for a specific environment:
     id
     name
   }
-}`} variables={{ input: { projectId: "<your-project-id>", name: "My API", source: { repo: "username/repo-name" } } }} />
+}`} variables={{ input: { projectId: "project-id", name: "My API", source: { repo: "username/repo-name" } } }}
+optionalFields={[
+  { name: "input.branch", type: "String", description: "Git branch to deploy" },
+  { name: "input.icon", type: "String", description: "Service icon URL" },
+  { name: "input.variables", type: "JSON", description: "Initial environment variables" },
+]} />
 
 ### From a Docker Image
 
@@ -61,7 +66,11 @@ Get detailed service configuration for a specific environment:
     id
     name
   }
-}`} variables={{ input: { projectId: "<your-project-id>", name: "Redis", source: { image: "redis:7-alpine" } } }} />
+}`} variables={{ input: { projectId: "project-id", name: "Redis", source: { image: "redis:7-alpine" } } }}
+optionalFields={[
+  { name: "input.icon", type: "String", description: "Service icon URL" },
+  { name: "input.variables", type: "JSON", description: "Initial environment variables" },
+]} />
 
 ### Empty Service (No Source)
 
@@ -72,18 +81,11 @@ Create an empty service that you can configure later:
     id
     name
   }
-}`} variables={{ input: { projectId: "<your-project-id>", name: "Backend API" } }} />
-
-### With Initial Variables
-
-Create a service with environment variables:
-
-<CodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
-  serviceCreate(input: $input) {
-    id
-    name
-  }
-}`} variables={{ input: { projectId: "<your-project-id>", name: "My Service", source: { repo: "username/repo-name" }, variables: { NODE_ENV: "production", PORT: "3000" } } }} />
+}`} variables={{ input: { projectId: "project-id", name: "Backend API" } }}
+optionalFields={[
+  { name: "input.icon", type: "String", description: "Service icon URL" },
+  { name: "input.variables", type: "JSON", description: "Initial environment variables" },
+]} />
 
 ## Update a Service
 
@@ -95,123 +97,32 @@ Update service name or icon:
     name
     icon
   }
-}`} variables={{ id: "<your-service-id>", input: { name: "Renamed Service", icon: "https://devicons.railway.app/i/nodejs.svg" } }} />
+}`} variables={{ id: "service-id", input: { name: "Renamed Service" } }}
+optionalFields={[
+  { name: "input.icon", type: "String", description: "Service icon URL" },
+]} />
 
 ## Update Service Instance Settings
 
-Update build/deploy settings for a service in a specific environment:
+Update build/deploy settings for a service in a specific environment. Click "Additional options" to see all available settings:
 
-<CodeTabs query={`mutation serviceInstanceUpdate(
-  $serviceId: String!
-  $environmentId: String!
-  $input: ServiceInstanceUpdateInput!
-) {
-  serviceInstanceUpdate(
-    serviceId: $serviceId
-    environmentId: $environmentId
-    input: $input
-  )
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>", input: { startCommand: "npm run start" } }} />
-
-### Set Build Command
-
-<CodeTabs query={`mutation serviceInstanceUpdate(
-  $serviceId: String!
-  $environmentId: String!
-  $input: ServiceInstanceUpdateInput!
-) {
-  serviceInstanceUpdate(
-    serviceId: $serviceId
-    environmentId: $environmentId
-    input: $input
-  )
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>", input: { buildCommand: "npm run build" } }} />
-
-### Set Root Directory (Monorepos)
-
-<CodeTabs query={`mutation serviceInstanceUpdate(
-  $serviceId: String!
-  $environmentId: String!
-  $input: ServiceInstanceUpdateInput!
-) {
-  serviceInstanceUpdate(
-    serviceId: $serviceId
-    environmentId: $environmentId
-    input: $input
-  )
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>", input: { rootDirectory: "apps/api" } }} />
-
-### Configure Health Checks
-
-<CodeTabs query={`mutation serviceInstanceUpdate(
-  $serviceId: String!
-  $environmentId: String!
-  $input: ServiceInstanceUpdateInput!
-) {
-  serviceInstanceUpdate(
-    serviceId: $serviceId
-    environmentId: $environmentId
-    input: $input
-  )
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>", input: { healthcheckPath: "/health", healthcheckTimeout: 30 } }} />
-
-### Set Region
-
-<CodeTabs query={`mutation serviceInstanceUpdate(
-  $serviceId: String!
-  $environmentId: String!
-  $input: ServiceInstanceUpdateInput!
-) {
-  serviceInstanceUpdate(
-    serviceId: $serviceId
-    environmentId: $environmentId
-    input: $input
-  )
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>", input: { region: "us-west1" } }} />
-
-### Configure Replicas
-
-<CodeTabs query={`mutation serviceInstanceUpdate(
-  $serviceId: String!
-  $environmentId: String!
-  $input: ServiceInstanceUpdateInput!
-) {
-  serviceInstanceUpdate(
-    serviceId: $serviceId
-    environmentId: $environmentId
-    input: $input
-  )
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>", input: { numReplicas: 3 } }} />
-
-### Set Restart Policy
-
-<CodeTabs query={`mutation serviceInstanceUpdate(
-  $serviceId: String!
-  $environmentId: String!
-  $input: ServiceInstanceUpdateInput!
-) {
-  serviceInstanceUpdate(
-    serviceId: $serviceId
-    environmentId: $environmentId
-    input: $input
-  )
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>", input: { restartPolicyType: "ON_FAILURE", restartPolicyMaxRetries: 5 } }} />
-
-Valid restart policies: `ON_FAILURE`, `ALWAYS`, `NEVER`
-
-### Configure Cron Schedule
-
-<CodeTabs query={`mutation serviceInstanceUpdate(
-  $serviceId: String!
-  $environmentId: String!
-  $input: ServiceInstanceUpdateInput!
-) {
-  serviceInstanceUpdate(
-    serviceId: $serviceId
-    environmentId: $environmentId
-    input: $input
-  )
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>", input: { cronSchedule: "0 0 * * *" } }} />
+<CodeTabs query={`mutation serviceInstanceUpdate($serviceId: String!, $environmentId: String!, $input: ServiceInstanceUpdateInput!) {
+  serviceInstanceUpdate(serviceId: $serviceId, environmentId: $environmentId, input: $input)
+}`} variables={{ serviceId: "service-id", environmentId: "environment-id", input: { startCommand: "npm run start" } }}
+optionalFields={[
+  { name: "input.buildCommand", type: "String", description: "Custom build command" },
+  { name: "input.rootDirectory", type: "String", description: "Root directory for monorepos" },
+  { name: "input.healthcheckPath", type: "String", description: "Health check endpoint path" },
+  { name: "input.healthcheckTimeout", type: "Int", description: "Health check timeout in seconds" },
+  { name: "input.region", type: "String", description: "Deployment region (e.g., us-west1)" },
+  { name: "input.numReplicas", type: "Int", description: "Number of replicas" },
+  { name: "input.restartPolicyType", type: "RestartPolicyType", description: "ON_FAILURE, ALWAYS, or NEVER" },
+  { name: "input.restartPolicyMaxRetries", type: "Int", description: "Max restart retries" },
+  { name: "input.cronSchedule", type: "String", description: "Cron schedule (e.g., 0 0 * * *)" },
+  { name: "input.sleepApplication", type: "Boolean", description: "Enable sleep when idle" },
+  { name: "input.dockerfilePath", type: "String", description: "Custom Dockerfile path" },
+  { name: "input.watchPatterns", type: "[String!]", description: "File patterns to watch for changes" },
+]} />
 
 ## Connect a Service to a Repo
 
@@ -221,7 +132,7 @@ Connect an existing service to a GitHub repository:
   serviceConnect(id: $id, input: $input) {
     id
   }
-}`} variables={{ id: "<your-service-id>", input: { repo: "username/repo-name", branch: "main" } }} />
+}`} variables={{ id: "service-id", input: { repo: "username/repo-name", branch: "main" } }} />
 
 ## Disconnect a Service from a Repo
 
@@ -229,7 +140,7 @@ Connect an existing service to a GitHub repository:
   serviceDisconnect(id: $id) {
     id
   }
-}`} variables={{ id: "<your-service-id>" }} />
+}`} variables={{ id: "service-id" }} />
 
 ## Deploy a Service
 
@@ -237,7 +148,7 @@ Trigger a new deployment for a service:
 
 <CodeTabs query={`mutation serviceInstanceDeployV2($serviceId: String!, $environmentId: String!) {
   serviceInstanceDeployV2(serviceId: $serviceId, environmentId: $environmentId)
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>" }} />
+}`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
 This returns the deployment ID.
 
@@ -247,7 +158,7 @@ Redeploy the latest deployment:
 
 <CodeTabs query={`mutation serviceInstanceRedeploy($serviceId: String!, $environmentId: String!) {
   serviceInstanceRedeploy(serviceId: $serviceId, environmentId: $environmentId)
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>" }} />
+}`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
 ## Get Resource Limits
 
@@ -255,7 +166,7 @@ Get the resource limits for a service instance (returns a JSON object):
 
 <CodeTabs query={`query serviceInstanceLimits($serviceId: String!, $environmentId: String!) {
   serviceInstanceLimits(serviceId: $serviceId, environmentId: $environmentId)
-}`} variables={{ serviceId: "<your-service-id>", environmentId: "<your-environment-id>" }} />
+}`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
 ## Delete a Service
 
@@ -263,4 +174,4 @@ Get the resource limits for a service instance (returns a JSON object):
 
 <CodeTabs query={`mutation serviceDelete($id: String!) {
   serviceDelete(id: $id)
-}`} variables={{ id: "<your-service-id>" }} />
+}`} variables={{ id: "service-id" }} />
