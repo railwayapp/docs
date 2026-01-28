@@ -165,6 +165,36 @@ const redirects = [
     destination: "/platform/compare-to-vps",
     permanent: true,
   },
+  {
+    source: "/reference/pricing/plans",
+    destination: "/pricing/plans",
+    permanent: true,
+  },
+  {
+    source: "/reference/pricing/free-trial",
+    destination: "/pricing/free-trial",
+    permanent: true,
+  },
+  {
+    source: "/reference/pricing/faqs",
+    destination: "/pricing/faqs",
+    permanent: true,
+  },
+  {
+    source: "/reference/pricing/refunds",
+    destination: "/pricing/refunds",
+    permanent: true,
+  },
+  {
+    source: "/reference/pricing/aws-marketplace",
+    destination: "/pricing/aws-marketplace",
+    permanent: true,
+  },
+  {
+    source: "/reference/pricing/understanding-your-bill",
+    destination: "/pricing/understanding-your-bill",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
