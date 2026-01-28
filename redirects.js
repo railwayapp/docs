@@ -350,6 +350,41 @@ const redirects = [
     destination: "/functions",
     permanent: true,
   },
+  {
+    source: "/guides/databases",
+    destination: "/databases",
+    permanent: true,
+  },
+  {
+    source: "/guides/build-a-database-service",
+    destination: "/databases/build-a-database-service",
+    permanent: true,
+  },
+  {
+    source: "/guides/postgresql",
+    destination: "/databases/postgresql",
+    permanent: true,
+  },
+  {
+    source: "/guides/mysql",
+    destination: "/databases/mysql",
+    permanent: true,
+  },
+  {
+    source: "/guides/redis",
+    destination: "/databases/redis",
+    permanent: true,
+  },
+  {
+    source: "/guides/mongodb",
+    destination: "/databases/mongodb",
+    permanent: true,
+  },
+  {
+    source: "/guides/database-view",
+    destination: "/databases/database-view",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
