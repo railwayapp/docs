@@ -3,7 +3,7 @@ title: Volumes
 description: Volumes are a feature that enables persistent data for services on Railway.
 ---
 
-Volumes are a feature that enables persistent data for [services](/reference/services) on Railway.
+Volumes are a feature that enables persistent data for [services](/services) on Railway.
 
 ## How it works
 
@@ -55,7 +55,7 @@ You are only charged for the amount of storage used by your volumes. _Each volum
 
 ## Backups
 
-Services with volumes support manual and automated backups, backups are covered in the [backups](/reference/backups) reference guide.
+Services with volumes support manual and automated backups, backups are covered in the [backups](/volumes/backups) reference guide.
 
 ## Caveats
 

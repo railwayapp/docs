@@ -90,7 +90,7 @@ have all regions available by the end of Q1'2025 (by 31 March 2025).
 
 ## Gradual Upgrade
 
-We will gradually move services without a [volume](/reference/volumes)
+We will gradually move services without a [volume](/volumes)
 to Railway Metal as we increase the pool of our hardware and its capabilities.
 
 When this happens, you may see a new deploy initiated by Railway in your service:
@@ -106,10 +106,10 @@ will be the same as if you've manually issued a new deploy. As such, you may
 notice that:
 
 - There may be a brief downtime during the upgrade. To prevent this, ensure
-  you have [Health Checks](/reference/healthchecks) set up for your service
+  you have [Health Checks](/deployments/healthchecks) set up for your service
 
 - All ephemeral storage (such as `/tmp`, etc.) will be wiped. To prevent this,
-  use [Volume](/reference/volumes) to store data persistently. All storage is
+  use [Volume](/volumes) to store data persistently. All storage is
   considered ephemeral unless they're on a Railway Volume
 
 Note that the above generally applies to deploying a new version of
@@ -152,13 +152,13 @@ expect:
 
 | Date                         | What's Happening                                                                                                                                                          | Status |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| Starting December 26th, 2024 | All new deploys on newly-created services without a [volume](/reference/volumes) by Trial & Hobby users will use Railway Metal by default.                                | 🟢     |
-| Starting January 1st, 2025   | We will be gradually upgrading services _without a [volume](/reference/volumes)_ to Railway Metal. You can learn more about the gradual upgrade [here](#gradual-upgrade). | 🟢     |
-| Starting January 31st, 2025  | All new deploys on all services _without a [volume](/reference/volumes)_ by Trial & Hobby users will use Railway Metal by default.                                        | 🟢     |
-| Starting February 14th, 2025 | All new deploys on all services _without a [volume](/reference/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                     | 🟢     |
-| Starting March 14th, 2025    | All new deploys on services _with a [volume](/reference/volumes)_ by Trial & Hobby users will use Railway Metal by default.                                               | 🟢     |
+| Starting December 26th, 2024 | All new deploys on newly-created services without a [volume](/volumes) by Trial & Hobby users will use Railway Metal by default.                                | 🟢     |
+| Starting January 1st, 2025   | We will be gradually upgrading services _without a [volume](/volumes)_ to Railway Metal. You can learn more about the gradual upgrade [here](#gradual-upgrade). | 🟢     |
+| Starting January 31st, 2025  | All new deploys on all services _without a [volume](/volumes)_ by Trial & Hobby users will use Railway Metal by default.                                        | 🟢     |
+| Starting February 14th, 2025 | All new deploys on all services _without a [volume](/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                     | 🟢     |
+| Starting March 14th, 2025    | All new deploys on services _with a [volume](/volumes)_ by Trial & Hobby users will use Railway Metal by default.                                               | 🟢     |
 | Starting March 21st, 2025    | We will begin migrating services to Railway metal for Hobby Users                                                                                                         | 🟢     |
-| Starting March 28th, 2025    | All new deploys on services _with a [volume](/reference/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                            | 🟢     |
+| Starting March 28th, 2025    | All new deploys on services _with a [volume](/volumes)_ by Pro & Enterprise users will use Railway Metal by default.                                            | 🟢     |
 | Starting May 2nd, 2025       | We will begin migrating services to Railway metal for Pro Users                                                                                                           | 🟢     |
 | Starting June 6th, 2025      | We will begin migrating services to Railway metal for Enterprise Users                                                                                                    | 🟠     |
 
@@ -215,7 +215,7 @@ on Railway Metal, and we have not seen any significant issues.
 
 Upgrading to Railway Metal re-deploys your service. This may cause a brief
 period of downtime as your new deploy is being set up. You can set up
-[Health Checks](/reference/healthchecks) to prevent this.
+[Health Checks](/deployments/healthchecks) to prevent this.
 
 ### What is the difference between Railway Metal and regions?
 

@@ -114,7 +114,7 @@ Each replica runs with the full resource limits of your plan. So if you're on th
 Total resources = number of replicas × maximum compute allocation per replica
 ```
 
-Learn more about [scaling applications](/reference/scaling) and [multi-region deployments](/maturity/compare-to-vps#multi-region-deployment) in Railway.
+Learn more about [scaling applications](/deployments/scaling) and [multi-region deployments](/maturity/compare-to-vps#multi-region-deployment) in Railway.
 
 Alternatively, you can integrate a CDN like Cloudflare for global content delivery and improved performance.
 
@@ -138,9 +138,9 @@ While Railway doesn't currently provide a built-in CDN, you can easily integrate
 
 ## Add API Endpoints with Railway Functions
 
-For static sites that need lightweight API endpoints, [Railway Functions](/reference/functions) enable you to write and deploy code from the Railway canvas without managing infrastructure or creating a git repository.
+For static sites that need lightweight API endpoints, [Railway Functions](/functions) enable you to write and deploy code from the Railway canvas without managing infrastructure or creating a git repository.
 
-Railway Functions are [Services](/reference/services) that run a single file of TypeScript code using the [Bun](https://bun.com/) runtime. They're perfect for:
+Railway Functions are [Services](/services) that run a single file of TypeScript code using the [Bun](https://bun.com/) runtime. They're perfect for:
 
 - Form submissions
 - Simple API endpoints
@@ -161,7 +161,7 @@ Railway Functions are [Services](/reference/services) that run a single file of 
    - Press `Shift+Enter` to deploy
    - Your function is live in seconds
 
-Learn more about [Railway Functions](/reference/functions).
+Learn more about [Railway Functions](/functions).
 
 For most static sites, the Hobby plan with included usage is sufficient. You only pay for resources you actually use.
 
@@ -175,7 +175,7 @@ Now that you've deployed your static site, explore these resources:
 - [Monitor your application](/guides/monitoring) with built-in metrics
 - [Set up custom domains](/public-networking) and SSL certificates
 - [Configure environment variables](/variables) for different environments
-- [Use Railway Functions](/reference/functions) for API endpoints
+- [Use Railway Functions](/functions) for API endpoints
 - [Optimize performance](/guides/optimize-performance) and [usage](/guides/optimize-usage)
 
 ## Need Help?

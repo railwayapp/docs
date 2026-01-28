@@ -231,7 +231,7 @@ Happy Building!
 
 - **[Observability Dashboard](/observability)** - Railway's built-in observability dashboard offers a customizable view of metrics, logs, and usage in one place.
 
-- **[Project Members](/reference/project-members)** - Adding members to your projects is as easy as sending them an invite link.
+- **[Project Members](/projects/project-members)** - Adding members to your projects is as easy as sending them an invite link.
 
 - **[Staged Changes](/guides/staged-changes)** - When you make changes to your Railway project, such as adding or removing components and configurations, these updates will be gathered into a changeset for you to review and apply.
 

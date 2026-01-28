@@ -86,7 +86,7 @@ No, Railway is a deployment platform that works with your existing code. We don'
 
 No, services on Railway are deployed in stateful Docker containers. The old deployments are removed on every new deploy.
 
-We do have a feature, [App Sleeping](/reference/app-sleeping), that allows you to configure your service to "sleep" when it is inactive, and therefore will stop it from incurring usage cost while not in use.
+We do have a feature, [App Sleeping](/deployments/serverless), that allows you to configure your service to "sleep" when it is inactive, and therefore will stop it from incurring usage cost while not in use.
 
 ## Book a Demo
 

@@ -3,7 +3,7 @@ title: Build and Start Commands
 description: Learn how to configure build and start commands.
 ---
 
-Railway uses [Railpack](/reference/railpack) to automatically detect and configure build and start commands when an image is built and deployed to a [service](/reference/services).
+Railway uses [Railpack](/builds/railpack) to automatically detect and configure build and start commands when an image is built and deployed to a [service](/services).
 
 If necessary, build and start commands can be manually configured.
 
@@ -25,7 +25,7 @@ width={1200} height={373} quality={80} />
 
 Railway automatically configures the start command based on the code being deployed.
 
-If your service deploys with a [Dockerfile](/reference/dockerfiles) or from an [image](/reference/services#docker-image), the start command defaults to the `ENTRYPOINT` and / or `CMD` defined in the Dockerfile.
+If your service deploys with a [Dockerfile](/builds/dockerfiles) or from an [image](/reference/services#docker-image), the start command defaults to the `ENTRYPOINT` and / or `CMD` defined in the Dockerfile.
 
 Override the detected start command by setting a value in your service settings.
 

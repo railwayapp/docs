@@ -96,7 +96,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
    }
    ```
 
-   **Note:** Railway uses [Nixpacks](/reference/nixpacks) to build and deploy your code with zero configuration. The Nixpack Node provider will pick up the start script in the `package.json` file and use it to serve the app.
+   **Note:** Railway uses [Nixpacks](/builds/nixpacks) to build and deploy your code with zero configuration. The Nixpack Node provider will pick up the start script in the `package.json` file and use it to serve the app.
 
 4. **Deploy the Application**:
    - Use the command below to deploy your app:

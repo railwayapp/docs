@@ -58,7 +58,7 @@ You are only charged for the resources you actually use, which helps prevent run
 | **RAM**                                  | $10 / GB / month ($0.000231 / GB / minute)            |
 | **CPU**                                  | $20 / vCPU / month ($0.000463 / vCPU / minute)        |
 | **Network Egress**                       | $0.05 / GB ($0.000000047683716 / KB)                  |
-| [**Volume Storage**](/reference/volumes) | $0.15 / GB / month ($0.000003472222222 / GB / minute) |
+| [**Volume Storage**](/volumes) | $0.15 / GB / month ($0.000003472222222 / GB / minute) |
 
 To learn more about controlling your resource usage costs, read our FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
 

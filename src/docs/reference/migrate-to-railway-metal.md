@@ -69,9 +69,9 @@ For production applications on Railway, we advise customers to make sure your se
 
 Before initiating a migration we recommend that users configure the following:
 
-- [Healthchecks](/reference/healthchecks)
-- [Build and start commands](/reference/build-and-start-commands)
-- [Volume Backups](/reference/backups)
+- [Healthchecks](/deployments/healthchecks)
+- [Build and start commands](/builds/build-and-start-commands)
+- [Volume Backups](/volumes/backups)
 - [Deployment overlap](/reference/variables#user-provided-configuration-variables)
   - Configured by setting `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS` within the Railway service variable settings
 

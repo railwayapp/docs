@@ -9,7 +9,7 @@ Existing services will continue to work with Nixpacks. To migrate to Railpack, u
 </DeprecationBanner>
 
 Railway uses <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> to build and deploy your code with
-zero configuration. This documentation is maintained for existing services using Nixpacks. For new services, we recommend using [Railpack](/reference/railpack).
+zero configuration. This documentation is maintained for existing services using Nixpacks. For new services, we recommend using [Railpack](/builds/railpack).
 
 ## Supported Languages
 

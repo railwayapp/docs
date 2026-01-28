@@ -24,7 +24,7 @@ This document outlines the core concepts of Railway, providing foundational know
 
 Your main entrypoint to Railway where all your [projects](/overview/the-basics#project--project-canvas) are shown in the order they were last opened.
 
-Projects contain your [services](/overview/the-basics#services) and [environments](/reference/environments).
+Projects contain your [services](/overview/the-basics#services) and [environments](/environments).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1737785111/docs/the-basics/dashboard_ycmxnk.png"
 alt="Screenshot of the Railway dashboard"
@@ -35,7 +35,7 @@ width={1305} height={735} quality={100} />
 
 A project represents a capsule for composing infrastructure in Railway. You can think of a project as an application stack, a service group, or even a collection of service groups.
 
-Services within a project are automatically joined to a [private network](/reference/private-networking) scoped to that project.
+Services within a project are automatically joined to a [private network](/private-networking) scoped to that project.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png"
 alt="Screenshot of the project canvas"
@@ -55,9 +55,9 @@ Some of the most commonly used project settings are -
 
 - [Transfer Project](/reference/teams#transferring-projects) - Transfer your project between workspaces.
 
-- [Environments](/reference/environments) - Manage various settings regarding environments.
+- [Environments](/environments) - Manage various settings regarding environments.
 
-- [Members](/reference/project-members) - Add or remove members to collaborate on your project.
+- [Members](/projects/project-members) - Add or remove members to collaborate on your project.
 
 - Danger - Remove individual [services](/overview/the-basics#services) or delete the entire project.
 
@@ -74,7 +74,7 @@ Out of the box, your service is deployed with a set of default configurations wh
 
 ### Service Variables
 
-Service [Variables](/reference/variables) provide a powerful way to manage configuration and secrets across services in Railway.
+Service [Variables](/variables) provide a powerful way to manage configuration and secrets across services in Railway.
 
 You can configure variables scoped to services. These variables are specific to each service and are not shared across the project by default.
 
@@ -110,7 +110,7 @@ From here you can perform the following actions -
 
 ### Service Metrics
 
-Service [Metrics](/reference/metrics) provide an essential overview of CPU, memory, and network usage for a given service.
+Service [Metrics](/observability/metrics) provide an essential overview of CPU, memory, and network usage for a given service.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1737785153/docs/the-basics/service_metrics_dcbfms.png"
 alt="Screenshot of the service metrics tab"
@@ -138,7 +138,7 @@ Some of the most commonly used service settings are -
 
 ## Deployments
 
-[Deployments](/reference/deployments) involve building and delivering your [Service](/overview/the-basics#services).
+[Deployments](/deployments) involve building and delivering your [Service](/overview/the-basics#services).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1737785123/docs/the-basics/deployment_l0trj8.png"
 alt="Screenshot of a service open with a deployment highlighted"
@@ -147,7 +147,7 @@ width={1365} height={790} quality={100} />
 
 ## Volumes
 
-[Volumes](/reference/volumes) are a feature that allows services on Railway to [maintain persistent data](/volumes).
+[Volumes](/volumes) are a feature that allows services on Railway to [maintain persistent data](/volumes).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1737785187/docs/the-basics/volumes_yom2km.png"
 alt="Screenshot of the project canvas with a volume highlighted"
@@ -184,7 +184,7 @@ Some of the most commonly used volume settings are -
 
 If you've read enough for now and are ready to get started, we suggest checking out either of these two resources next -
 
-- [Quick Start guide](/quick-start) to deploy a To Do app from a [template](/reference/templates).
+- [Quick Start guide](/quick-start) to deploy a To Do app from a [template](/templates).
 
 - [Guides section](/guides/foundations) to dive into how things work.
 

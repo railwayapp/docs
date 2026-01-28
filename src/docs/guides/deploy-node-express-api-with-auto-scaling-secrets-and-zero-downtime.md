@@ -261,7 +261,7 @@ Railway also supports multi-region deployments for global applications:
 
 This gives you both high availability and low latency for users worldwide, all with just a few clicks.
 
-Learn more about [scaling applications](/reference/scaling) and [optimizing performance](/guides/optimize-performance) in Railway.
+Learn more about [scaling applications](/deployments/scaling) and [optimizing performance](/guides/optimize-performance) in Railway.
 
 
 ### Usage-based pricing
@@ -447,7 +447,7 @@ DATABASE_URL=${{shared.DATABASE_URL}}
 
 This eliminates duplication and makes it easy to manage configuration across your entire microservice architecture.
 
-Learn more about [managing services](/services), [shared variables](/guides/variables#shared-variables), and [service communication](/reference/services) in the Railway documentation.
+Learn more about [managing services](/services), [shared variables](/guides/variables#shared-variables), and [service communication](/services) in the Railway documentation.
 
 ## Conclusion
 

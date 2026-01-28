@@ -17,7 +17,7 @@ Railway is a highly versatile platform, offering various ways to use it, though 
 
 ## Use Private Networking When Possible
 
-[Private networking](/reference/private-networking) allows services within a [project](/overview/the-basics#project--project-canvas) to communicate internally without the need to expose them [publicly](/public-networking), while also providing faster communication and increased throughput.
+[Private networking](/private-networking) allows services within a [project](/overview/the-basics#project--project-canvas) to communicate internally without the need to expose them [publicly](/public-networking), while also providing faster communication and increased throughput.
 
 When configuring environment variables in your service to reference domains or URLs of other services, ensure you use the private versions of these variables, such as `RAILWAY_PRIVATE_DOMAIN` or `DATABASE_URL`.
 
@@ -57,7 +57,7 @@ width={1048} height={818} quality={100} />
 
 Rather than manually copying, pasting, and hard-coding variables like a public domain or those from another service, you can use reference variables to build them dynamically. Example `VITE_BACKEND_HOST=${{Backend.RAILWAY_PUBLIC_DOMAIN}}`
 
-This approach is better than hard-coding variables, as it keeps your variable values in sync. Change your [public domain](/reference/public-domains)? The variable updates. Change your [TCP proxy](/reference/tcp-proxy)? The variable updates.
+This approach is better than hard-coding variables, as it keeps your variable values in sync. Change your [public domain](/reference/public-domains)? The variable updates. Change your [TCP proxy](/networking/tcp-proxy)? The variable updates.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1725659271/docs/best-practices/use_reference_variables_h8qtik.png"
 alt="screenshot of a service showing the use of reference variables"

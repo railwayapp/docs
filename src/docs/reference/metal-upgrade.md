@@ -29,8 +29,8 @@ width={940} height={236} quality={80} />
 
 When your service is upgraded to Railway Metal:
 
-- **Brief Downtime**: There may be a short period of downtime as your service is redeployed. To minimize this, ensure you have [Health Checks](/reference/healthchecks) configured.
-- **Ephemeral Storage Reset**: Any ephemeral storage (like `/tmp` directories) will be wiped. Use [Volumes](/reference/volumes) for persistent data storage.
+- **Brief Downtime**: There may be a short period of downtime as your service is redeployed. To minimize this, ensure you have [Health Checks](/deployments/healthchecks) configured.
+- **Ephemeral Storage Reset**: Any ephemeral storage (like `/tmp` directories) will be wiped. Use [Volumes](/volumes) for persistent data storage.
 - **Same Behavior**: The upgrade behavior is identical to a manual redeploy of your service. Any effects you'd normally expect during a redeploy will apply here as well.
 - **Region Change**: Your service may be moved to a different geographical location within the same region (e.g., from US West Oregon to US West California). This is normal and part of the migration to our own hardware.
 

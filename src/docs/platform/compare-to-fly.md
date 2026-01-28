@@ -93,7 +93,7 @@ If you spin up multiple replicas for a given service, you’ll only be charged f
 
 ![Railway autoscaling](https://res.cloudinary.com/railway/image/upload/v1753083711/docs/railway-autoscaling_nf5hrc.png)
 
-Railway also has a [serverless](/reference/app-sleeping) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This is ideal for workloads with sporadic or bursty traffic, so you only pay when your code is running.
+Railway also has a [serverless](/deployments/serverless) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This is ideal for workloads with sporadic or bursty traffic, so you only pay when your code is running.
 
 ## Developer Workflow & CI/CD
 

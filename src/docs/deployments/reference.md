@@ -3,7 +3,7 @@ title: Deployments
 description: Deployments are attempts to build and deliver your service. Learn how they work on Railway.
 ---
 
-Deployments are attempts to build and deliver your [service](/reference/services).
+Deployments are attempts to build and deliver your [service](/services).
 
 All deployments will appear in the deployments view on your selected service.
 
@@ -15,9 +15,9 @@ width={1103} height={523} quality={80} />
 
 ## How it Works
 
-Upon service creation, or when changes are detected in the service source, Railway will build the service and package it into a container with [Railpack](/reference/railpack) or a [Dockerfile](/builds/dockerfiles) if present. If the source is a Docker Image, the build step is skipped.
+Upon service creation, or when changes are detected in the service source, Railway will build the service and package it into a container with [Railpack](/builds/railpack) or a [Dockerfile](/builds/dockerfiles) if present. If the source is a Docker Image, the build step is skipped.
 
-Railway then starts the service using either the detected or configured [Start Command](/reference/build-and-start-commands).
+Railway then starts the service using either the detected or configured [Start Command](/builds/build-and-start-commands).
 
 This cycle represents a deployment in Railway.
 
@@ -37,7 +37,7 @@ While a Deployment is `Building`, Railway will attempt to create a deployable Do
 
 #### Deploying
 
-Once the build succeeds, Railway will attempt to deploy your image and the Deployment's status becomes `Deploying`. If a [healthcheck](/reference/healthchecks) is configured, Railway will wait for it to succeed before proceeding to the next step.
+Once the build succeeds, Railway will attempt to deploy your image and the Deployment's status becomes `Deploying`. If a [healthcheck](/deployments/healthchecks) is configured, Railway will wait for it to succeed before proceeding to the next step.
 
 #### Failed
 
@@ -47,7 +47,7 @@ If an error occurs during the build or deploy process, the Deployment will stop 
 
 Railway will determine the deployment's active state with the following logic -
 
-- If the deployment **has** a [healthcheck](/reference/healthchecks) configured, Railway will mark the deployment as `Active` when the healthcheck succeeds.
+- If the deployment **has** a [healthcheck](/deployments/healthchecks) configured, Railway will mark the deployment as `Active` when the healthcheck succeeds.
 
 - If the deployment **does not** have a healthcheck configured, Railway will mark the deployment as `Active` after starting the container.
 
@@ -126,7 +126,7 @@ Cancels the selected [initializing](#initializing) or [building](#building) depl
 
 Every service deployment has access to 10GB of ephemeral storage. If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
 
-If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/reference/volumes).
+If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/volumes).
 
 ## Singleton Deploys
 

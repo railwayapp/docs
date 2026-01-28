@@ -7,7 +7,7 @@ Migrating your app from Heroku to Railway is very simple. We even support Procfi
 
 All you need to do is create a project in Railway, push your code, and migrate your environment variables.
 
-This guide will step you through the process of migrating a simple web service, using the [Railway CLI](/reference/cli-api).
+This guide will step you through the process of migrating a simple web service, using the [Railway CLI](/cli).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1695765903/docs/heroku-migration/intro1_uauodg.gif"
 alt="Screenshot of Railway Up"
@@ -18,7 +18,7 @@ width={700} height={464} quality={80} />
 
 In your terminal, ensure your current working directory is the same directory where your service code is located.
 
-This is important so that as you complete the following steps, the [Railway CLI](/reference/cli-api) is properly linked.
+This is important so that as you complete the following steps, the [Railway CLI](/cli) is properly linked.
 
 ## 1. Login to Railway From the CLI
 
@@ -32,7 +32,7 @@ This command will prompt to open a browser to complete authentication. Once auth
 
 ## 2. Create a New Project
 
-Now, let's create a new [project](/reference/projects):
+Now, let's create a new [project](/projects):
 
 ```bash
 railway init
@@ -46,7 +46,7 @@ Once your project is created, you can push your code into the project and assign
 
 ### Push the Code
 
-Push the code into a [service](/reference/services) in Railway:
+Push the code into a [service](/services) in Railway:
 
 ```bash
 railway up -d
@@ -101,7 +101,7 @@ _Note: The first time you import variables from Heroku, you will be prompted to 
 
 Following this guide, we have successfully migrated a simple web service from Heroku to Railway, including importing variables from Heroku into Railway.
 
-We have completed the migration by pushing our code directly from our local machine into a service in Railway. Once you are comfortable with Railway, you may want to integrate [deployments](/reference/deployments) into your development workflow.
+We have completed the migration by pushing our code directly from our local machine into a service in Railway. Once you are comfortable with Railway, you may want to integrate [deployments](/deployments) into your development workflow.
 
 For more advanced operations, like migrating your databases from Heroku to Railway, the process will be a bit more involved, but we are happy to help work out a solution!
 

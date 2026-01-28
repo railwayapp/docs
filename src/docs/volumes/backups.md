@@ -3,11 +3,11 @@ title: Backups
 description: Learn how Railway handles backups for volume contents to ensure data safety and recovery.
 ---
 
-The backup feature enables data recovery for all content stored in [volumes](/reference/volumes). This includes both our database offerings and any other data stored within a volume, such as an SQLite database.
+The backup feature enables data recovery for all content stored in [volumes](/volumes). This includes both our database offerings and any other data stored within a volume, such as an SQLite database.
 
 ## How it works
 
-When a [volume](/reference/volumes) is mounted to a service, backups can be manually created, deleted and restored. And they can also be scheduled to run on a Daily / Weekly / Monthly schedule.
+When a [volume](/volumes) is mounted to a service, backups can be manually created, deleted and restored. And they can also be scheduled to run on a Daily / Weekly / Monthly schedule.
 
 ## Backup Schedules
 
