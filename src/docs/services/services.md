@@ -1,11 +1,25 @@
 ---
-title: Managing Services
-description: A step by step guide to managing services on Railway.
+title: Services
+description: Discover the different types of services available in your Railway projects.
 ---
 
-A Railway Service is a deployment target for your application.
+A Railway service is a deployment target. Under the hood, services are containers deployed from an image.
 
-_As you create and manage your services, your changes will be collected in a set of [staged changes](/guides/staged-changes) that you must review and deploy, in order to apply them._
+Each service keeps a log of [deployment attempts](/deployments/reference) and [performance metrics](/observability/metrics).
+
+[Variables](/variables), source references (e.g. GitHub repository URI), and relevant [start and build commands](/builds/build-and-start-commands) are also stored in the service, among other configuration.
+
+_As you create and manage your services, your changes will be collected in a set of [staged changes](/deployments/staged-changes) that you must review and deploy, in order to apply them._
+
+## Types of Services
+
+#### Persistent Services
+
+Services that are always running. Examples include web applications, backend APIs, message queues, database services, etc.
+
+#### Scheduled Jobs
+
+Services that are run until completion, on a defined schedule, also called [Cron Jobs](/cron-jobs).
 
 ## Creating a Service
 
@@ -22,7 +36,11 @@ Services on Railway can be deployed from a GitHub repository, a local directory,
 
 To access a service's settings, simply click on the service tile from your project canvas and go to the Settings tab.
 
-## Defining a Deployment Source
+## Service Source
+
+A service source can be any of the following - Docker Image, GitHub or Local repository.
+
+If a [Dockerfile](/builds/dockerfiles) is found within the source repository, Railway will automatically use it to build an image for the service.
 
 If you've created an empty service, or would like to update the source for a deployed service, you can do so in the Service settings.
 
@@ -95,7 +113,7 @@ width={836} height={684} quality={100} />
 ### Deploying a Private Docker Image
 
 <Banner variant="info">
-Private Docker registry deployments require the [Pro plan](/reference/pricing/plans#plans).
+Private Docker registry deployments require the [Pro plan](/pricing/plans).
 </Banner>
 
 To deploy from a private Docker registry, specify the path of the image when prompted in the creation flow, as well as authentication credentials (username, password) to the registry.
@@ -107,9 +125,9 @@ width={1200} height={746} quality={100} />
 
 If deploying an image from <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>, provide a <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry" target="_blank">personal access token (classic)</a>.
 
-## Deploying From a Local Directory
+### Deploying From a Local Directory
 
-[Use the CLI](/guides/cli) to deploy a local directory to a service -
+[Use the CLI](/cli) to deploy a local directory to a service -
 
 1. Create an Empty Service by choosing `Empty Service` during the service creation flow.
 2. In a Terminal, navigate to the directory you would like to deploy.
@@ -118,11 +136,17 @@ If deploying an image from <a href="https://docs.github.com/en/packages/working-
 
 ## Deploying a Monorepo
 
-For information on how to deploy a Monorepo click [here](/guides/monorepo).
+For information on how to deploy a Monorepo click [here](/deployments/monorepo).
+
+## Ephemeral Storage
+
+Every service deployment has access ephemeral storage, with the limits being 1GB on the Free plan and 100GB on a paid plan. If a service deployment consumes more than its ephemeral storage limit, it can be forcefully stopped and redeployed.
+
+If your service requires data to persist between deployments, or needs more storage, you should add a [volume](/volumes).
 
 ## Monitoring
 
-Logs, metrics, and usage information is available for services and projects. Check out the [monitoring guides](/guides/monitoring) for information on how to track this data.
+Logs, metrics, and usage information is available for services and projects. Check out the [observability guides](/observability) for information on how to track this data.
 
 ## Changing the Service Icon
 
@@ -148,9 +172,13 @@ width={874} height={302} quality={100} />
 
 Deploy the queued deployment by clicking the "Approve" button. You can dismiss the request by clicking the three dots menu and clicking "Reject".
 
-## Storing Data
+## Templates
 
-Every service has access to 10GB of ephemeral storage. If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/guides/volumes).
+A [template](/templates) is a pre-configured group of services. A template can be used to start a project or to expand an existing project.
+
+## Constraints
+
+- Service names have a max length of 32 characters.
 
 ## Deleting a Service
 

@@ -584,6 +584,16 @@ const redirects = [
     destination: "/projects",
     permanent: true,
   },
+  {
+    source: "/guides/services",
+    destination: "/services",
+    permanent: true,
+  },
+  {
+    source: "/reference/services",
+    destination: "/services",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
