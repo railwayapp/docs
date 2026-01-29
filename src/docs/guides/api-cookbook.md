@@ -332,16 +332,6 @@ optionalFields={[
 
 ## Useful Queries
 
-### Get Current User
-
-<CodeTabs query={`query {
-  me {
-    id
-    name
-    email
-  }
-}`} />
-
 ### Get Project Token Info
 
 Use with a project token:
