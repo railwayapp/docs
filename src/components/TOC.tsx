@@ -144,7 +144,7 @@ interface TocSvgData {
 }
 
 function getLineOffset(depth: number): number {
-  if (depth <= 2) return 0;
+  if (depth <= 2) return 3; // offset to prevent circle clipping
   if (depth === 3) return 10;
   return 20; // h4 and deeper
 }
@@ -557,6 +557,7 @@ export interface TOCProps {
 
 export function TOC({ items, className }: TOCProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   const [activeAnchor, setActiveAnchor] = React.useState<string | null>(null);
 
   // Motion values for animations
@@ -600,6 +601,50 @@ export function TOC({ items, className }: TOCProps) {
     return () => observer.disconnect();
   }, [items]);
 
+  // Auto-scroll active item into view within the TOC
+  React.useEffect(() => {
+    if (!activeAnchor || !scrollContainerRef.current) return;
+
+    const activeElement = scrollContainerRef.current.querySelector<HTMLElement>(
+      `a[href="#${activeAnchor}"]`,
+    );
+
+    activeElement?.scrollIntoView({
+      block: "nearest",
+      behavior: "smooth",
+    });
+  }, [activeAnchor]);
+
+  // Track scroll position for fade indicators
+  const [scrollState, setScrollState] = React.useState({
+    canScrollUp: false,
+    canScrollDown: false,
+  });
+
+  React.useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const updateScrollState = () => {
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      setScrollState({
+        canScrollUp: scrollTop > 0,
+        canScrollDown: scrollTop + clientHeight < scrollHeight - 1,
+      });
+    };
+
+    updateScrollState();
+    container.addEventListener("scroll", updateScrollState);
+
+    const resizeObserver = new ResizeObserver(updateScrollState);
+    resizeObserver.observe(container);
+
+    return () => {
+      container.removeEventListener("scroll", updateScrollState);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   const svg = useTocSvg(containerRef, items);
 
   // Update segments ref when svg changes
@@ -642,68 +687,95 @@ export function TOC({ items, className }: TOCProps) {
           activeAnchor={activeAnchor}
           segments={svg?.segments ?? []}
         />
-        <nav aria-label="Table of contents" className="relative min-h-0 ps-0.5">
-          {/* Background SVG path */}
-          {svg && (
-            <svg
-              className="absolute start-0 top-0 rtl:-scale-x-100"
-              width={svg.width + 3}
-              height={svg.height + 3}
-              aria-hidden="true"
-            >
-              <path
-                d={svg.path}
-                className="stroke-muted"
-                strokeWidth="2"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                fill="none"
-              />
-            </svg>
-          )}
+        <nav
+          aria-label="Table of contents"
+          className="relative min-h-0 overflow-hidden ps-0.5"
+        >
+          {/* Top fade indicator */}
+          <div
+            className={cn(
+              "from-muted-app pointer-events-none absolute inset-x-0 top-0 z-10 h-6 bg-gradient-to-b to-transparent transition-opacity duration-150",
+              scrollState.canScrollUp ? "opacity-100" : "opacity-0",
+            )}
+            aria-hidden="true"
+          />
 
-          {/* Animated fill thumb (masked to SVG path) */}
-          {svg && (
-            <div
-              className="absolute start-0 top-0 rtl:-scale-x-100"
-              style={{
-                width: svg.width,
-                height: svg.height,
-                maskImage: `url("data:image/svg+xml,${encodeURIComponent(
-                  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svg.width} ${svg.height}"><path d="${svg.path}" stroke="black" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none" /></svg>`,
-                )}")`,
-              }}
-              aria-hidden="true"
-            >
-              <TocThumb height={thumbHeight} top={thumbTop} />
+          {/* Scrollable container for TOC content */}
+          <div
+            ref={scrollContainerRef}
+            className="relative max-h-[640px] overflow-y-auto"
+          >
+            {/* Background SVG path */}
+            {svg && (
+              <svg
+                className="absolute start-0 top-0 rtl:-scale-x-100"
+                width={svg.width + 3}
+                height={svg.height + 3}
+                aria-hidden="true"
+              >
+                <path
+                  d={svg.path}
+                  className="stroke-muted"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              </svg>
+            )}
+
+            {/* Animated fill thumb (masked to SVG path) */}
+            {svg && (
+              <div
+                className="absolute start-0 top-0 rtl:-scale-x-100"
+                style={{
+                  width: svg.width,
+                  height: svg.height,
+                  maskImage: `url("data:image/svg+xml,${encodeURIComponent(
+                    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svg.width} ${svg.height}"><path d="${svg.path}" stroke="black" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none" /></svg>`,
+                  )}")`,
+                }}
+                aria-hidden="true"
+              >
+                <TocThumb height={thumbHeight} top={thumbTop} />
+              </div>
+            )}
+
+            {/* TOC items */}
+            <div ref={containerRef} className="flex flex-col">
+              {items.map(item => (
+                <TOCItemLink
+                  key={item.url}
+                  item={item}
+                  isActive={activeAnchor === item.url.slice(1)}
+                />
+              ))}
             </div>
-          )}
 
-          {/* TOC items */}
-          <div ref={containerRef} className="flex flex-col">
-            {items.map(item => (
-              <TOCItemLink
-                key={item.url}
-                item={item}
-                isActive={activeAnchor === item.url.slice(1)}
+            {/* End circle (static, at end of path) */}
+            {svg && (
+              <div
+                className="bg-muted pointer-events-none absolute size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                style={{ left: svg.endX, top: svg.endY }}
+                aria-hidden="true"
               />
-            ))}
+            )}
+
+            {/* Animated circle indicator */}
+            <TocCircle
+              circleX={circleX}
+              circleY={circleY}
+              opacity={circleOpacity}
+            />
           </div>
 
-          {/* End circle (static, at end of path) */}
-          {svg && (
-            <div
-              className="bg-muted pointer-events-none absolute size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
-              style={{ left: svg.endX, top: svg.endY }}
-              aria-hidden="true"
-            />
-          )}
-
-          {/* Animated circle indicator */}
-          <TocCircle
-            circleX={circleX}
-            circleY={circleY}
-            opacity={circleOpacity}
+          {/* Bottom fade indicator */}
+          <div
+            className={cn(
+              "from-muted-app pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6 bg-gradient-to-t to-transparent transition-opacity duration-150",
+              scrollState.canScrollDown ? "opacity-100" : "opacity-0",
+            )}
+            aria-hidden="true"
           />
         </nav>
       </div>
