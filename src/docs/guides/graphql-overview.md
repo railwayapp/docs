@@ -79,7 +79,7 @@ GraphQL inverts this. There's one endpoint, and you decide what data you need by
 
 **Strongly typed.** Every GraphQL API has a schema that defines valid queries. This means better tooling, auto-generated documentation, and errors caught before runtime.
 
-**Self-documenting.** The schema is always available to explore, which we'll cover in the next section.
+**Self-documenting.** The schema is always available to explore, which we'll cover below.
 
 ## Core concepts
 
@@ -122,9 +122,7 @@ Notice that mutations also return data. You can ask for fields on the newly crea
 
 ### Variables
 
-The examples above use variables like `$id` and `$input`. Variables are passed separately from the query as JSON. This keeps queries reusable and makes it easier to work with dynamic values.
-
-The `!` suffix (like `String!`) means the variable is required.
+The mutation example above uses `$input`. Variables are passed separately from the query as JSON. This keeps queries reusable and makes it easier to work with dynamic values.
 
 ### The schema
 
@@ -147,27 +145,35 @@ Click the "Docs" button (or press Ctrl/Cmd+Shift+D) to open the documentation ex
 GraphQL types follow consistent patterns:
 
 ```graphql
-# Scalar types
-name: String          # Optional string
-name: String!         # Required string (non-null)
+name: String          # Optional string (can be null)
+name: String!         # Required string (cannot be null)
 
-# Lists
-services: [Service!]! # Required list of non-null Service objects
+services: [Service!]! # Required list of required Service objects
+```
 
-# Input types (for mutations)
+The `!` means non-null. When you see `String!`, a value is guaranteed. When you see `String` without `!`, it might be null. For lists, `[Service!]!` means the list itself is required and every item in it is required.
+
+When a field returns an object type like `Service`, you must specify which fields you want from it:
+
+```graphql
+services {      # services is [Service!]!
+  id            # pick the fields you want
+  name
+}
+```
+
+Input types define what you pass to mutations:
+
+```graphql
 input ProjectCreateInput {
-  name: String!       # Required
-  description: String # Optional
+  name: String!       # Required field
+  description: String # Optional field
 }
 ```
 
 ### Finding available fields
 
-When writing a query, you can request any field defined on a type. Click on the `Project` type in GraphiQL's Docs panel to see all available fields: `id`, `name`, `description`, `services`, `environments`, `volumes`, `createdAt`, `updatedAt`, and more.
-
-### Finding mutation input fields
-
-For mutations, check the input type to see what you can pass. For example, `projectCreate` takes a `ProjectCreateInput`. Click on that type in GraphiQL to see required and optional fields.
+Click on any type in GraphiQL's Docs panel to see its fields. For example, click `Project` to see `id`, `name`, `description`, `services`, `environments`, and more. For mutations, click the input type (like `ProjectCreateInput`) to see required and optional fields.
 
 ### Pro tip: Use autocomplete
 
