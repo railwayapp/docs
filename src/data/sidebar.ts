@@ -135,6 +135,17 @@ export const sidebarContent: ISidebarContent = [
       makePage("Serverless", "deployments"),
       makePage("Regions", "deployments"),
       makePage("Scaling", "deployments"),
+      {
+        subTitle: "Troubleshooting",
+        pages: [
+          makePage("Slow Deployments", "deployments/troubleshooting"),
+          makePage("NodeJS SIGTERM Handling", "deployments/troubleshooting"),
+          makePage(
+            "No Start Command Could be Found",
+            "deployments/troubleshooting",
+          ),
+        ],
+      },
     ],
   },
   {
@@ -146,6 +157,15 @@ export const sidebarContent: ISidebarContent = [
       makePage("Private Registries", "builds"),
       makePage("Railpack", "builds"),
       makePage("Nixpacks", "builds"),
+      {
+        subTitle: "Troubleshooting",
+        pages: [
+          makePage(
+            "Nixpacks Was Unable to Generate a Build Plan",
+            "builds/troubleshooting",
+          ),
+        ],
+      },
     ],
   },
   {
@@ -168,6 +188,15 @@ export const sidebarContent: ISidebarContent = [
       makePage("Redis", "databases"),
       makePage("MongoDB", "databases"),
       makePage("Database View", "databases"),
+      {
+        subTitle: "Troubleshooting",
+        pages: [
+          makePage(
+            "ENOTFOUND redis.railway.internal",
+            "databases/troubleshooting",
+          ),
+        ],
+      },
     ],
   },
   {
@@ -219,7 +248,18 @@ export const sidebarContent: ISidebarContent = [
       makePage("Outbound Networking", "networking"),
       makePage("Static Outbound IPs", "networking"),
       makePage("Edge Networking", "networking"),
-      makePage("Troubleshooting SSL", "networking"),
+      {
+        subTitle: "Troubleshooting",
+        pages: [
+          makePage("SSL", "networking/troubleshooting"),
+          makePage("Network Diagnostics", "networking/troubleshooting"),
+          makePage(
+            "Application Failed to Respond",
+            "networking/troubleshooting",
+          ),
+          makePage("405 Method Not Allowed", "networking/troubleshooting"),
+        ],
+      },
     ],
   },
   {
@@ -258,10 +298,5 @@ export const sidebarContent: ISidebarContent = [
       makePage("Manage Deployments", "public-api"),
       makePage("Manage Variables", "public-api"),
     ],
-  },
-  {
-    title: "Troubleshooting",
-    slug: "/troubleshooting",
-    content: [],
   },
 ];
