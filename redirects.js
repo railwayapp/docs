@@ -1,5 +1,60 @@
 const redirects = [
   {
+    source: "/troubleshooting/slow-deployments",
+    destination: "/deployments/troubleshooting/slow-deployments",
+    permanent: true,
+  },
+  {
+    source: "/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm",
+    permanent: true,
+  },
+  {
+    source: "/troubleshooting/no-start-command-could-be-found",
+    destination: "/deployments/troubleshooting/no-start-command-could-be-found",
+    permanent: true,
+  },
+  // Builds troubleshooting
+  {
+    source: "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    permanent: true,
+  },
+  // Networking troubleshooting
+  {
+    source: "/troubleshooting/application-failed-to-respond",
+    destination: "/networking/troubleshooting/application-failed-to-respond",
+    permanent: true,
+  },
+  {
+    source: "/troubleshooting/405-method-not-allowed",
+    destination: "/networking/troubleshooting/405-method-not-allowed",
+    permanent: true,
+  },
+  // Databases troubleshooting
+  {
+    source: "/troubleshooting/enotfound-redis-railway-internal",
+    destination: "/databases/troubleshooting/enotfound-redis-railway-internal",
+    permanent: true,
+  },
+  // Existing networking file relocations
+  {
+    source: "/networking/troubleshooting-ssl",
+    destination: "/networking/troubleshooting/ssl",
+    permanent: true,
+  },
+  {
+    source: "/networking/network-diagnostics",
+    destination: "/networking/troubleshooting/network-diagnostics",
+    permanent: true,
+  },
+  // Catch-all for /troubleshooting base path
+  {
+    source: "/troubleshooting",
+    destination: "/",
+    permanent: true,
+  },
+  {
     source: "/reference/s",
     destination: "/reference/templates",
     permanent: true,
@@ -426,12 +481,12 @@ const redirects = [
   },
   {
     source: "/reference/network-diagnostics",
-    destination: "/networking/network-diagnostics",
+    destination: "/networking/troubleshooting/network-diagnostics",
     permanent: true,
   },
   {
     source: "/guides/troubleshooting-ssl",
-    destination: "/networking/troubleshooting-ssl",
+    destination: "/networking/troubleshooting/ssl",
     permanent: true,
   },
   {
@@ -471,37 +526,37 @@ const redirects = [
   },
   {
     source: "/reference/errors",
-    destination: "/troubleshooting",
+    destination: "/",
     permanent: true,
   },
   {
     source: "/reference/errors/application-failed-to-respond",
-    destination: "/troubleshooting/application-failed-to-respond",
+    destination: "/networking/troubleshooting/application-failed-to-respond",
     permanent: true,
   },
   {
     source: "/reference/errors/no-start-command-could-be-found",
-    destination: "/troubleshooting/no-start-command-could-be-found",
+    destination: "/deployments/troubleshooting/no-start-command-could-be-found",
     permanent: true,
   },
   {
     source: "/reference/errors/405-method-not-allowed",
-    destination: "/troubleshooting/405-method-not-allowed",
+    destination: "/networking/troubleshooting/405-method-not-allowed",
     permanent: true,
   },
   {
     source: "/reference/errors/nixpacks-was-unable-to-generate-a-build-plan",
-    destination: "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
     permanent: true,
   },
   {
     source: "/reference/errors/enotfound-redis-railway-internal",
-    destination: "/troubleshooting/enotfound-redis-railway-internal",
+    destination: "/databases/troubleshooting/enotfound-redis-railway-internal",
     permanent: true,
   },
   {
     source: "/guides/nodejs-sigterm",
-    destination: "/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm",
     permanent: true,
   },
   {
@@ -823,6 +878,11 @@ const redirects = [
   {
     source: "/reference/integrations",
     destination: "/public-api",
+    permanent: true,
+  },
+  {
+    source: "/guides/troubleshooting-slow-apps",
+    destination: "/deployments/troubleshooting/slow-deployments",
     permanent: true,
   },
 ];
