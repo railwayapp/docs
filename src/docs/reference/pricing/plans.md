@@ -38,7 +38,7 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 | Plan           | **Replicas** | **RAM**      | **CPU**        | **Ephemeral Storage** | **Volume Storage** | **Image Size** |
 | -------------- | ------------ | ------------ | -------------- | --------------------- | ------------------ | -------------- |
 | **Trial**      | **0**        | **1 GB**     | **2 vCPU**     | **1 GB**              | **0.5 GB**         | **4 GB**       |
-| **Free**       | **0**        | **0.5 GB**.  | **1 vCPU**     | **1 GB**              | **0.5 GB**         | **4 GB**       | 
+| **Free**       | **0**        | **0.5 GB**   | **1 vCPU**     | **1 GB**              | **0.5 GB**         | **4 GB**       | 
 | **Hobby**      | **6**        | **48 GB**    | **48 vCPU**    | **100 GB**            | **5 GB**           | **100 GB**     |
 | **Pro**        | **42**       | **1 TB**     | **1,000 vCPU** | **100 GB**            | **1 TB \***        | **Unlimited**  |
 | **Enterprise** | **50**       | **2.4 TB**   | **2,400 vCPU** | **100 GB**            | **5 TB \***        | **Unlimited**  |
