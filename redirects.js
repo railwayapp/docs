@@ -645,16 +645,6 @@ const redirects = [
     permanent: true,
   },
   {
-    source: "/public-networking",
-    destination: "/networking/public-networking",
-    permanent: true,
-  },
-  {
-    source: "/public-networking/:slug*",
-    destination: "/networking/public-networking/:slug*",
-    permanent: true,
-  },
-  {
     source: "/reference/public-domains",
     destination: "/networking/domains",
     permanent: true,
@@ -672,16 +662,6 @@ const redirects = [
   {
     source: "/reference/private-networking",
     destination: "/networking/private-networking",
-    permanent: true,
-  },
-  {
-    source: "/private-networking",
-    destination: "/networking/private-networking",
-    permanent: true,
-  },
-  {
-    source: "/private-networking/:slug*",
-    destination: "/networking/private-networking/:slug*",
     permanent: true,
   },
   {
