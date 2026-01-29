@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { cn } from "@/lib/cn";
 import { Icon } from "./Icon";
 import { Link } from "./Link";
-import { Logo } from "./Logo";
-import { Badge } from "./Badge";
+import { Logo } from "./logo";
+import { Badge } from "./badge";
 import { OpenSearchModalButton } from "@/components/Search";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { sidebarContent } from "../data/sidebar";
@@ -12,10 +12,7 @@ import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
 import SidebarItem from "./SidebarItem";
 import { Arrow } from "@/components/Arrow";
 
-const navLinks = [
-  { title: "Docs", href: "/" },
-  { title: "Guides", href: "/guides" },
-];
+const navLinks = [{ title: "Guides", href: "/guides" }];
 
 // Desktop Top Navigation
 export const TopNav: React.FC = () => {
