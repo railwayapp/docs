@@ -1,94 +1,77 @@
 import React, { PropsWithChildren } from "react";
-import { iconFromName } from "@/utils/icon";
-import {
-  AlertTriangle,
-  CheckCircle,
-  Info,
-  Star,
-  XOctagon,
-} from "react-feather";
-import tw, { TwStyle } from "twin.macro";
+import { cn } from "@/lib/cn";
 import { Icon } from "./Icon";
 
 export type BannerVariant =
-  | "primary"
-  | "secondary"
+  | "default"
   | "info"
-  | "danger"
   | "success"
-  | "warning";
+  | "warning"
+  | "danger"
+  | "primary";
 
-const defaultVariant: BannerVariant = "primary";
+const defaultVariant: BannerVariant = "info";
 
 export interface Props {
   variant?: BannerVariant;
-  icon?: React.ComponentType;
-  iconName?: string;
+  icon?: React.ReactNode;
   hideIcon?: boolean;
   className?: string;
-  textContainerStyles?: TwStyle;
-  tw?: string;
-  css?: TwStyle[];
 }
 
-const containerStyles: Record<BannerVariant, TwStyle> = {
-  primary: tw`text-pink-800 bg-pink-100 border border-pink-200`,
-  secondary: tw`text-gray-800 bg-gray-100 border border-gray-200`,
-  info: tw`text-blue-800 bg-blue-100 border border-blue-200`,
-  danger: tw`text-red-800 bg-red-100 border border-red-200`,
-  success: tw`text-green-800 bg-green-100 border border-green-200`,
-  warning: tw`text-yellow-800 bg-yellow-100 border border-yellow-200`,
+const containerStyles: Record<BannerVariant, string> = {
+  default: "bg-muted-app-subtle border-muted text-muted-high-contrast",
+  primary: "bg-primary-app-subtle border-primary text-primary-high-contrast",
+  info: "bg-info-app-subtle border-info text-info-high-contrast",
+  success: "bg-success-app-subtle border-success text-success-high-contrast",
+  warning: "bg-warning-app-subtle border-warning text-warning-high-contrast",
+  danger: "bg-danger-app-subtle border-danger text-danger-high-contrast",
 };
 
-const iconStyles: Record<BannerVariant, TwStyle> = {
-  primary: tw`text-pink-500`,
-  secondary: tw`text-gray-500`,
-  info: tw`text-blue-500`,
-  danger: tw`text-red-500`,
-  success: tw`text-green-500`,
-  warning: tw`text-yellow-500`,
+const iconStyles: Record<BannerVariant, string> = {
+  default: "text-muted-base",
+  primary: "text-primary-base",
+  info: "text-info-base",
+  success: "text-success-base",
+  warning: "text-warning-base",
+  danger: "text-danger-base",
 };
 
-const defaultIcons: Record<BannerVariant, React.ComponentType | null> = {
-  primary: null,
-  secondary: null,
-  info: Info,
-  danger: XOctagon,
-  success: CheckCircle,
-  warning: AlertTriangle,
+const defaultIcons: Record<BannerVariant, React.ReactNode> = {
+  default: null,
+  primary: <Icon name="Star" className="size-5" />,
+  info: <Icon name="InfoCircle" className="size-5" />,
+  success: <Icon name="CheckCircle" className="size-5" />,
+  warning: <Icon name="TriangleAlert" className="size-5" />,
+  danger: <Icon name="CrossCircle" className="size-5" />,
 };
 
 export const Banner: React.FC<PropsWithChildren<Props>> = ({
   children,
-  hideIcon,
-  textContainerStyles,
-  ...props
+  hideIcon = false,
+  className,
+  variant = defaultVariant,
+  icon,
 }) => {
-  const variant = props.variant ?? defaultVariant;
-  const icon = props.iconName
-    ? iconFromName(props.iconName)
-    : props.icon ?? defaultIcons[variant];
+  const IconComponent = icon ?? defaultIcons[variant];
 
   return (
     <div
-      css={[
-        tw`flex items-center py-3 px-4 border rounded-md space-x-3`,
+      data-slot="banner"
+      role="alert"
+      className={cn(
+        "my-6 grid gap-0.5 rounded-lg border px-4 py-3 text-left text-sm",
+        IconComponent && !hideIcon && "grid-cols-[auto_1fr] gap-x-3",
         containerStyles[variant],
-      ]}
-      className="banner"
-      {...props}
-    >
-      {!hideIcon && icon != null && (
-        <Icon tw="mx-1" icon={icon} css={[iconStyles[variant]]} />
+        className,
       )}
-      <div
-        css={[
-          {
-            "> p": tw`my-2`,
-          },
-          textContainerStyles,
-        ]}
-      >
+    >
+      {!hideIcon && IconComponent && (
+        <div className={cn("row-span-2 translate-y-0.5", iconStyles[variant])}>
+          {IconComponent}
+        </div>
+      )}
+      <div className="[&>p]:my-1 [&>p:first-child]:mt-0 [&>p:last-child]:mb-0 [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:opacity-80">
         {children}
       </div>
     </div>
@@ -97,16 +80,14 @@ export const Banner: React.FC<PropsWithChildren<Props>> = ({
 
 export const PriorityBoardingBanner: React.FC = () => {
   return (
-    <Banner variant="primary" icon={Star}>
+    <Banner variant="primary">
       This feature is in beta.
     </Banner>
   );
 };
 
-export const DeprecationBanner: React.FC<PropsWithChildren> = ({ children }) => {
-  return (
-    <Banner variant="warning">
-      {children}
-    </Banner>
-  );
+export const DeprecationBanner: React.FC<PropsWithChildren> = ({
+  children,
+}) => {
+  return <Banner variant="warning">{children}</Banner>;
 };

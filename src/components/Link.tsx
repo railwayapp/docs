@@ -5,7 +5,6 @@ export interface Props {
   href: string;
   external?: boolean;
   className?: string;
-  id?: string;
   onClick?: (e: React.MouseEvent) => void;
 }
 
@@ -28,11 +27,11 @@ export const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<Props>>(
     }
 
     return (
-      <NLink href={href} passHref legacyBehavior>
-        <a ref={ref} {...props}>
-          {children}
-        </a>
+      <NLink href={href} ref={ref} {...props}>
+        {children}
       </NLink>
     );
   },
 );
+
+Link.displayName = "Link";

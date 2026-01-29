@@ -1,47 +1,25 @@
-import classNames from "classnames";
 import { useRouter } from "next/router";
 import React, { useMemo, useState, useEffect } from "react";
-import tw from "twin.macro";
+import { cn } from "@/lib/cn";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
-import { Logo } from "./Logo";
-import { ScrollArea } from "./ScrollArea";
-import { OpenSearchModalButton } from "@/components/Search";
-import { ThemeSwitcher } from "./ThemeSwitcher";
+import { ScrollArea } from "@/components/ScrollArea";
 import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
 import SidebarItem from "./SidebarItem";
+import { Arrow } from "@/components/Arrow";
 
 export const Sidebar: React.FC = ({ ...props }) => {
   return (
-    <nav
-      css={[
-        tw`hidden`,
-        tw`md:h-screen md:sticky md:top-0 md:overflow-hidden md:block md:min-w-sidebar`,
-        tw`md:border-r md:border-[rgba(0,0,0,0.1)] dark:md:border-gray-200 bg-[#EDEBE9] dark:bg-background`,
-      ]}
-      className="sidebar"
+    <div
+      className="sidebar hidden md:flex md:flex-col md:sticky md:top-[53px] md:h-[calc(100vh-53px)] md:overflow-hidden md:min-w-sidebar md:border-r md:border-muted bg-muted-app"
       {...props}
     >
-      <ScrollArea>
-        <div tw="pt-6 pb-6 px-4 sticky top-0 bg-[#EDEBE9] dark:bg-background z-10">
-          <div tw="flex items-center justify-between">
-            <Link tw="flex items-center" href="/">
-              <div tw="flex items-center">
-                <Logo tw="w-8 h-8 mr-4" /> <span tw="font-bold">Docs</span>
-              </div>
-            </Link>
-
-            <ThemeSwitcher />
-          </div>
+      <ScrollArea className="flex-1 min-h-0">
+        <div className="px-6 py-4">
+          <SidebarContent />
         </div>
-
-        <div tw="mx-4 mb-6">
-          <OpenSearchModalButton />
-        </div>
-
-        <SidebarContent />
       </ScrollArea>
-    </nav>
+    </div>
   );
 };
 
@@ -57,49 +35,45 @@ const SidebarContent: React.FC = () => {
   );
 
   const [expandedSubSections, setExpandedSubSections] = useState<string[]>([]);
-  const [expandedSections, setExpandedSections] = useState<string[]>([]);
+  const [expandedSections, setExpandedSections] = useState<string[]>(() => {
+    // Initialize with sections marked defaultExpanded
+    return sidebarContent
+      .filter(s => s.defaultExpanded && s.title)
+      .map(s => s.title!);
+  });
   const activeLinkRef = React.useRef<HTMLAnchorElement | null>(null);
 
-  // Find which section contains the current page
-  const findContainingSectionTitle = (
-    sections: ISidebarSection[],
-    currentPageSlug: string,
-  ): string | null => {
-    for (const section of sections) {
-      // Check section's own slug
-      if (section.slug === currentPageSlug && section.title) {
-        return section.title;
-      }
+  const currentSlug = prefixedSlug ?? pathname;
 
-      // Check direct pages
-      const hasDirectPage = section.content.some(
-        item => "slug" in item && item.slug === currentPageSlug,
+  // Auto-expand section containing current page
+  useEffect(() => {
+    const containingSection = sidebarContent.find(
+      section =>
+        section.title &&
+        section.content.some(item => {
+          if ("slug" in item && item.slug === currentSlug) return true;
+          if ("subTitle" in item) {
+            const subTitleSlug =
+              typeof item.subTitle === "string"
+                ? item.subTitle
+                : item.subTitle.slug;
+            if (subTitleSlug === currentSlug) return true;
+            return item.pages.some(p => "slug" in p && p.slug === currentSlug);
+          }
+          return false;
+        }),
+    );
+
+    if (containingSection?.title) {
+      setExpandedSections(prev =>
+        prev.includes(containingSection.title!)
+          ? prev
+          : [...prev, containingSection.title!],
       );
-      if (hasDirectPage && section.title) return section.title;
-
-      // Check subsection pages
-      for (const item of section.content) {
-        if ("subTitle" in item) {
-          const subTitleSlug =
-            typeof item.subTitle === "string"
-              ? item.subTitle
-              : item.subTitle.slug;
-          if (subTitleSlug === currentPageSlug && section.title)
-            return section.title;
-          const hasMatchingChild = item.pages.some(
-            p => "slug" in p && p.slug === currentPageSlug,
-          );
-          if (hasMatchingChild && section.title) return section.title;
-        }
-      }
     }
-    return null;
-  };
+  }, [currentSlug]);
 
   useEffect(() => {
-    const currentSlug = prefixedSlug ?? pathname;
-
-    // Expand subsections containing the current page
     const newExpandedSubSections = findContainingSubSectionSlugs(
       sidebarContent,
       currentSlug,
@@ -109,20 +83,7 @@ const SidebarContent: React.FC = () => {
         new Set([...prevExpandedSubSections, ...newExpandedSubSections]),
       ),
     );
-
-    // Expand the section containing the current page
-    const containingSection = findContainingSectionTitle(
-      sidebarContent,
-      currentSlug,
-    );
-    if (containingSection) {
-      setExpandedSections(prevExpandedSections =>
-        prevExpandedSections.includes(containingSection)
-          ? prevExpandedSections
-          : [...prevExpandedSections, containingSection],
-      );
-    }
-  }, [prefixedSlug, pathname]);
+  }, [currentSlug]);
 
   useEffect(() => {
     if (activeLinkRef.current) {
@@ -161,9 +122,6 @@ const SidebarContent: React.FC = () => {
     (prefixedSlug ?? pathname) === pageSlug;
 
   const isCurrentSection = (section: ISidebarSection) => {
-    // Check if the section's own slug matches
-    const isSectionSlugCurrent = section.slug && isCurrentPage(section.slug);
-
     const isDirectPageCurrent = section.content.some(
       item => "slug" in item && isCurrentPage(item.slug),
     );
@@ -186,10 +144,7 @@ const SidebarContent: React.FC = () => {
     );
 
     return (
-      isSectionSlugCurrent ||
-      isDirectPageCurrent ||
-      isSubTitlePageCurrent ||
-      isSubSectionPageCurrent
+      isDirectPageCurrent || isSubTitlePageCurrent || isSubSectionPageCurrent
     );
   };
 
@@ -207,12 +162,6 @@ const SidebarContent: React.FC = () => {
         ? prevState.filter(title => title !== sectionTitle)
         : [...prevState, sectionTitle],
     );
-  };
-
-  const isSectionExpanded = (section: ISidebarSection) => {
-    // Sections without titles are always expanded (like Quick Start at root level)
-    if (!section.title) return true;
-    return expandedSections.includes(section.title);
   };
 
   const renderContentItem = (item: IPage | ISubSection | IExternalLink) => {
@@ -243,104 +192,108 @@ const SidebarContent: React.FC = () => {
   return (
     <>
       {sidebarContent.map((section, i) => {
-        const isExpanded = isSectionExpanded(section);
-        const isCurrent = isCurrentSection(section);
-        const hasContent = section.content.length > 0;
-        const isLinkOnly = section.slug && !hasContent;
-
         return (
           <React.Fragment key={i}>
-            {section.title ? (
-              isLinkOnly ? (
-                // Render as simple link when slug exists but no nested content
-                <Link
-                  href={section.slug!}
-                  css={[
-                    tw`flex items-center px-4 my-2 py-1`,
-                    tw`hover:bg-gray-100 cursor-pointer`,
-                    tw`rounded-sm`,
-                    tw`text-foreground text-sm font-medium`,
-                    tw`hover:text-pink-700`,
-                    isCurrent && tw`text-pink-700`,
-                  ]}
-                  className={classNames(isCurrent && "current-section")}
-                >
-                  {section.title}
-                </Link>
-              ) : (
-                // Render as accordion when there's nested content
-                <div
-                  css={[
-                    tw`flex justify-between items-center px-4 my-2`,
-                    tw`hover:bg-gray-100 cursor-pointer`,
-                    tw`rounded-sm`,
-                  ]}
-                  onClick={() => {
-                    if (!section.slug) {
-                      toggleSection(section.title!);
-                    }
-                  }}
-                >
-                  {section.slug ? (
-                    <Link
-                      href={section.slug}
-                      css={[
-                        tw`text-foreground text-sm font-medium py-1 flex-1`,
-                        tw`hover:text-pink-700`,
-                        isCurrent && tw`text-pink-700`,
-                      ]}
-                      className={classNames(isCurrent && "current-section")}
-                    >
-                      {section.title}
-                    </Link>
-                  ) : (
-                    <h5
-                      css={[
-                        tw`text-foreground text-sm font-medium py-1`,
-                        isCurrent && tw`text-pink-700`,
-                      ]}
-                      className={classNames(isCurrent && "current-section")}
-                    >
-                      {section.title}
-                    </h5>
-                  )}
-                  <button
-                    onClick={e => {
-                      e.stopPropagation();
-                      toggleSection(section.title!);
-                    }}
-                    css={[
-                      tw`p-1 hover:bg-gray-200 rounded`,
-                      tw`text-gray-600 hover:text-foreground`,
-                    ]}
-                    aria-expanded={isExpanded}
-                    aria-label={`Toggle ${section.title} section`}
+            {/* Named sections */}
+            {section.title && (
+              <>
+                {/* Section with no content and has a slug - render as plain link */}
+                {section.slug && section.content.length === 0 ? (
+                  <Link
+                    href={section.slug}
+                    className={cn(
+                      "group flex w-full items-center gap-2 py-1.5 px-3 -ml-3 rounded-md min-w-0",
+                      "text-sm font-medium text-muted-base",
+                      "hover:text-muted-high-contrast transition-colors",
+                      "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
+                      isCurrentPage(section.slug) &&
+                        "bg-primary-element text-muted-high-contrast",
+                    )}
+                    title={section.title}
                   >
-                    <svg
-                      css={[
-                        tw`w-4 h-4 transition-transform duration-200`,
-                        isExpanded && tw`transform rotate-90`,
-                      ]}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
+                    <span className="truncate">{section.title}</span>
+                  </Link>
+                ) : (
+                  /* Section with content - collapsible accordion */
+                  <>
+                    <button
+                      onClick={() => toggleSection(section.title!)}
+                      className={cn(
+                        "group flex w-full items-center justify-between gap-2 py-1.5 px-3 -ml-3 rounded-md cursor-pointer min-w-0",
+                        "text-sm font-medium text-muted-base",
+                        "hover:text-muted-high-contrast transition-colors",
+                        "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
+                        isCurrentSection(section) && "text-muted-high-contrast",
+                        section.slug &&
+                          isCurrentPage(section.slug) &&
+                          "bg-primary-element text-muted-high-contrast",
+                      )}
+                      aria-expanded={expandedSections.includes(section.title)}
+                      aria-label={
+                        expandedSections.includes(section.title)
+                          ? `Collapse ${section.title} section`
+                          : `Expand ${section.title} section`
+                      }
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 5l7 7-7 7"
+                      {section.slug ? (
+                        <Link
+                          href={section.slug}
+                          className={cn(
+                            "flex-1 text-left truncate min-w-0",
+                            "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-inset rounded",
+                            isCurrentPage(section.slug) &&
+                              "text-muted-high-contrast font-semibold",
+                          )}
+                          onClick={e => {
+                            e.stopPropagation();
+                            // Also expand the section when navigating
+                            if (!expandedSections.includes(section.title!)) {
+                              setExpandedSections(prev => [
+                                ...prev,
+                                section.title!,
+                              ]);
+                            }
+                          }}
+                          title={section.title}
+                        >
+                          {section.title}
+                        </Link>
+                      ) : (
+                        <span
+                          className="flex-1 text-left truncate min-w-0"
+                          title={section.title}
+                        >
+                          {section.title}
+                        </span>
+                      )}
+                      <Arrow
+                        isExpanded={expandedSections.includes(section.title)}
+                        className="shrink-0 group-hover:text-muted-high-contrast"
                       />
-                    </svg>
-                  </button>
-                </div>
-              )
-            ) : null}
+                    </button>
 
-            {isExpanded && hasContent && (
-              <ul css={[tw`mb-4`, section.title && tw`mb-2`]}>
-                {section.content.map(renderContentItem)}
-              </ul>
+                    <div
+                      className={cn(
+                        "grid transition-[grid-template-rows] duration-200 ease-out",
+                        expandedSections.includes(section.title)
+                          ? "grid-rows-[1fr]"
+                          : "grid-rows-[0fr]",
+                      )}
+                    >
+                      <ul
+                        className={cn(
+                          "overflow-hidden ml-3 pl-3 space-y-0.5 min-w-0",
+                          expandedSections.includes(section.title)
+                            ? "pt-1 pb-2 border-l border-muted"
+                            : "",
+                        )}
+                      >
+                        {section.content.map(renderContentItem)}
+                      </ul>
+                    </div>
+                  </>
+                )}
+              </>
             )}
           </React.Fragment>
         );
@@ -351,8 +304,10 @@ const SidebarContent: React.FC = () => {
 
 export const MobileSidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
   return (
-    <nav css={[isOpen ? tw`block` : tw`hidden`, tw`w-full`, tw`md:hidden`]}>
+    <div
+      className={cn(isOpen ? "block" : "hidden", "w-full md:hidden px-4 pb-6")}
+    >
       <SidebarContent />
-    </nav>
+    </div>
   );
 };

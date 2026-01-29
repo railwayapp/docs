@@ -1,12 +1,13 @@
-import React, {
-  PropsWithChildren,
+import { cn } from "@/lib/cn";
+import { Icon } from "@/components/Icon";
+import { slugify } from "@/utils/slugify";
+import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
+import {
+  type PropsWithChildren,
+  useCallback,
   useEffect,
   useState,
-  useCallback,
 } from "react";
-import tw from "twin.macro";
-import { slugify } from "@/utils/slugify";
-import { Arrow } from "@/components/Arrow";
 
 interface Props {
   title: string;
@@ -15,11 +16,11 @@ interface Props {
 
 const openElements = new Set<string>();
 
-export const Collapse: React.FC<PropsWithChildren<Props>> = ({
+export const Collapse = ({
   children,
   title,
   slug,
-}) => {
+}: PropsWithChildren<Props>) => {
   const newSlug = slug ?? slugify(title);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -47,14 +48,10 @@ export const Collapse: React.FC<PropsWithChildren<Props>> = ({
     [newSlug, updateHash],
   );
 
-  const handleClick = useCallback(
-    (event: React.MouseEvent) => {
-      event.preventDefault();
-      setIsExpanded(prevIsOpen => {
-        const newIsExpanded = !prevIsOpen;
-        handleOpenState(newIsExpanded);
-        return newIsExpanded;
-      });
+  const handleToggle = useCallback(
+    (open: boolean) => {
+      setIsExpanded(open);
+      handleOpenState(open);
     },
     [handleOpenState],
   );
@@ -69,14 +66,29 @@ export const Collapse: React.FC<PropsWithChildren<Props>> = ({
   }, [newSlug, handleOpenState]);
 
   return (
-    <details css={tw`my-4 mx-2 cursor-pointer`} id={newSlug} open={isExpanded}>
-      <summary css={tw`font-medium flex items-center`} onClick={handleClick}>
-        <span css={tw`mr-2`}>
-          <Arrow isExpanded={isExpanded} />
-        </span>
+    <CollapsiblePrimitive.Root
+      data-slot="collapse"
+      id={newSlug}
+      open={isExpanded}
+      onOpenChange={handleToggle}
+      className="my-4"
+    >
+      <CollapsiblePrimitive.Trigger
+        className={cn(
+          "group/collapse flex w-full items-center gap-2 text-left font-medium",
+          "text-muted-high-contrast hover:text-primary-base",
+          "outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app rounded",
+        )}
+      >
+        <Icon
+          name="ChevronRight"
+          className="size-4 text-muted-base transition-transform duration-150 group-data-open/collapse:rotate-90"
+        />
         {title}
-      </summary>
-      <div css={tw`cursor-default pl-6`}>{children}</div>
-    </details>
+      </CollapsiblePrimitive.Trigger>
+      <CollapsiblePrimitive.Panel className="h-(--collapsible-panel-height) overflow-hidden text-sm transition-[height] duration-150 ease-out data-ending-style:h-0 data-starting-style:h-0">
+        <div className="pt-2 pl-6 text-muted-base">{children}</div>
+      </CollapsiblePrimitive.Panel>
+    </CollapsiblePrimitive.Root>
   );
 };

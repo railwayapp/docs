@@ -1,13 +1,16 @@
 import React from "react";
-import "twin.macro";
+import { cn } from "@/lib/cn";
 
-export const Logo: React.FC = props => (
+interface LogoProps {
+  className?: string;
+}
+
+export const Logo: React.FC<LogoProps> = ({ className, ...props }) => (
   <svg
     data-v-423bf9ae=""
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 60 60"
-    className="logo"
-    tw="w-10 fill-current"
+    className={cn("logo w-10 fill-current", className)}
     {...props}
   >
     <g

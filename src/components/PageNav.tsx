@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import tw, { TwStyle } from "twin.macro";
+import { cn } from "@/lib/cn";
 import { Link } from "./Link";
 import { scrollToID } from "@/utils/scroll";
 
@@ -102,12 +102,14 @@ export const PageNav: React.FC<Props> = ({ title }) => {
   }, [activeId]);
 
   return (
-    <div tw="flex-col w-[300px] pt-4 pl-12 xl:pl-16 pr-0 pb-6 min-w-pageNav hidden lg:flex">
+    <div className="flex-col w-[300px] pt-4 pl-12 xl:pl-16 pr-0 pb-6 min-w-pageNav hidden lg:flex">
       {headers.length !== 0 && (
-        <aside tw="sticky top-12 h-[100vh] relative">
-          <div tw="overflow-y-auto h-full">
-            <h5 tw="text-sm text-gray-900 font-medium mb-3">On This Page</h5>
-            <ul tw="space-y-3">
+        <aside className="sticky top-12 h-screen">
+          <div className="overflow-y-auto h-full">
+            <h5 className="text-sm text-muted-high-contrast font-medium mb-3">
+              On This Page
+            </h5>
+            <ul className="space-y-3">
               <HeaderList
                 headers={headers}
                 nesting={0}
@@ -122,10 +124,10 @@ export const PageNav: React.FC<Props> = ({ title }) => {
   );
 };
 
-const nestingTw: Record<number, TwStyle> = {
-  0: tw`ml-0`,
-  1: tw`ml-6`,
-  2: tw`ml-10`,
+const nestingStyles: Record<number, string> = {
+  0: "ml-0",
+  1: "ml-6",
+  2: "ml-10",
 };
 
 const HeaderList: React.FC<{
@@ -140,16 +142,15 @@ const HeaderList: React.FC<{
         const isActive = h.id === activeId;
         return (
           <React.Fragment key={`${h.id}-${i}`}>
-            <li key={h.id} css={[nestingTw[nesting]]}>
+            <li key={h.id} className={nestingStyles[nesting]}>
               <Link
                 ref={el => {
                   linkRefs[h.id] = el;
                 }}
-                css={[
-                  tw`inline-block text-gray-600 text-sm`,
-                  tw`hover:text-pink-500`,
-                  isActive && tw`font-medium text-pink-500`,
-                ]}
+                className={cn(
+                  "inline-block text-muted-base text-sm hover:text-primary-base",
+                  isActive && "font-medium text-primary-base",
+                )}
                 href={`#${h.id}`}
                 onClick={scrollToID(h.id)}
               >
