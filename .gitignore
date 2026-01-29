@@ -42,9 +42,10 @@ yarn-error.log*
 # dynamically generated files
 public/sitemap*.xml
 public/robots.txt
-.contentlayer
+.content-collections
 
 /.envrc
 /.direnv/
 .turbo
 .claude/
+.cursor/
