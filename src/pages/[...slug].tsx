@@ -1,6 +1,7 @@
 import { Banner, PriorityBoardingBanner, DeprecationBanner } from "@/components/Banner";
 import { Collapse } from "@/components/Collapse";
 import { CodeBlock } from "@/components/CodeBlock";
+import { CodeTabs } from "@/components/CodeTabs";
 import Layout from "@/mdxLayouts/index";
 import { allPages, Page } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -21,6 +22,7 @@ const components: Record<string, React.ElementType> = {
   Link,
   PriorityBoardingBanner,
   DeprecationBanner,
+  CodeTabs,
   a: Anchor,
   h2: H2,
   h3: H3,
