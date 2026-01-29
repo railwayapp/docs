@@ -1,24 +1,75 @@
 import { useRouter } from "next/router";
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/cn";
 import { sidebarContent } from "../data/sidebar";
 import { Link } from "./Link";
-import { ScrollArea } from "@/components/ScrollArea";
 import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
 import SidebarItem from "./SidebarItem";
 import { Arrow } from "@/components/Arrow";
 
 export const Sidebar: React.FC = ({ ...props }) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [scrollState, setScrollState] = useState({
+    canScrollUp: false,
+    canScrollDown: false,
+  });
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const updateScrollState = () => {
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      setScrollState({
+        canScrollUp: scrollTop > 0,
+        canScrollDown: scrollTop + clientHeight < scrollHeight - 1,
+      });
+    };
+
+    updateScrollState();
+    container.addEventListener("scroll", updateScrollState);
+
+    const resizeObserver = new ResizeObserver(updateScrollState);
+    resizeObserver.observe(container);
+
+    return () => {
+      container.removeEventListener("scroll", updateScrollState);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   return (
     <div
-      className="sidebar hidden md:flex md:flex-col md:sticky md:top-[53px] md:h-[calc(100vh-53px)] md:overflow-hidden md:min-w-sidebar md:border-r md:border-muted bg-muted-app"
+      className="sidebar hidden md:flex md:flex-col md:sticky md:top-[53px] md:h-[calc(100vh-53px)] md:overflow-hidden md:w-sidebar md:shrink-0 md:border-r md:border-muted bg-muted-app"
       {...props}
     >
-      <ScrollArea className="flex-1 min-h-0">
-        <div className="px-6 py-4">
+      <div className="relative flex-1 min-h-0 overflow-hidden">
+        {/* Top fade indicator */}
+        <div
+          className={cn(
+            "from-muted-app pointer-events-none absolute inset-x-0 top-0 z-10 h-6 bg-gradient-to-b to-transparent transition-opacity duration-150",
+            scrollState.canScrollUp ? "opacity-100" : "opacity-0",
+          )}
+          aria-hidden="true"
+        />
+
+        {/* Scrollable container */}
+        <div
+          ref={scrollContainerRef}
+          className="h-full overflow-y-auto px-6 py-4"
+        >
           <SidebarContent />
         </div>
-      </ScrollArea>
+
+        {/* Bottom fade indicator */}
+        <div
+          className={cn(
+            "from-muted-app pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6 bg-gradient-to-t to-transparent transition-opacity duration-150",
+            scrollState.canScrollDown ? "opacity-100" : "opacity-0",
+          )}
+          aria-hidden="true"
+        />
+      </div>
     </div>
   );
 };

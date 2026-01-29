@@ -146,8 +146,8 @@ Secondary button: `bg-primary-element hover:bg-primary-element-hover text-primar
   --color-info-base: var(--blue-11);
   --color-info-high-contrast: var(--blue-12);
 
-  /* Custom min-width values */
-  --min-width-sidebar: 290px;
+  /* Custom width values */
+  --width-sidebar: 300px;
   --min-width-pageNav: 200px;
   --min-width-70vw: 70vw;
   --min-width-80vw: 80vw;
