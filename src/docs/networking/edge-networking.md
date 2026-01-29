@@ -126,16 +126,18 @@ Consider reaching out to support if:
 
 ### Diagnostic Steps
 
-1. **Check the header**: Inspect `X-Railway-Edge` in your application logs or by making test requests
+1. **Check your current routing**: Visit [Railway's routing info page](https://routing-info-production.up.railway.app/) to see which edge region your requests are hitting
 
-2. **Run traceroute**: Test network paths to Railway's anycast IP
+2. **Check the header**: Inspect `X-Railway-Edge` in your application logs or by making test requests
+
+3. **Run traceroute**: Test network paths to Railway's anycast IP
    ```bash
    traceroute 66.33.22.11
    ```
 
-3. **Compare from multiple locations**: Use tools like [check-host.net](https://check-host.net) to test routing from different geographic locations
+4. **Compare from multiple locations**: Use tools like [globalping.io](https://globalping.io) to test routing from different geographic locations
 
-4. **Check your CDN configuration**: If using Cloudflare or similar, verify your DNS and proxy settings
+5. **Check your CDN configuration**: If using Cloudflare or similar, verify your DNS and proxy settings
 
 ### Contacting Support
 
