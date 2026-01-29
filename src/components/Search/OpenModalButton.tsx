@@ -1,27 +1,37 @@
 import { searchStore } from "@/store";
 import React from "react";
-import { Search as SearchIcon } from "react-feather";
-import tw from "twin.macro";
+import { Icon } from "../Icon";
 
-const OpenModalButton: React.FC = () => {
-  return (
-    <>
+interface OpenModalButtonProps {
+  iconOnly?: boolean;
+}
+
+const OpenModalButton: React.FC<OpenModalButtonProps> = ({ iconOnly }) => {
+  if (iconOnly) {
+    return (
       <button
         onClick={() => searchStore.set(true)}
-        css={[
-          tw`flex items-center justify-between space-x-4 w-full`,
-          tw`rounded border border-gray-300 cursor-pointer`,
-          tw`px-2 py-2 md:py-1 text-gray-600 text-left`,
-          tw`md:hover:border-pink-300`,
-        ]}
+        className="p-1.5 rounded-md text-muted-base hover:bg-muted-element hover:text-muted-high-contrast transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid"
+        aria-label="Search"
       >
-        <div tw="flex items-center space-x-2">
-          <SearchIcon tw="w-4 h-4" />
-          <span tw="text-sm">Search</span>
-        </div>
-        <div tw="text-gray-600 text-sm hidden md:block">⌘K</div>
+        <Icon className="size-5" name="Search" />
       </button>
-    </>
+    );
+  }
+
+  return (
+    <button
+      onClick={() => searchStore.set(true)}
+      className="group flex w-full items-center justify-between gap-3 rounded-lg border border-muted bg-muted-app px-3 py-2 text-left text-sm text-muted-base shadow-xs transition-all duration-150 hover:border-muted-hover hover:bg-muted-element hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+    >
+      <div className="flex items-center gap-2">
+        <Icon className="size-4" name="Search" />
+        <span>Search docs...</span>
+      </div>
+      <kbd className="pointer-events-none hidden select-none items-center gap-1 rounded border border-muted bg-muted-element px-1.5 py-0.5 font-mono text-xs text-muted-base md:inline-flex">
+        <span className="text-xs">⌘</span>K
+      </kbd>
+    </button>
   );
 };
 
