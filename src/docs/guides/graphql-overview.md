@@ -7,11 +7,12 @@ If you've worked with REST APIs, GraphQL might feel unfamiliar at first. This gu
 
 ## What is GraphQL?
 
-GraphQL is a query language for APIs. Instead of hitting different endpoints to get different pieces of data, you write a query that describes exactly what you want. The server returns nothing more, nothing less. Just exactly what you ask for.
+GraphQL is a query language for APIs. Instead of hitting different endpoints to get different pieces of data, you write a query that describes exactly what you want. The server returns nothing more, nothing less.
 
 Here's a simple example. Say you want to fetch a project's name and the names of its services:
 
-<CodeTabs query={`query project($id: String!) {
+```graphql
+query project($id: String!) {
   project(id: $id) {
     name
     services {
@@ -22,7 +23,14 @@ Here's a simple example. Say you want to fetch a project's name and the names of
       }
     }
   }
-}`} variables={{ id: "project-id" }} />
+}
+```
+
+```json
+{
+  "id": "your-project-id"
+}
+```
 
 The response mirrors the shape of your query:
 
@@ -42,7 +50,7 @@ The response mirrors the shape of your query:
 }
 ```
 
-You asked for `name` and `services`. That's what you got. If you also wanted `createdAt`, you'd add it to your query. If you don't need something, leave it out.
+If you also wanted `createdAt`, you'd add it to your query. If you don't need something, leave it out.
 
 ## How is this different from REST?
 
@@ -54,12 +62,12 @@ GET /projects/123/services  → returns list of services
 GET /services/456           → returns one service's details
 ```
 
-To get a project with its services, you might need multiple requests, then stitch the data together yourself. Each endpoint returns whatever fields the API designer decided to include; you can't ask for less (to save bandwidth) or more (to avoid extra calls).
+To get a project with its services, you might need multiple requests, then stitch the data together yourself. Each endpoint returns whatever fields the API designer decided to include.
 
 GraphQL inverts this. There's one endpoint, and you decide what data you need by writing a query.
 
 | REST | GraphQL |
-|------|---------|
+| --- | --- |
 | Multiple endpoints | Single endpoint |
 | Server decides response shape | Client decides response shape |
 | Often requires multiple round-trips | Fetch related data in one request |
@@ -67,13 +75,11 @@ GraphQL inverts this. There's one endpoint, and you decide what data you need by
 
 ## Why does Railway use GraphQL?
 
-**Get exactly what you need.** No over-fetching (getting 50 fields when you need 3) or under-fetching (making extra calls for related data). Your query is your contract.
-
-**Explore the API as you build.** GraphQL APIs are self-documenting. Railway's [GraphiQL playground](https://railway.com/graphiql) lets you browse available types, fields, and operations interactively. Autocomplete field names, see documentation inline, and test queries before writing code.
-
 **Evolve without versioning.** Adding new fields doesn't break existing queries. Clients only get what they ask for, so new fields are invisible to old clients. No `/v1/`, `/v2/` versioning needed.
 
 **Strongly typed.** Every GraphQL API has a schema that defines valid queries. This means better tooling, auto-generated documentation, and errors caught before runtime.
+
+**Self-documenting.** The schema is always available to explore, which we'll cover in the next section.
 
 ## Core concepts
 
@@ -81,38 +87,44 @@ GraphQL inverts this. There's one endpoint, and you decide what data you need by
 
 Queries read data. They're the GraphQL equivalent of GET requests.
 
-<CodeTabs query={`query {
+```graphql
+query {
   me {
+    id
     name
     email
   }
-}`} />
+}
+```
 
 ### Mutations
 
 Mutations change data. They're the equivalent of POST, PUT, or DELETE.
 
-<CodeTabs query={`mutation projectCreate($input: ProjectCreateInput!) {
+```graphql
+mutation projectCreate($input: ProjectCreateInput!) {
   projectCreate(input: $input) {
     id
     name
   }
-}`} variables={{ input: { name: "my-new-project" } }} />
+}
+```
+
+```json
+{
+  "input": {
+    "name": "my-new-project"
+  }
+}
+```
 
 Notice that mutations also return data. You can ask for fields on the newly created resource in the same request.
 
 ### Variables
 
-Instead of hardcoding values in your query, use variables:
+The examples above use variables like `$id` and `$input`. Variables are passed separately from the query as JSON. This keeps queries reusable and makes it easier to work with dynamic values.
 
-<CodeTabs query={`query project($id: String!) {
-  project(id: $id) {
-    name
-    description
-  }
-}`} variables={{ id: "project-id" }} />
-
-Variables are passed separately from the query. This keeps queries reusable and makes it easier to work with dynamic values.
+The `!` suffix (like `String!`) means the variable is required.
 
 ### The schema
 
@@ -120,7 +132,7 @@ Every GraphQL API is backed by a schema that defines all available types, querie
 
 ## Exploring the schema
 
-The best way to discover what's available in Railway's API is through the [GraphiQL playground](https://railway.com/graphiql). Here's how to use it effectively.
+The best way to discover what's available in Railway's API is through the [GraphiQL playground](https://railway.com/graphiql).
 
 ### Using the Docs panel
 
@@ -137,7 +149,7 @@ GraphQL types follow consistent patterns:
 ```graphql
 # Scalar types
 name: String          # Optional string
-name: String!         # Required string (the ! means non-null)
+name: String!         # Required string (non-null)
 
 # Lists
 services: [Service!]! # Required list of non-null Service objects
@@ -149,38 +161,13 @@ input ProjectCreateInput {
 }
 ```
 
-**The `!` suffix means "required"** (non-null). When you see `String!`, a value must be provided. When you see `String` without `!`, it's optional.
-
 ### Finding available fields
 
-When writing a query, you can request any field defined on a type. For example, if you're querying a `Project`, click on the `Project` type in GraphiQL's Docs panel to see all available fields:
-
-- `id`, `name`, `description`: basic info
-- `services`, `environments`, `volumes`: related resources
-- `createdAt`, `updatedAt`: timestamps
-- And more...
-
-You don't need to request all fields. Just include the ones you need:
-
-```graphql
-query {
-  project(id: "...") {
-    name                    # Just the fields you want
-    services {
-      edges { node { name } }
-    }
-  }
-}
-```
+When writing a query, you can request any field defined on a type. Click on the `Project` type in GraphiQL's Docs panel to see all available fields: `id`, `name`, `description`, `services`, `environments`, `volumes`, `createdAt`, `updatedAt`, and more.
 
 ### Finding mutation input fields
 
-For mutations, check the input type to see what you can pass. For example, `projectCreate` takes a `ProjectCreateInput`. Click on that type in GraphiQL to see:
-
-- **Required fields:** Must be provided (marked with `!`)
-- **Optional fields:** Can be omitted for default behavior
-
-The examples in our [API Cookbook](/guides/api-cookbook) show common optional fields, but GraphiQL always has the complete list.
+For mutations, check the input type to see what you can pass. For example, `projectCreate` takes a `ProjectCreateInput`. Click on that type in GraphiQL to see required and optional fields.
 
 ### Pro tip: Use autocomplete
 
@@ -203,28 +190,12 @@ services {
 
 This structure enables cursor-based pagination for large datasets.
 
-### Basic usage
-
-For small lists, just request `edges` and `node` to get all items:
-
-<CodeTabs query={`query project($id: String!) {
-  project(id: $id) {
-    services {
-      edges {
-        node {
-          id
-          name
-        }
-      }
-    }
-  }
-}`} variables={{ id: "project-id" }} />
-
 ### Paginating through results
 
 For larger lists, use `first` to limit results and `after` to fetch the next page:
 
-<CodeTabs query={`query deployments($input: DeploymentListInput!, $first: Int, $after: String) {
+```graphql
+query deployments($input: DeploymentListInput!, $first: Int, $after: String) {
   deployments(input: $input, first: $first, after: $after) {
     edges {
       node {
@@ -238,13 +209,13 @@ For larger lists, use `first` to limit results and `after` to fetch the next pag
       endCursor
     }
   }
-}`} variables={{ input: { projectId: "project-id" }, first: 10 }} />
+}
+```
 
 The `pageInfo` object tells you:
+
 - `hasNextPage`: whether more results exist
 - `endCursor`: the cursor to pass as `after` to get the next page
-
-To fetch the next page, run the same query with `after` set to the `endCursor` from the previous response.
 
 ## Making your first request
 
@@ -254,39 +225,18 @@ Railway's GraphQL endpoint is:
 https://backboard.railway.com/graphql/v2
 ```
 
-A GraphQL request is an HTTP POST with a JSON body containing your query:
-
-<CodeTabs query={`query {
-  me {
-    name
-    email
-  }
-}`} />
-
-Most developers use Railway's [GraphiQL playground](https://railway.com/graphiql) to explore and test queries before writing code. You can also use tools like [Apollo Studio](https://studio.apollographql.com/sandbox/explorer) or [Insomnia](https://insomnia.rest/).
+A GraphQL request is an HTTP POST with a JSON body containing your query. You can use Railway's [GraphiQL playground](https://railway.com/graphiql) to explore and test queries before writing code, or tools like [Apollo Studio](https://studio.apollographql.com/sandbox/explorer) or [Insomnia](https://insomnia.rest/).
 
 ## Tips for getting started
 
-**Use the GraphiQL playground.** Start at [railway.com/graphiql](https://railway.com/graphiql). Browse the schema, build queries with autocomplete, and see results instantly. It's the fastest way to learn what's available.
-
-**Start small.** Write a simple query that fetches one thing:
-
-<CodeTabs query={`query {
-  me {
-    id
-    name
-  }
-}`} />
-
-Once that works, gradually expand to include related data.
+**Start small.** Write a simple query that fetches one thing. Once that works, gradually expand to include related data.
 
 **Read the errors.** GraphQL error messages are specific and helpful. If you misspell a field or pass the wrong type, the error tells you exactly what went wrong and what's valid.
 
-**Think in graphs.** GraphQL shines when you need related data. Instead of "what endpoint do I call?", think "what data do I need, and how is it connected?"
+**Think in graphs.** Instead of "what endpoint do I call?", think "what data do I need, and how is it connected?" For example, to get a project with its services and each service's latest deployment status:
 
-For example, to get a project with its services and each service's latest deployment status (data that might require 3+ REST calls), you write one query:
-
-<CodeTabs query={`query project($id: String!) {
+```graphql
+query project($id: String!) {
   project(id: $id) {
     name
     services {
@@ -306,10 +256,10 @@ For example, to get a project with its services and each service's latest deploy
       }
     }
   }
-}`} variables={{ id: "project-id" }} />
+}
+```
 
 ## Next steps
 
 - **[API Cookbook](/guides/api-cookbook):** Copy-paste examples for common operations
-- **[GraphiQL Playground](https://railway.com/graphiql):** Interactive query explorer
 - **[Public API Reference](/reference/public-api):** Authentication, rate limits, and more
