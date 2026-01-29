@@ -42,64 +42,64 @@ const Home: NextPage = () => {
         {/* Main Content */}
         <ul className="space-y-4">
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/reference/ai">AI</A>: Build with Railway using{" "}
-            <A href="/reference/ai/agent-skills">Agent Skills</A> and the{" "}
-            <A href="/reference/ai/mcp-server">MCP server</A>.
+            <A href="/ai">AI</A>: Build with Railway using{" "}
+            <A href="/ai/agent-skills">Agent Skills</A> and the{" "}
+            <A href="/ai/mcp-server">MCP server</A>.
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/guides/cli">CLI</A>: Develop locally and deploy from your
+            <A href="/cli">CLI</A>: Develop locally and deploy from your
             terminal
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/guides/templates">Templates</A>: One-click deployable
+            <A href="/templates">Templates</A>: One-click deployable
             applications and starters
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/reference/deployments">Deployments</A>: Deploy via{" "}
-            <A href="/guides/github-autodeploys">GitHub</A>,{" "}
-            <A href="/guides/cli">CLI</A>, or{" "}
-            <A href="/guides/dockerfiles">Dockerfile</A>. Configure{" "}
-            <A href="/guides/healthchecks">healthchecks</A>,{" "}
-            <A href="/reference/scaling">scaling</A>, and{" "}
-            <A href="/reference/regions">regions</A>
+            <A href="/deployments">Deployments</A>: Deploy via{" "}
+            <A href="/deployments/github-autodeploys">GitHub</A>,{" "}
+            <A href="/cli">CLI</A>, or{" "}
+            <A href="/builds/dockerfiles">Dockerfile</A>. Configure{" "}
+            <A href="/deployments/healthchecks">healthchecks</A>,{" "}
+            <A href="/deployments/scaling">scaling</A>, and{" "}
+            <A href="/deployments/regions">regions</A>
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/guides/services">Services</A>: The building blocks of your
-            project. Attach <A href="/guides/volumes">volumes</A> for persistent
-            storage or run them as <A href="/guides/cron-jobs">cron jobs</A>
+            <A href="/services">Services</A>: The building blocks of your
+            project. Attach <A href="/volumes">volumes</A> for persistent
+            storage or run them as <A href="/cron-jobs">cron jobs</A>
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/guides/databases">Databases</A>: Managed{" "}
-            <A href="/guides/postgresql">PostgreSQL</A>,{" "}
-            <A href="/guides/mysql">MySQL</A>, <A href="/guides/redis">Redis</A>
-            , and <A href="/guides/mongodb">MongoDB</A> with automatic{" "}
-            <A href="/reference/backups">backups</A>
+            <A href="/databases">Databases</A>: Managed{" "}
+            <A href="/databases/postgresql">PostgreSQL</A>,{" "}
+            <A href="/databases/mysql">MySQL</A>,{" "}
+            <A href="/databases/redis">Redis</A>, and{" "}
+            <A href="/databases/mongodb">MongoDB</A> with automatic{" "}
+            <A href="/volumes/backups">backups</A>
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/guides/storage-buckets">Storage Buckets</A>: S3-compatible
-            object storage for files and assets
+            <A href="/storage-buckets">Storage Buckets</A>: S3-compatible object
+            storage for files and assets
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/guides/public-networking">Networking</A>: Expose services
-            with <A href="/reference/public-domains">custom domains</A>, connect
-            services via{" "}
-            <A href="/guides/private-networking">private networking</A>, and
-            configure <A href="/reference/tcp-proxy">TCP proxy</A> for non-HTTP
+            <A href="/networking">Networking</A>: Expose services with{" "}
+            <A href="/networking/domains">custom domains</A>, connect services
+            via <A href="/private-networking">private networking</A>, and
+            configure <A href="/networking/tcp-proxy">TCP proxy</A> for non-HTTP
             traffic
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/guides/observability">Observability</A>: Monitor your apps
-            with <A href="/guides/logs">logs</A>,{" "}
-            <A href="/guides/metrics">metrics</A>, and{" "}
-            <A href="/guides/webhooks">webhooks</A>
+            <A href="/observability">Observability</A>: Monitor your apps with{" "}
+            <A href="/observability/logs">logs</A>,{" "}
+            <A href="/observability/metrics">metrics</A>, and{" "}
+            <A href="/observability/webhooks">webhooks</A>
           </li>
         </ul>
 
