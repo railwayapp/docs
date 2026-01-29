@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { allPages } from "contentlayer/generated";
+import { allPages } from "content-collections";
 
 const pageUrlSet = new Set(allPages.map(page => page.url));
 

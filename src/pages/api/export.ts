@@ -1,4 +1,4 @@
-import { allPages } from "contentlayer/generated";
+import { allPages } from "content-collections";
 import type { NextApiHandler } from "next";
 import { randomBytes } from "crypto";
 
