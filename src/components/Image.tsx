@@ -1,20 +1,54 @@
 import React from "react";
-import { default as NextImage, ImageProps } from "next/legacy/image";
 
-interface ExtImageProps extends ImageProps {
+interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   title?: string;
   href?: string;
+  width?: number;
+  height?: number;
+  quality?: number;
+  layout?: string;
 }
 
-export const Image: React.FC<ExtImageProps> = ({ title, ...props }) => {
+export const Image: React.FC<ImageProps> = ({
+  title,
+  href,
+  width,
+  height,
+  quality,
+  layout,
+  className,
+  ...props
+}) => {
+  // If there's an explicit href, wrap in a link (for backwards compatibility)
+  if (href) {
+    return (
+      <a
+        className="block"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          {...props}
+          title={title}
+          width={width}
+          height={height}
+          className={className}
+          loading="lazy"
+        />
+      </a>
+    );
+  }
+
+  // Otherwise, just render the image (Frame component handles zoom)
   return (
-    <a
-      tw="block xl:-mx-8"
-      href={props.href ?? (props.src as string)}
-      target="_blank"
-      rel="noopener"
-    >
-      <NextImage {...props} title={title} />
-    </a>
+    <img
+      {...props}
+      title={title}
+      width={width}
+      height={height}
+      className={className}
+      loading="lazy"
+    />
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
-import "twin.macro";
-import { ArrowRight } from "react-feather";
+import { Icon } from "./Icon";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -9,10 +8,10 @@ interface ButtonProps {
 export const TallyButton: React.FC<ButtonProps> = ({ children, ...props }) => (
   <button
     {...props}
-    tw="block font-medium rounded shadow px-3 py-2 focus:outline-none bg-gray-100 border-gray-100 text-gray-800 hover:bg-gray-200"
+    className="block font-medium rounded-lg shadow-xs px-3 py-2 focus:outline-hidden bg-muted-element border-muted-element text-muted-high-contrast hover:bg-muted-element-hover"
   >
-    <div tw="flex flex-row justify-center items-center font-semibold">
-      <ArrowRight tw="mr-1" />
+    <div className="flex flex-row justify-center items-center font-semibold">
+      <Icon name="ArrowRight" className="mr-1 size-5" />
       {children}
     </div>
   </button>

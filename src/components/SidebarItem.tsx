@@ -1,11 +1,10 @@
-// SidebarLink.tsx
+// SidebarItem.tsx
 import React from "react";
-import classNames from "classnames";
+import { cn } from "@/lib/cn";
 import { Link } from "./Link";
-import tw from "twin.macro";
 import { IPage, ISubSection, IExternalLink } from "../types";
 import { Arrow } from "@/components/Arrow";
-import { slugify } from "@/utils/slugify";
+import { Icon } from "./Icon";
 
 interface SidebarItemProps {
   item: IPage | ISubSection | IExternalLink;
@@ -24,18 +23,18 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 }) => {
   const externalLinkSvg = (
     <svg
-      css={[tw`w-3 h-3 text-gray-700`]}
+      className="size-3 text-muted-base transition-colors"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      viewBox="0 0 23 23"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
     >
       <path
-        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="1"
-        d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
       />
     </svg>
   );
@@ -45,27 +44,29 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     isSubSectionItem = false,
   ) => {
     return (
-      <li
-        key={item.url}
-        css={[
-          tw`flex items-center`,
-          tw`ml-2 pl-2`,
-          tw`hover:bg-gray-100`,
-          isSubSectionItem && tw`ml-6`,
-        ]}
-      >
+      <li key={item.url} className="min-w-0">
         <Link
           href={item.url}
-          css={[
-            tw`text-gray-700 text-sm flex-grow`,
-            tw`w-full py-2 hover:text-foreground`,
-            tw`flex justify-between items-center`,
-          ]}
+          className={cn(
+            "group flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-muted-base transition-colors hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid min-w-0",
+            isSubSectionItem
+              ? "focus-visible:ring-inset"
+              : "-ml-3 focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
+          )}
+          title={item.title}
         >
-          <span>{item.title}</span>
-          <span css={tw`mr-4 hover:svg:text-foreground`}>
-            {externalLinkSvg}
-          </span>
+          {item.icon && (
+            <Icon
+              name={item.icon}
+              className="size-4 shrink-0 text-muted-base group-hover:text-muted-high-contrast transition-colors"
+            />
+          )}
+          <span className="flex-1 truncate">{item.title}</span>
+          {!item.hideExternalIcon && (
+            <span className="group-hover:[&>svg]:text-muted-high-contrast">
+              {externalLinkSvg}
+            </span>
+          )}
         </Link>
       </li>
     );
@@ -74,19 +75,19 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   const renderPageLink = (item: IPage, isSubSectionItem = false) => {
     const isActive = isCurrentPage(item.slug);
     return (
-      <li key={item.slug}>
+      <li key={item.slug} className="min-w-0">
         <Link
           href={item.slug}
-          className={classNames(isActive && `current`)}
-          ref={isActive ? activeLinkRef : undefined}
-          css={[
-            tw`text-gray-700 text-sm`,
-            tw`block px-4 py-2`,
-            tw`hover:bg-gray-100 hover:text-foreground`,
+          className={cn(
+            "block rounded-md px-3 py-1.5 text-sm text-muted-base transition-colors hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid truncate",
             isActive &&
-              tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
-            isSubSectionItem && tw`py-2 ml-6 pl-2`,
-          ]}
+              "bg-primary-element text-muted-high-contrast font-medium",
+            isSubSectionItem
+              ? "focus-visible:ring-inset"
+              : "-ml-3 focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
+          )}
+          ref={isActive ? activeLinkRef : undefined}
+          title={item.title}
         >
           {item.title}
         </Link>
@@ -96,72 +97,52 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 
   const renderSubSection = (item: ISubSection) => {
     const renderSubtitle = (subTitle: string | IPage) => {
-      const hasLanding = typeof subTitle != "string";
-
-      const subTitleContents =
-        typeof subTitle === "string" ? (
-          <span
-            onClick={onToggleSubSection}
-            id={`sidebar-subtitle-${slugify(subTitle)}`}
-            css={[
-              tw`text-gray-700 flex-grow`,
-              tw`hover:cursor-pointer`,
-              tw`text-sm`,
-              tw`pl-4 py-2`,
-            ]}
-          >
-            {subTitle}
-          </span>
-        ) : (
-          <Link
-            className={classNames(isCurrentPage(subTitle.slug) && `current`)}
-            href={subTitle.slug}
-            onClick={onToggleSubSection}
-            ref={isCurrentPage(subTitle.slug) ? activeLinkRef : undefined}
-            id={`sidebar-subtitle-${slugify(subTitle.slug)}`}
-            css={[
-              tw`text-gray-700 flex-grow text-sm hover:text-foreground`,
-              tw`pl-4 py-2`,
-              isCurrentPage(subTitle.slug) &&
-                tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-pink-500`,
-            ]}
-          >
-            {subTitle.title}
-          </Link>
-        );
+      const hasLanding = typeof subTitle !== "string";
+      const isSubTitleActive =
+        hasLanding && isCurrentPage((subTitle as IPage).slug);
 
       return (
-        <div
-          css={[
-            tw`flex justify-between items-center`,
-            tw`hover:bg-gray-100`,
-            tw`focus:outline-none focus:bg-pink-100`,
-            tw`border-r-2 border-transparent`,
-            hasLanding &&
-              isCurrentPage(subTitle.slug) &&
-              tw`bg-pink-100 text-pink-900 hover:bg-pink-100 border-r-2 border-pink-500`,
-          ]}
+        <button
+          onClick={e => {
+            e.stopPropagation();
+            onToggleSubSection();
+          }}
+          className={cn(
+            "group flex w-full items-center justify-between gap-2 rounded-md px-3 py-1.5 -ml-3 text-left text-sm font-medium transition-colors hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app cursor-pointer min-w-0",
+            isSubTitleActive
+              ? "bg-primary-element text-muted-high-contrast"
+              : "text-muted-high-contrast",
+          )}
         >
-          {subTitleContents}
-          <button
-            onClick={e => {
-              e.stopPropagation();
-              onToggleSubSection();
-            }}
-            css={[
-              tw`pr-3 pl-2 py-2`,
-              tw`hover:bg-gray-200 hover:border-y-2 hover:border-l-4 hover:border-gray-200`,
-              tw`hover:svg:text-foreground text-gray-700`,
-              hasLanding &&
-                isCurrentPage(subTitle.slug) &&
-                tw`hover:bg-pink-200 hover:border-y-2 hover:border-l-4 hover:border-pink-200`,
-            ]}
-            aria-labelledby={`sidebar-subtitle-${slugify(typeof subTitle === "string" ? subTitle : subTitle.slug)}`}
-            aria-expanded={isExpanded}
-          >
-            <Arrow isExpanded={isExpanded} />
-          </button>
-        </div>
+          {hasLanding ? (
+            <Link
+              href={(subTitle as IPage).slug}
+              className="flex-1 truncate min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-inset rounded"
+              ref={isSubTitleActive ? activeLinkRef : undefined}
+              onClick={e => {
+                e.stopPropagation();
+                // Also expand the subsection when navigating
+                if (!isExpanded) {
+                  onToggleSubSection();
+                }
+              }}
+              title={(subTitle as IPage).title}
+            >
+              {(subTitle as IPage).title}
+            </Link>
+          ) : (
+            <span className="flex-1 truncate min-w-0" title={subTitle}>
+              {subTitle}
+            </span>
+          )}
+          <Arrow
+            isExpanded={isExpanded}
+            className={cn(
+              "shrink-0 group-hover:text-muted-high-contrast",
+              isSubTitleActive && "text-muted-high-contrast",
+            )}
+          />
+        </button>
       );
     };
 
@@ -172,10 +153,21 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             ? item.subTitle
             : item.subTitle.title
         }
+        className="min-w-0"
       >
         {renderSubtitle(item.subTitle)}
-        {isExpanded && (
-          <ul>
+        <div
+          className={cn(
+            "grid transition-[grid-template-rows] duration-200 ease-out",
+            isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+          )}
+        >
+          <ul
+            className={cn(
+              "overflow-hidden ml-3 pl-3 space-y-0.5 min-w-0",
+              isExpanded ? "pt-1 pb-2 border-l border-muted" : "",
+            )}
+          >
             {item.pages.map(page => {
               if ("url" in page) {
                 return renderExternalLink(page, true);
@@ -184,7 +176,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
               }
             })}
           </ul>
-        )}
+        </div>
       </li>
     );
   };

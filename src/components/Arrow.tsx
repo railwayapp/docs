@@ -1,26 +1,28 @@
 import React from "react";
-import tw from "twin.macro";
+import { cn } from "@/lib/cn";
 
 interface ArrowProps {
   isExpanded: boolean;
+  className?: string;
 }
 
-export const Arrow: React.FC<ArrowProps> = ({ isExpanded }) => {
+export const Arrow: React.FC<ArrowProps> = ({ isExpanded, className }) => {
   return (
     <svg
-      css={[
-        tw`h-4 w-4 transition-transform duration-200`,
-        { transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)" },
-      ]}
-      viewBox="0 0 20 20"
-      fill="currentColor"
+      className={cn(
+        "size-4 shrink-0 text-muted-base transition-transform duration-200 ease-out",
+        isExpanded && "rotate-90",
+        className,
+      )}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path
-        fillRule="evenodd"
-        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
-        clipRule="evenodd"
-      />
+      <path d="m9 18 6-6-6-6" />
     </svg>
   );
 };

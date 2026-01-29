@@ -1,31 +1,45 @@
 import React from "react";
-import { Moon, Sun } from "react-feather";
-import "twin.macro";
+import type { IconName } from "@/assets/icons/types";
+import { Icon } from "./Icon";
+import { cn } from "@/lib/cn";
 import { useIsMounted } from "../hooks/useIsMounted";
-import { useTheme } from "../styles/theme";
+import { ThemePreference, useTheme } from "../styles/theme";
+
+const themeOptions: {
+  value: ThemePreference;
+  icon: IconName;
+  label: string;
+}[] = [
+  { value: "system", icon: "Monitor", label: "System theme" },
+  { value: "light", icon: "Sun", label: "Light theme" },
+  { value: "dark", icon: "Moon", label: "Dark theme" },
+];
 
 export const ThemeSwitcher: React.FC = () => {
-  const { colorMode, setColorMode } = useTheme();
-  const toggleColorMode = () =>
-    setColorMode(colorMode === "dark" ? "light" : "dark");
-
+  const { theme, setTheme } = useTheme();
   const isMounted = useIsMounted();
 
+  if (!isMounted) return null;
+
   return (
-    <>
-      {isMounted && (
+    <div className="inline-flex items-center gap-0.5 rounded-full border border-muted bg-muted-app-subtle p-0.5">
+      {themeOptions.map(({ value, icon, label }) => (
         <button
-          tw="w-5 h-5 md:w-4 md:h-4 cursor-pointer outline-offset-4"
-          onClick={toggleColorMode}
-        >
-          {colorMode === "dark" ? (
-            <Sun width="100%" height="100%" />
-          ) : (
-            <Moon width="100%" height="100%" />
+          key={value}
+          type="button"
+          onClick={() => setTheme(value)}
+          aria-label={label}
+          title={label}
+          className={cn(
+            "flex size-6 items-center justify-center rounded-full transition-colors",
+            theme === value
+              ? "bg-muted-element-active text-muted-high-contrast"
+              : "text-muted-base hover:bg-muted-element hover:text-muted-high-contrast",
           )}
-          <span tw="sr-only" aria-live="polite">Toggle {colorMode === "dark" ? "light" : "dark"} mode</span>
+        >
+          <Icon name={icon} className="size-3.5" />
         </button>
-      )}
-    </>
+      ))}
+    </div>
   );
 };
