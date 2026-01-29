@@ -92,14 +92,6 @@ optionalFields={[
   environmentDelete(id: $id)
 }`} variables={{ id: "environment-id" }} />
 
-## Deploy a Service
-
-Trigger a deployment for a specific service in an environment:
-
-<CodeTabs query={`mutation environmentTriggersDeploy($input: EnvironmentTriggersDeployInput!) {
-  environmentTriggersDeploy(input: $input)
-}`} variables={{ input: { environmentId: "environment-id", projectId: "project-id", serviceId: "service-id" } }} />
-
 ## Get Environment Logs
 
 Fetch logs from all services in an environment:

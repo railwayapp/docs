@@ -137,14 +137,3 @@ List all members of a project:
   }
 }`} variables={{ projectId: "project-id" }} />
 
-## Finding IDs
-
-You can find your project, service, and environment IDs by:
-
-1. Pressing `Cmd/Ctrl + K` in the Railway dashboard
-2. Searching for "Copy Project ID", "Copy Service ID", or "Copy Environment ID"
-
-Alternatively, extract IDs from the dashboard URL:
-```
-https://railway.com/project/[PROJECT_ID]?environmentId=[ENVIRONMENT_ID]
-```

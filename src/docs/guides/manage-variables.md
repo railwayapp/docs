@@ -5,9 +5,9 @@ description: Learn how to manage environment variables via the public GraphQL AP
 
 Here are examples to help you manage your environment variables using the Public API.
 
-## Get Variables for a Service
+## Get Variables
 
-Fetch all variables for a service in a specific environment:
+Fetch variables for a service in an environment:
 
 <CodeTabs query={`query variables($projectId: String!, $environmentId: String!, $serviceId: String) {
   variables(
@@ -30,13 +30,7 @@ Fetch all variables for a service in a specific environment:
 }
 ```
 
-## Get Shared Variables
-
-Omit the `serviceId` to get shared variables for an environment:
-
-<CodeTabs query={`query variables($projectId: String!, $environmentId: String!) {
-  variables(projectId: $projectId, environmentId: $environmentId)
-}`} variables={{ projectId: "project-id", environmentId: "environment-id" }} />
+Omit `serviceId` to get shared variables for an environment instead.
 
 ## Get Unrendered Variables
 
@@ -64,17 +58,7 @@ optionalFields={[
   { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change", apiDefault: "false" },
 ]} />
 
-### Create a Shared Variable
-
-Omit `serviceId` to create a shared variable:
-
-<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
-  variableUpsert(input: $input)
-}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", name: "SHARED_SECRET", value: "shared-value" } }}
-optionalFields={[
-  { name: "input.serviceId", type: "String", description: "Set on a specific service instead of shared" },
-  { name: "input.skipDeploys", type: "Boolean", description: "Don't trigger a redeploy after change", apiDefault: "false" },
-]} />
+Omit `serviceId` to create a shared variable instead.
 
 ## Upsert Multiple Variables
 
