@@ -1,9 +1,6 @@
 import { Search } from "@/types";
-import { trackGoal } from "fathom-client";
 import { MeiliSearch, SearchParams, SearchResponse } from "meilisearch";
 import { useCallback, useEffect, useMemo, useState } from "react";
-
-const FATHOM_SEARCH_PERFORMED_EVT_ID = "IMSTAYP4";
 
 type Transformer<Source, Result extends any> = (
   src: SearchResponse<Source>,
@@ -91,8 +88,14 @@ export const useDebouncedSearch = <
 
   const [results, setResults] = useState<Result | null>(null);
 
+  // Search duration for analytics
+  const [searchDuration, setSearchDuration] = useState<number | null>(null);
+
   // Get index
   const index = useMemo(() => {
+    if (!host) {
+      return null;
+    }
     const meilisearch = new MeiliSearch({
       host,
       apiKey,
@@ -102,19 +105,22 @@ export const useDebouncedSearch = <
 
   // Get search response
   const search = useCallback(async () => {
-    if (query === "") {
+    if (query === "" || !index) {
       return;
     }
     setIsSearching(true);
+    const startTime = performance.now();
     try {
       const response = await index.search<Response>(query, params);
-      trackGoal(FATHOM_SEARCH_PERFORMED_EVT_ID, 0);
+      const endTime = performance.now();
+      setSearchDuration(Math.round(endTime - startTime));
       setResults(transformResponse(response));
     } catch (e) {
       console.error(`Search for query "${query}" failed (${e})`);
+      setSearchDuration(null);
     }
     setIsSearching(false);
-  }, [query, setIsSearching]);
+  }, [query, index, setIsSearching]);
 
   // Perform search and clear search results if query is empty
   useEffect(() => {
@@ -138,8 +144,10 @@ export const useDebouncedSearch = <
       setQuery("");
       setRawInput("");
       setResults(null);
+      setSearchDuration(null);
     },
     setQuery: setRawInput,
     results,
+    searchDuration,
   };
 };
