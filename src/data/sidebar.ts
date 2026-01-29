@@ -239,7 +239,7 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Config as Code",
     slug: "/config-as-code",
-    content: [],
+    content: [makePage("Reference", "reference", "/config-as-code/reference")],
   },
   {
     title: "Community",
