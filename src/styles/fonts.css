@@ -1,35 +1,61 @@
-/* latin */
-@font-face {
-  font-family: "IBM Plex Serif";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/IBMPlexSerif-Medium-latin.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: "Fira Mono";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/FireMono-latin.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
-}
-
-/* latin - consolidated Inter font with weight range */
+/* Inter (Variable Font) */
 @font-face {
   font-family: "Inter";
-  font-style: normal;
-  font-weight: 400 800;
-  font-display: swap;
   src: url(/fonts/Inter-latin.woff2) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
+}
+
+/* JetBrains Mono (Variable Font) */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url(/fonts/jet-brains-mono.ttf) format("truetype-variations");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* IBM Plex Serif */
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url(/fonts/ibm-plex-serif/ibm-plex-serif-light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url(/fonts/ibm-plex-serif/ibm-plex-serif-regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url(/fonts/ibm-plex-serif/ibm-plex-serif-medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url(/fonts/ibm-plex-serif/ibm-plex-serif-semibold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url(/fonts/ibm-plex-serif/ibm-plex-serif-bold.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
