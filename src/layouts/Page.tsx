@@ -1,20 +1,21 @@
-import { Modal } from "@/components/Modal";
+import { SearchModal } from "@/components/Search";
+import {
+  Dialog,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+} from "@/components/Dialog";
 import { searchStore } from "@/store";
+import { cn } from "@/lib/cn";
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { useStore } from "@nanostores/react";
-import dynamic from "next/dynamic";
 import React, { PropsWithChildren, useEffect } from "react";
-import "twin.macro";
-import { MobileNav, Nav } from "../components/Nav";
+import tinykeys from "tinykeys";
+import { TopNav, MobileTopNav } from "../components/TopNav";
 import { Props as SEOProps, SEO } from "../components/SEO";
 import { Sidebar } from "../components/Sidebar";
 import { Background } from "../pages";
 import { GlobalBanners } from "@/components/GlobalBanner";
-
-// Lazy load SearchModal to reduce initial bundle size
-const SearchModal = dynamic(
-  () => import("@/components/Search").then(mod => ({ default: mod.SearchModal })),
-  { ssr: false }
-);
 
 export interface Props {
   seo?: SEOProps;
@@ -24,46 +25,68 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
   const isSearchOpen = useStore(searchStore);
 
   useEffect(() => {
-    // Dynamically import tinykeys to reduce initial bundle
-    import("tinykeys").then(({ default: tinykeys }) => {
-      const unsubscribe = tinykeys(window, {
-        "$mod+K": e => {
-          e.preventDefault();
-          searchStore.set(!searchStore.get());
-        },
-      });
-
-      return () => unsubscribe();
+    const unsubscribe = tinykeys(window, {
+      "$mod+K": e => {
+        e.preventDefault();
+        searchStore.set(!isSearchOpen);
+      },
     });
-  }, []);
+
+    return () => unsubscribe();
+  }, [isSearchOpen]);
+
+  const handleOpenChange = (open: boolean) => {
+    searchStore.set(open);
+  };
 
   return (
     <>
       <SEO {...props.seo} />
       <GlobalBanners />
-      <div tw="min-h-screen relative flex">
-        <Sidebar />
-        <div tw="flex flex-col flex-1 max-w-[100vw]">
-          <Background />
+      <div className="min-h-screen relative flex flex-col">
+        {/* Top Navigation - Full Width, Sticky */}
+        <TopNav />
+        <MobileTopNav />
 
-          {/*This area would be perfect to add the bg image.*/}
-          <Nav />
-          <MobileNav />
+        {/* Main Content Area */}
+        <div className="flex flex-1">
+          <Sidebar />
+          <div className="flex flex-col flex-1 max-w-[100vw]">
+            <Background />
 
-          <main tw="flex justify-between px-4 w-full max-w-5xl mx-auto md:px-8 pt-8 pb-12 md:pb-24">
-            {props.children}
-          </main>
+            <main className="flex justify-between px-4 w-full max-w-6xl mx-auto md:px-12 lg:px-16 pt-8 pb-12 md:pb-24">
+              {props.children}
+            </main>
+          </div>
         </div>
       </div>
-      {isSearchOpen && (
-        <Modal
-          title="Search Docs"
-          isOpen={isSearchOpen}
-          onClose={() => searchStore.set(false)}
-        >
-          <SearchModal closeModal={() => searchStore.set(false)} />
-        </Modal>
-      )}
+      <Dialog open={isSearchOpen} onOpenChange={handleOpenChange}>
+        <DialogPortal>
+          <DialogOverlay />
+          <DialogPrimitive.Popup
+            className={cn(
+              "fixed inset-0 z-50 overflow-auto",
+              "focus:outline-hidden",
+            )}
+          >
+            <DialogTitle className="sr-only">Search Docs</DialogTitle>
+            <div
+              className="flex min-h-full items-start justify-center px-4 pt-[10vh] pb-12"
+              onPointerDown={e => {
+                // Close if clicking on the backdrop (not the modal content)
+                if (e.target === e.currentTarget) {
+                  handleOpenChange(false);
+                }
+              }}
+            >
+              <SearchModal
+                open={isSearchOpen}
+                onOpenChange={handleOpenChange}
+              />
+            </div>
+          </DialogPrimitive.Popup>
+        </DialogPortal>
+      </Dialog>
     </>
   );
 };

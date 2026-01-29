@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import "twin.macro";
 import { DocsLayout } from "../layouts/DocsLayout";
 import { FrontMatter } from "../types";
 

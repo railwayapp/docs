@@ -1,12 +1,19 @@
+import NextLink from "next/link";
 import { useRouter } from "next/router";
 import React, { PropsWithChildren, useMemo } from "react";
-import { CheckCircle, Copy, Edit } from "react-feather";
-import "twin.macro";
-import { Icon } from "../components/Icon";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "../components/Breadcrumb";
+import { Footer } from "../components/Footer";
+import { InlineTOC } from "../components/InlineTOC";
 import { Link } from "../components/Link";
-import { useCopy } from "../hooks/useCopy";
-import { PageNav } from "../components/PageNav";
+import { PageActions } from "../components/PageActions";
 import { SEO } from "../components/SEO";
+import { TOC, TOCProvider, type TOCItemType } from "../components/TOC";
 import { sidebarContent } from "../data/sidebar";
 import { FrontMatter, ISidebarContent, IPage } from "../types";
 import { Props as PageProps } from "./Page";
@@ -79,17 +86,12 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     [prefixedSlug],
   );
 
-  const [copied, copyText] = useCopy();
-
-  const handleCopyMarkdown = () => {
+  const fullMarkdown = useMemo(() => {
     if (rawMarkdown) {
-      const fullMarkdown = reconstructMarkdownWithFrontmatter(
-        frontMatter,
-        rawMarkdown,
-      );
-      copyText(fullMarkdown);
+      return reconstructMarkdownWithFrontmatter(frontMatter, rawMarkdown);
     }
-  };
+    return "";
+  }, [rawMarkdown, frontMatter]);
 
   const { prevPage, nextPage } = useMemo(() => {
     const flatPages = flattenSidebarContent(sidebarContent);
@@ -107,6 +109,17 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     if (!rawMarkdown) return [];
     return extractHeadersFromMarkdown(rawMarkdown);
   }, [rawMarkdown]);
+
+  // Convert headers to TOC items format
+  const tocItems: TOCItemType[] = useMemo(() => {
+    return headers
+      .filter(h => h.level >= 2 && h.level <= 4)
+      .map(h => ({
+        title: h.title,
+        url: `#${h.id}`,
+        depth: h.level,
+      }));
+  }, [headers]);
 
   // Build breadcrumbs from sidebar structure
   const breadcrumbs = useMemo(() => {
@@ -130,61 +143,131 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
         breadcrumbs={breadcrumbs}
         lastModified={lastModified}
       />
-      <div tw="max-w-full flex flex-row min-h-screen">
-        <div tw="flex-auto prose dark:prose-invert">
-          <div className="docs-content">
-            <h1 style={{ fontFamily: "'IBM Plex Serif', serif", fontWeight: 500, letterSpacing: "-0.035em" }}>{frontMatter.title}</h1>
-            <div tw="flex items-center gap-3 -mt-4 mb-6 text-sm text-gray-500">
-              <button
-                tw="flex items-center gap-1.5 hover:text-pink-500 transition-colors"
-                onClick={handleCopyMarkdown}
-                type="button"
-              >
-                <Icon icon={copied ? CheckCircle : Copy} size="sm" />
-                <span aria-live="polite">{copied ? "Copied!" : "Copy as Markdown"}</span>
-              </button>
+      <TOCProvider items={tocItems}>
+        <div className="flex flex-col min-h-[calc(100vh-53px)]">
+          {/* Two-column layout */}
+          <div className="max-w-full flex flex-row flex-1">
+            <div className="flex-auto min-w-0 prose dark:prose-invert">
+              <div className="docs-content max-w-full">
+                <Breadcrumb className="mb-8 not-prose">
+                  <BreadcrumbList>
+                    {breadcrumbs.map((crumb, index) => (
+                      <React.Fragment key={crumb.url || index}>
+                        <BreadcrumbItem>
+                          {index < breadcrumbs.length - 1 ? (
+                            crumb.url ? (
+                              <NextLink
+                                href={crumb.url}
+                                className="no-underline! hover:text-muted-high-contrast"
+                              >
+                                {crumb.name}
+                              </NextLink>
+                            ) : (
+                              <span className="text-muted-base">
+                                {crumb.name}
+                              </span>
+                            )
+                          ) : (
+                            <BreadcrumbPage>{crumb.name}</BreadcrumbPage>
+                          )}
+                        </BreadcrumbItem>
+                        {index < breadcrumbs.length - 1 && (
+                          <BreadcrumbSeparator />
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </BreadcrumbList>
+                </Breadcrumb>
+                <h1 className="mb-6">{frontMatter.title}</h1>
+                <InlineTOC className="mb-8 lg:hidden" defaultExpanded={false} />
+                {children}
+              </div>
+
+              <div className="mt-24">
+                <hr className="border-muted" />
+
+                <nav className="prev-next-buttons not-prose grid grid-cols-2 gap-4 mt-8">
+                  {prevPage != null ? (
+                    <Link
+                      href={prevPage.slug}
+                      className="group flex flex-col gap-2 rounded-lg border border-muted bg-muted-app p-4 transition-all duration-150 hover:bg-muted-element-active no-underline!"
+                    >
+                      <span className="flex items-center gap-1.5 text-muted-base text-xs font-medium">
+                        <svg
+                          className="size-3.5 transition-transform group-hover:-translate-x-0.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M15 19l-7-7 7-7"
+                          />
+                        </svg>
+                        Previous
+                      </span>
+                      <span className="font-medium text-muted-high-contrast line-clamp-1">
+                        {prevPage.title}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div />
+                  )}
+
+                  {nextPage != null ? (
+                    <Link
+                      href={nextPage.slug}
+                      className="group flex flex-col gap-2 rounded-lg border border-muted bg-muted-app p-4 text-right transition-all duration-150 hover:bg-muted-element-active no-underline!"
+                    >
+                      <span className="flex items-center justify-end gap-1.5 text-muted-base text-xs font-medium">
+                        Next
+                        <svg
+                          className="size-3.5 transition-transform group-hover:translate-x-0.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </span>
+                      <span className="font-medium text-muted-high-contrast line-clamp-1">
+                        {nextPage.title}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div />
+                  )}
+                </nav>
+              </div>
             </div>
-            {children}
+            <div className="flex-col max-w-sm pt-4 pl-16 xl:pl-24 pr-0 pb-6 min-w-pageNav hidden lg:flex shrink-0">
+              <aside className="sticky top-[69px] flex flex-col gap-8">
+                {tocItems.length > 0 && <TOC items={tocItems} />}
+                <div
+                  className={
+                    tocItems.length > 0 ? "border-t border-muted pt-6" : ""
+                  }
+                >
+                  <PageActions
+                    content={fullMarkdown}
+                    title={frontMatter.title}
+                  />
+                </div>
+              </aside>
+            </div>
           </div>
 
-          <Link
-            tw="mt-16 flex items-center space-x-2 text-gray-600 text-sm no-underline hover:text-pink-500 w-fit"
-            href={gitHubFileLink}
-          >
-            <Edit tw="w-4 h-4" />
-            <span>Edit this file on GitHub</span>
-          </Link>
-
-          <hr tw="my-4" />
-
-          <div
-            tw="flex items-center justify-between space-x-4 mb-8 md:mb-16"
-            className="prev-next-buttons"
-          >
-            {prevPage != null ? (
-              <Link href={prevPage.slug} tw="hover:text-pink-500 no-underline">
-                <div tw="max-w-full">
-                  <div tw="text-gray-600 text-sm mb-1">Prev</div>{" "}
-                  <div tw="font-medium text-lg">{prevPage.title}</div>
-                </div>
-              </Link>
-            ) : (
-              <div />
-            )}
-
-            {nextPage != null && (
-              <Link href={nextPage.slug} tw="hover:text-pink-500 no-underline">
-                <div tw="text-right">
-                  <div tw="text-gray-600 text-sm mb-1">Next</div>{" "}
-                  <div tw="font-medium text-lg">{nextPage.title}</div>
-                </div>
-              </Link>
-            )}
-          </div>
-
+          {/* Footer - separate from two-column layout */}
+          <Footer gitHubEditLink={gitHubFileLink} />
         </div>
-        <PageNav title={frontMatter.title} />
-      </div>
+      </TOCProvider>
     </>
   );
 };
