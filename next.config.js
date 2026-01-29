@@ -1,8 +1,8 @@
-const { withContentlayer } = require("next-contentlayer");
+const { withContentCollections } = require("@content-collections/next");
 const { redirects } = require("./redirects");
 
 /** @type {import('next').NextConfig} */
-const nextConfig = withContentlayer({
+const nextConfig = {
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -20,6 +20,6 @@ const nextConfig = withContentlayer({
   async redirects() {
     return redirects;
   },
-});
+};
 
-module.exports = nextConfig;
+module.exports = withContentCollections(nextConfig);

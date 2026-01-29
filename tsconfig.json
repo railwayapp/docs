@@ -17,7 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "content-collections": ["./.content-collections/generated"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "typings/**/*.d.ts"],
