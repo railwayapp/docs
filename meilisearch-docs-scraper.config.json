@@ -21,12 +21,147 @@
   },
   "strip_chars": " .,;:#",
   "custom_settings": {
+    "searchableAttributes": [
+      "hierarchy_lvl1",
+      "hierarchy_lvl2",
+      "hierarchy_lvl3",
+      "hierarchy_lvl4",
+      "content",
+      "hierarchy_lvl0"
+    ],
+    "displayedAttributes": [
+      "hierarchy_lvl0",
+      "hierarchy_lvl1",
+      "hierarchy_lvl2",
+      "hierarchy_lvl3",
+      "hierarchy_lvl4",
+      "content",
+      "url",
+      "anchor",
+      "type"
+    ],
+    "rankingRules": [
+      "words",
+      "typo",
+      "proximity",
+      "attribute",
+      "sort",
+      "exactness"
+    ],
+    "typoTolerance": {
+      "enabled": true,
+      "minWordSizeForTypos": {
+        "oneTypo": 4,
+        "twoTypos": 8
+      },
+      "disableOnWords": [],
+      "disableOnAttributes": []
+    },
+    "stopWords": [
+      "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for",
+      "of", "with", "by", "from", "as", "is", "was", "are", "were", "been",
+      "be", "have", "has", "had", "do", "does", "did", "will", "would",
+      "could", "should", "may", "might", "must", "shall", "can", "need",
+      "this", "that", "these", "those", "it", "its", "i", "you", "we",
+      "they", "my", "your", "our", "their", "what", "which", "who", "how"
+    ],
     "synonyms": {
-      "postgres": ["postgresql"],
-      "postgresql": ["postgres"],
-      "api": ["graphql", "gql"],
-      "graphql": ["gql", "api"],
-      "gql": ["graphql", "api"]
+      "postgres": ["postgresql", "pg"],
+      "postgresql": ["postgres", "pg"],
+      "mysql": ["mariadb", "maria"],
+      "mariadb": ["mysql", "maria"],
+      "redis": ["cache", "in-memory", "key-value"],
+      "mongodb": ["mongo"],
+      "mongo": ["mongodb"],
+      
+      "preview environment": ["pr environment", "pull request environment", "preview deploy"],
+      "pr environment": ["preview environment", "pull request environment", "preview deploy"],
+      "pull request environment": ["preview environment", "pr environment", "preview deploy"],
+      "staging": ["stage", "test environment", "testing"],
+      "production": ["prod", "live", "production environment"],
+      "deploy": ["deployment", "ship", "push", "release"],
+      "deployment": ["deploy", "release", "rollout"],
+
+      "domain": ["custom domain", "hostname", "url", "fqdn"],
+      "custom domain": ["domain", "hostname", "own domain"],
+      "ssl": ["tls", "https", "certificate", "cert"],
+      "tls": ["ssl", "https", "certificate", "cert"],
+      "https": ["ssl", "tls", "secure"],
+
+      "private network": ["internal network", "vpn", "private networking"],
+      "private networking": ["private network", "internal network", "vpn"],
+      "public network": ["external network", "public networking", "internet"],
+      "tcp proxy": ["tcp", "proxy", "port forwarding"],
+      "static ip": ["fixed ip", "static outbound ip", "dedicated ip"],
+
+      "service": ["app", "application", "container", "workload"],
+      "container": ["docker", "service", "app"],
+      "dockerfile": ["docker", "container", "containerfile"],
+      "docker": ["container", "dockerfile", "containerize"],
+
+      "nixpacks": ["buildpack", "auto-build", "builder"],
+      "railpack": ["nixpacks", "buildpack", "builder"],
+      "build": ["compile", "bundle", "package"],
+
+      "environment variable": ["env var", "env", "config", "envvar", "variable"],
+      "env var": ["environment variable", "envvar", "config", "variable"],
+      "config": ["configuration", "settings", "setup"],
+      "secret": ["api key", "credential", "token", "password"],
+
+      "cli": ["command line", "terminal", "railway cli", "shell"],
+      "command line": ["cli", "terminal", "shell"],
+
+      "api": ["graphql", "rest", "endpoint", "public api"],
+      "graphql": ["gql", "api", "query"],
+      "gql": ["graphql", "api"],
+      "rest": ["rest api", "http api", "api"],
+
+      "logs": ["logging", "log", "output", "console"],
+      "logging": ["logs", "log", "observability"],
+      "metrics": ["monitoring", "stats", "statistics", "observability"],
+      "monitoring": ["metrics", "observability", "tracking"],
+
+      "volume": ["persistent storage", "disk", "storage", "mount"],
+      "storage": ["volume", "disk", "persist", "bucket"],
+      "bucket": ["s3", "object storage", "blob storage", "storage bucket"],
+      "s3": ["bucket", "object storage", "storage bucket"],
+
+      "scale": ["scaling", "autoscale", "horizontal scaling", "resize"],
+      "autoscale": ["auto-scale", "automatic scaling", "scale", "horizontal scaling"],
+      "horizontal scaling": ["scale out", "autoscale", "replicas"],
+      "vertical scaling": ["scale up", "resize", "upgrade"],
+
+      "template": ["starter", "boilerplate", "example", "blueprint"],
+      "starter": ["template", "boilerplate", "quickstart"],
+
+      "team": ["workspace", "organization", "org"],
+      "workspace": ["team", "organization", "org"],
+      "member": ["user", "collaborator", "teammate"],
+
+      "pricing": ["cost", "price", "billing", "payment"],
+      "billing": ["pricing", "invoice", "payment", "cost"],
+      "credits": ["credit", "balance", "payment"],
+      "trial": ["free trial", "free tier", "starter"],
+
+      "error": ["bug", "issue", "problem", "fail", "failure"],
+      "crash": ["error", "failure", "fail", "down"],
+
+      "cron": ["scheduled task", "cron job", "scheduler", "scheduled"],
+      "cron job": ["cron", "scheduled task", "periodic task", "timer"],
+      "scheduled": ["cron", "periodic", "recurring", "timed"],
+
+      "healthcheck": ["health check", "health", "liveness", "readiness"],
+      "health check": ["healthcheck", "liveness probe", "readiness probe"],
+
+      "next.js": ["nextjs", "next", "vercel"],
+      "nextjs": ["next.js", "next"],
+      "react": ["reactjs", "react.js"],
+      "vue": ["vuejs", "vue.js"],
+      "express": ["expressjs", "express.js", "node"],
+      "fastapi": ["fast api", "python api"],
+      "django": ["python", "python web"],
+      "rails": ["ruby on rails", "ror", "ruby"],
+      "laravel": ["php", "php framework"]
     }
   }
 }
