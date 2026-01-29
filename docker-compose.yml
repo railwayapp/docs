@@ -1,0 +1,38 @@
+services:
+  meilisearch:
+    image: getmeili/meilisearch:v1.12
+    container_name: docs-meilisearch
+    ports:
+      - "7700:7700"
+    environment:
+      - MEILI_MASTER_KEY=${MEILISEARCH_API_KEY:-local_master_key}
+      - MEILI_ENV=development
+      - MEILI_LOG_LEVEL=INFO
+      - MEILI_NO_ANALYTICS=true
+    volumes:
+      - meilisearch_data:/meili_data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7700/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  docs-scraper:
+    image: getmeili/docs-scraper:latest
+    profiles: ["scraper"]
+    depends_on:
+      meilisearch:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - MEILISEARCH_HOST_URL=http://meilisearch:7700
+      - MEILISEARCH_API_KEY=${MEILISEARCH_API_KEY:-local_master_key}
+    volumes:
+      - ./meilisearch-docs-scraper.config.json:/docs-scraper/config.json:ro
+    command: >
+      sh -c "python3 -c 'import json,urllib.request,re; c=json.load(open(\"/docs-scraper/config.json\")); c[\"index_uid\"]=\"docs_local_dev\"; base=\"http://host.docker.internal:3001\"; sitemap=urllib.request.urlopen(base+\"/sitemap-0.xml\").read().decode(); urls=re.findall(r\"<loc>([^<]+)</loc>\",sitemap); c[\"start_urls\"]=[{\"url\":u.replace(\"https://docs.railway.com\",base)} for u in urls] if urls else [{\"url\":base+\"/quick-start\"}]; c[\"sitemap_urls\"]=[]; c[\"scrape_start_urls\"]=True; json.dump(c,open(\"/tmp/local.json\",\"w\")); print(\"Scraping\",len(c[\"start_urls\"]),\"URLs\")' && pipenv run ./docs_scraper /tmp/local.json"
+
+volumes:
+  meilisearch_data:
