@@ -15,7 +15,7 @@ import { Arrow } from "@/components/arrow";
 const navLinks = [
   { title: "Guides", href: "/guides" },
   { title: "Changelog", href: "https://railway.com/changelog" },
-  { title: "Central Station", href: "https://centralstation.railway.com" },
+  { title: "Central Station", href: "https://station.railway.com" },
 ];
 
 interface TopNavProps {
