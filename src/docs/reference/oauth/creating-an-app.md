@@ -45,7 +45,7 @@ PKCE adds a layer of protection to the authorization code flow. Without PKCE, an
 Add the code challenge to your authorization request:
 
 ```
-https://backboard.railway.com/oauth/authorize
+https://backboard.railway.com/oauth/auth
   ?response_type=code
   &client_id=YOUR_CLIENT_ID
   &redirect_uri=https://yourapp.com/callback
