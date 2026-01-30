@@ -2,11 +2,11 @@ import {
   Banner,
   PriorityBoardingBanner,
   DeprecationBanner,
-} from "@/components/Banner";
-import { Collapse } from "@/components/Collapse";
-import { Pre, CodeBlock, CodeTab } from "@/components/CodeBlock";
-import { Frame } from "@/components/Frame";
-import { Steps, Step } from "@/components/Steps";
+} from "@/components/banner";
+import { Collapse } from "@/components/collapse";
+import { Pre, CodeBlock, CodeTab } from "@/components/code-block";
+import { Frame } from "@/components/frame";
+import { Steps, Step } from "@/components/steps";
 import {
   Tree,
   TreeNode,
@@ -15,19 +15,19 @@ import {
   TreeExpander,
   TreeIcon,
   TreeLabel,
-} from "@/components/Tree";
-import { FileTree } from "@/components/FileTree";
-import { Tooltip } from "@/components/Tooltip";
+} from "@/components/tree";
+import { FileTree } from "@/components/file-tree";
+import { Tooltip } from "@/components/tooltip";
 import Layout from "@/mdxLayouts/index";
 import { allPages, Page } from "content-collections";
 import { useMDXComponent } from "@content-collections/mdx/react";
 import Link from "next/link";
-import { Image } from "@/components/Image";
-import { InlineCode } from "@/components/InlineCode";
-import { H2, H3, H4 } from "@/components/Header";
-import { Anchor } from "@/components/Anchor";
+import { Image } from "@/components/image";
+import { InlineCode } from "@/components/inline-code";
+import { H2, H3, H4 } from "@/components/header";
+import { Anchor } from "@/components/anchor";
 import { GetServerSidePropsContext } from "next";
-import { TallyButton } from "@/components/TallyButton";
+import { TallyButton } from "@/components/tally-button";
 import { reconstructMarkdownWithFrontmatter } from "@/utils/markdown";
 
 const components: Record<string, React.ElementType> = {

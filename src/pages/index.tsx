@@ -1,6 +1,6 @@
 import { NextPage } from "next";
-import { Icon } from "../components/Icon";
-import { Link } from "../components/Link";
+import { Icon } from "../components/icon";
+import { Link } from "../components/link";
 
 const Home: NextPage = () => {
   return (
