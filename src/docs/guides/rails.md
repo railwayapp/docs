@@ -153,12 +153,9 @@ To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. O
    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
      - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
    - Use the **Raw Editor** to add any other required environment variables in one go.
-7. **Prepare Database and Start Server**:
-   - Go to your app service <a href="/overview/the-basics#service-settings">**Settings**</a> section.
-     - In the **Deploy** section, set `bin/rails db:prepare && bin/rails server -b ::` as the <a href="/guides/start-command">**Custom Start Command**</a>. This command will run your database migrations and start the server.
-8. **Redeploy the Service**:
+7. **Redeploy the Service**:
    - Click **Deploy** on the Railway dashboard to apply your changes.
-9. **Verify the Deployment**:
+8. **Verify the Deployment**:
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
 **Note:** During the deployment process, Railway will automatically [detect that it’s a Rails app](https://nixpacks.com/docs/providers/ruby).
