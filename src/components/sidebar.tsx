@@ -6,13 +6,21 @@ import { Link } from "./link";
 import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
 import SidebarItem from "./sidebar-item";
 import { Arrow } from "@/components/arrow";
+import OpenModalButton from "./search/open-modal-button";
+import { Logo } from "./logo";
+import { Badge } from "./badge";
+import { ThemeSwitcher } from "./theme-switcher";
 
 export const Sidebar: React.FC = ({ ...props }) => {
+  const router = useRouter();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [scrollState, setScrollState] = useState({
     canScrollUp: false,
     canScrollDown: false,
   });
+
+  const isGuidesPage = router.pathname.startsWith("/guides");
+  const badgeText = isGuidesPage ? "Guides" : "Docs";
 
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -40,9 +48,26 @@ export const Sidebar: React.FC = ({ ...props }) => {
 
   return (
     <div
-      className="sidebar hidden md:flex md:flex-col md:sticky md:top-[53px] md:h-[calc(100vh-53px)] md:overflow-hidden md:w-sidebar md:shrink-0 md:border-r md:border-muted bg-muted-app"
+      className="sidebar hidden md:flex md:flex-col md:sticky md:top-0 md:h-screen md:overflow-hidden md:w-sidebar md:shrink-0 md:border-r md:border-muted bg-muted-app"
       {...props}
     >
+      {/* Header with logo and theme switcher */}
+      <div className="flex items-center justify-between px-6 py-3">
+        <Link
+          href={isGuidesPage ? "/guides" : "/"}
+          className="flex items-center gap-2 shrink-0 rounded-md px-1 -mx-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+        >
+          <Logo className="w-6 h-6" />
+          <Badge variant="secondary">{badgeText}</Badge>
+        </Link>
+        <ThemeSwitcher />
+      </div>
+
+      {/* Search button */}
+      <div className="px-6 pt-2 pb-2">
+        <OpenModalButton />
+      </div>
+
       <div className="relative flex-1 min-h-0 overflow-hidden">
         {/* Top fade indicator */}
         <div
