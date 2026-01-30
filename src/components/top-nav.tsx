@@ -12,7 +12,11 @@ import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
 import SidebarItem from "./sidebar-item";
 import { Arrow } from "@/components/arrow";
 
-const navLinks = [{ title: "Guides", href: "/guides" }];
+const navLinks = [
+  { title: "Guides", href: "/guides" },
+  { title: "Changelog", href: "https://railway.com/changelog" },
+  { title: "Central Station", href: "https://centralstation.railway.com" },
+];
 
 interface TopNavProps {
   hideSidebar?: boolean;
@@ -53,11 +57,17 @@ export const TopNav: React.FC<TopNavProps> = ({ hideSidebar }) => {
           </Link>
         ))}
         <Link
-          href="https://railway.com/login"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md bg-primary-solid text-white hover:bg-primary-solid-hover transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+          href="https://railway.com/book-demo"
+          className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm font-medium border border-muted bg-muted-app text-muted-high-contrast hover:bg-muted-element hover:border-muted-hover transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
         >
-          Railway Dashboard
-          <Icon name="ArrowUpRight" className="size-3.5" />
+          Ask AI
+        </Link>
+        <Link
+          href="https://railway.com"
+          className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm font-medium text-white bg-primary-solid hover:bg-primary-solid-hover active:bg-primary-solid-active transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+        >
+          Go to Railway
+          <Icon name="ArrowUpRight" className="size-4" />
         </Link>
       </nav>
     </header>
@@ -145,11 +155,17 @@ export const MobileTopNav: React.FC = () => {
                 </Link>
               ))}
               <Link
-                href="https://railway.com/login"
-                className="px-3 py-2 rounded-md text-sm font-medium text-primary-base hover:bg-muted-element transition-colors inline-flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+                href="https://railway.com/book-demo"
+                className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm font-medium border border-muted bg-muted-app text-muted-high-contrast hover:bg-muted-element hover:border-muted-hover transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
               >
-                Railway Dashboard
-                <Icon name="ArrowUpRight" className="size-3.5" />
+                Book a Demo
+              </Link>
+              <Link
+                href="https://railway.com"
+                className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm font-medium text-white bg-primary-solid hover:bg-primary-solid-hover active:bg-primary-solid-active transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+              >
+                Go to Railway
+                <Icon name="ArrowUpRight" className="size-4" />
               </Link>
             </nav>
 
