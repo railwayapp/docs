@@ -51,6 +51,10 @@ You can create a project token from the tokens page in your project settings.
 
 Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
 
+#### OAuth Access Token
+
+If you're building an application that acts on behalf of users, you can use [Login with Railway](/reference/oauth/login-with-railway) to obtain an access token through the OAuth flow. The token's permissions depend on the scopes the user approved.
+
 ### Execute a Test Query
 
 Once you have your token, you can pass it within the Authorization header of your request.

@@ -32,6 +32,18 @@ curl --request POST \
   --data '{"query":"query { me { name email } }"}'
 ```
 
+#### OAuth Access Token
+
+If you're building an application that acts on behalf of users, you can use [Login with Railway](/reference/oauth/login-with-railway) to obtain an access token through the OAuth flow. The token's permissions depend on the scopes the user approved.
+
+```bash
+curl --request POST \
+  --url https://backboard.railway.com/graphql/v2 \
+  --header 'Authorization: Bearer <ACCESS_TOKEN>' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query { me { name email } }"}'
+```
+
 #### Project Token
 
 You can create a project token by visiting the tokens page in your project settings.
