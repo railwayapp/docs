@@ -82,7 +82,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
   );
   const gitHubFileLink = useMemo(
     () =>
-      `https://github.com/railwayapp/docs/edit/main/src/docs${prefixedSlug}.md`,
+      `https://github.com/railwayapp/docs/edit/main/content/docs${prefixedSlug}.md`,
     [prefixedSlug],
   );
 
