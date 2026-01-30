@@ -63,6 +63,6 @@ To always show the consent screen, add `prompt=consent` to your authorization re
 
 Workspace and project scopes map to [Workspace Roles](/reference/teams#inviting-members) and [Project Member Roles](/reference/project-members#scope-of-permissions). The access your application receives through these scopes matches what a user with that role could do through the Railway dashboard or API.
 
-<Banner variant="info">
-The scope you request sets the maximum access level, but the user's actual role may be lower. For example, if your app requests `workspace:admin` but the user is only a member, the token will have member-level access.
-</Banner>
+## Missing a Scope?
+
+If the available scopes don't cover your use case, we'd love to hear about it. Share your feedback on <a href="https://central.railway.com" target="_blank">Central Station</a> so we can learn about what you're building.
