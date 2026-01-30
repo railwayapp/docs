@@ -26,13 +26,13 @@ const Home: NextPage = () => {
           <div className="flex flex-wrap gap-3">
             <Link
               href="https://railway.com"
-              className="inline-flex items-center px-4 py-2 rounded-lg font-medium text-white bg-primary-solid hover:bg-primary-solid-hover active:bg-primary-solid-active transition-colors"
+              className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm font-medium text-white bg-primary-solid hover:bg-primary-solid-hover active:bg-primary-solid-active transition-colors"
             >
               Sign Up for Railway
             </Link>
             <Link
               href="/quick-start"
-              className="inline-flex items-center px-4 py-2 rounded-lg font-medium border border-muted bg-muted-app text-muted-high-contrast hover:bg-muted-element hover:border-muted-hover transition-colors"
+              className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm font-medium border border-muted bg-muted-app text-muted-high-contrast hover:bg-muted-element hover:border-muted-hover transition-colors"
             >
               Quick Start Guide
             </Link>
