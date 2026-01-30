@@ -106,7 +106,7 @@ optionalFields={[
   serviceCreate(input: $input) {
     id
   }
-}`} variables={{ input: { projectId: "project-id", name: "Redis", source: { image: "redis:7-alpine" } } }}
+}`} variables={{ input: { projectId: "project-id", name: "Ubuntu", source: { image: "ubuntu" } } }}
 optionalFields={[
   { name: "input.icon", type: "String", description: "Service icon URL" },
   { name: "input.variables", type: "JSON", description: "Initial environment variables" },
@@ -157,13 +157,11 @@ See [Manage Deployments](/guides/manage-deployments) for more details.
   }
 }`} variables={{ deploymentId: "deployment-id", limit: 100 }} />
 
-### Redeploy
+### Deploy
 
-<CodeTabs query={`mutation deploymentRedeploy($id: String!) {
-  deploymentRedeploy(id: $id) {
-    id
-  }
-}`} variables={{ id: "deployment-id" }} />
+<CodeTabs query={`mutation serviceInstanceDeploy($serviceId: String!, $environmentId: String!) {
+  serviceInstanceDeploy(serviceId: $serviceId, environmentId: $environmentId)
+}`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
 ### Rollback
 
@@ -185,16 +183,7 @@ See [Manage Variables](/guides/manage-variables) for more details.
   variables(projectId: $projectId, environmentId: $environmentId, serviceId: $serviceId)
 }`} variables={{ projectId: "project-id", environmentId: "environment-id", serviceId: "service-id" }} />
 
-### Set a Variable
-
-<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
-  variableUpsert(input: $input)
-}`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "API_KEY", value: "secret" } }}
-optionalFields={[
-  { name: "input.skipDeploys", type: "Boolean", description: "Skip automatic redeploy after change", apiDefault: "false" },
-]} />
-
-### Set Multiple Variables
+### Set Variables
 
 <CodeTabs query={`mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
   variableCollectionUpsert(input: $input)
@@ -311,7 +300,7 @@ optionalFields={[
 
 ---
 
-## Workspaces / Teams
+## Workspaces
 
 ### Get Workspace
 

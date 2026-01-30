@@ -39,6 +39,7 @@ export interface Props {
   className?: string;
   children?: any;
   colorModeSSR?: string | null;
+  customStyle?: React.CSSProperties;
 }
 
 const getParams = (
@@ -72,6 +73,7 @@ export const CodeBlock: React.FC<Props> = ({
   className = children.props ? children.props.className : "",
   language,
   colorModeSSR,
+  customStyle,
 }) => {
   const [copied, copy] = useCopy();
   const [isLanguageReady, setIsLanguageReady] = useState(false);
@@ -124,6 +126,7 @@ export const CodeBlock: React.FC<Props> = ({
         language={effectiveLang}
         style={theme}
         data-colormode={colorMode}
+        customStyle={customStyle}
       >
         {content}
       </SyntaxHighlighter>

@@ -264,7 +264,7 @@ export const CodeTabs: React.FC<CodeTabsProps> = ({
               key={lang}
               type="button"
               onClick={() => setActiveTab(lang)}
-              tw="px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-0"
+              tw="px-4 py-1.5 text-sm font-medium transition-colors focus:outline-none focus:ring-0"
               css={[
                 activeTab === lang
                   ? "color: var(--colors-pink-500); border-bottom: 2px solid var(--colors-pink-500); margin-bottom: -1px; background: var(--colors-background);"
@@ -280,7 +280,7 @@ export const CodeTabs: React.FC<CodeTabsProps> = ({
               href={schemaLink}
               target="_blank"
               rel="noopener noreferrer"
-              tw="ml-auto px-4 py-2 text-sm text-gray-500 hover:text-pink-500 transition-colors flex items-center gap-1"
+              tw="ml-auto px-4 py-1.5 text-sm text-gray-500 hover:text-pink-500 transition-colors flex items-center gap-1"
             >
               View schema
               <svg style={{ width: 12, height: 12 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -291,8 +291,11 @@ export const CodeTabs: React.FC<CodeTabsProps> = ({
         </div>
 
         {/* Code content */}
-        <div tw="[&>div]:rounded-none [&>div]:my-0">
-          <CodeBlock language={LANGUAGE_SYNTAX[activeTab]}>
+        <div tw="[&>div]:my-0 [& pre]:!rounded-none">
+          <CodeBlock
+            language={LANGUAGE_SYNTAX[activeTab]}
+            customStyle={{ margin: 0, padding: "0.5em 1em" }}
+          >
             {codeByLanguage[activeTab]}
           </CodeBlock>
         </div>
@@ -300,11 +303,14 @@ export const CodeTabs: React.FC<CodeTabsProps> = ({
         {/* Variables block - only show for GraphQL tab when there are variables */}
         {activeTab === "graphql" && variablesJson && (
           <div tw="border-t border-gray-200">
-            <div tw="bg-gray-100 px-4 py-2 text-xs font-medium text-gray-600">
+            <div tw="bg-gray-100 px-4 py-1.5 text-xs font-medium text-gray-600">
               Variables
             </div>
-            <div tw="[&>div]:rounded-none [&>div]:my-0">
-              <CodeBlock language="json">
+            <div tw="[&>div]:my-0 [& pre]:!rounded-none">
+              <CodeBlock
+                language="json"
+                customStyle={{ margin: 0, padding: "0.5em 1em" }}
+              >
                 {variablesJson}
               </CodeBlock>
             </div>
