@@ -9,11 +9,12 @@ Use the Public API to integrate Railway into your CI/CD pipelines and other work
 
 ## Understanding GraphQL
 
-If you haven't used GraphQL before, here are a few resources to get started:
+New to GraphQL? Start with our [Introduction to GraphQL](/guides/graphql-overview) guide, which explains the core concepts using Railway's API.
 
-1. The official [Introduction to GraphQL](https://graphql.org/learn/)
-2. The [GraphQL Basics](https://hasura.io/learn/graphql/intro-graphql/introduction/) course by Hasura
-3. [GraphQL is the better REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/) to understand how it is different from a REST API
+For deeper learning, these external resources are helpful:
+- [Official Introduction to GraphQL](https://graphql.org/learn/)
+- [GraphQL Basics](https://hasura.io/learn/graphql/intro-graphql/introduction/) course by Hasura
+- [GraphQL is the better REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
 
 ## Connecting to the Public API
 
@@ -140,12 +141,16 @@ If you're unsure about what query/mutation to use for what you are trying to ach
 
 ## Examples
 
-To help you get started, we have provided some example queries in the guides within this section -
+To help you get started, we have provided example queries and mutations organized by resource type:
 
-- [Manage Projects](/guides/manage-projects)
-- [Manage Services](/guides/manage-services)
-- [Manage Deployments](/guides/manage-deployments)
-- [Manage Variables](/guides/manage-variables)
+- [API Cookbook](/guides/api-cookbook) - Quick reference for common operations
+- [Manage Projects](/guides/manage-projects) - Create, update, delete projects
+- [Manage Services](/guides/manage-services) - Create services, configure settings
+- [Manage Deployments](/guides/manage-deployments) - Deploy, rollback, view logs
+- [Manage Variables](/guides/manage-variables) - Set and manage environment variables
+- [Manage Environments](/guides/manage-environments) - Create and configure environments
+- [Manage Domains](/guides/manage-domains) - Add custom domains, configure DNS
+- [Manage Volumes](/guides/manage-volumes) - Create volumes, manage backups
 
 ## Support
 
