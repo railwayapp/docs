@@ -5,8 +5,8 @@ import { Icon } from "./icon";
 import { Link } from "./link";
 import { Logo } from "./logo";
 import { Badge } from "./badge";
-import { OpenSearchModalButton } from "@/components/search";
 import { ThemeSwitcher } from "./theme-switcher";
+import OpenModalButton from "./search/open-modal-button";
 import { sidebarContent } from "../data/sidebar";
 import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
 import SidebarItem from "./sidebar-item";
@@ -14,24 +14,32 @@ import { Arrow } from "@/components/arrow";
 
 const navLinks = [{ title: "Guides", href: "/guides" }];
 
-// Desktop Top Navigation
-export const TopNav: React.FC = () => {
-  return (
-    <header className="hidden md:flex items-center justify-between gap-4 px-6 py-3 sticky top-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted">
-      {/* Left - Logo */}
-      <Link
-        href="/"
-        className="flex items-center gap-2 shrink-0 rounded-md px-1 -mx-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
-      >
-        <Logo className="w-7 h-7" />
-        <span className="font-semibold text-muted-high-contrast">Railway</span>
-        <Badge variant="secondary">Docs</Badge>
-      </Link>
+interface TopNavProps {
+  hideSidebar?: boolean;
+}
 
-      {/* Center - Search */}
-      <div className="flex-1 max-w-md mx-auto">
-        <OpenSearchModalButton />
-      </div>
+// Desktop Top Navigation
+export const TopNav: React.FC<TopNavProps> = ({ hideSidebar }) => {
+  return (
+    <header
+      className={cn(
+        "hidden md:flex items-center gap-6 px-6 py-3 sticky top-0 z-40 bg-muted-app/95 backdrop-blur-sm",
+        hideSidebar ? "justify-between" : "justify-end",
+      )}
+    >
+      {/* Left - Logo (only when sidebar is hidden) */}
+      {hideSidebar && (
+        <Link
+          href="/"
+          className="flex items-center gap-2 shrink-0 rounded-md p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+        >
+          <Logo className="w-7 h-7" />
+          <span className="font-semibold text-muted-high-contrast">
+            Railway
+          </span>
+          <Badge variant="secondary">Docs</Badge>
+        </Link>
+      )}
 
       {/* Right - Links */}
       <nav className="flex items-center gap-6 shrink-0">
@@ -100,9 +108,8 @@ export const MobileTopNav: React.FC = () => {
         {/* Center - Spacer */}
         <div className="flex-1" />
 
-        {/* Right - Search Icon + Hamburger */}
+        {/* Right - Hamburger */}
         <div className="flex items-center gap-3">
-          <OpenSearchModalButton iconOnly />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-1.5 rounded-md hover:bg-muted-element transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
@@ -121,6 +128,11 @@ export const MobileTopNav: React.FC = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 top-[57px] z-30 md:hidden bg-muted-app overflow-y-auto">
           <div className="px-4 py-4">
+            {/* Search */}
+            <div className="mb-4">
+              <OpenModalButton />
+            </div>
+
             {/* Top Nav Links */}
             <nav className="flex flex-col gap-1 mb-4">
               {navLinks.map(link => (

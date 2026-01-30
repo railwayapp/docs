@@ -10,6 +10,7 @@ import { cn } from "@/lib/cn";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { useStore } from "@nanostores/react";
 import React, { PropsWithChildren, useEffect } from "react";
+import { useRouter } from "next/router";
 import tinykeys from "tinykeys";
 import { TopNav, MobileTopNav } from "../components/top-nav";
 import { Props as SEOProps, SEO } from "../components/seo";
@@ -19,10 +20,16 @@ import { GlobalBanners } from "@/components/global-banner";
 
 export interface Props {
   seo?: SEOProps;
+  hideSidebar?: boolean;
 }
 
 export const Page: React.FC<PropsWithChildren<Props>> = props => {
+  const router = useRouter();
   const isSearchOpen = useStore(searchStore);
+
+  // Hide sidebar on all guides pages (index and individual guide pages)
+  const isGuidesPage = router.pathname.startsWith("/guides");
+  const hideSidebar = props.hideSidebar || isGuidesPage;
 
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
@@ -43,21 +50,26 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
     <>
       <SEO {...props.seo} />
       <GlobalBanners />
-      <div className="min-h-screen relative flex flex-col">
-        {/* Top Navigation - Full Width, Sticky */}
-        <TopNav />
-        <MobileTopNav />
+      <div className="min-h-screen relative flex">
+        {/* Sidebar - Full Height (hidden on guides pages) */}
+        {!hideSidebar && <Sidebar />}
 
         {/* Main Content Area */}
-        <div className="flex flex-1">
-          <Sidebar />
-          <div className="flex flex-col flex-1 max-w-[100vw]">
-            <Background />
+        <div className="flex flex-col flex-1 max-w-[100vw]">
+          {/* Top Navigation - Content Area Only */}
+          <TopNav hideSidebar={hideSidebar} />
+          <MobileTopNav />
 
-            <main className="flex justify-between px-4 w-full max-w-6xl mx-auto md:px-12 lg:px-16 pt-8 pb-12 md:pb-24">
-              {props.children}
-            </main>
-          </div>
+          <Background />
+
+          <main
+            className={cn(
+              "flex justify-between px-4 w-full mx-auto md:px-12 lg:px-16 pt-8 pb-12 md:pb-24",
+              hideSidebar ? "max-w-5xl" : "max-w-6xl",
+            )}
+          >
+            {props.children}
+          </main>
         </div>
       </div>
       <Dialog open={isSearchOpen} onOpenChange={handleOpenChange}>
