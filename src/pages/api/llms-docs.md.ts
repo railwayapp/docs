@@ -69,7 +69,7 @@ const handler: NextApiHandler = async (req, res) => {
         // Read the markdown file content
         const filePath = path.join(
           process.cwd(),
-          "src/docs",
+          "content/docs",
           page.slug.replace(/^\//, "") + ".md",
         );
         const fileContent = fs.readFileSync(filePath, "utf8");

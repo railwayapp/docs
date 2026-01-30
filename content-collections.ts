@@ -8,7 +8,7 @@ import { rehypeCodeBlock } from "./src/plugins/rehype-code-block";
 
 const pages = defineCollection({
   name: "pages",
-  directory: "src/docs",
+  directory: "content/docs",
   include: "**/*.md",
   schema: z.object({
     title: z.string(),
