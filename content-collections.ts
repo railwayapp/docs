@@ -41,6 +41,50 @@ const pages = defineCollection({
   },
 });
 
+const guides = defineCollection({
+  name: "guides",
+  directory: "content/guides",
+  include: "**/*.md",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    content: z.string(),
+    date: z.string().optional(),
+    author: z
+      .object({
+        name: z.string(),
+        avatar: z.string().optional(),
+        link: z.string().optional(),
+      })
+      .optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+  transform: async (doc, ctx) => {
+    const code = await compileMDX(ctx, doc, {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: "prepend" }],
+        rehypeCodeBlock,
+      ],
+    });
+    return {
+      ...doc,
+      url: `/guides/${doc._meta.path}`,
+      body: {
+        code,
+        raw: doc.content,
+      },
+      _raw: {
+        flattenedPath: doc._meta.path,
+        sourceFilePath: doc._meta.filePath,
+        sourceFileName: doc._meta.fileName,
+        sourceFileDir: doc._meta.directory,
+      },
+    };
+  },
+});
+
 export default defineConfig({
-  collections: [pages],
+  collections: [pages, guides],
 });
