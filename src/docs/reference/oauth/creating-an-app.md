@@ -75,7 +75,7 @@ OAuth 2.0 Dynamic Client Registration is supported, allowing applications to reg
 POST https://backboard.railway.com/oauth/register
 ```
 
-Dynamic registration requests are subject to rate limits. See [API Rate Limits](/reference/public-api#rate-limits) for current thresholds.
+Dynamic registration requests are subject to rate limits to prevent abuse.
 
 ### Managing Dynamic Clients
 
