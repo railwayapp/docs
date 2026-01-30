@@ -43,8 +43,6 @@ We advise developers to:
 - Run-book and restore their backups
 - Configure secondaries to connect to in-case of a disaster situation
 
-Included in our planned near-term work for databases on Railway are additional database metrics, and SSH access into the running database.
-
 As mentioned before: we don't believe in vendor lock-in here at Railway, if your needs outpace us, consider other vendors like PlanetScale (for MySQL) or Cockroach (for Postgres).
 
 ### Metrics
@@ -60,8 +58,6 @@ We also overlay commit and deployment behavior to correlate issues with applicat
 
 For service logs, we store logs for up to 90 days for Pro plan workspaces.
 
-Included in our planned near-term work for logging and observability on Railway are improvements to structured logging, and OpenTelemetry compatible endpoints.
-
 It is common for teams who wish to have additional observability to use an additional monitoring tool that maintains a longer time horizon of data such as New Relic, Sentry, or Datadog. Within projects, deploying a Datadog Agent is as easy as deploying the template and providing your Datadog API Keys.
 
 ### Networking
@@ -71,8 +67,6 @@ Railway doesn't have a hard bandwidth limit to the broader internet.
 We may throttle your outbound bandwidth and reach out to you when it exceeds 100GB/month to ensure the legitimacy of your workloads. If you need to control where your traffic is allowed to come from such as setting up firewall rules, we recommend setting up Cloudflare or an external load balancer/L7 application firewall to handle it.
 
 Private networking bandwidth is un-metered.
-
-We intend to provide advanced traffic-shaping controls within Railway in the future.
 
 ### Service Level Objectives
 

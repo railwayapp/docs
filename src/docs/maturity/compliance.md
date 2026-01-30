@@ -31,8 +31,6 @@ HIPAA BAA is an add-on with a paid monthly spend threshold. All pricing goes tow
 
 If your company needs a BAA, you can contact our solutions team at [team@railway.com](mailto:team@railway.com), or click [here](https://cal.com/team/railway/work-with-railway?duration=30) to schedule some time to chat.
 
-We are working on operationalized BAAs and continually gathering requirements for health-focused workloads for Enterprises. You can share your feedback in [Central Station](https://station.railway.com/feedback).
-
 ## Privacy
 
 Railway is committed to protecting the privacy of our users. We understand that when working with user code and data, it is important to have a clear understanding of how we handle your data. Railway, on behalf of our users, may remove offending workloads but at no point will a Railway team member modify your application without your expressed permission through an approved communication channel.
