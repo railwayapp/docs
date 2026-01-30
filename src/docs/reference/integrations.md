@@ -42,10 +42,9 @@ This allows you to keep production and preview deployment databases separate.
 
 ### Other Platforms
 
-We are working on adding more integrations to various serverless platforms.
-However, if you want to use Railway for a platform we do not support, you can
+If you want to use Railway with a serverless platform that doesn't have a native integration, you can
 manually add the environment variables for any of your services (e.g. the `DATABASE_URL`
-for Postgres) to the serverless platform.
+for Postgres) to that platform.
 
 ## GitHub Integration
 

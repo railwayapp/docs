@@ -39,8 +39,6 @@ If you are using multi-region replicas, Railway will automatically route public 
 
 If you are using a single region with multiple replicas, Railway will randomly distribute public traffic to the replicas of that region.
 
-We plan to add more advanced load balancing strategies in the future.
-
 #### Metrics
 
 For services with multiple replicas, the metrics from all replicas are summed up and displayed in the metrics tab, for example, if you have 2 replicas, each using 100 MB of memory, the memory usage displayed in the metrics tab will be 200 MB.
