@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { DocsLayout } from "../layouts/DocsLayout";
+import { DocsLayout } from "../layouts/docs-layout";
 import { FrontMatter } from "../types";
 
 const Layout: React.FC<
