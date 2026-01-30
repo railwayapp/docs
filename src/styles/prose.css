@@ -75,7 +75,7 @@
 
 /* Links - exclude Link component which has its own styles */
 .prose a:not([data-slot='link']) {
-  @apply text-muted-high-contrast underline underline-offset-2 transition-colors;
+  @apply text-muted-high-contrast underline decoration-primary-base underline-offset-2 transition-colors;
 }
 
 .prose a:not([data-slot='link']):hover {

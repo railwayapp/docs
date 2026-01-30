@@ -62,7 +62,6 @@ const Home: NextPage = () => {
             <A href="/deployments/github-autodeploys">GitHub</A>,{" "}
             <A href="/cli">CLI</A>, or{" "}
             <A href="/builds/dockerfiles">Dockerfile</A>. Configure{" "}
-            <A href="/deployments/healthchecks">healthchecks</A>,{" "}
             <A href="/deployments/scaling">scaling</A>, and{" "}
             <A href="/deployments/regions">regions</A>
           </li>
@@ -74,7 +73,7 @@ const Home: NextPage = () => {
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
-            <A href="/databases">Databases</A>: Managed{" "}
+            <A href="/databases">Databases</A>: Deploy{" "}
             <A href="/databases/postgresql">PostgreSQL</A>,{" "}
             <A href="/databases/mysql">MySQL</A>,{" "}
             <A href="/databases/redis">Redis</A>, and{" "}
@@ -90,9 +89,9 @@ const Home: NextPage = () => {
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
             <A href="/networking">Networking</A>: Expose services with{" "}
             <A href="/networking/domains">custom domains</A>, connect services
-            via <A href="/private-networking">private networking</A>, and
-            configure <A href="/networking/tcp-proxy">TCP proxy</A> for non-HTTP
-            traffic
+            via <A href="/networking/private-networking">private networking</A>,
+            and configure <A href="/networking/tcp-proxy">TCP proxy</A> for
+            non-HTTP traffic
           </li>
 
           <li className="text-base leading-relaxed text-muted-base before:content-['•'] before:mr-2 before:text-muted">
@@ -148,7 +147,10 @@ const A: React.FC<{ href: string; children: React.ReactNode }> = ({
   href,
   children,
 }) => (
-  <Link href={href} className="text-primary-base font-medium hover:underline">
+  <Link
+    href={href}
+    className="text-muted-high-contrast underline decoration-primary-base underline-offset-2 transition-colors hover:text-primary-base font-medium"
+  >
     {children}
   </Link>
 );
