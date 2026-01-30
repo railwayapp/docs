@@ -26,7 +26,7 @@ const OpenModalButton: React.FC<OpenModalButtonProps> = ({ iconOnly }) => {
     >
       <div className="flex items-center gap-2">
         <Icon className="size-4" name="Search" />
-        <span>Search docs...</span>
+        <span>Search...</span>
       </div>
       <kbd className="pointer-events-none hidden select-none items-center gap-1 rounded border border-muted bg-muted-element px-1.5 py-0.5 font-mono text-xs text-muted-base md:inline-flex">
         <span className="text-xs">⌘</span>K
