@@ -250,6 +250,18 @@ Usage (GB-month) is calculated by averaging the day-to-day usages and rounding t
 
 Buckets are currently only available in the Standard storage tier – there's no minimum storage retention and no data retrieval fees.
 
+### Cost Comparison
+
+Railway Buckets offer competitive pricing compared to other S3-compatible storage providers:
+
+|                    | Railway Buckets      | AWS S3 Standard       | Cloudflare R2          |
+| ------------------ | -------------------- | --------------------- | ---------------------- |
+| **Storage**        | $0.015 / GB-month    | $0.023 / GB-month     | $0.015 / GB-month      |
+| **Egress**         | Free                 | $0.09 / GB            | Free                   |
+| **API Operations** | Free (unlimited)     | $0.005 / 1K writes, $0.0004 / 1K reads | $4.50 / 1M Class A, $0.36 / 1M Class B |
+
+Railway matches R2's storage pricing while offering free unlimited API operations. Compared to S3, Railway is more cost-effective on storage, egress, and operations.
+
 ### Bucket Egress vs. Service Egress
 
 Even though *buckets* don't charge for ingress or egress, buckets still live on the public network. When you upload files from your Railway services to your buckets, those *services* will incur egress usages, since you're uploading over the public network. Buckets are currently not available on the private network.
