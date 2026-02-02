@@ -65,4 +65,4 @@ Workspace and project scopes map to [Workspace Roles](/reference/teams#inviting-
 
 ## Missing a Scope?
 
-If the available scopes don't cover your use case, we'd love to hear about it. Share your feedback on <a href="https://central.railway.com" target="_blank">Central Station</a> so we can learn about what you're building.
+If the available scopes don't cover your use case, we'd love to hear about it. Share your feedback on <a href="https://station.railway.com" target="_blank">Central Station</a> so we can learn about what you're building.
