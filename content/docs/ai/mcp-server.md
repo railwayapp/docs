@@ -1,5 +1,5 @@
 ---
-title: Railway MCP Server (Experimental)
+title: Railway MCP Server
 description: Learn about the official Railway MCP (Model Context Protocol) server and how to use it.
 ---
 
@@ -7,9 +7,6 @@ description: Learn about the official Railway MCP (Model Context Protocol) serve
 The [Railway MCP Server](https://github.com/railwayapp/railway-mcp-server) is a [Model Context Protocol (MCP)](https://modelcontextprotocol.org) server that enables natural language interaction with your Railway projects and infrastructure.
 
 With this server, you can ask your IDE or AI assistant to create projects, deploy templates, create/select environments, or pull environment variables.
-
-
-> 🚨 The Railway MCP Server is **highly experimental**. Expect bugs and missing features. By design, destructive actions (e.g., deleting services or environments) are excluded, but you should still carefully review any tool executions before running them.
 
 The Railway MCP Server is open-source and available on [GitHub](https://github.com/railwayapp/railway-mcp-server).
 

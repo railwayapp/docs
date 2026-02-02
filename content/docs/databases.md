@@ -1,20 +1,61 @@
 ---
-title: Database Services
-description: Database services on Railway.
+title: Databases
+description: Deploy and manage databases on Railway - PostgreSQL, MySQL, Redis, MongoDB, and any open source database you need.
 ---
 
-Ready for databases?
+Railway enables you to deploy and manage databases alongside your applications. Whether you need a quick PostgreSQL instance or want to run a specialized database, Railway's platform primitives allow you to build any database service your system requires.
 
-Railway's platform primitives are built with flexibility in mind, allowing you to build any type of service your system requires, including database services.
+## Getting Started
 
-#### Feature Highlights
+The fastest way to deploy a database is through Railway's database templates:
 
-|                        |                                                                                                                                                                                                                                    |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Essential Features** | Railway has developed some essential features for enabling any type of database service to run in Railway - Volumes for persisting your data, and TCP Proxy for facilitating communication to your database from the internet.     |
-| **Database Templates** | Not only is our Template Marketplace filled with many different database service templates, but Railway also maintains several templates for some of the most popular databases out there - PostgreSQL, MySQL, MongoDB, and Redis. |
-|                        |                                                                                                                                                                                                                                    |
+| Database | Description |
+| --- | --- |
+| [**PostgreSQL**](/databases/postgresql) | The world's most advanced open source relational database |
+| [**MySQL**](/databases/mysql) | Popular open source relational database |
+| [**Redis**](/databases/redis) | In-memory data store for caching and real-time data |
+| [**MongoDB**](/databases/mongodb) | Document-oriented NoSQL database |
 
-Use the next few pages to understand how to build your own database service or how to use the templates available.
+These templates are maintained by Railway and come pre-configured with sensible defaults.
 
-Note that the Railway-provided databases are still considered unmanaged services, meaning you will need to take the appropriate steps to ensure they are optimized for your usecase.
+## Deploy Any Database
+
+Railway isn't limited to the databases above. You can deploy **any open source database** by using:
+
+- **Docker Images**: Deploy any database available as a Docker image
+- **Templates**: Browse our <a href="https://railway.com/templates?category=Storage" target="_blank">database and storage templates</a> for pre-configured options
+- **Custom Builds**: Build your own database service from source code
+
+### Popular Database Templates
+
+Explore these community and official templates in our marketplace:
+
+- <a href="https://railway.com/deploy?category=Storage" target="_blank">**All Storage Templates**</a> - Browse databases, caches, and storage solutions
+- ClickHouse, CockroachDB, Cassandra, and more
+- Specialized databases like TimescaleDB, InfluxDB, and Neo4j
+
+## Platform Features
+
+Railway provides essential features for running production databases:
+
+| Feature | Description |
+| --- | --- |
+| [**Volumes**](/volumes) | Persistent storage that survives deployments and restarts |
+| [**TCP Proxy**](/networking/tcp-proxy) | Connect to your database from outside Railway's network |
+| [**Private Networking**](/networking/private-networking) | Secure, low-latency connections between services |
+| [**Backups**](/volumes/backups) | Point-in-time recovery for your data |
+
+## Building Custom Database Services
+
+Need to run a database that isn't in our templates? Check out our guide on [building a database service](/databases/build-a-database-service) to learn how to configure volumes, networking, and persistence for any database.
+
+## Important Notes
+
+Railway-provided database templates are **unmanaged services** - you're responsible for:
+
+- Configuring backups and disaster recovery
+- Tuning performance for your workload
+- Managing security and access control
+- Monitoring and maintenance
+
+For managed database requirements or compliance needs, consider [Enterprise](/enterprise) or connecting to external managed database providers.
