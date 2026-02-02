@@ -20,7 +20,7 @@ After creating the app, copy the client ID and client secret. The secret is only
 When a user wants to sign in, redirect their browser to the authorization endpoint:
 
 ```
-https://backboard.railway.com/oauth/authorize
+https://backboard.railway.com/oauth/auth
   ?response_type=code
   &client_id=YOUR_CLIENT_ID
   &redirect_uri=https://yourapp.com/callback

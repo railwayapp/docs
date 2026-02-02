@@ -45,7 +45,7 @@ PKCE adds a layer of protection to the authorization code flow. Without PKCE, an
 Add the code challenge to your authorization request:
 
 ```
-https://backboard.railway.com/oauth/authorize
+https://backboard.railway.com/oauth/auth
   ?response_type=code
   &client_id=YOUR_CLIENT_ID
   &redirect_uri=https://yourapp.com/callback
@@ -75,7 +75,7 @@ OAuth 2.0 Dynamic Client Registration is supported, allowing applications to reg
 POST https://backboard.railway.com/oauth/register
 ```
 
-Dynamic registration requests are subject to rate limits. See [API Rate Limits](/public-api#rate-limits) for current thresholds.
+Dynamic registration requests are subject to rate limits to prevent abuse.
 
 ### Managing Dynamic Clients
 

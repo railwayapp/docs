@@ -14,7 +14,7 @@ We recommend using an OAuth 2.0 / OpenID Connect library for your language or fr
 Redirect the user to the authorization endpoint:
 
 ```
-GET https://backboard.railway.com/oauth/authorize
+GET https://backboard.railway.com/oauth/auth
 ```
 
 | Parameter | Required | Description |
@@ -79,7 +79,7 @@ Access tokens expire after one hour. For applications that need longer-lived acc
 To receive a refresh token, your authorization request must include both the `offline_access` scope and the `prompt=consent` parameter:
 
 ```
-https://backboard.railway.com/oauth/authorize
+https://backboard.railway.com/oauth/auth
   ?response_type=code
   &client_id=YOUR_CLIENT_ID
   &redirect_uri=https://yourapp.com/callback
