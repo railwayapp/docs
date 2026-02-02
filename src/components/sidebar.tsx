@@ -279,11 +279,10 @@ const SidebarContent: React.FC = () => {
                     href={section.slug}
                     className={cn(
                       "group flex w-full items-center gap-2 py-1.5 px-3 -ml-3 rounded-md min-w-0",
-                      "text-sm font-medium text-muted-base",
+                      "text-sm text-muted-base",
                       "hover:text-muted-high-contrast transition-colors",
                       "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
-                      isCurrentPage(section.slug) &&
-                        "bg-primary-element text-muted-high-contrast",
+                      isCurrentPage(section.slug) && "text-primary-base",
                     )}
                     title={section.title}
                   >
@@ -296,13 +295,13 @@ const SidebarContent: React.FC = () => {
                       onClick={() => toggleSection(section.title!)}
                       className={cn(
                         "group flex w-full items-center justify-between gap-2 py-1.5 px-3 -ml-3 rounded-md cursor-pointer min-w-0",
-                        "text-sm font-medium text-muted-base",
+                        "text-sm text-muted-base",
                         "hover:text-muted-high-contrast transition-colors",
                         "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
-                        isCurrentSection(section) && "text-muted-high-contrast",
+                        isCurrentSection(section) && "text-primary-base",
                         section.slug &&
                           isCurrentPage(section.slug) &&
-                          "bg-primary-element text-muted-high-contrast",
+                          "text-primary-base",
                       )}
                       aria-expanded={expandedSections.includes(section.title)}
                       aria-label={
@@ -317,8 +316,7 @@ const SidebarContent: React.FC = () => {
                           className={cn(
                             "flex-1 text-left truncate min-w-0",
                             "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-inset rounded",
-                            isCurrentPage(section.slug) &&
-                              "text-muted-high-contrast font-semibold",
+                            isCurrentPage(section.slug) && "text-primary-base",
                           )}
                           onClick={e => {
                             e.stopPropagation();
