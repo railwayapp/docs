@@ -26,6 +26,8 @@ query project($id: String!) {
 }
 ```
 
+Variables:
+
 ```json
 {
   "id": "your-project-id"
@@ -109,6 +111,8 @@ mutation projectCreate($input: ProjectCreateInput!) {
   }
 }
 ```
+
+Variables:
 
 ```json
 {
@@ -233,6 +237,52 @@ https://backboard.railway.com/graphql/v2
 
 A GraphQL request is an HTTP POST with a JSON body containing your query. You can use Railway's [GraphiQL playground](https://railway.com/graphiql) to explore and test queries before writing code, or tools like [Apollo Studio](https://studio.apollographql.com/sandbox/explorer) or [Insomnia](https://insomnia.rest/).
 
+### Using cURL
+
+```bash
+curl -X POST https://backboard.railway.com/graphql/v2 \
+  -H "Authorization: Bearer $RAILWAY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "query { me { name email } }"}'
+```
+
+### Using JavaScript
+
+```javascript
+const response = await fetch("https://backboard.railway.com/graphql/v2", {
+  method: "POST",
+  headers: {
+    "Authorization": `Bearer ${process.env.RAILWAY_TOKEN}`,
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `query { me { name email } }`,
+  }),
+});
+
+const { data, errors } = await response.json();
+```
+
+### Using Python
+
+```python
+import os
+import requests
+
+response = requests.post(
+    "https://backboard.railway.com/graphql/v2",
+    headers={
+        "Authorization": f"Bearer {os.environ['RAILWAY_TOKEN']}",
+        "Content-Type": "application/json",
+    },
+    json={
+        "query": "query { me { name email } }",
+    },
+)
+
+data = response.json()
+```
+
 ## Tips for getting started
 
 **Start small.** Write a simple query that fetches one thing. Once that works, gradually expand to include related data.
@@ -268,4 +318,4 @@ query project($id: String!) {
 ## Next steps
 
 - **[API Cookbook](/guides/api-cookbook):** Copy-paste examples for common operations
-- **[Public API Reference](/reference/public-api):** Authentication, rate limits, and more
+- **[Public API Reference](/public-api):** Authentication, rate limits, and more
