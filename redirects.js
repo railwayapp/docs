@@ -161,7 +161,12 @@ const redirects = [
   },
   {
     source: "/overview/about-railway",
-    destination: "/platform/about-railway",
+    destination: "/platform",
+    permanent: true,
+  },
+  {
+    source: "/platform/about-railway",
+    destination: "/platform",
     permanent: true,
   },
   {

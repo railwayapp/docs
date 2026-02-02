@@ -1,5 +1,5 @@
 ---
-title: About Railway
+title: Platform
 description: Railway is a modern cloud deployment platform designed to help developers deploy instantly and scale apps effortlessly. Learn about our platform.
 ---
 
