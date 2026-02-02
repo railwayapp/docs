@@ -132,6 +132,18 @@ Users will receive a notification about the update and can choose to apply it to
 
 Note that this feature only works for templates based on GitHub repositories. Docker image-based templates cannot be automatically updated through this mechanism.
 
+## Private Docker Images
+
+If your template includes a private Docker image, you can provide your registry credentials without exposing them to users who deploy your template.
+
+To set this up, add a service with a Docker image source in the template editor, then enter your registry credentials in the service settings. Railway encrypts and stores these credentials securely.
+
+When users deploy your template, Railway automatically authenticates with your registry to pull the image. Users will only see that the service uses hidden registry credentials, not the credentials themselves.
+
+<Banner variant="warning">
+To protect your credentials, SSH access is disabled and users cannot modify the Docker image source for services with hidden registry credentials.
+</Banner>
+
 ## Updatable Templates
 
 When you deploy any services from a template based on a GitHub repo, Railway will check to see if the template has been updated by its creator.
