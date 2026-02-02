@@ -94,6 +94,18 @@ Buckets are billed at **$0.015** per GB-month. All S3 API operations and bucket 
 
 For detailed pricing information, plan limits, and billing examples, see the [Storage Buckets Billing](/storage-buckets/billing) page.
 
+### Cost Comparison
+
+Railway Buckets offer competitive pricing compared to other S3-compatible storage providers:
+
+|                    | Railway Buckets      | AWS S3 Standard       | Cloudflare R2          |
+| ------------------ | -------------------- | --------------------- | ---------------------- |
+| **Storage**        | $0.015 / GB-month    | $0.023 / GB-month     | $0.015 / GB-month      |
+| **Egress**         | Free                 | $0.09 / GB            | Free                   |
+| **API Operations** | Free (unlimited)     | $0.005 / 1K writes, $0.0004 / 1K reads | $4.50 / 1M Class A, $0.36 / 1M Class B |
+
+Railway matches R2's storage pricing while offering free unlimited API operations. Compared to S3, Railway is more cost-effective on storage, egress, and operations.
+
 ## S3 Compatibility
 
 Buckets are fully S3-compatible. You can use them with any S3 client library for any language, tool, or framework, and you can expect the same functionality on Railway Buckets as if you were using a normal S3 bucket.
