@@ -178,5 +178,5 @@ It returns a `request_uri` that references your stored parameters. Use this URI 
 ```
 https://backboard.railway.com/oauth/auth
   ?client_id=YOUR_CLIENT_ID
-  &request-uri=urn:ietf:params:oauth:request_uri:abc123
+  &request_uri=urn:ietf:params:oauth:request_uri:abc123
 ```
