@@ -16,8 +16,8 @@
       "How do I verify my account?",
       "Why do I need to verify?"
     ],
-    "answer": "Your account requires additional information to use the Trial plan. Make sure to link a GitHub account and a Credit Card to pass the verification check.",
-    "link": ""
+    "answer": "Without verification, your Trial account will have some network restrictions. Link a GitHub account or Credit Card to verify your account and unlock full network access.",
+    "link": "https://docs.railway.com/reference/pricing/free-trial#full-vs-limited-trial"
   },
   "region": {
     "category": "general",
