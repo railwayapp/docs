@@ -3,7 +3,9 @@
 export const iconNames = [
   "ArrowRight",
   "ArrowUpRight",
+  "ArrowUp",
   "Bash",
+  "Book",
   "Chatgpt",
   "CheckCircle",
   "Check",
@@ -16,6 +18,7 @@ export const iconNames = [
   "Cross",
   "CursorAi",
   "Discord",
+  "FileText",
   "File",
   "Folder",
   "Github",
@@ -26,11 +29,13 @@ export const iconNames = [
   "Menu",
   "Monitor",
   "Moon",
+  "Plus",
   "Railway",
   "React",
   "Rss",
   "Search",
   "Spinner",
+  "Square",
   "Star",
   "Sun",
   "ThreeDotsHorizontal",
@@ -39,6 +44,6 @@ export const iconNames = [
   "Vscode",
   "XIcon",
   "Youtube",
-] as const
+] as const;
 
-export type IconName = typeof iconNames[number]
+export type IconName = (typeof iconNames)[number];
