@@ -281,7 +281,7 @@ You can use up to **50 GB-month** during the trial. Bucket usage counts against 
 
 ### Limited Trial
 
-Buckets are not available in the [Limited Trial](/reference/pricing/free-trial#full-vs-limited-trial).
+Buckets are available in the [Limited Trial](/reference/pricing/free-trial#full-vs-limited-trial), but services accessing them will have some [network restrictions](/reference/pricing/free-trial#full-vs-limited-trial).
 
 ### Hobby
 

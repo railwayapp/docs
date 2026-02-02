@@ -11,14 +11,14 @@ After 30 days passes or $5 is spent, the free trial reverts to the [Free](/refer
 
 Your trial experience depends on whether Railway can verify your account.
 
-| Trial Type        | Deploy Code | Deploy Databases | Deploy Buckets |
-| ----------------- | ----------- | ---------------- | -------------- |
-| **Full Trial**    | ✅          | ✅               | ✅             |
-| **Limited Trial** | ❌          | ✅               | ❌             |
+| Trial Type        | Deploy Code | Deploy Databases | Deploy Buckets | Network Access |
+| ----------------- | ----------- | ---------------- | -------------- | -------------- |
+| **Full Trial**    | ✅          | ✅               | ✅             | Full           |
+| **Limited Trial** | ✅          | ✅               | ✅             | Restricted     |
 
 When you sign up for a free Trial, you can connect your GitHub account to initiate verification. Your verification status depends on a number of factors, including the age and activity of your GitHub account.
 
-If your account is not verified — either because you have not initiated the verification process or your account does not meet our criteria for verification — your trial experience will be limited to deploying databases.
+If your account is not verified — either because you have not initiated the verification process or your account does not meet our criteria for verification — your trial will have some network restrictions. Specifically, services on the Limited Trial have restricted outbound network access and only a limited set of ports are available.
 
 Verification is a necessary measure to prevent abuse of the free Trial, limiting users from creating multiple accounts and reducing the risk of trial users deploying or hosting content that violates Railway's [Terms of Service](https://railway.com/legal/fair-use).
 
@@ -40,13 +40,13 @@ If you upgrade to a plan while you still have a credit balance from the Trial, t
 
 During the trial, you can access the same features as on the Hobby plan, however you will be limited to 1 GB of RAM and shared (rather than dedicated) vCPU cores. Additionally, your projects will be limited to 5 services per project.
 
-As a trial user, you can always spin-up databases. However, to deploy code, you must be on the [Full Trial](#full-vs-limited-trial).
+As a trial user, you can spin up databases and deploy code. However, if you are on the [Limited Trial](#full-vs-limited-trial), your services will have some network restrictions.
 
 ### What's the difference between the Limited Trial and the Full Trial?
 
-If you connect your GitHub account, and we are able to verify it against a set of parameters, you will be on the Full Trial where you can deploy both code and databases.
+If you connect your GitHub account, and we are able to verify it against a set of parameters, you will be on the Full Trial with full network access.
 
-If you do not connect a GitHub account, or we are not able to verify your account, you will be on the Limited Trial, where you can only deploy databases.
+If you do not connect a GitHub account, or we are not able to verify your account, you will be on the Limited Trial. You can still deploy code, databases, and buckets, but your services will have restricted outbound network access and only a limited set of ports will be available.
 
 While you're on the Limited Trial, you can initiate verification at any time by visiting [railway.com/verify](https://railway.com/verify) in order to access the Full Trial experience.
 
