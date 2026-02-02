@@ -19,7 +19,7 @@ railway up
 
 This command scans, compresses, and uploads your app's files to Railway. You'll see real-time deployment logs in your terminal.
 
-Railway will build your code using [Nixpacks](/builds/nixpacks) or your [Dockerfile](/builds/dockerfiles), then deploy it.
+Railway will build your code using [Railpack](/builds/railpack) or your [Dockerfile](/builds/dockerfiles), then deploy it.
 
 ## Deployment Modes
 
@@ -43,6 +43,16 @@ railway up -d
 
 The deployment continues in the background. Check status in the dashboard or with `railway logs`.
 
+### CI Mode
+
+Use `-c` or `--ci` to stream only build logs and exit when the build completes:
+
+```bash
+railway up --ci
+```
+
+This is ideal for CI/CD pipelines where you want to see the build output but don't need to wait for deployment logs. Use `--json` to output logs in JSON format (also implies CI mode).
+
 ## Targeting Services and Environments
 
 ### Deploy to a Specific Service
@@ -58,6 +68,16 @@ railway up --service my-api
 ```bash
 railway up --environment staging
 ```
+
+### Deploy to a Specific Project
+
+Use `-p` or `--project` to deploy to a project without linking:
+
+```bash
+railway up --project <project-id> --environment production
+```
+
+**Note:** When using `--project`, the `--environment` flag is required.
 
 ## CI/CD Integration
 
@@ -158,9 +178,21 @@ This is useful for:
 - Restarting a crashed service
 - Triggering a fresh build with the same code
 
-## Deployment from Subdirectories
+## Deploying a Specific Path
 
-When running `railway up` from a subdirectory, Railway still deploys from the project root. To deploy only a specific directory, configure a [root directory](/builds/monorepo#root-directory) in your service settings.
+You can specify a path to deploy:
+
+```bash
+railway up ./backend
+```
+
+By default, Railway uses your project root as the archive base. Use `--path-as-root` to use the specified path as the archive root instead:
+
+```bash
+railway up ./backend --path-as-root
+```
+
+When running `railway up` from a subdirectory without a path argument, Railway still deploys from the project root. To deploy only a specific directory permanently, configure a [root directory](/builds/monorepo#root-directory) in your service settings.
 
 ## Ignoring Files
 
@@ -180,7 +212,7 @@ railway up --verbose
 
 ## Related
 
-- [CLI Reference](/cli#command-reference) - Complete CLI command documentation
+- [CLI Reference](/cli) - Complete CLI command documentation
 - [GitHub Autodeploys](/deployments/github-autodeploys) - Automatic deployments from GitHub
 - [GitHub Actions Post-Deploy](/guides/github-actions-post-deploy) - Run actions after deployment
 - [GitHub Actions PR Environment](/guides/github-actions-pr-environment) - Create environments for PRs

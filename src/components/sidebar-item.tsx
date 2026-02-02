@@ -74,22 +74,28 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 
   const renderPageLink = (item: IPage, isSubSectionItem = false) => {
     const isActive = isCurrentPage(item.slug);
+    const displayContent = item.commandName ? (
+      <kbd className="rounded border border-muted bg-muted-element px-1.5 py-0.5 font-mono text-sm">
+        {item.commandName}
+      </kbd>
+    ) : (
+      item.title
+    );
     return (
       <li key={item.slug} className="min-w-0">
         <Link
           href={item.slug}
           className={cn(
             "block rounded-md px-3 py-1.5 text-sm text-muted-base transition-colors hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid truncate",
-            isActive &&
-              "bg-primary-element text-muted-high-contrast font-medium",
+            isActive && "text-primary-base",
             isSubSectionItem
               ? "focus-visible:ring-inset"
               : "-ml-3 focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
           )}
           ref={isActive ? activeLinkRef : undefined}
-          title={item.title}
+          title={item.commandName ?? item.title}
         >
-          {item.title}
+          {displayContent}
         </Link>
       </li>
     );
@@ -100,6 +106,10 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       const hasLanding = typeof subTitle !== "string";
       const isSubTitleActive =
         hasLanding && isCurrentPage((subTitle as IPage).slug);
+      const hasActiveChild = item.pages.some(
+        page => "slug" in page && isCurrentPage(page.slug),
+      );
+      const isParentHighlighted = isSubTitleActive || hasActiveChild;
 
       return (
         <button
@@ -108,10 +118,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             onToggleSubSection();
           }}
           className={cn(
-            "group flex w-full items-center justify-between gap-2 rounded-md px-3 py-1.5 -ml-3 text-left text-sm font-medium transition-colors hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app cursor-pointer min-w-0",
-            isSubTitleActive
-              ? "bg-primary-element text-muted-high-contrast"
-              : "text-muted-high-contrast",
+            "group flex w-full items-center justify-between gap-2 rounded-md px-3 py-1.5 -ml-3 text-left text-sm transition-colors hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app cursor-pointer min-w-0",
+            isParentHighlighted ? "text-primary-base" : "text-muted-base",
           )}
         >
           {hasLanding ? (
@@ -139,7 +147,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             isExpanded={isExpanded}
             className={cn(
               "shrink-0 group-hover:text-muted-high-contrast",
-              isSubTitleActive && "text-muted-high-contrast",
+              isParentHighlighted && "text-primary-base",
             )}
           />
         </button>

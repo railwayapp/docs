@@ -13,6 +13,13 @@ const makePage = (title: string, category?: string, slug?: string): IPage => ({
   })(),
 });
 
+const makeCliCommand = (commandName: string): IPage => ({
+  title: commandName,
+  commandName,
+  category: "cli",
+  slug: "/cli/" + commandName,
+});
+
 export const sidebarContent: ISidebarContent = [
   {
     title: "Overview",
@@ -25,8 +32,8 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Platform",
+    slug: "/platform",
     content: [
-      makePage("About Railway", "platform"),
       makePage("Philosophy", "platform"),
       makePage("Use Cases", "platform"),
       makePage("Support", "platform"),
@@ -48,6 +55,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Pricing",
+    slug: "/pricing",
     content: [
       makePage("Plans", "pricing"),
       makePage("Free Trial", "pricing"),
@@ -75,7 +83,45 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "CLI",
     slug: "/cli",
-    content: [makePage("Deploying", "cli")],
+    content: [
+      makePage("Global Options", "cli"),
+      makePage("Deploying", "cli"),
+      makeCliCommand("add"),
+      makeCliCommand("completion"),
+      makeCliCommand("connect"),
+      makeCliCommand("delete"),
+      makeCliCommand("deploy"),
+      makeCliCommand("deployment"),
+      makeCliCommand("dev"),
+      makeCliCommand("docs"),
+      makeCliCommand("domain"),
+      makeCliCommand("down"),
+      makeCliCommand("environment"),
+      makeCliCommand("functions"),
+      makeCliCommand("init"),
+      makeCliCommand("link"),
+      makeCliCommand("list"),
+      makeCliCommand("login"),
+      makeCliCommand("logout"),
+      makeCliCommand("logs"),
+      makeCliCommand("open"),
+      makeCliCommand("project"),
+      makeCliCommand("redeploy"),
+      makeCliCommand("restart"),
+      makeCliCommand("run"),
+      makeCliCommand("scale"),
+      makeCliCommand("service"),
+      makeCliCommand("shell"),
+      makeCliCommand("ssh"),
+      makeCliCommand("starship"),
+      makeCliCommand("status"),
+      makeCliCommand("unlink"),
+      makeCliCommand("up"),
+      makeCliCommand("upgrade"),
+      makeCliCommand("variable"),
+      makeCliCommand("volume"),
+      makeCliCommand("whoami"),
+    ],
   },
   {
     title: "Templates",

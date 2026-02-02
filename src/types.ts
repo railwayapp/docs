@@ -14,6 +14,7 @@ export interface IPage {
   description?: string;
   category?: string;
   icon?: IconName;
+  commandName?: string;
 }
 
 export interface IExternalLink {
