@@ -31,7 +31,7 @@ The service settings panel will reveal an interface for assigning replicas to di
     height={934}
 />
 
-Creating, deleting, and re-assigning replicas will trigger a staged change which upon applying will trigger a redeploy.
+Creating, deleting, and re-assigning replicas will trigger a staged change. When applied, Railway scales your service without triggering a full redeploy — new replicas start using the existing deployment image, and removed replicas are drained gracefully.
 
 #### Load Balancing Between Replicas
 
