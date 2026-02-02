@@ -57,12 +57,6 @@ export const TopNav: React.FC<TopNavProps> = ({ hideSidebar }) => {
           </Link>
         ))}
         <Link
-          href="https://railway.com/book-demo"
-          className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm font-medium border border-muted bg-muted-app text-muted-high-contrast hover:bg-muted-element hover:border-muted-hover transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
-        >
-          Ask AI
-        </Link>
-        <Link
           href="https://railway.com"
           className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm font-medium text-white bg-primary-solid hover:bg-primary-solid-hover active:bg-primary-solid-active transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
         >
