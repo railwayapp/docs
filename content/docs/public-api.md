@@ -54,7 +54,7 @@ Project tokens are scoped to a specific environment within a project and can onl
 
 #### OAuth Access Token
 
-If you're building an application that acts on behalf of users, you can use [Login with Railway](/reference/oauth/login-with-railway) to obtain an access token through the OAuth flow. The token's permissions depend on the scopes the user approved.
+If you're building an application that acts on behalf of users, you can use [Login with Railway](/oauth) to obtain an access token through the OAuth flow. The token's permissions depend on the scopes the user approved.
 
 ### Execute a Test Query
 
