@@ -61,16 +61,18 @@ function AutolinkedHeading({
       >
         {displayContent}
       </a>
-      <span
-        className="ml-2 inline-flex size-5 items-center justify-center align-middle text-muted-base opacity-0 transition-opacity group-hover/heading:opacity-100"
-        aria-hidden="true"
+      <button
+        type="button"
+        onClick={handleCopyLink}
+        className="ml-2 inline-flex size-5 cursor-pointer items-center justify-center align-middle text-muted-base opacity-0 transition-opacity hover:text-primary-base group-hover/heading:opacity-100"
+        aria-label="Copy link to this section"
       >
         {copied ? (
           <Icon name="Check" className="size-4 text-success-base" />
         ) : (
           <Icon name="Link" className="size-4" />
         )}
-      </span>
+      </button>
     </Tag>
   );
 }

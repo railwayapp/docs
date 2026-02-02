@@ -26,9 +26,9 @@ export interface TOCItemType {
 // ============================================================================
 
 const CORNER_RADIUS = 4;
-const ITEM_OFFSET_BASE = 12;
-const ITEM_OFFSET_L3 = 24;
-const ITEM_OFFSET_L4 = 36;
+const ITEM_OFFSET_BASE = 16;
+const ITEM_OFFSET_L3 = 28;
+const ITEM_OFFSET_L4 = 40;
 const ANIMATION_DURATION = 150;
 
 const ANIMATION_CONFIG = {

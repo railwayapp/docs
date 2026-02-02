@@ -9,6 +9,8 @@ type TooltipProps = {
   align?: "start" | "center" | "end";
   delayMs?: number;
   className?: string;
+  /** If true, removes default styling for custom content like cards */
+  unstyled?: boolean;
 };
 
 export function Tooltip({
@@ -18,6 +20,7 @@ export function Tooltip({
   align = "center",
   delayMs = 200,
   className,
+  unstyled = false,
 }: TooltipProps) {
   return (
     <TooltipPrimitive.Provider delay={delayMs}>
@@ -34,14 +37,16 @@ export function Tooltip({
           >
             <TooltipPrimitive.Popup
               className={cn(
-                "rounded-md px-2.5 py-1.5",
-                "bg-foreground text-background",
-                "text-xs font-medium",
-                "shadow-md",
                 "origin-(--transform-origin)",
                 "transition-[transform,opacity] duration-150",
                 "data-starting-style:scale-95 data-starting-style:opacity-0",
                 "data-ending-style:scale-95 data-ending-style:opacity-0",
+                !unstyled && [
+                  "rounded-md px-2.5 py-1.5",
+                  "bg-foreground text-background",
+                  "text-xs font-medium",
+                  "shadow-md",
+                ],
                 className,
               )}
             >
