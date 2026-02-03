@@ -90,5 +90,5 @@ Allow developers to deploy code without having access to view or modify producti
 ## Related
 
 - [Environments](/environments) - Learn about environment management
-- [Project Members](/projects/members) - Manage team access and roles
+- [Project Members](/projects/project-members) - Manage team access and roles
 - [Enterprise Features](https://railway.com/enterprise) - Explore other enterprise capabilities

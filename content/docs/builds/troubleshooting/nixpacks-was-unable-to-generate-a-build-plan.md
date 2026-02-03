@@ -66,7 +66,7 @@ For a comprehensive guide on how to deploy a monorepo, please refer to our [Depl
 
 While you may be using a language or framework that is supported by Nixpacks, the project layout or directory structure of your application may not be natively supported.
 
-For example, if you are using Python but Python was not automatically detected, you can write your own [build plan](/docs/guides/configuring-builds).
+For example, if you are using Python but Python was not automatically detected, you can write your own [build plan](/builds/build-configuration).
 
 In a `nixpacks.toml` file -
 
@@ -81,7 +81,7 @@ Of course, this is just an example, but you can see how you can write your own b
 
 Supported Languages (Providers) can be found [here](https://nixpacks.com/docs) under the `Language Support` section.
 
-If writing your own build plan is not an option, you can try to deploy your application using a [Dockerfile](/docs/guides/configuring-builds#using-a-dockerfile).
+If writing your own build plan is not an option, you can try to deploy your application using a [Dockerfile](/builds/dockerfiles).
 
 ### Language or Framework Not Supported
 

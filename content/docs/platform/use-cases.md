@@ -70,7 +70,7 @@ Private networking bandwidth is un-metered.
 
 ### Service Level Objectives
 
-Railway does meet SLOs for companies who have greater need for incident, support, and business planning responsiveness. We provide this via Business Class, offered as an add-on to Pro plans and included in all Enterprise plans. [More info.](/support/business-class)
+Railway does meet SLOs for companies who have greater need for incident, support, and business planning responsiveness. We provide this via Business Class, offered as an add-on to Pro plans and included in all Enterprise plans. [More info.](/platform/support#business-class)
 
 ### Will Railway exist in 10 years?
 

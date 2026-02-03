@@ -88,7 +88,7 @@ For monorepos and multi-service projects, Focused PR Environments only deploy se
 
 When a PR is opened, Railway determines which services to deploy:
 
-1. Services connected to the PR repo that are affected by changed files (based on [watch paths](/builds/monorepo#watch-paths) or [root directory](/builds/monorepo#deploying-an-isolated-monorepo))
+1. Services connected to the PR repo that are affected by changed files (based on [watch paths](/deployments/monorepo#watch-paths) or [root directory](/deployments/monorepo#deploying-an-isolated-monorepo))
 2. Dependencies of affected services (via variable references like `${{service.URL}}`)
 
 All other services are skipped and indicated on the canvas. The GitHub PR comment shows which services were skipped.

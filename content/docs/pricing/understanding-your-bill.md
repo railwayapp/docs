@@ -130,7 +130,7 @@ Network egress (outbound data transfer) is charged at $0.05/GB. Common causes of
 
 ### PR Deploys / Ephemeral Environments
 
-When you have [PR deploys](/develop/environments#ephemeral-environments) enabled, Railway creates a copy of your environment for each pull request. These environments run real services that consume real resources.
+When you have [PR deploys](/environments#ephemeral-environments) enabled, Railway creates a copy of your environment for each pull request. These environments run real services that consume real resources.
 
 If you have 5 open PRs, you may be running 5x your normal workload.
 

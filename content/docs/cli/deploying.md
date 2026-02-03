@@ -83,7 +83,7 @@ railway up --project <project-id> --environment production
 
 ### Using Project Tokens
 
-For automated deployments, use a [Project Token](/public-api#project-token) instead of interactive login. Project tokens are scoped to a specific environment and can only perform deployment-related actions.
+For automated deployments, use a [Project Token](/integrations/api#project-token) instead of interactive login. Project tokens are scoped to a specific environment and can only perform deployment-related actions.
 
 ```bash
 RAILWAY_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX railway up
@@ -192,7 +192,7 @@ By default, Railway uses your project root as the archive base. Use `--path-as-r
 railway up ./backend --path-as-root
 ```
 
-When running `railway up` from a subdirectory without a path argument, Railway still deploys from the project root. To deploy only a specific directory permanently, configure a [root directory](/builds/monorepo#root-directory) in your service settings.
+When running `railway up` from a subdirectory without a path argument, Railway still deploys from the project root. To deploy only a specific directory permanently, configure a [root directory](/deployments/monorepo#root-directory) in your service settings.
 
 ## Ignoring Files
 

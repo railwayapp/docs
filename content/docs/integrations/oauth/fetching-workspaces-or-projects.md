@@ -22,7 +22,7 @@ query {
 }
 ```
 
-This query returns the ID and name of each workspace. You can extend it to request additional fields depending on what your application needs. Consult the [GraphQL schema](/public-api#schema) for available fields.
+This query returns the ID and name of each workspace. You can extend it to request additional fields depending on what your application needs. Consult the [GraphQL schema](/integrations/api/graphql-overview) for available fields.
 
 **Example Request:**
 

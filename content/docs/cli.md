@@ -75,7 +75,7 @@ For CI/CD pipelines, set environment variables instead of interactive login:
 RAILWAY_TOKEN=xxx railway up
 ```
 
-See [Tokens](/public-api#project-token) for more information.
+See [Tokens](/integrations/api#project-token) for more information.
 
 ## Available Commands
 
