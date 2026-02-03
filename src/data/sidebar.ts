@@ -137,6 +137,11 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
+    title: "Languages & Frameworks",
+    slug: "/languages-frameworks",
+    content: [],
+  },
+  {
     title: "Access",
     content: [
       makePage("Accounts", "access"),
