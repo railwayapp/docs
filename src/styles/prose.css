@@ -273,6 +273,11 @@
   @apply rounded-lg;
 }
 
+/* Hide external link icon when link only contains an image (e.g., Deploy on Railway button) */
+.prose a[data-slot='link']:has(> span > img) svg {
+  display: none;
+}
+
 /* Video */
 .prose video {
   @apply rounded-lg;
