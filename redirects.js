@@ -511,22 +511,22 @@ const redirects = [
   },
   {
     source: "/guides/manage-projects",
-    destination: "/public-api/manage-projects",
+    destination: "/integrations/api/manage-projects",
     permanent: true,
   },
   {
     source: "/guides/manage-services",
-    destination: "/public-api/manage-services",
+    destination: "/integrations/api/manage-services",
     permanent: true,
   },
   {
     source: "/guides/manage-deployments",
-    destination: "/public-api/manage-deployments",
+    destination: "/integrations/api/manage-deployments",
     permanent: true,
   },
   {
     source: "/guides/manage-variables",
-    destination: "/public-api/manage-variables",
+    destination: "/integrations/api/manage-variables",
     permanent: true,
   },
   {
@@ -766,12 +766,12 @@ const redirects = [
   },
   {
     source: "/guides/public-api",
-    destination: "/public-api",
+    destination: "/integrations/api",
     permanent: true,
   },
   {
     source: "/reference/public-api",
-    destination: "/public-api",
+    destination: "/integrations/api",
     permanent: true,
   },
   {
@@ -882,12 +882,29 @@ const redirects = [
   },
   {
     source: "/reference/integrations",
-    destination: "/public-api",
+    destination: "/integrations/api",
     permanent: true,
   },
   {
     source: "/guides/troubleshooting-slow-apps",
     destination: "/deployments/troubleshooting/slow-deployments",
+    permanent: true,
+  },
+  // OAuth redirects (from old live URLs)
+  {
+    source: "/reference/oauth/:slug*",
+    destination: "/integrations/oauth/:slug*",
+    permanent: true,
+  },
+  // Guides redirects
+  {
+    source: "/guides/graphql-overview",
+    destination: "/integrations/api/graphql-overview",
+    permanent: true,
+  },
+  {
+    source: "/guides/api-cookbook",
+    destination: "/integrations/api/api-cookbook",
     permanent: true,
   },
 ];

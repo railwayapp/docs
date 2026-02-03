@@ -336,13 +336,45 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Public API",
-    slug: "/public-api",
+    title: "Integrations",
+    slug: "/integrations",
     content: [
-      makePage("Manage Projects", "public-api"),
-      makePage("Manage Services", "public-api"),
-      makePage("Manage Deployments", "public-api"),
-      makePage("Manage Variables", "public-api"),
+      {
+        subTitle: makePage("OAuth", undefined, "/integrations/oauth"),
+        pages: [
+          makePage("Quickstart", "integrations/oauth"),
+          makePage("Creating an App", "integrations/oauth"),
+          makePage(
+            "Login & Tokens",
+            "integrations/oauth",
+            "/integrations/oauth/login-and-tokens",
+          ),
+          makePage(
+            "Scopes & User Consent",
+            "integrations/oauth",
+            "/integrations/oauth/scopes-and-user-consent",
+          ),
+          makePage("Fetching Workspaces or Projects", "integrations/oauth"),
+          makePage("Managing an App", "integrations/oauth"),
+          makePage("Authorized Apps", "integrations/oauth"),
+          makePage("Troubleshooting", "integrations/oauth"),
+        ],
+      },
+      {
+        subTitle: makePage("API", undefined, "/integrations/api"),
+        pages: [
+          makePage(
+            "Introduction to GraphQL",
+            "integrations/api",
+            "/integrations/api/graphql-overview",
+          ),
+          makePage("API Cookbook", "integrations/api"),
+          makePage("Manage Projects", "integrations/api"),
+          makePage("Manage Services", "integrations/api"),
+          makePage("Manage Deployments", "integrations/api"),
+          makePage("Manage Variables", "integrations/api"),
+        ],
+      },
     ],
   },
 ];

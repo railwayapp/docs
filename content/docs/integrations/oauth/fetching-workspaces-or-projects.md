@@ -3,7 +3,7 @@ title: Fetching Workspaces or Projects
 description: Query workspaces and projects the user has granted access to.
 ---
 
-When users authorize your application with workspace or project scopes, they select exactly which resources to share. Your application can then query these resources through the [Public GraphQL API](/public-api).
+When users authorize your application with workspace or project scopes, they select exactly which resources to share. Your application can then query these resources through the [Public GraphQL API](/integrations/api).
 
 ## Fetching Workspaces
 

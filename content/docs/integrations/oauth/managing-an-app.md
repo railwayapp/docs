@@ -38,7 +38,7 @@ To delete an app, scroll to the bottom of the app settings page and click **Dele
 
 ## Dynamic Client Registration Management
 
-OAuth apps created through [Dynamic Client Registration](/oauth/creating-an-app#dynamic-client-registration) work differently. They don't appear in the workspace settings UI and must be managed entirely through the API.
+OAuth apps created through [Dynamic Client Registration](/integrations/oauth/creating-an-app#dynamic-client-registration) work differently. They don't appear in the workspace settings UI and must be managed entirely through the API.
 
 When you register a client dynamically, the response includes a registration access token. This token authorizes management operations on that specific client. Store it securely. Without it, you cannot update or delete the client.
 

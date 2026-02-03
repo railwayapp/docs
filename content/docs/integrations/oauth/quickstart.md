@@ -34,7 +34,7 @@ https://backboard.railway.com/oauth/auth
 - `scope`: Space-separated permissions; `openid` is required
 - `state`: Random string for CSRF protection; verify it matches when redirected back
 
-For additional security, add PKCE parameters. While optional for web apps, PKCE is mandatory for native apps. See [Creating an App](/oauth/creating-an-app) for details.
+For additional security, add PKCE parameters. While optional for web apps, PKCE is mandatory for native apps. See [Creating an App](/integrations/oauth/creating-an-app) for details.
 
 ## 3. Exchange Code for Tokens
 
@@ -85,7 +85,7 @@ curl https://backboard.railway.com/oauth/me \
 
 ## 5. Make API Requests
 
-Use the access token with the [Public API](/public-api):
+Use the access token with the [Public API](/integrations/api):
 
 ```bash
 curl https://backboard.railway.com/graphql/v2 \
@@ -107,6 +107,6 @@ curl https://backboard.railway.com/graphql/v2 \
 
 ## Next Steps
 
-- [Login & Tokens](/oauth/login-and-tokens): Token lifecycle and refresh tokens for long-lived access
-- [Scopes & User Consent](/oauth/scopes-and-user-consent): Available scopes and permissions
-- [Fetching Workspaces or Projects](/oauth/fetching-workspaces-or-projects): Query resources users granted access to
+- [Login & Tokens](/integrations/oauth/login-and-tokens): Token lifecycle and refresh tokens for long-lived access
+- [Scopes & User Consent](/integrations/oauth/scopes-and-user-consent): Available scopes and permissions
+- [Fetching Workspaces or Projects](/integrations/oauth/fetching-workspaces-or-projects): Query resources users granted access to

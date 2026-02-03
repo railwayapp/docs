@@ -44,6 +44,6 @@ export const iconNames = [
   "Vscode",
   "XIcon",
   "Youtube",
-] as const;
+] as const
 
-export type IconName = (typeof iconNames)[number];
+export type IconName = typeof iconNames[number]

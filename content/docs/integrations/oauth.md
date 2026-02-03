@@ -32,14 +32,14 @@ This discovery document contains all the metadata your application needs to impl
 
 ## Getting Started
 
-To implement Login with Railway, start by [creating an OAuth app](/oauth/creating-an-app) in your workspace's Developer settings. This gives you the client credentials needed to initiate the OAuth flow.
+To implement Login with Railway, start by [creating an OAuth app](/integrations/oauth/creating-an-app) in your workspace's Developer settings. This gives you the client credentials needed to initiate the OAuth flow.
 
-The [Quickstart guide](/oauth/quickstart) walks through a complete implementation, from redirecting users to the authorization endpoint through exchanging codes for tokens and making API requests.
+The [Quickstart guide](/integrations/oauth/quickstart) walks through a complete implementation, from redirecting users to the authorization endpoint through exchanging codes for tokens and making API requests.
 
-Before building, review [Scopes & User Consent](/oauth/scopes-and-user-consent) to understand what permissions are available and how the consent flow works. Requesting only the scopes you actually need improves user trust and simplifies the consent experience.
+Before building, review [Scopes & User Consent](/integrations/oauth/scopes-and-user-consent) to understand what permissions are available and how the consent flow works. Requesting only the scopes you actually need improves user trust and simplifies the consent experience.
 
 ## API Access
 
-Once a user has authenticated, your application receives an access token that works with Railway's [GraphQL API](/public-api). The token carries the permissions the user granted, so API requests succeed or fail based on what the user approved and their role within the workspaces or projects they selected.
+Once a user has authenticated, your application receives an access token that works with Railway's [GraphQL API](/integrations/api). The token carries the permissions the user granted, so API requests succeed or fail based on what the user approved and their role within the workspaces or projects they selected.
 
 Access tokens expire after one hour. For longer-lived access, request the `offline_access` scope to receive a refresh token that can obtain new access tokens without requiring the user to re-authenticate.

@@ -61,7 +61,7 @@ Response:
 
 ## Access Tokens
 
-Access tokens authenticate your application's requests to Railway's API. When you call the [Public API](/public-api), include the access token in the Authorization header:
+Access tokens authenticate your application's requests to Railway's API. When you call the [Public API](/integrations/api), include the access token in the Authorization header:
 
 ```bash
 curl -X POST https://backboard.railway.com/graphql/v2 \

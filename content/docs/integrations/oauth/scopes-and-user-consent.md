@@ -19,7 +19,7 @@ Scopes define what permissions your application requests from users. Each scope 
 | `project:viewer` | Viewer access to user-selected projects |
 | `project:member` | Member access to user-selected projects |
 
-The `offline_access` scope grants [refresh tokens](/oauth/login-and-tokens#refresh-tokens), but only when combined with `prompt=consent` in the authorization request. Refresh tokens allow your application to obtain new access tokens after the original expires, enabling long-running access without requiring users to re-authenticate.
+The `offline_access` scope grants [refresh tokens](/integrations/oauth/login-and-tokens#refresh-tokens), but only when combined with `prompt=consent` in the authorization request. Refresh tokens allow your application to obtain new access tokens after the original expires, enabling long-running access without requiring users to re-authenticate.
 
 Workspace and project scopes grant access to Railway resources. These are selective: the user chooses which specific workspaces or projects to share during consent. Your application only receives access to the resources they select, not their entire account.
 

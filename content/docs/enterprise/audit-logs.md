@@ -61,7 +61,7 @@ Historic events from before audit logs were released may not contain information
 
 ## Listing all Audit Logs Event Types
 
-The complete documentation of all audit log event types and their descriptions can be retrieved using the [Railway GraphQL API](/public-api).
+The complete documentation of all audit log event types and their descriptions can be retrieved using the [Railway GraphQL API](/integrations/api).
 
 You can explore this information using the <a href="https://railway.com/graphiql" target="_blank">GraphiQL playground</a>:
 
@@ -78,7 +78,7 @@ This query returns all available event types in audit logs, along with a descrip
 
 ## Exporting Audit Logs via the API
 
-You can export audit logs programmatically using the [Railway GraphQL API](/public-api).
+You can export audit logs programmatically using the [Railway GraphQL API](/integrations/api).
 
 Use the `auditLogs` query to retrieve audit log entries for a specific workspace. You can test this query in the <a href="https://railway.com/graphiql" target="_blank">GraphiQL playground</a>:
 
@@ -106,7 +106,7 @@ Use the `auditLogs` query to retrieve audit log entries for a specific workspace
 }
 ```
 
-For more information on using the GraphQL API, see the [Public API Guide](/public-api).
+For more information on using the GraphQL API, see the [Public API Guide](/integrations/api).
 
 ## Audit Log Retention
 

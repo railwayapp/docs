@@ -54,7 +54,7 @@ Project tokens are scoped to a specific environment within a project and can onl
 
 #### OAuth Access Token
 
-If you're building an application that acts on behalf of users, you can use [Login with Railway](/oauth) to obtain an access token through the OAuth flow. The token's permissions depend on the scopes the user approved.
+If you're building an application that acts on behalf of users, you can use [Login with Railway](/integrations/oauth) to obtain an access token through the OAuth flow. The token's permissions depend on the scopes the user approved.
 
 ### Execute a Test Query
 
@@ -159,14 +159,14 @@ If you're unsure about what query/mutation to use for what you are trying to ach
 
 To help you get started, we have provided example queries and mutations organized by resource type:
 
-- [API Cookbook](/public-api/api-cookbook) - Quick reference for common operations
-- [Manage Projects](/public-api/manage-projects) - Create, update, delete projects
-- [Manage Services](/public-api/manage-services) - Create services, configure settings
-- [Manage Deployments](/public-api/manage-deployments) - Deploy, rollback, view logs
-- [Manage Variables](/public-api/manage-variables) - Set and manage environment variables
-- [Manage Environments](/public-api/manage-environments) - Create and configure environments
-- [Manage Domains](/public-api/manage-domains) - Add custom domains, configure DNS
-- [Manage Volumes](/public-api/manage-volumes) - Create volumes, manage backups
+- [API Cookbook](/integrations/api/api-cookbook) - Quick reference for common operations
+- [Manage Projects](/integrations/api/manage-projects) - Create, update, delete projects
+- [Manage Services](/integrations/api/manage-services) - Create services, configure settings
+- [Manage Deployments](/integrations/api/manage-deployments) - Deploy, rollback, view logs
+- [Manage Variables](/integrations/api/manage-variables) - Set and manage environment variables
+- [Manage Environments](/integrations/api/manage-environments) - Create and configure environments
+- [Manage Domains](/integrations/api/manage-domains) - Add custom domains, configure DNS
+- [Manage Volumes](/integrations/api/manage-volumes) - Create volumes, manage backups
 
 ## Support
 

@@ -317,5 +317,5 @@ query project($id: String!) {
 
 ## Next steps
 
-- **[API Cookbook](/guides/api-cookbook):** Copy-paste examples for common operations
-- **[Public API Reference](/public-api):** Authentication, rate limits, and more
+- **[API Cookbook](/integrations/api/api-cookbook):** Copy-paste examples for common operations
+- **[Public API Reference](/integrations/api):** Authentication, rate limits, and more
