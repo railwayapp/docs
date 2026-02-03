@@ -17,7 +17,7 @@ railway connect [SERVICE_NAME] [OPTIONS]
 |------|-------------|
 | `-e, --environment <ENV>` | Environment to pull variables from (defaults to linked environment) |
 
-## Supported Databases
+## Supported databases
 
 | Database | Client Required |
 |----------|-----------------|
@@ -28,7 +28,7 @@ railway connect [SERVICE_NAME] [OPTIONS]
 
 ## Examples
 
-### Connect to Database (Interactive)
+### Connect to database (interactive)
 
 ```bash
 railway connect
@@ -36,13 +36,13 @@ railway connect
 
 Prompts you to select a database service if multiple exist.
 
-### Connect to Specific Database
+### Connect to specific database
 
 ```bash
 railway connect postgres
 ```
 
-### Connect to Database in Specific Environment
+### Connect to database in specific environment
 
 ```bash
 railway connect postgres --environment staging
@@ -53,7 +53,7 @@ railway connect postgres --environment staging
 - The database must have a [TCP Proxy](/networking/tcp-proxy) enabled (public URL)
 - The appropriate database client must be installed on your machine
 
-## How It Works
+## How it works
 
 1. Detects the database type from the service's image
 2. Fetches connection variables (`DATABASE_PUBLIC_URL`, `REDIS_PUBLIC_URL`, etc.)

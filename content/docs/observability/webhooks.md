@@ -10,7 +10,7 @@ alt="New Webhook"
 layout="responsive"
 width={821} height={485} quality={80} />
 
-## Setup a Webhook
+## Setup a webhook
 
 Complete the following steps to setup a webhook:
 
@@ -23,7 +23,7 @@ Complete the following steps to setup a webhook:
 
 The URL you provide will receive a webhook payload when any service's deployment status changes or an alert is triggered. This will be executed across all environments in the project.
 
-## Platform Events
+## Platform events
 
 Webhooks can be used to receive notifications for a variety of events on the platform:
 
@@ -31,11 +31,11 @@ Webhooks can be used to receive notifications for a variety of events on the pla
 - **Volume usage alerts** - Notifications when volumes approach capacity.
 - **CPU/RAM monitor alerts** - Notifications when resource usage exceeds thresholds.
 
-## Webhook Payload
+## Webhook payload
 
 When an event occurs, Railway sends a JSON payload to your configured webhook URL.
 
-### Example Payload
+### Example payload
 
 ```json
 {
@@ -61,13 +61,13 @@ When an event occurs, Railway sends a JSON payload to your configured webhook UR
 }
 ```
 
-## Testing Webhooks
+## Testing webhooks
 
 The `Test Webhook` button will send a test payload to the specified webhook URL.
 
 Note: For security reasons, test webhooks are sent from the frontend client, which may result in Cross-Origin Resource Sharing (CORS) restrictions. This typically presents as a delivery failure when using the test webhook functionality.
 
-## Muxers: Provider-specific Webhooks
+## Muxers: provider-specific webhooks
 
 For certain webhook URLs, Railway will automatically transform the payload to match the destination (we call these Muxers). This makes it easy to use webhooks without having to write your own middleware to format the request body.
 
@@ -76,7 +76,7 @@ Currently supported providers:
 - Discord
 - Slack
 
-### Setting Up a Webhook for Discord
+### Setting up a webhook for discord
 
 Discord supports integrating directly with webhooks. To enable this on a server you will need to be an admin or otherwise have the appropriate permissions.
 
@@ -95,7 +95,7 @@ At this point, the Discord Muxer will identify the URL and change the payload to
 
 You are now done! When your project deploys again, that Discord channel will get updates on the deployment!
 
-### Setting Up a Webhook for Slack
+### Setting up a webhook for slack
 
 Slack supports integrating directly with webhooks.
 

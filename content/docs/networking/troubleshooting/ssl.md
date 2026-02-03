@@ -5,7 +5,7 @@ description: Learn how to diagnose and fix common SSL certificate issues on Rail
 
 Railway automatically provisions free SSL certificates via Let's Encrypt for all domains. Most of the time this works seamlessly, but occasionally issues can arise. This guide helps you diagnose and resolve common SSL problems.
 
-## How Railway SSL Works
+## How Railway SSL works
 
 When you add a domain to your service, Railway automatically:
 
@@ -16,7 +16,7 @@ When you add a domain to your service, Railway automatically:
 
 Certificate issuance typically completes within an hour, though it can take up to 72 hours in some cases.
 
-## Quick Reference
+## Quick reference
 
 | Symptom | Section |
 |---------|---------|
@@ -27,7 +27,7 @@ Certificate issuance typically completes within an hour, though it can take up t
 | SSL works for some users but not others | [Connection Issues for Some Users](#connection-issues-for-some-users) |
 | Certificate shows `*.up.railway.app` | [Certificate Shows Wrong Domain](#certificate-shows-wrong-domain) |
 
-## Before You Troubleshoot
+## Before you troubleshoot
 
 Many SSL issues are actually browser cache issues. Before diving into troubleshooting, try these steps first:
 
@@ -46,11 +46,11 @@ If the issue persists after these steps, continue with the troubleshooting secti
 **Avoid repeatedly deleting and re-adding your domain.** Let's Encrypt enforces strict rate limits (5 duplicate certificates per domain per week). If you hit this limit, you will be blocked from issuing a certificate for that domain for 7 days, even after fixing the underlying issue.
 </Banner>
 
-## Certificate Stuck on "Validating Challenges"
+## Certificate stuck on "validating challenges"
 
 If your domain shows that the Certificate Authority is validating challenges for an extended period, the certificate issuance process is not completing successfully.
 
-### Why This Happens
+### Why this happens
 
 - DNS records have not propagated yet
 - DNS records are incorrect
@@ -60,7 +60,7 @@ If your domain shows that the Certificate Authority is validating challenges for
 
 ### Solutions
 
-#### Check DNS Propagation
+#### Check DNS propagation
 
 Verify your DNS records have propagated using a tool like [dnschecker.org](https://dnschecker.org). Enter your domain and check that the CNAME record points to your Railway-provided value (e.g., `abc123.up.railway.app`).
 
@@ -78,7 +78,7 @@ Most modern DNS providers (Cloudflare, Namecheap, Vercel DNS, etc.) support this
 
 </Collapse>
 
-#### Check for CAA Records
+#### Check for caa records
 
 CAA (Certificate Authority Authorization) records specify which certificate authorities are allowed to issue certificates for your domain. If you have CAA records that don't include Let's Encrypt, certificate issuance will fail.
 
@@ -96,7 +96,7 @@ yourdomain.com.  CAA  0 issue "letsencrypt.org"
 
 If you don't have any CAA records, this is not your issue. The absence of CAA records allows any CA to issue certificates.
 
-#### Check DNSSEC Configuration
+#### Check dnssec configuration
 
 DNSSEC can interfere with certificate validation if misconfigured. To check DNSSEC status:
 
@@ -105,7 +105,7 @@ DNSSEC can interfere with certificate validation if misconfigured. To check DNSS
 
 If DNSSEC is misconfigured, you'll need to either fix the configuration or disable DNSSEC through your domain registrar.
 
-#### Cloudflare-Specific Issues
+#### Cloudflare-specific issues
 
 If you're using Cloudflare, ensure:
 
@@ -117,11 +117,11 @@ If you're using Cloudflare, ensure:
 
 See the [Cloudflare SSL Errors](#cloudflare-ssl-errors) section for more details.
 
-## Cloudflare SSL Errors
+## Cloudflare SSL errors
 
 When using Cloudflare with Railway, specific SSL configurations are required. **Use Full mode.** It encrypts all traffic while tolerating the temporary certificate states that occur during Railway's automatic certificate management.
 
-### ERR_TOO_MANY_REDIRECTS
+### Err_too_many_redirects
 
 This typically happens when Cloudflare's SSL mode doesn't match Railway's configuration.
 
@@ -129,7 +129,7 @@ This typically happens when Cloudflare's SSL mode doesn't match Railway's config
 
 If you have SSL mode set to "Flexible", Cloudflare sends unencrypted requests to Railway, but Railway redirects HTTP to HTTPS, causing an infinite redirect loop.
 
-### Error 526: Invalid SSL Certificate
+### Error 526: invalid SSL certificate
 
 This error means Cloudflare cannot validate the SSL certificate on Railway's origin server.
 
@@ -153,7 +153,7 @@ Since your DNS points directly to Railway's infrastructure, there is no man-in-t
 
 </Collapse>
 
-### Error 525: SSL Handshake Failed
+### Error 525: SSL handshake failed
 
 This error indicates Cloudflare could not complete an SSL handshake with Railway.
 
@@ -166,7 +166,7 @@ This error indicates Cloudflare could not complete an SSL handshake with Railway
 2. Ensure your domain's DNS is correctly configured
 3. Try toggling proxy off and on in Cloudflare
 
-### Wildcard Domain Certificate Issues
+### Wildcard domain certificate issues
 
 For wildcard domains on Cloudflare:
 
@@ -174,18 +174,18 @@ For wildcard domains on Cloudflare:
 2. Enable [Universal SSL](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/enable-universal-ssl/) in Cloudflare
 3. For nested wildcards (e.g., `*.subdomain.example.com`), you need Cloudflare's Advanced Certificate Manager
 
-## Connection Issues for Some Users
+## Connection issues for some users
 
 If SSL works for most users but not others, the issue is likely on the user's end.
 
-### Why This Happens
+### Why this happens
 
 - Outdated browsers or operating systems that don't support modern TLS
 - Corporate firewalls or proxies interfering with connections
 - ISP-level filtering or outdated DNS resolvers
 - Antivirus software intercepting HTTPS connections
 
-### How to Diagnose
+### How to diagnose
 
 Ask affected users to:
 
@@ -196,7 +196,7 @@ Ask affected users to:
 
 If the issue only affects users on a specific ISP or network, it's likely a network-level issue outside Railway's control.
 
-### Testing from Your Side
+### Testing from your side
 
 You can test SSL connectivity using command-line tools:
 
@@ -208,7 +208,7 @@ openssl s_client -connect yourdomain.com:443 -servername yourdomain.com
 echo | openssl s_client -connect yourdomain.com:443 -servername yourdomain.com 2>/dev/null | openssl x509 -noout -dates
 ```
 
-## Certificate Shows Wrong Domain
+## Certificate shows wrong domain
 
 If your browser shows a certificate for `*.up.railway.app` instead of your custom domain, the certificate for your domain hasn't been issued yet.
 
@@ -219,13 +219,13 @@ If your browser shows a certificate for `*.up.railway.app` instead of your custo
 3. **Wait for issuance:** if you just added the domain, wait up to an hour
 4. **Check for conflicting records:** ensure you don't have both A and CNAME records for the same hostname
 
-## Using the Network Diagnostics Tool
+## Using the network diagnostics tool
 
 If you're still having issues, Railway provides a [Network Diagnostics tool](/reference/network-diagnostics) that can help identify connectivity problems between your location and Railway's infrastructure.
 
 Download and run the tool, then share the results with Railway support if needed.
 
-## When to Contact Support
+## When to contact support
 
 Contact Railway support if:
 

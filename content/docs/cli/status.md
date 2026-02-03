@@ -19,7 +19,7 @@ railway status [OPTIONS]
 
 ## Examples
 
-### Show Current Status
+### Show current status
 
 ```bash
 railway status
@@ -32,7 +32,7 @@ Environment: production
 Service: backend
 ```
 
-### JSON Output
+### JSON output
 
 ```bash
 railway status --json

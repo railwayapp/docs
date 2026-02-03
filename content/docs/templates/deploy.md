@@ -8,7 +8,7 @@ connected to infrastructure.
 
 You can find featured templates on our <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
 
-## Template Deployment Flow
+## Template deployment flow
 
 To deploy a template -
 
@@ -21,7 +21,7 @@ To deploy a template -
 
 _Note: You can also deploy templates into existing projects, by clicking `+ New` from your project canvas and selecting `Template`._
 
-## Getting Help with a Template
+## Getting help with a template
 
 If you need help with a template you have deployed, you can ask the template creator directly:
 
@@ -33,7 +33,7 @@ Template creators are notified when questions are posted and are incentivized to
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1764639364/Ask_the_Template_Creator_wwzlca.png" alt = "Ask the Template Creator" width={1538} height={1618} quality={100} />
 
-## Eject from Template Repository
+## Eject from template repository
 
 <Banner variant="info">
 As of March 2024, the default behavior for deploying templates, is to attach to and deploy directly from the template repository.  Therefore, you will not automatically get a copy of the repository on deploy.  Follow the steps below to create a repository for yourself.
@@ -48,7 +48,7 @@ Follow these steps to eject from the template repository and create a mirror in 
 3. Select the appropriate GitHub organization to create the new repository
 4. Click `Eject service`
 
-## Updatable Templates
+## Updatable templates
 
 When you deploy any services from a template based on a GitHub repo, every time you visit the project in Railway, we will check to see if the project it is based on has been updated by its creator.
 

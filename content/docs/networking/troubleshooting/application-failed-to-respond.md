@@ -9,11 +9,11 @@ layout="intrinsic"
 width={1080} height={950}
 quality={100} />
 
-## What This Error Means
+## What this error means
 
 Seeing that your application failed to respond means that Railway's Edge Proxy cannot communicate with your application, causing your request to fail with a 502 (Bad Gateway) status code.
 
-## Why This Error Can Occur
+## Why this error can occur
 
 There are a few reasons why this error can occur, the most common being that your application is not listening on the correct host or port.
 
@@ -21,7 +21,7 @@ Another common reason is that your [target port](/guides/public-networking#targe
 
 In some far less common cases this error can also occur if your application is under heavy load and is not able to respond to the incoming request.
 
-## Possible Solutions
+## Possible solutions
 
 The correct solution depends on the cause of the error.
 
@@ -41,7 +41,7 @@ quality={100}
 
 In the screenshot above, the domain was previously incorrectly configured with port 3000, when the application was actually listening on port 8080.
 
-### Application Not Listening on the Correct Host or Port
+### Application not listening on the correct host or port
 
 Your web server should bind to the host `0.0.0.0` and listen on the port specified by the `PORT` environment variable, which Railway automatically injects into your application.
 
@@ -77,7 +77,7 @@ async function bootstrap() {
 }
 ```
 
-#### Node / Next
+#### Node / next
 
 Next needs an additional flag to listen on `PORT`:
 
@@ -85,7 +85,7 @@ Next needs an additional flag to listen on `PORT`:
 next start --port ${PORT-3000}
 ```
 
-#### Python / Gunicorn
+#### Python / gunicorn
 
 `gunicorn` listens on `0.0.0.0` and the `PORT` environment variable by default:
 
@@ -93,7 +93,7 @@ next start --port ${PORT-3000}
 gunicorn main:app
 ```
 
-#### Python / Uvicorn
+#### Python / uvicorn
 
 `uvicorn` needs additional configuration flags to listen on `0.0.0.0` and `PORT`:
 
@@ -116,7 +116,7 @@ func main() {
 }
 ```
 
-### Application Under Heavy Load
+### Application under heavy load
 
 If you think your application could be under heavy load, you can confirm this by checking the `Metrics` tab within your service panel.
 

@@ -20,7 +20,7 @@ railway scale [OPTIONS] [--<REGION>=<INSTANCES>...]
 | `--json` | Output in JSON format |
 | `--<REGION>=<N>` | Set the number of instances for a specific region |
 
-## Dynamic Region Flags
+## Dynamic region flags
 
 The available region flags are fetched dynamically from Railway. Common regions include:
 
@@ -31,7 +31,7 @@ The available region flags are fetched dynamically from Railway. Common regions 
 
 ## Examples
 
-### Interactive Mode
+### Interactive mode
 
 ```bash
 railway scale
@@ -39,13 +39,13 @@ railway scale
 
 Prompts you to select regions and instance counts.
 
-### Scale to Specific Regions
+### Scale to specific regions
 
 ```bash
 railway scale --us-west1=2 --us-east4=1
 ```
 
-### Scale Specific Service
+### Scale specific service
 
 ```bash
 railway scale --service backend --us-west1=3

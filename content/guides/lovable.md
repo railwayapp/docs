@@ -23,11 +23,11 @@ This guide covers how to deploy a Lovable-generated app to Railway:
 3. [Enable continuous deployment](#enable-continuous-deployment).
 4. [Iterate on your application](#iterate-on-your-application).
 
-## Generate App and Connect to GitHub
+## Generate app and connect to GitHub
 
 Lovable generates code within its platform. To deploy on Railway, the code must first be exported to GitHub.
 
-### Create a Project in Lovable
+### Create a project in Lovable
 
 If you already have a Lovable project connected to GitHub, skip to [Deploy from GitHub Repo](#deploy-from-github-repo).
 
@@ -63,7 +63,7 @@ Lovable creates a new repository containing your application code. All subsequen
 - Only the default branch (typically `main`) syncs with Lovable.
 - Each Lovable project connects to exactly one repository.
 
-## Deploy from GitHub Repo
+## Deploy from GitHub repo
 
 Once your Lovable project is connected to GitHub, deploy it to Railway by importing the repository.
 
@@ -85,7 +85,7 @@ Once your Lovable project is connected to GitHub, deploy it to Railway by import
 
 Your Lovable-generated application is now live on Railway.
 
-### Environment Variables
+### Environment variables
 
 Lovable-generated applications may require environment variables for API keys, database connections, or other configuration.
 
@@ -98,7 +98,7 @@ Lovable-generated applications may require environment variables for API keys, d
 
 See the [Variables guide](/variables) for detailed information on managing environment variables.
 
-## Iterate on Your Application
+## Iterate on your application
 
 The Lovable-Railway workflow enables prompt-driven development with automatic deployment.
 
@@ -131,7 +131,7 @@ By default, Lovable syncs only with the default branch (usually `main`). Railway
 Lovable offers experimental branch switching in **Settings → Account → Labs**. When enabled, you can develop features on separate branches before merging to the main branch, which then deploys to Railway.
 
 
-## Railway Templates Marketplace
+## Railway templates marketplace
 
 The Railway templates marketplace provides pre-configured services that can be deployed alongside your Lovable application. Templates include databases, caching systems, message queues, and other infrastructure components commonly needed by web applications.
 
@@ -171,7 +171,7 @@ Browse available templates at the <a href="https://railway.com/deploy" target="_
 - If deleted, [restore the repository on GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/restoring-a-deleted-repository).
 
 
-## Next Steps
+## Next steps
 
 Explore these resources to enhance your Lovable application on Railway:
 

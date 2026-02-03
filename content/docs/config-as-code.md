@@ -12,7 +12,7 @@ The settings in the dashboard will not be updated with the settings defined in
 code. Configuration defined in code will always override values from the
 dashboard.
 
-## Toml vs Json
+## TOML VS JSON
 
 The format you use for your config-as-code (toml or json) file is entirely dependent on preference, and the resulting behavior in Railway is the same no matter which you choose.
 
@@ -63,7 +63,7 @@ For example, these configuration definitions are equivalent:
 
 </div>
 
-## JSON Schema
+## JSON schema
 
 You can find an always up-to-date [JSON schema](https://json-schema.org/) at [railway.com/railway.schema.json](https://railway.com/railway.schema.json).
 
@@ -75,7 +75,7 @@ If you include it in your `railway.json` file, many editors (e.g. VSCode) will p
 }
 ```
 
-## Understanding Config Source
+## Understanding config source
 
 On a service's deployment details page, all the settings that a deployment went out with are shown.
 
@@ -87,7 +87,7 @@ alt="Screenshot of Deployment Details Pane"
 layout="responsive"
 width={1200} height={631} quality={100} />
 
-## Using a Custom Config as Code File
+## Using a custom config as Code file
 
 You can use a custom config file by setting it on the service settings page. You should provide the absolute path to the file in your repository,
 for example: `/backend/railway.toml`
@@ -98,6 +98,6 @@ alt="Screenshot of Rollback Menu"
 layout="responsive"
 width={1200} height={374} quality={100} />
 
-## Configurable Settings
+## Configurable settings
 
 Find a list of all of the configurable settings in the [config as code reference page](/reference/config-as-code#configurable-settings).

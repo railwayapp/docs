@@ -16,7 +16,7 @@ tags:
 
 > OpenTelemetry is an Observability framework and toolkit designed to create and manage telemetry data such as traces, metrics, and logs. Crucially, OpenTelemetry is vendor- and tool-agnostic, meaning that it can be used with a broad variety of Observability backends, including open source tools like Jaeger and Prometheus, as well as commercial offerings.
 
-## About this Tutorial
+## About this tutorial
 
 There is an overwhelming number of options for applying OpenTelemetry in your software stack. This tutorial uses the libraries and tools endorsed and/or maintained by the OpenTelemetry community.
 
@@ -46,7 +46,7 @@ We also have a live demo of the project you will build in this tutorial <a href=
 
 **Let's get started!**
 
-## 1. Deploy the Backend Services
+## 1. Deploy the backend services
 
 First, we will deploy the backend services:
 
@@ -58,7 +58,7 @@ _Jaeger and Zipkin offer similar functionality, and it is not necessary to run b
 
 Each of the following steps should be completed in the same Railway project.
 
-### Add Jaeger Service
+### Add Jaeger service
 
 - Add a New service by clicking `+ New`
 - Select Docker Image as the Source
@@ -74,7 +74,7 @@ Each of the following steps should be completed in the same Railway project.
 
 You should be able to access the Jaeger UI by clicking on the service domain.
 
-### Add Zipkin Service
+### Add zipkin service
 
 - Add a New service by clicking `+ New`
 - Select Docker Image as the Source
@@ -90,7 +90,7 @@ You should be able to access the Jaeger UI by clicking on the service domain.
 
 You should be able to access the Zipkin UI by clicking on the service domain.
 
-### Add Prometheus Service
+### Add Prometheus service
 
 - Add a New service by clicking `+ New`
 - Select Template as the Source
@@ -101,18 +101,18 @@ _The template deploys with the proper UI port already configured to enable acces
 
 You should be able to access the Prometheus UI by clicking on the service domain.
 
-## 2. Deploy the OpenTelemetry Collector
+## 2. Deploy the OpenTelemetry collector
 
 The OpenTelemetry Collector is a vendor-agnostic service that receives, processes, and exports telemetry data.
 
 It is not strictly necessary to run a collector when implementing OpenTelemetry, but it is recommended by the OpenTelemetry community. More information on the subject can be found <a href="https://opentelemetry.io/docs/collector/#when-to-use-a-collector" target="_blank">here</a>.
 
-### Fork the Open Telemetry Collector repository
+### Fork the open telemetry collector repository
 
 - Navigate to the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack" target="_blank">Open Telemetry Collector repository</a> in GitHub
 - Click `Fork` then `Create fork`
 
-### Add the Open Telemetry Service
+### Add the open telemetry service
 
 In the Railway project -
 
@@ -145,7 +145,7 @@ Be sure to familiarize yourself with the Otel Collector's <a href="https://githu
 
 ---
 
-## 3. Build and Instrument an Express App
+## 3. Build and instrument an Express app
 
 Now that the collector stack is up, let's build and instrument an application!
 
@@ -162,7 +162,7 @@ From your local machine -
   npm i express @opentelemetry/api @opentelemetry/auto-instrumentations-node @opentelemetry/exporter-metrics-otlp-proto @opentelemetry/exporter-trace-otlp-proto @opentelemetry/resources @opentelemetry/sdk-metrics @opentelemetry/sdk-node @opentelemetry/semantic-conventions
   ```
 
-### Build the App
+### Build the app
 
 - In the `otel-example-app` folder, create an `app.js` file and add the following code -
 
@@ -231,7 +231,7 @@ From your local machine -
 
   We encourage you to refer to the OpenTelemetry documentation to gain a richer understanding of this code. The code you see above can be found <a href="https://opentelemetry.io/docs/languages/js/instrumentation/" target="_blank">here</a>.
 
-### Build the Instrumentation SDK
+### Build the instrumentation sdk
 
 - In the `otel-example-app` folder, create an `instrumentation.js` file and add the following code -
 
@@ -279,9 +279,9 @@ From your local machine -
 
   We encourage you to refer to the OpenTelemetry documentation to gain a richer understanding of this code. The code you see above can be found <a href="https://opentelemetry.io/docs/languages/js/instrumentation/" target="_blank">here</a>.
 
-## 4. Deploy the Express App
+## 4. Deploy the Express app
 
-### Create an Empty Service and Configure the Environment
+### Create an empty service and configure the environment
 
 In the same Railway project -
 
@@ -321,7 +321,7 @@ On your local machine -
   railway up -d
   ```
 
-## 5. Test and Confirm
+## 5. Test and confirm
 
 Test that everything is working by generating some traffic to your Express App. There is a single route, `/rolldice`, that takes a `rolls` query string -
 
@@ -346,11 +346,11 @@ Generate some traffic to this route, updating the number of rolls to different n
     </div>
 </div>
 
-## Bonus - NextJS
+## Bonus - nextjs
 
 This tutorial was born out of an exploration into instrumenting some of our applications with <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/open-telemetry#custom-exporters" target="_blank">NextJS's Otel library</a>. This means that you can use this Otel collector stack to capture telemetry data from your NextJS app!
 
-### Send Telemetry Data from NextJS
+### Send telemetry data from nextjs
 
 Assuming you've followed the docs mentioned above to instrument your NextJS app, you can configure it to send requests to your collector in Railway by setting the required environment variable in the NextJS application.
 
@@ -368,7 +368,7 @@ OTEL_EXPORTER_OTLP_ENDPOINT=https://<PUBLIC DOMAIN OF THE COLLECTOR IN RAILWAY>
 
 - Note: If you use the public domain, you will need to update the PORT environment variable in your Otel Collector service to `PORT=4318`
 
-#### Debugging in NextJS
+#### Debugging in nextjs
 
 Another helpful environment variable, specific to Node, is the debug directive -
 
@@ -376,7 +376,7 @@ Another helpful environment variable, specific to Node, is the debug directive -
 OTEL_LOG_LEVEL=debug
 ```
 
-## Helpful Resources
+## Helpful resources
 
 The OpenTelemetry Documentation is complete and easy to follow. We encourage you to spend time getting familiar with the docs, but here are some sections that we found especially helpful -
 

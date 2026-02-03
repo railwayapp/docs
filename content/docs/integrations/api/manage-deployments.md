@@ -5,7 +5,7 @@ description: Learn how to manage deployments via the public GraphQL API.
 
 Here are examples to help you manage your deployments using the Public API.
 
-## List Deployments
+## List deployments
 
 Get all deployments for a service in an environment:
 
@@ -23,7 +23,7 @@ Get all deployments for a service in an environment:
   }
 }`} variables={{ input: { projectId: "project-id", serviceId: "service-id", environmentId: "environment-id" }, first: 10 }} />
 
-## Get a Single Deployment
+## Get a single deployment
 
 Fetch a deployment by ID:
 
@@ -40,7 +40,7 @@ Fetch a deployment by ID:
   }
 }`} variables={{ id: "deployment-id" }} />
 
-## Get Latest Active Deployment
+## Get latest active deployment
 
 Get the currently running deployment:
 
@@ -57,7 +57,7 @@ Get the currently running deployment:
   }
 }`} variables={{ input: { projectId: "project-id", serviceId: "service-id", environmentId: "environment-id", status: { successfulOnly: true } } }} />
 
-## Get Build Logs
+## Get build logs
 
 Fetch build logs for a deployment:
 
@@ -69,7 +69,7 @@ Fetch build logs for a deployment:
   }
 }`} variables={{ deploymentId: "deployment-id", limit: 500 }} />
 
-## Get Runtime Logs
+## Get runtime logs
 
 Fetch runtime logs for a deployment:
 
@@ -86,7 +86,7 @@ optionalFields={[
   { name: "endDate", type: "DateTime", description: "End of time range (ISO 8601)" },
 ]} />
 
-## Get HTTP Logs
+## Get HTTP logs
 
 Fetch HTTP request logs for a deployment:
 
@@ -102,7 +102,7 @@ Fetch HTTP request logs for a deployment:
   }
 }`} variables={{ deploymentId: "deployment-id", limit: 100 }} />
 
-## Trigger a Redeploy
+## Trigger a redeploy
 
 Redeploy an existing deployment:
 
@@ -113,7 +113,7 @@ Redeploy an existing deployment:
   }
 }`} variables={{ id: "deployment-id" }} />
 
-## Restart a Deployment
+## Restart a deployment
 
 Restart a running deployment without rebuilding:
 
@@ -121,7 +121,7 @@ Restart a running deployment without rebuilding:
   deploymentRestart(id: $id)
 }`} variables={{ id: "deployment-id" }} />
 
-## Rollback to a Deployment
+## Rollback to a deployment
 
 Rollback to a previous deployment:
 
@@ -134,7 +134,7 @@ Rollback to a previous deployment:
 
 <Banner variant="info">You can only rollback to deployments that have `canRollback: true`.</Banner>
 
-## Stop a Deployment
+## Stop a deployment
 
 Stop a running deployment:
 
@@ -142,7 +142,7 @@ Stop a running deployment:
   deploymentStop(id: $id)
 }`} variables={{ id: "deployment-id" }} />
 
-## Cancel a Deployment
+## Cancel a deployment
 
 Cancel a deployment that is building or queued:
 
@@ -150,7 +150,7 @@ Cancel a deployment that is building or queued:
   deploymentCancel(id: $id)
 }`} variables={{ id: "deployment-id" }} />
 
-## Remove a Deployment
+## Remove a deployment
 
 Remove a deployment from the history:
 
@@ -158,7 +158,7 @@ Remove a deployment from the history:
   deploymentRemove(id: $id)
 }`} variables={{ id: "deployment-id" }} />
 
-## Deploy a Specific Service in an Environment
+## Deploy a specific service in an environment
 
 Trigger a deployment for a specific service:
 
@@ -166,7 +166,7 @@ Trigger a deployment for a specific service:
   environmentTriggersDeploy(input: $input)
 }`} variables={{ input: { environmentId: "environment-id", projectId: "project-id", serviceId: "service-id" } }} />
 
-## Deployment Statuses
+## Deployment statuses
 
 | Status | Description |
 |--------|-------------|

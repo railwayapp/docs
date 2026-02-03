@@ -9,7 +9,7 @@ Login with Railway implements the OAuth 2.0 Authorization Code flow with OpenID 
 We recommend using an OAuth 2.0 / OpenID Connect library for your language or framework rather than implementing the flow manually.
 </Banner>
 
-## Initiating Login
+## Initiating login
 
 Redirect the user to the authorization endpoint:
 
@@ -28,7 +28,7 @@ GET https://backboard.railway.com/oauth/auth
 | `code_challenge_method` | With PKCE | Must be `S256` |
 | `prompt` | No | Set to `consent` to force consent screen |
 
-### Authorization Response
+### Authorization response
 
 If the user approves your application, they are redirected to your redirect URI with an authorization code:
 
@@ -59,7 +59,7 @@ Response:
 }
 ```
 
-## Access Tokens
+## Access tokens
 
 Access tokens authenticate your application's requests to Railway's API. When you call the [Public API](/integrations/api), include the access token in the Authorization header:
 
@@ -70,11 +70,11 @@ curl -X POST https://backboard.railway.com/graphql/v2 \
   -d '{"query": "query { me { name email } }"}'
 ```
 
-## Refresh Tokens
+## Refresh tokens
 
 Access tokens expire after one hour. For applications that need longer-lived access (background jobs, scheduled tasks, or simply avoiding frequent re-authentication) refresh tokens provide a way to obtain new access tokens without user interaction.
 
-### Obtaining Refresh Tokens
+### Obtaining refresh tokens
 
 To receive a refresh token, your authorization request must include both the `offline_access` scope and the `prompt=consent` parameter:
 
@@ -102,7 +102,7 @@ Response:
 }
 ```
 
-### Refreshing Tokens
+### Refreshing tokens
 
 When your access token expires (or is about to), exchange the refresh token for a new access token:
 
@@ -130,7 +130,7 @@ Refresh tokens are rotated for security. The response includes a `refresh_token`
 Each user authorization can have a maximum of 100 refresh tokens. If you exceed this limit, the oldest tokens are revoked automatically.
 </Banner>
 
-## ID Tokens
+## ID tokens
 
 ID tokens are JSON Web Tokens (JWTs). Unlike access tokens, which are opaque and meant for API authorization, ID tokens are designed to be parsed and validated by your application to confirm who authenticated.
 
@@ -161,7 +161,7 @@ curl https://backboard.railway.com/oauth/me \
 
 The `sub` claim is always present and is stable for a given user. Use it to identify returning users in your application.
 
-## Pushed Authorization Requests (PAR)
+## Pushed authorization requests (PAR)
 
 Pushed Authorization Requests (PAR) are supported. This keeps authorization details out of browser history. Instead of passing all parameters in the browser redirect, you first POST them to the PAR endpoint:
 

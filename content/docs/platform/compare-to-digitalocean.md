@@ -26,7 +26,7 @@ That said, there are some differences between the platforms that might make Rail
 
 ## Scaling strategies
 
-### DigitalOcean App Platform
+### DigitalOcean app platform
 
 DigitalOcean App Platform follows a traditional, instance-based model. Each instance has a set of allocated compute resources (memory and CPU).
 
@@ -66,7 +66,7 @@ You can also set services to start on a schedule using a crontab expression. Thi
 
 ## Pricing
 
-### DigitalOcean App Platform
+### DigitalOcean app platform
 
 DigitalOcean App Platform follows a traditional, instance-based pricing. You select the amount of compute resources you need from a list of instance sizes where each one has a fixed monthly price.
 
@@ -95,9 +95,9 @@ If you spin up multiple replicas for a given service, you’ll only be charged f
 
 Railway also has a [serverless](/deployments/serverless) feature, which helps further reduce costs when enabled. When a service has no outbound requests for over 10 minutes, it is automatically put to sleep. While asleep, the service incurs no compute charges. It wakes up on the next incoming request, ensuring seamless reactivation without manual effort. This is ideal for workloads with sporadic or bursty traffic, so you only pay when your code is running.
 
-## Developer Workflow & CI/CD
+## Developer workflow & CI/CD
 
-### DigitalOcean App Platform
+### DigitalOcean app platform
 
 DigitalOcean App Platform’s dashboard offers a traditional dashboard where you can view all of your project’s resources.
 
@@ -137,7 +137,7 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 | **Environments & CI/CD**  | No native concept of environments, requires manual project setup. Automated preview deployments not supported. Webhooks not supported | Native support for preview environments, CI/CD integrations, and webhooks  |
 | **Templates & Ecosystem** | Limited                                                                                                                               | Extensive template directory; creators can earn from deployed usage        |
 
-## Migrate from DigitalOcean App Platform to Railway
+## Migrate from DigitalOcean app platform to Railway
 
 To get started, [create an account on Railway](https://railway.com/new). You can sign up for free and receive $5 in credits to try out the platform.
 

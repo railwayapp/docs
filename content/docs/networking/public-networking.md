@@ -5,21 +5,21 @@ description: Expose your Railway services to the internet.
 
 Public networking allows you to expose your Railway services to the internet via HTTP/HTTPS. Railway provides automatic SSL certificates, Railway-provided domains, and support for custom domains.
 
-## Key Features
+## Key features
 
 - **Automatic SSL** - Free SSL certificates automatically provisioned and renewed
 - **Railway Domains** - Get a `.railway.app` domain instantly
 - **Custom Domains** - Bring your own domain with easy DNS configuration
 - **Global Edge Network** - Traffic routed through Railway's edge network
 
-## Learn More
+## Learn more
 
 | Topic | Description |
 | ----- | ----------- |
 | [**Domains**](/networking/public-networking/domains) | Configure Railway-provided domains and custom domains for your services. Learn about DNS setup, SSL certificates, and domain management. |
 | [**Specs & Limits**](/networking/public-networking/specs-and-limits) | Understand request limits, timeouts, and other specifications for public networking. |
 
-## Quick Start
+## Quick start
 
 To expose a service to the internet:
 

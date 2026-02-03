@@ -5,7 +5,7 @@ description: Learn how to deploy your applications to Railway using the CLI.
 
 The Railway CLI provides deployment capabilities for both local development workflows and automated CI/CD pipelines.
 
-## Quick Deploy
+## Quick deploy
 
 The simplest way to deploy is with `railway up`:
 
@@ -21,9 +21,9 @@ This command scans, compresses, and uploads your app's files to Railway. You'll 
 
 Railway will build your code using [Railpack](/builds/railpack) or your [Dockerfile](/builds/dockerfiles), then deploy it.
 
-## Deployment Modes
+## Deployment modes
 
-### Attached Mode (Default)
+### Attached mode (default)
 
 By default, `railway up` streams build and deployment logs to your terminal:
 
@@ -33,7 +33,7 @@ railway up
 
 This is useful for watching the build process and catching errors immediately.
 
-### Detached Mode
+### Detached mode
 
 Use `-d` or `--detach` to return immediately after uploading:
 
@@ -43,7 +43,7 @@ railway up -d
 
 The deployment continues in the background. Check status in the dashboard or with `railway logs`.
 
-### CI Mode
+### CI mode
 
 Use `-c` or `--ci` to stream only build logs and exit when the build completes:
 
@@ -53,9 +53,9 @@ railway up --ci
 
 This is ideal for CI/CD pipelines where you want to see the build output but don't need to wait for deployment logs. Use `--json` to output logs in JSON format (also implies CI mode).
 
-## Targeting Services and Environments
+## Targeting services and environments
 
-### Deploy to a Specific Service
+### Deploy to a specific service
 
 If your project has multiple services, the CLI will prompt you to choose. You can also specify directly:
 
@@ -63,13 +63,13 @@ If your project has multiple services, the CLI will prompt you to choose. You ca
 railway up --service my-api
 ```
 
-### Deploy to a Specific Environment
+### Deploy to a specific environment
 
 ```bash
 railway up --environment staging
 ```
 
-### Deploy to a Specific Project
+### Deploy to a specific project
 
 Use `-p` or `--project` to deploy to a project without linking:
 
@@ -79,9 +79,9 @@ railway up --project <project-id> --environment production
 
 **Note:** When using `--project`, the `--environment` flag is required.
 
-## CI/CD Integration
+## CI/CD integration
 
-### Using Project Tokens
+### Using project tokens
 
 For automated deployments, use a [Project Token](/integrations/api#project-token) instead of interactive login. Project tokens are scoped to a specific environment and can only perform deployment-related actions.
 
@@ -94,11 +94,11 @@ Some actions you can perform with a project token:
 - Redeploying a deployment - `railway redeploy`
 - Viewing build and deployment logs - `railway logs`
 
-### GitHub Actions
+### GitHub actions
 
 Railway makes deployment status available to GitHub, so you can trigger actions after deployments complete.
 
-#### Post-Deployment Actions
+#### Post-deployment actions
 
 Use the `deployment_status` event to run commands after Railway deploys your app:
 
@@ -123,7 +123,7 @@ jobs:
 
 See the [GitHub Actions Post-Deploy guide](/guides/github-actions-post-deploy) for more details.
 
-#### PR Environments with GitHub Actions
+#### PR environments with GitHub actions
 
 Create Railway environments automatically for pull requests:
 
@@ -178,7 +178,7 @@ This is useful for:
 - Restarting a crashed service
 - Triggering a fresh build with the same code
 
-## Deploying a Specific Path
+## Deploying a specific path
 
 You can specify a path to deploy:
 
@@ -194,7 +194,7 @@ railway up ./backend --path-as-root
 
 When running `railway up` from a subdirectory without a path argument, Railway still deploys from the project root. To deploy only a specific directory permanently, configure a [root directory](/deployments/monorepo#root-directory) in your service settings.
 
-## Ignoring Files
+## Ignoring files
 
 By default, Railway respects your `.gitignore` file. To include ignored files in your deployment:
 
@@ -202,7 +202,7 @@ By default, Railway respects your `.gitignore` file. To include ignored files in
 railway up --no-gitignore
 ```
 
-## Verbose Output
+## Verbose output
 
 For debugging deployment issues:
 

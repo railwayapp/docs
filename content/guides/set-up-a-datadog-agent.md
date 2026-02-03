@@ -36,7 +36,7 @@ To be successful, you should already have -
 
 Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost. If this is a concern, you may be interested in exploring self-hosted solutions, and we encourage you to check out the [OpenTelemetry Tutorial](/guides/deploy-an-otel-collector-stack).
 
-## 1. Create the Project Structure
+## 1. Create the project structure
 
 First we'll create the project structure.
 
@@ -53,7 +53,7 @@ railway-project/
 └── expressapi/
 ```
 
-## 2. Set Up the Datadog Agent
+## 2. Set up the Datadog agent
 
 Now we'll add files to the `agent` folder, which will build the Datadog Agent image.
 
@@ -121,7 +121,7 @@ The `datadog.yaml` file is used to instruct the agent to send logs to Datadog ov
     force_use_http: true
   ```
 
-## 3. Set Up the Node Express App
+## 3. Set up the Node Express app
 
 Now let's build a Node Express App that will send logs and metrics to the Datadog Agent over the [Private Network](/networking/private-networking).
 
@@ -212,7 +212,7 @@ In this example app, we are using `Winston` as the logger and `hot-shots` as the
 - `Winston` is configured using `winston-syslog` to transport **logs** to the Datadog agent via Syslog over `udp6`.
 - `hot-shots` is configured to send **metrics** to the Datadog agent over `udp6`.
 
-## 4. Set Up the Railway Project
+## 4. Set up the Railway project
 
 Now let's create the project using the CLI, then create the services and variables from within the project in Railway.
 
@@ -220,7 +220,7 @@ You will need your **Datadog API key** and **Site** value in this step.
 
 If you have not already done so, please [install the CLI](/guides/cli#installing-the-cli) and [authenticate](/guides/cli#authenticating-with-the-cli).
 
-#### Create a Project
+#### Create a project
 
 - In your terminal, run the following command to create a new project -
 
@@ -236,13 +236,13 @@ If you have not already done so, please [install the CLI](/guides/cli#installing
   railway open
   ```
 
-#### Create the Services
+#### Create the services
 
 - In Railway, create an Empty Service by clicking `+ New` button in the top right-hand corner and choosing `Empty Service` in the prompt.
 - Right click on the service that is created, select `Update Info` and name it `datadog-agent`.
 - Repeat the above steps to create a second service, but name the second service `expressapi`.
 
-#### Add the Variables
+#### Add the variables
 
 Each service requires unique variables listed below. For each service, follow the steps to add the variables required for the service.
 
@@ -273,7 +273,7 @@ DD_TRACE_AGENT_PORT=8126
 
 Now we're ready to deploy our services. We will use the CLI to push code from our local machine to Railway.
 
-#### Railway Up
+#### Railway up
 
 Follow these steps for each service -
 
@@ -294,7 +294,7 @@ Follow these steps for each service -
   ```
 - Change directory into your `expressapi` folder and repeat the steps above, but for the `expressapi` service.
 
-#### Create a Domain for the Express App
+#### Create a domain for the Express app
 
 The express app will send logs and metrics to the Datadog agent upon navigation to either of its two routes. So let's give it a domain -
 
@@ -304,7 +304,7 @@ The express app will send logs and metrics to the Datadog agent upon navigation 
   railway domain
   ```
 
-## 6. Test and Confirm
+## 6. Test and confirm
 
 Test that your Datadog Agent is receiving and forwarding data to Datadog by navigating to the routes in the Express app -
 
@@ -315,7 +315,7 @@ Generate some traffic to these two routes and verify in your Datadog instance th
 
 _Note: it can take a few minutes to see the data in Datadog, check the Datadog Agent's logs in Railway_
 
-## Bonus - Add a Python service
+## Bonus - add a Python service
 
 Once you have your agent setup and working with a node app. It's easy to add more services and configure the agent to accept data from them. In this bonus section, we'll quickly cover a Python implementation.
 
@@ -355,7 +355,7 @@ initialize(**config)
 
 app = FastAPI()
 
-# Use DogStatsd client for more custom metrics
+# Use dogstatsd client for more custom metrics
 dog_statsd = DogStatsd()
 
 @app.get("/")

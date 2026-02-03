@@ -9,28 +9,28 @@ Usage (GB-month) is calculated by averaging the day-to-day usages and rounding t
 
 Buckets are currently only available in the Standard storage tier – there's no minimum storage retention and no data retrieval fees.
 
-## Bucket Egress vs. Service Egress
+## Bucket egress VS. Service egress
 
 Even though *buckets* don't charge for ingress or egress, buckets still live on the public network. When you upload files from your Railway services to your buckets, those *services* will incur egress usages, since you're uploading over the public network. Buckets are currently not available on the private network.
 
 Note that service egress is not free. If your service sends data to users or uploads files to a bucket, that traffic counts as service egress.
 
-## Billing Examples
+## Billing examples
 
 - If you stored **10 GBs for 30 days**, you'd get charged for **10 GB**-month.
 - If you stored **10 GBs for 15 days** and **0 GB** for the next 15, your usage averages to **5 GB**-month.
 
-## Plan Limits
+## Plan limits
 
-### Free Plan
+### Free plan
 
 You can use up to **10 GB-month** each month on the free plan. Bucket usage counts against your $1 monthly credit. Once the credit is fully used, bucket access is suspended and files become unavailable, but your files will not be deleted. You can access your files again at the next billing cycle when credits refresh, or immediately if you upgrade to a paid plan.
 
-### Trial Plan
+### Trial plan
 
 You can use up to **50 GB-month** during the trial. Bucket usage counts against your trial credits. When the trial ends, bucket access is suspended and files become unavailable. You can access your files again when you switch to the Free Plan or upgrade to a paid plan.
 
-### Limited Trial
+### Limited trial
 
 Buckets are not available in the [Limited Trial](/reference/pricing/free-trial#full-vs-limited-trial).
 
@@ -42,7 +42,7 @@ The Hobby Plan has a combined maximum storage capacity of **1TB**. Any uploads t
 
 The Pro Plan has **unlimited** storage capacity.
 
-## Usage Limit
+## Usage limit
 
 If you exceed your [Hard Usage Limit](/reference/usage-limits#hard-limit), bucket access is suspended and files cannot be read or uploaded anymore. Existing stored data is still billed. You can access your files again once you raise or remove the Hard Limit, or when the next billing period starts.
 

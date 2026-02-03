@@ -13,7 +13,7 @@ alt="Screenshot of Deploy View"
 layout="responsive"
 width={1103} height={523} quality={80} />
 
-## How it Works
+## How it works
 
 Upon service creation, or when changes are detected in the service source, Railway will build the service and package it into a container with [Railpack](/builds/railpack) or a [Dockerfile](/builds/dockerfiles) if present. If the source is a Docker Image, the build step is skipped.
 
@@ -21,7 +21,7 @@ Railway then starts the service using either the detected or configured [Start C
 
 This cycle represents a deployment in Railway.
 
-## Deployment States
+## Deployment states
 
 A comprehensive up to date list of statues can be found in [Railway's GraphQL playground](https://railway.com/graphiql) under DeploymentStatus ([screenshot](https://res.cloudinary.com/railway/image/upload/v1737950391/docs/deploy-statuses.png)).
 
@@ -65,7 +65,7 @@ When a new [Deployment](/overview/the-basics#deployments) is triggered, older de
 
 The time from when a new deployment becomes `Active` until the previous deployment is removed can be controlled by setting a [`RAILWAY_DEPLOYMENT_OVERLAP_SECONDS`](/reference/variables#user-provided-configuration-variables) [service variable](/overview/the-basics#service-variables).
 
-## Deployment Menu
+## Deployment menu
 
 The deployment menu contains actions you can take on a deployment.
 
@@ -122,13 +122,13 @@ Stops the currently running deployment, this also marks the deployment as `REMOV
 
 Cancels the selected [initializing](#initializing) or [building](#building) deployment, this also marks the deployment as `REMOVED` and moves it into the history section.
 
-## Ephemeral Storage
+## Ephemeral storage
 
 Every service deployment has access to 10GB of ephemeral storage. If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
 
 If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/volumes).
 
-## Singleton Deploys
+## Singleton deploys
 
 By default, Railway maintains only one deploy per service.
 
@@ -138,7 +138,7 @@ Once the new deployment is online, the old deployment is sent a SIGTERM signal. 
 
 The time given to gracefully shutdown can be controlled by setting a [`RAILWAY_DEPLOYMENT_DRAINING_SECONDS`](/reference/variables#user-provided-configuration-variables) [service variable](/overview/the-basics#service-variables).
 
-## Railway Initiated Deployments
+## Railway initiated deployments
 
 Occasionally, Railway will initiate a new deployment to migrate your service from one host to another. This may happen for one of three reasons:
 
@@ -150,7 +150,7 @@ We perform these migrations when implementing security patches or platform upgra
 
 These Railway-initiated deployments will display with a banner above the Active deployment to clearly identify them.
 
-## Deployments Paused - Limited Access
+## Deployments paused - limited access
 
 Railway's core offering is dynamic, allowing you to vertically or horizontally scale with little-to-no-notice. To offer this flexibility to customers, Railway takes the stance that Pro/Enterprise tiers may, in rare occasions, be prioritized above Free/Hobby tiers.
 
@@ -165,18 +165,18 @@ During periods where Pro/Enterprise users require additional resources, Railway 
   quality={100}
 />
 
-### During a Pause
+### During a pause
 
 - You'll see a "Limited Access" indicator in your dashboard
 - New deployments will be queued rather than immediately processed
 - All other Railway features remain fully functional
 - No data or existing deployments are affected
 
-### Continue Deploying During High Traffic
+### Continue deploying during high traffic
 
 If you need to deploy immediately during a high traffic pause, you can upgrade to the Pro plan to bypass the deployment queue. Pro tier customers are not affected by deployment pausing and can continue deploying normally during high traffic periods.
 
-### When Normal Operations Resume
+### When normal operations resume
 
 - Queued deployments will automatically process in order
 - You'll receive a notification when deployment capabilities are restored

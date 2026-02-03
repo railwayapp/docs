@@ -5,13 +5,13 @@ description: Learn how to enable static outbound IPs on Railway.
 
 Static Outbound IPs allows customers on the Pro plan to assign a permanent outbound IPv4 address to a service. This IP address will **always** be used for outbound traffic from any replicas running within the service.
 
-## Use Cases
+## Use cases
 
 This feature may be useful to you if you're using a third-party service provider or firewall which requires you to whitelist which IP addresses your services will be connecting from, such as MongoDB Atlas.
 
 The IPv4 address assigned to your service through this feature **cannot** be used to receive inbound traffic.
 
-## Enabling Static Outbound IPs
+## Enabling static outbound IPs
 
 Customers on the Pro plan can enable Static Outbound IPs for any service they wish.
 

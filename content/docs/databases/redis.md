@@ -16,7 +16,7 @@ width={450} height={396} quality={100} />
 
 You can also deploy it via the [template](https://railway.com/template/redis) from the template marketplace.
 
-#### Deployed Service
+#### Deployed service
 
 Upon deployment, you will have a Redis service running in your project, deployed from the [redis](https://hub.docker.com/_/redis) Docker image.
 
@@ -30,17 +30,17 @@ Connect to the Redis server from another service in your project by [referencing
 - `REDISPASSWORD`
 - `REDIS_URL`
 
-#### Connecting Externally
+#### Connecting externally
 
 It is possible to connect to Redis externally (from outside of the [project](/projects) in which it is deployed), by using the [TCP Proxy](/networking/tcp-proxy) which is enabled by default.
 
 _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
 
-### Modify the Deployment
+### Modify the deployment
 
 Since the deployed container is pulled from the [redis](https://hub.docker.com/_/redis) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/redis).
 
-## Backup and Monitoring
+## Backup and monitoring
 
 Especially for production environments, performing backups and monitoring the health of your data is essential. Consider adding:
 
@@ -48,7 +48,7 @@ Especially for production environments, performing backups and monitoring the he
 
 - **Observability**: Implement monitoring for insights into performance and health of your Redis cluster. You can integrate a Redis exporter for Prometheus, although we do not provide a specific template at this time.
 
-## Additional Resources
+## Additional resources
 
 While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.
 

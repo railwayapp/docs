@@ -5,7 +5,7 @@ description: Create and configure OAuth applications for Login with Railway.
 
 OAuth apps are created within a workspace and allow your application to authenticate users with their Railway account. Only **workspace admins** can create and manage apps. Before implementing the OAuth flow, you need to register your app to obtain client credentials and configure how it interacts with the authorization server.
 
-## App Types
+## App types
 
 Two types of OAuth applications are supported:
 
@@ -14,19 +14,19 @@ Two types of OAuth applications are supported:
 | Web (Confidential) | Required | Recommended | `client_secret_basic` or `client_secret_post` |
 | Native (Public) | None | Required | `none` |
 
-### Web Applications
+### Web applications
 
 Web applications are confidential clients. They run on servers you control, where a client secret can be stored securely.
 
 Even though web apps have a client secret, implementing PKCE is strongly recommended. PKCE protects against authorization code interception if an attacker manages to observe the redirect.
 
-### Native Applications
+### Native applications
 
 Native applications include mobile apps, desktop applications, command-line tools, and single-page applications running entirely in the browser. These are public clients because any secrets embedded in them could be extracted by users or attackers. You cannot trust that a secret will remain confidential.
 
 Native apps authenticate using PKCE exclusively. Do not send a client secret, otherwise the token request will fail.
 
-## Creating an App
+## Creating an app
 
 To register a new OAuth app, go to your workspace settings, navigate to **Developer**, and click **New OAuth App**. Enter a name that users will recognize on the consent screen, add your redirect URI(s), and select the appropriate app type.
 
@@ -38,7 +38,7 @@ Redirect URIs specify where users are sent after they authorize (or deny) your a
 
 When initiating authorization, the `redirect_uri` parameter must exactly match one of your registered URIs. This includes the scheme, host, port, and path. If they don't match, the authorization request fails with an `invalid_redirect_uri` error.
 
-## PKCE (Proof Key for Code Exchange)
+## PKCE (proof key for Code exchange)
 
 PKCE adds a layer of protection to the authorization code flow. Without PKCE, an attacker who intercepts an authorization code could potentially exchange it for tokens. With PKCE, they would also need the code verifier: a secret that never travels through the redirect.
 
@@ -65,7 +65,7 @@ curl -X POST https://backboard.railway.com/oauth/token \
   -d "code_verifier=CODE_VERIFIER"
 ```
 
-## Dynamic Client Registration
+## Dynamic client registration
 
 OAuth 2.0 Dynamic Client Registration is supported, allowing applications to register OAuth clients programmatically rather than through the UI. This is useful for development tools that need to bootstrap OAuth configuration.
 
@@ -77,7 +77,7 @@ POST https://backboard.railway.com/oauth/register
 
 Dynamic registration requests are subject to rate limits to prevent abuse.
 
-### Managing Dynamic Clients
+### Managing dynamic clients
 
 Clients created through dynamic registration are managed exclusively through the Dynamic Client Registration Management API. They don't appear in the workspace settings UI. When you register a client, the response includes a registration access token. Use this token to update or delete the client later.
 

@@ -22,7 +22,7 @@ railway deploy [OPTIONS]
 
 ## Examples
 
-### Deploy a Template (Interactive)
+### Deploy a template (interactive)
 
 ```bash
 railway deploy
@@ -34,19 +34,19 @@ railway deploy
 railway deploy --template postgres
 ```
 
-### Deploy with Variables
+### Deploy with variables
 
 ```bash
 railway deploy --template postgres --variable "POSTGRES_USER=admin"
 ```
 
-### Deploy Multiple Templates
+### Deploy multiple templates
 
 ```bash
 railway deploy --template postgres --template redis
 ```
 
-### Service-Specific Variables
+### Service-specific variables
 
 Prefix variables with the service name:
 
@@ -54,7 +54,7 @@ Prefix variables with the service name:
 railway deploy --template my-app --variable "Backend.PORT=3000"
 ```
 
-## Template Codes
+## Template codes
 
 Common template codes:
 - `postgres` - PostgreSQL database

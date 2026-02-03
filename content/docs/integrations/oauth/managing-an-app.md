@@ -5,7 +5,7 @@ description: Configure and manage your OAuth applications.
 
 After creating an OAuth app, you may need to update its configuration, rotate credentials, or eventually delete it.
 
-## Accessing App Settings
+## Accessing app settings
 
 To manage an OAuth app, go to your workspace settings and navigate to **Developer**.
 
@@ -18,7 +18,7 @@ To manage an OAuth app, go to your workspace settings and navigate to **Develope
 
 The settings page shows your app's client ID, which you can copy for use in your application. You can also edit the app's name (shown to users on the consent screen) and manage the redirect URIs where users are sent after authorization.
 
-## Client Secrets
+## Client secrets
 
 Client secrets authenticate your application during the token exchange. Only web (confidential) applications use client secrets; native (public) applications rely on PKCE instead.
 
@@ -26,17 +26,17 @@ You can generate additional client secrets from the app settings page. This is u
 
 Client secrets do not expire.
 
-### Revoking a Secret
+### Revoking a secret
 
 If a secret is compromised or no longer needed, revoke it from the app settings. Before revoking, ensure your application is configured with a different valid secret, or users will be unable to complete the OAuth flow.
 
-## Deleting an App
+## Deleting an app
 
 Deleting an OAuth app is immediate and irreversible. All tokens issued through that app become invalid instantly. Users who authorized your app will see it removed from their authorized apps list, and any applications relying on those tokens will fail to authenticate.
 
 To delete an app, scroll to the bottom of the app settings page and click **Delete App**.
 
-## Dynamic Client Registration Management
+## Dynamic client registration management
 
 OAuth apps created through [Dynamic Client Registration](/integrations/oauth/creating-an-app#dynamic-client-registration) work differently. They don't appear in the workspace settings UI and must be managed entirely through the API.
 

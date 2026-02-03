@@ -24,7 +24,7 @@ This guide covers how to deploy a Spring Boot app to Railway in four ways:
 
 Now, let's create a Spring Boot app!
 
-## Create a Spring Boot App
+## Create a Spring Boot app
 
 **Note:** If you already have a Spring Boot app locally or on GitHub, you can skip this step and go straight to the [Deploy Spring Boot App to Railway](#deploy-the-spring-boot-app-to-railway).
 
@@ -51,7 +51,7 @@ _Config to initialize our new app_
 
 Now, click on the **Generate** button, download the zipped file and unpack it into a folder on your machine.
 
-### Modify the Application File
+### Modify the application file
 
 Next, open the app in your IDE and navigate to the `src/main/java/com/railwayguide/helloworld/HelloWorldApplication.java` file.
 
@@ -85,7 +85,7 @@ We added a `hello()` method that returns the response: `Hello world from Java Sp
 
 The `@RestController` annotation designates this class as a web controller, while `@GetMapping("/")` maps the `hello()` method to handle requests sent to the root URL, `/`.
 
-### Run the Spring Boot App locally
+### Run the Spring Boot app locally
 
 Next, `cd` into the `helloworld` directory via the terminal and run the following Maven command:
 
@@ -97,11 +97,11 @@ Next, `cd` into the `helloworld` directory via the terminal and run the followin
 
 Open your browser and go to `http://localhost:8080` to see your app.
 
-## Deploy the Spring Boot App to Railway
+## Deploy the Spring Boot app to Railway
 
 Railway offers multiple ways to deploy your Spring Boot app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -140,7 +140,7 @@ alt="screenshot of the deployed Spring Boot service"
 layout="responsive"
 width={2172} height={1590} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a Spring Boot app to Railway directly from GitHub, follow the steps below:
 
@@ -193,7 +193,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Spring Boot apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

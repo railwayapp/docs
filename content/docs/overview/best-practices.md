@@ -15,7 +15,7 @@ To keep consistency we want each topic to follow the same convention -
 
 Railway is a highly versatile platform, offering various ways to use it, though some may be less optimal than others for most use cases. These topics aim to help you maximize both your potential and the platform's capabilities.
 
-## Use Private Networking When Possible
+## Use private networking when possible
 
 [Private networking](/networking/private-networking) allows services within a [project](/overview/the-basics#project--project-canvas) to communicate internally without the need to expose them [publicly](/networking/public-networking), while also providing faster communication and increased throughput.
 
@@ -30,7 +30,7 @@ width={1048} height={818} quality={100} />
 
 <span style={{'font-size': "0.9em"}}>Screenshot showing the use of the `RAILWAY_PRIVATE_DOMAIN` [variable](/reference/variables#railway-provided-variables) being used via [referencing](/guides/variables#reference-variables).</span>
 
-## Deploying Related Services Into the Same Project
+## Deploying related services into the same project
 
 In Railway, a [project](/overview/the-basics#project--project-canvas) serves as a container for organizing infrastructure. It can encompass an application stack, a group of [services](/overview/the-basics#services), or even multiple service groups.
 
@@ -51,7 +51,7 @@ width={1048} height={818} quality={100} />
 
 <span style={{'font-size': "0.9em"}}>Screenshot showing related services within a project and their connection links.</span>
 
-## Use Reference Variables Where Applicable
+## Use reference variables where applicable
 
 [Reference variables](/guides/variables#reference-variables) allow you to dynamically reference another variable, either from a variable set on the current [service](/overview/the-basics#services) or from another service in the same [project](/overview/the-basics#project--project-canvas).
 

@@ -28,7 +28,7 @@ npm i -g @railway/cli
 
 Requires Node.js version 16 or higher.
 
-### Shell Script (macOS, Linux, Windows via WSL)
+### Shell script (macOS, Linux, Windows via WSL)
 
 ```bash
 bash <(curl -fsSL cli.new)
@@ -42,11 +42,11 @@ On Windows, use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/
 scoop install railway
 ```
 
-### Pre-built Binaries
+### Pre-built binaries
 
 Download [pre-built binaries](https://github.com/railwayapp/cli/releases/latest) from the [GitHub repository](https://github.com/railwayapp/cli).
 
-### From Source
+### From source
 
 Build from source using the instructions in the [GitHub repository](https://github.com/railwayapp/cli#from-source).
 
@@ -77,7 +77,7 @@ RAILWAY_TOKEN=xxx railway up
 
 See [Tokens](/integrations/api#project-token) for more information.
 
-## Available Commands
+## Available commands
 
 ### Authentication
 
@@ -90,7 +90,7 @@ railway whoami                  # Show current user
 
 [login](/cli/login) · [logout](/cli/logout) · [whoami](/cli/whoami)
 
-### Project Management
+### Project management
 
 ```bash
 railway init                    # Create a new project
@@ -149,7 +149,7 @@ railway environment delete dev  # Delete an environment
 
 [environment](/cli/environment)
 
-### Local Development
+### Local development
 
 ```bash
 railway run npm start           # Run command with Railway env vars
@@ -159,7 +159,7 @@ railway dev                     # Run services locally with Docker
 
 [run](/cli/run) · [shell](/cli/shell) · [dev](/cli/dev)
 
-### Logs & Debugging
+### Logs & debugging
 
 ```bash
 railway logs                    # Stream deployment logs
@@ -210,7 +210,7 @@ railway upgrade                 # Upgrade CLI
 
 [completion](/cli/completion) · [docs](/cli/docs) · [upgrade](/cli/upgrade) · [starship](/cli/starship)
 
-## Global Options
+## Global options
 
 These flags are available across multiple commands:
 

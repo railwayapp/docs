@@ -21,7 +21,7 @@ Railway offers:
 
 - **Priority Support**: Dedicated support for Railway users
 
-## Migration Steps
+## Migration steps
 
 Let's walk through migrating a WordPress site from DigitalOcean to Railway. This process involves backing up your existing installation, deploying WordPress on Railway and then restoring from your backup.
 
@@ -77,7 +77,7 @@ After the template deployment completes -
 
 4. Restore your site content from your backup
 
-### 4. Configure Domain Settings
+### 4. Configure domain settings
 
 To set up your custom domain:
 
@@ -96,7 +96,7 @@ alt="Screenshot of Railway domain configuration page"
 layout="responsive"
 width={763} height={505} quality={100} />
 
-### 5. Verify Migration
+### 5. Verify migration
 
 Before finalizing your migration -
 
@@ -110,7 +110,7 @@ Before finalizing your migration -
 
 5. Verify contact forms and other interactive elements
 
-### 6. Performance Optimization
+### 6. Performance optimization
 
 Consider these optimization options for your WordPress deployment:
 

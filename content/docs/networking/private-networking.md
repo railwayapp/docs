@@ -5,21 +5,21 @@ description: Secure service-to-service communication within your Railway project
 
 Private networking enables secure communication between services within your Railway project without exposing traffic to the public internet. Services communicate over encrypted Wireguard tunnels using internal DNS.
 
-## Key Features
+## Key features
 
 - **Zero Configuration** - Services automatically discover each other via internal DNS
 - **Encrypted Traffic** - All inter-service communication uses Wireguard encryption
 - **No Public Exposure** - Traffic stays within Railway's private network
 - **Environment Isolation** - Each environment has its own isolated network
 
-## Learn More
+## Learn more
 
 | Topic | Description |
 | ----- | ----------- |
 | [**How It Works**](/networking/private-networking/how-it-works) | Technical deep-dive into Railway's private networking architecture, including Wireguard tunnels, internal DNS, and IPv6 addressing. |
 | [**Library Configuration**](/networking/private-networking/library-configuration) | Configure your application libraries and frameworks to work with private networking. |
 
-## Quick Start
+## Quick start
 
 To connect services privately:
 

@@ -21,7 +21,7 @@ railway domain [DOMAIN] [OPTIONS]
 
 ## Examples
 
-### Generate a Railway Domain
+### Generate a Railway domain
 
 ```bash
 railway domain
@@ -29,7 +29,7 @@ railway domain
 
 Creates a free `*.up.railway.app` domain for your service.
 
-### Add a Custom Domain
+### Add a custom domain
 
 ```bash
 railway domain example.com
@@ -37,19 +37,19 @@ railway domain example.com
 
 Returns the required DNS records to configure.
 
-### Add Domain with Specific Port
+### Add domain with specific port
 
 ```bash
 railway domain example.com --port 8080
 ```
 
-### Add Domain to Specific Service
+### Add domain to specific service
 
 ```bash
 railway domain example.com --service api
 ```
 
-## Custom Domain Setup
+## Custom domain setup
 
 When adding a custom domain, the CLI displays the required DNS records:
 

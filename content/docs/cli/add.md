@@ -25,7 +25,7 @@ railway add [OPTIONS]
 
 ## Examples
 
-### Interactive Mode
+### Interactive mode
 
 ```bash
 railway add
@@ -33,7 +33,7 @@ railway add
 
 Prompts you to select what type of service to add.
 
-### Add a Database
+### Add a database
 
 ```bash
 railway add --database postgres
@@ -45,19 +45,19 @@ Add multiple databases at once:
 railway add --database postgres --database redis
 ```
 
-### Add from GitHub Repo
+### Add from GitHub repo
 
 ```bash
 railway add --repo user/my-repo
 ```
 
-### Add from Docker Image
+### Add from Docker image
 
 ```bash
 railway add --image nginx:latest
 ```
 
-### Create an Empty Service
+### Create an empty service
 
 ```bash
 railway add --service
@@ -69,7 +69,7 @@ With a specific name:
 railway add --service my-api
 ```
 
-### Add with Environment Variables
+### Add with environment variables
 
 ```bash
 railway add --service api --variables "PORT=3000" --variables "NODE_ENV=production"

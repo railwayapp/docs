@@ -7,7 +7,7 @@ Railway is suited for a variety of use-cases. This page will walk-through what t
 
 As mentioned in our philosophy document. Railway will make a best effort to provide all the information a developer needs to make the best choice for their workload.
 
-## Is Railway Production Ready?
+## Is Railway production ready?
 
 Many of our customers use Railway to reliably deploy their applications to customers at scale. With that said, Production standards are going to be different depending on what your users expect. We have companies that use Railway in a variety of different verticals such as:
 
@@ -23,7 +23,7 @@ Companies on Railway range from hobby projects, to extremely fast growing startu
 
 Railway's been in operation for now for more than three years and we have served billions of requests, with 100s of millions of deploys serving millions of end-users simultaneously.
 
-## Railway Scale
+## Railway scale
 
 All of these verticals deploy workloads that may require high bandwidth operations or intensive compute.
 
@@ -68,7 +68,7 @@ We may throttle your outbound bandwidth and reach out to you when it exceeds 100
 
 Private networking bandwidth is un-metered.
 
-### Service Level Objectives
+### Service level objectives
 
 Railway does meet SLOs for companies who have greater need for incident, support, and business planning responsiveness. We provide this via Business Class, offered as an add-on to Pro plans and included in all Enterprise plans. [More info.](/platform/support#business-class)
 
@@ -80,7 +80,7 @@ The short and simple answer is: **Yes**.
 
 Railway aims to exist for a very long time. Railway has presence on existing public clouds, while also building out presence on co-location providers. As a company, we have been structured sustainably with a first principles approach to every expense while growing sustainably.
 
-### Unsupported Use-Cases
+### Unsupported use-cases
 
 Unfortunately, our platform isn't yet well-equipped to handle the following verticals that require extensive Gov't certification or GPU compute:
 
@@ -88,7 +88,7 @@ Unfortunately, our platform isn't yet well-equipped to handle the following vert
 - Traditional Banking
 - Machine Learning Compute
 
-## General Recommendations
+## General recommendations
 
 A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.com](mailto:team@railway.com), or via our [Discord server](https://discord.gg/railway). You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/work-with-railway?duration=30).
 

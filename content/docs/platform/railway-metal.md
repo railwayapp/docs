@@ -56,7 +56,7 @@ With Railway Metal, you can expect the following benefits:
   can power more advanced features that were not possible before, such as
   Static Inbound IPs, Anycast Edge Network, High-Availability Volumes, etc.
 
-## Metal Edge Network
+## Metal edge network
 
 Railway routes traffic through its own anycast Metal Edge network.
 
@@ -71,7 +71,7 @@ width={910} height={254} quality={100} />
 
 Benefits include better routing, less latency, and underlying infrastructure improvements.
 
-## Regions & Availability
+## Regions & availability
 
 Railway Metal is available to all users, including Trial & Hobby Plan users.
 
@@ -88,7 +88,7 @@ have all regions available by the end of Q1'2025 (by 31 March 2025).
 | Europe West (Amsterdam)    | 🟢 Active |
 | Southeast Asia (Singapore) | 🟢 Active |
 
-## Gradual Upgrade
+## Gradual upgrade
 
 We will gradually move services without a [volume](/volumes)
 to Railway Metal as we increase the pool of our hardware and its capabilities.
@@ -164,7 +164,7 @@ expect:
 
 The migration is aimed to be completed by the 4th of July, 2025.
 
-## Pricing Updates
+## Pricing updates
 
 If you migrate 80 percent of your workloads to Railway Metal, you'll benefit from significantly reduced costs:
 
@@ -193,7 +193,7 @@ width={1140} height={560} quality={80} />
 Refer to [Regions & Availability](#regions--availability) to see the regions
 available for Railway Metal.
 
-### How do I know if I'm on Railway Metal?
+### How do I know if i'm on Railway metal?
 
 To check if your service is running on Railway Metal, go to your service's
 `Settings -> Deploy -> Regions`. If you are on Railway Metal, you will see a
@@ -205,7 +205,7 @@ alt="Manual rollback"
 layout="responsive"
 width={1140} height={560} quality={80} />
 
-### Is Railway Metal stable?
+### Is Railway metal stable?
 
 Yes. We have been running a growing amount of deployments on it for the past
 several months. As of the time of this writing, there are ~40,000 deployments
@@ -217,12 +217,12 @@ Upgrading to Railway Metal re-deploys your service. This may cause a brief
 period of downtime as your new deploy is being set up. You can set up
 [Health Checks](/deployments/healthchecks) to prevent this.
 
-### What is the difference between Railway Metal and regions?
+### What is the difference between Railway metal and regions?
 
 Railway Metal refers to our own hardware and infrastructure. Regions refer to
 the physical location of the datacenter where the hardware is located.
 
-### I'm experiencing slow network performance after switching to US West (California) Railway Metal region. What should I do?
+### I'm experiencing slow network performance after switching to us west (california) Railway metal region. What should I do?
 
 You may experience increased latency if your application is communicating with
 other services (such as databases) in `US West (Oregon)`. This is caused by the
@@ -233,7 +233,7 @@ We recommend switching back to the `US West (Oregon)` region if you are
 experiencing increased latency after upgrading to `US West (California)`.
 See [Manual rollback](#manual-rollback) for instructions.
 
-### Will Railway stay on GCP?
+### Will Railway stay on gcp?
 
 No. We are migrating completely onto Railway managed hardware. For customers who would like Railway to deploy into their public cloud, you can contact sales via our [AWS Marketplace listing.](https://aws.amazon.com/marketplace/pp/prodview-cnib4vbrfgs5a)
 
@@ -241,7 +241,7 @@ No. We are migrating completely onto Railway managed hardware. For customers who
 
 It's likely that your database, or service with a volume, isn't migrated over to Metal. Stateful Metal is available starting March 2025. Users who migrate to a different region other than their stateful workload will see increased latency due to the additional physical distance from your service's region. Migrate when your desired region has stateful workloads available after March 2025.
 
-### Why did my costs increase when moving to Metal?
+### Why did my costs increase when moving to metal?
 
 Although not intended, Railway Metal, has a different metrics sampler than our legacy hardware. This means that metrics will be quicker to come in, this also meant that legacy was undercounting the amount of resources on the previous hardware. As a result, some metrics like CPU will increase, others, like RAM will usually decrease.
 
@@ -250,7 +250,7 @@ Although not intended, Railway Metal, has a different metrics sampler than our l
 There is no way to opt-out of Railway Metal. Please [reach out to us](#getting-help)
 if you have any concerns.
 
-## Getting Help
+## Getting help
 
 Please reach out to us [on our Central Station](https://station.railway.com/feedback/feedback-railway-metal-a41f03a1) if you run into any issues. You can also reach out to us over [Slack](/reference/support#slack) if you are
 a Pro or [Business Class / Enterprise](/reference/support#business-class)

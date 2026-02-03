@@ -15,7 +15,7 @@ tags:
 
 Rails is a Ruby full-stack framework designed to compress the complexity of modern web apps. It ships with all the tools needed to build amazing web apps on both the front and back end.
 
-## Create a Rails App
+## Create a Rails app
 
 **Note:** If you already have a Rails app locally or on GitHub, you can skip this step and go straight to the [Deploy Ruby on Rails App on Railway](#deploy-ruby-on-rails-app-on-railway).
 
@@ -73,7 +73,7 @@ This command will create a new Rails app named `blog` with PostgreSQL as the dat
 
 Now that your app is running locally, let’s move on to deploying it to Railway!
 
-## Deploy Ruby on Rails App on Railway
+## Deploy Ruby on Rails app on Railway
 
 Railway offers multiple ways to deploy your Rails app, depending on your setup and preference. Choose any of the following methods:
 
@@ -81,7 +81,7 @@ Railway offers multiple ways to deploy your Rails app, depending on your setup a
 2. [Using the CLI](#deploy-from-the-cli).
 3. [From a GitHub repository](#deploy-from-a-github-repo).
 
-## One-Click Deploy from a Template
+## One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Rails app along with a Postgres database and Redis.
 
@@ -138,7 +138,7 @@ alt="screenshot of the deployed Rails service showing the Hello world page"
 layout="responsive"
 width={2375} height={1151} quality={100} />
 
-## Deploy from a GitHub Repo
+## Deploy from a GitHub repo
 
 To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
@@ -181,7 +181,7 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 Next, we'll cover how to set up workers and cron jobs for your Rails app on Railway.
 
-## Set Up Workers & Cron Jobs with Sidekiq
+## Set up workers & cron jobs with sidekiq
 
 Sidekiq is a powerful and efficient background job processor for Ruby apps, and it integrates seamlessly with Rails. Follow the instructions below to configure and run Sidekiq in your Rails app on Railway:
 
@@ -231,7 +231,7 @@ Here’s how your setup should look:
 
 By following these steps, you’ll have a fully functional Rails app with background job processing using Sidekiq on Railway. If you run into any issues or need to make adjustments, check the logs and revisit your environment variable configurations.
 
-## Setting up TailwindCSS
+## Setting up tailwindcss
 
 [TailwindCSS](https://tailwindcss.com/docs/) is a utility-first CSS framework that ships with the latest version of Rails. It eliminates the need to write custom CSS from scratch.
 
@@ -248,7 +248,7 @@ You can add TailwindCSS to your Rails app in two ways:
    bin/rails tailwindcss:install
    ```
 
-### Running TailwindCSS in Development
+### Running tailwindcss in development
 
 During development, you need the TailwindCSS watcher to automatically compile your styles as you make changes.
 
@@ -266,7 +266,7 @@ plugin :tailwindcss
 
 This automatically starts the watcher when you run `bin/rails server`.
 
-### Fixing TailwindCSS in Production
+### Fixing tailwindcss in production
 
 When deploying to Railway, you may encounter this error:
 
@@ -312,18 +312,18 @@ This runs asset compilation automatically before each deployment.
 
 **Recommendation**: Option 1 (Dockerfile) is generally preferred because it includes compiled assets in your Docker image, making deployments faster and more reliable.
 
-## Setting up SolidQueue
+## Setting up solidqueue
 
 [SolidQueue](https://github.com/rails/solid_queue) is a database-backed queuing backend for Active Job. Unlike Sidekiq,
 it doesn't require Redis or any additional infrastructure beyond your existing database.
 This makes it an excellent choice for simplifying your deployment architecture.
 For complete installation instructions, refer to the [official SolidQueue documentation](https://github.com/rails/solid_queue?tab=readme-ov-file#installation).
 
-### Deployment Options
+### Deployment options
 
 SolidQueue can be configured in three different ways on Railway:
 
-#### Option 1: Separate Database (Recommended for High Volume)
+#### Option 1: separate database (recommended for high volume)
 
 Use a dedicated PostgreSQL database for SolidQueue jobs. This isolates job processing from your application data.
 
@@ -335,7 +335,7 @@ Setup steps:
 
 This approach is identical to the [Sidekiq setup](#set-up-workers--cron-jobs-with-sidekiq), but you'll use `bin/jobs` instead of `bundle exec sidekiq` as your start command.
 
-#### Option 2: Single Database Mode (Recommended for Most Apps)
+#### Option 2: single database mode (recommended for most apps)
 
 Share your existing PostgreSQL database between your main app and SolidQueue. This is simpler and works well for most applications.
 
@@ -347,7 +347,7 @@ Setup steps:
 
 **Note**: To use the `bin/jobs` command with a shared `railway.json` configuration file, see the [Using the same railway.json for multiple services](#using-the-same-railway-json-for-multiple-services) section.
 
-#### Option 3: Run Within Puma (Simplest Setup)
+#### Option 3: run within puma (simplest setup)
 
 Run SolidQueue in the same process as your main Rails application. This is the simplest option and requires no additional services.
 
@@ -366,12 +366,12 @@ For production apps with significant background processing, consider using a sep
 
 When running multiple services from the same repository (e.g., a web server and a worker service), you may encounter conflicts with the `startCommand` setting in `railway.json`.
 
-### The Problem
+### The problem
 
 If your `railway.json` specifies a start command like `bundle exec rails server`, every service will try to use that command.
 This prevents worker services from running their own commands like `bundle exec sidekiq` or `bin/jobs`.
 
-### The Solution
+### The solution
 
 Remove the `startCommand` from your `railway.json` file and configure it individually for each service instead.
 
@@ -385,7 +385,7 @@ Remove the `startCommand` from your `railway.json` file and configure it individ
 
 This approach is explained in detail in step 3 of [Set Up Workers & Cron Jobs with Sidekiq](#set-up-workers--cron-jobs-with-sidekiq).
 
-### Example Configuration
+### Example configuration
 
 You can still use `railway.json` for shared settings like build configuration and pre-deploy commands.
 Here's a recommended configuration that works across multiple services:

@@ -17,7 +17,7 @@ Additionally, our enterprise plan is our most secure and compliant option. [Read
 
 We know that your businesses need to develop strong and lasting relationships with your vendors to build confidence that we can be trusted to deliver your workloads. Part of that is through certifications, audits, and continual refinement of our practices. Railway aims to comply with all the distributions of workloads and privacy procedures.
 
-### SOC 2 Type II and SOC 3
+### SOC 2 type ii and SOC 3
 
 Railway is SOC 2 Type II certified and SOC 3 certified.
 
@@ -37,7 +37,7 @@ Railway is committed to protecting the privacy of our users. We understand that 
 
 [Click here to see our Privacy Policy.](https://railway.com/legal/privacy)
 
-## GDPR Compliance - Data Processing Agreement (DPA)
+## GDPR compliance - data processing agreement (DPA)
 
 Railway provides a Data Processing Agreement (DPA) to help customers comply with GDPR requirements when processing personal data through our platform. If you operate a business in the EU or process personal data of EU residents, you may need to execute a DPA with Railway to ensure compliance with GDPR Article 28 requirements for data processor relationships.
 
@@ -45,7 +45,7 @@ You can access and execute Railway's standard DPA through our self-service link:
 
 You can also review Railway's standard DPA terms at [railway.com/legal/dpa](https://railway.com/legal/dpa).
 
-## VAT Tax ID and Address
+## VAT tax ID and address
 
 Customers in the EU may need to add their VAT Tax ID to their invoices for compliance and reporting purposes.
 
@@ -55,10 +55,10 @@ If you have multiple workspaces, you need to add your VAT Tax information to eac
 
 After adding your information, it will appear on your future invoices.
 
-## EU Dora
+## EU DORA
 
 For European organizations in finance that need to comply with [EU Dora](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en) - Railway is willing to provide documents after a click through NDA that describe disaster recovery procedures, uptime statistics, and IT controls for organizations to who need to submit compliance documents to local regulators. You can get information on our [Trust Page](https://trust.railway.com)
 
-## Deploy Securely on Railway
+## Deploy securely on Railway
 
 If compliance is top of mind, our enterprise plan will meet your needs. From product features like SSO, to higher capacity limits, to security audits, our enterprise plan is made to satisfy even the largest organizations. [Read more about our enterprise plan](https://railway.com/enterprise).

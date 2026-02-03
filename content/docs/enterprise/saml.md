@@ -54,7 +54,7 @@ Alternatively, go directly to https://railway.com/login#login-saml.
 
 Railway also supports IdP-initiated SSO, allowing users to access Railway directly from their Identity Provider’s dashboard.
 
-## Supported Identity Providers
+## Supported identity providers
 
 We support all identity providers that use **SAML** or **OIDC**, including:
 

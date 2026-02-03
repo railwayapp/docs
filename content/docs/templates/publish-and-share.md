@@ -5,7 +5,7 @@ description: Learn how to publish and share your Railway templates.
 
 Once you create a template, you have the option to publish it. Publishing a template will add it to our <a href="https://railway.com/templates" target="_blank">template marketplace</a> for other users to deploy.
 
-## Publishing a Template
+## Publishing a template
 
 After you create your template, simply click the publish button and fill out the form to publish your template.
 
@@ -21,11 +21,11 @@ You can always publish your template by going to the <a href="https://railway.co
 
 Optionally, you can add a demo project to your template. This will be used to showcase your template in a working project, and can be accessed by clicking on the `Live Demo` button in the template's overview page.
 
-## Sharing your Templates
+## Sharing your templates
 
 After you create your template, you may want to share your work with the public and let others clone your project. You are provided with the Template URL where your template can be found and deployed.
 
-### Deploy on Railway Button
+### Deploy on Railway button
 
 To complement your template, we also provide a `Deploy on Railway` button which you can include in your README or embed it into a website.
 
@@ -64,11 +64,11 @@ Here are some example templates from the <a href="https://railway.com/templates"
 |<img src="https://devicons.railway.com/i/go.svg" alt="Gin" width="25" height="25" />|Gin|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/dTvvSf?utm_medium=integration&utm_source=button&utm_campaign=gin)|
 |<img src="https://devicons.railway.com/i/flask-dark.svg" alt="Flask" width="25" height="25" />|Flask|[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/zUcpux?utm_medium=integration&utm_source=button&utm_campaign=flask)|
 
-## Kickback Program
+## Kickback program
 
 If your published template is deployed into other users' projects, you are eligible for kickbacks based on your support engagement. Learn more about the [kickback program](/templates/kickbacks).
 
-## Template Verification
+## Template verification
 
 Templates are verified when the creator and maintainer of the technology becomes a partner and reviews the template.
 

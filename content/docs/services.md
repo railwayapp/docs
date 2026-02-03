@@ -11,17 +11,17 @@ Each service keeps a log of [deployment attempts](/deployments/reference) and [p
 
 _As you create and manage your services, your changes will be collected in a set of [staged changes](/deployments/staged-changes) that you must review and deploy, in order to apply them._
 
-## Types of Services
+## Types of services
 
-#### Persistent Services
+#### Persistent services
 
 Services that are always running. Examples include web applications, backend APIs, message queues, database services, etc.
 
-#### Scheduled Jobs
+#### Scheduled jobs
 
 Services that are run until completion, on a defined schedule, also called [Cron Jobs](/cron-jobs).
 
-## Creating a Service
+## Creating a service
 
 Create a service by clicking the `New` button in the top right corner of your project canvas, or by typing new service from the **command palette**, accessible via `CMD + K` (Mac) or `Ctrl + K`(Windows).
 
@@ -32,11 +32,11 @@ width={370} height={300} quality={100} />
 
 Services on Railway can be deployed from a GitHub repository, a local directory, or a Docker image.
 
-## Accessing Service Settings
+## Accessing service settings
 
 To access a service's settings, simply click on the service tile from your project canvas and go to the Settings tab.
 
-## Service Source
+## Service source
 
 A service source can be any of the following - Docker Image, GitHub or Local repository.
 
@@ -52,7 +52,7 @@ alt="Screenshot of how to connect a service to a GitHub repo or Docker image"
 layout="responsive"
 width={1200} height={421} quality={80} />
 
-### Deploying From a GitHub Repo
+### Deploying from a GitHub repo
 
 Define a GitHub repository as your service source by selecting `Connect Repo` and choosing the repository you'd like to deploy.
 
@@ -66,7 +66,7 @@ width={1200} height={371} quality={80} />
 
 You must link your Railway account to GitHub, to enable Railway to connect to your GitHub repositories. <a href="https://github.com/apps/railway-app/installations/new" target="_blank">You can configure the Railway App in GitHub by clicking this link.</a>
 
-### Deploying a Public Docker Image
+### Deploying a public Docker image
 
 To deploy a public Docker image, specify the path of the image when prompted in the creation flow.
 
@@ -92,7 +92,7 @@ Quay.io:
 
 - `quay.io/username/repo:tag`
 
-### Updating Docker Images
+### Updating Docker images
 
 Railway automatically monitors Docker images for new versions. When an update is available, an update button appears in your service settings. If your image tag specifies a version (e.g., `nginx:1.25.3`), updating will stage the new version tag. For tags without versions (e.g., `nginx:latest`), Railway redeploys the existing tag to pull the latest image digest.
 
@@ -110,7 +110,7 @@ alt="Screenshot of a auto update configuration"
 layout="responsive"
 width={836} height={684} quality={100} />
 
-### Deploying a Private Docker Image
+### Deploying a private Docker image
 
 <Banner variant="info">
 Private Docker registry deployments require the [Pro plan](/pricing/plans).
@@ -125,7 +125,7 @@ width={1200} height={746} quality={100} />
 
 If deploying an image from <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">GitHub Container Registry</a>, provide a <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry" target="_blank">personal access token (classic)</a>.
 
-### Deploying From a Local Directory
+### Deploying from a local directory
 
 [Use the CLI](/cli) to deploy a local directory to a service -
 
@@ -134,11 +134,11 @@ If deploying an image from <a href="https://docs.github.com/en/packages/working-
 3. Link to your Railway project using the `railway link` CLI command.
 4. Deploy the directory using `railway up`. The CLI will prompt you to choose a service target, be sure to choose the empty service you created.
 
-## Deploying a Monorepo
+## Deploying a monorepo
 
 For information on how to deploy a Monorepo click [here](/deployments/monorepo).
 
-## Ephemeral Storage
+## Ephemeral storage
 
 Every service deployment has access ephemeral storage, with the limits being 1GB on the Free plan and 100GB on a paid plan. If a service deployment consumes more than its ephemeral storage limit, it can be forcefully stopped and redeployed.
 
@@ -148,7 +148,7 @@ If your service requires data to persist between deployments, or needs more stor
 
 Logs, metrics, and usage information is available for services and projects. Check out the [observability guides](/observability) for information on how to track this data.
 
-## Changing the Service Icon
+## Changing the service icon
 
 Customize your project canvas for easier readability by changing the service icon.
 
@@ -159,7 +159,7 @@ Customize your project canvas for easier readability by changing the service ico
 
 You can also access this configuration from the command palette.
 
-## Approving a Deployment
+## Approving a deployment
 
 If a member of a GitHub repo doesn't have a linked Railway account. Railway by default will not deploy any pushes to a connected GitHub branch within Railway.
 
@@ -180,6 +180,6 @@ A [template](/templates) is a pre-configured group of services. A template can b
 
 - Service names have a max length of 32 characters.
 
-## Deleting a Service
+## Deleting a service
 
 Delete a service by opening the project's settings and scrolling to the danger section.

@@ -25,7 +25,7 @@ This guide covers how to deploy a Solid app to Railway in four ways:
 
 Now, let's create a Solid app!
 
-## Create a Solid App
+## Create a Solid app
 
 **Note:** If you already have a Solid app locally or on GitHub, you can skip this step and go straight to the [Deploy Solid App on Railway](#deploy-the-solid-app-to-railway).
 
@@ -39,7 +39,7 @@ npx degit solidjs/templates/js solidjsapp
 
 A new Solid app will be provisioned for you in the `solidjsapp` directory.
 
-### Run the Solid App locally
+### Run the Solid app locally
 
 Next, `cd` into the directory and install the dependencies.
 
@@ -55,11 +55,11 @@ npm run dev
 
 Open your browser and go to `http://localhost:3000` to see your app.
 
-## Deploy the Solid App to Railway
+## Deploy the Solid app to Railway
 
 Railway offers multiple ways to deploy your Solid app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -96,7 +96,7 @@ alt="screenshot of the deployed Solid service"
 layout="responsive"
 width={2610} height={2110} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a Solid app to Railway directly from GitHub, follow the steps below:
 
@@ -214,7 +214,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Solid apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

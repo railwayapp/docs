@@ -10,7 +10,7 @@ alt="Screenshot of Project Team Members"
 layout="responsive"
 width={1377} height={823} quality={100} />
 
-## Scope of Permissions
+## Scope of permissions
 
 There are three scopes for project members -
 

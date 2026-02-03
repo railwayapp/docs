@@ -9,7 +9,7 @@ Railway will build and deploy your code with zero configuration, but we make it 
 
 The goal of this section is to guide you through the various ways to customize the build process.
 
-#### Build Concepts
+#### Build concepts
 
 |                         |                                                                                                                                                                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

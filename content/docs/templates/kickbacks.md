@@ -7,20 +7,20 @@ If you publish a template, and it is deployed into other users' projects, you ar
 
 Read more about the kickback program [here](https://railway.com/open-source-kickback).
 
-## Eligibility Requirements
+## Eligibility requirements
 
 To be eligible for template kickbacks, your template must meet the following requirements:
 
 - **Marketplace**: Your template must be published to the [template marketplace](https://railway.com/templates). Private and unpublished templates are not eligible.
 - **Terms of Service**: Your project must abide by Railway's [Fair Use Policy](https://railway.com/legal/fair-use) and [Terms of Service](https://railway.com/legal/terms). Templates that violate Railway's Terms of Service may be removed and kickback payments deemed ineligible.
 
-## Kickback Rates
+## Kickback rates
 
 - Templates receive a **15%** kickback of the usage costs incurred by users deploying your template.
 - Support Bonus: Additional 10% (25% total) when actively supporting users via your [Template Queue](https://station.railway.com/my-template-queue)
 - Open source templates receive 2x the rate (30% base, 50% with support)
 
-## How Earnings Are Calculated
+## How earnings are calculated
 
 Kickbacks are calculated based on the proportional resource usage cost of your template services. 
 
@@ -28,7 +28,7 @@ For example, if a user pays $20 in platform fees, then incurs $200 of usage from
 
 **Minimum Payout:** The minimum kickback payout is $0.01. Any kickback amount below this threshold will not be processed.
 
-## Supporting Your Template Users
+## Supporting your template users
 
 When users have questions about your template, they'll appear in your [Template Queue](https://station.railway.com/my-template-queue) in Central Station. You'll get an email when new questions come in, plus occasional reminders if questions are waiting. 
 
@@ -38,11 +38,11 @@ Manage notification preferences in your [account settings](https://railway.com/a
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1764639904/Template_Queue_Email_Notifications_qbfqg9.png" alt="Template Queue Emails" width={1800} height={1284} quality={100} />
 
-## Partner Program
+## Partner program
 
 If you're the owner of a technology used in Railway templates, you can join the [Partner Program](/templates/partners) to receive commission on templates using your technology, get featured placement, and participate in co-marketing.
 
-## Earnings and Withdrawals
+## Earnings and withdrawals
 
 By default, your template kickbacks are automatically converted into Railway Credits. But we also offer cash withdrawals. Visit the `/earnings` tab inside your account settings for more details. There you can add your details and request a withdrawal.
 

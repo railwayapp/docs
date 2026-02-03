@@ -16,7 +16,7 @@ width={450} height={396} quality={100} />
 
 You can also deploy it via the [template](https://railway.com/template/mysql) from the template marketplace.
 
-#### Deployed Service
+#### Deployed service
 
 Upon deployment, you will have a MySQL service running in your project, deployed directly from the [mysql Docker image](https://hub.docker.com/_/mysql).
 
@@ -31,17 +31,17 @@ Connect to MySQL from another service in your project by [referencing the enviro
 - `MYSQLDATABASE`
 - `MYSQL_URL`
 
-#### Connecting Externally
+#### Connecting externally
 
 It is possible to connect to MySQL externally (from outside of the [project](/projects) in which it is deployed), by using the [TCP Proxy](/networking/tcp-proxy) which is enabled by default.
 
 _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
 
-### Modify the Deployment
+### Modify the deployment
 
 Since the deployed container is pulled from the official MySQL image in Docker hub, you can modify the deployment based on the [instructions in Docker hub](https://hub.docker.com/_/mysql).
 
-## Backups and Observability
+## Backups and observability
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
 
@@ -51,7 +51,7 @@ Especially for production environments, performing regular backups and monitorin
   - [Prometheus](https://railway.com/template/KmJatA)
   - [Grafana](https://railway.com/template/anURAt)
 
-## Additional Resources
+## Additional resources
 
 While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.
 

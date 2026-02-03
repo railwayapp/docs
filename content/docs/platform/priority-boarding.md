@@ -7,7 +7,7 @@ Priority Boarding is Railway's **beta program** and is available to all Railway 
 
 To read more about Priority Boarding, check out <a href="https://blog.railway.com/p/building-the-beta" target="_blank">Priority Boarding: The Journey to Get There</a>.
 
-## Enable Priority Boarding
+## Enable priority boarding
 
 Visit the <a href="https://railway.com/account/feature-flags" target="_blank">Feature Flags page</a> in your account settings and flip the "Priority Boarding" switch to enable it.
 
@@ -17,7 +17,7 @@ Once enabled, any new features we release to Priority Boarding will automaticall
 **Use Priority Boarding with caution if you have production workloads running**, as beta features may have unexpected behavior.
 </Banner>
 
-## Keep Us Posted
+## Keep us posted
 
 From this point forward, you'll have Priority Boarding features automatically enabled for your account. We'll notify you of any new features via the [Changelog](https://railway.com/changelog).
 

@@ -24,49 +24,49 @@ railway volume <COMMAND> [OPTIONS]
 
 ## Examples
 
-### List Volumes
+### List volumes
 
 ```bash
 railway volume list
 ```
 
-### Add a Volume
+### Add a volume
 
 ```bash
 railway volume add --mount-path /data
 ```
 
-### Delete a Volume
+### Delete a volume
 
 ```bash
 railway volume delete --volume my-volume
 ```
 
-### Update Volume Mount Path
+### Update volume mount path
 
 ```bash
 railway volume update --volume my-volume --mount-path /new/path
 ```
 
-### Rename a Volume
+### Rename a volume
 
 ```bash
 railway volume update --volume my-volume --name new-name
 ```
 
-### Detach Volume from Service
+### Detach volume from service
 
 ```bash
 railway volume detach --volume my-volume
 ```
 
-### Attach Volume to Service
+### Attach volume to service
 
 ```bash
 railway volume attach --volume my-volume --service backend
 ```
 
-## Common Options
+## Common options
 
 | Flag | Description |
 |------|-------------|

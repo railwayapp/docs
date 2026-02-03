@@ -24,7 +24,7 @@ railway link [OPTIONS]
 
 ## Examples
 
-### Interactive Linking
+### Interactive linking
 
 ```bash
 railway link
@@ -32,31 +32,31 @@ railway link
 
 Prompts you to select a workspace, project, environment, and optionally a service.
 
-### Link to Specific Project
+### Link to specific project
 
 ```bash
 railway link --project my-api
 ```
 
-### Link to Specific Environment
+### Link to specific environment
 
 ```bash
 railway link --project my-api --environment staging
 ```
 
-### Link to Specific Service
+### Link to specific service
 
 ```bash
 railway link --project my-api --service backend
 ```
 
-### Non-Interactive (CI/CD)
+### Non-interactive (CI/CD)
 
 ```bash
 railway link --project abc123 --environment def456 --json
 ```
 
-## How It Works
+## How it works
 
 Railway stores the link configuration in a `.railway` directory in your project root. This file is typically added to `.gitignore`.
 

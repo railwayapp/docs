@@ -24,7 +24,7 @@ This guide covers how to deploy a Scala Play app to Railway in four ways:
 
 Now, let's create a Play app!
 
-## Create a Play App
+## Create a Play app
 
 **Note:** If you already have a Play app locally or on GitHub, you can skip this step and go straight to the [Deploy Play App to Railway](#deploy-the-play-app-to-railway).
 
@@ -44,7 +44,7 @@ A list of templates will be shown to select from. Select the `playframework/play
 
 A new Scala Play app will be provisioned in the `helloworld` directory.
 
-### Modify Scala Play Views and Set Up Database Config
+### Modify Scala Play views and set up database config
 
 _Step 1_ : Modify the Index File
 
@@ -161,13 +161,13 @@ This will apply the migration and create the employee table in your PostgreSQL d
 
 Check your database to confirm that the employee table has been successfully created. You can use a database tool like psql or any PostgreSQL client to view the table.
 
-### Run the Play App locally
+### Run the Play app locally
 
 Next, run `sbt run` in the terminal to build the project, install all the dependencies and start the embedded [Pekko](https://pekko.apache.org) HTTP server.
 
 Open your browser and go to `http://localhost:9000` to see the app.
 
-### Prepare Scala Play App for deployment
+### Prepare Scala Play app for deployment
 
 1. **Set Application Secret**:
    - Open up the `application.conf` file and add the following to it to set the app's secret.
@@ -219,11 +219,11 @@ Open your browser and go to `http://localhost:9000` to see the app.
 
 Now, we are ready to deploy to Railway!
 
-## Deploy the Play App to Railway
+## Deploy the Play app to Railway
 
 Railway offers multiple ways to deploy your Scala app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -274,7 +274,7 @@ alt="screenshot of the deployed Scala service"
 layout="responsive"
 width={1676} height={1490} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a Scala Play app to Railway directly from GitHub, follow the steps below:
 
@@ -333,7 +333,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Scala apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

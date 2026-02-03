@@ -25,7 +25,7 @@ railway up --environment production
 railway variable list -e dev
 ```
 
-## JSON Output
+## JSON output
 
 The `--json` option outputs results in JSON format, useful for scripting and automation.
 
@@ -35,7 +35,7 @@ railway variable list --json
 railway logs --json
 ```
 
-## Skip Confirmation
+## Skip confirmation
 
 The `--yes` option, shorthand `-y`, skips confirmation prompts. Use this in scripts or CI/CD pipelines where interactive input isn't possible.
 

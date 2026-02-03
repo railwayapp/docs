@@ -7,7 +7,7 @@ Railway can support any type of Database service required for an application sta
 
 Databases can be deployed into a Railway project from a template, or by creating one through the service creation flow.
 
-## How Database Services Work in Railway
+## How database services work in Railway
 
 Below are the core concepts to understand when working with databases in Railway.
 
@@ -19,15 +19,15 @@ Railway services are containers deployed from a Docker Image or code repository,
 
 When deploying a database service, data can be persisted between rebuilds of the container by attaching a Volume to the service.
 
-#### TCP Proxy
+#### TCP proxy
 
 To access a database service from outside the private network of a particular project, proxy traffic to the exposed TCP port by enabling TCP Proxy on the service.
 
-## Database Templates
+## Database templates
 
 Many database templates are available to Railway users, which ease the process of deploying a database service.
 
-### Railway-provided Templates
+### Railway-provided templates
 
 Railway provides several templates to provision some of the most popular databases out there. They also deploy with a helpful [Database View](/guides/database-view).
 
@@ -38,7 +38,7 @@ Explore the guides in the How To section for information on how to use these tem
 - [MongoDB](/guides/mongodb)
 - [Redis](/guides/redis)
 
-### Template Marketplace
+### Template marketplace
 
 Our <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> includes many solutions for database services.
 

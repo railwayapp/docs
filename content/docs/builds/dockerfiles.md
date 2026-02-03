@@ -5,7 +5,7 @@ description: Learn Dockerfile configuration on Railway.
 
 Use a Dockerfile to instruct Railway how to build a service.
 
-## How it Works
+## How it works
 
 When building a service, Railway will look for and use a `Dockerfile` at the root of the source directory.
 
@@ -19,7 +19,7 @@ Using detected Dockerfile!
 ==========================
 ```
 
-## Custom Dockerfile Path
+## Custom Dockerfile path
 
 By default, we look for a file named `Dockerfile` in the root directory. If you want to use a custom filename or path, you can set a variable defining the path.
 
@@ -37,11 +37,11 @@ If your Dockerfile is in another directory, specify it like this:
 RAILWAY_DOCKERFILE_PATH=/build/Dockerfile
 ```
 
-### Use Config as Code
+### Use config as Code
 
 You can also set your custom Dockerfile path using [config as code](/config-as-code).
 
-## Using Variables at Build Time
+## Using variables at build time
 
 If you need to use the environment variables that Railway injects at build time, which include [variables that you define](/variables) and [Railway-provided variables](/variables#railway-provided-variables), you must specify them in the Dockerfile using the `ARG` command.
 
@@ -62,7 +62,7 @@ FROM node
 ARG RAILWAY_ENVIRONMENT
 ```
 
-## Cache Mounts
+## Cache mounts
 
 Railway supports cache mounts in your Dockerfile in the following format:
 
@@ -76,7 +76,7 @@ Replace `<service id>` with the id of the service.
     Environment variables can't be used in cache mount IDs, since that is invalid syntax.
 </Banner>
 
-### Target Path
+### Target path
 
 Unsure of what your target path should be? Refer to the <a href="https://github.com/railwayapp/nixpacks/tree/main" target="_blank">Nixpacks source code</a>. Within the providers directory, find the file that aligns with your respective language or runtime, and check for the variable that indicates the CACHE_DIR.
 
@@ -90,7 +90,7 @@ So the mount command is specified like this:
 --mount=type=cache,id=s/<service id>-/root/cache/pip,target=/root/.cache/pip
 ```
 
-## Docker Compose
+## Docker compose
 
 You can import services straight from your Docker Compose file! Just drag and drop your Compose file onto your [project canvas](/overview/the-basics#project--project-canvas), and your services (and any mounted volumes) will be auto-imported as staged changes. It's like magic, but with YAML instead of wands. 🪄
 

@@ -9,7 +9,7 @@ Volumes are a feature that enables persistent data for [services](/services) on 
 
 When mounting a volume to a service, a volume is made available to the service on the specified mount path.
 
-## Size Limits
+## Size limits
 
 Volumes have a default size based on the [subscription plan](/reference/pricing#plans).
 
@@ -23,7 +23,7 @@ Pro users and above can self-serve to increase their volume up to 250 GB.
 
 For Pro and above users, please reach out to us on our [Central Station](https://station.railway.com/questions) if you need more than 250GB. Enterprise users with $2,000/month committed spend can also use [Slack](/reference/support#slack).
 
-## Volume Limits per Project
+## Volume limits per project
 
 Each project has a maximum number of volumes that can be created, based on your subscription plan:
 
@@ -38,7 +38,7 @@ Volumes created for the same service in another environment do not count towards
 
 Pro users with substantial usage requirements may be eligible for increased volume limits. Please reach out to us on our [Central Station](https://station.railway.com/questions) to discuss your project's needs.
 
-## I/O Specifications
+## I/O specifications
 
 Volumes have the following I/O characteristics:
 

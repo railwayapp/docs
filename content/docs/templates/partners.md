@@ -12,7 +12,7 @@ With Railway's [Partner Program](https://railway.com/partners), partners can:
 - Receive anonymous telemetry of how their technology is used on Railway
 - Participate in co-marketing to Railway's large community
 
-## Basic Partners
+## Basic partners
 
 Basic Partners are part of Railway's official [partner program](https://railway.com/partners) and receive the same kickback rate as creators. They verify templates to suggest optimal use of their technology on the template marketplace. Verified partner templates receive significant benefits:
 
@@ -22,19 +22,19 @@ Basic Partners are part of Railway's official [partner program](https://railway.
 
 See all [verified templates here](https://railway.com/deploy?category=verified).
 
-## Technology Partners
+## Technology partners
 
 Technology Partners receive all the benefits Basic Partners do, with a few additional benefits: 
 - Commission on all templates using their technology on Railway (even if they didn't create them)
 - A dedicated page for their technology on Railway, [like so](https://railway.com/deploy/cms/directus)
 - More extensive co-marketing with Railway for additional visibility
 
-### Technology Partner Commission
+### Technology partner commission
 
 Technology partners get commission on all templates using their technology on Railway, even if they did not create them. This commission is in addition to the kickback the community template creator receives. 
 
 Technology Partners receive the same kickback rates as template creators: 15% base, and if template questions are answered, up to 25% commission. This is for their effort in maintaining their technology. They are listed as a "maintainer" on the templates they receive commission on.
 
-## Become a Partner
+## Become a partner
 
 Interested in becoming a Railway partner? Visit the [Partner Program page](https://railway.com/partners) to learn more and apply.

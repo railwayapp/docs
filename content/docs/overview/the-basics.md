@@ -5,7 +5,7 @@ description: Learn about the core concepts of Railway.
 
 This document outlines the core concepts of Railway, providing foundational knowledge of the basic building blocks you'll work with in the platform.
 
-## In a Nutshell
+## In a nutshell
 
 - **[Dashboard](#dashboard--projects)** - Main entrypoint for all projects under your account.
 - **[Project](#project--project-canvas)** - A collection of services under the same network.
@@ -20,7 +20,7 @@ This document outlines the core concepts of Railway, providing foundational know
   - **[Volume Metrics](#volume-metrics)** - Rundown of metrics for volumes (e.g. disk usage over time).
   - **[Volume Settings](#volume-settings)** - Contains all volume-level settings.
 
-## Dashboard / Projects
+## Dashboard / projects
 
 Your main entrypoint to Railway where all your [projects](/overview/the-basics#project--project-canvas) are shown in the order they were last opened.
 
@@ -31,7 +31,7 @@ alt="Screenshot of the Railway dashboard"
 layout="responsive"
 width={1305} height={735} quality={100} />
 
-## Project / Project Canvas
+## Project / project canvas
 
 A project represents a capsule for composing infrastructure in Railway. You can think of a project as an application stack, a service group, or even a collection of service groups.
 
@@ -42,7 +42,7 @@ alt="Screenshot of the project canvas"
 layout="responsive"
 width={1365} height={765} quality={100} />
 
-### Project Settings
+### Project settings
 
 This page contains all the project level settings.
 
@@ -72,7 +72,7 @@ width={1365} height={765} quality={100} />
 
 Out of the box, your service is deployed with a set of default configurations which can be overridden as needed.
 
-### Service Variables
+### Service variables
 
 Service [Variables](/variables) provide a powerful way to manage configuration and secrets across services in Railway.
 
@@ -108,7 +108,7 @@ From here you can perform the following actions -
 
 - Modify the backup schedule - Click the `Edit schedule` button on the header to make changes to the schedule.
 
-### Service Metrics
+### Service metrics
 
 Service [Metrics](/observability/metrics) provide an essential overview of CPU, memory, and network usage for a given service.
 
@@ -117,7 +117,7 @@ alt="Screenshot of the service metrics tab"
 layout="responsive"
 width={1365} height={770} quality={100} />
 
-### Service Settings
+### Service settings
 
 This tab contains all the service level settings.
 
@@ -154,7 +154,7 @@ alt="Screenshot of the project canvas with a volume highlighted"
 layout="responsive"
 width={1365} height={765} quality={100} />
 
-### Volume Metrics
+### Volume metrics
 
 Volume Metrics show the amount of data stored in the volume and its maximum capacity.
 
@@ -163,7 +163,7 @@ alt="Screenshot of the volume metrics tab"
 layout="responsive"
 width={1365} height={826} quality={100} />
 
-### Volume Settings
+### Volume settings
 
 This tab contains all the volume centric settings.
 
@@ -180,7 +180,7 @@ Some of the most commonly used volume settings are -
 
 - Wipe Volume - This action wipes all data in the volume and then redeploys the connected service.
 
-## What Next?
+## What next?
 
 If you've read enough for now and are ready to get started, we suggest checking out either of these two resources next -
 

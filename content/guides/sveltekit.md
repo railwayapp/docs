@@ -24,7 +24,7 @@ This guide covers how to deploy a SvelteKit app to Railway in four ways:
 
 Now, let's create a SvelteKit app!
 
-## Create a SvelteKit App
+## Create a SvelteKit app
 
 **Note:** If you already have a SvelteKit app locally or on GitHub, you can skip this step and go straight to the [Deploy SvelteKit App to Railway](#deploy-sveltekit-app-to-railway).
 
@@ -46,7 +46,7 @@ Follow the prompts:
 
 A new SvelteKit app will be provisioned for you in the `svelteapp` directory.
 
-### Run the SvelteKit App locally
+### Run the SvelteKit app locally
 
 Next, `cd` into the directory and start the Vite development server by running the following command:
 
@@ -56,7 +56,7 @@ npm run dev
 
 Open your browser and go to `http://localhost:5173` to see the app. You can play the demo game by visiting the `/sverdle` route.
 
-### Prepare SvelteKit App for deployment
+### Prepare SvelteKit app for deployment
 
 First, we need to enable SvelteKit Node adapter.
 
@@ -144,11 +144,11 @@ _package.json_
 
 Now, we are ready to deploy!
 
-## Deploy the SvelteKit App to Railway
+## Deploy the SvelteKit app to Railway
 
 Railway offers multiple ways to deploy your SvelteKit app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -187,7 +187,7 @@ alt="screenshot of the deployed SvelteKit service"
 layout="responsive"
 width={2695} height={2199} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a SvelteKit app to Railway directly from GitHub, follow the steps below:
 
@@ -242,7 +242,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your SvelteKit apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

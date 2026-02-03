@@ -18,7 +18,7 @@ tags:
 
 In this guide, you'll learn how to deploy Phoenix apps with [Distillery](https://hexdocs.pm/distillery/home.html) to Railway.
 
-## Create a Phoenix App with Distillery
+## Create a Phoenix app with Distillery
 
 **Note:** If you already have a Phoenix app locally or on GitHub, you can skip this step and go straight to the [Deploy Phoenix App with Distillery to Railway](#deploy-phoenix-app-on-railway).
 
@@ -42,7 +42,7 @@ This command will create a new Phoenix app named `helloworld_distillery` with so
 - [Phoenix live view](https://hexdocs.pm/phoenix_live_view) for building realtime & interactive web apps.
 - [Phoenix HTML and Tailwind CSS](https://hexdocs.pm/phoenix_html/Phoenix.HTML.html) for HTML apps.
 
-### Configure Database
+### Configure database
 
 Next, navigate into the `helloworld` directory using the `cd` command.
 
@@ -60,7 +60,7 @@ mix ecto.create
 
 A database will be created for our app.
 
-### Add and Configure Distillery
+### Add and configure Distillery
 
 1. Open up the `mix.exs` file and add Distillery to the deps function:
 
@@ -143,7 +143,7 @@ defmodule HelloworldDistillery.Repo do
 end
 ```
 
-### Build the Release with Distillery
+### Build the release with Distillery
 
 To build the release, run the following command:
 
@@ -151,7 +151,7 @@ To build the release, run the following command:
 npm run deploy --prefix assets && MIX_ENV=prod mix do phx.digest, distillery.release --env=prod
 ```
 
-#### Handling Errors
+#### Handling errors
 
 If you encounter the following error after running the command:
 
@@ -186,7 +186,7 @@ Failed to archive release: _build/prod/rel/helloworld_distillery/releases/RELEAS
 
 You’ll need to create the `RELEASES` directory manually. Once created, run the command again.
 
-#### Successful Build
+#### Successful build
 
 Upon a successful build, you should see output similar to the following:
 
@@ -218,7 +218,7 @@ For a complete listing of commands and their use:
     > _build/prod/rel/helloworld_distillery/bin/helloworld_distillery help
 ```
 
-### Test the Release with Distillery locally
+### Test the release with Distillery locally
 
 Now, let's test our release locally. First, create your database by running the following command:
 
@@ -243,7 +243,7 @@ Once your app is running, open your browser and visit `http://localhost:4000` to
 
 With your app up and running locally, let's move on to deploying the release to Railway!
 
-### Prepare App for Deployment
+### Prepare app for deployment
 
 Create a `nixpacks.toml` file in the root of your app directory and add the following content:
 
@@ -275,7 +275,7 @@ cmd = "mix ecto.setup && _build/prod/rel/helloworld_distillery/bin/helloworld_di
 
 This [`nixpacks.toml` file](/reference/config-as-code#nixpacks-config-path) instructs Railway to execute specific commands during the setup, install, build, and start phases of the deployment. It ensures your app is compiled, assets are digested, and the release is created correctly using Distillery.
 
-## Deploy Phoenix App to Railway
+## Deploy Phoenix app to Railway
 
 Railway offers multiple ways to deploy your Phoenix app, depending on your setup and preference. Choose any of the following methods:
 
@@ -283,7 +283,7 @@ Railway offers multiple ways to deploy your Phoenix app, depending on your setup
 2. [Using the CLI](#deploy-from-the-cli).
 3. [From a GitHub repository](#deploy-from-a-github-repo).
 
-## One-Click Deploy from a Template
+## One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Phoenix app with Distillery along with a Postgres database.
 
@@ -340,7 +340,7 @@ alt="screenshot of the deployed Phoenix with Distillery service"
 layout="responsive"
 width={2667} height={2177} quality={100} />
 
-## Deploy from a GitHub Repo
+## Deploy from a GitHub repo
 
 To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
@@ -371,7 +371,7 @@ To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Phoenix apps with Distillery effortlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

@@ -21,7 +21,7 @@ railway deployment <COMMAND> [OPTIONS]
 
 ## Examples
 
-### List Deployments
+### List deployments
 
 ```bash
 railway deployment list
@@ -35,19 +35,19 @@ Recent Deployments
   ...
 ```
 
-### List More Deployments
+### List more deployments
 
 ```bash
 railway deployment list --limit 50
 ```
 
-### List Deployments for Specific Service
+### List deployments for specific service
 
 ```bash
 railway deployment list --service backend
 ```
 
-### List Deployments in JSON Format
+### List deployments in JSON format
 
 ```bash
 railway deployment list --json
@@ -60,7 +60,7 @@ Useful for scripting:
 railway deployment list --json --limit 1 | jq -r '.[0].id'
 ```
 
-### Use Deployment ID with Logs
+### Use deployment ID with logs
 
 ```bash
 # Get deployment ID from list
@@ -79,7 +79,7 @@ railway logs 7422c95b-c604-46bc-9de4-b7a43e1fd53d
 | `--limit <N>` | Maximum number of deployments to show (default: 20, max: 1000) |
 | `--json` | Output in JSON format |
 
-## Deployment Statuses
+## Deployment statuses
 
 | Status | Description |
 |--------|-------------|

@@ -17,7 +17,7 @@ tags:
 
 It’s free, open-source, and comes with a range of features to streamline tasks like authentication, routing, and database management, so developers can focus on building their applications without handling everything from scratch.
 
-## Create a Django App
+## Create a Django app
 
 **Note:** If you already have a Django app locally or on GitHub, you can skip this step and go straight to the [Deploy Django App on Railway](#deploy-django-app-on-railway).
 
@@ -61,7 +61,7 @@ Open your browser and go to `http://127.0.0.1:8000` to see the project. You'll s
 
 Now that your app is running locally, let’s move on to make some changes and install some dependencies before deployment.
 
-## Configure Database, Static Files & Dependencies
+## Configure database, static files & dependencies
 
 1. Install the following packages within the `liftoff` directory, where you can see the `manage.py` file.
 
@@ -174,7 +174,7 @@ pip freeze > requirements.txt
 
 With these changes, your Django app is now ready to be deployed to Railway!
 
-## Deploy Django App on Railway
+## Deploy Django app on Railway
 
 Railway offers multiple ways to deploy your Django app, depending on your setup and preference. Choose any of the following methods:
 
@@ -182,7 +182,7 @@ Railway offers multiple ways to deploy your Django app, depending on your setup 
 2. [Using the CLI](#deploy-from-the-cli).
 3. [From a GitHub repository](#deploy-from-a-github-repo).
 
-## One-Click Deploy From a Template
+## One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Django app along with a Postgres database.
 
@@ -192,7 +192,7 @@ Click the button below to begin:
 
 After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
-## Deploy From the CLI
+## Deploy from the CLI
 
 To deploy the Django app using the Railway CLI, please follow the steps:
 
@@ -240,7 +240,7 @@ alt="screenshot of the deployed Django project"
 layout="responsive"
 width={2783} height={2135} quality={100} />
 
-## Deploy From a GitHub Repo
+## Deploy from a GitHub repo
 
 To deploy the Django app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
@@ -282,7 +282,7 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 **Note:** The next step shows how to configure and run your Django app along with Celery and Celery beat.
 
-## Set Up Database, Migrations, Celery Beat and Celery
+## Set up database, migrations, celery beat and celery
 
 This setup deploys your Django app on Railway, ensuring that your database, scheduled tasks (crons)--Celery Beat, and queue workers (Celery) are all fully operational.
 
@@ -363,7 +363,7 @@ width={2752} height={2094} quality={100} />
 
 **Note:** There is a [community template](https://railway.com/template/yZDfUu) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

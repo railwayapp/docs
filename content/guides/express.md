@@ -24,7 +24,7 @@ This guide covers how to deploy an Express app to Railway in four ways:
 
 Now, let's create an Express app!
 
-## Create an Express App
+## Create an Express app
 
 **Note:** If you already have an Express app locally or on GitHub, you can skip this step and go straight to the [Deploy Express App to Railway](#deploy-the-express-app-to-railway).
 
@@ -40,7 +40,7 @@ npx express-generator --view=pug
 
 A new Express app will be provisioned for you in the `helloworld` directory using [pug](https://pugjs.org/api/getting-started.html) as the view engine.
 
-### Run the Express App locally
+### Run the Express app locally
 
 Run `npm install` to install all the dependencies.
 
@@ -56,7 +56,7 @@ If you'd prefer to run the app on a different port, simply use the command `PORT
 
 Afterward, you can access the app at `http://localhost:8080`.
 
-### Add and Configure Database
+### Add and configure database
 
 **Note:** We will be using Postgres for this app. If you don’t have it installed locally, you can either [install it](https://www.postgresql.org/download) or use a different Node.js database package of your choice.
 
@@ -118,7 +118,7 @@ block content
 
 5. Run the app again to see your changes in action!
 
-### Prepare Express App for Deployment
+### Prepare Express app for deployment
 
 In the `routes/index.js` file, replace the hardcoded Postgres database URL with an environment variable:
 
@@ -130,11 +130,11 @@ const db = pgp(process.env.DATABASE_URL);
 
 This allows the app to dynamically pull the correct database configuration from Railway during deployment.
 
-## Deploy the Express App to Railway
+## Deploy the Express app to Railway
 
 Railway offers multiple ways to deploy your Express app, depending on your setup and preference.
 
-### One-Click Deploy From a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started with Express, Pug and connected to a Postgres database, the one-click deploy option is ideal.
 
@@ -150,7 +150,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=express" target="_blank">variety of Express app templates</a> created by the community.
 
-### Deploy From the CLI
+### Deploy from the CLI
 
 1. **Install the Railway CLI**:
    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
@@ -188,7 +188,7 @@ alt="screenshot of the deployed Express service"
 layout="responsive"
 width={2194} height={1652} quality={100} />
 
-### Deploy From a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy an Express app to Railway directly from GitHub, follow the steps below:
 
@@ -246,7 +246,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Express apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

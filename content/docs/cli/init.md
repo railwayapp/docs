@@ -25,7 +25,7 @@ railway init [OPTIONS]
 
 ## Examples
 
-### Interactive Project Creation
+### Interactive project creation
 
 ```bash
 railway init
@@ -33,19 +33,19 @@ railway init
 
 Prompts you to select a workspace and enter a project name.
 
-### Create with Specific Name
+### Create with specific name
 
 ```bash
 railway init --name my-api
 ```
 
-### Create in Specific Workspace
+### Create in specific workspace
 
 ```bash
 railway init --name my-api --workspace "My Team"
 ```
 
-### Non-Interactive (CI/CD)
+### Non-interactive (CI/CD)
 
 ```bash
 railway init --name my-api --workspace my-team-id --json

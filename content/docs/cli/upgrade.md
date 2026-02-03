@@ -27,7 +27,7 @@ railway upgrade
 
 Automatically detects your install method and runs the appropriate upgrade command.
 
-### Check Install Method
+### Check install method
 
 ```bash
 railway upgrade --check
@@ -40,7 +40,7 @@ Binary path: /opt/homebrew/bin/railway
 Upgrade command: brew upgrade railway
 ```
 
-## Supported Install Methods
+## Supported install methods
 
 | Method | Upgrade Command |
 |--------|----------------|
@@ -51,7 +51,7 @@ Upgrade command: brew upgrade railway
 | Scoop | `scoop update railway` |
 | Shell | `bash <(curl -fsSL cli.new)` |
 
-## Manual Upgrade
+## Manual upgrade
 
 If automatic detection fails, you can manually run the upgrade command for your install method.
 

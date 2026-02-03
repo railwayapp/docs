@@ -49,13 +49,13 @@ Common reasons for high resource usage include:
 
 Unfortunately, we are unable to assist with figuring out why your bill is higher than normal, as it is entirely dependent on what you have deployed. Resource usage is billed in a manner akin to how a utility company operates: they can tell you the amount of electricity you've consumed, but they can't explain the reasons for your high usage. Similarly, we can only provide information on the quantity of resources you consume, not the reasons behind it.
 
-### Why am I charged for more than $5 on the Hobby plan?
+### Why am I charged for more than $5 on the hobby plan?
 
 Railway's pricing has two components: a monthly subscription fee, and resource usage costs. While the Hobby plan includes $5 of resource usage per month, you are charged for any usage that exceeds this amount.
 
 Learn more [here](/reference/pricing/plans#included-usage).
 
-### Why is there an "Applied balance" on my invoice?
+### Why is there an "applied balance" on my invoice?
 
 When the amount due on your invoice is less than $0.50, and you do not have a credit balance, Railway marks the invoice as paid and registers the amount to your credit balance as a debit to be charged on a future invoice.
 
@@ -79,7 +79,7 @@ To add or update your Billing information, go to the [Billing](https://railway.c
 
 When Billing Information is added or updated, it will be reflected on all future invoices from Railway. 
 
-### How is Sales Tax/VAT handled?
+### How is sales Tax/VAT handled?
 
 Railway may collect applicable sales tax and VAT on your account based on your billing location and local tax requirements, where and when applicable. When assessed and collected, Sales Tax/VAT is explicitly outlined on your invoice.
 

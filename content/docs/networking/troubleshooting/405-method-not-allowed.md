@@ -3,7 +3,7 @@ title: 405 Method Not Allowed
 description: Learn how to troubleshoot and fix the '405 Method Not Allowed' error.
 ---
 
-## What This Error Means
+## What this error means
 
 This error is returned by your application when you attempt to make a POST request to your application, but the request is redirected to a GET request.
 
@@ -11,7 +11,7 @@ Depending on the application, this may result in your application returning eith
 
 Seemingly POST requests are being turned into GET requests.
 
-## Why This Error Can Occur
+## Why this error can occur
 
 This occurs because your request was made using HTTP. Railway will attempt to redirect your insecure request with a 301 Moved Permanently status code.
 

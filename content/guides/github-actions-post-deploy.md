@@ -16,7 +16,7 @@ tags:
 
 At Railway, we've set up Github triggers for automatic deployments when you push to a selected branch, and with Github Actions, you can automate several parts of your development workflow. Recently, within our [Discord](https://discord.gg/railway) and [Slack](/reference/support#slack), we've had a couple of users ask us how they'd go about running commands or webhooks after their app is deployed so we thought it'd be a good idea to publish a short tutorial doing just that, with Github Actions.
 
-## The Action
+## The action
 
 Since Railway makes the deployment status available to Github, we'll be using the `deployment_status` event to trigger our action. This event is triggered when a deployment status changes, and we'll be using the `success` state to trigger our action.
 

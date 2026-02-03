@@ -7,11 +7,11 @@ Railway uses [Railpack](/builds/railpack) to automatically detect and configure 
 
 If necessary, build and start commands can be manually configured.
 
-## How it Works
+## How it works
 
 Overrides are exposed in the service configuration to enable customizing the Build and Start commands. When an override is configured, Railway uses the commands specified to build and start the service.
 
-#### Build Command
+#### Build command
 
 The command to build the service, for example `yarn run build`. Override the detected build command by setting a value in your service settings.
 
@@ -21,7 +21,7 @@ alt="Screenshot of Railway Build Command"
 layout="responsive"
 width={1200} height={373} quality={80} />
 
-#### Start Command
+#### Start command
 
 Railway automatically configures the start command based on the code being deployed.
 

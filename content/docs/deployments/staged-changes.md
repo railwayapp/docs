@@ -7,7 +7,7 @@ Changes made in your Railway project, like adding, removing, or making changes t
 
 It is important to be familiar with this flow as you explore the upcoming guides.
 
-### What to Expect
+### What to expect
 
 As you create or update components within your project:
 
@@ -19,7 +19,7 @@ As you create or update components within your project:
             layout="responsive"
             width={1400} height={720} quality={100} />
 
-### Review and Deploy Changes
+### Review and deploy changes
 
 To review the staged changes, click the "Details" button in the banner. Here, you will see a diff of old and new values. You can discard a change by clicking the "x" to the right of the change.
 

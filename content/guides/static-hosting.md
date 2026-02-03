@@ -20,7 +20,7 @@ Railway is a modern deployment platform that lets you deploy static websites and
 
 Learn more about Railway's [core components and foundations](/guides/foundations).
 
-## Why Choose Railway for Static Hosting?
+## Why choose Railway for static hosting?
 
 Railway offers several advantages for static site hosting:
 
@@ -145,7 +145,7 @@ While Railway doesn't currently provide a built-in CDN, you can easily integrate
    - Test your domain to ensure it's working correctly
    - Monitor performance improvements in Cloudflare's dashboard
 
-## Add API Endpoints with Railway Functions
+## Add API endpoints with Railway functions
 
 For static sites that need lightweight API endpoints, [Railway Functions](/functions) enable you to write and deploy code from the Railway canvas without managing infrastructure or creating a git repository.
 
@@ -176,7 +176,7 @@ For most static sites, the Hobby plan with included usage is sufficient. You onl
 
 Learn more about [Railway pricing](https://railway.com/pricing) and [usage optimization](/guides/optimize-usage).
 
-## Next Steps
+## Next steps
 
 Now that you've deployed your static site, explore these resources:
 
@@ -187,6 +187,6 @@ Now that you've deployed your static site, explore these resources:
 - [Use Railway Functions](/functions) for API endpoints
 - [Optimize performance](/guides/optimize-performance) and [usage](/guides/optimize-usage)
 
-## Need Help?
+## Need help?
 
 If you have any questions or run into issues, you can reach out in the [Railway Discord](http://discord.gg/railway) community or on [Central Station](https://station.railway.com/).

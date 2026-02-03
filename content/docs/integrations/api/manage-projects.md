@@ -5,7 +5,7 @@ description: Learn how to manage projects via the public GraphQL API.
 
 Here are examples to help you manage your projects using the Public API.
 
-## List All Projects
+## List all projects
 
 Fetch all projects in your personal account:
 
@@ -23,7 +23,7 @@ Fetch all projects in your personal account:
   }
 }`} />
 
-### List Projects in a Workspace
+### List projects in a workspace
 
 Fetch all projects in a specific workspace:
 
@@ -39,7 +39,7 @@ Fetch all projects in a specific workspace:
   }
 }`} variables={{ workspaceId: "workspace-id" }} />
 
-## Get a Single Project
+## Get a single project
 
 Fetch a project by ID with its services and environments:
 
@@ -69,7 +69,7 @@ Fetch a project by ID with its services and environments:
   }
 }`} variables={{ id: "project-id" }} />
 
-## Create a Project
+## Create a project
 
 Create a new empty project:
 
@@ -88,7 +88,7 @@ optionalFields={[
   { name: "input.repo", type: "ProjectCreateRepo", description: "Connect to a GitHub repository" },
 ]} />
 
-## Update a Project
+## Update a project
 
 Update project name or description:
 
@@ -105,7 +105,7 @@ optionalFields={[
   { name: "input.prDeploys", type: "Boolean", description: "Enable PR deploy environments", apiDefault: "false" },
 ]} />
 
-## Delete a Project
+## Delete a project
 
 <Banner variant="danger">This is a destructive action and cannot be undone.</Banner>
 
@@ -113,7 +113,7 @@ optionalFields={[
   projectDelete(id: $id)
 }`} variables={{ id: "project-id" }} />
 
-## Transfer a Project to a Workspace
+## Transfer a project to a workspace
 
 Transfer a project to a different workspace:
 
@@ -121,7 +121,7 @@ Transfer a project to a different workspace:
   projectTransfer(projectId: $projectId, input: $input)
 }`} variables={{ projectId: "project-id", input: { workspaceId: "target-workspace-id" } }} />
 
-## Get Project Members
+## Get project members
 
 List all members of a project:
 

@@ -131,7 +131,7 @@ app.listen(PORT, () => {
 Create a `.env` file in your project root to store environment variables:
 
 ```bash
-# .env
+# .Env
 APP_NAME=My Express API
 NODE_ENV=development
 PORT=3000
@@ -234,7 +234,7 @@ Learn more about [deploying applications](/guides/deploy), [public networking](/
 
 Railway automatically manages your application's scaling without any configuration needed. Here's how it works:
 
-### Vertical Scaling (Automatic)
+### Vertical scaling (automatic)
 
 Railway automatically scales your service vertically by increasing CPU and memory allocation as traffic grows. This happens seamlessly up to your plan's limits
 
@@ -243,7 +243,7 @@ Check out the Railway [pricing page](https://railway.com/pricing) for more detai
 
 
 
-### Horizontal Scaling (One-Click)
+### Horizontal scaling (one-click)
 
 For high-traffic applications, you can scale horizontally by deploying multiple replicas:
 
@@ -260,7 +260,7 @@ Each replica runs with the full resource limits of your plan. So if you're on th
 Total resources = number of replicas × maximum compute allocation per replica
 ```
 
-### Multi-Region Deployment
+### Multi-region deployment
 
 Railway also supports multi-region deployments for global applications:
 
@@ -443,7 +443,7 @@ To add more microservices to your project:
 
 Each service runs in its own container with its own resources, but they can communicate with each other through Railway's [private networking](/networking/private-networking).
 
-### Shared Variables Between Services
+### Shared variables between services
 
 Railway supports shared variables across all services in a project, making it easy to share configuration like database URLs, API keys, and other common settings. Learn more about [configuration management patterns](https://12factor.net/config):
 
@@ -475,7 +475,7 @@ Railway makes Node.js deployment simple by providing:
 - **Built-in CI/CD**: Preview environments and zero-downtime deployments
 - **Usage-based pricing**: Pay only for what you use. Check out the Railway [pricing page](https://railway.com/pricing) for more details.
 
-## Next Steps
+## Next steps
 
 Now that you've deployed your Node.js applications, explore these resources:
 
@@ -488,6 +488,6 @@ Now that you've deployed your Node.js applications, explore these resources:
 - [Customize builds](/guides/builds)
 - [Manage deployments](/guides/manage-deployments)
 
-## Need Help?
+## Need help?
 
 If you have any questions or run into issues, you can reach out in the [Railway Discord](http://discord.gg/railway) community or on [Central Station](https://station.railway.com/).

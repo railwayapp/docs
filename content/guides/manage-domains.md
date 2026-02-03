@@ -5,7 +5,7 @@ description: Learn how to manage domains via the public GraphQL API.
 
 Here are examples to help you manage domains using the Public API.
 
-## List Domains for a Service
+## List domains for a service
 
 Get all domains (both Railway-provided and custom) for a service:
 
@@ -36,9 +36,9 @@ Get all domains (both Railway-provided and custom) for a service:
   }
 }`} variables={{ projectId: "project-id", environmentId: "environment-id", serviceId: "service-id" }} />
 
-## Service Domains (*.railway.app)
+## Service domains (*.railway.app)
 
-### Create a Service Domain
+### Create a service domain
 
 Generate a Railway-provided domain:
 
@@ -52,15 +52,15 @@ optionalFields={[
   { name: "input.targetPort", type: "Int", description: "Route traffic to this port" },
 ]} />
 
-### Delete a Service Domain
+### Delete a service domain
 
 <CodeTabs query={`mutation serviceDomainDelete($id: String!) {
   serviceDomainDelete(id: $id)
 }`} variables={{ id: "service-domain-id" }} />
 
-## Custom Domains
+## Custom domains
 
-### Check Domain Availability
+### Check domain availability
 
 Check if a custom domain can be added:
 
@@ -71,7 +71,7 @@ Check if a custom domain can be added:
   }
 }`} variables={{ domain: "api.example.com" }} />
 
-### Add a Custom Domain
+### Add a custom domain
 
 <CodeTabs query={`mutation customDomainCreate($input: CustomDomainCreateInput!) {
   customDomainCreate(input: $input) {
@@ -90,7 +90,7 @@ optionalFields={[
   { name: "input.targetPort", type: "Int", description: "Route traffic to this port" },
 ]} />
 
-### Get Custom Domain Status
+### Get custom domain status
 
 Check DNS configuration status:
 
@@ -110,31 +110,31 @@ Check DNS configuration status:
   }
 }`} variables={{ id: "custom-domain-id", projectId: "project-id" }} />
 
-### Update a Custom Domain
+### Update a custom domain
 
 <CodeTabs query={`mutation customDomainUpdate($id: String!, $environmentId: String!, $targetPort: Int) {
   customDomainUpdate(id: $id, environmentId: $environmentId, targetPort: $targetPort)
 }`} variables={{ id: "custom-domain-id", environmentId: "environment-id", targetPort: 8080 }} />
 
-### Delete a Custom Domain
+### Delete a custom domain
 
 <CodeTabs query={`mutation customDomainDelete($id: String!) {
   customDomainDelete(id: $id)
 }`} variables={{ id: "custom-domain-id" }} />
 
-## DNS Configuration
+## DNS configuration
 
 After adding a custom domain, you need to configure DNS records. The required records are returned in the `status.dnsRecords` field.
 
-### For Root Domains (example.com)
+### For root domains (example.com)
 
 Add an A record or ALIAS record pointing to the Railway IP.
 
-### For Subdomains (api.example.com)
+### For subdomains (api.example.com)
 
 Add a CNAME record pointing to your Railway service domain.
 
-### DNS Record Statuses
+### DNS record statuses
 
 | Status | Description |
 |--------|-------------|
@@ -142,7 +142,7 @@ Add a CNAME record pointing to your Railway service domain.
 | `VALID` | DNS record is correctly configured |
 | `INVALID` | DNS record is configured incorrectly |
 
-### Certificate Statuses
+### Certificate statuses
 
 | Status | Description |
 |--------|-------------|

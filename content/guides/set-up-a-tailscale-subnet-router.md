@@ -12,7 +12,7 @@ tags:
   - vpn
 ---
 
-## What is a Subnet router?
+## What is a subnet router?
 
 > A subnet router is a device within your tailnet that you use as a gateway that advertises routes for other devices that you want to connect to your tailnet without installing the Tailscale client.
 
@@ -20,7 +20,7 @@ _Source: <a href="https://tailscale.com/kb/1019/subnets" target="_blank">Subnet 
 
 In the context of Railway, The "other devices" are the services within a project.
 
-## About this Tutorial
+## About this tutorial
 
 This tutorial will help you connect to your database via the private network without you having to use public endpoints.
 
@@ -62,7 +62,7 @@ This guide assumes you are familiar with the concepts of Private Network, for a 
 
   You can find the downloads for your OS <a href="https://tailscale.com/download" target="_blank">here</a>.
 
-## 1. Getting an Auth Key
+## 1. Getting an auth key
 
 The Auth key will authenticate the Tailscale machine that we'll deploy into our Railway project in a later step.
 
@@ -88,7 +88,7 @@ width={602} height={855} quality={100} />
 
 - Click **Done**.
 
-## 2. Configure Split DNS
+## 2. Configure split DNS
 
 Properly configuring our nameserver in Tailscale is essential for enabling local DNS lookups for our private domains.
 
@@ -120,7 +120,7 @@ width={602} height={572} quality={100} />
 
 - Click **Save**.
 
-## 3. Deploy the Tailscale Subnet Router
+## 3. Deploy the Tailscale subnet router
 
 This will be the gateway into our environment's private network.
 
@@ -155,7 +155,7 @@ width={1363} height={817} quality={100} />
 
 This template will start to deploy and once deployed it will register itself as a machine in your tailnet with the name automatically derived from the project's name and environment name.
 
-## 4. Approve the Subnet
+## 4. Approve the subnet
 
 Our subnet router will advertise the private network's CIDR range but we will need to manually approve it.
 
@@ -196,7 +196,7 @@ width={602} height={526} quality={100} />
 
 **That is it for all the configurations needed, you can now call any service via its private domain and port just as if you were another service within the private network!**
 
-## 5. Connecting To a Service On the Private Network (Bonus)
+## 5. Connecting to a service on the private network (bonus)
 
 During this tutorial we have used Postgres as an example service, so let's finally connect to it via its private domain and port!
 

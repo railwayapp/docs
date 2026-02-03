@@ -5,7 +5,7 @@ description: Configure libraries and frameworks for Railway's private networking
 
 Some libraries and components require explicit configuration for dual-stack (IPv4/IPv6) networking or to work properly in [legacy IPv6-only environments](/networking/private-networking#legacy-environments).
 
-## Node.js Libraries
+## Node.js libraries
 
 ### ioredis
 
@@ -51,7 +51,7 @@ console.log(jobs);
 
 <a href="https://docs.bullmq.io/" target="_blank">bullmq docs</a>
 
-### hot-shots
+### Hot-shots
 
 `hot-shots` is a StatsD client for node.js, which can be used to ship metrics to a DataDog agent for example. When initializing a StatsD client using `hot-shots`, you must specify that it should connect over IPv6:
 
@@ -73,7 +73,7 @@ const statsdClient = new StatsD({
 
 <a href="https://www.npmjs.com/package/hot-shots" target="_blank">hot-shots docs</a>
 
-## Go Libraries
+## Go libraries
 
 ### Fiber
 
@@ -89,7 +89,7 @@ app := fiber.New(fiber.Config{
 
 <a href="https://docs.gofiber.io/api/fiber#:~:text=json.Marshal-,Network,-string" target="_blank">Fiber docs</a>
 
-## Docker Images
+## Docker images
 
 ### MongoDB
 
@@ -101,6 +101,6 @@ docker-entrypoint.sh mongod --ipv6 --bind_ip ::,0.0.0.0
 
 **Note:** The official MongoDB template provided by Railway is already deployed with this Start Command.
 
-## Adding More Libraries
+## Adding more libraries
 
 If you encounter a library that requires specific configuration for Railway's private networking, please let us know on our <a href="https://discord.gg/railway" target="_blank">Discord</a> or submit a PR to our documentation.

@@ -5,7 +5,7 @@ description: Learn how Railway's pricing works - usage-based pricing with plans 
 
 Railway uses a transparent pricing model: you pay a base subscription fee plus the resources you actually consume. No hidden fees, no surprise bills.
 
-## How It Works
+## How it works
 
 Railway's pricing has two components:
 
@@ -16,7 +16,7 @@ Railway's pricing has two components:
 
 Your subscription fee goes toward your resource usage - if you're on the Hobby plan at $5/month and use $3 in resources, you just pay the $5 subscription. If you use $8 in resources, you pay $8 total.
 
-## Plans at a Glance
+## Plans at a glance
 
 | Plan | Price | Best For |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ Your subscription fee goes toward your resource usage - if you're on the Hobby p
 
 All paid plans include generous resource allowances, with the subscription fee counting toward your usage.
 
-## Resource Pricing
+## Resource pricing
 
 | Resource | Price |
 | --- | --- |
@@ -38,7 +38,7 @@ All paid plans include generous resource allowances, with the subscription fee c
 
 You're billed by the minute for compute resources, so you only pay for what you use.
 
-## Learn More
+## Learn more
 
 - [Plans](/pricing/plans) - Detailed breakdown of each plan's features and limits
 - [Free Trial](/pricing/free-trial) - Get started with $5 in free credits

@@ -21,25 +21,25 @@ railway redeploy [OPTIONS]
 
 ## Examples
 
-### Redeploy Current Service
+### Redeploy current service
 
 ```bash
 railway redeploy
 ```
 
-### Redeploy Specific Service
+### Redeploy specific service
 
 ```bash
 railway redeploy --service backend
 ```
 
-### Skip Confirmation
+### Skip confirmation
 
 ```bash
 railway redeploy --yes
 ```
 
-## Use Cases
+## Use cases
 
 Redeploying is useful for:
 - Applying environment variable changes

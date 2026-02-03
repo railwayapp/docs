@@ -34,7 +34,7 @@ For services still using Nixpacks, it can be configured with [environment variab
 
 You can find a complete list of languages we support out of the box [here](/reference/nixpacks#supported-languages).
 
-## Customize the Build Command
+## Customize the build command
 
 You can override the detected build command by setting a value in your service
 settings. This is run after languages and packages have been installed.
@@ -45,7 +45,7 @@ alt="Screenshot of Railway Build Command"
 layout="responsive"
 width={1200} height={373} quality={80} />
 
-## Set the Root Directory
+## Set the root directory
 
 The root directory defaults to `/` but can be changed for various use-cases like
 [monorepo](/guides/monorepo) projects.
@@ -61,7 +61,7 @@ commands will operate within the defined root directory.
 
 **Note:** The **Railway Config File** does not follow the **Root Directory** path. You have to specify the absolute path for the `railway.json` or `railway.toml` file, for example: `/backend/railway.toml`
 
-## Configure Watch Paths
+## Configure watch paths
 
 Watch paths are <a href="https://git-scm.com/docs/gitignore#_pattern_format" target="_blank">gitignore-style</a> patterns
 that can be used to trigger a new deployment based on what file paths have
@@ -95,14 +95,14 @@ Here are a few examples of common use-cases:
 ```
 
 ```gitignore
-# Ignore all Markdown files
+# Ignore all markdown files
 **
 !/*.md
 ```
 
 _Note, negations will only work if you include files in a preceding rule._
 
-## Install Specific Packages using Railpack
+## Install specific packages using Railpack
 
 | Environment variable            | Description                                                    |
 |---------------------------------|----------------------------------------------------------------|
@@ -120,12 +120,12 @@ recommended and specifing the start command directly in your service settings is
 preferred.
 
 
-## Specify a Custom Install Command
+## Specify a custom install command
 
 You can override the install command by setting the `RAILPACK_INSTALL_COMMAND`
 environment variable in your service settings.
 
-## Disable Build Layer Caching
+## Disable build layer caching
 
 By default, Railway will cache build layers to provide faster build times. If
 you have a need to disable this behavior, set the following environment variable
@@ -135,7 +135,7 @@ in your service:
 NO_CACHE=1
 ```
 
-## Why Isn't My Build Using Cache?
+## Why isn't my build using cache?
 
 Since Railway's build system scales up and down in response to demand, cache hit
 on builds is not guaranteed.

@@ -9,7 +9,7 @@ Environment RBAC is available on [Railway Enterprise](https://railway.com/enterp
 
 Environment RBAC (Role-Based Access Control) allows you to restrict access to sensitive environments like production. This ensures that only authorized team members can view or modify critical infrastructure.
 
-## How it Works
+## How it works
 
 When an environment is marked as restricted:
 
@@ -19,7 +19,7 @@ When an environment is marked as restricted:
 
 This separation allows development teams to deploy code while keeping production secrets and configurations secure.
 
-## Enabling Environment RBAC
+## Enabling environment RBAC
 
 [Contact us](https://railway.com/enterprise) to enable Environment RBAC for your enterprise workspace.
 
@@ -38,7 +38,7 @@ Once enabled for your workspace:
   quality={80}
 />
 
-## Role Permissions
+## Role permissions
 
 | Role | Can access restricted environments | Can toggle restriction |
 | :--- | :---: | :---: |
@@ -66,21 +66,21 @@ Deployers have the same restrictions as Members for restricted environments. The
 - Trigger deployments via git push
 - Cannot view variables, logs, or configurations in restricted environments
 
-## Use Cases
+## Use cases
 
-### Protecting Production Secrets
+### Protecting production secrets
 
 Keep production API keys, database credentials, and third-party service tokens hidden from developers who don't need access.
 
-### Compliance Requirements
+### Compliance requirements
 
 Meet security compliance requirements (SOC 2, HIPAA, etc.) by limiting access to production data and configurations.
 
-### Separation of Duties
+### Separation of duties
 
 Allow developers to deploy code without having access to view or modify production infrastructure settings.
 
-## Best Practices
+## Best practices
 
 1. **Restrict production by default** - Mark your production environment as restricted immediately after enabling the feature
 2. **Limit admin count** - Only grant admin access to team members who need to manage production configurations

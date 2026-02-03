@@ -3,7 +3,7 @@ title: Nixpacks Was Unable to Generate a Build Plan for This App
 description: Learn how to troubleshoot and fix the 'Nixpacks was unable to generate a build plan for this app' error.
 ---
 
-## What This Error Means
+## What this error means
 
 Railway uses [Nixpacks](https://nixpacks.com/docs/how-it-works) to analyze your application's files to generate a container image for your application.
 
@@ -11,7 +11,7 @@ Seeing the `Nixpacks was unable to generate a build plan for this app` error mea
 
 A build plan is a set of predefined instructions that Nixpacks uses to build and run your application on the Railway platform.
 
-## Why This Error Can Occur
+## Why this error can occur
 
 This error can occur for a variety of reasons, here are some common ones and what the failed build logs could look like for each scenario -
 
@@ -48,19 +48,19 @@ This error can occur for a variety of reasons, here are some common ones and wha
 
   This is [Nim](https://nim-lang.org/), but unfortunately, Nixpacks doesn't have a build plan for Nim.
 
-## Possible Solutions
+## Possible solutions
 
 ### Try Railpack
 
 If you're encountering issues with Nixpacks, consider switching to [Railpack](/builds/railpack), Railway's default builder. Railpack provides better language support, smaller image sizes, and improved build performance. You can enable it in your service settings or by setting `"builder": "RAILPACK"` in your [railway.json file](/config-as-code).
 
-### Monorepo Without Root Directory
+### Monorepo without root directory
 
 If you are attempting to deploy a monorepo, you will need to set a [root directory](https://docs.railway.com/guides/build-configuration#set-the-root-directory) in your [service settings](https://docs.railway.com/overview/the-basics#service-settings) under the source repository section.
 
 For a comprehensive guide on how to deploy a monorepo, please refer to our [Deploying a Monorepo](https://docs.railway.com/tutorials/deploying-a-monorepo) guide.
 
-### Unsupported Project Layout or Directory Structure
+### Unsupported project layout or directory structure
 
 While you may be using a language or framework that is supported by Nixpacks, the project layout or directory structure of your application may not be natively supported.
 
@@ -81,7 +81,7 @@ Supported Languages (Providers) can be found [here](https://nixpacks.com/docs) u
 
 If writing your own build plan is not an option, you can try to deploy your application using a [Dockerfile](/builds/dockerfiles).
 
-### Language or Framework Not Supported
+### Language or framework not supported
 
 If you believe your application should be supported, please [create an issue](https://github.com/railwayapp/nixpacks/issues/new) on the Nixpacks GitHub repository.
 

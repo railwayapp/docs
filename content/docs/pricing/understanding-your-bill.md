@@ -5,7 +5,7 @@ description: Learn how Railway billing works, why you're charged when idle, and 
 
 This guide explains how Railway billing works in practice, helping you understand your charges and avoid unexpected costs.
 
-## How Railway Billing Works
+## How Railway billing works
 
 Your subscription fee ($5 Hobby, $20 Pro) is a minimum usage commitment. It covers your first $5 or $20 of resource usage each month.
 
@@ -23,7 +23,7 @@ Your invoice combines two periods:
 
 In some cases, Railway may charge a partial amount earlier in the billing cycle to ensure your account remains in good standing and to help mitigate fraud.
 
-## Why You're Charged When Your App Has No Traffic
+## Why you're charged when your app has no traffic
 
 A common question: "Why am I being charged when my app has no traffic?"
 
@@ -31,7 +31,7 @@ The key concept is that **you pay for allocated resources, not traffic**. When y
 
 Think of it like electricity: you pay for appliances that are plugged in and running, not just when you're actively using them. A server running idle still uses memory to stay loaded and CPU cycles to stay responsive.
 
-### Solutions to Reduce Idle Costs
+### Solutions to reduce idle costs
 
 | Solution                                            | Description                                              |
 | --------------------------------------------------- | -------------------------------------------------------- |
@@ -40,7 +40,7 @@ Think of it like electricity: you pay for appliances that are plugged in and run
 | Delete unused services                              | Remove services you no longer need                       |
 | [Private Networking](/networking/private-networking)    | Reduce egress costs by keeping traffic internal          |
 
-## Understanding Included Usage
+## Understanding included usage
 
 Both paid plans include a usage credit that offsets your resource consumption:
 
@@ -66,13 +66,13 @@ Both paid plans include a usage credit that offsets your resource consumption:
 
 **Important:** Included usage credits reset each billing cycle. They do not accumulate or roll over to the next month. If you use $2 this month, you don't get $8 next month.
 
-## Reading Your Invoice
+## Reading your invoice
 
 Your Railway invoice contains several line items. Here's what each means:
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1769474205/docs/bill_screenshot_elzqtf.png" alt="Example Railway invoice showing resource usage, subscription, included usage discount, and applied balance" width={1666} height={1546} quality={100} />
 
-### Subscription Charges
+### Subscription charges
 
 The flat fee for your plan appears as a line item:
 - "Hobby plan" - $5.00
@@ -81,7 +81,7 @@ The flat fee for your plan appears as a line item:
 Pro and Enterprise workspaces also show a per-seat line item:
 - "Pro (per seat)" - $0.00 (seats are free, this line just shows the member count)
 
-### Resource Usage Charges
+### Resource usage charges
 
 Resources are listed by type with the unit and billing period:
 
@@ -94,7 +94,7 @@ Resources are listed by type with the unit and billing period:
 
 Each line item shows the quantity used, unit price, and total amount for the billing period.
 
-### Included Usage
+### Included usage
 
 Your plan's included usage appears as a discount in the invoice summary:
 - "Hobby plan included usage ($5.00 off)"
@@ -102,7 +102,7 @@ Your plan's included usage appears as a discount in the invoice summary:
 
 The amount in parentheses shows the maximum credit available. The actual discount applied equals your resource usage up to that maximum. For example, if your resource usage is $15.39 on the Pro plan, you'll see "-$15.39" applied even though the max is $20.00.
 
-### Applied Balance
+### Applied balance
 
 "Applied balance" appears in the invoice summary when you have account credits or small amounts carried forward:
 
@@ -116,9 +116,9 @@ If applicable based on your billing location, you may see:
 
 Ensure your [billing information](https://railway.com/workspace/billing) is accurate to receive correct tax assessment.
 
-## Common Causes of Unexpected Charges
+## Common causes of unexpected charges
 
-### High Network Egress
+### High network egress
 
 Network egress (outbound data transfer) is charged at $0.05/GB. Common causes of high egress:
 
@@ -128,7 +128,7 @@ Network egress (outbound data transfer) is charged at $0.05/GB. Common causes of
 
 **Solution:** Use [private networking](/networking/private-networking) for all service-to-service communication within Railway.
 
-### PR Deploys / Ephemeral Environments
+### PR deploys / ephemeral environments
 
 When you have [PR deploys](/environments#ephemeral-environments) enabled, Railway creates a copy of your environment for each pull request. These environments run real services that consume real resources.
 
@@ -136,19 +136,19 @@ If you have 5 open PRs, you may be running 5x your normal workload.
 
 **Solution:** Close PRs promptly or disable PR deploys if you don't need them.
 
-### Idle Services Still Running
+### Idle services still running
 
 Services consume resources even when not handling traffic. If you have development, staging, or test environments running continuously, they add up.
 
 **Solution:** Enable [Serverless](/deployments/serverless) on services that don't need to be always-on, or delete unused services.
 
-### Memory Leaks
+### Memory leaks
 
 If your application has a memory leak, it will gradually consume more RAM over time until it hits limits or gets restarted. This inflates your memory costs.
 
 **Solution:** Monitor your service metrics for growing memory usage and fix leaks in your application code.
 
-## Related Resources
+## Related resources
 
 - [Plans and Pricing](/reference/pricing/plans) - Detailed pricing information
 - [Pricing FAQs](/reference/pricing/faqs) - Common pricing questions

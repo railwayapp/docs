@@ -24,7 +24,7 @@ This guide covers how to deploy a Beego app to Railway in four ways:
 
 Now, let's create a Beego app!
 
-## Create a Beego App
+## Create a Beego app
 
 **Note:** If you already have a Beego app locally or on GitHub, you can skip this step and go straight to the [Deploy Beego App to Railway](#deploy-the-beego-app-to-railway).
 
@@ -40,7 +40,7 @@ go mod tidy
 
 A new Beego app will be provisioned for you in the `helloworld` directory.
 
-### Configure Database
+### Configure database
 
 Run `go get github.com/lib/pq` in your terminal to install the Go Postgres driver.
 
@@ -114,7 +114,7 @@ Replace this `postgres://username:@localhost/helloworld_dev?sslmode=disable` wit
 - The `init()` function registers the Postgres driver, registers the Users model, and automatically creates the users table in the database. If any errors occur while inserting users, they are logged.
 - The `main()` function creates an ORM instance, defines sample user data (first name and last name), inserts the data into the users table, and starts the Beego web server to serve your app.
 
-### Run the Beego App Locally
+### Run the Beego app locally
 
 To start your app, run:
 
@@ -126,7 +126,7 @@ Once the app is running, open your browser and navigate to `http://localhost:808
 
 In your terminal, you’ll see logs indicating that the user data is being inserted. Head over to your database, and you should see the users table populated with the seeded data.
 
-### Prepare Beego App for Deployment
+### Prepare Beego app for deployment
 
 1. Open the `conf/app.conf` file and add an environment variable, `DATABASE_URL` to it.
 
@@ -157,11 +157,11 @@ func init() {
 }
 ```
 
-## Deploy the Beego App to Railway
+## Deploy the Beego app to Railway
 
 Railway offers multiple ways to deploy your Beego app, depending on your setup and preference.
 
-### One-Click Deploy From a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -173,7 +173,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=beego" target="_blank">variety of Beego app templates</a> created by the community.
 
-### Deploy From the CLI
+### Deploy from the CLI
 
 1. **Install the Railway CLI**:
    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
@@ -211,7 +211,7 @@ alt="screenshot of the deployed Beego service"
 layout="responsive"
 width={2420} height={1986} quality={100} />
 
-### Deploy From a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a Beego app to Railway directly from GitHub, follow the steps below:
 
@@ -272,7 +272,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Beego apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

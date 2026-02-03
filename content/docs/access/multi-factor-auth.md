@@ -9,7 +9,7 @@ Railway supports two MFA methods:
 - **Authenticator App** - Use a time-based one-time password (TOTP) from an authenticator app
 - **Passkeys** - Use your device's built-in authentication (fingerprint, face recognition, or PIN)
 
-## Authenticator App
+## Authenticator app
 
 Use an authenticator app like Google Authenticator, Authy, or 1Password to generate time-based verification codes.
 
@@ -22,7 +22,7 @@ Use an authenticator app like Google Authenticator, Authy, or 1Password to gener
 
 Once enabled, you'll need to enter a code from your authenticator app each time you sign in. 
 
-### Recovery Codes
+### Recovery codes
 
 After setting up two-factor authentication, you'll receive a set of recovery codes. These codes serve as an alternative login method if you lose access to your authenticator app or are unable to receive a verification code.
 
@@ -56,6 +56,6 @@ You can manage your MFA settings at any time from your [Account Security Setting
 - Add or remove passkeys
 - Disable two-factor authentication (not recommended)
 
-## Team Enforcement
+## Team enforcement
 
 Team administrators can require all team members to have MFA enabled. See [Two-Factor Enforcement](/access/two-factor-enforcement) for details.

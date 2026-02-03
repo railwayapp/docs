@@ -5,7 +5,7 @@ description: Learn how to configure GitHub autodeployments.
 
 [Services that are linked to a GitHub repo](/guides/services#deploying-from-a-github-repo) automatically deploy when new commits are detected in the connected branch.
 
-## Configure the GitHub Branch for Deployment Triggers
+## Configure the GitHub branch for deployment triggers
 
 To update the branch that triggers automatic deployments, go to your Service Settings and choose the appropriate trigger branch.
 
@@ -15,7 +15,7 @@ alt="Screenshot of GitHub Integration"
 layout="responsive"
 width={903} height={523} quality={80} />
 
-### Disable Automatic Deployments
+### Disable automatic deployments
 
 To disable automatic deployment, simply hit `Disconnect` in the Service Settings menu.
 
@@ -45,7 +45,7 @@ To ensure Railway waits for your GitHub Actions to run successfully before trigg
         - main
   ```
 
-### Enabling Wait for CI
+### Enabling wait for CI
 
 If your workflow satisfies the requirements above, you will see the `Wait for CI` flag in service settings.
 

@@ -13,7 +13,7 @@ Presigned URLs are temporary URLs that grant access to individual objects in you
 
 Files served through presigned URLs come directly from the bucket and incur no egress costs.
 
-## Serve Files with Presigned URLs
+## Serve files with presigned URLs
 
 You can deliver files directly from your bucket by redirecting users to a presigned URL. This avoids egress costs from your service, as the service isn't serving the file itself.
 
@@ -38,7 +38,7 @@ Use-cases:
 - Enforcing authorization before serving a file
 - Redirecting static URLs to presigned URLs
 
-## Serve Files with a Backend Proxy
+## Serve files with a backend proxy
 
 You can fetch a file in your backend and return it to the client. This gives you full control over headers, formatting, and any transformations. It does incur **service** egress, but it also lets you use CDN caching on your backend routes. Many frameworks support this pattern natively, especially for image optimization.
 
@@ -48,7 +48,7 @@ Use-cases:
 - Taking advantage of CDN caching for frequently accessed files
 - Web frameworks that already use a proxy for image optimization
 
-## Upload Files with Presigned URLs
+## Upload files with presigned URLs
 
 You can generate a presigned URL that lets the client upload a file directly to the bucket, without handling the upload in your service. Doing so prevents service egress and reduces memory consumption.
 
@@ -142,7 +142,7 @@ Use-cases:
 - Mobile apps uploading content directly
 - Large file uploads where you want to avoid streaming through your service
 
-## Upload Files from a Service
+## Upload files from a service
 
 A service can upload directly to the bucket using the S3 API. This will incur service egress.
 

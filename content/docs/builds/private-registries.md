@@ -5,7 +5,7 @@ description: Learn how to deploy Docker images from private container registries
 
 Railway supports deploying Docker images from private container registries. This allows you to use proprietary images, internal tools, or images stored in your organization's private registry.
 
-## Supported Registries
+## Supported registries
 
 Any registry that supports standard Docker authentication works with Railway. Here are a few:
 
@@ -23,7 +23,7 @@ Any registry that supports standard Docker authentication works with Railway. He
 
 Private registry credentials are available on the **Pro plan**. If you're on a Free, Trial, or Hobby plan, you'll need to upgrade to use private registries.
 
-## Configure Registry Credentials
+## Configure registry credentials
 
 To deploy from a private registry:
 
@@ -33,7 +33,7 @@ To deploy from a private registry:
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1767657773/AddCredentials_dkhoyx.mp4" controls autoplay loop muted playsinline/>
 
-### GitHub Container Registry (GHCR)
+### GitHub container registry (GHCR)
 
 For images hosted on `ghcr.io`, Railway provides a simplified authentication flow:
 
@@ -42,7 +42,7 @@ For images hosted on `ghcr.io`, Railway provides a simplified authentication flo
 
 Railway automatically handles the username configuration for GHCR.
 
-### Other Registries
+### Other registries
 
 For all other registries, provide:
 
@@ -63,7 +63,7 @@ The exact credentials depend on your registry provider:
 
 Registry credentials are encrypted at rest using envelope encryption. Credentials are only decrypted at deployment time when pulling your image.
 
-## Image Format
+## Image format
 
 When specifying a private image, use the full image path including the registry domain:
 

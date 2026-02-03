@@ -7,11 +7,11 @@ _Note: This feature is formerly called: App-Sleeping_
 
 Serverless allows you to increase the efficiency of resource utilization on Railway and may reduce the usage cost of a [service](/services), by ensuring it is running only when necessary.
 
-## How it Works
+## How it works
 
 When Serverless is enabled for a service, Railway automatically detects inactivity based on outbound traffic.
 
-#### Inactive Service Detection
+#### Inactive service detection
 
 Inactivity is based on the detection of any outbound packets, which could include network requests, database connections, or even NTP. If no packets are sent from the service for over 10 minutes, the service is considered inactive.
 
@@ -28,7 +28,7 @@ Some things that can prevent a service from being put to sleep -
 
 It's important to note that the networking graph in the metrics tab only displays public internet traffic. If you're using a private network to communicate with other services, this traffic won't appear in the metrics tab. However, it's still counted as outbound traffic and will prevent the service from being put to sleep.
 
-#### Waking a Service Up
+#### Waking a service up
 
 A service is woken when it receives traffic from the internet or from another service in the same project through the [private network](/networking/private-networking).
 

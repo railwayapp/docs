@@ -24,7 +24,7 @@ This guide covers how to deploy a Flask app to Railway in four ways:
 
 Now, let's create a Flask app!
 
-## Create a Flask App
+## Create a Flask app
 
 **Note:** If you already have a Flask app locally or on GitHub, you can skip this step and go straight to the [Deploy Flask App to Railway](#deploy-flask-app-to-railway).
 
@@ -83,7 +83,7 @@ def hello():
 4. `def hello():`
    - The `hello` function returns a plain text message, _"Hello world, welcome to Railway!"_, which is displayed in the browser when the root URL of the app is accessed.
 
-### Run the Flask App Locally
+### Run the Flask app locally
 
 To run the application, use the `flask` command.
 
@@ -93,7 +93,7 @@ flask --app helloworld run
 
 Open your browser and go to `http://127.0.0.1:5000` to see the app running with a local development server.
 
-### Prepare the Flask App for Deployment
+### Prepare the Flask app for deployment
 
 1. Run the following command to install a production web server, [gunicorn](https://gunicorn.org):
 
@@ -134,7 +134,7 @@ In this file, you can specify the instructions for various build and deployment 
 
 With these changes, your Flask app is now ready to be deployed to Railway!
 
-## Deploy Flask App to Railway
+## Deploy Flask app to Railway
 
 Railway offers multiple ways to deploy your Flask app, depending on your setup and preference. Choose any of the following methods:
 
@@ -142,7 +142,7 @@ Railway offers multiple ways to deploy your Flask app, depending on your setup a
 2. [Using the CLI](#deploy-from-the-cli).
 3. [From a GitHub repository](#deploy-from-a-github-repo).
 
-## One-Click Deploy From a Template
+## One-click deploy from a template
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/zUcpux)
 
@@ -150,7 +150,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=flask" target="_blank">variety of Flask app templates</a> created by the community.
 
-## Deploy From the CLI
+## Deploy from the CLI
 
 1. **Install the Railway CLI**:
    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
@@ -178,7 +178,7 @@ alt="screenshot of the deployed Flask service"
 layout="responsive"
 width={2164} height={1814} quality={100} />
 
-## Deploy From a GitHub Repo
+## Deploy from a GitHub repo
 
 To deploy a Flask app to Railway directly from GitHub, follow the steps below:
 
@@ -231,7 +231,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

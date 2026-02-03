@@ -5,7 +5,7 @@ description: Deploy and manage databases on Railway - PostgreSQL, MySQL, Redis, 
 
 Railway enables you to deploy and manage databases alongside your applications. Whether you need a quick PostgreSQL instance or want to run a specialized database, Railway's platform primitives allow you to build any database service your system requires.
 
-## Getting Started
+## Getting started
 
 The fastest way to deploy a database is through Railway's database templates:
 
@@ -18,7 +18,7 @@ The fastest way to deploy a database is through Railway's database templates:
 
 These templates are maintained by Railway and come pre-configured with sensible defaults.
 
-## Deploy Any Database
+## Deploy any database
 
 Railway isn't limited to the databases above. You can deploy **any open source database** by using:
 
@@ -26,7 +26,7 @@ Railway isn't limited to the databases above. You can deploy **any open source d
 - **Templates**: Browse our <a href="https://railway.com/templates?category=Storage" target="_blank">database and storage templates</a> for pre-configured options
 - **Custom Builds**: Build your own database service from source code
 
-### Popular Database Templates
+### Popular database templates
 
 Explore these community and official templates in our marketplace:
 
@@ -34,7 +34,7 @@ Explore these community and official templates in our marketplace:
 - ClickHouse, CockroachDB, Cassandra, and more
 - Specialized databases like TimescaleDB, InfluxDB, and Neo4j
 
-## Platform Features
+## Platform features
 
 Railway provides essential features for running production databases:
 
@@ -45,11 +45,11 @@ Railway provides essential features for running production databases:
 | [**Private Networking**](/networking/private-networking) | Secure, low-latency connections between services |
 | [**Backups**](/volumes/backups) | Point-in-time recovery for your data |
 
-## Building Custom Database Services
+## Building custom database services
 
 Need to run a database that isn't in our templates? Check out our guide on [building a database service](/databases/build-a-database-service) to learn how to configure volumes, networking, and persistence for any database.
 
-## Important Notes
+## Important notes
 
 Railway-provided database templates are **unmanaged services** - you're responsible for:
 

@@ -32,55 +32,55 @@ railway functions <COMMAND> [OPTIONS]
 
 ## Examples
 
-### List Functions
+### List functions
 
 ```bash
 railway functions list
 ```
 
-### Create a New Function
+### Create a new function
 
 ```bash
 railway functions new --path ./my-function.ts --name my-function
 ```
 
-### Create an HTTP Function
+### Create an HTTP function
 
 ```bash
 railway functions new --path ./api.ts --name api --http
 ```
 
-### Create a Cron Function
+### Create a cron function
 
 ```bash
 railway functions new --path ./job.ts --name cleanup --cron "0 * * * *"
 ```
 
-### Push Changes
+### Push changes
 
 ```bash
 railway functions push
 ```
 
-### Push with Watch Mode
+### Push with watch mode
 
 ```bash
 railway functions push --watch
 ```
 
-### Pull Remote Changes
+### Pull remote changes
 
 ```bash
 railway functions pull
 ```
 
-### Delete a Function
+### Delete a function
 
 ```bash
 railway functions delete --function my-function
 ```
 
-### Link a Function
+### Link a function
 
 ```bash
 railway functions link --function my-function --path ./local-function.ts
@@ -111,7 +111,7 @@ railway functions link --function my-function --path ./local-function.ts
 | `-f, --function <FUNCTION>` | ID or name of the function to delete |
 | `-y, --yes` | Skip confirmation dialog |
 
-## Common Options
+## Common options
 
 | Flag | Description |
 |------|-------------|

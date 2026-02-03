@@ -21,19 +21,19 @@ railway project <COMMAND>
 
 ## Examples
 
-### List All Projects
+### List all projects
 
 ```bash
 railway project list
 ```
 
-### Link a Project
+### Link a project
 
 ```bash
 railway project link
 ```
 
-### Delete a Project
+### Delete a project
 
 ```bash
 railway project delete --project my-old-project

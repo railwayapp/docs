@@ -39,7 +39,7 @@ If you have a GitHub Enterprise, you can similarly set up your runners using an 
 
 If you need additional configuration, then you can simply [add a variable to your Service](https://github.com/myoung34/docker-github-actions-runner?tab=readme-ov-file#environment-variables).
 
-## Setup a GitHub ACCESS_TOKEN
+## Setup a GitHub access_token
 
 For this guide, we will create a new [GitHub Fine-Grained Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens). These are modern personal access tokens that obey the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), making them easy to secure, revoke, and audit!
 
@@ -58,7 +58,7 @@ width={1131} height={702} quality={100} />
 1. Click Generate. Save your `ACCESS_TOKEN` in a safe place! You won't see it again. (Save it in a Password Vault as an API Key!)
 1. DONE. You don't need any other permissions!
 
-## Scaling up your Railway Self Hosted Runners
+## Scaling up your Railway self hosted runners
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1746476747/docs/github-actions/edwass7m7pn35zx8xqw9.png
 "
@@ -71,7 +71,7 @@ width={1328} height={690} quality={100} />
 1. Click Deploy.
 1. Done! Your new replicas will automatically spin up and register themselves with GitHub.
 
-## View Your Registered Self Hosted Runners
+## View your registered self hosted runners
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1746477028/docs/github-actions/g0twzm5fhqrgjhtltrec.png
 "
@@ -81,11 +81,11 @@ width={1271} height={776} quality={100} />
 
 You can view all your runners by navigating to your organization's Actions -> Runners page at https://github.com/organizations/(your-organization-name)/settings/actions/runners?page=1
 
-## Routing Actions Jobs
+## Routing actions jobs
 
 You can route jobs by simply changing the `LABELS` variable. By default, we include the `railway` label on runners you make through the [Template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9). `LABELS` is a comma (no spaces) delimited list of all the labels you want to appear on that runner. This enables you to [route jobs](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow#using-custom-labels-to-route-jobs) with the specificity that your workflows need, while still allowing you to make runners available for your entire Organization.
 
-## Setting up GitHub Actions workflows for Pull Requests
+## Setting up GitHub actions workflows for pull requests
 
 GitHub Actions uses workflow files located in `.github/workflows/<workflow>.yml`. You can easily incorporate pre-built steps to get up-and-running quickly.
 
@@ -93,7 +93,7 @@ GitHub Actions uses workflow files located in `.github/workflows/<workflow>.yml`
 
 - Set the `runs-on` key when you want to route your workflow job to a particular runner. Use a comma delimited list for greater specificity. For example, a `[self-hosted, linux, x86, railway]` workflow needs to match all labels to an appropriate runner in order to route the job correctly.
 
-## Example GitHub Actions Workflow
+## Example GitHub actions workflow
 
 If you've never made a workflow before, here is a basic out-of-the-box example of a NuxtJS project using Bun to execute an `eslint` check.
 
@@ -143,7 +143,7 @@ jobs:
         run: bun run lint
 ```
 
-## Best Practices
+## Best practices
 
 1. **Only use private repositories and disable forks:** Make sure when using self-hosted runners, that you only attach them to private repositories. A known attack vector is for a malicious actor to fork a public repository and then exfiltrate your private keys from your self-hosted runners by executing workflows on them. Disabling forks can also mitigate this attack, and it's a good idea in general for locking down security on your repositories!
 
@@ -151,7 +151,7 @@ jobs:
 
 1. **Security Harden your self-hosted Runners:** [Security Hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) will make your runners robust and prevent any concerns about your build infrastructure. GitHub's [detailed guide](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) can help you secure secrets, authentication, auditing, and managing your runners. Similarly [dduzgun-security](https://github.com/dduzgun-security/github-self-hosted-runners) and [Wiz](https://www.wiz.io/blog/github-actions-security-guide) both have excellent guides to securing your runners that are worth your time.
 
-### Known Limitations
+### Known limitations
 
 - Because Railway containers are non-privileged, GitHub Workflows that [build-and-then-mount](https://github.com/super-linter/super-linter) containers on the same host (i.e. Docker-in-Docker) will fail.
 
@@ -165,7 +165,7 @@ GitHub's [documentation details all of the different endpoints](https://docs.git
 
 If you are using a [proxy server](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-a-proxy-server-with-self-hosted-runners), refer to GitHub's documentation on configuring your self-hosted runner. You can simply add the required environment variables by adding them to the Variables tab of your Service.
 
-### Cost Comparison
+### Cost comparison
 
 On Railway you only [pay for what you use](/reference/pricing/plans), so you'll find your GitHub workflows are significantly cheaper. For this guide we tested over ~2,300 1 minute builds on Railway self-hosted runners and our usage costs were `$1.80` compared to [GitHub's Estimated Hosted Runner](https://github.com/pricing/calculator?feature=actions) cost of `$18.40` for the same workload. Even better? We had 10x Railway replicas with 32 vCPU and 32GB RAM for this test, meaning that our actions workflows would never slow down.
 

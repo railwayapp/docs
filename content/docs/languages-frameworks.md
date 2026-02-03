@@ -5,7 +5,7 @@ description: Deploy applications using any language or framework on Railway.
 
 Railway supports deploying applications built with virtually any programming language or framework. Our build system, [Railpack](/builds/railpack), automatically detects your stack and creates optimized container images.
 
-## How It Works
+## How it works
 
 When you deploy code to Railway:
 
@@ -15,7 +15,7 @@ When you deploy code to Railway:
 
 No configuration required for most applications. For advanced customization, see [Build Configuration](/builds/build-configuration).
 
-## Framework Guides
+## Framework guides
 
 ### JavaScript / TypeScript
 
@@ -95,6 +95,6 @@ No configuration required for most applications. For advanced customization, see
 | --------- | ----- |
 | Luminus | [Luminus Guide](/guides/luminus) |
 
-## Other Languages
+## Other languages
 
 Don't see your language listed? Railway can still deploy it! Railpack supports many languages automatically, and you can always use a [Dockerfile](/builds/dockerfiles) for complete control over your build process.

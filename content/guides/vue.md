@@ -25,7 +25,7 @@ This guide covers how to deploy a Vue app to Railway in four ways:
 
 Now, let's create a Vue app!
 
-## Create a Vue App
+## Create a Vue app
 
 **Note:** If you already have a Vue app locally or on GitHub, you can skip this step and go straight to the [Deploy Vue App on Railway](#deploy-the-vue-app-to-railway).
 
@@ -41,7 +41,7 @@ You'll be presented with choices for different options in the prompts. Give the 
 
 A new Vue app will be provisioned for you in the `helloworld` directory.
 
-### Run the Vue App locally
+### Run the Vue app locally
 
 Next, `cd` into the directory and install the dependencies.
 
@@ -57,11 +57,11 @@ npm run dev
 
 Open your browser and go to `http://localhost:5173` to see your app.
 
-## Deploy the Vue App to Railway
+## Deploy the Vue app to Railway
 
 Railway offers multiple ways to deploy your Vue app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Vue app with [Caddy](https://caddyserver.com) to serve the dist folder.
 
@@ -100,7 +100,7 @@ alt="screenshot of the deployed Vue service"
 layout="responsive"
 width={2642} height={2080} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a Vue app to Railway directly from GitHub, follow the steps below:
 
@@ -218,7 +218,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Vue apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

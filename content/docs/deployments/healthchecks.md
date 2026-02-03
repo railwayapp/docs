@@ -5,13 +5,13 @@ description: Learn how to configure health checks to guarantee zero-downtime dep
 
 Healthchecks can be used to guarantee zero-downtime [deployments](/deployments/reference) of your [service](/services) by ensuring the new version is live and able to handle requests.
 
-## How it Works
+## How it works
 
 When a new deployment is triggered for a service, if a healthcheck endpoint is configured, Railway will query the endpoint until it receives an HTTP `200` response. Only then will the new deployment be made active and the previous deployment inactive.
 
 **Note:** Railway does not monitor the healthcheck endpoint after the deployment has gone live.
 
-## Configure The Healthcheck Path
+## Configure the healthcheck path
 
 To configure a healthcheck:
 
@@ -19,7 +19,7 @@ To configure a healthcheck:
 
 2. Under your service settings, input your health endpoint. Railway will wait for this endpoint to serve a `200` status code before switching traffic to your new endpoint.
 
-## Configure The Healthcheck Port
+## Configure the healthcheck port
 
 Railway will inject a `PORT` environment variable that your application should listen on.
 
@@ -35,7 +35,7 @@ width={1200} height={307} quality={100} />
 
 Not listening on the `PORT` variable or omitting it when using target ports can result in your health check returning a `service unavailable` error.
 
-## Healthcheck Timeout
+## Healthcheck timeout
 
 The default timeout on healthchecks is 300 seconds (5 minutes). If your application fails to serve a `200` status code during this allotted time, the deploy will be marked as failed.
 
@@ -47,11 +47,11 @@ width={1188} height={348} quality={80} />
 
 To increase the timeout, change the number of seconds on the service settings page, or with a `RAILWAY_HEALTHCHECK_TIMEOUT_SEC` service variable.
 
-## Services with Attached Volumes
+## Services with attached volumes
 
 To prevent data corruption, we prevent multiple deployments from being active and mounted to the same service. This means that there will be a small amount of downtime when re-deploying a service that has a volume attached, even if there is a healthcheck endpoint configured.
 
-## Healthcheck Hostname
+## Healthcheck hostname
 
 Railway uses the hostname `healthcheck.railway.app` when performing healthchecks on your service. This is the domain from which the healthcheck requests will originate.
 
@@ -59,7 +59,7 @@ For applications that restrict incoming traffic based on the hostname, you'll ne
 
 If your application does not permit requests from that hostname, you may encounter errors during the healthcheck process, such as "failed with service unavailable" or "failed with status 400".
 
-## Continuous Healthchecks
+## Continuous healthchecks
 
 The healthcheck endpoint is currently **_not used for continuous monitoring_** as it is only called at the start of the deployment, to ensure it is healthy prior to routing traffic to it.
 

@@ -28,80 +28,80 @@ railway logs [DEPLOYMENT_ID] [OPTIONS]
 
 ## Examples
 
-### Stream Live Logs
+### Stream live logs
 
 ```bash
 railway logs
 ```
 
-### View Build Logs
+### View build logs
 
 ```bash
 railway logs --build
 ```
 
-### View Last 100 Lines
+### View last 100 lines
 
 ```bash
 railway logs --lines 100
 ```
 
-### View Logs from Last Hour
+### View logs from last hour
 
 ```bash
 railway logs --since 1h
 ```
 
-### View Logs from Time Range
+### View logs from time range
 
 ```bash
 railway logs --since 30m --until 10m
 ```
 
-### View Logs Since Specific Time
+### View logs since specific time
 
 ```bash
 railway logs --since 2024-01-15T10:00:00Z
 ```
 
-### Filter Error Logs
+### Filter error logs
 
 ```bash
 railway logs --lines 10 --filter "@level:error"
 ```
 
-### Filter Warning Logs with Text
+### Filter warning logs with text
 
 ```bash
 railway logs --lines 10 --filter "@level:warn AND rate limit"
 ```
 
-### Logs from Specific Service
+### Logs from specific service
 
 ```bash
 railway logs --service backend --environment production
 ```
 
-### Logs from Specific Deployment
+### Logs from specific deployment
 
 ```bash
 railway logs 7422c95b-c604-46bc-9de4-b7a43e1fd53d --build
 ```
 
-### JSON Output
+### JSON output
 
 ```bash
 railway logs --json
 ```
 
-## Time Formats
+## Time formats
 
 The `--since` and `--until` flags accept:
 
 - **Relative times**: `30s`, `5m`, `2h`, `1d`, `1w`
 - **ISO 8601 timestamps**: `2024-01-15T10:30:00Z`
 
-## Filter Syntax
+## Filter syntax
 
 Railway uses a query syntax for filtering logs:
 

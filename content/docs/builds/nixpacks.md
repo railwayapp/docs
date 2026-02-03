@@ -11,7 +11,7 @@ Existing services will continue to work with Nixpacks. To migrate to Railpack, u
 Railway uses <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> to build and deploy your code with
 zero configuration. This documentation is maintained for existing services using Nixpacks. For new services, we recommend using [Railpack](/builds/railpack).
 
-## Supported Languages
+## Supported languages
 
 Currently, we support the following languages out of the box:
 
@@ -40,7 +40,7 @@ Currently, we support the following languages out of the box:
 - [Scala](https://nixpacks.com/docs/providers/scala)
 - [Zig](https://nixpacks.com/docs/providers/zig-lang)
 
-## The Build Table / Build Plan
+## The build table / build plan
 
 When Railway builds your app with Nixpacks a Build Plan will be printed **at the top** of the build logs.
 

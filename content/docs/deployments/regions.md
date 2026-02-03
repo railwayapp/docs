@@ -7,7 +7,7 @@ Railway's infrastructure spans multiple regions across the globe. This allows yo
 
 Consider factors like compliance needs and proximity to your users when choosing a region.
 
-## Region Options
+## Region options
 
 Railway has deploy regions in the Americas, Europe, and Asia-Pacific to provide broad coverage around the world.
 
@@ -38,7 +38,7 @@ Within the service settings, you can select one of the following regions:
 
 - All regions provide the same experience, performance, and reliability you expect from Railway.
 
-## Impact of Region Changes
+## Impact of region changes
 
 The region of a service can be changed at any time, without any changes to your domain, private networking, etc.
 
@@ -70,6 +70,6 @@ Note that this migration can take a while depending on the size of the volume, a
 
 The same is true if you attach a detached volume to a service in a different region. It will need to be migrated to the new region, which can take a while and cause downtime.
 
-## Configuring Regions
+## Configuring regions
 
 For information on how to deploy your services to different regions, refer to the [optimize performance guide](/deployments/optimize-performance#configure-a-region).

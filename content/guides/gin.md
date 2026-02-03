@@ -22,7 +22,7 @@ This guide covers how to deploy a Gin app on Railway in four ways:
 3. [Using the CLI](#deploy-from-the-cli).
 4. [Using a Dockerfile](#use-a-dockerfile).
 
-## One-Click Deploy From a Template
+## One-click deploy from a template
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/dTvvSf)
 
@@ -30,7 +30,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=gin" target="_blank">variety of Gin app templates</a> created by the community.
 
-## Deploy From a GitHub Repo
+## Deploy from a GitHub repo
 
 To deploy a Gin app on Railway directly from GitHub, follow the steps below:
 
@@ -51,7 +51,7 @@ alt="screenshot of the deployed gin service showing a hello world API response o
 layout="responsive"
 width={2661} height={1019} quality={100} />
 
-## Deploy From the CLI
+## Deploy from the CLI
 
 1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the CLI.</a>
 2. Clone the forked <a href="https://github.com/railwayapp-templates/gin" target="_blank">gin GitHub repo</a> and `cd` into the directory.
@@ -97,7 +97,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 **Note:** Railway supports also <a href="/guides/services#deploying-a-public-docker-image" target="_blank">deployment from public and private Docker images</a>.
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

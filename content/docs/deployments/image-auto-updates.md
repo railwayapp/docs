@@ -5,7 +5,7 @@ description: Learn how to automatically keep your Docker images up to date with 
 
 When you deploy a service using a Docker image, Railway can automatically check for new versions and update your service during configurable maintenance windows. With this, you can keep your services up to date without manual intervention.
 
-## Supported Registries
+## Supported registries
 
 Image auto updates are only available for images hosted on the following registries:
 
@@ -14,7 +14,7 @@ Image auto updates are only available for images hosted on the following registr
 
 Images from other registries (ECR, GCR, ACR, private registries, etc.) do not support auto updates.
 
-## How It Works
+## How it works
 
 Railway periodically checks the Docker registry for new versions of your configured image. When an update is available and your maintenance window is active, Railway will:
 
@@ -22,7 +22,7 @@ Railway periodically checks the Docker registry for new versions of your configu
 2. Redeploy your service with the updated image
 3. Notify workspace admins of the update
 
-### Update Behavior by Tag Type
+### Update behavior by tag type
 
 How Railway handles updates depends on the type of tag you've configured:
 
@@ -44,7 +44,7 @@ For tags like `:latest`, `:canary`, or `:staging`, Railway monitors for new imag
 
 Your configured tag is always preserved. Railway does **not** switch non-semver tags to `:latest`. If you configure `:canary`, Railway only redeploys when a new image is pushed to `:canary`.
 
-## Configure Auto Updates
+## Configure auto updates
 
 To enable automatic image updates:
 
@@ -68,21 +68,21 @@ Maintenance windows define when Railway is allowed to apply automatic updates. A
 
 Note that updates are applied after Railway detects new versions, not the moment they're published. To avoid overwhelming registries, detection results are cached for up to a few hours.
 
-### Custom Schedules
+### Custom schedules
 
 Custom maintenance windows let you define days and hour ranges for updates. You can configure multiple windows to match your operational requirements.
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1767630800/CustomSchedule_xau6q1.mp4" controls autoplay loop muted playsinline />
 
-## Safety Features
+## Safety features
 
 Railway includes several safety mechanisms to protect your services during automatic updates:
 
-### Volume Backups
+### Volume backups
 
 For Pro plan users, Railway automatically creates a backup of all volumes attached to the service before applying any update. These backups are named `Auto Update {image}` and can be used to restore data if needed.
 
-### Skip Versions
+### Skip versions
 
 If a specific version causes issues, you can skip it to prevent Railway from automatically updating to that version. Skipped versions will be excluded from future auto-update checks.
 

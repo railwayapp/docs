@@ -21,19 +21,19 @@ railway down [OPTIONS]
 
 ## Examples
 
-### Remove Latest Deployment
+### Remove latest deployment
 
 ```bash
 railway down
 ```
 
-### Remove from Specific Service
+### Remove from specific service
 
 ```bash
 railway down --service backend
 ```
 
-### Skip Confirmation
+### Skip confirmation
 
 ```bash
 railway down --yes

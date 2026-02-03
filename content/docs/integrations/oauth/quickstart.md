@@ -5,7 +5,7 @@ description: Get started with Login with Railway in 5 steps.
 
 This guide walks through implementing Login with Railway for a web application using the authorization code flow. By the end, you'll have working code that authenticates users and makes API requests on their behalf.
 
-## 1. Create an OAuth App
+## 1. Create an OAuth app
 
 Navigate to your workspace settings → **Developer** → **New OAuth App**, and enter the app name and one or more redirect URIs. The redirect URIs you configure must exactly match what your application sends in authorization requests.
 
@@ -15,7 +15,7 @@ For native apps, use `http://127.0.0.1:3000/callback` (not `localhost`), or a cu
 
 After creating the app, copy the client ID and client secret. The secret is only shown once.
 
-## 2. Redirect to Authorization
+## 2. Redirect to authorization
 
 When a user wants to sign in, redirect their browser to the authorization endpoint:
 
@@ -36,7 +36,7 @@ https://backboard.railway.com/oauth/auth
 
 For additional security, add PKCE parameters. While optional for web apps, PKCE is mandatory for native apps. See [Creating an App](/integrations/oauth/creating-an-app) for details.
 
-## 3. Exchange Code for Tokens
+## 3. Exchange Code for tokens
 
 After the user approves, they are redirected to your `redirect_uri` with a `code` parameter. Exchange it for tokens using Basic authentication:
 
@@ -63,7 +63,7 @@ Response:
 
 The `access_token` authenticates API requests and expires in one hour. The `id_token` is a signed JWT to verify the user's identity.
 
-## 4. Get User Info
+## 4. Get user info
 
 Retrieve the authenticated user's profile:
 
@@ -83,7 +83,7 @@ curl https://backboard.railway.com/oauth/me \
 
 - The `sub` claim is the user's ID. You can use this to associate the Railway account with a user in your application.
 
-## 5. Make API Requests
+## 5. Make API requests
 
 Use the access token with the [Public API](/integrations/api):
 
@@ -105,7 +105,7 @@ curl https://backboard.railway.com/graphql/v2 \
 }
 ```
 
-## Next Steps
+## Next steps
 
 - [Login & Tokens](/integrations/oauth/login-and-tokens): Token lifecycle and refresh tokens for long-lived access
 - [Scopes & User Consent](/integrations/oauth/scopes-and-user-consent): Available scopes and permissions

@@ -5,32 +5,32 @@ description: Manage complex development workflows via environments in your proje
 
 Railway supports complex development workflows through environments, giving you isolated instances of all services in a project.
 
-## How it Works
+## How it works
 
 All projects in Railway are created with a `production` environment by default. Once a project has been created, new environments can be created and configured to complement any development workflow.
 
 All changes made to a service are scoped to a single environment. This means that you can make changes to a service in an environment without affecting other environments.
 
-## Types of Environments
+## Types of environments
 
-### Persistent Environments
+### Persistent environments
 
 Persistent environments are intended to persist but remain isolated from production with regard to their configuration.
 
 For example, it is a common pattern to maintain a `staging` environment that is configured to auto-deploy from a `staging` branch and with variables relevant to `staging`.
 
-### PR Environments
+### PR environments
 
 [PR Environments](#pr-environments-1) are temporary. They are created when a Pull Request is opened on a branch and are deleted as soon as the PR is merged or closed.
 
-## Use Cases
+## Use cases
 
 Environments are generally used for isolating changes from the production environment, to iterate and test before pushing to production.
 
 - Have development environments for each team member that are identical to the production environment
 - Have separate staging and production environments that auto-deploy when changes are made to different branches in a code repository.
 
-## Create an Environment
+## Create an environment
 
 1. Select `+ New Environment` from the environment drop down in the top navigation. You can also go to Settings > Environments.
 2. Choose which type of environment to create -
@@ -42,7 +42,7 @@ Environments are generally used for isolating changes from the production enviro
 
    - **Empty Environment** creates an empty environment with no services.
 
-## Sync Environments
+## Sync environments
 
 You can easily sync environments to _import_ one or more services from one environment into another environment.
 
@@ -58,7 +58,7 @@ You can easily sync environments to _import_ one or more services from one envir
             layout="responsive"
             width={1200} height={843} quality={100} />
 
-## PR Environments
+## PR environments
 
 Railway can spin up a temporary environment whenever you open a Pull Request. To enable PR environments, go to your Project Settings -> Environments tab.
 
@@ -70,21 +70,21 @@ width={1622} height={506} quality={80} />
 
 When enabled, a temporary environment is spun up to support the Pull Request deploy. These environments are deleted as soon as these PRs are merged or closed.
 
-### How Come my GitHub PR Won't Deploy?
+### How come my GitHub PR won't deploy?
 
 Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
 
-### Domains in PR Environments
+### Domains in PR environments
 
 To enable automatic domain provisioning in PR environments, ensure that services in your base environment use Railway-provided domains. Services in PR environments will only receive domains automatically when their corresponding base environment services have Railway-provided domains.
 
-### Focused PR Environments
+### Focused PR environments
 
 <PriorityBoardingBanner />
 
 For monorepos and multi-service projects, Focused PR Environments only deploy services affected by files changed in the pull request. This speeds up PR environments and reduces resource usage.
 
-#### How It Works
+#### How it works
 
 When a PR is opened, Railway determines which services to deploy:
 
@@ -93,17 +93,17 @@ When a PR is opened, Railway determines which services to deploy:
 
 All other services are skipped and indicated on the canvas. The GitHub PR comment shows which services were skipped.
 
-#### Deploying Skipped Services
+#### Deploying skipped services
 
 Skipped services can be deployed manually from the canvas. Click on the skipped service and select "Deploy" to add it to the PR environment.
 
-#### Enabling Focused PR Environments
+#### Enabling focused PR environments
 
 1. Go to **Project Settings → Environments**
 2. Ensure PR Environments are enabled
 3. Toggle **Enable Focused PR Environments**
 
-### Bot PR Environments
+### Bot PR environments
 
 You can enable automatic PR environment creation for PRs opened by supported GitHub bots using the `Enable Bot PR Environments` toggle on the Environments tab in the Project Settings page.
 
@@ -142,7 +142,7 @@ Restrict access to sensitive environments like production. Non-admin members can
 
 For detailed setup instructions and best practices, see the [Environment RBAC guide](/enterprise/environment-rbac).
 
-## Forked Environments (Deprecated)
+## Forked environments (deprecated)
 
 As of January 2024, forked environments have been deprecated in favor of Isolated Environments with the ability to Sync.
 

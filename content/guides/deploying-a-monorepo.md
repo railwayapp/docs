@@ -11,11 +11,11 @@ tags:
   - monorepo
 ---
 
-## What is a Monorepo?
+## What is a monorepo?
 
 A monorepo is a project directory structure in which multiple, co-dependent codebases (such as a frontend and a backend) are maintained within the same repository, and in some cases, share common packages.
 
-## About This Tutorial
+## About this tutorial
 
 Deploying a monorepo in Railway requires some extra configuration to get the applications up and running.
 
@@ -52,7 +52,7 @@ Before you start:
 
 **Let's get started!**
 
-## 1. Create a New Empty Project
+## 1. Create a new empty project
 
 - From [your dashboard](https://railway.com/dashboard) click `+ New Project` or `⌘ k`
 
@@ -70,7 +70,7 @@ width={345.5} height={388} quality={100} />
 
 **Note:** We chose an empty project instead of deploying from a GitHub repo since we want to set up the project before deploying.
 
-## 2. Project Setup
+## 2. Project setup
 
 - You'll notice Railway automatically named the project, but we want something more recognizable. Open the Settings tab to `Update` the name of your project. You'll also notice the Danger tab here, when you want to delete your project after you're done with the tutorial.
 
@@ -81,7 +81,7 @@ width={1381} height={731} quality={100} />
 
 - Click `Update`
 
-## 3. Service Creation
+## 3. Service creation
 
 - Add **two** new **empty** services from the `+ Create` button in the top right of the project canvas.
 
@@ -117,7 +117,7 @@ width={766} height={450} quality={100} />
 
 - Click the `Deploy` button or `⇧ Enter` to create these two services.
 
-## 4. Directory Setup
+## 4. Directory setup
 
 Both of our apps deploy from subdirectories of our monorepo, so we need to tell Railway where they are located.
 
@@ -137,7 +137,7 @@ width={1386} height={760} quality={100} />
 
 - Click the `Deploy` button or `⇧ Enter` to save these changes.
 
-## 5. Connecting the Repo
+## 5. Connecting the repo
 
 Now we need to configure the source of the service where the code is deployed.
 
@@ -161,7 +161,7 @@ width={1386} height={760} quality={100} />
 
 **Your services will now build and deploy.**
 
-## 6. Domain Setup
+## 6. Domain setup
 
 Even though the services are now running, the frontend and backend aren't networked together yet. So let's setup domains for each service.
 
@@ -184,7 +184,7 @@ width={1381} height={760} quality={100} />
 
 - **Setting a Custom `$PORT`:** Adding the domain after the service is deployed allows Railway to detect the bound `env.$PORT`. You could instead decide to manually set the `$PORT` variable on the Variables tab, and set the Domain to use that custom port instead.
 
-## 7. Variable Setup
+## 7. Variable setup
 
 For our example monorepo the Frontend service needs a `VITE_BACKEND_HOST` variable, and our backend needs an `ALLOWED_ORIGINS` variable.
 

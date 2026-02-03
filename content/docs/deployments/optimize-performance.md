@@ -12,7 +12,7 @@ Specifically, we offer the following features:
 
 Continue reading for information on how to configure these.
 
-## Configure Horizontal Scaling
+## Configure horizontal scaling
 
 Scale horizontally by manually increasing the number of replicas for a service.
 
@@ -32,15 +32,15 @@ To change the number of replicas per deploy within your service, go to the servi
 
 _Additional regions may be added in the future as Railway continues expanding its infrastructure footprint._
 
-### Replica ID Environment Variable
+### Replica ID environment variable
 
 Each replica will be deployed with a Railway-provided environment variable named `RAILWAY_REPLICA_ID` which can be used for logging and monitoring, for example.
 
-### Replica Region Environment Variable
+### Replica region environment variable
 
 Each replica will be deployed with a Railway-provided environment variable named `RAILWAY_REPLICA_REGION` which can be used for logging and monitoring, for example.
 
-### Load Balancing Between Replicas
+### Load balancing between replicas
 
 If you are using multi-region replicas, Railway will automatically route public traffic to the nearest region and then randomly distribute requests to the replicas within that region.
 
@@ -48,14 +48,14 @@ If you are using a single region with multiple replicas, Railway will randomly d
 
 **Note:** For now Railway does not support sticky sessions nor report the usage of the individual replicas within the metrics view, all metrics are aggregated across all replicas in all regions.
 
-### Set a Preferred Region
+### Set a preferred region
 
 To set a default or preferred region, do so from your [Workspace Settings](https://railway.com/workspace).
 
-### Impact of Region Changes
+### Impact of region changes
 
 For information on the impact of changing a service's region, see the [Regions reference guide](/reference/deployment-regions#impact-of-region-changes).
 
-## Singleton Deploys
+## Singleton deploys
 
 By default, Railway maintains only one deploy per service.

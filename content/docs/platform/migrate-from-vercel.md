@@ -19,11 +19,11 @@ Railway offers -
 
 - **Priority Support**: Dedicated support for Railway users
 
-## Migration Steps
+## Migration steps
 
 Let's walk through migrating a Next.js application to Railway. For this guide, we'll use a sample e-commerce app that showcases common Next.js features and configurations.
 
-### Deploying Your Application
+### Deploying your application
 
 To get started deploying our NextJS app, we will first make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
 
@@ -73,7 +73,7 @@ From here Railway will automatically -
 
 - Run your application
 
-### Environment Configuration
+### Environment configuration
 
 Next.js applications often rely on environment variables for API keys, database connections, and feature flags. Here's how to transfer them -
 
@@ -95,7 +95,7 @@ Next.js applications often rely on environment variables for API keys, database 
 
 4. Click Deploy to apply changes
 
-### Domain Configuration
+### Domain configuration
 
 Railway makes it simple to set up custom domains or use our provided domains -
 
@@ -111,7 +111,7 @@ Railway makes it simple to set up custom domains or use our provided domains -
 
 4. Follow the DNS configuration steps if using a custom domain
 
-### Deployment Verification
+### Deployment verification
 
 Before finalizing your migration:
 
@@ -127,7 +127,7 @@ Before finalizing your migration:
 
 Railway's integrated observability helps you catch any issues early in the migration process.
 
-### Local Development
+### Local development
 
 Railway makes local development seamless with your production environment:
 

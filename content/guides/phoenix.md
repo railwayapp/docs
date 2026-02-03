@@ -15,7 +15,7 @@ tags:
 
 [Phoenix](https://phoenixframework.org) is popular Elixir framework designed for building scalable, maintainable, and high-performance web applications. It is known for its ability to handle real-time features efficiently, like WebSockets, while leveraging Elixir's concurrency model, which is built on the Erlang Virtual Machine (BEAM).
 
-## Create a Phoenix App
+## Create a Phoenix app
 
 **Note:** If you already have a Phoenix app locally or on GitHub, you can skip this step and go straight to the [Deploy Phoenix App on Railway](#deploy-phoenix-app-on-railway).
 
@@ -39,7 +39,7 @@ This command will create a new Phoenix app named `helloworld` with some optional
 - [Phoenix live view](https://hexdocs.pm/phoenix_live_view) for building realtime & interactive web apps.
 - [Phoenix HTML and Tailwind CSS](https://hexdocs.pm/phoenix_html/Phoenix.HTML.html) for HTML apps.
 
-### Configure Database
+### Configure database
 
 Next, navigate into the `helloworld` directory using the `cd` command.
 
@@ -57,7 +57,7 @@ mix ecto.create
 
 A database will be created for our app.
 
-### Run the Phoenix App locally
+### Run the Phoenix app locally
 
 Start the app by running the following command:
 
@@ -71,7 +71,7 @@ Open your browser and go to `http://localhost:4000` to see your app.
 
 Now that your app is running locally, let’s move on to deploying it to Railway!
 
-### Prepare our Phoenix App for deployment
+### Prepare our Phoenix app for deployment
 
 Go ahead and create a `nixpacks.toml` file in the root directory of our Phoenix app.
 
@@ -122,7 +122,7 @@ cmd = "mix ecto.setup && mix phx.server"
 
 Now, we are ready to deploy!
 
-## Deploy Phoenix App to Railway
+## Deploy Phoenix app to Railway
 
 Railway offers multiple ways to deploy your Phoenix app, depending on your setup and preference. Choose any of the following methods:
 
@@ -130,7 +130,7 @@ Railway offers multiple ways to deploy your Phoenix app, depending on your setup
 2. [Using the CLI](#deploy-from-the-cli).
 3. [From a GitHub repository](#deploy-from-a-github-repo).
 
-## One-Click Deploy from a Template
+## One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Phoenix app along with a Postgres database.
 
@@ -187,7 +187,7 @@ alt="screenshot of the deployed Phoenix service showing the welcome page"
 layout="responsive"
 width={2757} height={2111} quality={100} />
 
-## Deploy from a GitHub Repo
+## Deploy from a GitHub repo
 
 To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
@@ -218,7 +218,7 @@ To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Phoenix apps effortlessly!
 
-## Want to Deploy Livebook?
+## Want to deploy livebook?
 
 [Livebook](https://livebook.dev), an interactive notebook tool built specifically for Elixir, provides a powerful and intuitive environment for exploring data, running code, and documenting insights, all in one place. It’s perfect for experimenting with Elixir code, prototyping, and sharing live documentation.
 
@@ -226,7 +226,7 @@ Click the button below to deploy an instance of Livebook quickly.
 
 [![Deploy Livebook on Railway](https://railway.com/button.svg)](https://railway.com/new/template/4uLt1s)
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

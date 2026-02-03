@@ -7,7 +7,7 @@ The Conductor Program brings together the amazing people who make Railway's comm
 
 This program aims to foster collaboration and help our Conductors grow.
 
-## What Do Conductors Do?
+## What do conductors do?
 
 Our Conductors spend time in Discord and the Central Station answering questions, sharing tips, and making sure everyone can use Railway successfully.
 
@@ -23,7 +23,7 @@ Here are a few key ways they contribute -
 
 Through these activities, Conductors ensure everyone can use Railway successfully while helping to build a collaborative and supportive community environment.
 
-## Ready to Become a Conductor?
+## Ready to become a conductor?
 
 Are you passionate about helping others and love being part of Railway's community? We're always excited to welcome new Conductors who share our enthusiasm for community engagement!
 
@@ -43,7 +43,7 @@ The ideal Conductor combines technical expertise with mentorship skills to help 
 
 <TallyButton data-tally-open="nP2qqd" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" data-tally-auto-close="2000">Apply Now</TallyButton>
 
-## Conductor Benefits
+## Conductor benefits
 
 Being a Conductor comes with several exciting perks and rewards to recognize your valuable contributions to the community.
 
@@ -69,7 +69,7 @@ As part of the program, conductors will receive -
 
 And to top it all off, each quarter we reward our most outstanding conductor with a pizza party! 🎉
 
-## Conductor Participation
+## Conductor participation
 
 We believe in fostering an active and supportive Conductor program that enables everyone to make meaningful contributions. To help keep our community vibrant, we conduct friendly quarterly check-ins with all Conductors.
 

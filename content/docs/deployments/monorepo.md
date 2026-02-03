@@ -11,7 +11,7 @@ Railway provides a few features to help improve support for deploying monorepos 
 
 For a full step by step walk through on deploying an isolated Monorepo see our <a href="/tutorials/deploying-a-monorepo" target="_blank">tutorial</a> on the subject.
 
-## Deploying an Isolated Monorepo
+## Deploying an isolated monorepo
 
 The simplest form of a monorepo is a repository that contains two completely
 isolated projects that do not share any code or configuration.
@@ -39,7 +39,7 @@ width={980} height={380} quality={80} />
 
 **Note:** The **Railway Config File** does not follow the **Root Directory** path. You have to specify the absolute path for the `railway.json` or `railway.toml` file, for example: `/backend/railway.toml`
 
-## Deploying a Shared Monorepo
+## Deploying a shared monorepo
 
 Popular in the JavaScript ecosystem, shared monorepos contain multiple components that all share a common root directory.
 
@@ -70,7 +70,7 @@ alt="Screenshot of custom start command configuration"
 layout="intrinsic"
 width={1302} height={408} quality={80} />
 
-## Automatic Import for Javascript Monorepos
+## Automatic import for JavaScript monorepos
 
 When you import a Javascript monorepo via [the project creation page](https://railway.com/new), we automatically detect if it's a monorepo and stage a service for each deployable package. This works for pnpm, npm, yarn and bun.
 

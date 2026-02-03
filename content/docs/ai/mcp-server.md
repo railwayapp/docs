@@ -10,7 +10,7 @@ With this server, you can ask your IDE or AI assistant to create projects, deplo
 
 The Railway MCP Server is open-source and available on [GitHub](https://github.com/railwayapp/railway-mcp-server).
 
-## Understanding MCP and Railway MCP Server
+## Understanding MCP and Railway MCP server
 
 The **Model Context Protocol (MCP)** defines a standard for how AI applications (hosts) can interact with external tools and data sources through a client-server architecture.
 
@@ -71,7 +71,7 @@ claude mcp add Railway npx @railway/mcp-server
 ```
 
 
-## Example Usage
+## Example usage
 
 * **Create and deploy a new app**
 
@@ -103,7 +103,7 @@ claude mcp add Railway npx @railway/mcp-server
   cloned from production and set it as linked
   ```
 
-## Available MCP Tools
+## Available MCP tools
 
 The Railway MCP Server provides a curated set of tools. Your AI assistant will automatically call these tools based on the context of your request.
 
@@ -138,7 +138,7 @@ The Railway MCP Server provides a curated set of tools. Your AI assistant will a
 
   * `get-logs` - Retrieve service logs
 
-## Security Considerations
+## Security considerations
 
 Under the hood, the Railway MCP Server runs the [Railway CLI](/cli) commands. While destructive operations are intentionally excluded and not exposed as MCP tools, you should still:
 

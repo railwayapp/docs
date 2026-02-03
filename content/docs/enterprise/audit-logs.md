@@ -20,7 +20,7 @@ alt="Screenshot of audit log list"
 layout="responsive"
 width={1652} height={1538} quality={80} />
 
-## Accessing Audit Logs
+## Accessing audit logs
 
 Audit logs are available at the workspace level and can be accessed by workspace admins through the workspace settings page.
 
@@ -30,7 +30,7 @@ To view audit logs:
 
 For more information about workspace roles and permissions, see the [Workspaces documentation](/projects/teams).
 
-## Log Contents
+## Log contents
 
 Each audit log entry contains detailed information about the action that was performed:
 
@@ -47,7 +47,7 @@ alt="Screenshot of audit log details"
 layout="responsive"
 width={1559} height={1339} quality={80} />
 
-### Actor Types
+### Actor types
 
 Actions in audit logs can be performed by three types of actors:
 
@@ -59,7 +59,7 @@ Actions in audit logs can be performed by three types of actors:
 Historic events from before audit logs were released may not contain information about the actor.
 </Banner>
 
-## Listing all Audit Logs Event Types
+## Listing all audit logs event types
 
 The complete documentation of all audit log event types and their descriptions can be retrieved using the [Railway GraphQL API](/integrations/api).
 
@@ -76,7 +76,7 @@ You can explore this information using the <a href="https://railway.com/graphiql
 
 This query returns all available event types in audit logs, along with a description of what each event represents.
 
-## Exporting Audit Logs via the API
+## Exporting audit logs via the API
 
 You can export audit logs programmatically using the [Railway GraphQL API](/integrations/api).
 
@@ -108,7 +108,7 @@ Use the `auditLogs` query to retrieve audit log entries for a specific workspace
 
 For more information on using the GraphQL API, see the [Public API Guide](/integrations/api).
 
-## Audit Log Retention
+## Audit log retention
 
 Audit logs are retained for different periods depending on your Railway plan:
 

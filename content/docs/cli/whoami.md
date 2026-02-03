@@ -19,7 +19,7 @@ railway whoami [OPTIONS]
 
 ## Examples
 
-### Display Current User
+### Display current user
 
 ```bash
 railway whoami
@@ -30,7 +30,7 @@ Output:
 Logged in as John Doe (john@example.com) 👋
 ```
 
-### JSON Output
+### JSON output
 
 ```bash
 railway whoami --json

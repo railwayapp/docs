@@ -15,7 +15,7 @@ In this page, we'll explore key areas for production readiness, suggesting actio
 
 ---
 
-## Performance and Reliability
+## Performance and reliability
 
 Ensuring your application is performant and reliable under changing conditions like load and external latency is critical for production-readiness. Consider taking the following actions to ensure your application is performant and reliable -
 
@@ -59,7 +59,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
 ---
 
-## Observability and Monitoring
+## Observability and monitoring
 
 Observability and monitoring refers to tracking the health and performance of your application. Consider taking the following actions to ensure you are able to track your application health -
 
@@ -79,7 +79,7 @@ Observability and monitoring refers to tracking the health and performance of yo
 
 ---
 
-## Quality Assurance
+## Quality assurance
 
 Quality assurance involves following practices to ensure changes to your application code meet quality standards before they are deployed to production. Consider the following actions to ensure you're set up for success -
 
@@ -129,7 +129,7 @@ Protecting your application and user data from malicious threats and vulnerabili
 
 ---
 
-## Disaster Recovery
+## Disaster recovery
 
 Being prepared for major and unexpected issues helps minimize downtime and data loss. Consider taking the following actions to ensure you are prepared -
 

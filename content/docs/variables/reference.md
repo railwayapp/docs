@@ -3,7 +3,7 @@ title: Variables Reference
 description: Reference documentation for Railway variables, including template syntax and all available system variables.
 ---
 
-## Template Syntax
+## Template syntax
 
 Railway's templating syntax gives you flexibility in managing variables:
 
@@ -22,11 +22,11 @@ GRAPHQL_PATH=/v1/gql
 GRAPHQL_ENDPOINT=https://${{DOMAIN}}/${{GRAPHQL_PATH}}
 ```
 
-## Variable Functions
+## Variable functions
 
 [Template variable functions](/templates/create#template-variable-functions) allow you to dynamically generate variables (or parts of a variable) on demand when the template is deployed.
 
-## Railway-Provided Variables
+## Railway-provided variables
 
 Railway provides the following additional system environment variables to all
 builds and deployments.
@@ -51,7 +51,7 @@ builds and deployments.
 | `RAILWAY_VOLUME_NAME`          | The name of the attached volume, if any. Example: `foobar`                                                                                           |
 | `RAILWAY_VOLUME_MOUNT_PATH`    | The mount path of the attached volume, if any. Example: `/data`                                                                                      |
 
-### Git Variables
+### Git variables
 
 These variables are provided if the deploy originated from a GitHub trigger.
 
@@ -64,7 +64,7 @@ These variables are provided if the deploy originated from a GitHub trigger.
 | `RAILWAY_GIT_REPO_OWNER`     | The name of the repository owner that triggered the deployment. Example: `mycompany`                                                                                                                 |
 | `RAILWAY_GIT_COMMIT_MESSAGE` | The message of the commit that triggered the deployment. Example: `Fixed a few bugs`                                                                                                                 |
 
-### User-Provided Configuration Variables
+### User-provided configuration variables
 
 Users can use the following environment variables to configure Railway's behavior.
 

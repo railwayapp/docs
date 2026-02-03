@@ -24,7 +24,7 @@ This guide covers how to deploy an Axum app to Railway in four ways:
 
 Now, let's create an Axum app! 🚀
 
-## Create an Axum App
+## Create an Axum app
 
 **Note:** If you already have an Axum app locally or on GitHub, you can skip this step and go straight to the [Deploy Axum App to Railway](#deploy-the-axum-app-to-railway).
 
@@ -49,7 +49,7 @@ This will add `axum` and `tokio` as dependencies, with `tokio` configured to use
 
 These dependencies are required to create a bare minimum axum application.
 
-### Modify the Application File
+### Modify the application file
 
 Next, open the app in your IDE and navigate to the `src/main.rs` file.
 
@@ -94,7 +94,7 @@ The Router from Axum is used to configure the route, and `tokio::net::TcpListene
 
 The asynchronous runtime, provided by the `#[tokio::main]` macro, ensures the server can handle requests efficiently. The `axum::serve` function integrates with the Hyper server to actually process requests.
 
-### Run the Axum App Locally
+### Run the Axum app locally
 
 Run the following command in the `helloworld` directory via the terminal:
 
@@ -106,11 +106,11 @@ All the dependencies will be installed and your app will be launched.
 
 Open your browser and go to `http://localhost:3000` to see your app.
 
-## Deploy the Axum App to Railway
+## Deploy the Axum app to Railway
 
 Railway offers multiple ways to deploy your Axum app, depending on your setup and preference.
 
-### One-Click Deploy From a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -122,7 +122,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=axum" target="_blank">variety of Axum templates</a> created by the community.
 
-### Deploy From the CLI
+### Deploy from the CLI
 
 1. **Install the Railway CLI**:
    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
@@ -154,7 +154,7 @@ alt="screenshot of the deployed Axum service"
 layout="responsive"
 width={1982} height={1822} quality={100} />
 
-### Deploy From a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy an Axum app to Railway directly from GitHub, follow the steps below:
 
@@ -212,7 +212,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Axum apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

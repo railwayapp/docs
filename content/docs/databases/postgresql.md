@@ -16,7 +16,7 @@ width={450} height={396} quality={100} />
 
 You can also deploy it via the [template](https://railway.com/template/postgres) from the template marketplace.
 
-#### Deployed Service
+#### Deployed service
 
 Upon deployment, you will have a PostgreSQL service running in your project, deployed from Railway's [SSL-enabled Postgres image](https://github.com/railwayapp-templates/postgres-ssl/pkgs/container/postgres-ssl), which uses the official [Postgres](https://hub.docker.com/_/postgres) image from Docker Hub as its base.
 
@@ -34,19 +34,19 @@ Connect to the PostgreSQL server from another service in your project by [refere
 _Note, Many libraries will automatically look for the `DATABASE_URL` variable and use
 it to connect to PostgreSQL but you can use these variables in whatever way works for you._
 
-#### Connecting Externally
+#### Connecting externally
 
 It is possible to connect to PostgreSQL externally (from outside of the [project](/projects) in which it is deployed), by using the [TCP Proxy](/networking/tcp-proxy) which is enabled by default.
 
 _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
 
-### Modify the Deployment
+### Modify the deployment
 
 Since the deployed container is based on an image built from the official [PostgreSQL](https://hub.docker.com/_/postgres) image in Docker hub, you can modify the deployment based on the [instructions in Docker hub](https://hub.docker.com/_/postgres#:~:text=How%20to%20extend%20this%20image).
 
 We also encourage you to fork the [Railway postgres-ssl repository](https://github.com/railwayapp-templates/postgres-ssl) to customize it to your needs, or feel free to open a PR in the repo!
 
-## Backups and Observability
+## Backups and observability
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
 
@@ -68,7 +68,7 @@ For some of the most popular extensions, like PostGIS and Timescale, there are s
 - <a href="https://railway.com/template/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
 - <a href="https://railway.com/template/3jJFCA" target="_blank">pgvector</a>
 
-## Modifying The Postgres Configuration
+## Modifying the Postgres configuration
 
 You can modify the Postgres configuration by using the [`ALTER SYSTEM`](https://www.postgresql.org/docs/current/sql-altersystem.html) command.
 
@@ -89,7 +89,7 @@ After running the SQL, you will need to restart the deployment for the changes t
 
 You can restart the deployment by clicking the `Restart` button in the deployment's 3-dot menu.
 
-## Increasing the SHM Size
+## Increasing the SHM size
 
 The SHM Size is the maximum amount of shared memory available to the container.
 
@@ -107,7 +107,7 @@ This variable is a number in bytes, so you would need to convert the size you wa
 
 For example, to increase the SHM Size to 500MB, you would set the variable to `524288000`.
 
-## Additional Resources
+## Additional resources
 
 While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.
 

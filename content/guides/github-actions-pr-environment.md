@@ -17,13 +17,13 @@ tags:
 
 This can be useful if you need to create a branch on a [Neon](https://neon.tech) database, allowing you to automatically inject the correct database url.
 
-## The Action
+## The action
 
 Make a new file in your repository called `.github/workflows/railway-pr-envs.yml` and add the following -
 
 ```yaml
-# NOTE
-# if you have 2fa on your account, the pr close part of the action will hang (due to 2fa not being supported non-interactively)
+# Note
+# If you have 2FA on your account, the PR close part of the action will hang (due to 2FA not being supported non-interactively)
 
 name: Manage PR environments (Railway)
 

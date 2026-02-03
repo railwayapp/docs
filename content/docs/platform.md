@@ -19,7 +19,7 @@ Point Railway to your deployment source and let the platform handle the rest.
 - **Sane Defaults**: Out of the box, your project is deployed with sane defaults to get you up and running as fast as possible.
 - **Configuration Tuning**: When you're ready, there are plenty of knobs and switches to optimize as needed.
 
-## Development Lifecycle
+## Development lifecycle
 
 Software development extends far beyond code deployment. Railway's feature set is tailor-made, and continuously evolving, to provide the best developer experience we can imagine.
 
@@ -36,10 +36,10 @@ Software development extends far beyond code deployment. Railway's feature set i
 
 - **Observability**: Keep a pulse on your deployments with Railway's built-in observability tools.
 
-## Operational Model
+## Operational model
 
 Railway operates with an emphasis on reliability and transparency. We utilize a combination of alerting tools, internal systems, and operational procedures to maintain high uptime. Read more about product philosophy and maturity [here](/platform/philosophy).
 
-## Book a Demo
+## Book a demo
 
 Looking to adopt Railway for your business? We'd love to chat! [Click here to book some time with us](https://cal.com/team/railway/work-with-railway?duration=30).

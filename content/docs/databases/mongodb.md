@@ -16,11 +16,11 @@ width={450} height={396} quality={100} />
 
 You can also deploy it via the [template](https://railway.com/template/mongo) from the template marketplace.
 
-#### Deployed Service
+#### Deployed service
 
 Upon deployment, you will have a MongoDB service running in your project, deployed from the official [mongo](https://hub.docker.com/_/mongo) Docker image.
 
-#### Custom Start Command
+#### Custom start command
 
 The MongoDB database service starts with the following [Start Command](/deployments/start-command) to enable communication over [Private Network](/networking/private-networking): `mongod --ipv6 --bind_ip ::,0.0.0.0  --setParameter diagnosticDataCollectionEnabled=false`
 
@@ -34,17 +34,17 @@ Connect to MongoDB from another service in your project by [referencing the envi
 - `MONGOPASSWORD`
 - `MONGO_URL`
 
-#### Connecting Externally
+#### Connecting externally
 
 It is possible to connect to MongoDB externally (from outside of the [project](/projects) in which it is deployed), by using the [TCP Proxy](/networking/tcp-proxy) which is enabled by default.
 
 _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
 
-### Modify the Deployment
+### Modify the deployment
 
 Since the deployed container is pulled from the official [MongoDB](https://hub.docker.com/_/mongo) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/mongo).
 
-## Backup and Monitoring
+## Backup and monitoring
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
 
@@ -52,7 +52,7 @@ Especially for production environments, performing regular backups and monitorin
 
 - **Observability**: Implement monitoring for insights into performance and health of your database.
 
-## Additional Resources
+## Additional resources
 
 While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.
 

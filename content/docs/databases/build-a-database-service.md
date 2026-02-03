@@ -7,7 +7,7 @@ Railway's platform primitives allow you to build any type of service your system
 
 For the purpose of this guide, we will use the official <a href="https://hub.docker.com/_/postgres" target="_blank">Postgres image</a> as an example.
 
-## Service Source
+## Service source
 
 As discussed in the [Services guide](/services), a crucial step in creating a service is [defining a source](/guides/services#defining-a-deployment-source) from which to deploy.
 
@@ -31,7 +31,7 @@ alt="Screenshot of a mount path"
 layout="responsive"
 width={519} height={168} quality={80} />
 
-## Environment Variables
+## Environment variables
 
 Now, all you need to do is configure the appropriate <a href="https://hub.docker.com/_/postgres#environment-variables:~:text=have%20found%20useful.-,Environment%20Variables,-The%20PostgreSQL%20image" target="_blank">environment variables</a> to let the Postgres image know how to run:
 
@@ -45,7 +45,7 @@ Note the `DATABASE_URL` is configured with TCP Proxy variables, but you can also
 
 ## Connecting
 
-### Private Network
+### Private network
 
 To connect to your database service from other services in your project, you can use the [private network](/networking/private-networking). For a postgres database service listening on port `5432`, you can use a connection string like this -
 
@@ -53,7 +53,7 @@ To connect to your database service from other services in your project, you can
 postgresql://postgres:password@postgres.railway.internal:5432/railway
 ```
 
-### TCP Proxy
+### TCP proxy
 
 If you'd like to expose the database over the public network, you'll need to set up a [TCP Proxy](/guides/public-networking#tcp-proxying), to proxy public traffic to the Postgres port `5432`:
 
@@ -69,7 +69,7 @@ That's all it takes to spin up a Postgres service in Railway directly from the o
 
 Remember you can also deploy from a Dockerfile which would generally involve the same features and steps. For an example of a Dockerfile that builds a custom image with the official Postgres image as base, take a look at <a href="https://github.com/railwayapp-templates/postgres-ssl" target="_blank">Railway's SSL-enabled Postgres image repo</a>.
 
-### Template Marketplace
+### Template marketplace
 
 Need inspiration or looking for a specific database? Our <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> already includes solutions for many different database services. You might even find a template for the database you need!
 

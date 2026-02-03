@@ -5,7 +5,7 @@ description: Technical specifications and rate limits for Railway's public netwo
 
 _This information is subject to change at any time._
 
-## Technical Specifications
+## Technical specifications
 
 | Category                 | Key Information                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -16,7 +16,7 @@ _This information is subject to change at any time._
 | **Request Headers**      | - `X-Real-IP` for identifying client's remote IP.<br/>- `X-Forwarded-Proto` always indicates `https`.<br/>- `X-Forwarded-Host` for identifying the original host header.<br/>- `X-Railway-Edge` for identifying the edge region that handled the request.<br/>- `X-Request-Start` for identifying the time the request was received (Unix milliseconds timestamp).<br/>- `X-Railway-Request-Id` for correlating requests against network logs. |
 | **Requests**             | - Inbound traffic must be TLS-encrypted<br/>- HTTP GET requests to port 80 are redirected to HTTPS.<br/>- HTTP POST requests to port 80 are redirected to HTTPS as GET requests.<br/>- SNI is required for correct certificate matching.                                                                                                                                                                                                       |
 
-## Rate Limits
+## Rate limits
 
 To ensure the integrity and performance of our network, we enforce the following limits for all services.
 
@@ -28,7 +28,7 @@ To ensure the integrity and performance of our network, we enforce the following
 
 If your application requires higher limits, please don't hesitate to reach out to us at [team@railway.com](mailto:team@railway.com).
 
-## Traffic Types
+## Traffic types
 
 We currently support HTTP and HTTP2 traffic from the internet to your services.
 
@@ -39,7 +39,7 @@ All traffic must be HTTPS and use TLS 1.2 or above, and TLS SNI is mandatory for
 
 For services that require TCP traffic, like databases, we also have [TCP Proxy](/networking/tcp-proxy) support.
 
-## SSL Certificates
+## SSL certificates
 
 We provide LetsEncrypt SSL certificates using RSA 2048bit keys. Certificates are valid for 90 days and are automatically renewed 2 months into their life.
 
@@ -47,6 +47,6 @@ Certificate issuance should happen within an hour of your DNS being updated with
 
 For proxied domains (Cloudflare orange cloud), we may not always be able to issue a certificate for the domain, but Cloudflare to Railway traffic will be encrypted with TLS using our default `*.up.railway.app` certificate.
 
-## DDoS Protection
+## Ddos protection
 
 Railway Metal infrastructure is built to mitigate attacks at network layer 4 and below, however we do not provide protection on the application layer. If you need WAF functionality, we recommend using Cloudflare alongside Railway.

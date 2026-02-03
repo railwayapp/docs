@@ -13,7 +13,7 @@ width={1111} height={649} quality={80} />
 
 [Shape the future of this dashboard! We are actively collecting feedback on usecases and bugs you may encounter.](https://station.railway.com/feedback/observability-dashboard-51871a24)
 
-## Navigating to the Observability Dashboard
+## Navigating to the observability dashboard
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743129656/docs/observability_hsja97.png"
@@ -28,14 +28,14 @@ _Users may notice that the project navigation is updated with the feature._
 
 The Observability Dashboard is uniquely scoped to each project environment as services may differ between each environment.
 
-### Getting Started
+### Getting started
 
 By default the Observability Dashboard starts with no configured widgets.
 
 - When you first access a new environment, you will be prompted to "Start with a simple dashboard" or "Add new item".
 - Click on "Start with a simple dashboard" to create your initial layout, Railway will autogenerate graphs and widgets with spend, service metrics and logs.
 
-## Creating Widgets
+## Creating widgets
 
 Clicking "New" in the top right corner of the dashboard will open the Widget creation modal. Widget types depend on the data source provided, where they can be a graph, displayed data, or logs.
 
@@ -47,7 +47,7 @@ width={1101} height={830} quality={80} />
 
 Widgets have a name and a description attached to them. By default Railway will provide a suggested name for the widget upon creation and display a preview of the content that is to be displayed on the dashboard.
 
-### Available Data Sources
+### Available data sources
 
 On the top right, you can select a data source to display within a widget.
 
@@ -58,7 +58,7 @@ On the top right, you can select a data source to display within a widget.
 - Logs: Select logs from a single service or multiple services with filtering
 - Project Usage: report the spend of your project and track the overall resource usage of your project.
 
-### Filtering Widget Information
+### Filtering widget information
 
 When creating a widget, you can use Railway's filtering syntax to select services, select data, and perform logical negations to define rules.
 
@@ -70,7 +70,7 @@ When creating a widget, you can use Railway's filtering syntax to select service
 Any of the above expressions can be combined with boolean operators `AND`,
 `OR`, and `-` (negation).
 
-## Arranging the Dashboard
+## Arranging the dashboard
 
 The Dashboard is customizable in content and layout. Widgets can be stacked, repositioned and resized.
 
@@ -89,7 +89,7 @@ Resizing and Moving Widgets:
 
 _Note for Small Screens: On smaller screens, items stack vertically and respect their configured height to ensure readability and usability. Editing is disabled at smaller visual breakpoints._
 
-## Editing/Deleting Widgets
+## Editing/Deleting widgets
 
 Under Edit mode, each widget will have a three dot menu at the upper right corner at the bounding box of the widget. Clicking into this menu will allow you to edit the data source or delete the widget.
 
@@ -112,7 +112,7 @@ Alerting thresholds can be configured to trigger above or below specified limits
 - Disk usage
 - Network egress
 
-### Creating Monitors
+### Creating monitors
 
 
 To create a monitor, navigate to any widget in the Observability Dashboard and click the three dot menu at the upper right corner of the widget. Select "Add monitor" from the dropdown menu to configure alerting for that specific widget.
@@ -127,6 +127,6 @@ To create a monitor, navigate to any widget in the Observability Dashboard and c
 />
 
 
-### Editing Monitors
+### Editing monitors
 
 To edit an existing monitor, navigate to any widget that has monitoring configured and click the three dot menu at the upper right corner of the widget. Select "Edit monitor" from the dropdown menu to modify the monitor configuration for that widget.

@@ -7,15 +7,15 @@ Cron Jobs allow you to start a service based on a crontab expression.
 
 Services configured as cron jobs are expected to execute a task, and terminate as soon as that task is finished, leaving no open resources.
 
-## How it Works
+## How it works
 
 Railway will look for a defined cron schedule in your service settings, and execute the start command for that service on the given schedule. The service is expected to execute a task, and exit as soon as that task is finished, not leaving any resources open, such as database connections.
 
-#### Scheduling Libraries
+#### Scheduling libraries
 
 If you are already using a scheduling library or system in your service such as [node-cron](https://www.npmjs.com/package/node-cron) or [Quartz](http://www.quartz-scheduler.org/), Railway cron jobs are a substitute of them that allows you to save resources between executions.
 
-## Configuring a Cron Job
+## Configuring a cron job
 
 To configure a cron job:
 
@@ -23,19 +23,19 @@ To configure a cron job:
 2. Within "Cron Schedule", input a [crontab expression](#crontab-expressions).
 3. Once the setting is saved, the service will run according to the cron schedule.
 
-## Service Execution Requirements
+## Service execution requirements
 
 Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
 
 Currently, Railway does not automatically terminate deployments. As a result, if a previous execution is still running when the next scheduled execution is due, Railway will skip the new cron job.
 
-### Why Isn't My Cron Running as Scheduled?
+### Why isn't my cron running as scheduled?
 
 An important requirement of a service that runs as a Cron, is that it terminates on completion and leaves no open resources. If the code that runs in your Cron service does not exit, subsequent executions of the Cron will be skipped.
 
 If you see that a previous execution of your Cron service has a status of `Active`, the execution is still running and any new executions will not be run.
 
-## Crontab Expressions
+## Crontab expressions
 
 A crontab expression is a scheduling format used in Unix-like operating systems to specify when and how often a command or script should be executed automatically.
 
@@ -53,7 +53,7 @@ Crontab expressions consists of five fields separated by spaces, representing di
 
 The values of these fields can be an asterisk `*`, a list of values separated by commas, a range of values (using `-`), step values (using `/`) or an integer value.
 
-#### Field Definitions
+#### Field definitions
 
 - **Minute (0-59)**: Represents the minute of the hour when the command should be executed. An asterisk (`*`) denotes any value, meaning the command will be executed every minute, or you can specify a specific minute value (e.g., 0, 15, 30).
 
@@ -93,12 +93,12 @@ The shortest time between successive executions of a cron job cannot be less tha
 
 ## FAQ
 
-### When to use Railway's cron jobs?
+### When to use railway's cron jobs?
 
 - For short-lived tasks that complete quickly and exit properly, such as a daily database backup.
 - When you want to save resources between task executions, as opposed to having an in-code scheduler run 24/7.
 
-### When not to use Railway's cron jobs?
+### When not to use railway's cron jobs?
 
 - For long-running processes that don't exit, such as a web server or discord bot.
 - When you need more frequent execution than every 5 minutes.

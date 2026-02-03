@@ -13,14 +13,14 @@ width={1444} height={1128} quality={80} />
 
 When a user authenticates through your app, they see a consent screen showing exactly what permissions you're requesting. They can approve or deny access, and for workspace or project scopes, they choose specifically which resources to share. This gives users control over their data while allowing your application to interact with Railway on their behalf.
 
-## Use Cases
+## Use cases
 
 - **CLIs**: Build command-line tools that manage Railway infrastructure on behalf of users
 - **Deployment frameworks**: Integrate one-click deploy-to-Railway functionality into your framework or starter kit
 - **Dashboards and monitoring**: Display project metrics, deployment history, or resource usage by authenticating users and querying their workspaces
 - **Developer platforms**: Let users sign in with their Railway account instead of creating new credentials
 
-## OIDC Configuration
+## OIDC configuration
 
 The OpenID Connect configuration is published at a standard well-known endpoint:
 
@@ -30,7 +30,7 @@ https://backboard.railway.com/oauth/.well-known/openid-configuration
 
 This discovery document contains all the metadata your application needs to implement authentication: the authorization and token endpoints, supported scopes and response types, the JWKS URI for validating ID tokens, and other protocol details. OAuth libraries typically consume this endpoint automatically during setup.
 
-## Getting Started
+## Getting started
 
 To implement Login with Railway, start by [creating an OAuth app](/integrations/oauth/creating-an-app) in your workspace's Developer settings. This gives you the client credentials needed to initiate the OAuth flow.
 
@@ -38,7 +38,7 @@ The [Quickstart guide](/integrations/oauth/quickstart) walks through a complete 
 
 Before building, review [Scopes & User Consent](/integrations/oauth/scopes-and-user-consent) to understand what permissions are available and how the consent flow works. Requesting only the scopes you actually need improves user trust and simplifies the consent experience.
 
-## API Access
+## API access
 
 Once a user has authenticated, your application receives an access token that works with Railway's [GraphQL API](/integrations/api). The token carries the permissions the user granted, so API requests succeed or fail based on what the user approved and their role within the workspaces or projects they selected.
 

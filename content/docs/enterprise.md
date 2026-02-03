@@ -5,7 +5,7 @@ description: Railway Enterprise is for organizations that require enterprise-gra
 
 Railway Enterprise takes scale to a whole new level. The Enterprise tier delivers the reliability and compliance you need, with the experience your developers deserve. Built for organizations that require enterprise-grade security, dedicated resources, and comprehensive control over their infrastructure.
 
-## Performance at Scale
+## Performance at scale
 
 Railway accommodates the smallest startups to the biggest enterprises, used among 23% of the Fortune 500 companies.
 
@@ -18,7 +18,7 @@ The platform supports your production-grade workloads with:
 - 2400 vCPU processor limits
 - 50TB disk storage limits
 
-## Security and Compliance
+## Security and compliance
 
 Railway Enterprise supports your compliance requirements with industry-standard certifications including SOC 2 Type II, SOC 3, and HIPAA compliance. 
 
@@ -32,7 +32,7 @@ You can view our audit, compliance, security, and regulatory documents on our [T
 - [Audit logs](/enterprise/audit-logs), including change tracking
 - [Environment-based RBAC](/environments)
 
-## Zero-Trust Networking
+## Zero-trust networking
 
 Railway supports secure zero-trust networking, with a 50ms p95 global network RTT.
 
@@ -40,7 +40,7 @@ Railway supports secure zero-trust networking, with a 50ms p95 global network RT
 - Automated firewall rules on private networking
 - Network isolation between projects and environments
 
-## Hosting Options
+## Hosting options
 
 Railway can be deployed globally, with availability across the Americas, EMEA, and APAC.
 
@@ -60,7 +60,7 @@ Enterprise support for reliable uptime and and performance, with:
 - Contractual SLAs
 - Private Slack channel
 
-## Get Started with Railway Enterprise
+## Get started with Railway enterprise
 
 Railway helps teams save 65% on average on their cloud bill, and develop 90% faster as compared to traditional cloud workflows.
 

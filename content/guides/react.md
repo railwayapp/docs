@@ -25,7 +25,7 @@ This guide covers how to deploy a React app to Railway in four ways:
 
 Now, let's create a React app!
 
-## Create a React App
+## Create a React app
 
 **Note:** If you already have a React app locally or on GitHub, you can skip this step and go straight to the [Deploy React App on Railway](#deploy-the-react-app-to-railway).
 
@@ -39,7 +39,7 @@ npm create vite@latest helloworld -- --template react
 
 A new React app will be provisioned for you in the `helloworld` directory.
 
-### Run the React App locally
+### Run the React app locally
 
 Next, `cd` into the directory and install the dependencies.
 
@@ -55,11 +55,11 @@ npm run dev
 
 Open your browser and go to `http://localhost:5173` to see your app.
 
-## Deploy the React App to Railway
+## Deploy the React app to Railway
 
 Railway offers multiple ways to deploy your React app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a React app with [Caddy](https://caddyserver.com) to serve the dist folder.
 
@@ -98,7 +98,7 @@ alt="screenshot of the deployed React service"
 layout="responsive"
 width={2431} height={2051} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a React app to Railway directly from GitHub, follow the steps below:
 
@@ -216,7 +216,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your React apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

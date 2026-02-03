@@ -21,7 +21,7 @@ railway unlink [OPTIONS]
 
 ## Examples
 
-### Unlink Project
+### Unlink project
 
 ```bash
 railway unlink
@@ -29,7 +29,7 @@ railway unlink
 
 Removes the entire project link from the current directory.
 
-### Unlink Service Only
+### Unlink service only
 
 ```bash
 railway unlink --service
@@ -37,7 +37,7 @@ railway unlink --service
 
 Keeps the project and environment link but removes the service association.
 
-### Skip Confirmation
+### Skip confirmation
 
 ```bash
 railway unlink --yes

@@ -5,13 +5,13 @@ description: Learn how to scale your applications on Railway.
 
 Scaling your applications in Railway is made easy with configurable options for horizontal scaling as well as vertical autoscaling out-of-the-box.
 
-## How it Works
+## How it works
 
-### Vertical Autoscaling
+### Vertical autoscaling
 
 By default Railway will scale your service up to the specified vCPU and Memory limits of your [plan](/reference/pricing#plans).
 
-### Horizontal Scaling with Replicas
+### Horizontal scaling with replicas
 
 Scale horizontally by manually increasing the number of replicas for a service in the service settings. Increasing the number of replicas on a service will create multiple instances of the service deployment.
 
@@ -33,7 +33,7 @@ The service settings panel will reveal an interface for assigning replicas to di
 
 Creating, deleting, and re-assigning replicas will trigger a staged change. When applied, Railway scales your service without triggering a full redeploy. New replicas start using the existing deployment image, and removed replicas are drained gracefully.
 
-#### Load Balancing Between Replicas
+#### Load balancing between replicas
 
 If you are using multi-region replicas, Railway will automatically route public traffic to the nearest region and then randomly distribute requests to the replicas within that region.
 
@@ -43,7 +43,7 @@ If you are using a single region with multiple replicas, Railway will randomly d
 
 For services with multiple replicas, the metrics from all replicas are summed up and displayed in the metrics tab, for example, if you have 2 replicas, each using 100 MB of memory, the memory usage displayed in the metrics tab will be 200 MB.
 
-#### Sticky Sessions
+#### Sticky sessions
 
 For now Railway does not support sticky sessions nor report the usage of the replicas within the metrics view.
 

@@ -11,7 +11,7 @@ There are three ways to view logs in Railway.
 - **Log Explorer** → Click on the Observability tab in the top navigation
 - **CLI** → Run the `railway logs` command
 
-## Build / Deploy Panel
+## Build / deploy panel
 
 Logs for a specific deployment can be viewed by clicking on the deployment in the service window, useful when debugging application failures.
 
@@ -29,7 +29,7 @@ alt="deploy logs for a specific deployment"
 layout="responsive"
 width={1365} height={790} quality={80} />
 
-## Log Explorer
+## Log explorer
 
 Logs for the entire environment can be viewed together by clicking the "Observability" button in the top navigation. The Log Explorer is useful for debugging more general problems that may span multiple services.
 
@@ -41,7 +41,7 @@ alt="Railway Log Explorer"
 layout="responsive"
 width={1166} height={650} quality={80} />
 
-## Command Line
+## Command line
 
 Deployment logs can also be viewed from the command line to quickly check the current status of the latest deployment. Use `railway logs` to view them.
 
@@ -51,7 +51,7 @@ alt="Viewing logs using the command line interface"
 layout="responsive"
 width={1489} height={591} quality={80} />
 
-## Filtering Logs
+## Filtering logs
 
 Railway supports a custom filter syntax that can be used to query logs.
 
@@ -298,12 +298,12 @@ Find slow, large responses.
 @responseTime:>1000 @txBytes:>100000
 ```
 
-## View In Context
+## View in context
 
 When searching for logs, it is often useful to see surrounding logs. To view a log in context:
 right-click any log, then select the "View in Context" option from the dropdown menu.
 
-## Structured Logs
+## Structured logs
 
 Structured logs are logs emitted in a structured JSON format, useful if you want
 to attach custom metadata to logs or preserve multi-line logs like stack traces.
@@ -351,7 +351,7 @@ Here are a few examples of structured logs.
 }
 ```
 
-### Normalization Strategy
+### Normalization strategy
 
 In order to ensure a consistent query format across Railway services, incoming logs are normalized to the above format automatically.
 
@@ -367,7 +367,7 @@ In order to ensure a consistent query format across Railway services, incoming l
 
 - Levels are lowercased and matched to the closest of `debug`, `info`, `warn`, `error`
 
-## Log Retention
+## Log retention
 
 Depending on your plan, logs are retained for a certain amount of time.
 
@@ -379,7 +379,7 @@ Depending on your plan, logs are retained for a certain amount of time.
 
 _\* Upgrading plans will immediately restore logs that were previously outside of the retention period._
 
-## Logging Throughput
+## Logging throughput
 
 To maintain quality of service for all users, Railway enforces a logging rate limit of **500 log lines per second per [replica](/deployments/scaling#horizontal-scaling-with-replicas)** across all plans. When this limit is exceeded, additional logs are dropped and you'll see a warning message like this:
 

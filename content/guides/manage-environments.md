@@ -5,7 +5,7 @@ description: Learn how to manage environments via the public GraphQL API.
 
 Here are examples to help you manage your environments using the Public API.
 
-## List Environments
+## List environments
 
 Get all environments for a project:
 
@@ -21,7 +21,7 @@ Get all environments for a project:
   }
 }`} variables={{ projectId: "project-id" }} />
 
-### Exclude Ephemeral Environments
+### Exclude ephemeral environments
 
 Filter out PR/preview environments:
 
@@ -37,7 +37,7 @@ Filter out PR/preview environments:
   }
 }`} variables={{ projectId: "project-id", isEphemeral: false }} />
 
-## Get a Single Environment
+## Get a single environment
 
 Fetch an environment by ID with its service instances:
 
@@ -61,7 +61,7 @@ Fetch an environment by ID with its service instances:
   }
 }`} variables={{ id: "environment-id" }} />
 
-## Create an Environment
+## Create an environment
 
 Create a new environment:
 
@@ -78,13 +78,13 @@ optionalFields={[
   { name: "input.stageInitialChanges", type: "Boolean", description: "Stage changes instead of applying immediately", apiDefault: "false" },
 ]} />
 
-## Rename an Environment
+## Rename an environment
 
 <CodeTabs query={`mutation environmentRename($id: String!, $input: EnvironmentRenameInput!) {
   environmentRename(id: $id, input: $input)
 }`} variables={{ id: "environment-id", input: { name: "new-name" } }} />
 
-## Delete an Environment
+## Delete an environment
 
 <Banner variant="danger">This will delete the environment and all its deployments.</Banner>
 
@@ -92,7 +92,7 @@ optionalFields={[
   environmentDelete(id: $id)
 }`} variables={{ id: "environment-id" }} />
 
-## Get Environment Logs
+## Get environment logs
 
 Fetch logs from all services in an environment:
 
@@ -111,17 +111,17 @@ optionalFields={[
   { name: "filter", type: "String", description: "Filter logs by text (e.g., 'error')" },
 ]} />
 
-## Staged Changes
+## Staged changes
 
 Railway supports staging variable changes before deploying them.
 
-### Get Staged Changes
+### Get staged changes
 
 <CodeTabs query={`query environmentStagedChanges($environmentId: String!) {
   environmentStagedChanges(environmentId: $environmentId)
 }`} variables={{ environmentId: "environment-id" }} />
 
-### Commit Staged Changes
+### Commit staged changes
 
 <CodeTabs query={`mutation environmentPatchCommitStaged($environmentId: String!) {
   environmentPatchCommitStaged(environmentId: $environmentId)

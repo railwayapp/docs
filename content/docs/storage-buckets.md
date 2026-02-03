@@ -5,7 +5,7 @@ description: Persist assets in object storage.
 
 Railway Buckets are private, S3-compatible object storage buckets for your projects. They give you durable object storage on Railway without needing to wire up an external provider. Use them for file uploads, user-generated content, static assets, backups, or any data that needs reliable object storage.
 
-## Getting Started
+## Getting started
 
 To create a bucket in your project, click the Create button on your canvas, select Bucket, and select its region and optionally change its name. You aren't able to change your region after you create your bucket.
 
@@ -16,7 +16,7 @@ Unlike traditional S3, you can choose a custom display name for your bucket. The
 <video src="https://res.cloudinary.com/railway/video/upload/v1763520962/SettingName_eyhi4k.mp4" controls autoPlay loop muted playsInline />
 
 
-## Connecting to Your Bucket
+## Connecting to your bucket
 
 Railway Buckets are private, meaning you can only edit and upload your files by authenticating with the bucket's credentials. To make files accessible publicly, you can use [presigned URLs](#presigned-urls), or proxy files through a backend service. Read more in [Serving and Uploading Files](#serving-and-uploading-files).
 
@@ -33,14 +33,14 @@ alt="Screenshot of bucket credentials"
 layout="responsive"
 width={2554} height={1970} quality={80} />
 
-### URL Style
+### URL style
 
 
 Railway Buckets use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#virtual-hosted–style-access">virtual-hosted–style URLs</a>, where the bucket name appears as the subdomain of the S3 endpoint. This is the standard S3 URL format, and most libraries support it out of the box. In most cases you only need to provide the base endpoint (`https://storage.railway.app`) and the client builds the full virtual-hosted URL automatically.
 
 Buckets that were created before this change might require you to use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#path-style-access">path-style URLs</a> instead. The Credentials tab of your bucket will tell you which style you should use.
 
-### Variable References
+### Variable references
 
 Storage Buckets can provide the S3 authentication credentials to your other services by using [Variable References](https://docs.railway.com/guides/variables#referencing-a-shared-variable). You can do this in two ways:
 
@@ -58,7 +58,7 @@ Doing this sets the names for the credentials based on what each library expects
 <video src="https://res.cloudinary.com/railway/video/upload/v1763419460/AutoInjectVariables_xborrx.mp4" controls autoplay loop muted playsinline />
 </Collapse>
 
-### Railway-Provided Variables
+### Railway-provided variables
 
 Railway provides the following variables which can be used as [Variable References](https://docs.railway.com/guides/variables#referencing-a-shared-variable).
 
@@ -76,7 +76,7 @@ Railway provides the following variables which can be used as [Variable Referenc
 | `RAILWAY_BUCKET_NAME`      | The bucket name.This is not the bucket name to use for the S3 API. Use `BUCKET` instead.         |
 | `RAILWAY_BUCKET_ID`        | The bucket id.                                                                                   |
 
-## Serving and Uploading Files
+## Serving and uploading files
 
 Buckets are private, but you can still work with their files in a few ways. You can serve files straight from the bucket using presigned URLs, proxy them through your backend, or upload files directly from clients or services.
 
@@ -84,17 +84,17 @@ Bucket egress is free. Service egress is not. If your service sends data to user
 
 Learn about the different patterns for working with files in the [Uploading & Serving Files](/storage-buckets/uploading-serving) guide.
 
-## Buckets in Environments
+## Buckets in environments
 
 Each environment gets its own separate bucket instance with isolated credentials. When you [duplicate an environment](/guides/environments#create-an-environment) or use [PR environments](/guides/environments#enable-pr-environments), you won't need to worry about accidentally deleting production objects, exposing sensitive data in pull requests, or polluting your production environment with test data.
 
-## How Buckets are Billed
+## How buckets are billed
 
 Buckets are billed at **$0.015** per GB-month. All S3 API operations and bucket egress are unlimited and free.
 
 For detailed pricing information, plan limits, and billing examples, see the [Storage Buckets Billing](/storage-buckets/billing) page.
 
-### Cost Comparison
+### Cost comparison
 
 Railway Buckets offer competitive pricing compared to other S3-compatible storage providers:
 
@@ -106,7 +106,7 @@ Railway Buckets offer competitive pricing compared to other S3-compatible storag
 
 Railway matches R2's storage pricing while offering free unlimited API operations. Compared to S3, Railway is more cost-effective on storage, egress, and operations.
 
-## S3 Compatibility
+## S3 compatibility
 
 Buckets are fully S3-compatible. You can use them with any S3 client library for any language, tool, or framework, and you can expect the same functionality on Railway Buckets as if you were using a normal S3 bucket.
 
@@ -124,7 +124,7 @@ Not yet supported:
 - Object locks
 - Bucket lifecycle configuration
 
-## Deleting a Bucket
+## Deleting a bucket
 
 You can delete your bucket by clicking on it in your canvas, going to Settings, and selecting Delete Bucket. The bucket will disappear immediately from your project, but it's not permanently deleted yet. It will only be permanently deleted after two days to protect against [accidental deletions](https://blog.railway.com/p/how-we-oops-proofed-infrastructure-deletion-on-railway).
 
@@ -168,7 +168,7 @@ Railway Storage Buckets are encrypted at rest.
 
 </Collapse>
 
-## Help us improve Storage Buckets
+## Help us improve storage buckets
 
 Upvote these feature requests on our feedback page if these features sound useful to you:
 

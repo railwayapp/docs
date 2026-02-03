@@ -19,7 +19,7 @@ railway login [OPTIONS]
 
 ## Examples
 
-### Browser Login (Default)
+### Browser login (default)
 
 Opens your default browser to authenticate:
 
@@ -27,7 +27,7 @@ Opens your default browser to authenticate:
 railway login
 ```
 
-### Browserless Login
+### Browserless login
 
 Use this in environments without a browser (e.g., SSH sessions):
 
@@ -37,7 +37,7 @@ railway login --browserless
 
 This displays a pairing code and URL. Visit the URL and enter the code to authenticate.
 
-## Environment Variables
+## Environment variables
 
 If `RAILWAY_TOKEN` or `RAILWAY_API_TOKEN` is set, the CLI will use that token instead of prompting for login. See [Tokens](/cli#tokens) for more information.
 

@@ -5,7 +5,7 @@ description: Learn about Railway’s refund policy and how to request a refund i
 
 Refunds are for new customers who no longer wish to use Railway after initially trying it out. Railway offers refunds at its sole discretion, in line with our [Terms of Service](https://railway.com/legal/terms).
 
-## Requesting A Refund
+## Requesting a refund
 
 You can request for a refund in [Workspace Settings -> Billing](https://railway.com/workspace/billing) under **Billing History**:
 

@@ -23,7 +23,7 @@ railway ssh [OPTIONS] [COMMAND...]
 
 ## Examples
 
-### Interactive Shell
+### Interactive shell
 
 ```bash
 railway ssh
@@ -31,13 +31,13 @@ railway ssh
 
 Opens a bash shell in the service container.
 
-### Run a Single Command
+### Run a single command
 
 ```bash
 railway ssh -- ls -la
 ```
 
-### SSH with tmux Session
+### SSH with tmux session
 
 ```bash
 railway ssh --session
@@ -45,13 +45,13 @@ railway ssh --session
 
 Creates a persistent tmux session that reconnects automatically if disconnected.
 
-### SSH to Specific Service
+### SSH to specific service
 
 ```bash
 railway ssh --service backend
 ```
 
-## Use Cases
+## Use cases
 
 - Debugging production issues
 - Running database migrations
@@ -59,7 +59,7 @@ railway ssh --service backend
 - Inspecting log files
 - Troubleshooting network issues
 
-## How It Works
+## How it works
 
 Railway SSH uses a custom WebSocket-based protocol (not standard SSH). This means:
 

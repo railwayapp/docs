@@ -9,7 +9,7 @@ Anyone that signs up from your link will receive $20 in Railway credits, equival
 
 Once the signup becomes a Railway customer, you will receive 15% commission on the first 12 months of invoices from the new customer moving forward.
 
-## How Do I Become an Affiliate?
+## How do I become an affiliate?
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/referrals_cash_ashj73.png"
 alt="Screenshot of Referrals Page"
@@ -36,7 +36,7 @@ To see and withdraw earnings:
 
 - After adding your account details you will request a withdrawal. Our team will receive the request and process it.
 
-## How Do I Maximize Earnings?
+## How do I maximize earnings?
 
 Earnings come from signups that are successful and start to scale on Railway. Walk through Railway use cases to give your network an accurate idea of what they can do on Railway.
 

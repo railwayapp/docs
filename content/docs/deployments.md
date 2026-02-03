@@ -5,7 +5,7 @@ description: Overview of deployment concepts and configuration on Railway.
 
 Railway makes deploying your applications simple while providing powerful controls for production workloads. This section covers everything you need to know about managing deployments.
 
-## Getting Started
+## Getting started
 
 | Topic | Description |
 | ----- | ----------- |
@@ -13,7 +13,7 @@ Railway makes deploying your applications simple while providing powerful contro
 | [**Start Command**](/deployments/start-command) | Configure how your application starts. |
 | [**Pre-Deploy Command**](/deployments/pre-deploy-command) | Run commands before your deployment goes live (migrations, etc). |
 
-## Scaling & Performance
+## Scaling & performance
 
 | Topic | Description |
 | ----- | ----------- |
@@ -22,14 +22,14 @@ Railway makes deploying your applications simple while providing powerful contro
 | [**Optimize Performance**](/deployments/optimize-performance) | Tips for optimizing your deployment performance. |
 | [**Serverless**](/deployments/serverless) | Configure serverless behavior for your services. |
 
-## Health & Reliability
+## Health & reliability
 
 | Topic | Description |
 | ----- | ----------- |
 | [**Healthchecks**](/deployments/healthchecks) | Configure health checks to ensure your services are running correctly. |
 | [**Restart Policy**](/deployments/restart-policy) | Control how Railway handles service restarts. |
 
-## Deployment Workflow
+## Deployment workflow
 
 | Topic | Description |
 | ----- | ----------- |

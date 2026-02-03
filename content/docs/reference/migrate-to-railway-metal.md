@@ -7,7 +7,7 @@ This page will describe in detail the migration process when a service moves to 
 
 We will cover: how to initiate a migration, how to best prepare for a migration, and what mechanically happens when you initiate a migration of your services to Railway Metal.
 
-## What is Railway Metal?
+## What is Railway metal?
 
 Railway Metal is the next generation of Railway's underlying infrastructure. It is built on hardware that we own and operate in datacenters around the world. You can get more information about Railway Metal on the parent [documentation page here.](/railway-metal)
 
@@ -19,7 +19,7 @@ Railway is **currently** initiating migrations of user workloads to Railway Meta
 
 As such, we advise our customers to move all of their workloads to Railway Metal to avoid Railway initiated downtime.
 
-## What does a migration to Railway Metal entail?
+## What does a migration to Railway metal entail?
 
 A migration to Railway Metal is just like any deployment on Railway that would happen if you changed the region setting to a different value.
 
@@ -59,7 +59,7 @@ Depending on if the service is Stateful or Stateless- we then initiate one of tw
 
 During the process, as of 2025/05/13 - Railway is able to report the transfer speed and progress of the volume migration to users.
 
-### What happens to writes on the DB on migrations that I initiated?
+### What happens to writes on the db on migrations that I initiated?
 
 Because Railway is copying the volume primitive using the same primitive that we use for the volume backup feature, writes persist until we unmount the running deployment of the DB. As such, you don't need to plan for downtime of your database except for the 30 to 40 seconds when a deployment remounts into the database.
 

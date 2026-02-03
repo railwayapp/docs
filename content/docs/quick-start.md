@@ -21,7 +21,7 @@ To demonstrate deploying directly from a GitHub repository through Railway's das
 
 For the template deployment, we'll use the <a href="https://railway.com/template/umami-analytics" target="_blank">Umami template</a> from our <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
 
-## Deploying Your Project - From GitHub
+## Deploying your project - from GitHub
 
 If this is your first time deploying code on Railway, we recommend <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" target="_blank">forking</a> the previously mentioned <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>'s repository so that you can follow along.
 
@@ -62,7 +62,7 @@ When you click **Deploy Now**, Railway will create a new project for you and kic
 
 **Once the project is created you will land on your <a href="/quick-start#the-canvas" target="_blank">Project Canvas</a>**.
 
-## Deploying Your Project - With the CLI
+## Deploying your project - with the CLI
 
 As with the [Deploy from GitHub guide](/quick-start#deploying-your-project---from-github), if you're deploying code with the CLI for the first time, it's recommended to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" target="_blank">fork</a> the <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>'s repository to follow along. Since we'll be deploying local code, you'll also need to <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository" target="_blank">clone</a> the forked repository.
 
@@ -92,7 +92,7 @@ width={836} height={214} quality={100} />
 
 **You can now run `railway open` and you will taken to your [Project Canvas](/quick-start#the-canvas)**.
 
-## Deploying Your Project - From a Docker Image
+## Deploying your project - from a Docker image
 
 Railway supports deploying pre-built Docker images from the following registries:
 
@@ -149,7 +149,7 @@ And that's it! 🎉 Your project is now ready for use.
 Private Docker registry deployments require the [Pro plan](/guides/services#deploying-a-private-docker-image).
 </Banner>
 
-## The Canvas
+## The canvas
 
 Whether you deploy your project through the dashboard with GitHub or locally using the CLI, you'll ultimately arrive at your project canvas.
 
@@ -169,7 +169,7 @@ If anything fails during this time, you can explore your <a href="/guides/logs#b
 
 If you're stuck don't hesitate to open a <a href="https://station.railway.com/questions" target="_blank">Help Thread</a>.
 
-## Deploying a Template
+## Deploying a template
 
 Railway's <a href="https://railway.com/templates" target="_blank">template marketplace</a> offers over 650+ unique templates that have been created both by the community and Railway!
 
@@ -225,7 +225,7 @@ As your Project scales, Railway scales with you by supporting multiple Teams, ve
 
 Happy Building!
 
-### What to Explore Next
+### What to explore next
 
 - **[Environments](/environments)** - Railway lets you create parallel, identical environments for PRs/testing.
 
@@ -235,6 +235,6 @@ Happy Building!
 
 - **[Staged Changes](/guides/staged-changes)** - When you make changes to your Railway project, such as adding or removing components and configurations, these updates will be gathered into a changeset for you to review and apply.
 
-### Join the Community
+### Join the community
 
 Chat with Railway members, ask questions, and hang out in our <a href="https://discord.gg/railway" target="_blank">Discord community</a> with fellow builders! We'd love to have you!

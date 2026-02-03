@@ -25,11 +25,11 @@ The goal of this section is to describe the processes, internal and external tha
 
 If you have any additional questions or if you require any additional disclosure you can contact us to set up a call at [team@railway.com](mailto:team@railway.com).
 
-## Product Philosophy
+## Product philosophy
 
 Railway is focused on building an amazing developer experience. Our goal is to enable developers to deploy their code and see their work in action, without thinking about CI/CD, deployments, networking, and so forth, until they need to.
 
-### Take What You Need
+### Take what you need
 
 To achieve our goal, we've designed Railway to "just work", with all the necessary magic built in to achieve that. Railway at a high level reads your code repo, makes a best guess effort to build it into an [OCI compliant image](https://opencontainers.org/), and runs the image with a start command.
 
@@ -38,7 +38,7 @@ To achieve our goal, we've designed Railway to "just work", with all the necessa
 
 If you've outgrown the "magic" built into deployment platforms, or are suspicious of things that are just too magical, we are happy to provide a high level overview of our architecture.
 
-### Leave What You Don't
+### Leave what you don't
 
 Streamlined deployment workflows and sane defaults are inherited by every project in Railway out of the box; but as a team of engineers, we at Railway are very aware that what works for one project does not always work for another. Or sometimes, you just need to be in control - maybe you already have a workflow you like, or maybe you need to layer Railway into existing infrastructure, and abstractions only get in your way.
 
@@ -52,7 +52,7 @@ On Railway, you can use the default pattern for deployment or opt to use vendor.
 
 We love working with our customers to solve interesting use cases. If you're not seeing a track for you, get in touch at [team@railway.com](mailto:team@railway.com) and we'll find it!
 
-## High-level Architecture
+## High-level architecture
 
 As mentioned before, Railway at a high level takes your code, builds it, and throws it on running infrastructure on GCP. At a granular level Railway relies on a few systems to maintain workloads.
 
@@ -74,11 +74,11 @@ As mentioned before, Railway at a high level takes your code, builds it, and thr
 
 Your code will either be in some, or all steps depending on the amount of Railway that you choose to adopt.
 
-### Operational Procedures
+### Operational procedures
 
 Railway uses a suite of alerting vendors, additional internal tools, and PagerDuty to ensure uptime of our services described above. You can see Railway's uptime on our [Instatus page](https://railway.instatus.com/). Operational incident management reports and RCAs are available by request for those on an Enterprise plan.
 
-### Do I have to change how I write code?
+### Do I have to change how I write Code?
 
 No, Railway is a deployment platform that works with your existing code. We don't require you to change how you write code or use any specific frameworks. We support all languages and frameworks that can be run in a Docker container or within Nixpacks.
 
@@ -88,6 +88,6 @@ No, services on Railway are deployed in stateful Docker containers. The old depl
 
 We do have a feature, [App Sleeping](/deployments/serverless), that allows you to configure your service to "sleep" when it is inactive, and therefore will stop it from incurring usage cost while not in use.
 
-## Book a Demo
+## Book a demo
 
 If you're looking to adopt Railway for your business, we'd love to chat and ensure your questions are answered. [Click here to book some time with us](https://cal.com/team/railway/work-with-railway?duration=30).

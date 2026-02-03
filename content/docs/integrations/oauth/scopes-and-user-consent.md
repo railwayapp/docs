@@ -5,7 +5,7 @@ description: Configure OAuth scopes to request appropriate permissions from user
 
 Scopes define what permissions your application requests from users. Each scope grants access to specific data or capabilities, and users see exactly what you're asking for on the consent screen. Requesting only the scopes you need improves user trust and reduces the permissions your application needs to manage securely.
 
-## Available Scopes
+## Available scopes
 
 | Scope | Description |
 |-------|-------------|
@@ -40,18 +40,18 @@ Claims are attributes about the user which can be accessed through the `/oauth/m
 
 The `sub` claim is the user's unique, stable identifier within Railway. Use this to associate their Railway account with records in your application's database.
 
-## Consent Screen
+## Consent screen
 
 When a user authorizes your application, a consent screen is displayed showing your app's name and the permissions you're requesting. This transparency lets users make informed decisions about what access to grant.
 
-### Workspace and Project Selection
+### Workspace and project selection
 
 When your app requests workspace or project scopes, the consent screen allows users to select which workspaces or projects they want to grant access to.
 
 - For workspace scopes (`workspace:viewer`, `workspace:member`, `workspace:admin`), users pick from their available workspaces. Your application receives access only to the workspaces they select.
 - For project scopes (`project:viewer`, `project:member`), users pick from projects across all their workspaces.
 
-### Automatic Consent
+### Automatic consent
 
 If a user has previously authorized your application with the same or broader scopes, the consent screen may be skipped and users are redirected immediately.
 
@@ -59,10 +59,10 @@ However, if you request workspace or project scopes, users might want to change 
 
 To always show the consent screen, add `prompt=consent` to your authorization request.
 
-## Role Permissions
+## Role permissions
 
 Workspace and project scopes map to [Workspace Roles](/projects/teams#inviting-members) and [Project Member Roles](/projects/project-members#scope-of-permissions). The access your application receives through these scopes matches what a user with that role could do through the Railway dashboard or API.
 
-## Missing a Scope?
+## Missing a scope?
 
 If the available scopes don't cover your use case, we'd love to hear about it. Share your feedback on <a href="https://station.railway.com" target="_blank">Central Station</a> so we can learn about what you're building.

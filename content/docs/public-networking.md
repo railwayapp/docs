@@ -5,7 +5,7 @@ description: Learn everything about public networking on Railway.
 
 Public Networking refers to exposing your application to the internet, to be accessible from the public network.
 
-## Port Variable
+## Port variable
 
 An essential part of connecting to your service from the internet is properly handling the `PORT` variable.
 
@@ -20,7 +20,7 @@ To have your application use the Railway-provided port, you should ensure it is 
 **Examples** -
 
 ```python
-# python web server
+# Python web server
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
 ```
@@ -57,13 +57,13 @@ Railway provides multiple options for exposing your services via domains:
 
 For complete information on domain configuration, DNS setup, and SSL certificates, see the [Domains guide](/networking/domains).
 
-## TCP Proxy
+## TCP proxy
 
 For services that don't use HTTP (such as databases or game servers), Railway supports TCP proxying. This allows you to expose raw TCP traffic to the internet.
 
 For more information, see the [TCP Proxy guide](/networking/tcp-proxy).
 
-## Specs & Limits
+## Specs & limits
 
 For detailed technical specifications, rate limits, TLS information, and DDoS protection details, see the [Specs & Limits](/networking/public-networking/specs-and-limits) page.
 

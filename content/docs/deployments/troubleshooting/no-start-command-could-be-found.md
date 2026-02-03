@@ -3,7 +3,7 @@ title: No Start Command Could be Found
 description: Learn how to troubleshoot and fix the 'No Start Command Could be Found' error.
 ---
 
-## What This Error Means
+## What this error means
 
 Railway uses [Nixpacks](https://nixpacks.com/docs/how-it-works) to analyze your application's files to generate a container image for your application.s
 
@@ -11,7 +11,7 @@ Seeing the `No start command could be found` error means that [Nixpacks](https:/
 
 A start command is a command that will be executed by Railway to run your application.
 
-## Why This Error Can Occur
+## Why this error can occur
 
 By default, Railway uses [Nixpacks](https://nixpacks.com/docs) to build and run your application. Nixpacks will try its best to find an appropriate start command for your application.
 
@@ -25,7 +25,7 @@ For Ruby apps it will try to use `bundle exec rails server -b 0.0.0.0` if a Rail
 
 Failing the automatic detection, Nixpacks will return the `No start command could be found` error.
 
-## Possible Solutions
+## Possible solutions
 
 Since Nixpacks was unable to find a start command, you will need to specify a start command yourself.
 
@@ -99,7 +99,7 @@ serve --single --listen $PORT dist
 
 _Note: The `serve` command is needed to serve the static site files and can be installed by running `npm install serve` locally._
 
-#### Create React App
+#### Create React app
 
 ```bash
 serve --single --listen $PORT build

@@ -10,7 +10,7 @@ alt="Preview of What The Guide is Building"
 layout="intrinsic"
 width={1310} height={420} quality={100} />
 
-## How it Works
+## How it works
 
 Under the hood, Railway uses encrypted Wireguard tunnels to create a private mesh network between all services within an environment. This allows traffic to route between services without exposing ports publicly.
 
@@ -24,7 +24,7 @@ This allows communication between services in an environment without exposing an
 
 For more details on internal DNS names, see the [Domains guide](/networking/domains#private-domains).
 
-## Communicating Over the Private Network
+## Communicating over the private network
 
 To communicate over the private network, there are some specific things to know to be successful.
 
@@ -34,7 +34,7 @@ To communicate over the private network, there are some specific things to know 
 However, if you've setup a new service or environment after IPv4 support is released you're good to use IPv4 or IPv6! whatever suits you best!
 </Banner></div>
 
-### Service Configuration
+### Service configuration
 
 We recommend configuring your application to listen on `::` (all interfaces). This ensures your app works in both new (IPv4/IPv6) and legacy (IPv6-only) environments.
 
@@ -64,7 +64,7 @@ async function bootstrap() {
 }
 ```
 
-#### Node / Next
+#### Node / next
 
 Update your start command to bind to both IPv4 and IPv6.
 
@@ -86,7 +86,7 @@ const app = next({
 
 If neither of these options are viable, you can set a `HOSTNAME` [service variable](/variables#service-variables) with the value `::` to listen on both IPv4 and IPv6.
 
-#### Python / Gunicorn
+#### Python / gunicorn
 
 Update your start command to bind to both IPv4 and IPv6.
 
@@ -94,7 +94,7 @@ Update your start command to bind to both IPv4 and IPv6.
 gunicorn app:app --bind [::]:${PORT-3000}
 ```
 
-#### Python / Hypercorn
+#### Python / hypercorn
 
 Update your start command to bind to both IPv4 and IPv6.
 
@@ -102,7 +102,7 @@ Update your start command to bind to both IPv4 and IPv6.
 hypercorn app:app --bind [::]:${PORT-3000}
 ```
 
-#### Python / Uvicorn
+#### Python / uvicorn
 
 Update your start command to bind to both IPv4 and IPv6.
 
@@ -122,7 +122,7 @@ let listener = tokio::net::TcpListener::bind("[::]:8080").await.unwrap();
 axum::serve(listener, app).await;
 ```
 
-### Use Internal Hostname and Port
+### Use internal hostname and port
 
 For applications making requests to a service over the private network, you should use the internal DNS name of the service, plus the `PORT` on which the service is listening.
 
@@ -138,7 +138,7 @@ app.get("/fetch-secret", async (req, res) => {
 
 Note that you should use `http` in the address.
 
-#### Using Reference Variables
+#### Using reference variables
 
 Using [reference variables](/variables#reference-variables), you can accomplish the same end as the above example.
 
@@ -162,7 +162,7 @@ app.get("/fetch-secret", async (req, res) => {
 });
 ```
 
-### Private Network Context
+### Private network context
 
 The private network exists in the context of a project and environment and is not accessible over the public internet. In other words -
 
@@ -171,7 +171,7 @@ The private network exists in the context of a project and environment and is no
 
 Check out the [FAQ](#faq) section for more information.
 
-### Library-Specific Configuration
+### Library-specific configuration
 
 Some libraries and components require explicit configuration for dual-stack (IPv4/IPv6) networking or to work properly in legacy IPv6-only environments.
 
@@ -180,7 +180,7 @@ See the [Library Configuration guide](/networking/private-networking/library-con
 - **Go**: Fiber
 - **Docker**: MongoDB
 
-## Changing the Service Name for DNS
+## Changing the service name for DNS
 
 Within the service settings you can change the service name to which you refer, e.g. `api-1.railway.internal` -> `api-2.railway.internal`
 
@@ -194,7 +194,7 @@ During the feature development process we found a few caveats that you should be
 - Private networking does not function between [environments](/environments).
 - [Legacy environments](#legacy-environments) (created before October 16, 2025) only support IPv6. New environments support both IPv4 and IPv6.
 
-## Legacy Environments
+## Legacy environments
 
 Environments created before October 16th, 2025 are considered legacy environments and only support IPv6 addressing for private networking.
 

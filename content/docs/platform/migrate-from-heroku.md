@@ -14,13 +14,13 @@ alt="Screenshot of Railway Up"
 layout="intrinsic"
 width={700} height={464} quality={80} />
 
-## Working Directory
+## Working directory
 
 In your terminal, ensure your current working directory is the same directory where your service code is located.
 
 This is important so that as you complete the following steps, the [Railway CLI](/cli) is properly linked.
 
-## 1. Login to Railway From the CLI
+## 1. Login to Railway from the CLI
 
 Ensure your CLI is authenticated to your Railway account:
 
@@ -30,7 +30,7 @@ railway login
 
 This command will prompt to open a browser to complete authentication. Once authenticated, commands executed by the Railway CLI, will be performed in the context of your Railway account.
 
-## 2. Create a New Project
+## 2. Create a new project
 
 Now, let's create a new [project](/projects):
 
@@ -40,7 +40,7 @@ railway init
 
 This command will prompt you to define a name for your service.
 
-## 3. Deploy the Service
+## 3. Deploy the service
 
 Once your project is created, you can push your code into the project and assign a domain.
 
@@ -54,7 +54,7 @@ railway up -d
 
 At this point, the service is being deployed, but let's give it a domain.
 
-### Assign a Domain
+### Assign a domain
 
 The service we are migrating is a web service that should be available over the Internet, so let's assign a domain:
 
@@ -64,7 +64,7 @@ railway domain
 
 Now the service will be available over the Internet via the provided domain.
 
-## 4. Migrate the Environment Variables
+## 4. Migrate the environment variables
 
 Finally, we will import the environment variables from Heroku into Railway.
 
@@ -73,7 +73,7 @@ alt="Video of importing variables from Heroku"
 layout="intrinsic"
 width={600} height={364} quality={80} />
 
-### Open the Project in Railway
+### Open the project in Railway
 
 Let's pop over to our new project in the [Railway canvas](/reference/projects#project-canvas).:
 
@@ -83,7 +83,7 @@ railway open
 
 This will open the project in your browser.
 
-### Add Heroku Variables to the Service
+### Add Heroku variables to the service
 
 From the project canvas, import the Heroku variables into the service:
 
@@ -105,6 +105,6 @@ We have completed the migration by pushing our code directly from our local mach
 
 For more advanced operations, like migrating your databases from Heroku to Railway, the process will be a bit more involved, but we are happy to help work out a solution!
 
-## Need Help?
+## Need help?
 
 If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our <a href="https://discord.gg/railway" target="_blank">Discord</a> or over email at [team@railway.com](mailto:team@railway.com).

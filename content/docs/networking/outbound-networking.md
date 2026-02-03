@@ -5,7 +5,7 @@ description: Learn about outbound networking features and email delivery options
 
 Outbound Networking refers to traffic flowing from your Railway services to external destinations on the internet.
 
-## Email Delivery
+## Email delivery
 
 SMTP is only available on the Pro plan and above.
 
@@ -13,7 +13,7 @@ Free, Trial, and Hobby plans must use transactional email services with HTTPS AP
 
 <Banner variant="info">Upon upgrading to Pro, please re-deploy your service that needs to use SMTP for the changes to take effect.</Banner>
 
-### Email Service Examples
+### Email service examples
 
 Here are examples of transactional email services you can use:
 
@@ -26,7 +26,7 @@ Here are examples of transactional email services you can use:
 
 These services provide detailed analytics and robust APIs designed for modern applications. They also work on all Railway plans since they use HTTPS instead of SMTP.
 
-### Debugging SMTP Issues
+### Debugging SMTP issues
 
 If you are experiencing issues with SMTP on the Pro plan, please the follow the steps below to help us diagnose the problem:
 
@@ -79,14 +79,14 @@ a non-standard SMTP port that may be blocked on popular email providers, so
 6. Otherwise, please reach out to us at [Central Station](https://station.railway.com)
 and share the output of the command for further assistance
 
-## Static Outbound IPs
+## Static outbound IPs
 
 Railway offers [Static Outbound IPs](/networking/static-outbound-ips) for Pro plan customers who need consistent IP addresses for firewall whitelisting or third-party integrations.
 
-## Outbound IPv6
+## Outbound ipv6
 Railway does not currently support outbound IPv6. Any IPv6 request will fail showing "Network is unreachable" or `ENETUNREACH`.
 
-## Related Features
+## Related features
 
 - [Static Outbound IPs](/networking/static-outbound-ips) - Assign permanent outbound IP addresses
 - [Private Networking](/networking/private-networking) - Internal service communication

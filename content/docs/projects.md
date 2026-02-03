@@ -7,7 +7,7 @@ Projects are containers for environments and services in Railway.
 
 If you are logged in, projects can be found on <a href="https://railway.com/dashboard" target="_blank">your project dashboard</a>.
 
-## Project Canvas
+## Project canvas
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1644620884/docs/ProjectPage_new_pa52tp.png"
 alt="Screenshot of Project Canvas"
@@ -18,20 +18,20 @@ The project canvas is the default view for a project. Within it, a user can mana
 
 Project settings can be managed through the `Settings` button at the top right of the project canvas.
 
-## Project Resources
+## Project resources
 
 - 100 GB outbound network bandwidth
 - Ability to deploy multiple [services](/services)
 - Unlimited inbound network bandwidth
 - Unlimited database services
 
-## Managing Project Info
+## Managing project info
 
 A project's name and description can be changed from the General tab within a project's settings.
 
 The project id can also be retrieved here.
 
-## Inviting Members
+## Inviting members
 
 Invite members to access a project through the Members tab in your Project Settings.
 
@@ -39,20 +39,20 @@ You can invite a member by sending an invitation to their email address, or by g
 
 Click [here](/projects/project-members#scope-of-permissions) to view the scope definitions for permissions.
 
-### Invite by Email
+### Invite by email
 
 Invite a new member via email by specifying their email address and scope of permissions, then click `Invite`.
 
 This will send an email to the address specified containing a link to join your project.
 
-### Invite by Link
+### Invite by link
 
 Each project generates a project invite link. To invite someone via a link:
 
 1. Select the desired invited member scope
 2. Copy link and send to the invitee
 
-## Transferring Projects
+## Transferring projects
 
 Projects can be transferred to other users or to Teams, depending on subscription plan.
 
@@ -60,7 +60,7 @@ Projects can be transferred to other users or to Teams, depending on subscriptio
 
 - Project transfers to [Teams](/projects/teams) are only allowed for users who are Admin members of an existing Team. Teams are a feature of the [Pro Plan](/pricing/plans).
 
-### Hobby User to Hobby User
+### Hobby user to hobby user
 
 To transfer a project from one Hobby User to another Hobby User, you must first [add the user as a member](#inviting-members) in the project.
 
@@ -73,7 +73,7 @@ width={411} height={253} quality={80} />
 
 The transferee receives an email requesting to transfer the project.
 
-### Hobby User to Team or Team to Team
+### Hobby user to team or team to team
 
 You can transfer a Project in your Hobby workspace to a Team (or between Teams) in which you are an Admin. Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
 
@@ -81,7 +81,7 @@ You can transfer a Project in your Hobby workspace to a Team (or between Teams) 
 
 Note: If you do not see the Transfer Project section in your Project Settings, you may not be an Admin of the Team to which you wish to transfer the Project. See the [reference page for Teams](/projects/teams#inviting-members) for more information on team member permissions.
 
-## Viewing Recent Activity
+## Viewing recent activity
 
 The activity feed shows all the changes that have been made to a project. This includes changes to services and volumes. You can click on a change to see everything that was committed.
 
@@ -90,7 +90,7 @@ The activity feed shows all the changes that have been made to a project. This i
             layout="responsive"
             width={1273} height={631} quality={100} />
 
-## Project Visibility
+## Project visibility
 
 Projects are private by default and only accessible to members of the project.
 
@@ -110,7 +110,7 @@ alt="Screenshot of Project Visibility Setting"
 layout="intrinsic"
 width={1273} height={451} quality={80} />
 
-## Deleting a Project
+## Deleting a project
 
 A project can be deleted by selecting the `Delete Project` button in the Danger tab. Deleting a project will delete all services, environments, and deployments associated with the project.
 

@@ -8,7 +8,7 @@ A start command is the process used to run a Deployment's code, for example `pyt
 Railway automatically configures the start command based on the code being
 deployed, see [Build and Start Commands](/builds/build-and-start-commands) for more details
 
-## Configure the Start Command
+## Configure the start command
 
 When necessary, start commands may be overridden, like for advanced use-cases such as deploying multiple projects from a single [monorepo](/guides/monorepo).
 
@@ -34,6 +34,6 @@ alt="Screenshot of custom start command configuration"
 layout="intrinsic"
 width={1302} height={408} quality={80} />
 
-## Dockerfiles & Images
+## Dockerfiles & images
 
 If your service deploys with a Dockerfile or from an image, the start command defaults to the `ENTRYPOINT` and / or `CMD` defined in the Dockerfile.

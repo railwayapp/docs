@@ -54,7 +54,7 @@ If a deployment is completed, you can remove it by clicking the three dots
 at the end of the deployment tab and select Remove. This will remove the
 deployment and stop any further project usage.
 
-## Restart a Crashed Deployment
+## Restart a crashed deployment
 
 When a Deployment is `Crashed`, it is no longer running because the underlying process exited with a non-zero exit code - if your deployment exits successfully (exit code 0), the status will remain `Success`.
 
@@ -72,7 +72,7 @@ Restarting a crashed Deployment restores the exact image containing the code & c
 
 You can also click within a deployment and using the Command Palette restart a deployment at any state.
 
-## Deployment Dependencies - Startup Ordering
+## Deployment dependencies - startup ordering
 
 You can control the order your services start up with [Reference Variables](https://docs.railway.com/guides/variables#reference-variables).
 When one service references another, it will be deployed after the service it is referencing when applying a [staged change](https://docs.railway.com/guides/staged-changes) or [duplicating an environment](https://docs.railway.com/guides/environments#create-an-environment).

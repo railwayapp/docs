@@ -23,7 +23,7 @@ This guide covers how to deploy a Symfony app to Railway in three ways:
 
 Now, let's create a Symfony app!
 
-## Create a Symfony App
+## Create a Symfony app
 
 **Note:** If you already have a Symfony app locally or on GitHub, you can skip this step and go straight to the [Deploy Symfony App to Railway](#deploy-the-symfony-app-to-railway).
 
@@ -37,7 +37,7 @@ symfony new --webapp apphelloworld
 
 A new Symfony app will be provisioned for you in the `apphelloworld` directory.
 
-### Run the Symfony App locally
+### Run the Symfony app locally
 
 To start your app, run:
 
@@ -47,11 +47,11 @@ symfony server:start
 
 Once the app is running, open your browser and navigate to `http://localhost:8000` to view it in action.
 
-## Deploy the Symfony App to Railway
+## Deploy the Symfony app to Railway
 
 Railway offers multiple ways to deploy your Symfony app, depending on your setup and preference.
 
-## One-Click Deploy from a Template
+## One-click deploy from a template
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/4tnH_D)
 
@@ -97,7 +97,7 @@ alt="screenshot of the deployed Symfony service"
 layout="responsive"
 width={2741} height={2193} quality={100} />
 
-## Deploy from a GitHub Repo
+## Deploy from a GitHub repo
 
 To deploy a Symfony app to Railway directly from GitHub, follow the steps below:
 
@@ -130,7 +130,7 @@ To deploy a Symfony app to Railway directly from GitHub, follow the steps below:
 
 **Note:** The next step shows how to run your Symfony app along with a database, migrations, cron jobs, and workers.
 
-## Set Up Database, Migrations, Crons and Workers
+## Set up database, migrations, crons and workers
 
 This setup deploys your Symfony app on Railway, ensuring that your database, scheduled tasks (crons), and queue workers are all fully operational.
 
@@ -249,7 +249,7 @@ _App service_
 
 **Note:** There is a [community template](https://railway.com/template/4tnH_D) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

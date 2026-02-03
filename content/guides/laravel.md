@@ -21,7 +21,7 @@ This guide covers how to deploy a Laravel app on Railway in three ways:
 2. [From a GitHub repository](#deploy-from-a-github-repo).
 3. [Using the CLI](#deploy-from-the-cli).
 
-## One-Click Deploy From a Template
+## One-click deploy from a template
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/fWEWWf)
 
@@ -29,7 +29,7 @@ This template sets up a basic Laravel application along with a Postgres database
 
 We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
-## Deploy From a GitHub Repo
+## Deploy from a GitHub repo
 
 To deploy a Laravel app on GitHub to Railway, follow the steps below:
 
@@ -60,7 +60,7 @@ width={2855} height={2109} quality={100} />
 
 **Note**: [Jump to the **Set Up Database, Migrations, Crons and Workers** section](#deploy-via-custom-scripts) to learn how to run your Laravel app along with a Postgres(or MySQL) database, cron jobs, and workers.
 
-## Deploy From the CLI
+## Deploy from the CLI
 
 If you have your Laravel app locally, you can follow these steps:
 
@@ -90,7 +90,7 @@ To set up a publicly accessible URL for the service, navigate to the **Networkin
 
 **Note:** The next step shows how to run your Laravel app along with a database, migrations, cron jobs, and workers.
 
-## Set Up Database, Migrations, Crons and Workers
+## Set up database, migrations, crons and workers
 
 This setup deploys your Laravel app on Railway, ensuring that your database, scheduled tasks (crons), and queue workers are all fully operational.
 
@@ -263,13 +263,13 @@ You can set variables via the Railway dashboard or CLI as shown:
 railway variables --set "LOG_CHANNEL=stderr" --set "LOG_STDERR_FORMATTER=\Monolog\Formatter\JsonFormatter"
 ```
 
-## Can I Deploy with Laravel Sail?
+## Can I deploy with Laravel sail?
 
 You may be thinking about using [Laravel Sail](https://laravel.com/docs/11.x/sail), which is the standard approach for deploying Laravel applications with Docker. At its core, Sail relies on a `docker-compose.yml` file to manage the environment.
 
 However, it's important to note that Railway currently does not support Docker Compose.
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

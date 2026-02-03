@@ -5,7 +5,7 @@ description: Query workspaces and projects the user has granted access to.
 
 When users authorize your application with workspace or project scopes, they select exactly which resources to share. Your application can then query these resources through the [Public GraphQL API](/integrations/api).
 
-## Fetching Workspaces
+## Fetching workspaces
 
 Workspace queries return the workspaces a user granted access to when authorizing your application. This requires that the user approved a workspace scope (`workspace:viewer`, `workspace:member`, or `workspace:admin`) and that your authorization request included the `email` and `profile` scopes alongside it.
 
@@ -56,7 +56,7 @@ curl -X POST https://backboard.railway.com/graphql/v2 \
 
 The response includes only the workspaces the user selected during consent.
 
-## Fetching Projects
+## Fetching projects
 
 Project queries work similarly but use the `externalWorkspaces` field, which returns workspaces along with the specific projects the user granted access to. This requires a project scope (`project:viewer` or `project:member`) in the original authorization request.
 

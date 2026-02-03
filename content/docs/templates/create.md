@@ -9,11 +9,11 @@ By defining services, environment configuration, network settings, etc., you lay
 
 If you [publish your template](/templates/publish-and-share) to the <a href="https://railway.com/templates" target="_blank">marketplace</a>, you can earn kickbacks from usage, up to 50% for open source templates with active community support. Learn more about the [kickback program](/templates/kickbacks).
 
-## How to Create a Template
+## How to create a template
 
 You can either create a template from scratch or base it off of an existing project.
 
-### Starting from Scratch
+### Starting from scratch
 
 To create a template from scratch, head over to your <a href="https://railway.com/workspace/templates" target="_blank">Templates</a> page within your workspace settings and click on the `New Template` button.
 
@@ -31,7 +31,7 @@ To create a template from scratch, head over to your <a href="https://railway.co
 
 Note that your template will not be available on the template marketplace, nor will be eligible for a kickback, until you [publish](/guides/publish-and-share) it.
 
-### Private Repo Support
+### Private repo support
 
 It's now possible to specify a private GitHub repo when creating a template.
 
@@ -50,7 +50,7 @@ quality={80}
 
 If you do not see the `Edit Scope` option, you may still need to connect GitHub to your Railway account.
 
-### Private Docker Images
+### Private Docker images
 
 If your template includes a private Docker image, you can provide your registry credentials without exposing them to users who deploy your template.
 
@@ -62,7 +62,7 @@ When users deploy your template, Railway automatically authenticates with your r
 To protect your credentials, SSH access is disabled and users cannot modify the Docker image source for services with hidden registry credentials.
 </Banner>
 
-### Convert a Project Into a Template
+### Convert a project into a template
 
 You can also convert an existing project into a ready-made Template for other users.
 
@@ -81,7 +81,7 @@ quality={80}
 
 - You will be taken to the template composer page, where you should confirm the settings and finalize the template creation
 
-## Configuring Services
+## Configuring services
 
 Configuring services using the template composer is very similar to building a live project in the canvas.
 
@@ -98,14 +98,14 @@ Once you add a new service and select the source, you can configure the followin
 - **Add a volume**
   - To add a volume to a service, right-click on the service, select Attach Volume, and specify the [Volume mount path](/volumes)
 
-### Specifying a Branch
+### Specifying a branch
 
 To specify a particular GitHub branch to deploy, simply enter the full URL to the desired branch in the Source Repo configuration. For example -
 
 - This will deploy the `main` branch: `https://github.com/railwayapp-templates/postgres-ssl`
 - This will deploy the `new` branch: `https://github.com/railwayapp-templates/postgres-ssl/tree/new`
 
-### Template Variable Functions
+### Template variable functions
 
 Template variable functions allow you to dynamically generate variables (or parts of a variable) on demand when the template is deployed.
 
@@ -137,7 +137,7 @@ The current template variable functions are:
 
 2. `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
-## Managing Your Templates
+## Managing your templates
 
 You can see all of your templates on your <a href="https://railway.com/workspace/templates" target="_blank">Workspace's Template page</a>. Templates are separated into Personal and Published templates.
 

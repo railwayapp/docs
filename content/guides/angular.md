@@ -23,7 +23,7 @@ This guide covers how to deploy an Angular app to Railway in four ways:
 
 Now, let's create an Angular app!
 
-## Create an Angular App
+## Create an Angular app
 
 **Note:** If you already have an Angular app locally or on GitHub, you can skip this step and go straight to the [Deploy Angular App on Railway](#deploy-the-angular-app-to-railway).
 
@@ -41,7 +41,7 @@ You'll be presented with some config options in the prompts for your project.
 - Select `Yes` for enabling Server-Side Rendering (SSR) and Static Site Generation (SSG)
 - Select `Yes` for enabling Server Routing and App Engine APIs (Developer Preview)
 
-### Run the Angular App locally
+### Run the Angular app locally
 
 Next, `cd` into the directory and run the app.
 
@@ -51,7 +51,7 @@ npm start
 
 Open your browser and go to `http://localhost:4200` to see your app.
 
-## Modify Start Script
+## Modify start script
 
 Before deploying, we need to update the `package.json` file.
 
@@ -90,11 +90,11 @@ Your scripts section should look like this:
 
 Now, we are good to go!
 
-## Deploy the Angular App to Railway
+## Deploy the Angular app to Railway
 
 Railway offers multiple ways to deploy your Angular app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -133,7 +133,7 @@ alt="screenshot of the deployed Angular service"
 layout="responsive"
 width={2644} height={2114} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy an Angular app to Railway directly from GitHub, follow the steps below:
 
@@ -188,7 +188,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Angular apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

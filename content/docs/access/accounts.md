@@ -7,7 +7,7 @@ Railway Accounts are how a user interacts with the Railway platform.
 
 Users are only allowed one account per person. This is enforced through email, GitHub, and payment method verification.
 
-## Account Settings
+## Account settings
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1743471483/docs/account-settings_najujk.png"
 alt="Screenshot of Account Navigation"
@@ -16,11 +16,11 @@ width={1200} height={857} quality={80} />
 
 The account settings page is accessible by clicking the profile photo in the top right and selecting <a href="https://railway.com/account" target="_blank">Account Settings</a>.
 
-### Account Information
+### Account information
 
 Accounts can change their display name, profile photo, and account email under <a href="https://railway.com/account" target="_blank">Account Settings</a>.
 
-### Deleting an Account
+### Deleting an account
 
 Selecting "Delete Account" at the bottom of the <a href="https://railway.com/account" target="_blank">Account Settings</a> page will delete an account. All data related to the account will be deleted.
 
@@ -28,7 +28,7 @@ After a successful confirmation, Railway deletes all account information, projec
 
 We aim to be compliant with EU GDPR’s data removal provisions.
 
-## Account Security
+## Account security
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/sessions_qo0lhw.png"
 alt="Screenshot of Sessions Page"
@@ -37,13 +37,13 @@ width={1162} height={587} quality={80} />
 
 Railway is committed to you and your project's security. We provide a variety of methods to help keep users' peace of mind.
 
-### Two-factor Authentication
+### Two-factor authentication
 
 Two-factor authentication can be enabled under the Account Security page. Most TOTP applications are supported.
 
 After scanning the provided QR code and entering the code for the initial pairing of the application, 2FA will require additional verification for login and destructive actions.
 
-### Account Sessions
+### Account sessions
 
 Users can view all active browser and CLI sessions on the <a href="https://railway.com/account/security" target="_blank">account security page</a>. Revoking a session will immediately log that device out.
 
@@ -70,16 +70,16 @@ Railway may collect applicable sales tax and VAT on your account based on your b
 
 Users can manage their billing information as well as view historical payments on the <a href="https://railway.com/workspace/billing" target="_blank">billing page</a>.
 
-## Link Discord Account
+## Link discord account
 
 Within Account settings, link a Discord account with a Railway account to gain access to additional features on the <a href="https://discord.gg/railway" target="_blank">Railway Discord server</a>.
 
 If the Discord user has not joined the Railway Discord server, linking the account will automatically invite the user to the server.
 
-### Discord Support
+### Discord support
 
 Discord users can access the <a href="https://discord.gg/railway" target="_blank">Railway Discord server</a> to get help from the Railway team and other users.
 
-### Priority Boarding Enrollment
+### Priority boarding enrollment
 
 For the most adventurous, we offer a beta program called Priority Boarding. You can join by flipping the "Priority Boarding" switch on the <a href="https://railway.com/account/feature-flags" target="_blank">Feature Flags page</a>. To learn more, visit [Priority Boarding](/platform/priority-boarding).

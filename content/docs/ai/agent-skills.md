@@ -5,7 +5,7 @@ description: Agent skills for interacting with Railway directly from your AI cod
 
 Agent skills for interacting with [Railway](https://railway.com) directly from your AI coding assistant.
 
-## What are Agent Skills?
+## What are agent skills?
 
 Agent Skills are an open format for extending AI coding assistants with specialized knowledge and capabilities. They follow the [Agent Skills](https://agentskills.io) specification.
 
@@ -16,7 +16,7 @@ Skills are markdown files (`SKILL.md`) that contain:
 
 When you ask your AI assistant something like "deploy to Railway" or "check my project status", the agent automatically selects the appropriate skill based on your intent and follows its instructions.
 
-### Supported Tools
+### Supported tools
 
 - [Claude Code](https://claude.ai/code)
 - [OpenAI Codex](https://openai.com/codex)
@@ -43,53 +43,53 @@ Supports Claude Code, OpenAI Codex, OpenCode, and Cursor. Re-run to update.
 
 ## Skills
 
-### Project Management
+### Project management
 
-#### status
+#### Status
 Check Railway project status, services, and deployments. Use for "is it running", "what's deployed", or deployment status queries.
 
-#### projects
+#### Projects
 List all projects, switch between projects, rename projects, enable/disable PR deploys, and modify project settings.
 
-#### new
+#### New
 Create new projects and services, scaffold code for deployment, link existing projects. Handles initial setup and adding services to existing projects.
 
-### Service Operations
+### Service operations
 
-#### service
+#### Service
 Check service status, rename services, change service icons, link different services, or create services with Docker images.
 
-#### deploy
+#### Deploy
 Push local code to Railway using `railway up`. Supports detach mode (default) and CI mode for watching builds.
 
-#### domain
+#### Domain
 Add Railway-provided domains, configure custom domains, view current domains, or remove domains from services.
 
 ### Configuration
 
-#### environment
+#### Environment
 Query and modify service configuration: environment variables, build/deploy commands, replicas, health checks, restart policies, and source settings. Also handles service deletion.
 
 ### Infrastructure
 
-#### database
+#### Database
 Add official Railway databases (Postgres, Redis, MySQL, MongoDB) with pre-configured volumes and connection variables. Handles wiring services to databases.
 
-#### templates
+#### Templates
 Search and deploy services from Railway's template marketplace (Ghost, Strapi, n8n, Minio, Uptime Kuma, etc.).
 
-### Monitoring and Debugging
+### Monitoring and debugging
 
-#### metrics
+#### Metrics
 Query resource usage metrics: CPU, memory, network, and disk. Useful for debugging performance issues.
 
-#### deployment
+#### Deployment
 Manage deployment lifecycle: list deployments, view build/deploy logs, redeploy, restart, or remove deployments.
 
 ### Resources
 
-#### railway-docs
+#### Railway-docs
 Fetch up-to-date Railway documentation. Use for questions about Railway features, pricing, or how things work.
 
-#### central-station
+#### Central-station
 Search Railway's Central Station community platform for threads, discussions, and support questions.

@@ -7,15 +7,15 @@ Workspaces are how organizations are represented within Railway. A default works
 
 For more information, visit our [documentation on pricing](/reference/pricing) or <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
-## Creating a Workspace
+## Creating a workspace
 
 Organizations can create a workspace by heading to the <a href="https://railway.com/new/workspace" target="_blank">Create Workspace</a> page and entering the required information.
 
-## Managing Workspaces
+## Managing workspaces
 
 You can open your workspace's settings page to manage members and see billing information by clicking the gear icon next to the name of your workspace on the dashboard.
 
-## Inviting Members
+## Inviting members
 
 Under the People tab of the settings page, you can invite members. Adding or removing team members does not incur any additional seat cost.
 
@@ -50,7 +50,7 @@ There are three roles for Workspace members:
 
 _Note:_ Changes that trigger a deployment will skip the approval requirement when the author has a Deployer role (or higher) and their GitHub account is connected.
 
-## Trusted Domains
+## Trusted domains
 
 Trusted Domains let you automatically onboard new members to your workspace. When a Railway user signs up with an email address matching one of your trusted domains, they're added to your workspace with the assigned role.
 
@@ -63,7 +63,7 @@ For example, users signing up with `@railway.com` are automatically added to the
   alt="Trusted domains are configurable via the workspace settings"
 />
 
-### Verifying a Trusted Domain
+### Verifying a trusted domain
 
 Before adding a Trusted Domain, you must verify ownership by adding your email domain as a [custom domain](/guides/public-networking#custom-domains) on a Railway service.
 
@@ -87,17 +87,17 @@ Additional notes and troubleshooting:
 - Opening the domain in your browser can speed up verification.
 - Trusted Domains are only verified when added. Once verified, the custom domain and its DNS record can be removed safely.
 
-## Transferring Projects
+## Transferring projects
 
 Transfer projects from another Workspace or Hobby workspace easily. Detailed instructions can be found [here](/guides/projects#transferring-projects).
 
-## Invoicing and Billing
+## Invoicing and billing
 
 Railway offers a consumption-based pricing model for your projects. You don't get charged for resources you don't use, instead, Railway charges by the minute for each vCPU and memory resource your service uses.
 
 However, if you expect to use a consistent amount of resources for large companies, you can contact us for a quote and demo. Railway will work with you to find a solution that works for your needs. We are willing to offer Purchase Orders and concierge onboarding for large companies.
 
-### Committed Spend Tiers
+### Committed spend tiers
 
 Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly threshold to [unlock additional features and services.](/reference/pricing/plans#committed-spend-tiers)
 

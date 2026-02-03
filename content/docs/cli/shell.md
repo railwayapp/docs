@@ -20,7 +20,7 @@ railway shell [OPTIONS]
 
 ## Examples
 
-### Open Shell with Variables
+### Open shell with variables
 
 ```bash
 railway shell
@@ -31,19 +31,19 @@ Output:
 Entering subshell with Railway variables available. Type 'exit' to exit.
 ```
 
-### Shell for Specific Service
+### Shell for specific service
 
 ```bash
 railway shell --service backend
 ```
 
-### Silent Mode
+### Silent mode
 
 ```bash
 railway shell --silent
 ```
 
-## How It Works
+## How it works
 
 1. Fetches environment variables from the specified Railway service
 2. Opens a new shell with those variables in the environment
@@ -51,7 +51,7 @@ railway shell --silent
 
 Type `exit` to leave the shell and return to your normal environment.
 
-## Shell Detection
+## Shell detection
 
 On Windows, the CLI detects your current shell (PowerShell, cmd, pwsh) and opens the same type. On Unix systems, it uses the `$SHELL` environment variable.
 

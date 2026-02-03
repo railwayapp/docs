@@ -5,7 +5,7 @@ description: Quick reference for common Railway API operations.
 
 This cookbook provides quick copy-paste examples for common API operations. For detailed explanations, see the linked guides.
 
-## Quick Setup
+## Quick setup
 
 **GraphQL Endpoint:**
 ```
@@ -36,7 +36,7 @@ Test your connection:
 
 See [Manage Projects](/integrations/api/manage-projects) for more details.
 
-### List All Projects
+### List all projects
 
 <GraphQLCodeTabs
   query={`query {
@@ -51,7 +51,7 @@ See [Manage Projects](/integrations/api/manage-projects) for more details.
     }`}
 />
 
-### Get Project with Services
+### Get project with services
 
 <GraphQLCodeTabs
   query={`query project($id: String!) {
@@ -76,7 +76,7 @@ See [Manage Projects](/integrations/api/manage-projects) for more details.
   ]}
 />
 
-### Create a Project
+### Create a project
 
 <GraphQLCodeTabs
   query={`mutation projectCreate($input: ProjectCreateInput!) {
@@ -103,7 +103,7 @@ See [Manage Projects](/integrations/api/manage-projects) for more details.
 
 See [Manage Services](/integrations/api/manage-services) for more details.
 
-### Create Service from GitHub
+### Create service from GitHub
 
 <GraphQLCodeTabs
   query={`mutation serviceCreate($input: ServiceCreateInput!) {
@@ -130,7 +130,7 @@ See [Manage Services](/integrations/api/manage-services) for more details.
   ]}
 />
 
-### Create Service from Docker Image
+### Create service from Docker image
 
 <GraphQLCodeTabs
   query={`mutation serviceCreate($input: ServiceCreateInput!) {
@@ -156,7 +156,7 @@ See [Manage Services](/integrations/api/manage-services) for more details.
   ]}
 />
 
-### Update Service Settings
+### Update service settings
 
 <GraphQLCodeTabs
   query={`mutation serviceInstanceUpdate($serviceId: String!, $environmentId: String!, $input: ServiceInstanceUpdateInput!) {
@@ -189,7 +189,7 @@ See [Manage Services](/integrations/api/manage-services) for more details.
 
 See [Manage Deployments](/integrations/api/manage-deployments) for more details.
 
-### List Recent Deployments
+### List recent deployments
 
 <GraphQLCodeTabs
   query={`query deployments($input: DeploymentListInput!) {
@@ -215,7 +215,7 @@ See [Manage Deployments](/integrations/api/manage-deployments) for more details.
   ]}
 />
 
-### Get Deployment Logs
+### Get deployment logs
 
 <GraphQLCodeTabs
   query={`query deploymentLogs($deploymentId: String!, $limit: Int) {
@@ -265,7 +265,7 @@ See [Manage Deployments](/integrations/api/manage-deployments) for more details.
 
 See [Manage Variables](/integrations/api/manage-variables) for more details.
 
-### Get Variables
+### Get variables
 
 <GraphQLCodeTabs
   query={`query variables($projectId: String!, $environmentId: String!, $serviceId: String) {
@@ -283,7 +283,7 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
   ]}
 />
 
-### Set Variables
+### Set variables
 
 <GraphQLCodeTabs
   query={`mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
@@ -315,7 +315,7 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
 
 ## Environments
 
-### List Environments
+### List environments
 
 <GraphQLCodeTabs
   query={`query environments($projectId: String!) {
@@ -334,7 +334,7 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
   ]}
 />
 
-### Create Environment
+### Create environment
 
 <GraphQLCodeTabs
   query={`mutation environmentCreate($input: EnvironmentCreateInput!) {
@@ -363,7 +363,7 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
 
 ## Domains
 
-### Add Railway Domain
+### Add Railway domain
 
 <GraphQLCodeTabs
   query={`mutation serviceDomainCreate($input: ServiceDomainCreateInput!) {
@@ -386,7 +386,7 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
   ]}
 />
 
-### Add Custom Domain
+### Add custom domain
 
 <GraphQLCodeTabs
   query={`mutation customDomainCreate($input: CustomDomainCreateInput!) {
@@ -423,7 +423,7 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
 
 ## Volumes
 
-### Create Volume
+### Create volume
 
 <GraphQLCodeTabs
   query={`
@@ -450,7 +450,7 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
   ]}
 />
 
-### Create Backup
+### Create backup
 
 <GraphQLCodeTabs
   query={`
@@ -465,9 +465,9 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
 
 ---
 
-## TCP Proxies
+## TCP proxies
 
-### List TCP Proxies
+### List TCP proxies
 
 <GraphQLCodeTabs
   query={`query tcpProxies($serviceId: String!, $environmentId: String!) {
@@ -489,7 +489,7 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
 
 ## Workspaces
 
-### Get Workspace
+### Get workspace
 
 <GraphQLCodeTabs
   query={`query workspace($workspaceId: String!) {
@@ -512,9 +512,9 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
 
 ---
 
-## Useful Queries
+## Useful queries
 
-### Get Project Token Info
+### Get project token info
 
 Use with a project token:
 
@@ -527,7 +527,7 @@ Use with a project token:
     }`}
 />
 
-### List Available Regions
+### List available regions
 
 <GraphQLCodeTabs
   query={`query {
@@ -547,10 +547,10 @@ Use with a project token:
 
 Press `Cmd/Ctrl + K` in the Railway dashboard and search for "Copy Project ID", "Copy Service ID", or "Copy Environment ID".
 
-### Using the Network Tab
+### Using the network tab
 
 Do the action in the Railway dashboard and inspect the network tab to see the exact GraphQL queries used.
 
-### GraphiQL Playground
+### GraphiQL playground
 
 Test queries interactively at [railway.com/graphiql](https://railway.com/graphiql).

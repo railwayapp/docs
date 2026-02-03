@@ -5,7 +5,7 @@ description: Learn how to manage persistent volumes via the public GraphQL API.
 
 Here are examples to help you manage persistent volumes using the Public API.
 
-## Get Project Volumes
+## Get project volumes
 
 List all volumes in a project:
 
@@ -23,7 +23,7 @@ List all volumes in a project:
   }
 }`} variables={{ id: "project-id" }} />
 
-## Get Volume Instance Details
+## Get volume instance details
 
 Get details about a volume instance (volume in a specific environment):
 
@@ -43,7 +43,7 @@ Get details about a volume instance (volume in a specific environment):
   }
 }`} variables={{ id: "volume-instance-id" }} />
 
-## Create a Volume
+## Create a volume
 
 Create a new persistent volume attached to a service:
 
@@ -58,7 +58,7 @@ optionalFields={[
   { name: "input.region", type: "String", description: "Volume region (e.g., us-west1)" },
 ]} />
 
-## Update a Volume
+## Update a volume
 
 Rename a volume:
 
@@ -69,7 +69,7 @@ Rename a volume:
   }
 }`} variables={{ volumeId: "volume-id", input: { name: "database-storage" } }} />
 
-## Update Volume Instance
+## Update volume instance
 
 Update the mount path for a volume instance:
 
@@ -77,7 +77,7 @@ Update the mount path for a volume instance:
   volumeInstanceUpdate(volumeId: $volumeId, input: $input)
 }`} variables={{ volumeId: "volume-id", input: { mountPath: "/new/path" } }} />
 
-## Delete a Volume
+## Delete a volume
 
 <Banner variant="danger">This will permanently delete the volume and all its data.</Banner>
 
@@ -85,9 +85,9 @@ Update the mount path for a volume instance:
   volumeDelete(volumeId: $volumeId)
 }`} variables={{ volumeId: "volume-id" }} />
 
-## Volume Backups
+## Volume backups
 
-### List Backups
+### List backups
 
 Get all backups for a volume instance:
 
@@ -102,33 +102,33 @@ Get all backups for a volume instance:
   }
 }`} variables={{ volumeInstanceId: "volume-instance-id" }} />
 
-### Create a Backup
+### Create a backup
 
 <CodeTabs query={`mutation volumeInstanceBackupCreate($volumeInstanceId: String!) {
   volumeInstanceBackupCreate(volumeInstanceId: $volumeInstanceId)
 }`} variables={{ volumeInstanceId: "volume-instance-id" }} />
 
-### Restore from Backup
+### Restore from backup
 
 <CodeTabs query={`mutation volumeInstanceBackupRestore($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
   volumeInstanceBackupRestore(volumeInstanceBackupId: $volumeInstanceBackupId, volumeInstanceId: $volumeInstanceId)
 }`} variables={{ volumeInstanceBackupId: "backup-id", volumeInstanceId: "volume-instance-id" }} />
 
-### Lock a Backup (Prevent Expiration)
+### Lock a backup (prevent expiration)
 
 <CodeTabs query={`mutation volumeInstanceBackupLock($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
   volumeInstanceBackupLock(volumeInstanceBackupId: $volumeInstanceBackupId, volumeInstanceId: $volumeInstanceId)
 }`} variables={{ volumeInstanceBackupId: "backup-id", volumeInstanceId: "volume-instance-id" }} />
 
-### Delete a Backup
+### Delete a backup
 
 <CodeTabs query={`mutation volumeInstanceBackupDelete($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
   volumeInstanceBackupDelete(volumeInstanceBackupId: $volumeInstanceBackupId, volumeInstanceId: $volumeInstanceId)
 }`} variables={{ volumeInstanceBackupId: "backup-id", volumeInstanceId: "volume-instance-id" }} />
 
-## Backup Schedules
+## Backup schedules
 
-### List Backup Schedules
+### List backup schedules
 
 <CodeTabs query={`query volumeInstanceBackupScheduleList($volumeInstanceId: String!) {
   volumeInstanceBackupScheduleList(volumeInstanceId: $volumeInstanceId) {
@@ -141,7 +141,7 @@ Get all backups for a volume instance:
   }
 }`} variables={{ volumeInstanceId: "volume-instance-id" }} />
 
-## Common Mount Paths
+## Common mount paths
 
 | Use Case | Recommended Mount Path |
 |----------|------------------------|

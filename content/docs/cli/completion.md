@@ -11,7 +11,7 @@ Generate shell completion scripts for the Railway CLI.
 railway completion <SHELL>
 ```
 
-## Supported Shells
+## Supported shells
 
 - `bash`
 - `zsh`

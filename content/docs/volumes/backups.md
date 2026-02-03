@@ -9,7 +9,7 @@ The backup feature enables data recovery for all content stored in [volumes](/vo
 
 When a [volume](/volumes) is mounted to a service, backups can be manually created, deleted and restored. And they can also be scheduled to run on a Daily / Weekly / Monthly schedule.
 
-## Backup Schedules
+## Backup schedules
 
 Backups can be scheduled to run on a daily, weekly or monthly basis. They will be kept for a number of days / months based on the schedule.
 
@@ -52,7 +52,7 @@ Backups are incremental and Copy-on-Write, we only charge for the data exclusive
 
 You are only billed for the incremental size of the backup at a rate per GB / minutely, and invoiced monthly. Backups follow the same pricing as Volumes. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
 
-## Volume Backup Limits
+## Volume backup limits
 
 Volume backups have size limitations based on the volume capacity:
 

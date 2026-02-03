@@ -5,11 +5,11 @@ description: A guide that outlines the advanced concepts of Railway.
 
 There are a lot of advanced concepts of Railway that can help you build your applications better. This document will cover some of these concepts like build and deploy options, networking, observability, and other integrations.
 
-## Build and Deploy Options
+## Build and deploy options
 
 Railway applies many defaults to your build and deploy configurations that work fine for most scenarios. Changing these defaults could help tune Railway better to your use-case and make it easier on your team.
 
-### Build Options
+### Build options
 
 Under the hood, Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to package your code into a container image that we then deploy to our infrastructure, with zero configuration for most workloads. For advanced projects, you might need to configure some of these defaults. You can do this by going to your Service > Settings > Build, and underneath that, Deploy. Here are three things you might want to configure:
 
@@ -17,7 +17,7 @@ Under the hood, Railway uses <a href="https://railpack.com" target="_blank">Rail
 - [**Pre-Deploy Command**](https://docs.railway.com/guides/pre-deploy-command): These are one or more commands that will be ran before running the main start command. A common use for this is database migrations. If your application needs to run a command before starting your main application, put that in a Pre-Deploy Command.
 - **Custom Start Command**: This is the command that will actually run your application. Defaulted as `npm run start` for JS-based applications. If you need to start your application in a way that's different than expected, change that here.
 
-### Deploy Options
+### Deploy options
 
 Some default options are applied when your application is deployed on Railway. They can change where your deployments are ran, how they are ran, and what happens to them while they're running. Here are some things you can change:
 
@@ -31,7 +31,7 @@ Some default options are applied when your application is deployed on Railway. T
 
 Constructing efficient networking setups yourself can be tricky and time-consuming to get right. Included in the Railway experience is fast networking that just works and can help you build more modular services.
 
-### Private Networking
+### Private networking
 
 [Private Networking](https://docs.railway.com/guides/private-networking) is a feature that lets your services communicate to other running services within your project simply by its service name. Under Settings > Networking, you can configure the specific domain that is given to your service. You can provide this private networking domain name to your services with [Reference Variables](https://docs.railway.com/guides/variables#reference-variables).
 
@@ -39,11 +39,11 @@ Private Networking domains are available with [Railway-provided Variables](https
 
 Under the hood, Railway connects your services together with a WireGuard mesh and a DNS resolver that is scoped to your project and environment. Services running inside of one project or environment aren't able to reach the services running in a different project. This also applies to environments within a project being unable to reach other environments.
 
-### Railway-provided Domains
+### Railway-provided domains
 
 Railway provides a [customizable, Railway-branded domain](https://docs.railway.com/guides/public-networking#railway-provided-domain) for your service that you can connect to a port running on your service and instantly make it available to the public internet. These domains require no DNS configuration on your end, and are perfect if you don't have a custom domain of your own just yet but still want to access your application.
 
-### Custom Domains
+### Custom domains
 
 If you have a [custom domain](https://docs.railway.com/guides/public-networking#custom-domains) that you've bought from a domain registrar, you can connect this to your Railway service to serve your application under. Railway will walk you through the configuration of the required DNS records, alert you if the configuration is wrong, and automatically provision SSL certificates for you so you can serve your application with `https://`.
 

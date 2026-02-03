@@ -7,9 +7,9 @@ Railway provides support tailored to customer needs across different
 subscription tiers. Support tier and prioritization is determined by 
 your plan level.
 
-## Support Tiers
+## Support tiers
 
-### Trial, Free, Hobby
+### Trial, free, hobby
 
 Users on Trial, Free, and Hobby plans receive community support through 
 [Central Station](#central-station) or [Discord](#discord). While Railway 
@@ -22,12 +22,12 @@ Pro plan users get direct help from Railway via
 [Central Station](#central-station), usually within 72 hours. This excludes 
 SLOs and [application-level support](#application-level-support).
 
-### Enterprise & Business Class
+### Enterprise & business class
 
 For organizations requiring SLOs and enhanced support, please refer to 
 [Business Class](#business-class) support. 
 
-## How To Ask For Help
+## How to ask for help
 
 When you reach out for help, it's important that you help us help you. Please 
 include as much information as you can, including but not limited to:
@@ -39,7 +39,7 @@ include as much information as you can, including but not limited to:
 - Logs (build and/or deploy)
 - Link to GitHub repo/code or template you're using, if applicable
 
-## Application-Level Support
+## Application-level support
 
 Railway does not provide application-level support. We are unable to debug
 your code or fix bugs in your application. We may provide these services on a 
@@ -50,7 +50,7 @@ For application-level support, connect with our community on
 [Central Station](https://station.railway.com) or 
 [Discord](https://discord.gg/railway).
 
-## Email Support
+## Email support
 
 Railway does not provide support via email. All support requests should be 
 directed to [Central Station](#central-station) or [Discord](#discord). Email 
@@ -63,7 +63,7 @@ communication is reserved for the following specific purposes:
 
 Emails outside these categories may not receive a response.
 
-## Central Station
+## Central station
 
 Railway conducts its support over the 
 [Central Station](https://station.railway.com) platform.
@@ -83,7 +83,7 @@ thread, follow the guidelines in
 [How To Ask For Help](#how-to-ask-for-help), and abide by our 
 [Code of Conduct](https://station.railway.com/community-code-of-conduct).
 
-### Private Threads
+### Private threads
 
 Pro users may create a **Private Thread** on 
 [Central Station](https://station.railway.com/support). Private Threads are 
@@ -139,7 +139,7 @@ width={845} height={157} quality={100} />
 Users in a Slack Connect channel can invite their team members using the Slack 
 interface or by pressing the `Join Slack` button again to initiate new invites.
 
-## Business Class
+## Business class
 
 For companies who need dedicated support, we offer Business Class.
 
@@ -150,7 +150,7 @@ support after $2,000/mo in spend.
 
 Reach out to us at [team@railway.com](mailto:team@railway.com) to enable your SLO.
 
-### Business Class SLOs
+### Business class SLOs
 
 We prioritize Business Class customers over all other support requests.
 
@@ -183,7 +183,7 @@ Opening a Critical ticket allows you to page our support on-call directly for
 an immediate response. Please only use this for production outages or critical 
 platform issues preventing your team from using Railway.
 
-### Definition of Priorities
+### Definition of priorities
 
 | Priority | Surface Areas                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -191,7 +191,7 @@ platform issues preventing your team from using Railway.
 | 2        | **Issues related to Railway features**. This covers features offered by Railway, including but not limited to our Dashboard, CLI, and platform-level features such as Deployments, Environments, Private Networking, Volumes.                                                                                                                                                                                                                  |
 | 3        | **Integration work and general questions related to Railway**. This covers customer-related requests involving integrating Railway with other services (e.g. fronting your Railway workload with a DDoS protection service), leveraging tools to use Railway the way you like (e.g. IaC provisioning/Terraform), or questions about Railway features or its platform.                                                                          |
 
-### Business Class Response Hours
+### Business class response hours
 
 We offer support during business hours, and prioritize requests from Business 
 Class customers:
@@ -202,19 +202,19 @@ be on-call 24/7
 - The team may reply outside of business hours, but we do not guarantee a 
 response outside of business hours
 
-### Business Class Resource Limits
+### Business class resource limits
 
 For Business Class customers, Railway increases resource limits beyond the 
 standard limits on a need-based basis. Contact the team through your dedicated
 communication channel to increase limits.
 
-### Uptime Calculation
+### Uptime calculation
 
 As part of this offering, we agree to provide a monthly summary on the uptime 
 of the components of Railway. Customers are provided an RCA to any outages on 
 the Routing Layer.
 
-### Compliance & Audits
+### Compliance & audits
 
 Security audits can be provided by request. For most customers, we can provide 
 our security and compliance documentation can be accessed via Railway's Trust 

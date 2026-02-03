@@ -24,7 +24,7 @@ This guide covers how to deploy a Nest app to Railway in four ways:
 
 Now, let's go ahead and create a Nest app!
 
-## Create a Nest App
+## Create a Nest app
 
 **Note:** If you already have a Nest app locally or on GitHub, you can skip this step and go straight to the [Deploy Nest App to Railway](#deploy-the-nest-app-to-railway).
 
@@ -38,7 +38,7 @@ nest new helloworld
 
 A new Nest app will be provisioned for you in the `helloworld` directory.
 
-### Run the Nest App locally
+### Run the Nest app locally
 
 Next, start the app locally by running the following command:
 
@@ -52,7 +52,7 @@ If you'd prefer to run the app on a different port, simply use the command `PORT
 
 Afterward, you can access the app at `http://localhost:8080`.
 
-### Add and Configure Database
+### Add and configure database
 
 **Note:** We will be using Postgres for this app. If you don’t have it installed locally, you can either [install it](https://www.postgresql.org/download) or use a different Node.js database package of your choice.
 
@@ -111,7 +111,7 @@ export class AppService {
 
 5. Run the app again to see your changes in action!
 
-### Prepare NestJS App for deployment
+### Prepare NestJS app for deployment
 
 In the `src/app.module.ts` file, replace the hardcoded Postgres database credentials with environment variables:
 
@@ -142,11 +142,11 @@ export class AppModule {}
 
 This allows the app to dynamically pull the correct database configuration from Railway during deployment.
 
-## Deploy the Nest App to Railway
+## Deploy the Nest app to Railway
 
 Railway offers multiple ways to deploy your Nest app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started with Nest connected to a Postgres database, the one-click deploy option is ideal.
 
@@ -200,7 +200,7 @@ alt="screenshot of the deployed Nest service"
 layout="responsive"
 width={2069} height={2017} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a Nest app to Railway directly from GitHub, follow the steps below:
 
@@ -262,7 +262,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Nest apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

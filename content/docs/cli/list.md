@@ -19,7 +19,7 @@ railway list [OPTIONS]
 
 ## Examples
 
-### List All Projects
+### List all projects
 
 ```bash
 railway list
@@ -37,7 +37,7 @@ Personal
 
 The currently linked project is highlighted in purple.
 
-### JSON Output
+### JSON output
 
 ```bash
 railway list --json

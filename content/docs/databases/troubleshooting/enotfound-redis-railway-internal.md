@@ -3,11 +3,11 @@ title: ENOTFOUND redis.railway.internal
 description: Learn how to troubleshoot and fix the 'ENOTFOUND' redis.railway.internal error.
 ---
 
-## What This Error Means
+## What this error means
 
 The error code `ENOTFOUND` means that your application could not resolve the `redis.railway.internal` hostname to an IP address when trying to connect to the Redis database.
 
-## Why This Error Can Occur
+## Why this error can occur
 
 This error can occur for a few different reasons, but the main reason is because your application uses the [`ioredis`](https://www.npmjs.com/package/ioredis) package to connect to the Redis database, or uses a package that uses ioredis as a dependency such as [`bullmq`](https://docs.bullmq.io/).
 

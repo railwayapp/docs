@@ -29,7 +29,7 @@ railway up [PATH] [OPTIONS]
 
 ## Examples
 
-### Basic Deploy
+### Basic deploy
 
 ```bash
 railway up
@@ -37,7 +37,7 @@ railway up
 
 Compresses and uploads the current directory, then streams build and deployment logs.
 
-### Deploy in Detached Mode
+### Deploy in detached mode
 
 ```bash
 railway up --detach
@@ -45,19 +45,19 @@ railway up --detach
 
 Uploads the project and returns immediately without streaming logs.
 
-### Deploy to Specific Service
+### Deploy to specific service
 
 ```bash
 railway up --service backend
 ```
 
-### Deploy to Specific Environment
+### Deploy to specific environment
 
 ```bash
 railway up --environment staging
 ```
 
-### CI/CD Mode
+### CI/CD mode
 
 ```bash
 railway up --ci
@@ -65,13 +65,13 @@ railway up --ci
 
 Streams build logs only and exits when the build completes. Useful for CI/CD pipelines.
 
-### Deploy a Subdirectory
+### Deploy a subdirectory
 
 ```bash
 railway up ./backend
 ```
 
-## File Handling
+## File handling
 
 By default, `railway up`:
 - Respects your `.gitignore` file
@@ -80,7 +80,7 @@ By default, `railway up`:
 
 Use `--no-gitignore` to include files that would normally be ignored.
 
-## Exit Codes
+## Exit codes
 
 - `0` - Deployment succeeded
 - `1` - Deployment failed or crashed

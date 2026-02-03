@@ -27,13 +27,13 @@ railway variable [COMMAND] [OPTIONS]
 
 ## Examples
 
-### List Variables
+### List variables
 
 ```bash
 railway variable list
 ```
 
-### List in Key-Value Format
+### List in key-value format
 
 ```bash
 railway variable list --kv
@@ -45,25 +45,25 @@ DATABASE_URL=postgres://...
 API_KEY=secret123
 ```
 
-### Set a Variable
+### Set a variable
 
 ```bash
 railway variable set API_KEY=secret123
 ```
 
-### Set Multiple Variables
+### Set multiple variables
 
 ```bash
 railway variable set API_KEY=secret123 DEBUG=true
 ```
 
-### Set Variable from stdin
+### Set variable from stdin
 
 ```bash
 echo "my-secret-value" | railway variable set SECRET_KEY --stdin
 ```
 
-### Delete a Variable
+### Delete a variable
 
 ```bash
 railway variable delete API_KEY
@@ -96,15 +96,15 @@ railway variable delete API_KEY
 | `-e, --environment <ENV>` | Environment to delete the variable from |
 | `--json` | Output in JSON format |
 
-## Legacy Flags
+## Legacy flags
 
 The following flags are deprecated but still supported:
 
 ```bash
-# Deprecated: use 'railway variable set KEY=VALUE' instead
+# Deprecated: use 'Railway variable set KEY=VALUE' instead
 railway variable --set KEY=VALUE
 
-# Deprecated: use 'railway variable set KEY --stdin' instead
+# Deprecated: use 'Railway variable set key --stdin' instead
 railway variable --set-from-stdin KEY
 ```
 

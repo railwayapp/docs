@@ -27,25 +27,25 @@ railway environment [ENVIRONMENT] [COMMAND]
 
 ## Examples
 
-### Link an Environment (Interactive)
+### Link an environment (interactive)
 
 ```bash
 railway environment
 ```
 
-### Link a Specific Environment
+### Link a specific environment
 
 ```bash
 railway environment staging
 ```
 
-### Create a New Environment
+### Create a new environment
 
 ```bash
 railway environment new staging
 ```
 
-### Duplicate an Environment
+### Duplicate an environment
 
 ```bash
 railway environment new staging --duplicate production
@@ -57,19 +57,19 @@ Or using the alias:
 railway environment new staging --copy production
 ```
 
-### Delete an Environment
+### Delete an environment
 
 ```bash
 railway environment delete staging
 ```
 
-### Edit Environment Configuration
+### Edit environment configuration
 
 ```bash
 railway environment edit --service-config backend variables.API_KEY.value "secret"
 ```
 
-### Show Environment Configuration
+### Show environment configuration
 
 ```bash
 railway environment config
@@ -100,7 +100,7 @@ railway environment config
 | `--stage` | Stage changes without committing |
 | `--json` | Output in JSON format |
 
-### Dot-Path Notation for `--service-config`
+### Dot-path notation for `--service-config`
 
 The `--service-config` flag uses dot-path notation to specify nested configuration values:
 
@@ -121,7 +121,7 @@ The format is: `--service-config <SERVICE_NAME> <DOT.PATH.TO.PROPERTY> <VALUE>`
 | `-e, --environment <ENV>` | Environment to show configuration for (defaults to linked environment) |
 | `--json` | Output in JSON format |
 
-### Config Examples
+### Config examples
 
 Show configuration for the current environment:
 

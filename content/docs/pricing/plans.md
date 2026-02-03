@@ -16,7 +16,7 @@ Railway offers four plans in addition to a [Trial](/reference/pricing/free-trial
 | **Pro**        | For professional developers and their teams shipping to production                                                                                 |
 | **Enterprise** | For teams building and deploying production applications with the need for enterprise features related to compliance, SLAs, and account management |
 
-### Subscription Pricing
+### Subscription pricing
 
 Each Railway account needs an active subscription. The base subscription fee allows you to use the Railway platform and features included in the tier of your subscription. The subscription fee goes towards your usage-costs on the platform.
 
@@ -31,7 +31,7 @@ Read more about our plans at <a href="https://railway.com/pricing" target="_blan
 
 Curious about potential savings? [Upload your current invoice](https://railway.com/pricing#pricing-invoice) and see how much you can save by running your workloads on Railway.
 
-### Default Plan Resources
+### Default plan resources
 
 Depending on the plan you are on, you are allowed to use up these resources per service.
 
@@ -47,7 +47,7 @@ Note that these are maximum values and include replica multiplication.
 
 \* For Volumes, Pro users and above can self-serve to increase their volume up to 250 GB. Check out [this guide](/guides/volumes#growing-the-volume) for information.
 
-### Resource Usage Pricing
+### Resource usage pricing
 
 On top of the base subscription fee above, Railway charges for the resources that you consume.
 
@@ -62,7 +62,7 @@ You are only charged for the resources you actually use, which helps prevent run
 
 To learn more about controlling your resource usage costs, read our FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
 
-## Included Usage
+## Included usage
 
 The Hobby plan includes $5 of resource usage per month.
 
@@ -77,11 +77,11 @@ Included resource usage is reset at the end of every billing cycle and does not 
 
 Similarly, the Pro plan includes $20 of resource usage per month and the same examples and billing logic apply. If your usage stays within $20, you'll only pay the subscription fee. If it exceeds $20, you'll be charged the difference on top of the subscription.
 
-### Additional Services
+### Additional services
 
 Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started.
 
-## Image Retention Policy
+## Image retention policy
 
 Railway retains images for a period of time after a deployment is removed. This is to allow for rollback to a previous deployment.
 
@@ -98,7 +98,7 @@ Rolling back a removed deployment within the retention policy will restore the p
 
 A removed deployment that is outside of the retention policy will not have the option to rollback; instead, you will need to use the redeploy feature. This will rebuild the image from the original source code with the deployment's original variables.
 
-## Committed Spend Tiers
+## Committed spend tiers
 
 Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
 
@@ -114,13 +114,13 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 
 To learn more about committed spend tiers, please [contact our team](mailto:team@railway.com?subject=Business%20Class%20Support).
 
-### One-time Grant of Credits on the Free Trial
+### One-time grant of credits on the free trial
 
 Users who create a new Trial account receive a free one-time grant of $5. Railway will expend any free credit before consuming any purchased credits. Trial plan users are unable to purchase credits without upgrading to the Hobby plan.
 
 Learn more about Railway's Free Trial [here](/reference/pricing/free-trial).
 
-## Partial Month Charges
+## Partial month charges
 
 In some cases, your billing method may be charged for the partial amount of your bill earlier in the billing cycle.
 This ensures that your account remains in good standing, and helps us mitigate risk and fraud.
@@ -164,11 +164,11 @@ Railway will delete your data from the platform as per the timeline below after 
 | **Hobby plan**         | 60 days after cancellation |
 | **Pro plan**           | 90 days after cancellation |
 
-### Is the Hobby Plan free?
+### Is the hobby plan free?
 
 No. The Hobby Plan is $5 a month, and it includes a resource usage credit of $5. Even if you do not use the $5 in usage (CPU, Memory, egress), you always pay the $5 subscription fee.
 
-### Can I get the Hobby plan subscription fee waived?
+### Can I get the hobby plan subscription fee waived?
 
 Railway waives the monthly Hobby plan subscription fee for a small set of active builders on the platform.
 

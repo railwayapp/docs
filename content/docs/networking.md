@@ -5,21 +5,21 @@ description: Overview of networking options on Railway.
 
 Railway provides several networking features to connect your services to the internet, to each other, and to external resources.
 
-## Public & Private Networking
+## Public & private networking
 
 | Feature | Description |
 | ------- | ----------- |
 | [**Public Networking**](/networking/public-networking) | Expose your services to the internet via HTTP/HTTPS with automatic SSL certificates. |
 | [**Private Networking**](/networking/private-networking) | Secure service-to-service communication within your project using internal DNS. |
 
-## Domain Configuration
+## Domain configuration
 
 | Feature | Description |
 | ------- | ----------- |
 | [**Domains**](/networking/domains) | Configure Railway-provided domains, custom domains, and private internal domains. |
 | [**TCP Proxy**](/networking/tcp-proxy) | Expose non-HTTP services (databases, game servers) to the internet via TCP. |
 
-## Traffic & Routing
+## Traffic & routing
 
 | Feature | Description |
 | ------- | ----------- |

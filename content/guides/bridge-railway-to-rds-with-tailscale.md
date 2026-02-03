@@ -47,22 +47,22 @@ This tutorial is in depth, so if it's your first time using Tailscale or setting
 # Set your AWS credentials
 export AWS_ACCESS_KEY_ID=my-access-key
 export AWS_SECRET_ACCESS_KEY=my-secret-key
-# or with 1Password
+# Or with 1password
 export AWS_ACCESS_KEY_ID=$(op read op://vault-name/aws-personal-access-key/access_key_id)
 export AWS_SECRET_ACCESS_KEY=$(op read op://vault-name/aws-personal-access-key/secret_access_key)
 
 # Generate an SSH key for the EC2 instance if you don't have one
 ssh-keygen -t rsa -b 2048 -f ~/.ssh/tailscale-rds
 
-# Set your TailScale Auth Key
+# Set your Tailscale auth key
 # terraform.tfvars
 #...
 tailscale_auth_key = "tskey-auth-1234567890"
-# or with 1Password
+# Or with 1password
 tailscale_auth_key = $(op read op://vault-name/tailscale-auth-key/credential)
 ```
 
-### Generate a Tailscale Auth Key
+### Generate a Tailscale auth key
 
 - Head over to the [Keys](https://login.tailscale.com/admin/settings/keys) page located within the settings menu on the Tailscale dashboard.
 
@@ -86,7 +86,7 @@ width={602} height={855} quality={100} />
 
 - Click **Done**.
 
-## git clone the example project
+## Git clone the example project
 
 We've prepared [an example project built in Terraform](https://github.com/echohack/rds-tailscale) (or OpenTofu if you prefer) to stand up all the AWS resources you'll need to test out connectivity to RDS.
 
@@ -120,7 +120,7 @@ Review the changes and type `yes` to confirm deployment.
 
 When the deployment completes, you'll see outputs including instructions for configuring split DNS and how to run the test script to verify your deployment.
 
-## Configure Split DNS in Tailscale
+## Configure split DNS in Tailscale
 
 Split DNS allows Tailscale to resolve AWS RDS domain names using AWS DNS servers, which is required for RDS connectivity.
 
@@ -143,7 +143,7 @@ width={602} height={572} quality={100} />
 
 - Click **Save**
 
-## Approve Advertised Subnet Routes and/or Enable Route Acceptance on Your Devices
+## Approve advertised subnet routes and/or enable route acceptance on your devices
 
 For devices you can't install Tailscale on, you need to [approve the routes in the Tailscale admin UI](https://login.tailscale.com/admin/machines).
 
@@ -158,7 +158,7 @@ For your local devices to access the subnet routes advertised by the subnet rout
 tailscale set --accept-routes=true
 ```
 
-## Verify Connectivity
+## Verify connectivity
 
 Run the verification script:
 
@@ -170,7 +170,7 @@ The endpoint and other details can be found in the Terraform outputs after deplo
 
 If you're running into issues at this point, head down to the Troubleshooting section to help figure out what might be wrong.
 
-## Connect to Your RDS Instance
+## Connect to your RDS instance
 
 Once the verification passes, you can connect to your RDS instance directly from your local machine using standard PostgreSQL tools or any database client:
 
@@ -182,7 +182,7 @@ If you've never used Tailscale before, take a moment to familiarize yourself wit
 
 Similarly, you can now use this subnet router to route traffic from other devices in your Tailnet, including as a way to create a bridge between networks. Now we're ready to connect our Railway services! Let's do that next.
 
-## Deploy Railtail into your project
+## Deploy railtail into your project
 
 Railtail is a project that will forward SOCK5 traffic for us RDS, because right now Railway containers don't allow privilege escalation. This way we can use private IPv6 networking to Railtail and forward our traffic privately to our AWS Subnet Router, which will then route to RDS.
 
@@ -197,7 +197,7 @@ You will need four variables to deploy Railtail and start bridging traffic to yo
 
 Click **Deploy Template**.
 
-## Bridge Traffic to RDS
+## Bridge traffic to RDS
 
 Now you can connect any service to your RDS backend. Add a variable to your connecting Service like: `DATABASE_URL="postgresql://USERNAME:PASSWORD@${{railtail.RAILWAY_PRIVATE_DOMAIN}}:${{railtail.LISTEN_PORT}}/postgres"`
 
@@ -240,7 +240,7 @@ If you encounter issues with connectivity check the `verify_tailscale_routing` s
 - Check that IP forwarding on is enabled with `cat /proc/sys/net/ipv4/ip_forward`.
 - Verify Tailscale is running with `sudo systemctl status tailscaled`.
 
-## Additional Resources
+## Additional resources
 
 - [Tailscale: Subnet Routers](https://tailscale.com/kb/1019/subnets)
 - [Tailscale: AWS RDS](https://tailscale.com/kb/1235/rds-aws/)

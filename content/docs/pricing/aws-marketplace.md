@@ -9,7 +9,7 @@ Railway is available through the AWS Marketplace, allowing you to purchase and m
 
 Railway offers solutions, peering templates and deployment to AWS- while using your AWS vendor relationship. For large Enterprises, Railway can be an option for large engineering teams to significantly reduce operational overhead.
 
-## Pricing Structure
+## Pricing structure
 
 Pricing for Railway through AWS Marketplace is based on contract duration. You can pay upfront or in installments according to your contract terms with the vendor. The contract includes:
 
@@ -17,9 +17,9 @@ Pricing for Railway through AWS Marketplace is based on contract duration. You c
 - Usage-based pricing for any usage exceeding the entitled amount
 - Additional charges applied on top of the contract price for overages
 
-## Contract Terms
+## Contract terms
 
-### 12-Month Contract
+### 12-month contract
 
 The standard offering is a 12-month contract with the following terms:
 
@@ -27,11 +27,11 @@ The standard offering is a 12-month contract with the following terms:
 - Overage rate: $1.00 per unit
 - Private pricing agreements available through the Railway sales team
 
-## Refund Policy
+## Refund policy
 
 All fees are non-refundable and non-cancellable except as required by law.
 
-## Getting Started
+## Getting started
 
 To purchase Railway through AWS Marketplace:
 

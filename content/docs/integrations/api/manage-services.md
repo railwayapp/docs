@@ -5,7 +5,7 @@ description: Learn how to create and manage services via the public GraphQL API.
 
 Here are examples to help you manage your services using the Public API.
 
-## Get a Service
+## Get a service
 
 Fetch a service by ID:
 
@@ -19,7 +19,7 @@ Fetch a service by ID:
   }
 }`} variables={{ id: "service-id" }} />
 
-## Get a Service Instance
+## Get a service instance
 
 Get detailed service configuration for a specific environment:
 
@@ -43,9 +43,9 @@ Get detailed service configuration for a specific environment:
   }
 }`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
-## Create a Service
+## Create a service
 
-### From a GitHub Repository
+### From a GitHub repository
 
 <CodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
   serviceCreate(input: $input) {
@@ -59,7 +59,7 @@ optionalFields={[
   { name: "input.variables", type: "JSON", description: "Initial environment variables" },
 ]} />
 
-### From a Docker Image
+### From a Docker image
 
 <CodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
   serviceCreate(input: $input) {
@@ -72,7 +72,7 @@ optionalFields={[
   { name: "input.variables", type: "JSON", description: "Initial environment variables" },
 ]} />
 
-### Empty Service (No Source)
+### Empty service (no source)
 
 Create an empty service that you can configure later:
 
@@ -87,7 +87,7 @@ optionalFields={[
   { name: "input.variables", type: "JSON", description: "Initial environment variables" },
 ]} />
 
-## Update a Service
+## Update a service
 
 Update service name or icon:
 
@@ -102,7 +102,7 @@ optionalFields={[
   { name: "input.icon", type: "String", description: "Service icon URL" },
 ]} />
 
-## Update Service Instance Settings
+## Update service instance settings
 
 Update build/deploy settings for a service in a specific environment. Click "Additional options" to see all available settings:
 
@@ -124,7 +124,7 @@ optionalFields={[
   { name: "input.watchPatterns", type: "[String!]", description: "File patterns to watch for changes" },
 ]} />
 
-## Connect a Service to a Repo
+## Connect a service to a repo
 
 Connect an existing service to a GitHub repository:
 
@@ -134,7 +134,7 @@ Connect an existing service to a GitHub repository:
   }
 }`} variables={{ id: "service-id", input: { repo: "username/repo-name", branch: "main" } }} />
 
-## Disconnect a Service from a Repo
+## Disconnect a service from a repo
 
 <CodeTabs query={`mutation serviceDisconnect($id: String!) {
   serviceDisconnect(id: $id) {
@@ -142,7 +142,7 @@ Connect an existing service to a GitHub repository:
   }
 }`} variables={{ id: "service-id" }} />
 
-## Deploy a Service
+## Deploy a service
 
 Trigger a new deployment for a service:
 
@@ -152,7 +152,7 @@ Trigger a new deployment for a service:
 
 This returns the deployment ID.
 
-## Redeploy a Service
+## Redeploy a service
 
 Redeploy the latest deployment:
 
@@ -160,7 +160,7 @@ Redeploy the latest deployment:
   serviceInstanceRedeploy(serviceId: $serviceId, environmentId: $environmentId)
 }`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
-## Get Resource Limits
+## Get resource limits
 
 Get the resource limits for a service instance (returns a JSON object):
 
@@ -168,7 +168,7 @@ Get the resource limits for a service instance (returns a JSON object):
   serviceInstanceLimits(serviceId: $serviceId, environmentId: $environmentId)
 }`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
-## Delete a Service
+## Delete a service
 
 <Banner variant="danger">This will delete the service and all its deployments.</Banner>
 

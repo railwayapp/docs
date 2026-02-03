@@ -5,7 +5,7 @@ description: Learn how to manage environment variables via the public GraphQL AP
 
 Here are examples to help you manage your environment variables using the Public API.
 
-## Get Variables
+## Get variables
 
 Fetch variables for a service in an environment:
 
@@ -32,7 +32,7 @@ Fetch variables for a service in an environment:
 
 Omit `serviceId` to get shared variables for an environment instead.
 
-## Get Unrendered Variables
+## Get unrendered variables
 
 Get variables with references intact (not resolved):
 
@@ -47,7 +47,7 @@ Get variables with references intact (not resolved):
 
 This returns variables like `${{Postgres.DATABASE_URL}}` instead of the resolved value.
 
-## Create or Update a Variable
+## Create or update a variable
 
 Upsert a single variable:
 
@@ -60,7 +60,7 @@ optionalFields={[
 
 Omit `serviceId` to create a shared variable instead.
 
-## Upsert Multiple Variables
+## Upsert multiple variables
 
 Update multiple variables at once:
 
@@ -74,7 +74,7 @@ optionalFields={[
 
 <Banner variant="warning">Using `replace: true` will delete all variables not included in the `variables` object.</Banner>
 
-## Delete a Variable
+## Delete a variable
 
 Delete a single variable:
 
@@ -82,7 +82,7 @@ Delete a single variable:
   variableDelete(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "OLD_VARIABLE" } }} />
 
-## Get Rendered Variables for Deployment
+## Get rendered variables for deployment
 
 Get all variables as they would appear during a deployment (with all references resolved):
 
@@ -94,7 +94,7 @@ Get all variables as they would appear during a deployment (with all references 
   )
 }`} variables={{ projectId: "project-id", environmentId: "environment-id", serviceId: "service-id" }} />
 
-## Variable References
+## Variable references
 
 Railway supports referencing variables from other services using the syntax:
 
@@ -108,17 +108,17 @@ For example, to reference a database URL from a Postgres service:
   variableUpsert(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "DATABASE_URL", value: "${{Postgres.DATABASE_URL}}" } }} />
 
-## Common Patterns
+## Common patterns
 
-### Copy Variables Between Environments
+### Copy variables between environments
 
 1. Fetch variables from source environment
 2. Upsert to target environment using `variableCollectionUpsert`
 
-### Import from .env File
+### Import from .env file
 
 Parse your `.env` file and use `variableCollectionUpsert` to set all variables at once.
 
-### Rotate Secrets
+### Rotate secrets
 
 Use `variableUpsert` with `skipDeploys: true` for all services, then trigger deployments manually when ready.

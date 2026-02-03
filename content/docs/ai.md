@@ -5,9 +5,9 @@ description: Integrate Railway with your AI coding assistants using Agent Skills
 
 Railway provides tools for integrating with AI coding assistants, allowing you to manage your infrastructure through natural language.
 
-## Integration Options
+## Integration options
 
-### Agent Skills
+### Agent skills
 
 [Agent Skills](/ai/agent-skills) are an open format for extending AI coding assistants with specialized knowledge about Railway. Skills are markdown files that guide AI agents to perform tasks like deploying services, managing environments, and querying metrics.
 
@@ -17,7 +17,7 @@ Railway provides tools for integrating with AI coding assistants, allowing you t
 
 [Get started with Agent Skills →](/ai/agent-skills)
 
-### MCP Server
+### MCP server
 
 The [Railway MCP Server](/ai/mcp-server) implements the Model Context Protocol, enabling direct communication between AI assistants and your Railway infrastructure.
 

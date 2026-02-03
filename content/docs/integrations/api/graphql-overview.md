@@ -136,7 +136,7 @@ Every GraphQL API is backed by a schema that defines all available types, querie
 
 The best way to discover what's available in Railway's API is through the [GraphiQL playground](https://railway.com/graphiql).
 
-### Using the Docs panel
+### Using the docs panel
 
 Click the "Docs" button (or press Ctrl/Cmd+Shift+D) to open the documentation explorer. From here you can:
 
@@ -179,7 +179,7 @@ input ProjectCreateInput {
 
 Click on any type in GraphiQL's Docs panel to see its fields. For example, click `Project` to see `id`, `name`, `description`, `services`, `environments`, and more. For mutations, click the input type (like `ProjectCreateInput`) to see required and optional fields.
 
-### Pro tip: Use autocomplete
+### Pro tip: use autocomplete
 
 In GraphiQL's editor, press Ctrl+Space to trigger autocomplete. It shows all valid fields at your current position in the query, with descriptions.
 

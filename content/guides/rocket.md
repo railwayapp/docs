@@ -24,7 +24,7 @@ This guide covers how to deploy a Rocket app to Railway in four ways:
 
 Now, let's create a Rocket app! 🚀
 
-## Create a Rocket App
+## Create a Rocket app
 
 **Note:** If you already have a Rocket app locally or on GitHub, you can skip this step and go straight to the [Deploy Rocket App to Railway](#deploy-the-rocket-app-to-railway).
 
@@ -46,7 +46,7 @@ cargo add rocket
 
 This will add Rocket as a dependency, and you’ll see it listed in your `Cargo.toml` file.
 
-### Modify the Application File
+### Modify the application file
 
 Next, open the app in your IDE and navigate to the `src/main.rs` file.
 
@@ -75,7 +75,7 @@ The `#[launch]` attribute on the `rocket()` function marks it as the entry point
 
 When the application runs, it listens for incoming requests and serves the "Hello world, Rocket!" response for requests made to the root URL, demonstrating a simple routing and response mechanism in Rocket.
 
-### Run the Rocket App locally
+### Run the Rocket app locally
 
 Run the following command in the `helloworld` directory via the terminal:
 
@@ -87,11 +87,11 @@ All the dependencies will be installed and your app will be launched.
 
 Open your browser and go to `http://localhost:8000` to see your app.
 
-## Deploy the Rocket App to Railway
+## Deploy the Rocket app to Railway
 
 Railway offers multiple ways to deploy your Rocket app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -143,7 +143,7 @@ alt="screenshot of the deployed Rocket service"
 layout="responsive"
 width={2038} height={1698} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a Rocket app to Railway directly from GitHub, follow the steps below:
 
@@ -203,7 +203,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Rocket apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

@@ -16,7 +16,7 @@ In Railway, there is also a notion of configuration variables which allow you to
 
 _Adding, updating, or removing variables, results in a set of [staged changes](/deployments/staged-changes) that you must review and deploy, in order to apply them._
 
-## Service Variables
+## Service variables
 
 Variables scoped to individual services can be defined by navigating to a service's "Variables" tab.
 
@@ -25,15 +25,15 @@ alt="Screenshot of Variables Pane"
 layout="responsive"
 width={2026} height={933} quality={100} />
 
-#### Define a Service Variable
+#### Define a service variable
 
 From a service's variables tab, click on `New Variable` to enter your variable into a form field, or use the `RAW Editor` to paste the contents of your `.env` or json-formatted file.
 
-### Suggested Variables
+### Suggested variables
 
 Your connected GitHub repository to your Service will automatically detect and suggest environment variables from `.env` files. This feature streamlines the setup process by populating your service variables at the click of a button. Railway scans the root directory of your repository for environment files and suggests their variables for import.
 
-#### Supported .env File Patterns
+#### Supported .env file patterns
 
 Railway scans for the following `.env` file patterns in your repository's root directory:
 
@@ -44,7 +44,7 @@ Railway scans for the following `.env` file patterns in your repository's root d
 ...
 - Or any other files matching the pattern `.env.<suffix>`
 
-## Shared Variables
+## Shared variables
 
 Shared variables help reduce duplication of variables across multiple services within the same project.
 
@@ -53,17 +53,17 @@ alt="Screenshot of Shared Variables Settings"
 layout="responsive"
 width={2402} height={1388} quality={100} />
 
-#### Define a Shared Variable
+#### Define a shared variable
 
 From your Project Settings -> Shared Variables page, choose the Environment, enter the variable name and value, and click `Add`.
 
-#### Use a Shared Variable
+#### Use a shared variable
 
 To use a shared variable, either click the Share button from the Project Settings -> Shared Variables menu and select the services with which to share, or visit the Variables tab within the service itself and click "Shared Variable".
 
 Adding a shared variables to a service creates a [Reference Variable](/variables#referencing-a-shared-variable) in the service.
 
-## Reference Variables
+## Reference variables
 
 Reference variables are those defined by referencing variables in other services, shared variables, or even variables in the same service.
 
@@ -71,7 +71,7 @@ When using reference variables, you also have access to [Railway-provided variab
 
 Railway's [template syntax](/variables/reference#template-syntax) is used when defining reference variables.
 
-### Referencing a Shared Variable
+### Referencing a shared variable
 
 Use the following syntax to reference a shared variable:
 
@@ -82,7 +82,7 @@ Use the following syntax to reference a shared variable:
   - `API_KEY=${{shared.API_KEY}}`
 </Collapse>
 
-### Referencing Another Service's Variable
+### Referencing another service's variable
 
 Use the following syntax to reference variables in another service:
 
@@ -101,7 +101,7 @@ Use the following syntax to reference variables in another service:
 
 </Collapse>
 
-### Referencing Variables in the Same Service
+### Referencing variables in the same service
 
 Use the following syntax to reference variables in the same service:
 
@@ -112,7 +112,7 @@ Use the following syntax to reference variables in the same service:
   - `AUTH_ENDPOINT=https://${{ BASE_URL }}/${{ AUTH_PATH }}`
 </Collapse>
 
-### Autocomplete Dropdown
+### Autocomplete dropdown
 
 The Railway dashboard provides an autocomplete dropdown in both the name and value fields to help create reference variables.
 
@@ -121,11 +121,11 @@ alt="Screenshot of Variables Pane"
 layout="responsive"
 width={2408} height={1150} quality={100} />
 
-## Sealed Variables
+## Sealed variables
 
 Railway provides the ability to seal variable values for extra security. When a variable is sealed, its value is provided to builds and deployments but is never visible in the UI nor can it be retrieved via the API.
 
-### Sealing a Variable
+### Sealing a variable
 
 To seal an existing variable, click the 3-dot menu on the right-side of the variable and choose the "Seal" option.
 
@@ -134,7 +134,7 @@ alt="Seal an existing variable"
 layout="responsive"
 width={1200} height={552} quality={100} />
 
-### Updating a Sealed Variable
+### Updating a sealed variable
 
 Sealed variables can be updated by clicking the edit option in the 3-dot menu just like normal variables but they cannot be updated via the Raw Editor.
 
@@ -150,7 +150,7 @@ Sealed variables are a security-first feature and with that come some constraint
 - Sealed variables are not shown as part of the diff when syncing environment changes.
 - Sealed variables are not synced with external integrations.
 
-## Railway-provided Variables
+## Railway-provided variables
 
 Railway provides many variables to help with development operations. Some of the commonly used variables include -
 
@@ -160,11 +160,11 @@ Railway provides many variables to help with development operations. Some of the
 
 For an exhaustive list, please check out the [Variables Reference](/variables/reference#railway-provided-variables) page.
 
-## Multiline Variables
+## Multiline variables
 
 Variables can span multiple lines. Press `Control + Enter` (`Cmd + Enter` on Mac) in the variable value input field to add a newline, or simply type a newline in the Raw Editor.
 
-## Using Variables in Your Services
+## Using variables in your services
 
 Variables are made available at runtime as environment variables. To use them in your application, simply use the interface appropriate for your language to retrieve environment variables.
 
@@ -174,7 +174,7 @@ For example, in a node app -
 process.env.VARIABLE_NAME;
 ```
 
-#### Local Development
+#### Local development
 
 Using the Railway CLI, you can run your code locally with the environment variables configured in your Railway project.
 
@@ -184,11 +184,11 @@ Using the Railway CLI, you can run your code locally with the environment variab
 
 Check out the [CLI guide](/cli#local-development) for more information on using the CLI.
 
-## Using Variables in your Dockerfile
+## Using variables in your Dockerfile
 
 For information on how to use variables in your Dockerfile refer to the [Dockerfiles guide](/builds/dockerfiles#using-variables-at-build-time).
 
-## Import Variables from Heroku
+## Import variables from Heroku
 
 You can import variables from an existing Heroku app using the command palette
 on the service variables page. After connecting your Heroku account you can
@@ -199,7 +199,7 @@ alt="Screenshot of connect Heroku account modal"
 layout="responsive"
 width={521} height={404} quality={100} />
 
-## Using Doppler for Secrets Management
+## Using doppler for secrets management
 
 Our friends at Doppler maintain an integration that makes it easy to sync your secrets in Doppler to your project(s) in Railway.
 

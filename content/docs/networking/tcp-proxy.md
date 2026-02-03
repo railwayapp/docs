@@ -5,7 +5,7 @@ description: Learn how to proxy TCP traffic to a service on Railway.
 
 TCP Proxy enables you to expose non-HTTP services to the internet or make them accessible across your private network. This is useful for services like databases, game servers, or any application that communicates over raw TCP.
 
-## How it Works
+## How it works
 
 Enabling TCP Proxy on a service requires specification of a port to which the traffic should be proxied. Railway then generates a domain and proxy port, and all traffic sent to `domain:port` will be proxied to the service.
 
@@ -15,7 +15,7 @@ alt="Screenshot of TCP proxy configuration"
 layout="responsive"
 width={1200} height={822} quality={100} />
 
-## Setting Up TCP Proxy
+## Setting up TCP proxy
 
 To create a TCP proxy:
 
@@ -25,11 +25,11 @@ To create a TCP proxy:
 4. Enter the internal port your service listens on
 5. Railway will generate a proxy domain and port (e.g., `shuttle.proxy.rlwy.net:15140`)
 
-## Load Balancing
+## Load balancing
 
 Incoming traffic will be distributed across all replicas in the closest region using a random load balancing algorithm.
 
-## Use Cases
+## Use cases
 
 TCP Proxy is commonly used for:
 
@@ -38,7 +38,7 @@ TCP Proxy is commonly used for:
 - **Custom protocols** - Any service using a non-HTTP protocol
 - **IoT devices** - Connect devices that communicate over raw TCP
 
-## Using a Custom Domain for TCP Proxying
+## Using a custom domain for TCP proxying
 
 You can use your own domain instead of Railway's provided TCP proxy domain.
 
@@ -60,11 +60,11 @@ To set this up:
 - If using Cloudflare, proxying must be disabled (DNS only, grey cloud).
 - If your client validates or looks for a specific hostname in the connection, it may fail when using a custom domain.
 
-## Using HTTP and TCP Together
+## Using HTTP and TCP together
 
 Railway supports exposing both HTTP and TCP over public networking in a single service. If you have a domain assigned, you will still see the option to enable TCP Proxy, and vice-versa.
 
-## TCP with Private Networking
+## TCP with private networking
 
 TCP Proxy can also be used in conjunction with [Private Networking](/networking/private-networking) for internal service-to-service communication. Services within the same project or environment can communicate over TCP using internal DNS names without exposing traffic to the public internet.
 

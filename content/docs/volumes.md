@@ -14,7 +14,7 @@ Volumes allow you to store persistent data for services on Railway.
     alt="Volume"
 />
 
-## Creating A Volume
+## Creating a volume
 
 You can create a new volume through the Command Palette (`⌘K`)
 or by right-clicking the project canvas to bring up a menu:
@@ -64,17 +64,17 @@ You must configure the mount path of the volume in your service:
     alt="Connect volume to service"
 />
 
-## Using the Volume
+## Using the volume
 
 The volume mount point you specify will be available in your service as a directory to which you can read/write. If you mount a volume to `/foobar`, your application will be able to access it at the absolute path `/foobar`.
 
-### Relative Paths
+### Relative paths
 
 Nixpacks, the default buildpack used by Railway, puts your application files in an `/app` folder at the root of the container. If your application writes to a directory at a relative path, and you need to persist that data on the volume, your mount path should include the app path.
 
 For example, if your application writes data to `./data`, you should mount the volume to `/app/data`.
 
-### Provided Variables
+### Provided variables
 
 Attaching a Volume to a service will automatically make these environment variables available
 to the service at runtime:
@@ -84,7 +84,7 @@ to the service at runtime:
 
 You do not need to define these variables on the service, they are automatically set by Railway at runtime.
 
-### Volume Availability
+### Volume availability
 
 Volumes are mounted to your service's container when it is started, not during build time.
 
@@ -102,7 +102,7 @@ Volumes are mounted as the `root` user. If you run an image that uses a non-root
 RAILWAY_RUN_UID=0
 ```
 
-## Growing the Volume
+## Growing the volume
 
 **_Only available to Pro users and above._**
 

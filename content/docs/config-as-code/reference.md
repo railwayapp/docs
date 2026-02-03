@@ -23,7 +23,7 @@ code.
 Configuration defined in code will always override values from the
 dashboard.
 
-## Config Source Location
+## Config source location
 
 On the deployment details page, all the settings that a deployment went out with are shown. For settings that come from a configuration file, there is a little file icon. Hovering over the icon will show exactly what part of the file the values originated from.
 
@@ -33,9 +33,9 @@ alt="Screenshot of Deployment Details Pane"
 layout="responsive"
 width={1200} height={631} quality={100} />
 
-## Configurable Settings
+## Configurable settings
 
-### Specify the Builder
+### Specify the builder
 
 Set the builder for the deployment.
 
@@ -58,7 +58,7 @@ Note: Railway will always build with a Dockerfile if it finds one. New services 
 
 Read more about Builds [here](/guides/builds).
 
-### Watch Patterns
+### Watch patterns
 
 Array of patterns used to conditionally trigger a deploys.
 
@@ -73,7 +73,7 @@ Array of patterns used to conditionally trigger a deploys.
 
 Read more about watch patterns [here](/guides/build-configuration#configure-watch-paths).
 
-### Build Command
+### Build command
 
 Build command to pass to the Nixpacks builder.
 
@@ -90,7 +90,7 @@ This field can be set to `null`.
 
 Read more about the build command [here](/reference/build-and-start-commands#build-command).
 
-### Dockerfile Path
+### Dockerfile path
 
 Location of non-standard Dockerfile.
 
@@ -107,7 +107,7 @@ This field can be set to `null`.
 
 More about building from a Dockerfile [here](/builds/dockerfiles).
 
-### Railpack Version
+### Railpack version
 
 Must be a valid [Railpack version](https://github.com/railwayapp/railpack/releases).
 
@@ -126,7 +126,7 @@ You can also use the `RAILPACK_VERSION` [configuration
 variable](https://docs.railway.com/reference/variables#user-provided-configuration-variables)
 to set the Railpack version.
 
-### Nixpacks Config Path
+### Nixpacks config path
 
 Location of a non-standard [Nixpacks](https://nixpacks.com/docs/configuration/file) config file. This setting only applies to services using the deprecated Nixpacks builder.
 
@@ -141,7 +141,7 @@ Location of a non-standard [Nixpacks](https://nixpacks.com/docs/configuration/fi
 
 This field can be set to `null`.
 
-### Nixpacks Plan
+### Nixpacks plan
 
 Full nixpacks plan. See [the Nixpacks documentation](https://nixpacks.com/docs/configuration/file) for more info.
 
@@ -183,7 +183,7 @@ In this example, we are adding ffmpeg to the setup phase.
 }
 ```
 
-#### Custom Install Command
+#### Custom install command
 
 Use nixpacksPlan to configure a custom install command.
 
@@ -203,7 +203,7 @@ Use nixpacksPlan to configure a custom install command.
 }
 ```
 
-### Nixpacks Version
+### Nixpacks version
 
 Must be a valid Nixpacks version.
 
@@ -222,7 +222,7 @@ You can also use the `NIXPACKS_VERSION` [configuration
 variable](https://docs.railway.com/reference/variables#user-provided-configuration-variables)
 to set the Nixpacks version.
 
-### Start Command
+### Start command
 
 The command to run when starting the container.
 
@@ -239,7 +239,7 @@ This field can be set to `null`.
 
 Read more about the start command [here](/reference/build-and-start-commands#start-command).
 
-### Pre-deploy Command
+### Pre-deploy command
 
 The command to run before starting the container.
 
@@ -256,7 +256,7 @@ This field can be omitted.
 
 Read more about the pre-deploy command [here](/guides/pre-deploy-command).
 
-### Multi-region Configuration
+### Multi-region configuration
 
 Horizontal scaling across multiple regions, with two replicas in each region.
 
@@ -286,7 +286,7 @@ This field can be set to `null`.
 
 Read more about horizontal scaling with multiple regions [here](/reference/scaling#multi-region-replicas).
 
-### Healthcheck Path
+### Healthcheck path
 
 Path to check after starting your deployment to ensure it is healthy.
 
@@ -303,7 +303,7 @@ This field can be set to `null`.
 
 Read more about the healthcheck path [here](/deployments/healthchecks).
 
-### Healthcheck Timeout
+### Healthcheck timeout
 
 Number of seconds to wait for the healthcheck path to become healthy.
 
@@ -321,7 +321,7 @@ This field can be set to `null`.
 
 Read more about the healthcheck timeout [here](/deployments/healthchecks).
 
-### Restart Policy Type
+### Restart policy type
 
 How to handle the deployment crashing.
 
@@ -342,7 +342,7 @@ Possible values are:
 
 Read more about the Restart policy [here](/guides/restart-policy).
 
-### Restart Policy Max Retries
+### Restart policy max retries
 
 Set the max number of retries for the restart policy.
 
@@ -360,7 +360,7 @@ This field can be set to `null`.
 
 Read more about the Restart policy [here](/guides/restart-policy).
 
-### Cron Schedule
+### cron schedule
 
 [Cron schedule](/cron-jobs) of the deployed service.
 
@@ -375,7 +375,7 @@ Read more about the Restart policy [here](/guides/restart-policy).
 
 This field can be set to `null`.
 
-### Setting Environment Overrides
+### Setting environment overrides
 
 Configuration can be overridden for a specific environment by nesting it in a
 `environments.[name]` block.
@@ -402,7 +402,7 @@ environment.
 }
 ```
 
-#### PR Environment Overrides
+#### PR environment overrides
 
 Deployments for pull requests can be configured using a special `pr` environment. This configuration is applied only to deploys that belong to an ephemeral environment. When resolving the settings for a PR deployment, the following priority order is used:
 
@@ -425,7 +425,7 @@ Deployments for pull requests can be configured using a special `pr` environment
 }
 ```
 
-### Configuring a Build provider with Nixpacks
+### Configuring a build provider with Nixpacks
 
 To define a build provider ahead of time, create a `nixpacks.toml` file and configure it like so:
 
@@ -433,11 +433,11 @@ To define a build provider ahead of time, create a `nixpacks.toml` file and conf
 providers = ["...", "python"]
 ```
 
-### Deployment Teardown
+### Deployment teardown
 
 You can configure [Deployment Teardown](/guides/deployment-teardown) settings to tune the behavior of zero downtime deployments on Railway.
 
-#### Overlap Seconds
+#### Overlap seconds
 
 Time in seconds that the previous deploy will overlap with the newest one being deployed. Read more about the deployment's lifecycle [here](/deployments).
 
@@ -452,7 +452,7 @@ Time in seconds that the previous deploy will overlap with the newest one being 
 
 This field can be set to `null`.
 
-#### Draining Seconds
+#### Draining seconds
 
 The time in seconds between when the previous deploy is sent a SIGTERM to the time it is sent a SIGKILL. Read more about the deployment's lifecycle [here](/deployments).
 

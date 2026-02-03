@@ -27,38 +27,38 @@ railway run [OPTIONS] <COMMAND> [ARGS...]
 
 ## Examples
 
-### Run a Node.js App
+### Run a Node.js app
 
 ```bash
 railway run npm start
 ```
 
-### Run a Python Script
+### Run a Python script
 
 ```bash
 railway run python main.py
 ```
 
-### Run with Specific Service Variables
+### Run with specific service variables
 
 ```bash
 railway run --service backend npm start
 ```
 
-### Run Database Migrations
+### Run database migrations
 
 ```bash
 railway run npx prisma migrate deploy
 ```
 
-### Access a REPL
+### Access a repl
 
 ```bash
 railway run rails console
 railway run python
 ```
 
-## How It Works
+## How it works
 
 1. Fetches environment variables from the specified Railway service
 2. Injects them into the command's environment
@@ -69,7 +69,7 @@ This is useful for:
 - Running database migrations
 - Accessing REPLs with the correct environment
 
-## Exit Codes
+## Exit codes
 
 The command exits with the same code as the executed command.
 

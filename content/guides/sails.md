@@ -17,7 +17,7 @@ tags:
 
 Sails makes it easy to build custom, enterprise-grade Node.js apps.
 
-## Create a Sails App
+## Create a Sails app
 
 **Note:** If you already have a Sails app locally or on GitHub, you can skip this step and go straight to the [Deploy Sails App on Railway](#deploy-sails-app-on-railway).
 
@@ -41,7 +41,7 @@ Open your browser and go to `http://localhost:1337` to see your app.
 
 Now, let's deploy to Railway!
 
-## Deploy Sails App on Railway
+## Deploy Sails app on Railway
 
 Railway offers multiple ways to deploy your Sails app, depending on your setup and preference. Choose any of the following methods:
 
@@ -49,7 +49,7 @@ Railway offers multiple ways to deploy your Sails app, depending on your setup a
 2. [Using the CLI](#deploy-from-the-cli).
 3. [From a GitHub repository](#deploy-from-a-github-repo).
 
-## One-Click Deploy from a Template
+## One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal. It sets up a Sails app along with a Postgres database and Redis.
 
@@ -127,7 +127,7 @@ alt="screenshot of the deployed Sails service"
 layout="responsive"
 width={2986} height={2140} quality={100} />
 
-## Deploy from a GitHub Repo
+## Deploy from a GitHub repo
 
 To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. Once that’s set up, follow the steps below to complete the deployment process.
 
@@ -174,7 +174,7 @@ Here’s how your setup should look:
 
 By following these steps, you’ll have a fully functional Sails app. If you run into any issues or need to make adjustments, check the logs and revisit your environment variable configurations.
 
-## The Boring JavaScript Stack Sails Starter
+## The boring JavaScript stack Sails starter
 
 If you're a fan of [The Boring JavaScript Stack](https://github.com/sailscastshq/boring-stack), we’ve got a one-click deploy option for you.
 
@@ -184,7 +184,7 @@ Simply click the button below to get started:
 
 **Note:** After deploying, we recommend [ejecting from the template](/guides/deploy#eject-from-template-repository) to create your own GitHub repository. This will give you full control over the project and source code.
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

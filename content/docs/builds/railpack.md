@@ -6,7 +6,7 @@ description: Railway uses Railpack to build and deploy your code with zero confi
 Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to
 build and deploy your code with zero configuration.
 
-## Supported Languages
+## Supported languages
 
 Currently, we support the following languages out of the box:
 
@@ -22,13 +22,13 @@ Currently, we support the following languages out of the box:
 - [Elixir](https://railpack.com/languages/elixir)
 - [Shell scripts](https://railpack.com/languages/shell)
 
-## How it Works
+## How it works
 
 Railpack automatically analyzes your code and turns it into a container image.
 It detects your programming language, installs dependencies, and configures
 build and start commands without any manual configuration required.
 
-## The Build Process
+## The build process
 
 When Railway builds your app with Railpack, the build process will
 automatically:

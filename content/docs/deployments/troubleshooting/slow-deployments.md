@@ -5,11 +5,11 @@ description: Learn how to diagnose and fix slow deployments and application perf
 
 When your deployment takes longer than expected or your application feels slow, it helps to understand what's happening behind the scenes. This guide walks you through Railway's deployment process, how to identify where slowdowns occur, and what you can do about them.
 
-## Understanding Deployment Phases
+## Understanding deployment phases
 
 Every deployment on Railway goes through several distinct phases. Understanding these phases helps you identify where delays are occurring.
 
-### Phase Overview
+### Phase overview
 
 | Phase | What Happens | Typical Duration |
 |-------|--------------|------------------|
@@ -20,13 +20,13 @@ Every deployment on Railway goes through several distinct phases. Understanding 
 | **Network** | Healthchecks run (if configured) | Up to 5 minutes (configurable) |
 | **Post-Deploy** | Previous deployment is drained and removed | Seconds |
 
-### Detailed Phase Breakdown
+### Detailed phase breakdown
 
-#### Initialization (Snapshot Code)
+#### Initialization (snapshot Code)
 
 Railway captures a snapshot of your source code. This is typically fast unless you have an unusually large repository or many files.
 
-#### Build Phase
+#### Build phase
 
 The build phase is often the longest part of a deployment. Railway uses [Railpack](/builds/railpack) (or a [Dockerfile](/builds/dockerfiles) if present) to build your application into a container image.
 
@@ -38,13 +38,13 @@ Common causes of slow builds:
 
 **Tip:** Check the build logs to see which steps are taking the longest.
 
-#### Pre-Deploy
+#### Pre-deploy
 
 This phase handles:
 - **Waiting for dependencies**: If your service depends on another service that's also deploying, Railway waits for it to be ready
 - **Volume migration**: If you changed your service's region and it has a volume attached, the volume data must be migrated. This can take significant time depending on volume size
 
-#### Deploy (Creating Containers)
+#### Deploy (creating containers)
 
 This phase involves:
 1. **Pulling the container image** to the compute node
@@ -54,7 +54,7 @@ This phase involves:
 
 Large container images take longer to pull. Railway caches images on compute nodes when possible, but the first deployment to a new node requires a full pull.
 
-#### Network (Healthchecks)
+#### Network (healthchecks)
 
 If you have a [healthcheck](/deployments/healthchecks) configured, Railway queries your healthcheck endpoint until it receives an HTTP 200 response. The default timeout is 300 seconds (5 minutes).
 
@@ -65,19 +65,19 @@ If your application takes time to:
 
 ...the healthcheck phase will reflect that startup time.
 
-#### Post-Deploy (Drain Instances)
+#### Post-deploy (drain instances)
 
 Railway stops and removes the previous deployment. By default, old deployments are given 0 seconds to gracefully shut down (configurable via `RAILWAY_DEPLOYMENT_DRAINING_SECONDS`).
 
-## Is It Railway or My App?
+## Is it Railway or my app?
 
 Before diving into optimization, determine whether the slowness is on Railway's side or within your application. In the vast majority of cases, performance issues originate from the application itself, rather than the platform. This could be from inefficient queries, resource constraints, or configuration problems.
 
-### Check Railway Status
+### Check Railway status
 
 Visit [status.railway.com](https://status.railway.com) to see if there are any ongoing incidents or degraded performance affecting the platform. If there's a platform-wide issue, it will be reported here. If status shows all systems operational, the issue is almost certainly within your application or its dependencies.
 
-### Check Build Logs
+### Check build logs
 
 Build logs show output from the build phase (installing dependencies, compiling code, creating the container image). The deployment view shows each phase with timing information.
 
@@ -86,7 +86,7 @@ Look for:
 - Cache misses causing full rebuilds
 - Large assets being processed
 
-### Check Deployment Logs
+### Check deployment logs
 
 Deployment logs show your application's stdout/stderr while it's running. These help diagnose runtime issues that occur after your app starts.
 
@@ -96,7 +96,7 @@ Look for:
 - Application exceptions or errors
 - Healthcheck failures
 
-### Check Your Application Metrics
+### Check your application metrics
 
 Railway provides [metrics](/observability/metrics) for CPU, memory, and network usage. High resource usage can indicate:
 - Your application is resource-constrained
@@ -105,7 +105,7 @@ Railway provides [metrics](/observability/metrics) for CPU, memory, and network 
 
 For deeper insights, consider integrating an Application Performance Monitoring (APM) tool like Datadog, New Relic, or open-source alternatives like OpenTelemetry. APM tools provide distributed tracing, helping you identify slow database queries, external API calls, and bottlenecks that Railway's built-in metrics don't capture.
 
-### Analyze HTTP Logs
+### Analyze HTTP logs
 
 Railway captures detailed HTTP request logs for every request to your service. These logs are invaluable for identifying slow endpoints and understanding request patterns. For complete documentation on log features and filtering syntax, see the [Logs guide](/observability/logs).
 
@@ -151,16 +151,16 @@ Filter by status code to find failing requests:
 
 Check `responseDetails` for specific error information, and `upstreamErrors` for details about connection failures to your application.
 
-### Test Locally
+### Test locally
 
 If your app is slow on Railway but fast locally, consider:
 - Are you hitting external services with higher latency?
 - Are you using the correct region for your database?
 - Is your application configured to use private networking?
 
-## Common Causes of Slow Applications
+## Common causes of slow applications
 
-### Database Queries
+### Database queries
 
 Slow database queries are one of the most common causes of application latency.
 
@@ -175,7 +175,7 @@ Slow database queries are one of the most common causes of application latency.
 - Review slow query logs
 - Consider read replicas for read-heavy workloads
 
-### Wrong Region Configuration
+### Wrong region configuration
 
 If your application is in one region but your database is in another, every query incurs geographic latency as traffic travels between regions on Railway's network.
 
@@ -185,7 +185,7 @@ If your application is in one region but your database is in another, every quer
 **Solutions:**
 - Deploy your application in the same region as your database
 
-### Not Using Private Networking
+### Not using private networking
 
 If services within the same project communicate over the public internet instead of [private networking](/private-networking), you add unnecessary latency and incur [egress costs](/pricing/plans#resource-usage-pricing). Private networking is for **server-to-server communication only**. It won't work for requests originating from a user's browser.
 
@@ -208,7 +208,7 @@ const apiUrl = "http://api.railway.internal:3000";
 const apiUrl = "https://api.up.railway.app";
 ```
 
-### Resource Constraints
+### Resource constraints
 
 Your application may be hitting resource limits, causing throttling or OOM (out of memory) kills.
 
@@ -223,7 +223,7 @@ Your application may be hitting resource limits, causing throttling or OOM (out 
 - Optimize your application's memory and CPU usage
 - Consider [horizontal scaling](/deployments/scaling#horizontal-scaling-with-replicas) for stateless workloads
 
-### Large Container Images
+### Large container images
 
 Large images take longer to pull, especially on first deployment to a new compute node.
 
@@ -237,7 +237,7 @@ Large images take longer to pull, especially on first deployment to a new comput
 - Exclude unnecessary files with `.dockerignore`
 - Remove development dependencies from production builds
 
-### Slow Application Startup
+### Slow application startup
 
 If your application takes time to initialize, it affects the healthcheck phase duration.
 
@@ -251,11 +251,11 @@ If your application takes time to initialize, it affects the healthcheck phase d
 - Increase healthcheck timeout if startup time is legitimate
 - Consider a dedicated healthcheck endpoint that responds before full initialization
 
-## What Plan Upgrades Actually Do
+## What plan upgrades actually do
 
 Upgrading your plan increases your **resource limits**, not guaranteed performance. Understanding this distinction is important.
 
-### What Upgrading Provides
+### What upgrading provides
 
 | Plan | Per-Replica vCPU Limit | Per-Replica Memory Limit |
 |------|------------------------|--------------------------|
@@ -265,7 +265,7 @@ Upgrading your plan increases your **resource limits**, not guaranteed performan
 
 Upgrading raises the ceiling on how many resources a single replica can use. Your application only uses what it needs, up to the limit.
 
-### When Upgrading Helps
+### When upgrading helps
 
 Upgrading helps when:
 - Your metrics show you're hitting current resource limits
@@ -273,7 +273,7 @@ Upgrading helps when:
 - You need more CPU for compute-intensive tasks
 - You want to run more replicas (higher replica limits on higher plans)
 
-### When Upgrading Doesn't Help
+### When upgrading doesn't help
 
 Upgrading won't help when:
 - Slowness is caused by external services (databases, APIs)
@@ -283,11 +283,11 @@ Upgrading won't help when:
 
 **Always check your metrics before upgrading.** If your service uses 500MB of memory and 0.5 vCPU, upgrading from Hobby to Pro won't make it faster.
 
-## Edge Routing and Latency
+## Edge routing and latency
 
 Railway operates edge proxies in multiple regions. For a complete overview of edge infrastructure, see the [Edge Networking reference](/networking/edge-networking). Understanding how traffic is routed helps diagnose latency issues.
 
-### How Edge Routing Works
+### How edge routing works
 
 When a request comes in:
 1. It hits the nearest Railway edge proxy
@@ -296,7 +296,7 @@ When a request comes in:
 
 You can see which edge handled a request via the `X-Railway-Edge` response header.
 
-### Checking the Edge Header
+### Checking the edge header
 
 ```bash
 curl -I https://your-app.up.railway.app | grep -i X-Railway-Edge
@@ -304,13 +304,13 @@ curl -I https://your-app.up.railway.app | grep -i X-Railway-Edge
 
 The header value shows the region, e.g., `railway/us-west2`.
 
-### Why Traffic Might Hit the Wrong Edge
+### Why traffic might hit the wrong edge
 
 - DNS caching: Your local DNS resolver may have cached an old record
 - CDN/Proxy interference: Services like Cloudflare route based on their own logic
 - Geographic routing: Users in certain regions may be routed suboptimally
 
-### Optimizing for Global Users
+### Optimizing for global users
 
 If you have users worldwide, you can use [multi-region replicas](/deployments/scaling#multi-region-replicas) to deploy stateless services closer to your users. Railway automatically routes traffic to the nearest region.
 
@@ -319,11 +319,11 @@ If you have users worldwide, you can use [multi-region replicas](/deployments/sc
 - Consider database read replicas in additional regions for read-heavy workloads
 - Accept the latency trade-off for writes, which must go to the primary database
 
-### Private Networking and Edge
+### Private networking and edge
 
 Private networking (`*.railway.internal`) bypasses the edge entirely. Services communicate directly within Railway's infrastructure, which is faster than going through the public internet.
 
-## When to Contact Support
+## When to contact support
 
 Contact Railway support through [Central Station](https://station.railway.com) if:
 

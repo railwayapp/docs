@@ -21,19 +21,19 @@ railway restart [OPTIONS]
 
 ## Examples
 
-### Restart Current Service
+### Restart current service
 
 ```bash
 railway restart
 ```
 
-### Restart Specific Service
+### Restart specific service
 
 ```bash
 railway restart --service backend
 ```
 
-### Skip Confirmation
+### Skip confirmation
 
 ```bash
 railway restart --yes
@@ -43,7 +43,7 @@ railway restart --yes
 
 This command restarts the service without rebuilding it. The existing deployment image is reused. The command waits for the deployment to become healthy before completing.
 
-## Difference from Redeploy
+## Difference from redeploy
 
 - **restart**: Restarts the existing deployment (no build)
 - **redeploy**: Creates a new deployment from the same source (triggers a build)

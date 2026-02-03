@@ -24,7 +24,7 @@ This guide covers how to deploy a Remix app to Railway in four ways:
 
 Now, let's create a Remix app!
 
-## Create a Remix App
+## Create a Remix app
 
 **Note:** If you already have a Remix app locally or on GitHub, you can skip this step and go straight to the [Deploy Remix App on Railway](#deploy-the-remix-app-to-railway).
 
@@ -40,7 +40,7 @@ Follow the prompts by giving a directory name, like `helloworld`, where you want
 
 A new Remix app will be provisioned for you in the `helloworld` directory.
 
-### Run the Remix App locally
+### Run the Remix app locally
 
 Start the Vite development server by running the following command:
 
@@ -50,11 +50,11 @@ npm run dev
 
 Open your browser and go to `http://localhost:5173` to see your app.
 
-## Deploy the Remix App to Railway
+## Deploy the Remix app to Railway
 
 Railway offers multiple ways to deploy your Remix app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -93,7 +93,7 @@ alt="screenshot of the deployed Remix service"
 layout="responsive"
 width={2266} height={2040} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a Remix app to Railway directly from GitHub, follow the steps below:
 
@@ -148,7 +148,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Remix apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

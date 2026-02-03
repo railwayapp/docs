@@ -24,7 +24,7 @@ railway service [SERVICE] [COMMAND]
 
 ## Examples
 
-### Link a Service (Interactive)
+### Link a service (interactive)
 
 ```bash
 railway service
@@ -32,43 +32,43 @@ railway service
 
 Prompts you to select a service to link.
 
-### Link a Specific Service
+### Link a specific service
 
 ```bash
 railway service backend
 ```
 
-### Show Service Status
+### Show service status
 
 ```bash
 railway service status
 ```
 
-### Show All Services Status
+### Show all services status
 
 ```bash
 railway service status --all
 ```
 
-### View Service Logs
+### View service logs
 
 ```bash
 railway service logs
 ```
 
-### Redeploy Service
+### Redeploy service
 
 ```bash
 railway service redeploy
 ```
 
-### Restart Service
+### Restart service
 
 ```bash
 railway service restart
 ```
 
-### Scale Service
+### Scale service
 
 ```bash
 railway service scale --us-west1=2

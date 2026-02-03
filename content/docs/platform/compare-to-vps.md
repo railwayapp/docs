@@ -10,7 +10,7 @@ VPS hosting providers like [AWS EC2](https://aws.amazon.com/ec2/), [DigitalOcean
 Railway provides a fully managed platform that abstracts away infrastructure complexity while giving you the flexibility of a dedicated environment. You get VPS-level control without the operational burden.
 
 
-## Quick Comparison: VPS vs. Railway
+## Quick comparison: VPS VS. Railway
 
 | Dimension                  | VPS Hosting                                                                       | Railway                                                              |
 | -------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -23,9 +23,9 @@ Railway provides a fully managed platform that abstracts away infrastructure com
 
 
 
-## Infrastructure & Operational Overhead
+## Infrastructure & operational overhead
 
-### VPS Hosting
+### VPS hosting
 
 When you choose VPS hosting, you're essentially becoming your own infrastructure team. This means taking full responsibility for:
 
@@ -82,9 +82,9 @@ Railway eliminates this operational burden:
 * Managed networking with private service communication
 
 
-## Security & Compliance
+## Security & compliance
 
-### VPS Hosting
+### VPS hosting
 
 Security is entirely your responsibility, including:
 
@@ -150,9 +150,9 @@ Railway provides enterprise-grade security out of the box:
 * Incident response and continuity planning
 
 
-## Monitoring & Observability
+## Monitoring & observability
 
-### VPS Hosting
+### VPS hosting
 
 Requires integrating multiple tools:
 
@@ -181,9 +181,9 @@ Monitoring is built-in:
 * Auto alerting and notifications
 ![Notifications](https://res.cloudinary.com/railway/image/upload/v1758248262/docs/notifications_jc1yzb.png)
 
-## Scalability & Global Distribution
+## Scalability & global distribution
 
-### VPS Hosting
+### VPS hosting
 
 Scaling requires manual setup:
 
@@ -235,9 +235,9 @@ Scaling and distribution are automatic:
 * Reduced latency for global users
 
 
-## Pricing & Cost Optimization
+## Pricing & cost optimization
 
-### VPS Hosting
+### VPS hosting
 
 * Fixed monthly pricing by instance size.
 * Extra tools (monitoring, backups, scaling) often add hidden costs.
@@ -261,9 +261,9 @@ If you would like to further reduce costs, you can enable the [serverless](/depl
 ![serverless](https://res.cloudinary.com/railway/image/upload/v1758247841/docs/enable-serverless_sv32cr.png)
 
 
-## Developer Workflow & Deployment
+## Developer workflow & deployment
 
-### VPS Hosting
+### VPS hosting
 
 Deploying requires building your own CI/CD:
 
@@ -304,7 +304,7 @@ CI/CD and environments are built-in:
 * Auto DB migrations/schema updates by customizing the pre-deploy command
 
 
-## Railway as a VPS Alternative: Migrate from VPS to Railway
+## Railway as a VPS alternative: migrate from VPS to Railway
 
 To get started, [create an account on Railway](https://railway.com/new). You can sign up for free and receive $5 in credits to try out the platform.
 

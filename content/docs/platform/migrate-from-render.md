@@ -19,13 +19,13 @@ Railway offers:
 
 ..and so much more. Want to see for yourself? [Try Railway for a spin today!](https://railway.com/new)
 
-## Migration Steps
+## Migration steps
 
 In this guide, we will migrate a Go (Beego) app with a Postgres database from Render to Railway.
 
 Here’s the link to the app. A simple chat app that have the options of Long polling and Web socket: https://github.com/unicodeveloper/beego-WebIM
 
-### 1. Set Up a Railway Project
+### 1. Set up a Railway project
 
 Navigate to [Railway's Project Creation Page](https://railway.com/new).
 
@@ -33,7 +33,7 @@ Select the **Deploy from GitHub Repo** option and connect your repository. If yo
 
 ![Set up a Railway Project](https://res.cloudinary.com/railway/image/upload/v1736366540/newproject_ljvsqp.png)
 
-### 2. Deploy the App
+### 2. Deploy the app
 
 Railway automatically detects a `render.yaml` file in your repository and provisions the corresponding services, including databases, web (both public and private), crons, and workers.
 
@@ -54,7 +54,7 @@ If environment variables are defined in your `render.yaml`, Railway will import 
 
 Railway will deploy both the Go app as a service and the database, as shown in the image above. You can monitor the service building and deploying in the [Project Canvas](https://docs.railway.com/guides/projects#project-canvas).
 
-### 3. Database Migration
+### 3. Database migration
 
 Railway supports a variety of databases, including **PostgreSQL**, **MongoDB**, **MySQL**, and **Redis**, allowing you to deploy the one that best fits your application needs.
 

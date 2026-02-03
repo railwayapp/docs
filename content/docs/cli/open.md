@@ -19,7 +19,7 @@ railway open [OPTIONS]
 
 ## Examples
 
-### Open Dashboard
+### Open dashboard
 
 ```bash
 railway open
@@ -27,7 +27,7 @@ railway open
 
 Opens the project dashboard in your default browser.
 
-### Print URL Only
+### Print URL only
 
 ```bash
 railway open --print

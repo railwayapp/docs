@@ -22,7 +22,7 @@ railway delete [OPTIONS]
 
 ## Examples
 
-### Interactive Deletion
+### Interactive deletion
 
 ```bash
 railway delete
@@ -30,13 +30,13 @@ railway delete
 
 Prompts you to select a project and confirm deletion.
 
-### Delete Specific Project
+### Delete specific project
 
 ```bash
 railway delete --project my-old-project
 ```
 
-### Skip Confirmation
+### Skip confirmation
 
 ```bash
 railway delete --project my-old-project --yes

@@ -29,7 +29,7 @@ width={589} height={366} quality={80} />
 - 1 file per function
 - Max file size of 96KB
 
-## Edit and Deploy
+## Edit and deploy
 
 If you're familiar with VSCode or other IDEs, you'll feel right at home with our built-in editor.
 

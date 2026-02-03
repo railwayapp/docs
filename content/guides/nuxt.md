@@ -26,7 +26,7 @@ This guide covers how to deploy a Nuxt app to Railway in four ways:
 
 Now, let's create a Nuxt app!
 
-## Create a Nuxt App
+## Create a Nuxt app
 
 **Note:** If you already have a Nuxt app locally or on GitHub, you can skip this step and go straight to the [Deploy Nuxt App on Railway](#deploy-the-nuxt-app-to-railway).
 
@@ -40,7 +40,7 @@ npx nuxi@latest init helloworld
 
 A new Nuxt app will be provisioned for you in the `helloworld` directory.
 
-### Run the Nuxt App locally
+### Run the Nuxt app locally
 
 Next, `cd` into the directory and start the development server by running the following command:
 
@@ -50,11 +50,11 @@ npm run dev
 
 Open your browser and go to `http://localhost:3000` to see your app.
 
-## Deploy the Nuxt App to Railway
+## Deploy the Nuxt app to Railway
 
 Railway offers multiple ways to deploy your Nuxt app, depending on your setup and preference.
 
-### One-Click Deploy from a Template
+### One-click deploy from a template
 
 If you’re looking for the fastest way to get started, the one-click deploy option is ideal.
 
@@ -124,7 +124,7 @@ alt="screenshot of the deployed Nuxt service"
 layout="responsive"
 width={2383} height={2003} quality={100} />
 
-### Deploy from a GitHub Repo
+### Deploy from a GitHub repo
 
 To deploy a Nuxt app to Railway directly from GitHub, follow the steps below:
 
@@ -184,7 +184,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Nuxt apps seamlessly!
 
-## Next Steps
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 

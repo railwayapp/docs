@@ -19,7 +19,7 @@ tags:
 
 _Source: [What is a CDN?](https://aws.amazon.com/what-is/cdn/)_
 
-## About this Tutorial
+## About this tutorial
 
 We know that performance of your web applications is critical to your business, and one way to achieve higher performance is by implementing a CDN to serve data from servers closest to your users.
 
@@ -45,7 +45,7 @@ To be successful using this tutorial, you should already have -
 
 **Let's get started!**
 
-## 1. Create and Deploy a Fastify Server
+## 1. Create and deploy a Fastify server
 
 First, let's create and deploy a simple Fastify server using the [Railway CLI](/guides/cli#installing-the-cli)
 
@@ -159,7 +159,7 @@ Nice! You now have a Fastify server running in Railway serving three routes, whi
 
   _Note: The Fastify server code above implements [Fastify's eTag plugin](https://www.npmjs.com/package/@fastify/etag)._
 
-#### Observe Route Behavior with no CDN
+#### Observe route behavior with no CDN
 
 To observe the behavior without a CDN in place, navigate to any of the routes above from the Railway-provided domain, your request will always go directly to the service running in Railway.
 
@@ -174,7 +174,7 @@ Since the data for the route has not been cached on a CDN, the server receives e
 
 Once we setup the CloudFront CDN, we will see how this behavior changes.
 
-## 2. Create a CloudFront Distribution in AWS
+## 2. Create a CloudFront distribution in AWS
 
 _This step assumes you have already [configured the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to connect to your AWS account._
 
@@ -294,17 +294,17 @@ If you inspect the route definition for `/dynamic`, you'll see that the headers 
 
 This cache control definition tells CloudFront to revalidate the data at the route after 60s.
 
-#### Cache Behavior
+#### Cache behavior
 
 When the initial request is made to the route, CloudFront retrieves the data from the server, then stores it. For 60s after the initial request, CloudFront will serve the cached response with **HTTP 304**, and after 60s, it will check the server for new data.
 
-#### Faster Response Time
+#### Faster response time
 
 In the screenshot above, take note of the Size and Time columns.
 
 When CloudFront serves the cached data, it takes significantly less time to resolve the route, and, probably due to less headers, the Size of the message is also smaller.
 
-## 3. Connect a Custom Domain with SSL enabled
+## 3. Connect a custom domain with SSL enabled
 
 Now that the CloudFront distribution is up and running, you may want to connect a custom domain and ensure SSL is enabled.
 
@@ -345,7 +345,7 @@ That's it! You should now be able to navigate to the three routes in the Fastify
 
 Congratulations! You have deployed a Fastify app to Railway, created a CloudFront distribution in AWS connected to the Railway service, and (optionally) connected your custom domain in Namecheap to the CloudFront distribution with SSL enabled.
 
-#### Additional Resources
+#### Additional resources
 
 This is a _very_ simple tutorial covering the most basic steps to implement CloudFront CDN in your stack. There are many, many more concepts you should explore related to CDNs and caching in general, to take full advantage of the technology and tailor it to your specific needs.
 

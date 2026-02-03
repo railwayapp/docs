@@ -18,7 +18,7 @@ As a Railway user, you can create and publish templates for others to use, or yo
 | [**Partner Program**](/templates/partners)       | Technology owners can join Railway's partner program to receive commission on templates, get featured placement, and participate in co-marketing.                                                                                     |
 | [**Template Updates**](/templates/updates)       | Push updates to users who deployed your template, or receive notifications when templates you've deployed have been updated.                                                                                                          |
 
-## Private Docker Images
+## Private Docker images
 
 If your template includes a private Docker image, you can provide your registry credentials without exposing them to users who deploy your template.
 

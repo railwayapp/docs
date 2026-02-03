@@ -28,7 +28,7 @@ railway dev [COMMAND] [OPTIONS]
 
 ## Examples
 
-### Start Local Development
+### Start local development
 
 ```bash
 railway dev
@@ -36,25 +36,25 @@ railway dev
 
 Starts image-based services (databases, etc.) via Docker Compose and prompts you to configure code-based services.
 
-### Start with Verbose Output
+### Start with verbose output
 
 ```bash
 railway dev --verbose
 ```
 
-### Stop Services
+### Stop services
 
 ```bash
 railway dev down
 ```
 
-### Clean Up (Remove Data)
+### Clean up (remove data)
 
 ```bash
 railway dev clean
 ```
 
-### Configure Code Services
+### Configure Code services
 
 ```bash
 railway dev configure
@@ -80,7 +80,7 @@ Interactively configure how your code services run locally (command, directory, 
 | `--service <SERVICE>` | Specific service to configure (by name) |
 | `--remove [SERVICE]` | Remove configuration for a service (optionally specify service name) |
 
-### Configure Examples
+### Configure examples
 
 Configure a specific service:
 
@@ -105,7 +105,7 @@ railway dev configure --remove backend
 - [Docker](https://docs.docker.com/get-docker/) with Docker Compose
 - [mkcert](https://github.com/FiloSottile/mkcert) (optional, for HTTPS support)
 
-## How It Works
+## How it works
 
 1. Fetches environment configuration from Railway
 2. Generates a `docker-compose.yml` for image-based services (databases, etc.)

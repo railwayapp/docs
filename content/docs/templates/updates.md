@@ -5,7 +5,7 @@ description: Learn how template updates work for authors and consumers.
 
 Railway supports automatic update notifications for templates, allowing template authors to push changes to users who have deployed their templates.
 
-## For Template Authors
+## For template authors
 
 As a template author, you can push updates to all users who have deployed your template. When you merge changes to the root branch (typically `main` or `master`) of your template's GitHub repository, Railway will automatically detect these changes and notify users who have deployed your template that an update is available.
 
@@ -21,7 +21,7 @@ Users will receive a notification about the update and can choose to apply it to
 - Updates are triggered when changes are merged to the root branch (`main` or `master`)
 - Docker image-based templates cannot be automatically updated through this mechanism
 
-### Update Workflow
+### Update workflow
 
 1. Make changes to your template's GitHub repository
 2. Merge changes to the root branch
@@ -29,13 +29,13 @@ Users will receive a notification about the update and can choose to apply it to
 4. Users who deployed your template receive an update notification
 5. Users can choose when to apply the update
 
-## For Template Consumers
+## For template consumers
 
 When you deploy any services from a template based on a GitHub repo, Railway will check to see if the template has been updated by its creator.
 
 If an upstream update is available, you will receive a notification. You can then choose to apply the update to your deployment when you're ready.
 
-### How Updates Work
+### How updates work
 
 - Railway monitors the template's source repository for changes
 - When updates are detected, you'll see a notification in your project
