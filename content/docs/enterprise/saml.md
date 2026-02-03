@@ -91,6 +91,6 @@ You can receive notifications when important SSO-related events were triggered:
 
 - **SSO Connected:** when an Identity Provider is successfully connected to the workspace.
 - **SSO Disconnected:** when the Identity Provider is disconnected from the workspace.
-- **SSO Updated:** when [SAML enforcement]((#enforcing-saml-sso)) is enabled or disabled.
+- **SSO Updated:** when [SAML enforcement](#enforcing-saml-sso) is enabled or disabled.
 - **SAML Certificate requires renewal:** when the SAML certificate is nearing expiration or has expired. This event is triggered multiple times before and after expiration.
 - **SAML Certificate renewed:** when the SAML certificate is successfully renewed.

@@ -11,8 +11,6 @@ Seeing the `Nixpacks was unable to generate a build plan for this app` error mea
 
 A build plan is a set of predefined instructions that Nixpacks uses to build and run your application on the Railway platform.
 
-A list of supported build plans can be found [here](https://nixpacks.com/docs/build-plans) under the `Language Support` section.
-
 ## Why This Error Can Occur
 
 This error can occur for a variety of reasons, here are some common ones and what the failed build logs could look like for each scenario -

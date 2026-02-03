@@ -207,7 +207,7 @@ Now let's deploy this API to Railway. First, create a Railway account by going t
    git push -u origin main
    ```
    
-   Learn more about [Git basics](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics) if you're new to version control.
+   Learn more about [Git basics](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) if you're new to version control.
 
 3. **Deploy from Railway**:
    - In Railway, click "Deploy from GitHub repo"
@@ -290,7 +290,7 @@ Pricing plans start at $5/month. You can check out the [pricing page](https://ra
 
 ## Add healthcheck for zero-downtime deployments
 
-To ensure zero-downtime deployments, you'll need to add a healthcheck endpoint that Railway can use to verify your application is running properly. Learn more about [health check patterns](https://microservices.io/patterns/observability/health-check.html) and [zero-downtime deployment strategies](https://martinfowler.com/bliki/BlueGreenDeployment.html).
+To ensure zero-downtime deployments, you'll need to add a healthcheck endpoint that Railway can use to verify your application is running properly. Learn more about [health check patterns](https://microservices.io/patterns/observability/health-check-api.html) and [zero-downtime deployment strategies](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
 ### Add the healthcheck endpoint
 

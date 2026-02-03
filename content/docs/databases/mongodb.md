@@ -14,7 +14,7 @@ alt="GIF of the Adding Database"
 layout="responsive"
 width={450} height={396} quality={100} />
 
-You can also deploy it via the [template](https://railway.com/template/mongodb) from the template marketplace.
+You can also deploy it via the [template](https://railway.com/template/mongo) from the template marketplace.
 
 #### Deployed Service
 
@@ -50,7 +50,7 @@ Especially for production environments, performing regular backups and monitorin
 
 - **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/volumes/backups) feature.
 
-- **Observability**: Implement monitoring for insights into performance and health of your database. Check out the tutorial which covers [setting up observability on a Mongo replica set](https://docs.railway.com/tutorials/deploy-and-monitor-mongo#4-set-up-monitoring-of-the-replica-set).
+- **Observability**: Implement monitoring for insights into performance and health of your database.
 
 ## Additional Resources
 

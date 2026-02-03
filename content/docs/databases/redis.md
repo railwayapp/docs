@@ -56,5 +56,5 @@ We _strongly encourage you_ to refer to the source documentation to gain deeper 
 
 - [Redis Documentation](https://redis.io/docs/latest/operate/oss_and_stack/)
 - [Redis Replication](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/)
-- [High Availability with Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/)
+- [High Availability with Redis Sentinel](https://redis.io/tutorials/operate/redis-at-scale/high-availability/#understanding-sentinels)
 - [Understanding Sentinels](https://redis.io/learn/operate/redis-at-scale/high-availability/understanding-sentinels)
