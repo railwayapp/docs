@@ -2,10 +2,6 @@
 title: Welcome to Railway Tutorials!
 description: Discover tutorials to help you get the most out of Railway.
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - getting-started
   - beginner

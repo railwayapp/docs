@@ -2,10 +2,6 @@
 title: GitHub Actions PR Environment
 description: Learn how to use the CLI in a GitHub Action to create environments for PRs
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - github-actions
   - ci-cd

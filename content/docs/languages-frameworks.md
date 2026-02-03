@@ -9,7 +9,7 @@ Railway supports deploying applications built with virtually any programming lan
 
 When you deploy code to Railway:
 
-1. **Railpack** analyzes your repository to detect the language and framework
+1. Railpack analyzes your repository to detect the language and framework
 2. An optimized build plan is generated automatically
 3. Your application is containerized and deployed
 
@@ -19,82 +19,62 @@ No configuration required for most applications. For advanced customization, see
 
 ### JavaScript / TypeScript
 
-| Framework | Guide |
-| --------- | ----- |
-| Next.js | [Quick Start](/quick-start) |
-| Express | [Express Guide](/guides/express) |
-| Fastify | [Fastify Guide](/guides/fastify) |
-| Nest.js | [Nest Guide](/guides/nest) |
-| Remix | [Remix Guide](/guides/remix) |
-| Nuxt | [Nuxt Guide](/guides/nuxt) |
-| Astro | [Astro Guide](/guides/astro) |
-| SvelteKit | [SvelteKit Guide](/guides/sveltekit) |
-| React | [React Guide](/guides/react) |
-| Vue | [Vue Guide](/guides/vue) |
-| Angular | [Angular Guide](/guides/angular) |
-| Solid | [Solid Guide](/guides/solid) |
-| Sails | [Sails Guide](/guides/sails) |
+- [Next.js](/quick-start)
+- [Express](/guides/express)
+- [Fastify](/guides/fastify)
+- [Nest.js](/guides/nest)
+- [Remix](/guides/remix)
+- [Nuxt](/guides/nuxt)
+- [Astro](/guides/astro)
+- [SvelteKit](/guides/sveltekit)
+- [React](/guides/react)
+- [Vue](/guides/vue)
+- [Angular](/guides/angular)
+- [Solid](/guides/solid)
+- [Sails](/guides/sails)
 
 ### Python
 
-| Framework | Guide |
-| --------- | ----- |
-| FastAPI | [FastAPI Guide](/guides/fastapi) |
-| Flask | [Flask Guide](/guides/flask) |
-| Django | [Django Guide](/guides/django) |
+- [FastAPI](/guides/fastapi)
+- [Flask](/guides/flask)
+- [Django](/guides/django)
 
 ### PHP
 
-| Framework | Guide |
-| --------- | ----- |
-| Laravel | [Laravel Guide](/guides/laravel) |
-| Symfony | [Symfony Guide](/guides/symfony) |
+- [Laravel](/guides/laravel)
+- [Symfony](/guides/symfony)
 
 ### Ruby
 
-| Framework | Guide |
-| --------- | ----- |
-| Rails | [Rails Guide](/guides/rails) |
+- [Rails](/guides/rails)
 
 ### Go
 
-| Framework | Guide |
-| --------- | ----- |
-| Gin | [Gin Guide](/guides/gin) |
-| Beego | [Beego Guide](/guides/beego) |
+- [Gin](/guides/gin)
+- [Beego](/guides/beego)
 
 ### Rust
 
-| Framework | Guide |
-| --------- | ----- |
-| Axum | [Axum Guide](/guides/axum) |
-| Rocket | [Rocket Guide](/guides/rocket) |
+- [Axum](/guides/axum)
+- [Rocket](/guides/rocket)
 
 ### Java
 
-| Framework | Guide |
-| --------- | ----- |
-| Spring Boot | [Spring Boot Guide](/guides/spring-boot) |
+- [Spring Boot](/guides/spring-boot)
 
 ### Scala
 
-| Framework | Guide |
-| --------- | ----- |
-| Play | [Play Guide](/guides/play) |
+- [Play](/guides/play)
 
 ### Elixir
 
-| Framework | Guide |
-| --------- | ----- |
-| Phoenix | [Phoenix Guide](/guides/phoenix) |
-| Phoenix + Distillery | [Phoenix Distillery Guide](/guides/phoenix-distillery) |
+- [Phoenix](/guides/phoenix)
+- [Phoenix + Distillery](/guides/phoenix-distillery)
 
 ### Clojure
 
-| Framework | Guide |
-| --------- | ----- |
-| Luminus | [Luminus Guide](/guides/luminus) |
+- [Luminus](/guides/luminus)
 
 ## Other languages
 
-Don't see your language listed? Railway can still deploy it! Railpack supports many languages automatically, and you can always use a [Dockerfile](/builds/dockerfiles) for complete control over your build process.
+Don't see your language listed? Railway can still deploy it. Railpack supports many languages automatically, and you can always use a [Dockerfile](/builds/dockerfiles) for complete control over your build process.

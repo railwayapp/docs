@@ -2,10 +2,6 @@
 title: Deploy a SvelteKit App
 description: Learn how to deploy a Sveltekit app to Railway with this step-by-step guide. It covers quick setup, adapter configuration, one-click deploys and other deployment strategies.
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - deployment
   - sveltekit

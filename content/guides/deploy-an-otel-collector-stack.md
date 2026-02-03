@@ -2,10 +2,6 @@
 title: Deploy an OpenTelemetry Collector and Backend on Railway
 description: Monitor and trace your applications by deploying an OpenTelemetry Collector and backend on Railway.
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - observability
   - opentelemetry

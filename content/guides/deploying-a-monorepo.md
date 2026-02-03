@@ -2,10 +2,6 @@
 title: Deploying a Monorepo to Railway
 description: Learn how to deploy a monorepo to Railway.
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - deployment
   - monorepo

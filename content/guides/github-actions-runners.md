@@ -2,10 +2,6 @@
 title: GitHub Actions Self Hosted Runners
 description: Learn how to deploy your own scalable self hosted GitHub Actions Runners on Railway. Build your own fleet of runners for your Enterprise and then scale your self-hosted runners with Railway replicas for blazing fast builds.
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - github-actions
   - ci-cd

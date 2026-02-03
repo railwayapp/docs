@@ -2,10 +2,6 @@
 title: Deploy Static Sites with Zero Configuration and Custom Domains
 description: Learn how to deploy static websites to Railway with automatic GitHub builds, SSL certificates, custom domains, and integrate with a CDN. Perfect for marketing sites, blogs, and documentation.
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - deployment
   - static

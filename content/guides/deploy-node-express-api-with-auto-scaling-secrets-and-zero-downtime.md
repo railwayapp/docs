@@ -2,10 +2,6 @@
 title: Deploy Node.js & Express API with Autoscaling, Secrets, and Zero Downtime
 description: Learn how to deploy Node.js and Express applications with automatic scaling, environment secrets, zero-downtime updates, and preview environments, all without managing servers or learning Kubernetes/container orchestration.
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - deployment
   - nodejs

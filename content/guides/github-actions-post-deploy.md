@@ -2,10 +2,6 @@
 title: GitHub Actions Post-Deploy
 description: Learn how to use GitHub Actions to run post-deployment commands.
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - github-actions
   - ci-cd

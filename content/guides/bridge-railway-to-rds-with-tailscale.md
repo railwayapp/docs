@@ -2,10 +2,6 @@
 title: Create a Bridge from Railway to AWS RDS with Tailscale
 description: Learn how to securely access your AWS RDS database from Railway using a Tailscale subnet router.
 date: "2026-01-30"
-author:
-  name: Railway Team
-  avatar: https://github.com/railwayapp.png
-  link: https://github.com/railwayapp
 tags:
   - aws
   - rds
