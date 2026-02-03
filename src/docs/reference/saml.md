@@ -9,7 +9,7 @@ SAML SSO is available on [Railway Enterprise](/maturity/enterprise).
 
 **SAML Single Sign-On (SSO)** allows workspace members to sign in using your organization’s Identity Provider (IdP), including Okta, Auth0, Microsoft Entra ID, Google Workspace, and more.
 
-New users signing in with your Identity Provider are automatically added to your workspace as [workspace members](/reference/teams#managing-workspaces).
+New users signing in with your Identity Provider are automatically added to your workspace as [workspace members](/reference/workspaces#managing-workspaces).
 
 ## Configuring SAML SSO
 
@@ -20,7 +20,7 @@ width={1620} height={1586} quality={80} />
 
 To configure SAML SSO, go to your workspace’s <a href="https://railway.com/workspace/people" target="_blank">People settings</a>. You must be a workspace admin with access to your Identity Provider’s configuration panel.
 
-1. Add your organization’s email domain(s) as [**Trusted Domains**](/reference/teams#trusted-domains).
+1. Add your organization’s email domain(s) as [**Trusted Domains**](/reference/workspaces#trusted-domains).
 2. In the **SAML Single Sign-On** section, click **Configure** and follow the guided setup to connect your Identity Provider to Railway.
 3. Optionally, [enforce SAML SSO](#enforcing-saml-sso) to require members to log in through your Identity Provider.
 

@@ -13,9 +13,9 @@ Visit the <a href="https://railway.com/workspace/usage" target="_blank">Workspac
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1743193518/docs/usage-limits_pqlot9.png" alt="Usage Limits Modal" layout="responsive" width={1200} height={1075} />
 
-#### Setting Limits for Teams
+#### Setting Limits for Workspaces
 
-If you want to set a usage limit for your team, use the account switcher in the top left corner of your dashboard to access the team's usage page.
+If you want to set a usage limit for a different workspace that you are an admin of, use the account switcher in the top left corner of your dashboard to access that workspace's usage page.
 
 ### Custom Email Alert
 

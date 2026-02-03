@@ -96,23 +96,23 @@ In situations where user input or interaction isn't possible, such as in CI/CD p
 
 A [Project Token](/guides/public-api#project-token) is set via the `RAILWAY_TOKEN` environment variable.
 
-An [Account](/guides/public-api#personal-token) or [Team](/guides/public-api#team-token) Token is set via the `RAILWAY_API_TOKEN` environment variable.
+An [Account](/guides/public-api#using-an-account-token) or [Workspace](/guides/public-api#using-a-workspace-token) Token is set via the `RAILWAY_API_TOKEN` environment variable.
 
-**Note:** You can only use one type of token at a time. If both are set, the `RAILWAY_TOKEN` variable will take precedence.
+**Note:** If both environment variables are set, `RAILWAY_TOKEN` takes precedence. This allows you to use a project token for specific deployments while having a broader account token configured.
 
 #### Project Tokens
 
-You can use [Project Tokens](/guides/public-api#project-token) to authenticate project-level actions.
+You can use [Project Tokens](/guides/public-api#project-token) to authenticate project-level actions within a single environment.
 
-Project Tokens allow the CLI to access all the project-level actions in the environment set when the token was created.
+Project tokens are scoped to a specific environment within a project. If you need to perform actions across multiple environments, use an account or workspace token instead.
 
-Some actions you can perform with a project token include -
+Some actions you can perform with a project token include:
 
 - Deploying code - `railway up`
 - Redeploying a deployment - `railway redeploy`
 - Viewing build and deployment logs - `railway logs`
 
-Some actions you **cannot** perform with a project token include -
+Some actions you **cannot** perform with a project token include:
 
 - Creating a new project - `railway init`
 - Printing information about the user - `railway whoami`
@@ -126,26 +126,32 @@ RAILWAY_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX railway up
 
 #### Account Tokens
 
-Account Tokens come in two types - [Personal Account Tokens](/reference/public-api#personal-token) and [Team Tokens](/reference/public-api#team-token).
+You can use [Account Tokens](/guides/public-api#using-an-account-token) to authenticate all CLI actions across all your resources and workspaces. This is the broadest scope—all CLI commands are available with an account token.
 
-You can use Account Tokens to authenticate all CLI actions across all workspaces.
-
-However, you can only use Team tokens to authenticate actions on projects within the workspace the token was scoped to when it was created.
-
-Some actions you can perform with a personal account token include -
-
-- Creating a new project - `railway init`
-- Printing information about the user - `railway whoami`
-
-Some actions you **cannot** perform with [Team Token](/reference/public-api#team-token) include -
+Some actions you can **only** perform with an account token include:
 
 - Printing information about the user - `railway whoami`
-- Linking to another workspace - `railway link`
+- Linking to projects in any of your workspaces - `railway link`
 
 Use the token by setting the `RAILWAY_API_TOKEN` environment variable and then running `railway <command>`.
 
 ```bash
 RAILWAY_API_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX railway whoami
+```
+
+#### Workspace Tokens
+
+You can use [Workspace Tokens](/guides/public-api#using-a-workspace-token) to authenticate CLI actions on projects within a specific workspace. Use this when you want to share a token with teammates without giving access to your other workspaces.
+
+Some actions you **cannot** perform with a workspace token include:
+
+- Printing information about the user - `railway whoami`
+- Linking to projects outside the token's workspace - `railway link` (you can still link to other projects within the workspace)
+
+Use the token by setting the `RAILWAY_API_TOKEN` environment variable and then running `railway <command>`.
+
+```bash
+RAILWAY_API_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX railway up
 ```
 
 ## Common Examples of CLI Usage
@@ -156,17 +162,17 @@ Below are some of the most commonly used CLI commands. Find a complete list of C
 
 To associate a project and environment with your current directory:
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/railway-link_juslvt.png"
-alt="Screenshot of Railway"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1770156020/docs/railway-link-2026_dwz6mi.png"
+alt="Screenshot of railway link command"
 layout="intrinsic"
-width={389} height={116} quality={80} />
+width={824} height={294} quality={80} />
 
 ```bash
 # Link to a project
 railway link
 ```
 
-This prompts you to select a team, project, and environment to associate with
+This prompts you to select a workspace, project, and environment to associate with
 your current directory. Any future commands will be run against this project and environment.
 
 ### Link to a Service
@@ -189,7 +195,7 @@ Create a new project directly from the command line.
 railway init
 ```
 
-This prompts you to name your project and select a team to create the project in.
+This prompts you to name your project and select a workspace to create the project in.
 
 ### Local Development
 

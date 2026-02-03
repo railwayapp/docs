@@ -28,7 +28,7 @@ env:
   ENV_VALUE: "" # the value to inject
   DUPLICATE_FROM_ID: "" # railway environment to duplicate from
   LINK_PROJECT_ID: "" # project ID
-  # TEAM_ID: "" if you are linking to a project in team, uncomment this
+  # WORKSPACE_ID: "" if you are linking to a project in a workspace, uncomment this
 
 jobs:
   pr_opened:
@@ -37,7 +37,7 @@ jobs:
     container: ghcr.io/railwayapp/cli:latest
     steps:
       - name: Link to project
-        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project
+        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --workspace ${{ env.WORKSPACE_ID }} # uncomment this if you are linking to a project in a workspace
       - name: Create Railway Environment for PR
         run: railway environment new pr-${{ github.event.pull_request.number }} --copy ${{ env.DUPLICATE_FROM_ID }} --service-variable ${{ env.SERVICE_ID }} "${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}" --service-config ${{ env.SERVICE_ID }} "source.branch" "${{ github.head_ref }}"
 
@@ -47,12 +47,12 @@ jobs:
     container: ghcr.io/railwayapp/cli:latest
     steps:
       - name: Link to project
-        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project
+        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --workspace ${{ env.WORKSPACE_ID }} # uncomment this if you are linking to a project in a workspace
       - name: Delete Railway Environment for PR
         run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```
 
-**Note:** if you are using a team project, you need to ensure that the token specified is scoped to your account, not a workspace.
+**Note:** If you are using a project in a workspace, you need to ensure that the token specified is scoped to your account, not just the workspace.
 
 This can very easily be modified to run commands in order to find variables and values, and can simply be passed as flags to the railway environment create command.
 
