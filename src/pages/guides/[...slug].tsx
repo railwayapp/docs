@@ -31,6 +31,7 @@ import { TallyButton } from "@/components/tally-button";
 const components: Record<string, React.ElementType> = {
   Collapse,
   Image,
+  img: Image, // Standard markdown images ![](url) also use Image component
   Banner,
   Link,
   PriorityBoardingBanner,
