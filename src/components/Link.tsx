@@ -6,6 +6,7 @@ export interface Props {
   external?: boolean;
   className?: string;
   onClick?: (e: React.MouseEvent) => void;
+  title?: string;
 }
 
 const isExternalLink = (href: string) =>

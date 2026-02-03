@@ -10,7 +10,7 @@ export interface Props extends NextSeoProps {
   image?: string;
   url?: string;
   headers?: Header[];
-  breadcrumbs?: Array<{ name: string; url: string }>;
+  breadcrumbs?: Array<{ name: string; url?: string }>;
   lastModified?: string;
   author?: string;
   publishedTime?: string;
@@ -66,10 +66,7 @@ export const SEO: React.FC<Props> = ({
     name: "Railway",
     url: "https://railway.com",
     logo: "https://docs.railway.com/railway.svg",
-    sameAs: [
-      "https://twitter.com/Railway",
-      "https://github.com/railwayapp",
-    ],
+    sameAs: ["https://twitter.com/Railway", "https://github.com/railwayapp"],
   };
   schemas.push(organizationSchema);
 
@@ -158,7 +155,11 @@ export const SEO: React.FC<Props> = ({
     const sectionName = breadcrumbs[breadcrumbs.length - 2]?.name;
     if (sectionName) {
       sectionMetaTags.push(
-        <meta key="article:section" property="article:section" content={sectionName} />,
+        <meta
+          key="article:section"
+          property="article:section"
+          content={sectionName}
+        />,
       );
     }
   }
@@ -208,14 +209,12 @@ export const SEO: React.FC<Props> = ({
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
         <meta name="twitter:image:alt" content={twitterTitle} />
-        
+
         {/* Enhanced meta tags from section hierarchy */}
         {sectionMetaTags}
-        
+
         {/* Last modification date */}
-        {lastModified && (
-          <meta name="last-modified" content={lastModified} />
-        )}
+        {lastModified && <meta name="last-modified" content={lastModified} />}
 
         {/* Structured data schemas */}
         {schemas.map((schema, index) => (
