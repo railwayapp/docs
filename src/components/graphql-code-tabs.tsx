@@ -324,6 +324,7 @@ function VariablesSection({
             dark: "one-dark-pro",
           },
           defaultColor: false,
+          transformers: [transformerRemoveLineBreak()],
         });
 
         if (!cancelled) {
