@@ -48,13 +48,13 @@ Open up the `config/dev.exs` file. You'll notice that a new Phoenix app is alrea
 
 The default database name is set to `helloworld_dev`, but feel free to change it to whatever you'd prefer.
 
-Next, create the database for our app by running the following command:
+Next, create the database for your app by running the following command:
 
 ```bash
 mix ecto.create
 ```
 
-A database will be created for our app.
+A database will be created for your app.
 
 ### Add and configure Distillery
 
@@ -93,7 +93,7 @@ mix distillery.init
 
 This will create the `rel/config.exs` and `rel/vm.args` files. A `rel/plugins` directory will be created too.
 
-4. Create a Mix config file at `rel/config/config.exs`. Here, we are creating a mix config provider. Add the following to it:
+4. Create a Mix config file at `rel/config/config.exs`. Here, a mix config provider is being created. Add the following to it:
 
 ```elixir
 import Config
@@ -107,7 +107,7 @@ config :helloworld_distillery, HelloworldDistilleryWeb.Endpoint,
   secret_key_base: System.get_env("SECRET_KEY_BASE") || default_secret_key_base
 ```
 
-Now, update the `rel/config.exs` file to use our new provider. In the `environment :prod` part of the file, replace with the following:
+Now, update the `rel/config.exs` file to use your new provider. In the `environment :prod` part of the file, replace with the following:
 
 ```elixir
 environment :prod do
@@ -216,7 +216,7 @@ For a complete listing of commands and their use:
 
 ### Test the release with Distillery locally
 
-Now, let's test our release locally. First, create your database by running the following command:
+Now, test your release locally. First, create your database by running the following command:
 
 ```bash
 mix ecto.create
@@ -287,7 +287,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/_qWFnI)
 
-After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
+After deploying, it is recommended that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
 ## Deploy from the CLI
 
@@ -310,7 +310,7 @@ To deploy the Phoenix app using the Railway CLI, please follow the steps:
      ```
    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 
-   **Note:** You might encounter an error––`warning: the VM is running with native name encoding of latin1 which` `may cause Elixir to malfunction as it expects utf8....`. Don’t worry, we’ll address this in the next step.
+   **Note:** You might encounter an error––`warning: the VM is running with native name encoding of latin1 which` `may cause Elixir to malfunction as it expects utf8....`. Don’t worry, you’ll address this in the next step.
 
 4. **Add a Database Service**:
    - Run `railway add`.

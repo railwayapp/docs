@@ -27,13 +27,12 @@ Keeping it running for one week allows us to rack up sufficient metrics to provi
 
 We are unable to give exact quotes or estimates for how much it will cost to run your app because it is highly dependent on what you're deploying.
 
-For a rough approximation of the cost for running your app, try our [pricing calculator](https://railway.com/pricing#usage-estimation).
 
 If you are supporting a commercial application, we highly recommend you to upgrade to the Pro plan for higher resource limits and access to [priority support](/reference/support#priority-threads).
 
 ### How do I prevent spending more than I want to?
 
-Check out our [guide on optimizing usage](/guides/optimize-usage).
+Check out the [guide on cost control](/pricing/cost-control).
 
 ### Why is my resource usage higher than expected?
 
@@ -120,7 +119,7 @@ Railway will automatically redeploy your services once the underlying issue is r
 
 ### I am a freelancer or represent an agency. How do I manage my billing relationships with my clients?
 
-Create a Pro plan on Railway and add the client to the workspace. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over our [Central Station](https://station.railway.com).
+Create a Pro plan on Railway and add the client to the workspace. If you run into issues when it's time to hand over your workload to your client, you can reach out to us over [Central Station](https://station.railway.com).
 
 ### Why did I receive another invoice after cancelling my subscription?
 

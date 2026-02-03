@@ -56,7 +56,7 @@ At this point, the service is being deployed, but let's give it a domain.
 
 ### Assign a domain
 
-The service we are migrating is a web service that should be available over the Internet, so let's assign a domain:
+The service being migrated is a web service that should be available over the Internet, so let's assign a domain:
 
 ```bash
 railway domain
@@ -66,7 +66,7 @@ Now the service will be available over the Internet via the provided domain.
 
 ## 4. Migrate the environment variables
 
-Finally, we will import the environment variables from Heroku into Railway.
+Finally, import the environment variables from Heroku into Railway.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1695765481/docs/heroku-migration/variables_hagopv.gif"
 alt="Video of importing variables from Heroku"
@@ -75,7 +75,7 @@ width={600} height={364} quality={80} />
 
 ### Open the project in Railway
 
-Let's pop over to our new project in the [Railway canvas](/reference/projects#project-canvas).:
+Let's pop over to your new project in the [Railway canvas](/reference/projects#project-canvas).:
 
 ```bash
 railway open
@@ -99,12 +99,12 @@ _Note: The first time you import variables from Heroku, you will be prompted to 
 
 ## Conclusion
 
-Following this guide, we have successfully migrated a simple web service from Heroku to Railway, including importing variables from Heroku into Railway.
+Following this guide, you have successfully migrated a simple web service from Heroku to Railway, including importing variables from Heroku into Railway.
 
-We have completed the migration by pushing our code directly from our local machine into a service in Railway. Once you are comfortable with Railway, you may want to integrate [deployments](/deployments) into your development workflow.
+The migration is complete by pushing your code directly from your local machine into a service in Railway. Once you are comfortable with Railway, you may want to integrate [deployments](/deployments) into your development workflow.
 
 For more advanced operations, like migrating your databases from Heroku to Railway, the process will be a bit more involved, but we are happy to help work out a solution!
 
 ## Need help?
 
-If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on our <a href="https://discord.gg/railway" target="_blank">Discord</a> or over email at [team@railway.com](mailto:team@railway.com).
+If you run into any issues, or would like help with your migrations, we would be more than happy to answer your questions on the <a href="https://discord.gg/railway" target="_blank">Railway Discord</a> or over email at [team@railway.com](mailto:team@railway.com).

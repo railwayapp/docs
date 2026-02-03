@@ -59,7 +59,7 @@ use axum::{
 
 #[tokio::main]
 async fn main() {
-    // build our application with a single route
+    // build your application with a single route
     let app = Router::new().route("/", get(root));
 
     // Get the port number from the environment, default to 3000
@@ -114,7 +114,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/5HAMxu)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=axum" target="_blank">variety of Axum templates</a> created by the community.
 

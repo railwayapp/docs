@@ -150,4 +150,4 @@ Any environments forked prior to this change will remain, however, you must adop
 
 ## Troubleshooting
 
-Having issues with environments? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
+Having issues with environments? Check out the [Troubleshooting guide](/troubleshooting) or reach out on [Central Station](https://station.railway.com).

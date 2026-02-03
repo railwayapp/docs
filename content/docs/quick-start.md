@@ -3,9 +3,9 @@ title: Quick Start Tutorial
 description: Get started with Railway in minutes! This Quick Start tutorial walks you through deploying your first app via GitHub, the CLI, a Docker image, or a template.
 ---
 
-Railway is a deployment platform that lets you provision infrastructure, develop locally with that infrastructure, and deploy to the cloud or simply run ready-made software from our template marketplace.
+Railway is a deployment platform that lets you provision infrastructure, develop locally with that infrastructure, and deploy to the cloud or simply run ready-made software from the template marketplace.
 
-**In this guide we will cover two different topics to get you quickly started with the platform -**
+**This guide covers two different topics to get you quickly started with the platform -**
 
 1. **Deploying your project** - Bring your code and let Railway handle the rest.
 
@@ -17,15 +17,15 @@ Railway is a deployment platform that lets you provision infrastructure, develop
 
 2. **Deploying a <a href="reference/templates" target="_blank">template</a>** - Ideal for deploying pre-configured software with minimal effort.
 
-To demonstrate deploying directly from a GitHub repository through Railway's dashboard, we'll be using a basic <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a> that was prepared for this guide.
+To demonstrate deploying directly from a GitHub repository through Railway's dashboard, this guide uses a basic <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a> that was prepared for this guide.
 
-For the template deployment, we'll use the <a href="https://railway.com/template/umami-analytics" target="_blank">Umami template</a> from our <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
+For the template deployment, this guide uses the <a href="https://railway.com/template/umami-analytics" target="_blank">Umami template</a> from the <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
 
 ## Deploying your project - from GitHub
 
-If this is your first time deploying code on Railway, we recommend <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" target="_blank">forking</a> the previously mentioned <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>'s repository so that you can follow along.
+If this is your first time deploying code on Railway, it is recommended to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" target="_blank">forking</a> the previously mentioned <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>'s repository so that you can follow along.
 
-To get started deploying our NextJS app, we will first make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
+To get started deploying your NextJS app, first make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
 
 - Open up the <a href="/overview/the-basics#dashboard--projects" target="_blank">dashboard</a> → Click **New Project**.
 
@@ -51,7 +51,7 @@ width={836} height={596} quality={100} />
 
   **Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the first deployment.
 
-  _For brevity we will choose **Deploy Now**._
+  _For brevity, choose **Deploy Now**._
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/deploy_now_pmrqow.png"
 alt="screenshot of new project menu with deploy now option selected"
@@ -64,15 +64,15 @@ When you click **Deploy Now**, Railway will create a new project for you and kic
 
 ## Deploying your project - with the CLI
 
-As with the [Deploy from GitHub guide](/quick-start#deploying-your-project---from-github), if you're deploying code with the CLI for the first time, it's recommended to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" target="_blank">fork</a> the <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>'s repository to follow along. Since we'll be deploying local code, you'll also need to <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository" target="_blank">clone</a> the forked repository.
+As with the [Deploy from GitHub guide](/quick-start#deploying-your-project---from-github), if you're deploying code with the CLI for the first time, it's recommended to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" target="_blank">fork</a> the <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a>'s repository to follow along. Since you'll be deploying local code, you'll also need to <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository" target="_blank">clone</a> the forked repository.
 
-The CLI can create a new project entirely from the command line, we will use it to scaffold our project.
+The CLI can create a new project entirely from the command line, use it to scaffold your project.
 
-- Open up a command prompt inside of our local project.
+- Open up a command prompt inside your local project.
 
 - Run `railway init`
 
-  This will create a new empty project with the name we provided, which will be used for any subsequent commands.
+  This will create a new empty project with the name provided, which will be used for any subsequent commands.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/railway_init_rglt5w.png"
 alt="screenshot of the command line after railway init was run"
@@ -83,7 +83,7 @@ Deploying your code is now only a single command away.
 
 - Run `railway up`
 
-  The CLI will now scan our project files, compress them, and upload them to Railway's backend for deployment.
+  The CLI will now scan your project files, compress them, and upload them to Railway's backend for deployment.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/railway_up_vns3u4.png"
 alt="screenshot of the command line after railway up was run"
@@ -101,7 +101,7 @@ Railway supports deploying pre-built Docker images from the following registries
 - <a href="https://quay.io" target="_blank">RedHat Container Registry</a>
 - <a href="https://docs.gitlab.com/ee/user/packages/container_registry" target="_blank">GitLab Container Registry</a>
 
-To get started deploying a Docker image, we will first make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
+To get started deploying a Docker image, first make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
 
 - Open up the <a href="/overview/the-basics#dashboard--projects" target="_blank">dashboard</a> → Click **New Project**.
 
@@ -154,7 +154,7 @@ Private Docker registry deployments require the [Pro plan](/guides/services#depl
 Whether you deploy your project through the dashboard with GitHub or locally using the CLI, you'll ultimately arrive at your project canvas.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1723752560/docs/quick-start/project_canvas_nextjs_c6bjbq.png"
-alt="screenshot of the project canvas showing our nextjs deploy"
+alt="screenshot of the project canvas showing the nextjs deploy"
 layout="responsive"
 width={1363} height={817} quality={100} />
 
@@ -199,7 +199,7 @@ _Hint: Generally it's best to choose the template with a combined higher deploym
 
 - Fill out any needed information that the template may require.
 
-  In the case of our Umami template, we don't need to provide any extra information.
+  In the case of the Umami template, you don't need to provide any extra information.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1723752558/docs/quick-start/template_config_options_zaxbko.png"
 alt="screenshot of the deploy umami screen with no extra configurations needed"
@@ -237,4 +237,4 @@ Happy Building!
 
 ### Join the community
 
-Chat with Railway members, ask questions, and hang out in our <a href="https://discord.gg/railway" target="_blank">Discord community</a> with fellow builders! We'd love to have you!
+Chat with Railway members, ask questions, and hang out in the <a href="https://discord.gg/railway" target="_blank">Railway Discord community</a> with fellow builders! We'd love to have you!

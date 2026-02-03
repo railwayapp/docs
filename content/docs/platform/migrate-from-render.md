@@ -15,7 +15,7 @@ Railway offers:
 - **Flexible Deployment Options**: Use GitHub, Dockerfiles, Docker images from supported registries (Docker Hub, GitHub, RedHat, GitLab, Microsoft), or local deployments via the Railway CLI.
 - **Integrated Tools**: Simplify environment variable management, CI/CD, observability, and service scaling.
 - **Networking Features:** Public and private networking.
-- **Best in Class Support:** Very active community on [Discord](https://discord.gg/railway) and our [Central Station](https://station.railway.com/).
+- **Best in Class Support:** Very active community on [Discord](https://discord.gg/railway) and the [Railway Help Station](https://station.railway.com/).
 
 ..and so much more. Want to see for yourself? [Try Railway for a spin today!](https://railway.com/new)
 

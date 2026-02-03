@@ -23,12 +23,12 @@ These templates are maintained by Railway and come pre-configured with sensible 
 Railway isn't limited to the databases above. You can deploy **any open source database** by using:
 
 - **Docker Images**: Deploy any database available as a Docker image
-- **Templates**: Browse our <a href="https://railway.com/templates?category=Storage" target="_blank">database and storage templates</a> for pre-configured options
+- **Templates**: Browse the <a href="https://railway.com/templates?category=Storage" target="_blank">database and storage templates</a> for pre-configured options
 - **Custom Builds**: Build your own database service from source code
 
 ### Popular database templates
 
-Explore these community and official templates in our marketplace:
+Explore these community and official templates in the marketplace:
 
 - <a href="https://railway.com/deploy?category=Storage" target="_blank">**All Storage Templates**</a> - Browse databases, caches, and storage solutions
 - ClickHouse, CockroachDB, Cassandra, and more
@@ -47,7 +47,7 @@ Railway provides essential features for running production databases:
 
 ## Building custom database services
 
-Need to run a database that isn't in our templates? Check out our guide on [building a database service](/databases/build-a-database-service) to learn how to configure volumes, networking, and persistence for any database.
+Need to run a database that isn't in the templates marketplace? Check out the guide on [building a database service](/databases/build-a-database-service) to learn how to configure volumes, networking, and persistence for any database.
 
 ## Important notes
 

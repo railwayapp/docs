@@ -46,7 +46,7 @@ your code or fix bugs in your application. We may provide these services on a
 case-by-case basis for [Business Class](#business-class) or Enterprise 
 customers.
 
-For application-level support, connect with our community on 
+For application-level support, connect with the Railway community on 
 [Central Station](https://station.railway.com) or 
 [Discord](https://discord.gg/railway).
 
@@ -68,7 +68,7 @@ Emails outside these categories may not receive a response.
 Railway conducts its support over the 
 [Central Station](https://station.railway.com) platform.
 
-It hosts our community of 1,800,000+ users and developers. It is where you can 
+It hosts the Railway community of 1,800,000+ users and developers. It is where you can 
 find answers to common questions, ask questions, and get in touch with the 
 Railway team.
 
@@ -80,7 +80,7 @@ width={1737} height={913} quality={100} />
 
 Please ensure that you've searched for your issue before creating a new 
 thread, follow the guidelines in 
-[How To Ask For Help](#how-to-ask-for-help), and abide by our 
+[How To Ask For Help](#how-to-ask-for-help), and abide by the 
 [Code of Conduct](https://station.railway.com/community-code-of-conduct).
 
 ### Private threads
@@ -179,7 +179,7 @@ alt="Screenshot of Emergency Help option in Central Station"
 layout="intrinsic"
 width={807} height={249} quality={100} />
 
-Opening a Critical ticket allows you to page our support on-call directly for 
+Opening a Critical ticket allows you to page Railway's support on-call directly for 
 an immediate response. Please only use this for production outages or critical 
 platform issues preventing your team from using Railway.
 
@@ -188,7 +188,7 @@ platform issues preventing your team from using Railway.
 | Priority | Surface Areas                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1        | **Outages that impact production**. This covers the following components: incidents declared on <a href="https://status.railway.com/" target="_blank">status.railway.com</a> including and especially incidents with end-customer impact (e.g. inability to login to the Dashboard), customer workload-impacting issues due to high load requiring intervention from Railway (e.g. requiring additional resources beyond your current limits). |
-| 2        | **Issues related to Railway features**. This covers features offered by Railway, including but not limited to our Dashboard, CLI, and platform-level features such as Deployments, Environments, Private Networking, Volumes.                                                                                                                                                                                                                  |
+| 2        | **Issues related to Railway features**. This covers features offered by Railway, including but not limited to the Dashboard, CLI, and platform-level features such as Deployments, Environments, Private Networking, Volumes.                                                                                                                                                                                                                  |
 | 3        | **Integration work and general questions related to Railway**. This covers customer-related requests involving integrating Railway with other services (e.g. fronting your Railway workload with a DDoS protection service), leveraging tools to use Railway the way you like (e.g. IaC provisioning/Terraform), or questions about Railway features or its platform.                                                                          |
 
 ### Business class response hours
@@ -197,7 +197,7 @@ We offer support during business hours, and prioritize requests from Business
 Class customers:
 
 - Business hours are Monday through Friday, 9am to 9pm Pacific Time
-- Exceptions apply to our business hours during P1 outages where the team will 
+- Exceptions apply to Railway's business hours during P1 outages where the team will 
 be on-call 24/7
 - The team may reply outside of business hours, but we do not guarantee a 
 response outside of business hours
@@ -217,7 +217,7 @@ the Routing Layer.
 ### Compliance & audits
 
 Security audits can be provided by request. For most customers, we can provide 
-our security and compliance documentation can be accessed via Railway's Trust 
+Railway's security and compliance documentation can be accessed via Railway's Trust 
 Center at [trust.railway.com](https://trust.railway.com). Please sign in with 
 your Railway account's email address to access Trust Center.
 
@@ -225,6 +225,6 @@ your Railway account's email address to access Trust Center.
 
 For enterprises, we offer everything in [Business Class](#business-class) 
 along with custom support tailored to your needs. Railway can enter into a 
-contractual SLA under our negotiated pricing offering. Reach out to us at 
+contractual SLA under Railway's negotiated pricing offering. Reach out to us at 
 [team@railway.com](mailto:team@railway.com) for more information.
 

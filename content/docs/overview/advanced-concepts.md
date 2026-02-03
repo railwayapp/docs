@@ -11,7 +11,7 @@ Railway applies many defaults to your build and deploy configurations that work 
 
 ### Build options
 
-Under the hood, Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to package your code into a container image that we then deploy to our infrastructure, with zero configuration for most workloads. For advanced projects, you might need to configure some of these defaults. You can do this by going to your Service > Settings > Build, and underneath that, Deploy. Here are three things you might want to configure:
+Under the hood, Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to package your code into a container image that we then deploy to Railway's infrastructure, with zero configuration for most workloads. For advanced projects, you might need to configure some of these defaults. You can do this by going to your Service > Settings > Build, and underneath that, Deploy. Here are three things you might want to configure:
 
 - **Custom Build Command**: This is the command that will be ran to build your final application. Railpack will find the best command for this, usually `npm run build` for JS-based projects, `cargo build --release` for Rust projects, and more. If your application needs to trigger something else to build your project, customize that command here.
 - [**Pre-Deploy Command**](https://docs.railway.com/guides/pre-deploy-command): These are one or more commands that will be ran before running the main start command. A common use for this is database migrations. If your application needs to run a command before starting your main application, put that in a Pre-Deploy Command.

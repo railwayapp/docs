@@ -5,7 +5,7 @@ description: Ensure your app is production-ready with this comprehensive Railway
 
 _Is your application ready for production?_
 
-In this page, we'll explore key areas for production readiness, suggesting actions to take to address each one:
+In this page, this section explores key areas for production readiness, suggesting actions to take to address each one:
 
 - [Performance and Reliability](#performance-and-reliability)
 - [Observability and Monitoring](#observability-and-monitoring)
@@ -153,4 +153,4 @@ Being prepared for major and unexpected issues helps minimize downtime and data 
 
 Using a mix of native features and external tools, we hope you can feel confident that your applications on Railway meet the highest standards of performance, reliability, and security.
 
-Remember, our team is always here to assist you with solutions. Reach out in <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">Discord</a> or over email at [team@railway.com](mailto:team@railway.com) for assistance.
+Remember, the Railway team is always here to assist you with solutions. Reach out in <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">Discord</a> or over email at [team@railway.com](mailto:team@railway.com) for assistance.

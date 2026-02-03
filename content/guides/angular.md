@@ -49,7 +49,7 @@ Open your browser and go to `http://localhost:4200` to see your app.
 
 ## Modify start script
 
-Before deploying, we need to update the `package.json` file.
+Before deploying, update the `package.json` file.
 
 Angular builds the project into the `dist` directory. For server-side rendered apps, the server starts with the command: `node dist/gratitudeapp/server/server.mjs` as defined in the scripts section below:
 
@@ -67,7 +67,7 @@ Angular builds the project into the `dist` directory. For server-side rendered a
 - The development server starts with `npm start`.
 - The production server runs with `npm run serve:ssr:gratitudeapp`.
 
-Since Railway relies on the `build` and `start` scripts to automatically build and launch applications, we need to update the `start` script to ensure it runs the production server correctly.
+Since Railway relies on the `build` and `start` scripts to automatically build and launch applications, update the `start` script to ensure it runs the production server correctly.
 
 Your scripts section should look like this:
 
@@ -84,7 +84,7 @@ Your scripts section should look like this:
 ...
 ```
 
-Now, we are good to go!
+Now you're good to go!
 
 ## Deploy the Angular app to Railway
 
@@ -98,7 +98,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/A5t142)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=angular" target="_blank">variety of Angular app templates</a> created by the community.
 

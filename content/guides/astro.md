@@ -55,7 +55,7 @@ Open your browser and go to `http://localhost:4321` to see your app.
 
 Astro has several [SSR adapters](https://docs.astro.build/en/guides/server-side-rendering/). These adapters are used to run your project on the server and handle SSR requests.
 
-Let's add the Node adapter to enable SSR in our blog project.
+Add the Node adapter to enable SSR in your blog project.
 
 Run the command below in your terminal:
 
@@ -63,7 +63,7 @@ Run the command below in your terminal:
 npx astro add node
 ```
 
-Select **Yes** at the prompt to proceed. The Node adapter will be installed, and our Astro config file will be updated accordingly.
+Select **Yes** at the prompt to proceed. The Node adapter will be installed, and your Astro config file will be updated accordingly.
 
 Open up the `astro.config.mjs` file:
 
@@ -147,7 +147,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/Ic0JBh)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=astro" target="_blank">variety of Astro app templates</a> created by the community.
 

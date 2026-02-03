@@ -11,9 +11,9 @@ This guide walks you through the steps needed to seamlessly migrate your app and
 - Export data from Fly.io and Import into Railway DB
 - Deploy app (including auto-migration of app config & variables)
 
-We provide everything Fly.io offers and more! Check out our [comparison guide](/platform/compare-to-fly) to see the differences and make an informed choice.
+We provide everything Fly.io offers and more! Check out the [comparison guide](/platform/compare-to-fly) to see the differences and make an informed choice.
 
-Why take our word for it? Experience the [Railway advantage yourself, give it a spin today!](https://railway.com/new)
+Why take Railway's word for it? Experience the [Railway advantage yourself, give it a spin today!](https://railway.com/new)
 
 ## Migration steps
 
@@ -51,7 +51,7 @@ Railway will deploy the Gin app as a service, as shown in the image above. You c
 
 ### 3. Database migration
 
-Railway supports a variety of databases, including **PostgreSQL**, **MongoDB**, **MySQL**, and **Redis**, allowing you to deploy the one that best fits your application needs. We also support many more via our [templates marketplace](https://railway.com/templates).
+Railway supports a variety of databases, including **PostgreSQL**, **MongoDB**, **MySQL**, and **Redis**, allowing you to deploy the one that best fits your application needs. We also support many more via the [templates marketplace](https://railway.com/templates).
 
 If you're migrating data to Railway from Fly, you can follow these steps:
 

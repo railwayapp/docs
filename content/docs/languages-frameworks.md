@@ -3,7 +3,7 @@ title: Languages & Frameworks
 description: Deploy applications using any language or framework on Railway.
 ---
 
-Railway supports deploying applications built with virtually any programming language or framework. Our build system, [Railpack](/builds/railpack), automatically detects your stack and creates optimized container images.
+Railway supports deploying applications built with virtually any programming language or framework. Railway's build system, [Railpack](/builds/railpack), automatically detects your stack and creates optimized container images.
 
 ## How it works
 

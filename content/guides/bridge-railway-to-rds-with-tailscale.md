@@ -10,7 +10,7 @@ tags:
   - database
 ---
 
-## How can we privately send traffic from Railway to RDS?
+## How can you privately send traffic from Railway to RDS?
 
 In this tutorial, you will set up a Tailscale bridge to AWS RDS. This creates a secure tunnel between your Railway services and your AWS RDS database instances. This allows you to connect to your RDS databases privately without exposing traffic to the public internet.
 
@@ -23,7 +23,7 @@ In this tutorial, you will:
 1. Verify and test connectivity to your RDS instance
 1. Route traffic from Railway to RDS using Railtail
 
-This tutorial is in depth, so if it's your first time using Tailscale or setting up a bridge to your RDS instance, we'll cover every detail!
+This tutorial is in depth, so if it's your first time using Tailscale or setting up a bridge to your RDS instance, every detail is covered!
 
 ### Prerequisites
 
@@ -33,7 +33,7 @@ This tutorial is in depth, so if it's your first time using Tailscale or setting
 
 2. You'll need to install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) or [OpenTofu](https://opentofu.org/docs/intro/install/).
 
-3. You will need to generate a new ssh key that we can use to provision the AWS Instance.
+3. You will need to generate a new ssh key that can be used to provision the AWS Instance.
 
 4. You will need a [Tailscale account](https://tailscale.com/) and have [Tailscale installed](https://tailscale.com/kb/1347/installation) on your local machine. The free tier is generous and sufficient for this tutorial.
 
@@ -84,7 +84,7 @@ width={602} height={855} quality={100} />
 
 ## Git clone the example project
 
-We've prepared [an example project built in Terraform](https://github.com/echohack/rds-tailscale) (or OpenTofu if you prefer) to stand up all the AWS resources you'll need to test out connectivity to RDS.
+There is [an example project built in Terraform](https://github.com/echohack/rds-tailscale) (or OpenTofu if you prefer) to stand up all the AWS resources you'll need to test out connectivity to RDS.
 
 ```bash
 git clone git@github.com:echohack/rds-tailscale.git
@@ -174,21 +174,21 @@ Once the verification passes, you can connect to your RDS instance directly from
 psql -h <rds_endpoint> -U postgres -d tailscale_test_db
 ```
 
-If you've never used Tailscale before, take a moment to familiarize yourself with the `tailscale` CLI and wrap your head around what's happening here. This is fantastic! We're routing traffic privately to our RDS instance from our local machine!
+If you've never used Tailscale before, take a moment to familiarize yourself with the `tailscale` CLI and wrap your head around what's happening here. This is fantastic! You're routing traffic privately to your RDS instance from your local machine!
 
-Similarly, you can now use this subnet router to route traffic from other devices in your Tailnet, including as a way to create a bridge between networks. Now we're ready to connect our Railway services! Let's do that next.
+Similarly, you can now use this subnet router to route traffic from other devices in your Tailnet, including as a way to create a bridge between networks. Now you're ready to connect your Railway services! Let's do that next.
 
 ## Deploy railtail into your project
 
-Railtail is a project that will forward SOCK5 traffic for us RDS, because right now Railway containers don't allow privilege escalation. This way we can use private IPv6 networking to Railtail and forward our traffic privately to our AWS Subnet Router, which will then route to RDS.
+Railtail is a project that will forward SOCK5 traffic to RDS, because right now Railway containers don't allow privilege escalation. This way you can use private IPv6 networking to Railtail and forward your traffic privately to your AWS Subnet Router, which will then route to RDS.
 
 - In a project where you want to bridge services privately to RDS, click the Create button in the upper right corner. Then select Template -> Type in RailTail.
 
 You will need four variables to deploy Railtail and start bridging traffic to your RDS instance:
 
 - **LISTEN_PORT**: This is the port that Railtail listens on to forward traffic. We like `41641`, which is Tailscale's default UDP port for making peer-to-peer connections.
-- **TARGET_ADDR**: The target address that Railtail will forward traffic to. In our case it should be `tailscale-test-db.<subnet>.<region>.rds.amazonaws.com`. You can grab this from the output of the terraform run we did earlier, or in the AWS console.
-- **TS_AUTH_KEY**: The tailscale auth key we set up earlier. In the format: `tskey-auth-0123456789`
+- **TARGET_ADDR**: The target address that Railtail will forward traffic to. In this case it should be `tailscale-test-db.<subnet>.<region>.rds.amazonaws.com`. You can grab this from the output of the terraform run you did earlier, or in the AWS console.
+- **TS_AUTH_KEY**: The tailscale auth key you set up earlier. In the format: `tskey-auth-0123456789`
 - **TS_HOSTNAME**: The friendly DNS name you can reference in your Tailnet. You can name this whatever you want. `railtail` or `railtail-project-name` is a good name here.
 
 Click **Deploy Template**.

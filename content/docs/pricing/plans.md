@@ -27,7 +27,7 @@ Each Railway account needs an active subscription. The base subscription fee all
 | **Pro**        | $20 / month |
 | **Enterprise** | Custom      |
 
-Read more about our plans at <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
+Read more about Railway's plans at <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
 Curious about potential savings? [Upload your current invoice](https://railway.com/pricing#pricing-invoice) and see how much you can save by running your workloads on Railway.
 
@@ -60,7 +60,7 @@ You are only charged for the resources you actually use, which helps prevent run
 | **Network Egress**                       | $0.05 / GB ($0.000000047683716 / KB)                  |
 | [**Volume Storage**](/volumes) | $0.15 / GB / month ($0.000003472222222 / GB / minute) |
 
-To learn more about controlling your resource usage costs, read our FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
+To learn more about controlling your resource usage costs, read the FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
 
 ## Included usage
 
@@ -112,7 +112,7 @@ For example, customers who commit to a $10,000/month spend rate can access dedic
 | **SLOs**                   | $2,000/month     | Service Level Objectives to ensure and track application performance.                                            |
 | **Dedicated Hosts**        | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                            |
 
-To learn more about committed spend tiers, please [contact our team](mailto:team@railway.com?subject=Business%20Class%20Support).
+To learn more about committed spend tiers, please [contact the Railway team](mailto:team@railway.com?subject=Business%20Class%20Support).
 
 ### One-time grant of credits on the free trial
 

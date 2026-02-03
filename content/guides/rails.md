@@ -85,7 +85,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/sibk1f)
 
-After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
+After deploying, it is recommended that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
 ## Deploy from the CLI
 
@@ -107,7 +107,7 @@ To deploy the Rails app using the Railway CLI, please follow the steps:
      ```
    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 
-- **Note:** If you see an error about a missing `secret_key_base` for the production environment, don’t worry. We’ll fix this in the next step.
+- **Note:** If you see an error about a missing `secret_key_base` for the production environment, don’t worry. You’ll fix this in the next step.
 
 4. **Add a Database Service**:
    - Run `railway add`.
@@ -175,7 +175,7 @@ To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. O
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Rails apps effortlessly!
 
-Next, we'll cover how to set up workers and cron jobs for your Rails app on Railway.
+Next, this guide covers how to set up workers and cron jobs for your Rails app on Railway.
 
 ## Set up workers & cron jobs with sidekiq
 

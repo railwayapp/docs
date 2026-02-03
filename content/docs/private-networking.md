@@ -227,4 +227,4 @@ Since an application hosted on Vercel exists outside of the private network in R
 
 ## Troubleshooting
 
-Having issues with private networking? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
+Having issues with private networking? Check out the [Troubleshooting guide](/troubleshooting) or reach out on the <a href="https://discord.gg/railway" target="_blank">Railway Discord</a>.

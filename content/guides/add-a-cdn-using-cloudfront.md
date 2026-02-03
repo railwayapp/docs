@@ -19,7 +19,7 @@ _Source: [What is a CDN?](https://aws.amazon.com/what-is/cdn/)_
 
 We know that performance of your web applications is critical to your business, and one way to achieve higher performance is by implementing a CDN to serve data from servers closest to your users.
 
-Many CDN options are available ([list from G2](https://www.g2.com/categories/content-delivery-network-cdn)), but in this tutorial, we will cover step-by-step how to implement a CDN using [Amazon CloudFront](https://aws.amazon.com/cloudfront/).
+Many CDN options are available ([list from G2](https://www.g2.com/categories/content-delivery-network-cdn)), but this tutorial covers step-by-step how to implement a CDN using [Amazon CloudFront](https://aws.amazon.com/cloudfront/).
 
 **Objectives**
 
@@ -43,7 +43,7 @@ To be successful using this tutorial, you should already have -
 
 ## 1. Create and deploy a Fastify server
 
-First, let's create and deploy a simple Fastify server using the [Railway CLI](/guides/cli#installing-the-cli)
+First, create and deploy a simple Fastify server using the [Railway CLI](/guides/cli#installing-the-cli)
 
 - On your local machine, create a folder called "fastify"
 - Inside of the folder, create a file called "server.js"
@@ -168,13 +168,13 @@ width={1477} height={623} quality={100} />
 
 Since the data for the route has not been cached on a CDN, the server receives every request, generates a new timestamp, and sends it back with a 200 status code.
 
-Once we setup the CloudFront CDN, we will see how this behavior changes.
+Once the CloudFront CDN is set up, you will see how this behavior changes.
 
 ## 2. Create a CloudFront distribution in AWS
 
 _This step assumes you have already [configured the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to connect to your AWS account._
 
-Now let's create a CloudFront distribution using the AWS CDK.
+Now create a CloudFront distribution using the AWS CDK.
 
 - In your "fastify" folder, create a new folder called "cloudfront"
 - Within the "cloudfront" folder, run the following command to initialize a new CDK project in TypeScript
@@ -306,7 +306,7 @@ Now that the CloudFront distribution is up and running, you may want to connect 
 
 This step will _quickly_ cover how to generate a SSL certificate in AWS and configure the custom domain in Namecheap and CloudFront.
 
-Let's first generate an SSL certificate -
+First generate an SSL certificate -
 
 - In AWS Management Console, navigate to your CloudFront distribution
 - Under the General tab, click the `Edit` button
@@ -323,7 +323,7 @@ Let's first generate an SSL certificate -
     - you should add `_6cf3abcd1234abcd1234aabb11cc22.www` to the **Host** value in Namecheap
 - Once you add the DNS records in Namecheap, refresh the Certificate status page in AWS to confirm the Status shows **Success**
 
-Now, we'll add the certificate in the CloudFront distribution settings and finish setting up the custom domain -
+Now, add the certificate in the CloudFront distribution settings and finish setting up the custom domain -
 
 - Return the the CloudFront distribution settings
 - Under _Custom SSL certificate_, choose the certificate you just created from the drop down menu

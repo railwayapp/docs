@@ -201,7 +201,7 @@ width={521} height={404} quality={100} />
 
 ## Using doppler for secrets management
 
-Our friends at Doppler maintain an integration that makes it easy to sync your secrets in Doppler to your project(s) in Railway.
+The Doppler team maintains an integration that enables you to sync your secrets in Doppler to your project(s) in Railway.
 
 You can get instructions on how to use Doppler with Railway on the <a href="https://docs.doppler.com/docs/railway" target="_blank">Doppler Docs
 integration</a>.

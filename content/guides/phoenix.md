@@ -45,13 +45,13 @@ Open up the `config/dev.exs` file. You'll notice that a new Phoenix app is alrea
 
 The default database name is set to `helloworld_dev`, but feel free to change it to whatever you'd prefer.
 
-Next, create the database for our app by running the following command:
+Next, create the database for your app by running the following command:
 
 ```bash
 mix ecto.create
 ```
 
-A database will be created for our app.
+A database will be created for your app.
 
 ### Run the Phoenix app locally
 
@@ -67,9 +67,9 @@ Open your browser and go to `http://localhost:4000` to see your app.
 
 Now that your app is running locally, let’s move on to deploying it to Railway!
 
-### Prepare our Phoenix app for deployment
+### Prepare your Phoenix app for deployment
 
-Go ahead and create a `nixpacks.toml` file in the root directory of our Phoenix app.
+Go ahead and create a `nixpacks.toml` file in the root directory of your Phoenix app.
 
 The [nixpacks.toml file](https://nixpacks.com/docs/configuration/file) is a configuration file used by Nixpacks, a build system developed and used by Railway, to set up and deploy applications.
 
@@ -111,12 +111,12 @@ cmd = "mix ecto.setup && mix phx.server"
    - `mix deps.get --only prod`: Fetches only the production dependencies defined in the `mix.exs` file.
 4. `[phases.build]`: This section contains commands to run during the build phase.
    - `mix compile`: Compiles the Elixir application.
-   - `mix assets.deploy`: This is a command to handle the deployment of static assets (e.g., JavaScript, CSS) for our app.
+   - `mix assets.deploy`: This is a command to handle the deployment of static assets (e.g., JavaScript, CSS) for your app.
 5. `[start]`: This section contains commands to run when starting the application.
    - `mix ecto.setup`: This command is used to set up the database by running migrations and seeding it. It prepares the database for the application to connect.
    - `mix phx.server`: This starts the Phoenix server, allowing the application to begin accepting requests.
 
-Now, we are ready to deploy!
+Now you're ready to deploy!
 
 ## Deploy Phoenix app to Railway
 
@@ -134,7 +134,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/0LSBzw)
 
-After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
+After deploying, it is recommended that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
 ## Deploy from the CLI
 
@@ -157,7 +157,7 @@ To deploy the Phoenix app using the Railway CLI, please follow the steps:
      ```
    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 
-   **Note:** You might encounter an error––`warning: the VM is running with native name encoding of latin1 which` `may cause Elixir to malfunction as it expects utf8....`. Don’t worry, we’ll address this in the next step.
+   **Note:** You might encounter an error––`warning: the VM is running with native name encoding of latin1 which` `may cause Elixir to malfunction as it expects utf8....`. Don’t worry, you’ll address this in the next step.
 
 4. **Add a Database Service**:
    - Run `railway add`.

@@ -70,4 +70,4 @@ TCP Proxy can also be used in conjunction with [Private Networking](/networking/
 
 ## Troubleshooting
 
-Having issues with your TCP proxy? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
+Having issues with your TCP proxy? Check out the [Troubleshooting guide](/troubleshooting) or reach out on the <a href="https://discord.gg/railway" target="_blank">Railway Discord</a>.

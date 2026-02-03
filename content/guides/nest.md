@@ -50,7 +50,7 @@ Afterward, you can access the app at `http://localhost:8080`.
 
 ### Add and configure database
 
-**Note:** We will be using Postgres for this app. If you don’t have it installed locally, you can either [install it](https://www.postgresql.org/download) or use a different Node.js database package of your choice.
+**Note:** This app uses Postgres. If you don’t have it installed locally, you can either [install it](https://www.postgresql.org/download) or use a different Node.js database package of your choice.
 
 1. Create a database named `nestjshelloworld_dev`.
 
@@ -150,7 +150,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/nvnuEH)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=nest" target="_blank">variety of Nest app templates</a> created by the community.
 
@@ -186,7 +186,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 5. **Deploy the Application**:
    - Run `railway up` to deploy your app.
      - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-   - Once the deployment is complete, we can proceed to generate a domain for the app service.
+   - Once the deployment is complete, proceed to generate a domain for the app service.
 6. **Set Up a Public URL**:
    - Run `railway domain` to generate a public URL for your app.
    - Visit the new URL to see your app live in action!

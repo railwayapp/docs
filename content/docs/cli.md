@@ -239,4 +239,4 @@ See [railway ssh](/cli/ssh) for more details.
 
 ## Contributing
 
-Our CLI is open source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on our [GitHub Repo](https://github.com/railwayapp/cli).
+The Railway CLI is open source. Contribute to the development of the Railway CLI by opening an issue or Pull Request on the [GitHub Repo](https://github.com/railwayapp/cli).

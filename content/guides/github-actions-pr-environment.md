@@ -9,7 +9,7 @@ tags:
   - environments
 ---
 
-[Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. In this post, we talk about using Github Actions alongside the [Railway CLI](https://github.com/railwayapp/cli) to create specific environments for any PR that is created, alongside closing it whenever it is closed/merged.
+[Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. This post talks about using Github Actions alongside the [Railway CLI](https://github.com/railwayapp/cli) to create specific environments for any PR that is created, alongside closing it whenever it is closed/merged.
 
 This can be useful if you need to create a branch on a [Neon](https://neon.tech) database, allowing you to automatically inject the correct database url.
 

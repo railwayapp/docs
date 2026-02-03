@@ -3,19 +3,19 @@ title: The Conductor Program
 description: Learn about Railway’s Conductor Program and how it empowers the developer community.
 ---
 
-The Conductor Program brings together the amazing people who make Railway's community special. Conductors shepherd the experience for our 45K+ community members. They are the bridge between the Railway team and our thriving community.
+The Conductor Program brings together the amazing people who make Railway's community special. Conductors shepherd the experience for Railway's 45K+ community members. They are the bridge between the Railway team and the thriving Railway community.
 
-This program aims to foster collaboration and help our Conductors grow.
+This program aims to foster collaboration and help Railway's Conductors grow.
 
 ## What do conductors do?
 
-Our Conductors spend time in Discord and the Central Station answering questions, sharing tips, and making sure everyone can use Railway successfully.
+Railway's Conductors spend time in Discord and the Central Station answering questions, sharing tips, and making sure everyone can use Railway successfully.
 
 Here are a few key ways they contribute -
 
 - Providing community support through [Discord](https://discord.gg/railway) and the [Central Station](https://station.railway.com/).
 
-- Maintaining a healthy and welcoming community atmosphere while moderating our channels and templates.
+- Maintaining a healthy and welcoming community atmosphere while moderating the Railway channels and templates.
 
 - Contributing to Railway's open-source projects through improvements and new features.
 
@@ -25,21 +25,21 @@ Through these activities, Conductors ensure everyone can use Railway successfull
 
 ## Ready to become a conductor?
 
-Are you passionate about helping others and love being part of Railway's community? We're always excited to welcome new Conductors who share our enthusiasm for community engagement!
+Are you passionate about helping others and love being part of Railway's community? We're always excited to welcome new Conductors who share Railway's enthusiasm for community engagement!
 
 Here's what we look for in potential Conductors -
 
 - Have demonstrated experience with Railway's platform and services.
 
-- Show a consistent track record of helping others in our community.
+- Show a consistent track record of helping others in the Railway community.
 
 - Maintain professional and friendly communication.
 
-- Are active participants in our Discord and Central Station.
+- Are active participants in the Discord and Central Station.
 
 - Demonstrate strong technical problem-solving abilities.
 
-The ideal Conductor combines technical expertise with mentorship skills to help our community thrive!
+The ideal Conductor combines technical expertise with mentorship skills to help the Railway community thrive!
 
 <TallyButton data-tally-open="nP2qqd" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" data-tally-auto-close="2000">Apply Now</TallyButton>
 
@@ -67,11 +67,11 @@ As part of the program, conductors will receive -
 
 - Your choice of [Railway Swag](https://shop.railway.com/).
 
-And to top it all off, each quarter we reward our most outstanding conductor with a pizza party! 🎉
+And to top it all off, each quarter we reward the most outstanding conductor with a pizza party! 🎉
 
 ## Conductor participation
 
-We believe in fostering an active and supportive Conductor program that enables everyone to make meaningful contributions. To help keep our community vibrant, we conduct friendly quarterly check-ins with all Conductors.
+We believe in fostering an active and supportive Conductor program that enables everyone to make meaningful contributions. To help keep the Railway community vibrant, we conduct friendly quarterly check-ins with all Conductors.
 
 As a Conductor, you'll contribute regularly in these key areas -
 
@@ -99,6 +99,6 @@ As a Conductor, you'll contribute regularly in these key areas -
 
   - Bug fixes should focus on issues affecting multiple users.
 
-We understand that maintaining consistent participation across these areas requires dedication and time. As part of our commitment to supporting Conductors, we have quarterly check-ins to discuss your experience and ensure you have everything needed to succeed.
+We understand that maintaining consistent participation across these areas requires dedication and time. As part of Railway's commitment to supporting Conductors, we have quarterly check-ins to discuss your experience and ensure you have everything needed to succeed.
 
-While we aim for regular engagement, we recognize that life circumstances and priorities can change. If participation becomes limited, we may need to transition members out of the program during our bi-annual review. However, our door always remains open – former Conductors are welcome to rejoin the program when their schedule better accommodates regular participation!
+While we aim for regular engagement, we recognize that life circumstances and priorities can change. If participation becomes limited, we may need to transition members out of the program during the bi-annual review. However, the door always remains open – former Conductors are welcome to rejoin the program when their schedule better accommodates regular participation!

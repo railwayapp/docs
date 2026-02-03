@@ -23,7 +23,7 @@ This guide covers how to deploy a Laravel app on Railway in three ways:
 
 This template sets up a basic Laravel application along with a Postgres database on Railway. You can also choose from a <a href="https://railway.com/templates?q=laravel" target="_blank">variety of Laravel app templates</a> created by the community.
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 ## Deploy from a GitHub repo
 
@@ -68,7 +68,7 @@ If you have your Laravel app locally, you can follow these steps:
 
 3. Run `railway up` to deploy.
 
-   - The CLI will now scan, compress and upload our Laravel app files to Railway's backend for deployment.
+   - The CLI will now scan, compress and upload your Laravel app files to Railway's backend for deployment.
 
    - Your terminal will display real-time logs as your app is being deployed on Railway.
 

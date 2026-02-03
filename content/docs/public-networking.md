@@ -77,4 +77,4 @@ To have traffic from the public internet properly forwarded to your service's ex
 
 ## Troubleshooting
 
-Having trouble connecting to your app from the internet? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
+Having trouble connecting to your app from the internet? Check out the [Troubleshooting guide](/troubleshooting) or reach out on the <a href="https://discord.gg/railway" target="_blank">Railway Discord</a>.

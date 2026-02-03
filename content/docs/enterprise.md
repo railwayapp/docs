@@ -22,7 +22,7 @@ The platform supports your production-grade workloads with:
 
 Railway Enterprise supports your compliance requirements with industry-standard certifications including SOC 2 Type II, SOC 3, and HIPAA compliance. 
 
-You can view our audit, compliance, security, and regulatory documents on our [Trust Center at trust.railway.com](https://trust.railway.com/).
+You can view Railway's audit, compliance, security, and regulatory documents on Railway's Trust Center at [trust.railway.com](https://trust.railway.com/).
 
 ## Authentication
 
@@ -44,7 +44,7 @@ Railway supports secure zero-trust networking, with a 50ms p95 global network RT
 
 Railway can be deployed globally, with availability across the Americas, EMEA, and APAC.
 
-**Railway-managed infrastructure**: This option lets you get started quickly, while continuing to stay secure. Our standard cloud offering can scale to thousands of requests per second seamlessly.
+**Railway-managed infrastructure**: This option lets you get started quickly, while continuing to stay secure. Railway's standard cloud offering can scale to thousands of requests per second seamlessly.
 
 **Railway-managed dedicated VMs**: Your workloads run on dedicated Railway hosts for complete resource isolation. Continue to benefit from Railway-managed infrastructure with added security.
 
@@ -72,4 +72,4 @@ We support a variety of sectors, including but not limited to:
 - B2B/B2C SaaS
 - Government
 
-Build and scale on Railway today. [Read about our enterprise plan](https://railway.com/enterprise).
+Build and scale on Railway today. [Read about the Railway enterprise plan](https://railway.com/enterprise).

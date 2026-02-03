@@ -53,7 +53,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/t3sAEH)
 
-After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
+After deploying, it is recommended that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
 ## Deploy from the CLI
 
@@ -70,7 +70,7 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
    - After the project is created, click the provided link to view it in your browser.
 3. **Modify Sails Config**:
    - Open up `config/env/production.js` file and make some changes:
-     - Set `http.trustProxy` to `true` because our app will be behind a proxy.
+     - Set `http.trustProxy` to `true` because your app will be behind a proxy.
      - Set `session.cookie.secure` to `true`
      - Add this function to the `socket` object just after the `onlyAllowOrigins` array:
        ```js
@@ -80,7 +80,7 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
          return proceed(undefined, false);
        },
        ```
-       **Note:** We only added this because we don't need sockets now. If you do, skip this step and add your public app URL to the `onlyAllowOrigins` array. The function simply rejects socket connection attempts.
+       **Note:** This is only added because sockets aren't needed now. If you do need sockets, skip this step and add your public app URL to the `onlyAllowOrigins` array. The function simply rejects socket connection attempts.
 4. **Deploy the Application**:
    - Use the command below to deploy your app:
      ```bash
@@ -88,14 +88,14 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
      ```
    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 
-- **Note:** You'll come across an error about how the default `sails-disk` adapter and `connect.session()` MemoryStore is not designed for use as a production database, don’t worry. We’ll fix this in the next step.
+- **Note:** You'll come across an error about how the default `sails-disk` adapter and `connect.session()` MemoryStore is not designed for use as a production database, don’t worry. You’ll fix this in the next step.
 
 5. **Add PostgreSQL & Redis Database Services**:
    - Run `railway add`.
    - Select `PostgreSQL` by pressing space
    - Select `Redis` by also pressing space and hit **Enter** to add both database services to your project.
 6. **Modify Sails Database Config**:
-   - Open up `config/env/production.js` file and make some changes to let your app know what database to connect to and where to save sessions:
+   - Open up the `config/env/production.js` file and make some changes to let your app know what database to connect to and where to save sessions:
      - In the `datastores:` section,
        - Add `adapter: 'sails-postgresql'`,
        - Add `url: process.env.DATABASE_URL`
@@ -111,7 +111,7 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
 8. **Redeploy the Service**:
    - Click **Deploy** on the Railway dashboard to apply your changes.
 9. **Upload Local Changes**:
-   - Run `railway up` to upload all the changes we made locally and redeploy our service.
+   - Run `railway up` to upload all the changes you made locally and redeploy your service.
 10. **Verify the Deployment**:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 11. **Set Up a Public URL**:
@@ -172,13 +172,13 @@ By following these steps, you’ll have a fully functional Sails app. If you run
 
 ## The boring JavaScript stack Sails starter
 
-If you're a fan of [The Boring JavaScript Stack](https://github.com/sailscastshq/boring-stack), we’ve got a one-click deploy option for you.
+If you're a fan of [The Boring JavaScript Stack](https://github.com/sailscastshq/boring-stack), there’s a one-click deploy option for you.
 
 Simply click the button below to get started:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ia84_3)
 
-**Note:** After deploying, we recommend [ejecting from the template](/guides/deploy#eject-from-template-repository) to create your own GitHub repository. This will give you full control over the project and source code.
+**Note:** After deploying, it is recommended to [eject from the template](/guides/deploy#eject-from-template-repository) to create your own GitHub repository. This will give you full control over the project and source code.
 
 ## Next steps
 

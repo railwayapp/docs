@@ -53,7 +53,7 @@ Next, `cd` into the directory and run `python manage.py runserver` to start your
 
 Open your browser and go to `http://127.0.0.1:8000` to see the project. You'll see the Django welcome page with a "The install worked successfully! Congratulations!" paragraph.
 
-**Note:** You'll see a red notice about unapplied migration(s). You can ignore them for now. We'll run them when we deploy the project.
+**Note:** You'll see a red notice about unapplied migration(s). You can ignore them for now. You'll run them when you deploy the project.
 
 Now that your app is running locally, let’s move on to make some changes and install some dependencies before deployment.
 
@@ -84,7 +84,7 @@ from pathlib import Path
 
 3. Configure the database and run migrations:
 
-A fresh Django project uses SQLite by default, but we need to switch to PostgreSQL.
+A fresh Django project uses SQLite by default, but you need to switch to PostgreSQL.
 
 Create a database named `liftoff_dev` in your local Postgres instance.
 
@@ -120,7 +120,7 @@ Run `python manage.py migrate` in your terminal to apply the database migrations
 
 4. Static files configuration:
 
-We'll configure Django to serve static files using [WhiteNoise](https://whitenoise.readthedocs.io/en/stable/index.html).
+Configure Django to serve static files using [WhiteNoise](https://whitenoise.readthedocs.io/en/stable/index.html).
 
 Open `liftoff/settings.py` and configure the static files settings:
 
@@ -152,7 +152,7 @@ MIDDLEWARE = [
 ALLOWED_HOSTS = ["*"]
 ```
 
-This setting represents the list of all the host/domain names our Django project can serve.
+This setting represents the list of all the host/domain names your Django project can serve.
 
 6. Create a **static** folder:
 
@@ -186,7 +186,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/GB6Eki)
 
-After deploying, we recommend that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
+After deploying, it is recommended that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
 ## Deploy from the CLI
 
@@ -209,7 +209,7 @@ To deploy the Django app using the Railway CLI, please follow the steps:
      ```
    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 
-   **Note:** You'll encounter an error about the PGDATABASE environment not set. Don't worry, we'll fix that in the next steps.
+   **Note:** You'll encounter an error about the PGDATABASE environment not set. Don't worry, you'll fix that in the next steps.
 
 4. **Add a Database Service**:
    - Run `railway add`.
@@ -254,7 +254,7 @@ To deploy the Django app to Railway, start by pushing the app to a GitHub repo. 
      - `PGHOST`: Set the value to `${{Postgres.PGHOST}}`
      - `PGPORT`: Set the value to `${{Postgres.PGPORT}}`
 
-   **Note:** We don't have the Postgres Database service yet. We'll add that soon.
+   **Note:** The Postgres Database service isn't set up yet. You'll add that soon.
 
 4. **Add a Database Service**:
    - Right-click on the Railway project canvas or click the **Create** button.

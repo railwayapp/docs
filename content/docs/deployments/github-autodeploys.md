@@ -27,7 +27,7 @@ _Currently, there is no way to force a deploy from a branch other than the Defau
 
 <Banner variant="info">
   Please make sure you have{" "}
-  <a href="https://github.com/settings/installations" target="_blank">accepted our updated GitHub permissions</a>
+  <a href="https://github.com/settings/installations" target="_blank">accepted the updated GitHub permissions</a>
   required for this feature to work.
 </Banner>
 

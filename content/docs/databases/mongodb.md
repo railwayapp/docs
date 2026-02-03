@@ -48,7 +48,7 @@ Since the deployed container is pulled from the official [MongoDB](https://hub.d
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
 
-- **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out our native [Backups](/volumes/backups) feature.
+- **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out the native [Backups](/volumes/backups) feature.
 
 - **Observability**: Implement monitoring for insights into performance and health of your database.
 

@@ -43,7 +43,7 @@ Go to [start.spring.io](https://start.spring.io) to initialize a new Spring Boot
   - Click the **Add Dependencies** button and search for **Spring Web**. Select it.
 
 ![Spring Boot App Initializer](https://res.cloudinary.com/railway/image/upload/v1729619101/springboot_app_on_railway.png)
-_Config to initialize our new app_
+_Config to initialize your new app_
 
 Now, click on the **Generate** button, download the zipped file and unpack it into a folder on your machine.
 
@@ -77,7 +77,7 @@ public class HelloworldApplication {
 }
 ```
 
-We added a `hello()` method that returns the response: `Hello world from Java Spring Boot!`.
+A `hello()` method was added that returns the response: `Hello world from Java Spring Boot!`.
 
 The `@RestController` annotation designates this class as a web controller, while `@GetMapping("/")` maps the `hello()` method to handle requests sent to the root URL, `/`.
 
@@ -105,7 +105,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/-NFGrr)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=spring boot" target="_blank">variety of Spring Boot app templates</a> created by the community.
 

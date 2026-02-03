@@ -9,7 +9,7 @@ Use the Public API to integrate Railway into your CI/CD pipelines and other work
 
 ## Understanding GraphQL
 
-New to GraphQL? Start with our [Introduction to GraphQL](/guides/graphql-overview) guide, which explains the core concepts using Railway's API.
+New to GraphQL? Start with the [Introduction to GraphQL](/guides/graphql-overview) guide, which explains the core concepts using Railway's API.
 
 For deeper learning, these external resources are helpful:
 - [Official Introduction to GraphQL](https://graphql.org/learn/)
@@ -112,7 +112,7 @@ Once imported, you should only need to add your API token to get connected and s
 
 ### GraphiQL playground
 
-Alternatively, you can use our [GraphiQL playground](https://railway.com/graphiql) to view the schema and test your queries.
+Alternatively, you can use the [GraphiQL playground](https://railway.com/graphiql) to view the schema and test your queries.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1694611003/rw-graphiql_zs2l28.png" alt="GraphiQL Playground" layout="responsive" width={6568} height={3886} quality={80} />
 
@@ -170,4 +170,4 @@ To help you get started, we have provided example queries and mutations organize
 
 ## Support
 
-If you run into problems using the API or have any suggestions, feel free to join our [Discord server](https://discord.gg/railway) where you can interact with the engineers working on the API directly.
+If you run into problems using the API or have any suggestions, feel free to join the [Railway Discord server](https://discord.gg/railway) where you can interact with the engineers working on the API directly.

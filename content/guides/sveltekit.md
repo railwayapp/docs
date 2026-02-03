@@ -54,7 +54,7 @@ Open your browser and go to `http://localhost:5173` to see the app. You can play
 
 ### Prepare SvelteKit app for deployment
 
-First, we need to enable SvelteKit Node adapter.
+First, enable the SvelteKit Node adapter.
 
 [SvelteKit adapters](https://svelte.dev/docs/kit/adapters) are plugins that take the built app as input and generate output for deployment. These adapters are used to run your project on deployment platforms.
 
@@ -89,7 +89,7 @@ const config = {
 export default config;
 ```
 
-Next, we need to add the start script to the `package.json` file.
+Next, add the start script to the `package.json` file.
 
 Svelte builds your project into a `build` directory. The server starts when the server entry point is executed, which is by default located at `build/index.js`.
 
@@ -138,7 +138,7 @@ Open up the `package.json` file and add the start script. Set it to `node build/
 
 _package.json_
 
-Now, we are ready to deploy!
+Now you're ready to deploy!
 
 ## Deploy the SvelteKit app to Railway
 
@@ -152,7 +152,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/svelte-kit)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=sveltekit" target="_blank">variety of Svelte app templates</a> created by the community.
 

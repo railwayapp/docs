@@ -9,7 +9,7 @@ Railway provides a few features to help improve support for deploying monorepos 
    directory they are contained in (eg. JS frontend and Python backend)
 1. **[Shared Monorepo](#deploying-a-shared-monorepo)** → A repository that contains components that share code or configuration from the root directory (eg. Yarn workspace or Lerna project). We support **[automated import of Javascript monorepos](#automatic-import-for-javascript-monorepos)** for pnpm, npm, yarn or bun monorepos.
 
-For a full step by step walk through on deploying an isolated Monorepo see our <a href="/tutorials/deploying-a-monorepo" target="_blank">tutorial</a> on the subject.
+For a full step by step walk through on deploying an isolated Monorepo see the <a href="/tutorials/deploying-a-monorepo" target="_blank">tutorial</a> on the subject.
 
 ## Deploying an isolated monorepo
 

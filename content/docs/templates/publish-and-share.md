@@ -3,7 +3,7 @@ title: Publish and Share Templates
 description: Learn how to publish and share your Railway templates.
 ---
 
-Once you create a template, you have the option to publish it. Publishing a template will add it to our <a href="https://railway.com/templates" target="_blank">template marketplace</a> for other users to deploy.
+Once you create a template, you have the option to publish it. Publishing a template will add it to the <a href="https://railway.com/templates" target="_blank">template marketplace</a> for other users to deploy.
 
 ## Publishing a template
 
@@ -72,4 +72,4 @@ If your published template is deployed into other users' projects, you are eligi
 
 Templates are verified when the creator and maintainer of the technology becomes a partner and reviews the template.
 
-If you are or have a relationship with the creator, please reach out to us by submitting the form on our [partners page](https://railway.com/partners).
+If you are or have a relationship with the creator, please reach out to us by submitting the form on the [partners page](https://railway.com/partners).

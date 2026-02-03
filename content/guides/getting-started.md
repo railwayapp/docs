@@ -11,7 +11,7 @@ The Railway Team and community provide content, like tutorials and blogs, on how
 
 Explore the pages in this section to learn or get inspired!
 
-Also checkout our [Quick Start Tutorial](/quick-start) to deploy an app in minutes.
+Also checkout the [Quick Start Tutorial](/quick-start) to deploy an app in minutes.
 
 ### Contributing
 

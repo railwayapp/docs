@@ -52,7 +52,7 @@ By default, your template kickbacks are automatically converted into Railway Cre
 
 #### How do I start earning cash?
 
-Simply flip the switch on the Earnings page marked `Direct Deposit to Railway Credits`. This will stop auto-depositing your earnings into our credits system. You will then begin accruing cash in your `Available Balance`.
+Simply flip the switch on the Earnings page marked `Direct Deposit to Railway Credits`. This will stop auto-depositing your earnings into the Railway credits system. You will then begin accruing cash in your `Available Balance`.
 
 #### How do I request a withdrawal?
 

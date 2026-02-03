@@ -103,4 +103,4 @@ docker-entrypoint.sh mongod --ipv6 --bind_ip ::,0.0.0.0
 
 ## Adding more libraries
 
-If you encounter a library that requires specific configuration for Railway's private networking, please let us know on our <a href="https://discord.gg/railway" target="_blank">Discord</a> or submit a PR to our documentation.
+If you encounter a library that requires specific configuration for Railway's private networking, please let us know on the <a href="https://discord.gg/railway" target="_blank">Railway Discord</a> or submit a PR to the documentation.

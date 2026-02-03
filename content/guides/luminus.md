@@ -55,7 +55,7 @@ Open your browser and go to `http://localhost:3000` to see the app.
 
 ### Prepare Clojure Luminus app for deployment
 
-1. We need to add the `ceshire` library to our dependencies. `cheshire` is a popular JSON encoding/decoding library in Clojure.
+1. Add the `cheshire` library to your dependencies. `cheshire` is a popular JSON encoding/decoding library in Clojure.
 
 Open your `project.clj` file and ensure you have the following under `:dependencies`:
 
@@ -86,7 +86,7 @@ cmd = "java -jar $(find ./target -name '*.jar' ! -name '*SNAPSHOT*') migrate && 
 
 ```
 
-Here, we are specifically instructing Nixpacks to use the following command to start the app.
+Here, Nixpacks is being specifically instructed to use the following command to start the app.
 
 The command searches for all `.jar` files in the `target` directory (where the standalone JAR file is located after the build), excludes any file with "SNAPSHOT" in its name, and passes the selected file to `java -jar` to run.
 
@@ -104,7 +104,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/DsDYI2)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=clojure" target="_blank">variety of Clojure app templates</a> created by the community.
 
@@ -136,7 +136,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 5. **Deploy the Application**:
    - Run `railway up` to deploy your app.
      - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-   - Once the deployment is complete, we can proceed to generate a domain for the app service.
+   - Once the deployment is complete, proceed to generate a domain for the app service.
 6. **Set Up a Public URL**:
    - Run `railway domain` to generate a public URL for your app.
    - Visit the new URL to see your app live in action!

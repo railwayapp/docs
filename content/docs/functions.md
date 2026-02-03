@@ -31,7 +31,7 @@ width={589} height={366} quality={80} />
 
 ## Edit and deploy
 
-If you're familiar with VSCode or other IDEs, you'll feel right at home with our built-in editor.
+If you're familiar with VSCode or other IDEs, you'll feel right at home with the built-in editor.
 
 - **To edit** your function, open the "Source Code" tab in your service.
 - **To stage** your changes, press ⌘+S (or Control+S if using Windows).

@@ -397,4 +397,4 @@ If you encounter this limit, here are some strategies to reduce your logging vol
 
 ## Troubleshooting
 
-Having issues with logs? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
+Having issues with logs? Check out the [Troubleshooting guide](/troubleshooting) or reach out on the <a href="https://discord.gg/railway" target="_blank">Railway Discord</a>.

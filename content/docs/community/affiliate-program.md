@@ -34,7 +34,7 @@ To see and withdraw earnings:
 
 - Follow the instructions here to withdraw to GitHub Sponsors or Buy Me a Coffee.
 
-- After adding your account details you will request a withdrawal. Our team will receive the request and process it.
+- After adding your account details you will request a withdrawal. The Railway team will receive the request and process it.
 
 ## How do I maximize earnings?
 

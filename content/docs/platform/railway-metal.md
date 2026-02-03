@@ -12,12 +12,12 @@ alt="Railway Metal Region"
 layout="responsive"
 width={1184} height={322} quality={80} />
 
-Learn more about how we built it in our blog post [So You Want to Build Your Own Data Center](https://blog.railway.com/p/data-center-build-part-one).
+Learn more about how we built it in the blog post [So You Want to Build Your Own Data Center](https://blog.railway.com/p/data-center-build-part-one).
 
 ## Why?
 
-We are making this move as part of our commitment to providing best-in-class
-infrastructure for our users. This change enables us to improve our platform's
+We are making this move as part of Railway's commitment to providing best-in-class
+infrastructure for Railway's users. This change enables us to improve the Railway platform's
 performance, unlock additional features, increase reliability, and make
 Railway more cost-effective for all users.
 
@@ -25,23 +25,23 @@ With Railway Metal, you can expect the following benefits:
 
 - **Regions for Trial & Hobby plan users**: Railway Metal will be available to
   all users, including Trial & Hobby Plan users. Trial & Hobby plan users will
-  be able to deploy services on all four Railway Metal regions in the US,
+  be able to deploy services on all fRailway Metal regions in the US,
   Europe, and Southeast Asia.
 
-- **Cheaper Pricing**: Running our own hardware lets us reduce prices. Once
+- **Cheaper Pricing**: Running Railway's own hardware lets us reduce prices. Once
   Railway Metal is Generally Available, all users can expect to pay up to 50%
   less for Network Egress, and up to 40% less for Disk Usage.
 
-- **Improved Performance**: Services on Railway will run faster. Our new CPUs
+- **Improved Performance**: Services on Railway will run faster. Railway's new CPUs
   are more powerful with higher core count and better performance per-core.
   Volume read/write performance will also be significantly faster as all
-  of our disks are NVMe SSDs, which are faster than the disks we could offer
+  of Railway's disks are NVMe SSDs, which are faster than the disks we could offer
   before.
 
 - **Enhanced Reliability**: With Railway Metal, we are able to manage the
   hardware, software, and networking stack end-to-end. This allows us to move
   faster and fix problems more quickly. (For instance, before Railway Metal,
-  incidents such as [a single host failure](https://status.railway.com/cm44jp6qh00jydhwlyxsix3vl) would often take us ~60 minutes to bring the host back up. With our own
+  incidents such as [a single host failure](https://status.railway.com/cm44jp6qh00jydhwlyxsix3vl) would often take us ~60 minutes to bring the host back up. With Railway's own
   hardware, we can bring the host back up significantly faster.)
 
 - **Improved Networking**: We connect directly to major internet providers and
@@ -52,7 +52,7 @@ With Railway Metal, you can expect the following benefits:
   will be increasing over time, allowing us to offer you more computing
   resources on-demand.
 
-- **Unlocks More Features**: With our own hardware and networking stack, we
+- **Unlocks More Features**: With Railway's own hardware and networking stack, we
   can power more advanced features that were not possible before, such as
   Static Inbound IPs, Anycast Edge Network, High-Availability Volumes, etc.
 
@@ -78,7 +78,7 @@ Railway Metal is available to all users, including Trial & Hobby Plan users.
 Each Railway Metal region is located in a datacenter that was chosen
 strategically to provide the best possible performance and reliability.
 
-We are in the process of expanding our Railway Metal regions, and we expect to
+We are in the process of expanding Railway Metal regions, and we expect to
 have all regions available by the end of Q1'2025 (by 31 March 2025).
 
 | Railway Metal Region       | Status    |
@@ -91,7 +91,7 @@ have all regions available by the end of Q1'2025 (by 31 March 2025).
 ## Gradual upgrade
 
 We will gradually move services without a [volume](/volumes)
-to Railway Metal as we increase the pool of our hardware and its capabilities.
+to Railway Metal as we increase the pool of Railway's hardware and its capabilities.
 
 When this happens, you may see a new deploy initiated by Railway in your service:
 
@@ -147,7 +147,7 @@ width={1140} height={560} quality={80} />
 
 ## Timeline
 
-Our transition to Railway Metal will happen in phases. Here's what you can
+Railway's transition to Railway Metal will happen in phases. Here's what you can
 expect:
 
 | Date                         | What's Happening                                                                                                                                                          | Status |
@@ -219,14 +219,14 @@ period of downtime as your new deploy is being set up. You can set up
 
 ### What is the difference between Railway metal and regions?
 
-Railway Metal refers to our own hardware and infrastructure. Regions refer to
+Railway Metal refers to Railway's own hardware and infrastructure. Regions refer to
 the physical location of the datacenter where the hardware is located.
 
 ### I'm experiencing slow network performance after switching to us west (california) Railway metal region. What should I do?
 
 You may experience increased latency if your application is communicating with
 other services (such as databases) in `US West (Oregon)`. This is caused by the
-physical distance between Oregon (our current region) and California
+physical distance between Oregon (the current region) and California
 (Railway Metal region).
 
 We recommend switching back to the `US West (Oregon)` region if you are
@@ -235,7 +235,7 @@ See [Manual rollback](#manual-rollback) for instructions.
 
 ### Will Railway stay on gcp?
 
-No. We are migrating completely onto Railway managed hardware. For customers who would like Railway to deploy into their public cloud, you can contact sales via our [AWS Marketplace listing.](https://aws.amazon.com/marketplace/pp/prodview-cnib4vbrfgs5a)
+No. We are migrating completely onto Railway managed hardware. For customers who would like Railway to deploy into their public cloud, you can contact sales via the [AWS Marketplace listing.](https://aws.amazon.com/marketplace/pp/prodview-cnib4vbrfgs5a)
 
 ### Help! After migrating, why do I have increased latency?
 
@@ -243,7 +243,7 @@ It's likely that your database, or service with a volume, isn't migrated over to
 
 ### Why did my costs increase when moving to metal?
 
-Although not intended, Railway Metal, has a different metrics sampler than our legacy hardware. This means that metrics will be quicker to come in, this also meant that legacy was undercounting the amount of resources on the previous hardware. As a result, some metrics like CPU will increase, others, like RAM will usually decrease.
+Although not intended, Railway Metal, has a different metrics sampler than the legacy hardware. This means that metrics will be quicker to come in, this also meant that legacy was undercounting the amount of resources on the previous hardware. As a result, some metrics like CPU will increase, others, like RAM will usually decrease.
 
 ### How do I opt-out?
 
@@ -252,6 +252,6 @@ if you have any concerns.
 
 ## Getting help
 
-Please reach out to us [on our Central Station](https://station.railway.com/feedback/feedback-railway-metal-a41f03a1) if you run into any issues. You can also reach out to us over [Slack](/reference/support#slack) if you are
+Please reach out to us [on the Railway Help Station](https://station.railway.com/feedback/feedback-railway-metal-a41f03a1) if you run into any issues. You can also reach out to us over [Slack](/reference/support#slack) if you are
 a Pro or [Business Class / Enterprise](/reference/support#business-class)
 customer.

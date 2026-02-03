@@ -95,7 +95,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/FkW8oU)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=rocket" target="_blank">variety of Rocket templates</a> created by the community.
 
@@ -121,7 +121,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
 
-   **Note:** You'll come across a 502 error where your application doesn't respond. We'll fix that in the next step.
+   **Note:** You'll come across a 502 error where your application doesn't respond. You'll fix that in the next step.
 
 5. **Configure Rocket app to accept non-local connections**:
    - Rocket apps need to be configured to accept external connections by listening on the correct address, which is typically `0.0.0.0`. You can easily do this by setting the address through the environment variable.

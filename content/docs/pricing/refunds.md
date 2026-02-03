@@ -3,7 +3,7 @@ title: Refunds
 description: Learn about Railway’s refund policy and how to request a refund if eligible.
 ---
 
-Refunds are for new customers who no longer wish to use Railway after initially trying it out. Railway offers refunds at its sole discretion, in line with our [Terms of Service](https://railway.com/legal/terms).
+Refunds are for new customers who no longer wish to use Railway after initially trying it out. Railway offers refunds at its sole discretion, in line with Railway's [Terms of Service](https://railway.com/legal/terms).
 
 ## Requesting a refund
 
@@ -29,10 +29,10 @@ If you'd like to stop using Railway, please remove your projects and cancel your
 
 ### Why was my refund request denied?
 
-Refunds are issued at our sole discretion. If your refund request was denied, it may be due to one of the following reasons:
+Refunds are issued at Railway's sole discretion. If your refund request was denied, it may be due to one of the following reasons:
 
 - Your invoice contains resource usage costs. We generally do not issue refunds for resource usage, as those were resources you have consumed (in a manner akin to how a utility company charges for electricity or water)
 
 - You have received a refund from Railway in the past
 
-- You have violated our [Fair Use Policy](https://railway.com/legal/fair-use) and/or [Terms of Service](https://railway.com/legal/terms)
+- You have violated Railway's [Fair Use Policy](https://railway.com/legal/fair-use) and/or [Terms of Service](https://railway.com/legal/terms)

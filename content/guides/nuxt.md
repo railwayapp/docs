@@ -58,7 +58,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/lQQgLR)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=nuxt" target="_blank">variety of Nuxt app templates</a> created by the community.
 
@@ -75,7 +75,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
    - After the project is created, click the provided link to view it in your browser.
 3. **Modify Package.json Config**:
 
-   - By default, Nuxt doesn't add a start script in the `package.json` file. We'll need to add that to instruct Railway on how to run our app.
+   - By default, Nuxt doesn't add a start script in the `package.json` file. You'll need to add that to instruct Railway on how to run your app.
 
    - Add `"start":"node .output/server/index.mjs"` to the `package.json` file.
 

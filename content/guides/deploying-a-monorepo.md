@@ -19,7 +19,7 @@ This tutorial aims to provide a simple step-by-step on how to deploy a frontend 
 
 The procedure outlined in this tutorial can easily be adapted to deploy different apps that are contained within a isolated monorepo as well.
 
-For more information on deploying a shared monorepo check out our <a href="/guides/monorepo#deploying-a-shared-monorepo" target="_blank">guide</a> that explains some of the specific configurations you would need. If you are importing a JS monorepo, check out our <a href="/guides/monorepo#automatic-import-for-javascript-monorepos" target="_blank">guide</a> for automatic import.
+For more information on deploying a shared monorepo check out the <a href="/guides/monorepo#deploying-a-shared-monorepo" target="_blank">guide</a> that explains some of the specific configurations you would need. If you are importing a JS monorepo, check out the <a href="/guides/monorepo#automatic-import-for-javascript-monorepos" target="_blank">guide</a> for automatic import.
 
 **Objectives**
 
@@ -35,7 +35,7 @@ In this tutorial, you will learn how to -
 
 **Prerequisites**
 
-For the sake of this tutorial, we have a simple [example monorepo](https://github.com/railwayapp-templates/monorepo-example) with a frontend and a backend service. In practice, your monorepo is probably a lot more complicated, but the principles here will enable you to wire up each of your applications in your monorepo to a service and network those services together.
+For the sake of this tutorial, there is a simple [example monorepo](https://github.com/railwayapp-templates/monorepo-example) with a frontend and a backend service. In practice, your monorepo is probably a lot more complicated, but the principles here will enable you to wire up each of your applications in your monorepo to a service and network those services together.
 
 The frontend is built with [React](https://react.dev/) and [Vite](https://vitejs.dev/), and the static files are served with [Caddy](https://caddyserver.com/).
 
@@ -64,11 +64,11 @@ alt="Screenshot of new project page"
 layout="responsive"
 width={345.5} height={388} quality={100} />
 
-**Note:** We chose an empty project instead of deploying from a GitHub repo since we want to set up the project before deploying.
+**Note:** An empty project is chosen instead of deploying from a GitHub repo since you want to set up the project before deploying.
 
 ## 2. Project setup
 
-- You'll notice Railway automatically named the project, but we want something more recognizable. Open the Settings tab to `Update` the name of your project. You'll also notice the Danger tab here, when you want to delete your project after you're done with the tutorial.
+- You'll notice Railway automatically named the project, but you want something more recognizable. Open the Settings tab to `Update` the name of your project. You'll also notice the Danger tab here, when you want to delete your project after you're done with the tutorial.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721269026/docs/tutorials/monorepo/project_settings_ym1vul.png"
 alt="Screenshot of project settings"
@@ -86,7 +86,7 @@ alt="Screenshot of create menu"
 layout="responsive"
 width={735} height={510} quality={100} />
 
-**Note:** We chose an empty service instead of deploying from a GitHub repo since we want to configure the service before deploying.
+**Note:** An empty service is chosen instead of deploying from a GitHub repo since you want to configure the service before deploying.
 
 The result will look like this -
 
@@ -115,16 +115,16 @@ width={766} height={450} quality={100} />
 
 ## 4. Directory setup
 
-Both of our apps deploy from subdirectories of our monorepo, so we need to tell Railway where they are located.
+Both apps deploy from subdirectories of the monorepo, so you need to tell Railway where they are located.
 
-- Open the Frontend service to its service settings and you will see a **Root Directory** option, in this case, we will set it to `/frontend`
+- Open the Frontend service to its service settings and you will see a **Root Directory** option, in this case, set it to `/frontend`
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721269052/docs/tutorials/monorepo/frontend_root_dir_e52vkz.png"
 alt="Screenshot showing the frontend root directory"
 layout="responsive"
 width={1386} height={760} quality={100} />
 
-- Open the Backend service settings and we will set its root directory to `/backend`
+- Open the Backend service settings and set its root directory to `/backend`
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1721269046/docs/tutorials/monorepo/backend_root_dir_misneo.png"
 alt="Screenshot showing the backend root directory"
@@ -135,7 +135,7 @@ width={1386} height={760} quality={100} />
 
 ## 5. Connecting the repo
 
-Now we need to configure the source of the service where the code is deployed.
+Now configure the source of the service where the code is deployed.
 
 - Open the service settings for each service and connect your monorepo.
 
@@ -161,7 +161,7 @@ width={1386} height={760} quality={100} />
 
 Even though the services are now running, the frontend and backend aren't networked together yet. So let's setup domains for each service.
 
-Both the Vite Frontend and the Go Backend are already configured so that Railway will ✨automagically detect the port they're running on. Railway does this by detecting the `env.$PORT` variable that the service is binding. For simplicity's sake, we will connect these two services over their public domain so you can get a handle on the basics. In practice, you may need to configure your networking a bit differently. You can [read more about networking in the docs](https://docs.railway.com/guides/public-networking).
+Both the Vite Frontend and the Go Backend are already configured so that Railway will ✨automagically detect the port they're running on. Railway does this by detecting the `env.$PORT` variable that the service is binding. For simplicity's sake, these two services will be connected over their public domain so you can get a handle on the basics. In practice, you may need to configure your networking a bit differently. You can [read more about networking in the docs](https://docs.railway.com/guides/public-networking).
 
 Let's add public domains to both services.
 
@@ -182,7 +182,7 @@ width={1381} height={760} quality={100} />
 
 ## 7. Variable setup
 
-For our example monorepo the Frontend service needs a `VITE_BACKEND_HOST` variable, and our backend needs an `ALLOWED_ORIGINS` variable.
+For the example monorepo the Frontend service needs a `VITE_BACKEND_HOST` variable, and the backend needs an `ALLOWED_ORIGINS` variable.
 
 Let's add the Frontend variable first.
 

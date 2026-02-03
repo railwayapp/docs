@@ -191,7 +191,7 @@ Now let's deploy this API to Railway. First, create a Railway account by going t
    - Go to [GitHub](https://github.com/) and click "New repository"
    - Name it `my-express-api` (or any name you prefer)
    - Make it public or private
-   - Don't initialize with README, .gitignore, or license (we already have these)
+   - Don't initialize with README, .gitignore, or license (you already have these)
    - Click "Create repository"
 
 2. **Push your code to GitHub**:

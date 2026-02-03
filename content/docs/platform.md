@@ -1,6 +1,6 @@
 ---
 title: Platform
-description: Railway is a modern cloud deployment platform designed to help developers deploy instantly and scale apps effortlessly. Learn about our platform.
+description: Railway is a modern cloud deployment platform designed to help developers deploy instantly and scale apps effortlessly. Learn about the Railway platform.
 ---
 
 Railway is a deployment platform designed to streamline the software development life-cycle, starting with instant deployments and effortless scale, extending to CI/CD integrations and built-in observability.
@@ -30,7 +30,7 @@ Software development extends far beyond code deployment. Railway's feature set i
 **Environment and Workflow**
 
 - **Environment Management**: Create both static and ephemeral environments to create workflows that complement your processes.
-- **Orchestration & Tooling**: Build Railway into any workflow using our CLI or API.
+- **Orchestration & Tooling**: Build Railway into any workflow using the CLI or API.
 
 **Deployment Monitoring**
 

@@ -29,7 +29,7 @@ Deployments can be in any of the following states:
 
 #### Initializing
 
-Every Deployment in Railway begins as `Initializing` - once it has been accepted into our build queue, the status will change to `Building`.
+Every Deployment in Railway begins as `Initializing` - once it has been accepted into Railway's build queue, the status will change to `Building`.
 
 #### Building
 
@@ -146,7 +146,7 @@ Occasionally, Railway will initiate a new deployment to migrate your service fro
 2. A host requires security or performance updates and requires there to be no running workloads on the machine. We provide advance warning for these events.
 3. A host has a fault and we migrate workloads off the machine to another to maintain customer service continutity.
 
-We perform these migrations when implementing security patches or platform upgrades to the underlying infrastructure where your service was previously running. During platform-wide upgrades, your service might be redeployed multiple times as we roll out changes across our infrastructure. These deployments are mandatory and cannot be opted out of.
+We perform these migrations when implementing security patches or platform upgrades to the underlying infrastructure where your service was previously running. During platform-wide upgrades, your service might be redeployed multiple times as we roll out changes across Railway's infrastructure. These deployments are mandatory and cannot be opted out of.
 
 These Railway-initiated deployments will display with a banner above the Active deployment to clearly identify them.
 

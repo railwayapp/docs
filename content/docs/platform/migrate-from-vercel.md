@@ -21,11 +21,11 @@ Railway offers -
 
 ## Migration steps
 
-Let's walk through migrating a Next.js application to Railway. For this guide, we'll use a sample e-commerce app that showcases common Next.js features and configurations.
+Let's walk through migrating a Next.js application to Railway. For this guide, you'll use a sample e-commerce app that showcases common Next.js features and configurations.
 
 ### Deploying your application
 
-To get started deploying our NextJS app, we will first make a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
+To get started deploying your NextJS app, first create a new <a href="/overview/the-basics#project--project-canvas" target="_blank">project</a>.
 
 - Open up the <a href="/overview/the-basics#dashboard--projects" target="_blank">dashboard</a> → Click **New Project**.
 - Choose the **GitHub repo** option.
@@ -47,7 +47,7 @@ width={836} height={596} quality={100} />
 - Choose either **Deploy Now** or **Add variables**.
   **Deploy Now** will immediately start to build and deploy your selected repo.
   **Add Variables** will bring you to your service and ask you to add variables, when done you will need to click the **Deploy** button at the top of your canvas to initiate the first deployment.
-  _For brevity we will choose **Deploy Now**._
+  _For brevity, choose **Deploy Now**._
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1723752558/docs/quick-start/deploy_now_pmrqow.png"
 alt="screenshot of new project menu with deploy now option selected"
@@ -97,7 +97,7 @@ Next.js applications often rely on environment variables for API keys, database 
 
 ### Domain configuration
 
-Railway makes it simple to set up custom domains or use our provided domains -
+Railway makes it simple to set up custom domains or use Railway-provided domains -
 
 1. Open your service's Settings
 
@@ -139,6 +139,6 @@ Railway makes local development seamless with your production environment:
 
 This ensures development/production parity and helps catch issues before they reach production.
 
-That's all it takes to move your Next.js application to Railway! Need help? Our [team and community](https://station.railway.com/) are always ready to assist.
+That's all it takes to move your Next.js application to Railway! Need help? The [team and community](https://station.railway.com/) are always ready to assist.
 
-Need more information on how we compare to Vercel? Check out our [comparison page](/platform/compare-to-vercel).
+Need more information on how we compare to Vercel? Check out the [comparison page](/platform/compare-to-vercel).

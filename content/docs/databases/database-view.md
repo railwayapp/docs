@@ -81,7 +81,7 @@ width={542} height={422} quality={80} />
 
 ## Extensions tab for Postgres
 
-The Extensions tab enables postgres extensions management. You can view, install and uninstall extensions that are available in our Postgres image.
+The Extensions tab enables postgres extensions management. You can view, install and uninstall extensions that are available in the official Railway Postgres image.
 
 Extensions that aren't available need to be deployed from templates, since they require additional features in the database's image, like pgvector.
 

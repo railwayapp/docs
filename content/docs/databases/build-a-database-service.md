@@ -3,9 +3,9 @@ title: Build a Database Service
 description: Learn how to build a database service on Railway.
 ---
 
-Railway's platform primitives allow you to build any type of service your system requires, including database services. This guide aims to guide you through the essential features to build your own database service.
+Railway's platform primitives allow you to build any type of service your system requires, including database services. This guide will walk you through the essential features to build your own database service.
 
-For the purpose of this guide, we will use the official <a href="https://hub.docker.com/_/postgres" target="_blank">Postgres image</a> as an example.
+For the purpose of this guide, you'll use the official <a href="https://hub.docker.com/_/postgres" target="_blank">Postgres image</a> as an example.
 
 ## Service source
 
@@ -71,7 +71,7 @@ Remember you can also deploy from a Dockerfile which would generally involve the
 
 ### Template marketplace
 
-Need inspiration or looking for a specific database? Our <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> already includes solutions for many different database services. You might even find a template for the database you need!
+Need inspiration or looking for a specific database? The <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> already includes solutions for many different database services. You might even find a template for the database you need!
 
 Here are some suggestions to check out -
 

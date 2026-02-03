@@ -22,7 +22,7 @@ This guide covers how to deploy a Fastify app on Railway in four ways:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZZ50Bj)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=fastify" target="_blank">variety of Fastify app templates</a> created by the community.
 
@@ -59,7 +59,7 @@ If you don’t set it correctly, you may encounter a 502 error page.
    - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
 3. Run `railway init` within the app directory to create a new project.
 4. Run `railway up` to deploy.
-   - The CLI will now scan, compress and upload our fastify app files to Railway's backend for deployment.
+   - The CLI will now scan, compress and upload your fastify app files to Railway's backend for deployment.
 
 ## Use a Dockerfile
 

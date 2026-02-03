@@ -182,7 +182,7 @@ Some of the most commonly used volume settings are -
 
 ## What next?
 
-If you've read enough for now and are ready to get started, we suggest checking out either of these two resources next -
+If you've read enough for now and are ready to get started, check out either of these two resources next -
 
 - [Quick Start guide](/quick-start) to deploy a To Do app from a [template](/templates).
 

@@ -81,7 +81,7 @@ GraphQL inverts this. There's one endpoint, and you decide what data you need by
 
 **Strongly typed.** Every GraphQL API has a schema that defines valid queries. This means better tooling, auto-generated documentation, and errors caught before runtime.
 
-**Self-documenting.** The schema is always available to explore, which we'll cover below.
+**Self-documenting.** The schema is always available to explore, which this guide covers below.
 
 ## Core concepts
 

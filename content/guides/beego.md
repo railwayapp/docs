@@ -130,7 +130,7 @@ In your terminal, you’ll see logs indicating that the user data is being inser
 db_url = ${DATABASE_URL}
 ```
 
-2. Head over to the `main.go` file and make some modifications to the way we retrieve the Postgres database url. The `init()` function should look like this:
+2. Head over to the `main.go` file and make some modifications to the way the Postgres database url is retrieved. The `init()` function should look like this:
 
 ```go
 func init() {
@@ -165,7 +165,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/CPq9Ry)
 
-We highly recommend that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=beego" target="_blank">variety of Beego app templates</a> created by the community.
 
@@ -197,7 +197,7 @@ We highly recommend that [you eject from the template after deployment](/guides/
 5. **Deploy the Application**:
    - Run `railway up` to deploy your app.
      - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
-   - Once the deployment is complete, we can proceed to generate a domain for the app service.
+   - Once the deployment is complete, proceed to generate a domain for the app service.
 6. **Set Up a Public URL**:
    - Run `railway domain` to generate a public URL for your app.
    - Visit the new URL to see your app live in action!

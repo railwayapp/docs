@@ -166,7 +166,7 @@ This field can be set to `null`.
 
 You can also define specific options as follows.
 
-In this example, we are adding ffmpeg to the setup phase.
+Here's an example of adding ffmpeg to the setup phase.
 
 ```json
 {

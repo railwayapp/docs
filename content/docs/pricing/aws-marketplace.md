@@ -42,4 +42,4 @@ To purchase Railway through AWS Marketplace:
 
 ## Support
 
-For questions about AWS Marketplace purchases or to discuss private pricing agreements, [please contact our sales team.](https://cal.com/team/railway/work-with-railway)
+For questions about AWS Marketplace purchases or to discuss private pricing agreements, [please contact the Railway sales team.](https://cal.com/team/railway/work-with-railway)

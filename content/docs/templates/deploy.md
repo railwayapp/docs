@@ -6,7 +6,7 @@ description: Learn how to deploy Railway templates.
 Templates allow you to deploy a fully configured project that is automatically
 connected to infrastructure.
 
-You can find featured templates on our <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
+You can find featured templates on the <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
 
 ## Template deployment flow
 
@@ -25,7 +25,7 @@ _Note: You can also deploy templates into existing projects, by clicking `+ New`
 
 If you need help with a template you have deployed, you can ask the template creator directly:
 
-1. Find the template page in our [marketplace](https://railway.com/templates)
+1. Find the template page in the [marketplace](https://railway.com/templates)
 2. Click **"Discuss this Template"** on the template details page
 3. Your question will be posted to the template's queue where the creator can help
 

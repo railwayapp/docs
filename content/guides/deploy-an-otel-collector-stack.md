@@ -38,13 +38,13 @@ To be successful using this tutorial, you should already have -
 If you are looking for a quicker way to get started, you can deploy the collector and backend stack from a template by clicking the button below.
 <a href="https://railway.com/template/7KNDff" target="_blank"><img src="https://railway.com/button.svg" alt="Deploy on Railway" /></a>
 
-We also have a live demo of the project you will build in this tutorial <a href="https://classy-writing-production.up.railway.app/" target="_blank">here</a>, and you can access the code repository <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack" target="_blank">here in Github</a>. You can find some example apps, including the one we will build in this tutorial, in the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApps" target="_blank">exampleApps folder</a>.
+There is also a live demo of the project you will build in this tutorial <a href="https://classy-writing-production.up.railway.app/" target="_blank">here</a>, and you can access the code repository <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack" target="_blank">here in Github</a>. You can find some example apps, including the one you will build in this tutorial, in the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApps" target="_blank">exampleApps folder</a>.
 
 **Let's get started!**
 
 ## 1. Deploy the backend services
 
-First, we will deploy the backend services:
+First, deploy the backend services:
 
 - <a href="https://www.jaegertracing.io/" target="_blank">Jaeger</a> - an open-source, distributed tracing system that will receive telemetry data from the collector
 - <a href="https://zipkin.io/" target="_blank">Zipkin</a> - also an open-source, distributed tracing system that will receive telemetry data from the collector
@@ -143,9 +143,9 @@ Be sure to familiarize yourself with the Otel Collector's <a href="https://githu
 
 ## 3. Build and instrument an Express app
 
-Now that the collector stack is up, let's build and instrument an application!
+Now that the collector stack is up, build and instrument an application!
 
-_Note: The full source code for the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApp" target="_blank">express app</a> that we will build is available in the Open Telemetry Collector repository that you forked in the previous steps._
+_Note: The full source code for the <a href="https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApp" target="_blank">express app</a> that you will build is available in the Open Telemetry Collector repository that you forked in the previous steps._
 
 ### Create and initialize the project
 
@@ -225,7 +225,7 @@ From your local machine -
   module.exports = { rollTheDice };
   ```
 
-  We encourage you to refer to the OpenTelemetry documentation to gain a richer understanding of this code. The code you see above can be found <a href="https://opentelemetry.io/docs/languages/js/instrumentation/" target="_blank">here</a>.
+  Refer to the OpenTelemetry documentation to gain a richer understanding of this code. The code you see above can be found <a href="https://opentelemetry.io/docs/languages/js/instrumentation/" target="_blank">here</a>.
 
 ### Build the instrumentation sdk
 
@@ -273,7 +273,7 @@ From your local machine -
 
   This code will wrap your application code and capture the telemetry data. In the steps that follow, you will see how to start your application in Railway with a custom start command that utilizes this SDK.
 
-  We encourage you to refer to the OpenTelemetry documentation to gain a richer understanding of this code. The code you see above can be found <a href="https://opentelemetry.io/docs/languages/js/instrumentation/" target="_blank">here</a>.
+  Refer to the OpenTelemetry documentation to gain a richer understanding of this code. The code you see above can be found <a href="https://opentelemetry.io/docs/languages/js/instrumentation/" target="_blank">here</a>.
 
 ## 4. Deploy the Express app
 
@@ -344,7 +344,7 @@ Generate some traffic to this route, updating the number of rolls to different n
 
 ## Bonus - nextjs
 
-This tutorial was born out of an exploration into instrumenting some of our applications with <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/open-telemetry#custom-exporters" target="_blank">NextJS's Otel library</a>. This means that you can use this Otel collector stack to capture telemetry data from your NextJS app!
+This tutorial was born out of an exploration into instrumenting some of Railway's applications with <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/open-telemetry#custom-exporters" target="_blank">NextJS's Otel library</a>. This means that you can use this Otel collector stack to capture telemetry data from your NextJS app!
 
 ### Send telemetry data from nextjs
 
@@ -374,7 +374,7 @@ OTEL_LOG_LEVEL=debug
 
 ## Helpful resources
 
-The OpenTelemetry Documentation is complete and easy to follow. We encourage you to spend time getting familiar with the docs, but here are some sections that we found especially helpful -
+The OpenTelemetry Documentation is complete and easy to follow. Spend time getting familiar with the docs. Here are some sections that are especially helpful -
 
 - [OpenTelemetry Components](https://opentelemetry.io/docs/concepts/components/)
 - [OTLP Spec](https://opentelemetry.io/docs/specs/otlp/)

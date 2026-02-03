@@ -170,7 +170,7 @@ Railway Storage Buckets are encrypted at rest.
 
 ## Help us improve storage buckets
 
-Upvote these feature requests on our feedback page if these features sound useful to you:
+Upvote these feature requests on the feedback page if these features sound useful to you:
 
 - [Native file explorer](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a)
 - [Snapshots and backups](https://station.railway.com/feedback/railway-storage-buckets-backup-feature-8c44e697)

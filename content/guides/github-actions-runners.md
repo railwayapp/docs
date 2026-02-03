@@ -23,13 +23,13 @@ In this guide you'll learn:
 1. How to scale up [replicas](/reference/scaling#horizontal-scaling-with-replicas) to serve bigger Actions workloads.
 1. Best Practices for configuring your self-hosted runners on Railway.
 
-**Quickstart:** [Deploy your self-hosted Runners with our Railway template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9).
+**Quickstart:** [Deploy your self-hosted Runners with the Railway template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9).
 
 ## Deploy a GitHub self-hosted runner on Railway
 
-1. Navigate to the [GitHub Actions self-hosted Runner Template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9). You'll notice the template requires an `ACCESS_TOKEN`. This token, along with our `RUNNER_SCOPE` will determine _where_ our self-hosted runners get registered on GitHub. Thankfully, this template supports self registration of your runners -- which means you can dynamically scale up or down the number of runners you have just by adjusting your `replicas`!
+1. Navigate to the [GitHub Actions self-hosted Runner Template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9). You'll notice the template requires an `ACCESS_TOKEN`. This token, along with your `RUNNER_SCOPE` will determine _where_ your self-hosted runners get registered on GitHub. Thankfully, this template supports self registration of your runners -- which means you can dynamically scale up or down the number of runners you have just by adjusting your `replicas`!
 
-2. Set your `RUNNER_SCOPE` to `org`. We want to set up our self-hosted runners to register with a GitHub Organization, so any repositories within our organization can use the same pool of runners. This is super useful because you don't have to set up permissions for every single repository!
+2. Set your `RUNNER_SCOPE` to `org`. This sets up your self-hosted runners to register with a GitHub Organization, so any repositories within your organization can use the same pool of runners. This is super useful because you don't have to set up permissions for every single repository!
 
 If you have a GitHub Enterprise, you can similarly set up your runners using an `ACCESS_TOKEN`, you just need to set your `RUNNER_SCOPE` as `ent` instead.
 
@@ -37,7 +37,7 @@ If you need additional configuration, then you can simply [add a variable to you
 
 ## Setup a GitHub access_token
 
-For this guide, we will create a new [GitHub Fine-Grained Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens). These are modern personal access tokens that obey the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), making them easy to secure, revoke, and audit!
+For this guide, you will create a new [GitHub Fine-Grained Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens). These are modern personal access tokens that obey the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), making them easy to secure, revoke, and audit!
 
 **Note:** You need to have Admin access to the organization for which you are making the `ACCESS_TOKEN`.
 
@@ -163,7 +163,7 @@ If you are using a [proxy server](https://docs.github.com/en/actions/hosting-you
 
 ### Cost comparison
 
-On Railway you only [pay for what you use](/reference/pricing/plans), so you'll find your GitHub workflows are significantly cheaper. For this guide we tested over ~2,300 1 minute builds on Railway self-hosted runners and our usage costs were `$1.80` compared to [GitHub's Estimated Hosted Runner](https://github.com/pricing/calculator?feature=actions) cost of `$18.40` for the same workload. Even better? We had 10x Railway replicas with 32 vCPU and 32GB RAM for this test, meaning that our actions workflows would never slow down.
+On Railway you only [pay for what you use](/reference/pricing/plans), so you'll find your GitHub workflows are significantly cheaper. For this guide, over ~2,300 1-minute builds were tested on Railway self-hosted runners and the usage costs were `$1.80` compared to [GitHub's Estimated Hosted Runner](https://github.com/pricing/calculator?feature=actions) cost of `$18.40` for the same workload. Even better? With 10x Railway replicas with 32 vCPU and 32GB RAM for this test, the actions workflows would never slow down.
 
 On other platforms you pay for the _maximum available_ vCPUs and Memory. On Railway, you're only paying for usage, or in the below screenshot, the filled in purple area. This enables your workloads to still burst up to the _maximum available_ resources you have configured, with no tradeoffs on cost.
 

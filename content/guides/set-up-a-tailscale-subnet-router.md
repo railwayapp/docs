@@ -20,11 +20,11 @@ In the context of Railway, The "other devices" are the services within a project
 
 This tutorial will help you connect to your database via the private network without you having to use public endpoints.
 
-Since Railway doesn't currently offer a native way to access the <a href="https://docs.railway.com/reference/private-networking" target="_blank">private network</a> from our local environment, we can use a Tailscale Subnet Router to accomplish this.
+Since Railway doesn't currently offer a native way to access the <a href="https://docs.railway.com/reference/private-networking" target="_blank">private network</a> from your local environment, you can use a Tailscale Subnet Router to accomplish this.
 
-Deploying Tailscale as a subnet router into our project means that we can access the `railway.internal` private domains from any device connected to our tailnet.
+Deploying Tailscale as a subnet router into your project means that you can access the `railway.internal` private domains from any device connected to your tailnet.
 
-This tutorial aims to provide a simple step-by-step guide on setting up everything needed so that we can access the private domains of our services.
+This tutorial aims to provide a simple step-by-step guide on setting up everything needed so that you can access the private domains of your services.
 
 **Objectives**
 
@@ -38,7 +38,7 @@ In this tutorial, you'll learn how to do the following: -
 
 **Prerequisites**
 
-This guide assumes you are familiar with the concepts of Private Network, for a quick explainer check out our <a href="/guides/private-networking" target="_blank">guide</a> and <a href="/reference/private-networking" target="_blank">reference</a> page.
+This guide assumes you are familiar with the concepts of Private Network, for a quick explainer check out the <a href="/guides/private-networking" target="_blank">guide</a> and <a href="/reference/private-networking" target="_blank">reference</a> page.
 
 **In Railway -**
 
@@ -60,7 +60,7 @@ This guide assumes you are familiar with the concepts of Private Network, for a 
 
 ## 1. Getting an auth key
 
-The Auth key will authenticate the Tailscale machine that we'll deploy into our Railway project in a later step.
+The Auth key will authenticate the Tailscale machine that you'll deploy into your Railway project in a later step.
 
 - Head over to the [Keys](https://login.tailscale.com/admin/settings/keys) page located within the settings menu on the Tailscale dashboard.
 
@@ -86,13 +86,13 @@ width={602} height={855} quality={100} />
 
 ## 2. Configure split DNS
 
-Properly configuring our nameserver in Tailscale is essential for enabling local DNS lookups for our private domains.
+Properly configuring the nameserver in Tailscale is essential for enabling local DNS lookups for your private domains.
 
 - Open the <a href="https://login.tailscale.com/admin/dns" target="_blank">DNS</a> page.
 
 - Under the **Nameservers** Header, click **Add Nameserver** → Click **Custom**.
 
-  This is where we'll tell Tailscale how to route the DNS lookups for our `railway.internal` domains.
+  This is where you'll tell Tailscale how to route the DNS lookups for your `railway.internal` domains.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349122/docs/tutorials/tailscale-subnet-router/tailscale_nameservers_en8oma.png"
 alt="screenshot of the nameservers dropdown in tailscale"
@@ -101,13 +101,13 @@ width={813} height={683} quality={100} />
 
 - Enter `fd12::10` as the Nameserver.
 
-  This DNS nameserver is used across all private networks in every environment and will handle our DNS queries for private domains.
+  This DNS nameserver is used across all private networks in every environment and will handle your DNS queries for private domains.
 
 - Enable the **Restrict to domain** option, AKA Split DNS.
 
-- Enter in `railway.internal` as our domain.
+- Enter in `railway.internal` as the domain.
 
-  This makes sure only DNS lookups for our private domain are forwarded to the private DNS resolver.
+  This makes sure only DNS lookups for your private domain are forwarded to the private DNS resolver.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/add_nameserver_mlkk5y.png"
 alt="screenshot of the add nameserver modal in tailscale"
@@ -118,11 +118,11 @@ width={602} height={572} quality={100} />
 
 ## 3. Deploy the Tailscale subnet router
 
-This will be the gateway into our environment's private network.
+This will be the gateway into your environment's private network.
 
 - Open the project that contains the services you want to access privately.
 
-  For this tutorial, we will deploy the Subnet Router into a project with a Postgres database service.
+  For this tutorial, you will deploy the Subnet Router into a project with a Postgres database service.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349122/docs/tutorials/tailscale-subnet-router/project_with_postgres_x19ggr.png"
 alt="screenshot of a project canvas on railway showing a single postgres service"
@@ -153,9 +153,9 @@ This template will start to deploy and once deployed it will register itself as 
 
 ## 4. Approve the subnet
 
-Our subnet router will advertise the private network's CIDR range but we will need to manually approve it.
+Your subnet router will advertise the private network's CIDR range but you will need to manually approve it.
 
-- Head back over to our [Machines dashboard](https://login.tailscale.com/admin/machines).
+- Head back over to the [Machines dashboard](https://login.tailscale.com/admin/machines).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349122/docs/tutorials/tailscale-subnet-router/tailscale_machines_d3qcey.png"
 alt="screenshot of the machine's dashboard in tailscale that is showing a subnet needs approving"
@@ -180,11 +180,11 @@ width={1320} height={593} quality={100} />
 - Click the radio button on the `fd12::/16` to accept it.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/edit_route_settings_tyna0n.png"
-alt="screenshot of the edit route settings in tailscale showing our route being accepted"
+alt="screenshot of the edit route settings in tailscale showing the route being accepted"
 layout="intrinsic"
 width={602} height={526} quality={100} />
 
-    This route covers the entire private networking range allowing us to access all services within the project.
+    This route covers the entire private networking range allowing you to access all services within the project.
 
 - Click **Save**.
 
@@ -194,18 +194,18 @@ width={602} height={526} quality={100} />
 
 ## 5. Connecting to a service on the private network (bonus)
 
-During this tutorial we have used Postgres as an example service, so let's finally connect to it via its private domain and port!
+This tutorial has used Postgres as an example service, so let's finally connect to it via its private domain and port!
 
-You can use any database GUI tool you prefer, or none at all, since our setup allows you to connect to the database over the private network using any software.
+You can use any database GUI tool you prefer, or none at all, since your setup allows you to connect to the database over the private network using any software.
 
 Example: Your `prisma migrate deploy` or `python manage.py migrate` commands will now work locally without the need to use the public host and port for the database.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1724349120/docs/tutorials/tailscale-subnet-router/dbgate_priv_net_mdjnlh.png"
-alt="screenshot of dbgate showing that we have successfully connected to our database"
+alt="screenshot of dbgate showing a successful connection to the database"
 layout="intrinsic"
 width={1316} height={506} quality={100} />
 
-_Note the use of our private domain and port in the database URL._
+_Note the use of the private domain and port in the database URL._
 
 **Additional Resources**
 

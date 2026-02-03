@@ -3,13 +3,13 @@ title: Use Cases
 description: Explore real-world use cases for deploying and managing applications on Railway.
 ---
 
-Railway is suited for a variety of use-cases. This page will walk-through what the platform is perfect for today and our recommendations for apps of all sizes.
+Railway is suited for a variety of use-cases. This page will walk-through what the platform is perfect for today and Railway's recommendations for apps of all sizes.
 
-As mentioned in our philosophy document. Railway will make a best effort to provide all the information a developer needs to make the best choice for their workload.
+As mentioned in the philosophy document. Railway will make a best effort to provide all the information a developer needs to make the best choice for their workload.
 
 ## Is Railway production ready?
 
-Many of our customers use Railway to reliably deploy their applications to customers at scale. With that said, Production standards are going to be different depending on what your users expect. We have companies that use Railway in a variety of different verticals such as:
+Many of Railway's customers use Railway to reliably deploy their applications to customers at scale. With that said, Production standards are going to be different depending on what your users expect. We have companies that use Railway in a variety of different verticals such as:
 
 - Enterprise SaaS
 - Consumer Social
@@ -27,15 +27,15 @@ Railway's been in operation for now for more than three years and we have served
 
 All of these verticals deploy workloads that may require high bandwidth operations or intensive compute.
 
-However, service scale on the platform is not unbounded. As a foundational infrastructure company, we understand that customers may outpace our pace of improvement for the platform. Even though 24 vCPU and 24 GB of memory sounds like a lot (with up to 42 replicas) on the Pro plan, when faced with hyper-growth: throwing more resources at the issue might be your best bet until long term optimizations can be made by your team.
+However, service scale on the platform is not unbounded. As a foundational infrastructure company, we understand that customers may outpace Railway's pace of improvement for the platform. Even though 24 vCPU and 24 GB of memory sounds like a lot (with up to 42 replicas) on the Pro plan, when faced with hyper-growth: throwing more resources at the issue might be your best bet until long term optimizations can be made by your team.
 
-Railway will gladly bump up your service limits within your tier of service to meet your needs. Even so, we will be frank and honest if you may need to seek elsewhere to augment your workloads with extra compute. If your compute needs outpace our Pro offering, consider our Enterprise plans where we offer even greater limits and capacity planning, [email us to learn more](mailto:team@railway.com), or [click here](https://cal.com/team/railway/work-with-railway?duration=30) to schedule some time to chat.
+Railway will gladly bump up your service limits within your tier of service to meet your needs. Even so, we will be frank and honest if you may need to seek elsewhere to augment your workloads with extra compute. If your compute needs outpace the Pro offering, consider the Enterprise plans where we offer even greater limits and capacity planning, [email us to learn more](mailto:team@railway.com), or [click here](https://cal.com/team/railway/work-with-railway?duration=30) to schedule some time to chat.
 
 ### Databases
 
-We have customers using our databases for their production environment with no issue. Railway's databases are optimized for a batteries included development experience. They are good for applications that are prioritizing velocity and iteration speed over scale.
+We have customers using Railway's databases for their production environment with no issue. Railway's databases are optimized for a batteries included development experience. They are good for applications that are prioritizing velocity and iteration speed over scale.
 
-Our databases are provided with no SLAs, are not highly available, and scale only to the limits of your plan. We don't think they are suitable for anything mission-critical, like if you wanted to start a bank.
+Railway's databases are provided with no SLAs, are not highly available, and scale only to the limits of your plan. We don't think they are suitable for anything mission-critical, like if you wanted to start a bank.
 
 We advise developers to:
 
@@ -82,7 +82,7 @@ Railway aims to exist for a very long time. Railway has presence on existing pub
 
 ### Unsupported use-cases
 
-Unfortunately, our platform isn't yet well-equipped to handle the following verticals that require extensive Gov't certification or GPU compute:
+Unfortunately, the Railway platform isn't yet well-equipped to handle the following verticals that require extensive Gov't certification or GPU compute:
 
 - Government
 - Traditional Banking
@@ -90,6 +90,6 @@ Unfortunately, our platform isn't yet well-equipped to handle the following vert
 
 ## General recommendations
 
-A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.com](mailto:team@railway.com), or via our [Discord server](https://discord.gg/railway). You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/work-with-railway?duration=30).
+A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.com](mailto:team@railway.com), or via the [Railway Discord server](https://discord.gg/railway). You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/work-with-railway?duration=30).
 
 We would be happy to answer any additional questions you may have.

@@ -18,7 +18,7 @@ _This information is subject to change at any time._
 
 ## Rate limits
 
-To ensure the integrity and performance of our network, we enforce the following limits for all services.
+To ensure the integrity and performance of the Railway network, we enforce the following limits for all services.
 
 | Category                    | Limit                         | Description                                               |
 | --------------------------- | ----------------------------- | --------------------------------------------------------- |
@@ -45,7 +45,7 @@ We provide LetsEncrypt SSL certificates using RSA 2048bit keys. Certificates are
 
 Certificate issuance should happen within an hour of your DNS being updated with the values we provide.
 
-For proxied domains (Cloudflare orange cloud), we may not always be able to issue a certificate for the domain, but Cloudflare to Railway traffic will be encrypted with TLS using our default `*.up.railway.app` certificate.
+For proxied domains (Cloudflare orange cloud), we may not always be able to issue a certificate for the domain, but Cloudflare to Railway traffic will be encrypted with TLS using the default Railway `*.up.railway.app` certificate.
 
 ## Ddos protection
 

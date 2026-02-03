@@ -40,7 +40,7 @@ Explore the guides in the How To section for information on how to use these tem
 
 ### Template marketplace
 
-Our <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> includes many solutions for database services.
+The <a href="https://railway.com/templates" target="_blank">Template Marketplace</a> includes many solutions for database services.
 
 Here are some examples -
 

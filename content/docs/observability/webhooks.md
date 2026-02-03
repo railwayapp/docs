@@ -112,4 +112,4 @@ width={1466} height={810} quality={80} />
 
 ## Troubleshooting
 
-Having issues with webhooks? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
+Having issues with webhooks? Check out the [Troubleshooting guide](/troubleshooting) or reach out on the <a href="https://discord.gg/railway" target="_blank">Railway Discord</a>.

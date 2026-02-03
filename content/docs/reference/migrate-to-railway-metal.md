@@ -5,7 +5,7 @@ description: Learn how to move self-migrate your services over to Railway Metal
 
 This page will describe in detail the migration process when a service moves to Railway Metal.
 
-We will cover: how to initiate a migration, how to best prepare for a migration, and what mechanically happens when you initiate a migration of your services to Railway Metal.
+This guide covers: how to initiate a migration, how to best prepare for a migration, and what mechanically happens when you initiate a migration of your services to Railway Metal.
 
 ## What is Railway metal?
 
@@ -17,7 +17,7 @@ We announced on December 26th that we would be moving users to Railway Metal ove
 
 Railway is **currently** initiating migrations of user workloads to Railway Metal regions at off-peak times per region.
 
-As such, we advise our customers to move all of their workloads to Railway Metal to avoid Railway initiated downtime.
+As such, we advise Railway's customers to move all of their workloads to Railway Metal to avoid Railway initiated downtime.
 
 ## What does a migration to Railway metal entail?
 
@@ -41,11 +41,11 @@ By pressing: "Deploy", you initiate a migration to Railway Metal.
 
 ### What happens when my service is migrating?
 
-When you change the value of the region within the service settings page, Railway is told to deploy into that region when the environment applies the staged change. In Railway's system, we process a deployment request from our queue triggering a build.
+When you change the value of the region within the service settings page, Railway is told to deploy into that region when the environment applies the staged change. In Railway's system, we process a deployment request from Railway's queue triggering a build.
 
 Depending on if the service is Stateful or Stateless- we then initiate one of two bespoke migration processes.
 
-**For Stateless:** Railway rebuilds your application onto our Metal region, and after the container image is built, then is landed on a running host in one of our datacenters.
+**For Stateless:** Railway rebuilds your application onto Railway's Metal region, and after the container image is built, then is landed on a running host in one of Railway's datacenters.
 
 **For Stateful:** Railway detects if a volume is mounted to your service, if a volume is detected, Railway initiates a volume migration and holds the deployment until the volume is ready to be mounted within the new region. The process is as follows:
 
@@ -116,6 +116,6 @@ alt="Manual rollback"
 layout="responsive"
 width={1140} height={560} quality={80} />
 
-The Railway team during this period has doubled the amount of staffing around on-call and support to ensure this transition goes smoothly for our users.
+The Railway team during this period has doubled the amount of staffing around on-call and support to ensure this transition goes smoothly for Railway's users.
 
 Any issues, comments, and concerns- [raise a thread on Station.](https://station.railway.com)

@@ -66,4 +66,4 @@ The total from all replicas may differ slightly from the Sum view due to roundin
 
 ## Troubleshooting
 
-Having issues understanding your metrics? Check out the [Troubleshooting guide](/troubleshooting) or reach out on our <a href="https://discord.gg/railway" target="_blank">Discord</a>.
+Having issues understanding your metrics? Check out the [Troubleshooting guide](/troubleshooting) or reach out on the <a href="https://discord.gg/railway" target="_blank">Railway Discord</a>.

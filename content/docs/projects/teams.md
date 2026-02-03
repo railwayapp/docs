@@ -5,7 +5,7 @@ description: Learn how you can manage a workspaces within Railway.
 
 Workspaces are how organizations are represented within Railway. A default workspaces is made with your account, and new ones can be created via the Pro or Enterprise plans.
 
-For more information, visit our [documentation on pricing](/reference/pricing) or <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
+For more information, visit the [documentation on pricing](/pricing) or <a href="https://railway.com/pricing" target="_blank">railway.com/pricing</a>.
 
 ## Creating a workspace
 
@@ -101,6 +101,6 @@ However, if you expect to use a consistent amount of resources for large compani
 
 Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly threshold to [unlock additional features and services.](/reference/pricing/plans#committed-spend-tiers)
 
-Monthly thresholds for addons is found in our [committed spend pricing](/reference/pricing#committed-spend-tiers).
+Monthly thresholds for addons is found in the [committed spend pricing](/pricing/plans#committed-spend-tiers).
 
 Reach out to us at [team@railway.com](mailto:team@railway.com) for more information.

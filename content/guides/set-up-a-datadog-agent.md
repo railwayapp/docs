@@ -30,11 +30,11 @@ To be successful, you should already have -
 
 **Caveats**
 
-Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost. If this is a concern, you may be interested in exploring self-hosted solutions, and we encourage you to check out the [OpenTelemetry Tutorial](/guides/deploy-an-otel-collector-stack).
+Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost. If this is a concern, you may be interested in exploring self-hosted solutions, check out the [OpenTelemetry Tutorial](/guides/deploy-an-otel-collector-stack).
 
 ## 1. Create the project structure
 
-First we'll create the project structure.
+First, create the project structure.
 
 From your local machine -
 
@@ -51,7 +51,7 @@ railway-project/
 
 ## 2. Set up the Datadog agent
 
-Now we'll add files to the `agent` folder, which will build the Datadog Agent image.
+Now add files to the `agent` folder, which will build the Datadog Agent image.
 
 - Inside of the `agent` folder, create three files -
   - `Dockerfile`
@@ -60,7 +60,7 @@ Now we'll add files to the `agent` folder, which will build the Datadog Agent im
 
 #### Define the Dockerfile
 
-Let's define the Dockerfile.
+Define the Dockerfile.
 
 - Within your Dockerfile, add the following contents.
 
@@ -119,7 +119,7 @@ The `datadog.yaml` file is used to instruct the agent to send logs to Datadog ov
 
 ## 3. Set up the Node Express app
 
-Now let's build a Node Express App that will send logs and metrics to the Datadog Agent over the [Private Network](/networking/private-networking).
+Now build a Node Express App that will send logs and metrics to the Datadog Agent over the [Private Network](/networking/private-networking).
 
 - Create an `app.js` file inside of the `expressapi` folder you created in Step 1.
 - Use `npm` (or your preferred package manager) to install the required dependencies -
@@ -130,7 +130,7 @@ Now let's build a Node Express App that will send logs and metrics to the Datado
 
 #### Define the app.js file
 
-The `app.js` file defines your express server. This is where we will import the DataDog tracer and initialize the StatsD client and the Winston logger, which will send traces, metrics, and logs, respectively, to the Datadog agent.
+The `app.js` file defines your express server. This is where you will import the DataDog tracer and initialize the StatsD client and the Winston logger, which will send traces, metrics, and logs, respectively, to the Datadog agent.
 
 - Within the `app.js` file, add the following contents -
 
@@ -203,14 +203,14 @@ The `app.js` file defines your express server. This is where we will import the 
 
 #### Winston and hot-shots
 
-In this example app, we are using `Winston` as the logger and `hot-shots` as the StatsD client.
+In this example app, `Winston` is used as the logger and `hot-shots` as the StatsD client.
 
 - `Winston` is configured using `winston-syslog` to transport **logs** to the Datadog agent via Syslog over `udp6`.
 - `hot-shots` is configured to send **metrics** to the Datadog agent over `udp6`.
 
 ## 4. Set up the Railway project
 
-Now let's create the project using the CLI, then create the services and variables from within the project in Railway.
+Now create the project using the CLI, then create the services and variables from within the project in Railway.
 
 You will need your **Datadog API key** and **Site** value in this step.
 
@@ -267,7 +267,7 @@ DD_TRACE_AGENT_PORT=8126
 
 ## 5. Deploy to Railway
 
-Now we're ready to deploy our services. We will use the CLI to push code from our local machine to Railway.
+Now you're ready to deploy the services. Use the CLI to push code from your local machine to Railway.
 
 #### Railway up
 
@@ -313,11 +313,11 @@ _Note: it can take a few minutes to see the data in Datadog, check the Datadog A
 
 ## Bonus - add a Python service
 
-Once you have your agent setup and working with a node app. It's easy to add more services and configure the agent to accept data from them. In this bonus section, we'll quickly cover a Python implementation.
+Once you have your agent setup and working with a node app. It's easy to add more services and configure the agent to accept data from them. This bonus section quickly covers a Python implementation.
 
-In the following example, we are using the <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Python framework</a>.
+The following example uses the <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Python framework</a>.
 
-**In the `main.py` file we have configured both metrics and logs to be sent over StatsD and SysLog respectively -**
+**In the `main.py` file, both metrics and logs are configured to be sent over StatsD and SysLog respectively -**
 
 ```python
 import logging.handlers
