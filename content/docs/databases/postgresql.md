@@ -36,9 +36,9 @@ it to connect to PostgreSQL but you can use these variables in whatever way work
 
 #### Connecting Externally
 
-It is possible to connect to PostgreSQL externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
+It is possible to connect to PostgreSQL externally (from outside of the [project](/projects) in which it is deployed), by using the [TCP Proxy](/networking/tcp-proxy) which is enabled by default.
 
-_Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
+_Keep in mind that you will be billed for [Network Egress](/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
 
 ### Modify the Deployment
 

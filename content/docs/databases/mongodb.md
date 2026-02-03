@@ -22,7 +22,7 @@ Upon deployment, you will have a MongoDB service running in your project, deploy
 
 #### Custom Start Command
 
-The MongoDB database service starts with the following [Start Command](/deploy/deployments#start-command) to enable communication over [Private Network](/networking/private-networking): `mongod --ipv6 --bind_ip ::,0.0.0.0  --setParameter diagnosticDataCollectionEnabled=false`
+The MongoDB database service starts with the following [Start Command](/deployments/start-command) to enable communication over [Private Network](/networking/private-networking): `mongod --ipv6 --bind_ip ::,0.0.0.0  --setParameter diagnosticDataCollectionEnabled=false`
 
 ## Connect
 
@@ -36,9 +36,9 @@ Connect to MongoDB from another service in your project by [referencing the envi
 
 #### Connecting Externally
 
-It is possible to connect to MongoDB externally (from outside of the [project](/develop/projects) in which it is deployed), by using the [TCP Proxy](/deploy/exposing-your-app#tcp-proxying) which is enabled by default.
+It is possible to connect to MongoDB externally (from outside of the [project](/projects) in which it is deployed), by using the [TCP Proxy](/networking/tcp-proxy) which is enabled by default.
 
-_Keep in mind that you will be billed for [Network Egress](/reference/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
+_Keep in mind that you will be billed for [Network Egress](/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
 
 ### Modify the Deployment
 
