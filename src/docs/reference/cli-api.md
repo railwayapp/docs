@@ -330,14 +330,13 @@ Options:
   -e, --environment <ENVIRONMENT>  Environment to link to
   -p, --project <PROJECT>          Project to link to
   -s, --service <SERVICE>          The service to link to
-  -w, --workspace <WORKSPACE>      The workspace to link to
-  -t, --team <TEAM>                Deprecated: use --workspace instead
+  -t, --team <TEAM>                The team to link to. Use "personal" for your personal account
       --json                       Output in JSON format
   -h, --help                       Print help
   -V, --version                    Print version
 ```
 
-Running `link` with no project ID will prompt you to select a workspace and project.
+Running `link` with no project ID will prompt you to select a team and project.
 
 ## List
 
