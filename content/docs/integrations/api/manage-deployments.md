@@ -9,7 +9,7 @@ Here are examples to help you manage your deployments using the Public API.
 
 Get all deployments for a service in an environment:
 
-<CodeTabs query={`query deployments($input: DeploymentListInput!, $first: Int) {
+<GraphQLCodeTabs query={`query deployments($input: DeploymentListInput!, $first: Int) {
   deployments(input: $input, first: $first) {
     edges {
       node {
@@ -27,7 +27,7 @@ Get all deployments for a service in an environment:
 
 Fetch a deployment by ID:
 
-<CodeTabs query={`query deployment($id: String!) {
+<GraphQLCodeTabs query={`query deployment($id: String!) {
   deployment(id: $id) {
     id
     status
@@ -44,7 +44,7 @@ Fetch a deployment by ID:
 
 Get the currently running deployment:
 
-<CodeTabs query={`query latestDeployment($input: DeploymentListInput!) {
+<GraphQLCodeTabs query={`query latestDeployment($input: DeploymentListInput!) {
   deployments(input: $input, first: 1) {
     edges {
       node {
@@ -61,7 +61,7 @@ Get the currently running deployment:
 
 Fetch build logs for a deployment:
 
-<CodeTabs query={`query buildLogs($deploymentId: String!, $limit: Int) {
+<GraphQLCodeTabs query={`query buildLogs($deploymentId: String!, $limit: Int) {
   buildLogs(deploymentId: $deploymentId, limit: $limit) {
     timestamp
     message
@@ -73,7 +73,7 @@ Fetch build logs for a deployment:
 
 Fetch runtime logs for a deployment:
 
-<CodeTabs query={`query deploymentLogs($deploymentId: String!, $limit: Int) {
+<GraphQLCodeTabs query={`query deploymentLogs($deploymentId: String!, $limit: Int) {
   deploymentLogs(deploymentId: $deploymentId, limit: $limit) {
     timestamp
     message
@@ -90,7 +90,7 @@ optionalFields={[
 
 Fetch HTTP request logs for a deployment:
 
-<CodeTabs query={`query httpLogs($deploymentId: String!, $limit: Int) {
+<GraphQLCodeTabs query={`query httpLogs($deploymentId: String!, $limit: Int) {
   httpLogs(deploymentId: $deploymentId, limit: $limit) {
     timestamp
     requestId
@@ -106,7 +106,7 @@ Fetch HTTP request logs for a deployment:
 
 Redeploy an existing deployment:
 
-<CodeTabs query={`mutation deploymentRedeploy($id: String!) {
+<GraphQLCodeTabs query={`mutation deploymentRedeploy($id: String!) {
   deploymentRedeploy(id: $id) {
     id
     status
@@ -117,7 +117,7 @@ Redeploy an existing deployment:
 
 Restart a running deployment without rebuilding:
 
-<CodeTabs query={`mutation deploymentRestart($id: String!) {
+<GraphQLCodeTabs query={`mutation deploymentRestart($id: String!) {
   deploymentRestart(id: $id)
 }`} variables={{ id: "deployment-id" }} />
 
@@ -125,7 +125,7 @@ Restart a running deployment without rebuilding:
 
 Rollback to a previous deployment:
 
-<CodeTabs query={`mutation deploymentRollback($id: String!) {
+<GraphQLCodeTabs query={`mutation deploymentRollback($id: String!) {
   deploymentRollback(id: $id) {
     id
     status
@@ -138,7 +138,7 @@ Rollback to a previous deployment:
 
 Stop a running deployment:
 
-<CodeTabs query={`mutation deploymentStop($id: String!) {
+<GraphQLCodeTabs query={`mutation deploymentStop($id: String!) {
   deploymentStop(id: $id)
 }`} variables={{ id: "deployment-id" }} />
 
@@ -146,7 +146,7 @@ Stop a running deployment:
 
 Cancel a deployment that is building or queued:
 
-<CodeTabs query={`mutation deploymentCancel($id: String!) {
+<GraphQLCodeTabs query={`mutation deploymentCancel($id: String!) {
   deploymentCancel(id: $id)
 }`} variables={{ id: "deployment-id" }} />
 
@@ -154,7 +154,7 @@ Cancel a deployment that is building or queued:
 
 Remove a deployment from the history:
 
-<CodeTabs query={`mutation deploymentRemove($id: String!) {
+<GraphQLCodeTabs query={`mutation deploymentRemove($id: String!) {
   deploymentRemove(id: $id)
 }`} variables={{ id: "deployment-id" }} />
 
@@ -162,7 +162,7 @@ Remove a deployment from the history:
 
 Trigger a deployment for a specific service:
 
-<CodeTabs query={`mutation environmentTriggersDeploy($input: EnvironmentTriggersDeployInput!) {
+<GraphQLCodeTabs query={`mutation environmentTriggersDeploy($input: EnvironmentTriggersDeployInput!) {
   environmentTriggersDeploy(input: $input)
 }`} variables={{ input: { environmentId: "environment-id", projectId: "project-id", serviceId: "service-id" } }} />
 

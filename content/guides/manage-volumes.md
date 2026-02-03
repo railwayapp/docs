@@ -9,7 +9,7 @@ Here are examples to help you manage persistent volumes using the Public API.
 
 List all volumes in a project:
 
-<CodeTabs query={`query project($id: String!) {
+<GraphQLCodeTabs query={`query project($id: String!) {
   project(id: $id) {
     volumes {
       edges {
@@ -27,7 +27,7 @@ List all volumes in a project:
 
 Get details about a volume instance (volume in a specific environment):
 
-<CodeTabs query={`query volumeInstance($id: String!) {
+<GraphQLCodeTabs query={`query volumeInstance($id: String!) {
   volumeInstance(id: $id) {
     id
     mountPath
@@ -47,7 +47,7 @@ Get details about a volume instance (volume in a specific environment):
 
 Create a new persistent volume attached to a service:
 
-<CodeTabs query={`mutation volumeCreate($input: VolumeCreateInput!) {
+<GraphQLCodeTabs query={`mutation volumeCreate($input: VolumeCreateInput!) {
   volumeCreate(input: $input) {
     id
     name
@@ -62,7 +62,7 @@ optionalFields={[
 
 Rename a volume:
 
-<CodeTabs query={`mutation volumeUpdate($volumeId: String!, $input: VolumeUpdateInput!) {
+<GraphQLCodeTabs query={`mutation volumeUpdate($volumeId: String!, $input: VolumeUpdateInput!) {
   volumeUpdate(volumeId: $volumeId, input: $input) {
     id
     name
@@ -73,7 +73,7 @@ Rename a volume:
 
 Update the mount path for a volume instance:
 
-<CodeTabs query={`mutation volumeInstanceUpdate($volumeId: String!, $input: VolumeInstanceUpdateInput!) {
+<GraphQLCodeTabs query={`mutation volumeInstanceUpdate($volumeId: String!, $input: VolumeInstanceUpdateInput!) {
   volumeInstanceUpdate(volumeId: $volumeId, input: $input)
 }`} variables={{ volumeId: "volume-id", input: { mountPath: "/new/path" } }} />
 
@@ -81,7 +81,7 @@ Update the mount path for a volume instance:
 
 <Banner variant="danger">This will permanently delete the volume and all its data.</Banner>
 
-<CodeTabs query={`mutation volumeDelete($volumeId: String!) {
+<GraphQLCodeTabs query={`mutation volumeDelete($volumeId: String!) {
   volumeDelete(volumeId: $volumeId)
 }`} variables={{ volumeId: "volume-id" }} />
 
@@ -91,7 +91,7 @@ Update the mount path for a volume instance:
 
 Get all backups for a volume instance:
 
-<CodeTabs query={`query volumeInstanceBackupList($volumeInstanceId: String!) {
+<GraphQLCodeTabs query={`query volumeInstanceBackupList($volumeInstanceId: String!) {
   volumeInstanceBackupList(volumeInstanceId: $volumeInstanceId) {
     id
     name
@@ -104,25 +104,25 @@ Get all backups for a volume instance:
 
 ### Create a backup
 
-<CodeTabs query={`mutation volumeInstanceBackupCreate($volumeInstanceId: String!) {
+<GraphQLCodeTabs query={`mutation volumeInstanceBackupCreate($volumeInstanceId: String!) {
   volumeInstanceBackupCreate(volumeInstanceId: $volumeInstanceId)
 }`} variables={{ volumeInstanceId: "volume-instance-id" }} />
 
 ### Restore from backup
 
-<CodeTabs query={`mutation volumeInstanceBackupRestore($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
+<GraphQLCodeTabs query={`mutation volumeInstanceBackupRestore($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
   volumeInstanceBackupRestore(volumeInstanceBackupId: $volumeInstanceBackupId, volumeInstanceId: $volumeInstanceId)
 }`} variables={{ volumeInstanceBackupId: "backup-id", volumeInstanceId: "volume-instance-id" }} />
 
 ### Lock a backup (prevent expiration)
 
-<CodeTabs query={`mutation volumeInstanceBackupLock($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
+<GraphQLCodeTabs query={`mutation volumeInstanceBackupLock($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
   volumeInstanceBackupLock(volumeInstanceBackupId: $volumeInstanceBackupId, volumeInstanceId: $volumeInstanceId)
 }`} variables={{ volumeInstanceBackupId: "backup-id", volumeInstanceId: "volume-instance-id" }} />
 
 ### Delete a backup
 
-<CodeTabs query={`mutation volumeInstanceBackupDelete($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
+<GraphQLCodeTabs query={`mutation volumeInstanceBackupDelete($volumeInstanceBackupId: String!, $volumeInstanceId: String!) {
   volumeInstanceBackupDelete(volumeInstanceBackupId: $volumeInstanceBackupId, volumeInstanceId: $volumeInstanceId)
 }`} variables={{ volumeInstanceBackupId: "backup-id", volumeInstanceId: "volume-instance-id" }} />
 
@@ -130,7 +130,7 @@ Get all backups for a volume instance:
 
 ### List backup schedules
 
-<CodeTabs query={`query volumeInstanceBackupScheduleList($volumeInstanceId: String!) {
+<GraphQLCodeTabs query={`query volumeInstanceBackupScheduleList($volumeInstanceId: String!) {
   volumeInstanceBackupScheduleList(volumeInstanceId: $volumeInstanceId) {
     id
     name

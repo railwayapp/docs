@@ -9,7 +9,7 @@ Here are examples to help you manage your environment variables using the Public
 
 Fetch variables for a service in an environment:
 
-<CodeTabs query={`query variables($projectId: String!, $environmentId: String!, $serviceId: String) {
+<GraphQLCodeTabs query={`query variables($projectId: String!, $environmentId: String!, $serviceId: String) {
   variables(
     projectId: $projectId
     environmentId: $environmentId
@@ -36,7 +36,7 @@ Omit `serviceId` to get shared variables for an environment instead.
 
 Get variables with references intact (not resolved):
 
-<CodeTabs query={`query variables($projectId: String!, $environmentId: String!, $serviceId: String, $unrendered: Boolean) {
+<GraphQLCodeTabs query={`query variables($projectId: String!, $environmentId: String!, $serviceId: String, $unrendered: Boolean) {
   variables(
     projectId: $projectId
     environmentId: $environmentId
@@ -51,7 +51,7 @@ This returns variables like `${{Postgres.DATABASE_URL}}` instead of the resolved
 
 Upsert a single variable:
 
-<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
+<GraphQLCodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
   variableUpsert(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "API_KEY", value: "secret-key-here" } }}
 optionalFields={[
@@ -64,7 +64,7 @@ Omit `serviceId` to create a shared variable instead.
 
 Update multiple variables at once:
 
-<CodeTabs query={`mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
+<GraphQLCodeTabs query={`mutation variableCollectionUpsert($input: VariableCollectionUpsertInput!) {
   variableCollectionUpsert(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", variables: { DATABASE_URL: "postgres://...", REDIS_URL: "redis://...", NODE_ENV: "production" } } }}
 optionalFields={[
@@ -78,7 +78,7 @@ optionalFields={[
 
 Delete a single variable:
 
-<CodeTabs query={`mutation variableDelete($input: VariableDeleteInput!) {
+<GraphQLCodeTabs query={`mutation variableDelete($input: VariableDeleteInput!) {
   variableDelete(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "OLD_VARIABLE" } }} />
 
@@ -86,7 +86,7 @@ Delete a single variable:
 
 Get all variables as they would appear during a deployment (with all references resolved):
 
-<CodeTabs query={`query variablesForServiceDeployment($projectId: String!, $environmentId: String!, $serviceId: String!) {
+<GraphQLCodeTabs query={`query variablesForServiceDeployment($projectId: String!, $environmentId: String!, $serviceId: String!) {
   variablesForServiceDeployment(
     projectId: $projectId
     environmentId: $environmentId
@@ -104,7 +104,7 @@ ${{ServiceName.VARIABLE_NAME}}
 
 For example, to reference a database URL from a Postgres service:
 
-<CodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
+<GraphQLCodeTabs query={`mutation variableUpsert($input: VariableUpsertInput!) {
   variableUpsert(input: $input)
 }`} variables={{ input: { projectId: "project-id", environmentId: "environment-id", serviceId: "service-id", name: "DATABASE_URL", value: "${{Postgres.DATABASE_URL}}" } }} />
 

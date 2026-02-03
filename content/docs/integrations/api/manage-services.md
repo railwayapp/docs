@@ -9,7 +9,7 @@ Here are examples to help you manage your services using the Public API.
 
 Fetch a service by ID:
 
-<CodeTabs query={`query service($id: String!) {
+<GraphQLCodeTabs query={`query service($id: String!) {
   service(id: $id) {
     id
     name
@@ -23,7 +23,7 @@ Fetch a service by ID:
 
 Get detailed service configuration for a specific environment:
 
-<CodeTabs query={`query serviceInstance($serviceId: String!, $environmentId: String!) {
+<GraphQLCodeTabs query={`query serviceInstance($serviceId: String!, $environmentId: String!) {
   serviceInstance(serviceId: $serviceId, environmentId: $environmentId) {
     id
     serviceName
@@ -47,7 +47,7 @@ Get detailed service configuration for a specific environment:
 
 ### From a GitHub repository
 
-<CodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
+<GraphQLCodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
   serviceCreate(input: $input) {
     id
     name
@@ -61,7 +61,7 @@ optionalFields={[
 
 ### From a Docker image
 
-<CodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
+<GraphQLCodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
   serviceCreate(input: $input) {
     id
     name
@@ -76,7 +76,7 @@ optionalFields={[
 
 Create an empty service that you can configure later:
 
-<CodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
+<GraphQLCodeTabs query={`mutation serviceCreate($input: ServiceCreateInput!) {
   serviceCreate(input: $input) {
     id
     name
@@ -91,7 +91,7 @@ optionalFields={[
 
 Update service name or icon:
 
-<CodeTabs query={`mutation serviceUpdate($id: String!, $input: ServiceUpdateInput!) {
+<GraphQLCodeTabs query={`mutation serviceUpdate($id: String!, $input: ServiceUpdateInput!) {
   serviceUpdate(id: $id, input: $input) {
     id
     name
@@ -106,7 +106,7 @@ optionalFields={[
 
 Update build/deploy settings for a service in a specific environment. Click "Additional options" to see all available settings:
 
-<CodeTabs query={`mutation serviceInstanceUpdate($serviceId: String!, $environmentId: String!, $input: ServiceInstanceUpdateInput!) {
+<GraphQLCodeTabs query={`mutation serviceInstanceUpdate($serviceId: String!, $environmentId: String!, $input: ServiceInstanceUpdateInput!) {
   serviceInstanceUpdate(serviceId: $serviceId, environmentId: $environmentId, input: $input)
 }`} variables={{ serviceId: "service-id", environmentId: "environment-id", input: { startCommand: "npm run start" } }}
 optionalFields={[
@@ -128,7 +128,7 @@ optionalFields={[
 
 Connect an existing service to a GitHub repository:
 
-<CodeTabs query={`mutation serviceConnect($id: String!, $input: ServiceConnectInput!) {
+<GraphQLCodeTabs query={`mutation serviceConnect($id: String!, $input: ServiceConnectInput!) {
   serviceConnect(id: $id, input: $input) {
     id
   }
@@ -136,7 +136,7 @@ Connect an existing service to a GitHub repository:
 
 ## Disconnect a service from a repo
 
-<CodeTabs query={`mutation serviceDisconnect($id: String!) {
+<GraphQLCodeTabs query={`mutation serviceDisconnect($id: String!) {
   serviceDisconnect(id: $id) {
     id
   }
@@ -146,7 +146,7 @@ Connect an existing service to a GitHub repository:
 
 Trigger a new deployment for a service:
 
-<CodeTabs query={`mutation serviceInstanceDeployV2($serviceId: String!, $environmentId: String!) {
+<GraphQLCodeTabs query={`mutation serviceInstanceDeployV2($serviceId: String!, $environmentId: String!) {
   serviceInstanceDeployV2(serviceId: $serviceId, environmentId: $environmentId)
 }`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
@@ -156,7 +156,7 @@ This returns the deployment ID.
 
 Redeploy the latest deployment:
 
-<CodeTabs query={`mutation serviceInstanceRedeploy($serviceId: String!, $environmentId: String!) {
+<GraphQLCodeTabs query={`mutation serviceInstanceRedeploy($serviceId: String!, $environmentId: String!) {
   serviceInstanceRedeploy(serviceId: $serviceId, environmentId: $environmentId)
 }`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
@@ -164,7 +164,7 @@ Redeploy the latest deployment:
 
 Get the resource limits for a service instance (returns a JSON object):
 
-<CodeTabs query={`query serviceInstanceLimits($serviceId: String!, $environmentId: String!) {
+<GraphQLCodeTabs query={`query serviceInstanceLimits($serviceId: String!, $environmentId: String!) {
   serviceInstanceLimits(serviceId: $serviceId, environmentId: $environmentId)
 }`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
@@ -172,6 +172,6 @@ Get the resource limits for a service instance (returns a JSON object):
 
 <Banner variant="danger">This will delete the service and all its deployments.</Banner>
 
-<CodeTabs query={`mutation serviceDelete($id: String!) {
+<GraphQLCodeTabs query={`mutation serviceDelete($id: String!) {
   serviceDelete(id: $id)
 }`} variables={{ id: "service-id" }} />

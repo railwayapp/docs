@@ -9,7 +9,7 @@ Here are examples to help you manage domains using the Public API.
 
 Get all domains (both Railway-provided and custom) for a service:
 
-<CodeTabs query={`query domains($projectId: String!, $environmentId: String!, $serviceId: String!) {
+<GraphQLCodeTabs query={`query domains($projectId: String!, $environmentId: String!, $serviceId: String!) {
   domains(
     projectId: $projectId
     environmentId: $environmentId
@@ -42,7 +42,7 @@ Get all domains (both Railway-provided and custom) for a service:
 
 Generate a Railway-provided domain:
 
-<CodeTabs query={`mutation serviceDomainCreate($input: ServiceDomainCreateInput!) {
+<GraphQLCodeTabs query={`mutation serviceDomainCreate($input: ServiceDomainCreateInput!) {
   serviceDomainCreate(input: $input) {
     id
     domain
@@ -54,7 +54,7 @@ optionalFields={[
 
 ### Delete a service domain
 
-<CodeTabs query={`mutation serviceDomainDelete($id: String!) {
+<GraphQLCodeTabs query={`mutation serviceDomainDelete($id: String!) {
   serviceDomainDelete(id: $id)
 }`} variables={{ id: "service-domain-id" }} />
 
@@ -64,7 +64,7 @@ optionalFields={[
 
 Check if a custom domain can be added:
 
-<CodeTabs query={`query customDomainAvailable($domain: String!) {
+<GraphQLCodeTabs query={`query customDomainAvailable($domain: String!) {
   customDomainAvailable(domain: $domain) {
     available
     message
@@ -73,7 +73,7 @@ Check if a custom domain can be added:
 
 ### Add a custom domain
 
-<CodeTabs query={`mutation customDomainCreate($input: CustomDomainCreateInput!) {
+<GraphQLCodeTabs query={`mutation customDomainCreate($input: CustomDomainCreateInput!) {
   customDomainCreate(input: $input) {
     id
     domain
@@ -94,7 +94,7 @@ optionalFields={[
 
 Check DNS configuration status:
 
-<CodeTabs query={`query customDomain($id: String!, $projectId: String!) {
+<GraphQLCodeTabs query={`query customDomain($id: String!, $projectId: String!) {
   customDomain(id: $id, projectId: $projectId) {
     id
     domain
@@ -112,13 +112,13 @@ Check DNS configuration status:
 
 ### Update a custom domain
 
-<CodeTabs query={`mutation customDomainUpdate($id: String!, $environmentId: String!, $targetPort: Int) {
+<GraphQLCodeTabs query={`mutation customDomainUpdate($id: String!, $environmentId: String!, $targetPort: Int) {
   customDomainUpdate(id: $id, environmentId: $environmentId, targetPort: $targetPort)
 }`} variables={{ id: "custom-domain-id", environmentId: "environment-id", targetPort: 8080 }} />
 
 ### Delete a custom domain
 
-<CodeTabs query={`mutation customDomainDelete($id: String!) {
+<GraphQLCodeTabs query={`mutation customDomainDelete($id: String!) {
   customDomainDelete(id: $id)
 }`} variables={{ id: "custom-domain-id" }} />
 

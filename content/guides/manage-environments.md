@@ -9,7 +9,7 @@ Here are examples to help you manage your environments using the Public API.
 
 Get all environments for a project:
 
-<CodeTabs query={`query environments($projectId: String!) {
+<GraphQLCodeTabs query={`query environments($projectId: String!) {
   environments(projectId: $projectId) {
     edges {
       node {
@@ -25,7 +25,7 @@ Get all environments for a project:
 
 Filter out PR/preview environments:
 
-<CodeTabs query={`query environments($projectId: String!, $isEphemeral: Boolean) {
+<GraphQLCodeTabs query={`query environments($projectId: String!, $isEphemeral: Boolean) {
   environments(projectId: $projectId, isEphemeral: $isEphemeral) {
     edges {
       node {
@@ -41,7 +41,7 @@ Filter out PR/preview environments:
 
 Fetch an environment by ID with its service instances:
 
-<CodeTabs query={`query environment($id: String!) {
+<GraphQLCodeTabs query={`query environment($id: String!) {
   environment(id: $id) {
     id
     name
@@ -65,7 +65,7 @@ Fetch an environment by ID with its service instances:
 
 Create a new environment:
 
-<CodeTabs query={`mutation environmentCreate($input: EnvironmentCreateInput!) {
+<GraphQLCodeTabs query={`mutation environmentCreate($input: EnvironmentCreateInput!) {
   environmentCreate(input: $input) {
     id
     name
@@ -80,7 +80,7 @@ optionalFields={[
 
 ## Rename an environment
 
-<CodeTabs query={`mutation environmentRename($id: String!, $input: EnvironmentRenameInput!) {
+<GraphQLCodeTabs query={`mutation environmentRename($id: String!, $input: EnvironmentRenameInput!) {
   environmentRename(id: $id, input: $input)
 }`} variables={{ id: "environment-id", input: { name: "new-name" } }} />
 
@@ -88,7 +88,7 @@ optionalFields={[
 
 <Banner variant="danger">This will delete the environment and all its deployments.</Banner>
 
-<CodeTabs query={`mutation environmentDelete($id: String!) {
+<GraphQLCodeTabs query={`mutation environmentDelete($id: String!) {
   environmentDelete(id: $id)
 }`} variables={{ id: "environment-id" }} />
 
@@ -96,7 +96,7 @@ optionalFields={[
 
 Fetch logs from all services in an environment:
 
-<CodeTabs query={`query environmentLogs($environmentId: String!, $filter: String) {
+<GraphQLCodeTabs query={`query environmentLogs($environmentId: String!, $filter: String) {
   environmentLogs(environmentId: $environmentId, filter: $filter) {
     timestamp
     message
@@ -117,12 +117,12 @@ Railway supports staging variable changes before deploying them.
 
 ### Get staged changes
 
-<CodeTabs query={`query environmentStagedChanges($environmentId: String!) {
+<GraphQLCodeTabs query={`query environmentStagedChanges($environmentId: String!) {
   environmentStagedChanges(environmentId: $environmentId)
 }`} variables={{ environmentId: "environment-id" }} />
 
 ### Commit staged changes
 
-<CodeTabs query={`mutation environmentPatchCommitStaged($environmentId: String!) {
+<GraphQLCodeTabs query={`mutation environmentPatchCommitStaged($environmentId: String!) {
   environmentPatchCommitStaged(environmentId: $environmentId)
 }`} variables={{ environmentId: "environment-id" }} />

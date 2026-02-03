@@ -9,7 +9,7 @@ Here are examples to help you manage your projects using the Public API.
 
 Fetch all projects in your personal account:
 
-<CodeTabs query={`query {
+<GraphQLCodeTabs query={`query {
   projects {
     edges {
       node {
@@ -27,7 +27,7 @@ Fetch all projects in your personal account:
 
 Fetch all projects in a specific workspace:
 
-<CodeTabs query={`query workspaceProjects($workspaceId: String!) {
+<GraphQLCodeTabs query={`query workspaceProjects($workspaceId: String!) {
   projects(workspaceId: $workspaceId) {
     edges {
       node {
@@ -43,7 +43,7 @@ Fetch all projects in a specific workspace:
 
 Fetch a project by ID with its services and environments:
 
-<CodeTabs query={`query project($id: String!) {
+<GraphQLCodeTabs query={`query project($id: String!) {
   project(id: $id) {
     id
     name
@@ -73,7 +73,7 @@ Fetch a project by ID with its services and environments:
 
 Create a new empty project:
 
-<CodeTabs query={`mutation projectCreate($input: ProjectCreateInput!) {
+<GraphQLCodeTabs query={`mutation projectCreate($input: ProjectCreateInput!) {
   projectCreate(input: $input) {
     id
     name
@@ -92,7 +92,7 @@ optionalFields={[
 
 Update project name or description:
 
-<CodeTabs query={`mutation projectUpdate($id: String!, $input: ProjectUpdateInput!) {
+<GraphQLCodeTabs query={`mutation projectUpdate($id: String!, $input: ProjectUpdateInput!) {
   projectUpdate(id: $id, input: $input) {
     id
     name
@@ -109,7 +109,7 @@ optionalFields={[
 
 <Banner variant="danger">This is a destructive action and cannot be undone.</Banner>
 
-<CodeTabs query={`mutation projectDelete($id: String!) {
+<GraphQLCodeTabs query={`mutation projectDelete($id: String!) {
   projectDelete(id: $id)
 }`} variables={{ id: "project-id" }} />
 
@@ -117,7 +117,7 @@ optionalFields={[
 
 Transfer a project to a different workspace:
 
-<CodeTabs query={`mutation projectTransfer($projectId: String!, $input: ProjectTransferInput!) {
+<GraphQLCodeTabs query={`mutation projectTransfer($projectId: String!, $input: ProjectTransferInput!) {
   projectTransfer(projectId: $projectId, input: $input)
 }`} variables={{ projectId: "project-id", input: { workspaceId: "target-workspace-id" } }} />
 
@@ -125,7 +125,7 @@ Transfer a project to a different workspace:
 
 List all members of a project:
 
-<CodeTabs query={`query projectMembers($projectId: String!) {
+<GraphQLCodeTabs query={`query projectMembers($projectId: String!) {
   projectMembers(projectId: $projectId) {
     id
     role

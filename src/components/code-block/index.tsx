@@ -75,9 +75,6 @@ export function CodeTab({ children }: CodeTabProps) {
   return <>{children}</>;
 }
 
-// Alias for CodeBlock when used with tabs - clearer intent in MDX
-export const CodeTabs = CodeBlock;
-
 // Type for extracted tab data
 interface TabData {
   label: string;
