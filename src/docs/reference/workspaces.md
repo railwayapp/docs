@@ -17,7 +17,7 @@ You can open your workspace's settings page to manage members and see billing in
 
 ## Inviting Members
 
-Under the People tab of the settings page, you can invite members. Adding or removing team members does not incur any additional seat cost.
+Under the People tab of the settings page, you can invite members. Adding members to the workspace does not incur any additional seat cost.
 
 There are three roles for Workspace members:
 

@@ -3,7 +3,7 @@ title: Audit Logs
 description: Learn more about how Railway keeps a record of actions in workspaces.
 ---
 
-Audit logs provide a record of actions performed within your Railway [workspace](/reference/teams). This includes changes to projects, services, deployments, variables, and workspace settings.
+Audit logs provide a record of actions performed within your Railway [workspace](/reference/workspaces). This includes changes to projects, services, deployments, variables, and workspace settings.
 
 Audit logs can be accessed by workspace admins through the <a href="https://railway.com/workspace/audit-logs" target="_blank">**Audit Logs**</a> link in the workspace settings.
 
@@ -28,7 +28,7 @@ To view audit logs:
 1. Navigate to your workspace dashboard
 2. Click on <a href="https://railway.com/workspace/audit-logs" target="_blank">**Audit Logs**</a> in the sidebar
 
-For more information about workspace roles and permissions, see the [Workspaces documentation](/reference/teams).
+For more information about workspace roles and permissions, see the [Workspaces documentation](/reference/workspaces).
 
 ## Log Contents
 

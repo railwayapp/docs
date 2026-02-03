@@ -51,7 +51,7 @@ When enabled, a temporary environment is spun up to support the Pull Request dep
 
 #### How Come my GitHub PR Won't Deploy?
 
-Railway will not deploy a PR branch from a user who is not in your team or invited to your project without their associated GitHub account.
+Railway will not deploy a PR branch from a user who is not in your workspace or invited to your project without their associated GitHub account.
 
 #### Domains in PR Environments
 

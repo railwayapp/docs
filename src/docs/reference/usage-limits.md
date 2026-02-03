@@ -11,7 +11,7 @@ Usage Limits allow you to set a maximum limit on your usage for a billing cycle.
 
 Visit your [Workspace Usage page](https://railway.com/workspace/usage) to set the usage limits. Once you click the <kbd>Set Usage Limits</kbd> button, you will see a modal above where you can set a <kbd>Custom email alert</kbd> and a <kbd>Hard limit</kbd>.
 
-<Banner variant="info">The link above takes you to the usage page for your personal account. If you want to set a usage limit for your team, you can use the account switcher in the top left corner of your dashboard to access the team's usage page.</Banner>
+<Banner variant="info">The link above takes you to the usage page for your personal account. To set a usage limit for a different workspace, use the account switcher in the top left corner of your dashboard to access that workspace's usage page. You must be a workspace admin to configure usage limits.</Banner>
 
 ## Custom Email Alert
 

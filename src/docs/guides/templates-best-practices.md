@@ -119,7 +119,7 @@ A clean, minimal repository helps users quickly understand the template's struct
 
 ## Workspace Naming
 
-When users deploy a template, the template author appears as the name of the <a href="/reference/teams" target="_blank">workspace</a> that created and published it.
+When users deploy a template, the template author appears as the name of the <a href="/reference/workspaces" target="_blank">workspace</a> that created and published it.
 
 Since the author is publicly visible and shown with the template to the users, it is important to make sure the workspace name is professional and **accurately represents your relationship to the software**.
 

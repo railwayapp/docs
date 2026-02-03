@@ -36,14 +36,14 @@ width={836} height={744} quality={80} />
 When 2FA enforcement is enabled:
 
 - Existing members without 2FA are prompted to set it up before accessing the workspace.
-- Members can still be [invited](/reference/teams#inviting-members) to the workspace. They can accept the invite, but must enable 2FA before accessing workspace resources.
-- Users joining via [Trusted Domains](/reference/teams#trusted-domains) are added to the workspace, but must enable 2FA before accessing workspace resources.
+- Members can still be [invited](/reference/workspaces#inviting-members) to the workspace. They can accept the invite, but must enable 2FA before accessing workspace resources.
+- Users joining via [Trusted Domains](/reference/workspaces#trusted-domains) are added to the workspace, but must enable 2FA before accessing workspace resources.
 - New members cannot view or interact with workspace projects until 2FA is configured.
 
 ## Access Methods
 
 - **Dashboard and CLI**: All workspace members must have 2FA enabled to access the workspace through the Railway dashboard or [CLI](/guides/cli).
-- **API Tokens**: Access token-based access (such as project tokens or team tokens used for CI/CD pipelines and automated deployments) remains valid without 2FA. This ensures your automated workflows continue to function without interruption.
+- **API Tokens**: Token-based access (such as project tokens or workspace tokens used for CI/CD pipelines and automated deployments) remains valid without 2FA. This ensures your automated workflows continue to function without interruption.
 
 ## Disabling 2FA Enforcement
 
