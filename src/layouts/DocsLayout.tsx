@@ -14,7 +14,6 @@ import { reconstructMarkdownWithFrontmatter } from "../utils/markdown";
 import {
   extractHeadersFromMarkdown,
   buildBreadcrumbs,
-  getLastModifiedDate,
 } from "../utils/seo";
 
 export interface Props extends PageProps {
@@ -113,10 +112,16 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     return buildBreadcrumbs(frontMatter.url, sidebarContent);
   }, [frontMatter.url]);
 
-  // Get last modified date (could be enhanced to get from git)
-  const lastModified = useMemo(() => {
-    return getLastModifiedDate();
-  }, []);
+  const lastModified = frontMatter.lastModified ?? new Date().toISOString();
+
+  const formattedLastModified = useMemo(() => {
+    const date = new Date(lastModified);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  }, [lastModified]);
 
   return (
     <>
@@ -147,13 +152,16 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
             {children}
           </div>
 
-          <Link
-            tw="mt-16 flex items-center space-x-2 text-gray-600 text-sm no-underline hover:text-pink-500 w-fit"
-            href={gitHubFileLink}
-          >
-            <Edit tw="w-4 h-4" />
-            <span>Edit this file on GitHub</span>
-          </Link>
+          <div tw="mt-16 flex items-center justify-between text-gray-600 text-sm">
+            <Link
+              tw="flex items-center space-x-2 no-underline hover:text-pink-500 w-fit"
+              href={gitHubFileLink}
+            >
+              <Edit tw="w-4 h-4" />
+              <span>Edit this file on GitHub</span>
+            </Link>
+            <span>Last updated {formattedLastModified}</span>
+          </div>
 
           <hr tw="my-4" />
 

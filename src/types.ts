@@ -2,6 +2,7 @@ export interface FrontMatter {
   title: string;
   description?: string;
   url: string;
+  lastModified?: string;
 }
 
 export type ISidebarContent = ISidebarSection[];
