@@ -15,7 +15,7 @@ Volumes have a default size based on the [subscription plan](/reference/pricing#
 
 - Free and Trial plans: **0.5GB**
 - Hobby plans: **5GB**
-- Pro and team plans: **50GB**
+- Pro plan: **50GB**
 
 Volumes can be "Grown" after upgrading to a different plan.
 

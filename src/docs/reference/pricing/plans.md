@@ -152,7 +152,7 @@ Subscription is a flat fee you pay monthly for the tier you're subscribed to, an
 
 Railway's Pro and Enterprise plans are designed for collaboration. These plans allow you to add members to your team and manage their permissions.
 
-Read more about adding members to your Pro or Enterprise team [here](/reference/teams#inviting-members).
+Read more about adding members to your Pro or Enterprise team [here](/reference/workspaces#inviting-members).
 
 ### How long does Railway keep my volume data if I am no longer on a paid plan?
 

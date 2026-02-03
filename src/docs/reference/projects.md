@@ -39,10 +39,9 @@ Find instructions for updating your project's visibility [here](/guides/projects
 
 ## Project Transfers
 
-Projects can be transferred to other users or to Teams, depending on subscription plan.
+Projects can be transferred between workspaces or to other users. Both the source and destination must have an active [Hobby or Pro plan](/reference/pricing#plans) subscription.
 
-- Project transfers to other users are only allowed for users subscribed to the [Hobby Plan](/reference/pricing#plans) (both the initiator and recipient of the transfer).
-
-- Project transfers to [Teams](/reference/teams) are only allowed for users who are Admin members of an existing Team. Teams are a feature of the [Pro Plan](/reference/pricing#plans).
+- To transfer a project to another workspace you're a member of, you must be an Admin of the project.
+- To transfer a project to another user, they must have an active Hobby or Pro subscription.
 
 Detailed instructions on how to transfer projects can be found [here](/guides/projects#transferring-projects).

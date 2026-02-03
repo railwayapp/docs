@@ -99,6 +99,11 @@ const redirects = [
     destination: "/reference/errors",
     permanent: true,
   },
+  {
+    source: "/reference/teams",
+    destination: "/reference/workspaces",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [

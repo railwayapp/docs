@@ -15,14 +15,14 @@ https://backboard.railway.com/graphql/v2
 
 ## Authentication
 
-To use the API, you will need an API token. There are three types of tokens you can create.
+To use the API, you will need an API token. There are three types of tokens you can create in the Railway dashboard. If you're building an application that authenticates users, you can also use OAuth.
 
-#### Team Token and Personal Token
+#### Account Tokens and Workspace Tokens
 
-You can create an API token by visiting the <a href="https://railway.com/account/tokens" target="_blank">tokens page</a> in your account settings.
+You can create an account or workspace token from the <a href="https://railway.com/account/tokens" target="_blank">tokens page</a> in your account settings.
 
-- **Team tokens** are tied to a team and will have access to all the team's resources. This token cannot be used to access your personal resources on Railway so feel free to share it with your teammates.
-- **Non-team tokens** will be tied to your Railway account and will have access to all your resources. Do not share this token with anyone else.
+- **Account token**: If you select "No workspace", the token will be tied to your Railway account. This is the broadest scope. The token can perform any API action you're authorized to do across all your resources and workspaces. Do not share this token with anyone else.
+- **Workspace token**: Select a specific workspace in the dropdown to create a token scoped to that workspace. A workspace token has access to all the workspace's resources, and cannot be used to access your personal resources or other workspaces on Railway. You can share this token with your teammates.
 
 ```bash
 curl --request POST \
@@ -31,6 +31,22 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{"query":"query { me { name email } }"}'
 ```
+
+#### Project Token
+
+You can create a project token from the tokens page in your project settings.
+
+Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
+
+```bash
+curl --request POST \
+  --url https://backboard.railway.com/graphql/v2 \
+  --header 'Project-Access-Token: <PROJECT_TOKEN_GOES_HERE>' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query { projectToken { projectId environmentId } }"}'
+```
+
+**Note:** Project tokens use the `Project-Access-Token` header, not the `Authorization: Bearer` header used by account, workspace, and OAuth tokens.
 
 #### OAuth Access Token
 
@@ -42,20 +58,6 @@ curl --request POST \
   --header 'Authorization: Bearer <ACCESS_TOKEN>' \
   --header 'Content-Type: application/json' \
   --data '{"query":"query { me { name email } }"}'
-```
-
-#### Project Token
-
-You can create a project token by visiting the tokens page in your project settings.
-
-Project tokens are scoped to a specific environment within a project and can only be used to authenticate requests to that environment.
-
-```bash
-curl --request POST \
-  --url https://backboard.railway.com/graphql/v2 \
-  --header 'Project-Access-Token: <PROJECT_TOKEN_GOES_HERE>' \
-  --header 'Content-Type: application/json' \
-  --data '{"query":"query { projectToken { projectId environmentId } }"}'
 ```
 
 ## Schema
@@ -70,10 +72,16 @@ We provide a collection file which can be imported into your preferred API clien
 
 Use our [GraphiQL playground](https://railway.com/graphiql) to view the schema and test your queries.
 
-Make sure to set an Authorization header with an [auth token](/reference/public-api#authentication). Click the "Headers" tab at the bottom of the GraphiQL page and enter this json, using your own token:
+Make sure to set a header with your [authorization token](/reference/public-api#authentication). Click the "Headers" tab at the bottom of the GraphiQL page and enter this json, using your own token based on your use case:
 
+For an account or workspace token:
 ```json
 { "Authorization": "Bearer <API_TOKEN_GOES_HERE>" }
+```
+
+For a project token:
+```json
+{ "Project-Access-Token": "<PROJECT_TOKEN_GOES_HERE>" }
 ```
 
 ## Rate Limits

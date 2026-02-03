@@ -35,7 +35,7 @@ Note that your template will not be available on the template marketplace, nor w
 
 It's now possible to specify a private GitHub repo when creating a template.
 
-This feature is intended for use among [Teams](/reference/teams) and [Organizations](/reference/teams). Users supporting a subscriber base may also find this feature helpful to distribute closed-source code.
+This feature is intended for use among [Teams](/reference/workspaces) and [Organizations](/reference/workspaces). Users supporting a subscriber base may also find this feature helpful to distribute closed-source code.
 
 To deploy a template that includes a private repo, look for the `GitHub` panel in the `Account Integrations` section of [General Settings](https://railway.com/account). Then select the `Edit Scope` option to grant Railway access to the desired private repos.
 

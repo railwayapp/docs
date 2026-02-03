@@ -49,11 +49,11 @@ Each project generates a project invite link. To invite someone via a link:
 
 ## Transferring Projects
 
-Depending on your plan, you can transfer Projects to other users or Teams.
+Projects can be transferred between workspaces or to other users. Both the source and destination must have an active [Hobby or Pro plan](/reference/pricing#plans) subscription.
 
-#### Hobby User to Hobby User
+#### Transferring to Another User
 
-To transfer a project from one Hobby User to another Hobby User, you must first [add the user as a member](#inviting-members) in the project.
+To transfer a project to another user, you must first [add the user as a member](#inviting-members) of the project.
 
 You can then transfer the project to the new member by selecting the three dots next to the user and choosing `Transfer Ownership`.
 
@@ -62,15 +62,15 @@ alt="Screenshot of Project Transfer Menu"
 layout="intrinsic"
 width={411} height={253} quality={80} />
 
-The transferee receives an email requesting to transfer the project.
+The recipient receives an email to confirm the transfer. They have 24 hours to accept.
 
-#### Hobby User to Team || Team to Team
+#### Transferring Between Workspaces
 
-You can transfer a Project in your Hobby workspace to a Team (or between Teams) in which you are an Admin. Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
+You can transfer a project to another workspace that you're a member of. Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1692378671/project-transfer_iukfwb.png" alt="Project Transfer" layout="responsive" height={968} width={1240} />
 
-Note: If you do not see the Transfer Project section in your Project Settings, you may not be an Admin of the Team to which you wish to transfer the Project. See the [reference page for Teams](/reference/teams#inviting-members) for more information on team member permissions.
+Note: You must be an Admin of the project to initiate a transfer. The destination workspace must have an active Hobby or Pro subscription. See the [Workspaces reference](/reference/workspaces#inviting-members) for more information on workspace roles.
 
 ## Viewing Recent Activity
 
