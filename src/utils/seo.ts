@@ -117,7 +117,4 @@ export function buildBreadcrumbs(
   return breadcrumbs;
 }
 
-export function getLastModifiedDate(filePath?: string): string {
-  return new Date().toISOString();
-}
 

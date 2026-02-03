@@ -58,6 +58,7 @@ export default function PostPage({
         title: page.title,
         description: page.description,
         url: page.url,
+        lastModified: page.lastModified,
       }}
       rawMarkdown={rawMarkdown}
     >
