@@ -23,7 +23,7 @@ When you deploy your app to Fly, your code runs on lightweight Virtual Machines 
 
 Machines come with two types of virtual CPUs: `shared` and `performance`.
 
-Shared CPUs are the more affordable option. They guarantee a small slice of CPU time (around 6%) but can burst to full power when there’s extra capacity. This makes them ideal for apps that are mostly idle but occasionally need to handle traffic—like APIs or web servers. Just keep in mind that heavy usage can lead to throttling.
+Shared CPUs are the more affordable option. They guarantee a small slice of CPU time (around 6%) but can burst to full power when there’s extra capacity. This makes them ideal for apps that are mostly idle but occasionally need to handle traffic, like APIs or web servers. Just keep in mind that heavy usage can lead to throttling.
 
 Performance CPUs, by contrast, give you dedicated access to the CPU at all times. There’s no bursting or throttling, making them a better choice for workloads that require consistent, high performance.
 

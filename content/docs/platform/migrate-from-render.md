@@ -23,7 +23,7 @@ Railway offers:
 
 In this guide, we will migrate a Go (Beego) app with a Postgres database from Render to Railway.
 
-Here’s the link to the app. A simple chat app that have the options of Long polling and Web socket — https://github.com/unicodeveloper/beego-WebIM
+Here’s the link to the app. A simple chat app that have the options of Long polling and Web socket: https://github.com/unicodeveloper/beego-WebIM
 
 ### 1. Set Up a Railway Project
 

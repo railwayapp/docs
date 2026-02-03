@@ -13,7 +13,7 @@ tags:
   - backend
 ---
 
-[Gin](https://gin-gonic.com) is a high-performance web framework for Go (Golang) that provides a martini-like API while being significantly faster—up to 40 times—due to its use of `httprouter`. It's designed for developers seeking both speed and productivity.
+[Gin](https://gin-gonic.com) is a high-performance web framework for Go (Golang) that provides a martini-like API while being significantly faster (up to 40 times) due to its use of `httprouter`. It's designed for developers seeking both speed and productivity.
 
 This guide covers how to deploy a Gin app on Railway in four ways:
 

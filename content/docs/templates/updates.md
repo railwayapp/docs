@@ -39,7 +39,7 @@ If an upstream update is available, you will receive a notification. You can the
 
 - Railway monitors the template's source repository for changes
 - When updates are detected, you'll see a notification in your project
-- Updates are opt-in—you control when to apply them
+- Updates are opt-in, you control when to apply them
 - Review the template author's changelog before updating to understand what's changing
 
 ### Limitations

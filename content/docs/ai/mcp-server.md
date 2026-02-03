@@ -109,34 +109,34 @@ The Railway MCP Server provides a curated set of tools. Your AI assistant will a
 
 * **Status**
 
-  * `check-railway-status` — Verify CLI installation and authentication
+  * `check-railway-status` - Verify CLI installation and authentication
 
 * **Project Management**
 
-  * `list-projects` — List all projects
-  * `create-project-and-link` — Create a project and link it to the current directory
+  * `list-projects` - List all projects
+  * `create-project-and-link` - Create a project and link it to the current directory
 
 * **Service Management**
 
-  * `list-services` — List project services
-  * `link-service` — Link a service to the current directory
-  * `deploy` — Deploy a service
-  * `deploy-template` — Deploy from the [Railway Template Library](https://railway.com/deploy)
+  * `list-services` - List project services
+  * `link-service` - Link a service to the current directory
+  * `deploy` - Deploy a service
+  * `deploy-template` - Deploy from the [Railway Template Library](https://railway.com/deploy)
 
 * **Environment Management**
 
-  * `create-environment` — Create a new environment
-  * `link-environment` — Link environment to current directory
+  * `create-environment` - Create a new environment
+  * `link-environment` - Link environment to current directory
 
 * **Configuration & Variables**
 
-  * `list-variables` — List environment variables
-  * `set-variables` — Set environment variables
-  * `generate-domain` — Generate a Railway domain
+  * `list-variables` - List environment variables
+  * `set-variables` - Set environment variables
+  * `generate-domain` - Generate a Railway domain
 
 * **Monitoring & Logs**
 
-  * `get-logs` — Retrieve service logs
+  * `get-logs` - Retrieve service logs
 
 ## Security Considerations
 

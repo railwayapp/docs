@@ -27,7 +27,7 @@ Once enabled, you'll need to enter a code from your authenticator app each time 
 After setting up two-factor authentication, you'll receive a set of recovery codes. These codes serve as an alternative login method if you lose access to your authenticator app or are unable to receive a verification code.
 
 <Banner variant="warning">
-**Treat recovery codes like passwords.** Store them in a safe place—you'll need them if you lose access to your authenticator app.
+**Treat recovery codes like passwords.** Store them in a safe place. You'll need them if you lose access to your authenticator app.
 </Banner>
 
 Each recovery code can only be used once. If you've used most of your codes, you can generate a new set from your account settings.

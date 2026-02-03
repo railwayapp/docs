@@ -11,9 +11,9 @@ This guide walks you through the steps needed to seamlessly migrate your app and
 - Export data from Fly.io and Import into Railway DB
 - Deploy app (including auto-migration of app config & variables)
 
-We provide everything Fly.io offers—and more! Check out our [comparison guide](/platform/compare-to-fly) to see the differences and make an informed choice.
+We provide everything Fly.io offers and more! Check out our [comparison guide](/platform/compare-to-fly) to see the differences and make an informed choice.
 
-Why take our word for it? Experience the [Railway advantage yourself—give it a spin today!](https://railway.com/new)
+Why take our word for it? Experience the [Railway advantage yourself, give it a spin today!](https://railway.com/new)
 
 ## Migration Steps
 
@@ -31,7 +31,7 @@ Select the **Deploy from GitHub Repo** option and connect your repository. If yo
 
 ### 2. Deploy the App
 
-Railway auto-imports all the build configurations, deploy commands, environment variables from your Fly.io app repo—no manual setup needed.
+Railway auto-imports all the build configurations, deploy commands, environment variables from your Fly.io app repo. No manual setup needed.
 
 If the environment variables are missing, you can easily add them manually by following these steps:
 
