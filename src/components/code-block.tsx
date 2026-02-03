@@ -7,7 +7,7 @@ import {
   transformerRemoveLineBreak,
 } from "@shikijs/transformers";
 import * as React from "react";
-import { Icon } from "../icon";
+import { Icon } from "./icon";
 import { codeToHtml, bundledLanguages, type BundledLanguage } from "shiki";
 
 // Check if a language is supported by shiki
