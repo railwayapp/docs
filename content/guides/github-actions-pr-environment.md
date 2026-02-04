@@ -34,7 +34,7 @@ env:
   ENV_VALUE: "" # the value to inject
   DUPLICATE_FROM_ID: "" # railway environment to duplicate from
   LINK_PROJECT_ID: "" # project ID
-  # TEAM_ID: "" if you are linking to a project in team, uncomment this
+  # WORKSPACE_ID: "" if you are linking to a project in a workspace, uncomment this
 
 jobs:
   pr_opened:
@@ -58,7 +58,7 @@ jobs:
         run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```
 
-**Note:** if you are using a team project, you need to ensure that the token specified is scoped to your account, not a workspace.
+**Note:** If you are using a project in a workspace, you need to ensure that the token specified is scoped to your account, not just the workspace.
 
 This can very easily be modified to run commands in order to find variables and values, and can simply be passed as flags to the railway environment create command.
 

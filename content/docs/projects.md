@@ -62,7 +62,7 @@ Projects can be transferred to other users or to Teams, depending on subscriptio
 
 ### Hobby user to hobby user
 
-To transfer a project from one Hobby User to another Hobby User, you must first [add the user as a member](#inviting-members) in the project.
+To transfer a project to another user, you must first [add the user as a member](#inviting-members) of the project.
 
 You can then transfer the project to the new member by selecting the three dots next to the user and choosing `Transfer Ownership`.
 
@@ -71,11 +71,11 @@ alt="Screenshot of Project Transfer Menu"
 layout="intrinsic"
 width={411} height={253} quality={80} />
 
-The transferee receives an email requesting to transfer the project.
+The recipient receives an email to confirm the transfer. They have 24 hours to accept.
 
 ### Hobby user to team or team to team
 
-You can transfer a Project in your Hobby workspace to a Team (or between Teams) in which you are an Admin. Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
+You can transfer a project to another workspace that you're a member of. Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1692378671/project-transfer_iukfwb.png" alt="Project Transfer" layout="responsive" height={968} width={1240} />
 
