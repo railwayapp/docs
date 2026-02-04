@@ -50,26 +50,31 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
     <>
       <SEO {...props.seo} />
       <GlobalBanners />
-      <div className="min-h-screen relative flex">
-        {/* Sidebar - Full Height (hidden on guides pages) */}
-        {!hideSidebar && <Sidebar />}
+      <div className="min-h-screen relative flex flex-col">
+        <TopNav />
+        <MobileTopNav />
 
-        {/* Main Content Area */}
-        <div className="flex flex-col flex-1 max-w-[100vw]">
-          {/* Top Navigation - Content Area Only */}
-          <TopNav hideSidebar={hideSidebar} />
-          <MobileTopNav />
+        {/* Spacer for fixed nav height */}
+        <div className="h-[53px] shrink-0" />
 
-          <Background />
+        {/* Sidebar + Content Area */}
+        <div className="flex flex-1">
+          {/* Sidebar (hidden on guides pages) */}
+          {!hideSidebar && <Sidebar />}
 
-          <main
-            className={cn(
-              "flex justify-between px-4 w-full mx-auto md:px-12 lg:px-16 pt-8 pb-12 md:pb-24",
-              hideSidebar ? "max-w-5xl" : "max-w-6xl",
-            )}
-          >
-            {props.children}
-          </main>
+          {/* Main Content Area */}
+          <div className="flex flex-col flex-1 max-w-[100vw]">
+            <Background />
+
+            <main
+              className={cn(
+                "flex justify-between px-4 w-full mx-auto md:px-12 lg:px-16 pt-8 pb-12 md:pb-24",
+                hideSidebar ? "max-w-5xl" : "max-w-6xl",
+              )}
+            >
+              {props.children}
+            </main>
+          </div>
         </div>
       </div>
       <Dialog open={isSearchOpen} onOpenChange={handleOpenChange}>

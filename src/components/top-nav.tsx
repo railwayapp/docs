@@ -18,35 +18,28 @@ const navLinks = [
   { title: "Central Station", href: "https://station.railway.com" },
 ];
 
-interface TopNavProps {
-  hideSidebar?: boolean;
-}
-
 // Desktop Top Navigation
-export const TopNav: React.FC<TopNavProps> = ({ hideSidebar }) => {
+export const TopNav: React.FC = () => {
   return (
-    <header
-      className={cn(
-        "hidden md:flex items-center gap-6 px-6 py-3 sticky top-0 z-40 bg-muted-app/95 backdrop-blur-sm",
-        hideSidebar ? "justify-between" : "justify-end",
-      )}
-    >
-      {/* Left - Logo (only when sidebar is hidden) */}
-      {hideSidebar && (
-        <Link
-          href="/"
-          className="flex items-center gap-2 shrink-0 rounded-md p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
-        >
-          <Logo className="w-7 h-7" />
-          <span className="font-semibold text-muted-high-contrast">
-            Railway
-          </span>
-          <Badge variant="secondary">Docs</Badge>
-        </Link>
-      )}
+    <header className="hidden md:grid grid-cols-[auto_1fr_auto] items-center gap-4 px-6 py-3 fixed top-0 left-0 right-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted">
+      {/* Left - Logo */}
+      <Link
+        href="/"
+        className="flex items-center gap-2 shrink-0 rounded-md p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+      >
+        <Logo className="w-6 h-6" />
+        <Badge variant="secondary">Docs</Badge>
+      </Link>
+
+      {/* Center - Search */}
+      <div className="flex justify-center px-4">
+        <div className="w-full max-w-md">
+          <OpenModalButton />
+        </div>
+      </div>
 
       {/* Right - Links */}
-      <nav className="flex items-center gap-6 shrink-0">
+      <nav className="flex items-center gap-4 shrink-0">
         {navLinks.map(link => (
           <Link
             key={link.href}
@@ -96,7 +89,7 @@ export const MobileTopNav: React.FC = () => {
 
   return (
     <>
-      <header className="flex md:hidden items-center justify-between gap-4 px-4 py-3 sticky top-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted">
+      <header className="flex md:hidden items-center justify-between gap-4 px-4 py-3 fixed top-0 left-0 right-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted">
         {/* Left - Logo */}
         <Link
           href="/"
