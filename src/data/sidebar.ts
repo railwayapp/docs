@@ -59,6 +59,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Plans", "pricing"),
       makePage("Free Trial", "pricing"),
+      makePage("Understanding Your Bill", "pricing"),
       makePage("FAQs", "pricing"),
       makePage("Refunds", "pricing"),
       makePage("Cost Control", "pricing"),
