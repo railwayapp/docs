@@ -2,7 +2,6 @@ import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { cn } from "@/lib/cn";
 import * as React from "react";
 import { Icon } from "./icon";
-import { Link } from "./link";
 
 export interface PageActionsProps {
   /** The content to copy/share as markdown */
@@ -24,17 +23,9 @@ export function PageActions({ content, title, className }: PageActionsProps) {
     copy(markdownContent);
   };
 
-  const handleOpenInClaude = () => {
+  const openInAI = (urlTemplate: string) => {
     const encoded = encodeURIComponent(markdownContent);
-    window.open(`https://claude.ai/new?q=${encoded}`, "_blank");
-  };
-
-  const handleOpenInChatGPT = () => {
-    const encoded = encodeURIComponent(markdownContent);
-    window.open(
-      `https://chatgpt.com/?hints=search&prompt=${encoded}`,
-      "_blank",
-    );
+    window.open(urlTemplate.replace("{text}", encoded), "_blank");
   };
 
   const actionClass = cn(
@@ -64,7 +55,12 @@ export function PageActions({ content, title, className }: PageActionsProps) {
       </button>
 
       {/* Open in ChatGPT */}
-      <button onClick={handleOpenInChatGPT} className={actionClass}>
+      <button
+        onClick={() =>
+          openInAI("https://chatgpt.com/?hints=search&prompt={text}")
+        }
+        className={actionClass}
+      >
         <Icon name="Chatgpt" className="size-4 shrink-0" />
         <span className="flex items-center gap-1">
           Open in ChatGPT
@@ -76,7 +72,10 @@ export function PageActions({ content, title, className }: PageActionsProps) {
       </button>
 
       {/* Open in Claude */}
-      <button onClick={handleOpenInClaude} className={actionClass}>
+      <button
+        onClick={() => openInAI("https://claude.ai/new?q={text}")}
+        className={actionClass}
+      >
         <Icon name="Claude" className="size-4 shrink-0" />
         <span className="flex items-center gap-1">
           Open in Claude
@@ -87,29 +86,20 @@ export function PageActions({ content, title, className }: PageActionsProps) {
         </span>
       </button>
 
-      {/* Connect to Cursor */}
-      <Link href="/reference/mcp" className={cn(actionClass, "no-underline")}>
+      {/* Open in Cursor */}
+      <button
+        onClick={() => openInAI("https://cursor.com/link/prompt?text={text}")}
+        className={actionClass}
+      >
         <Icon name="CursorAi" className="size-4 shrink-0" />
         <span className="flex items-center gap-1">
-          Connect to Cursor
+          Open in Cursor
           <Icon
             name="ArrowUpRight"
             className="size-3 opacity-50 transition-opacity group-hover:opacity-100"
           />
         </span>
-      </Link>
-
-      {/* Connect to VS Code */}
-      <Link href="/reference/mcp" className={cn(actionClass, "no-underline")}>
-        <Icon name="Vscode" className="size-4 shrink-0" />
-        <span className="flex items-center gap-1">
-          Connect to VS Code
-          <Icon
-            name="ArrowUpRight"
-            className="size-3 opacity-50 transition-opacity group-hover:opacity-100"
-          />
-        </span>
-      </Link>
+      </button>
     </div>
   );
 }
