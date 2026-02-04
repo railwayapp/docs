@@ -19,15 +19,15 @@ export interface Props extends NextSeoProps {
 const title = "Railway Docs";
 const description = "Documentation for Railway";
 
-export const url = "https://docs.railway.com";
-const image = url + "/og.png";
+export const baseUrl = "https://docs.railway.com";
+const image = baseUrl + "/og.png";
 
 const config: DefaultSeoProps = {
   title,
   description,
   openGraph: {
     type: "website",
-    url,
+    url: baseUrl,
     site_name: title,
     images: [{ url: image }],
   },
@@ -79,7 +79,7 @@ export const SEO: React.FC<Props> = ({
         "@type": "ListItem",
         position: index + 1,
         name: crumb.name,
-        item: crumb.url || undefined,
+        item: crumb.url ? `${baseUrl}${crumb.url}` : undefined,
       })),
     };
     schemas.push(breadcrumbSchema);
