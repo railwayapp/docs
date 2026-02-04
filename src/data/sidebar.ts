@@ -22,8 +22,8 @@ const makeCliCommand = (commandName: string): IPage => ({
 
 export const sidebarContent: ISidebarContent = [
   {
-    title: "Overview",
     content: [
+      makePage("Quick Start", undefined, "/quick-start"),
       makePage("The Basics", "overview"),
       makePage("Best Practices", "overview"),
       makePage("Advanced Concepts", "overview"),

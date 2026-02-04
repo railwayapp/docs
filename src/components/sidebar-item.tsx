@@ -87,7 +87,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
           href={item.slug}
           className={cn(
             "block rounded-md px-3 py-1.5 text-sm text-muted-base transition-colors hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid truncate",
-            isActive && "text-primary-base",
+            isActive &&
+              "bg-primary-element-active text-muted-high-contrast font-medium",
             isSubSectionItem
               ? "focus-visible:ring-inset"
               : "-ml-3 focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
@@ -119,7 +120,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
           }}
           className={cn(
             "group flex w-full items-center justify-between gap-2 rounded-md px-3 py-1.5 -ml-3 text-left text-sm transition-colors hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app cursor-pointer min-w-0",
-            isParentHighlighted ? "text-primary-base" : "text-muted-base",
+            isSubTitleActive
+              ? "bg-primary-element-active text-muted-high-contrast font-medium"
+              : isParentHighlighted
+              ? "text-muted-high-contrast font-medium"
+              : "text-muted-base",
           )}
         >
           {hasLanding ? (
@@ -147,7 +152,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             isExpanded={isExpanded}
             className={cn(
               "shrink-0 group-hover:text-muted-high-contrast",
-              isParentHighlighted && "text-primary-base",
+              isParentHighlighted && "text-muted-high-contrast",
             )}
           />
         </button>

@@ -106,7 +106,8 @@ export function TOCProvider({ children, items }: TOCProviderProps) {
         }
       },
       {
-        rootMargin: "-10% 0px -80% 0px",
+        // Account for sticky top nav height (~53px) plus padding
+        rootMargin: "-69px 0px -80% 0px",
         threshold: 0,
       },
     );
@@ -591,7 +592,8 @@ export function TOC({ items, className }: TOCProps) {
         }
       },
       {
-        rootMargin: "-10% 0px -80% 0px",
+        // Account for sticky top nav height (~53px) plus padding
+        rootMargin: "-69px 0px -80% 0px",
         threshold: 0,
       },
     );
