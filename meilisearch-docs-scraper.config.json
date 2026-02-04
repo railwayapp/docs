@@ -7,11 +7,14 @@
   ],
   "js_render": false,
   "scrape_start_urls": false,
+  "stop_urls": [
+    "https://docs.railway.com/guides.*"
+  ],
   "selectors": {
     "lvl0": {
       "selector": ".sidebar .current-section",
       "global": true,
-      "default": "Railway Documentation"
+      "default_value": "Railway Documentation"
     },
     "lvl1": ".docs-content h1",
     "lvl2": ".docs-content h2",

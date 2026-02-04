@@ -26,6 +26,13 @@ Open [localhost:3001](http://localhost:3001) to see the docs.
 
 Search is powered by Meilisearch. To test search functionality locally, you'll need Docker.
 
+### Prerequisites
+
+Copy the environment file to enable local search in the frontend:
+```bash
+cp .env.example .env.local
+```
+
 ### Search Commands
 
 | Command | Description |
@@ -47,7 +54,7 @@ Search is powered by Meilisearch. To test search functionality locally, you'll n
    pnpm search:setup
    ```
 
-This starts Meilisearch on port 7700 and indexes all documentation pages from your local dev server.
+This starts Meilisearch on port 7700 and crawls your local dev server to index all documentation pages. The search bar will connect to Meilisearch using the environment variables from `.env.local`.
 
 ## Contributing
 

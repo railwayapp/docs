@@ -298,7 +298,8 @@ const SidebarContent: React.FC = () => {
                         "text-sm text-muted-base",
                         "hover:text-muted-high-contrast transition-colors",
                         "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
-                        isCurrentSection(section) && "text-primary-base",
+                        isCurrentSection(section) &&
+                          "text-primary-base current-section",
                         section.slug &&
                           isCurrentPage(section.slug) &&
                           "text-primary-base",

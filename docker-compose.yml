@@ -32,7 +32,7 @@ services:
     volumes:
       - ./meilisearch-docs-scraper.config.json:/docs-scraper/config.json:ro
     command: >
-      sh -c "python3 -c 'import json,urllib.request,re; c=json.load(open(\"/docs-scraper/config.json\")); c[\"index_uid\"]=\"docs_local_dev\"; base=\"http://host.docker.internal:3001\"; sitemap=urllib.request.urlopen(base+\"/sitemap-0.xml\").read().decode(); urls=re.findall(r\"<loc>([^<]+)</loc>\",sitemap); c[\"start_urls\"]=[{\"url\":u.replace(\"https://docs.railway.com\",base)} for u in urls] if urls else [{\"url\":base+\"/quick-start\"}]; c[\"sitemap_urls\"]=[]; c[\"scrape_start_urls\"]=True; json.dump(c,open(\"/tmp/local.json\",\"w\")); print(\"Scraping\",len(c[\"start_urls\"]),\"URLs\")' && pipenv run ./docs_scraper /tmp/local.json"
+      sh -c "python3 -c 'import json; c=json.load(open(\"/docs-scraper/config.json\")); c[\"index_uid\"]=\"docs_local_dev\"; c[\"start_urls\"]=[{\"url\":\"http://host.docker.internal:3001/\"}]; c[\"sitemap_urls\"]=[]; c[\"scrape_start_urls\"]=True; c[\"allowed_domains\"]=[\"host.docker.internal\"]; c[\"stop_urls\"]=[\"http://host.docker.internal:3001/guides.*\"]; json.dump(c,open(\"/tmp/local.json\",\"w\")); print(\"Starting scrape from root URL\")' && pipenv run ./docs_scraper /tmp/local.json"
 
 volumes:
   meilisearch_data:
