@@ -22,7 +22,7 @@ export const ThemeSwitcher: React.FC = () => {
   if (!isMounted) return null;
 
   return (
-    <div className="inline-flex items-center gap-0.5 rounded-full border border-muted bg-muted-app-subtle p-0.5">
+    <div className="inline-flex items-center gap-0.5 rounded-lg border border-muted bg-muted-app-subtle p-0.5">
       {themeOptions.map(({ value, icon, label }) => (
         <button
           key={value}
@@ -31,7 +31,7 @@ export const ThemeSwitcher: React.FC = () => {
           aria-label={label}
           title={label}
           className={cn(
-            "flex size-6 items-center justify-center rounded-full transition-colors",
+            "flex size-6 items-center justify-center rounded-md transition-colors",
             theme === value
               ? "bg-muted-element-active text-muted-high-contrast"
               : "text-muted-base hover:bg-muted-element hover:text-muted-high-contrast",
