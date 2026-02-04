@@ -3,7 +3,7 @@ title: Pricing
 description: Learn how Railway's pricing works - usage-based pricing with plans designed to scale with your needs.
 ---
 
-Railway uses a transparent pricing model: you pay a base subscription fee plus the resources you actually consume. No hidden fees, no surprise bills.
+Railway uses a transparent pricing model: you pay a base subscription fee plus the resources you actually consume.
 
 ## How it works
 
