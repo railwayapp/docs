@@ -133,10 +133,7 @@ function Frame({ caption, className, children, ...props }: FrameProps) {
       <figure
         ref={frameRef}
         data-slot="frame"
-        className={cn(
-          "bg-muted-app-subtle border-muted my-6 overflow-hidden rounded-lg border p-2",
-          className,
-        )}
+        className={cn("my-6 overflow-hidden rounded-lg", className)}
         {...props}
       >
         {/* Image Container */}
