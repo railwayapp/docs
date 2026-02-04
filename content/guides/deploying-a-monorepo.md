@@ -19,7 +19,7 @@ This tutorial aims to provide a simple step-by-step on how to deploy a frontend 
 
 The procedure outlined in this tutorial can easily be adapted to deploy different apps that are contained within a isolated monorepo as well.
 
-For more information on deploying a shared monorepo check out the <a href="/guides/monorepo#deploying-a-shared-monorepo" target="_blank">guide</a> that explains some of the specific configurations you would need. If you are importing a JS monorepo, check out the <a href="/guides/monorepo#automatic-import-for-javascript-monorepos" target="_blank">guide</a> for automatic import.
+For more information on deploying a shared monorepo check out the <a href="/deployments/monorepo#deploying-a-shared-monorepo" target="_blank">guide</a> that explains some of the specific configurations you would need. If you are importing a JS monorepo, check out the <a href="/deployments/monorepo#automatic-import-for-javascript-monorepos" target="_blank">guide</a> for automatic import.
 
 **Objectives**
 
@@ -44,7 +44,7 @@ The backend, built with [Go](https://go.dev/), will stream quotes that will be d
 Before you start:
 
 1. Fork the repo: https://github.com/railwayapp-templates/monorepo-example
-2. [Connect your GitHub to Railway.](https://docs.railway.com/quick-start#deploying-your-project---from-github) This will enable you to deploy any of your repositories to Railway in the future as well!
+2. [Connect your GitHub to Railway.](/quick-start#deploying-your-project---from-github) This will enable you to deploy any of your repositories to Railway in the future as well!
 
 **Let's get started!**
 
@@ -161,7 +161,7 @@ width={1386} height={760} quality={100} />
 
 Even though the services are now running, the frontend and backend aren't networked together yet. So let's setup domains for each service.
 
-Both the Vite Frontend and the Go Backend are already configured so that Railway will ✨automagically detect the port they're running on. Railway does this by detecting the `env.$PORT` variable that the service is binding. For simplicity's sake, these two services will be connected over their public domain so you can get a handle on the basics. In practice, you may need to configure your networking a bit differently. You can [read more about networking in the docs](https://docs.railway.com/guides/public-networking).
+Both the Vite Frontend and the Go Backend are already configured so that Railway will ✨automagically detect the port they're running on. Railway does this by detecting the `env.$PORT` variable that the service is binding. For simplicity's sake, these two services will be connected over their public domain so you can get a handle on the basics. In practice, you may need to configure your networking a bit differently. You can [read more about networking in the docs](/networking/public-networking).
 
 Let's add public domains to both services.
 
@@ -224,11 +224,11 @@ width={1386} height={760} quality={100} />
 
 **Notes:**
 
-- The variables used here are reference variables, learn more about them [here](https://docs.railway.com/guides/variables#referencing-another-services-variable).
+- The variables used here are reference variables, learn more about them [here](/variables#referencing-another-services-variable).
 
 - Both the Frontend and Backend variables reference each other's public domains. The `RAILWAY_PUBLIC_DOMAIN` variable will be automatically updated whenever you deploy or re-deploy a service.
 
-- See a list of additional variables [here](https://docs.railway.com/reference/variables#railway-provided-variables).
+- See a list of additional variables [here](/variables/reference#railway-provided-variables).
 
 ## Conclusion
 

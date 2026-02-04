@@ -74,12 +74,12 @@ You can also click within a deployment and using the Command Palette restart a d
 
 ## Deployment dependencies - startup ordering
 
-You can control the order your services start up with [Reference Variables](https://docs.railway.com/guides/variables#reference-variables).
-When one service references another, it will be deployed after the service it is referencing when applying a [staged change](https://docs.railway.com/guides/staged-changes) or [duplicating an environment](https://docs.railway.com/guides/environments#create-an-environment).
+You can control the order your services start up with [Reference Variables](/variables#reference-variables).
+When one service references another, it will be deployed after the service it is referencing when applying a [staged change](/deployments/staged-changes) or [duplicating an environment](/environments#create-an-environment).
 
 Services that have circular dependencies will simply ignore them and deploy as normal.
 
-For example, let's say you're deploying an API service that depends on a [PostgreSQL database](https://docs.railway.com/guides/postgresql).
+For example, let's say you're deploying an API service that depends on a [PostgreSQL database](/databases/postgresql).
 
 When you have services with reference variables like:
 

@@ -56,9 +56,9 @@ If you're encountering issues with Nixpacks, consider switching to [Railpack](/b
 
 ### Monorepo without root directory
 
-If you are attempting to deploy a monorepo, you will need to set a [root directory](https://docs.railway.com/guides/build-configuration#set-the-root-directory) in your [service settings](https://docs.railway.com/overview/the-basics#service-settings) under the source repository section.
+If you are attempting to deploy a monorepo, you will need to set a [root directory](/builds/build-configuration#set-the-root-directory) in your [service settings](/overview/the-basics#service-settings) under the source repository section.
 
-For a comprehensive guide on how to deploy a monorepo, please refer to the [Deploying a Monorepo](https://docs.railway.com/tutorials/deploying-a-monorepo) guide.
+For a comprehensive guide on how to deploy a monorepo, please refer to the [Deploying a Monorepo](/guides/deploying-a-monorepo) guide.
 
 ### Unsupported project layout or directory structure
 

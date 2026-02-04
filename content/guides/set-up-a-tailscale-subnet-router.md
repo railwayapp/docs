@@ -20,7 +20,7 @@ In the context of Railway, The "other devices" are the services within a project
 
 This tutorial will help you connect to your database via the private network without you having to use public endpoints.
 
-Since Railway doesn't currently offer a native way to access the <a href="https://docs.railway.com/reference/private-networking" target="_blank">private network</a> from your local environment, you can use a Tailscale Subnet Router to accomplish this.
+Since Railway doesn't currently offer a native way to access the <a href="/networking/private-networking" target="_blank">private network</a> from your local environment, you can use a Tailscale Subnet Router to accomplish this.
 
 Deploying Tailscale as a subnet router into your project means that you can access the `railway.internal` private domains from any device connected to your tailnet.
 
@@ -38,7 +38,7 @@ In this tutorial, you'll learn how to do the following: -
 
 **Prerequisites**
 
-This guide assumes you are familiar with the concepts of Private Network, for a quick explainer check out the <a href="/guides/private-networking" target="_blank">guide</a> and <a href="/reference/private-networking" target="_blank">reference</a> page.
+This guide assumes you are familiar with the concepts of Private Network, for a quick explainer check out the <a href="/networking/private-networking" target="_blank">guide</a> and <a href="/networking/private-networking" target="_blank">reference</a> page.
 
 **In Railway -**
 

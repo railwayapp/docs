@@ -124,4 +124,4 @@ For example, if you are running a Node.js application, and see that your vCPU us
 
 If this is the case, you can scale your application horizontally to handle more requests.
 
-[Horizontal scaling](https://docs.railway.com/reference/scaling#horizontal-scaling-with-replicas) can easily be done by adding more instances to one or more regions.
+[Horizontal scaling](/deployments/scaling#horizontal-scaling-with-replicas) can easily be done by adding more instances to one or more regions.

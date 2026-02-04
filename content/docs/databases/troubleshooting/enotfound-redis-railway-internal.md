@@ -23,7 +23,7 @@ Some other reasons that this error can occur would be -
 
 - You are trying to connect to a Redis database locally with the private hostname and port.
 
-For either of these reasons, the issue arises because the private network is scoped to a single environment within a [project](https://docs.railway.com/overview/the-basics#project--project-canvas), and would not be accessible from your local machine or other projects.
+For either of these reasons, the issue arises because the private network is scoped to a single environment within a [project](/overview/the-basics#project--project-canvas), and would not be accessible from your local machine or other projects.
 
 If the Redis database is in the same project as your application, and you are not trying to connect to a Redis database locally, `ioredis` is the likely cause of the error.
 
@@ -79,7 +79,7 @@ If you are using a package that uses `ioredis` as a dependency, you can try to f
 
 ### Redis database in a different project
 
-Create a [new Redis database](https://docs.railway.com/guides/redis) in the same [project](https://docs.railway.com/overview/the-basics#project--project-canvas) as your application, and connect it to the Redis database using the private network as shown in the examples above.
+Create a [new Redis database](/databases/redis) in the same [project](/overview/the-basics#project--project-canvas) as your application, and connect it to the Redis database using the private network as shown in the examples above.
 
 Read about best pracices to get the most out of the platform [here](/overview/best-practices).
 

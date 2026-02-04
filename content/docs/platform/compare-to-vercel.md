@@ -57,7 +57,7 @@ Railway's underlying infrastructure runs on hardware that’s owned and operated
 
 ![Railway regions](https://res.cloudinary.com/railway/image/upload/v1753470545/docs/comparison-docs/railway-regions_syr9jf.png)
 
-Railway uses a [custom builder](https://docs.railway.com/guides/builds) that takes your source code or Dockerfile and automatically builds and deploys it, without needing configuration.
+Railway uses a [custom builder](/builds) that takes your source code or Dockerfile and automatically builds and deploys it, without needing configuration.
 
 Your code runs on a long-running server, making it ideal for apps that need to stay running or maintain a persistent connection.
 

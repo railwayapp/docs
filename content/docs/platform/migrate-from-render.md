@@ -11,7 +11,7 @@ Railway boasts of a superior and intuitive user experience that makes deploying 
 
 Railway offers:
 
-- **Broad Language and Framework Support**: Deploy apps in [any language or framework](https://docs.railway.com/guides/languages-frameworks).
+- **Broad Language and Framework Support**: Deploy apps in [any language or framework](/languages-frameworks).
 - **Flexible Deployment Options**: Use GitHub, Dockerfiles, Docker images from supported registries (Docker Hub, GitHub, RedHat, GitLab, Microsoft), or local deployments via the Railway CLI.
 - **Integrated Tools**: Simplify environment variable management, CI/CD, observability, and service scaling.
 - **Networking Features:** Public and private networking.
@@ -52,7 +52,7 @@ If environment variables are defined in your `render.yaml`, Railway will import 
 
 ![Deploy on Railway](https://res.cloudinary.com/railway/image/upload/v1736366539/deployapp_rlhvzx.png)
 
-Railway will deploy both the Go app as a service and the database, as shown in the image above. You can monitor the service building and deploying in the [Project Canvas](https://docs.railway.com/guides/projects#project-canvas).
+Railway will deploy both the Go app as a service and the database, as shown in the image above. You can monitor the service building and deploying in the [Project Canvas](/projects#project-canvas).
 
 ### 3. Database migration
 
@@ -69,7 +69,7 @@ Once the migration is complete, update the `DATABASE_URL` environment variable i
 
 ### 4. Multi-region deployments
 
-If your app needs to use multi-region deployments, you can leverage Railway’s [multi-region replicas](https://docs.railway.com/reference/scaling#multi-region-replicas).
+If your app needs to use multi-region deployments, you can leverage Railway’s [multi-region replicas](/deployments/scaling#multi-region-replicas).
 
 Enable this in the **Settings** section of your Railway service to keep your app close to users worldwide.
 

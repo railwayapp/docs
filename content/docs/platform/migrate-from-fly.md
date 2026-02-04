@@ -43,9 +43,9 @@ If the environment variables are missing, you can easily add them manually by fo
 
 ![Variables imported automatically from fly.toml into Railway service](https://res.cloudinary.com/railway/image/upload/v1737143351/environmentvariables_q0xmyh.png)
 
-Railway will deploy the Gin app as a service, as shown in the image above. You can monitor the service building and deploying in the [Project Canvas](https://docs.railway.com/guides/projects#project-canvas).
+Railway will deploy the Gin app as a service, as shown in the image above. You can monitor the service building and deploying in the [Project Canvas](/projects#project-canvas).
 
-[**Serverless (App Sleep) activated**](https://docs.railway.com/reference/app-sleeping): In this [**Fly.io** app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), the HTTP service is configured with **`auto_stop_machines='stop'`** and **`auto_start_machines=true`**, enabling automatic stopping and restarting of machines. On Railway import, we automatically enable this setting to effortlessly optimize resource usage.
+[**Serverless (App Sleep) activated**](/deployments/serverless): In this [**Fly.io** app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), the HTTP service is configured with **`auto_stop_machines='stop'`** and **`auto_start_machines=true`**, enabling automatic stopping and restarting of machines. On Railway import, we automatically enable this setting to effortlessly optimize resource usage.
 
 ![App sleep activated to optimize resource usage and spend](https://res.cloudinary.com/railway/image/upload/v1737143360/appsleep_cszmgf.png)
 
@@ -74,7 +74,7 @@ In this [Fly.io app](https://github.com/unicodeveloper/gin/blob/main/fly.toml), 
 
 ![Replicas](https://res.cloudinary.com/railway/image/upload/v1737143335/replicas_zwtuwr.png)
 
-If your app needs to use multi-region deployments, you can leverage Railway’s [multi-region replicas](https://docs.railway.com/reference/scaling#multi-region-replicas).
+If your app needs to use multi-region deployments, you can leverage Railway’s [multi-region replicas](/deployments/scaling#multi-region-replicas).
 
 Enable this in the **Settings** section of your Railway service to keep your app close to users worldwide.
 

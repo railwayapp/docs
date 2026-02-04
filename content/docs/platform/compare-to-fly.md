@@ -122,7 +122,7 @@ Additionally, Fly doesn't support webhooks, making it more difficult to build in
 
 ### Railway
 
-Railway follows a dashboard-first experience, while [also providing a CLI](https://docs.railway.com/guides/cli). In Railway, you create a project for each app you’re building. A project is a collection of services and databases. This can include frontend, API, background workers, API, analytics database, queues and so much more. All in a unified deployment experience that supports real-time collaboration.
+Railway follows a dashboard-first experience, while [also providing a CLI](/cli). In Railway, you create a project for each app you’re building. A project is a collection of services and databases. This can include frontend, API, background workers, API, analytics database, queues and so much more. All in a unified deployment experience that supports real-time collaboration.
 
 ![Railway architecture](https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png)
 
@@ -149,7 +149,7 @@ You also get:
 
 Each Railway project includes a built-in observability dashboard that provides a customizable view into chosen metrics, logs, and data all in one place
 
-[Screenshot of the Observability Dashboard](https://docs.railway.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Frailway%2Fimage%2Fupload%2Fv1717179720%2FWholescreenshot_vc5l5e.png&w=3840&q=80)
+![Screenshot of the Observability Dashboard](https://res.cloudinary.com/railway/image/upload/v1717179720/Wholescreenshot_vc5l5e.png)
 
 Finally, Railway supports creating webhooks which allow external services to listen to events from Railway
 

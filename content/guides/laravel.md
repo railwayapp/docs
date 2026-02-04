@@ -60,7 +60,7 @@ width={2855} height={2109} quality={100} />
 
 If you have your Laravel app locally, you can follow these steps:
 
-1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the Railway CLI.</a>
+1. <a href="/cli#installing-the-cli" target="_blank">Install</a> and <a href="/cli#authenticating-with-the-cli" target="_blank">authenticate with the Railway CLI.</a>
 
 2. Run `railway init` within your Laravel app root directory to create a new project on Railway.
 
@@ -172,9 +172,9 @@ Please follow these steps to get started:
 
    - Connect your GitHub repo to the **Source Repo** in the **Source** section.
 
-   - Add `npm run build` to the **Custom Build Command** in the <a href="/guides/build-configuration#customize-the-build-command">**Build**</a> section.
+   - Add `npm run build` to the **Custom Build Command** in the <a href="/builds/build-configuration#customize-the-build-command">**Build**</a> section.
 
-   - Add `chmod +x ./railway/init-app.sh && sh ./railway/init-app.sh` to the <a href="/guides/pre-deploy-command">**Pre-Deploy Command**</a> in the **Deploy** section.
+   - Add `chmod +x ./railway/init-app.sh && sh ./railway/init-app.sh` to the <a href="/deployments/pre-deploy-command">**Pre-Deploy Command**</a> in the **Deploy** section.
 
    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
 
@@ -196,7 +196,7 @@ Please follow these steps to get started:
 
    - Connect your GitHub repo to the **Source Repo** in the **Source** section.
 
-   - Add `chmod +x ./railway/run-cron.sh && sh ./railway/run-cron.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+   - Add `chmod +x ./railway/run-cron.sh && sh ./railway/run-cron.sh` to the <a href="/deployments/start-command">**Custom Start Command**</a> in the **Deploy** section.
 
    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
 
@@ -210,7 +210,7 @@ Please follow these steps to get started:
 
    - Connect your GitHub repo to the **Source Repo** in the **Source** section.
 
-   - Add `chmod +x ./railway/run-worker.sh && sh ./railway/run-worker.sh` to the <a href="/guides/start-command">**Custom Start Command**</a> in the **Deploy** section.
+   - Add `chmod +x ./railway/run-worker.sh && sh ./railway/run-worker.sh` to the <a href="/deployments/start-command">**Custom Start Command**</a> in the **Deploy** section.
 
    - Head back to the top of the service and click on <a href="/overview/the-basics#service-variables">**Variables**</a>.
 
@@ -252,7 +252,7 @@ To ensure logs and errors appear in Railway’s console or with `railway logs`, 
 
 - `LOG_CHANNEL`: Set the value to `stderr`.
 
-- `LOG_STDERR_FORMATTER`: Set the value to `\Monolog\Formatter\JsonFormatter` in order to have [Structured logs](https://docs.railway.com/guides/logs#structured-logs).
+- `LOG_STDERR_FORMATTER`: Set the value to `\Monolog\Formatter\JsonFormatter` in order to have [Structured logs](/observability/logs#structured-logs).
 
 You can set variables via the Railway dashboard or CLI as shown:
 ```bash

@@ -29,7 +29,7 @@ Failing the automatic detection, Nixpacks will return the `No start command coul
 
 Since Nixpacks was unable to find a start command, you will need to specify a start command yourself.
 
-You can do this in the [service settings](https://docs.railway.com/overview/the-basics#service-settings) under the `Start Command` field.
+You can do this in the [service settings](/overview/the-basics#service-settings) under the `Start Command` field.
 
 Some common start commands for various frameworks and languages are -
 

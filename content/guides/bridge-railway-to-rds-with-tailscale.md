@@ -247,4 +247,4 @@ If you encounter issues with connectivity check the `verify_tailscale_routing` s
 - [Terraform AWS VPC Provider](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest)
 - [Terraform AWS RDS Module Provider](https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/latest#input_parameters)
 - [Tailscale Site-to-Site VPN Example (Terraform)](https://github.com/tailscale/terraform-aws-tailscale-site2sitevpn/tree/main)
-- [Set Up a Tailscale Subnet Router on Railway](https://docs.railway.com/tutorials/set-up-a-tailscale-subnet-router)
+- [Set Up a Tailscale Subnet Router on Railway](/guides/set-up-a-tailscale-subnet-router)

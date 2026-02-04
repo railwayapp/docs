@@ -42,7 +42,7 @@ Buckets that were created before this change might require you to use <a target=
 
 ### Variable references
 
-Storage Buckets can provide the S3 authentication credentials to your other services by using [Variable References](https://docs.railway.com/guides/variables#referencing-a-shared-variable). You can do this in two ways:
+Storage Buckets can provide the S3 authentication credentials to your other services by using [Variable References](/variables#referencing-a-shared-variable). You can do this in two ways:
 
 <Collapse slug="storage-buckets-manual-credentials-variables" title="Manually configuring your service's variables">
 You can use regular Shared Variables by adding one to your service and pointing it at the values provided by your bucket.
@@ -60,7 +60,7 @@ Doing this sets the names for the credentials based on what each library expects
 
 ### Railway-provided variables
 
-Railway provides the following variables which can be used as [Variable References](https://docs.railway.com/guides/variables#referencing-a-shared-variable).
+Railway provides the following variables which can be used as [Variable References](/variables#referencing-a-shared-variable).
 
 | Name                       | Description                                                                                      |
 | -------------------------- | ------------------------------------------------------------------------------------------------ |
