@@ -81,7 +81,7 @@ If you have a team token, you can use it to authenticate requests to a specific 
 ```bash
 curl --request POST \
   --url https://backboard.railway.com/graphql/v2 \
-  --header 'Team-Access-Token: <TEAM_TOKEN_GOES_HERE>' \
+  --header 'Authorization: Bearer <TEAM_TOKEN_GOES_HERE>' \
   --header 'Content-Type: application/json' \
   --data '{"query":"query { team(id: \"<TEAM_ID_GOES_HERE>\") { name id } }"}'
 ```

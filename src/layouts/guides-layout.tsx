@@ -4,7 +4,7 @@ import { Footer } from "../components/footer";
 import { InlineTOC } from "../components/inline-toc";
 import { SEO } from "../components/seo";
 import { TOC, TOCProvider, type TOCItemType } from "../components/toc";
-import { extractHeadersFromMarkdown, getLastModifiedDate } from "../utils/seo";
+import { extractHeadersFromMarkdown } from "../utils/seo";
 
 export interface GuideAuthor {
   name: string;
@@ -18,6 +18,7 @@ export interface GuideFrontMatter {
   url: string;
   author?: GuideAuthor;
   tags?: string[];
+  lastModified?: string;
 }
 
 export interface GuidesLayoutProps {
@@ -64,10 +65,17 @@ export const GuidesLayout: React.FC<PropsWithChildren<GuidesLayoutProps>> = ({
       }));
   }, [headers]);
 
-  // Get last modified date
-  const lastModified = useMemo(() => {
-    return getLastModifiedDate();
-  }, []);
+  // Get last modified date from git history
+  const lastModified = frontMatter.lastModified ?? new Date().toISOString();
+
+  const formattedLastModified = useMemo(() => {
+    const date = new Date(lastModified);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  }, [lastModified]);
 
   return (
     <>
@@ -172,7 +180,10 @@ export const GuidesLayout: React.FC<PropsWithChildren<GuidesLayoutProps>> = ({
           </div>
 
           {/* Footer */}
-          <Footer gitHubEditLink={gitHubFileLink} />
+          <Footer
+            gitHubEditLink={gitHubFileLink}
+            lastModified={formattedLastModified}
+          />
         </div>
       </TOCProvider>
     </>

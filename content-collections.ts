@@ -5,6 +5,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 import { rehypeCodeBlock } from "./src/plugins/rehype-code-block";
+import { execSync } from "child_process";
 
 const pages = defineCollection({
   name: "pages",
@@ -24,9 +25,21 @@ const pages = defineCollection({
         rehypeCodeBlock,
       ],
     });
+    const filePath = `content/docs/${doc._meta.filePath}`;
+    let lastModified: string;
+    try {
+      const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
+        encoding: "utf-8",
+      }).trim();
+      lastModified = result || new Date().toISOString();
+    } catch {
+      lastModified = new Date().toISOString();
+    }
+
     return {
       ...doc,
       url: `/${doc._meta.path}`,
+      lastModified,
       body: {
         code,
         raw: doc.content,
@@ -68,9 +81,21 @@ const guides = defineCollection({
         rehypeCodeBlock,
       ],
     });
+    const filePath = `content/guides/${doc._meta.filePath}`;
+    let lastModified: string;
+    try {
+      const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
+        encoding: "utf-8",
+      }).trim();
+      lastModified = result || new Date().toISOString();
+    } catch {
+      lastModified = new Date().toISOString();
+    }
+
     return {
       ...doc,
       url: `/guides/${doc._meta.path}`,
+      lastModified,
       body: {
         code,
         raw: doc.content,

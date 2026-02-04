@@ -18,11 +18,7 @@ import { sidebarContent } from "../data/sidebar";
 import { FrontMatter, ISidebarContent, IPage } from "../types";
 import { Props as PageProps } from "./page";
 import { reconstructMarkdownWithFrontmatter } from "../utils/markdown";
-import {
-  extractHeadersFromMarkdown,
-  buildBreadcrumbs,
-  getLastModifiedDate,
-} from "../utils/seo";
+import { extractHeadersFromMarkdown, buildBreadcrumbs } from "../utils/seo";
 
 export interface Props extends PageProps {
   frontMatter: FrontMatter;
@@ -126,10 +122,17 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     return buildBreadcrumbs(frontMatter.url, sidebarContent);
   }, [frontMatter.url]);
 
-  // Get last modified date (could be enhanced to get from git)
-  const lastModified = useMemo(() => {
-    return getLastModifiedDate();
-  }, []);
+  // Get last modified date from git history
+  const lastModified = frontMatter.lastModified ?? new Date().toISOString();
+
+  const formattedLastModified = useMemo(() => {
+    const date = new Date(lastModified);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  }, [lastModified]);
 
   return (
     <>
@@ -265,7 +268,10 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
           </div>
 
           {/* Footer - separate from two-column layout */}
-          <Footer gitHubEditLink={gitHubFileLink} />
+          <Footer
+            gitHubEditLink={gitHubFileLink}
+            lastModified={formattedLastModified}
+          />
         </div>
       </TOCProvider>
     </>

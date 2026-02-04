@@ -157,7 +157,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Project Members", "projects"),
       makePage("Project Usage", "projects"),
-      makePage("Teams", "projects"),
+      makePage("Workspaces", "projects"),
     ],
   },
   {

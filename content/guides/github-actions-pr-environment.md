@@ -43,7 +43,7 @@ jobs:
     container: ghcr.io/railwayapp/cli:latest
     steps:
       - name: Link to project
-        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project
+        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --workspace ${{ env.WORKSPACE_ID }} # uncomment this if you are linking to a workspace project
       - name: Create Railway Environment for PR
         run: railway environment new pr-${{ github.event.pull_request.number }} --copy ${{ env.DUPLICATE_FROM_ID }} --service-variable ${{ env.SERVICE_ID }} "${{ env.ENV_NAME }}=${{ env.ENV_VALUE }}" --service-config ${{ env.SERVICE_ID }} "source.branch" "${{ github.head_ref }}"
 
@@ -53,7 +53,7 @@ jobs:
     container: ghcr.io/railwayapp/cli:latest
     steps:
       - name: Link to project
-        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --team ${{ env.TEAM_ID }} # uncomment this if you are linking to a team project
+        run: railway link --project ${{ env.LINK_PROJECT_ID }} --environment ${{ env.DUPLICATE_FROM_ID }} # --workspace ${{ env.WORKSPACE_ID }} # uncomment this if you are linking to a workspace project
       - name: Delete Railway Environment for PR
         run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```

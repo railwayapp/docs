@@ -61,7 +61,7 @@ To always show the consent screen, add `prompt=consent` to your authorization re
 
 ## Role permissions
 
-Workspace and project scopes map to [Workspace Roles](/projects/teams#inviting-members) and [Project Member Roles](/projects/project-members#scope-of-permissions). The access your application receives through these scopes matches what a user with that role could do through the Railway dashboard or API.
+Workspace and project scopes map to [Workspace Roles](/projects/workspaces#inviting-members) and [Project Member Roles](/projects/project-members#scope-of-permissions). The access your application receives through these scopes matches what a user with that role could do through the Railway dashboard or API.
 
 ## Missing a scope?
 
