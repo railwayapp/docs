@@ -28,7 +28,7 @@ alt="screenshot of a service showing the use of private networking via reference
 layout="intrinsic"
 width={1048} height={818} quality={100} />
 
-<span style={{'font-size': "0.9em"}}>Screenshot showing the use of the `RAILWAY_PRIVATE_DOMAIN` [variable](/reference/variables#railway-provided-variables) being used via [referencing](/guides/variables#reference-variables).</span>
+<span style={{'font-size': "0.9em"}}>Screenshot showing the use of the `RAILWAY_PRIVATE_DOMAIN` [variable](/variables/reference#railway-provided-variables) being used via [referencing](/variables#reference-variables).</span>
 
 ## Deploying related services into the same project
 
@@ -53,11 +53,11 @@ width={1048} height={818} quality={100} />
 
 ## Use reference variables where applicable
 
-[Reference variables](/guides/variables#reference-variables) allow you to dynamically reference another variable, either from a variable set on the current [service](/overview/the-basics#services) or from another service in the same [project](/overview/the-basics#project--project-canvas).
+[Reference variables](/variables#reference-variables) allow you to dynamically reference another variable, either from a variable set on the current [service](/overview/the-basics#services) or from another service in the same [project](/overview/the-basics#project--project-canvas).
 
 Rather than manually copying, pasting, and hard-coding variables like a public domain or those from another service, you can use reference variables to build them dynamically. Example `VITE_BACKEND_HOST=${{Backend.RAILWAY_PUBLIC_DOMAIN}}`
 
-This approach is better than hard-coding variables, as it keeps your variable values in sync. Change your [public domain](/reference/public-domains)? The variable updates. Change your [TCP proxy](/networking/tcp-proxy)? The variable updates.
+This approach is better than hard-coding variables, as it keeps your variable values in sync. Change your [public domain](/networking/domains)? The variable updates. Change your [TCP proxy](/networking/tcp-proxy)? The variable updates.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1725659271/docs/best-practices/use_reference_variables_h8qtik.png"
 alt="screenshot of a service showing the use of reference variables"

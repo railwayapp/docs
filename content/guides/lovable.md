@@ -77,7 +77,7 @@ Once your Lovable project is connected to GitHub, deploy it to Railway by import
    - Review any build or runtime errors in the deployment logs.
 5. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 Your Lovable-generated application is now live on Railway.
 
@@ -171,8 +171,8 @@ Browse available templates at the <a href="https://railway.com/deploy" target="_
 
 Explore these resources to enhance your Lovable application on Railway:
 
-- [Add a Database Service](/guides/build-a-database-service)
-- [Monitor your app](/guides/monitoring)
+- [Add a Database Service](/databases/build-a-database-service)
+- [Monitor your app](/observability)
 - [Configure environment variables](/variables)
 - [Set up custom domains](/networking/public-networking)
 

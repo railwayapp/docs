@@ -61,9 +61,9 @@ When using environment variables:
 
 - If a variable is optional, include a description explaining its purpose and what to set it to or where to find its value.
 
-- For any secrets, passwords, keys, etc., use [template variable functions](/guides/create#template-variable-functions) to generate them, avoid hardcoding default credentials at all costs.
+- For any secrets, passwords, keys, etc., use [template variable functions](/templates/create#template-variable-functions) to generate them, avoid hardcoding default credentials at all costs.
 
-- Use [reference variables](/guides/variables#referencing-another-services-variable) when possible for dynamic service configuration.
+- Use [reference variables](/variables#referencing-another-services-variable) when possible for dynamic service configuration.
 
 - When referencing a hostname, use the private network hostname rather than the public domain, e.g., `RAILWAY_PRIVATE_DOMAIN` rather than `RAILWAY_PUBLIC_DOMAIN`.
 
@@ -107,7 +107,7 @@ If the software provides a way to configure authentication, such as a username a
 
 For example, ClickHouse can operate without authentication, but authentication should always be configured so as not to leave the database open and unauthenticated to the public.
 
-Passwords, API keys, etc. should be generated using [template variable functions](/guides/create#template-variable-functions), and not hardcoded.
+Passwords, API keys, etc. should be generated using [template variable functions](/templates/create#template-variable-functions), and not hardcoded.
 
 ## Dry Code
 

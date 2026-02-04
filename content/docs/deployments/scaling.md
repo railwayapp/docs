@@ -9,7 +9,7 @@ Scaling your applications in Railway is made easy with configurable options for 
 
 ### Vertical autoscaling
 
-By default Railway will scale your service up to the specified vCPU and Memory limits of your [plan](/reference/pricing#plans).
+By default Railway will scale your service up to the specified vCPU and Memory limits of your [plan](/pricing/plans#plans).
 
 ### Horizontal scaling with replicas
 
@@ -49,4 +49,4 @@ For now Railway does not support sticky sessions nor report the usage of the rep
 
 ## Support
 
-For information on how to use horizontal scaling with replicas, refer to [this guide](/guides/optimize-performance#configure-horizontal-scaling).
+For information on how to use horizontal scaling with replicas, refer to [this guide](/deployments/optimize-performance#configure-horizontal-scaling).

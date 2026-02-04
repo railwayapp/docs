@@ -100,4 +100,4 @@ width={1200} height={374} quality={100} />
 
 ## Configurable settings
 
-Find a list of all of the configurable settings in the [config as code reference page](/reference/config-as-code#configurable-settings).
+Find a list of all of the configurable settings in the [config as code reference page](/config-as-code/reference#configurable-settings).

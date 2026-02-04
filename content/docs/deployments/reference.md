@@ -33,7 +33,7 @@ Every Deployment in Railway begins as `Initializing` - once it has been accepted
 
 #### Building
 
-While a Deployment is `Building`, Railway will attempt to create a deployable Docker image containing your code and configuration (see [Builds](/guides/builds)).
+While a Deployment is `Building`, Railway will attempt to create a deployable Docker image containing your code and configuration (see [Builds](/builds)).
 
 #### Deploying
 
@@ -57,13 +57,13 @@ This is the status of the Deployment when the running app exits with a non-zero 
 
 #### Crashed
 
-A Deployment will remain in the `Active` state unless it [crashes](/guides/deployment-actions#restart-a-crashed-deployment), at which point it will become `Crashed`.
+A Deployment will remain in the `Active` state unless it [crashes](/deployments/deployment-actions#restart-a-crashed-deployment), at which point it will become `Crashed`.
 
 #### Removed
 
-When a new [Deployment](/overview/the-basics#deployments) is triggered, older deploys in a `Active`, `Completed`, or a `Crashed` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be [removed manually](/reference/deployments#remove).
+When a new [Deployment](/overview/the-basics#deployments) is triggered, older deploys in a `Active`, `Completed`, or a `Crashed` state are eventually removed - first having their status updated to `Removing` before they are finally `Removed`. Deployments may also be [removed manually](/deployments/reference#remove).
 
-The time from when a new deployment becomes `Active` until the previous deployment is removed can be controlled by setting a [`RAILWAY_DEPLOYMENT_OVERLAP_SECONDS`](/reference/variables#user-provided-configuration-variables) [service variable](/overview/the-basics#service-variables).
+The time from when a new deployment becomes `Active` until the previous deployment is removed can be controlled by setting a [`RAILWAY_DEPLOYMENT_OVERLAP_SECONDS`](/variables/reference#user-provided-configuration-variables) [service variable](/overview/the-basics#service-variables).
 
 ## Deployment menu
 
@@ -102,7 +102,7 @@ This is often used to bring a service back online after -
 
 - The redeploy will use the source code from the selected deployment.
 
-- Deployments older than your [plan's retention policy](/reference/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible.
+- Deployments older than your [plan's retention policy](/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible.
 
 #### Rollback
 
@@ -112,7 +112,7 @@ Redeploys the selected deployment.
 
 - The rollback will use the source code from the selected deployment.
 
-- Deployments older than your [plan's retention policy](/reference/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible.
+- Deployments older than your [plan's retention policy](/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible.
 
 #### Remove
 
@@ -132,11 +132,11 @@ If your service requires data to persist between deployments, or needs more than
 
 By default, Railway maintains only one deploy per service.
 
-In practice, this means that if you trigger a new deploy either [manually](/guides/deployment-actions#redeploy) or [automatically](/guides/github-autodeploys), the old version will be stopped and removed with a slight overlap for zero downtime.
+In practice, this means that if you trigger a new deploy either [manually](/deployments/deployment-actions#redeploy) or [automatically](/deployments/github-autodeploys), the old version will be stopped and removed with a slight overlap for zero downtime.
 
 Once the new deployment is online, the old deployment is sent a SIGTERM signal. By default, it is given 0 seconds to gracefully shutdown before being forcefully stopped with a SIGKILL. We do not send any other signals under any circumstances.
 
-The time given to gracefully shutdown can be controlled by setting a [`RAILWAY_DEPLOYMENT_DRAINING_SECONDS`](/reference/variables#user-provided-configuration-variables) [service variable](/overview/the-basics#service-variables).
+The time given to gracefully shutdown can be controlled by setting a [`RAILWAY_DEPLOYMENT_DRAINING_SECONDS`](/variables/reference#user-provided-configuration-variables) [service variable](/overview/the-basics#service-variables).
 
 ## Railway initiated deployments
 
@@ -184,4 +184,4 @@ If you need to deploy immediately during a high traffic pause, you can upgrade t
 
 ## Support
 
-For information on how to manage your deployments, explore [the guides in this section](/guides/deployments).
+For information on how to manage your deployments, explore [the guides in this section](/deployments).

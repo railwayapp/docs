@@ -30,7 +30,7 @@ In this tutorial you will learn how to -
 
 To be successful using this tutorial, you should already have -
 
-- Latest version of Railway [CLI installed](/guides/cli#installing-the-cli)
+- Latest version of Railway [CLI installed](/cli#installing-the-cli)
 - A GitHub account
 
 **OpenTelemetry Collector Template and Demo**
@@ -288,7 +288,7 @@ In the same Railway project -
   OTEL_EXPORTER_OTLP_ENDPOINT=${{OpenTelemetry Collector.RAILWAY_PRIVATE_DOMAIN}}:4318
   ```
   _This is used by the Express app to connect to the OpenTelemetry Collector_
-- In the service Settings, add the following [Custom Start Command](/guides/start-command):
+- In the service Settings, add the following [Custom Start Command](/deployments/start-command):
   ```plaintext
   node --require ./instrumentation.js app.js
   ```
@@ -299,7 +299,7 @@ In the same Railway project -
 
 ### Deploy from the Railway CLI
 
-_This step assumes you have the latest version of the [Railway CLI](/guides/cli#installing-the-cli) installed._
+_This step assumes you have the latest version of the [Railway CLI](/cli#installing-the-cli) installed._
 
 On your local machine -
 

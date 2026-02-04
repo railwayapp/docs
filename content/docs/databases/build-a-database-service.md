@@ -9,7 +9,7 @@ For the purpose of this guide, you'll use the official <a href="https://hub.dock
 
 ## Service source
 
-As discussed in the [Services guide](/services), a crucial step in creating a service is [defining a source](/guides/services#defining-a-deployment-source) from which to deploy.
+As discussed in the [Services guide](/services), a crucial step in creating a service is [defining a source](/services#defining-a-deployment-source) from which to deploy.
 
 To deploy the official Postgres image, we'll simply enter postgres into the Source Image field:
 
@@ -55,7 +55,7 @@ postgresql://postgres:password@postgres.railway.internal:5432/railway
 
 ### TCP proxy
 
-If you'd like to expose the database over the public network, you'll need to set up a [TCP Proxy](/guides/public-networking#tcp-proxying), to proxy public traffic to the Postgres port `5432`:
+If you'd like to expose the database over the public network, you'll need to set up a [TCP Proxy](/networking/public-networking#tcp-proxying), to proxy public traffic to the Postgres port `5432`:
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743194081/docs/tcp-proxy_edctub.png"

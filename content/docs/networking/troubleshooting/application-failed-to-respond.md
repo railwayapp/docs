@@ -17,7 +17,7 @@ Seeing that your application failed to respond means that Railway's Edge Proxy c
 
 There are a few reasons why this error can occur, the most common being that your application is not listening on the correct host or port.
 
-Another common reason is that your [target port](/guides/public-networking#target-ports) is set to an incorrect value.
+Another common reason is that your [target port](/networking/public-networking#target-ports) is set to an incorrect value.
 
 In some far less common cases this error can also occur if your application is under heavy load and is not able to respond to the incoming request.
 
@@ -27,7 +27,7 @@ The correct solution depends on the cause of the error.
 
 ### Target port set to the incorrect value
 
-If your domain is using a [target port](/guides/public-networking#target-ports), ensure that the target port for your public domain matches the port your application is listening on.
+If your domain is using a [target port](/networking/public-networking#target-ports), ensure that the target port for your public domain matches the port your application is listening on.
 
 This setting can be found within your [service settings](/overview/the-basics#service-settings).
 

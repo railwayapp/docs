@@ -25,7 +25,7 @@ width={1200} height={373} quality={80} />
 
 Railway automatically configures the start command based on the code being deployed.
 
-If your service deploys with a [Dockerfile](/builds/dockerfiles) or from an [image](/reference/services#docker-image), the start command defaults to the `ENTRYPOINT` and / or `CMD` defined in the Dockerfile.
+If your service deploys with a [Dockerfile](/builds/dockerfiles) or from an [image](/services#docker-image), the start command defaults to the `ENTRYPOINT` and / or `CMD` defined in the Dockerfile.
 
 Override the detected start command by setting a value in your service settings.
 
@@ -45,6 +45,6 @@ This is because commands ran in exec form do not support variable expansion.
 
 ## Support
 
-For more information on how to configure builds, check out the [Builds](/guides/builds) guide section.
+For more information on how to configure builds, check out the [Builds](/builds) guide section.
 
-For more information on how to configure a service's deployment lifecycle, like the Start command, check out the [Deployments](/guides/deployments) guide section.
+For more information on how to configure a service's deployment lifecycle, like the Start command, check out the [Deployments](/deployments) guide section.

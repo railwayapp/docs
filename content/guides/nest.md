@@ -150,7 +150,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/nvnuEH)
 
-It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=nest" target="_blank">variety of Nest app templates</a> created by the community.
 
@@ -179,9 +179,9 @@ It is highly recommended that [you eject from the template after deployment](/gu
      - `DB_USERNAME=${{Postgres.PGUSER}}`
      - `DB_PASSWORD=${{Postgres.PGPASSWORD}}`
      - `DB_HOST=${{Postgres.PGHOST}}`
-     - The Postgres values references the credentials of your new Postgres database. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - The Postgres values references the credentials of your new Postgres database. Learn more about [referencing service variables](/variables#referencing-another-services-variable).
 
-   **Note:** Explore the [Railway CLI reference](/reference/cli-api#add) for a variety of options.
+   **Note:** Explore the [Railway CLI reference](/cli#add) for a variety of options.
 
 5. **Deploy the Application**:
    - Run `railway up` to deploy your app.
@@ -214,18 +214,18 @@ To deploy a Nest app to Railway directly from GitHub, follow the steps below:
      - `DB_USERNAME=${{Postgres.PGUSER}}`
      - `DB_PASSWORD=${{Postgres.PGPASSWORD}}`
      - `DB_HOST=${{Postgres.PGHOST}}`
-     - The Postgres values references the credentials of your new Postgres database. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - The Postgres values references the credentials of your new Postgres database. Learn more about [referencing service variables](/variables#referencing-another-services-variable).
 4. **Deploy the App Service**:
    - Click **Deploy** on the Railway project canvas to apply your changes.
 5. **Verify the Deployment**:
 
-   - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
+   - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
    **Note:** During the deployment process, Railway will automatically [detect that it’s a Node.js app via Nixpacks](https://nixpacks.com/docs/providers/node).
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
@@ -262,5 +262,5 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Add a Database Service](/guides/build-a-database-service)
-- [Monitor your app](/guides/monitoring)
+- [Add a Database Service](/databases/build-a-database-service)
+- [Monitor your app](/observability)

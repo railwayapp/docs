@@ -147,7 +147,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/Ic0JBh)
 
-It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=astro" target="_blank">variety of Astro app templates</a> created by the community.
 
@@ -171,7 +171,7 @@ It is highly recommended that [you eject from the template after deployment](/gu
    - Once the deployment completes, go to **View logs** to check if the service is running successfully.
 4. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1729535599/astro_blog_app.png"
 alt="screenshot of the deployed Astro service"
@@ -194,7 +194,7 @@ To deploy an Astro app to Railway directly from GitHub, follow the steps below:
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 5. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
@@ -237,5 +237,5 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Add a Database Service](/guides/build-a-database-service)
-- [Monitor your app](/guides/monitoring)
+- [Add a Database Service](/databases/build-a-database-service)
+- [Monitor your app](/observability)

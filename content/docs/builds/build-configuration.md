@@ -9,7 +9,7 @@ Railway will build and deploy your code with zero configuration, but when necess
 
 Railway uses <a href="https://railpack.com" target="_blank">Railpack</a> to
 build your code. It works with zero configuration, but can be customized using
-[environment variables](/guides/variables#service-variables) or a [config
+[environment variables](/variables#service-variables) or a [config
 file](https://railpack.com/config/file). Configuration options include:
 
 - Language versions
@@ -20,7 +20,7 @@ file](https://railpack.com/config/file). Configuration options include:
 For a full list of configuration options, please view the <a
 href="https://railpack.com/config/environment-variables"
 target="_blank">Railpack docs</a>. You can find a complete list of languages we
-support out of the box [here](/reference/railpack#supported-languages).
+support out of the box [here](/builds/railpack#supported-languages).
 
 ## Nixpacks
 
@@ -30,9 +30,9 @@ Nixpacks is deprecated and in maintenance mode. New services default to Railpack
 
 Existing services will continue to work with Nixpacks. To migrate to Railpack, update your service settings or set `"builder": "RAILPACK"` in your railway.json file.
 
-For services still using Nixpacks, it can be configured with [environment variables](/guides/variables#service-variables). For a full list of options, view the <a href="https://nixpacks.com/docs/guides/configuring-builds" target="_blank">Nixpacks docs</a>.
+For services still using Nixpacks, it can be configured with [environment variables](/variables#service-variables). For a full list of options, view the <a href="https://nixpacks.com/docs/guides/configuring-builds" target="_blank">Nixpacks docs</a>.
 
-You can find a complete list of languages we support out of the box [here](/reference/nixpacks#supported-languages).
+You can find a complete list of languages we support out of the box [here](/builds/nixpacks#supported-languages).
 
 ## Customize the build command
 
@@ -48,7 +48,7 @@ width={1200} height={373} quality={80} />
 ## Set the root directory
 
 The root directory defaults to `/` but can be changed for various use-cases like
-[monorepo](/guides/monorepo) projects.
+[monorepo](/deployments/monorepo) projects.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743192841/docs/root-directory_nfzkfi.png"

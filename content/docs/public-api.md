@@ -9,7 +9,7 @@ Use the Public API to integrate Railway into your CI/CD pipelines and other work
 
 ## Understanding GraphQL
 
-New to GraphQL? Start with the [Introduction to GraphQL](/guides/graphql-overview) guide, which explains the core concepts using Railway's API.
+New to GraphQL? Start with the [Introduction to GraphQL](/integrations/api/graphql-overview) guide, which explains the core concepts using Railway's API.
 
 For deeper learning, these external resources are helpful:
 - [Official Introduction to GraphQL](https://graphql.org/learn/)

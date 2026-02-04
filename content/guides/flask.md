@@ -142,7 +142,7 @@ Railway offers multiple ways to deploy your Flask app, depending on your setup a
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/zUcpux)
 
-It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=flask" target="_blank">variety of Flask app templates</a> created by the community.
 
@@ -164,10 +164,10 @@ It is highly recommended that [you eject from the template after deployment](/gu
      ```
    - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
 4. **Verify the Deployment**:
-   - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
+   - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 5. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1730473731/docs/quick-start/flask_app_on_railway.png"
 alt="screenshot of the deployed Flask service"
@@ -187,13 +187,13 @@ To deploy a Flask app to Railway directly from GitHub, follow the steps below:
    - Click **Deploy** on the Railway project canvas to apply your changes.
 4. **Verify the Deployment**:
 
-   - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
+   - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
    **Note:** During the deployment process, Railway will automatically [detect that it's a Python app via Railpack](https://railpack.com/languages/python).
 
 5. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ## Use a Dockerfile
 
@@ -231,6 +231,6 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Add a Database Service](/guides/build-a-database-service)
-- [Monitor your app](/guides/monitoring)
+- [Add a Database Service](/databases/build-a-database-service)
+- [Monitor your app](/observability)
 - [Running a Cron Job](/cron-jobs)

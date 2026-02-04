@@ -22,7 +22,7 @@ Upon deployment, you will have a PostgreSQL service running in your project, dep
 
 ### Connect
 
-Connect to the PostgreSQL server from another service in your project by [referencing the environment variables](/guides/variables#referencing-another-services-variable) made available in the PostgreSQL service:
+Connect to the PostgreSQL server from another service in your project by [referencing the environment variables](/variables#referencing-another-services-variable) made available in the PostgreSQL service:
 
 - `PGHOST`
 - `PGPORT`

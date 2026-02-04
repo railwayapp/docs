@@ -134,7 +134,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/0LSBzw)
 
-After deploying, it is recommended that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
+After deploying, it is recommended that you [eject from the template](/templates/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
 ## Deploy from the CLI
 
@@ -167,16 +167,16 @@ To deploy the Phoenix app using the Railway CLI, please follow the steps:
    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
      - `SECRET_KEY_BASE` : Set the value to the your app's secret key. You can run `mix phx.gen.secret` locally to generate one.
      - `LANG`and `LC_CTYPE`: Set both values to `en_US.UTF-8`. This sets your app's locale and gets rid of the _native name encoding of latin1_ warning.
-     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
-     - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the [IPv6 private network](/guides/private-networking#listen-on-ipv6).
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
+     - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the [IPv6 private network](/networking/private-networking#listen-on-ipv6).
    - Use the **Raw Editor** to add any other required environment variables in one go.
 6. **Redeploy the Service**:
    - Click **Deploy** on the Railway Project Canvas to apply your changes.
 7. **Verify the Deployment**:
-   - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
+   - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 8. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1730139857/docs/quick-start/phoenix_elixir_app.png"
 alt="screenshot of the deployed Phoenix service showing the welcome page"
@@ -198,19 +198,19 @@ To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo.
    - Once the database is deployed, you can return to adding the necessary environment variables:
      - `SECRET_KEY_BASE` : Set the value to the your app's secret key. You can run `mix phx.gen.secret` locally to generate one.
      - `LANG`and `LC_CTYPE`: Set both values to `en_US.UTF-8` to ensure proper locale settings and avoid the _native name encoding of latin1 warning_.
-     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
-     - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the [IPv6 private network](/guides/private-networking#listen-on-ipv6).
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
+     - `ECTO_IPV6`: Set the value to `true` to enable your Phoenix app to connect to the database through the [IPv6 private network](/networking/private-networking#listen-on-ipv6).
 4. **Deploy the App Service**:
    - Click **Deploy** on the Railway project canvas to apply your changes.
 5. **Verify the Deployment**:
 
-   - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
+   - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
    **Note:** During the deployment process, Railway will automatically [detect that it’s an Elixir app](https://nixpacks.com/docs/providers/elixir).
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Phoenix apps effortlessly!
 
@@ -227,5 +227,5 @@ Click the button below to deploy an instance of Livebook quickly.
 Explore these resources to learn how you can maximize your experience with Railway:
 
 - [Deploy Phoenix with Distillery](/guides/phoenix-distillery)
-- [Monitoring](/guides/monitoring)
-- [Deployments](/guides/deployments)
+- [Monitoring](/observability)
+- [Deployments](/deployments)

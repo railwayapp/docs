@@ -28,7 +28,7 @@ Railway captures a snapshot of your source code. This is typically fast unless y
 
 #### Build phase
 
-The build phase is often the longest part of a deployment. Railway uses [Railpack](/reference/railpack) (or a [Dockerfile](/guides/dockerfiles) if present) to build your application into a container image.
+The build phase is often the longest part of a deployment. Railway uses [Railpack](/builds/railpack) (or a [Dockerfile](/builds/dockerfiles) if present) to build your application into a container image.
 
 Common causes of slow builds:
 - Large dependency trees (many npm packages, Python dependencies, etc.)
@@ -56,7 +56,7 @@ Large container images take longer to pull. Railway caches images on compute nod
 
 #### Network (healthchecks)
 
-If you have a [healthcheck](/reference/healthchecks) configured, Railway queries your healthcheck endpoint until it receives an HTTP 200 response. The default timeout is 300 seconds (5 minutes).
+If you have a [healthcheck](/deployments/healthchecks) configured, Railway queries your healthcheck endpoint until it receives an HTTP 200 response. The default timeout is 300 seconds (5 minutes).
 
 If your application takes time to:
 - Initialize database connections
@@ -98,7 +98,7 @@ Look for:
 
 ### Check your application metrics
 
-Railway provides [metrics](/guides/metrics) for CPU, memory, and network usage. High resource usage can indicate:
+Railway provides [metrics](/observability/metrics) for CPU, memory, and network usage. High resource usage can indicate:
 - Your application is resource-constrained
 - Inefficient code paths
 - Memory leaks causing garbage collection pressure
@@ -107,7 +107,7 @@ For deeper insights, consider integrating an Application Performance Monitoring 
 
 ### Analyze HTTP logs
 
-Railway captures detailed HTTP request logs for every request to your service. These logs are invaluable for identifying slow endpoints and understanding request patterns. For complete documentation on log features and filtering syntax, see the [Logs guide](/guides/logs).
+Railway captures detailed HTTP request logs for every request to your service. These logs are invaluable for identifying slow endpoints and understanding request patterns. For complete documentation on log features and filtering syntax, see the [Logs guide](/observability/logs).
 
 **Key fields for performance troubleshooting:**
 
@@ -187,7 +187,7 @@ If your application is in one region but your database is in another, every quer
 
 ### Not using private networking
 
-If services within the same project communicate over the public internet instead of [private networking](/guides/private-networking), you add unnecessary latency and incur [egress costs](/reference/pricing/plans#resource-usage-pricing). Private networking is for **server-to-server communication only**. It won't work for requests originating from a user's browser.
+If services within the same project communicate over the public internet instead of [private networking](/networking/private-networking), you add unnecessary latency and incur [egress costs](/pricing/plans#resource-usage-pricing). Private networking is for **server-to-server communication only**. It won't work for requests originating from a user's browser.
 
 **Symptoms:**
 - Using public URLs (e.g., `your-app.up.railway.app`) for inter-service communication
@@ -218,10 +218,10 @@ Your application may be hitting resource limits, causing throttling or OOM (out 
 - Slow response times during high load
 
 **Solutions:**
-- Check your [metrics](/guides/metrics) to see actual resource usage
-- Adjust [resource limits](/guides/optimize-performance) if you're consistently hitting them
+- Check your [metrics](/observability/metrics) to see actual resource usage
+- Adjust [resource limits](/deployments/optimize-performance) if you're consistently hitting them
 - Optimize your application's memory and CPU usage
-- Consider [horizontal scaling](/reference/scaling#horizontal-scaling-with-replicas) for stateless workloads
+- Consider [horizontal scaling](/deployments/scaling#horizontal-scaling-with-replicas) for stateless workloads
 
 ### Large container images
 
@@ -285,7 +285,7 @@ Upgrading won't help when:
 
 ## Edge routing and latency
 
-Railway operates edge proxies in multiple regions. For a complete overview of edge infrastructure, see the [Edge Networking reference](/reference/edge-networking). Understanding how traffic is routed helps diagnose latency issues.
+Railway operates edge proxies in multiple regions. For a complete overview of edge infrastructure, see the [Edge Networking reference](/networking/edge-networking). Understanding how traffic is routed helps diagnose latency issues.
 
 ### How edge routing works
 
@@ -312,7 +312,7 @@ The header value shows the region, e.g., `railway/us-west2`.
 
 ### Optimizing for global users
 
-If you have users worldwide, you can use [multi-region replicas](/reference/scaling#multi-region-replicas) to deploy stateless services closer to your users. Railway automatically routes traffic to the nearest region.
+If you have users worldwide, you can use [multi-region replicas](/deployments/scaling#multi-region-replicas) to deploy stateless services closer to your users. Railway automatically routes traffic to the nearest region.
 
 **Note:** Multi-region works well for stateless application servers, but databases typically run in a single region. If your app is deployed globally but your database is in one region, replicas far from the database will still experience latency on database queries. To mitigate this:
 - Use application-level caching to reduce database round-trips

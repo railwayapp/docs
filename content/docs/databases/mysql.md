@@ -22,7 +22,7 @@ Upon deployment, you will have a MySQL service running in your project, deployed
 
 ### Connect
 
-Connect to MySQL from another service in your project by [referencing the environment variables](/guides/variables#referencing-another-services-variable) made available in the MySQL service:
+Connect to MySQL from another service in your project by [referencing the environment variables](/variables#referencing-another-services-variable) made available in the MySQL service:
 
 - `MYSQLHOST`
 - `MYSQLPORT`

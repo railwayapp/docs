@@ -23,7 +23,7 @@ After a refund is issued,
 - Your subscription may be cancelled immediately by us
 - Your services may be taken offline immediately
 
-If you'd like to stop using Railway, please remove your projects and cancel your subscription immediately. See "[How do I view/manage/cancel my subscription?](/reference/pricing/faqs#how-do-i-viewmanagecancel-my-subscription)" for further information.
+If you'd like to stop using Railway, please remove your projects and cancel your subscription immediately. See "[How do I view/manage/cancel my subscription?](/pricing/faqs#how-do-i-viewmanagecancel-my-subscription)" for further information.
 
 ## FAQs
 

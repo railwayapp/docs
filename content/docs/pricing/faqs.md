@@ -7,7 +7,7 @@ General common Questions & Answers related to Railway's pricing.
 
 ### Can I try Railway without a credit-card?
 
-Yes. As a new Railway user, you can sign up for a [Free Trial](/reference/pricing/free-trial). You will receive a one-time grant of $5 to use on resources.
+Yes. As a new Railway user, you can sign up for a [Free Trial](/pricing/free-trial). You will receive a one-time grant of $5 to use on resources.
 
 ### What payment methods are accepted?
 
@@ -15,11 +15,11 @@ Railway only accepts credit cards for plan subscriptions. We also support custom
 
 ### What will it cost to run my app?
 
-With Railway, you are billed for the [subscription fee](/reference/pricing/plans#plan-subscription-pricing) of the plan you're subscribed to, and the [resource usage](/reference/pricing/plans#resource-usage-pricing) of your workloads.
+With Railway, you are billed for the [subscription fee](/pricing/plans#plan-subscription-pricing) of the plan you're subscribed to, and the [resource usage](/pricing/plans#resource-usage-pricing) of your workloads.
 
 To understand how much your app will cost to run on Railway, we recommend that you:
 
-1. Deploy your project with the [Trial](/reference/pricing/free-trial) or Hobby plan
+1. Deploy your project with the [Trial](/pricing/free-trial) or Hobby plan
 2. Allow it to run for one week
 3. Check your Estimated Usage in the [Usage Section](https://railway.com/workspace/usage) of your Workspace settings
 
@@ -28,7 +28,7 @@ Keeping it running for one week allows us to rack up sufficient metrics to provi
 We are unable to give exact quotes or estimates for how much it will cost to run your app because it is highly dependent on what you're deploying.
 
 
-If you are supporting a commercial application, we highly recommend you to upgrade to the Pro plan for higher resource limits and access to [priority support](/reference/support#priority-threads).
+If you are supporting a commercial application, we highly recommend you to upgrade to the Pro plan for higher resource limits and access to [priority support](/platform/support#priority-threads).
 
 ### How do I prevent spending more than I want to?
 
@@ -52,7 +52,7 @@ Unfortunately, we are unable to assist with figuring out why your bill is higher
 
 Railway's pricing has two components: a monthly subscription fee, and resource usage costs. While the Hobby plan includes $5 of resource usage per month, you are charged for any usage that exceeds this amount.
 
-Learn more [here](/reference/pricing/plans#included-usage).
+Learn more [here](/pricing/plans#included-usage).
 
 ### Why is there an "applied balance" on my invoice?
 
@@ -107,13 +107,13 @@ Your [services](/overview/the-basics#services) may be stopped by Railway for the
 
 - **Usage limits reached:** You've hit your [usage limits](/pricing/cost-control). Increase your usage limit, remove it entirely, or wait for the usage limit to reset.
 
-- **Trial credits exhausted:** You've run out of [trial credits](/reference/pricing/free-trial#how-does-the-trial-work). Consider upgrading to [a paid plan](/reference/pricing/plans#plans) to continue using the service.
+- **Trial credits exhausted:** You've run out of [trial credits](/pricing/free-trial#how-does-the-trial-work). Consider upgrading to [a paid plan](/pricing/plans#plans) to continue using the service.
 
 - **Failed payment:** Your payment method has failed. Update your payment method and [pay your outstanding invoice](https://railway.com/workspace/billing).
 
 - **Unpaid invoice:** You have an outstanding invoice. [Pay your outstanding invoice](https://railway.com/workspace/billing).
 
-Railway will automatically redeploy your services once the underlying issue is resolved, as long as it is resolved within a period of 30 days. After that, you will have to redeploy them manually from the Removed deployment's [3-dot menu](/reference/deployments#deployment-menu).
+Railway will automatically redeploy your services once the underlying issue is resolved, as long as it is resolved within a period of 30 days. After that, you will have to redeploy them manually from the Removed deployment's [3-dot menu](/deployments/reference#deployment-menu).
 
 **Note:** Although Railway will remove your deployment for any of the above reasons, Railway will not remove the [volume](/overview/the-basics#volumes) attached to the service.
 
@@ -127,7 +127,7 @@ You may receive an invoice containing charges for Resource Usage after you cance
 
 ### How do I request a refund?
 
-Please refer to [Pricing -> Refunds](/reference/pricing/refunds).
+Please refer to [Pricing -> Refunds](/pricing/refunds).
 
 ### Requesting an invoice re-issuance
 
@@ -153,7 +153,7 @@ alt="Screenshot of invoice re-issuance"
 layout="intrinsic"
 width={876} height={557} quality={100} />
 
-Before you re-issue an invoice, please ensure your [billing information is up-to-date](/reference/pricing/faqs#how-do-i-add-or-update-billing-information).
+Before you re-issue an invoice, please ensure your [billing information is up-to-date](/pricing/faqs#how-do-i-add-or-update-billing-information).
 
 Once your invoice has been re-issued, it will contain the latest billing
 information, and appear in your **Billing History**.

@@ -63,7 +63,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/w5OSVq)
 
-It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 ### Deploy from the CLI
 
@@ -85,7 +85,7 @@ It is highly recommended that [you eject from the template after deployment](/gu
    - Once the deployment completes, go to **View logs** to check if the service is running successfully.
 4. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1741198862/CleanShot_2025-03-05_at_18.19.11_2x_isjut5.png"
 alt="screenshot of the deployed Solid service"
@@ -108,7 +108,7 @@ To deploy a Solid app to Railway directly from GitHub, follow the steps below:
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 5. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 ### Use a Dockerfile
 
@@ -214,5 +214,5 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Add a Database Service](/guides/build-a-database-service)
-- [Monitor your app](/guides/monitoring)
+- [Add a Database Service](/databases/build-a-database-service)
+- [Monitor your app](/observability)

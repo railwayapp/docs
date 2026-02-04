@@ -31,5 +31,5 @@ Railway provides several networking features to connect your services to the int
 
 | Feature | Description |
 | ------- | ----------- |
-| [**Troubleshooting SSL**](/networking/troubleshooting-ssl) | Debug and resolve SSL certificate issues. |
-| [**Network Diagnostics**](/networking/network-diagnostics) | Tools and techniques for diagnosing network issues. |
+| [**Troubleshooting SSL**](/networking/troubleshooting/ssl) | Debug and resolve SSL certificate issues. |
+| [**Network Diagnostics**](/networking/troubleshooting/network-diagnostics) | Tools and techniques for diagnosing network issues. |

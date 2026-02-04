@@ -22,7 +22,7 @@ Upon deployment, you will have a Redis service running in your project, deployed
 
 ### Connect
 
-Connect to the Redis server from another service in your project by [referencing the environment variables](/guides/variables#referencing-another-services-variable) made available in the Redis service:
+Connect to the Redis server from another service in your project by [referencing the environment variables](/variables#referencing-another-services-variable) made available in the Redis service:
 
 - `REDISHOST`
 - `REDISUSER`

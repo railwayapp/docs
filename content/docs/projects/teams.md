@@ -65,7 +65,7 @@ For example, users signing up with `@railway.com` are automatically added to the
 
 ### Verifying a trusted domain
 
-Before adding a Trusted Domain, you must verify ownership by adding your email domain as a [custom domain](/guides/public-networking#custom-domains) on a Railway service.
+Before adding a Trusted Domain, you must verify ownership by adding your email domain as a [custom domain](/networking/public-networking#custom-domains) on a Railway service.
 
 You can verify a parent domain using a subdomain. For example, adding `verify.example.com` as a custom domain allows you to add `example.com` as trusted domain.
 
@@ -89,7 +89,7 @@ Additional notes and troubleshooting:
 
 ## Transferring projects
 
-Transfer projects from another Workspace or Hobby workspace easily. Detailed instructions can be found [here](/guides/projects#transferring-projects).
+Transfer projects from another Workspace or Hobby workspace easily. Detailed instructions can be found [here](/projects#transferring-projects).
 
 ## Invoicing and billing
 
@@ -99,7 +99,7 @@ However, if you expect to use a consistent amount of resources for large compani
 
 ### Committed spend tiers
 
-Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly threshold to [unlock additional features and services.](/reference/pricing/plans#committed-spend-tiers)
+Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly threshold to [unlock additional features and services.](/pricing/plans#committed-spend-tiers)
 
 Monthly thresholds for addons is found in the [committed spend pricing](/pricing/plans#committed-spend-tiers).
 

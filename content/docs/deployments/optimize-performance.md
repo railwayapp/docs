@@ -7,7 +7,7 @@ Railway offers some quick and easy ways to configure deployments for achieving o
 
 Specifically, we offer the following features:
 
-- Horizontal Scaling with Replicas where each individual replica can use the full resources your plan allows for. ([Vertical scaling](/reference/scaling#vertical-autoscaling) is done automatically)
+- Horizontal Scaling with Replicas where each individual replica can use the full resources your plan allows for. ([Vertical scaling](/deployments/scaling#vertical-autoscaling) is done automatically)
 - Regional Deployments
 
 Continue reading for information on how to configure these.
@@ -54,7 +54,7 @@ To set a default or preferred region, do so from your [Workspace Settings](https
 
 ### Impact of region changes
 
-For information on the impact of changing a service's region, see the [Regions reference guide](/reference/deployment-regions#impact-of-region-changes).
+For information on the impact of changing a service's region, see the [Regions reference guide](/deployments/regions#impact-of-region-changes).
 
 ## Singleton deploys
 

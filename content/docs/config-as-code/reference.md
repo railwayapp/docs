@@ -56,7 +56,7 @@ Possible values are:
 
 Note: Railway will always build with a Dockerfile if it finds one. New services default to Railpack unless otherwise specified.
 
-Read more about Builds [here](/guides/builds).
+Read more about Builds [here](/builds).
 
 ### Watch patterns
 
@@ -71,7 +71,7 @@ Array of patterns used to conditionally trigger a deploys.
 }
 ```
 
-Read more about watch patterns [here](/guides/build-configuration#configure-watch-paths).
+Read more about watch patterns [here](/builds/build-configuration#configure-watch-paths).
 
 ### Build command
 
@@ -88,7 +88,7 @@ Build command to pass to the Nixpacks builder.
 
 This field can be set to `null`.
 
-Read more about the build command [here](/reference/build-and-start-commands#build-command).
+Read more about the build command [here](/builds/build-and-start-commands#build-command).
 
 ### Dockerfile path
 
@@ -237,7 +237,7 @@ The command to run when starting the container.
 
 This field can be set to `null`.
 
-Read more about the start command [here](/reference/build-and-start-commands#start-command).
+Read more about the start command [here](/builds/build-and-start-commands#start-command).
 
 ### Pre-deploy command
 
@@ -254,7 +254,7 @@ The command to run before starting the container.
 
 This field can be omitted.
 
-Read more about the pre-deploy command [here](/guides/pre-deploy-command).
+Read more about the pre-deploy command [here](/deployments/pre-deploy-command).
 
 ### Multi-region configuration
 
@@ -284,7 +284,7 @@ Horizontal scaling across multiple regions, with two replicas in each region.
 
 This field can be set to `null`.
 
-Read more about horizontal scaling with multiple regions [here](/reference/scaling#multi-region-replicas).
+Read more about horizontal scaling with multiple regions [here](/deployments/scaling#multi-region-replicas).
 
 ### Healthcheck path
 
@@ -340,7 +340,7 @@ Possible values are:
 - `ALWAYS`
 - `NEVER`
 
-Read more about the Restart policy [here](/guides/restart-policy).
+Read more about the Restart policy [here](/deployments/restart-policy).
 
 ### Restart policy max retries
 
@@ -358,7 +358,7 @@ Set the max number of retries for the restart policy.
 
 This field can be set to `null`.
 
-Read more about the Restart policy [here](/guides/restart-policy).
+Read more about the Restart policy [here](/deployments/restart-policy).
 
 ### cron schedule
 
@@ -435,7 +435,7 @@ providers = ["...", "python"]
 
 ### Deployment teardown
 
-You can configure [Deployment Teardown](/guides/deployment-teardown) settings to tune the behavior of zero downtime deployments on Railway.
+You can configure [Deployment Teardown](/deployments/deployment-teardown) settings to tune the behavior of zero downtime deployments on Railway.
 
 #### Overlap seconds
 

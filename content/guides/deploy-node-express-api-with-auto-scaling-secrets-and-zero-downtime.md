@@ -16,7 +16,7 @@ In this guide, you'll learn how to deploy a [Node.js](https://nodejs.org/) and [
 
 Railway is a modern deployment platform that enables you to deploy applications without managing servers, configuring load balancers, or learning Kubernetes. It provides automatic scaling, zero-downtime deployments, and built-in CI/CD.
 
-Learn more about Railway's [core components and foundations](/guides/foundations).
+Learn more about Railway's [core components and foundations](/overview/the-basics).
 
 ## Prerequisites
 
@@ -179,7 +179,7 @@ npm run dev
 
 If you open your browser and navigate to `http://localhost:3000`, you'll see your Express API running with TypeScript support.
 
-Learn more about [customizing builds](/guides/builds) and [build configuration](/guides/build-configuration) in Railway.
+Learn more about [customizing builds](/builds) and [build configuration](/builds/build-configuration) in Railway.
 
 
 ## Deploy to Railway from GitHub
@@ -223,7 +223,7 @@ Now let's deploy this API to Railway. First, create a Railway account by going t
    - Click "Generate Domain"
    - Your API is now live at `https://your-app.up.railway.app`. When you visit this URL, you should see your Express API running.
 
-Learn more about [deploying applications](/guides/deploy), [public networking](/networking/public-networking), and [staged changes](/guides/staged-changes) in Railway.
+Learn more about [deploying applications](/templates/deploy), [public networking](/networking/public-networking), and [staged changes](/deployments/staged-changes) in Railway.
 
 
 ## Scaling and pricing
@@ -268,7 +268,7 @@ Railway also supports multi-region deployments for global applications:
 
 This gives you both high availability and low latency for users worldwide, all with just a few clicks.
 
-Learn more about [scaling applications](/deployments/scaling) and [optimizing performance](/guides/optimize-performance) in Railway.
+Learn more about [scaling applications](/deployments/scaling) and [optimizing performance](/deployments/optimize-performance) in Railway.
 
 
 ### Usage-based pricing
@@ -422,7 +422,7 @@ Railway will automatically create a temporary environment for your pull request,
 
 **Note**: Railway will only deploy PR branches from team members or users invited to your project. For automatic domain provisioning, ensure your base environment services use Railway-provided domains.
 
-Learn more about [using environments](/environments) and [PR environments](/guides/environments#enable-pr-environments) in the Railway documentation.
+Learn more about [using environments](/environments) and [PR environments](/environments#enable-pr-environments) in the Railway documentation.
 
 ## Deploy multiple services
 
@@ -454,7 +454,7 @@ DATABASE_URL=${{shared.DATABASE_URL}}
 
 This eliminates duplication and makes it easy to manage configuration across your entire microservice architecture.
 
-Learn more about [managing services](/services), [shared variables](/guides/variables#shared-variables), and [service communication](/services) in the Railway documentation.
+Learn more about [managing services](/services), [shared variables](/variables#shared-variables), and [service communication](/services) in the Railway documentation.
 
 ## Conclusion
 
@@ -475,14 +475,14 @@ Railway makes Node.js deployment simple by providing:
 
 Now that you've deployed your Node.js applications, explore these resources:
 
-- [Add a Database Service](/guides/build-a-database-service)
-- [Monitor your application](/guides/monitoring)
+- [Add a Database Service](/databases/build-a-database-service)
+- [Monitor your application](/observability)
 - [View logs and metrics](/observability/logs) and [metrics](/observability/metrics)
 - [Set up custom domains](/networking/public-networking)
 - [Configure environment variables](/variables)
 - [Deploy with Docker](/builds/dockerfiles)
-- [Customize builds](/guides/builds)
-- [Manage deployments](/guides/manage-deployments)
+- [Customize builds](/builds)
+- [Manage deployments](/integrations/api/manage-deployments)
 
 ## Need help?
 

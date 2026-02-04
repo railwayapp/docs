@@ -23,7 +23,7 @@ This guide covers how to deploy a Laravel app on Railway in three ways:
 
 This template sets up a basic Laravel application along with a Postgres database on Railway. You can also choose from a <a href="https://railway.com/templates?q=laravel" target="_blank">variety of Laravel app templates</a> created by the community.
 
-It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 ## Deploy from a GitHub repo
 
@@ -47,7 +47,7 @@ Once the deployment is successful, a Railway [service](/services) will be create
 
 **Note:** Railway will automatically detect that it's a Laravel app during [deploy and run your app via php-fpm and nginx](https://nixpacks.com/docs/providers/php).
 
-To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
+To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/networking/public-networking#railway-provided-domain).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727885952/docs/quick-start/CleanShot_2024-10-02_at_17.18.04_2x_nn78ga.png"
 alt="screenshot of the deployed Laravel service showing the Laravel home page"
@@ -82,7 +82,7 @@ If you have your Laravel app locally, you can follow these steps:
 
 7. Click on **Deploy** to redeploy your app.
 
-To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
+To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/networking/public-networking#railway-provided-domain).
 
 **Note:** The next step shows how to run your Laravel app along with a database, migrations, cron jobs, and workers.
 
@@ -186,7 +186,7 @@ Please follow these steps to get started:
 
      - `QUEUE_CONNECTION`: Set the value to `database`.
 
-     - `DB_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `DB_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
 
    - Click **Deploy**.
 
@@ -269,5 +269,5 @@ However, it's important to note that Railway currently does not support Docker C
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Monitoring](/guides/monitoring)
-- [Deployments](/guides/deployments)
+- [Monitoring](/observability)
+- [Deployments](/deployments)

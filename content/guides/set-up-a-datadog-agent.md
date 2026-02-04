@@ -10,7 +10,7 @@ tags:
 
 Datadog provides a centralized location for logs, metrics, and traces emitted from applications deployed in various locations.
 
-While Railway has a native, [centralized logging mechanism](/guides/logs#log-explorer), you may have a need to ship this data to another location, to view it alongside data collected from systems outside of Railway.
+While Railway has a native, [centralized logging mechanism](/observability/logs#log-explorer), you may have a need to ship this data to another location, to view it alongside data collected from systems outside of Railway.
 
 **Objectives**
 
@@ -25,7 +25,7 @@ If you are looking for a quicker way to get started, you can also deploy this pr
 
 To be successful, you should already have -
 
-- Railway [CLI installed](/guides/cli#installing-the-cli)
+- Railway [CLI installed](/cli#installing-the-cli)
 - Datadog API key and site value
 
 **Caveats**
@@ -214,7 +214,7 @@ Now create the project using the CLI, then create the services and variables fro
 
 You will need your **Datadog API key** and **Site** value in this step.
 
-If you have not already done so, please [install the CLI](/guides/cli#installing-the-cli) and [authenticate](/guides/cli#authenticating-with-the-cli).
+If you have not already done so, please [install the CLI](/cli#installing-the-cli) and [authenticate](/cli#authenticating-with-the-cli).
 
 #### Create a project
 

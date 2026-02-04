@@ -4,7 +4,7 @@ description: Learn how workspace admins can require two-factor authentication fo
 ---
 
 <Banner variant="info">
-2FA Enforcement is available on the [Pro plan](/reference/pricing/plans) and above.
+2FA Enforcement is available on the [Pro plan](/pricing/plans) and above.
 </Banner>
 
 Two-Factor Authentication (2FA) Enforcement allows workspace admins to require all members to have 2FA enabled on their account before accessing the workspace.
@@ -36,8 +36,8 @@ width={836} height={744} quality={80} />
 When 2FA enforcement is enabled:
 
 - Existing members without 2FA are prompted to set it up before accessing the workspace.
-- Members can still be [invited](/reference/teams#inviting-members) to the workspace. They can accept the invite, but must enable 2FA before accessing workspace resources.
-- Users joining via [Trusted Domains](/reference/teams#trusted-domains) are added to the workspace, but must enable 2FA before accessing workspace resources.
+- Members can still be [invited](/projects/teams#inviting-members) to the workspace. They can accept the invite, but must enable 2FA before accessing workspace resources.
+- Users joining via [Trusted Domains](/projects/teams#trusted-domains) are added to the workspace, but must enable 2FA before accessing workspace resources.
 - New members cannot view or interact with workspace projects until 2FA is configured.
 
 ## Access methods

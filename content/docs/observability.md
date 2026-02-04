@@ -102,7 +102,7 @@ email and in-app notifications when thresholds are reached. You can also
 configure [webhooks](/observability/webhooks) to receive notifications when thresholds are reached.
 
 <Banner variant="info">
-Monitors requires a [Pro plan](/reference/pricing/plans#plans).
+Monitors requires a [Pro plan](/pricing/plans#plans).
 </Banner>
 
 Alerting thresholds can be configured to trigger above or below specified limits for:

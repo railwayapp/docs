@@ -11,7 +11,7 @@ When mounting a volume to a service, a volume is made available to the service o
 
 ## Size limits
 
-Volumes have a default size based on the [subscription plan](/reference/pricing#plans).
+Volumes have a default size based on the [subscription plan](/pricing/plans#plans).
 
 - Free and Trial plans: **0.5GB**
 - Hobby plans: **5GB**
@@ -49,7 +49,7 @@ These specifications apply to all volume sizes and subscription plans.
 
 ## Pricing
 
-Volumes are billed at a rate per GB / minutely, and invoiced monthly. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
+Volumes are billed at a rate per GB / minutely, and invoiced monthly. You can find [specific per-minute pricing here](/pricing/plans#resource-usage-pricing).
 
 You are only charged for the amount of storage used by your volumes. _Each volume requires approx 2-3% of the total storage to store metadata about the filesystem, so a new volume will always start with some used amount of space used depending on the size._
 

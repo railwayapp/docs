@@ -85,7 +85,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/sibk1f)
 
-After deploying, it is recommended that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
+After deploying, it is recommended that you [eject from the template](/templates/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
 ## Deploy from the CLI
 
@@ -116,7 +116,7 @@ To deploy the Rails app using the Railway CLI, please follow the steps:
 5. **Configure Environment Variables**:
    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
      - `SECRET_KEY_BASE` or `RAILS_MASTER_KEY`: Set the value to the key from your local app's `config/master.key`.
-     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_PUBLIC_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_PUBLIC_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
    - Use the **Raw Editor** to add any other required environment variables in one go.
 6. **Redeploy the Service**:
    - Click **Deploy** on the Railway dashboard to apply your changes.
@@ -127,7 +127,7 @@ To deploy the Rails app using the Railway CLI, please follow the steps:
 
 8. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1728049734/docs/quick-start/railsapp_on_railway.png"
 alt="screenshot of the deployed Rails service showing the Hello world page"
@@ -157,7 +157,7 @@ To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. O
      - This will create and deploy a new Postgres database service for your project.
 6. **Configure Environment Variables**:
    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
-     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
    - Use the **Raw Editor** to add any other required environment variables in one go.
 7. **Prepare Database and Start Server**:
    - Go to your app service <a href="/overview/the-basics#service-settings">**Settings**</a> section.
@@ -171,7 +171,7 @@ To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. O
 
 10. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+    - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Rails apps effortlessly!
 
@@ -204,7 +204,7 @@ Sidekiq is a powerful and efficient background job processor for Ruby apps, and 
      - Add the following environment variables:
        - `RAILS_ENV`: Set the value to `production`.
        - `SECRET_KEY_BASE` or `RAILS_MASTER_KEY`: Set this to the value of your Rails app’s secret key.
-       - `REDIS_URL`: Set this to `${{Redis.REDIS_URL}}` to reference the Redis database URL. This tells Sidekiq where to find the job queue. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+       - `REDIS_URL`: Set this to `${{Redis.REDIS_URL}}` to reference the Redis database URL. This tells Sidekiq where to find the job queue. Learn more about [referencing service variables](/variables#referencing-another-services-variable).
        - Include any other environment variables your app might need.
      - Click **Deploy** to apply the changes and start the deployment.
 4. **Verify the Deployment**:
@@ -415,5 +415,5 @@ This setup gives you the flexibility to run different processes from the same co
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Monitoring](/guides/monitoring)
-- [Deployments](/guides/deployments)
+- [Monitoring](/observability)
+- [Deployments](/deployments)

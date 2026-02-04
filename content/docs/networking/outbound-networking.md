@@ -32,7 +32,7 @@ If you are experiencing issues with SMTP on the Pro plan, please the follow the 
 
 1. First, ensure that you have tried re-deploying your service
 
-2. SSH into your service using the [Railway CLI](/reference/cli-api#ssh):
+2. SSH into your service using the [Railway CLI](/cli#ssh):
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1757952518/docs/smtp-copy-ssh_qtczce.png"

@@ -53,7 +53,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/t3sAEH)
 
-After deploying, it is recommended that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
+After deploying, it is recommended that you [eject from the template](/templates/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
 ## Deploy from the CLI
 
@@ -105,7 +105,7 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
    - Run `npm install sails-postgresql --save` to add the new adapter to your app locally.
 7. **Configure Environment Variables on Railway**:
    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
-     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
      - `REDIS_URL`: Set the value to `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database)
    - Use the **Raw Editor** to add any other required environment variables in one go.
 8. **Redeploy the Service**:
@@ -116,7 +116,7 @@ To deploy the Sails app using the Railway CLI, please follow the steps:
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 11. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+    - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1728580600/docs/quick-start/new_sails_service.png"
 alt="screenshot of the deployed Sails service"
@@ -149,7 +149,7 @@ To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. O
      - This will create and deploy a new Redis database service for your project.
 7. **Configure Environment Variables**:
    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
-     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
      - `REDIS_URL`: Set the value to `${{Redis.REDIS_URL}}` (this references the URL of your new Redis Database)
    - Use the **Raw Editor** to add any other required environment variables in one go.
 8. **Modify Sails Config**:
@@ -160,7 +160,7 @@ To deploy the Sails app to Railway, start by pushing the app to a GitHub repo. O
     - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 11. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-    - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+    - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Sails apps effortlessly!
 
@@ -178,11 +178,11 @@ Simply click the button below to get started:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ia84_3)
 
-**Note:** After deploying, it is recommended to [eject from the template](/guides/deploy#eject-from-template-repository) to create your own GitHub repository. This will give you full control over the project and source code.
+**Note:** After deploying, it is recommended to [eject from the template](/templates/deploy#eject-from-template-repository) to create your own GitHub repository. This will give you full control over the project and source code.
 
 ## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Monitoring](/guides/monitoring)
-- [Deployments](/guides/deployments)
+- [Monitoring](/observability)
+- [Deployments](/deployments)

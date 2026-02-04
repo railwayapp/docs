@@ -37,19 +37,19 @@ Ensuring your application is performant and reliable under changing conditions l
 
 - Services can crash for different reasons, frequently due to unhandled exceptions in code, and it is important to implement a strategy to mitigate performance degradation and user impact.
 
-  Ensure that you have properly configured your services [restart policy](/guides/restart-policy).
+  Ensure that you have properly configured your services [restart policy](/deployments/restart-policy).
 
 **&check; Configure at least 2 replicas**
 
 - If a service crashes or becomes unavailable due to a long-running request, your application could experience downtime or degraded performance.
 
-  Increase the [number of replicas](/guides/optimize-performance#configure-horizontal-scaling) to at least 2, so if one instance of your service crashes or becomes unavailable, there is another to continue handling requests.
+  Increase the [number of replicas](/deployments/optimize-performance#configure-horizontal-scaling) to at least 2, so if one instance of your service crashes or becomes unavailable, there is another to continue handling requests.
 
 **&check; Confirm your compute capacity**
 
 - The vCPU and memory capacity of your services greatly impacts their ability to perform efficiently.
 
-  The compute allocation for your services is handled automatically by Railway, and the limits are determined by your chosen subscription [plan](/reference/pricing#plans). You should review your plan limits and consider if upgrading is necessary to achieve the desired compute.
+  The compute allocation for your services is handled automatically by Railway, and the limits are determined by your chosen subscription [plan](/pricing/plans#plans). You should review your plan limits and consider if upgrading is necessary to achieve the desired compute.
 
 **&check; Consider deploying a database cluster or replica set**
 
@@ -67,15 +67,15 @@ Observability and monitoring refers to tracking the health and performance of yo
 
 - When researching an application issue across multiple services, it can be disruptive and time-consuming to move between log views for each service individually.
 
-  Familiarize yourself with the [Log Explorer](/guides/logs#log-explorer) so you can query logs across all of your services in one place.
+  Familiarize yourself with the [Log Explorer](/observability/logs#log-explorer) so you can query logs across all of your services in one place.
 
 **&check; Setup webhooks, email, and in-app notifications**
 
-- Ensure you are alerted if the [deployment status](/reference/deployments#deployment-states) of your services change.
+- Ensure you are alerted if the [deployment status](/deployments/reference#deployment-states) of your services change.
 
   Enable email and in-app notifications in you Account Settings to receive these alerts via email.
 
-  Setup [webhooks](/reference/deployments#deployment-states) to have the alerts sent to another system, like Slack or Discord.
+  Setup [webhooks](/deployments/reference#deployment-states) to have the alerts sent to another system, like Slack or Discord.
 
 ---
 
@@ -87,7 +87,7 @@ Quality assurance involves following practices to ensure changes to your applica
 
 - Common practice is to run a suite of tests, scans, or other automated jobs against your code before it is merged into production. You may want to configure your deployments to wait until those jobs have completed successfully before triggering a build.
 
-  Enable [check suites](/guides/github-autodeploys#check-suites) to have Railway wait for your GitHub workflows to complete successfully before triggering a deployment.
+  Enable [check suites](/deployments/github-autodeploys#check-suites) to have Railway wait for your GitHub workflows to complete successfully before triggering a deployment.
 
 **&check; Use environments**
 
@@ -95,7 +95,7 @@ Quality assurance involves following practices to ensure changes to your applica
 
   Consider setting up [environments](/environments) to properly test changes before merging to production.
 
-  Additionally, [PR environments](/guides/environments#enable-pr-environments) can be enabled to create environments when PRs are opened on your production branch.
+  Additionally, [PR environments](/environments#enable-pr-environments) can be enabled to create environments when PRs are opened on your production branch.
 
 **&check; Use config as code**
 
@@ -107,7 +107,7 @@ Quality assurance involves following practices to ensure changes to your applica
 
 - Introducing breaking changes to your application code is sometimes unavoidable, and it can be a headache reverting to previous commits.
 
-  Be sure to check out the [deployment rollback feature](/guides/deployment-actions#rollback), in case you need to rollback to a previous deployment.
+  Be sure to check out the [deployment rollback feature](/deployments/deployment-actions#rollback), in case you need to rollback to a previous deployment.
 
 ---
 

@@ -46,7 +46,7 @@ This guide assumes you are familiar with the concepts of Private Network, for a 
 
   This is necessary because the Tailscale tunnel will communicate with your services over Railway's private network.
 
-  All database services already do this but for information on configuring your service to listen on `::`, see [here](/guides/private-networking#service-configuration).
+  All database services already do this but for information on configuring your service to listen on `::`, see [here](/networking/private-networking#service-configuration).
 
 **In Tailscale -**
 

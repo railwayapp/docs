@@ -3,7 +3,7 @@ title: Project Usage
 description: Learn how users can see the resource usage of their projects.
 ---
 
-Users are billed monthly based on the project's per-minute usage. All services within a project's environments contribute to the resources billed. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
+Users are billed monthly based on the project's per-minute usage. All services within a project's environments contribute to the resources billed. You can find [specific per-minute pricing here](/pricing/plans#resource-usage-pricing).
 
 Users can see the usage of a project under <a href="https://railway.com/workspace/usage" target="_blank">the Usage page</a> within the Workspace settings.
 

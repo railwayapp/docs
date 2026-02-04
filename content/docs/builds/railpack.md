@@ -41,7 +41,7 @@ automatically:
 ## Configuration
 
 Railpack works with zero configuration, but you can customize the build process
-when needed using [environment variables](/guides/variables#service-variables)
+when needed using [environment variables](/variables#service-variables)
 or a [Railpack config file](https://railpack.com/config/file).
 
 ## Support

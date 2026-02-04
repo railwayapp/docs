@@ -34,7 +34,7 @@ To restore a backup, first locate the backup you want to restore via its date st
 
 **Note:** Depending on the size of the backup, this may take a few seconds to a few minutes to complete.
 
-Once completed, we will [stage the change](/guides/staged-changes) for you to review, click the `Details` button at the top of the [project canvas](/overview/the-basics#project--project-canvas) to view the changes.
+Once completed, we will [stage the change](/deployments/staged-changes) for you to review, click the `Details` button at the top of the [project canvas](/overview/the-basics#project--project-canvas) to view the changes.
 
 During this process, you will see a new [volume](/overview/the-basics#volumes) mounted to the same location as the original volume, its name will be the date stamp of the backup.
 
@@ -50,7 +50,7 @@ The changes will be applied and your service will be redeployed.
 
 Backups are incremental and Copy-on-Write, we only charge for the data exclusive to them, that aren't from other snapshots or the volume itself.
 
-You are only billed for the incremental size of the backup at a rate per GB / minutely, and invoiced monthly. Backups follow the same pricing as Volumes. You can find [specific per-minute pricing here](/reference/pricing/plans#resource-usage-pricing).
+You are only billed for the incremental size of the backup at a rate per GB / minutely, and invoiced monthly. Backups follow the same pricing as Volumes. You can find [specific per-minute pricing here](/pricing/plans#resource-usage-pricing).
 
 ## Volume backup limits
 

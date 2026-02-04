@@ -22,7 +22,7 @@ This guide covers how to deploy a FastAPI app on Railway in four ways:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/-NvLj4)
 
-It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=fastapi" target="_blank">variety of FastAPI app templates</a> created by the community.
 
@@ -40,7 +40,7 @@ To deploy a FastAPI app on Railway directly from GitHub, follow the steps below:
 
 Once the deployment is successful, a Railway [service](/services) will be created for you. By default, this service will not be publicly accessible.
 
-To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/guides/public-networking#railway-provided-domain).
+To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/networking/public-networking#railway-provided-domain).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/f_auto,q_auto/v1727418781/docs/languages-and-frameworks/CleanShot_2024-09-27_at_07.31.37_2x_m3zaxx.png"
 alt="screenshot of the deployed fastapi service showing a hello world API response on a browser"
@@ -97,6 +97,6 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Add a Database Service](/guides/build-a-database-service)
-- [Monitor your app](/guides/monitoring)
+- [Add a Database Service](/databases/build-a-database-service)
+- [Monitor your app](/observability)
 - [Running a Cron Job](/cron-jobs)

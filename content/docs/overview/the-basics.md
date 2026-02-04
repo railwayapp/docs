@@ -53,7 +53,7 @@ width={1365} height={765} quality={100} />
 
 Some of the most commonly used project settings are -
 
-- [Transfer Project](/reference/teams#transferring-projects) - Transfer your project between workspaces.
+- [Transfer Project](/projects/teams#transferring-projects) - Transfer your project between workspaces.
 
 - [Environments](/environments) - Manage various settings regarding environments.
 
@@ -78,7 +78,7 @@ Service [Variables](/variables) provide a powerful way to manage configuration a
 
 You can configure variables scoped to services. These variables are specific to each service and are not shared across the project by default.
 
-If you want to access variables from this service in another service within the same project, you need to utilize a [Reference Variable](/reference/variables#reference-variables).
+If you want to access variables from this service in another service within the same project, you need to utilize a [Reference Variable](/variables/reference#reference-variables).
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1737785219/docs/the-basics/service_variables_galkry.png"
 alt="Screenshot of the service variables tab"
@@ -104,7 +104,7 @@ From here you can perform the following actions -
 
 - Lock a backup - Prevent a backup from being deleted via the backup's 3-dot menu.
 
-- [Restore a backup](/reference/backups#how-to-restore-a-backup) - Click the `Restore` button on the backup.
+- [Restore a backup](/volumes/backups#how-to-restore-a-backup) - Click the `Restore` button on the backup.
 
 - Modify the backup schedule - Click the `Edit schedule` button on the header to make changes to the schedule.
 
@@ -128,9 +128,9 @@ width={1365} height={765} quality={100} />
 
 Some of the most commonly used service settings are -
 
-- [Source](/reference/services#service-source) - Here you can configure the deployment source, which can be either a GitHub repository with a specific branch or an image with optional credentials.
+- [Source](/services#service-source) - Here you can configure the deployment source, which can be either a GitHub repository with a specific branch or an image with optional credentials.
 
-- [Networking](/guides/public-networking#railway-provided-domain) - Generate a Railway-provided domain or add your own custom one.
+- [Networking](/networking/public-networking#railway-provided-domain) - Generate a Railway-provided domain or add your own custom one.
 
 - Custom Build Command - Here you can configure a custom build command if you need to overwrite the default.
 
@@ -186,6 +186,6 @@ If you've read enough for now and are ready to get started, check out either of 
 
 - [Quick Start guide](/quick-start) to deploy a To Do app from a [template](/templates).
 
-- [Guides section](/guides/foundations) to dive into how things work.
+- [Guides section](/overview/the-basics) to dive into how things work.
 
 If you want to go deeper, click the Next button below to head to the next section - [Advanced Concepts](/overview/advanced-concepts).

@@ -75,7 +75,7 @@ width={600} height={364} quality={80} />
 
 ### Open the project in Railway
 
-Let's pop over to your new project in the [Railway canvas](/reference/projects#project-canvas).:
+Let's pop over to your new project in the [Railway canvas](/projects#project-canvas).:
 
 ```bash
 railway open

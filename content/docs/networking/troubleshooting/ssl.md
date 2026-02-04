@@ -221,7 +221,7 @@ If your browser shows a certificate for `*.up.railway.app` instead of your custo
 
 ## Using the network diagnostics tool
 
-If you're still having issues, Railway provides a [Network Diagnostics tool](/reference/network-diagnostics) that can help identify connectivity problems between your location and Railway's infrastructure.
+If you're still having issues, Railway provides a [Network Diagnostics tool](/networking/troubleshooting/network-diagnostics) that can help identify connectivity problems between your location and Railway's infrastructure.
 
 Download and run the tool, then share the results with Railway support if needed.
 

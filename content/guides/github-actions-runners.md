@@ -14,13 +14,13 @@ alt="screenshot of a deployment of a self hosted GitHub Actions runner on Railwa
 layout="responsive"
 width={1211} height={820} quality={100} />
 
-Deploying [GitHub Actions Self Hosted Runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) on Railway is an excellent way to run your own CI infrastructure because you only [pay for what you use](/reference/pricing/plans). With self-hosted runners, you also unlock the ability to cache expensive and time-consuming dependencies (`node_modules`, `cargo`, etc.) or large git repositories. Best of all, Railway's built-in [replicas](/reference/scaling#horizontal-scaling-with-replicas) means you can scale your runners horizontally, or even distribute them to different regions with just a click and redeploy. You'll save build times and costs over using standard runners, _AND_ you'll unlock more sophistocated workflows to streamline building your app.
+Deploying [GitHub Actions Self Hosted Runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) on Railway is an excellent way to run your own CI infrastructure because you only [pay for what you use](/pricing/plans). With self-hosted runners, you also unlock the ability to cache expensive and time-consuming dependencies (`node_modules`, `cargo`, etc.) or large git repositories. Best of all, Railway's built-in [replicas](/deployments/scaling#horizontal-scaling-with-replicas) means you can scale your runners horizontally, or even distribute them to different regions with just a click and redeploy. You'll save build times and costs over using standard runners, _AND_ you'll unlock more sophistocated workflows to streamline building your app.
 
 In this guide you'll learn:
 
 1. The basics to deploy a GitHub Actions Self Hosted Runner on Railway.
 1. How to authenticate self-hosted runners on Railway with your GitHub Organization or Enterprise.
-1. How to scale up [replicas](/reference/scaling#horizontal-scaling-with-replicas) to serve bigger Actions workloads.
+1. How to scale up [replicas](/deployments/scaling#horizontal-scaling-with-replicas) to serve bigger Actions workloads.
 1. Best Practices for configuring your self-hosted runners on Railway.
 
 **Quickstart:** [Deploy your self-hosted Runners with the Railway template](https://railway.com/new/template/pXId5Q?teamId=d546a817-7743-4892-b03a-f5a75df596f9).
@@ -163,7 +163,7 @@ If you are using a [proxy server](https://docs.github.com/en/actions/hosting-you
 
 ### Cost comparison
 
-On Railway you only [pay for what you use](/reference/pricing/plans), so you'll find your GitHub workflows are significantly cheaper. For this guide, over ~2,300 1-minute builds were tested on Railway self-hosted runners and the usage costs were `$1.80` compared to [GitHub's Estimated Hosted Runner](https://github.com/pricing/calculator?feature=actions) cost of `$18.40` for the same workload. Even better? With 10x Railway replicas with 32 vCPU and 32GB RAM for this test, the actions workflows would never slow down.
+On Railway you only [pay for what you use](/pricing/plans), so you'll find your GitHub workflows are significantly cheaper. For this guide, over ~2,300 1-minute builds were tested on Railway self-hosted runners and the usage costs were `$1.80` compared to [GitHub's Estimated Hosted Runner](https://github.com/pricing/calculator?feature=actions) cost of `$18.40` for the same workload. Even better? With 10x Railway replicas with 32 vCPU and 32GB RAM for this test, the actions workflows would never slow down.
 
 On other platforms you pay for the _maximum available_ vCPUs and Memory. On Railway, you're only paying for usage, or in the below screenshot, the filled in purple area. This enables your workloads to still burst up to the _maximum available_ resources you have configured, with no tradeoffs on cost.
 

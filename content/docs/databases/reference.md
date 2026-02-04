@@ -29,14 +29,14 @@ Many database templates are available to Railway users, which ease the process o
 
 ### Railway-provided templates
 
-Railway provides several templates to provision some of the most popular databases out there. They also deploy with a helpful [Database View](/guides/database-view).
+Railway provides several templates to provision some of the most popular databases out there. They also deploy with a helpful [Database View](/databases/database-view).
 
 Explore the guides in the How To section for information on how to use these templates -
 
-- [PostgreSQL](/guides/postgresql)
-- [MySQL](/guides/mysql)
-- [MongoDB](/guides/mongodb)
-- [Redis](/guides/redis)
+- [PostgreSQL](/databases/postgresql)
+- [MySQL](/databases/mysql)
+- [MongoDB](/databases/mongodb)
+- [Redis](/databases/redis)
 
 ### Template marketplace
 
@@ -51,4 +51,4 @@ Here are some examples -
 
 ## Support
 
-Explore the [Databases](/guides/databases) guide section for more information on how to get started using databases in Railway.
+Explore the [Databases](/databases) guide section for more information on how to get started using databases in Railway.

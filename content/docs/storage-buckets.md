@@ -86,7 +86,7 @@ Learn about the different patterns for working with files in the [Uploading & Se
 
 ## Buckets in environments
 
-Each environment gets its own separate bucket instance with isolated credentials. When you [duplicate an environment](/guides/environments#create-an-environment) or use [PR environments](/guides/environments#enable-pr-environments), you won't need to worry about accidentally deleting production objects, exposing sensitive data in pull requests, or polluting your production environment with test data.
+Each environment gets its own separate bucket instance with isolated credentials. When you [duplicate an environment](/environments#create-an-environment) or use [PR environments](/environments#enable-pr-environments), you won't need to worry about accidentally deleting production objects, exposing sensitive data in pull requests, or polluting your production environment with test data.
 
 ## How buckets are billed
 

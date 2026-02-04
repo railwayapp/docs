@@ -9,7 +9,7 @@ This guide covers: how to initiate a migration, how to best prepare for a migrat
 
 ## What is Railway metal?
 
-Railway Metal is the next generation of Railway's underlying infrastructure. It is built on hardware that we own and operate in datacenters around the world. You can get more information about Railway Metal on the parent [documentation page here.](/railway-metal)
+Railway Metal is the next generation of Railway's underlying infrastructure. It is built on hardware that we own and operate in datacenters around the world. You can get more information about Railway Metal on the parent [documentation page here.](/platform/railway-metal)
 
 We announced on December 26th that we would be moving users to Railway Metal over a 6 month migration timeline.
 
@@ -72,7 +72,7 @@ Before initiating a migration we recommend that users configure the following:
 - [Healthchecks](/deployments/healthchecks)
 - [Build and start commands](/builds/build-and-start-commands)
 - [Volume Backups](/volumes/backups)
-- [Deployment overlap](/reference/variables#user-provided-configuration-variables)
+- [Deployment overlap](/variables/reference#user-provided-configuration-variables)
   - Configured by setting `RAILWAY_DEPLOYMENT_OVERLAP_SECONDS` within the Railway service variable settings
 
 We also advise users to make sure that:

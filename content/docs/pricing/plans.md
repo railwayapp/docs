@@ -7,7 +7,7 @@ Railway plans and pricing are designed to give you maximum resources while only 
 
 ## Plans
 
-Railway offers four plans in addition to a [Trial](/reference/pricing/free-trial):
+Railway offers four plans in addition to a [Trial](/pricing/free-trial):
 
 |                |                                                                                                                                                    |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,7 +45,7 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 
 Note that these are maximum values and include replica multiplication.
 
-\* For Volumes, Pro users and above can self-serve to increase their volume up to 250 GB. Check out [this guide](/guides/volumes#growing-the-volume) for information.
+\* For Volumes, Pro users and above can self-serve to increase their volume up to 250 GB. Check out [this guide](/volumes#growing-the-volume) for information.
 
 ### Resource usage pricing
 
@@ -60,7 +60,7 @@ You are only charged for the resources you actually use, which helps prevent run
 | **Network Egress**                       | $0.05 / GB ($0.000000047683716 / KB)                  |
 | [**Volume Storage**](/volumes) | $0.15 / GB / month ($0.000003472222222 / GB / minute) |
 
-To learn more about controlling your resource usage costs, read the FAQ on [How do I prevent spending more than I want to?](/reference/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
+To learn more about controlling your resource usage costs, read the FAQ on [How do I prevent spending more than I want to?](/pricing/faqs#how-do-i-prevent-spending-more-than-i-want-to)
 
 ## Included usage
 
@@ -79,7 +79,7 @@ Similarly, the Pro plan includes $20 of resource usage per month and the same ex
 
 ### Additional services
 
-Railway offers [Business Class Support](/reference/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started.
+Railway offers [Business Class Support](/platform/support#business-class) as an add-on service to the Pro plan. Business Class Support is included with Enterprise. [Contact us](mailto:team@railway.com?subject=Business%20Class%20Support) to get started.
 
 ## Image retention policy
 
@@ -118,7 +118,7 @@ To learn more about committed spend tiers, please [contact the Railway team](mai
 
 Users who create a new Trial account receive a free one-time grant of $5. Railway will expend any free credit before consuming any purchased credits. Trial plan users are unable to purchase credits without upgrading to the Hobby plan.
 
-Learn more about Railway's Free Trial [here](/reference/pricing/free-trial).
+Learn more about Railway's Free Trial [here](/pricing/free-trial).
 
 ## Partial month charges
 
@@ -152,7 +152,7 @@ Subscription is a flat fee you pay monthly for the tier you're subscribed to, an
 
 Railway's Pro and Enterprise plans are designed for collaboration. These plans allow you to add members to your team and manage their permissions.
 
-Read more about adding members to your Pro or Enterprise team [here](/reference/teams#inviting-members).
+Read more about adding members to your Pro or Enterprise team [here](/projects/teams#inviting-members).
 
 ### How long does Railway keep my volume data if I am no longer on a paid plan?
 

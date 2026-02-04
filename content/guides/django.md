@@ -186,7 +186,7 @@ Click the button below to begin:
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/GB6Eki)
 
-After deploying, it is recommended that you [eject from the template](/guides/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
+After deploying, it is recommended that you [eject from the template](/templates/deploy#eject-from-template-repository) to create a copy of the repository under your own GitHub account. This will give you full control over the source code and project.
 
 ## Deploy from the CLI
 
@@ -217,7 +217,7 @@ To deploy the Django app using the Railway CLI, please follow the steps:
    - A database service will be added to your Railway project.
 5. **Configure Environment Variables**:
    - Go to your app service <a href="/overview/the-basics#service-variables">**Variables**</a> section and add the following:
-     - `PGDATABASE`: Set the value to `${{Postgres.PGDATABASE}}` (this references the Postgres database name). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `PGDATABASE`: Set the value to `${{Postgres.PGDATABASE}}` (this references the Postgres database name). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
      - `PGUSER`: Set the value to `${{Postgres.PGUSER}}`
      - `PGPASSWORD`: Set the value to `${{Postgres.PGPASSWORD}}`
      - `PGHOST`: Set the value to `${{Postgres.PGHOST}}`
@@ -229,7 +229,7 @@ To deploy the Django app using the Railway CLI, please follow the steps:
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 8. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1729121823/docs/quick-start/django_app.png"
 alt="screenshot of the deployed Django project"
@@ -248,7 +248,7 @@ To deploy the Django app to Railway, start by pushing the app to a GitHub repo. 
 3. **Add Environment Variables**:
 
    - Click **Add Variables** and configure all the necessary environment variables for your app.
-     - `PGDATABASE`: Set the value to `${{Postgres.PGDATABASE}}` (this references the Postgres database name). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `PGDATABASE`: Set the value to `${{Postgres.PGDATABASE}}` (this references the Postgres database name). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
      - `PGUSER`: Set the value to `${{Postgres.PGUSER}}`
      - `PGPASSWORD`: Set the value to `${{Postgres.PGPASSWORD}}`
      - `PGHOST`: Set the value to `${{Postgres.PGHOST}}`
@@ -272,7 +272,7 @@ To deploy the Django app to Railway, start by pushing the app to a GitHub repo. 
 
 7. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Django apps effortlessly!
 
@@ -312,7 +312,7 @@ Please follow these steps to get it setup on Railway:
      - `PGPASSWORD`: Set the value to `${{Postgres.PGPASSWORD}}`
      - `PGHOST`: Set the value to `${{Postgres.PGHOST}}`
      - `PGPORT`: Set the value to `${{Postgres.PGPORT}}`
-     - `PGDATABASE`: Set the value to `${{Postgres.PGDATABASE}}` (this references the Postgres database name). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `PGDATABASE`: Set the value to `${{Postgres.PGDATABASE}}` (this references the Postgres database name). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
    - Click **Deploy**.
 3. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a> by clicking the **Create** button. Then select **Empty service**.
    - Name the service **Cron Service**, and click on <a href="/overview/the-basics#service-settings">**Settings**</a>.
@@ -363,5 +363,5 @@ width={2752} height={2094} quality={100} />
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Monitoring](/guides/monitoring)
-- [Deployments](/guides/deployments)
+- [Monitoring](/observability)
+- [Deployments](/deployments)

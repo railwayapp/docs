@@ -32,7 +32,7 @@ You can use up to **50 GB-month** during the trial. Bucket usage counts against 
 
 ### Limited trial
 
-Buckets are not available in the [Limited Trial](/reference/pricing/free-trial#full-vs-limited-trial).
+Buckets are not available in the [Limited Trial](/pricing/free-trial#full-vs-limited-trial).
 
 ### Hobby
 
@@ -44,7 +44,7 @@ The Pro Plan has **unlimited** storage capacity.
 
 ## Usage limit
 
-If you exceed your [Hard Usage Limit](/reference/usage-limits#hard-limit), bucket access is suspended and files cannot be read or uploaded anymore. Existing stored data is still billed. You can access your files again once you raise or remove the Hard Limit, or when the next billing period starts.
+If you exceed your [Hard Usage Limit](/pricing/cost-control#hard-limit), bucket access is suspended and files cannot be read or uploaded anymore. Existing stored data is still billed. You can access your files again once you raise or remove the Hard Limit, or when the next billing period starts.
 
 ## FAQ
 

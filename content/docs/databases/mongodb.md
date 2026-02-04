@@ -26,7 +26,7 @@ The MongoDB database service starts with the following [Start Command](/deployme
 
 ## Connect
 
-Connect to MongoDB from another service in your project by [referencing the environment variables](/guides/variables#referencing-another-services-variable) made available in the Mongo service:
+Connect to MongoDB from another service in your project by [referencing the environment variables](/variables#referencing-another-services-variable) made available in the Mongo service:
 
 - `MONGOHOST`
 - `MONGOPORT`

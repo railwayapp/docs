@@ -33,7 +33,7 @@ In this tutorial, you will learn how to -
 
 To be successful using this tutorial, you should already have -
 
-- Latest version of the Railway [CLI installed](/guides/cli#installing-the-cli)
+- Latest version of the Railway [CLI installed](/cli#installing-the-cli)
 - An [AWS account](https://aws.amazon.com/) with permissions to create new resources
 - Latest version of the [AWS CLI](https://aws.amazon.com/cli/) installed and authenticated to your AWS account
 - Latest version of the [AWS CDK](https://aws.amazon.com/cdk/) installed
@@ -43,7 +43,7 @@ To be successful using this tutorial, you should already have -
 
 ## 1. Create and deploy a Fastify server
 
-First, create and deploy a simple Fastify server using the [Railway CLI](/guides/cli#installing-the-cli)
+First, create and deploy a simple Fastify server using the [Railway CLI](/cli#installing-the-cli)
 
 - On your local machine, create a folder called "fastify"
 - Inside of the folder, create a file called "server.js"

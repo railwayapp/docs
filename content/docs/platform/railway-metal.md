@@ -118,7 +118,7 @@ you may run into above - they are the same as if you were to manually deploy
 a new version of your service.
 
 For services in `US West (Oregon)`, Railway will not move your service to
-Railway Metal if your service [references another service](/guides/variables#referencing-another-services-variable-example) with a volume.
+Railway Metal if your service [references another service](/variables#referencing-another-services-variable-example) with a volume.
 This is to prevent any cross-regional networking latency spikes for your
 service. Refer to [this FAQ](#im-experiencing-slow-network-performance-after-switching-to-us-west-california-railway-metal-region-what-should-i-do) for more information.
 
@@ -252,6 +252,6 @@ if you have any concerns.
 
 ## Getting help
 
-Please reach out to us [on the Railway Help Station](https://station.railway.com/feedback/feedback-railway-metal-a41f03a1) if you run into any issues. You can also reach out to us over [Slack](/reference/support#slack) if you are
-a Pro or [Business Class / Enterprise](/reference/support#business-class)
+Please reach out to us [on the Railway Help Station](https://station.railway.com/feedback/feedback-railway-metal-a41f03a1) if you run into any issues. You can also reach out to us over [Slack](/platform/support#slack) if you are
+a Pro or [Business Class / Enterprise](/platform/support#business-class)
 customer.

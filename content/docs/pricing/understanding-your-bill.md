@@ -150,9 +150,9 @@ If your application has a memory leak, it will gradually consume more RAM over t
 
 ## Related resources
 
-- [Plans and Pricing](/reference/pricing/plans) - Detailed pricing information
-- [Pricing FAQs](/reference/pricing/faqs) - Common pricing questions
-- [Optimize Usage](/guides/optimize-usage) - Guide to reducing costs
+- [Plans and Pricing](/pricing/plans) - Detailed pricing information
+- [Pricing FAQs](/pricing/faqs) - Common pricing questions
+- [Optimize Usage](/pricing/cost-control) - Guide to reducing costs
 - [Usage Limits](/pricing/cost-control) - Set spending caps
 - [Serverless](/deployments/serverless) - Auto-stop inactive services
 - [Private Networking](/networking/private-networking) - Reduce egress costs

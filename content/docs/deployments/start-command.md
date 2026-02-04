@@ -10,7 +10,7 @@ deployed, see [Build and Start Commands](/builds/build-and-start-commands) for m
 
 ## Configure the start command
 
-When necessary, start commands may be overridden, like for advanced use-cases such as deploying multiple projects from a single [monorepo](/guides/monorepo).
+When necessary, start commands may be overridden, like for advanced use-cases such as deploying multiple projects from a single [monorepo](/deployments/monorepo).
 
 When specifying a start command, the behavior depends on the type of deployment:
 

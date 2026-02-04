@@ -10,7 +10,7 @@ tags:
 
 [Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. This post talks about using Github Actions to run post-deploy actions.
 
-At Railway, we've set up Github triggers for automatic deployments when you push to a selected branch, and with Github Actions, you can automate several parts of your development workflow. Recently, within the Railway [Discord](https://discord.gg/railway) and [Slack](/reference/support#slack), we've had a couple of users ask us how they'd go about running commands or webhooks after their app is deployed so we thought it'd be a good idea to publish a short tutorial doing just that, with Github Actions.
+At Railway, we've set up Github triggers for automatic deployments when you push to a selected branch, and with Github Actions, you can automate several parts of your development workflow. Recently, within the Railway [Discord](https://discord.gg/railway) and [Slack](/platform/support#slack), we've had a couple of users ask us how they'd go about running commands or webhooks after their app is deployed so we thought it'd be a good idea to publish a short tutorial doing just that, with Github Actions.
 
 ## The action
 
@@ -48,4 +48,4 @@ It's that simple! You can now customize the final run step to execute any comman
 
 ## Conclusion
 
-We hope this tutorial has been helpful and that you'll find it useful for your own projects. If you have any questions or feedback, please feel free to reach out to us on [Discord](https://discord.gg/railway), [Slack](/reference/support#slack) or the [Central Station](https://station.railway.com). Happy coding!
+We hope this tutorial has been helpful and that you'll find it useful for your own projects. If you have any questions or feedback, please feel free to reach out to us on [Discord](https://discord.gg/railway), [Slack](/platform/support#slack) or the [Central Station](https://station.railway.com). Happy coding!

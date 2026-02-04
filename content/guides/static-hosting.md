@@ -14,7 +14,7 @@ In this guide, you'll learn how to deploy static websites to Railway with automa
 
 Railway is a modern deployment platform that lets you deploy static websites and applications without managing servers, configuring load balancers, or learning complex infrastructure. It provides automatic builds, zero-downtime deployments, and built-in CI/CD.
 
-Learn more about Railway's [core components and foundations](/guides/foundations).
+Learn more about Railway's [core components and foundations](/overview/the-basics).
 
 ## Why choose Railway for static hosting?
 
@@ -66,7 +66,7 @@ Custom domains can be added to any Railway service with automatic SSL certificat
    - Railway automatically issues and renews SSL certificates
    - Your site will be available at `https://your-domain.com`
 
-Learn more about [custom domains](/guides/public-networking#custom-domains) and [SSL configuration](/guides/public-networking#ssl-certificates) in Railway.
+Learn more about [custom domains](/networking/public-networking#custom-domains) and [SSL configuration](/networking/public-networking#ssl-certificates) in Railway.
 
 ## Set up preview environments for every pull request for your static site
 
@@ -91,7 +91,7 @@ Railway can automatically create preview environments for every pull request, le
    - Once you create a pull request, Railway will automatically deploy a preview environment with a unique URL where you can preview your changes.
    - When the PR is merged or closed, the PR environment is automatically deleted.
 
-Learn more about [using environments](/environments) and [PR environments](/guides/environments#enable-pr-environments).
+Learn more about [using environments](/environments) and [PR environments](/environments#enable-pr-environments).
 
 ## Deploy replicas in different regions for global performance
 
@@ -170,18 +170,18 @@ Learn more about [Railway Functions](/functions).
 
 For most static sites, the Hobby plan with included usage is sufficient. You only pay for resources you actually use.
 
-Learn more about [Railway pricing](https://railway.com/pricing) and [usage optimization](/guides/optimize-usage).
+Learn more about [Railway pricing](https://railway.com/pricing) and [usage optimization](/pricing/cost-control).
 
 ## Next steps
 
 Now that you've deployed your static site, explore these resources:
 
-- [Add a Database Service](/guides/build-a-database-service) for dynamic content
-- [Monitor your application](/guides/monitoring) with built-in metrics
+- [Add a Database Service](/databases/build-a-database-service) for dynamic content
+- [Monitor your application](/observability) with built-in metrics
 - [Set up custom domains](/networking/public-networking) and SSL certificates
 - [Configure environment variables](/variables) for different environments
 - [Use Railway Functions](/functions) for API endpoints
-- [Optimize performance](/guides/optimize-performance) and [usage](/guides/optimize-usage)
+- [Optimize performance](/deployments/optimize-performance) and [usage](/pricing/cost-control)
 
 ## Need help?
 

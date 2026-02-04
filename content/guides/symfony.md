@@ -53,7 +53,7 @@ Railway offers multiple ways to deploy your Symfony app, depending on your setup
 
 This template sets up a starter Symfony application along with a Postgres database on Railway. You can also choose from a <a href="https://railway.com/templates?q=symfony" target="_blank">variety of Symfony app templates</a> created by the community.
 
-It is highly recommended that [you eject from the template after deployment](/guides/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
 ## Deploy from the CLI
 
@@ -77,9 +77,9 @@ If you have your Symfony app locally, you can follow these steps:
    - Select `Empty Service` from the list of options.
    - In the `Enter a service name` prompt, enter `app-service`.
    - In the `Enter a variable` prompt, enter `DATABASE_URL=${{Postgres.DATABASE_URL}}`.
-     - The value, `${{Postgres.DATABASE_URL}}`, references the URL of your new Postgres database. Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - The value, `${{Postgres.DATABASE_URL}}`, references the URL of your new Postgres database. Learn more about [referencing service variables](/variables#referencing-another-services-variable).
    - Set the other environment variables: - `APP_ENV=prod` - This setting informs Symfony that the app is running in a production environment, optimizing it for performance. - `APP_SECRET=secret` where _secret_ is your generated app secret. - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation. - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://nixpacks.com/docs/providers/php).
-     **Note:** Explore the [Railway CLI reference](/reference/cli-api#add) for a variety of options.
+     **Note:** Explore the [Railway CLI reference](/cli#add) for a variety of options.
 5. **Deploy the Application**:
    - Run `railway up` to deploy your app.
      - This command will scan, compress and upload your app's files to Railway. You’ll see real-time deployment logs in your terminal.
@@ -107,7 +107,7 @@ To deploy a Symfony app to Railway directly from GitHub, follow the steps below:
    - Right-click on the Railway project canvas or click the **Create** button, then select **Database** and choose **Add PostgreSQL**.
      - This will create and deploy a new PostgreSQL database for your project.
    - Once the database is deployed, you can return to adding the necessary environment variables:
-     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/guides/variables#referencing-another-services-variable).
+     - `DATABASE_URL`: Set the value to `${{Postgres.DATABASE_URL}}` (this references the URL of your new Postgres database). Learn more about [referencing service variables](/variables#referencing-another-services-variable).
      - `APP_ENV=prod` - This setting informs Symfony that the app is running in a production environment, optimizing it for performance.
      - `APP_SECRET=secret` where _secret_ is your generated app secret.
      - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation.
@@ -116,13 +116,13 @@ To deploy a Symfony app to Railway directly from GitHub, follow the steps below:
    - Click **Deploy** on the Railway project canvas to apply your changes.
 5. **Verify the Deployment**:
 
-   - Once the deployment completes, go to [**View logs**](/guides/logs#build--deploy-panel) to check if the server is running successfully.
+   - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
    **Note:** During the deployment process, Railway will automatically [detect that it’s a PHP app via Nixpacks](https://nixpacks.com/docs/providers/php).
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
-   - Click [Generate Domain](/guides/public-networking#railway-provided-domain) to create a public URL for your app.
+   - Click [Generate Domain](/networking/public-networking#railway-provided-domain) to create a public URL for your app.
 
 **Note:** The next step shows how to run your Symfony app along with a database, migrations, cron jobs, and workers.
 
@@ -249,5 +249,5 @@ _App service_
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Monitoring](/guides/monitoring)
-- [Deployments](/guides/deployments)
+- [Monitoring](/observability)
+- [Deployments](/deployments)

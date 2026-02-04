@@ -24,7 +24,7 @@ width={1518} height={502} quality={80} />
 A deployment rollback will revert to the previously successful deployment. Both the Docker
 image and custom variables are restored during the rollback process.
 
-_Note: Deployments older than your [plan's retention policy](/reference/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible._
+_Note: Deployments older than your [plan's retention policy](/pricing/plans#image-retention-policy) cannot be restored via rollback, and thus the rollback option will not be visible._
 
 ## Redeploy
 
@@ -40,7 +40,7 @@ This will create an new deployment with the exact same code and build/deploy con
 
 _Note: To trigger a deployment from the latest commit, use the Command Palette: `CMD + K` -> "Deploy Latest Commit". This will deploy the latest commit from the **Default** branch in GitHub._
 
-_Currently, there is no way to force a deploy from a branch other than the Default without [connecting it in your service settings](/guides/github-autodeploys#configure-the-github-branch-for-deployment-triggers)._
+_Currently, there is no way to force a deploy from a branch other than the Default without [connecting it in your service settings](/deployments/github-autodeploys#configure-the-github-branch-for-deployment-triggers)._
 
 ## Cancel
 
@@ -58,7 +58,7 @@ deployment and stop any further project usage.
 
 When a Deployment is `Crashed`, it is no longer running because the underlying process exited with a non-zero exit code - if your deployment exits successfully (exit code 0), the status will remain `Success`.
 
-Railway automatically restarts crashed Deployments up to 10 times (depending on your [Restart Policy](/guides/restart-policy#plan-limitations)). After this limit is reached, your deployment status is changed to `Crashed` and notifying webhooks & emails are sent to the project's members.
+Railway automatically restarts crashed Deployments up to 10 times (depending on your [Restart Policy](/deployments/restart-policy#plan-limitations)). After this limit is reached, your deployment status is changed to `Crashed` and notifying webhooks & emails are sent to the project's members.
 
 Restart a `Crashed` Deployment by visiting your project and clicking on the "Restart" button that appears in-line on the Deployment:
 

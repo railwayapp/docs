@@ -29,7 +29,7 @@ To create a template from scratch, head over to your <a href="https://railway.co
 - Once you've added your services, click `Create Template`
 - You will be taken to your templates page where you can copy the template URL to share with others
 
-Note that your template will not be available on the template marketplace, nor will be eligible for a kickback, until you [publish](/guides/publish-and-share) it.
+Note that your template will not be available on the template marketplace, nor will be eligible for a kickback, until you [publish](/templates/publish-and-share) it.
 
 ### Private repo support
 
@@ -89,12 +89,12 @@ Once you add a new service and select the source, you can configure the followin
 
 - **Variables tab**
   - Add required [Variables](/variables).
-    _Use [reference variables](/guides/variables#reference-variables) where possible for a better quality template_
+    _Use [reference variables](/variables#reference-variables) where possible for a better quality template_
 - **Settings tab**
-  - Add a [Root Directory](/guides/monorepo) (Helpful for monorepos)
+  - Add a [Root Directory](/deployments/monorepo) (Helpful for monorepos)
   - [Enable Public Networking](/networking/public-networking) with TCP Proxy or HTTP
-  - Set a custom [Start command](/guides/start-command)
-  - Add a [Healthcheck Path](/guides/healthchecks#configure-the-healthcheck-path)
+  - Set a custom [Start command](/deployments/start-command)
+  - Add a [Healthcheck Path](/deployments/healthchecks#configure-the-healthcheck-path)
 - **Add a volume**
   - To add a volume to a service, right-click on the service, select Attach Volume, and specify the [Volume mount path](/volumes)
 

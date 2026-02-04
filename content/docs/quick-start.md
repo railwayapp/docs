@@ -146,7 +146,7 @@ Railway will now provision a new service for your project based on the specified
 And that's it! 🎉 Your project is now ready for use.
 
 <Banner variant="info">
-Private Docker registry deployments require the [Pro plan](/guides/services#deploying-a-private-docker-image).
+Private Docker registry deployments require the [Pro plan](/services#deploying-a-private-docker-image).
 </Banner>
 
 ## The canvas
@@ -233,7 +233,7 @@ Happy Building!
 
 - **[Project Members](/projects/project-members)** - Adding members to your projects is as easy as sending them an invite link.
 
-- **[Staged Changes](/guides/staged-changes)** - When you make changes to your Railway project, such as adding or removing components and configurations, these updates will be gathered into a changeset for you to review and apply.
+- **[Staged Changes](/deployments/staged-changes)** - When you make changes to your Railway project, such as adding or removing components and configurations, these updates will be gathered into a changeset for you to review and apply.
 
 ### Join the community
 

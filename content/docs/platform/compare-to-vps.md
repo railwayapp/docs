@@ -77,7 +77,7 @@ Railway eliminates this operational burden:
 
 * Railway owns/operates underlying hardware
 * Automatic OS/security patches
-* Built-in load balancing and traffic distribution via [service replicas](/reference/scaling#horizontal-scaling-with-replicas)
+* Built-in load balancing and traffic distribution via [service replicas](/deployments/scaling#horizontal-scaling-with-replicas)
 * Automatic scaling based on workload demand
 * Managed networking with private service communication
 
