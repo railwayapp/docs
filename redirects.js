@@ -255,6 +255,11 @@ const redirects = [
     permanent: true,
   },
   {
+    source: "/reference/pricing/committed-spend",
+    destination: "/pricing/committed-spend",
+    permanent: true,
+  },
+  {
     source: "/reference/mcp-server",
     destination: "/ai/mcp-server",
     permanent: true,
