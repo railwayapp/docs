@@ -57,3 +57,6 @@ For example: If you're subscribed to the $2000 tier and your usage is $1400, we 
 ### How do I cancel my committed spend tier subscription?
 
 You can cancel your commitment by going to your workspace billing page. Note: You will immediately lose access to the features attached to the tier upon cancelation.
+
+### My question isn't answered here, where can I speak to the team?
+To learn more about committed spend tiers, please [contact our team](mailto:team@railway.com?subject=Business%20Class%20Support).
