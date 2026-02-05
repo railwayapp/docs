@@ -140,7 +140,82 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "Languages & Frameworks",
     slug: "/languages-frameworks",
-    content: [],
+    content: [
+      {
+        subTitle: "JavaScript / TypeScript",
+        pages: [
+          makePage("Next.js", undefined, "/quick-start"),
+          makePage("Express", "guides", "/guides/express"),
+          makePage("Fastify", "guides", "/guides/fastify"),
+          makePage("Nest.js", "guides", "/guides/nest"),
+          makePage("Remix", "guides", "/guides/remix"),
+          makePage("Nuxt", "guides", "/guides/nuxt"),
+          makePage("Astro", "guides", "/guides/astro"),
+          makePage("SvelteKit", "guides", "/guides/sveltekit"),
+          makePage("React", "guides", "/guides/react"),
+          makePage("Vue", "guides", "/guides/vue"),
+          makePage("Angular", "guides", "/guides/angular"),
+          makePage("Solid", "guides", "/guides/solid"),
+          makePage("Sails", "guides", "/guides/sails"),
+        ],
+      },
+      {
+        subTitle: "Python",
+        pages: [
+          makePage("FastAPI", "guides", "/guides/fastapi"),
+          makePage("Flask", "guides", "/guides/flask"),
+          makePage("Django", "guides", "/guides/django"),
+        ],
+      },
+      {
+        subTitle: "PHP",
+        pages: [
+          makePage("Laravel", "guides", "/guides/laravel"),
+          makePage("Symfony", "guides", "/guides/symfony"),
+        ],
+      },
+      {
+        subTitle: "Ruby",
+        pages: [makePage("Rails", "guides", "/guides/rails")],
+      },
+      {
+        subTitle: "Go",
+        pages: [
+          makePage("Gin", "guides", "/guides/gin"),
+          makePage("Beego", "guides", "/guides/beego"),
+        ],
+      },
+      {
+        subTitle: "Rust",
+        pages: [
+          makePage("Axum", "guides", "/guides/axum"),
+          makePage("Rocket", "guides", "/guides/rocket"),
+        ],
+      },
+      {
+        subTitle: "Java",
+        pages: [makePage("Spring Boot", "guides", "/guides/spring-boot")],
+      },
+      {
+        subTitle: "Scala",
+        pages: [makePage("Play", "guides", "/guides/play")],
+      },
+      {
+        subTitle: "Elixir",
+        pages: [
+          makePage("Phoenix", "guides", "/guides/phoenix"),
+          makePage(
+            "Phoenix + Distillery",
+            "guides",
+            "/guides/phoenix-distillery",
+          ),
+        ],
+      },
+      {
+        subTitle: "Clojure",
+        pages: [makePage("Luminus", "guides", "/guides/luminus")],
+      },
+    ],
   },
   {
     title: "Access",
