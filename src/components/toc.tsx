@@ -4,6 +4,8 @@ import {
   animate,
   motion,
   useMotionValue,
+  useMotionValueEvent,
+  useScroll,
   useTransform,
 } from "motion/react";
 import * as React from "react";
@@ -84,38 +86,60 @@ export interface TOCProviderProps {
 export function TOCProvider({ children, items }: TOCProviderProps) {
   const [activeAnchor, setActiveAnchor] = React.useState<string | null>(null);
 
-  // Set up intersection observer for active anchor tracking
-  React.useEffect(() => {
-    const headingElements = items
-      .map(item => {
-        // Use getElementById to avoid CSS selector issues with IDs starting with numbers
-        const id = item.url.startsWith("#") ? item.url.slice(1) : item.url;
-        return document.getElementById(id);
-      })
-      .filter(Boolean) as Element[];
+  // Store heading elements ref
+  const headingElementsRef = React.useRef<HTMLElement[]>([]);
 
+  // Initialize heading elements after hydration
+  React.useEffect(() => {
+    // Small delay to ensure DOM is fully hydrated
+    const timeoutId = setTimeout(() => {
+      headingElementsRef.current = items
+        .map(item => {
+          const id = item.url.startsWith("#") ? item.url.slice(1) : item.url;
+          return document.getElementById(id);
+        })
+        .filter(Boolean) as HTMLElement[];
+
+      // Set initial active heading
+      if (headingElementsRef.current.length > 0) {
+        setActiveAnchor(headingElementsRef.current[0].id);
+      }
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [items]);
+
+  // Use Motion's useScroll for scroll tracking
+  const { scrollY } = useScroll();
+
+  // Threshold: heading is "active" when its top is at or above this value
+  const ACTIVATION_THRESHOLD = 100;
+
+  // Track scroll and update active heading
+  useMotionValueEvent(scrollY, "change", latest => {
+    const headingElements = headingElementsRef.current;
     if (headingElements.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      entries => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveAnchor(entry.target.id);
-            return;
-          }
-        }
-      },
-      {
-        // Account for sticky top nav height (~53px) plus padding
-        rootMargin: "-69px 0px -80% 0px",
-        threshold: 0,
-      },
-    );
+    // Find the last heading that has scrolled past the activation threshold
+    let activeId: string | null = null;
 
-    headingElements.forEach(el => observer.observe(el));
+    for (const heading of headingElements) {
+      const rect = heading.getBoundingClientRect();
+      if (rect.top <= ACTIVATION_THRESHOLD) {
+        activeId = heading.id;
+      } else {
+        break;
+      }
+    }
 
-    return () => observer.disconnect();
-  }, [items]);
+    // If no heading has scrolled past threshold, default to first heading
+    if (activeId === null) {
+      activeId = headingElements[0].id;
+    }
+
+    // Update state
+    setActiveAnchor(activeId);
+  });
 
   const value = React.useMemo(
     () => ({ items, activeAnchor, setActiveAnchor }),
@@ -559,7 +583,23 @@ export interface TOCProps {
 export function TOC({ items, className }: TOCProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-  const [activeAnchor, setActiveAnchor] = React.useState<string | null>(null);
+
+  // Check if we have a parent TOCProvider context
+  const parentContext = React.useContext(TOCContext);
+  const hasParentProvider = parentContext !== null;
+
+  // Only create local state if no parent provider exists
+  const [localActiveAnchor, setLocalActiveAnchor] = React.useState<
+    string | null
+  >(null);
+
+  // Use parent context if available, otherwise use local state
+  const activeAnchor = hasParentProvider
+    ? parentContext.activeAnchor
+    : localActiveAnchor;
+  const setActiveAnchor = hasParentProvider
+    ? parentContext.setActiveAnchor
+    : setLocalActiveAnchor;
 
   // Motion values for animations
   const thumbHeight = useMotionValue(0);
@@ -570,38 +610,55 @@ export function TOC({ items, className }: TOCProps) {
   // Store segments ref for circle X calculation
   const segmentsRef = React.useRef<PathSegment[]>([]);
 
-  // Set up intersection observer for active anchor tracking
-  React.useEffect(() => {
-    const headingElements = items
-      .map(item => {
-        // Use getElementById to avoid CSS selector issues with IDs starting with numbers
-        const id = item.url.startsWith("#") ? item.url.slice(1) : item.url;
-        return document.getElementById(id);
-      })
-      .filter(Boolean) as Element[];
+  // Store heading elements ref (only used when no parent provider)
+  const headingElementsRef = React.useRef<HTMLElement[]>([]);
 
+  // Initialize heading elements after hydration (only if no parent provider)
+  React.useEffect(() => {
+    if (hasParentProvider) return;
+
+    const timeoutId = setTimeout(() => {
+      headingElementsRef.current = items
+        .map(item => {
+          const id = item.url.startsWith("#") ? item.url.slice(1) : item.url;
+          return document.getElementById(id);
+        })
+        .filter(Boolean) as HTMLElement[];
+
+      if (headingElementsRef.current.length > 0) {
+        setActiveAnchor(headingElementsRef.current[0].id);
+      }
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [items, hasParentProvider, setActiveAnchor]);
+
+  // Use Motion's useScroll for tracking (only if no parent provider)
+  const { scrollY } = useScroll();
+  const ACTIVATION_THRESHOLD = 100;
+
+  useMotionValueEvent(scrollY, "change", latest => {
+    if (hasParentProvider) return;
+
+    const headingElements = headingElementsRef.current;
     if (headingElements.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      entries => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveAnchor(entry.target.id);
-            return;
-          }
-        }
-      },
-      {
-        // Account for sticky top nav height (~53px) plus padding
-        rootMargin: "-69px 0px -80% 0px",
-        threshold: 0,
-      },
-    );
+    let activeId: string | null = null;
+    for (const heading of headingElements) {
+      const rect = heading.getBoundingClientRect();
+      if (rect.top <= ACTIVATION_THRESHOLD) {
+        activeId = heading.id;
+      } else {
+        break;
+      }
+    }
 
-    headingElements.forEach(el => observer.observe(el));
+    if (activeId === null) {
+      activeId = headingElements[0].id;
+    }
 
-    return () => observer.disconnect();
-  }, [items]);
+    setActiveAnchor(activeId);
+  });
 
   // Auto-scroll active item into view within the TOC
   React.useEffect(() => {
@@ -659,128 +716,131 @@ export function TOC({ items, className }: TOCProps) {
     getCircleX(segmentsRef.current, y),
   );
 
-  // Provide context for child components
+  // Provide context for child components (only used when no parent provider)
   const contextValue = React.useMemo(
     () => ({
       items,
       activeAnchor,
       setActiveAnchor,
     }),
-    [items, activeAnchor],
+    [items, activeAnchor, setActiveAnchor],
   );
 
   if (items.length === 0) {
     return null;
   }
 
-  return (
-    <TOCContext.Provider value={contextValue}>
-      <div className={cn("w-full", className)} data-slot="toc">
-        <h3 className="text-muted-base mb-4 text-sm font-medium">
-          On this page
-        </h3>
-        <ThumbPositionUpdater
-          containerRef={containerRef}
-          thumbHeight={thumbHeight}
-          thumbTop={thumbTop}
-          circleY={circleY}
-          circleOpacity={circleOpacity}
-          items={items}
-          activeAnchor={activeAnchor}
-          segments={svg?.segments ?? []}
+  const tocContent = (
+    <div className={cn("w-full", className)} data-slot="toc">
+      <h3 className="text-muted-base mb-4 text-sm font-medium">On this page</h3>
+      <ThumbPositionUpdater
+        containerRef={containerRef}
+        thumbHeight={thumbHeight}
+        thumbTop={thumbTop}
+        circleY={circleY}
+        circleOpacity={circleOpacity}
+        items={items}
+        activeAnchor={activeAnchor}
+        segments={svg?.segments ?? []}
+      />
+      <nav
+        aria-label="Table of contents"
+        className="relative min-h-0 overflow-hidden ps-0.5"
+      >
+        {/* Top fade indicator */}
+        <div
+          className={cn(
+            "from-muted-app pointer-events-none absolute inset-x-0 top-0 z-10 h-6 bg-gradient-to-b to-transparent transition-opacity duration-150",
+            scrollState.canScrollUp ? "opacity-100" : "opacity-0",
+          )}
+          aria-hidden="true"
         />
-        <nav
-          aria-label="Table of contents"
-          className="relative min-h-0 overflow-hidden ps-0.5"
+
+        {/* Scrollable container for TOC content */}
+        <div
+          ref={scrollContainerRef}
+          className="relative max-h-[640px] overflow-y-auto"
         >
-          {/* Top fade indicator */}
-          <div
-            className={cn(
-              "from-muted-app pointer-events-none absolute inset-x-0 top-0 z-10 h-6 bg-gradient-to-b to-transparent transition-opacity duration-150",
-              scrollState.canScrollUp ? "opacity-100" : "opacity-0",
-            )}
-            aria-hidden="true"
-          />
-
-          {/* Scrollable container for TOC content */}
-          <div
-            ref={scrollContainerRef}
-            className="relative max-h-[640px] overflow-y-auto"
-          >
-            {/* Background SVG path */}
-            {svg && (
-              <svg
-                className="absolute start-0 top-0 rtl:-scale-x-100"
-                width={svg.width + 3}
-                height={svg.height + 3}
-                aria-hidden="true"
-              >
-                <path
-                  d={svg.path}
-                  className="stroke-muted"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-              </svg>
-            )}
-
-            {/* Animated fill thumb (masked to SVG path) */}
-            {svg && (
-              <div
-                className="absolute start-0 top-0 rtl:-scale-x-100"
-                style={{
-                  width: svg.width,
-                  height: svg.height,
-                  maskImage: `url("data:image/svg+xml,${encodeURIComponent(
-                    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svg.width} ${svg.height}"><path d="${svg.path}" stroke="black" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none" /></svg>`,
-                  )}")`,
-                }}
-                aria-hidden="true"
-              >
-                <TocThumb height={thumbHeight} top={thumbTop} />
-              </div>
-            )}
-
-            {/* TOC items */}
-            <div ref={containerRef} className="flex flex-col">
-              {items.map(item => (
-                <TOCItemLink
-                  key={item.url}
-                  item={item}
-                  isActive={activeAnchor === item.url.slice(1)}
-                />
-              ))}
-            </div>
-
-            {/* End circle (static, at end of path) */}
-            {svg && (
-              <div
-                className="bg-muted pointer-events-none absolute size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
-                style={{ left: svg.endX, top: svg.endY }}
-                aria-hidden="true"
+          {/* Background SVG path */}
+          {svg && (
+            <svg
+              className="absolute start-0 top-0 rtl:-scale-x-100"
+              width={svg.width + 3}
+              height={svg.height + 3}
+              aria-hidden="true"
+            >
+              <path
+                d={svg.path}
+                className="stroke-muted"
+                strokeWidth="2"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                fill="none"
               />
-            )}
+            </svg>
+          )}
 
-            {/* Animated circle indicator */}
-            <TocCircle
-              circleX={circleX}
-              circleY={circleY}
-              opacity={circleOpacity}
-            />
+          {/* Animated fill thumb (masked to SVG path) */}
+          {svg && (
+            <div
+              className="absolute start-0 top-0 rtl:-scale-x-100"
+              style={{
+                width: svg.width,
+                height: svg.height,
+                maskImage: `url("data:image/svg+xml,${encodeURIComponent(
+                  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svg.width} ${svg.height}"><path d="${svg.path}" stroke="black" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none" /></svg>`,
+                )}")`,
+              }}
+              aria-hidden="true"
+            >
+              <TocThumb height={thumbHeight} top={thumbTop} />
+            </div>
+          )}
+
+          {/* TOC items */}
+          <div ref={containerRef} className="flex flex-col">
+            {items.map(item => (
+              <TOCItemLink
+                key={item.url}
+                item={item}
+                isActive={activeAnchor === item.url.slice(1)}
+              />
+            ))}
           </div>
 
-          {/* Bottom fade indicator */}
-          <div
-            className={cn(
-              "from-muted-app pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6 bg-gradient-to-t to-transparent transition-opacity duration-150",
-              scrollState.canScrollDown ? "opacity-100" : "opacity-0",
-            )}
-            aria-hidden="true"
+          {/* End circle (static, at end of path) */}
+          {svg && (
+            <div
+              className="bg-muted pointer-events-none absolute size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
+              style={{ left: svg.endX, top: svg.endY }}
+              aria-hidden="true"
+            />
+          )}
+
+          {/* Animated circle indicator */}
+          <TocCircle
+            circleX={circleX}
+            circleY={circleY}
+            opacity={circleOpacity}
           />
-        </nav>
-      </div>
-    </TOCContext.Provider>
+        </div>
+
+        {/* Bottom fade indicator */}
+        <div
+          className={cn(
+            "from-muted-app pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6 bg-gradient-to-t to-transparent transition-opacity duration-150",
+            scrollState.canScrollDown ? "opacity-100" : "opacity-0",
+          )}
+          aria-hidden="true"
+        />
+      </nav>
+    </div>
+  );
+
+  // Only wrap in provider if no parent provider exists
+  return hasParentProvider ? (
+    tocContent
+  ) : (
+    <TOCContext.Provider value={contextValue}>{tocContent}</TOCContext.Provider>
   );
 }

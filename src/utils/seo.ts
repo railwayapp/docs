@@ -1,5 +1,6 @@
 import { ISidebarContent, IPage, ISubSection } from "@/types";
 import { sidebarContent } from "@/data/sidebar";
+import { Slugger } from "./slugger";
 
 export interface Header {
   level: number;
@@ -14,25 +15,13 @@ export function extractHeadersFromMarkdown(markdown: string): Header[] {
 
   const headerRegex = /^(#{1,6})\s+(.+)$/gm;
   const headers: Header[] = [];
-  const seenIds = new Map<string, number>(); // Track ID occurrences for deduplication
+  const slugger = new Slugger();
   let match;
 
   while ((match = headerRegex.exec(markdownWithoutCodeBlocks)) !== null) {
     const level = match[1].length;
     const title = match[2].trim();
-    let id = title
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/-+/g, "-")
-      .trim();
-
-    // Handle duplicate IDs by appending a suffix
-    const count = seenIds.get(id) || 0;
-    if (count > 0) {
-      id = `${id}-${count}`;
-    }
-    seenIds.set(id.replace(/-\d+$/, ""), count + 1);
+    const id = slugger.slug(title);
 
     headers.push({ level, title, id });
   }
