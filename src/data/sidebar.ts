@@ -219,6 +219,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Access",
+    slug: "/access",
     content: [
       makePage("Accounts", "access"),
       makePage("Two-Factor Enforcement", "access"),
@@ -247,6 +248,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Deployments",
+    slug: "/deployments",
     content: [
       makePage("Pre-Deploy Command", "deployments"),
       makePage("Start Command", "deployments"),
@@ -413,11 +415,23 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: "Login with Railway",
         pages: [
-          makePage("Overview", "reference/oauth", "reference/oauth/login-with-railway"),
+          makePage(
+            "Overview",
+            "reference/oauth",
+            "reference/oauth/login-with-railway",
+          ),
           makePage("Quickstart", "reference/oauth"),
           makePage("Creating an App", "reference/oauth"),
-          makePage("Login & Tokens", "reference/oauth", "reference/oauth/login-and-tokens"),
-          makePage("Scopes & User Consent", "reference/oauth", "reference/oauth/scopes-and-user-consent"),
+          makePage(
+            "Login & Tokens",
+            "reference/oauth",
+            "reference/oauth/login-and-tokens",
+          ),
+          makePage(
+            "Scopes & User Consent",
+            "reference/oauth",
+            "reference/oauth/scopes-and-user-consent",
+          ),
           makePage("Fetching Workspaces or Projects", "reference/oauth"),
           makePage("Managing an App", "reference/oauth"),
           makePage("Authorized Apps", "reference/oauth"),
@@ -464,6 +478,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Community",
+    slug: "/community",
     content: [
       makePage("The Conductor Program", "community"),
       makePage("Affiliate Program", "community"),
