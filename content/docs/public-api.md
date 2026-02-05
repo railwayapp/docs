@@ -30,21 +30,28 @@ https://backboard.railway.com/graphql/v2
 
 ### Creating a token
 
-To use the API, you will need an API token. There are three types of tokens you can create.
+To use the API, you will need an API token. There are three types of tokens you can create in the Railway dashboard. If you're building an application that authenticates users, you can also use OAuth.
 
-#### Team tokens and account tokens
+#### Choosing a token type
 
-You can create an API token from the [tokens page](https://railway.com/account/tokens) in your account settings.
+| Token Type | Scope | Best For |
+|------------|-------|----------|
+| Account token | All your resources and workspaces | Personal scripts, local development |
+| Workspace token | Single workspace | Team CI/CD, shared automation |
+| Project token | Single environment in a project | Deployments, service-specific automation |
+| OAuth | User-granted permissions | Third-party apps acting on behalf of users |
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1667386744/docs/new-token-form_rhrbw8.png"
+#### Account tokens and workspace tokens
+
+You can create an account or workspace token from the [tokens page](https://railway.com/account/tokens) in your account settings.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1770147536/docs/new_token_2026_v4yrmw.png"
 alt="New token form"
 layout="responsive"
-width={1618 } height={378} quality={80} />
+width={1674} height={374} quality={80} />
 
-- **Team token** - Select a team in the `Team` dropdown to create a token tied to a team. A team token has access to all the team's resources, and cannot be used to access your personal resources on Railway. Feel free to share this token with your team members.
-- **Account token** - If you do not select a team, the token will be tied to your Railway account and will have access to all your resources including the teams you are a part of. Do not share this token with anyone else.
-
-_Note that Teams are a Pro feature._
+- **Account token** - If you select "No workspace", the token will be tied to your Railway account. This is the broadest scope. The token can perform any API action you're authorized to do across all your resources and workspaces. Do not share this token with anyone else.
+- **Workspace token** - Select a specific workspace in the dropdown to create a token scoped to that workspace. A workspace token has access to all the workspace's resources, and cannot be used to access your personal resources or other workspaces on Railway. You can share this token with your teammates.
 
 #### Project token
 
@@ -72,21 +79,21 @@ curl --request POST \
   --data '{"query":"query { me { name email } }"}'
 ```
 
-**Note:** This query **cannot** be used with a team or project token because the data returned is scoped to your personal account.
+**Note:** This query **cannot** be used with a workspace or project token because the data returned is scoped to your personal account.
 
-#### Using a team token
+#### Using a workspace token
 
-If you have a team token, you can use it to authenticate requests to a specific team. The query below should return the team name and ID:
+If you have a workspace token, you can use it to authenticate requests scoped to that workspace. The query below should return the workspace name and ID:
 
 ```bash
 curl --request POST \
   --url https://backboard.railway.com/graphql/v2 \
-  --header 'Authorization: Bearer <TEAM_TOKEN_GOES_HERE>' \
+  --header 'Authorization: Bearer <WORKSPACE_TOKEN_GOES_HERE>' \
   --header 'Content-Type: application/json' \
-  --data '{"query":"query { team(id: \"<TEAM_ID_GOES_HERE>\") { name id } }"}'
+  --data '{"query":"query { workspace(workspaceId: \"<WORKSPACE_ID_GOES_HERE>\") { name id } }"}'
 ```
 
-**Note:** This query **can** also be used with an account token as long as you are a member of the team.
+**Note:** This query **can** also be used with an account token as long as you are a member of the workspace.
 
 #### Using a project token
 
@@ -99,6 +106,8 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{"query":"query { projectToken { projectId environmentId } }"}'
 ```
+
+**Note:** Project tokens use the `Project-Access-Token` header, not the `Authorization: Bearer` header used by account, workspace, and OAuth tokens.
 
 ## Viewing the schema
 
