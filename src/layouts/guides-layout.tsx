@@ -180,10 +180,12 @@ export const GuidesLayout: React.FC<PropsWithChildren<GuidesLayoutProps>> = ({
           </div>
 
           {/* Footer */}
-          <Footer
-            gitHubEditLink={gitHubFileLink}
-            lastModified={formattedLastModified}
-          />
+          <div className="mt-24">
+            <Footer
+              gitHubEditLink={gitHubFileLink}
+              lastModified={formattedLastModified}
+            />
+          </div>
         </div>
       </TOCProvider>
     </>

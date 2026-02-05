@@ -268,10 +268,12 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
           </div>
 
           {/* Footer - separate from two-column layout */}
-          <Footer
-            gitHubEditLink={gitHubFileLink}
-            lastModified={formattedLastModified}
-          />
+          <div className="mt-24">
+            <Footer
+              gitHubEditLink={gitHubFileLink}
+              lastModified={formattedLastModified}
+            />
+          </div>
         </div>
       </TOCProvider>
     </>
