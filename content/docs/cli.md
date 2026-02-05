@@ -69,7 +69,7 @@ railway login --browserless
 For CI/CD pipelines, set environment variables instead of interactive login:
 
 - **Project Token**: Set `RAILWAY_TOKEN` for project-level actions
-- **Account/Team Token**: Set `RAILWAY_API_TOKEN` for account-level actions
+- **Account/Workspace Token**: Set `RAILWAY_API_TOKEN` for account-level actions
 
 ```bash
 RAILWAY_TOKEN=xxx railway up

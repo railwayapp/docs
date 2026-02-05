@@ -43,7 +43,7 @@ When 2FA enforcement is enabled:
 ## Access methods
 
 - **Dashboard and CLI**: All workspace members must have 2FA enabled to access the workspace through the Railway dashboard or [CLI](/cli).
-- **API Tokens**: Access token-based access (such as project tokens or team tokens used for CI/CD pipelines and automated deployments) remains valid without 2FA. This ensures your automated workflows continue to function without interruption.
+- **API Tokens**: Access token-based access (such as project tokens or workspace tokens used for CI/CD pipelines and automated deployments) remains valid without 2FA. This ensures your automated workflows continue to function without interruption.
 
 ## Disabling 2FA enforcement
 

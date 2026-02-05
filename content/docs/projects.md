@@ -54,13 +54,9 @@ Each project generates a project invite link. To invite someone via a link:
 
 ## Transferring projects
 
-Projects can be transferred to other users or to Teams, depending on subscription plan.
+Projects can be transferred between workspaces or to other users. Both the source and destination must have an active [Hobby or Pro plan](/pricing/plans) subscription.
 
-- Project transfers to other users are only allowed for users subscribed to the [Hobby Plan](/pricing/plans) (both the initiator and recipient of the transfer).
-
-- Project transfers to [Workspaces](/projects/workspaces) are only allowed for users who are Admin members of an existing Workspace. Workspaces are a feature of the [Pro Plan](/pricing/plans).
-
-### Hobby user to hobby user
+### Transferring to another user
 
 To transfer a project to another user, you must first [add the user as a member](#inviting-members) of the project.
 
@@ -73,13 +69,13 @@ width={411} height={253} quality={80} />
 
 The recipient receives an email to confirm the transfer. They have 24 hours to accept.
 
-### Hobby user to team or team to team
+### Transferring between workspaces
 
 You can transfer a project to another workspace that you're a member of. Inside your project, visit the `Settings` page and click the `Transfer Project` button to view the project transfer modal.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1692378671/project-transfer_iukfwb.png" alt="Project Transfer" layout="responsive" height={968} width={1240} />
 
-Note: If you do not see the Transfer Project section in your Project Settings, you may not be an Admin of the Workspace to which you wish to transfer the Project. See the [reference page for Workspaces](/projects/workspaces#inviting-members) for more information on workspace member permissions.
+Note: You must be an Admin of the project to initiate a transfer. The destination workspace must have an active Hobby or Pro subscription. See the [Workspaces reference](/projects/workspaces#inviting-members) for more information on workspace roles.
 
 ## Viewing recent activity
 

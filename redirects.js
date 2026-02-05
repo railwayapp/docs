@@ -306,7 +306,7 @@ const redirects = [
   },
   {
     source: "/reference/teams",
-    destination: "/projects/teams",
+    destination: "/projects/workspaces",
     permanent: true,
   },
   {

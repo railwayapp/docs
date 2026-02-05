@@ -161,7 +161,7 @@ jobs:
         run: railway environment delete pr-${{ github.event.pull_request.number }} || true
 ```
 
-**Note:** If you are using a team project, ensure the token is scoped to your account, not a workspace.
+**Note:** If you are using a workspace project, ensure the token is scoped to your account, not a specific workspace.
 
 See the [GitHub Actions PR Environment guide](/guides/github-actions-pr-environment) for the complete setup.
 
