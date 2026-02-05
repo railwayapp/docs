@@ -38,7 +38,7 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 | Plan           | **Replicas** | **RAM**      | **CPU**        | **Ephemeral Storage** | **Volume Storage** | **Image Size** |
 | -------------- | ------------ | ------------ | -------------- | --------------------- | ------------------ | -------------- |
 | **Trial**      | **0**        | **1 GB**     | **2 vCPU**     | **1 GB**              | **0.5 GB**         | **4 GB**       |
-| **Free**       | **0**        | **0.5 GB**   | **1 vCPU**     | **1 GB**              | **0.5 GB**         | **4 GB**       | 
+| **Free**       | **0**        | **0.5 GB**   | **1 vCPU**     | **1 GB**              | **0.5 GB**         | **4 GB**       |
 | **Hobby**      | **6**        | **48 GB**    | **48 vCPU**    | **100 GB**            | **5 GB**           | **100 GB**     |
 | **Pro**        | **42**       | **1 TB**     | **1,000 vCPU** | **100 GB**            | **1 TB \***        | **Unlimited**  |
 | **Enterprise** | **50**       | **2.4 TB**   | **2,400 vCPU** | **100 GB**            | **5 TB \***        | **Unlimited**  |
@@ -98,23 +98,7 @@ Rolling back a removed deployment within the retention policy will restore the p
 
 A removed deployment that is outside of the retention policy will not have the option to rollback; instead, you will need to use the redeploy feature. This will rebuild the image from the original source code with the deployment's original variables.
 
-## Committed Spend Tiers
-
-Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
-
-For example, customers who commit to a $10,000/month spend rate can access dedicated hosts, with all pricing going towards their usage. This approach provides more flexibility and transparency compared to traditional contract pricing.
-
-| Feature                    | Commitment Spend | Description                                                                                                      |
-| -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **90-day log history**     | $200/month       | Extended log retention for better historical analysis and auditing.                                              |
-| **HIPAA BAAs**             | $1,000/month     | HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly. |
-| **Slack Connect channels** | $2,000/month     | Dedicated Slack Connect channels for enhanced communication and support with the Railway team.                   |
-| **SLOs**                   | $2,000/month     | Service Level Objectives to ensure and track application performance.                                            |
-| **Dedicated Hosts**        | $10,000/month    | Custom dedicated infrastructure for enhanced performance and control.                                            |
-
-To learn more about committed spend tiers, please [contact our team](mailto:team@railway.com?subject=Business%20Class%20Support).
-
-### One-time Grant of Credits on the Free Trial
+## One-time Grant of Credits on the Free Trial
 
 Users who create a new Trial account receive a free one-time grant of $5. Railway will expend any free credit before consuming any purchased credits. Trial plan users are unable to purchase credits without upgrading to the Hobby plan.
 

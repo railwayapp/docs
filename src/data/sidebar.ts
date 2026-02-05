@@ -340,6 +340,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("FAQs", "reference/pricing"),
           makePage("Refunds", "reference/pricing"),
           makePage("AWS Marketplace", "reference/pricing"),
+          makePage("Committed Spend", "reference/pricing"),
         ],
       },
       makePage("Production Readiness Checklist", "reference"),
