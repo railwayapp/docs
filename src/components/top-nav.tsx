@@ -4,7 +4,6 @@ import { cn } from "@/lib/cn";
 import { Icon } from "./icon";
 import { Link } from "./link";
 import { Logo } from "./logo";
-import { Badge } from "./badge";
 import { ThemeSwitcher } from "./theme-switcher";
 import OpenModalButton from "./search/open-modal-button";
 import { sidebarContent } from "../data/sidebar";
@@ -21,15 +20,18 @@ const navLinks = [
 // Desktop Top Navigation
 export const TopNav: React.FC = () => {
   return (
-    <header className="hidden md:grid grid-cols-[auto_1fr_auto] items-center gap-4 px-6 py-3 fixed top-0 left-0 right-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted">
+    <header className="hidden md:grid grid-cols-[var(--width-sidebar)_1fr_auto] items-center gap-4 pr-6 py-3 fixed top-0 left-0 right-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted">
       {/* Left - Logo */}
-      <Link
-        href="/"
-        className="flex items-center gap-2 shrink-0 rounded-md p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
-      >
-        <Logo className="w-6 h-6" />
-        <Badge variant="secondary">Docs</Badge>
-      </Link>
+      <div className="px-6">
+        <Link
+          href="/"
+          className="flex items-center gap-2 shrink-0 rounded-md p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+        >
+          <Logo className="w-6 h-6" />
+          <span className="text-muted">|</span>
+          <span className="text-sm font-medium text-muted-base">Docs</span>
+        </Link>
+      </div>
 
       {/* Center - Search */}
       <div className="flex justify-center px-4">
@@ -95,11 +97,11 @@ export const MobileTopNav: React.FC = () => {
           href="/"
           className="flex items-center gap-2 shrink-0 rounded-md p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
         >
-          <Logo className="w-7 h-7" />
-          <span className="font-semibold text-muted-high-contrast">
-            Railway
+          <Logo className="h-5 w-auto" />
+          <span className="text-muted-low-contrast">|</span>
+          <span className="text-sm font-medium text-muted-high-contrast">
+            Docs
           </span>
-          <Badge variant="secondary">Docs</Badge>
         </Link>
 
         {/* Center - Spacer */}
