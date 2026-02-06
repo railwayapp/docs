@@ -1,4 +1,3 @@
-import NextLink from "next/link";
 import React, { PropsWithChildren, useMemo } from "react";
 import { Footer } from "../components/footer";
 import { InlineTOC } from "../components/inline-toc";
@@ -98,27 +97,6 @@ export const GuidesLayout: React.FC<PropsWithChildren<GuidesLayoutProps>> = ({
           <div className="max-w-full flex flex-row flex-1">
             <div className="flex-auto min-w-0 prose dark:prose-invert">
               <div className="docs-content max-w-full">
-                {/* Back to guides link */}
-                <NextLink
-                  href="/guides"
-                  className="group inline-flex items-center gap-1.5 text-sm text-muted-base hover:text-muted-high-contrast transition-colors mb-8 no-underline!"
-                >
-                  <svg
-                    className="size-4 transition-transform group-hover:-translate-x-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                  <span>Back to Guides</span>
-                </NextLink>
-
                 <h1 className="mb-4">{frontMatter.title}</h1>
 
                 {/* Author info */}

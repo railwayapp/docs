@@ -10,7 +10,6 @@ import { cn } from "@/lib/cn";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { useStore } from "@nanostores/react";
 import React, { PropsWithChildren, useEffect } from "react";
-import { useRouter } from "next/router";
 import tinykeys from "tinykeys";
 import { TopNav, MobileTopNav } from "../components/top-nav";
 import { Props as SEOProps, SEO } from "../components/seo";
@@ -24,12 +23,8 @@ export interface Props {
 }
 
 export const Page: React.FC<PropsWithChildren<Props>> = props => {
-  const router = useRouter();
   const isSearchOpen = useStore(searchStore);
-
-  // Hide sidebar on all guides pages (index and individual guide pages)
-  const isGuidesPage = router.pathname.startsWith("/guides");
-  const hideSidebar = props.hideSidebar || isGuidesPage;
+  const hideSidebar = props.hideSidebar;
 
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
@@ -59,7 +54,7 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
 
         {/* Sidebar + Content Area */}
         <div className="flex flex-1">
-          {/* Sidebar (hidden on guides pages) */}
+          {/* Sidebar */}
           {!hideSidebar && <Sidebar />}
 
           {/* Main Content Area */}

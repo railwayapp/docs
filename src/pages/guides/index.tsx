@@ -43,27 +43,6 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         url="https://docs.railway.com/guides"
       />
       <div className="w-full z-10">
-        {/* Back to Docs */}
-        <Link
-          href="/"
-          className="group inline-flex items-center gap-1.5 text-sm text-muted-base hover:text-muted-high-contrast transition-colors mb-8 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
-        >
-          <svg
-            className="size-4 transition-transform group-hover:-translate-x-0.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          <span>Back to Docs</span>
-        </Link>
-
         {/* Header */}
         <div className="mb-8">
           <h1
