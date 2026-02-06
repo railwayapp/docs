@@ -102,15 +102,15 @@ Volumes are mounted as the `root` user. If you run an image that uses a non-root
 RAILWAY_RUN_UID=0
 ```
 
-## Growing the Volume
+## Live Resizing the Volume
 
 **_Only available to Pro users and above._**
 
-To increase capacity in a volume, you can "grow" it from the volume settings.
+To increase capacity in a volume, you can "live resize" it from the volume settings.
 
 - Click on the volume to open the settings
-- Click `Grow`
-- Follow the prompts to grow the volume
+- Click `Live Resize`
+- Follow the prompts to live resize the volume
 
 <Image
     layout="intrinsic"
@@ -118,10 +118,10 @@ To increase capacity in a volume, you can "grow" it from the volume settings.
     width={1148}
     height={584}
     src="https://res.cloudinary.com/railway/image/upload/v1730326473/docs/volumes/growvolume_zbsjjq.png"
-    alt="Grow volume"
+    alt="Live resize volume"
 />
 
-Note: growing a volume requires a restart of the attached service.
+Railway performs volume resizing live without any downtime. The resize operation expands the underlying storage while your service continues running, and the filesystem is automatically extended to utilize the additional space. Your application maintains full read/write access throughout the entire process.
 
 ## Backups
 
