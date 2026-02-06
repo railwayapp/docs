@@ -45,7 +45,7 @@ Depending on the plan you are on, you are allowed to use up these resources per 
 
 Note that these are maximum values and include replica multiplication.
 
-\* For Volumes, Pro users and above can self-serve to increase their volume up to 250 GB. Check out [this guide](/volumes#growing-the-volume) for information.
+\* For Volumes, Pro users and above can self-serve to increase their volume up to 250 GB. Check out [this guide](/volumes#live-resizing-the-volume) for information.
 
 ### Resource usage pricing
 

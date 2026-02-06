@@ -192,6 +192,7 @@ Scaling requires manual setup:
 * Manually upgrade to larger instances
 * Typically downtime during resizing
 * Application restarts required
+* Persistent storage resizing often requires downtime
 
 **Horizontal Scaling (Out)**
 
@@ -216,6 +217,7 @@ Scaling and distribution are automatic:
 
 * Scale up to plan limits automatically
 * No downtime or manual intervention
+* Live volume resizing without service interruption
 
 **Effortless Horizontal Scaling**
 
