@@ -1,0 +1,459 @@
+/* ===== Prose Styles ===== */
+.prose {
+  @apply text-muted-base font-sans leading-relaxed;
+  max-width: 65ch;
+}
+
+/* Headings */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply text-muted-high-contrast font-sans font-semibold;
+}
+
+.prose h1 {
+  @apply text-4xl font-serif;
+  margin-top: 0;
+  margin-bottom: 0.9em;
+
+}
+
+.prose h2 {
+  @apply text-2xl;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose h3 {
+  @apply text-xl;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+.prose h4 {
+  @apply text-lg;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose h5,
+.prose h6 {
+  @apply text-base;
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+/* Collapse margins after headings */
+.prose h2 + *,
+.prose h3 + *,
+.prose h4 + * {
+  margin-top: 0;
+}
+
+/* Accordion - override h3 styling inside accordion headers */
+.prose [data-slot='accordion'] h3,
+.prose [data-slot='accordion-item'] h3 {
+  @apply m-0 font-sans text-sm font-medium;
+}
+
+/* Paragraphs */
+.prose p {
+  @apply my-5;
+  line-height: 1.75;
+}
+
+.prose p:first-child {
+  margin-top: 0;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* Links - exclude Link component which has its own styles */
+.prose a:not([data-slot='link']) {
+  @apply text-muted-high-contrast underline decoration-primary-base underline-offset-2 transition-colors;
+}
+
+.prose a:not([data-slot='link']):hover {
+  @apply text-primary-base;
+}
+
+/* Heading links - special styling for linked headings (higher specificity to override prose a) */
+.prose h1 a:not([data-slot='link']),
+.prose h2 a:not([data-slot='link']),
+.prose h3 a:not([data-slot='link']),
+.prose h4 a:not([data-slot='link']),
+.prose h5 a:not([data-slot='link']),
+.prose h6 a:not([data-slot='link']) {
+  @apply text-muted-high-contrast no-underline transition-colors;
+}
+
+.prose h1 a:not([data-slot='link']):hover,
+.prose h2 a:not([data-slot='link']):hover,
+.prose h3 a:not([data-slot='link']):hover,
+.prose h4 a:not([data-slot='link']):hover,
+.prose h5 a:not([data-slot='link']):hover,
+.prose h6 a:not([data-slot='link']):hover {
+  @apply text-primary-base;
+}
+
+/* Heading anchor button styling */
+.prose h1 button,
+.prose h2 button,
+.prose h3 button,
+.prose h4 button,
+.prose h5 button,
+.prose h6 button {
+  @apply align-middle;
+}
+
+/* Lists - exclude breadcrumb components */
+.prose ul:not([data-slot='breadcrumb-list']),
+.prose ol:not([data-slot='breadcrumb-list']) {
+  @apply my-4 pl-7;
+}
+
+.prose ul:not([data-slot='breadcrumb-list']) {
+  list-style-type: disc;
+}
+
+.prose ol:not([data-slot='breadcrumb-list']) {
+  list-style-type: decimal;
+}
+
+.prose li:not([data-slot='breadcrumb-item']):not([data-slot='breadcrumb-separator']):not([data-slot='step']) {
+  @apply my-2 ps-2;
+  line-height: 1.75;
+}
+
+.prose li:not([data-slot='breadcrumb-item']):not([data-slot='breadcrumb-separator']):not([data-slot='step'])::marker {
+  @apply text-muted-base;
+}
+
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  @apply my-5 ps-7;
+}
+
+/* Breadcrumb - reset any accidental prose styles */
+.prose [data-slot='breadcrumb-list'] {
+  @apply my-0 pl-0;
+  list-style-type: none;
+}
+
+.prose [data-slot='breadcrumb-item'],
+.prose [data-slot='breadcrumb-separator'] {
+  @apply my-0 ps-0;
+  line-height: normal;
+}
+
+.prose [data-slot='breadcrumb-item']::marker,
+.prose [data-slot='breadcrumb-separator']::marker {
+  content: none;
+}
+
+/* Checkboxes - styling for task lists and markdown checkboxes */
+.prose input[type='checkbox'] {
+  @apply border-muted bg-muted-app relative flex size-4 shrink-0 cursor-pointer appearance-none items-center justify-center rounded-[4px] border shadow-xs outline-none;
+  @apply focus-visible:ring-primary-solid focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app;
+  @apply disabled:cursor-not-allowed disabled:opacity-50;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.prose input[type='checkbox']:checked {
+  @apply bg-primary-solid border-primary-solid text-white;
+}
+
+.prose input[type='checkbox']:checked::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M20 6 9 17l-5-5'/%3e%3c/svg%3e");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Task list items - remove default list styling */
+.prose li:has(> input[type='checkbox']) {
+  list-style-type: none;
+  margin-left: -1.25rem;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  @apply border-primary text-muted-base my-6 border-l-4 pl-4 italic;
+}
+
+.prose blockquote p {
+  @apply my-2;
+}
+
+/* Inline Code */
+.prose code:not(pre code) {
+  @apply bg-muted-element text-muted-high-contrast rounded-lg px-1.5 py-0.5 font-mono text-sm;
+}
+
+.prose code:not(pre code)::before,
+.prose code:not(pre code)::after {
+  content: none;
+}
+
+/* Code Blocks - exclude CodeBlock component which handles its own styling */
+.prose pre:not(.shiki) {
+  @apply bg-muted-element-hover text-muted-high-contrast my-6 overflow-x-auto rounded-lg font-mono text-sm leading-relaxed;
+  padding: 1rem 1.25rem;
+}
+
+.prose pre:not(.shiki) code {
+  @apply bg-transparent p-0 text-inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Reset styles for CodeBlock container */
+.prose .group\/code-block {
+  @apply my-6;
+}
+
+.prose .group\/code-block pre {
+  @apply m-0 p-0 bg-transparent rounded-none;
+}
+
+/* Horizontal Rules */
+.prose hr {
+  @apply border-muted my-8 border-t;
+}
+
+/* Tables */
+.prose table {
+  @apply my-6 w-full caption-bottom overflow-hidden rounded-lg border border-muted text-sm;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.prose thead {
+  @apply border-b border-muted bg-muted-element/50;
+}
+
+.prose th {
+  @apply h-10 px-4 text-left align-middle font-sans font-semibold text-muted-high-contrast;
+}
+
+.prose td {
+  @apply px-4 py-3 align-middle text-muted-high-contrast;
+}
+
+.prose tbody tr {
+  @apply border-b border-muted transition-colors;
+}
+
+.prose tbody tr:last-child {
+  @apply border-b-0;
+}
+
+.prose tbody tr:hover {
+  @apply bg-muted-element/50;
+}
+
+.prose caption {
+  @apply mt-4 text-sm text-muted-base;
+}
+
+/* Images */
+.prose img {
+  @apply rounded-lg;
+}
+
+/* Hide external link icon when link only contains an image (e.g., Deploy on Railway button) */
+.prose a[data-slot='link']:has(> span > img) svg {
+  display: none;
+}
+
+/* Video */
+.prose video {
+  @apply rounded-lg;
+}
+
+/* Strong & Emphasis */
+.prose strong {
+  @apply text-muted-high-contrast font-semibold;
+}
+
+.prose em {
+  @apply italic;
+}
+
+
+
+
+/* Steps component - override default ordered list styling */
+.prose ol[data-slot='steps'] {
+  @apply list-none pl-0;
+}
+
+.prose ol[data-slot='steps'] li[data-slot='step'] {
+  @apply my-0 list-none;
+  /* Note: Don't reset padding here - the Step component uses pl-12 for the indicator */
+}
+
+.prose ol[data-slot='steps'] li[data-slot='step']::marker {
+  content: none;
+}
+
+/* Reset heading margins inside Steps to prevent line break */
+.prose ol[data-slot='steps'] h3 {
+  @apply m-0 mb-2 text-base font-semibold font-sans;
+  margin-top: 0 !important;
+}
+
+/* Fix step content spacing */
+.prose [data-slot='step-content'] p {
+  @apply my-2;
+}
+
+.prose [data-slot='step-content'] p:first-of-type {
+  @apply mt-0;
+}
+
+.prose [data-slot='step-content'] .group\/code-block {
+  @apply my-3;
+}
+
+
+
+/* ===== Shiki Code Block Styles ===== */
+
+/* Base Shiki styles */
+.shiki-wrapper {
+  @apply overflow-x-auto;
+}
+
+.shiki-wrapper .shiki {
+  @apply rounded-none font-mono text-xs leading-relaxed sm:text-sm;
+  margin: 0 !important;
+  overflow: visible;
+}
+
+.shiki-wrapper .shiki code {
+  @apply block w-fit min-w-full py-3 px-3 sm:py-4 sm:px-4;
+  white-space: pre !important;
+  display: block !important;
+}
+
+.shiki-wrapper .shiki .line {
+  @apply px-0;
+  min-height: 1.5em;
+  display: block !important;
+  white-space: pre !important;
+}
+
+/* Empty lines get same min-height for consistent spacing */
+.shiki-wrapper .shiki .line:empty {
+  min-height: 1.5em;
+  display: block !important;
+}
+
+.shiki-wrapper .shiki .line:empty::before {
+  content: " ";
+  white-space: pre;
+}
+
+/* Dual theme support */
+[data-theme='light'] .shiki,
+[data-theme='light'] .shiki span {
+  color: var(--shiki-light) !important;
+  background-color: var(--shiki-light-bg) !important;
+}
+
+[data-theme='dark'] .shiki,
+[data-theme='dark'] .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+/* Reset background on spans inside shiki (except for diff and highlighted lines) */
+[data-theme='light'] .shiki span:not(.line.diff):not(.line.highlighted),
+[data-theme='dark'] .shiki span:not(.line.diff):not(.line.highlighted) {
+  background-color: transparent !important;
+}
+
+/* Line Numbers */
+.code-block-line-numbers .shiki code {
+  counter-reset: line;
+}
+
+.code-block-line-numbers .shiki .line::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply text-muted-solid mr-6 inline-block w-4 text-right;
+}
+
+/* Diff Styles */
+.shiki .line.diff {
+  @apply -mx-4 block w-full px-4;
+}
+
+.shiki .line.diff.add {
+  @apply border-success-base border-l-2;
+  background-color: color-mix(
+    in srgb,
+    var(--color-success-element) 50%,
+    transparent
+  ) !important;
+}
+
+.shiki .line.diff.remove {
+  @apply border-danger-base border-l-2;
+  background-color: color-mix(
+    in srgb,
+    var(--color-danger-element) 50%,
+    transparent
+  ) !important;
+}
+
+/* Highlight Styles */
+.shiki .line.highlighted {
+  @apply border-primary -mx-4 block w-full border-l-2 px-4;
+  background-color: color-mix(
+    in srgb,
+    var(--color-primary-element) 30%,
+    transparent
+  ) !important;
+}
+
+/* Word Highlight */
+.shiki .highlighted-word {
+  @apply bg-warning-element rounded px-1 py-0.5;
+}
+
+/* Focus Styles */
+.shiki.has-focused .line:not(.focused) {
+  @apply opacity-50 transition-opacity;
+}
+
+.shiki.has-focused:hover .line:not(.focused) {
+  @apply opacity-100;
+}
+
+.shiki .line.focused {
+  @apply bg-primary-element/20 -mx-4 px-4;
+}
+
+/* Error Level Styles */
+.shiki .line.highlighted.error {
+  @apply border-l-danger bg-danger-element/30;
+}
+
+.shiki .line.highlighted.warning {
+  @apply border-l-warning bg-warning-element/30;
+}
+

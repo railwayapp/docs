@@ -1,243 +1,217 @@
 import { NextPage } from "next";
-import NextImage from "next/legacy/image";
-import {
-  ArrowRight,
-  Book,
-  Code,
-  Edit3,
-  GitPullRequest,
-  Layers,
-  Youtube,
-  GitHub,
-} from "react-feather";
-import tw, { styled } from "twin.macro";
-import { DiscordIcon, RssIcon, XIcon } from "../components/Icons";
-import { Link } from "../components/Link";
+import { Link } from "../components/link";
+import { Icon } from "../components/icon";
+import { ThemeSwitcher } from "../components/theme-switcher";
 
 const Home: NextPage = () => {
   return (
     <>
-      <div tw="max-w-5xl mx-auto z-10">
-        <div tw="mb-12">
+      <div className="max-w-5xl mx-auto z-10">
+        {/* Hero Section */}
+        <div className="mb-12">
           <h1
-            tw="text-4xl mb-4 text-gray-900"
-            style={{ fontFamily: "'IBM Plex Serif', serif", fontWeight: 500, lineHeight: 1.13, letterSpacing: "-0.035em", fontSize: "2.5rem" }}
+            className="text-4xl mb-4 text-foreground font-serif font-medium"
+            style={{
+              lineHeight: 1.13,
+              letterSpacing: "-0.035em",
+              fontSize: "2.5rem",
+            }}
           >
-            Railway
-            <br />
-            Documentation
+            Railway Documentation
           </h1>
-          <p
-            tw="text-xl text-gray-600"
-            style={{ fontSize: "1.125rem", color: "var(--colors-gray-700)" }}
-            className="dark:!text-[var(--colors-gray-700)]"
-          >
-            Find user guides, quickstarts, tutorials, use cases, deploy
-            templates, functions and more.
+          <p className="text-lg text-muted-base">
+            Railway is an all-in-one intelligent cloud provider that makes it
+            easy to provision infrastructure, develop locally, and deploy to the
+            cloud.
           </p>
         </div>
 
-        <div tw="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4">
-          <Link href="overview/about-railway">
-            <div
-              className="group"
-              tw="relative bg-gradient-to-br from-[#8CAEF2]/25 to-white hover:from-[#8CAEF2]/40 hover:to-white dark:from-[#1D4596]/25 dark:to-[#131415] dark:hover:from-[#1D4596]/40 dark:hover:to-[#131415] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-none dark:border dark:border-gray-200 rounded-lg transition-all duration-200 cursor-pointer overflow-hidden h-40 md:h-56"
-            >
-              <img
-                src="/images/card-light-how-railway-works.svg"
-                alt=""
-                tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
-              />
-              <img
-                src="/images/card-dark-how-railway-works.svg"
-                alt=""
-                tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
-              />
-              <div tw="relative z-10 p-6">
-                <div
-                  tw="font-medium mb-1 text-gray-900"
-                  style={{ letterSpacing: "-0.25px", fontSize: "1.125rem" }}
-                >
-                  How Railway Works
-                </div>
-                <div
-                  tw="text-gray-600 text-base font-normal max-w-[20rem] md:max-w-[16rem]"
-                  className="dark:!text-[var(--colors-gray-700)]"
-                >
-                  Understand what Railway offers, including the main components
-                  of the platform.
-                </div>
-              </div>
-            </div>
-          </Link>
-          <Link href="/guides/foundations">
-            <div
-              className="group"
-              tw="relative bg-gradient-to-br from-[#F1C1C0]/25 to-white hover:from-[#F1C1C0]/40 hover:to-white dark:from-[#741D1B]/25 dark:to-[#131415] dark:hover:from-[#741D1B]/40 dark:hover:to-[#131415] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-none dark:border dark:border-gray-200 rounded-lg transition-all duration-200 cursor-pointer overflow-hidden h-40 md:h-56"
-            >
-              <img
-                src="/images/card-light-guides.svg"
-                alt=""
-                tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
-              />
-              <img
-                src="/images/card-dark-guides.svg"
-                alt=""
-                tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
-              />
-              <div tw="relative z-10 p-6">
-                <div
-                  tw="font-medium mb-1 text-gray-900"
-                  style={{ letterSpacing: "-0.25px", fontSize: "1.125rem" }}
-                >
-                  Guides
-                </div>
-                <div
-                  tw="text-gray-600 text-base font-normal max-w-[20rem] md:max-w-[16rem]"
-                  className="dark:!text-[var(--colors-gray-700)]"
-                >
-                  Explore our guides to learn how to configure or enable a
-                  specific feature on the platform.
-                </div>
-              </div>
-            </div>
-          </Link>
+        {/* Card Grid */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4">
+          {/* Quick Start Card */}
           <Link href="/quick-start">
-            <div
-              className="group"
-              tw="relative bg-gradient-to-br from-[#EFD580]/25 to-white hover:from-[#EFD580]/40 hover:to-white dark:from-[#675518]/25 dark:to-[#131415] dark:hover:from-[#675518]/40 dark:hover:to-[#131415] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-none dark:border dark:border-gray-200 rounded-lg transition-all duration-200 cursor-pointer overflow-hidden h-40 md:h-56"
-            >
+            <div className="group relative h-40 md:h-56 rounded-lg overflow-hidden cursor-pointer transition-all duration-200 bg-gradient-to-br from-[#EFD580]/25 to-white hover:from-[#EFD580]/40 hover:to-white dark:from-[#675518]/25 dark:to-[#131415] dark:hover:from-[#675518]/40 dark:hover:to-[#131415] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-none dark:border dark:border-muted">
               <img
                 src="/images/card-light-quickstart.svg"
                 alt=""
-                tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
+                className="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
               />
               <img
                 src="/images/card-dark-quickstart.svg"
                 alt=""
-                tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
+                className="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
               />
-              <div tw="relative z-10 p-6">
+              <div className="relative z-10 p-6">
                 <div
-                  tw="font-medium mb-1 text-gray-900"
-                  style={{ letterSpacing: "-0.25px", fontSize: "1.125rem" }}
+                  className="font-medium mb-1 text-foreground text-lg"
+                  style={{ letterSpacing: "-0.25px" }}
                 >
-                  Quickstart
+                  Quick Start
                 </div>
-                <div
-                  tw="text-gray-600 text-base font-normal max-w-[20rem] md:max-w-[16rem]"
-                  className="dark:!text-[var(--colors-gray-700)]"
-                >
-                  Deploy in minutes. Jump into our quickstart guide or deploy
-                  with your favorite stack below.
+                <div className="text-muted-base text-base font-normal max-w-[20rem] md:max-w-[16rem]">
+                  Deploy in minutes. Jump into our quickstart guide to get your
+                  first app running.
                 </div>
               </div>
             </div>
           </Link>
-          <Link href="/tutorials/getting-started">
-            <div
-              className="group"
-              tw="relative bg-gradient-to-br from-[#95D0B4]/25 to-white hover:from-[#95D0B4]/40 hover:to-white dark:from-[#26543F]/25 dark:to-[#131415] dark:hover:from-[#26543F]/40 dark:hover:to-[#131415] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-none dark:border dark:border-gray-200 rounded-lg transition-all duration-200 cursor-pointer overflow-hidden h-40 md:h-56"
-            >
+
+          {/* AI Card */}
+          <Link href="/ai">
+            <div className="group relative h-40 md:h-56 rounded-lg overflow-hidden cursor-pointer transition-all duration-200 bg-gradient-to-br from-[#8CAEF2]/25 to-white hover:from-[#8CAEF2]/40 hover:to-white dark:from-[#1D4596]/25 dark:to-[#131415] dark:hover:from-[#1D4596]/40 dark:hover:to-[#131415] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-none dark:border dark:border-muted">
+              <img
+                src="/images/card-light-how-railway-works.svg"
+                alt=""
+                className="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
+              />
+              <img
+                src="/images/card-dark-how-railway-works.svg"
+                alt=""
+                className="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
+              />
+              <div className="relative z-10 p-6">
+                <div
+                  className="font-medium mb-1 text-foreground text-lg"
+                  style={{ letterSpacing: "-0.25px" }}
+                >
+                  AI
+                </div>
+                <div className="text-muted-base text-base font-normal max-w-[20rem] md:max-w-[16rem]">
+                  Build with Railway using Agent Skills and the MCP server for
+                  AI-powered workflows.
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* CLI Card */}
+          <Link href="/cli">
+            <div className="group relative h-40 md:h-56 rounded-lg overflow-hidden cursor-pointer transition-all duration-200 bg-gradient-to-br from-[#F1C1C0]/25 to-white hover:from-[#F1C1C0]/40 hover:to-white dark:from-[#741D1B]/25 dark:to-[#131415] dark:hover:from-[#741D1B]/40 dark:hover:to-[#131415] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-none dark:border dark:border-muted">
+              <img
+                src="/images/card-light-guides.svg"
+                alt=""
+                className="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
+              />
+              <img
+                src="/images/card-dark-guides.svg"
+                alt=""
+                className="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
+              />
+              <div className="relative z-10 p-6">
+                <div
+                  className="font-medium mb-1 text-foreground text-lg"
+                  style={{ letterSpacing: "-0.25px" }}
+                >
+                  CLI
+                </div>
+                <div className="text-muted-base text-base font-normal max-w-[20rem] md:max-w-[16rem]">
+                  Develop locally and deploy from your terminal with the Railway
+                  CLI.
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Templates Card */}
+          <Link href="/templates">
+            <div className="group relative h-40 md:h-56 rounded-lg overflow-hidden cursor-pointer transition-all duration-200 bg-gradient-to-br from-[#95D0B4]/25 to-white hover:from-[#95D0B4]/40 hover:to-white dark:from-[#26543F]/25 dark:to-[#131415] dark:hover:from-[#26543F]/40 dark:hover:to-[#131415] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-none dark:border dark:border-muted">
               <img
                 src="/images/card-light-tutorials.svg"
                 alt=""
-                tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
+                className="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none dark:hidden"
               />
               <img
                 src="/images/card-dark-tutorials.svg"
                 alt=""
-                tw="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
+                className="absolute bottom-0 right-0 w-auto h-auto max-h-full pointer-events-none hidden dark:block"
               />
-              <div tw="relative z-10 p-6">
+              <div className="relative z-10 p-6">
                 <div
-                  tw="font-medium mb-1 text-gray-900"
-                  style={{ letterSpacing: "-0.25px", fontSize: "1.125rem" }}
+                  className="font-medium mb-1 text-foreground text-lg"
+                  style={{ letterSpacing: "-0.25px" }}
                 >
-                  Tutorials
+                  Templates
                 </div>
-                <div
-                  tw="text-gray-600 text-base font-normal max-w-[20rem] md:max-w-[16rem]"
-                  className="dark:!text-[var(--colors-gray-700)]"
-                >
-                  Step-by-step guides on common developer scenarios.
+                <div className="text-muted-base text-base font-normal max-w-[20rem] md:max-w-[16rem]">
+                  One-click deployable applications and starters for common use
+                  cases.
                 </div>
               </div>
             </div>
           </Link>
         </div>
 
-        <div tw="mt-24">
+        {/* Your stack, your way */}
+        <div className="mt-24">
           <h2
-            tw="text-3xl md:text-4xl font-semibold mb-2 leading-10 text-left"
+            className="text-3xl md:text-4xl font-semibold mb-2 leading-10 text-foreground"
             style={{ fontSize: "2rem", letterSpacing: "-0.5px" }}
           >
             Your stack, your way
           </h2>
-          <p
-            tw="text-[#6c6a7b] text-lg font-normal leading-relaxed text-left"
-            style={{ color: "var(--colors-gray-700)" }}
-          >
+          <p className="text-lg font-normal leading-relaxed text-muted-base">
             Use your favorite language and framework.
           </p>
         </div>
-        <div tw="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          <FrameworkLink href="/quick-start">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <Link
+            href="/quick-start"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
               viewBox="0 0 1000 1000"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              tw="mx-auto"
-              className="text-black dark:text-white"
+              className="mx-auto text-black dark:text-white"
             >
               <path
                 d="M467.253 0.269139C465.103 0.464613 458.26 1.14878 452.102 1.63747C310.068 14.4411 177.028 91.0671 92.7664 208.841C45.8456 274.325 15.8358 348.605 4.49658 427.284C0.488759 454.748 0 462.86 0 500.098C0 537.336 0.488759 545.448 4.49658 572.912C31.6716 760.666 165.298 918.414 346.53 976.861C378.983 987.319 413.196 994.453 452.102 998.754C467.253 1000.42 532.747 1000.42 547.898 998.754C615.054 991.326 671.945 974.71 728.055 946.073C736.657 941.675 738.319 940.502 737.146 939.525C736.364 938.939 699.707 889.777 655.718 830.352L575.758 722.353L475.562 574.085C420.43 492.572 375.073 425.915 374.682 425.915C374.291 425.818 373.9 491.693 373.705 572.13C373.412 712.97 373.314 718.639 371.554 721.962C369.013 726.751 367.058 728.706 362.952 730.856C359.824 732.42 357.087 732.713 342.327 732.713H325.415L320.919 729.878C317.986 728.021 315.836 725.578 314.37 722.744L312.317 718.345L312.512 522.382L312.805 326.321L315.836 322.509C317.4 320.457 320.723 317.818 323.069 316.547C327.077 314.592 328.641 314.397 345.552 314.397C365.494 314.397 368.817 315.179 373.998 320.848C375.464 322.411 429.717 404.12 494.624 502.541C559.531 600.963 648.289 735.352 691.887 801.324L771.065 921.248L775.073 918.609C810.557 895.543 848.094 862.703 877.81 828.495C941.056 755.877 981.818 667.326 995.503 572.912C999.511 545.448 1000 537.336 1000 500.098C1000 462.86 999.511 454.748 995.503 427.284C968.328 239.53 834.702 81.7821 653.47 23.3352C621.505 12.975 587.488 5.84016 549.365 1.53972C539.98 0.562345 475.367 -0.51276 467.253 0.269139ZM671.945 302.668C676.637 305.014 680.45 309.51 681.818 314.201C682.6 316.743 682.796 371.085 682.6 493.549L682.307 669.281L651.32 621.781L620.235 574.281V446.538C620.235 363.95 620.626 317.525 621.212 315.277C622.776 309.803 626.197 305.503 630.89 302.962C634.897 300.909 636.364 300.714 651.711 300.714C666.178 300.714 668.719 300.909 671.945 302.668Z"
                 fill="currentColor"
               />
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Next.js
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="/guides/nuxt">
+            </div>
+          </Link>
+          <Link
+            href="/guides/nuxt"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
               viewBox="0 0 32 22"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              tw="mx-auto"
+              className="mx-auto"
             >
               <path
                 d="M17.92 21.3333H29.76C30.1379 21.3334 30.4995 21.2006 30.8267 21.0133C31.1539 20.8261 31.4911 20.591 31.68 20.2667C31.8689 19.9423 32.0001 19.5743 32 19.1999C31.9999 18.8254 31.8691 18.4576 31.68 18.1334L23.68 4.37333C23.4912 4.04907 23.2605 3.81389 22.9333 3.62667C22.6062 3.43944 22.1377 3.30667 21.76 3.30667C21.3823 3.30667 21.0205 3.43944 20.6933 3.62667C20.3662 3.81389 20.1355 4.04907 19.9467 4.37333L17.92 7.89333L13.8667 1.06641C13.6777 0.742173 13.4472 0.400524 13.12 0.213333C12.7928 0.0261426 12.4311 0 12.0533 0C11.6755 0 11.3139 0.0261426 10.9867 0.213333C10.6595 0.400524 10.3223 0.742173 10.1333 1.06641L0.213334 18.1334C0.0242117 18.4576 0.000165207 18.8254 8.11525e-07 19.1999C-0.000163584 19.5743 0.0244964 19.9423 0.213334 20.2666C0.402171 20.5909 0.739461 20.8261 1.06667 21.0133C1.39387 21.2006 1.75549 21.3334 2.13333 21.3333H9.6C12.5586 21.3333 14.712 20.0061 16.2133 17.4933L19.84 11.2L21.76 7.89333L27.6267 17.92H19.84L17.92 21.3333ZM9.49333 17.92H4.26667L12.0533 4.48L16 11.2L13.3857 15.7573C12.3887 17.3877 11.252 17.92 9.49333 17.92Z"
                 fill="#00DC82"
               />
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Nuxt
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="/guides/laravel">
+            </div>
+          </Link>
+          <Link
+            href="/guides/laravel"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
               viewBox="0 0 31 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              tw="mx-auto"
+              className="mx-auto"
             >
-              <g clip-path="url(#clip0_12_438)">
+              <g clipPath="url(#clip0_12_438)">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M30.5391 7.11623C30.5504 7.15817 30.5562 7.2014 30.5563 7.24484V13.9968C30.5563 14.0835 30.5334 14.1686 30.49 14.2436C30.4466 14.3186 30.3841 14.3808 30.3089 14.4239L24.6418 17.6867V24.1538C24.6418 24.3298 24.5483 24.4922 24.3957 24.5808L12.5662 31.3907C12.5391 31.4061 12.5095 31.4159 12.48 31.4264C12.4689 31.4301 12.4585 31.4368 12.4468 31.4399C12.3641 31.4617 12.2772 31.4617 12.1945 31.4399C12.1809 31.4362 12.1686 31.4288 12.1557 31.4239C12.1286 31.4141 12.1003 31.4055 12.0745 31.3907L0.247385 24.5808C0.172251 24.5377 0.109822 24.4755 0.0663905 24.4005C0.022959 24.3255 5.95319e-05 24.2404 0 24.1538L0 3.89777C0 3.85346 0.00615385 3.81038 0.0172308 3.76854C0.0209231 3.75438 0.0295385 3.74146 0.0344615 3.72731C0.0436923 3.70146 0.0523077 3.675 0.0658462 3.651C0.0750769 3.635 0.0886154 3.62207 0.0996923 3.60731C0.113846 3.58761 0.126769 3.56731 0.143385 3.55007C0.157538 3.53592 0.176 3.52546 0.192 3.51315C0.209846 3.49838 0.225846 3.48238 0.246154 3.47069L6.16061 0.0657669C6.2355 0.022678 6.32038 0 6.40677 0C6.49316 0 6.57804 0.022678 6.65292 0.0657669L12.5668 3.47069H12.568C12.5877 3.483 12.6043 3.49838 12.6222 3.51254C12.6382 3.52484 12.656 3.53592 12.6702 3.54946C12.6874 3.56731 12.6997 3.58761 12.7145 3.60731C12.7249 3.62207 12.7391 3.635 12.7477 3.651C12.7618 3.67561 12.7698 3.70146 12.7797 3.72731C12.7846 3.74146 12.7932 3.75438 12.7969 3.76915C12.8083 3.81109 12.814 3.85433 12.8142 3.89777V16.5495L17.7422 13.7119V7.24423C17.7422 7.20115 17.7483 7.15746 17.7594 7.11623C17.7637 7.10146 17.7717 7.08854 17.7766 7.07438C17.7865 7.04854 17.7951 7.02207 17.8086 6.99807C17.8178 6.98207 17.8314 6.96915 17.8418 6.95438C17.8566 6.93469 17.8689 6.91438 17.8862 6.89715C17.9003 6.883 17.9182 6.87254 17.9342 6.86023C17.9526 6.84546 17.9686 6.82946 17.9883 6.81777L23.9034 3.41284C23.9782 3.3697 24.0631 3.34698 24.1495 3.34698C24.2359 3.34698 24.3208 3.3697 24.3957 3.41284L30.3095 6.81777C30.3305 6.83008 30.3465 6.84546 30.3649 6.85961C30.3803 6.87192 30.3982 6.883 30.4123 6.89654C30.4295 6.91438 30.4418 6.93469 30.4566 6.95438C30.4677 6.96915 30.4812 6.98207 30.4898 6.99807C30.504 7.02207 30.512 7.04854 30.5218 7.07438C30.5274 7.08854 30.5354 7.10146 30.5391 7.11623ZM29.5705 13.7119V8.09715L27.5009 9.28854L24.6418 10.9347V16.5495L29.5711 13.7119H29.5705ZM23.6566 23.8688V18.2504L20.8443 19.8565L12.8135 24.4399V30.1113L23.6566 23.8688ZM0.985846 4.75007V23.8688L11.8277 30.1107V24.4405L6.16369 21.235L6.16185 21.2338L6.15938 21.2325C6.14031 21.2215 6.12431 21.2055 6.10646 21.1919C6.09108 21.1796 6.07323 21.1698 6.05969 21.1562L6.05846 21.1544C6.04246 21.139 6.03138 21.1199 6.01785 21.1027C6.00554 21.0861 5.99077 21.0719 5.98092 21.0547L5.98031 21.0528C5.96923 21.0344 5.96246 21.0122 5.95446 20.9913C5.94646 20.9728 5.936 20.9556 5.93108 20.9359C5.92492 20.9125 5.92369 20.8873 5.92123 20.8633C5.91877 20.8448 5.91385 20.8264 5.91385 20.8079V20.8067V7.58761L3.05538 5.94084L0.985846 4.75007ZM6.40738 1.06146L1.48 3.89777L6.40615 6.73407L11.3329 3.89715L6.40615 1.06146H6.40738ZM8.96985 18.7624L11.8283 17.1168V4.75007L9.75877 5.94146L6.89969 7.58761V19.9544L8.96985 18.7624ZM24.1495 4.40854L19.2228 7.24484L24.1495 10.0812L29.0757 7.24423L24.1495 4.40854ZM23.6566 10.9347L20.7975 9.28854L18.728 8.09715V13.7119L21.5865 15.3575L23.6566 16.5495V10.9347ZM12.32 23.5876L19.5465 19.4621L23.1588 17.4005L18.2357 14.5661L12.5674 17.8295L7.40123 20.8036L12.32 23.5876Z"
                   fill="#FF2D20"
                 />
@@ -248,22 +222,21 @@ const Home: NextPage = () => {
                 </clipPath>
               </defs>
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Laravel
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="/guides/django">
+            </div>
+          </Link>
+          <Link
+            href="/guides/django"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
               viewBox="0 0 25 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              tw="mx-auto"
-              className="text-[#092E20] dark:text-white"
+              className="mx-auto text-[#092E20] dark:text-white"
             >
               <path
                 d="M11.2803 0H16.5128V24.2194C13.8286 24.729 11.8579 24.9329 9.71749 24.9329C3.32969 24.9327 0 22.0451 0 16.5066C0 11.1722 3.53375 7.70688 9.00382 7.70688C9.85317 7.70688 10.4987 7.77461 11.2803 7.97845V0ZM11.2803 12.1913C10.6688 11.9876 10.1592 11.9197 9.51365 11.9197C6.86344 11.9197 5.33438 13.5507 5.33438 16.4045C5.33438 19.1908 6.79549 20.7197 9.47967 20.7197C10.057 20.7197 10.5329 20.6857 11.2803 20.584V12.1913Z"
@@ -274,26 +247,26 @@ const Home: NextPage = () => {
                 fill="currentColor"
               />
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Django
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="/guides/rails">
+            </div>
+          </Link>
+          <Link
+            href="/guides/rails"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
               viewBox="0 0 32 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              tw="mx-auto"
+              className="mx-auto"
             >
-              <g clip-path="url(#clip0_12_561)">
+              <g clipPath="url(#clip0_12_561)">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M27.4205 3.68421C24.369 2.17846 21.2435 2.02521 18.0435 3.15646C15.0988 4.19746 12.7498 6.06021 11.0035 8.59721C8.04877 12.8902 5.90252 17.5745 4.69977 22.663C4.08377 25.2672 3.68477 28.0295 3.79202 30.719C3.80077 30.9372 3.83327 31 3.85477 31.5H18.9463C18.903 31 18.8745 31.146 18.837 31.0507C18.0433 29.0242 17.4148 26.8842 16.98 24.7512C16.3555 21.6885 16.0285 18.569 16.6735 15.478C17.5763 11.1497 20.0435 8.02671 24.2028 6.40721C26.5588 5.49046 28.795 5.75121 30.7563 7.47271C30.7743 7.48846 30.8113 7.47896 30.8593 7.48671L31.5005 6.51596C30.2655 5.34021 28.9085 4.41871 27.4205 3.68421ZM0.834023 23.5985C0.719023 24.5792 0.611523 25.4975 0.499023 26.4612L3.28202 26.7952L3.79177 23.822C2.77802 23.7452 1.81527 23.6725 0.834023 23.5985ZM6.29652 15.052L3.67877 14.0277L2.83277 16.4295L5.50052 17.2845C5.77052 16.5267 6.02452 15.814 6.29652 15.052ZM18.6513 28.4667C19.545 28.5332 20.4405 28.579 21.427 28.6365C21.0688 27.8917 20.7505 27.2182 20.4173 26.5527C20.3808 26.4805 20.2575 26.4107 20.1738 26.4095C19.4155 26.3985 18.6568 26.4032 17.851 26.4032C18.0325 27.0602 18.1903 27.6665 18.375 28.264C18.4028 28.3542 18.5518 28.4595 18.6513 28.4667ZM10.7333 7.77571L8.74452 6.45871C8.21152 7.05446 7.69752 7.62871 7.15477 8.23496L9.19927 9.60896L10.7333 7.77571ZM17.0668 21.118C17.0635 21.1982 17.1358 21.326 17.2063 21.3577C17.9225 21.6797 18.6463 21.9865 19.4343 22.326C19.4015 21.703 19.3795 21.1822 19.3423 20.6625C19.3355 20.569 19.2915 20.4345 19.2223 20.396C18.5645 20.032 17.8975 19.6842 17.1683 19.2972C17.1285 19.9635 17.088 20.5402 17.0668 21.118ZM16.4775 3.07496L15.116 1.52971L13.2413 2.50421C13.7103 3.07571 14.153 3.61496 14.605 4.16521L16.4775 3.07496ZM17.3313 15.369C17.2905 15.4625 17.3443 15.6607 17.4245 15.733C17.9683 16.2235 18.5305 16.693 19.156 17.2282C19.2993 16.6282 19.4343 16.0935 19.5488 15.555C19.569 15.4592 19.5408 15.301 19.4743 15.2475C18.9878 14.8552 18.4855 14.4817 17.965 14.0847C17.7363 14.5385 17.5145 14.9455 17.3313 15.369ZM20.4438 2.26296C21.1388 2.28171 21.8345 2.27346 22.5685 2.27346C22.4953 1.76246 22.4603 1.37521 22.373 1.00046C22.347 0.888961 22.1793 0.740461 22.066 0.730961C21.3693 0.674461 20.6698 0.652711 19.9033 0.616211C20.0055 1.13196 20.0835 1.58646 20.1938 2.03321C20.217 2.12796 20.3555 2.26046 20.4438 2.26296ZM21.29 11.1817C21.3255 11.1152 21.3345 10.9945 21.2973 10.9365C20.9558 10.4022 20.601 9.87621 20.2338 9.32271L19.0438 10.4157L20.6893 12.2392C20.9103 11.8545 21.108 11.5222 21.29 11.1817ZM22.5738 7.54996L23.2845 8.87021C24.3968 8.26071 24.5033 8.04021 24.1095 7.16171L22.5738 7.54996ZM27.8955 3.48171C28.3583 3.76721 28.847 4.01046 29.3435 4.27796L29.676 3.76046C29.0705 3.31771 28.486 2.88946 27.8228 2.40396C27.7968 2.67996 27.758 2.87271 27.768 3.06321C27.776 3.20846 27.8003 3.42321 27.8955 3.48171ZM27.25 7.66146C27.75 7.71571 28.5 7.76746 29 7.82221V7.14271C28.5 7.03321 27.75 6.92471 27.25 6.81196V7.66146Z"
                   fill="#CC0000"
                 />
@@ -304,26 +277,25 @@ const Home: NextPage = () => {
                 </clipPath>
               </defs>
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Rails
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="/guides/remix">
+            </div>
+          </Link>
+          <Link
+            href="/guides/remix"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
               viewBox="0 0 32 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              tw="mx-auto"
-              className="text-black dark:text-white"
+              className="mx-auto text-black dark:text-white"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M16.2806 15.2294C16.4568 17.5112 16.4568 18.5807 16.4568 19.7483H11.218C11.218 19.4939 11.2225 19.2613 11.227 19.0253C11.2412 18.292 11.256 17.5274 11.1381 15.983C10.9823 13.7222 10.0161 13.2198 8.23961 13.2198H6.66571H0V9.10626H8.48894C10.7329 9.10626 11.8549 8.41838 11.8549 6.59713C11.8549 4.99568 10.7329 4.02521 8.48894 4.02521H0V0H9.42393C14.5041 0 17.0286 2.41787 17.0286 6.28018C17.0286 9.16906 15.2521 11.0531 12.8522 11.3671C14.8781 11.7754 16.0623 12.9372 16.2806 15.2294Z"
                 fill="currentColor"
               />
@@ -336,87 +308,83 @@ const Home: NextPage = () => {
                 fill="currentColor"
               />
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Remix
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="/guides/rocket">
+            </div>
+          </Link>
+          <Link
+            href="/guides/rocket"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <img
               src="https://res.cloudinary.com/railway/image/upload/v1739370994/rocket_o65iea.png"
               width="28"
               height="28"
-              tw="mx-auto"
+              className="mx-auto"
               alt=""
             />
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Rocket
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="/guides/phoenix">
+            </div>
+          </Link>
+          <Link
+            href="/guides/phoenix"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
               viewBox="0 0 32 22"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              tw="mx-auto"
+              className="mx-auto"
             >
               <path
                 d="M12.0168 15.2549L11.7653 15.2091C9.979 14.8769 8.85025 13.7966 8.316 12.0974C7.98175 11.0381 8.58775 10.2586 9.6985 10.2074C10.6077 10.1649 11.2308 10.6879 11.781 11.2961C12.4908 12.0799 13.141 12.9176 13.838 13.7136C14.8415 14.8594 16.024 15.5971 17.6418 15.3694C19.092 15.1654 20.3567 14.5834 21.4562 13.6251C21.6215 13.4811 21.803 13.3554 21.9775 13.2214L21.8675 13.0919C20.944 13.3794 20.0025 13.4751 19.04 13.4269C17.5843 13.3539 16.1968 13.0494 14.9555 12.2504C13.8228 11.5209 12.9873 10.5434 12.5905 9.23789C12.2697 8.18289 12.9255 7.44514 14.0192 7.59764C14.451 7.65814 14.8145 7.85264 15.1415 8.12814C15.407 8.35314 15.6623 8.59064 15.9333 8.80864C17.2093 9.83414 18.992 9.89114 20.6108 8.77764C17.9487 8.76564 16.1375 7.30089 14.5468 5.44514C13.9242 4.71889 13.3165 3.97989 12.6807 3.26464C11.451 1.88139 10.087 0.662889 8.21975 0.246639C5.83275 -0.283861 3.52925 0.0636389 1.31825 1.07564C0.8775 1.27739 0.45425 1.51264 0 1.89064C0.225 1.89064 0.3475 1.89314 0.47 1.89064C1.585 1.86139 2.4205 2.35664 3.023 3.26864C3.4615 3.93239 3.668 4.68289 3.8255 5.45489C4.05925 6.60089 3.938 7.76864 4.07325 8.92014C4.42 11.8794 5.9325 13.9444 8.7485 15.0019C9.7815 15.3899 10.8405 15.5189 12.0165 15.2544L12.0168 15.2549ZM4.899 1.75489C4.45425 1.86689 4.09875 1.68739 3.7325 1.31664C4.36 1.16039 4.9135 1.09964 5.50825 1.07589C5.4595 1.46239 5.2315 1.67089 4.8995 1.75489H4.899ZM19.482 19.0364C19.4433 18.7511 19.1995 18.6256 19.008 18.4769C18.162 17.8179 17.1717 17.5844 16.1222 17.5654C15.4957 17.5536 14.8757 17.5071 14.2855 17.2874C14.0145 17.1874 13.711 17.0574 13.7185 16.7079C13.7253 16.3524 14.0343 16.2521 14.3155 16.1681C14.5455 16.1001 14.783 16.0556 15.0448 15.9944C14.3795 15.5679 13.7295 15.5091 12.8632 15.8576C11.4992 16.4051 10.155 16.3406 8.79575 15.8501C8.02825 15.5726 7.347 15.1376 6.63825 14.7526L6.61875 14.7664C6.62479 14.7619 6.63079 14.7574 6.63675 14.7529C6.61925 14.6996 6.588 14.6981 6.547 14.7284L6.6025 14.7771C7.19025 15.7409 7.985 16.5164 8.88275 17.1791C10.6112 18.4549 12.499 19.2161 14.7083 18.8786C15.4224 18.7691 16.1402 18.685 16.8603 18.6266C17.7628 18.5536 18.622 18.8081 19.482 19.0364ZM15.317 5.20889C15.269 5.17439 15.223 5.08789 15.1252 5.17739C15.9205 6.25289 16.9412 7.04489 18.1707 7.54389C20.1547 8.34914 22.1685 8.48714 24.2283 7.77639C25.8275 7.22489 26.977 7.76364 27.5742 9.31639C27.6607 7.51414 26.6003 6.20089 24.9118 5.94389C23.9618 5.79889 23.0842 6.11389 22.195 6.37214C19.7188 7.09014 17.417 6.73589 15.3167 5.20889H15.317ZM27.6588 12.2379C27.9813 12.2646 28.3043 12.2939 28.6268 12.3221C27.8978 11.6821 27.0093 11.6309 26.11 11.6821C24.7418 11.7596 23.7558 12.5496 22.8565 13.4921C22.064 14.3236 21.348 15.2559 20.1665 15.5901C20.1865 15.6256 20.1915 15.6436 20.197 15.6436C20.356 15.6459 20.515 15.6531 20.6737 15.6459C22.3908 15.5684 24.0083 15.2061 25.2945 13.9599C25.7 13.5679 26.062 13.1321 26.4535 12.7249C26.78 12.3849 27.1753 12.1966 27.6588 12.2374V12.2379ZM23.6702 10.1099C22.389 10.2221 21.2763 10.7519 20.231 11.4509C19.426 11.9884 18.566 12.2429 17.5987 12.0751C17.4287 12.0451 17.2572 12.0231 17.0865 11.9976L17.0807 12.0686C17.1423 12.1006 17.2015 12.1374 17.2652 12.1631C17.4265 12.2269 17.5853 12.3036 17.7528 12.3431C19.6133 12.7856 21.3948 12.5591 23.0005 11.5216C24.0127 10.8676 25.0605 10.7436 26.1963 10.9126C26.3113 10.9301 26.4255 10.9504 26.5408 10.9616C26.6473 10.9716 26.7587 11.0774 26.903 10.9629C25.9102 10.2456 24.8405 10.0079 23.6702 10.1099ZM19.0915 5.76064C19.7635 5.78389 20.4325 5.69564 21.1357 5.27814C20.9295 5.29614 20.8428 5.29614 20.7588 5.31264C19.79 5.50564 18.921 5.29439 18.1462 4.68239C17.8625 4.45789 17.5737 4.23864 17.2857 4.01839C16.145 3.14639 14.8365 2.85439 13.4058 2.87939C13.4285 2.94939 13.4307 2.99789 13.4552 3.02289C15.0125 4.59714 16.814 5.68239 19.0915 5.76064ZM30.359 13.8404C29.3958 12.8846 28.1025 12.7619 26.906 13.5956C27.698 13.6309 28.2925 13.8836 28.7745 14.3831C28.9434 14.5621 29.1234 14.7303 29.3132 14.8869C30.0425 15.4749 31.2778 15.5031 32 14.9574C31.152 14.6266 31.1517 14.6266 30.359 13.8404ZM20.763 21.1584C19.9165 19.5819 18.4932 19.2264 16.8487 19.3321C17.3338 19.4644 17.7925 19.6786 18.2052 19.9656C18.5882 20.2326 18.9103 20.5626 19.2278 20.9019C19.8563 21.5731 20.8378 21.9844 21.4885 21.8454C21.1898 21.6576 20.9242 21.4586 20.763 21.1584ZM28.642 12.3546C28.642 12.3441 28.6423 12.3344 28.643 12.3236L28.6268 12.3221L28.6362 12.3299L28.6418 12.3541L28.642 12.3546ZM19.5285 19.0736C19.5175 19.0672 19.5065 19.0609 19.4955 19.0546C19.4965 19.0616 19.4988 19.0683 19.5023 19.0744C19.5048 19.0781 19.5195 19.0744 19.5285 19.0736ZM19.4955 19.0546L19.4918 19.0394L19.4818 19.0369L19.4842 19.0484L19.495 19.0546H19.4955Z"
                 fill="#FD4F00"
               />
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Phoenix
-            </FrameworkLinkHeading>
-          </FrameworkLink>
+            </div>
+          </Link>
         </div>
-        <div tw="mt-8 text-left w-fit">
+        <div className="mt-8 text-left w-fit">
           <a
             href="/guides/languages-frameworks"
-            className="group"
-            tw="text-[var(--colors-pink-700)] text-sm font-medium leading-tight flex items-center gap-1 transition"
+            className="group text-primary-base text-sm font-medium leading-tight flex items-center gap-1 transition hover:text-primary-high-contrast"
           >
             View all frameworks{" "}
-            <span tw="text-base transition-transform duration-200 group-hover:translate-x-1">
+            <span className="text-base transition-transform duration-200 group-hover:translate-x-1">
               →
             </span>
           </a>
         </div>
 
-        <div tw="mt-24 text-center">
+        {/* Deploy an app in minutes */}
+        <div className="mt-24 text-center">
           <h3
-            tw="text-3xl md:text-4xl font-semibold mb-2 leading-10 text-left"
+            className="text-3xl md:text-4xl font-semibold mb-2 leading-10 text-left text-foreground"
             style={{ fontSize: "2rem", letterSpacing: "-0.5px" }}
           >
             Deploy an app in minutes
           </h3>
-          <p
-            tw="text-[#6c6a7b] text-lg font-normal leading-relaxed text-left"
-            style={{ color: "var(--colors-gray-700)" }}
-          >
+          <p className="text-muted-base text-lg font-normal leading-relaxed text-left">
             Quickly set up a project with popular templates.
           </p>
         </div>
-
-        <div tw="mt-8 grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-4">
-          <FrameworkLink href="https://railway.com/template/metabase">
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-4">
+          <Link
+            href="https://railway.com/template/metabase"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
               viewBox="0 0 26 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              tw="mx-auto"
+              className="mx-auto"
             >
               <path
                 d="M1.91734 10.1294C2.97626 10.1294 3.83468 9.25723 3.83468 8.18139C3.83468 7.10554 2.97626 6.2334 1.91734 6.2334C0.858423 6.2334 0 7.10554 0 8.18139C0 9.25723 0.858423 10.1294 1.91734 10.1294Z"
@@ -518,14 +486,14 @@ const Home: NextPage = () => {
                 fill="#509EE3"
               />
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Metabase
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="https://railway.com/template/EP4wIt">
+            </div>
+          </Link>
+          <Link
+            href="https://railway.com/template/EP4wIt"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
@@ -539,14 +507,14 @@ const Home: NextPage = () => {
                 fill="currentColor"
               />
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Wordpress
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="https://railway.com/template/cal">
+            </div>
+          </Link>
+          <Link
+            href="https://railway.com/template/cal"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
@@ -554,28 +522,28 @@ const Home: NextPage = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_14_733)">
+              <g clipPath="url(#clip0_14_733)">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M7.41591 0.140137H7.41651C8.24312 0.140137 8.91975 0.81678 8.91975 1.64369V4.14197C8.91975 4.96889 8.24312 5.64523 7.41651 5.64523H7.41591C6.5893 5.64523 5.91235 4.96889 5.91235 4.14197V1.64369C5.91235 0.81678 6.5893 0.140137 7.41591 0.140137Z"
                   fill="#2492EB"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M21.9841 0.140137H21.9845C22.8112 0.140137 23.4879 0.81678 23.4879 1.64369V4.14197C23.4879 4.96889 22.8112 5.64523 21.9845 5.64523H21.9841C21.1575 5.64523 20.4805 4.96889 20.4805 4.14197V1.64369C20.4805 0.81678 21.1575 0.140137 21.9841 0.140137Z"
                   fill="#2492EB"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M20.4546 10.1202H8.87793C8.0552 10.1202 7.38211 10.7933 7.38211 11.616V23.1927C7.38211 24.0154 8.0552 24.6886 8.87793 24.6886H18.3372L21.9505 28.3017V11.616C21.9505 10.7933 21.2775 10.1202 20.4546 10.1202ZM3.41777 2.81934H4.32681V4.11252C4.32681 5.81275 5.71728 7.20324 7.41781 7.20324H7.41842C9.11895 7.20324 10.5094 5.81275 10.5094 4.11252V2.81934H18.8946V4.11252C18.8946 5.81275 20.2851 7.20324 21.9856 7.20324H21.9861C23.6868 7.20324 25.0771 5.81275 25.0771 4.11252V2.81934H25.9854C27.7797 2.81934 29.2472 4.28688 29.2472 6.08114V28.6487C29.2472 30.442 27.7791 31.9105 25.9854 31.9105H14.5994L0.15625 17.4669V6.08114C0.15625 4.28688 1.6238 2.81934 3.41777 2.81934Z"
                   fill="#2492EB"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M14.5996 17.4712H0.15625L14.5996 31.9147V17.4712Z"
                   fill="#114D86"
                 />
@@ -586,14 +554,14 @@ const Home: NextPage = () => {
                 </clipPath>
               </defs>
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Cal
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="https://railway.com/template/e10OW1">
+            </div>
+          </Link>
+          <Link
+            href="https://railway.com/template/e10OW1"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
@@ -602,15 +570,15 @@ const Home: NextPage = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M31.3742 0.000125729H10.2756V10.6721H20.5796C20.9476 10.6721 21.3156 10.9174 21.3156 11.2854V21.5894H31.9876V0.736124C32.006 0.645979 32.0039 0.552845 31.9814 0.463621C31.959 0.374397 31.9167 0.291368 31.8578 0.220686C31.7989 0.150004 31.7249 0.0934798 31.6412 0.0552999C31.5575 0.01712 31.4662 -0.00173705 31.3742 0.000125729Z"
                 fill="#8E75FF"
               />
               <path
                 opacity="0.4"
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M10.276 0.000488281V10.6725H0.339999C0.27142 10.6672 0.20568 10.6429 0.150237 10.6022C0.0947928 10.5615 0.0518643 10.5061 0.0263206 10.4422C0.000777009 10.3783 -0.00635936 10.3086 0.00572105 10.2409C0.0178015 10.1732 0.0486151 10.1102 0.0946667 10.0591L10.276 0.000488281ZM21.8066 31.6484C21.7585 31.6675 21.7069 31.6762 21.6551 31.674C21.6034 31.6717 21.5527 31.6586 21.5064 31.6354C21.4601 31.6123 21.4192 31.5796 21.3864 31.5396C21.3536 31.4995 21.3295 31.453 21.3159 31.4031V21.5898H31.9879L21.8066 31.5257V31.6484Z"
                 fill="#8E75FF"
               />
@@ -620,14 +588,14 @@ const Home: NextPage = () => {
                 fill="#8E75FF"
               />
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Strapi
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="https://railway.com/template/elasticsearch">
+            </div>
+          </Link>
+          <Link
+            href="https://railway.com/template/elasticsearch"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
@@ -635,7 +603,7 @@ const Home: NextPage = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_14_724)">
+              <g clipPath="url(#clip0_14_724)">
                 <path
                   d="M31.995 16.7994C31.995 14.1092 30.3234 11.7847 27.8421 10.8706C27.9472 10.302 27.9996 9.72496 27.9987 9.14674C27.9987 4.15811 23.9505 0.109863 18.9619 0.109863C16.0627 0.109863 13.3465 1.49411 11.6487 3.87086C10.813 3.21786 9.79437 2.87836 8.7235 2.87836C6.0855 2.87836 3.91775 5.01999 3.91775 7.68411C3.91775 8.25874 4.02225 8.83336 4.205 9.35574C1.69775 10.2176 0 12.6205 0 15.2845C0 17.9747 1.67162 20.3254 4.17887 21.2395C4.0745 21.788 4.02225 22.3626 4.02225 22.9632C4.02225 27.9257 8.0705 31.9741 13.033 31.9741C15.9582 31.9741 18.6485 30.5637 20.3461 28.2131C21.1819 28.866 22.2266 29.2317 23.2975 29.2317C25.9355 29.2317 28.1032 27.09 28.1032 24.426C28.1032 23.8514 27.9987 23.2767 27.816 22.7544C30.271 21.8664 31.9949 19.4635 31.9949 16.7994H31.995Z"
                   fill="white"
@@ -671,14 +639,14 @@ const Home: NextPage = () => {
                 </clipPath>
               </defs>
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Elasticsearch
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="https://railway.com/template/umami-analytics">
+            </div>
+          </Link>
+          <Link
+            href="https://railway.com/template/umami-analytics"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
@@ -692,20 +660,12 @@ const Home: NextPage = () => {
                   cx="16.0111"
                   cy="14.9867"
                   r="12.88505"
-                  className="umami-bg"
-                  fill="white"
-                  stroke="black"
+                  className="fill-white stroke-black dark:fill-black dark:stroke-white"
                   strokeWidth="1.1215"
-                  style={{
-                    fill: "white",
-                    stroke: "black",
-                  }}
                 />
                 <path
                   d="M30.8785 11.481H1.14318C0.845738 11.481 0.560482 11.5991 0.350161 11.8094C0.139839 12.0198 0.0216822 12.305 0.0216822 12.6025V13.7464C0.00897196 14.0148 0 14.278 0 14.5464C0 23.383 7.16336 30.5464 16 30.5464C24.7028 30.5464 31.7832 23.5976 31.9948 14.9449C31.9948 14.912 32 14.8791 32 14.8454V12.6025C32 12.305 31.8818 12.0198 31.6715 11.8094C31.4612 11.5991 31.1759 11.481 30.8785 11.481Z"
-                  fill="black"
-                  className="umami-inner"
-                  style={{ fill: "black" }}
+                  className="fill-black dark:fill-white"
                 />
               </g>
               <defs>
@@ -714,48 +674,38 @@ const Home: NextPage = () => {
                 </clipPath>
               </defs>
             </svg>
-            <style jsx>{`
-              :global(html.dark) .umami-bg {
-                fill: black !important;
-                stroke: white !important;
-              }
-              :global(html.dark) .umami-inner {
-                fill: white !important;
-              }
-            `}</style>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Umami
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="https://railway.com/template/SMKOEA">
+            </div>
+          </Link>
+          <Link
+            href="https://railway.com/template/SMKOEA"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <img
               src="https://devicons.railway.com/i/minio.svg"
               width="28"
               height="28"
-              tw="mx-auto"
+              className="mx-auto"
               alt=""
             />
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               MinIO
-            </FrameworkLinkHeading>
-          </FrameworkLink>
-          <FrameworkLink href="https://railway.com/template/timescaledb-postgis">
+            </div>
+          </Link>
+          <Link
+            href="https://railway.com/template/timescaledb-postgis"
+            className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+          >
             <svg
               width="28"
               height="28"
               viewBox="0 0 256 256"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="text-[#FFB429] dark:text-white"
-              tw="mx-auto"
+              className="mx-auto text-[#FFB429] dark:text-white"
             >
-              <g clip-path="url(#clip0_1_21)">
+              <g clipPath="url(#clip0_1_21)">
                 <path
                   d="M108.904 112.466L108.886 91.3715C108.886 90.1178 108.396 88.9187 107.505 88.0284L89.2457 69.7141L76.5093 83.7768L106.27 113.556C107.251 114.519 108.904 113.828 108.904 112.466Z"
                   fill="currentColor"
@@ -770,109 +720,59 @@ const Home: NextPage = () => {
                 />
               </g>
               <defs>
-                <linearGradient
-                  id="paint0_linear_1_21"
-                  x1="109.212"
-                  y1="92.0252"
-                  x2="88.5685"
-                  y2="91.7182"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stop-opacity="0" />
-                  <stop offset="1" />
-                </linearGradient>
-                <linearGradient
-                  id="paint1_linear_1_21"
-                  x1="72.0041"
-                  y1="157.488"
-                  x2="40.5988"
-                  y2="157.488"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stop-opacity="0" />
-                  <stop offset="0.96" />
-                </linearGradient>
                 <clipPath id="clip0_1_21">
                   <rect width="256" height="255.836" fill="white" />
                 </clipPath>
               </defs>
             </svg>
-            <FrameworkLinkHeading
-              tw="text-center"
-              style={{ fontSize: "1rem", color: "var(--colors-gray-900)" }}
-            >
+            <div className="font-normal text-base mt-2 text-foreground text-center">
               Timescale
-            </FrameworkLinkHeading>
-          </FrameworkLink>
+            </div>
+          </Link>
         </div>
-
-        <div tw="text-center mt-8 w-fit">
+        <div className="text-center mt-8 w-fit">
           <a
             href="https://railway.com/templates"
-            className="group"
-            tw="text-[var(--colors-pink-700)] text-sm font-medium leading-tight flex items-center gap-1 transition"
+            className="group text-primary-base text-sm font-medium leading-tight flex items-center gap-1 transition hover:text-primary-high-contrast"
           >
             View all templates{" "}
-            <span tw="text-base transition-transform duration-200 group-hover:translate-x-1">
+            <span className="text-base transition-transform duration-200 group-hover:translate-x-1">
               →
             </span>
           </a>
         </div>
 
-        <div tw="mt-24 border-t border-gray-200 pt-12">
-          <div tw="grid grid-cols-1 md:grid-cols-[1.5fr,1fr] gap-8 items-center">
-            <FooterCard href="https://github.com/railwayapp/docs">
-              <CardIcon>
-                <GitHub size={20} />
-              </CardIcon>
-              <CardContent>
-                <CardTitle>
-                  Contribute to the Docs{" "}
-                  <ArrowRight
-                    size={16}
-                    tw="transition-transform group-hover:translate-x-1 ml-1"
-                  />
-                </CardTitle>
-                <CardDesc>
-                  Each page footer contains an "Edit this file on GitHub" link. Change the
-                  Markdown, make a pull request, and we'll merge it!
-                </CardDesc>
-              </CardContent>
-            </FooterCard>
-            <FooterLinks>
-              <FooterLink href="https://x.com/Railway">
-                <XIcon tw="w-5 h-5" />
-                <span tw="inline-flex items-center">
-                  Follow us on X{" "}
-                  <ArrowRight
-                    size={16}
-                    tw="transition-transform group-hover:translate-x-1 ml-1"
-                  />
-                </span>
-              </FooterLink>
-              <FooterLink href="https://discord.gg/railway">
-                <DiscordIcon tw="w-5 h-5" />
-                <span tw="inline-flex items-center">
-                  Join our Discord server{" "}
-                  <ArrowRight
-                    size={16}
-                    tw="transition-transform group-hover:translate-x-1 ml-1"
-                  />
-                </span>
-              </FooterLink>
-              <FooterLink href="https://youtube.com/@railwayapp">
-                <Youtube tw="w-5 h-5 text-[#FF0000]" />
-                <span tw="inline-flex items-center">
-                  Watch our YouTube videos{" "}
-                  <ArrowRight
-                    size={16}
-                    tw="transition-transform group-hover:translate-x-1 ml-1"
-                  />
-                </span>
-              </FooterLink>
-            </FooterLinks>
+        <footer className="mt-32 border-t border-muted/70 pt-8 pb-16">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-6">
+              <Link
+                href="https://x.com/Railway"
+                className="text-muted-base hover:text-muted-high-contrast transition-colors"
+              >
+                <Icon name="XIcon" className="size-4" />
+              </Link>
+              <Link
+                href="https://discord.gg/railway"
+                className="text-muted-base hover:text-muted-high-contrast transition-colors"
+              >
+                <Icon name="Discord" className="size-4" />
+              </Link>
+              <Link
+                href="https://youtube.com/@railwayapp"
+                className="text-muted-base hover:text-muted-high-contrast transition-colors"
+              >
+                <Icon name="Youtube" className="size-4" />
+              </Link>
+              <Link
+                href="https://github.com/railwayapp/docs"
+                className="text-muted-base hover:text-muted-high-contrast transition-colors"
+              >
+                <Icon name="Github" className="size-4" />
+              </Link>
+            </div>
+            <ThemeSwitcher />
           </div>
-        </div>
+        </footer>
       </div>
       <Background />
     </>
@@ -881,138 +781,6 @@ const Home: NextPage = () => {
 
 export default Home;
 
-const ButtonLink = styled(Link)`
-  ${tw`block font-medium rounded shadow`}
-  ${tw`px-3 py-2`}
-  ${tw`focus:outline-none`}
-`;
-
-const OverviewLink = styled(Link)`
-  ${tw`flex border border-gray-100 rounded-md dark:bg-[#181622] p-6 hover:bg-gray-100 hover:shadow-lg`}
-`;
-
-const FrameworkLink = styled(Link)`
-  ${tw`flex flex-col items-center justify-center border transition`}
-  border-radius: 0.5rem;
-  border-color: var(--colors-gray-100);
-  background: rgba(244, 244, 246, 0.5);
-  padding: 1.5rem;
-  @media (min-width: 768px) {
-    padding: 2rem;
-  }
-  transition: background 0.2s, border-color 0.2s;
-  &:hover {
-    background: rgba(244, 244, 246, 1);
-  }
-  .dark & {
-    background: rgba(32, 31, 45, 0.2);
-    border-color: var(--colors-gray-200);
-  }
-  .dark &:hover {
-    background: rgba(32, 31, 45, 0.6);
-  }
-`;
-
-const OverviewLinkIcon = styled.div`
-  ${tw`flex border items-center p-4 h-16 w-16 rounded-md bg-background`}
-`;
-
-const FrameworkLinkIcon = styled.div`
-  ${tw`mb-2 border-none flex items-center justify-center rounded-full`}
-  width: 28px;
-  height: 28px;
-  background: rgba(244, 244, 246, 0.4);
-  .dark & {
-    background: rgba(32, 31, 45, 0.2);
-  }
-  & > svg,
-  & > img {
-    width: 28px !important;
-    height: 28px !important;
-    display: block;
-    margin: 0 auto;
-  }
-`;
-
-const OverviewLinkTextbox = styled.div`
-  ${tw`ml-0 mt-2 flex flex-col items-center justify-center`}
-  font-size: 1rem;
-`;
-
-const FrameworkLinkTextbox = styled.div`
-  ${tw`ml-0 mt-2 flex flex-col items-center justify-center`}
-  font-size: 1rem;
-`;
-
-const OverviewLinkHeading = styled.div`
-  ${tw`font-semibold text-lg mb-1`}
-`;
-
-const FrameworkLinkHeading = styled.div`
-  ${tw`font-normal text-lg mt-2 leading-7`}
-  font-size: 1rem;
-`;
-
-const OverviewLinkText = styled.div`
-  ${tw`font-normal text-base text-gray-600`}
-`;
-
-const OverviewSecondaryLink = styled(Link)`
-  ${tw`flex items-center text-gray-600 gap-2 hover:text-pink-700`}
-  ${tw`justify-center text-center`}
-`;
-
-const FooterCard = styled(Link).attrs({ className: "group" })`
-  ${tw`flex items-start border border-gray-200 rounded-lg p-6`}
-`;
-
-const CardIcon = styled.div`
-  ${tw`mr-4 text-gray-900`}
-`;
-
-const CardContent = styled.div`
-  ${tw`flex flex-col`}
-`;
-
-const CardTitle = styled.h3`
-  ${tw`font-medium text-gray-900 text-sm leading-tight flex items-center`}
-`;
-
-const CardDesc = styled.p`
-  ${tw`text-gray-600 text-sm mt-1`}
-  ${tw`dark:!text-[var(--colors-gray-700)]`}
-`;
-
-const FooterLinks = styled.div`
-  ${tw`flex flex-col gap-4 justify-center`}
-`;
-
-const FooterLink = styled(Link).attrs({ className: "group" })`
-  ${tw`flex items-center gap-3 text-sm font-medium text-gray-600`}
-  ${tw`dark:!text-[var(--colors-gray-700)]`}
-`;
-
 export const Background = () => (
-  <div tw="opacity-50 md:opacity-100 absolute inset-0 pointer-events-none"></div>
+  <div className="opacity-50 md:opacity-100 absolute inset-0 pointer-events-none"></div>
 );
-
-const FrameworkLinkText = styled.div`
-  ${tw`font-normal text-base text-gray-600`}
-`;
-
-const DeployCard = styled.div`
-  border-radius: 0.5rem;
-  border: 1px solid var(--colors-gray-100);
-  background: rgba(244, 244, 246, 0.4);
-  transition: background 0.2s, border-color 0.2s;
-  &:hover {
-    background: rgba(244, 244, 246, 1);
-  }
-  .dark & {
-    background: rgba(32, 31, 45, 0.2);
-    border-color: var(--colors-gray-200);
-  }
-  .dark &:hover {
-    background: rgba(32, 31, 45, 0.6);
-  }
-`;

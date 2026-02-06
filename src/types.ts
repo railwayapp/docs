@@ -1,3 +1,5 @@
+import type { IconName } from "@/assets/icons/types";
+
 export interface FrontMatter {
   title: string;
   description?: string;
@@ -12,16 +14,22 @@ export interface IPage {
   slug: string;
   description?: string;
   category?: string;
+  icon?: IconName;
+  commandName?: string;
 }
 
 export interface IExternalLink {
   title: string;
   url: string;
+  icon?: IconName;
+  hideExternalIcon?: boolean;
 }
 
 export interface ISidebarSection {
   title?: string;
+  slug?: string;
   content: (IPage | ISubSection | IExternalLink)[];
+  defaultExpanded?: boolean;
 }
 
 export interface ISubSection {

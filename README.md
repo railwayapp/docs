@@ -1,22 +1,61 @@
-# 📚 Railway Documentation
+# Railway Documentation
 
-Visit [docs.railway.com](https://docs.railway.com)
+This is the official documentation for [Railway](https://railway.com). You can view it at [docs.railway.com](https://docs.railway.com).
 
-![og](https://railway.com/og.png)
+## Local Development
 
-## 💡 About
-
-This is the place where all the documentation about Railway is hosted. Contributions are welcome! Change the markdown, make a pull request, and we'll merge it! Deploys will happen automagically cause the docs are hosted on Railway
-
-## 🧑‍🔬 Contributing
-
-This is a [NextJS](https://nextjs.org) project. Install Node 18, or install [nvm](https://github.com/nvm-sh/nvm) and run `nvm install` and `nvm use`.
-
-Develop with:
+You'll need to have [Node.js](https://nodejs.org) and [pnpm](https://pnpm.io) installed. You can then install dependencies and start the development server by running the following commands:
 
 ```bash
-pnpm i
-pnpm run dev
+pnpm install
+pnpm dev
 ```
 
-Open [localhost:3001](http://localhost:3001) to see the result
+Open [localhost:3001](http://localhost:3001) to see the docs.
+
+### Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start development server on port 3001 |
+| `pnpm build` | Create production build |
+| `pnpm start` | Start production server |
+| `pnpm clean` | Remove build artifacts |
+
+## Local Search Setup
+
+Search is powered by Meilisearch. To test search functionality locally, you'll need Docker.
+
+### Prerequisites
+
+Copy the environment file to enable local search in the frontend:
+```bash
+cp .env.example .env.local
+```
+
+### Search Commands
+
+| Command | Description |
+|---------|-------------|
+| `pnpm search:start` | Start the Meilisearch container |
+| `pnpm search:stop` | Stop the Meilisearch container |
+| `pnpm search:build` | Index local docs (requires dev server running) |
+| `pnpm search:setup` | Start Meilisearch and index docs in one command |
+
+### Quick Setup
+
+1. Start the dev server in one terminal:
+   ```bash
+   pnpm dev
+   ```
+
+2. In another terminal, run the full search setup:
+   ```bash
+   pnpm search:setup
+   ```
+
+This starts Meilisearch on port 7700 and crawls your local dev server to index all documentation pages. The search bar will connect to Meilisearch using the environment variables from `.env.local`.
+
+## Contributing
+
+Contributions from the community are welcome! Please read the [Contributing Guide](CONTRIBUTING.md) for details on how to submit changes.

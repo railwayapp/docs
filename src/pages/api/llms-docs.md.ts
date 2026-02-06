@@ -1,6 +1,6 @@
 import type { NextApiHandler } from "next";
 import { sidebarContent } from "@/data/sidebar";
-import { flattenSidebarContent } from "@/layouts/DocsLayout";
+import { flattenSidebarContent } from "@/layouts/docs-layout";
 import { IPage } from "@/types";
 import fs from "fs";
 import path from "path";
@@ -11,7 +11,10 @@ const handler: NextApiHandler = async (req, res) => {
   res.setHeader("Content-Type", "text/plain");
 
   // Add caching headers for better LLM consumer performance
-  res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=86400");
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=3600, stale-while-revalidate=86400",
+  );
 
   // Get all pages from the sidebar content
   const allPages = flattenSidebarContent(sidebarContent);
@@ -66,7 +69,7 @@ const handler: NextApiHandler = async (req, res) => {
         // Read the markdown file content
         const filePath = path.join(
           process.cwd(),
-          "src/docs",
+          "content/docs",
           page.slug.replace(/^\//, "") + ".md",
         );
         const fileContent = fs.readFileSync(filePath, "utf8");

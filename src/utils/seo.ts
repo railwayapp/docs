@@ -1,5 +1,6 @@
 import { ISidebarContent, IPage, ISubSection } from "@/types";
 import { sidebarContent } from "@/data/sidebar";
+import { Slugger } from "./slugger";
 
 export interface Header {
   level: number;
@@ -8,22 +9,19 @@ export interface Header {
 }
 
 export function extractHeadersFromMarkdown(markdown: string): Header[] {
-  const codeBlockRegex = /```[\s\S]*?```/g;
+  // Remove both triple-backtick and tilde-fenced code blocks
+  const codeBlockRegex = /```[\s\S]*?```|~~~[\s\S]*?~~~/g;
   const markdownWithoutCodeBlocks = markdown.replace(codeBlockRegex, "");
 
   const headerRegex = /^(#{1,6})\s+(.+)$/gm;
   const headers: Header[] = [];
+  const slugger = new Slugger();
   let match;
 
   while ((match = headerRegex.exec(markdownWithoutCodeBlocks)) !== null) {
     const level = match[1].length;
     const title = match[2].trim();
-    const id = title
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/-+/g, "-")
-      .trim();
+    const id = slugger.slug(title);
 
     headers.push({ level, title, id });
   }
@@ -40,12 +38,47 @@ export function buildBreadcrumbs(
   sidebar: ISidebarContent = sidebarContent,
 ): Array<{ name: string; url: string }> {
   const breadcrumbs: Array<{ name: string; url: string }> = [
-    { name: "Home", url: "https://docs.railway.com" },
+    { name: "Home", url: "/" },
   ];
 
   const normalizedUrl = currentUrl.startsWith("/")
     ? currentUrl
     : `/${currentUrl}`;
+
+  // Helper to get the first page slug from content array
+  function getFirstPageSlug(
+    content: (IPage | ISubSection | { title: string; url: string })[],
+  ): string {
+    for (const item of content) {
+      if ("url" in item) {
+        // Skip external links
+        continue;
+      } else if ("slug" in item) {
+        // This is an IPage
+        return item.slug;
+      } else if ("subTitle" in item) {
+        // This is a subsection, check its pages
+        for (const page of item.pages) {
+          if (!("url" in page)) {
+            return page.slug;
+          }
+        }
+      }
+    }
+    return "";
+  }
+
+  // Helper to get the first page slug from a subsection's pages
+  function getFirstSubsectionPageSlug(
+    pages: (IPage | { title: string; url: string })[],
+  ): string {
+    for (const page of pages) {
+      if (!("url" in page)) {
+        return page.slug;
+      }
+    }
+    return "";
+  }
 
   function findPath(
     sections: ISidebarContent,
@@ -53,7 +86,10 @@ export function buildBreadcrumbs(
   ): Array<{ name: string; url: string }> | null {
     for (const section of sections) {
       if (section.title) {
-        const newPath = [...path, { name: section.title, url: "" }];
+        // Use section.slug if defined, otherwise fall back to first page's slug
+        const sectionUrl =
+          section.slug || getFirstPageSlug(section.content) || "";
+        const newPath = [...path, { name: section.title, url: sectionUrl }];
         const result = findPathInContent(section.content, newPath);
         if (result) return result;
       } else {
@@ -73,23 +109,25 @@ export function buildBreadcrumbs(
         continue;
       } else if ("slug" in item) {
         if (item.slug === normalizedUrl) {
-          return [...path, { name: item.title, url: `https://docs.railway.com${item.slug}` }];
+          return [...path, { name: item.title, url: item.slug }];
         }
       } else if ("subTitle" in item) {
         const subTitleName =
           typeof item.subTitle === "string"
             ? item.subTitle
             : item.subTitle.title;
+        // Use subTitle.slug if it's an IPage, otherwise fall back to first page's slug
         const subTitleSlug =
           typeof item.subTitle === "string"
-            ? ""
+            ? getFirstSubsectionPageSlug(item.pages)
             : item.subTitle.slug;
 
-        const newPath = subTitleSlug
-          ? [...path, { name: subTitleName, url: `https://docs.railway.com${subTitleSlug}` }]
-          : [...path, { name: subTitleName, url: "" }];
+        const newPath = [...path, { name: subTitleName, url: subTitleSlug }];
 
-        if (subTitleSlug === normalizedUrl) {
+        if (
+          typeof item.subTitle !== "string" &&
+          item.subTitle.slug === normalizedUrl
+        ) {
           return newPath;
         }
 
@@ -98,10 +136,7 @@ export function buildBreadcrumbs(
             continue;
           }
           if (page.slug === normalizedUrl) {
-            return [
-              ...newPath,
-              { name: page.title, url: `https://docs.railway.com${page.slug}` },
-            ];
+            return [...newPath, { name: page.title, url: page.slug }];
           }
         }
       }
@@ -116,5 +151,3 @@ export function buildBreadcrumbs(
 
   return breadcrumbs;
 }
-
-

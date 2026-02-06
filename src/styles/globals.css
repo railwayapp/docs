@@ -1,0 +1,201 @@
+@import "tailwindcss";
+@import "./colors.css";
+@import "./animate.css";
+@import "./prose.css";
+
+/* Configure Tailwind v4 to use data-theme attribute for dark mode */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
+  }
+}
+
+:root {
+  @apply font-sans;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  scroll-padding-top: 6rem;
+}
+
+/*
+This design system uses a structured color palette with 5 semantic color categories:
+  - primary: Brand colors for main actions and highlights
+  - muted: Neutral grays for backgrounds and subtle elements
+  - warning: Amber colors for cautions and alerts
+  - success: Green colors for positive states and confirmations
+  - danger: Red colors for errors and destructive actions
+
+Each semantic color has 12 shades that serve specific purposes:
+
+| Tailwindcss  Suffix | Purpose                         | Example Usage                |
+| :------------------ | :------------------------------ | :--------------------------- |
+| app                 | Main app background             | Page background              |
+| app-subtle          | Subtle background areas         | Card backgrounds, sidebars   |
+| element             | Interactive element backgrounds | Button default state         |
+| element-hover       | Hovered interactive elements    | Button hover state           |
+| element-active      | Active/selected elements        | Selected tab, pressed button |
+| primary             | Subtle borders and dividers     | Input borders, separators    |
+| hover               | Element borders on hover        | Input focus rings            |
+| active              | Element borders when active     | Active input borders         |
+| solid               | High-contrast solid backgrounds | Primary buttons              |
+| solid-hover         | Hovered solid backgrounds       | Primary button hover         |
+| base                | Low-contrast text               | Secondary text, placeholders |
+| high-contrast       | High-contrast text              | Primary text, headings       |
+  
+USAGE EXAMPLE:
+Primary button: `bg-primary-solid hover:bg-primary-solid-hover text-white`
+Secondary button: `bg-primary-element hover:bg-primary-element-hover text-primary-high-contrast` 
+*/
+@theme {
+  /* Font families */
+  --font-sans: "Inter", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+
+  /* Primary colors (purple) */
+  --color-primary-app: var(--purple-1);
+  --color-primary-app-subtle: var(--purple-2);
+  --color-primary-element: var(--purple-3);
+  --color-primary-element-hover: var(--purple-4);
+  --color-primary-element-active: var(--purple-5);
+  --color-primary: var(--purple-6);
+  --color-primary-hover: var(--purple-7);
+  --color-primary-active: var(--purple-8);
+  --color-primary-solid: var(--purple-9);
+  --color-primary-solid-hover: var(--purple-10);
+  --color-primary-base: var(--purple-11);
+  --color-primary-high-contrast: var(--purple-12);
+
+  /* Muted colors (gray) */
+  --color-muted-app: var(--gray-1);
+  --color-muted-app-subtle: var(--gray-2);
+  --color-muted-element: var(--gray-3);
+  --color-muted-element-hover: var(--gray-4);
+  --color-muted-element-active: var(--gray-5);
+  --color-muted: var(--gray-6);
+  --color-muted-hover: var(--gray-7);
+  --color-muted-active: var(--gray-8);
+  --color-muted-solid: var(--gray-9);
+  --color-muted-solid-hover: var(--gray-10);
+  --color-muted-base: var(--gray-11);
+  --color-muted-high-contrast: var(--gray-12);
+
+  /* Warning colors (amber) */
+  --color-warning-app: var(--amber-1);
+  --color-warning-app-subtle: var(--amber-2);
+  --color-warning-element: var(--amber-3);
+  --color-warning-element-hover: var(--amber-4);
+  --color-warning-element-active: var(--amber-5);
+  --color-warning: var(--amber-6);
+  --color-warning-hover: var(--amber-7);
+  --color-warning-active: var(--amber-8);
+  --color-warning-solid: var(--amber-9);
+  --color-warning-solid-hover: var(--amber-10);
+  --color-warning-base: var(--amber-11);
+  --color-warning-high-contrast: var(--amber-12);
+
+  /* Success colors (grass/green) */
+  --color-success-app: var(--grass-1);
+  --color-success-app-subtle: var(--grass-2);
+  --color-success-element: var(--grass-3);
+  --color-success-element-hover: var(--grass-4);
+  --color-success-element-active: var(--grass-5);
+  --color-success: var(--grass-6);
+  --color-success-hover: var(--grass-7);
+  --color-success-active: var(--grass-8);
+  --color-success-solid: var(--grass-9);
+  --color-success-solid-hover: var(--grass-10);
+  --color-success-base: var(--grass-11);
+  --color-success-high-contrast: var(--grass-12);
+
+  /* Danger colors (red) */
+  --color-danger-app: var(--red-1);
+  --color-danger-app-subtle: var(--red-2);
+  --color-danger-element: var(--red-3);
+  --color-danger-element-hover: var(--red-4);
+  --color-danger-element-active: var(--red-5);
+  --color-danger: var(--red-6);
+  --color-danger-hover: var(--red-7);
+  --color-danger-active: var(--red-8);
+  --color-danger-solid: var(--red-9);
+  --color-danger-solid-hover: var(--red-10);
+  --color-danger-base: var(--red-11);
+  --color-danger-high-contrast: var(--red-12);
+
+  /* Info colors (blue) */
+  --color-info-app: var(--blue-1);
+  --color-info-app-subtle: var(--blue-2);
+  --color-info-element: var(--blue-3);
+  --color-info-element-hover: var(--blue-4);
+  --color-info-element-active: var(--blue-5);
+  --color-info: var(--blue-6);
+  --color-info-hover: var(--blue-7);
+  --color-info-active: var(--blue-8);
+  --color-info-solid: var(--blue-9);
+  --color-info-solid-hover: var(--blue-10);
+  --color-info-base: var(--blue-11);
+  --color-info-high-contrast: var(--blue-12);
+
+  /* Custom width values */
+  --width-sidebar: 300px;
+  --min-width-pageNav: 200px;
+  --min-width-70vw: 70vw;
+  --min-width-80vw: 80vw;
+  --min-width-90vw: 90vw;
+  --min-width-100vw: 100vw;
+  
+  /* Custom min-height values */
+  --min-height-70vh: 70vh;
+  --min-height-80vh: 80vh;
+  --min-height-90vh: 90vh;
+}
+
+/* Base layer for global styles */
+@layer base {
+  body {
+    @apply antialiased text-muted-high-contrast bg-muted-app leading-relaxed font-sans;
+  }
+
+  ::selection {
+    @apply bg-primary-element-hover;
+  }
+
+  /* Hide native scrollbar in sidebar - use custom scrollbar from ScrollArea component */
+  .sidebar,
+  .sidebar *,
+  .sidebar [data-slot="scroll-area"],
+  .sidebar [data-slot="scroll-area-viewport"] {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .sidebar ::-webkit-scrollbar,
+  .sidebar [data-slot="scroll-area"]::-webkit-scrollbar,
+  .sidebar [data-slot="scroll-area-viewport"]::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .docs-content td {
+    vertical-align: middle;
+  }
+  
+  td {
+    white-space: break-spaces;
+  }
+}
