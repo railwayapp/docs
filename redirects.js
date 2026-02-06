@@ -917,6 +917,16 @@ const redirects = [
     destination: "/integrations/api/api-cookbook",
     permanent: true,
   },
+  {
+    source: "/guides/languages-frameworks",
+    destination: "/languages-frameworks",
+    permanent: true,
+  },
+  {
+    source: "/reference/workspaces",
+    destination: "/projects/workspaces",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
@@ -963,16 +973,6 @@ const hashRedirects = [
   {
     source: "/guides/healthchecks-and-restarts#continuous-healthchecks",
     destination: "/guides/healthchecks#continuous-healthchecks",
-    permanent: true,
-  },
-  {
-    source: "/guides/languages-frameworks",
-    destination: "/languages-frameworks",
-    permanent: true,
-  },
-  {
-    source: "/reference/workspaces",
-    destination: "/projects/workspaces",
     permanent: true,
   },
 ];
