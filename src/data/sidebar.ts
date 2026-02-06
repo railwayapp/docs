@@ -23,11 +23,11 @@ const makeCliCommand = (commandName: string): IPage => ({
 export const sidebarContent: ISidebarContent = [
   {
     content: [
-      makePage("Quick Start", undefined, "/quick-start"),
-      makePage("The Basics", "overview"),
-      makePage("Best Practices", "overview"),
-      makePage("Advanced Concepts", "overview"),
-      makePage("Production Readiness Checklist", "overview"),
+      makePage("Quick start", undefined, "/quick-start"),
+      makePage("The basics", "overview"),
+      makePage("Best practices", "overview"),
+      makePage("Advanced concepts", "overview"),
+      makePage("Production readiness checklist", "overview"),
     ],
   },
   {
@@ -35,11 +35,11 @@ export const sidebarContent: ISidebarContent = [
     slug: "/platform",
     content: [
       makePage("Philosophy", "platform"),
-      makePage("Use Cases", "platform"),
+      makePage("Use cases", "platform"),
       makePage("Support", "platform"),
-      makePage("Incident Management", "platform"),
+      makePage("Incident management", "platform"),
       makePage("Railway Metal", "platform"),
-      makePage("Priority Boarding", "platform"),
+      makePage("Priority boarding", "platform"),
       {
         subTitle: "Compare to Railway",
         pages: [
@@ -59,12 +59,12 @@ export const sidebarContent: ISidebarContent = [
     slug: "/pricing",
     content: [
       makePage("Plans", "pricing"),
-      makePage("Free Trial", "pricing"),
-      makePage("Understanding Your Bill", "pricing"),
+      makePage("Free trial", "pricing"),
+      makePage("Understanding your bill", "pricing"),
       makePage("FAQs", "pricing"),
       makePage("Refunds", "pricing"),
-      makePage("Cost Control", "pricing"),
-      makePage("Committed Spend", "pricing"),
+      makePage("Cost control", "pricing"),
+      makePage("Committed spend", "pricing"),
       makePage("AWS Marketplace", "pricing"),
     ],
   },
@@ -74,7 +74,7 @@ export const sidebarContent: ISidebarContent = [
     slug: "/enterprise",
     content: [
       makePage("Compliance", "enterprise"),
-      makePage("Audit Logs", "enterprise"),
+      makePage("Audit logs", "enterprise"),
       makePage("SAML SSO", "enterprise", "/enterprise/saml"),
       makePage("Environment RBAC", "enterprise"),
     ],
@@ -82,7 +82,7 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "AI",
     slug: "/ai",
-    content: [makePage("Agent Skills", "ai"), makePage("MCP Server", "ai")],
+    content: [makePage("Agent skills", "ai"), makePage("MCP server", "ai")],
   },
   {
     title: "Templates",
@@ -90,15 +90,15 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Deploy", "templates"),
       makePage("Create", "templates"),
-      makePage("Best Practices", "templates", "/templates/best-practices"),
-      makePage("Publish and Share", "templates"),
+      makePage("Best practices", "templates", "/templates/best-practices"),
+      makePage("Publish and share", "templates"),
       makePage("Kickbacks", "templates"),
       makePage("Updates", "templates"),
       makePage("Partners", "templates"),
     ],
   },
   {
-    title: "Languages & Frameworks",
+    title: "Languages & frameworks",
     slug: "/languages-frameworks",
     content: [
       {
@@ -181,7 +181,7 @@ export const sidebarContent: ISidebarContent = [
     title: "CLI",
     slug: "/cli",
     content: [
-      makePage("Global Options", "cli"),
+      makePage("Global options", "cli"),
       makePage("Deploying", "cli"),
       makeCliCommand("add"),
       makeCliCommand("completion"),
@@ -224,13 +224,13 @@ export const sidebarContent: ISidebarContent = [
     title: "Projects",
     slug: "/projects",
     content: [
-      makePage("Project Members", "projects"),
-      makePage("Project Usage", "projects"),
+      makePage("Project members", "projects"),
+      makePage("Project usage", "projects"),
       makePage("Workspaces", "projects"),
     ],
   },
   {
-    title: "Build & Deploy",
+    title: "Build & deploy",
     slug: "/build-deploy",
     content: [
       makePage("Services", undefined, "/services"),
@@ -239,19 +239,19 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Variables", undefined, "/variables"),
         pages: [makePage("Reference", "variables")],
       },
-      makePage("Cron Jobs", undefined, "/cron-jobs"),
+      makePage("Cron jobs", undefined, "/cron-jobs"),
       makePage("Functions", undefined, "/functions"),
       {
-        subTitle: makePage("Config as Code", undefined, "/config-as-code"),
+        subTitle: makePage("Config as code", undefined, "/config-as-code"),
         pages: [makePage("Reference", "config-as-code")],
       },
       {
         subTitle: makePage("Builds", undefined, "/builds"),
         pages: [
-          makePage("Build Configuration", "builds"),
-          makePage("Build and Start Commands", "builds"),
+          makePage("Build configuration", "builds"),
+          makePage("Build and start commands", "builds"),
           makePage("Dockerfiles", "builds"),
-          makePage("Private Registries", "builds"),
+          makePage("Private registries", "builds"),
           makePage("Railpack", "builds"),
           makePage("Nixpacks", "builds"),
         ],
@@ -259,17 +259,17 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: makePage("Deployments", undefined, "/deployments"),
         pages: [
-          makePage("Pre-Deploy Command", "deployments"),
-          makePage("Start Command", "deployments"),
-          makePage("Deployment Actions", "deployments"),
-          makePage("GitHub Autodeploys", "deployments"),
-          makePage("Image Auto Updates", "deployments"),
-          makePage("Optimize Performance", "deployments"),
+          makePage("Pre-deploy command", "deployments"),
+          makePage("Start command", "deployments"),
+          makePage("Deployment actions", "deployments"),
+          makePage("GitHub autodeploys", "deployments"),
+          makePage("Image auto updates", "deployments"),
+          makePage("Optimize performance", "deployments"),
           makePage("Healthchecks", "deployments"),
-          makePage("Restart Policy", "deployments"),
-          makePage("Deployment Teardown", "deployments"),
+          makePage("Restart policy", "deployments"),
+          makePage("Deployment teardown", "deployments"),
           makePage("Monorepo", "deployments"),
-          makePage("Staged Changes", "deployments"),
+          makePage("Staged changes", "deployments"),
           makePage("Serverless", "deployments"),
           makePage("Regions", "deployments"),
           makePage("Scaling", "deployments"),
@@ -279,14 +279,14 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: "Troubleshooting",
         pages: [
-          makePage("Slow Deployments", "deployments/troubleshooting"),
-          makePage("NodeJS SIGTERM Handling", "deployments/troubleshooting"),
+          makePage("Slow deployments", "deployments/troubleshooting"),
+          makePage("NodeJS SIGTERM handling", "deployments/troubleshooting"),
           makePage(
-            "No Start Command Could be Found",
+            "No start command could be found",
             "deployments/troubleshooting",
           ),
           makePage(
-            "Nixpacks Was Unable to Generate a Build Plan",
+            "Nixpacks was unable to generate a build plan",
             "builds/troubleshooting",
           ),
         ],
@@ -294,18 +294,18 @@ export const sidebarContent: ISidebarContent = [
     ],
   },
   {
-    title: "Data & Storage",
+    title: "Data & storage",
     slug: "/data-storage",
     content: [
       {
         subTitle: makePage("Databases", undefined, "/databases"),
         pages: [
-          makePage("Build a Database Service", "databases"),
+          makePage("Build a database service", "databases"),
           makePage("PostgreSQL", "databases"),
           makePage("MySQL", "databases"),
           makePage("Redis", "databases"),
           makePage("MongoDB", "databases"),
-          makePage("Database View", "databases"),
+          makePage("Database view", "databases"),
           makePage("Reference", "databases"),
         ],
       },
@@ -317,10 +317,10 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       {
-        subTitle: makePage("Storage Buckets", undefined, "/storage-buckets"),
+        subTitle: makePage("Storage buckets", undefined, "/storage-buckets"),
         pages: [
           makePage(
-            "Uploading & Serving",
+            "Uploading & serving",
             "storage-buckets",
             "/storage-buckets/uploading-serving",
           ),
@@ -344,13 +344,13 @@ export const sidebarContent: ISidebarContent = [
     content: [
       {
         subTitle: makePage(
-          "Public Networking",
+          "Public networking",
           undefined,
           "/networking/public-networking",
         ),
         pages: [
           makePage(
-            "Specs & Limits",
+            "Specs & limits",
             "networking/public-networking",
             "/networking/public-networking/specs-and-limits",
           ),
@@ -358,29 +358,29 @@ export const sidebarContent: ISidebarContent = [
       },
       {
         subTitle: makePage(
-          "Private Networking",
+          "Private networking",
           undefined,
           "/networking/private-networking",
         ),
         pages: [
-          makePage("Library Configuration", "networking/private-networking"),
+          makePage("Library configuration", "networking/private-networking"),
         ],
       },
       makePage("Domains", "networking"),
-      makePage("TCP Proxy", "networking"),
-      makePage("Outbound Networking", "networking"),
-      makePage("Static Outbound IPs", "networking"),
-      makePage("Edge Networking", "networking"),
+      makePage("TCP proxy", "networking"),
+      makePage("Outbound networking", "networking"),
+      makePage("Static outbound IPs", "networking"),
+      makePage("Edge networking", "networking"),
       {
         subTitle: "Troubleshooting",
         pages: [
           makePage("SSL", "networking/troubleshooting"),
-          makePage("Network Diagnostics", "networking/troubleshooting"),
+          makePage("Network diagnostics", "networking/troubleshooting"),
           makePage(
-            "Application Failed to Respond",
+            "Application failed to respond",
             "networking/troubleshooting",
           ),
-          makePage("405 Method Not Allowed", "networking/troubleshooting"),
+          makePage("405 method not allowed", "networking/troubleshooting"),
         ],
       },
     ],
@@ -399,8 +399,8 @@ export const sidebarContent: ISidebarContent = [
     slug: "/access",
     content: [
       makePage("Accounts", "access"),
-      makePage("Two-Factor Enforcement", "access"),
-      makePage("Multi-Factor Authentication", "access"),
+      makePage("Two-factor enforcement", "access"),
+      makePage("Multi-factor authentication", "access"),
     ],
   },
   {
@@ -411,20 +411,20 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("OAuth", undefined, "/integrations/oauth"),
         pages: [
           makePage("Quickstart", "integrations/oauth"),
-          makePage("Creating an App", "integrations/oauth"),
+          makePage("Creating an app", "integrations/oauth"),
           makePage(
-            "Login & Tokens",
+            "Login & tokens",
             "integrations/oauth",
             "/integrations/oauth/login-and-tokens",
           ),
           makePage(
-            "Scopes & User Consent",
+            "Scopes & user consent",
             "integrations/oauth",
             "/integrations/oauth/scopes-and-user-consent",
           ),
-          makePage("Fetching Workspaces or Projects", "integrations/oauth"),
-          makePage("Managing an App", "integrations/oauth"),
-          makePage("Authorized Apps", "integrations/oauth"),
+          makePage("Fetching workspaces or projects", "integrations/oauth"),
+          makePage("Managing an app", "integrations/oauth"),
+          makePage("Authorized apps", "integrations/oauth"),
           makePage("Troubleshooting", "integrations/oauth"),
         ],
       },
@@ -436,14 +436,14 @@ export const sidebarContent: ISidebarContent = [
             "integrations/api",
             "/integrations/api/graphql-overview",
           ),
-          makePage("API Cookbook", "integrations/api"),
-          makePage("Manage Projects", "integrations/api"),
-          makePage("Manage Services", "integrations/api"),
-          makePage("Manage Deployments", "integrations/api"),
-          makePage("Manage Variables", "integrations/api"),
-          makePage("Manage Environments", "integrations/api"),
-          makePage("Manage Domains", "integrations/api"),
-          makePage("Manage Volumes", "integrations/api"),
+          makePage("API cookbook", "integrations/api"),
+          makePage("Manage projects", "integrations/api"),
+          makePage("Manage services", "integrations/api"),
+          makePage("Manage deployments", "integrations/api"),
+          makePage("Manage variables", "integrations/api"),
+          makePage("Manage environments", "integrations/api"),
+          makePage("Manage domains", "integrations/api"),
+          makePage("Manage volumes", "integrations/api"),
         ],
       },
     ],
@@ -452,8 +452,8 @@ export const sidebarContent: ISidebarContent = [
     title: "Community",
     slug: "/community",
     content: [
-      makePage("The Conductor Program", "community"),
-      makePage("Affiliate Program", "community"),
+      makePage("The Conductor program", "community"),
+      makePage("Affiliate program", "community"),
       makePage("Bounties", "community"),
     ],
   },
