@@ -261,6 +261,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
                   <PageActions
                     content={fullMarkdown}
                     title={frontMatter.title}
+                    slug={prefixedSlug}
                   />
                 </div>
               </aside>

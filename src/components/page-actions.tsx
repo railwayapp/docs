@@ -8,12 +8,21 @@ export interface PageActionsProps {
   content: string;
   /** The page title */
   title: string;
+  /** The page slug, e.g. "/quick-start" or "/guides/some-guide" */
+  slug: string;
   /** Additional class name */
   className?: string;
 }
 
-export function PageActions({ content, title, className }: PageActionsProps) {
+export function PageActions({
+  content,
+  title,
+  slug,
+  className,
+}: PageActionsProps) {
   const { copied, copy } = useCopyToClipboard();
+
+  const rawUrl = `https://docs.railway.com${slug}.md`;
 
   const markdownContent = React.useMemo(() => {
     return `# ${title}\n\n${content}`;
@@ -24,7 +33,8 @@ export function PageActions({ content, title, className }: PageActionsProps) {
   };
 
   const openInAI = (urlTemplate: string) => {
-    const encoded = encodeURIComponent(markdownContent);
+    const prompt = `Read this documentation page:\n\n${rawUrl}`;
+    const encoded = encodeURIComponent(prompt);
     window.open(urlTemplate.replace("{text}", encoded), "_blank");
   };
 
