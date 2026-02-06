@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import { Link } from "../../components/link";
 import { SEO } from "../../components/seo";
 import { Icon } from "../../components/icon";
+import { Footer } from "../../components/footer";
 import { allGuides, Guide } from "content-collections";
 
 interface GuidesPageProps {
@@ -128,6 +129,9 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
             )}
           </div>
         )}
+
+        {/* Footer */}
+        <Footer />
       </div>
     </>
   );
