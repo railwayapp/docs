@@ -231,6 +231,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Build & Deploy",
+    slug: "/build-deploy",
     content: [
       makePage("Services", undefined, "/services"),
       makePage("Environments", undefined, "/environments"),
@@ -294,6 +295,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Data & Storage",
+    slug: "/data-storage",
     content: [
       {
         subTitle: makePage("Databases", undefined, "/databases"),
@@ -338,6 +340,7 @@ export const sidebarContent: ISidebarContent = [
   },
   {
     title: "Networking",
+    slug: "/networking",
     content: [
       {
         subTitle: makePage(
