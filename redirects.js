@@ -897,6 +897,11 @@ const redirects = [
   },
   // OAuth redirects (from old live URLs)
   {
+    source: "/reference/oauth/login-with-railway",
+    destination: "/integrations/oauth",
+    permanent: true,
+  },
+  {
     source: "/reference/oauth/:slug*",
     destination: "/integrations/oauth/:slug*",
     permanent: true,
@@ -958,6 +963,16 @@ const hashRedirects = [
   {
     source: "/guides/healthchecks-and-restarts#continuous-healthchecks",
     destination: "/guides/healthchecks#continuous-healthchecks",
+    permanent: true,
+  },
+  {
+    source: "/guides/languages-frameworks",
+    destination: "/languages-frameworks",
+    permanent: true,
+  },
+  {
+    source: "/reference/workspaces",
+    destination: "/projects/workspaces",
     permanent: true,
   },
 ];
