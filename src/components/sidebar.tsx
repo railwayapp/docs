@@ -56,7 +56,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
         {/* Scrollable container */}
         <div
           ref={scrollContainerRef}
-          className="h-full overflow-y-auto px-6 py-4"
+          className="h-full overflow-y-auto pl-6 pr-3 pt-10 pb-4"
         >
           <SidebarContent />
         </div>
@@ -248,10 +248,10 @@ const SidebarContent: React.FC = () => {
             {/* Sections without a title - render links directly */}
             {!section.title && section.content.length > 0 && (
               <>
-                <ul className="space-y-0.5 min-w-0 pb-3">
+                <ul className="space-y-0.5 min-w-0 pb-6">
                   {section.content.map(renderContentItem)}
                 </ul>
-                <hr className="border-muted mb-3" />
+                <hr className="border-muted mb-6" />
               </>
             )}
             {/* Named sections */}

@@ -798,7 +798,7 @@ export function TOC({ items, className }: TOCProps) {
           )}
 
           {/* TOC items */}
-          <div ref={containerRef} className="flex flex-col">
+          <div ref={containerRef} className="flex flex-col pb-1">
             {items.map(item => (
               <TOCItemLink
                 key={item.url}

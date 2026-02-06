@@ -152,7 +152,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
           <div className="max-w-full flex flex-row flex-1">
             <div className="flex-auto min-w-0 prose dark:prose-invert">
               <div className="docs-content max-w-full">
-                <Breadcrumb className="mb-8 not-prose">
+                <Breadcrumb className="mb-6 not-prose">
                   <BreadcrumbList>
                     {breadcrumbs.map((crumb, index) => (
                       <React.Fragment key={crumb.url || index}>
@@ -250,7 +250,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
                 </nav>
               </div>
             </div>
-            <div className="flex-col max-w-sm pt-4 pl-16 xl:pl-24 pr-0 pb-6 min-w-pageNav hidden lg:flex shrink-0">
+            <div className="flex-col max-w-sm pt-14 pl-16 xl:pl-24 pb-6 min-w-pageNav hidden lg:flex shrink-0">
               <aside className="sticky top-[69px] flex flex-col gap-8">
                 {tocItems.length > 0 && <TOC items={tocItems} />}
                 <div
