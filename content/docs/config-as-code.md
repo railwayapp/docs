@@ -18,50 +18,36 @@ The format you use for your config-as-code (toml or json) file is entirely depen
 
 For example, these configuration definitions are equivalent:
 
-<div style={{ display: 'flex', flexDirection: 'row', gap: '5px', fontSize: '0.9em', alignItems: 'stretch' }}>
-    <div style={{ flex: '1 1 50%', overflow: 'auto', minWidth: '200px', maxWidth: '350px' }}>
-        ```toml
-        [build]
-        builder = "nixpacks"
-        buildCommand = "echo building!"
+<CodeBlock>
+  <CodeTab label="railway.toml" lang="toml">
+{`[build]
+builder = "nixpacks"
+buildCommand = "echo building!"
 
-        [deploy]
-        preDeployCommand = ["npm run db:migrate"]
-        startCommand = "echo starting!"
-        healthcheckPath = "/"
-        healthcheckTimeout = 100
-        restartPolicyType = "never"
-
-
-
-
-
-        --
-        ```
-        <p style={{ marginTop: '-0.2em', fontSize: '0.8em', opacity: '0.6' }}>A `railway.toml` file</p>
-    </div>
-    <div style={{ flex: '1 1 50%', overflow: 'auto', minWidth: '200px', maxWidth: '350px' }}>
-        ```json
-        {
-          "$schema": "https://railway.com/railway.schema.json",
-          "build": {
-            "builder": "NIXPACKS",
-            "buildCommand": "echo building!"
-            },
-          "deploy": {
-            "preDeployCommand": ["npm run db:migrate"],
-            "startCommand": "echo starting!",
-            "healthcheckPath": "/",
-            "healthcheckTimeout": 100,
-            "restartPolicyType": "never"
-            }
-        }
-
-        ```
-        <p style={{ marginTop: '-0.2em', fontSize: '0.8em', opacity: '0.6' }}>A `railway.json` file</p>
-    </div>
-
-</div>
+[deploy]
+preDeployCommand = ["npm run db:migrate"]
+startCommand = "echo starting!"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "never"`}
+  </CodeTab>
+  <CodeTab label="railway.json" lang="json">
+{`{
+    "$schema": "https://railway.com/railway.schema.json",
+    "build": {
+      "builder": "NIXPACKS",
+      "buildCommand": "echo building!"
+    },
+    "deploy": {
+      "preDeployCommand": ["npm run db:migrate"],
+      "startCommand": "echo starting!",
+      "healthcheckPath": "/",
+      "healthcheckTimeout": 100,
+      "restartPolicyType": "never"
+    }
+}`}
+  </CodeTab>
+</CodeBlock>
 
 ## JSON schema
 
