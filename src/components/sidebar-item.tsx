@@ -134,8 +134,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
               ref={isSubTitleActive ? activeLinkRef : undefined}
               onClick={e => {
                 e.stopPropagation();
-                // Also expand the subsection when navigating
-                if (!isExpanded) {
+                if (isSubTitleActive) {
+                  // Already on this page, toggle collapse/expand
+                  e.preventDefault();
+                  onToggleSubSection();
+                } else if (!isExpanded) {
+                  // Navigating to a new page, expand the subsection
                   onToggleSubSection();
                 }
               }}

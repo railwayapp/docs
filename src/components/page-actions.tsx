@@ -40,7 +40,7 @@ export function PageActions({
 
   const actionClass = cn(
     "group flex items-center gap-2.5 rounded-md -ml-2 pl-2 pr-2 py-1.5 text-sm transition-colors",
-    "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element",
+    "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element-hover",
   );
 
   return (

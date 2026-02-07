@@ -307,8 +307,14 @@ const SidebarContent: React.FC = () => {
                           )}
                           onClick={e => {
                             e.stopPropagation();
-                            // Also expand the section when navigating
-                            if (!expandedSections.includes(section.title!)) {
+                            if (isCurrentPage(section.slug!)) {
+                              // Already on this page, toggle collapse/expand
+                              e.preventDefault();
+                              toggleSection(section.title!);
+                            } else if (
+                              !expandedSections.includes(section.title!)
+                            ) {
+                              // Navigating to a new page, expand the section
                               setExpandedSections(prev => [
                                 ...prev,
                                 section.title!,
