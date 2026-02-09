@@ -27,6 +27,7 @@ There are three roles for Workspace members:
 
 |                              | Admin | Member | Deployer |
 | :--------------------------- | :---: | :----: | :------: |
+| Viewing workspace projects   |  ✔️   |   ✔️   |    ✔️    |
 | Automatic GitHub deployments |  ✔️   |   ✔️   |    ✔️    |
 | CLI deployments              |  ✔️   |   ✔️   |    ❌    |
 | Creating variables           |  ✔️   |   ✔️   |    ❌    |
