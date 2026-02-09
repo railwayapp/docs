@@ -1,11 +1,16 @@
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import { useCopyableCode } from "@/contexts/copyable-code-context";
+import { reconstructMarkdownWithFrontmatter } from "@/utils/markdown";
 import { cn } from "@/lib/cn";
 import * as React from "react";
 import { Icon } from "./icon";
+import type { FrontMatter } from "@/types";
 
 export interface PageActionsProps {
-  /** The content to copy/share as markdown */
-  content: string;
+  /** Raw markdown source of the page */
+  rawMarkdown: string;
+  /** Page frontmatter for reconstruction */
+  frontMatter: FrontMatter;
   /** The page title */
   title: string;
   /** The page slug, e.g. "/quick-start" or "/guides/some-guide" */
@@ -15,21 +20,24 @@ export interface PageActionsProps {
 }
 
 export function PageActions({
-  content,
+  rawMarkdown,
+  frontMatter,
   title,
   slug,
   className,
 }: PageActionsProps) {
   const { copied, copy } = useCopyToClipboard();
+  const copyableCode = useCopyableCode();
 
   const rawUrl = `https://docs.railway.com${slug}.md`;
 
-  const markdownContent = React.useMemo(() => {
-    return `# ${title}\n\n${content}`;
-  }, [title, content]);
-
   const handleCopyAsMarkdown = () => {
-    copy(markdownContent);
+    let markdown = rawMarkdown;
+    if (copyableCode) {
+      markdown = copyableCode.getCopyableMarkdown(markdown);
+    }
+    const content = reconstructMarkdownWithFrontmatter(frontMatter, markdown);
+    copy(`# ${title}\n\n${content}`);
   };
 
   const openInAI = (urlTemplate: string) => {
