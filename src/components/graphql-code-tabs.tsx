@@ -4,6 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/cn";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { Icon } from "./icon";
+import { useCopyableCode } from "@/contexts/copyable-code-context";
 import { codeToHtml, bundledLanguages, type BundledLanguage } from "shiki";
 import {
   transformerNotationDiff,
@@ -99,6 +100,43 @@ export function GraphQLCodeTabs({
 
   const activeCode = codeByTab[activeTab];
   const activeLang = TABS.find(t => t.id === activeTab)?.lang || "text";
+
+  // Register all language variants for page-level copy
+  const copyableCode = useCopyableCode();
+  const copyIdRef = React.useRef<number | null>(null);
+  if (copyableCode && copyIdRef.current === null) {
+    copyIdRef.current = copyableCode.claimId();
+  }
+
+  const variablesJson = dynamicVariables
+    ? JSON.stringify(dynamicVariables, null, 2)
+    : null;
+
+  React.useEffect(() => {
+    if (!copyableCode || copyIdRef.current === null) return;
+
+    const parts: string[] = [];
+    for (const tab of TABS) {
+      parts.push("```" + tab.lang);
+      parts.push(codeByTab[tab.id]);
+      parts.push("```");
+      parts.push("");
+      // Variables go with the GraphQL query since other formats inline them
+      if (tab.id === "graphql" && variablesJson) {
+        parts.push("Variables:");
+        parts.push("```json");
+        parts.push(variablesJson);
+        parts.push("```");
+        parts.push("");
+      }
+    }
+
+    const id = copyIdRef.current;
+    copyableCode.set(id, parts.join("\n"));
+    return () => {
+      copyableCode.remove(id);
+    };
+  }, [copyableCode, codeByTab, variablesJson]);
 
   // Highlight code when tab or code changes
   React.useEffect(() => {
@@ -252,8 +290,8 @@ export function GraphQLCodeTabs({
         </div>
       </div>
 
-      {/* Variables section */}
-      {dynamicVariables && <VariablesSection variables={dynamicVariables} />}
+      {/* Variables section - only for GraphQL tab since other formats inline them */}
+      {activeTab === "graphql" && dynamicVariables && <VariablesSection variables={dynamicVariables} />}
 
       {/* Optional fields collapsible */}
       {optionalFields && optionalFields.length > 0 && (

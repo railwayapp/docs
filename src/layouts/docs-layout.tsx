@@ -17,8 +17,8 @@ import { TOC, TOCProvider, type TOCItemType } from "../components/toc";
 import { sidebarContent } from "../data/sidebar";
 import { FrontMatter, ISidebarContent, IPage } from "../types";
 import { Props as PageProps } from "./page";
-import { reconstructMarkdownWithFrontmatter } from "../utils/markdown";
 import { extractHeadersFromMarkdown, buildBreadcrumbs } from "../utils/seo";
+import { CopyableCodeProvider } from "../contexts/copyable-code-context";
 
 export interface Props extends PageProps {
   frontMatter: FrontMatter;
@@ -82,13 +82,6 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     [prefixedSlug],
   );
 
-  const fullMarkdown = useMemo(() => {
-    if (rawMarkdown) {
-      return reconstructMarkdownWithFrontmatter(frontMatter, rawMarkdown);
-    }
-    return "";
-  }, [rawMarkdown, frontMatter]);
-
   const { prevPage, nextPage } = useMemo(() => {
     const flatPages = flattenSidebarContent(sidebarContent);
     const pageIndex = flatPages.findIndex(p => p.slug === prefixedSlug);
@@ -147,6 +140,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
         lastModified={lastModified}
       />
       <TOCProvider items={tocItems}>
+        <CopyableCodeProvider>
         <div className="flex flex-col min-h-[calc(100vh-53px)]">
           {/* Two-column layout */}
           <div className="max-w-full flex flex-row flex-1">
@@ -259,7 +253,8 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
                   }
                 >
                   <PageActions
-                    content={fullMarkdown}
+                    rawMarkdown={rawMarkdown ?? ""}
+                    frontMatter={frontMatter}
                     title={frontMatter.title}
                     slug={prefixedSlug}
                   />
@@ -276,6 +271,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
             />
           </div>
         </div>
+        </CopyableCodeProvider>
       </TOCProvider>
     </>
   );
