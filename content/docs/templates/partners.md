@@ -5,6 +5,8 @@ description: Grow your open source projects and products on Railway.
 
 Railway wants open source maintainers to succeed. If you maintain an open source project that people deploy on Railway, here's how Railway enables you to manage your open source product end-to-end and grow.
 
+Apply at [railway.com/partners](https://railway.com/partners).
+
 ## Earn commission
 
 When users deploy your technology on Railway, you earn a percentage of the usage. The more your community grows on Railway, the more you earn.
@@ -79,3 +81,5 @@ You're listed as a "maintainer" on community templates you earn commission from.
 4. **Partner profile**: We'll create a partner profile for you with a dedicated page showing all templates using your technology.
 
 5. **Social promotion**: Once the above are complete, we'll engage with any social promotion or co-marketing you'd like to do.
+
+If you have any other questions, feel free to email partners@railway.com.
