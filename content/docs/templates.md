@@ -1,5 +1,5 @@
 ---
-title: Templates & open source
+title: Templates & Open Source
 description: Everything you need to know about Railway templates and the open source partner program.
 ---
 
