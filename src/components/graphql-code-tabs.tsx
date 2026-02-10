@@ -121,13 +121,14 @@ export function GraphQLCodeTabs({
       parts.push(codeByTab[tab.id]);
       parts.push("```");
       parts.push("");
-    }
-    if (variablesJson) {
-      parts.push("Variables:");
-      parts.push("```json");
-      parts.push(variablesJson);
-      parts.push("```");
-      parts.push("");
+      // Variables go with the GraphQL query since other formats inline them
+      if (tab.id === "graphql" && variablesJson) {
+        parts.push("Variables:");
+        parts.push("```json");
+        parts.push(variablesJson);
+        parts.push("```");
+        parts.push("");
+      }
     }
 
     const id = copyIdRef.current;
