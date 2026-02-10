@@ -1,31 +1,29 @@
 ---
-title: Templates
-description: Everything you need to know about Railway templates.
+title: Templates & Open Source
+description: Everything you need to know about Railway templates and the open source partner program.
 ---
 
-Templates provide a way to jumpstart a project by giving users the means to package a service or set of services into a reusable and distributable format.
+Templates provide a way to jumpstart a project by packaging a service or set of services into a reusable, distributable format.
 
-As a Railway user, you can create and publish templates for others to use, or you can deploy templates from the [template marketplace](https://railway.com/templates).
+As a Railway user, you can create and publish templates for others to use, or deploy templates from the [template marketplace](https://railway.com/templates).
 
-## Highlights
+Templates are the foundation of Railway's [Open Source Partner Program](/templates/partners). If you maintain an open source project, you can use templates to manage and monetize your technology on Railway.
+
+## For template users
 
 |                                                  |                                                                                                                                                                                                                                      |
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Bootstrap Projects**                           | Templates are the best way to bootstrap a project by enabling you to provision a service or set of services in a matter of clicks. Choose a template to deploy from the marketplace, or create your own from your personal scaffold. |
-| **Best Practices**                               | Creating templates can get complex, but these best practices will help you create templates that are easy to use and maintain.                                                                                                       |
-| **Community Clout**                              | When you publish a template, it is placed into the template marketplace for all users of the Railway community to take advantage.                                                                                                    |
-| [**Kickback Program**](/templates/kickbacks)     | Earn kickbacks from template usage, up to 50% for open source templates with active community support. Get rewarded for building quality templates that help the community.                                                          |
-| [**Partner Program**](/templates/partners)       | Technology owners can join Railway's partner program to receive commission on templates, get featured placement, and participate in co-marketing.                                                                                     |
-| [**Template Updates**](/templates/updates)       | Push updates to users who deployed your template, or receive notifications when templates you've deployed have been updated.                                                                                                          |
+| **Bootstrap projects**                           | Deploy a service or set of services in a few clicks. Choose a template from the marketplace, or create your own from a personal scaffold. |
+| **Reuse service configurations**                 | Save your project setup as a template to replicate it across environments or share with your team. |
+| [**Template updates**](/templates/updates)       | Receive notifications when templates you've deployed have been updated by their maintainers. |
 
-## Private Docker images
+## For open source maintainers
 
-If your template includes a private Docker image, you can provide your registry credentials without exposing them to users who deploy your template.
+|                                                  |                                                                                                                                                                                                                                      |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [**Commission via kickbacks**](/templates/kickbacks)            | Earn commission from template usage, up to 25% as part of the partner program with active community support. |
+| [**Private Docker images**](/templates/private-docker-images) | Distribute proprietary code without exposing your source. Monetize premium versions or hosted-only editions of your open source project. |
+| **Community management**                         | Answer user questions through your [Template Queue](https://station.railway.com/my-template-queue) in Central Station. Help users succeed and get valuable product feedback. |
+| [**Metrics**](/templates/metrics)                | Track deployments, earnings, and support health for your published templates. |
 
-To set this up, add a service with a Docker image source in the template editor, then enter your registry credentials in the service settings. Railway encrypts and stores these credentials securely.
-
-When users deploy your template, Railway automatically authenticates with your registry to pull the image. Users will only see that the service uses hidden registry credentials, not the credentials themselves.
-
-<Banner variant="warning">
-To protect your credentials, SSH access is disabled and users cannot modify the Docker image source for services with hidden registry credentials.
-</Banner>
+See the [Open Source & Technology Partners](/templates/partners) page for details on becoming a partner.

@@ -38,9 +38,9 @@ Manage notification preferences in your [account settings](https://railway.com/a
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1764639904/Template_Queue_Email_Notifications_qbfqg9.png" alt="Template Queue Emails" width={1800} height={1284} quality={100} />
 
-## Partner program
+## Open Source Partner Program
 
-If you're the owner of a technology used in Railway templates, you can join the [Partner Program](/templates/partners) to receive commission on templates using your technology, get featured placement, and participate in co-marketing.
+If you're the owner of a technology used in Railway templates, you can join the [Open Source & Technology Partners program](/templates/partners) to unlock extra perks like commission on templates using your technology, featured placement, and opens source product-management features.
 
 ## Earnings and withdrawals
 

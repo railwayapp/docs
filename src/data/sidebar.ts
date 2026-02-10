@@ -85,16 +85,28 @@ export const sidebarContent: ISidebarContent = [
     content: [makePage("Agent skills", "ai"), makePage("MCP server", "ai")],
   },
   {
-    title: "Templates",
+    title: "Templates & open source",
     slug: "/templates",
     content: [
-      makePage("Deploy", "templates"),
-      makePage("Create", "templates"),
-      makePage("Best practices", "templates", "/templates/best-practices"),
-      makePage("Publish and share", "templates"),
-      makePage("Kickbacks", "templates"),
-      makePage("Updates", "templates"),
-      makePage("Partners", "templates"),
+      {
+        subTitle: "Using templates",
+        pages: [
+          makePage("Deploy", "templates"),
+          makePage("Create", "templates"),
+          makePage("Updates", "templates"),
+          makePage("Best practices", "templates", "/templates/best-practices"),
+          makePage("Publish and share", "templates"),
+        ],
+      },
+      {
+        subTitle: "Monetizing templates",
+        pages: [
+          makePage("Kickbacks", "templates"),
+          makePage("Private Docker images", "templates"),
+          makePage("Metrics", "templates"),
+        ],
+      },
+      makePage("Open source technology partners", "templates", "/templates/partners"),
     ],
   },
   {
