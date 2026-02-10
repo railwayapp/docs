@@ -5,7 +5,7 @@ description: Track deployments, earnings, and health metrics for your published 
 
 Once you publish a template, you can track its performance through the Metrics tab. Access it from your <a href="https://railway.com/workspace/templates" target="_blank">Workspace Templates page</a> by clicking Edit on any published template.
 
-<!-- Screenshot placeholder -->
+{/* Screenshot placeholder */}
 
 ## Overview stats
 
