@@ -5,13 +5,13 @@ description: Track deployments, earnings, and health metrics for your published 
 
 Once you publish a template, you can track its performance through the Metrics tab. Access it from your <a href="https://railway.com/workspace/templates" target="_blank">Workspace Templates page</a> by clicking Edit on any published template.
 
+## Overview stats
+
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1770748412/docs/template_product_metrics_orprmy.png"
 alt="Template metrics"
 layout="responsive"
 width={1200} height={631} quality={100} />
-
-## Overview stats
 
 The metrics dashboard shows key stats for your template:
 
