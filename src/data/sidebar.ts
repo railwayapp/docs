@@ -85,16 +85,18 @@ export const sidebarContent: ISidebarContent = [
     content: [makePage("Agent skills", "ai"), makePage("MCP server", "ai")],
   },
   {
-    title: "Templates",
+    title: "Templates & Open Source",
     slug: "/templates",
     content: [
       makePage("Deploy", "templates"),
       makePage("Create", "templates"),
       makePage("Best practices", "templates", "/templates/best-practices"),
       makePage("Publish and share", "templates"),
-      makePage("Kickbacks", "templates"),
       makePage("Updates", "templates"),
-      makePage("Partners", "templates"),
+      makePage("Open Source & Technology Partners", "templates", "/templates/partners"),
+      makePage("Kickbacks", "templates"),
+      makePage("Private Docker images", "templates"),
+      makePage("Metrics", "templates"),
     ],
   },
   {
