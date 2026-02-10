@@ -1,11 +1,13 @@
 ---
-title: Templates & Open Source
+title: Templates & open source
 description: Everything you need to know about Railway templates and the open source partner program.
 ---
 
 Templates provide a way to jumpstart a project by packaging a service or set of services into a reusable, distributable format.
 
 As a Railway user, you can create and publish templates for others to use, or deploy templates from the [template marketplace](https://railway.com/templates).
+
+Templates are the foundation of Railway's [Open Source Partner Program](/templates/partners). If you maintain an open source project, you can use templates to manage and monetize your technology on Railway.
 
 ## For template users
 
@@ -16,8 +18,6 @@ As a Railway user, you can create and publish templates for others to use, or de
 | [**Template updates**](/templates/updates)       | Receive notifications when templates you've deployed have been updated by their maintainers. |
 
 ## For open source maintainers
-
-Templates are the foundation of Railway's [Open Source Partner Program](/templates/partners). If you maintain an open source project, you can use templates to manage and monetize your technology on Railway.
 
 |                                                  |                                                                                                                                                                                                                                      |
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
