@@ -289,8 +289,8 @@ export function GraphQLCodeTabs({
         </div>
       </div>
 
-      {/* Variables section */}
-      {dynamicVariables && <VariablesSection variables={dynamicVariables} />}
+      {/* Variables section - only for GraphQL tab since other formats inline them */}
+      {activeTab === "graphql" && dynamicVariables && <VariablesSection variables={dynamicVariables} />}
 
       {/* Optional fields collapsible */}
       {optionalFields && optionalFields.length > 0 && (
