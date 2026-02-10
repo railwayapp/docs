@@ -106,7 +106,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Metrics", "templates"),
         ],
       },
-      makePage("Open source partners", "templates", "/templates/partners"),
+      makePage("Open source technology partners", "templates", "/templates/partners"),
     ],
   },
   {
