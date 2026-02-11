@@ -53,7 +53,7 @@ Railway will determine the deployment's active state with the following logic -
 
 #### Completed
 
-This is the status of the Deployment when the running app exits with a non-zero exit code.
+This is the status of the Deployment when the running app exits with a zero exit code.
 
 #### Crashed
 
