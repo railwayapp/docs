@@ -124,16 +124,46 @@ The current template variable functions are:
 
    **Tip:** You can generate Hex or Base64 secrets by constructing the appropriate alphabet and length.
 
-   - `openssl rand -base64 16` → `${{secret(22, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}==`
-   - `openssl rand -base64 32` → `${{secret(43, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}=`
-   - `openssl rand -base64 64` → `${{secret(86, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}==`
-   - `openssl rand -hex 16` → `${{secret(32, "abcdef0123456789")}}`
-   - `openssl rand -hex 32` → `${{secret(64, "abcdef0123456789")}}`
-   - `openssl rand -hex 64` → `${{secret(128, "abcdef0123456789")}}`
+   - `openssl rand -base64 16` →
+
+     ```text
+     ${{secret(22, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}==
+     ```
+
+   - `openssl rand -base64 32` →
+
+     ```text
+     ${{secret(43, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}=
+     ```
+
+   - `openssl rand -base64 64` →
+
+     ```text
+     ${{secret(86, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/")}}==
+     ```
+   - `openssl rand -hex 16` →
+
+     ```text
+     ${{secret(32, "abcdef0123456789")}}
+     ```
+
+   - `openssl rand -hex 32` →
+
+     ```text
+     ${{secret(64, "abcdef0123456789")}}
+     ```
+
+   - `openssl rand -hex 64` →
+
+     ```text
+     ${{secret(128, "abcdef0123456789")}}
+     ```
 
    Or even generate a UUIDv4 string -
 
-   `${{secret(8, "0123456789abcdef")}}-${{secret(4, "0123456789abcdef")}}-4${{secret(3, "0123456789abcdef")}}-${{secret(1, "89ab")}}${{secret(3, "0123456789abcdef")}}-${{secret(12, "0123456789abcdef")}}`
+   ```text
+   ${{secret(8, "0123456789abcdef")}}-${{secret(4, "0123456789abcdef")}}-4${{secret(3, "0123456789abcdef")}}-${{secret(1, "89ab")}}${{secret(3, "0123456789abcdef")}}-${{secret(12, "0123456789abcdef")}}
+   ```
 
 2. `randomInt(min?: number, max?: number)`: Generates a random integer between min and max (defaults to 0 and 100)
 
