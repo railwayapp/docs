@@ -43,4 +43,4 @@ The first request made to a slept service wakes it. It may take a small amount o
 
 ## Support
 
-For information on how to enable Serverless on your services refer to the [how to guide](/pricing/cost-control#enabling-app-sleeping).
+For information on how to enable Serverless on your services refer to the [how to guide](/pricing/cost-control#enabling-serverless).
