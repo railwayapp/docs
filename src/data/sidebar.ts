@@ -195,6 +195,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Global options", "cli"),
       makePage("Deploying", "cli"),
+      makePage("Telemetry", "cli"),
       makeCliCommand("add"),
       makeCliCommand("completion"),
       makeCliCommand("connect"),
