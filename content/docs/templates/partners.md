@@ -7,6 +7,8 @@ Railway wants open source maintainers to succeed. If you maintain an open source
 
 Apply at [railway.com/partners](https://railway.com/partners).
 
+<video src="https://res.cloudinary.com/railway/video/upload/v1771430834/docs/oss_partner_video_j7gyuw.mp4" controls autoplay loop muted playsinline />
+
 ## Earn commission
 
 When users deploy your technology on Railway, you earn a percentage of the usage. The more your community grows on Railway, the more you earn.
