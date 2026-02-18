@@ -7,10 +7,7 @@ Railway wants open source maintainers to succeed. If you maintain an open source
 
 Apply at [railway.com/partners](https://railway.com/partners).
 
-<Image src="https://res.cloudinary.com/railway/video/upload/v1771430834/docs/oss_partner_video_j7gyuw.mp4"
-alt="Video of open source partner program benefits"
-layout="intrinsic"
-width={411} height={253} quality={80} />
+<video src="https://res.cloudinary.com/railway/video/upload/v1771430834/docs/oss_partner_video_j7gyuw.mp4" controls autoplay loop muted playsinline />
 
 ## Earn commission
 
