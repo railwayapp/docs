@@ -380,6 +380,7 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       makePage("Domains", "networking"),
+      makePage("Railway Domains", "guides"),
       makePage("TCP proxy", "networking"),
       makePage("Outbound networking", "networking"),
       makePage("Static outbound IPs", "networking"),

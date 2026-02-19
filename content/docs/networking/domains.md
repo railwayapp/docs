@@ -34,6 +34,12 @@ Simply follow the prompts to generate a domain and your app will be exposed to t
 
 If you have previously assigned a TCP Proxy to your service, you will not see the `Generate Domain` option. You must remove the TCP Proxy (click the Trashcan icon), then you can add a domain.
 
+### Railway Domains
+
+You can purchase and manage domains directly within Railway — no external registrar needed. DNS is auto-configured, WHOIS privacy is included, and auto-renewal is on by default.
+
+See the [Railway Domains guide](/guides/railway-domains) for details on searching, purchasing, and managing domains.
+
 ### Custom domains
 
 Custom domains can be added to a Railway service and once setup we will automatically issue an SSL certificate for you.
