@@ -42,7 +42,7 @@ More information and examples for this can be found in the [Troubleshooting guid
 
 If you prefer to explicitly set a port, you can set the `PORT` variable in your service variables to the port on which your service is listening.
 
-If your domain does not have a [target port set](/networking/domains#target-ports), Railway will direct incoming traffic to the port specified in the `PORT` variable, this is sometimes needed when creating a template.
+If your domain does not have a [target port set](/networking/domains/working-with-domains#target-ports), Railway will direct incoming traffic to the port specified in the `PORT` variable, this is sometimes needed when creating a template.
 
 For information on how to configure variables, see the [Variables guide](/variables).
 
