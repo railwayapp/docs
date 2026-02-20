@@ -22,6 +22,7 @@ Select a domain, confirm the price, and purchase with your existing payment meth
 - Domains are registered for one year (some TLDs like `.ai` require a two-year minimum)
 - WHOIS privacy enabled by default
 - Auto-renewal enabled by default
+- Railway is listed as the registrant contact and handles all registry communications on your behalf
 - When purchased from a service, the domain is automatically attached and configured
 
 ## Manage domains
@@ -74,4 +75,8 @@ Railway retries payment up to three times before the domain expires.
 
 <Collapse title="Can I manually configure DNS records?">
 No. DNS is fully managed by Railway. Use an external registrar with [custom domains](/networking/domains/working-with-domains#custom-domains) if you need manual DNS control.
+</Collapse>
+
+<Collapse title="Who is the registrant contact for my domain?">
+Railway is listed as the registrant contact. We handle all registry and ICANN communications on your behalf.
 </Collapse>
