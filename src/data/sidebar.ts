@@ -379,7 +379,13 @@ export const sidebarContent: ISidebarContent = [
           makePage("Library configuration", "networking/private-networking"),
         ],
       },
-      makePage("Domains", "networking"),
+      {
+        subTitle: makePage("Domains", undefined, "/networking/domains"),
+        pages: [
+          makePage("Working with Domains", "networking/domains"),
+          makePage("Railway Domains", "networking/domains"),
+        ],
+      },
       makePage("TCP proxy", "networking"),
       makePage("Outbound networking", "networking"),
       makePage("Static outbound IPs", "networking"),

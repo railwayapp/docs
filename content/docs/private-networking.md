@@ -22,7 +22,7 @@ Every service in a project and environment gets an internal DNS name under the `
 
 This allows communication between services in an environment without exposing any ports publicly. Any valid IPv6 or IPv4 traffic is allowed, including UDP, TCP, and HTTP.
 
-For more details on internal DNS names, see the [Domains guide](/networking/domains#private-domains).
+For more details on internal DNS names, see the [Domains guide](/networking/domains/working-with-domains#private-domains).
 
 ## Communicating over the private network
 
