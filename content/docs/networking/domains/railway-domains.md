@@ -43,7 +43,7 @@ If you need manual DNS control, purchase from an external registrar and use [cus
 
 Domain subscriptions are separate from your workspace subscription.
 
-- Priced at cost, rounded up to the nearest dollar
+- Priced at cost, rounded down to the nearest dollar (minimum $2)
 - First-year price may differ from the renewal price
 - You receive a notification before an upcoming renewal
 - Auto-renewal charges approximately 30 days before expiration
