@@ -15,7 +15,6 @@ When users deploy your technology on Railway, you earn a percentage of the usage
 
 - Base rate: 15% of usage from your verified templates
 - Support bonus: +10% (25% total) when you answer user questions
-- Open source bonus: 2x rates for open source templates (30% base, 50% with support)
 
 See [Kickbacks](/templates/kickbacks) for details on earnings and withdrawals.
 

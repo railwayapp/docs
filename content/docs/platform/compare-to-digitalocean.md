@@ -116,7 +116,7 @@ Railway’s dashboard offers a real-time collaborative canvas where you can view
 
 ![Railway canvas](https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png)
 
-Additionally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
+Additionally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 25% kickback of their usage costs.
 
 Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 

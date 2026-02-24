@@ -139,7 +139,7 @@ Check out all of the [different storage solutions](https://railway.com/deploy?ca
 
 Template directory
 
-Finally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 50% kickback of their usage costs.
+Finally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 25% kickback of their usage costs.
 
 Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
