@@ -105,17 +105,9 @@ Skipped services can be deployed manually from the canvas. Click on the skipped 
 
 ### Bot PR environments
 
-You can enable automatic PR environment creation for PRs opened by supported GitHub bots using the `Enable Bot PR Environments` toggle on the Environments tab in the Project Settings page.
+You can enable automatic PR environment creation for PRs opened by GitHub bots using the `Enable Bot PR Environments` toggle on the Environments tab in the Project Settings page.
 
-**Supported bots:**
-- [Dependabot](https://github.com/dependabot)
-- [Renovate](https://github.com/renovatebot)
-- [Devin AI](https://github.com/apps/devin-ai-integration)
-- [GitHub Actions](https://docs.github.com/en/actions)
-- [GitHub Copilot](https://github.com/features/copilot)
-- [Jules (Google)](https://jules.google/)
-- [Roo Code](https://roocode.com/)
-- [Claude Code (Anthropic)](https://claude.com/product/claude-code)
+This works with any GitHub bot, including Dependabot, Renovate, GitHub Copilot, Claude Code, Devin, Jules, and more.
 
 <Image
   src="https://res.cloudinary.com/railway/image/upload/v1768408949/docs/guides/environments/mockup-1768408821891_wxdyrr.png"
