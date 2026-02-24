@@ -3,7 +3,7 @@ title: Credits
 description: Learn how credits apply to your Railway account if part of a promotion.
 ---
 
-If you are part of a credit promotion for Railway, this page covers how to activate and use your credits. This does not include the referral program as that functions differently - please see information [referrals here]((/access/accounts#referrals)).
+If you are part of a credit promotion for Railway, this page covers how to activate and use your credits. This does not include the referral program as that functions differently - please see information [referrals here](/access/accounts#referrals).
 
 ## Eligibility
 
