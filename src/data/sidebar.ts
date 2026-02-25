@@ -66,6 +66,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Cost control", "pricing"),
       makePage("Committed spend", "pricing"),
       makePage("AWS Marketplace", "pricing"),
+      makePage("Credits", "pricing"),
     ],
   },
   // Enterprise
