@@ -14,15 +14,25 @@ Credits and promotions only apply to new signups. If you already have an account
 To activate your credits:
 
 1. Sign up for Railway using the unique link provided to you.
-2. Navigate to the [Plans page](https://railway.com/workspace/plans) to upgrade your plan to Hobby. At the top of the page, you will see the name of your promotion if it applies to your account. For more information on available plans, see the [Pricing Plans](/pricing/plans) docs.
+2. Navigate to the [Plans page](https://railway.com/workspace/plans) to upgrade your plan to Hobby. On the page, you will see the name of your promotion if it applies to your account. For more information on available plans, see the [Pricing Plans](/pricing/plans) docs.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1772038568/docs/promotion_plans_sftlji.png"
+alt="Promotion name on plans page"
+layout="intrinsic"
+width={800} height={468} quality={100} />
+
 3. Enter your credit card details. A credit card is required to cover any usage that exceeds your credit amount.
 
 You will see the credits applied to your next invoice.
 
 ## Viewing Your Credits
 
-Once you have upgraded, you can view your credit and promotion details by navigating to [Workspace Settings > Usage](https://railway.com/workspace/usage). There you will find:
+Once you have upgraded, you can view your credit and promotion details by navigating to [Workspace Settings > Billing](https://railway.com/workspace/billing). There you will find:
 
-- Your total credit amount
 - Whether a promotion code applies to your account
 - The credit value and duration of the promotion
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1772038568/docs/promotion_billing_xwgg9z.png"
+alt="Promotion details on billing page"
+layout="intrinsic"
+width={800} height={468} quality={100} />
