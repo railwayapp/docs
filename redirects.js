@@ -6,7 +6,12 @@ const redirects = [
   },
   {
     source: "/troubleshooting/nodejs-sigterm",
-    destination: "/deployments/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
+    permanent: true,
+  },
+  {
+    source: "/deployments/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
     permanent: true,
   },
   {
@@ -17,7 +22,8 @@ const redirects = [
   // Builds troubleshooting
   {
     source: "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
-    destination: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination:
+      "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
     permanent: true,
   },
   // Networking troubleshooting
@@ -556,7 +562,8 @@ const redirects = [
   },
   {
     source: "/reference/errors/nixpacks-was-unable-to-generate-a-build-plan",
-    destination: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination:
+      "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
     permanent: true,
   },
   {
@@ -566,7 +573,7 @@ const redirects = [
   },
   {
     source: "/guides/nodejs-sigterm",
-    destination: "/deployments/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
     permanent: true,
   },
   {
