@@ -19,6 +19,11 @@ const redirects = [
     destination: "/deployments/troubleshooting/no-start-command-could-be-found",
     permanent: true,
   },
+  {
+    source: "/access/multi-factor-auth",
+    destination: "/access/multi-factor-authentication",
+    permanent: true,
+  },
   // Builds troubleshooting
   {
     source: "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
