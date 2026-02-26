@@ -148,7 +148,7 @@ If you’re looking for the fastest way to get started with Nest connected to a 
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/nvnuEH)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/nvnuEH)
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 

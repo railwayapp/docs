@@ -62,7 +62,7 @@ Common template codes:
 - `redis` - Redis database
 - `mongo` - MongoDB database
 
-Find more templates at [railway.com/templates](https://railway.com/templates).
+Find more templates at [railway.com/deploy](https://railway.com/deploy).
 
 ## Related
 

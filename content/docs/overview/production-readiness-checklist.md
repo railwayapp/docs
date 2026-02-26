@@ -55,7 +55,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
 - Data is critical to most applications, and you should ensure that the data layer in your stack is highly available and fault tolerant.
 
-  Consider implementing a cluster or replica set, similar to the <a href="https://railway.com/template/q589Jl" target="_blank">Redis HA with Sentinel</a> template, to ensure that your data remains available even if one node becomes unstable.
+  Consider implementing a cluster or replica set, similar to the <a href="https://railway.com/deploy/q589Jl" target="_blank">Redis HA with Sentinel</a> template, to ensure that your data remains available even if one node becomes unstable.
 
 ---
 
