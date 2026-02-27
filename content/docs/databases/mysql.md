@@ -14,7 +14,7 @@ alt="GIF of the Adding Database"
 layout="responsive"
 width={450} height={396} quality={100} />
 
-You can also deploy it via the [template](https://railway.com/template/mysql) from the template marketplace.
+You can also deploy it via the [template](https://railway.com/deploy/mysql) from the template marketplace.
 
 #### Deployed service
 
@@ -48,8 +48,8 @@ Especially for production environments, performing regular backups and monitorin
 - **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out the native [Backups](/volumes/backups) feature.
 
 - **Observability**: Implement monitoring for insights into performance and health of your databases. If you're not already running an observability stack, check out these templates to help you get started building one:
-  - [Prometheus](https://railway.com/template/KmJatA)
-  - [Grafana](https://railway.com/template/anURAt)
+  - [Prometheus](https://railway.com/deploy/KmJatA)
+  - [Grafana](https://railway.com/deploy/anURAt)
 
 ## Additional resources
 

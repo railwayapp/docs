@@ -136,11 +136,11 @@ If you’re looking for the fastest way to get started with Express, Pug and con
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/BC51z6)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/BC51z6)
 
 For Express API, here's another template you can begin with:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/Y6zLKF)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/Y6zLKF)
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 

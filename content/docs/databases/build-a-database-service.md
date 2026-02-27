@@ -75,8 +75,8 @@ Need inspiration or looking for a specific database? The <a href="https://railwa
 
 Here are some suggestions to check out -
 
-- <a href="https://railway.com/template/SMKOEA" target="_blank">Minio</a>
-- <a href="https://railway.com/template/clickhouse" target="_blank">ClickHouse</a>
-- <a href="https://railway.com/template/dragonfly" target="_blank">Dragonfly</a>
-- <a href="https://railway.com/template/kbvIRV" target="_blank">Chroma</a>
-- <a href="https://railway.com/template/elasticsearch" target="_blank">Elastic Search</a>
+- <a href="https://railway.com/deploy/SMKOEA" target="_blank">Minio</a>
+- <a href="https://railway.com/deploy/clickhouse" target="_blank">ClickHouse</a>
+- <a href="https://railway.com/deploy/dragonfly" target="_blank">Dragonfly</a>
+- <a href="https://railway.com/deploy/kbvIRV" target="_blank">Chroma</a>
+- <a href="https://railway.com/deploy/elasticsearch" target="_blank">Elastic Search</a>

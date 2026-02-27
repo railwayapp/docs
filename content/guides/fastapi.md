@@ -20,7 +20,7 @@ This guide covers how to deploy a FastAPI app on Railway in four ways:
 
 ## One-click deploy from a template
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/-NvLj4)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/-NvLj4)
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 

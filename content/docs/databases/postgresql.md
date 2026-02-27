@@ -14,7 +14,7 @@ alt="GIF of the Adding Database"
 layout="responsive"
 width={450} height={396} quality={100} />
 
-You can also deploy it via the [template](https://railway.com/template/postgres) from the template marketplace.
+You can also deploy it via the [template](https://railway.com/deploy/postgres) from the template marketplace.
 
 #### Deployed service
 
@@ -53,9 +53,9 @@ Especially for production environments, performing regular backups and monitorin
 - **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out the native [Backups](/volumes/backups) feature.
 
 - **Observability**: Implement monitoring for insights into performance and health of your databases. If you're not already running an observability stack, check out these templates to help you get started building one:
-  - [Prometheus](https://railway.com/template/KmJatA)
-  - [Grafana](https://railway.com/template/anURAt)
-  - [PostgreSQL Exporter](https://railway.com/template/gDzHrM)
+  - [Prometheus](https://railway.com/deploy/KmJatA)
+  - [Grafana](https://railway.com/deploy/anURAt)
+  - [PostgreSQL Exporter](https://railway.com/deploy/gDzHrM)
 
 ## Extensions
 
@@ -63,10 +63,10 @@ In an effort to maintain simplicity in the default templates, we do not plan to 
 
 For some of the most popular extensions, like PostGIS and Timescale, there are several options in the template marketplace.
 
-- <a href="https://railway.com/template/VSbF5V" target="_blank">TimescaleDB</a>
-- <a href="https://railway.com/template/postgis" target="_blank">PostGIS</a>
-- <a href="https://railway.com/template/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
-- <a href="https://railway.com/template/3jJFCA" target="_blank">pgvector</a>
+- <a href="https://railway.com/deploy/VSbF5V" target="_blank">TimescaleDB</a>
+- <a href="https://railway.com/deploy/postgis" target="_blank">PostGIS</a>
+- <a href="https://railway.com/deploy/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
+- <a href="https://railway.com/deploy/3jJFCA" target="_blank">pgvector</a>
 
 ## Modifying the Postgres configuration
 

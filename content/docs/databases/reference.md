@@ -44,10 +44,10 @@ The <a href="https://railway.com/templates" target="_blank">Template Marketplace
 
 Here are some examples -
 
-- [Minio](https://railway.com/template/SMKOEA)
-- [ClickHouse](https://railway.com/template/clickhouse)
-- [Dragonfly](https://railway.com/template/dragonfly)
-- [Chroma](https://railway.com/template/kbvIRV)
+- [Minio](https://railway.com/deploy/SMKOEA)
+- [ClickHouse](https://railway.com/deploy/clickhouse)
+- [Dragonfly](https://railway.com/deploy/dragonfly)
+- [Chroma](https://railway.com/deploy/kbvIRV)
 
 ## Support
 

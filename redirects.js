@@ -6,7 +6,12 @@ const redirects = [
   },
   {
     source: "/troubleshooting/nodejs-sigterm",
-    destination: "/deployments/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
+    permanent: true,
+  },
+  {
+    source: "/deployments/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
     permanent: true,
   },
   {
@@ -14,10 +19,16 @@ const redirects = [
     destination: "/deployments/troubleshooting/no-start-command-could-be-found",
     permanent: true,
   },
+  {
+    source: "/access/multi-factor-auth",
+    destination: "/access/multi-factor-authentication",
+    permanent: true,
+  },
   // Builds troubleshooting
   {
     source: "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
-    destination: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination:
+      "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
     permanent: true,
   },
   // Networking troubleshooting
@@ -556,7 +567,8 @@ const redirects = [
   },
   {
     source: "/reference/errors/nixpacks-was-unable-to-generate-a-build-plan",
-    destination: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination:
+      "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
     permanent: true,
   },
   {
@@ -566,7 +578,7 @@ const redirects = [
   },
   {
     source: "/guides/nodejs-sigterm",
-    destination: "/deployments/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
     permanent: true,
   },
   {
