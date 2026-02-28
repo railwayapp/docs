@@ -19,7 +19,7 @@ Railway is a deployment platform that lets you provision infrastructure, develop
 
 To demonstrate deploying directly from a GitHub repository through Railway's dashboard, this guide uses a basic <a href="https://github.com/railwayapp-templates/nextjs-basic" target="_blank">NextJS app</a> that was prepared for this guide.
 
-For the template deployment, this guide uses the <a href="https://railway.com/template/umami-analytics" target="_blank">Umami template</a> from the <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
+For the template deployment, this guide uses the <a href="https://railway.com/deploy/umami" target="_blank">Umami template</a> from the <a href="https://railway.com/templates" target="_blank">template marketplace</a>.
 
 ## Deploying your project - from GitHub
 
