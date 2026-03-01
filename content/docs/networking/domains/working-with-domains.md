@@ -73,7 +73,7 @@ Wildcard domains allow for flexible subdomain management. There are a few import
 
 - Ensure that the CNAME record for `authorize.railwaydns.net` is not proxied by your provider (eg: Cloudflare). This is required for the verification process to work.
 
-- Wildcards cannot be nested (e.g., \*.\*.yourdomain.com).
+- Wildcards cannot be nested (e.g., `\*.\*.yourdomain.com`).
 
 - Wildcards can be used for any subdomain level (e.g., `*.example.com` or `*.subdomain.example.com`).
 
@@ -109,7 +109,7 @@ alt="Screenshot of Wildcard Domain"
 layout="responsive"
 width={1048} height={842} quality={80} />
 
-One record is for the wildcard domain, and one for the \_acme-challenge. The \_acme-challenge CNAME is required for Railway to issue the SSL Certificate for your domain.
+One record is for the wildcard domain, and one for the `\_acme-challenge`. The `\_acme-challenge` CNAME is required for Railway to issue the SSL Certificate for your domain.
 
 #### Wildcard domains on Cloudflare
 
