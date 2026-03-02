@@ -145,7 +145,7 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/Ic0JBh)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/astro-starter)
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 

@@ -140,7 +140,7 @@ Railway offers multiple ways to deploy your Flask app, depending on your setup a
 
 ## One-click deploy from a template
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/zUcpux)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/zUcpux)
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 

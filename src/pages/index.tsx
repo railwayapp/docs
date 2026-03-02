@@ -375,7 +375,7 @@ const Home: NextPage = () => {
         </div>
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-4">
           <Link
-            href="https://railway.com/template/metabase"
+            href="https://railway.com/deploy/metabase"
             className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
           >
             <svg
@@ -491,7 +491,7 @@ const Home: NextPage = () => {
             </div>
           </Link>
           <Link
-            href="https://railway.com/template/EP4wIt"
+            href="https://railway.com/deploy/EP4wIt"
             className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
           >
             <svg
@@ -512,7 +512,7 @@ const Home: NextPage = () => {
             </div>
           </Link>
           <Link
-            href="https://railway.com/template/cal"
+            href="https://railway.com/deploy/cal"
             className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
           >
             <svg
@@ -559,7 +559,7 @@ const Home: NextPage = () => {
             </div>
           </Link>
           <Link
-            href="https://railway.com/template/e10OW1"
+            href="https://railway.com/deploy/e10OW1"
             className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
           >
             <svg
@@ -593,7 +593,7 @@ const Home: NextPage = () => {
             </div>
           </Link>
           <Link
-            href="https://railway.com/template/elasticsearch"
+            href="https://railway.com/deploy/elasticsearch"
             className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
           >
             <svg
@@ -644,7 +644,7 @@ const Home: NextPage = () => {
             </div>
           </Link>
           <Link
-            href="https://railway.com/template/umami-analytics"
+            href="https://railway.com/deploy/umami-analytics"
             className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
           >
             <svg
@@ -679,7 +679,7 @@ const Home: NextPage = () => {
             </div>
           </Link>
           <Link
-            href="https://railway.com/template/SMKOEA"
+            href="https://railway.com/deploy/SMKOEA"
             className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
           >
             <img
@@ -694,7 +694,7 @@ const Home: NextPage = () => {
             </div>
           </Link>
           <Link
-            href="https://railway.com/template/timescaledb-postgis"
+            href="https://railway.com/deploy/timescaledb-postgis"
             className="flex flex-col items-center justify-center border rounded-lg p-6 md:p-8 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
           >
             <svg

@@ -242,7 +242,7 @@ layout="responsive"
 width={2855} height={2109} quality={100} />
 _App service_
 
-**Note:** There is a [community template](https://railway.com/template/Gkzn4k) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
+**Note:** There is a [community template](https://railway.com/deploy/Gkzn4k) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
 
 ## Logging
 

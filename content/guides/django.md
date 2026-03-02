@@ -357,7 +357,7 @@ width={2752} height={2094} quality={100} />
 
 - **App Service**: This service should be running and is the only one that should have a public domain, allowing users to access your application.
 
-**Note:** There is a [community template](https://railway.com/template/yZDfUu) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
+**Note:** There is a [community template](https://railway.com/deploy/yZDfUu) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
 
 ## Next steps
 

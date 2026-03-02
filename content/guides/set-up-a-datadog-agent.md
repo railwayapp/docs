@@ -19,7 +19,7 @@ In this tutorial you will learn how to -
 - Deploy a Datadog agent in Railway - listening for metrics, logs, and traces.
 - Configure an application to send metrics, logs, and traces to the agent.
 
-If you are looking for a quicker way to get started, you can also deploy this project from a <a href="https://railway.com/template/saGmYG" target="_blank">template</a>.
+If you are looking for a quicker way to get started, you can also deploy this project from a <a href="https://railway.com/deploy/saGmYG" target="_blank">template</a>.
 
 **Prerequisites**
 
