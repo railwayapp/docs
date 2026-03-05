@@ -10,18 +10,18 @@ Agent skills for interacting with [Railway](https://railway.com) directly from y
 Agent Skills are an open format for extending AI coding assistants with specialized knowledge and capabilities. They follow the [Agent Skills](https://agentskills.io) specification.
 
 Skills are markdown files (`SKILL.md`) that contain:
-- **Metadata** - Name and description in YAML frontmatter
-- **Instructions** - Step-by-step guidance for the AI agent
-- **Examples** - Concrete examples showing expected behavior
+- **Metadata** in YAML frontmatter
+- **Instructions** with step-by-step guidance for the AI agent
+- **Examples** showing expected behavior
 
-When you ask your AI assistant something like "deploy to Railway" or "check my project status", the agent automatically selects the appropriate skill based on your intent and follows its instructions.
+When you ask your AI assistant something like "deploy to Railway" or "check my project status," the agent automatically selects the appropriate skill based on your intent and follows its instructions.
 
 ### Supported tools
 
-- [Claude Code](https://claude.ai/code)
-- [OpenAI Codex](https://openai.com/codex)
-- [OpenCode](https://opencode.ai)
-- [Cursor](https://cursor.com)
+- <a href="https://claude.ai/code" target="_blank">Claude Code</a>
+- <a href="https://openai.com/codex" target="_blank">OpenAI Codex</a>
+- <a href="https://opencode.ai" target="_blank">OpenCode</a>
+- <a href="https://cursor.com" target="_blank">Cursor</a>
 
 ## Installation
 
@@ -29,67 +29,33 @@ When you ask your AI assistant something like "deploy to Railway" or "check my p
 curl -fsSL railway.com/skills.sh | bash
 ```
 
-You can also install via [skills.sh](https://skills.sh):
+You can also install via <a href="https://skills.sh" target="_blank">skills.sh</a>:
 
 ```bash
-npx skills add railwayapp/railway-skills 
+npx skills add railwayapp/railway-skills
 ```
-
-This will allow you to pick and choose which skills to install.
 
 Supports Claude Code, OpenAI Codex, OpenCode, and Cursor. Re-run to update.
 
----
+**Note:** For Claude Code, you can also install through the [Claude Code plugin marketplace](/ai/claude-code-plugin).
 
-## Skills
+## The use-railway skill
 
-### Project management
+The repository ships one skill called `use-railway`. It uses a route-first design where intent routing is defined in the skill file and execution details are split into action-oriented references.
 
-#### Status
-Check Railway project status, services, and deployments. Use for "is it running", "what's deployed", or deployment status queries.
+### Workflow coverage
 
-#### Projects
-List all projects, switch between projects, rename projects, enable/disable PR deploys, and modify project settings.
+The `use-railway` skill covers the following areas:
 
-#### New
-Create new projects and services, scaffold code for deployment, link existing projects. Handles initial setup and adding services to existing projects.
+- **Project and service setup** - Create projects, add services, scaffold code for deployment, and link existing projects
+- **Deploy and release operations** - Push code to Railway, manage deployments, and handle the deployment lifecycle
+- **Troubleshooting and recovery** - View build and deploy logs, redeploy, restart, or remove deployments
+- **Environment config and variables** - Query and modify service configuration, environment variables, build/deploy commands, replicas, health checks, and restart policies
+- **Networking and domains** - Add Railway-provided domains, configure custom domains, and manage domain settings
+- **Status and observability** - Check project status, query resource usage metrics (CPU, memory, network, disk), and monitor services
+- **Projects and workspaces** - List projects, switch between projects, and manage project settings
+- **Docs and community search** - Fetch Railway documentation and search Central Station for community threads and discussions
 
-### Service operations
+## Source
 
-#### Service
-Check service status, rename services, change service icons, link different services, or create services with Docker images.
-
-#### Deploy
-Push local code to Railway using `railway up`. Supports detach mode (default) and CI mode for watching builds.
-
-#### Domain
-Add Railway-provided domains, configure custom domains, view current domains, or remove domains from services.
-
-### Configuration
-
-#### Environment
-Query and modify service configuration: environment variables, build/deploy commands, replicas, health checks, restart policies, and source settings. Also handles service deletion.
-
-### Infrastructure
-
-#### Database
-Add official Railway databases (Postgres, Redis, MySQL, MongoDB) with pre-configured volumes and connection variables. Handles wiring services to databases.
-
-#### Templates
-Search and deploy services from Railway's template marketplace (Ghost, Strapi, n8n, Minio, Uptime Kuma, etc.).
-
-### Monitoring and debugging
-
-#### Metrics
-Query resource usage metrics: CPU, memory, network, and disk. Useful for debugging performance issues.
-
-#### Deployment
-Manage deployment lifecycle: list deployments, view build/deploy logs, redeploy, restart, or remove deployments.
-
-### Resources
-
-#### Railway-docs
-Fetch up-to-date Railway documentation. Use for questions about Railway features, pricing, or how things work.
-
-#### Central-station
-Search Railway's Central Station community platform for threads, discussions, and support questions.
+The Railway agent skills are open-source and available on <a href="https://github.com/railwayapp/railway-skills" target="_blank">GitHub</a>.
