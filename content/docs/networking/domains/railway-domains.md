@@ -3,8 +3,6 @@ title: Railway Domains
 description: Purchase and manage domains directly within Railway.
 ---
 
-<PriorityBoardingBanner />
-
 You can search, purchase, and manage domains without leaving Railway. DNS is auto-configured, WHOIS privacy is included, and auto-renewal is on by default.
 
 ## Search for a domain
