@@ -58,7 +58,7 @@ As mentioned before, Railway at a high level takes your code, builds it, and thr
 
 - Build Layer
   - Where archived folders of code or a Dockerfile (via GitHub or `railway up`) is sent to be built into an image
-  - [Nixpacks](https://nixpacks.com/docs): the OSS software that reads your code and builds it via Nix
+  - [Railpack](https://railpack.com): Railway's build system that analyzes your code and generates optimized container images
   - Image Registry: either via Dockerhub/GitHub packages, or a previously built image from Railway's Build servers
 - Deployment Layer
   - Where images are ran in containers, images are pulled from the Build Layer
@@ -80,7 +80,7 @@ Railway uses a suite of alerting vendors, additional internal tools, and PagerDu
 
 ### Do I have to change how I write Code?
 
-No, Railway is a deployment platform that works with your existing code. We don't require you to change how you write code or use any specific frameworks. We support all languages and frameworks that can be run in a Docker container or within Nixpacks.
+No, Railway is a deployment platform that works with your existing code. We don't require you to change how you write code or use any specific frameworks. We support all languages and frameworks that can be run in a Docker container or via Railpack.
 
 ### Is Railway serverless?
 

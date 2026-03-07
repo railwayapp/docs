@@ -30,8 +30,7 @@ Configure your services with variables to manage secrets and configuration value
 | [**Builds**](/builds) | Understand how Railway builds your applications. |
 | [**Build Configuration**](/builds/build-configuration) | Configure build settings for your services. |
 | [**Dockerfiles**](/builds/dockerfiles) | Use Dockerfiles to define custom build processes. |
-| [**Railpack**](/builds/railpack) | Railway's next-generation build system. |
-| [**Nixpacks**](/builds/nixpacks) | The Nixpacks build system. |
+| [**Railpack**](/builds/railpack) | Railway's build system. |
 
 ## Deployments
 

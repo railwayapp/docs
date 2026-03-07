@@ -102,8 +102,7 @@
       "dockerfile": ["docker", "container", "containerfile"],
       "docker": ["container", "dockerfile", "containerize"],
 
-      "nixpacks": ["buildpack", "auto-build", "builder"],
-      "railpack": ["nixpacks", "buildpack", "builder"],
+      "railpack": ["buildpack", "builder"],
       "build": ["compile", "bundle", "package"],
 
       "environment variable": ["env var", "env", "config", "envvar", "variable"],

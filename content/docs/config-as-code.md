@@ -21,7 +21,7 @@ For example, these configuration definitions are equivalent:
 <CodeBlock>
   <CodeTab label="railway.toml" lang="toml">
 {`[build]
-builder = "nixpacks"
+builder = "railpack"
 buildCommand = "echo building!"
 
 [deploy]
@@ -35,7 +35,7 @@ restartPolicyType = "never"`}
 {`{
     "$schema": "https://railway.com/railway.schema.json",
     "build": {
-      "builder": "NIXPACKS",
+      "builder": "RAILPACK",
       "buildCommand": "echo building!"
     },
     "deploy": {

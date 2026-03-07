@@ -52,8 +52,6 @@ Possible values are:
 
 - `RAILPACK` (default)
 - `DOCKERFILE`
-- `NIXPACKS` (deprecated)
-
 Note: Railway will always build with a Dockerfile if it finds one. New services default to Railpack unless otherwise specified.
 
 Read more about Builds [here](/builds).
@@ -75,7 +73,7 @@ Read more about watch patterns [here](/builds/build-configuration#configure-watc
 
 ### Build command
 
-Build command to pass to the Nixpacks builder.
+Build command to pass to the builder.
 
 ```json
 {
@@ -125,102 +123,6 @@ This field can be set to `null`.
 You can also use the `RAILPACK_VERSION` [configuration
 variable](/variables/reference#user-provided-configuration-variables)
 to set the Railpack version.
-
-### Nixpacks config path
-
-Location of a non-standard [Nixpacks](https://nixpacks.com/docs/configuration/file) config file. This setting only applies to services using the deprecated Nixpacks builder.
-
-```json
-{
-  "$schema": "https://railway.com/railway.schema.json",
-  "build": {
-    "nixpacksConfigPath": "backend_nixpacks.toml"
-  }
-}
-```
-
-This field can be set to `null`.
-
-### Nixpacks plan
-
-Full nixpacks plan. See [the Nixpacks documentation](https://nixpacks.com/docs/configuration/file) for more info.
-
-```json
-{
-  "$schema": "https://railway.com/railway.schema.json",
-  "build": {
-    "nixpacksPlan": {
-      "providers": ["python", "node"],
-      "phases": {
-        "install": {
-          "dependsOn": ["setup"],
-          "cmds": ["npm ci"]
-        }
-      }
-    }
-  }
-}
-```
-
-This field can be set to `null`.
-
-You can also define specific options as follows.
-
-Here's an example of adding ffmpeg to the setup phase.
-
-```json
-{
-  "$schema": "https://railway.com/railway.schema.json",
-  "build": {
-    "nixpacksPlan": {
-      "phases": {
-        "setup": {
-          "nixPkgs": ["...", "ffmpeg"]
-        }
-      }
-    }
-  }
-}
-```
-
-#### Custom install command
-
-Use nixpacksPlan to configure a custom install command.
-
-```json
-{
-  "$schema": "https://railway.com/railway.schema.json",
-  "build": {
-    "nixpacksPlan": {
-      "phases": {
-        "install": {
-          "dependsOn": ["setup"],
-          "cmds": ["npm install --legacy-peer-deps"]
-        }
-      }
-    }
-  }
-}
-```
-
-### Nixpacks version
-
-Must be a valid Nixpacks version.
-
-```json
-{
-  "$schema": "https://railway.com/railway.schema.json",
-  "build": {
-    "nixpacksVersion": "1.29.1"
-  }
-}
-```
-
-This field can be set to `null`.
-
-You can also use the `NIXPACKS_VERSION` [configuration
-variable](/variables/reference#user-provided-configuration-variables)
-to set the Nixpacks version.
 
 ### Start command
 
@@ -423,14 +325,6 @@ Deployments for pull requests can be configured using a special `pr` environment
     }
   }
 }
-```
-
-### Configuring a build provider with Nixpacks
-
-To define a build provider ahead of time, create a `nixpacks.toml` file and configure it like so:
-
-```toml
-providers = ["...", "python"]
 ```
 
 ### Deployment teardown

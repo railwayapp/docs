@@ -27,8 +27,7 @@ const redirects = [
   // Builds troubleshooting
   {
     source: "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
-    destination:
-      "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination: "/builds/railpack",
     permanent: true,
   },
   // Networking troubleshooting
@@ -417,7 +416,7 @@ const redirects = [
   },
   {
     source: "/reference/nixpacks",
-    destination: "/builds/nixpacks",
+    destination: "/builds/railpack",
     permanent: true,
   },
   {
@@ -567,8 +566,7 @@ const redirects = [
   },
   {
     source: "/reference/errors/nixpacks-was-unable-to-generate-a-build-plan",
-    destination:
-      "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination: "/builds/railpack",
     permanent: true,
   },
   {
@@ -937,6 +935,16 @@ const redirects = [
   {
     source: "/reference/workspaces",
     destination: "/projects/workspaces",
+    permanent: true,
+  },
+  {
+    source: "/builds/nixpacks",
+    destination: "/builds/railpack",
+    permanent: true,
+  },
+  {
+    source: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination: "/builds/railpack",
     permanent: true,
   },
 ];

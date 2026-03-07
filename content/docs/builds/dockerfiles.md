@@ -78,11 +78,11 @@ Replace `<service id>` with the id of the service.
 
 ### Target path
 
-Unsure of what your target path should be? Refer to the <a href="https://github.com/railwayapp/nixpacks/tree/main" target="_blank">Nixpacks source code</a>. Within the providers directory, find the file that aligns with your respective language or runtime, and check for the variable that indicates the CACHE_DIR.
+Unsure of what your target path should be? Check your language or runtime's documentation for the default cache directory path.
 
 **Example**
 
-As an example, within the <a href="https://github.com/railwayapp/nixpacks/blob/main/src/providers/python.rs#L24" target="_blank">python provider definition</a>, you can see the `PIP_CACHE_DIR` is `/root/.cache/pip`.
+For Python, the `PIP_CACHE_DIR` is `/root/.cache/pip`.
 
 So the mount command is specified like this:
 

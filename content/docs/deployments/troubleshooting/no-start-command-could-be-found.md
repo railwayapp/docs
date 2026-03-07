@@ -5,17 +5,17 @@ description: Learn how to troubleshoot and fix the 'No Start Command Could be Fo
 
 ## What this error means
 
-Railway uses [Nixpacks](https://nixpacks.com/docs/how-it-works) to analyze your application's files to generate a container image for your application.s
+Railway uses [Railpack](https://railpack.com) to analyze your application's files to generate a container image for your application.
 
-Seeing the `No start command could be found` error means that [Nixpacks](https://nixpacks.com/docs) was unable to automatically find an appropriate start command for your application.
+Seeing the `No start command could be found` error means that Railway was unable to automatically find an appropriate start command for your application.
 
 A start command is a command that will be executed by Railway to run your application.
 
 ## Why this error can occur
 
-By default, Railway uses [Nixpacks](https://nixpacks.com/docs) to build and run your application. Nixpacks will try its best to find an appropriate start command for your application.
+By default, Railway uses [Railpack](https://railpack.com) to build and run your application. Railpack will try its best to find an appropriate start command for your application.
 
-Some limited examples of start commands that Nixpacks will try are -
+Some limited examples of start commands that Railway will try are -
 
 For Node based apps it will try to use `npm start`, `yarn start`, `pnpm start`, or `bun start` if a start script is present in your `package.json` file.
 
@@ -23,11 +23,11 @@ For Python apps it will try to use `python main.py` if a `main.py` file is prese
 
 For Ruby apps it will try to use `bundle exec rails server -b 0.0.0.0` if a Rails application is detected.
 
-Failing the automatic detection, Nixpacks will return the `No start command could be found` error.
+Failing the automatic detection, Railway will return the `No start command could be found` error.
 
 ## Possible solutions
 
-Since Nixpacks was unable to find a start command, you will need to specify a start command yourself.
+Since Railway was unable to find a start command, you will need to specify a start command yourself.
 
 You can do this in the [service settings](/overview/the-basics#service-settings) under the `Start Command` field.
 

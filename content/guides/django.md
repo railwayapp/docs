@@ -268,7 +268,7 @@ To deploy the Django app to Railway, start by pushing the app to a GitHub repo. 
 
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Django app](https://nixpacks.com/docs/providers/python).
+   **Note:** During the deployment process, Railway will automatically detect that it’s a Django app.
 
 7. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
