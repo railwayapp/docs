@@ -51,6 +51,7 @@ The `use-railway` skill covers the following areas:
 - **Deploy and release operations** - Push code to Railway, manage deployments, and handle the deployment lifecycle
 - **Troubleshooting and recovery** - View build and deploy logs, redeploy, restart, or remove deployments
 - **Environment config and variables** - Query and modify service configuration, environment variables, build/deploy commands, replicas, health checks, and restart policies
+- **Bucket management** - Create, list, inspect, rename, and delete storage buckets, and view or reset S3-compatible credentials
 - **Networking and domains** - Add Railway-provided domains, configure custom domains, and manage domain settings
 - **Status and observability** - Check project status, query resource usage metrics (CPU, memory, network, disk), and monitor services
 - **Projects and workspaces** - List projects, switch between projects, and manage project settings
