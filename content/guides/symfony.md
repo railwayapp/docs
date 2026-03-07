@@ -78,7 +78,7 @@ If you have your Symfony app locally, you can follow these steps:
    - In the `Enter a service name` prompt, enter `app-service`.
    - In the `Enter a variable` prompt, enter `DATABASE_URL=${{Postgres.DATABASE_URL}}`.
      - The value, `${{Postgres.DATABASE_URL}}`, references the URL of your new Postgres database. Learn more about [referencing service variables](/variables#referencing-another-services-variable).
-   - Set the other environment variables: - `APP_ENV=prod` - This setting informs Symfony that the app is running in a production environment, optimizing it for performance. - `APP_SECRET=secret` where _secret_ is your generated app secret. - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation. - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://nixpacks.com/docs/providers/php).
+   - Set the other environment variables: - `APP_ENV=prod` - This setting informs Symfony that the app is running in a production environment, optimizing it for performance. - `APP_SECRET=secret` where _secret_ is your generated app secret. - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation. - `RAILPACK_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://railpack.com/languages/php).
      **Note:** Explore the [Railway CLI reference](/cli#add) for a variety of options.
 5. **Deploy the Application**:
    - Run `railway up` to deploy your app.
@@ -111,14 +111,14 @@ To deploy a Symfony app to Railway directly from GitHub, follow the steps below:
      - `APP_ENV=prod` - This setting informs Symfony that the app is running in a production environment, optimizing it for performance.
      - `APP_SECRET=secret` where _secret_ is your generated app secret.
      - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation.
-     - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://nixpacks.com/docs/providers/php).
+     - `RAILPACK_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://railpack.com/languages/php).
 4. **Deploy the App Service**:
    - Click **Deploy** on the Railway project canvas to apply your changes.
 5. **Verify the Deployment**:
 
    - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a PHP app via Nixpacks](https://nixpacks.com/docs/providers/php).
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a PHP app via Railpack](https://railpack.com/languages/php).
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
@@ -196,7 +196,7 @@ Please follow these steps to get started:
      - `APP_ENV=prod`
      - `APP_SECRET=secret` where _secret_ is your generated app secret.
      - `COMPOSER_ALLOW_SUPERUSER="1"` - This is necessary to allow Composer to run as root, enabling the plugins that Symfony requires during installation.
-     - `NIXPACKS_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://nixpacks.com/docs/providers/php).
+     - `RAILPACK_PHP_ROOT_DIR="/app/public"` - This ensures the Nginx configuration points to the correct [root directory path to serve the app](https://railpack.com/languages/php).
      - `DATABASE_URL=${{Postgres.DATABASE_URL}}` (this references the URL of your Postgres database).
    - Click **Deploy**.
 4. Create a new service on the <a href="/overview/the-basics#project--project-canvas" target="_blank">Project Canvas</a>.

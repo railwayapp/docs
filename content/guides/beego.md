@@ -228,7 +228,7 @@ To deploy a Beego app to Railway directly from GitHub, follow the steps below:
 
    - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Go app](https://nixpacks.com/docs/providers/go).
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a Go app](https://railpack.com/languages/golang).
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

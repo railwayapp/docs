@@ -267,7 +267,6 @@ export const sidebarContent: ISidebarContent = [
           makePage("Dockerfiles", "builds"),
           makePage("Private registries", "builds"),
           makePage("Railpack", "builds"),
-          makePage("Nixpacks", "builds"),
         ],
       },
       {
@@ -298,10 +297,6 @@ export const sidebarContent: ISidebarContent = [
           makePage(
             "No start command could be found",
             "deployments/troubleshooting",
-          ),
-          makePage(
-            "Nixpacks was unable to generate a build plan",
-            "builds/troubleshooting",
           ),
         ],
       },

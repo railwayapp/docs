@@ -22,18 +22,6 @@ href="https://railpack.com/config/environment-variables"
 target="_blank">Railpack docs</a>. You can find a complete list of languages we
 support out of the box [here](/builds/railpack#supported-languages).
 
-## Nixpacks
-
-<DeprecationBanner>
-Nixpacks is deprecated and in maintenance mode. New services default to Railpack.
-</DeprecationBanner>
-
-Existing services will continue to work with Nixpacks. To migrate to Railpack, update your service settings or set `"builder": "RAILPACK"` in your railway.json file.
-
-For services still using Nixpacks, it can be configured with [environment variables](/variables#service-variables). For a full list of options, view the <a href="https://nixpacks.com/docs/guides/configuring-builds" target="_blank">Nixpacks docs</a>.
-
-You can find a complete list of languages we support out of the box [here](/builds/nixpacks#supported-languages).
-
 ## Customize the build command
 
 You can override the detected build command by setting a value in your service

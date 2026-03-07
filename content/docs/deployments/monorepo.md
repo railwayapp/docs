@@ -43,7 +43,7 @@ width={980} height={380} quality={80} />
 
 Popular in the JavaScript ecosystem, shared monorepos contain multiple components that all share a common root directory.
 
-By default, all components are built with a single command from the root directory (e.g. `npm run build`). However, if you are using Nixpacks, then you can override the build command in the service settings.
+By default, all components are built with a single command from the root directory (e.g. `npm run build`). You can override the build command in the service settings.
 
 ```
 ├── package.json

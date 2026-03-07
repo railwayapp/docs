@@ -14,7 +14,6 @@ The goal of this section is to guide you through the various ways to customize t
 |                         |                                                                                                                                                                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Railpack**            | <a href="https://railpack.com" target="_blank">Railpack</a> analyzes your code and generates optimized container images. |
-| **Nixpacks**            | <a href="https://nixpacks.com/docs" target="_blank">Nixpacks</a> is a legacy builder. (Deprecated) |
 | **Build Configuration** | Railway provides several ways to configure the build process to produce the desired result. If necessary, you have control over the build command, which root directory to build from, when to trigger a build, etc.      |
 | **Dockerfiles**         | Dockerfiles welcome! If you already have a build defined in a Dockerfile within your code repository, Railway will automatically use it to build your service.                                                            |
 

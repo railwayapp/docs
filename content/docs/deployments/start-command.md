@@ -24,7 +24,7 @@ When specifying a start command, the behavior depends on the type of deployment:
 
   This is because commands ran in exec form do not support variable expansion.
 
-- **Nixpacks**: the start command is ran in a shell process.
+- **Railpack**: the start command is ran in a shell process.
 
   This supports the use of environment variables without needing to wrap your command in a shell.
 
