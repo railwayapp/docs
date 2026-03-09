@@ -57,6 +57,12 @@ You are only charged for the amount of storage used by your volumes. _Each volum
 
 Services with volumes support manual and automated backups, backups are covered in the [backups](/volumes/backups) reference guide.
 
+## Deletion and Restoration
+
+When a volume is deleted, it is queued for deletion and will be permanently deleted within 48 hours. You can restore the volume during this period using the restoration link sent via email.
+
+After 48 hours, deletion becomes permanent and the volume cannot be restored.
+
 ## Caveats
 
 Here are some limitations of which we are currently aware:
