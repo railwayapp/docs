@@ -33,7 +33,7 @@ GET https://backboard.railway.com/oauth/auth
 If the user approves your application, they are redirected to your redirect URI with an authorization code:
 
 ```
-https://yourapp.com/callback?code=AUTHORIZATION_CODE&state=abc123
+https://yourapp.com/callback?code=AUTHORIZATION_CODE&state=abc123&iss=https%3A%2F%2Fbackboard.railway.com
 ```
 
 The code is short-lived and single-use. Exchange it for tokens immediately. If the user denies access, the redirect includes an `error` parameter instead.
