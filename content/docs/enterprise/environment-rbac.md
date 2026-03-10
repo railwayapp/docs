@@ -21,7 +21,7 @@ This separation allows development teams to deploy code while keeping production
 
 ## Enabling environment RBAC
 
-[Contact us](https://railway.com/enterprise) to enable Environment RBAC for your enterprise workspace.
+Subscribe to a [committed spend plan](/pricing/committed-spend) to enable RBAC.
 
 Once enabled for your workspace:
 
