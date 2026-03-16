@@ -161,7 +161,7 @@ const redirects = [
   },
   {
     source: "/guides/fixing-common-errors",
-    destination: "/reference/errors",
+    destination: "/networking/troubleshooting/application-failed-to-respond",
     permanent: true,
   },
   {
