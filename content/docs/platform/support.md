@@ -146,7 +146,7 @@ For companies who need dedicated support, we offer Business Class.
 Business Class is support and success designed for those who need the full 
 attention of Railway. Business Class support is a dedicated support channel 
 with SLOs for your company. Workspaces become eligible for Business Class 
-support after $2,000/mo in spend.
+support after $5,000/mo in spend.
 
 Reach out to us at [team@railway.com](mailto:team@railway.com) to enable your SLO.
 
@@ -160,7 +160,7 @@ We prioritize Business Class customers over all other support requests.
 | P2 (Bugs)                            | Same Business Day    |
 | P3 (Integrations, General Questions) | Two Business Days    |
 
-For Enterprise customers with $2,000/month committed spend who have a shared 
+For Enterprise customers with $5,000/month committed spend who have a shared 
 Slack Connect channel with us, you have access to "Critical" urgency level 
 support requests:
 
