@@ -117,7 +117,7 @@ export const sidebarContent: ISidebarContent = [
       {
         subTitle: "JavaScript / TypeScript",
         pages: [
-          makePage("Next.js", undefined, "/quick-start"),
+          makePage("Next.js", "guides", "/guides/nextjs"),
           makePage("Express", "guides", "/guides/express"),
           makePage("Fastify", "guides", "/guides/fastify"),
           makePage("Nest.js", "guides", "/guides/nest"),

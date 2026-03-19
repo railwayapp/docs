@@ -19,7 +19,7 @@ No configuration required for most applications. For advanced customization, see
 
 ### JavaScript / TypeScript
 
-- [Next.js](/quick-start)
+- [Next.js](/guides/nextjs)
 - [Express](/guides/express)
 - [Fastify](/guides/fastify)
 - [Nest.js](/guides/nest)
