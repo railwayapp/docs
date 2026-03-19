@@ -9,7 +9,7 @@ Learn how to deploy your apps quickly on Railway using your preferred languages 
 
     - [Fastify](/guides/fastify)
     - [Express](/guides/express)
-    - [Next.js](/quick-start)
+    - [Next.js](/guides/nextjs)
     - [Nest.js](/guides/nest)
     - [Sails](/guides/sails)
     - [React](/guides/react)
