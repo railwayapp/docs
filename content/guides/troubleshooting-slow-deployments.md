@@ -260,7 +260,7 @@ Upgrading your plan increases your **resource limits**, not guaranteed performan
 | Plan | Per-Replica vCPU Limit | Per-Replica Memory Limit |
 |------|------------------------|--------------------------|
 | **Hobby** | 8 vCPU | 8 GB |
-| **Pro** | 32 vCPU | 32 GB |
+| **Pro** | 24 vCPU | 24 GB |
 | **Enterprise** | Custom | Custom |
 
 Upgrading raises the ceiling on how many resources a single replica can use. Your application only uses what it needs, up to the limit.
