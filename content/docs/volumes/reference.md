@@ -17,7 +17,7 @@ Volumes have a default size based on the [subscription plan](/pricing/plans#plan
 - Hobby plans: **5GB**
 - Pro plan: **50GB**
 
-Volumes can be "Live resized" after upgrading to a different plan.
+Volumes can be resized on all paid plans (Hobby and Pro), including via live resize with zero downtime.
 
 Pro users and above can self-serve to increase their volume up to 250 GB.
 
@@ -74,7 +74,7 @@ Here are some limitations of which we are currently aware:
   and mounted to the same service. This means that there will be a small amount
   of downtime when re-deploying a service that has a volume attached, even if there is a healthcheck endpoint configured
 - Down-sizing a volume is not currently supported, but increasing size is supported
-- Volume resizing is performed live without downtime - the underlying storage is expanded while your service continues running, and the filesystem automatically extends to utilize the additional space
+- Volume resizing is performed live without downtime - the underlying storage is expanded while your service continues running, and the filesystem automatically extends to utilize the additional space. If a previous live resize failed, the "Grow" option is shown instead, which requires a service restart
 - There is no file browser, or direct file download. To access your files,
   you must do so via the attached service's mount point
 - Docker images that run as a non-root UID by default will have permissions issues when performing operations within an attached volume. If you are affected by this, you can set `RAILWAY_RUN_UID=0` environment variable in your service.

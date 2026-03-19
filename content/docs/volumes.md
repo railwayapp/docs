@@ -104,9 +104,7 @@ RAILWAY_RUN_UID=0
 
 ## Live Resizing the volume
 
-**_Only available to Pro users and above._**
-
-To increase capacity in a volume, you can "live resize" it from the volume settings.
+To increase capacity in a volume, you can "live resize" it from the volume settings. Live resize is available on all paid plans (Hobby and Pro).
 
 - Click on the volume to open the settings
 - Click `Live Resize`
@@ -117,11 +115,13 @@ To increase capacity in a volume, you can "live resize" it from the volume setti
     quality={100}
     width={1148}
     height={584}
-    src="https://res.cloudinary.com/railway/image/upload/v1730326473/docs/volumes/growvolume_zbsjjq.png"
+    src="https://res.cloudinary.com/railway/image/upload/v1773871052/docs/volumes/moocup-1773870976300_ncvn1i.png"
     alt="Live resize volume"
 />
 
 Railway performs volume resizing live without any downtime. The resize operation expands the underlying storage while your service continues running, and the filesystem is automatically extended to utilize the additional space. Your application maintains full read/write access throughout the entire process.
+
+If a previous live resize failed, the UI will show a "Grow" option instead of "Live Resize." The Grow operation requires a service restart to take effect.
 
 ## Backups
 
