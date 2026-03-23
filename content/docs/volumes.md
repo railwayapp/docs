@@ -121,7 +121,7 @@ To increase capacity in a volume, you can "live resize" it from the volume setti
 
 Railway performs volume resizing live without any downtime. The resize operation expands the underlying storage while your service continues running, and the filesystem is automatically extended to utilize the additional space. Your application maintains full read/write access throughout the entire process.
 
-If a previous live resize failed, the UI will show a "Grow" option instead of "Live Resize." The Grow operation requires a service restart to take effect.
+In certain scenarios, such as when a volume reaches 100% capacity, the system will automatically perform an offline resize instead to run data integrity checks. This will restart your service and result in brief downtime during the resize operation.
 
 ## Backups
 
