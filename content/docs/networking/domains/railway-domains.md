@@ -33,9 +33,9 @@ View all purchased domains at [railway.com/workspace/domains](https://railway.co
 
 ## DNS
 
-Railway fully manages DNS for purchased domains. Records are created and maintained automatically, with no manual configuration required.
+Railway fully manages DNS for purchased domains when pointing to Railway services, with no manual configuration required.
 
-If you need manual DNS control, purchase from an external registrar and use [custom domains](/networking/domains/working-with-domains#custom-domains) instead.
+If you need custom DNS records, you can select the domain on the [railway.com/workspace/domains](https://railway.com/workspace/domains) page where you can see a table of all the DNS records for the domain.
 
 ## Billing
 
@@ -72,7 +72,7 @@ Railway retries payment up to three times before the domain expires.
 </Collapse>
 
 <Collapse title="Can I manually configure DNS records?">
-No. DNS is fully managed by Railway. Use an external registrar with [custom domains](/networking/domains/working-with-domains#custom-domains) if you need manual DNS control.
+Yes. You can add/remove any DNS record for the domain.
 </Collapse>
 
 <Collapse title="Who is the registrant contact for my domain?">
