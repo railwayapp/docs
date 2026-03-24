@@ -12,6 +12,7 @@ The fastest way to deploy a database is through Railway's database templates:
 | Database | Description |
 | --- | --- |
 | [**PostgreSQL**](/databases/postgresql) | The world's most advanced open source relational database |
+| [**PostgreSQL HA**](/databases/postgresql-ha) | High-availability PostgreSQL cluster with automatic failover |
 | [**MySQL**](/databases/mysql) | Popular open source relational database |
 | [**Redis**](/databases/redis) | In-memory data store for caching and real-time data |
 | [**MongoDB**](/databases/mongodb) | Document-oriented NoSQL database |
