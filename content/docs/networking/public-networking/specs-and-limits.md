@@ -47,6 +47,6 @@ Certificate issuance should happen within an hour of your DNS being updated with
 
 For proxied domains (Cloudflare orange cloud), we may not always be able to issue a certificate for the domain, but Cloudflare to Railway traffic will be encrypted with TLS using the default Railway `*.up.railway.app` certificate.
 
-## Ddos protection
+## DDoS protection
 
 Railway Metal infrastructure is built to mitigate attacks at network layer 4 and below, however we do not provide protection on the application layer. If you need WAF functionality, we recommend using Cloudflare alongside Railway.
