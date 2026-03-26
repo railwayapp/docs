@@ -11,7 +11,7 @@ const TOPIC_IDS = {
   FRAMEWORKS: "frameworks",
   INFRASTRUCTURE: "infrastructure",
   CICD: "cicd",
-  TROUBLESHOOTING: "troubleshooting",
+  MISCELLANEOUS: "miscellaneous",
 } as const;
 
 type TopicId = (typeof TOPIC_IDS)[keyof typeof TOPIC_IDS];
@@ -64,14 +64,14 @@ const TOPICS: {
     ],
   },
   {
-    name: "Troubleshooting",
-    id: TOPIC_IDS.TROUBLESHOOTING,
-    description: "Diagnose and fix common issues",
+    name: "Miscellaneous",
+    id: TOPIC_IDS.MISCELLANEOUS,
+    description: "Troubleshooting and extended use cases",
     gradientLight:
       "from-[#95D0B4]/25 to-white hover:from-[#95D0B4]/40 hover:to-white",
     gradientDark:
       "dark:from-[#26543F]/25 dark:to-[#131415] dark:hover:from-[#26543F]/40 dark:hover:to-[#131415]",
-    featured: ["troubleshooting-slow-deployments", "troubleshooting-slow-apps"],
+    featured: [],
   },
 ];
 
@@ -85,19 +85,26 @@ interface GuidesPageProps {
   guides: Guide[];
 }
 
+const HIDDEN_SLUGS = new Set(["getting-started"]);
+
 const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
+  const visibleGuides = useMemo(
+    () => guides.filter(g => !HIDDEN_SLUGS.has(getGuideSlug(g))),
+    [guides],
+  );
+
   const filteredGuides = useMemo(() => {
-    if (!searchQuery) return guides;
+    if (!searchQuery) return visibleGuides;
     const query = searchQuery.toLowerCase();
-    return guides.filter(
+    return visibleGuides.filter(
       guide =>
         guide.title.toLowerCase().includes(query) ||
         guide.description.toLowerCase().includes(query) ||
         guide.tags?.some((tag: string) => tag.toLowerCase().includes(query)),
     );
-  }, [guides, searchQuery]);
+  }, [visibleGuides, searchQuery]);
 
   // Group guides by topic from frontmatter
   const groupedGuides = useMemo(() => {
@@ -106,14 +113,14 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
     for (const topic of TOPICS) {
       groups[topic.id] = [];
     }
-    groups["misc"] = [];
 
     for (const guide of filteredGuides) {
       const topic = guide.topic;
       if (topic && topicIds.has(topic)) {
         groups[topic].push(guide);
       } else {
-        groups["misc"].push(guide);
+        // Unassigned guides go into Miscellaneous
+        groups[TOPIC_IDS.MISCELLANEOUS].push(guide);
       }
     }
 
@@ -249,20 +256,6 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
               );
             })}
 
-            {/* Misc — guides with no topic assigned */}
-            {groupedGuides["misc"] && groupedGuides["misc"].length > 0 && (
-              <TopicSection
-                topic={{
-                  name: "Misc",
-                  id: "misc" as TopicId,
-                  description: "Additional guides and resources",
-                  gradientLight: "",
-                  gradientDark: "",
-                  featured: [],
-                }}
-                guides={groupedGuides["misc"]}
-              />
-            )}
           </>
         )}
 
@@ -306,9 +299,6 @@ function TopicSection({
             >
               <div className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors">
                 {guide.title}
-              </div>
-              <div className="text-muted-base text-sm mt-1 line-clamp-2">
-                {guide.description}
               </div>
             </Link>
           ))}
