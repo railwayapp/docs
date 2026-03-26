@@ -462,6 +462,10 @@ export const sidebarContent: ISidebarContent = [
           makePage("Manage volumes", "integrations/api"),
         ],
       },
+      {
+        subTitle: makePage("Stripe Provisioning", undefined, "/integrations/stripe"),
+        pages: [],
+      },
     ],
   },
   {
