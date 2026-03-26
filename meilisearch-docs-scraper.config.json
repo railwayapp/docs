@@ -7,9 +7,6 @@
   ],
   "js_render": false,
   "scrape_start_urls": false,
-  "stop_urls": [
-    "https://docs.railway.com/guides.*"
-  ],
   "selectors": {
     "lvl0": {
       "selector": ".sidebar .current-section",
