@@ -5,6 +5,7 @@ date: "2026-01-30"
 tags:
   - deployment
   - monorepo
+topic: infrastructure
 ---
 
 ## What is a monorepo?

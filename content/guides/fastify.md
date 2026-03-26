@@ -7,6 +7,7 @@ tags:
   - fastify
   - nodejs
   - backend
+topic: frameworks
 ---
 
 Fastify is a high-performance, low-overhead web framework for Node.js, designed to deliver an exceptional developer experience.

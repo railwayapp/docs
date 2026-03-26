@@ -8,6 +8,7 @@ tags:
   - express
   - scaling
   - secrets
+topic: infrastructure
 ---
 
 In this guide, you'll learn how to deploy a [Node.js](https://nodejs.org/) and [Express.js](https://expressjs.com/) API to production using Railway. You'll build and deploy an API with automatic scaling, environment secrets management, and preview environments.

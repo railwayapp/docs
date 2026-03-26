@@ -6,6 +6,7 @@ tags:
   - observability
   - opentelemetry
   - monitoring
+topic: infrastructure
 ---
 
 ## What is OpenTelemetry?

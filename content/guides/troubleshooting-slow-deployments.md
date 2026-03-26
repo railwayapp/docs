@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting Slow Deployments and Applications
 description: Learn how to diagnose and fix slow deployments and application performance issues on Railway.
+topic: troubleshooting
 ---
 
 When your deployment takes longer than expected or your application feels slow, it helps to understand what's happening behind the scenes. This guide walks you through Railway's deployment process, how to identify where slowdowns occur, and what you can do about them.

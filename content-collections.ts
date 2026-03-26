@@ -71,6 +71,7 @@ const guides = defineCollection({
       })
       .optional(),
     tags: z.array(z.string()).optional(),
+    topic: z.string().optional(),
   }),
   transform: async (doc, ctx) => {
     const code = await compileMDX(ctx, doc, {

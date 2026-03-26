@@ -7,6 +7,7 @@ tags:
   - remix
   - react
   - fullstack
+topic: frameworks
 ---
 
 [Remix](https://remix.run) is a full-stack web framework that empowers you to build fast, elegant, and resilient user experiences by focusing on the interface and working seamlessly with web standards. Your users will enjoy every moment spent with your product.

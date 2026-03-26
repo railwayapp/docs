@@ -7,6 +7,7 @@ tags:
   - rails
   - ruby
   - backend
+topic: frameworks
 ---
 
 Rails is a Ruby full-stack framework designed to compress the complexity of modern web apps. It ships with all the tools needed to build amazing web apps on both the front and back end.

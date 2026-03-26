@@ -7,6 +7,7 @@ tags:
   - django
   - python
   - backend
+topic: frameworks
 ---
 
 [Django](https://www.djangoproject.com) is a powerful Python web framework that simplifies web development by providing ready-to-use tools for rapid development and clean design.

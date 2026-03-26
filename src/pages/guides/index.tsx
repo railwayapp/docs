@@ -6,107 +6,76 @@ import { Icon } from "../../components/icon";
 import { Footer } from "../../components/footer";
 import { allGuides, Guide } from "content-collections";
 
-// Topic definitions with display order, anchor IDs, and gradient colors
-const TOPICS = [
+// Shared topic IDs — use these everywhere instead of raw strings
+const TOPIC_IDS = {
+  FRAMEWORKS: "frameworks",
+  INFRASTRUCTURE: "infrastructure",
+  CICD: "cicd",
+  TROUBLESHOOTING: "troubleshooting",
+} as const;
+
+type TopicId = (typeof TOPIC_IDS)[keyof typeof TOPIC_IDS];
+
+// Topic definitions with display config
+const TOPICS: {
+  name: string;
+  id: TopicId;
+  description: string;
+  gradientLight: string;
+  gradientDark: string;
+  featured: string[]; // slugs of 3 highlighted guides per section
+}[] = [
   {
-    name: "Frameworks",
-    id: "frameworks",
-    description: "Deploy your favorite framework on Railway",
-    gradientLight: "from-[#EFD580]/25 to-white hover:from-[#EFD580]/40 hover:to-white",
-    gradientDark: "dark:from-[#675518]/25 dark:to-[#131415] dark:hover:from-[#675518]/40 dark:hover:to-[#131415]",
+    name: "Frameworks & Integrations",
+    id: TOPIC_IDS.FRAMEWORKS,
+    description: "Deploy your favorite tools",
+    gradientLight:
+      "from-[#EFD580]/25 to-white hover:from-[#EFD580]/40 hover:to-white",
+    gradientDark:
+      "dark:from-[#675518]/25 dark:to-[#131415] dark:hover:from-[#675518]/40 dark:hover:to-[#131415]",
+    featured: ["nextjs", "django", "rails"],
   },
   {
     name: "Infrastructure",
-    id: "infrastructure",
-    description: "Monorepos, CDNs, observability, and more",
-    gradientLight: "from-[#8CAEF2]/25 to-white hover:from-[#8CAEF2]/40 hover:to-white",
-    gradientDark: "dark:from-[#1D4596]/25 dark:to-[#131415] dark:hover:from-[#1D4596]/40 dark:hover:to-[#131415]",
+    id: TOPIC_IDS.INFRASTRUCTURE,
+    description: "Security, observability, and more",
+    gradientLight:
+      "from-[#8CAEF2]/25 to-white hover:from-[#8CAEF2]/40 hover:to-white",
+    gradientDark:
+      "dark:from-[#1D4596]/25 dark:to-[#131415] dark:hover:from-[#1D4596]/40 dark:hover:to-[#131415]",
+    featured: [
+      "deploying-a-monorepo",
+      "deploy-an-otel-collector-stack",
+      "static-hosting",
+    ],
   },
   {
     name: "CI/CD",
-    id: "cicd",
-    description: "Automate deployments with GitHub Actions",
-    gradientLight: "from-[#F1C1C0]/25 to-white hover:from-[#F1C1C0]/40 hover:to-white",
-    gradientDark: "dark:from-[#741D1B]/25 dark:to-[#131415] dark:hover:from-[#741D1B]/40 dark:hover:to-[#131415]",
-  },
-  {
-    name: "Integrations",
-    id: "integrations",
-    description: "Connect external services and tools",
-    gradientLight: "from-[#95D0B4]/25 to-white hover:from-[#95D0B4]/40 hover:to-white",
-    gradientDark: "dark:from-[#26543F]/25 dark:to-[#131415] dark:hover:from-[#26543F]/40 dark:hover:to-[#131415]",
+    id: TOPIC_IDS.CICD,
+    description: "Automate deployments and rollouts",
+    gradientLight:
+      "from-[#F1C1C0]/25 to-white hover:from-[#F1C1C0]/40 hover:to-white",
+    gradientDark:
+      "dark:from-[#741D1B]/25 dark:to-[#131415] dark:hover:from-[#741D1B]/40 dark:hover:to-[#131415]",
+    featured: [
+      "github-actions-post-deploy",
+      "github-actions-pr-environment",
+      "github-actions-runners",
+    ],
   },
   {
     name: "Troubleshooting",
-    id: "troubleshooting",
+    id: TOPIC_IDS.TROUBLESHOOTING,
     description: "Diagnose and fix common issues",
-    gradientLight: "from-[#D4B4F1]/25 to-white hover:from-[#D4B4F1]/40 hover:to-white",
-    gradientDark: "dark:from-[#4A1D74]/25 dark:to-[#131415] dark:hover:from-[#4A1D74]/40 dark:hover:to-[#131415]",
+    gradientLight:
+      "from-[#95D0B4]/25 to-white hover:from-[#95D0B4]/40 hover:to-white",
+    gradientDark:
+      "dark:from-[#26543F]/25 dark:to-[#131415] dark:hover:from-[#26543F]/40 dark:hover:to-[#131415]",
+    featured: ["troubleshooting-slow-deployments", "troubleshooting-slow-apps"],
   },
-] as const;
+];
 
-// Map guide slugs to topic IDs
-const TOPIC_MAP: Record<string, string> = {
-  // Frameworks
-  nextjs: "frameworks",
-  express: "frameworks",
-  fastify: "frameworks",
-  nest: "frameworks",
-  remix: "frameworks",
-  nuxt: "frameworks",
-  astro: "frameworks",
-  sveltekit: "frameworks",
-  react: "frameworks",
-  vue: "frameworks",
-  angular: "frameworks",
-  solid: "frameworks",
-  sails: "frameworks",
-  fastapi: "frameworks",
-  flask: "frameworks",
-  django: "frameworks",
-  laravel: "frameworks",
-  symfony: "frameworks",
-  rails: "frameworks",
-  gin: "frameworks",
-  beego: "frameworks",
-  axum: "frameworks",
-  rocket: "frameworks",
-  "spring-boot": "frameworks",
-  play: "frameworks",
-  phoenix: "frameworks",
-  "phoenix-distillery": "frameworks",
-  luminus: "frameworks",
-  lovable: "frameworks",
-
-  // Infrastructure
-  caddy: "infrastructure",
-  "deploying-a-monorepo": "infrastructure",
-  "add-a-cdn-using-cloudfront": "infrastructure",
-  "deploy-an-otel-collector-stack": "infrastructure",
-  "set-up-a-datadog-agent": "infrastructure",
-  "static-hosting": "infrastructure",
-  "deploy-node-express-api-with-auto-scaling-secrets-and-zero-downtime":
-    "infrastructure",
-
-  // CI/CD
-  "github-actions-post-deploy": "cicd",
-  "github-actions-pr-environment": "cicd",
-  "github-actions-runners": "cicd",
-
-  // Integrations
-  "bridge-railway-to-rds-with-tailscale": "integrations",
-  "set-up-a-tailscale-subnet-router": "integrations",
-  "manage-domains": "integrations",
-  "manage-environments": "integrations",
-  "manage-volumes": "integrations",
-
-  // Troubleshooting
-  "troubleshooting-slow-apps": "troubleshooting",
-  "troubleshooting-slow-deployments": "troubleshooting",
-
-  // Getting Started goes into its own bucket handled separately
-  "getting-started": "getting-started",
-};
+const VISIBLE_LIST_COUNT = 15;
 
 function getGuideSlug(guide: Guide): string {
   return guide._raw.flattenedPath;
@@ -126,25 +95,25 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
       guide =>
         guide.title.toLowerCase().includes(query) ||
         guide.description.toLowerCase().includes(query) ||
-        guide.tags?.some(tag => tag.toLowerCase().includes(query)),
+        guide.tags?.some((tag: string) => tag.toLowerCase().includes(query)),
     );
   }, [guides, searchQuery]);
 
-  // Group guides by topic
+  // Group guides by topic from frontmatter
   const groupedGuides = useMemo(() => {
+    const topicIds = new Set<string>(TOPICS.map(t => t.id));
     const groups: Record<string, Guide[]> = {};
     for (const topic of TOPICS) {
       groups[topic.id] = [];
     }
-    groups["other"] = [];
+    groups["misc"] = [];
 
     for (const guide of filteredGuides) {
-      const slug = getGuideSlug(guide);
-      const topicId = TOPIC_MAP[slug];
-      if (topicId && topicId !== "getting-started" && groups[topicId]) {
-        groups[topicId].push(guide);
-      } else if (topicId !== "getting-started") {
-        groups["other"].push(guide);
+      const topic = guide.topic;
+      if (topic && topicIds.has(topic)) {
+        groups[topic].push(guide);
+      } else {
+        groups["misc"].push(guide);
       }
     }
 
@@ -201,7 +170,6 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         </div>
 
         {isSearching ? (
-          // Search results — flat list (same as old guides page)
           <>
             {filteredGuides.length > 0 ? (
               <div className="flex flex-col">
@@ -219,7 +187,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                         </h2>
                         {guide.tags && guide.tags.length > 0 && (
                           <div className="hidden sm:flex items-center gap-1.5 shrink-0">
-                            {guide.tags.slice(0, 3).map(tag => (
+                            {guide.tags.slice(0, 3).map((tag: string) => (
                               <span
                                 key={tag}
                                 className="px-2 py-0.5 text-xs font-medium rounded-md bg-muted-element text-muted-base"
@@ -243,11 +211,10 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
             )}
           </>
         ) : (
-          // Browse mode — featured topics + topic sections
           <>
             {/* Featured Topic Cards */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4 mb-16">
-              {TOPICS.slice(0, 4).map(topic => (
+              {TOPICS.map(topic => (
                 <a
                   key={topic.id}
                   href={`#${topic.id}`}
@@ -274,75 +241,121 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
               if (!topicGuides || topicGuides.length === 0) return null;
 
               return (
-                <div key={topic.id} id={topic.id} className="mb-16 scroll-mt-20">
-                  <h2
-                    className="text-2xl font-semibold mb-2 text-foreground"
-                    style={{ letterSpacing: "-0.5px" }}
-                  >
-                    {topic.name}
-                  </h2>
-                  <p className="text-muted-base text-base mb-6">
-                    {topic.description}
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {topicGuides.map(guide => (
-                      <Link
-                        key={guide.url}
-                        href={guide.url}
-                        className="group flex flex-col border rounded-lg p-5 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
-                      >
-                        <div className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors">
-                          {guide.title}
-                        </div>
-                        <div className="text-muted-base text-sm mt-1 line-clamp-2">
-                          {guide.description}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                <TopicSection
+                  key={topic.id}
+                  topic={topic}
+                  guides={topicGuides}
+                />
               );
             })}
 
-            {/* Other guides not in any topic */}
-            {groupedGuides["other"] && groupedGuides["other"].length > 0 && (
-              <div className="mb-16">
-                <h2
-                  className="text-2xl font-semibold mb-2 text-foreground"
-                  style={{ letterSpacing: "-0.5px" }}
-                >
-                  Other
-                </h2>
-                <p className="text-muted-base text-base mb-6">
-                  Additional guides and resources
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {groupedGuides["other"].map(guide => (
-                    <Link
-                      key={guide.url}
-                      href={guide.url}
-                      className="group flex flex-col border rounded-lg p-5 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
-                    >
-                      <div className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors">
-                        {guide.title}
-                      </div>
-                      <div className="text-muted-base text-sm mt-1 line-clamp-2">
-                        {guide.description}
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+            {/* Misc — guides with no topic assigned */}
+            {groupedGuides["misc"] && groupedGuides["misc"].length > 0 && (
+              <TopicSection
+                topic={{
+                  name: "Misc",
+                  id: "misc" as TopicId,
+                  description: "Additional guides and resources",
+                  gradientLight: "",
+                  gradientDark: "",
+                  featured: [],
+                }}
+                guides={groupedGuides["misc"]}
+              />
             )}
           </>
         )}
 
-        {/* Footer */}
         <Footer />
       </div>
     </>
   );
 };
+
+// Section component: 3 featured cards at top, then a list (scrollable after 15)
+function TopicSection({
+  topic,
+  guides,
+}: {
+  topic: (typeof TOPICS)[number];
+  guides: Guide[];
+}) {
+  const featuredSet = new Set(topic.featured);
+  const featured = guides.filter(g => featuredSet.has(getGuideSlug(g)));
+  const rest = guides.filter(g => !featuredSet.has(getGuideSlug(g)));
+  const needsScroll = rest.length > VISIBLE_LIST_COUNT;
+
+  return (
+    <div id={topic.id} className="mb-16 scroll-mt-20">
+      <h2
+        className="text-2xl font-semibold mb-2 text-foreground"
+        style={{ letterSpacing: "-0.5px" }}
+      >
+        {topic.name}
+      </h2>
+      <p className="text-muted-base text-base mb-6">{topic.description}</p>
+
+      {/* Featured guides as cards */}
+      {featured.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+          {featured.map(guide => (
+            <Link
+              key={guide.url}
+              href={guide.url}
+              className="group flex flex-col border rounded-lg p-5 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+            >
+              <div className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors">
+                {guide.title}
+              </div>
+              <div className="text-muted-base text-sm mt-1 line-clamp-2">
+                {guide.description}
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {/* Remaining guides as a list, scrollable after VISIBLE_LIST_COUNT */}
+      {rest.length > 0 && (
+        <div
+          className={
+            needsScroll
+              ? "max-h-[540px] overflow-y-auto border border-muted rounded-lg"
+              : ""
+          }
+        >
+          <div className="flex flex-col">
+            {rest.map((guide, index) => (
+              <div key={guide.url}>
+                {index > 0 && <hr className="border-muted" />}
+                <Link
+                  href={guide.url}
+                  className="group flex items-center justify-between gap-4 py-3 hover:bg-muted-element/50 px-3 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+                >
+                  <span className="text-sm font-medium text-muted-high-contrast group-hover:text-foreground transition-colors flex-1 min-w-0 truncate">
+                    {guide.title}
+                  </span>
+                  {guide.tags && guide.tags.length > 0 && (
+                    <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+                      {guide.tags.slice(0, 3).map((tag: string) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 text-xs font-medium rounded-md bg-muted-element text-muted-base"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default GuidesPage;
 

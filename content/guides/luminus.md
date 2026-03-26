@@ -7,6 +7,7 @@ tags:
   - luminus
   - clojure
   - backend
+topic: frameworks
 ---
 
 [Luminus](https://luminusweb.com) is a Clojure micro-framework based on a set of lightweight libraries. It aims to provide a robust, scalable, and easy to use platform. With Luminus you can focus on developing your app the way you want without any distractions.
