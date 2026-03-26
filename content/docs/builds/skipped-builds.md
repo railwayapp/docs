@@ -6,7 +6,7 @@ description: Save build time by reusing previously built images when the source 
 <Banner variant="primary">
   Skipped builds is an experimental feature. If you run into any issues or have
   feedback, we'd love to hear from you on{" "}
-  <a href="https://station.railway.com/support/skip-redundant-builds-with-image-caching-4b36e070" target="_blank">Central Station</a>.
+  <a href="https://station.railway.com/feedback/skip-redundant-builds-with-image-caching-4b36e070" target="_blank">Central Station</a>.
 </Banner>
 
 Railway can detect when the exact same code has already been built and skip the build entirely, deploying the cached image immediately instead. After you merge a Pull Request, your changes can be live instantly, without waiting for another build.
