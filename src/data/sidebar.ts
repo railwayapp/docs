@@ -265,6 +265,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Build configuration", "builds"),
           makePage("Build and start commands", "builds"),
+          makePage("Skipped builds", "builds"),
           makePage("Dockerfiles", "builds"),
           makePage("Private registries", "builds"),
           makePage("Railpack", "builds"),
