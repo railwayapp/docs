@@ -10,7 +10,6 @@ const TOPIC_IDS = {
   FRAMEWORKS: "frameworks",
   INFRASTRUCTURE: "infrastructure",
   CICD: "cicd",
-  MISCELLANEOUS: "miscellaneous",
 } as const;
 
 type TopicId = (typeof TOPIC_IDS)[keyof typeof TOPIC_IDS];
@@ -48,12 +47,6 @@ const TOPICS: {
       "github-actions-runners",
     ],
   },
-  {
-    name: "Miscellaneous",
-    id: TOPIC_IDS.MISCELLANEOUS,
-    description: "Troubleshooting and extended use cases",
-    featured: [],
-  },
 ];
 
 const VISIBLE_LIST_COUNT = 15;
@@ -66,28 +59,18 @@ interface GuidesPageProps {
   guides: Guide[];
 }
 
-const HIDDEN_SLUGS = new Set(["getting-started"]);
-
 const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
-  const visibleGuides = useMemo(
-    () => guides.filter(g => !HIDDEN_SLUGS.has(getGuideSlug(g))),
-    [guides],
-  );
-
   // Group guides by topic from frontmatter
   const groupedGuides = useMemo(() => {
-    const topicIds = new Set<string>(TOPICS.map(t => t.id));
     const groups: Record<string, Guide[]> = {};
     for (const topic of TOPICS) {
       groups[topic.id] = [];
     }
 
-    for (const guide of visibleGuides) {
+    for (const guide of guides) {
       const topic = guide.topic;
-      if (topic && topicIds.has(topic)) {
+      if (groups[topic]) {
         groups[topic].push(guide);
-      } else {
-        groups[TOPIC_IDS.MISCELLANEOUS].push(guide);
       }
     }
 
@@ -96,7 +79,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
     }
 
     return groups;
-  }, [visibleGuides]);
+  }, [guides]);
 
   return (
     <>
