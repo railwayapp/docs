@@ -7,6 +7,7 @@ tags:
   - nextjs
   - react
   - fullstack
+topic: frameworks
 ---
 
 [Next.js](https://nextjs.org) is a React framework for building full-stack web applications. It handles server-side rendering, static generation, API routes, and routing.

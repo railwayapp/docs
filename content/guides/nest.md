@@ -7,6 +7,7 @@ tags:
   - nestjs
   - nodejs
   - backend
+topic: frameworks
 ---
 
 [Nest](https://nestjs.com) is a modern Node.js framework designed to create efficient, reliable, and scalable server-side applications. Built on top of powerful HTTP server frameworks, it uses Express as the default but also offers seamless support for Fastify for enhanced performance and flexibility.

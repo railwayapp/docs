@@ -7,6 +7,7 @@ tags:
   - spring-boot
   - java
   - backend
+topic: frameworks
 ---
 
 [Spring Boot](https://spring.io/projects/spring-boot) is a Java framework designed to simplify the creation of stand-alone, production-ready Spring applications that are easy to run right out of the box.

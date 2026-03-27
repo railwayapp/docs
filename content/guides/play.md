@@ -7,6 +7,7 @@ tags:
   - play
   - scala
   - backend
+topic: frameworks
 ---
 
 [Play](https://www.playframework.com) is a high velocity and productive web framework for Java and Scala. It is based on a lightweight, stateless, web-friendly architecture and features predictable and minimal resource consumption (CPU, memory, threads) for highly-scalable applications thanks to its reactive model, based on Pekko Streams.

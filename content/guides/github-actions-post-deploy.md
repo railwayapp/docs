@@ -6,6 +6,7 @@ tags:
   - github-actions
   - ci-cd
   - automation
+topic: cicd
 ---
 
 [Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. This post talks about using Github Actions to run post-deploy actions.

@@ -7,6 +7,7 @@ tags:
   - nuxt
   - vue
   - fullstack
+topic: frameworks
 ---
 
 [Nuxt](https://nuxt.com) is a Vue.js framework that makes web development intuitive and powerful. You can create performant and production-grade full-stack web apps and websites with confidence.

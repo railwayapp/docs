@@ -7,6 +7,7 @@ tags:
   - symfony
   - php
   - backend
+topic: frameworks
 ---
 
 [Symfony](https://symfony.com) is a PHP web framework composed of a set of decoupled and reusable components all working together in harmony to create websites and web applications.

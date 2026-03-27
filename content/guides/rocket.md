@@ -7,6 +7,7 @@ tags:
   - rocket
   - rust
   - backend
+topic: frameworks
 ---
 
 [Rocket](https://rocket.rs) is a web framework for Rust that makes it simple to write fast, type-safe, secure web applications with incredible usability, productivity and performance.

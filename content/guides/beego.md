@@ -7,6 +7,7 @@ tags:
   - beego
   - go
   - backend
+topic: frameworks
 ---
 
 [Beego](https://github.com/beego/beego) is a high-performance, open-source web framework designed for building robust applications in Go (Golang). It is used for rapid development of enterprise apps, including RESTful APIs, web apps and backend services.

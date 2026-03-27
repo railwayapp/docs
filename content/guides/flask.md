@@ -7,6 +7,7 @@ tags:
   - flask
   - python
   - backend
+topic: frameworks
 ---
 
 [Flask](https://flask.palletsprojects.com/en/stable) is a Python micro framework for building web applications.

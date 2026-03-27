@@ -6,6 +6,7 @@ tags:
   - deployment
   - solidjs
   - frontend
+topic: frameworks
 ---
 
 [SolidJS](https://www.solidjs.com) is a modern JavaScript library for building responsive and high-performing user interfaces for web applications.

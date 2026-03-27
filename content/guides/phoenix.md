@@ -7,6 +7,7 @@ tags:
   - phoenix
   - elixir
   - backend
+topic: frameworks
 ---
 
 [Phoenix](https://phoenixframework.org) is popular Elixir framework designed for building scalable, maintainable, and high-performance web applications. It is known for its ability to handle real-time features efficiently, like WebSockets, while leveraging Elixir's concurrency model, which is built on the Erlang Virtual Machine (BEAM).

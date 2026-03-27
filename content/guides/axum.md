@@ -7,6 +7,7 @@ tags:
   - axum
   - rust
   - backend
+topic: frameworks
 ---
 
 [Axum](https://docs.rs/axum/latest/axum) is a web framework for Rust that focuses on ergonomics and modularity. It is designed to work with [tokio](https://docs.rs/tokio/1.40.0/x86_64-unknown-linux-gnu/tokio/index.html) and [hyper](https://docs.rs/hyper/1.4.1/x86_64-unknown-linux-gnu/hyper/index.html).

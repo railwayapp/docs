@@ -6,6 +6,7 @@ tags:
   - deployment
   - astro
   - frontend
+topic: frameworks
 ---
 
 [Astro](https://astro.build) is the web framework for content-driven websites. It's a JavaScript framework optimized for building fast, content-driven websites. It also supports every major UI framework, allowing you to bring in your existing components and benefit from Astro's optimized client build performance.

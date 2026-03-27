@@ -28,6 +28,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Best practices", "overview"),
       makePage("Advanced concepts", "overview"),
       makePage("Production readiness checklist", "overview"),
+      makePage("Guides", undefined, "/guides"),
     ],
   },
   {

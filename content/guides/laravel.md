@@ -7,6 +7,7 @@ tags:
   - laravel
   - php
   - backend
+topic: frameworks
 ---
 
 [Laravel](https://laravel.com) is a PHP framework designed for web artisans who value simplicity and elegance in their code. It stands out for its clean and expressive syntax, and offers built-in tools to handle many common tasks found in modern web applications, making development smoother and more enjoyable.

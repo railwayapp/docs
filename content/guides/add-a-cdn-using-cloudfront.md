@@ -7,6 +7,7 @@ tags:
   - cloudfront
   - aws
   - networking
+topic: infrastructure
 ---
 
 ## What is the purpose of a CDN?

@@ -7,6 +7,7 @@ tags:
   - deployment
   - vue
   - frontend
+topic: frameworks
 ---
 
 [Vue](https://vuejs.org), also known as Vue.js or VueJS, is a popular JavaScript library for building snappy, performant and versatile user interfaces for web applications.
