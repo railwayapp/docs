@@ -905,6 +905,26 @@ const redirects = [
     destination: "/deployments/troubleshooting/slow-deployments",
     permanent: true,
   },
+  {
+    source: "/guides/troubleshooting-slow-deployments",
+    destination: "/deployments/troubleshooting/slow-deployments",
+    permanent: true,
+  },
+  {
+    source: "/guides/manage-domains",
+    destination: "/integrations/api/manage-domains",
+    permanent: true,
+  },
+  {
+    source: "/guides/manage-environments",
+    destination: "/integrations/api/manage-environments",
+    permanent: true,
+  },
+  {
+    source: "/guides/manage-volumes",
+    destination: "/integrations/api/manage-volumes",
+    permanent: true,
+  },
   // OAuth redirects (from old live URLs)
   {
     source: "/reference/oauth/login-with-railway",
