@@ -10,8 +10,8 @@ Railway offers committed spend tiers for customers with consistent usage needs. 
 | Committed spend tier | Features                                                                             |
 | -------------------- | ------------------------------------------------------------------------------------ |
 | $1000                | 90-day log history, HIPAA BAAs                                                       |
-| $2000                | Single Sign-On, Role-based access control, 18 month Audit Logs retention, Enterprise Resource Limits             |
-| $5000                | Slack Connect channels,  Critical level support tickets, Railway owned cloud regions |
+| $2000                | Single Sign-On, Role-based access control, 18 month Audit Logs retention             |
+| $5000                | Slack Connect channels,  Critical level support tickets, Railway owned cloud regions, Enterprise Resource Limits |
 | $10000               | Dedicated instances, Bring your own cloud                                            |
 
 ## How to subscribe
