@@ -24,11 +24,11 @@ export const sidebarContent: ISidebarContent = [
   {
     content: [
       makePage("Quick start", undefined, "/quick-start"),
-      makePage("Guides", undefined, "/guides"),
       makePage("The basics", "overview"),
       makePage("Best practices", "overview"),
       makePage("Advanced concepts", "overview"),
       makePage("Production readiness checklist", "overview"),
+      makePage("Guides", undefined, "/guides"),
     ],
   },
   {

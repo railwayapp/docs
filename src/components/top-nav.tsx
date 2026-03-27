@@ -12,7 +12,6 @@ import SidebarItem from "./sidebar-item";
 import { Arrow } from "@/components/arrow";
 
 const navLinks = [
-  { title: "Guides", href: "/guides" },
   { title: "Changelog", href: "https://railway.com/changelog" },
   { title: "Central Station", href: "https://station.railway.com" },
 ];
