@@ -8,6 +8,8 @@ import { allGuides, Guide } from "content-collections";
 // Shared topic IDs — use these everywhere instead of raw strings
 const TOPIC_IDS = {
   FRAMEWORKS: "frameworks",
+  ARCHITECTURE: "architecture",
+  INTEGRATIONS: "integrations",
   INFRASTRUCTURE: "infrastructure",
   CICD: "cicd",
 } as const;
@@ -22,10 +24,26 @@ const TOPICS: {
   featured: string[]; // slugs of 3 highlighted guides per section
 }[] = [
   {
-    name: "Frameworks & Integrations",
+    name: "Frameworks & Runtimes",
     id: TOPIC_IDS.FRAMEWORKS,
     description: "Deploy your favorite tools",
     featured: ["nextjs", "django", "rails"],
+  },
+  {
+    name: "Architecture",
+    id: TOPIC_IDS.ARCHITECTURE,
+    description: "Patterns for production workloads",
+    featured: [
+      "cron-workers-queues",
+      "saas-backend",
+      "sse-vs-websockets",
+    ],
+  },
+  {
+    name: "Integrations",
+    id: TOPIC_IDS.INTEGRATIONS,
+    description: "Self-hosted tools and services",
+    featured: ["n8n", "playwright", "docker-compose"],
   },
   {
     name: "Infrastructure",
