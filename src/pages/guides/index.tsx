@@ -335,6 +335,25 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                 Topic
               </h3>
               <div className="flex flex-col gap-0.5">
+                <label
+                  className={cn(
+                    "flex items-center gap-2 text-sm px-2 py-1.5 rounded-md transition-colors cursor-pointer",
+                    activeTopic === "all"
+                      ? "text-foreground"
+                      : "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element/50",
+                  )}
+                >
+                  <input
+                    type="checkbox"
+                    checked={activeTopic === "all"}
+                    onChange={() => { setActiveTopic("all"); setShowAll(false); }}
+                    className="rounded border-muted text-primary-solid focus:ring-primary-solid focus:ring-offset-0 h-3.5 w-3.5"
+                  />
+                  <span className="flex-1 truncate">All</span>
+                  <span className="text-xs text-muted-base tabular-nums">
+                    {topicCounts.all}
+                  </span>
+                </label>
                 {TOPICS.map(topic => (
                   <label
                     key={topic.id}
@@ -346,11 +365,10 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                     )}
                   >
                     <input
-                      type="radio"
-                      name="topic"
+                      type="checkbox"
                       checked={activeTopic === topic.id}
                       onChange={() => { setActiveTopic(activeTopic === topic.id ? "all" : topic.id); setShowAll(false); }}
-                      className="border-muted text-primary-solid focus:ring-primary-solid focus:ring-offset-0 h-3.5 w-3.5"
+                      className="rounded border-muted text-primary-solid focus:ring-primary-solid focus:ring-offset-0 h-3.5 w-3.5"
                     />
                     <span className="flex-1 truncate">{topic.name}</span>
                     <span className="text-xs text-muted-base tabular-nums">
