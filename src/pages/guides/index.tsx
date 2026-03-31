@@ -1,7 +1,8 @@
 import { NextPage, GetStaticProps } from "next";
 import { useState, useMemo } from "react";
+import Head from "next/head";
 import { Link } from "../../components/link";
-import { SEO } from "../../components/seo";
+import { SEO, baseUrl } from "../../components/seo";
 import { Footer } from "../../components/footer";
 import { allGuides, Guide } from "content-collections";
 import { cn } from "@/lib/cn";
@@ -444,7 +445,36 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         title="Guides | Railway"
         description="In-depth guides, tutorials, and how-tos for deploying on Railway"
         url="https://docs.railway.com/guides"
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Guides", url: "/guides" },
+        ]}
       />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: "Railway Guides",
+              description: "In-depth guides, tutorials, and how-tos for deploying on Railway",
+              url: `${baseUrl}/guides`,
+              mainEntity: {
+                "@type": "ItemList",
+                numberOfItems: guides.length,
+                itemListElement: guides.map((guide, i) => ({
+                  "@type": "ListItem",
+                  position: i + 1,
+                  name: guide.title,
+                  url: `${baseUrl}${guide.url}`,
+                  description: guide.description,
+                })),
+              },
+            }),
+          }}
+        />
+      </Head>
       <div className="w-full z-10 flex gap-0 lg:gap-10">
         {/* Filter sidebar — desktop only */}
         <aside className="hidden lg:block w-48 shrink-0 sticky top-[77px] self-start max-h-[calc(100vh-77px)] overflow-y-auto pb-12">
@@ -612,14 +642,15 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
           {displayedGuides.length > 0 ? (
             <div className="flex flex-col gap-2">
               {displayedGuides.map(guide => (
+                <article key={guide.url}>
                   <Link
-                    key={guide.url}
                     href={guide.url}
                     className="group flex items-center gap-3 border rounded-lg px-4 py-3 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
                   >
                     <span className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors flex-1 min-w-0 truncate">
                       {guide.title}
                     </span>
+                    <p className="sr-only">{guide.description}</p>
 
                     <div className="hidden sm:flex items-center gap-1.5 shrink-0">
                       {guide.tags &&
@@ -644,6 +675,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                       </span>
                     </div>
                   </Link>
+                </article>
               ))}
             </div>
           ) : (
