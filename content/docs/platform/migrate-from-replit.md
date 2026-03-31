@@ -80,7 +80,7 @@ pg_restore --no-acl --no-owner -h <railway-db-host> -p <railway-db-port> -U <rai
 
 You can find your Railway Postgres connection details in the **Variables** tab of the database service.
 
-4. Update the `DATABASE_URL` variable in your app service to reference the Railway Postgres instance. You can use the [reference variable](/variables/reference-variables) `${{Postgres.DATABASE_URL}}` to keep the value in sync automatically.
+4. Update the `DATABASE_URL` variable in your app service to reference the Railway Postgres instance. You can use the [reference variable](/variables#reference-variables) `${{Postgres.DATABASE_URL}}` to keep the value in sync automatically.
 
 For more detail, see [PostgreSQL on Railway](/databases/postgresql).
 
@@ -134,11 +134,11 @@ If Railpack detects your project correctly, no configuration is needed.
 
 ## 6. Set up a public domain
 
-Replit provides `.replit.app` domains. On Railway, you can generate a `.railway.app` domain or configure a custom domain.
+Replit provides `.replit.app` domains. On Railway, you can generate a `.up.railway.app` domain or configure a custom domain.
 
 1. Click on your service in the project canvas.
 2. Go to the **Settings** tab.
-3. Under **Networking > Public Networking**, click **Generate Domain** to get a `.railway.app` domain.
+3. Under **Networking > Public Networking**, click **Generate Domain** to get a `.up.railway.app` domain.
 
 To use a custom domain, see [Custom Domains](/networking/domains).
 

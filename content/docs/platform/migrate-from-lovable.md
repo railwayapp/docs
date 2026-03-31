@@ -86,7 +86,7 @@ Where things may differ from Lovable's hosted environment:
 Railway services are not publicly accessible by default.
 
 1. Open your service and go to **Settings > Networking**.
-2. Click **Generate Domain** to get a `.railway.app` URL.
+2. Click **Generate Domain** to get a `.up.railway.app` URL.
 
 To use a custom domain, add it in the networking settings and update your DNS records. See [Custom Domains](/networking/domains) for instructions.
 

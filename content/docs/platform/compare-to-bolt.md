@@ -37,7 +37,7 @@ Railway gives you full control over your infrastructure. A single project can co
 
 Key infrastructure capabilities include:
 
-- Managed databases: PostgreSQL, MySQL, Redis, and MongoDB with backups, connection pooling, and database views.
+- Managed databases: PostgreSQL, MySQL, Redis, and MongoDB with backups and database views.
 - Persistent volumes for data storage.
 - Private networking between services.
 - Custom Dockerfiles for full build control.
@@ -88,7 +88,7 @@ There are no prompt limits or generation caps. You pay only for the infrastructu
 | **Private networking**     | Not available                                                         | Included at no extra cost                                                                        |
 | **Persistent storage**     | Not available                                                         | Persistent volumes supported                                                                     |
 | **Health checks**          | Not available                                                         | Supported with configurable endpoints                                                            |
-| **Zero-downtime deploys**  | Not available                                                         | Supported by default                                                                             |
+| **Zero-downtime deploys**  | Not available                                                         | Supported when health checks are configured                                                      |
 | **Rollbacks**              | Not available                                                         | Instant rollback to any previous deployment                                                      |
 | **Observability**          | Limited                                                               | Integrated metrics and logs                                                                      |
 | **Pricing model**          | Subscription-based with prompt limits                                 | Usage-based, pay for compute time and resources consumed                                         |

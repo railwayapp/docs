@@ -89,7 +89,7 @@ Railway is designed for running production workloads. It includes:
 - **Observability**: integrated logs and metrics for all services.
 - **Private networking**: services within a project communicate over a private network, not the public internet.
 - **Pre-deploy commands**: run database migrations or other setup steps before traffic is routed to a new deployment.
-- **Health checks**: configure HTTP or TCP health checks to verify a service is ready before it receives traffic.
+- **Health checks**: configure HTTP health checks to verify a service is ready before it receives traffic.
 - **Zero-downtime deployments**: new deployments are brought up alongside the existing one, and traffic switches only after the new deployment passes health checks.
 - **Rollbacks**: instantly roll back to a previous deployment if something goes wrong.
 
@@ -97,7 +97,7 @@ Railway is designed for running production workloads. It includes:
 
 ### Replit
 
-Replit offers Replit Database (a simple key-value store) and Replit PostgreSQL. These are useful for prototyping and small projects, but come with limited management tools and no advanced features like backups, connection pooling, or database metrics.
+Replit offers Replit Database (a simple key-value store) and Replit PostgreSQL. These are useful for prototyping and small projects, but come with limited management tools and no advanced features like backups or monitoring tools.
 
 ### Railway
 
@@ -119,7 +119,7 @@ Railway provides managed PostgreSQL, MySQL, Redis, and MongoDB. Each database in
 | **Vertical scaling**       | Upgrade to a higher plan for more resources                                | Auto-scales based on usage within plan limits                                                        |
 | **Horizontal scaling**     | Not supported                                                              | Multiple replicas with automatic load balancing across regions                                        |
 | **Pricing model**          | Subscription-based with fixed tiers                                        | Usage-based; pay for compute time and resources consumed                                             |
-| **Database options**       | Replit Database (key-value) and Replit PostgreSQL                           | Managed PostgreSQL, MySQL, Redis, MongoDB with backups and connection pooling                         |
+| **Database options**       | Replit Database (key-value) and Replit PostgreSQL                           | Managed PostgreSQL, MySQL, Redis, MongoDB with backups and database views                         |
 | **Private networking**     | Not available                                                              | Included for all projects                                                                            |
 | **Zero-downtime deploys**  | Not supported                                                              | Supported with health checks and automatic traffic switching                                         |
 | **Rollbacks**              | Not supported                                                              | Instant rollback to any previous deployment                                                          |

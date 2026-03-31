@@ -109,7 +109,7 @@ For services that need to be reachable from the internet (for example, a web ser
 1. Open the service's **Settings** tab.
 2. Under **Networking**, click **Generate Domain** to get a Railway-provided domain.
 
-This replaces the `ports:` mapping in your Compose file. See [Public Networking](/networking/public-networking#railway-provided-domain) for custom domains and other options.
+This replaces the `ports:` mapping in your Compose file. See [Domains](/networking/domains) for custom domains and other options.
 
 ## 5. Attach volumes
 

@@ -76,7 +76,7 @@ Some framework-specific notes:
 
 1. Select your service in the Project Canvas.
 2. Go to **Settings**.
-3. Under **Public Networking**, click **Generate Domain** to get a `.railway.app` URL.
+3. Under **Public Networking**, click **Generate Domain** to get a `.up.railway.app` URL.
 
 To use a custom domain, see [Custom Domains](/networking/domains).
 
