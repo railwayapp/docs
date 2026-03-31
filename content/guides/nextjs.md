@@ -7,6 +7,7 @@ tags:
   - nextjs
   - react
   - fullstack
+  - frontend
   - postgres
 topic: frameworks
 ---

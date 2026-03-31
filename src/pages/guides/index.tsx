@@ -19,7 +19,7 @@ type TopicId = (typeof TOPIC_IDS)[keyof typeof TOPIC_IDS];
 
 const TOPICS: { name: string; id: TopicId; description: string; color: string }[] = [
   {
-    name: "Frameworks & Runtimes",
+    name: "Frameworks",
     id: TOPIC_IDS.FRAMEWORKS,
     description: "Deploy your favorite tools",
     color: "bg-primary-element text-primary-base",

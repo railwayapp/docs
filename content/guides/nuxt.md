@@ -7,6 +7,7 @@ tags:
   - nuxt
   - vue
   - fullstack
+  - frontend
 topic: frameworks
 ---
 
