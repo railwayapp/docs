@@ -433,14 +433,9 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors truncate">
-                          {guide.title}
-                        </h3>
-                      </div>
-                      <p className="text-xs text-muted-base line-clamp-1">
-                        {guide.description}
-                      </p>
+                      <h3 className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors truncate">
+                        {guide.title}
+                      </h3>
                     </div>
 
                     {/* Topic tag */}
