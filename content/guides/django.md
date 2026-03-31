@@ -128,8 +128,8 @@ Open `liftoff/settings.py` and configure the static files settings:
 ```python
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 ```
 
 Add the WhiteNoise middleware in the **MIDDLEWARE** section, just below the [security middleware](https://docs.djangoproject.com/en/5.1/ref/middleware/#module-django.middleware.security):
