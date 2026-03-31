@@ -360,15 +360,6 @@ const FRAMEWORK_ICONS: {
   },
 ];
 
-// Map framework slug to icon for use on cards
-const FRAMEWORK_ICON_MAP = new Map(
-  FRAMEWORK_ICONS.map(fw => [fw.slug, fw.icon]),
-);
-
-function getGuideSlug(guide: Guide): string {
-  return guide._raw.flattenedPath;
-}
-
 interface GuidesPageProps {
   guides: Guide[];
 }
@@ -620,22 +611,12 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
           {/* Guide list */}
           {displayedGuides.length > 0 ? (
             <div className="flex flex-col gap-2">
-              {displayedGuides.map(guide => {
-                const slug = getGuideSlug(guide);
-                const icon = FRAMEWORK_ICON_MAP.get(slug);
-
-                return (
+              {displayedGuides.map(guide => (
                   <Link
                     key={guide.url}
                     href={guide.url}
                     className="group flex items-center gap-3 border rounded-lg px-4 py-3 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
                   >
-                    {icon && (
-                      <span className="shrink-0 [&>svg]:w-5 [&>svg]:h-5 [&>img]:w-5 [&>img]:h-5">
-                        {icon}
-                      </span>
-                    )}
-
                     <span className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors flex-1 min-w-0 truncate">
                       {guide.title}
                     </span>
@@ -663,8 +644,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                       </span>
                     </div>
                   </Link>
-                );
-              })}
+              ))}
             </div>
           ) : (
             <div className="text-center py-16">
