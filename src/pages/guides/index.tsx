@@ -235,18 +235,18 @@ function getGuideSlug(guide: Guide): string {
   return guide._raw.flattenedPath;
 }
 
-function getTopicLabel(topicId: string): string {
-  return TOPICS.find(t => t.id === topicId)?.name ?? topicId;
-}
-
 interface GuidesPageProps {
   guides: Guide[];
 }
 
-const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
-  const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
+const VISIBLE_COUNT = 20;
 
-  // Derive all unique tags sorted descending by count, excluding noisy ones
+const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
+  const [activeTopic, setActiveTopic] = useState<TopicId | "all">("all");
+  const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
+  const [showAll, setShowAll] = useState(false);
+
+  // Tags with count >= 2, sorted descending by count
   const tagsWithCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const guide of guides) {
@@ -257,19 +257,40 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
       }
     }
     return Object.entries(counts)
+      .filter(([, count]) => count >= 2)
       .sort((a, b) => b[1] - a[1])
       .map(([tag, count]) => ({ tag, count }));
   }, [guides]);
 
-  // Filter guides by selected tags (OR logic)
-  const filteredGuides = useMemo(() => {
-    const sorted = guides.slice().sort((a, b) => a.title.localeCompare(b.title));
-    if (activeTags.size === 0) return sorted;
+  const topicCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: guides.length };
+    for (const guide of guides) {
+      counts[guide.topic] = (counts[guide.topic] || 0) + 1;
+    }
+    return counts;
+  }, [guides]);
 
-    return sorted.filter(g =>
-      Array.from(activeTags).some(tag => g.tags?.includes(tag)),
-    );
-  }, [guides, activeTags]);
+  // Filter by topic + tags (OR logic for tags)
+  const filteredGuides = useMemo(() => {
+    let result = guides.slice();
+
+    if (activeTopic !== "all") {
+      result = result.filter(g => g.topic === activeTopic);
+    }
+
+    if (activeTags.size > 0) {
+      result = result.filter(g =>
+        Array.from(activeTags).some(tag => g.tags?.includes(tag)),
+      );
+    }
+
+    return result.sort((a, b) => a.title.localeCompare(b.title));
+  }, [guides, activeTopic, activeTags]);
+
+  const displayedGuides = showAll
+    ? filteredGuides
+    : filteredGuides.slice(0, VISIBLE_COUNT);
+  const hasMore = filteredGuides.length > VISIBLE_COUNT;
 
   const toggleTag = (tag: string) => {
     setActiveTags(prev => {
@@ -281,13 +302,16 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
       }
       return next;
     });
+    setShowAll(false);
   };
 
   const clearFilters = () => {
+    setActiveTopic("all");
     setActiveTags(new Set());
+    setShowAll(false);
   };
 
-  const hasActiveFilters = activeTags.size > 0;
+  const hasActiveFilters = activeTopic !== "all" || activeTags.size > 0;
 
   return (
     <>
@@ -300,25 +324,42 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         {/* Filter sidebar — desktop only */}
         <aside className="hidden lg:block w-48 shrink-0 sticky top-[77px] self-start max-h-[calc(100vh-77px)] overflow-y-auto pb-12">
           <div className="flex flex-col gap-6">
-            {/* Framework shortcuts */}
+            {/* Topics */}
             <div>
               <h3 className="text-xs font-medium uppercase tracking-wider text-muted-base mb-3">
-                Frameworks
+                Topic
               </h3>
-              <div className="grid grid-cols-2 gap-1.5">
-                {FRAMEWORK_ICONS.map(fw => (
-                  <Link
-                    key={fw.slug}
-                    href={fw.href}
-                    className="group flex flex-col items-center justify-center border rounded-md p-2 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+              <div className="flex flex-col gap-0.5">
+                <button
+                  onClick={() => { setActiveTopic("all"); setShowAll(false); }}
+                  className={cn(
+                    "text-left text-sm px-2 py-1.5 rounded-md transition-colors",
+                    activeTopic === "all"
+                      ? "bg-muted-element text-foreground font-medium"
+                      : "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element/50",
+                  )}
+                >
+                  All
+                  <span className="ml-1.5 text-xs text-muted-base">
+                    {topicCounts.all}
+                  </span>
+                </button>
+                {TOPICS.map(topic => (
+                  <button
+                    key={topic.id}
+                    onClick={() => { setActiveTopic(topic.id); setShowAll(false); }}
+                    className={cn(
+                      "text-left text-sm px-2 py-1.5 rounded-md transition-colors",
+                      activeTopic === topic.id
+                        ? "bg-muted-element text-foreground font-medium"
+                        : "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element/50",
+                    )}
                   >
-                    <span className="[&>svg]:w-4 [&>svg]:h-4 [&>img]:w-4 [&>img]:h-4">
-                      {fw.icon}
+                    {topic.name}
+                    <span className="ml-1.5 text-xs text-muted-base">
+                      {topicCounts[topic.id] || 0}
                     </span>
-                    <span className="text-[10px] mt-1 text-muted-base group-hover:text-foreground transition-colors text-center leading-tight">
-                      {fw.name}
-                    </span>
-                  </Link>
+                  </button>
                 ))}
               </div>
             </div>
@@ -385,36 +426,57 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
             </p>
           </div>
 
-          {/* Mobile tag filters */}
+          {/* Framework icons */}
+          <div className="mb-10">
+            <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
+              {FRAMEWORK_ICONS.map(fw => (
+                <Link
+                  key={fw.slug}
+                  href={fw.href}
+                  className="group flex flex-col items-center justify-center border rounded-lg p-3 md:p-4 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+                >
+                  {fw.icon}
+                  <span className="text-xs mt-1.5 text-muted-high-contrast group-hover:text-foreground transition-colors text-center">
+                    {fw.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile filters */}
           <div className="flex flex-wrap gap-1.5 mb-6 lg:hidden">
-            {tagsWithCounts.slice(0, 12).map(({ tag }) => (
+            <button
+              onClick={() => { setActiveTopic("all"); setShowAll(false); }}
+              className={cn(
+                "px-2.5 py-1 text-xs font-medium rounded-md transition-colors",
+                activeTopic === "all"
+                  ? "bg-foreground text-muted-app"
+                  : "bg-muted-element text-muted-high-contrast hover:bg-muted-element-hover",
+              )}
+            >
+              All
+            </button>
+            {TOPICS.map(topic => (
               <button
-                key={tag}
-                onClick={() => toggleTag(tag)}
+                key={topic.id}
+                onClick={() => { setActiveTopic(topic.id); setShowAll(false); }}
                 className={cn(
                   "px-2.5 py-1 text-xs font-medium rounded-md transition-colors",
-                  activeTags.has(tag)
+                  activeTopic === topic.id
                     ? "bg-foreground text-muted-app"
                     : "bg-muted-element text-muted-high-contrast hover:bg-muted-element-hover",
                 )}
               >
-                {tag}
+                {topic.name}
               </button>
             ))}
-            {hasActiveFilters && (
-              <button
-                onClick={clearFilters}
-                className="px-2.5 py-1 text-xs font-medium text-primary-base hover:text-primary-high-contrast transition-colors"
-              >
-                Clear
-              </button>
-            )}
           </div>
 
           {/* Guide list */}
-          {filteredGuides.length > 0 ? (
-            <div className="flex flex-col gap-3">
-              {filteredGuides.map(guide => {
+          {displayedGuides.length > 0 ? (
+            <div className="flex flex-col gap-2">
+              {displayedGuides.map(guide => {
                 const slug = getGuideSlug(guide);
                 const icon = FRAMEWORK_ICON_MAP.get(slug);
 
@@ -422,26 +484,33 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                   <Link
                     key={guide.url}
                     href={guide.url}
-                    className="group flex items-start gap-4 border rounded-lg p-4 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+                    className="group flex items-center gap-3 border rounded-lg px-4 py-3 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
                   >
-                    {/* Icon */}
                     {icon && (
-                      <span className="shrink-0 mt-0.5 [&>svg]:w-5 [&>svg]:h-5 [&>img]:w-5 [&>img]:h-5">
+                      <span className="shrink-0 [&>svg]:w-5 [&>svg]:h-5 [&>img]:w-5 [&>img]:h-5">
                         {icon}
                       </span>
                     )}
 
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors truncate">
-                        {guide.title}
-                      </h3>
-                    </div>
-
-                    {/* Topic tag */}
-                    <span className="hidden sm:inline-flex shrink-0 px-2 py-0.5 text-xs font-medium rounded-md bg-muted-element text-muted-base self-center">
-                      {getTopicLabel(guide.topic)}
+                    <span className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors flex-1 min-w-0 truncate">
+                      {guide.title}
                     </span>
+
+                    {guide.tags && guide.tags.length > 0 && (
+                      <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+                        {guide.tags
+                          .filter((t: string) => !EXCLUDED_TAGS.has(t))
+                          .slice(0, 3)
+                          .map((tag: string) => (
+                            <span
+                              key={tag}
+                              className="px-2 py-0.5 text-[11px] font-medium rounded-full border border-muted text-muted-base"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                      </div>
+                    )}
                   </Link>
                 );
               })}
@@ -458,6 +527,26 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                 Clear all filters
               </button>
             </div>
+          )}
+
+          {/* Show all / Show less */}
+          {hasMore && (
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="mt-4 text-sm font-medium text-primary-base hover:text-primary-high-contrast transition-colors flex items-center gap-1"
+            >
+              {showAll
+                ? "Show less"
+                : `Show all ${filteredGuides.length} guides`}
+              <span
+                className={cn(
+                  "text-base transition-transform duration-200",
+                  showAll ? "rotate-180" : "",
+                )}
+              >
+                ↓
+              </span>
+            </button>
           )}
 
           <Footer />
