@@ -15,23 +15,28 @@ const TOPIC_IDS = {
 
 type TopicId = (typeof TOPIC_IDS)[keyof typeof TOPIC_IDS];
 
-const TOPICS: { name: string; id: TopicId; description: string }[] = [
+const TOPICS: { name: string; id: TopicId; description: string; color: string }[] = [
   {
-    name: "Frameworks & Integrations",
+    name: "Frameworks",
     id: TOPIC_IDS.FRAMEWORKS,
     description: "Deploy your favorite tools",
+    color: "bg-primary-element text-primary-base",
   },
   {
     name: "Infrastructure",
     id: TOPIC_IDS.INFRASTRUCTURE,
     description: "Security, observability, and more",
+    color: "bg-success-element text-success-base",
   },
   {
     name: "CI/CD",
     id: TOPIC_IDS.CICD,
     description: "Automate deployments and rollouts",
+    color: "bg-warning-element text-warning-base",
   },
 ];
+
+const TOPIC_COLOR_MAP = new Map(TOPICS.map(t => [t.id, t.color]));
 
 // Tags to exclude from filter (too generic or noisy)
 const EXCLUDED_TAGS = new Set(["deployment"]);
@@ -330,36 +335,28 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                 Topic
               </h3>
               <div className="flex flex-col gap-0.5">
-                <button
-                  onClick={() => { setActiveTopic("all"); setShowAll(false); }}
-                  className={cn(
-                    "text-left text-sm px-2 py-1.5 rounded-md transition-colors",
-                    activeTopic === "all"
-                      ? "bg-muted-element text-foreground font-medium"
-                      : "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element/50",
-                  )}
-                >
-                  All
-                  <span className="ml-1.5 text-xs text-muted-base">
-                    {topicCounts.all}
-                  </span>
-                </button>
                 {TOPICS.map(topic => (
-                  <button
+                  <label
                     key={topic.id}
-                    onClick={() => { setActiveTopic(topic.id); setShowAll(false); }}
                     className={cn(
-                      "text-left text-sm px-2 py-1.5 rounded-md transition-colors",
+                      "flex items-center gap-2 text-sm px-2 py-1.5 rounded-md transition-colors cursor-pointer",
                       activeTopic === topic.id
-                        ? "bg-muted-element text-foreground font-medium"
+                        ? "text-foreground"
                         : "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element/50",
                     )}
                   >
-                    {topic.name}
-                    <span className="ml-1.5 text-xs text-muted-base">
+                    <input
+                      type="radio"
+                      name="topic"
+                      checked={activeTopic === topic.id}
+                      onChange={() => { setActiveTopic(activeTopic === topic.id ? "all" : topic.id); setShowAll(false); }}
+                      className="border-muted text-primary-solid focus:ring-primary-solid focus:ring-offset-0 h-3.5 w-3.5"
+                    />
+                    <span className="flex-1 truncate">{topic.name}</span>
+                    <span className="text-xs text-muted-base tabular-nums">
                       {topicCounts[topic.id] || 0}
                     </span>
-                  </button>
+                  </label>
                 ))}
               </div>
             </div>
@@ -496,9 +493,9 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                       {guide.title}
                     </span>
 
-                    {guide.tags && guide.tags.length > 0 && (
-                      <div className="hidden sm:flex items-center gap-1.5 shrink-0">
-                        {guide.tags
+                    <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+                      {guide.tags &&
+                        guide.tags
                           .filter((t: string) => !EXCLUDED_TAGS.has(t))
                           .slice(0, 3)
                           .map((tag: string) => (
@@ -509,8 +506,15 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                               {tag}
                             </span>
                           ))}
-                      </div>
-                    )}
+                      <span
+                        className={cn(
+                          "px-2 py-0.5 text-[11px] font-medium rounded-full",
+                          TOPIC_COLOR_MAP.get(guide.topic as TopicId) ?? "bg-muted-element text-muted-base",
+                        )}
+                      >
+                        {TOPICS.find(t => t.id === guide.topic)?.name ?? guide.topic}
+                      </span>
+                    </div>
                   </Link>
                 );
               })}
