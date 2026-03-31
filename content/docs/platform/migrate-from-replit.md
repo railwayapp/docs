@@ -37,7 +37,7 @@ git branch -M main
 git push -u origin main
 ```
 
-Remove the `.replit` and `replit.nix` files from your repository before pushing -- Railway does not use them.
+Remove the `.replit` and `replit.nix` files from your repository before pushing: Railway does not use them.
 
 ## 2. Create a Railway project
 

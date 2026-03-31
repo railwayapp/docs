@@ -26,6 +26,8 @@ Most real-time applications need one of two protocols: Server-Sent Events (SSE) 
 
 ## When to use SSE
 
+**Best for:** AI/LLM token streaming, live dashboards, notification feeds, and any scenario where the server pushes data and the client only listens.
+
 Use SSE when the server pushes data to the client and the client does not need to send data back. Common cases include:
 
 - **AI/LLM token streaming.** This is the most common use case. The server streams generated tokens to the client as they are produced.
@@ -37,6 +39,8 @@ SSE is simpler to implement and debug than WebSockets. The browser's `EventSourc
 **Limitation:** SSE only supports text data (no binary). It is unidirectional, so the client cannot send data back over the same connection. If you need to send data to the server, use a separate HTTP request.
 
 ## When to use WebSockets
+
+**Best for:** chat applications, multiplayer games, collaborative editors, and any scenario where both client and server send messages frequently.
 
 Use WebSockets when the client and server both need to send messages. Common cases include:
 

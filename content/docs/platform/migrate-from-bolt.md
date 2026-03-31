@@ -15,8 +15,8 @@ This guide covers how to move a Bolt-generated app to Railway for production hos
 
 Bolt provides two ways to get your code out:
 
-- **GitHub integration** -- If your Bolt project is already connected to GitHub, note the repository name. You will connect this same repo to Railway.
-- **Download as zip** -- In your Bolt project, download the project as a zip file. Extract it to a local directory.
+- **GitHub integration**: If your Bolt project is already connected to GitHub, note the repository name. You will connect this same repo to Railway.
+- **Download as zip**: In your Bolt project, download the project as a zip file. Extract it to a local directory.
 
 ## 2. Push to GitHub
 
@@ -57,8 +57,8 @@ Bolt projects often rely on environment variables for API keys, database connect
 
 If your Bolt project uses a database:
 
-- **External database (e.g., Supabase, PlanetScale)** -- Add the connection string as an environment variable in Railway. No other changes are needed.
-- **Railway-managed database** -- Right-click the Project Canvas and add a Postgres, MySQL, or Redis service. Railway provides connection variables automatically when you link the database to your service.
+- **External database (e.g., Supabase, PlanetScale)**: Add the connection string as an environment variable in Railway. No other changes are needed.
+- **Railway-managed database**: Right-click the Project Canvas and add a Postgres, MySQL, or Redis service. Railway provides connection variables automatically when you link the database to your service.
 
 See [Databases on Railway](/databases) for setup details.
 
@@ -68,9 +68,9 @@ Bolt typically generates React, Next.js, or Vite projects. Railway's build syste
 
 Some framework-specific notes:
 
-- **Next.js** -- Set `output: "standalone"` in your `next.config.js`. See the [Next.js guide](/guides/nextjs) for details.
-- **Vite SPA** -- If your app is a single-page application with client-side routing, you may need to configure static file serving or add a small server.
-- **Full-stack projects** -- If your Bolt project has both a frontend and a backend, deploy them as separate services within the same Railway project. Each service gets its own build and deploy configuration.
+- **Next.js**: Set `output: "standalone"` in your `next.config.js`. See the [Next.js guide](/guides/nextjs) for details.
+- **Vite SPA**: If your app is a single-page application with client-side routing, you may need to configure static file serving or add a small server.
+- **Full-stack projects**: If your Bolt project has both a frontend and a backend, deploy them as separate services within the same Railway project. Each service gets its own build and deploy configuration.
 
 ## 7. Set up a public domain
 

@@ -12,6 +12,8 @@ topic: architecture
 
 A typical SaaS backend needs an API, a database, background processing, and scheduled tasks. This guide walks through deploying that architecture on Railway as a single project.
 
+**Best for:** SaaS products that need an API, a database, background job processing, and scheduled tasks in a single project. This pattern fits applications that process webhooks, generate reports, send emails, or run data pipelines alongside the main API.
+
 ## Architecture overview
 
 This setup uses four components:

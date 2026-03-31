@@ -11,7 +11,6 @@ const TOPIC_IDS = {
   ARCHITECTURE: "architecture",
   INTEGRATIONS: "integrations",
   INFRASTRUCTURE: "infrastructure",
-  CICD: "cicd",
 } as const;
 
 type TopicId = (typeof TOPIC_IDS)[keyof typeof TOPIC_IDS];
@@ -36,14 +35,14 @@ const TOPICS: {
     featured: [
       "cron-workers-queues",
       "saas-backend",
-      "sse-vs-websockets",
+      "github-actions-pr-environment",
     ],
   },
   {
     name: "Integrations",
     id: TOPIC_IDS.INTEGRATIONS,
     description: "Self-hosted tools and services",
-    featured: ["n8n", "playwright", "docker-compose"],
+    featured: ["n8n", "lovable", "set-up-a-datadog-agent"],
   },
   {
     name: "Infrastructure",
@@ -53,16 +52,6 @@ const TOPICS: {
       "deploying-a-monorepo",
       "deploy-an-otel-collector-stack",
       "static-hosting",
-    ],
-  },
-  {
-    name: "CI/CD",
-    id: TOPIC_IDS.CICD,
-    description: "Automate deployments and rollouts",
-    featured: [
-      "github-actions-post-deploy",
-      "github-actions-pr-environment",
-      "github-actions-runners",
     ],
   },
 ];

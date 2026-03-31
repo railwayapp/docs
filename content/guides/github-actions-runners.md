@@ -6,7 +6,7 @@ tags:
   - github-actions
   - ci-cd
   - runners
-topic: cicd
+topic: architecture
 ---
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1746477484/docs/github-actions/j7y3ibttsmfepak5ohcb.png

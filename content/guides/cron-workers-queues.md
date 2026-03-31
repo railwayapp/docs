@@ -22,9 +22,9 @@ Most applications eventually need to run work outside the request-response cycle
 
 ### Cron jobs
 
-A cron job runs a task on a fixed schedule. The service starts, executes, and exits.
+**Best for:** scheduled, time-based tasks like report generation, data cleanup, periodic syncs, and cache warming.
 
-Use cron jobs for work that is time-based and self-contained: report generation, data cleanup, periodic syncs, cache warming.
+A cron job runs a task on a fixed schedule. The service starts, executes, and exits.
 
 On Railway, you configure a cron schedule on any service. The schedule uses standard five-field crontab expressions (e.g., `*/15 * * * *` for every 15 minutes). The minimum frequency is every 5 minutes. All cron schedules are evaluated in UTC.
 
@@ -36,9 +36,9 @@ For full configuration details, see [Cron Jobs](/cron-jobs).
 
 ### Background workers
 
-A background worker is an always-on service that processes work continuously. Unlike a cron job, it does not exit after completing a task.
+**Best for:** real-time event processing, long-running computations, streaming data pipelines, or any work that responds to events as they arrive.
 
-Use background workers for real-time event processing, long-running computations, streaming data pipelines, or any work that needs to respond to events as they arrive.
+A background worker is an always-on service that processes work continuously. Unlike a cron job, it does not exit after completing a task.
 
 On Railway, deploy a worker as a separate service in the same project as your API. Use [private networking](/networking/private-networking) to communicate between services over the internal network (`<service>.railway.internal`). Share database credentials across services using [reference variables](/variables#referencing-another-services-variable).
 
@@ -48,9 +48,9 @@ For more on creating and managing services, see [Services](/services).
 
 ### Message queues
 
-A message queue decouples the producer of work (typically your API) from the consumer (a worker). The queue broker holds jobs until a worker is ready to process them.
+**Best for:** decoupled task distribution where you need retry logic, load leveling, fan-out to multiple consumers, or rate-independent processing.
 
-Use message queues when you need retry logic, load leveling, fan-out to multiple consumers, or when your workers process jobs at a different rate than your API produces them.
+A message queue decouples the producer of work (typically your API) from the consumer (a worker). The queue broker holds jobs until a worker is ready to process them.
 
 Common queue libraries by language:
 
@@ -63,6 +63,14 @@ On Railway, deploy Redis as your queue backend. Your API service enqueues jobs, 
 **Failure mode:** if a worker crashes mid-job, the message stays in the queue (or goes to a dead-letter queue) depending on your acknowledgment pattern. The broker (Redis) itself needs monitoring; if Redis runs out of memory, jobs are lost unless persistence is enabled.
 
 For setting up Redis, see [Redis on Railway](/databases/redis).
+
+### Alternatives to Redis for queues
+
+Redis with BullMQ/Celery/Sidekiq is the most common pattern, but not the only option:
+
+- **RabbitMQ**: deploy as a Docker image on Railway. Better for complex routing, priority queues, and when you need message acknowledgment guarantees beyond what Redis offers.
+- **Postgres-based queues**: libraries like [graphile-worker](https://github.com/graphile/worker) (Node.js) or [pgboss](https://github.com/timgit/pg-boss) (Node.js) use your existing Postgres database as the queue backend. Fewer moving parts if you already have Postgres, but lower throughput than Redis.
+- **In-process scheduling**: for simple cases, a scheduling library like [node-cron](https://www.npmjs.com/package/node-cron) running inside your always-on service avoids the need for a separate queue. The tradeoff is that jobs are lost if the process restarts and you cannot scale consumers independently.
 
 ## How to set up each pattern on Railway
 

@@ -8,7 +8,7 @@ tags:
   - tailscale
   - networking
   - database
-topic: infrastructure
+topic: integrations
 ---
 
 ## How can you privately send traffic from Railway to RDS?

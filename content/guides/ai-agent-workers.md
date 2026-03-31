@@ -23,6 +23,8 @@ This pattern uses four components:
 
 This is a CPU-based architecture. The workers call external LLM APIs (OpenAI, Anthropic, etc.) over HTTP. They do not run models locally. Railway does not offer GPU instances.
 
+**Best for:** AI agent workflows where tasks take seconds to minutes, require multi-step LLM reasoning, and need state persistence across steps. Typical use cases include code generation agents, research assistants, data analysis pipelines, and automated customer support.
+
 ## When to use this pattern
 
 - Agent tasks take seconds to minutes, too long for a synchronous HTTP response.
