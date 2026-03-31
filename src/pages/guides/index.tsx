@@ -26,7 +26,7 @@ const TOPICS: {
     name: "Frameworks & Runtimes",
     id: TOPIC_IDS.FRAMEWORKS,
     description: "Deploy your favorite tools",
-    featured: ["nextjs", "django", "rails"],
+    featured: ["bun", "nextjs", "django"],
   },
   {
     name: "Architecture",
@@ -34,8 +34,8 @@ const TOPICS: {
     description: "Patterns for production workloads",
     featured: [
       "cron-workers-queues",
-      "saas-backend",
-      "github-actions-pr-environment",
+      "ai-agent-workers",
+      "github-actions-runners",
     ],
   },
   {
@@ -48,11 +48,7 @@ const TOPICS: {
     name: "Infrastructure",
     id: TOPIC_IDS.INFRASTRUCTURE,
     description: "Security, observability, and more",
-    featured: [
-      "deploying-a-monorepo",
-      "deploy-an-otel-collector-stack",
-      "static-hosting",
-    ],
+    featured: [],
   },
 ];
 
