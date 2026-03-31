@@ -1,5 +1,5 @@
 import { NextPage, GetStaticProps } from "next";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useCallback } from "react";
 import { Link } from "../../components/link";
 import { SEO } from "../../components/seo";
 import { Footer } from "../../components/footer";
@@ -17,7 +17,7 @@ type TopicId = (typeof TOPIC_IDS)[keyof typeof TOPIC_IDS];
 
 const TOPICS: { name: string; id: TopicId; description: string }[] = [
   {
-    name: "Frameworks",
+    name: "Frameworks & Integrations",
     id: TOPIC_IDS.FRAMEWORKS,
     description: "Deploy your favorite tools",
   },
@@ -33,28 +33,8 @@ const TOPICS: { name: string; id: TopicId; description: string }[] = [
   },
 ];
 
-// Tags shown in filter sidebar (those appearing in 2+ guides, excluding "deployment" which is too generic)
-const DISPLAY_TAGS = [
-  "backend",
-  "frontend",
-  "fullstack",
-  "nodejs",
-  "react",
-  "vue",
-  "python",
-  "go",
-  "rust",
-  "php",
-  "elixir",
-  "networking",
-  "observability",
-  "monitoring",
-  "ci-cd",
-  "github-actions",
-  "automation",
-  "aws",
-  "tailscale",
-];
+// Tags to exclude from filter (too generic or noisy)
+const EXCLUDED_TAGS = new Set(["deployment"]);
 
 // Framework icons from the homepage "Your stack, your way" section
 const FRAMEWORK_ICONS: {
@@ -246,47 +226,60 @@ const FRAMEWORK_ICONS: {
   },
 ];
 
-// Map framework slug to icon for use on cards
-const FRAMEWORK_ICON_MAP = new Map(
-  FRAMEWORK_ICONS.map(fw => [fw.slug, fw.icon]),
-);
-
-function getGuideSlug(guide: Guide): string {
-  return guide._raw.flattenedPath;
-}
-
-function getTopicLabel(topicId: string): string {
-  return TOPICS.find(t => t.id === topicId)?.name ?? topicId;
-}
-
 interface GuidesPageProps {
   guides: Guide[];
 }
 
 const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
-  const [activeTopic, setActiveTopic] = useState<TopicId | "all">("all");
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
 
-  const filteredGuides = useMemo(() => {
-    let result = guides;
-
-    if (activeTopic !== "all") {
-      result = result.filter(g => g.topic === activeTopic);
-    }
-
-    if (activeTags.size > 0) {
-      result = result.filter(g =>
-        Array.from(activeTags).every(tag => g.tags?.includes(tag)),
-      );
-    }
-
-    return result.sort((a, b) => a.title.localeCompare(b.title));
-  }, [guides, activeTopic, activeTags]);
-
-  const topicCounts = useMemo(() => {
-    const counts: Record<string, number> = { all: guides.length };
+  // Derive all unique tags from guide data, sorted alphabetically, excluding noisy ones
+  const allTags = useMemo(() => {
+    const tagSet = new Set<string>();
     for (const guide of guides) {
-      counts[guide.topic] = (counts[guide.topic] || 0) + 1;
+      for (const tag of guide.tags ?? []) {
+        if (!EXCLUDED_TAGS.has(tag)) {
+          tagSet.add(tag);
+        }
+      }
+    }
+    return Array.from(tagSet).sort((a, b) => a.localeCompare(b));
+  }, [guides]);
+
+  // Filter guides by selected tags (OR logic — guide must have at least one selected tag)
+  const filteredGuides = useMemo(() => {
+    if (activeTags.size === 0) return guides.slice().sort((a, b) => a.title.localeCompare(b.title));
+
+    return guides
+      .filter(g =>
+        Array.from(activeTags).some(tag => g.tags?.includes(tag)),
+      )
+      .sort((a, b) => a.title.localeCompare(b.title));
+  }, [guides, activeTags]);
+
+  // Group filtered guides by topic
+  const groupedGuides = useMemo(() => {
+    const groups: Record<string, Guide[]> = {};
+    for (const topic of TOPICS) {
+      groups[topic.id] = [];
+    }
+    for (const guide of filteredGuides) {
+      if (groups[guide.topic]) {
+        groups[guide.topic].push(guide);
+      }
+    }
+    return groups;
+  }, [filteredGuides]);
+
+  // Count guides per tag (from full set, not filtered)
+  const tagCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const guide of guides) {
+      for (const tag of guide.tags ?? []) {
+        if (!EXCLUDED_TAGS.has(tag)) {
+          counts[tag] = (counts[tag] || 0) + 1;
+        }
+      }
     }
     return counts;
   }, [guides]);
@@ -304,13 +297,10 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
   };
 
   const clearFilters = () => {
-    setActiveTopic("all");
     setActiveTags(new Set());
   };
 
-  const hasActiveFilters = activeTopic !== "all" || activeTags.size > 0;
-  const showFrameworkIcons =
-    activeTopic === "all" || activeTopic === TOPIC_IDS.FRAMEWORKS;
+  const hasActiveFilters = activeTags.size > 0;
 
   return (
     <>
@@ -323,65 +313,33 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         {/* Filter sidebar — desktop only */}
         <aside className="hidden lg:block w-48 shrink-0 sticky top-[77px] self-start max-h-[calc(100vh-77px)] overflow-y-auto pb-12">
           <div className="flex flex-col gap-6">
-            {/* Topics */}
-            <div>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-muted-base mb-3">
-                Topic
-              </h3>
-              <div className="flex flex-col gap-0.5">
-                <button
-                  onClick={() => setActiveTopic("all")}
-                  className={cn(
-                    "text-left text-sm px-2 py-1.5 rounded-md transition-colors",
-                    activeTopic === "all"
-                      ? "bg-muted-element text-foreground font-medium"
-                      : "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element/50",
-                  )}
-                >
-                  All
-                  <span className="ml-1.5 text-xs text-muted-base">
-                    {topicCounts.all}
-                  </span>
-                </button>
-                {TOPICS.map(topic => (
-                  <button
-                    key={topic.id}
-                    onClick={() => setActiveTopic(topic.id)}
-                    className={cn(
-                      "text-left text-sm px-2 py-1.5 rounded-md transition-colors",
-                      activeTopic === topic.id
-                        ? "bg-muted-element text-foreground font-medium"
-                        : "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element/50",
-                    )}
-                  >
-                    {topic.name}
-                    <span className="ml-1.5 text-xs text-muted-base">
-                      {topicCounts[topic.id] || 0}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
             {/* Tags */}
             <div>
               <h3 className="text-xs font-medium uppercase tracking-wider text-muted-base mb-3">
-                Tags
+                Filter by tag
               </h3>
               <div className="flex flex-col gap-0.5">
-                {DISPLAY_TAGS.map(tag => (
-                  <button
+                {allTags.map(tag => (
+                  <label
                     key={tag}
-                    onClick={() => toggleTag(tag)}
                     className={cn(
-                      "text-left text-sm px-2 py-1.5 rounded-md transition-colors",
+                      "flex items-center gap-2 text-sm px-2 py-1.5 rounded-md transition-colors cursor-pointer",
                       activeTags.has(tag)
-                        ? "bg-primary-element text-primary-base font-medium"
+                        ? "text-foreground"
                         : "text-muted-base hover:text-muted-high-contrast hover:bg-muted-element/50",
                     )}
                   >
-                    {tag}
-                  </button>
+                    <input
+                      type="checkbox"
+                      checked={activeTags.has(tag)}
+                      onChange={() => toggleTag(tag)}
+                      className="rounded border-muted text-primary-solid focus:ring-primary-solid focus:ring-offset-0 h-3.5 w-3.5"
+                    />
+                    <span className="flex-1 truncate">{tag}</span>
+                    <span className="text-xs text-muted-base tabular-nums">
+                      {tagCounts[tag] || 0}
+                    </span>
+                  </label>
                 ))}
               </div>
             </div>
@@ -392,7 +350,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                 onClick={clearFilters}
                 className="text-left text-sm text-primary-base hover:text-primary-high-contrast transition-colors px-2"
               >
-                Clear all filters
+                Clear filters
               </button>
             )}
           </div>
@@ -417,63 +375,66 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
             </p>
           </div>
 
-          {/* Mobile topic chips */}
-          <div className="flex flex-wrap gap-2 mb-8 lg:hidden">
-            <button
-              onClick={() => setActiveTopic("all")}
-              className={cn(
-                "px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
-                activeTopic === "all"
-                  ? "bg-foreground text-muted-app"
-                  : "bg-muted-element text-muted-high-contrast hover:bg-muted-element-hover",
-              )}
-            >
-              All
-            </button>
-            {TOPICS.map(topic => (
+          {/* Framework icons */}
+          <div className="mb-10">
+            <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
+              {FRAMEWORK_ICONS.map(fw => (
+                <Link
+                  key={fw.slug}
+                  href={fw.href}
+                  className="group flex flex-col items-center justify-center border rounded-lg p-3 md:p-4 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+                >
+                  {fw.icon}
+                  <span className="text-xs mt-1.5 text-muted-high-contrast group-hover:text-foreground transition-colors text-center">
+                    {fw.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile tag filters */}
+          <div className="flex flex-wrap gap-1.5 mb-6 lg:hidden">
+            {allTags.slice(0, 12).map(tag => (
               <button
-                key={topic.id}
-                onClick={() => setActiveTopic(topic.id)}
+                key={tag}
+                onClick={() => toggleTag(tag)}
                 className={cn(
-                  "px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
-                  activeTopic === topic.id
+                  "px-2.5 py-1 text-xs font-medium rounded-md transition-colors",
+                  activeTags.has(tag)
                     ? "bg-foreground text-muted-app"
                     : "bg-muted-element text-muted-high-contrast hover:bg-muted-element-hover",
                 )}
               >
-                {topic.name}
+                {tag}
               </button>
             ))}
+            {hasActiveFilters && (
+              <button
+                onClick={clearFilters}
+                className="px-2.5 py-1 text-xs font-medium text-primary-base hover:text-primary-high-contrast transition-colors"
+              >
+                Clear
+              </button>
+            )}
           </div>
 
-          {/* Framework icons */}
-          {showFrameworkIcons && (
-            <div className="mb-8">
-              <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
-                {FRAMEWORK_ICONS.map(fw => (
-                  <Link
-                    key={fw.slug}
-                    href={fw.href}
-                    className="group flex flex-col items-center justify-center border rounded-lg p-3 md:p-4 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
-                  >
-                    {fw.icon}
-                    <span className="text-xs mt-1.5 text-muted-high-contrast group-hover:text-foreground transition-colors text-center">
-                      {fw.name}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Topic sections with horizontal scroll cards */}
+          {TOPICS.map(topic => {
+            const topicGuides = groupedGuides[topic.id];
+            if (!topicGuides || topicGuides.length === 0) return null;
 
-          {/* Guide cards grid */}
-          {filteredGuides.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {filteredGuides.map(guide => (
-                <GuideCard key={guide.url} guide={guide} />
-              ))}
-            </div>
-          ) : (
+            return (
+              <TopicSection
+                key={topic.id}
+                topic={topic}
+                guides={topicGuides}
+              />
+            );
+          })}
+
+          {/* Empty state */}
+          {filteredGuides.length === 0 && (
             <div className="text-center py-16">
               <p className="text-muted-base text-sm">
                 No guides match your filters.
@@ -494,43 +455,109 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
   );
 };
 
-function GuideCard({ guide }: { guide: Guide }) {
-  const slug = getGuideSlug(guide);
-  const icon = FRAMEWORK_ICON_MAP.get(slug);
+// Horizontally scrollable cards at top, then full list below
+function TopicSection({
+  topic,
+  guides,
+}: {
+  topic: (typeof TOPICS)[number];
+  guides: Guide[];
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollRight = useCallback(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  }, []);
 
   return (
-    <Link
-      href={guide.url}
-      className="group flex flex-col border rounded-lg p-5 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
-    >
-      <div className="mb-3 flex items-center gap-2">
-        {icon && <span className="shrink-0 [&>svg]:w-5 [&>svg]:h-5 [&>img]:w-5 [&>img]:h-5">{icon}</span>}
-        <span className="text-xs font-medium text-muted-base uppercase tracking-wide">
-          {getTopicLabel(guide.topic)}
-        </span>
-      </div>
+    <div className="mb-12">
+      <h2
+        className="text-2xl font-semibold mb-1 text-foreground"
+        style={{ letterSpacing: "-0.5px" }}
+      >
+        {topic.name}
+      </h2>
+      <p className="text-muted-base text-sm mb-4">{topic.description}</p>
 
-      <h3 className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors mb-2">
-        {guide.title}
-      </h3>
-
-      <p className="text-xs text-muted-base line-clamp-2 mb-3 flex-1">
-        {guide.description}
-      </p>
-
-      {guide.tags && guide.tags.length > 0 && (
-        <div className="flex flex-wrap gap-1 mt-auto">
-          {guide.tags.slice(0, 3).map((tag: string) => (
-            <span
-              key={tag}
-              className="px-2 py-0.5 text-xs font-medium rounded-md bg-muted-element text-muted-base"
+      {/* Horizontal scroll cards */}
+      <div className="relative group/scroll mb-6">
+        <div
+          ref={scrollRef}
+          className="flex gap-3 overflow-x-auto pb-2 scrollbar-none"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {guides.slice(0, 8).map(guide => (
+            <Link
+              key={guide.url}
+              href={guide.url}
+              className="shrink-0 w-56 flex flex-col border rounded-lg p-4 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
             >
-              {tag}
-            </span>
+              <span className="font-medium text-sm text-foreground line-clamp-2 mb-1.5">
+                {guide.title}
+              </span>
+              <span className="text-xs text-muted-base line-clamp-2">
+                {guide.description}
+              </span>
+            </Link>
           ))}
         </div>
-      )}
-    </Link>
+        {/* Scroll arrow */}
+        {guides.length > 3 && (
+          <button
+            onClick={scrollRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-8 h-8 rounded-full bg-muted-app border border-muted shadow-sm flex items-center justify-center opacity-0 group-hover/scroll:opacity-100 transition-opacity"
+            aria-label="Scroll right"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              className="text-muted-high-contrast"
+            >
+              <path
+                d="M6 3l5 5-5 5"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        )}
+      </div>
+
+      {/* Full list */}
+      <div className="flex flex-col">
+        {guides.map((guide, index) => (
+          <div key={guide.url}>
+            {index > 0 && <hr className="border-muted" />}
+            <Link
+              href={guide.url}
+              className="group flex items-center justify-between gap-4 py-3 hover:bg-muted-element/50 -mx-3 px-3 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
+            >
+              <span className="text-sm font-medium text-muted-high-contrast group-hover:text-foreground transition-colors flex-1 min-w-0 truncate">
+                {guide.title}
+              </span>
+              {guide.tags && guide.tags.length > 0 && (
+                <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+                  {guide.tags.slice(0, 3).map((tag: string) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 text-xs font-medium rounded-md bg-muted-element text-muted-base"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
