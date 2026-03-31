@@ -1,5 +1,5 @@
 import { NextPage, GetStaticProps } from "next";
-import { useState, useMemo, useRef, useCallback } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "../../components/link";
 import { SEO } from "../../components/seo";
 import { Footer } from "../../components/footer";
@@ -226,6 +226,19 @@ const FRAMEWORK_ICONS: {
   },
 ];
 
+// Map framework slug to icon for use on cards
+const FRAMEWORK_ICON_MAP = new Map(
+  FRAMEWORK_ICONS.map(fw => [fw.slug, fw.icon]),
+);
+
+function getGuideSlug(guide: Guide): string {
+  return guide._raw.flattenedPath;
+}
+
+function getTopicLabel(topicId: string): string {
+  return TOPICS.find(t => t.id === topicId)?.name ?? topicId;
+}
+
 interface GuidesPageProps {
   guides: Guide[];
 }
@@ -233,46 +246,8 @@ interface GuidesPageProps {
 const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
 
-  // Derive all unique tags from guide data, sorted alphabetically, excluding noisy ones
-  const allTags = useMemo(() => {
-    const tagSet = new Set<string>();
-    for (const guide of guides) {
-      for (const tag of guide.tags ?? []) {
-        if (!EXCLUDED_TAGS.has(tag)) {
-          tagSet.add(tag);
-        }
-      }
-    }
-    return Array.from(tagSet).sort((a, b) => a.localeCompare(b));
-  }, [guides]);
-
-  // Filter guides by selected tags (OR logic — guide must have at least one selected tag)
-  const filteredGuides = useMemo(() => {
-    if (activeTags.size === 0) return guides.slice().sort((a, b) => a.title.localeCompare(b.title));
-
-    return guides
-      .filter(g =>
-        Array.from(activeTags).some(tag => g.tags?.includes(tag)),
-      )
-      .sort((a, b) => a.title.localeCompare(b.title));
-  }, [guides, activeTags]);
-
-  // Group filtered guides by topic
-  const groupedGuides = useMemo(() => {
-    const groups: Record<string, Guide[]> = {};
-    for (const topic of TOPICS) {
-      groups[topic.id] = [];
-    }
-    for (const guide of filteredGuides) {
-      if (groups[guide.topic]) {
-        groups[guide.topic].push(guide);
-      }
-    }
-    return groups;
-  }, [filteredGuides]);
-
-  // Count guides per tag (from full set, not filtered)
-  const tagCounts = useMemo(() => {
+  // Derive all unique tags sorted descending by count, excluding noisy ones
+  const tagsWithCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const guide of guides) {
       for (const tag of guide.tags ?? []) {
@@ -281,8 +256,20 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         }
       }
     }
-    return counts;
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([tag, count]) => ({ tag, count }));
   }, [guides]);
+
+  // Filter guides by selected tags (OR logic)
+  const filteredGuides = useMemo(() => {
+    const sorted = guides.slice().sort((a, b) => a.title.localeCompare(b.title));
+    if (activeTags.size === 0) return sorted;
+
+    return sorted.filter(g =>
+      Array.from(activeTags).some(tag => g.tags?.includes(tag)),
+    );
+  }, [guides, activeTags]);
 
   const toggleTag = (tag: string) => {
     setActiveTags(prev => {
@@ -313,13 +300,36 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         {/* Filter sidebar — desktop only */}
         <aside className="hidden lg:block w-48 shrink-0 sticky top-[77px] self-start max-h-[calc(100vh-77px)] overflow-y-auto pb-12">
           <div className="flex flex-col gap-6">
+            {/* Framework shortcuts */}
+            <div>
+              <h3 className="text-xs font-medium uppercase tracking-wider text-muted-base mb-3">
+                Frameworks
+              </h3>
+              <div className="grid grid-cols-2 gap-1.5">
+                {FRAMEWORK_ICONS.map(fw => (
+                  <Link
+                    key={fw.slug}
+                    href={fw.href}
+                    className="group flex flex-col items-center justify-center border rounded-md p-2 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+                  >
+                    <span className="[&>svg]:w-4 [&>svg]:h-4 [&>img]:w-4 [&>img]:h-4">
+                      {fw.icon}
+                    </span>
+                    <span className="text-[10px] mt-1 text-muted-base group-hover:text-foreground transition-colors text-center leading-tight">
+                      {fw.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             {/* Tags */}
             <div>
               <h3 className="text-xs font-medium uppercase tracking-wider text-muted-base mb-3">
-                Filter by tag
+                Tags
               </h3>
               <div className="flex flex-col gap-0.5">
-                {allTags.map(tag => (
+                {tagsWithCounts.map(({ tag, count }) => (
                   <label
                     key={tag}
                     className={cn(
@@ -337,7 +347,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                     />
                     <span className="flex-1 truncate">{tag}</span>
                     <span className="text-xs text-muted-base tabular-nums">
-                      {tagCounts[tag] || 0}
+                      {count}
                     </span>
                   </label>
                 ))}
@@ -375,27 +385,9 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
             </p>
           </div>
 
-          {/* Framework icons */}
-          <div className="mb-10">
-            <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
-              {FRAMEWORK_ICONS.map(fw => (
-                <Link
-                  key={fw.slug}
-                  href={fw.href}
-                  className="group flex flex-col items-center justify-center border rounded-lg p-3 md:p-4 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
-                >
-                  {fw.icon}
-                  <span className="text-xs mt-1.5 text-muted-high-contrast group-hover:text-foreground transition-colors text-center">
-                    {fw.name}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
           {/* Mobile tag filters */}
           <div className="flex flex-wrap gap-1.5 mb-6 lg:hidden">
-            {allTags.slice(0, 12).map(tag => (
+            {tagsWithCounts.slice(0, 12).map(({ tag }) => (
               <button
                 key={tag}
                 onClick={() => toggleTag(tag)}
@@ -419,22 +411,47 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
             )}
           </div>
 
-          {/* Topic sections with horizontal scroll cards */}
-          {TOPICS.map(topic => {
-            const topicGuides = groupedGuides[topic.id];
-            if (!topicGuides || topicGuides.length === 0) return null;
+          {/* Guide list */}
+          {filteredGuides.length > 0 ? (
+            <div className="flex flex-col gap-3">
+              {filteredGuides.map(guide => {
+                const slug = getGuideSlug(guide);
+                const icon = FRAMEWORK_ICON_MAP.get(slug);
 
-            return (
-              <TopicSection
-                key={topic.id}
-                topic={topic}
-                guides={topicGuides}
-              />
-            );
-          })}
+                return (
+                  <Link
+                    key={guide.url}
+                    href={guide.url}
+                    className="group flex items-start gap-4 border rounded-lg p-4 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
+                  >
+                    {/* Icon */}
+                    {icon && (
+                      <span className="shrink-0 mt-0.5 [&>svg]:w-5 [&>svg]:h-5 [&>img]:w-5 [&>img]:h-5">
+                        {icon}
+                      </span>
+                    )}
 
-          {/* Empty state */}
-          {filteredGuides.length === 0 && (
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className="font-medium text-sm text-foreground group-hover:text-foreground transition-colors truncate">
+                          {guide.title}
+                        </h3>
+                      </div>
+                      <p className="text-xs text-muted-base line-clamp-1">
+                        {guide.description}
+                      </p>
+                    </div>
+
+                    {/* Topic tag */}
+                    <span className="hidden sm:inline-flex shrink-0 px-2 py-0.5 text-xs font-medium rounded-md bg-muted-element text-muted-base self-center">
+                      {getTopicLabel(guide.topic)}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          ) : (
             <div className="text-center py-16">
               <p className="text-muted-base text-sm">
                 No guides match your filters.
@@ -454,112 +471,6 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
     </>
   );
 };
-
-// Horizontally scrollable cards at top, then full list below
-function TopicSection({
-  topic,
-  guides,
-}: {
-  topic: (typeof TOPICS)[number];
-  guides: Guide[];
-}) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scrollRight = useCallback(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
-    }
-  }, []);
-
-  return (
-    <div className="mb-12">
-      <h2
-        className="text-2xl font-semibold mb-1 text-foreground"
-        style={{ letterSpacing: "-0.5px" }}
-      >
-        {topic.name}
-      </h2>
-      <p className="text-muted-base text-sm mb-4">{topic.description}</p>
-
-      {/* Horizontal scroll cards */}
-      <div className="relative group/scroll mb-6">
-        <div
-          ref={scrollRef}
-          className="flex gap-3 overflow-x-auto pb-2 scrollbar-none"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {guides.slice(0, 8).map(guide => (
-            <Link
-              key={guide.url}
-              href={guide.url}
-              className="shrink-0 w-56 flex flex-col border rounded-lg p-4 transition-all duration-200 border-muted bg-muted-element/50 hover:bg-muted-element dark:bg-muted-element/20 dark:hover:bg-muted-element/50"
-            >
-              <span className="font-medium text-sm text-foreground line-clamp-2 mb-1.5">
-                {guide.title}
-              </span>
-              <span className="text-xs text-muted-base line-clamp-2">
-                {guide.description}
-              </span>
-            </Link>
-          ))}
-        </div>
-        {/* Scroll arrow */}
-        {guides.length > 3 && (
-          <button
-            onClick={scrollRight}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-8 h-8 rounded-full bg-muted-app border border-muted shadow-sm flex items-center justify-center opacity-0 group-hover/scroll:opacity-100 transition-opacity"
-            aria-label="Scroll right"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              className="text-muted-high-contrast"
-            >
-              <path
-                d="M6 3l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        )}
-      </div>
-
-      {/* Full list */}
-      <div className="flex flex-col">
-        {guides.map((guide, index) => (
-          <div key={guide.url}>
-            {index > 0 && <hr className="border-muted" />}
-            <Link
-              href={guide.url}
-              className="group flex items-center justify-between gap-4 py-3 hover:bg-muted-element/50 -mx-3 px-3 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
-            >
-              <span className="text-sm font-medium text-muted-high-contrast group-hover:text-foreground transition-colors flex-1 min-w-0 truncate">
-                {guide.title}
-              </span>
-              {guide.tags && guide.tags.length > 0 && (
-                <div className="hidden sm:flex items-center gap-1.5 shrink-0">
-                  {guide.tags.slice(0, 3).map((tag: string) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 text-xs font-medium rounded-md bg-muted-element text-muted-base"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </Link>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default GuidesPage;
 
