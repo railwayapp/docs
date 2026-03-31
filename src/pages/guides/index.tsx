@@ -454,24 +454,55 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "CollectionPage",
-              name: "Railway Guides",
-              description: "In-depth guides, tutorials, and how-tos for deploying on Railway",
-              url: `${baseUrl}/guides`,
-              mainEntity: {
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                name: "Railway Guides",
+                description: "In-depth guides, tutorials, and how-tos for deploying on Railway",
+                url: `${baseUrl}/guides`,
+                mainEntity: {
+                  "@type": "ItemList",
+                  numberOfItems: guides.length,
+                  itemListElement: guides.map((guide, i) => ({
+                    "@type": "ListItem",
+                    position: i + 1,
+                    name: guide.title,
+                    url: `${baseUrl}${guide.url}`,
+                    item: {
+                      "@type": "Article",
+                      name: guide.title,
+                      url: `${baseUrl}${guide.url}`,
+                      description: guide.description,
+                      ...(guide.tags && guide.tags.length > 0 && {
+                        keywords: guide.tags.join(", "),
+                      }),
+                    },
+                  })),
+                },
+              },
+              {
+                "@context": "https://schema.org",
                 "@type": "ItemList",
+                name: "Railway Guides",
                 numberOfItems: guides.length,
                 itemListElement: guides.map((guide, i) => ({
                   "@type": "ListItem",
                   position: i + 1,
                   name: guide.title,
                   url: `${baseUrl}${guide.url}`,
-                  description: guide.description,
+                  item: {
+                    "@type": "Article",
+                    name: guide.title,
+                    url: `${baseUrl}${guide.url}`,
+                    description: guide.description,
+                    ...(guide.tags && guide.tags.length > 0 && {
+                      keywords: guide.tags.join(", "),
+                    }),
+                  },
                 })),
               },
-            }),
+            ]),
           }}
         />
       </Head>
