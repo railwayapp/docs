@@ -21,12 +21,14 @@ No configuration required for most applications. For advanced customization, see
 
 - [Next.js](/guides/nextjs)
 - [Express](/guides/express)
+- [Hono](/guides/hono)
 - [Fastify](/guides/fastify)
 - [Nest.js](/guides/nest)
 - [Remix](/guides/remix)
 - [Nuxt](/guides/nuxt)
 - [Astro](/guides/astro)
 - [SvelteKit](/guides/sveltekit)
+- [Bun](/guides/bun)
 - [React](/guides/react)
 - [Vue](/guides/vue)
 - [Angular](/guides/angular)
@@ -51,16 +53,26 @@ No configuration required for most applications. For advanced customization, see
 ### Go
 
 - [Gin](/guides/gin)
+- [Go Fiber](/guides/go-fiber)
 - [Beego](/guides/beego)
 
 ### Rust
 
 - [Axum](/guides/axum)
+- [Actix Web](/guides/actix-web)
 - [Rocket](/guides/rocket)
 
 ### Java
 
 - [Spring Boot](/guides/spring-boot)
+
+### Kotlin
+
+- [Ktor](/guides/ktor)
+
+### C#
+
+- [ASP.NET Core](/guides/aspnet-core)
 
 ### Scala
 

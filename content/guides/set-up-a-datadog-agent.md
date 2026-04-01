@@ -6,7 +6,7 @@ tags:
   - observability
   - datadog
   - monitoring
-topic: infrastructure
+topic: integrations
 ---
 
 Datadog provides a centralized location for logs, metrics, and traces emitted from applications deployed in various locations.

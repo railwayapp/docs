@@ -6,7 +6,7 @@ tags:
   - networking
   - tailscale
   - vpn
-topic: infrastructure
+topic: integrations
 ---
 
 ## What is a subnet router?

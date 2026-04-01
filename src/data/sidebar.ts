@@ -49,7 +49,23 @@ export const sidebarContent: ISidebarContent = [
           makePage("Compare to Fly", "platform"),
           makePage("Compare to Vercel", "platform"),
           makePage("Compare to DigitalOcean", "platform"),
+          makePage("Compare to Replit", "platform"),
+          makePage("Compare to Lovable", "platform"),
+          makePage("Compare to Bolt", "platform"),
           makePage("Compare to VPS", "platform"),
+        ],
+      },
+      {
+        subTitle: "Migrate to Railway",
+        pages: [
+          makePage("Migrate from Heroku", "platform"),
+          makePage("Migrate from Render", "platform"),
+          makePage("Migrate from Fly", "platform"),
+          makePage("Migrate from Vercel", "platform"),
+          makePage("Migrate from DigitalOcean", "platform"),
+          makePage("Migrate from Replit", "platform"),
+          makePage("Migrate from Lovable", "platform"),
+          makePage("Migrate from Bolt", "platform"),
         ],
       },
     ],
@@ -120,12 +136,14 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Next.js", "guides", "/guides/nextjs"),
           makePage("Express", "guides", "/guides/express"),
+          makePage("Hono", "guides", "/guides/hono"),
           makePage("Fastify", "guides", "/guides/fastify"),
           makePage("Nest.js", "guides", "/guides/nest"),
           makePage("Remix", "guides", "/guides/remix"),
           makePage("Nuxt", "guides", "/guides/nuxt"),
           makePage("Astro", "guides", "/guides/astro"),
           makePage("SvelteKit", "guides", "/guides/sveltekit"),
+          makePage("Bun", "guides", "/guides/bun"),
           makePage("React", "guides", "/guides/react"),
           makePage("Vue", "guides", "/guides/vue"),
           makePage("Angular", "guides", "/guides/angular"),
@@ -156,6 +174,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: "Go",
         pages: [
           makePage("Gin", "guides", "/guides/gin"),
+          makePage("Go Fiber", "guides", "/guides/go-fiber"),
           makePage("Beego", "guides", "/guides/beego"),
         ],
       },
@@ -163,12 +182,21 @@ export const sidebarContent: ISidebarContent = [
         subTitle: "Rust",
         pages: [
           makePage("Axum", "guides", "/guides/axum"),
+          makePage("Actix Web", "guides", "/guides/actix-web"),
           makePage("Rocket", "guides", "/guides/rocket"),
         ],
       },
       {
         subTitle: "Java",
         pages: [makePage("Spring Boot", "guides", "/guides/spring-boot")],
+      },
+      {
+        subTitle: "Kotlin",
+        pages: [makePage("Ktor", "guides", "/guides/ktor")],
+      },
+      {
+        subTitle: "C#",
+        pages: [makePage("ASP.NET Core", "guides", "/guides/aspnet-core")],
       },
       {
         subTitle: "Scala",

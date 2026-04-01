@@ -7,6 +7,7 @@ tags:
   - remix
   - react
   - fullstack
+  - frontend
 topic: frameworks
 ---
 

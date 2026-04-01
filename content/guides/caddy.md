@@ -9,7 +9,7 @@ tags:
   - proxy
   - file server
   - backend
-topic: frameworks
+topic: integrations
 ---
 
 [Caddy](https://caddyserver.com) is a powerful, extensible, open-source web server written in Go. It is best known for its [automatic HTTPS](https://caddyserver.com/docs/automatic-https) capabilities, simple configuration via the [Caddyfile](https://caddyserver.com/docs/caddyfile), and a rich plugin ecosystem.

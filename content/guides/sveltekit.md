@@ -7,6 +7,7 @@ tags:
   - sveltekit
   - svelte
   - fullstack
+  - frontend
 topic: frameworks
 ---
 

@@ -1,23 +1,26 @@
 ---
-title: Deploy a Next.js App
-description: Learn how to deploy a Next.js app to Railway. Covers standalone output configuration, one-click deploys, Dockerfile setup, and other deployment strategies.
-date: "2026-03-19"
+title: Deploy a Next.js App with Postgres
+description: Deploy a Next.js app with a Postgres database on Railway. Covers standalone output, one-click deploys, Dockerfile setup, database wiring, and pre-deploy migrations.
+date: "2026-03-30"
 tags:
   - deployment
   - nextjs
   - react
   - fullstack
+  - frontend
+  - postgres
 topic: frameworks
 ---
 
 [Next.js](https://nextjs.org) is a React framework for building full-stack web applications. It handles server-side rendering, static generation, API routes, and routing.
 
-This guide covers how to deploy a Next.js app to Railway in four ways:
+This guide covers how to deploy a Next.js app to Railway and connect it to a Postgres database:
 
 1. [One-click deploy from a template](#one-click-deploy-from-a-template).
 2. [From a GitHub repository](#deploy-from-a-github-repo).
 3. [Using the CLI](#deploy-from-the-cli).
 4. [Using a Dockerfile](#use-a-dockerfile).
+5. [Add a Postgres database](#add-a-postgres-database).
 
 ## Create a Next.js App
 
@@ -186,11 +189,43 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 **Note:** Railway also supports <a href="/builds/private-registries" target="_blank">deployment from public and private Docker images</a>.
 
-This guide covers the main deployment options on Railway. Choose the approach that suits your setup, and start deploying your Next.js apps seamlessly!
+## Add a Postgres database
 
-## Next Steps
+Next.js apps that use API routes or server actions often need a database. Railway lets you add Postgres to your project in a few clicks.
+
+### Provision the database
+
+1. Open your project on Railway.
+2. Click **+ New** on the project canvas and select **Database** → **PostgreSQL**.
+3. Railway provisions the database and exposes connection variables (`DATABASE_URL`, `PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`, `PGDATABASE`) in the database service.
+
+### Connect your Next.js service to Postgres
+
+1. Click on your Next.js service in the project canvas.
+2. Go to the **Variables** tab.
+3. Click **Add Reference Variable** and select `DATABASE_URL` from the Postgres service.
+   - This creates a [reference variable](/variables#referencing-another-services-variable) that stays in sync if the database credentials change.
+4. Redeploy the service for the new variable to take effect.
+
+Your app can now read `DATABASE_URL` from `process.env` to connect to Postgres. Most ORMs and query builders (Prisma, Drizzle, Knex) use this variable automatically.
+
+### Run migrations with a pre-deploy command
+
+If your project uses an ORM that requires migrations (for example, Prisma or Drizzle), configure a [pre-deploy command](/deployments/pre-deploy-command) so migrations run before the new version starts serving traffic.
+
+1. In your Next.js service on Railway, go to **Settings** → **Deploy** → **Pre-deploy Command**.
+2. Set the command to your migration script. For example:
+   - **Prisma**: `npx prisma migrate deploy`
+   - **Drizzle**: `npx drizzle-kit migrate`
+3. Railway runs this command in a separate container with access to your service's environment variables, including `DATABASE_URL`.
+
+**Note:** The pre-deploy container does not have access to volumes. If your migration process requires file system state beyond what is in the build image, handle that in the build step instead.
+
+## Next steps
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
-- [Add a Database Service](/databases)
-- [Monitor your app](/monitoring/metrics)
+- [PostgreSQL on Railway](/databases/postgresql)
+- [Monitor your app](/observability)
+- [Running a Cron Job](/cron-jobs)
+- [Pre-deploy Command](/deployments/pre-deploy-command)
