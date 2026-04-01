@@ -518,7 +518,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
             href="/guides"
             className={cn(
               "px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
-              !activeTopic && !activeTag
+              !activeTopic
                 ? "bg-foreground text-muted-app"
                 : "bg-muted-element text-muted-high-contrast hover:bg-muted-element-hover",
             )}
@@ -528,7 +528,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
           {TOPICS.map(topic => (
             <Link
               key={topic.id}
-              href={buildFilterUrl({ topic: activeTopic === topic.id ? undefined : topic.id })}
+              href={buildFilterUrl({ topic: topic.id, tag: activeTag ?? undefined })}
               className={cn(
                 "px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
                 activeTopic === topic.id
@@ -541,16 +541,17 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
           ))}
           {activeTag && (
             <>
-              <span className="text-muted-base text-sm">filtering by</span>
-              <span className="px-2.5 py-1 text-sm font-medium rounded-full bg-primary-element text-primary-base">
+              <span className="text-muted-base text-sm mx-1">+</span>
+              <span className="px-2.5 py-1 text-sm font-medium rounded-full bg-primary-element text-primary-base flex items-center gap-1.5">
                 {activeTag}
+                <Link
+                  href={activeTopic ? buildFilterUrl({ topic: activeTopic }) : "/guides"}
+                  className="text-primary-base hover:text-primary-high-contrast transition-colors"
+                  aria-label={`Remove ${activeTag} filter`}
+                >
+                  ×
+                </Link>
               </span>
-              <Link
-                href={activeTopic ? buildFilterUrl({ topic: activeTopic }) : "/guides"}
-                className="text-sm text-primary-base hover:text-primary-high-contrast transition-colors"
-              >
-                clear
-              </Link>
             </>
           )}
         </div>
@@ -578,12 +579,12 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                           <Link
                             key={tag}
                             href={buildFilterUrl({ tag, topic: activeTopic ?? undefined })}
-                            onClick={() => setShowAll(false)}
+                            onClick={(e: React.MouseEvent) => { e.stopPropagation(); setShowAll(false); }}
                             className={cn(
-                              "px-2 py-0.5 text-[11px] font-medium rounded-full border transition-colors",
+                              "px-2 py-0.5 text-[11px] font-medium rounded-full border transition-colors hover:underline",
                               activeTag === tag
                                 ? "bg-primary-element text-primary-base border-primary"
-                                : "border-muted text-muted-base hover:text-muted-high-contrast hover:border-muted-hover",
+                                : "border-muted text-muted-base hover:text-foreground hover:border-muted-hover",
                             )}
                           >
                             {tag}
@@ -591,11 +592,10 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                         ))}
                     <Link
                       href={buildFilterUrl({ topic: guide.topic })}
-                      onClick={() => setShowAll(false)}
+                      onClick={(e: React.MouseEvent) => { e.stopPropagation(); setShowAll(false); }}
                       className={cn(
-                        "px-2 py-0.5 text-[11px] font-medium rounded-full transition-colors",
+                        "px-2 py-0.5 text-[11px] font-medium rounded-full transition-colors hover:underline",
                         TOPIC_COLOR_MAP.get(guide.topic as TopicId) ?? "bg-muted-element text-muted-base",
-                        "hover:opacity-80",
                       )}
                     >
                       {TOPICS.find(t => t.id === guide.topic)?.name ?? guide.topic}
