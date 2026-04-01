@@ -32,7 +32,7 @@ Each project has a maximum number of volumes that can be created, based on your 
 | **Free** | **1** |
 | **Trial** | **3** |
 | **Hobby** | **10** |
-| **Pro** | **20, can be increased; see below** |
+| **Pro** | **20, can be increased** |
 | **Enterprise** | **Unlimited** |
 
 Volumes created for the same service in another environment do not count towards this limit.
