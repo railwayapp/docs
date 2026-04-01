@@ -519,7 +519,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
             className={cn(
               "px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
               !activeTopic
-                ? "bg-foreground text-muted-app"
+                ? "bg-primary-solid text-white"
                 : "bg-muted-element text-muted-high-contrast hover:bg-muted-element-hover",
             )}
           >
@@ -528,11 +528,13 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
           {TOPICS.map(topic => (
             <Link
               key={topic.id}
-              href={buildFilterUrl({ topic: topic.id, tag: activeTag ?? undefined })}
+              href={activeTopic === topic.id
+                ? (activeTag ? buildFilterUrl({ tag: activeTag }) : "/guides")
+                : buildFilterUrl({ topic: topic.id, tag: activeTag ?? undefined })}
               className={cn(
                 "px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
                 activeTopic === topic.id
-                  ? "bg-foreground text-muted-app"
+                  ? "bg-primary-solid text-white"
                   : "bg-muted-element text-muted-high-contrast hover:bg-muted-element-hover",
               )}
             >
