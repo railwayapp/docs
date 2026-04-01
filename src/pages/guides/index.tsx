@@ -519,7 +519,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
             className={cn(
               "px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
               !activeTopic
-                ? "bg-primary-solid text-white"
+                ? "bg-primary-element-active text-foreground font-medium"
                 : "bg-muted-element text-muted-high-contrast hover:bg-muted-element-hover",
             )}
           >
@@ -534,7 +534,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
               className={cn(
                 "px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
                 activeTopic === topic.id
-                  ? "bg-primary-solid text-white"
+                  ? "bg-primary-element-active text-foreground font-medium"
                   : "bg-muted-element text-muted-high-contrast hover:bg-muted-element-hover",
               )}
             >
