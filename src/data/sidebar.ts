@@ -459,6 +459,11 @@ export const sidebarContent: ISidebarContent = [
           makePage("Manage volumes", "integrations/api"),
         ],
       },
+      makePage(
+        "Creative integrations",
+        "guides",
+        "/guides/creative-railway-integrations",
+      ),
     ],
   },
   {
