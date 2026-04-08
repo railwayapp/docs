@@ -85,6 +85,7 @@ export const GuidesLayout: React.FC<PropsWithChildren<GuidesLayoutProps>> = ({
         url={`${domainUrl}${frontMatter.url}`}
         image={getOGImage(frontMatter.title)}
         headers={headers}
+        headline={frontMatter.title}
         breadcrumbs={[
           { name: "Guides", url: "/guides" },
           { name: frontMatter.title },

@@ -415,6 +415,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         title="Guides | Railway"
         description="In-depth guides, tutorials, and how-tos for deploying on Railway"
         url="https://docs.railway.com/guides"
+        noArticleSchema
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Guides", url: "/guides" },

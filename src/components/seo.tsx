@@ -1,6 +1,7 @@
 import * as React from "react";
 import { DefaultSeo, NextSeo, NextSeoProps, DefaultSeoProps } from "next-seo";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { Header } from "@/utils/seo";
 
 export interface Props extends NextSeoProps {
@@ -14,6 +15,8 @@ export interface Props extends NextSeoProps {
   lastModified?: string;
   author?: string;
   publishedTime?: string;
+  headline?: string;
+  noArticleSchema?: boolean;
 }
 
 const title = "Railway Docs";
@@ -45,12 +48,15 @@ export const SEO: React.FC<Props> = ({
   lastModified,
   author = "Railway",
   publishedTime,
+  headline,
+  noArticleSchema,
   ...props
 }) => {
+  const router = useRouter();
   const title = props.title ?? config.title;
   const twitterTitle = props.twitterTitle;
   const description = props.description;
-  const url = props.url || config.openGraph?.url;
+  const url = props.url || `${baseUrl}${router.asPath.split("?")[0].split("#")[0]}`;
 
   // Check if any headers are questions (for FAQPage schema)
   const hasQuestions = headers.some(h => h.title.trim().endsWith("?"));
@@ -102,34 +108,36 @@ export const SEO: React.FC<Props> = ({
   }
 
   // Article schema
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: title,
-    description: description,
-    url: url,
-    author: {
-      "@type": "Organization",
-      name: author,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Railway",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://docs.railway.com/railway.svg",
+  if (!noArticleSchema) {
+    const articleSchema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: headline || title,
+      description: description,
+      url: url,
+      author: {
+        "@type": "Organization",
+        name: author,
       },
-    },
-    ...(publishedTime && { datePublished: publishedTime }),
-    ...(lastModified && { dateModified: lastModified }),
-    ...(image && {
-      image: {
-        "@type": "ImageObject",
-        url: image,
+      publisher: {
+        "@type": "Organization",
+        name: "Railway",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://docs.railway.com/railway.svg",
+        },
       },
-    }),
-  };
-  schemas.push(articleSchema);
+      ...(publishedTime && { datePublished: publishedTime }),
+      ...(lastModified && { dateModified: lastModified }),
+      ...(image && {
+        image: {
+          "@type": "ImageObject",
+          url: image,
+        },
+      }),
+    };
+    schemas.push(articleSchema);
+  }
 
   // FAQPage schema (if questions exist)
   if (hasQuestions && questionHeaders.length > 0) {
