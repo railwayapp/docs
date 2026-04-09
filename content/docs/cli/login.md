@@ -56,7 +56,7 @@ RAILWAY_TOKEN=xxx railway up
 RAILWAY_API_TOKEN=xxx railway environment new staging
 ```
 
-See [Tokens](/integrations/api#project-token) for how to generate each token type.
+See [Tokens](/cli#tokens) for how to generate each token type.
 
 ## Related
 
