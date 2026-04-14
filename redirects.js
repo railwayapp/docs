@@ -1,5 +1,10 @@
 const redirects = [
   {
+    source: "/api/llms-docs.md",
+    destination: "/llms-full.txt",
+    permanent: true,
+  },
+  {
     source: "/troubleshooting/slow-deployments",
     destination: "/deployments/troubleshooting/slow-deployments",
     permanent: true,

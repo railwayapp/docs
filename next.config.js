@@ -20,6 +20,12 @@ const nextConfig = {
   async redirects() {
     return redirects;
   },
+  async rewrites() {
+    return [
+      { source: "/llms.txt", destination: "/api/llms.txt" },
+      { source: "/llms-full.txt", destination: "/api/llms-full.txt" },
+    ];
+  },
 };
 
 module.exports = withContentCollections(nextConfig);
