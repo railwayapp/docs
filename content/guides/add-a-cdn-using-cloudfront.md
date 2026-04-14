@@ -7,6 +7,7 @@ tags:
   - cloudfront
   - aws
   - networking
+  - frontend
 topic: integrations
 ---
 

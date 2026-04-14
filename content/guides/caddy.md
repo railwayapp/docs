@@ -9,6 +9,7 @@ tags:
   - proxy
   - file server
   - backend
+  - frontend
 topic: integrations
 ---
 

@@ -6,6 +6,7 @@ tags:
   - deployment
   - static
   - hosting
+  - frontend
 topic: infrastructure
 ---
 

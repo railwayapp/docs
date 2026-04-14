@@ -7,6 +7,7 @@ tags:
   - ci-cd
   - automation
   - environments
+  - frontend
 topic: architecture
 ---
 

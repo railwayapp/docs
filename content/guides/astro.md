@@ -238,5 +238,7 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
+- [Choose between SSR, SSG, and ISR](/guides/ssr-ssg-isr) - Pick the right rendering strategy.
+- [Manage environment variables](/guides/frontend-environment-variables) - Handle `PUBLIC_` prefixed variables.
 - [Add a Database Service](/databases/build-a-database-service)
 - [Monitor your app](/observability)

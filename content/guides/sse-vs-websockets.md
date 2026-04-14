@@ -7,6 +7,7 @@ tags:
   - sse
   - websockets
   - real-time
+  - frontend
 topic: architecture
 ---
 
