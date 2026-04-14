@@ -63,4 +63,4 @@ If your application does not permit requests from that hostname, you may encount
 
 The healthcheck endpoint is currently **_not used for continuous monitoring_** as it is only called at the start of the deployment, to ensure it is healthy prior to routing traffic to it.
 
-If you are looking for a quick way to setup continuous monitoring of your service(s), check out the <a href="https://railway.com/template/p6dsil" target="_blank">Uptime Kuma template</a> in the template marketplace.
+If you are looking for a quick way to setup continuous monitoring of your service(s), check out the <a href="https://railway.com/deploy/p6dsil" target="_blank">Uptime Kuma template</a> in the template marketplace.

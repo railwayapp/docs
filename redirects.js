@@ -6,7 +6,12 @@ const redirects = [
   },
   {
     source: "/troubleshooting/nodejs-sigterm",
-    destination: "/deployments/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
+    permanent: true,
+  },
+  {
+    source: "/deployments/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
     permanent: true,
   },
   {
@@ -14,10 +19,15 @@ const redirects = [
     destination: "/deployments/troubleshooting/no-start-command-could-be-found",
     permanent: true,
   },
+  {
+    source: "/access/multi-factor-auth",
+    destination: "/access/multi-factor-authentication",
+    permanent: true,
+  },
   // Builds troubleshooting
   {
     source: "/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
-    destination: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination: "/builds/railpack",
     permanent: true,
   },
   // Networking troubleshooting
@@ -151,7 +161,7 @@ const redirects = [
   },
   {
     source: "/guides/fixing-common-errors",
-    destination: "/reference/errors",
+    destination: "/networking/troubleshooting/application-failed-to-respond",
     permanent: true,
   },
   {
@@ -406,7 +416,7 @@ const redirects = [
   },
   {
     source: "/reference/nixpacks",
-    destination: "/builds/nixpacks",
+    destination: "/builds/railpack",
     permanent: true,
   },
   {
@@ -556,7 +566,7 @@ const redirects = [
   },
   {
     source: "/reference/errors/nixpacks-was-unable-to-generate-a-build-plan",
-    destination: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination: "/builds/railpack",
     permanent: true,
   },
   {
@@ -566,7 +576,7 @@ const redirects = [
   },
   {
     source: "/guides/nodejs-sigterm",
-    destination: "/deployments/troubleshooting/nodejs-sigterm",
+    destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
     permanent: true,
   },
   {
@@ -895,6 +905,26 @@ const redirects = [
     destination: "/deployments/troubleshooting/slow-deployments",
     permanent: true,
   },
+  {
+    source: "/guides/troubleshooting-slow-deployments",
+    destination: "/deployments/troubleshooting/slow-deployments",
+    permanent: true,
+  },
+  {
+    source: "/guides/manage-domains",
+    destination: "/integrations/api/manage-domains",
+    permanent: true,
+  },
+  {
+    source: "/guides/manage-environments",
+    destination: "/integrations/api/manage-environments",
+    permanent: true,
+  },
+  {
+    source: "/guides/manage-volumes",
+    destination: "/integrations/api/manage-volumes",
+    permanent: true,
+  },
   // OAuth redirects (from old live URLs)
   {
     source: "/reference/oauth/login-with-railway",
@@ -925,6 +955,16 @@ const redirects = [
   {
     source: "/reference/workspaces",
     destination: "/projects/workspaces",
+    permanent: true,
+  },
+  {
+    source: "/builds/nixpacks",
+    destination: "/builds/railpack",
+    permanent: true,
+  },
+  {
+    source: "/builds/troubleshooting/nixpacks-was-unable-to-generate-a-build-plan",
+    destination: "/builds/railpack",
     permanent: true,
   },
 ];

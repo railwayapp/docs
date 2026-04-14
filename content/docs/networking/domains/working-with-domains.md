@@ -73,7 +73,7 @@ Wildcard domains allow for flexible subdomain management. There are a few import
 
 - Ensure that the CNAME record for `authorize.railwaydns.net` is not proxied by your provider (eg: Cloudflare). This is required for the verification process to work.
 
-- Wildcards cannot be nested (e.g., \*.\*.yourdomain.com).
+- Wildcards cannot be nested (e.g., `\*.\*.yourdomain.com`).
 
 - Wildcards can be used for any subdomain level (e.g., `*.example.com` or `*.subdomain.example.com`).
 
@@ -109,7 +109,7 @@ alt="Screenshot of Wildcard Domain"
 layout="responsive"
 width={1048} height={842} quality={80} />
 
-One record is for the wildcard domain, and one for the \_acme-challenge. The \_acme-challenge CNAME is required for Railway to issue the SSL Certificate for your domain.
+One record is for the wildcard domain, and one for the `\_acme-challenge`. The `\_acme-challenge` CNAME is required for Railway to issue the SSL Certificate for your domain.
 
 #### Wildcard domains on Cloudflare
 
@@ -164,6 +164,7 @@ The type of record to create is entirely dependent on your DNS provider. Here ar
 In contrast there are many nameservers that don't support CNAME flattening or dynamic ALIAS records -
 
 - <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register-other-dns-service.html" target="_blank">AWS Route 53</a>
+- <a href="https://learn.microsoft.com/en-us/answers/questions/2338846/cname-record-root" target="_blank">Azure DNS</a>
 - <a href="https://support.hostinger.com/en/articles/1696789-how-to-change-nameservers-at-hostinger" target="_blank">Hostinger</a>
 - <a href="https://www.godaddy.com/en-ca/help/edit-my-domain-nameservers-664" target="_blank">GoDaddy</a>
 - <a href="https://www.namesilo.com/support/v2/articles/domain-manager/dns-manager" target="_blank">NameSilo</a>

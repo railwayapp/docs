@@ -55,11 +55,11 @@ To restart your resources, increase your usage limit or remove it entirely. Rail
 Railway will try to automatically restart your resources during the next billing cycle, but if automatic recovery fails for any service, you can manually redeploy from the deployment's [3-dot menu](/deployments#deployment-menu).
 </Collapse>
 
-## Resource limits
+## Replica limits
 
-Resource limits allow you to limit the maximum amount of CPU and memory available to a service.
+Replica limits allow you to limit the maximum amount of CPU and memory available to each replica.
 
-To configure resource limits, navigate to your service's settings > Deploy > Resource Limits.
+To configure replica limits, navigate to your service's settings > Deploy > Replica Limits.
 
 <Image
   src="https://res.cloudinary.com/railway/image/upload/v1721917970/resource-limits.png"
@@ -71,10 +71,10 @@ To configure resource limits, navigate to your service's settings > Deploy > Res
 />
 
 <Banner variant="warning">
-Setting resource limits too low will cause your service to crash.
+Setting replica limits too low will cause your service to crash.
 </Banner>
 
-Using resource limits makes sense in scenarios where:
+Using replica limits makes sense in scenarios where:
 
 1. You don't want to risk a high bill due to unexpected spikes in usage
 2. You are okay with the service crashing if it exceeds the limit

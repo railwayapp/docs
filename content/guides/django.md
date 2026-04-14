@@ -7,6 +7,7 @@ tags:
   - django
   - python
   - backend
+topic: frameworks
 ---
 
 [Django](https://www.djangoproject.com) is a powerful Python web framework that simplifies web development by providing ready-to-use tools for rapid development and clean design.
@@ -127,8 +128,8 @@ Open `liftoff/settings.py` and configure the static files settings:
 ```python
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 ```
 
 Add the WhiteNoise middleware in the **MIDDLEWARE** section, just below the [security middleware](https://docs.djangoproject.com/en/5.1/ref/middleware/#module-django.middleware.security):
@@ -268,7 +269,7 @@ To deploy the Django app to Railway, start by pushing the app to a GitHub repo. 
 
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Django app](https://nixpacks.com/docs/providers/python).
+   **Note:** During the deployment process, Railway will automatically detect that it’s a Django app.
 
 7. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
@@ -357,7 +358,7 @@ width={2752} height={2094} quality={100} />
 
 - **App Service**: This service should be running and is the only one that should have a public domain, allowing users to access your application.
 
-**Note:** There is a [community template](https://railway.com/template/yZDfUu) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
+**Note:** There is a [community template](https://railway.com/deploy/yZDfUu) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
 
 ## Next steps
 

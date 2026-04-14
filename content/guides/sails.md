@@ -7,6 +7,7 @@ tags:
   - sails
   - nodejs
   - backend
+topic: frameworks
 ---
 
 [Sails](https://sailsjs.com) is a MVC framework for Node.js. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture.

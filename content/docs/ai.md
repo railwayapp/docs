@@ -1,21 +1,31 @@
 ---
 title: AI
-description: Integrate Railway with your AI coding assistants using Agent Skills and the MCP Server.
+description: Integrate Railway with your AI coding assistants using Agent Skills, the Claude Code plugin, and the MCP Server.
 ---
 
-Railway provides tools for integrating with AI coding assistants, allowing you to manage your infrastructure through natural language.
+Railway provides tools for integrating with AI coding assistants, letting you manage your infrastructure through natural language.
 
 ## Integration options
 
 ### Agent skills
 
-[Agent Skills](/ai/agent-skills) are an open format for extending AI coding assistants with specialized knowledge about Railway. Skills are markdown files that guide AI agents to perform tasks like deploying services, managing environments, and querying metrics.
+[Agent Skills](/ai/agent-skills) are an open format for extending AI coding assistants with specialized knowledge about Railway. The `use-railway` skill guides AI agents to perform tasks like deploying services, managing environments, and querying metrics.
 
 - Works with Claude Code, Cursor, OpenAI Codex, and OpenCode
 - Install with a single command
-- Covers project management, deployments, databases, and more
+- Covers project setup, deployments, networking, observability, and more
 
 [Get started with Agent Skills →](/ai/agent-skills)
+
+### Claude Code plugin
+
+The [Railway plugin for Claude Code](/ai/claude-code-plugin) provides the `use-railway` agent skill, hooks, and supporting scripts through Claude Code's plugin marketplace.
+
+- Install through the Claude Code plugin manager
+- Includes hooks and scripts alongside the agent skill
+- Auto-update support through the marketplace
+
+[Get started with the Claude Code plugin →](/ai/claude-code-plugin)
 
 ### MCP server
 

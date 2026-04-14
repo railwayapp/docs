@@ -6,6 +6,7 @@ tags:
   - deployment
   - astro
   - frontend
+topic: frameworks
 ---
 
 [Astro](https://astro.build) is the web framework for content-driven websites. It's a JavaScript framework optimized for building fast, content-driven websites. It also supports every major UI framework, allowing you to bring in your existing components and benefit from Astro's optimized client build performance.
@@ -145,7 +146,7 @@ If you’re looking for the fastest way to get started, the one-click deploy opt
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/Ic0JBh)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/astro-starter)
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 

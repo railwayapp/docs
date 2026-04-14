@@ -124,7 +124,7 @@ Cancels the selected [initializing](#initializing) or [building](#building) depl
 
 ## Ephemeral storage
 
-Every service deployment has access to 10GB of ephemeral storage. If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
+Every service deployment has access to 1GB of ephemeral storage on the Free plan and 100GB on a paid plan. If a service deployment consumes more than 10GB, it can be forcefully stopped and redeployed.
 
 If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/volumes).
 
@@ -149,6 +149,28 @@ Occasionally, Railway will initiate a new deployment to migrate your service fro
 We perform these migrations when implementing security patches or platform upgrades to the underlying infrastructure where your service was previously running. During platform-wide upgrades, your service might be redeployed multiple times as we roll out changes across Railway's infrastructure. These deployments are mandatory and cannot be opted out of.
 
 These Railway-initiated deployments will display with a banner above the Active deployment to clearly identify them.
+
+## Free tier peak hours restriction
+
+To ensure platform reliability during high-demand periods, free-tier deployments are restricted during peak hours in each region's local timezone.
+
+### Peak hours by region
+
+| Region              | Timezone             | Peak Hours        |
+| ------------------- | -------------------- | ----------------- |
+| **US West**         | America/Los_Angeles  | 8 AM – 8 PM PT   |
+| **US East**         | America/New_York     | 8 AM – 8 PM ET   |
+| **EU West**         | Europe/Amsterdam     | 8 AM – 8 PM CET  |
+| **Southeast Asia**  | Asia/Singapore       | 8 AM – 8 PM SGT  |
+
+During these windows, deploys from free-tier users to the affected region will be rejected. You will see an error message indicating the restriction and the region's timezone.
+
+Hobby, Pro, and Enterprise plans are not affected by this restriction and can deploy at any time.
+
+### Options during peak hours
+
+- **Wait** — deploy outside of peak hours for your target region.
+- **Upgrade** — upgrade to the Hobby plan or above to remove the restriction entirely.
 
 ## Deployments paused - limited access
 

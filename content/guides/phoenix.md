@@ -7,6 +7,7 @@ tags:
   - phoenix
   - elixir
   - backend
+topic: frameworks
 ---
 
 [Phoenix](https://phoenixframework.org) is popular Elixir framework designed for building scalable, maintainable, and high-performance web applications. It is known for its ability to handle real-time features efficiently, like WebSockets, while leveraging Elixir's concurrency model, which is built on the Erlang Virtual Machine (BEAM).
@@ -69,52 +70,11 @@ Now that your app is running locally, let’s move on to deploying it to Railway
 
 ### Prepare your Phoenix app for deployment
 
-Go ahead and create a `nixpacks.toml` file in the root directory of your Phoenix app.
+Railpack auto-detects Elixir apps, installs Erlang, compiles dependencies, and deploys assets automatically.
 
-The [nixpacks.toml file](https://nixpacks.com/docs/configuration/file) is a configuration file used by Nixpacks, a build system developed and used by Railway, to set up and deploy applications.
+Set the start command in your Railway service settings to `mix ecto.setup && mix phx.server`. See [Start Command](/deployments/start-command) for more info.
 
-In this file, you can specify the instructions for various build and deployment phases, along with environment variables and package dependencies.
-
-Add the following content to the file:
-
-```toml
-# nixpacks.toml
-[variables]
-MIX_ENV = 'prod'
-
-[phases.setup]
-nixPkgs = ['...', 'erlang']
-
-[phases.install]
-cmds = [
-  'mix local.hex --force',
-  'mix local.rebar --force',
-  'mix deps.get --only prod'
-]
-
-[phases.build]
-cmds = [
-  'mix compile',
-  'mix assets.deploy'
-]
-
-[start]
-cmd = "mix ecto.setup && mix phx.server"
-```
-
-1. `[variables]` This section contains the list of env variables you want to set for the app.
-   - `MIX_ENV = 'prod'`: It sets the Elixir environment to prod.
-2. `[phases.setup]`: This defines a list of Nix packages to be installed during the setup phase. The placeholder `'...'` should be replaced with any additional packages needed for your application. The inclusion of erlang indicates that the Erlang runtime is required for the Elixir application.
-3. `[phases.install]`: This section contains a list of commands to run during the installation phase.
-   - `mix local.hex --force`: Installs the Hex package manager for Elixir, which is necessary for managing dependencies.
-   - `mix local.rebar --force`: Installs Rebar, a build tool for Erlang.
-   - `mix deps.get --only prod`: Fetches only the production dependencies defined in the `mix.exs` file.
-4. `[phases.build]`: This section contains commands to run during the build phase.
-   - `mix compile`: Compiles the Elixir application.
-   - `mix assets.deploy`: This is a command to handle the deployment of static assets (e.g., JavaScript, CSS) for your app.
-5. `[start]`: This section contains commands to run when starting the application.
-   - `mix ecto.setup`: This command is used to set up the database by running migrations and seeding it. It prepares the database for the application to connect.
-   - `mix phx.server`: This starts the Phoenix server, allowing the application to begin accepting requests.
+Also set the `MIX_ENV` environment variable to `prod` in your service variables.
 
 Now you're ready to deploy!
 
@@ -206,7 +166,7 @@ To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo.
 
    - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s an Elixir app](https://nixpacks.com/docs/providers/elixir).
+   **Note:** During the deployment process, Railway will automatically [detect that it’s an Elixir app](https://railpack.com/languages/elixir).
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

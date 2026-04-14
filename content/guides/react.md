@@ -6,6 +6,7 @@ tags:
   - deployment
   - react
   - frontend
+topic: frameworks
 ---
 
 [React](https://react.dev), also known as React.js or ReactJS, is a popular JavaScript library developed by Meta for building user interfaces, especially for web and native applications.

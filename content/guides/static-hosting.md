@@ -6,6 +6,7 @@ tags:
   - deployment
   - static
   - hosting
+topic: infrastructure
 ---
 
 In this guide, you'll learn how to deploy static websites to Railway with automatic GitHub builds, SSL certificates, and custom domains. All with zero configuration required.

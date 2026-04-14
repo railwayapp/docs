@@ -6,6 +6,7 @@ tags:
   - networking
   - tailscale
   - vpn
+topic: integrations
 ---
 
 ## What is a subnet router?
@@ -131,7 +132,7 @@ width={1363} height={817} quality={100} />
 
 - In the top right of the project canvas, click **Create** → Choose **Template**.
 
-- Search for the <a href="https://railway.com/template/tailscale" target="_blank">Tailscale Subnet Router</a> template.
+- Search for the <a href="https://railway.com/deploy/tailscale" target="_blank">Tailscale Subnet Router</a> template.
 
   Choose the result that is published by **Railway Templates**.
 

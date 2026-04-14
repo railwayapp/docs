@@ -39,7 +39,7 @@ Let's walk through migrating a WordPress site from DigitalOcean to Railway. This
 
 ### 2. Deploy WordPress
 
-- Open the [WordPress Template](https://railway.com/template/EP4wIt) page
+- Open the [WordPress Template](https://railway.com/deploy/EP4wIt) page
 
   <Image src="https://res.cloudinary.com/railway/image/upload/v1741839172/docs/do-migration-guide/wordpress_template_pqnksc.png"
     alt="Screenshot of the WordPress template"

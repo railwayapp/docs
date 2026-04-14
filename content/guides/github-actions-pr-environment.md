@@ -7,6 +7,7 @@ tags:
   - ci-cd
   - automation
   - environments
+topic: architecture
 ---
 
 [Github Actions](https://github.com/features/actions) come with a pretty neat set of features to automate your workflows. This post talks about using Github Actions alongside the [Railway CLI](https://github.com/railwayapp/cli) to create specific environments for any PR that is created, alongside closing it whenever it is closed/merged.

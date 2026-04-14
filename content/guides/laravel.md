@@ -7,6 +7,7 @@ tags:
   - laravel
   - php
   - backend
+topic: frameworks
 ---
 
 [Laravel](https://laravel.com) is a PHP framework designed for web artisans who value simplicity and elegance in their code. It stands out for its clean and expressive syntax, and offers built-in tools to handle many common tasks found in modern web applications, making development smoother and more enjoyable.
@@ -45,7 +46,7 @@ To deploy a Laravel app on GitHub to Railway, follow the steps below:
 
 Once the deployment is successful, a Railway [service](/services) will be created for you. By default, this service will not be publicly accessible.
 
-**Note:** Railway will automatically detect that it's a Laravel app during [deploy and run your app via php-fpm and nginx](https://nixpacks.com/docs/providers/php).
+**Note:** Railway will automatically [detect that it's a Laravel app and run it via php-fpm and Caddy](https://railpack.com/languages/php).
 
 To set up a publicly accessible URL for the service, navigate to the **Networking** section in the [Settings](/overview/the-basics#service-settings) tab of your new service and click on [Generate Domain](/networking/public-networking#railway-provided-domain).
 
@@ -242,7 +243,7 @@ layout="responsive"
 width={2855} height={2109} quality={100} />
 _App service_
 
-**Note:** There is a [community template](https://railway.com/template/Gkzn4k) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
+**Note:** There is a [community template](https://railway.com/deploy/Gkzn4k) available that demonstrates this deployment approach. You can easily deploy this template and then connect it to your own GitHub repository for your application.
 
 ## Logging
 

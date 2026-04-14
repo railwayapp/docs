@@ -7,6 +7,8 @@ tags:
   - nuxt
   - vue
   - fullstack
+  - frontend
+topic: frameworks
 ---
 
 [Nuxt](https://nuxt.com) is a Vue.js framework that makes web development intuitive and powerful. You can create performant and production-grade full-stack web apps and websites with confidence.
@@ -102,7 +104,7 @@ It is highly recommended that [you eject from the template after deployment](/te
    }
    ```
 
-   **Note:** Railway uses [Nixpacks](/builds/nixpacks) to build and deploy your code with zero configuration. The Nixpack Node provider will pick up the start script in the `package.json` file and use it to serve the app.
+   **Note:** Railway uses [Railpack](/builds/railpack) to build and deploy your code with zero configuration. Railpack will pick up the start script in the `package.json` file and use it to serve the app.
 
 4. **Deploy the Application**:
    - Use the command below to deploy your app:

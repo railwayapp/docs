@@ -70,7 +70,7 @@ The volume mount point you specify will be available in your service as a direct
 
 ### Relative paths
 
-Nixpacks, the default buildpack used by Railway, puts your application files in an `/app` folder at the root of the container. If your application writes to a directory at a relative path, and you need to persist that data on the volume, your mount path should include the app path.
+Railway's build system puts your application files in an `/app` folder at the root of the container. If your application writes to a directory at a relative path, and you need to persist that data on the volume, your mount path should include the app path.
 
 For example, if your application writes data to `./data`, you should mount the volume to `/app/data`.
 
@@ -104,9 +104,7 @@ RAILWAY_RUN_UID=0
 
 ## Live Resizing the volume
 
-**_Only available to Pro users and above._**
-
-To increase capacity in a volume, you can "live resize" it from the volume settings.
+To increase capacity in a volume, you can "live resize" it from the volume settings. Live resize is available on all paid plans (Hobby and Pro).
 
 - Click on the volume to open the settings
 - Click `Live Resize`
@@ -117,11 +115,13 @@ To increase capacity in a volume, you can "live resize" it from the volume setti
     quality={100}
     width={1148}
     height={584}
-    src="https://res.cloudinary.com/railway/image/upload/v1730326473/docs/volumes/growvolume_zbsjjq.png"
+    src="https://res.cloudinary.com/railway/image/upload/v1773871052/docs/volumes/moocup-1773870976300_ncvn1i.png"
     alt="Live resize volume"
 />
 
 Railway performs volume resizing live without any downtime. The resize operation expands the underlying storage while your service continues running, and the filesystem is automatically extended to utilize the additional space. Your application maintains full read/write access throughout the entire process.
+
+In certain scenarios, such as when a volume reaches 100% capacity, the system will automatically perform an offline resize instead to run data integrity checks. This will restart your service and result in brief downtime during the resize operation.
 
 ## Backups
 

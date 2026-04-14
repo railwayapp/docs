@@ -7,6 +7,7 @@ tags:
   - luminus
   - clojure
   - backend
+topic: frameworks
 ---
 
 [Luminus](https://luminusweb.com) is a Clojure micro-framework based on a set of lightweight libraries. It aims to provide a robust, scalable, and easy to use platform. With Luminus you can focus on developing your app the way you want without any distractions.
@@ -70,27 +71,15 @@ Run the command below in your terminal to ensure it is installed:
 lein deps
 ```
 
-2. Create a `nixpacks.toml` file in the root directory of the app.
+2. Set the start command in your Railway service settings to:
 
-The [nixpacks.toml file](https://nixpacks.com/docs/configuration/file) is a configuration file used by Nixpacks, a build system developed and used by Railway, to set up and deploy applications.
+   ```
+   java -jar $(find ./target -name '*.jar' ! -name '*SNAPSHOT*') migrate && java -jar $(find ./target -name '*.jar' ! -name '*SNAPSHOT*')
+   ```
 
-In this file, you can specify the instructions for various build and deployment phases, along with environment variables and package dependencies.
+   See [Start Command](/deployments/start-command) for more info.
 
-Add the following content to the file:
-
-```toml
-# nixpacks.toml
-
-[start]
-cmd = "java -jar $(find ./target -name '*.jar' ! -name '*SNAPSHOT*') migrate && java -jar $(find ./target -name '*.jar' ! -name '*SNAPSHOT*')"
-
-```
-
-Here, Nixpacks is being specifically instructed to use the following command to start the app.
-
-The command searches for all `.jar` files in the `target` directory (where the standalone JAR file is located after the build), excludes any file with "SNAPSHOT" in its name, and passes the selected file to `java -jar` to run.
-
-It starts by running the JAR file with the `migrate` option to apply database migrations. Once migrations are complete, it reruns the JAR file to launch the application.
+   The command searches for all `.jar` files in the `target` directory (where the standalone JAR file is located after the build), excludes any file with "SNAPSHOT" in its name, and passes the selected file to `java -jar` to run. It starts by running the JAR file with the `migrate` option to apply database migrations. Once migrations are complete, it reruns the JAR file to launch the application.
 
 ## Deploy the Luminus app to Railway
 
@@ -167,7 +156,7 @@ To deploy a Clojure Luminus app to Railway directly from GitHub, follow the step
 
    - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Clojure app](https://nixpacks.com/docs/providers/clojure).
+   **Note:** During the deployment process, Railway will automatically detect that it’s a Clojure app.
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

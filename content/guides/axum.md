@@ -7,6 +7,7 @@ tags:
   - axum
   - rust
   - backend
+topic: frameworks
 ---
 
 [Axum](https://docs.rs/axum/latest/axum) is a web framework for Rust that focuses on ergonomics and modularity. It is designed to work with [tokio](https://docs.rs/tokio/1.40.0/x86_64-unknown-linux-gnu/tokio/index.html) and [hyper](https://docs.rs/hyper/1.4.1/x86_64-unknown-linux-gnu/hyper/index.html).
@@ -139,7 +140,7 @@ It is highly recommended that [you eject from the template after deployment](/te
 
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://nixpacks.com/docs/providers/rust).
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://railpack.com/languages/rust).
 
 5. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.
@@ -166,7 +167,7 @@ To deploy an Axum app to Railway directly from GitHub, follow the steps below:
 
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://nixpacks.com/docs/providers/rust).
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a Rust app](https://railpack.com/languages/rust).
 
 5. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

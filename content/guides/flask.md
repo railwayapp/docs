@@ -7,6 +7,7 @@ tags:
   - flask
   - python
   - backend
+topic: frameworks
 ---
 
 [Flask](https://flask.palletsprojects.com/en/stable) is a Python micro framework for building web applications.
@@ -113,20 +114,7 @@ pip freeze > requirements.txt
 
 **Note:** It's only safe to run the command above in a virtual environment, else it will freeze all python packages installed on your system.
 
-3. Finally, create a `nixpacks.toml` file in the root directory of the app. Add the following content to it:
-
-```toml
-# nixpacks.toml
-
-[start]
-cmd = "gunicorn main:app"
-```
-
-This setup instructs Railway to use Gunicorn as the server to start the application.
-
-**Note:** The [nixpacks.toml file](https://nixpacks.com/docs/configuration/file) is a configuration file used by Nixpacks, a build system developed and used by Railway, to set up and deploy applications.
-
-In this file, you can specify the instructions for various build and deployment phases, along with environment variables and package dependencies.
+3. Set the start command in your Railway service settings to `gunicorn main:app`. See [Start Command](/deployments/start-command) for more info.
 
 With these changes, your Flask app is now ready to be deployed to Railway!
 
@@ -140,7 +128,7 @@ Railway offers multiple ways to deploy your Flask app, depending on your setup a
 
 ## One-click deploy from a template
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/zUcpux)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/zUcpux)
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 

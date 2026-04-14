@@ -140,7 +140,7 @@ For information on how to deploy a Monorepo click [here](/deployments/monorepo).
 
 ## Ephemeral storage
 
-Every service deployment has access ephemeral storage, with the limits being 1GB on the Free plan and 100GB on a paid plan. If a service deployment consumes more than its ephemeral storage limit, it can be forcefully stopped and redeployed.
+Every service deployment has access to ephemeral storage, with the limits being 1GB on the Free plan and 100GB on a paid plan. If a service deployment consumes more than its ephemeral storage limit, it can be forcefully stopped and redeployed.
 
 If your service requires data to persist between deployments, or needs more storage, you should add a [volume](/volumes).
 

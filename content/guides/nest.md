@@ -7,6 +7,7 @@ tags:
   - nestjs
   - nodejs
   - backend
+topic: frameworks
 ---
 
 [Nest](https://nestjs.com) is a modern Node.js framework designed to create efficient, reliable, and scalable server-side applications. Built on top of powerful HTTP server frameworks, it uses Express as the default but also offers seamless support for Fastify for enhanced performance and flexibility.
@@ -148,7 +149,7 @@ If you’re looking for the fastest way to get started with Nest connected to a 
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/nvnuEH)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/nvnuEH)
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 
@@ -221,7 +222,7 @@ To deploy a Nest app to Railway directly from GitHub, follow the steps below:
 
    - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Node.js app via Nixpacks](https://nixpacks.com/docs/providers/node).
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a Node.js app via Railpack](https://railpack.com/languages/node).
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

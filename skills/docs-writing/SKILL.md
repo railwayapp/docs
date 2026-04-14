@@ -437,7 +437,7 @@ If your application listens on a different port, configure the PORT variable in 
 Used in guides to link to a one-click template deploy:
 
 ```markdown
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/TEMPLATE_ID)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/TEMPLATE_ID)
 ```
 
 ### CodeBlock / CodeTab

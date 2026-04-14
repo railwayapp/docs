@@ -8,6 +8,7 @@ tags:
   - elixir
   - distillery
   - backend
+topic: frameworks
 ---
 
 [Phoenix](https://phoenixframework.org) is popular Elixir framework designed for building scalable, maintainable, and high-performance web applications. It is known for its ability to handle real-time features efficiently, like WebSockets, while leveraging Elixir's concurrency model, which is built on the Erlang Virtual Machine (BEAM).
@@ -241,35 +242,16 @@ With your app up and running locally, let's move on to deploying the release to 
 
 ### Prepare app for deployment
 
-Create a `nixpacks.toml` file in the root of your app directory and add the following content:
+Since Distillery requires custom build phases, set the following in your Railway service settings:
 
-```toml
-# nixpacks.toml
-[variables]
-MIX_ENV = 'prod'
+- **Build command**: `mix local.hex --force && mix local.rebar --force && mix deps.get --only prod && mix compile && mkdir -p _build/prod/rel/helloworld_distillery/releases/RELEASES && mix do phx.digest, distillery.release --env=prod`
+- **Start command**: `mix ecto.setup && _build/prod/rel/helloworld_distillery/bin/helloworld_distillery foreground`
 
-[phases.setup]
-nixPkgs = ['...', 'erlang']
+Also set the `MIX_ENV` environment variable to `prod` in your service variables.
 
-[phases.install]
-cmds = [
-  'mix local.hex --force',
-  'mix local.rebar --force',
-  'mix deps.get --only prod'
-]
+See [Start Command](/deployments/start-command) and [Build Command](/builds/build-and-start-commands#build-command) for more info.
 
-[phases.build]
-cmds = [
-  'mix compile',
-  'mkdir -p _build/prod/rel/helloworld_distillery/releases/RELEASES',
-  'mix do phx.digest, distillery.release --env=prod',
-]
-
-[start]
-cmd = "mix ecto.setup && _build/prod/rel/helloworld_distillery/bin/helloworld_distillery foreground"
-```
-
-This [`nixpacks.toml` file](/config-as-code/reference#nixpacks-config-path) instructs Railway to execute specific commands during the setup, install, build, and start phases of the deployment. It ensures your app is compiled, assets are digested, and the release is created correctly using Distillery.
+**Tip:** For Distillery builds, you may also consider using a [Dockerfile](/builds/dockerfiles) for full control over the build process.
 
 ## Deploy Phoenix app to Railway
 
@@ -359,7 +341,7 @@ To deploy the Phoenix app to Railway, start by pushing the app to a GitHub repo.
 
    - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s an Elixir app](https://nixpacks.com/docs/providers/elixir).
+   **Note:** During the deployment process, Railway will automatically [detect that it’s an Elixir app](https://railpack.com/languages/elixir).
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

@@ -7,6 +7,7 @@ tags:
   - spring-boot
   - java
   - backend
+topic: frameworks
 ---
 
 [Spring Boot](https://spring.io/projects/spring-boot) is a Java framework designed to simplify the creation of stand-alone, production-ready Spring applications that are easy to run right out of the box.
@@ -152,7 +153,7 @@ To deploy a Spring Boot app to Railway directly from GitHub, follow the steps be
 
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Java app](https://nixpacks.com/docs/providers/java).
+   **Note:** During the deployment process, Railway will automatically [detect that it’s a Java app](https://railpack.com/languages/java).
 
 5. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

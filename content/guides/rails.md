@@ -7,6 +7,7 @@ tags:
   - rails
   - ruby
   - backend
+topic: frameworks
 ---
 
 Rails is a Ruby full-stack framework designed to compress the complexity of modern web apps. It ships with all the tools needed to build amazing web apps on both the front and back end.
@@ -167,7 +168,7 @@ To deploy the Rails app to Railway, start by pushing the app to a GitHub repo. O
 9. **Verify the Deployment**:
    - Once the deployment completes, go to **View logs** to check if the server is running successfully.
 
-**Note:** During the deployment process, Railway will automatically [detect that it’s a Rails app](https://nixpacks.com/docs/providers/ruby).
+**Note:** During the deployment process, Railway will automatically [detect that it’s a Rails app](https://railpack.com/languages/ruby).
 
 10. **Set Up a Public URL**:
     - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

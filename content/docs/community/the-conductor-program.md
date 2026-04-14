@@ -53,7 +53,7 @@ As part of the program, conductors will receive -
 
 - Cash payouts for solving complex issues for users.
 
-- The opportunity to earn payouts for OSS contributions ([CLI](https://github.com/railwayapp/cli), [Nixpacks](https://github.com/railwayapp/nixpacks), [Docs](https://github.com/railwayapp/docs), etc).
+- The opportunity to earn payouts for OSS contributions ([CLI](https://github.com/railwayapp/cli), [Railpack](https://github.com/railwayapp/railpack), [Docs](https://github.com/railwayapp/docs), etc).
 
 - First access to [template bounties](https://github.com/railwayapp/templates/wiki/Template-Bounties).
 

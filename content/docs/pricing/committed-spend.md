@@ -5,16 +5,29 @@ description: Learn about Railway's committed spend tier system.
 
 Railway offers committed spend tiers for customers with consistent usage needs. Instead of negotiated contract pricing, customers can commit to a specific monthly spend level to unlock additional features and services.
 
-## Available Tiers
+## Available tiers
 
 | Committed spend tier | Features                                                                             |
 | -------------------- | ------------------------------------------------------------------------------------ |
 | $1000                | 90-day log history, HIPAA BAAs                                                       |
 | $2000                | Single Sign-On, Role-based access control, 18 month Audit Logs retention             |
-| $5000                | Slack Connect channels,  Critical level support tickets, Railway owned cloud regions |
+| $5000                | Slack Connect channels,  Critical level support tickets, Railway owned cloud regions, Enterprise Resource Limits |
 | $10000               | Dedicated instances, Bring your own cloud                                            |
 
-## Feature Definitions
+## How to subscribe
+
+These tiers can only be accessed from a workspace on the Pro plan. To access a committed spend tier:
+
+1. Upgrade your workspace to the [Pro plan](/pricing/plans) if you haven't already.
+2. Navigate to your workspace Settings -> Plans page.
+3. Scroll down to see Committed Spend and Enterprise tier options.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1772655571/docs/committed_spend_from_pro_qfa6uc.png"
+alt="Committed spend on the pro plan"
+layout="intrinsic"
+width={800} height={468} quality={100} />
+
+## Feature definitions
 
 ### 90-day log history
 Extended log retention for better historical analysis and auditing.
@@ -22,14 +35,17 @@ Extended log retention for better historical analysis and auditing.
 ### HIPAA BAAs
 HIPAA Business Associate Agreements for compliant health data handling. Requires a year commitment paid monthly.
 
-### Single Sign-On
+### Single sign-on
 Allow workspace members to sign in using your organization’s Identity Provider (IdP), including Okta, Auth0, Microsoft Entra ID, Google Workspace, and more.
 
 ### Role-based access control
 Restrict access to sensitive environments like production. Only workspace admins can access restricted environments.
 
-### 18 month Audit Logs retention
+### 18 month audit logs retention
 Extended log retention for better historical analysis and auditing.
+
+### Enterprise Resource Limits
+Higher per-replica resource limits at 48 vCPU / 48 GB RAM / 50 replicas per service. Up to 2,400 vCPU / 2,4 TB RAM per service.
 
 ### Slack Connect channels
 A private channel with the solutions team at Railway on Slack to facilitate better communication and support.

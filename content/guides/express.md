@@ -7,6 +7,7 @@ tags:
   - express
   - nodejs
   - backend
+topic: frameworks
 ---
 
 [Express](https://expressjs.com) is a fast and flexible web application framework for Node.js that provides a simple and minimalistic approach to building web servers and APIs. It is known for its speed and unopinionated nature, allowing developers to structure their applications as they see fit while offering powerful features.
@@ -136,11 +137,11 @@ If you’re looking for the fastest way to get started with Express, Pug and con
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/BC51z6)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/BC51z6)
 
 For Express API, here's another template you can begin with:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/Y6zLKF)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/Y6zLKF)
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
 

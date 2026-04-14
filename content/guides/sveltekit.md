@@ -7,6 +7,8 @@ tags:
   - sveltekit
   - svelte
   - fullstack
+  - frontend
+topic: frameworks
 ---
 
 [SvelteKit](https://svelte.dev/docs/kit/introduction) is a framework for rapidly developing robust, performant web applications using Svelte.

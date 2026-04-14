@@ -17,7 +17,7 @@ Volumes have a default size based on the [subscription plan](/pricing/plans#plan
 - Hobby plans: **5GB**
 - Pro plan: **50GB**
 
-Volumes can be "Live resized" after upgrading to a different plan.
+Volumes can be resized on all paid plans (Hobby and Pro), including via live resize with zero downtime.
 
 Pro users and above can self-serve to increase their volume up to 250 GB.
 
@@ -57,6 +57,12 @@ You are only charged for the amount of storage used by your volumes. _Each volum
 
 Services with volumes support manual and automated backups, backups are covered in the [backups](/volumes/backups) reference guide.
 
+## Deletion and Restoration
+
+When a volume is deleted, it is queued for deletion and will be permanently deleted within 48 hours. You can restore the volume during this period using the restoration link sent via email.
+
+After 48 hours, deletion becomes permanent and the volume cannot be restored.
+
 ## Caveats
 
 Here are some limitations of which we are currently aware:
@@ -68,7 +74,7 @@ Here are some limitations of which we are currently aware:
   and mounted to the same service. This means that there will be a small amount
   of downtime when re-deploying a service that has a volume attached, even if there is a healthcheck endpoint configured
 - Down-sizing a volume is not currently supported, but increasing size is supported
-- Volume resizing is performed live without downtime - the underlying storage is expanded while your service continues running, and the filesystem automatically extends to utilize the additional space
+- Volume resizing is performed live without downtime - the underlying storage is expanded while your service continues running, and the filesystem automatically extends to utilize the additional space. In certain scenarios, such as when a volume reaches 100% capacity, an offline resize is automatically performed instead to run data integrity checks, which will restart your service
 - There is no file browser, or direct file download. To access your files,
   you must do so via the attached service's mount point
 - Docker images that run as a non-root UID by default will have permissions issues when performing operations within an attached volume. If you are affected by this, you can set `RAILWAY_RUN_UID=0` environment variable in your service.

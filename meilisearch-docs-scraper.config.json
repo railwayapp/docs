@@ -7,9 +7,6 @@
   ],
   "js_render": false,
   "scrape_start_urls": false,
-  "stop_urls": [
-    "https://docs.railway.com/guides.*"
-  ],
   "selectors": {
     "lvl0": {
       "selector": ".sidebar .current-section",
@@ -102,8 +99,7 @@
       "dockerfile": ["docker", "container", "containerfile"],
       "docker": ["container", "dockerfile", "containerize"],
 
-      "nixpacks": ["buildpack", "auto-build", "builder"],
-      "railpack": ["nixpacks", "buildpack", "builder"],
+      "railpack": ["buildpack", "builder"],
       "build": ["compile", "bundle", "package"],
 
       "environment variable": ["env var", "env", "config", "envvar", "variable"],

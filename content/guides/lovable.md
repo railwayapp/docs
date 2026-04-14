@@ -6,6 +6,7 @@ tags:
   - deployment
   - lovable
   - ai
+topic: integrations
 ---
 
 [Lovable](https://lovable.dev) is an AI-powered development platform that generates full-stack web applications from natural language prompts. The platform produces code that can be exported to GitHub and deployed to hosting platforms.

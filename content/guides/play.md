@@ -7,6 +7,7 @@ tags:
   - play
   - scala
   - backend
+topic: frameworks
 ---
 
 [Play](https://www.playframework.com) is a high velocity and productive web framework for Java and Scala. It is based on a lightweight, stateless, web-friendly architecture and features predictable and minimal resource consumption (CPU, memory, threads) for highly-scalable applications thanks to its reactive model, based on Pekko Streams.
@@ -292,7 +293,7 @@ To deploy a Scala Play app to Railway directly from GitHub, follow the steps bel
 
    - Once the deployment completes, go to [**View logs**](/observability/logs#build--deploy-panel) to check if the server is running successfully.
 
-   **Note:** During the deployment process, Railway will automatically [detect that it’s a Scala app](https://nixpacks.com/docs/providers/scala).
+   **Note:** During the deployment process, Railway will automatically detect that it’s a Scala app.
 
 6. **Set Up a Public URL**:
    - Navigate to the **Networking** section under the [Settings](/overview/the-basics#service-settings) tab of your new service.

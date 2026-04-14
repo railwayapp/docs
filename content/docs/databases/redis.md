@@ -14,7 +14,7 @@ alt="GIF of the Adding Database"
 layout="responsive"
 width={450} height={396} quality={100} />
 
-You can also deploy it via the [template](https://railway.com/template/redis) from the template marketplace.
+You can also deploy it via the [template](https://railway.com/deploy/redis) from the template marketplace.
 
 #### Deployed service
 

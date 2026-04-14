@@ -6,6 +6,7 @@ tags:
   - deployment
   - angular
   - frontend
+topic: frameworks
 ---
 
 [Angular](https://angular.dev) is a JavaScript web framework that empowers developers to build fast and reliable applications. It is designed to work at any scale, keep large teams productive and is proven in some of Google's largest web apps such as [Google fonts](https://fonts.google.com) and [Google Cloud](https://console.cloud.google.com).
