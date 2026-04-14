@@ -4,8 +4,8 @@ description: Learn how to deploy a React app to Railway with this step-by-step g
 date: "2026-01-30"
 tags:
   - deployment
-  - react
   - frontend
+  - react
 topic: frameworks
 ---
 

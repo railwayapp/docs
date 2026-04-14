@@ -3,13 +3,10 @@ title: Deploy a Full-Stack Next.js App with Postgres, Background Jobs, and File 
 description: Deploy a production Next.js application on Railway with a Postgres database, Redis-backed background workers, and file uploads via storage buckets. Covers multi-service architecture and production hardening.
 date: "2026-04-14"
 tags:
-  - architecture
   - frontend
   - nextjs
-  - postgres
-  - workers
-  - uploads
   - fullstack
+  - workers
 topic: architecture
 ---
 

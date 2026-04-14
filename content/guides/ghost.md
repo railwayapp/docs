@@ -4,10 +4,9 @@ description: Deploy Ghost on Railway from the official Docker image with a MySQL
 date: "2026-04-14"
 tags:
   - deployment
-  - ghost
-  - blog
-  - cms
   - frontend
+  - ghost
+  - cms
 topic: integrations
 ---
 

@@ -3,11 +3,10 @@ title: GitHub Actions PR Environment
 description: Learn how to use the CLI in a GitHub Action to create environments for PRs
 date: "2026-01-30"
 tags:
+  - frontend
   - github-actions
   - ci-cd
-  - automation
   - environments
-  - frontend
 topic: architecture
 ---
 

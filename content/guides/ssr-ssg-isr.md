@@ -3,12 +3,10 @@ title: Choose Between SSR, SSG, and ISR for Your Frontend
 description: When to use server-side rendering, static site generation, or incremental static regeneration. Covers Railway deployment implications, cost tradeoffs, and framework support.
 date: "2026-04-14"
 tags:
-  - architecture
   - frontend
   - ssr
   - ssg
   - isr
-  - rendering
 topic: architecture
 ---
 

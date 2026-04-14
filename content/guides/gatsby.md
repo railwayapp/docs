@@ -4,8 +4,8 @@ description: Deploy a Gatsby static site to Railway with Caddy. Covers one-click
 date: "2026-04-14"
 tags:
   - deployment
-  - gatsby
   - frontend
+  - gatsby
 topic: frameworks
 ---
 

@@ -4,10 +4,9 @@ description: Learn how to deploy a Sveltekit app to Railway with this step-by-st
 date: "2026-01-30"
 tags:
   - deployment
-  - sveltekit
-  - svelte
-  - fullstack
   - frontend
+  - sveltekit
+  - fullstack
 topic: frameworks
 ---
 

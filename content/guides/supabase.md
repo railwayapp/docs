@@ -4,10 +4,9 @@ description: Deploy the Supabase stack on Railway with Postgres, GoTrue auth, Po
 date: "2026-04-14"
 tags:
   - deployment
-  - supabase
-  - postgres
-  - authentication
   - frontend
+  - supabase
+  - authentication
 topic: integrations
 ---
 

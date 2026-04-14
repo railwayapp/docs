@@ -5,8 +5,8 @@ date: "2026-01-30"
 
 tags:
   - deployment
-  - vue
   - frontend
+  - vue
 topic: frameworks
 ---
 

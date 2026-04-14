@@ -3,7 +3,6 @@ title: Stream AI Responses to a Frontend with Server-Sent Events
 description: Stream LLM tokens from an API service to a frontend using Server-Sent Events on Railway. Covers Express and Hono server implementations, client-side consumption, and reconnection handling.
 date: "2026-04-14"
 tags:
-  - architecture
   - frontend
   - ai
   - sse

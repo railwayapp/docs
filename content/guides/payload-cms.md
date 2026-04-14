@@ -4,11 +4,9 @@ description: Deploy Payload CMS 3.x on Railway inside a Next.js application. Cov
 date: "2026-04-14"
 tags:
   - deployment
+  - frontend
   - payload
   - cms
-  - frontend
-  - postgres
-  - nextjs
 topic: integrations
 ---
 

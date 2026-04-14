@@ -4,10 +4,9 @@ description: Deploy Strapi on Railway with a Postgres database and persistent fi
 date: "2026-04-14"
 tags:
   - deployment
+  - frontend
   - strapi
   - cms
-  - frontend
-  - postgres
 topic: integrations
 ---
 

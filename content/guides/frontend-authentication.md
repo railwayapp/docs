@@ -3,7 +3,6 @@ title: Add Authentication to a Frontend Application
 description: Implement authentication in a frontend application deployed on Railway. Covers third-party providers (Clerk, Supabase Auth), session-based auth with Postgres, and common deployment pitfalls.
 date: "2026-04-14"
 tags:
-  - architecture
   - frontend
   - authentication
   - clerk

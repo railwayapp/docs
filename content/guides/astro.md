@@ -4,8 +4,8 @@ description: Learn how to deploy an Astro app to Railway with this step-by-step 
 date: "2026-01-30"
 tags:
   - deployment
-  - astro
   - frontend
+  - astro
 topic: frameworks
 ---
 

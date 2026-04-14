@@ -4,10 +4,9 @@ description: Learn how to deploy a Nuxt app to Railway with this step-by-step gu
 date: "2026-01-30"
 tags:
   - deployment
-  - nuxt
-  - vue
-  - fullstack
   - frontend
+  - nuxt
+  - fullstack
 topic: frameworks
 ---
 

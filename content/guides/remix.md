@@ -4,10 +4,9 @@ description: Learn how to deploy a Remix app to Railway with this step-by-step g
 date: "2026-01-30"
 tags:
   - deployment
-  - remix
-  - react
-  - fullstack
   - frontend
+  - remix
+  - fullstack
 topic: frameworks
 ---
 

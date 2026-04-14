@@ -4,8 +4,8 @@ description: Learn how to deploy an Angular app to Railway with this step-by-ste
 date: "2026-01-30"
 tags:
   - deployment
-  - angular
   - frontend
+  - angular
 topic: frameworks
 ---
 

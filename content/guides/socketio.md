@@ -7,7 +7,6 @@ tags:
   - frontend
   - websockets
   - socketio
-  - real-time
 topic: integrations
 ---
 

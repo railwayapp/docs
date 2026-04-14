@@ -4,11 +4,9 @@ description: Deploy a Next.js app with a Postgres database on Railway. Covers st
 date: "2026-03-30"
 tags:
   - deployment
-  - nextjs
-  - react
-  - fullstack
   - frontend
-  - postgres
+  - nextjs
+  - fullstack
 topic: frameworks
 ---
 

@@ -4,8 +4,8 @@ description: Learn how to deploy a SolidJS app to Railway with this step-by-step
 date: "2026-01-30"
 tags:
   - deployment
-  - solidjs
   - frontend
+  - solidjs
 topic: frameworks
 ---
 

@@ -3,11 +3,10 @@ title: Choose Between SSE and WebSockets
 description: When to use Server-Sent Events vs WebSockets for real-time data. Covers protocol differences, reconnection handling, and how to deploy both on Railway.
 date: "2026-03-30"
 tags:
-  - architecture
+  - frontend
   - sse
   - websockets
   - real-time
-  - frontend
 topic: architecture
 ---
 

@@ -3,12 +3,10 @@ title: Configure Client-Side Routing for Single-Page Applications
 description: Set up Caddy or Nginx to handle client-side routing for single-page applications on Railway. Avoid blank pages on refresh and configure fallback routes.
 date: "2026-04-14"
 tags:
-  - architecture
   - frontend
   - spa
   - routing
   - caddy
-  - nginx
 topic: architecture
 ---
 

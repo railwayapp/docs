@@ -3,7 +3,6 @@ title: Manage Environment Variables in Frontend Builds
 description: Understand build-time vs runtime environment variables in frontend frameworks. Covers Vite, Next.js, Nuxt, SvelteKit, Astro, and Angular prefix conventions and how Railway handles each.
 date: "2026-04-14"
 tags:
-  - architecture
   - frontend
   - environment-variables
   - vite
