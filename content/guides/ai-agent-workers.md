@@ -7,7 +7,7 @@ tags:
   - ai
   - workers
   - agents
-topic: architecture
+topic: ai
 ---
 
 AI agents that call LLM APIs, execute tools, and manage multi-step workflows need async processing. A single HTTP request cannot stay open long enough for an agent that takes minutes to reason through a task. This guide covers how to deploy an agent architecture on Railway using an API service, Redis-backed workers, and Postgres for state.
