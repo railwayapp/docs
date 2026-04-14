@@ -14,7 +14,7 @@ For Lovable-specific deployment, see the dedicated [Lovable guide](/guides/lovab
 
 ## How Railway detects your app
 
-When you deploy code to Railway, [Railpack](/builds/railpack) (or [Nixpacks](/builds/nixpacks)) analyzes your repository to detect the language and framework. It then installs dependencies, runs the build, and starts the application.
+When you deploy code to Railway, [Railpack](/builds/railpack) analyzes your repository to detect the language and framework. It then installs dependencies, runs the build, and starts the application.
 
 For most AI-generated projects, auto-detection works without extra configuration. If it fails, you can add a [Dockerfile](/builds/dockerfiles) for full control over the build.
 
