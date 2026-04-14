@@ -3,7 +3,6 @@ title: Deploy an AI-Powered Bot for Discord or Telegram
 description: Deploy a Discord or Telegram bot on Railway that uses LLM APIs for conversational responses. Covers always-on deployment, API key management, conversation memory with Postgres, and rate limit handling.
 date: "2026-04-14"
 tags:
-  - ai
   - bot
   - discord
   - telegram

@@ -4,7 +4,6 @@ description: Run AI agent workflows on Railway with an API service, async worker
 date: "2026-03-30"
 tags:
   - architecture
-  - ai
   - workers
   - agents
 topic: ai

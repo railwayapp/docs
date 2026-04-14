@@ -3,7 +3,6 @@ title: Deploy a Vibe-Coded App on Railway
 description: Deploy an application built with AI coding tools like Cursor, Claude Code, Bolt, or Lovable on Railway. Covers common deployment issues with AI-generated code and how to fix them.
 date: "2026-04-14"
 tags:
-  - ai
   - deployment
   - docker
 topic: ai

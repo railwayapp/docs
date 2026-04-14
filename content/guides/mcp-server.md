@@ -3,7 +3,6 @@ title: Build and Deploy Your Own MCP Server
 description: Build a Model Context Protocol server in TypeScript and deploy it on Railway. Expose custom tools and resources that AI assistants like Claude and Cursor can call over the network.
 date: "2026-04-14"
 tags:
-  - ai
   - mcp
   - typescript
   - agents

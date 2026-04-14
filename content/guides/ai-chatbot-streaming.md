@@ -3,7 +3,6 @@ title: Deploy an AI Chatbot with Streaming Responses
 description: Deploy a chatbot on Railway that streams LLM responses token by token using Server-Sent Events. Covers Next.js with the AI SDK, API key management, and optional conversation persistence with Postgres.
 date: "2026-04-14"
 tags:
-  - ai
   - chatbot
   - streaming
   - sse

@@ -3,7 +3,6 @@ title: Self-Host Dify
 description: Deploy Dify on Railway with Postgres, Redis, and persistent storage. Build AI applications, RAG pipelines, and agent workflows through Dify's visual interface.
 date: "2026-04-14"
 tags:
-  - ai
   - dify
   - docker
   - self-hosted

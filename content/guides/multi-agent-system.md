@@ -3,7 +3,6 @@ title: Deploy a Multi-Agent System on Railway
 description: Deploy multiple AI agents as separate Railway services that communicate via Redis and Postgres. Covers agent orchestration, inter-service communication, staggered scheduling, and independent scaling.
 date: "2026-04-14"
 tags:
-  - ai
   - agents
   - multi-agent
   - python

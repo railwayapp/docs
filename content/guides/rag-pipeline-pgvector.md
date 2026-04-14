@@ -3,7 +3,6 @@ title: Deploy a RAG Pipeline with pgvector
 description: Build a retrieval-augmented generation pipeline on Railway using Postgres with pgvector for vector storage, an external embedding API, and an LLM for generation. Covers document ingestion, similarity search, and deployment.
 date: "2026-04-14"
 tags:
-  - ai
   - rag
   - pgvector
   - embeddings

@@ -3,7 +3,6 @@ title: Self-Host Flowise
 description: Deploy Flowise on Railway with persistent storage and authentication. Build LLM chains, agents, and chatbots through a visual drag-and-drop interface without managing servers.
 date: "2026-04-14"
 tags:
-  - ai
   - flowise
   - docker
   - self-hosted

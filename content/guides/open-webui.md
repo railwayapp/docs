@@ -3,7 +3,6 @@ title: Self-Host Open WebUI
 description: Deploy Open WebUI on Railway to get a ChatGPT-like interface that connects to OpenAI, Anthropic, and other LLM providers. Includes persistent storage and authentication setup.
 date: "2026-04-14"
 tags:
-  - ai
   - open-webui
   - docker
   - self-hosted

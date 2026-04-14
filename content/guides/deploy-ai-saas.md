@@ -3,7 +3,6 @@ title: Deploy an AI-Powered SaaS App on Railway
 description: Deploy a production AI-powered SaaS application on Railway with a FastAPI backend, Postgres database, and external LLM API integration. Covers API key management, request caching, rate limiting, and async processing for longer tasks.
 date: "2026-04-14"
 tags:
-  - ai
   - saas
   - python
   - fastapi

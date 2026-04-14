@@ -3,7 +3,6 @@ title: Deploy an AI API Gateway
 description: Deploy LiteLLM Proxy on Railway as a unified gateway for multiple LLM providers. Covers model routing, cost tracking, API key management, caching with Redis, and private networking.
 date: "2026-04-14"
 tags:
-  - ai
   - gateway
   - api
   - proxy
