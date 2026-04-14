@@ -127,7 +127,7 @@ Commit the migration files. Railway runs `npx prisma migrate deploy` on each dep
 ## 4. Add file uploads via storage buckets
 
 1. Create a [storage bucket](/storage-buckets) in your Railway project: click **+ New**, then **Bucket**.
-2. Add bucket credentials to your Next.js service using [credential presets](/storage-buckets#credential-presets) or reference variables.
+2. Add bucket credentials to your Next.js service using reference variables or the automatic credential injection described in [Storage Buckets](/storage-buckets).
 
 Create an API route that generates presigned upload URLs:
 
@@ -171,7 +171,7 @@ Background jobs handle work that should not block the HTTP response: sending ema
 Install BullMQ:
 
 ```bash
-npm install bullmq
+npm install bullmq ioredis
 ```
 
 Create a shared queue definition:
@@ -290,7 +290,7 @@ Use Railway [environments](/environments) to run staging and production instance
 
 ### Pre-deploy migrations
 
-The pre-deploy command (`npx prisma migrate deploy`) runs before the new container starts serving traffic. If the migration fails, the deploy is rolled back and the old version keeps running.
+The pre-deploy command (`npx prisma migrate deploy`) runs before the new container starts serving traffic. If the migration fails, the deployment does not proceed and the previous version keeps running.
 
 ## Next steps
 

@@ -78,6 +78,7 @@ app.listen(port, '0.0.0.0', () => {
 ```typescript
 import { Hono } from 'hono';
 import { streamSSE } from 'hono/streaming';
+import { serve } from '@hono/node-server';
 import Anthropic from '@anthropic-ai/sdk';
 
 const app = new Hono();
@@ -102,10 +103,10 @@ app.post('/api/chat', async (c) => {
   });
 });
 
-export default {
-  port: parseInt(process.env.PORT || '3000'),
-  fetch: app.fetch,
-};
+const port = parseInt(process.env.PORT || '3000');
+serve({ fetch: app.fetch, port }, () => {
+  console.log(`Server running on port ${port}`);
+});
 ```
 
 Key details:

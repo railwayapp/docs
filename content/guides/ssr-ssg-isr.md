@@ -49,7 +49,7 @@ HTML is generated on the server for each request. The server runs continuously, 
 
 **Best for:** pages with user-specific content, authenticated views, search results, or any page that needs fresh data on every request.
 
-**On Railway:** deploy as a Node service. The framework's built-in server handles incoming requests. Set a [health check](/deployments/healthchecks) to monitor the service. Consider [scaling](/scaling) if traffic demands it.
+**On Railway:** deploy as a Node service. The framework's built-in server handles incoming requests. Set a [health check](/deployments/healthchecks) to monitor the service. Consider [scaling](/deployments/scaling) if traffic demands it.
 
 **Tradeoff:** higher resource consumption than SSG. The server is always running, even during low traffic. Each request incurs server-side rendering time.
 
@@ -135,7 +135,7 @@ You can mix strategies within a single app. Next.js, Nuxt, Astro, and SvelteKit 
 
 **SSG** is the cheapest to run. Caddy uses minimal CPU and memory to serve static files. You pay only for the web server process.
 
-**SSR** costs more because a Node process runs continuously. Resource usage scales with traffic and rendering complexity. Use Railway's [autoscaling](/scaling) to match capacity to demand.
+**SSR** costs more because a Node process runs continuously. Resource usage scales with traffic and rendering complexity. Use Railway's [autoscaling](/deployments/scaling) to match capacity to demand.
 
 **ISR** falls between SSG and SSR. The server runs continuously but renders pages less frequently than pure SSR. Cache hits serve static files without rendering.
 
@@ -146,5 +146,5 @@ For all strategies, build-time resource usage (CPU and memory during `npm run bu
 - [Configure SPA routing](/guides/spa-routing-configuration) - Set up Caddy for static frontend deploys.
 - [Manage environment variables in frontend builds](/guides/frontend-environment-variables) - Handle build-time vs runtime variables.
 - [Choose between SSE and WebSockets](/guides/sse-vs-websockets) - Add real-time features to your frontend.
-- [Scaling](/scaling) - Scale SSR services based on traffic.
+- [Scaling](/deployments/scaling) - Scale SSR services based on traffic.
 - [Health Checks](/deployments/healthchecks) - Monitor your SSR service health.

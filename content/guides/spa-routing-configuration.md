@@ -24,6 +24,14 @@ The issue occurs when the browser sends a request directly to `/dashboard`, eith
 
 The fix is a fallback rule: serve the requested file if it exists, otherwise serve `index.html` and let the client-side router take over.
 
+## One-click deploy with Caddy
+
+If you want a ready-made Caddy setup for serving static files and SPAs, deploy the Caddy template and customize the Caddyfile:
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/caddy)
+
+It is recommended to [eject from the template](/templates/deploy#eject-from-template-repository) to get a copy of the repo on your GitHub account.
+
 ## Option 1: Caddy (recommended)
 
 [Caddy](https://caddyserver.com) is a lightweight web server that works well for serving SPAs on Railway. Most Railway SPA templates use Caddy.
@@ -200,7 +208,7 @@ You do not need `try_files` configuration if:
 
 ## Common pitfalls
 
-**Assets return `index.html` instead of the actual file.** This happens when `file_server` is not configured or is ordered incorrectly. In Caddy, `file_server` before `try_files` ensures real files are served first.
+**Assets return `index.html` instead of the actual file.** This happens when `file_server` is missing from the configuration. Caddy uses a predefined directive order where `try_files` (a rewrite) runs before `file_server`, so real files are served first when both directives are present.
 
 **Nested routes load broken assets.** If your app is at `/app/settings` and loads a relative script like `src="main.js"`, the browser requests `/app/main.js` instead of `/main.js`. Fix this by setting a base path in your build tool (e.g., `base: "/"` in `vite.config.js`).
 

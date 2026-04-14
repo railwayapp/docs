@@ -205,4 +205,4 @@ socket.on('connect', () => {
 - [Choose between SSE and WebSockets](/guides/sse-vs-websockets) - Decide which protocol fits your use case.
 - [Redis on Railway](/databases/redis) - Set up Redis for the Socket.IO adapter.
 - [Private Networking](/networking/private-networking) - Connect services within your project.
-- [Scaling](/scaling) - Scale your Socket.IO server based on connection count.
+- [Scaling](/deployments/scaling) - Scale your Socket.IO server based on connection count.

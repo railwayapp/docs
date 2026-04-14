@@ -577,7 +577,7 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
                     {guide.tags &&
                       guide.tags
                         .filter((t: string) => !EXCLUDED_TAGS.has(t))
-                        .slice(0, 3)
+                        .slice(0, 4)
                         .map((tag: string) => (
                           <Link
                             key={tag}

@@ -94,13 +94,15 @@ Replace the URL with the public domain of your API gateway service. The anon key
 
 ```javascript
 // Sign up
-const { data, error } = await supabase.auth.signUp({
+const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
   email: 'user@example.com',
   password: 'password',
 });
+```
 
+```javascript
 // Sign in
-const { data, error } = await supabase.auth.signInWithPassword({
+const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
   email: 'user@example.com',
   password: 'password',
 });
