@@ -42,6 +42,24 @@ npm install -D typescript @types/node @types/express
 npx tsc --init
 ```
 
+Update `tsconfig.json` with the following settings:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
+```
+
 Create the server with a sample tool:
 
 ```typescript
@@ -51,32 +69,53 @@ import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express from "express";
 
 const app = express();
-const server = new McpServer({
-  name: "my-mcp-server",
-  version: "1.0.0",
-});
 
-// Define a tool
-server.tool("get_weather", "Get the current weather for a city", {
-  city: { type: "string", description: "City name" },
-}, async ({ city }) => {
-  // Replace with a real API call
-  return {
-    content: [
-      { type: "text", text: `Weather in ${city}: 72°F, sunny` },
-    ],
-  };
-});
+// Store transports by session ID so the POST handler can route messages
+const transports = new Map<string, SSEServerTransport>();
 
-// SSE transport endpoint
+function createServer() {
+  const server = new McpServer({
+    name: "my-mcp-server",
+    version: "1.0.0",
+  });
+
+  // Define a tool
+  server.tool("get_weather", "Get the current weather for a city", {
+    city: { type: "string", description: "City name" },
+  }, async ({ city }) => {
+    // Replace with a real API call
+    return {
+      content: [
+        { type: "text", text: `Weather in ${city}: 72°F, sunny` },
+      ],
+    };
+  });
+
+  return server;
+}
+
 app.get("/sse", async (req, res) => {
   const transport = new SSEServerTransport("/messages", res);
+  transports.set(transport.sessionId, transport);
+
+  res.on("close", () => {
+    transports.delete(transport.sessionId);
+  });
+
+  const server = createServer();
   await server.connect(transport);
 });
 
 app.post("/messages", express.json(), async (req, res) => {
-  // Handle incoming messages from the client
-  // The transport handles routing automatically
+  const sessionId = req.query.sessionId as string;
+  const transport = transports.get(sessionId);
+
+  if (!transport) {
+    res.status(400).send("Unknown session");
+    return;
+  }
+
+  await transport.handlePostMessage(req, res);
 });
 
 const port = process.env.PORT || 3000;
@@ -157,6 +196,9 @@ app.get("/sse", async (req, res) => {
     return res.status(401).send("Unauthorized");
   }
   const transport = new SSEServerTransport("/messages", res);
+  transports.set(transport.sessionId, transport);
+  res.on("close", () => transports.delete(transport.sessionId));
+  const server = createServer();
   await server.connect(transport);
 });
 ```

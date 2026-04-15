@@ -29,9 +29,29 @@ Bot services do not need a public domain. They connect outbound to the messaging
 - A bot token from [Discord](https://discord.com/developers/applications) or [Telegram](https://core.telegram.org/bots#botfather)
 - An API key from [OpenAI](https://platform.openai.com/api-keys) or [Anthropic](https://console.anthropic.com/)
 
-## 1. Structure the bot code
+## 1. Set up the project
 
-Here is a minimal Discord bot using discord.py and OpenAI:
+Create a project directory with a `requirements.txt`:
+
+For a Discord bot:
+
+```
+discord.py
+openai
+```
+
+For a Telegram bot:
+
+```
+python-telegram-bot
+openai
+```
+
+Install dependencies locally with `pip install -r requirements.txt`.
+
+## 2. Write the bot code
+
+Here is a minimal Discord bot using discord.py and OpenAI. Save this as `bot.py`:
 
 ```python
 import os
@@ -60,7 +80,7 @@ async def on_message(message):
 bot.run(os.environ["DISCORD_TOKEN"])
 ```
 
-For Telegram, use python-telegram-bot:
+For Telegram, use python-telegram-bot instead. Save this as `bot.py`:
 
 ```python
 import os
@@ -84,19 +104,20 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 app.run_polling()
 ```
 
-## 2. Deploy to Railway
+## 3. Deploy to Railway
 
 1. Push your bot code to a GitHub repository.
 2. Create a new [project](/projects) on Railway.
 3. Click **+ New > GitHub Repo** and select your repository.
-4. Set environment variables under the **Variables** tab:
+4. Set the [start command](/deployments/start-command) to: `python bot.py`
+5. Set environment variables under the **Variables** tab:
    - `DISCORD_TOKEN` or `TELEGRAM_TOKEN`: your bot token.
    - `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`: your LLM API key.
-5. The bot does not need a public domain. It connects outbound to Discord/Telegram servers.
+6. The bot does not need a public domain. It connects outbound to Discord/Telegram servers.
 
 Deploy the bot as an always-on service, not a [cron job](/cron-jobs). Bots must stay connected to receive messages in real time.
 
-## 3. Add conversation memory with Postgres
+## 4. Add conversation memory with Postgres
 
 Without a database, the bot treats every message independently. To maintain conversation context:
 
@@ -118,7 +139,7 @@ CREATE INDEX idx_conversations_channel ON conversations(channel_id);
 
 Before calling the LLM, load the last N messages for the channel and include them in the messages array. This gives the bot conversational context.
 
-## 4. Handle rate limits
+## 5. Handle rate limits
 
 LLM APIs enforce rate limits on requests per minute and tokens per minute. When your bot is active in multiple channels simultaneously, you can hit these limits. Mitigations:
 

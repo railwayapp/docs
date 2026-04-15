@@ -28,7 +28,19 @@ Railway is a CPU-based platform. The chatbot calls external LLM APIs over HTTP, 
 - An API key from [OpenAI](https://platform.openai.com/api-keys) or [Anthropic](https://console.anthropic.com/)
 - A Next.js app with the AI SDK installed, or a willingness to start from the AI SDK's [chat template](https://github.com/vercel/ai-chatbot)
 
-## 1. Set up the chat API route
+## 1. Create the project
+
+If you do not already have a Next.js app, create one and install the AI SDK:
+
+```bash
+npx create-next-app@latest my-chatbot --app --typescript
+cd my-chatbot
+npm install ai @ai-sdk/openai @ai-sdk/react
+```
+
+To use Anthropic instead of OpenAI, install `@ai-sdk/anthropic` in place of `@ai-sdk/openai`.
+
+## 2. Set up the chat API route
 
 The AI SDK provides a `streamText` function that calls the LLM and returns a streaming response. Create an API route that uses it:
 
@@ -60,7 +72,7 @@ const result = streamText({
 });
 ```
 
-## 2. Set up the chat UI
+## 3. Set up the chat UI
 
 The AI SDK's `useChat` hook manages the message list, input state, and SSE connection:
 
@@ -90,7 +102,7 @@ export default function Chat() {
 
 `useChat` sends a POST request to `/api/chat` and reads the streamed response. Tokens appear in the UI as they arrive.
 
-## 3. Deploy to Railway
+## 4. Deploy to Railway
 
 1. Push your code to a GitHub repository.
 2. Create a new [project](/projects) on Railway.

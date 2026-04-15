@@ -29,15 +29,11 @@ Your application services send requests to the proxy's internal URL instead of d
 - A Railway account
 - API keys for one or more LLM providers
 
-## 1. Create the project and proxy service
+## 1. Create the proxy repository
 
-1. Create a new [project](/projects) on Railway.
-2. Click **+ New > Docker Image**.
-3. Enter `ghcr.io/berriai/litellm:main-latest` as the image name.
+Create a new repository with two files:
 
-## 2. Configure the proxy
-
-Create a `litellm_config.yaml` file in a repository or mount it via environment variables. A minimal configuration:
+**litellm_config.yaml:**
 
 ```yaml
 model_list:
@@ -57,20 +53,27 @@ model_list:
       api_key: os.environ/OPENAI_API_KEY
 ```
 
-Set the following environment variables on the proxy service:
+**Dockerfile:**
+
+```dockerfile
+FROM ghcr.io/berriai/litellm:main-latest
+COPY litellm_config.yaml /app/config.yaml
+CMD ["--config", "/app/config.yaml", "--port", "8000", "--host", "0.0.0.0"]
+```
+
+## 2. Deploy the proxy
+
+1. Create a new [project](/projects) on Railway.
+2. Click **+ New > GitHub Repo** and select your proxy repository.
+3. Set the following environment variables on the proxy service:
 
 | Variable | Value |
 | --- | --- |
 | `OPENAI_API_KEY` | Your OpenAI API key |
 | `ANTHROPIC_API_KEY` | Your Anthropic API key |
 | `LITELLM_MASTER_KEY` | A secret key for proxy admin access |
-| `PORT` | `${{PORT}}` |
 
-If deploying from a repository with the config file, set the start command to:
-
-```
-litellm --config litellm_config.yaml --port $PORT --host 0.0.0.0
-```
+4. Railway builds the Dockerfile and starts the proxy.
 
 ## 3. Keep the proxy internal
 

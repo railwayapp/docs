@@ -63,14 +63,30 @@ The `vector(1536)` type matches OpenAI's `text-embedding-3-small` output dimensi
 
 The HNSW index provides fast approximate nearest-neighbor search. For datasets under 100,000 rows, an IVFFlat index is also viable and uses less memory during index creation.
 
-## 3. Build the ingestion pipeline
+## 3. Set up the project
 
-The ingestion step chunks your documents, generates embeddings, and inserts them into Postgres. Here is a minimal Python example using FastAPI and OpenAI:
+Create a project directory with the following files:
+
+### requirements.txt
+
+```
+fastapi
+uvicorn
+openai
+psycopg2-binary
+```
+
+Install dependencies locally with `pip install -r requirements.txt`.
+
+## 4. Build the ingestion pipeline
+
+The ingestion step chunks your documents, generates embeddings, and inserts them into Postgres:
 
 ```python
 # ingest.py
 import os
 import psycopg2
+import psycopg2.extras
 from openai import OpenAI
 
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
@@ -104,11 +120,20 @@ def ingest(text: str, metadata: dict = None):
     conn.commit()
     cur.close()
     conn.close()
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) < 2:
+        print("Usage: python ingest.py <file_path>")
+        sys.exit(1)
+    with open(sys.argv[1]) as f:
+        ingest(f.read(), {"source": sys.argv[1]})
+    print(f"Ingested {sys.argv[1]}")
 ```
 
-For large document sets, run ingestion as a one-off task using a [Railway CLI](/cli) command or as a [pre-deploy command](/deployments/pre-deploy-command). For ongoing ingestion, consider the [async workers pattern](/guides/ai-agent-workers).
+Run locally with `python ingest.py my_document.txt`, or run it on Railway using the [CLI](/cli): `railway run python ingest.py my_document.txt`. For ongoing ingestion at scale, consider the [async workers pattern](/guides/ai-agent-workers).
 
-## 4. Build the query endpoint
+## 5. Build the query endpoint
 
 The query endpoint embeds the user's question, finds similar document chunks, and sends them to the LLM as context:
 
@@ -168,14 +193,15 @@ async def query(question: str):
     }
 ```
 
-## 5. Deploy the API service
+## 6. Deploy the API service
 
 1. Push your code to a GitHub repository.
 2. In your Railway project (the same one with pgvector), click **+ New > GitHub Repo** and select your repository.
-3. Add environment variables:
+3. Set the [start command](/deployments/start-command) to: `uvicorn app:app --host 0.0.0.0 --port $PORT`
+4. Add environment variables:
    - [Reference](/variables#referencing-another-services-variable) `DATABASE_URL` from your pgvector service.
    - Set `OPENAI_API_KEY` to your API key.
-4. Generate a [public domain](/networking/public-networking#railway-provided-domain) under **Settings > Networking**.
+5. Generate a [public domain](/networking/public-networking#railway-provided-domain) under **Settings > Networking**.
 
 The API service communicates with Postgres over [private networking](/networking/private-networking) automatically since both services are in the same project.
 

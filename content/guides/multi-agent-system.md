@@ -1,6 +1,6 @@
 ---
 title: Deploy a Multi-Agent System on Railway
-description: Deploy multiple AI agents as separate Railway services that communicate via Redis and Postgres. Covers agent orchestration, inter-service communication, staggered scheduling, and independent scaling.
+description: Deploy multiple AI agents as separate Railway services that communicate via Redis and Postgres. Includes working orchestrator and agent code, inter-service communication, and independent scaling.
 date: "2026-04-14"
 tags:
   - agents
@@ -10,9 +10,9 @@ tags:
 topic: ai
 ---
 
-A multi-agent system uses multiple specialized AI agents that collaborate on tasks. Each agent has a specific role (researcher, writer, reviewer, etc.) and calls an LLM API to reason through its part of the work. Agents communicate by reading and writing shared state in a database or message queue.
+A multi-agent system uses multiple specialized AI agents that collaborate on tasks. Each agent has a specific role (researcher, writer, reviewer) and calls an LLM API to reason through its part of the work. Agents communicate by reading and writing shared state in a database and message queue.
 
-This guide covers deploying a multi-agent system on Railway where each agent runs as a separate service. This architecture lets you scale agents independently, use different LLM providers per agent, and isolate failures.
+This guide covers deploying a multi-agent system on Railway where each agent runs as a separate service. This lets you scale agents independently, use different LLM providers per agent, and isolate failures.
 
 Railway is a CPU-based platform. All agents call external LLM APIs (OpenAI, Anthropic, etc.) over HTTP. No models run locally.
 
@@ -20,107 +20,302 @@ Railway is a CPU-based platform. All agents call external LLM APIs (OpenAI, Anth
 
 The system uses four types of components:
 
-- **Orchestrator service** receives tasks, breaks them into subtasks, and assigns them to agents via a Redis queue or Postgres task table.
-- **Agent services** (one per role) pull tasks from the queue, call their assigned LLM, and write results back to the shared state.
-- **Postgres** stores task definitions, agent outputs, conversation history, and final results.
-- **Redis** serves as the message queue between the orchestrator and agents.
+- **Orchestrator service** receives tasks via HTTP, creates subtasks, and dispatches them to agent-specific Redis queues.
+- **Agent services** (one per role) pull tasks from their queue, call their assigned LLM, write results to Postgres, and push downstream tasks to the next agent's queue.
+- **Postgres** stores task state, agent outputs, and final results.
+- **Redis** serves as the message queue between services.
 
 This extends the [single-agent async workers pattern](/guides/ai-agent-workers) to multiple specialized agents.
-
-## When to use this pattern
-
-- A task requires different capabilities (research, analysis, writing, review) that benefit from separate prompts and models.
-- You want to run agents concurrently to reduce total execution time.
-- Different agents need different resource allocations or scaling behavior.
-- You want to swap or update individual agents without redeploying the entire system.
-
-For simpler use cases where a single agent with tool-calling is sufficient, see [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers).
 
 ## Prerequisites
 
 - A Railway account
 - API keys for one or more LLM providers (OpenAI, Anthropic, etc.)
-- Application code structured as separate agent entry points
+- Python 3.11+
+
+## Project structure
+
+Create a repository with the following structure:
+
+```
+multi-agent/
+├── requirements.txt
+├── shared.py
+├── orchestrator.py
+├── agents/
+│   ├── __init__.py
+│   ├── researcher.py
+│   └── writer.py
+```
+
+### requirements.txt
+
+```
+fastapi
+uvicorn
+openai
+redis
+psycopg2-binary
+```
+
+### shared.py
+
+Shared utilities for database and Redis connections used by all services:
+
+```python
+import os
+import json
+import uuid
+import psycopg2
+import redis
+
+DATABASE_URL = os.environ["DATABASE_URL"]
+REDIS_URL = os.environ["REDIS_URL"]
+
+def get_db():
+    return psycopg2.connect(DATABASE_URL)
+
+def get_redis():
+    return redis.from_url(REDIS_URL)
+
+def create_task(conn, agent_role: str, input_data: dict, parent_id: str = None) -> str:
+    task_id = str(uuid.uuid4())
+    cur = conn.cursor()
+    cur.execute(
+        """INSERT INTO tasks (id, parent_task_id, agent_role, status, input)
+           VALUES (%s, %s, %s, 'pending', %s)""",
+        (task_id, parent_id, agent_role, json.dumps(input_data)),
+    )
+    conn.commit()
+    cur.close()
+    return task_id
+
+def complete_task(conn, task_id: str, output_data: dict):
+    cur = conn.cursor()
+    cur.execute(
+        "UPDATE tasks SET status = 'completed', output = %s WHERE id = %s",
+        (json.dumps(output_data), task_id),
+    )
+    conn.commit()
+    cur.close()
+
+def get_task(conn, task_id: str) -> dict:
+    cur = conn.cursor()
+    cur.execute("SELECT id, agent_role, status, input, output FROM tasks WHERE id = %s", (task_id,))
+    row = cur.fetchone()
+    cur.close()
+    if not row:
+        return None
+    return {"id": row[0], "agent_role": row[1], "status": row[2], "input": row[3], "output": row[4]}
+```
+
+### orchestrator.py
+
+The orchestrator receives HTTP requests, creates tasks, and dispatches them to agent queues:
+
+```python
+import json
+from fastapi import FastAPI
+from shared import get_db, get_redis, create_task, get_task
+
+app = FastAPI()
+
+@app.post("/tasks")
+async def submit_task(topic: str):
+    conn = get_db()
+    r = get_redis()
+
+    # Create a research task and push it to the researcher queue
+    task_id = create_task(conn, "researcher", {"topic": topic})
+    r.lpush("queue:researcher", json.dumps({"task_id": task_id}))
+    conn.close()
+
+    return {"task_id": task_id}
+
+@app.get("/tasks/{task_id}")
+async def check_task(task_id: str):
+    conn = get_db()
+    task = get_task(conn, task_id)
+    conn.close()
+    if not task:
+        return {"error": "not found"}, 404
+    return task
+```
+
+### agents/researcher.py
+
+The researcher agent pulls tasks from its queue, calls the LLM to research a topic, then creates a follow-up task for the writer:
+
+```python
+import os
+import json
+import time
+from openai import OpenAI
+from shared import get_db, get_redis, complete_task, create_task
+
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+startup_delay = int(os.environ.get("STARTUP_DELAY_SECONDS", "0"))
+time.sleep(startup_delay)
+
+def run():
+    r = get_redis()
+    print("Researcher agent started, waiting for tasks...")
+
+    while True:
+        _, message = r.brpop("queue:researcher")
+        data = json.loads(message)
+        task_id = data["task_id"]
+
+        conn = get_db()
+        from shared import get_task
+        task = get_task(conn, task_id)
+        topic = task["input"]["topic"]
+
+        # Call the LLM to research the topic
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": "You are a research assistant. Provide detailed findings on the given topic."},
+                {"role": "user", "content": f"Research this topic: {topic}"},
+            ],
+        )
+        research = response.choices[0].message.content
+
+        # Mark research task as complete
+        complete_task(conn, task_id, {"research": research})
+
+        # Create a writing task and push it to the writer queue
+        writer_task_id = create_task(conn, "writer", {"topic": topic, "research": research}, parent_id=task_id)
+        r.lpush("queue:writer", json.dumps({"task_id": writer_task_id}))
+        conn.close()
+
+        print(f"Research complete for task {task_id}, dispatched to writer")
+
+if __name__ == "__main__":
+    run()
+```
+
+### agents/writer.py
+
+The writer agent takes research output and produces a finished article:
+
+```python
+import os
+import json
+import time
+from openai import OpenAI
+from shared import get_db, get_redis, complete_task
+
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+startup_delay = int(os.environ.get("STARTUP_DELAY_SECONDS", "0"))
+time.sleep(startup_delay)
+
+def run():
+    r = get_redis()
+    print("Writer agent started, waiting for tasks...")
+
+    while True:
+        _, message = r.brpop("queue:writer")
+        data = json.loads(message)
+        task_id = data["task_id"]
+
+        conn = get_db()
+        from shared import get_task
+        task = get_task(conn, task_id)
+        topic = task["input"]["topic"]
+        research = task["input"]["research"]
+
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": "You are a writer. Turn the research into a clear, well-structured article."},
+                {"role": "user", "content": f"Topic: {topic}\n\nResearch:\n{research}"},
+            ],
+        )
+        article = response.choices[0].message.content
+
+        complete_task(conn, task_id, {"article": article})
+        conn.close()
+
+        print(f"Article written for task {task_id}")
+
+if __name__ == "__main__":
+    run()
+```
 
 ## 1. Create the project and shared infrastructure
 
 1. Create a new [project](/projects) on Railway.
 2. Add [PostgreSQL](/databases/postgresql): click **+ New > Database > PostgreSQL**.
 3. Add [Redis](/databases/redis): click **+ New > Database > Redis**.
-4. Run your schema migrations via a [pre-deploy command](/deployments/pre-deploy-command) on the orchestrator service.
 
-Create a tasks table for coordination:
+Create the tasks table by connecting to Postgres and running:
 
 ```sql
 CREATE TABLE tasks (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  parent_task_id UUID REFERENCES tasks(id),
+  id TEXT PRIMARY KEY,
+  parent_task_id TEXT REFERENCES tasks(id),
   agent_role TEXT NOT NULL,
   status TEXT DEFAULT 'pending',
   input JSONB NOT NULL,
   output JSONB,
-  created_at TIMESTAMPTZ DEFAULT now(),
-  updated_at TIMESTAMPTZ DEFAULT now()
+  created_at TIMESTAMPTZ DEFAULT now()
 );
 ```
 
 ## 2. Deploy the orchestrator
 
-The orchestrator receives incoming requests, creates subtasks, and dispatches them to agent queues:
-
-1. Deploy from [GitHub](/deployments/github-autodeploys) or the [CLI](/cli).
-2. Set environment variables:
+1. Push the code above to a GitHub repository.
+2. In your project, click **+ New > GitHub Repo** and select your repository.
+3. Set the [start command](/deployments/start-command) to: `uvicorn orchestrator:app --host 0.0.0.0 --port $PORT`
+4. Set environment variables:
    - [Reference](/variables#referencing-another-services-variable) `DATABASE_URL` from Postgres.
    - [Reference](/variables#referencing-another-services-variable) `REDIS_URL` from Redis.
-3. Generate a [public domain](/networking/public-networking#railway-provided-domain) for receiving task requests.
-
-The orchestrator pushes tasks to agent-specific Redis queues (e.g., `queue:researcher`, `queue:writer`, `queue:reviewer`).
+5. Generate a [public domain](/networking/public-networking#railway-provided-domain) for receiving task requests.
 
 ## 3. Deploy agent services
 
-Each agent is a separate Railway service pointing at the same codebase with a different start command:
+Each agent is a separate Railway service pointing at the same repository with a different start command:
 
-1. For each agent role, click **+ New > GitHub Repo** and select the same repository.
-2. Set a different start command per agent:
-   - Researcher: `python -m agents.researcher`
-   - Writer: `python -m agents.writer`
-   - Reviewer: `python -m agents.reviewer`
-3. Set environment variables on each agent service:
-   - [Reference](/variables#referencing-another-services-variable) `DATABASE_URL` and `REDIS_URL`.
-   - Set the agent's LLM API key. Different agents can use different providers (e.g., researcher uses Anthropic, writer uses OpenAI).
-4. No public domains are needed for agent services. They communicate via Redis and Postgres over [private networking](/networking/private-networking).
+1. Click **+ New > GitHub Repo** and select the same repository again.
+2. Name the service `researcher`.
+3. Set the [start command](/deployments/start-command) to: `python -m agents.researcher`
+4. Set environment variables:
+   - [Reference](/variables#referencing-another-services-variable) `DATABASE_URL` and `REDIS_URL` (same as the orchestrator).
+   - Set `OPENAI_API_KEY` to your API key.
+   - Set `STARTUP_DELAY_SECONDS` to `0`.
+5. No public domain is needed. The agent communicates via Redis and Postgres over [private networking](/networking/private-networking).
 
-## 4. Handle inter-agent communication
+Repeat for the writer agent:
 
-Agents communicate through shared state, not direct calls. Two common patterns:
+1. Click **+ New > GitHub Repo** and select the same repository.
+2. Name the service `writer`.
+3. Set the [start command](/deployments/start-command) to: `python -m agents.writer`
+4. Set the same environment variables, but set `STARTUP_DELAY_SECONDS` to `5` to stagger startup and avoid hitting LLM API rate limits.
 
-**Queue-based (Redis):** The orchestrator pushes tasks to per-agent queues. Each agent pulls from its queue, processes the task, writes the result to Postgres, and pushes downstream tasks to the next agent's queue.
+## 4. Test the system
 
-**State-based (Postgres):** Agents poll the tasks table for tasks matching their role with status `pending`. After processing, they update the task status and output. The orchestrator or downstream agents watch for completed upstream tasks.
+Send a task to the orchestrator:
 
-The queue-based approach has lower latency. The state-based approach is simpler to debug since all state is in Postgres.
-
-## 5. Stagger agent startup to avoid rate limits
-
-When multiple agents start simultaneously, they all hit the LLM API at once. This can trigger rate limits, especially with providers that enforce per-minute token caps.
-
-Add a startup delay per agent using an environment variable:
-
-```python
-import os
-import time
-
-startup_delay = int(os.environ.get("STARTUP_DELAY_SECONDS", "0"))
-time.sleep(startup_delay)
+```bash
+curl -X POST "https://your-orchestrator.up.railway.app/tasks?topic=quantum+computing"
 ```
 
-Set `STARTUP_DELAY_SECONDS` to `0`, `5`, `10`, etc. on each agent service.
+This returns a task ID. The researcher picks it up, calls the LLM, writes the research to Postgres, and dispatches a writing task. The writer picks that up and produces an article.
 
-## 6. Scale agents independently
+Check the result:
+
+```bash
+curl "https://your-orchestrator.up.railway.app/tasks/TASK_ID"
+```
+
+## 5. Scale agents independently
 
 Each agent is a separate Railway service with its own scaling configuration:
 
-- Add [horizontal replicas](/deployments/scaling) to high-throughput agents (e.g., 3 researcher replicas, 1 reviewer replica).
+- Add [horizontal replicas](/deployments/scaling) to high-throughput agents (e.g., 3 researcher replicas, 1 writer replica). All replicas pull from the same Redis queue.
 - Adjust CPU and memory per agent under **Settings > Resources**.
 - Monitor queue depth in Redis to identify bottlenecks.
 

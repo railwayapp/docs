@@ -28,7 +28,18 @@ For tasks that complete in under 30 seconds, a synchronous request/response patt
 
 - A Railway account
 - An API key from [OpenAI](https://platform.openai.com/api-keys) or [Anthropic](https://console.anthropic.com/)
-- Application code with a web framework (FastAPI, Express, Django, etc.)
+- Python 3.11+ with FastAPI (the examples below use FastAPI, but the patterns apply to any framework)
+
+### Dependencies
+
+```
+fastapi
+uvicorn
+openai
+psycopg2-binary
+```
+
+Install locally with `pip install -r requirements.txt`.
 
 ## 1. Create the project and database
 
@@ -40,11 +51,12 @@ For tasks that complete in under 30 seconds, a synchronous request/response patt
 
 1. Push your code to a GitHub repository.
 2. In your project, click **+ New > GitHub Repo** and select your repository.
-3. Set environment variables under the **Variables** tab:
+3. Set the [start command](/deployments/start-command) to: `uvicorn app:app --host 0.0.0.0 --port $PORT`
+4. Set environment variables under the **Variables** tab:
    - [Reference](/variables#referencing-another-services-variable) `DATABASE_URL` from Postgres.
    - Add your LLM API key (e.g., `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`).
-4. Generate a [public domain](/networking/public-networking#railway-provided-domain) under **Settings > Networking > Public Networking**.
-5. If your app uses database migrations, configure a [pre-deploy command](/deployments/pre-deploy-command).
+5. Generate a [public domain](/networking/public-networking#railway-provided-domain) under **Settings > Networking > Public Networking**.
+6. If your app uses database migrations, configure a [pre-deploy command](/deployments/pre-deploy-command).
 
 ## 3. Structure LLM API calls
 
@@ -126,19 +138,73 @@ If some requests take more than a few seconds (batch processing, multi-step gene
 A simpler approach for moderate workloads: use FastAPI's `BackgroundTasks`:
 
 ```python
+import os
+import uuid
+import psycopg2
+import json
 from fastapi import BackgroundTasks, FastAPI
 
 app = FastAPI()
+DATABASE_URL = os.environ["DATABASE_URL"]
+
+def create_job(input_text: str) -> str:
+    job_id = str(uuid.uuid4())
+    conn = psycopg2.connect(DATABASE_URL)
+    cur = conn.cursor()
+    cur.execute(
+        "INSERT INTO jobs (id, input, status) VALUES (%s, %s, 'pending')",
+        (job_id, input_text),
+    )
+    conn.commit()
+    cur.close()
+    conn.close()
+    return job_id
+
+def process_job(job_id: str):
+    conn = psycopg2.connect(DATABASE_URL)
+    cur = conn.cursor()
+    cur.execute("SELECT input FROM jobs WHERE id = %s", (job_id,))
+    input_text = cur.fetchone()[0]
+
+    result = call_llm(input_text)
+
+    cur.execute(
+        "UPDATE jobs SET status = 'completed', output = %s WHERE id = %s",
+        (result, job_id),
+    )
+    conn.commit()
+    cur.close()
+    conn.close()
 
 @app.post("/generate")
 async def generate(input: str, background_tasks: BackgroundTasks):
-    job_id = create_job(input)  # Save to Postgres with status "pending"
+    job_id = create_job(input)
     background_tasks.add_task(process_job, job_id)
     return {"job_id": job_id}
 
 @app.get("/jobs/{job_id}")
 async def get_job(job_id: str):
-    return get_job_status(job_id)  # Read from Postgres
+    conn = psycopg2.connect(DATABASE_URL)
+    cur = conn.cursor()
+    cur.execute("SELECT id, status, output FROM jobs WHERE id = %s", (job_id,))
+    row = cur.fetchone()
+    cur.close()
+    conn.close()
+    if not row:
+        return {"error": "not found"}
+    return {"id": row[0], "status": row[1], "output": row[2]}
+```
+
+Create the jobs table:
+
+```sql
+CREATE TABLE jobs (
+  id TEXT PRIMARY KEY,
+  input TEXT NOT NULL,
+  status TEXT DEFAULT 'pending',
+  output TEXT,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
 ```
 
 This works for single-replica services. For multiple replicas or heavy workloads, use Redis-backed workers instead.
