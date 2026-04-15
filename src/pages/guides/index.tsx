@@ -10,6 +10,7 @@ import { cn } from "@/lib/cn";
 
 // Shared topic IDs
 const TOPIC_IDS = {
+  AI: "ai",
   FRAMEWORKS: "frameworks",
   ARCHITECTURE: "architecture",
   INTEGRATIONS: "integrations",
@@ -19,6 +20,12 @@ const TOPIC_IDS = {
 type TopicId = (typeof TOPIC_IDS)[keyof typeof TOPIC_IDS];
 
 const TOPICS: { name: string; id: TopicId; description: string; color: string }[] = [
+  {
+    name: "AI",
+    id: TOPIC_IDS.AI,
+    description: "Deploy AI apps and agents",
+    color: "bg-danger-element text-danger-base",
+  },
   {
     name: "Frameworks",
     id: TOPIC_IDS.FRAMEWORKS,
