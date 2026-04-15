@@ -115,7 +115,7 @@ def ingest(text: str, metadata: dict = None):
     for chunk, emb in zip(chunks, embeddings):
         cur.execute(
             "INSERT INTO documents (content, metadata, embedding) VALUES (%s, %s, %s)",
-            (chunk, psycopg2.extras.Json(metadata or {}), emb),
+            (chunk, psycopg2.extras.Json(metadata or {}), str(emb)),
         )
     conn.commit()
     cur.close()
@@ -155,7 +155,7 @@ async def query(question: str):
         model="text-embedding-3-small",
         input=question,
     )
-    query_embedding = response.data[0].embedding
+    query_embedding = str(response.data[0].embedding)
 
     # 2. Retrieve similar documents
     conn = psycopg2.connect(DATABASE_URL)

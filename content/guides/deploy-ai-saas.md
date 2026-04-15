@@ -35,7 +35,7 @@ For tasks that complete in under 30 seconds, a synchronous request/response patt
 ```bash
 mkdir ai-saas && cd ai-saas
 npm init -y
-npm install express openai pg crypto
+npm install express openai pg
 ```
 
 ## 1. Create the project and database

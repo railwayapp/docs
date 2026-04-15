@@ -56,19 +56,19 @@ Here is a minimal Discord bot using discord.py and OpenAI. Save this as `bot.py`
 ```python
 import os
 import discord
-from openai import OpenAI
+from openai import AsyncOpenAI
 
 intents = discord.Intents.default()
 intents.message_content = True
 bot = discord.Client(intents=intents)
-llm = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+llm = AsyncOpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
         return
 
-    response = llm.chat.completions.create(
+    response = await llm.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
@@ -85,12 +85,12 @@ For Telegram, use python-telegram-bot instead. Save this as `bot.py`:
 ```python
 import os
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
-from openai import OpenAI
+from openai import AsyncOpenAI
 
-llm = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+llm = AsyncOpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 async def handle_message(update, context):
-    response = llm.chat.completions.create(
+    response = await llm.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},

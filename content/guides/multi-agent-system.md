@@ -115,7 +115,7 @@ The orchestrator receives HTTP requests, creates tasks, and dispatches them to a
 
 ```python
 import json
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from shared import get_db, get_redis, create_task, get_task
 
 app = FastAPI()
@@ -138,7 +138,7 @@ async def check_task(task_id: str):
     task = get_task(conn, task_id)
     conn.close()
     if not task:
-        return {"error": "not found"}, 404
+        raise HTTPException(status_code=404, detail="not found")
     return task
 ```
 

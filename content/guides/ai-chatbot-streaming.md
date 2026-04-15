@@ -52,7 +52,7 @@ import { streamText } from "ai";
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-  const result = streamText({
+  const result = await streamText({
     model: openai("gpt-4o"),
     messages,
   });
@@ -66,7 +66,7 @@ To use Anthropic instead, swap the provider:
 ```typescript
 import { anthropic } from "@ai-sdk/anthropic";
 
-const result = streamText({
+const result = await streamText({
   model: anthropic("claude-sonnet-4-20250514"),
   messages,
 });
