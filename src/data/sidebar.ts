@@ -149,6 +149,8 @@ export const sidebarContent: ISidebarContent = [
           makePage("Angular", "guides", "/guides/angular"),
           makePage("Solid", "guides", "/guides/solid"),
           makePage("Sails", "guides", "/guides/sails"),
+          makePage("Gatsby", "guides", "/guides/gatsby"),
+          makePage("TanStack Start", "guides", "/guides/tanstack-start"),
         ],
       },
       {

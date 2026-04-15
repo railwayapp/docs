@@ -4,11 +4,9 @@ description: Learn how to deploy Caddy on Railway with one-click templates or CL
 date: "2026-03-20"
 tags:
   - deployment
+  - frontend
   - caddy
-  - go
   - proxy
-  - file server
-  - backend
 topic: integrations
 ---
 

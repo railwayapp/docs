@@ -4,6 +4,7 @@ description: Learn how to deploy static websites to Railway with automatic GitHu
 date: "2026-01-30"
 tags:
   - deployment
+  - frontend
   - static
   - hosting
 topic: infrastructure
