@@ -1,11 +1,11 @@
 ---
 title: Deploy an AI-Powered SaaS App on Railway
-description: Deploy a production AI-powered SaaS application on Railway with a FastAPI backend, Postgres database, and external LLM API integration. Covers API key management, request caching, rate limiting, and async processing for longer tasks.
+description: Deploy a production AI-powered SaaS application on Railway with an Express backend, Postgres database, and external LLM API integration. Covers API key management, request caching, rate limiting, and async processing for longer tasks.
 date: "2026-04-14"
 tags:
   - saas
-  - python
-  - fastapi
+  - nodejs
+  - express
   - postgres
 topic: ai
 ---
@@ -18,7 +18,7 @@ Railway is a CPU-based platform. Your application calls external LLM APIs (OpenA
 
 A typical AI SaaS app on Railway uses three components:
 
-- **API service** (FastAPI, Express, etc.) handles user requests, calls the LLM API, and returns results.
+- **API service** (Express, FastAPI, etc.) handles user requests, calls the LLM API, and returns results.
 - **Postgres** stores user data, cached LLM responses, and job status for async tasks.
 - **Redis** (optional) provides job queuing for tasks that take longer than a few seconds.
 
@@ -28,18 +28,15 @@ For tasks that complete in under 30 seconds, a synchronous request/response patt
 
 - A Railway account
 - An API key from [OpenAI](https://platform.openai.com/api-keys) or [Anthropic](https://console.anthropic.com/)
-- Python 3.11+ with FastAPI (the examples below use FastAPI, but the patterns apply to any framework)
+- Node.js 18+
 
-### Dependencies
+### Set up the project
 
+```bash
+mkdir ai-saas && cd ai-saas
+npm init -y
+npm install express openai pg crypto
 ```
-fastapi
-uvicorn
-openai
-psycopg2-binary
-```
-
-Install locally with `pip install -r requirements.txt`.
 
 ## 1. Create the project and database
 
@@ -51,72 +48,75 @@ Install locally with `pip install -r requirements.txt`.
 
 1. Push your code to a GitHub repository.
 2. In your project, click **+ New > GitHub Repo** and select your repository.
-3. Set the [start command](/deployments/start-command) to: `uvicorn app:app --host 0.0.0.0 --port $PORT`
+3. Set the [start command](/deployments/start-command) to: `node app.js`
 4. Set environment variables under the **Variables** tab:
    - [Reference](/variables#referencing-another-services-variable) `DATABASE_URL` from Postgres.
    - Add your LLM API key (e.g., `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`).
 5. Generate a [public domain](/networking/public-networking#railway-provided-domain) under **Settings > Networking > Public Networking**.
-6. If your app uses database migrations, configure a [pre-deploy command](/deployments/pre-deploy-command).
 
 ## 3. Structure LLM API calls
 
 Wrap your LLM calls in a function that handles retries and errors. LLM APIs return rate limit errors (HTTP 429) under load:
 
-```python
-import time
-from openai import OpenAI
+```javascript
+// llm.js
+const OpenAI = require("openai");
 
-client = OpenAI()
+const client = new OpenAI();
 
-def call_llm(prompt: str, max_retries: int = 3) -> str:
-    for attempt in range(max_retries):
-        try:
-            response = client.chat.completions.create(
-                model="gpt-4o",
-                messages=[{"role": "user", "content": prompt}],
-            )
-            return response.choices[0].message.content
-        except Exception as e:
-            if "429" in str(e) and attempt < max_retries - 1:
-                time.sleep(2 ** attempt)
-                continue
-            raise
+async function callLLM(prompt, maxRetries = 3) {
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      const response = await client.chat.completions.create({
+        model: "gpt-4o",
+        messages: [{ role: "user", content: prompt }],
+      });
+      return response.choices[0].message.content;
+    } catch (err) {
+      if (err.status === 429 && attempt < maxRetries - 1) {
+        await new Promise((r) => setTimeout(r, 2 ** attempt * 1000));
+        continue;
+      }
+      throw err;
+    }
+  }
+}
+
+module.exports = { callLLM };
 ```
 
 ## 4. Cache LLM responses
 
-LLM API calls are slow (1-10 seconds) and expensive. Cache responses for identical or similar inputs to reduce latency and cost:
+LLM API calls are slow (1-10 seconds) and expensive. Cache responses for identical inputs to reduce latency and cost:
 
-```python
-import hashlib
-import psycopg2
-import json
+```javascript
+// cache.js
+const crypto = require("crypto");
+const { Pool } = require("pg");
+const { callLLM } = require("./llm");
 
-def get_or_create_response(prompt: str, db_url: str) -> str:
-    prompt_hash = hashlib.sha256(prompt.encode()).hexdigest()
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
-    conn = psycopg2.connect(db_url)
-    cur = conn.cursor()
+async function getOrCreateResponse(prompt) {
+  const promptHash = crypto.createHash("sha256").update(prompt).digest("hex");
 
-    cur.execute(
-        "SELECT response FROM llm_cache WHERE prompt_hash = %s",
-        (prompt_hash,),
-    )
-    row = cur.fetchone()
-    if row:
-        cur.close()
-        conn.close()
-        return row[0]
+  const cached = await pool.query(
+    "SELECT response FROM llm_cache WHERE prompt_hash = $1",
+    [promptHash]
+  );
+  if (cached.rows.length > 0) {
+    return cached.rows[0].response;
+  }
 
-    response = call_llm(prompt)
-    cur.execute(
-        "INSERT INTO llm_cache (prompt_hash, prompt, response) VALUES (%s, %s, %s)",
-        (prompt_hash, prompt, response),
-    )
-    conn.commit()
-    cur.close()
-    conn.close()
-    return response
+  const response = await callLLM(prompt);
+  await pool.query(
+    "INSERT INTO llm_cache (prompt_hash, prompt, response) VALUES ($1, $2, $3)",
+    [promptHash, prompt, response]
+  );
+  return response;
+}
+
+module.exports = { getOrCreateResponse };
 ```
 
 Create the cache table:
@@ -133,66 +133,74 @@ CREATE TABLE llm_cache (
 
 ## 5. Handle longer tasks asynchronously
 
-If some requests take more than a few seconds (batch processing, multi-step generation), return a job ID immediately and process in the background. See [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers) for the full pattern.
+If some requests take more than a few seconds (batch processing, multi-step generation), return a job ID immediately and process in the background. See [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers) for the full pattern with Redis.
 
-A simpler approach for moderate workloads: use FastAPI's `BackgroundTasks`:
+For moderate workloads, process jobs in the background within the same service:
 
-```python
-import os
-import uuid
-import psycopg2
-import json
-from fastapi import BackgroundTasks, FastAPI
+```javascript
+// app.js
+const express = require("express");
+const crypto = require("crypto");
+const { Pool } = require("pg");
+const { callLLM } = require("./llm");
+const { getOrCreateResponse } = require("./cache");
 
-app = FastAPI()
-DATABASE_URL = os.environ["DATABASE_URL"]
+const app = express();
+app.use(express.json());
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
-def create_job(input_text: str) -> str:
-    job_id = str(uuid.uuid4())
-    conn = psycopg2.connect(DATABASE_URL)
-    cur = conn.cursor()
-    cur.execute(
-        "INSERT INTO jobs (id, input, status) VALUES (%s, %s, 'pending')",
-        (job_id, input_text),
-    )
-    conn.commit()
-    cur.close()
-    conn.close()
-    return job_id
+// Synchronous endpoint with caching
+app.post("/generate", async (req, res) => {
+  const { prompt } = req.body;
+  const response = await getOrCreateResponse(prompt);
+  res.json({ response });
+});
 
-def process_job(job_id: str):
-    conn = psycopg2.connect(DATABASE_URL)
-    cur = conn.cursor()
-    cur.execute("SELECT input FROM jobs WHERE id = %s", (job_id,))
-    input_text = cur.fetchone()[0]
+// Async endpoint for longer tasks
+app.post("/jobs", async (req, res) => {
+  const jobId = crypto.randomUUID();
+  const { input } = req.body;
 
-    result = call_llm(input_text)
+  await pool.query(
+    "INSERT INTO jobs (id, input, status) VALUES ($1, $2, 'pending')",
+    [jobId, input]
+  );
 
-    cur.execute(
-        "UPDATE jobs SET status = 'completed', output = %s WHERE id = %s",
-        (result, job_id),
-    )
-    conn.commit()
-    cur.close()
-    conn.close()
+  // Process in background (do not await)
+  processJob(jobId).catch((err) =>
+    console.error(`Job ${jobId} failed:`, err)
+  );
 
-@app.post("/generate")
-async def generate(input: str, background_tasks: BackgroundTasks):
-    job_id = create_job(input)
-    background_tasks.add_task(process_job, job_id)
-    return {"job_id": job_id}
+  res.json({ job_id: jobId });
+});
 
-@app.get("/jobs/{job_id}")
-async def get_job(job_id: str):
-    conn = psycopg2.connect(DATABASE_URL)
-    cur = conn.cursor()
-    cur.execute("SELECT id, status, output FROM jobs WHERE id = %s", (job_id,))
-    row = cur.fetchone()
-    cur.close()
-    conn.close()
-    if not row:
-        return {"error": "not found"}
-    return {"id": row[0], "status": row[1], "output": row[2]}
+app.get("/jobs/:id", async (req, res) => {
+  const result = await pool.query(
+    "SELECT id, status, output FROM jobs WHERE id = $1",
+    [req.params.id]
+  );
+  if (result.rows.length === 0) {
+    return res.status(404).json({ error: "not found" });
+  }
+  res.json(result.rows[0]);
+});
+
+async function processJob(jobId) {
+  const result = await pool.query("SELECT input FROM jobs WHERE id = $1", [
+    jobId,
+  ]);
+  const input = result.rows[0].input;
+  const output = await callLLM(input);
+  await pool.query(
+    "UPDATE jobs SET status = 'completed', output = $1 WHERE id = $2",
+    [output, jobId]
+  );
+}
+
+const port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Server running on port ${port}`);
+});
 ```
 
 Create the jobs table:
@@ -213,14 +221,14 @@ This works for single-replica services. For multiple replicas or heavy workloads
 
 LLM API costs scale with usage. Track spending by logging token counts per request:
 
-```python
-response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=messages,
-)
+```javascript
+const response = await client.chat.completions.create({
+  model: "gpt-4o",
+  messages,
+});
 
-tokens_used = response.usage.total_tokens
-# Log to Postgres or your analytics system
+const tokensUsed = response.usage.total_tokens;
+// Log to Postgres or your analytics system
 ```
 
 Set a per-user or per-request token budget to prevent runaway costs. Consider using smaller models (GPT-4o mini, Claude Haiku) for tasks that do not require the most capable model.
