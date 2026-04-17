@@ -3,7 +3,7 @@ title: Railway Remote MCP Server
 description: Connect AI coding agents to Railway over OAuth — no local install, no CLI login, no token files.
 ---
 
-The Railway Remote MCP Server is a hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.org) endpoint at `mcp.railway.com`. Any MCP-compatible agent — Claude, Cursor, Codex, GitHub Copilot, and others — can connect, authenticate through your Railway account in the browser, and start managing projects, services, variables, and deployments directly from your editor.
+The Railway Remote MCP Server is a hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.org) endpoint at `mcp.railway.com`. Any MCP-compatible agent — Claude, Cursor, Codex, GitHub Copilot, and others — can connect, authenticate through your Railway account in the browser, and start managing projects, services, and deployments directly from your editor.
 
 Unlike the [local MCP server](/ai/mcp-server), which runs on your machine and depends on the [Railway CLI](/cli), the remote MCP server lives at Railway and authenticates via OAuth. There's nothing to install and no tokens to manage on disk.
 
@@ -135,12 +135,6 @@ For simpler operations, the direct tools work well on their own:
   Show me all my Railway projects
   ```
 
-* **Update an environment variable**
-
-  ```text
-  Set STRIPE_SECRET_KEY to sk_test_xxx on the api service in production
-  ```
-
 * **Redeploy a service**
 
   ```text
@@ -167,11 +161,6 @@ The remote MCP server exposes a focused set of tools. For anything more complex,
   * `create-project` — create a new project in a workspace
   * `list-services` — list services and environments within a project
 
-* **Variables**
-
-  * `list-variables` — read environment variables for a service
-  * `set-variables` — update environment variables (triggers a redeploy)
-
 * **Deployments**
 
   * `redeploy` — redeploy the latest deployment of a service
@@ -184,13 +173,9 @@ The remote MCP server exposes a focused set of tools. For anything more complex,
 ## Security considerations
 
 * **OAuth scoping.** When you consent, you choose which workspaces and projects the client can access. Tokens are short-lived and can be revoked at any time from your Railway account settings.
-* **Destructive actions.** Tools that modify state (`set-variables`, `redeploy`, `accept-deploy`, `railway-agent`) are marked destructive at the protocol level. MCP clients that respect these hints will prompt for confirmation before running them.
+* **Destructive actions.** Tools that modify state (`redeploy`, `accept-deploy`, `railway-agent`) are marked destructive at the protocol level. MCP clients that respect these hints will prompt for confirmation before running them.
 * **Review actions.** Always review what the agent proposes before approving destructive changes — especially in production environments.
 * **Project tokens are not accepted.** The remote MCP server requires a user identity for billing and audit trails.
-
-## Local alternative
-
-If you prefer a fully local setup — no hosted endpoint, no OAuth — the [local MCP server](/ai/mcp-server) is available as an npm package and runs alongside the [Railway CLI](/cli). The two servers are additive; pick whichever fits your workflow.
 
 ## Feature requests
 
