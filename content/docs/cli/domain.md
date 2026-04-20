@@ -51,14 +51,9 @@ railway domain example.com --service api
 
 ## Custom domain setup
 
-When adding a custom domain, the CLI displays the required DNS records:
+When adding a custom domain, the CLI displays the required DNS records - a `CNAME` record and a `TXT` record. Both are required: the `CNAME` routes traffic and the `TXT` verifies domain ownership. Add both to your DNS provider exactly as shown in the CLI output.
 
-```
-To finish setting up your custom domain, add the following DNS records to example.com:
-
-    Type     Name    Value
-    CNAME    @       your-service.up.railway.app
-```
+Requests to the domain will return a `404` until the `TXT` record is in place and Railway has verified ownership.
 
 DNS changes can take up to 72 hours to propagate worldwide.
 
