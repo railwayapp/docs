@@ -62,7 +62,7 @@ If your domain shows that the Certificate Authority is validating challenges for
 
 #### Check DNS propagation
 
-Verify your DNS records have propagated using a tool like [dnschecker.org](https://dnschecker.org). Enter your domain and check that the CNAME record points to your Railway-provided value (e.g., `abc123.up.railway.app`).
+Verify your DNS records have propagated using a tool like [dnschecker.org](https://dnschecker.org). Enter your domain and check that the `CNAME` record points to your Railway-provided value (e.g., `abc123.up.railway.app`) **and** that the `TXT` record matches the value shown in the Railway dashboard. Both are required - a missing `TXT` record will prevent Railway from verifying the domain, and the domain will return a `404` instead of routing to your service.
 
 **Note:** If you are using Cloudflare Proxy (orange cloud), DNS lookup tools will show Cloudflare IP addresses instead of the Railway CNAME. This is expected behavior. In this case, verify your DNS settings directly in your Cloudflare dashboard instead.
 
@@ -215,7 +215,7 @@ If your browser shows a certificate for `*.up.railway.app` instead of your custo
 ### Solutions
 
 1. **Check domain status in Railway:** ensure it shows as verified (green checkmark)
-2. **Verify DNS configuration:** your CNAME should point to the Railway-provided value
+2. **Verify DNS configuration:** your `CNAME` should point to the Railway-provided value, and the `TXT` record shown in the Railway dashboard must also be in place - both are required
 3. **Wait for issuance:** if you just added the domain, wait up to an hour
 4. **Check for conflicting records:** ensure you don't have both A and CNAME records for the same hostname
 

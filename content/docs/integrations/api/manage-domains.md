@@ -124,15 +124,15 @@ Check DNS configuration status:
 
 ## DNS configuration
 
-After adding a custom domain, you need to configure DNS records. The required records are returned in the `status.dnsRecords` field.
+After adding a custom domain, you need to configure DNS records. The required records are returned in the `status.dnsRecords` field, which includes **both** a routing record (`CNAME` / `ALIAS` / `A`) and a `TXT` record used to verify domain ownership. Both are required - without the `TXT`, the domain will not verify and requests will return a `404`.
 
 ### For root domains (example.com)
 
-Add an A record or ALIAS record pointing to the Railway IP.
+Add a CNAME-flattened, ALIAS, or ANAME record (depending on what your DNS provider supports) pointing to your Railway service domain, plus the `TXT` record returned in `status.dnsRecords`. Railway does not publish a static IP, so `A` records are not supported. See [Adding a root domain](/networking/domains/working-with-domains#adding-a-root-domain) for provider-specific guidance.
 
 ### For subdomains (api.example.com)
 
-Add a CNAME record pointing to your Railway service domain.
+Add a CNAME record pointing to your Railway service domain, plus the `TXT` record returned in `status.dnsRecords`.
 
 ### DNS record statuses
 

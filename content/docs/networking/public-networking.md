@@ -27,6 +27,6 @@ To expose a service to the internet:
 2. Find **Networking → Public Networking**
 3. Click **Generate Domain** to get a Railway-provided domain
 
-Or configure a custom domain by adding a CNAME record pointing to your Railway-provided domain.
+Or configure a custom domain by adding the `CNAME` and `TXT` records Railway provides to your DNS - both are required.
 
 See [Domains](/networking/domains) for complete setup instructions.
