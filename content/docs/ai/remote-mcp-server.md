@@ -10,7 +10,7 @@ Unlike the [local MCP server](/ai/mcp-server), which runs on your machine and de
 ## Prerequisites
 
 - A [Railway account](https://railway.com/login)
-- An MCP-compatible client (Claude, Cursor, Codex, GitHub Copilot, Droid, OpenCode, or any other client that supports remote MCP over HTTP)
+- An MCP-compatible client (Claude, Cursor, Codex, GitHub Copilot, Droid, OpenCode, Windsurf, Cline, Devin, or any other client that supports remote MCP over HTTP)
 
 ## Setup
 
@@ -87,6 +87,43 @@ Add to `opencode.json`:
     }
   }
 }
+```
+
+### Windsurf
+
+Add to `~/.codeium/windsurf/mcp_config.json` and reload Windsurf:
+
+```json
+{
+  "mcpServers": {
+    "railway": {
+      "serverUrl": "https://mcp.railway.com"
+    }
+  }
+}
+```
+
+### Cline
+
+Open the Cline extension in VS Code, choose **MCP Servers → Configure MCP Servers**, and add:
+
+```json
+{
+  "mcpServers": {
+    "railway": {
+      "type": "streamableHttp",
+      "url": "https://mcp.railway.com"
+    }
+  }
+}
+```
+
+### Devin
+
+Devin configures remote MCP servers through its web UI. In your Devin workspace, go to **Settings → Integrations → MCP** and add a new server with the URL:
+
+```text
+https://mcp.railway.com
 ```
 
 ### Other clients
