@@ -79,5 +79,5 @@ Here are some suggestions to check out -
 - <a href="https://railway.com/deploy/clickhouse" target="_blank">ClickHouse</a>
 - <a href="https://railway.com/deploy/dragonfly" target="_blank">Dragonfly</a>
 - <a href="https://railway.com/deploy/kbvIRV" target="_blank">Chroma</a>
-- <a href="https://railway.com/deploy/elasticsearch" target="_blank">Elastic Search</a>
+- <a href="https://railway.com/deploy/elasticsearch" target="_blank">Elasticsearch</a>
 - <a href="https://railway.com/deploy/paradedb" target="_blank">ParadeDB</a>

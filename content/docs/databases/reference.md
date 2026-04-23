@@ -48,6 +48,7 @@ Here are some examples -
 - [ClickHouse](https://railway.com/deploy/clickhouse)
 - [Dragonfly](https://railway.com/deploy/dragonfly)
 - [Chroma](https://railway.com/deploy/kbvIRV)
+- [ParadeDB](https://railway.com/deploy/paradedb)
 
 ## Support
 

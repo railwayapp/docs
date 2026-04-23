@@ -32,7 +32,7 @@ Railway isn't limited to the databases above. You can deploy **any open source d
 Explore these community and official templates in the marketplace:
 
 - <a href="https://railway.com/deploy?category=Storage" target="_blank">**All Storage Templates**</a> - Browse databases, caches, and storage solutions
-- ClickHouse, CockroachDB, Cassandra, and more
+- ClickHouse, CockroachDB, Cassandra, ParadeDB, and more
 - Specialized databases like TimescaleDB, InfluxDB, and Neo4j
 
 ## Platform features

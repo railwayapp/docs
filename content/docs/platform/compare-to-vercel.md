@@ -130,9 +130,9 @@ In Railway, a project is a collection of services and databases. This can includ
 Additionally, Railway has first-class support for Databases. You can one-click deploy any open-source database:
 
 - Relational: Postgres, MySQL
-- Analytical: Clickhouse, Timescale
+- Analytical: ClickHouse, ParadeDB, Timescale
 - Key-value: Redis, Dragonfly
-- Vector: Chroma, Weviate
+- Vector: Chroma, Weaviate
 - Document: MongoDB
 
 Check out all of the [different storage solutions](https://railway.com/deploy?category=Storage) you can deploy.
