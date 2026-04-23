@@ -91,7 +91,7 @@ optionalFields={[
   { name: "input.targetPort", type: "Int", description: "Route traffic to this port" },
 ]} />
 
-The routing DNS records are returned in `status.dnsRecords`. The verification `TXT` token is currently returned separately in `status.verificationToken`, so query both fields when setting up a custom domain.
+The routing DNS records are returned in `status.dnsRecords`. The verification `TXT` token is returned separately in `status.verificationToken`, so query both fields when setting up a custom domain.
 
 ### Get custom domain status
 
@@ -128,7 +128,7 @@ Check DNS configuration status:
 
 ## DNS configuration
 
-After adding a custom domain, you need to configure DNS records. The routing record is returned in `status.dnsRecords`, while the verification `TXT` token is currently returned separately in `status.verificationToken`. Both are required - without the `TXT`, the domain will not verify and requests will return a `404`.
+After adding a custom domain, you need to configure DNS records. The routing record is returned in `status.dnsRecords`, while the verification `TXT` token is returned separately in `status.verificationToken`. Both are required - without the `TXT`, the domain will not verify and requests will return a `404`.
 
 ### For root domains (example.com)
 
