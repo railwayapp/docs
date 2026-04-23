@@ -3,13 +3,7 @@ title: Third-party Integrations
 description: Send telemetry from your Railway services to third-party observability tools using vendor SDKs or OpenTelemetry.
 ---
 
-Railway's built-in [Observability Dashboard](/observability), [logs](/observability/logs), and [metrics](/observability/metrics) cover container-level health. A third-party observability tool covers cases that Railway's built-in tooling does not:
-
-- **Distributed tracing and query-level insight.** Host metrics do not expose slow database queries, external API calls, or inter-service bottlenecks.
-- **Error tracking** with stack-trace grouping, release association, and user or session linking.
-- **Custom application or business metrics.** Railway [captures](/observability/metrics#provided-metrics) CPU, memory, network, and disk usage. Application-level metrics such as conversions per minute or queue depth are not collected.
-- **Alerting beyond resource thresholds.** Railway's [monitors](/observability#monitors) alert on CPU, RAM, disk, and network egress. Error rate, p99 latency, and SLO-burn alerts require an external tool.
-- **Longer retention.** Railway retains [logs](/observability/logs#log-retention) for 7, 30, or 90 days depending on plan and [metrics](/observability/metrics#understanding-the-metrics-graphs) for up to 30 days.
+Railway's built-in Observability dashboard, logs, and metrics cover container-level health. A third-party observability tool can be useful for those that require longer retention or custom application-level insight.
 
 There are three ways to get telemetry off a Railway service:
 
@@ -19,7 +13,7 @@ There are three ways to get telemetry off a Railway service:
 
 ## Vendor SDK
 
-Install the vendor's SDK in your app, store credentials as Railway [variables](/variables), and map Railway-provided system variables to the vendor's tag names so services, releases, and replicas are labelled consistently.
+Install the vendor's SDK in your app, store credentials as Railway variables, and map Railway-provided system variables to the vendor's tag names so services, releases, and replicas are labelled consistently.
 
 ### Map Railway variables to vendor tags
 
@@ -38,7 +32,7 @@ New Relic uses `NEW_RELIC_*` variables; Sentry accepts this data through its tag
 
 ### Auto-instrumentation
 
-Most vendors offer auto-instrumentation that wraps the start command, so traces and metrics are captured without code changes. Set it in the service's **Settings**, in [`railway.json`](/config-as-code), or in a `Procfile`. For example, Datadog's Node tracer:
+Most vendors offer auto-instrumentation that wraps the start command, so traces and metrics are captured without code changes. Set it in the service's **Settings**, in `railway.json`, or in a `Procfile`. For example, Datadog's Node tracer:
 
 ```bash
 NODE_OPTIONS="--require dd-trace/init" node server.js
@@ -50,7 +44,7 @@ Vendor SDKs handle flushing on shutdown automatically.
 
 ## OpenTelemetry
 
-<a href="https://opentelemetry.io" target="_blank">OpenTelemetry</a> is a vendor-neutral standard for emitting telemetry. Instrument your app once and point the exporter at any backend that accepts OTLP, including Datadog, New Relic, Honeycomb, Grafana Cloud, SigNoz, or a self-hosted Tempo or Jaeger stack.
+OpenTelemetry is a vendor-neutral standard for emitting telemetry. Instrument your app once and point the exporter at any backend that accepts OTLP, including Datadog, New Relic, Honeycomb, Grafana Cloud, SigNoz, or a self-hosted Tempo or Jaeger stack.
 
 ### Configuration
 
