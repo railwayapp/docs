@@ -100,7 +100,7 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "AI",
     slug: "/ai",
-    content: [makePage("Agent skills", "ai"), makePage("Claude Code plugin", "ai"), makePage("MCP server", "ai")],
+    content: [makePage("Agent skills", "ai"), makePage("Claude Code plugin", "ai"), makePage("MCP server", "ai"), makePage("Remote MCP server", "ai")],
   },
   {
     title: "Templates & open source",
@@ -149,6 +149,8 @@ export const sidebarContent: ISidebarContent = [
           makePage("Angular", "guides", "/guides/angular"),
           makePage("Solid", "guides", "/guides/solid"),
           makePage("Sails", "guides", "/guides/sails"),
+          makePage("Gatsby", "guides", "/guides/gatsby"),
+          makePage("TanStack Start", "guides", "/guides/tanstack-start"),
         ],
       },
       {
@@ -227,6 +229,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Deploying", "cli"),
       makePage("Telemetry", "cli"),
       makeCliCommand("add"),
+      makeCliCommand("agent"),
       makeCliCommand("bucket"),
       makeCliCommand("completion"),
       makeCliCommand("connect"),

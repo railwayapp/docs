@@ -4,8 +4,8 @@ description: Learn how to deploy an Angular app to Railway with this step-by-ste
 date: "2026-01-30"
 tags:
   - deployment
-  - angular
   - frontend
+  - angular
 topic: frameworks
 ---
 
@@ -189,5 +189,7 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
+- [Configure SPA routing](/guides/spa-routing-configuration) - Set up Caddy fallback for client-side routing.
+- [Manage environment variables](/guides/frontend-environment-variables) - Handle Angular environment files.
 - [Add a Database Service](/databases/build-a-database-service)
 - [Monitor your app](/observability)

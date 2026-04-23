@@ -44,9 +44,11 @@ Custom domains can be added to a Railway service and once setup we will automati
 
 3. Type in the custom domain (wildcard domains are supported, [see below](#wildcard-domains) for more details)
 
-   You will be provided with a CNAME domain to use, e.g., `g05ns7.up.railway.app`.
+   You will be provided with two records to add to your DNS - a `CNAME` record (e.g., `g05ns7.up.railway.app`) and a `TXT` record used to verify domain ownership.
 
-4. In your DNS provider (Cloudflare, DNSimple, Namecheap, etc), create a CNAME record with the CNAME value provided by Railway.
+4. In your DNS provider (Cloudflare, DNSimple, Namecheap, etc), create **both** the `CNAME` record and the `TXT` record exactly as shown in the Railway dashboard. Both records are required - the domain will not verify with only the `CNAME` in place.
+
+   **Important:** If the `TXT` record is missing, requests to your custom domain will return a `404` error even after the `CNAME` resolves. Railway uses the `TXT` record to confirm domain ownership before routing traffic, so your service will not be reachable on the custom domain until both records are in place and verified.
 
 5. Wait for Railway to verify your domain. When verified, you will see a green check mark next to the domain(s) -
 
@@ -101,7 +103,7 @@ E.g. `*.nested.example.com`
 
 - Add CNAME records for the wildcard nested subdomain.
 
-When you add a wildcard domain, you will be provided with two domains for which you should add two CNAME records -
+When you add a wildcard domain, you will be provided with two CNAME records and one TXT record -
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1679693511/wildcard_domains_zdguqs.png"
@@ -109,7 +111,7 @@ alt="Screenshot of Wildcard Domain"
 layout="responsive"
 width={1048} height={842} quality={80} />
 
-One record is for the wildcard domain, and one for the `\_acme-challenge`. The `\_acme-challenge` CNAME is required for Railway to issue the SSL Certificate for your domain.
+One CNAME is for the wildcard domain, and one is for the `\_acme-challenge`. The `\_acme-challenge` CNAME is required for Railway to issue the SSL Certificate for your domain. The `TXT` record is required to verify domain ownership and must be added in addition to the CNAME records - wildcard domains will not verify without it.
 
 #### Wildcard domains on Cloudflare
 
@@ -179,27 +181,28 @@ If your DNS provider doesn't support CNAME Flattening or dynamic ALIAS records a
 
 If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdomain to Cloudflare and redirect all `www.` traffic to the root domain:
 
-1. Create a Custom Domain in Railway for your root domain (e.g., `mydomain.com`). Copy the `value` field. This will be in the form: `abc123.up.railway.app`.
+1. Create a Custom Domain in Railway for your root domain (e.g., `mydomain.com`). You will be provided with both a `CNAME` value (e.g., `abc123.up.railway.app`) and a `TXT` record for domain verification. Both are required.
 2. Add a `CNAME` DNS record to Cloudflare:
    - `Name` → `@`.
    - `Target` → the `value` field from Railway.
    - `Proxy status` → `on`, should display an orange cloud.
    - Note: Due to domain flattening, `Name` will automatically update to your root domain (e.g., `mydomain.com`).
-3. Add another `CNAME` DNS record to Cloudflare:
+3. Add the `TXT` DNS record to Cloudflare using the `Name` and `Value` shown in the Railway dashboard. This is required to verify domain ownership - Railway will not verify the domain without it.
+4. Add another `CNAME` DNS record to Cloudflare:
    - `Name` → `www`.
    - `Target` → `@`
    - `Proxy status:` → on, should display an orange cloud.
    - Note: Cloudflare will automatically change the `Target` value to your root domain.
-4. Enable Full SSL/TLS encryption in Cloudflare:
+5. Enable Full SSL/TLS encryption in Cloudflare:
    - Go to your domain on Cloudflare.
    - Navigate to `SSL/TLS -> Overview`.
    - Select `Full`. **Not** `Full (Strict)` **Strict mode will not work as intended**.
-5. Enable Universal SSL in Cloudflare:
+6. Enable Universal SSL in Cloudflare:
    - Go to your domain on Cloudflare.
    - Navigate to `SSL/TLS -> Edge Certificates`.
    - Enable `Universal SSL`.
-6. After doing this, you should see `Cloudflare proxy detected` on your Custom Domain in Railway with a green cloud.
-7. Create a Bulk Redirect in Cloudflare:
+7. After doing this, you should see `Cloudflare proxy detected` on your Custom Domain in Railway with a green cloud.
+8. Create a Bulk Redirect in Cloudflare:
    - Go to your [Cloudflare dashboard](https://dash.cloudflare.com/).
    - Navigate to `Bulk Redirects`.
    - Click `Create Bulk Redirect List`.

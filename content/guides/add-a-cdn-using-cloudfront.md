@@ -3,9 +3,9 @@ title: Add a CDN using Amazon CloudFront
 description: Learn how to integrate Amazon CloudFront as a CDN for your Fastify app in this step-by-step guide.
 date: "2026-01-30"
 tags:
+  - frontend
   - cdn
   - cloudfront
-  - aws
   - networking
 topic: integrations
 ---

@@ -5,8 +5,8 @@ date: "2026-01-30"
 
 tags:
   - deployment
-  - vue
   - frontend
+  - vue
 topic: frameworks
 ---
 
@@ -220,5 +220,7 @@ This guide covers the main deployment options on Railway. Choose the approach th
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
+- [Configure SPA routing](/guides/spa-routing-configuration) - Set up Caddy fallback for client-side routing.
+- [Manage environment variables](/guides/frontend-environment-variables) - Handle `VITE_` prefixed variables.
 - [Add a Database Service](/databases/build-a-database-service)
 - [Monitor your app](/observability)

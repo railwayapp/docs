@@ -19,9 +19,9 @@ Volumes have a default size based on the [subscription plan](/pricing/plans#plan
 
 Volumes can be resized on all paid plans (Hobby and Pro), including via live resize with zero downtime.
 
-Pro users and above can self-serve to increase their volume up to 250 GB.
+Pro users and above can self-serve to increase their volume up to 1 TB.
 
-For Pro and above users, please reach out to us on [Central Station](https://station.railway.com/questions) if you need more than 250GB. Enterprise users with $2,000/month committed spend can also use [Slack](/platform/support#slack).
+For storage needs beyond 1TB, an [Enterprise plan](/pricing/plans) is required. Enterprise users with $2,000/month committed spend can also use [Slack](/platform/support#slack).
 
 ## Volume limits per project
 

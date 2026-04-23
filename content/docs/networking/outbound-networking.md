@@ -83,8 +83,13 @@ and share the output of the command for further assistance
 
 Railway offers [Static Outbound IPs](/networking/static-outbound-ips) for Pro plan customers who need consistent IP addresses for firewall whitelisting or third-party integrations.
 
-## Outbound ipv6
-Railway does not currently support outbound IPv6. Any IPv6 request will fail showing "Network is unreachable" or `ENETUNREACH`.
+## Outbound IPv6
+
+Railway supports outbound IPv6 connections on an opt-in basis per service. Enable this when you need to reach IPv6-only destinations or services that perform better over IPv6.
+
+To enable it, open your service's **Settings** tab, scroll to the **Networking** section, and toggle **Enable Outbound IPv6**. Redeploy the service for the change to take effect.
+
+Outbound IPv6 is disabled by default. Enabling it does not affect your service's existing IPv4 outbound connectivity — both work concurrently when the toggle is on. While this setting is disabled, IPv6 connection attempts will fail with "Network is unreachable" or `ENETUNREACH`.
 
 ## Related features
 

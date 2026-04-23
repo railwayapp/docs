@@ -4,11 +4,9 @@ description: Deploy a Next.js app with a Postgres database on Railway. Covers st
 date: "2026-03-30"
 tags:
   - deployment
-  - nextjs
-  - react
-  - fullstack
   - frontend
-  - postgres
+  - nextjs
+  - fullstack
 topic: frameworks
 ---
 
@@ -225,6 +223,9 @@ If your project uses an ORM that requires migrations (for example, Prisma or Dri
 
 Explore these resources to learn how you can maximize your experience with Railway:
 
+- [Choose between SSR, SSG, and ISR](/guides/ssr-ssg-isr) - Pick the right rendering strategy.
+- [Manage environment variables](/guides/frontend-environment-variables) - Handle `NEXT_PUBLIC_` prefixed variables.
+- [Deploy a full-stack Next.js app](/guides/fullstack-nextjs) - Add Postgres, workers, and file uploads.
 - [PostgreSQL on Railway](/databases/postgresql)
 - [Monitor your app](/observability)
 - [Running a Cron Job](/cron-jobs)

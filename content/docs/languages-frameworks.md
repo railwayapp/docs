@@ -34,6 +34,8 @@ No configuration required for most applications. For advanced customization, see
 - [Angular](/guides/angular)
 - [Solid](/guides/solid)
 - [Sails](/guides/sails)
+- [Gatsby](/guides/gatsby)
+- [TanStack Start](/guides/tanstack-start)
 
 ### Python
 
