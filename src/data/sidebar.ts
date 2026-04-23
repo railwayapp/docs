@@ -441,7 +441,6 @@ export const sidebarContent: ISidebarContent = [
       makePage("Logs", "observability"),
       makePage("Metrics", "observability"),
       makePage("Webhooks", "observability"),
-      makePage("Third-party integrations", "observability", "/observability/integrations"),
     ],
   },
   {

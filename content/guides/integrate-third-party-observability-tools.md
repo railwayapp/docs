@@ -1,6 +1,12 @@
 ---
-title: Third-party Integrations
+title: Integrate Third-Party Observability Tools
 description: Send telemetry from your Railway services to third-party observability tools using vendor SDKs or OpenTelemetry.
+date: "2026-04-23"
+tags:
+  - observability
+  - opentelemetry
+  - monitoring
+topic: infrastructure
 ---
 
 Railway's built-in Observability dashboard, logs, and metrics cover container-level health. A third-party observability tool can be useful for those that require longer retention or custom application-level insight.
