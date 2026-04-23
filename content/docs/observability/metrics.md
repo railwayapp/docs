@@ -27,6 +27,8 @@ The following metrics are provided:
 - **Disk Usage** - Storage utilization
 - **Network** - Inbound and outbound traffic
 
+Application-level metrics such as request latency, error rates, or business KPIs are not collected by Railway. To capture these, ship telemetry to a third-party tool. See [Connect a Third-Party Observability Tool](/guides/third-party-observability) for the vendor SDK and OpenTelemetry options.
+
 ## Understanding the metrics graphs
 
 Graphs include dotted lines to indicate when new deployments began. Up to 30 days of data is available for each project.
