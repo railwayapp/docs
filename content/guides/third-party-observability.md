@@ -1,23 +1,24 @@
 ---
-title: Integrate Third-Party Observability Tools
-description: Send telemetry from your Railway services to third-party observability tools using vendor SDKs or OpenTelemetry.
+title: Connect a Third-Party Observability Tool
+description: Send telemetry from your Railway services to third-party observability tools. Covers vendor SDKs (Datadog, New Relic, Sentry), OpenTelemetry (OTLP), and common deployment pitfalls.
 date: "2026-04-23"
 tags:
   - observability
   - opentelemetry
   - monitoring
-topic: infrastructure
+topic: integrations
 ---
 
-Railway's built-in Observability dashboard, logs, and metrics cover container-level health. A third-party observability tool can be useful for those that require longer retention or custom application-level insight.
+Railway's built-in Observability dashboard, logs, and metrics cover container-level health. A third-party observability tool can be useful for those that require longer retention or custom application-level insight. This guide covers two approaches to shipping telemetry off a Railway service, with tradeoffs for each.
 
-There are three ways to get telemetry off a Railway service:
+## Choosing an approach
 
-- **Vendor SDK** - install the vendor's library in your app and ship directly to their SaaS.
-- **OpenTelemetry (OTLP)** - instrument with OTel and export to any OTLP-compatible backend.
-- **Self-hosted agent or collector** - run an agent or collector as its own Railway service.
+| Approach | Complexity | Best for |
+|---|---|---|
+| Vendor SDK (Datadog, New Relic, Sentry) | Low | Most users |
+| OpenTelemetry (OTLP) | High | Multi-vendor flexibility, open-source backends (Jaeger, Prometheus, Tempo) or swapping vendors without re-instrumenting |
 
-## Vendor SDK
+## Pattern 1: Vendor SDK
 
 Install the vendor's SDK in your app, store credentials as Railway variables, and map Railway-provided system variables to the vendor's tag names so services, releases, and replicas are labelled consistently.
 
@@ -48,7 +49,7 @@ Each vendor uses a different wrapper. Datadog on Python uses `ddtrace-run`; New 
 
 Vendor SDKs handle flushing on shutdown automatically.
 
-## OpenTelemetry
+## Pattern 2: OpenTelemetry
 
 OpenTelemetry is a vendor-neutral standard for emitting telemetry. Instrument your app once and point the exporter at any backend that accepts OTLP, including Datadog, New Relic, Honeycomb, Grafana Cloud, SigNoz, or a self-hosted Tempo or Jaeger stack.
 
@@ -77,23 +78,21 @@ Railway sends `SIGTERM` to the old deployment when a new one takes over. OTel SD
 
 Vendor SDKs flush on shutdown automatically and do not require this step.
 
-## Self-hosted agent or collector
+### Dropped spans on deploy 
 
-An agent or OTel Collector can run as its own Railway service to provide local batching, multi-backend fan-out, or a fully self-hosted observability stack. Railway services do not support sidecars, so the agent or collector is always a separate service.
+With OpenTelemetry, not calling `shutdown()` on the tracer provider means the last batch of spans is lost when Railway replaces the container. Vendor SDKs flush on shutdown automatically.
+
+## Common pitfalls
+
+**No log drain feature.** Railway does not have a setting to forward stdout from a service to an external intake URL. Most vendors support logs alongside traces and metrics, but the mechanism varies. To forward raw stdout without instrumentation, run a log forwarder such as Vector or Fluent Bit as its own Railway service.
+
+**IPv6 over private networking.** Railway's [private network](/networking/private-networking) uses IPv6. If your app exports to a collector running as another Railway service, the OTLP client must support IPv6. See [Library configuration](/networking/private-networking/library-configuration) for language-specific settings, including StatsD over IPv6 for the Datadog Agent.
+
+**IPv6 over public internet.** If you export to a public IPv6-only endpoint, enable [outbound IPv6](/networking/outbound-networking#outbound-ipv6) on the service.
+
+## See also
 
 - [Set up a Datadog Agent on Railway](/guides/set-up-a-datadog-agent) - run the Datadog Agent as a service and ship app telemetry to it.
 - [Deploy an OpenTelemetry Collector stack](/guides/deploy-an-otel-collector-stack) - run the OTel Collector alongside Jaeger, Zipkin, and Prometheus.
-
-## Log export
-
-Railway does not have a log drain feature. There is no setting to forward stdout from a service to an external intake URL.
-
-Most vendors support logs alongside traces and metrics, but the mechanism varies: sometimes the SDK includes log transport, sometimes a separate agent or log library is required. Sentry is primarily focused on errors rather than general logs. Check your vendor's docs for what their SDK ships out of the box. OpenTelemetry provides a Logs SDK that ships over the same OTLP endpoint. Enable logs in your chosen tool and they are sent through the same path as the rest of your telemetry.
-
-To forward raw stdout without instrumentation, run a log forwarder such as Vector or Fluent Bit as its own Railway service.
-
-## Networking
-
-Railway's [private network](/networking/private-networking) uses IPv6. If your app exports to a collector running as another Railway service, the OTLP client must support IPv6. See [Library configuration](/networking/private-networking/library-configuration) for language-specific settings, including StatsD over IPv6 for the Datadog Agent.
-
-If you export to a public IPv6-only endpoint, enable [outbound IPv6](/networking/outbound-networking#outbound-ipv6) on the service.
+- [Variables reference](/variables/reference#railway-provided-variables) - full list of Railway-provided system variables.
+- [Private Networking](/networking/private-networking) - connect services over IPv6.
