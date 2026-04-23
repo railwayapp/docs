@@ -47,6 +47,17 @@ NODE_OPTIONS="--require dd-trace/init" node server.js
 
 Each vendor uses a different wrapper. Datadog on Python uses `ddtrace-run`; New Relic on Python uses `newrelic-admin run-program`; Sentry is initialized in code with `Sentry.init()`. Check your vendor's documentation for the exact command.
 
+```javascript
+// Sentry (Node): initialize before your app code
+const Sentry = require('@sentry/node');
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  environment: process.env.RAILWAY_ENVIRONMENT_NAME,
+  release: process.env.RAILWAY_DEPLOYMENT_ID,
+});
+```
+
 Vendor SDKs handle flushing on shutdown automatically.
 
 ## Pattern 2: OpenTelemetry
@@ -76,11 +87,20 @@ Prefer `http/protobuf` (port 4318) over gRPC (port 4317) for portability across 
 
 Railway sends `SIGTERM` to the old deployment when a new one takes over. OTel SDKs do not flush automatically on shutdown. Call `shutdown()` on the tracer provider from your signal handler, otherwise the last batch of spans is dropped. See [Deployment teardown](/deployments/deployment-teardown) and, for Node-specific signal handling, [Node.js SIGTERM handling](/deployments/troubleshooting/nodejs-sigterm-handling).
 
+```javascript
+// Flush OTel spans on SIGTERM before Railway replaces the container
+import { NodeSDK } from '@opentelemetry/sdk-node';
+
+const sdk = new NodeSDK({ /* exporters, instrumentations */ });
+sdk.start();
+
+process.on('SIGTERM', async () => {
+  await sdk.shutdown();
+  process.exit(0);
+});
+```
+
 Vendor SDKs flush on shutdown automatically and do not require this step.
-
-### Dropped spans on deploy 
-
-With OpenTelemetry, not calling `shutdown()` on the tracer provider means the last batch of spans is lost when Railway replaces the container. Vendor SDKs flush on shutdown automatically.
 
 ## Common pitfalls
 
