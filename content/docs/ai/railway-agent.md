@@ -20,16 +20,6 @@ When a deployment fails, the agent can automatically investigate. It reads the b
 
 If the fix is in your code, the agent can open a pull request with the change so you can review and merge it.
 
-## Using the agent
-
-Open the agent panel from the Railway dashboard and describe what you want in natural language. Examples:
-
-- "Add a Postgres database to this service and wire up `DATABASE_URL`."
-- "Why did the last deployment on `api` fail?"
-- "Set up a staging environment that mirrors production."
-
-The agent will explain what it's about to do before making changes that affect your infrastructure.
-
 ## Pricing
 
 Usage of the Railway Agent is billed based on the underlying LLM tokens consumed, at the exact per-token rates published on <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a> — no markup. See [Pricing → Railway Agent](/pricing#railway-agent) for details.
