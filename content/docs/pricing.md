@@ -54,8 +54,6 @@ The agent routes each request to the smallest model that can handle it, so costs
 
 Per-token rates for each model are published on Anthropic's pricing page: <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a>.
 
-<!-- screenshot: Agent usage breakdown on the billing page -->
-
 ## Learn more
 
 - [Plans](/pricing/plans) - Detailed breakdown of each plan's features and limits

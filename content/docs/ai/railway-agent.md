@@ -5,8 +5,6 @@ description: Chat with the Railway Agent to manage services, diagnose failures, 
 
 The Railway Agent is a chat-based AI assistant built into the Railway dashboard. It can operate the platform on your behalf: creating and configuring services, inspecting deployments, diagnosing failures, and even opening pull requests to fix broken builds.
 
-<!-- screenshot: Railway Agent chat panel open in the dashboard -->
-
 ## What it can do
 
 The agent has access to the same primitives you do, which means it can act across your entire project:
@@ -22,8 +20,6 @@ When a deployment fails, the agent can automatically investigate. It reads the b
 
 If the fix is in your code, the agent can open a pull request with the change so you can review and merge it.
 
-<!-- screenshot: Agent-authored PR fixing a failed deployment -->
-
 ## Using the agent
 
 Open the agent panel from the Railway dashboard and describe what you want in natural language. Examples:
@@ -33,8 +29,6 @@ Open the agent panel from the Railway dashboard and describe what you want in na
 - "Set up a staging environment that mirrors production."
 
 The agent will explain what it's about to do before making changes that affect your infrastructure.
-
-<!-- screenshot: Agent proposing a change with a confirm step -->
 
 ## Pricing
 
