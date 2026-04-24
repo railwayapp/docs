@@ -38,6 +38,24 @@ All paid plans include generous resource allowances, with the subscription fee c
 
 You're billed by the minute for compute resources, so you only pay for what you use.
 
+## Railway Agent
+
+The [Railway Agent](/ai/railway-agent) is billed separately, based on the LLM tokens it uses on your behalf.
+
+We pass through the exact cost of the underlying models with no markup. Pricing is based on input and output tokens, priced per the model used for each step:
+
+| Model | Used for |
+| --- | --- |
+| **Claude Opus 4.6** | Complex reasoning, multi-step diagnosis, code changes |
+| **Claude Sonnet 4.6** | Most general agent tasks |
+| **Claude Haiku 4.5** | Lightweight lookups and quick actions |
+
+The agent routes each request to the smallest model that can handle it, so costs stay proportional to the difficulty of the task. Agent usage appears as a separate line item on your invoice, and you can see a per-request token breakdown in the dashboard.
+
+Per-token rates for each model are published on Anthropic's pricing page: <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a>.
+
+<!-- screenshot: Agent usage breakdown on the billing page -->
+
 ## Learn more
 
 - [Plans](/pricing/plans) - Detailed breakdown of each plan's features and limits
