@@ -26,7 +26,7 @@ Compute and Agent usage are tracked and limited independently:
 
 Hitting the Compute hard limit takes your workloads offline but leaves the agent available. Hitting the Agent hard limit disables the agent but leaves your workloads running.
 
-By default, Agent Usage has a hard limit of **$5 on the Hobby plan** and **$20 on the Pro plan**. You can raise, lower, or remove this limit at any time from the Workspace Usage page.
+By default, Agent Usage has a hard limit of **$5 on the Hobby plan** and **$20 on the Pro plan**. You can raise or lower this limit at any time from the Workspace Usage page, but unlike the Compute limit, the Agent limit cannot be removed.
 
 ### Custom email alert
 
