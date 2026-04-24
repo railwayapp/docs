@@ -21,12 +21,12 @@ Visit the <a href="https://railway.com/workspace/usage" target="_blank">Workspac
 
 Compute and Agent usage are tracked and limited independently:
 
-- **Compute Usage** covers CPU, memory, storage, and network egress for your services.
-- **Agent Usage** covers [Railway Agent](/ai/railway-agent) LLM consumption.
+- Compute Usage covers CPU, memory, storage, and network egress for your services.
+- Agent Usage covers [Railway Agent](/ai/railway-agent) LLM consumption.
 
 Hitting the Compute hard limit takes your workloads offline but leaves the agent available. Hitting the Agent hard limit disables the agent but leaves your workloads running.
 
-By default, Agent Usage has a hard limit of **$5 on the Hobby plan** and **$20 on the Pro plan**. You can raise or lower this limit at any time from the Workspace Usage page, but unlike the Compute limit, the Agent limit cannot be removed.
+By default, Agent Usage has a hard limit of $5 on the Hobby plan and $20 on the Pro plan. You can raise or lower this limit at any time from the Workspace Usage page, but unlike the Compute limit, the Agent limit cannot be removed.
 
 ### Custom email alert
 

@@ -1,18 +1,18 @@
 ---
 title: Railway Agent
-description: Chat with the Railway Agent to manage services, diagnose failures, and ship fixes — directly from the Railway dashboard.
+description: Chat with the Railway Agent to manage services, diagnose failures, and ship fixes directly from the Railway dashboard.
 ---
 
-The Railway Agent is a chat-based AI assistant built into the Railway dashboard. It can operate the platform on your behalf: creating and configuring services, inspecting deployments, diagnosing failures, and even opening pull requests to fix broken builds.
+The Railway Agent is a chat-based AI assistant built into the Railway dashboard. It can operate the platform on your behalf: creating and configuring services, inspecting deployments, diagnosing failures, and opening pull requests to fix broken builds.
 
-## What it can do
+## What the agent can do
 
-The agent has access to the same primitives you do, which means it can act across your entire project:
+The agent has access to the same primitives you do, so it can act across your entire project. The agent can:
 
-- **Manage services** — create services, set variables, connect databases, wire up networking, and adjust resource limits.
-- **Inspect state** — list projects, environments, services, deployments, and read logs or metrics.
-- **Diagnose issues** — walk through a failing deployment, read build and runtime logs, and explain what went wrong.
-- **Fix issues** — when a deployment fails, the agent can identify the cause and open a pull request against your repository with a proposed fix.
+- Create services, set variables, connect databases, wire up networking, and adjust resource limits.
+- List projects, environments, services, and deployments, and read logs or metrics.
+- Walk through a failing deployment, read build and runtime logs, and explain what went wrong.
+- Identify the cause of a failed deployment and open a pull request against your repository with a proposed fix.
 
 ## Automatic deployment diagnosis
 
@@ -22,4 +22,4 @@ If the fix is in your code, the agent can open a pull request with the change so
 
 ## Pricing
 
-Usage of the Railway Agent is billed based on the underlying LLM tokens consumed, at the exact per-token rates published on <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a> — no markup. See [Pricing → Railway Agent](/pricing#railway-agent) for details.
+Usage of the Railway Agent is billed based on the underlying LLM tokens consumed, at the exact per-token rates published on <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a>, with no markup. See [Pricing](/pricing#railway-agent) for details.

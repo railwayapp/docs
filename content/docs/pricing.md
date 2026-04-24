@@ -42,7 +42,7 @@ You're billed by the minute for compute resources, so you only pay for what you 
 
 The [Railway Agent](/ai/railway-agent) is billed separately, based on the LLM tokens it uses on your behalf.
 
-We pass through the exact cost of the underlying models with no markup. Pricing is based on input and output tokens, priced per the model used for each step:
+Railway passes through the exact cost of the underlying models with no markup. Pricing is based on input and output tokens, priced per the model used for each step:
 
 | Model | Used for |
 | --- | --- |
@@ -52,7 +52,7 @@ We pass through the exact cost of the underlying models with no markup. Pricing 
 
 The agent routes each request to the smallest model that can handle it, so costs stay proportional to the difficulty of the task. Total agent usage appears as a separate line item on your invoice.
 
-Agent usage draws from the same included credit as the rest of your plan — the $5 on Hobby and $20 on Pro that already covers your compute also covers your agent usage. You're only charged beyond that once your combined compute and agent spend exceeds what your subscription includes.
+Agent usage draws from the same included credit as the rest of your plan. The $5 on Hobby and $20 on Pro that already covers your compute also covers your agent usage. You're only charged beyond that once your combined compute and agent spend exceeds what your subscription includes.
 
 Per-token rates for each model are published on Anthropic's pricing page: <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a>.
 
