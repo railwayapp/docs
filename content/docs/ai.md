@@ -7,6 +7,16 @@ Railway provides tools for integrating with AI coding assistants, letting you ma
 
 ## Integration options
 
+### Railway Agent
+
+The [Railway Agent](/ai/railway-agent) is a chat-based assistant built directly into the Railway dashboard. It can manage services, diagnose failing deployments, and open pull requests to fix issues in your code.
+
+- Runs inside the Railway dashboard with no setup required
+- Creates and configures services, variables, databases, and networking
+- Automatically diagnoses failed deployments and proposes fixes
+
+[Get started with the Railway Agent →](/ai/railway-agent)
+
 ### Agent skills
 
 [Agent Skills](/ai/agent-skills) are an open format for extending AI coding assistants with specialized knowledge about Railway. The `use-railway` skill guides AI agents to perform tasks like deploying services, managing environments, and querying metrics.
