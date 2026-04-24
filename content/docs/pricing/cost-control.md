@@ -13,9 +13,20 @@ Usage Limits allow you to set a maximum limit on your usage for a billing cycle.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1743193518/docs/usage-limits_pqlot9.png" alt="Usage Limits Modal" layout="responsive" width={1200} height={1075} />
 
-Visit the <a href="https://railway.com/workspace/usage" target="_blank">Workspace Usage page</a> to set the usage limits. Once you click the <kbd>Set Usage Limits</kbd> button, you will see a modal where you can set a <kbd>Custom email alert</kbd> and a <kbd>Hard limit</kbd>.
+Visit the <a href="https://railway.com/workspace/usage" target="_blank">Workspace Usage page</a> to set the usage limits. Once you click the <kbd>Set Usage Limits</kbd> button, you will see a modal where you can set a <kbd>Custom email alert</kbd> and a <kbd>Hard limit</kbd> separately for **Compute Usage** and **Agent Usage**.
 
 <Banner variant="info">The link above takes you to the usage page for your personal account. If you want to set a usage limit for your workspace, you can use the account switcher in the top left corner of your dashboard to access the workspace's usage page. You must be a workspace admin to configure usage limits.</Banner>
+
+### Compute vs. Agent usage limits
+
+Compute and Agent usage are tracked and limited independently:
+
+- **Compute Usage** covers CPU, memory, storage, and network egress for your services.
+- **Agent Usage** covers [Railway Agent](/ai/railway-agent) LLM consumption.
+
+Hitting the Compute hard limit takes your workloads offline but leaves the agent available. Hitting the Agent hard limit disables the agent but leaves your workloads running.
+
+By default, Agent Usage has a hard limit of **$5 on the Hobby plan** and **$20 on the Pro plan**. You can raise, lower, or remove this limit at any time from the Workspace Usage page.
 
 ### Custom email alert
 
