@@ -50,7 +50,7 @@ We pass through the exact cost of the underlying models with no markup. Pricing 
 | **Claude Sonnet 4.6** | Most general agent tasks |
 | **Claude Haiku 4.5** | Lightweight lookups and quick actions |
 
-The agent routes each request to the smallest model that can handle it, so costs stay proportional to the difficulty of the task. Agent usage appears as a separate line item on your invoice, and you can see a per-request token breakdown in the dashboard.
+The agent routes each request to the smallest model that can handle it, so costs stay proportional to the difficulty of the task. Total agent usage appears as a separate line item on your invoice.
 
 Per-token rates for each model are published on Anthropic's pricing page: <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a>.
 
