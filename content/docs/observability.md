@@ -130,3 +130,10 @@ To create a monitor, navigate to any widget in the Observability Dashboard and c
 ### Editing monitors
 
 To edit an existing monitor, navigate to any widget that has monitoring configured and click the three dot menu at the upper right corner of the widget. Select "Edit monitor" from the dropdown menu to modify the monitor configuration for that widget.
+
+## See also
+
+- [Logs](/observability/logs) - view, filter, and export build, deploy, and runtime logs.
+- [Metrics](/observability/metrics) - inspect CPU, memory, disk, and network usage per service.
+- [Webhooks](/observability/webhooks) - receive platform events (deploy succeeded/failed, crashes) at an external URL.
+- [Connect a Third-Party Observability Tool](/guides/third-party-observability) - ship traces, metrics, and logs to third-party providers for longer retention and application-level insight.

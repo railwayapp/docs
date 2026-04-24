@@ -379,6 +379,8 @@ Depending on your plan, logs are retained for a certain amount of time.
 
 _\* Upgrading plans will immediately restore logs that were previously outside of the retention period._
 
+For longer retention, ship logs to a third-party tool. Railway does not have a log drain setting, but you can forward stdout using a log forwarder (Vector, Fluent Bit) or emit logs from your app via a vendor SDK or OpenTelemetry. See [Connect a Third-Party Observability Tool](/guides/third-party-observability) for the options.
+
 ## Logging throughput
 
 To maintain quality of service for all users, Railway enforces a logging rate limit of **500 log lines per second per [replica](/deployments/scaling#horizontal-scaling-with-replicas)** across all plans. When this limit is exceeded, additional logs are dropped and you'll see a warning message like this:
