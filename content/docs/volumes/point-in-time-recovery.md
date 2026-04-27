@@ -24,7 +24,7 @@ Click Enable, confirm, and Railway:
 1. Creates a Railway Bucket named **Postgres-PITR** for archived WAL.
 2. Sets the wal-g credentials as variables on the Postgres service.
 3. Redeploys the service. The image picks up the new env vars and starts archiving WAL on every commit.
-4. Adds a daily backup schedule (if not already enabled) and triggers an immediate base snapshot — PITR replay needs at least one covering snapshot.
+4. Adds **daily and weekly** backup schedules (if not already enabled) and triggers an immediate base snapshot. Both schedules are required: WAL is retained for 7 days, but daily snapshots are only retained for 6 — without a weekly snapshot, the oldest day of your WAL window would have no base snapshot to replay onto. The weekly fills that gap.
 
 One redeploy. After the service comes back, you'll see a **PITR datetime picker** appear on the Backups tab.
 
@@ -63,7 +63,7 @@ PITR replay needs a covering base snapshot. Two states the Backups tab will surf
 - **No snapshots yet** — PITR is enabled but no backup has run. The picker is disabled. Take a manual backup or wait for the daily schedule.
 - **Coverage gap** — The most recent snapshot is older than the WAL retention window (~7 days). The picker is disabled and a warning explains why: WAL beyond the retention window has no covering snapshot to replay onto. Take a fresh backup before restoring.
 
-Both states are recoverable — just take a snapshot. Keep the daily schedule on (it's added automatically when you enable PITR) and you'll never hit them.
+Both states are recoverable — just take a snapshot. Keep the daily and weekly schedules on (both added automatically when you enable PITR) and you'll never hit them. Removing either of those schedules while PITR is enabled will reintroduce a coverage gap, so leave them in place.
 
 ## Disabling PITR
 
