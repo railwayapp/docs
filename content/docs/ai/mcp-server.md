@@ -70,6 +70,58 @@ To install the MCP server in Claude Code, you can use the following command:
 claude mcp add Railway npx @railway/mcp-server
 ```
 
+### Codex
+
+To install the MCP server in the [OpenAI Codex CLI](https://developers.openai.com/codex/cli), you can use the following command:
+
+```bash
+codex mcp add Railway -- npx -y @railway/mcp-server
+```
+
+### GitHub Copilot CLI
+
+Add the following configuration to your `~/.copilot/mcp-config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "Railway": {
+      "type": "local",
+      "command": "npx",
+      "args": ["-y", "@railway/mcp-server"],
+      "tools": ["*"]
+    }
+  }
+}
+```
+
+Alternatively, run `/mcp add` from inside an active Copilot CLI session and follow the prompts.
+
+### Factory
+
+To install the MCP server in [Factory](https://docs.factory.ai/cli/configuration/mcp), you can use the following command:
+
+```bash
+droid mcp add Railway "npx -y @railway/mcp-server"
+```
+
+Or run `/mcp` from inside a droid session to manage MCP servers interactively.
+
+### OpenCode
+
+Add the following configuration to your `opencode.json` file:
+
+```json
+{
+  "mcp": {
+    "railway": {
+      "type": "local",
+      "command": ["npx", "-y", "@railway/mcp-server"]
+    }
+  }
+}
+```
+
 
 ## Example usage
 
