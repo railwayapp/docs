@@ -78,6 +78,7 @@ Check if a custom domain can be added:
     id
     domain
     status {
+      verificationToken
       dnsRecords {
         hostlabel
         requiredValue
@@ -90,6 +91,8 @@ optionalFields={[
   { name: "input.targetPort", type: "Int", description: "Route traffic to this port" },
 ]} />
 
+The routing DNS records are returned in `status.dnsRecords`. Query `status.verificationToken` as well to get the verification `TXT` token required to complete setup.
+
 ### Get custom domain status
 
 Check DNS configuration status:
@@ -99,6 +102,7 @@ Check DNS configuration status:
     id
     domain
     status {
+      verificationToken
       dnsRecords {
         hostlabel
         requiredValue
@@ -124,15 +128,15 @@ Check DNS configuration status:
 
 ## DNS configuration
 
-After adding a custom domain, you need to configure DNS records. The required records are returned in the `status.dnsRecords` field, which includes **both** a routing record (`CNAME` / `ALIAS` / `A`) and a `TXT` record used to verify domain ownership. Both are required - without the `TXT`, the domain will not verify and requests will return a `404`.
+After adding a custom domain, you need to configure DNS records. The routing record is returned in `status.dnsRecords`, while the verification `TXT` token is returned separately in `status.verificationToken`. Both are required. Without the `TXT` record, the domain remains pending setup and does not verify.
 
 ### For root domains (example.com)
 
-Add a CNAME-flattened, ALIAS, or ANAME record (depending on what your DNS provider supports) pointing to your Railway service domain, plus the `TXT` record returned in `status.dnsRecords`. Railway does not publish a static IP, so `A` records are not supported. See [Adding a root domain](/networking/domains/working-with-domains#adding-a-root-domain) for provider-specific guidance.
+Add a CNAME-flattened, ALIAS, or ANAME record (depending on what your DNS provider supports) pointing to your Railway service domain, plus the `TXT` record using the token returned in `status.verificationToken`. Railway does not publish a static IP, so `A` records are not supported. See [Adding a root domain](/networking/domains/working-with-domains#adding-a-root-domain) for provider-specific guidance.
 
 ### For subdomains (api.example.com)
 
-Add a CNAME record pointing to your Railway service domain, plus the `TXT` record returned in `status.dnsRecords`.
+Add a CNAME record pointing to your Railway service domain, plus the `TXT` record using the token returned in `status.verificationToken`.
 
 ### DNS record statuses
 
