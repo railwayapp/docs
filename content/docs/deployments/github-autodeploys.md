@@ -23,7 +23,7 @@ To manually trigger a deployment from the latest commit, open the Command Palett
 
 ## Enable automatic deployments
 
-Autodeploy can be disabled if the project is missing required GitHub permissions, or if a project member disabled it previously.
+Autodeploy might be disabled when the project was missing required GitHub permissions, or if a project member disabled it previously.
 
 To re-enable autodeploy, click **Enable**.
 
