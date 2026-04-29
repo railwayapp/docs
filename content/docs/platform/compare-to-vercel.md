@@ -121,7 +121,7 @@ This gives you an integrated billing experience, however managing services is st
 
 **Managing projects**
 
-In Railway, a project is a collection of services and databases. This can include frontend, API, background workers, API, analytics database, queues and so much more. All in a unified deployment experience that supports real-time collaboration.
+In Railway, a project is a collection of services and databases. This can include frontend, API, background workers, analytics database, queues and so much more. All in a unified deployment experience that supports real-time collaboration.
 
 ![Railway canvas](https://res.cloudinary.com/railway/image/upload/v1737785173/docs/the-basics/project_canvas_dxpzxe.png)
 
