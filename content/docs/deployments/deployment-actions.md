@@ -74,18 +74,33 @@ You can also click within a deployment and using the Command Palette restart a d
 
 ## Deployment dependencies - startup ordering
 
-You can control the order your services start up with [Reference Variables](/variables#reference-variables).
-When one service references another, it will be deployed after the service it is referencing when applying a [staged change](/deployments/staged-changes) or [duplicating an environment](/environments#create-an-environment).
+When multiple services deploy together, Railway uses [reference variables](/variables#reference-variables) to determine the deploy order. A service that references another service waits for that service to finish deploying before it starts, so it never boots with a stale or missing value from a dependency.
 
-Services that have circular dependencies will simply ignore them and deploy as normal.
+For example, if your API service has `DATABASE_URL=${{Postgres.DATABASE_URL}}` referencing a [PostgreSQL database](/databases/postgresql), Railway will:
 
-For example, let's say you're deploying an API service that depends on a [PostgreSQL database](/databases/postgresql).
+1. Deploy the Postgres service first
+2. Then deploy the API service (since it has a reference variable to Postgres)
 
-When you have services with reference variables like:
+### When ordering applies
 
-- API Service has `DATABASE_URL=${{Postgres.DATABASE_URL}}` which is defined on your Postgres Service in the same project.
+Ordering takes effect when multiple deploys are triggered together as a batch:
 
-Railway will:
+- [**Template deploys**](/templates/deploy) — deploying a stack of services at once.
+- **Applying [staged changes](/deployments/staged-changes)** — for example, a variable edit that redeploys multiple services.
+- **[Duplicating an environment](/environments#create-an-environment)**.
+- **[PR environments](/environments#pr-environments-1)** — services in an auto-created environment for a pull request.
 
-1. Deploy the Postgres Service first
-2. Then deploy the API Service (since it has a reference variable to Postgres)
+### When ordering does not apply
+
+When services deploy independently, no ordering is performed:
+
+- **GitHub push deploys** — even in a [monorepo](/deployments/monorepo) where one push triggers multiple services, each service deploys independently.
+- **Single-service redeploys** — there is nothing to order against.
+
+### Transitive dependencies
+
+Ordering follows the full chain of references. If service `A` references `B` and `B` references `C`, then `A` waits for both `B` and `C` to finish.
+
+### Circular references
+
+If two services reference each other (for example, `A` references `B` and `B` references `A`), Railway breaks the cycle and deploys them in parallel rather than waiting indefinitely.
