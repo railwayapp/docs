@@ -136,6 +136,10 @@ railway ssh keys add --workspace <workspace-id> --key ~/.ssh/id_ed25519.pub
 
 When you authenticate with a workspace-scoped `RAILWAY_API_TOKEN`, the CLI operates on workspace keys automatically. SSH key management isn't supported with project tokens (`RAILWAY_TOKEN`); use a workspace API token or run `railway login`.
 
+## Known limitations
+
+VS Code Remote-SSH isn't supported. Connecting to a Railway service through the Remote-SSH extension fails because the Railway SSH server doesn't expose the operations Remote-SSH needs to install and run its server inside the container. Use `railway ssh` directly for shell access.
+
 ## Use cases
 
 - Debugging production issues
