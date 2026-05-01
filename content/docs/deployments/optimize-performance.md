@@ -28,7 +28,7 @@ Railway's infrastructure spans multiple regions across the globe, and by default
     height={934}
 />
 
-To change the number of replicas per deploy within your service, go to the service settings view and look for the "Regions" field in the "Deploy" section. This will create multiple instances of your service and distribute traffic between them.
+To change the number of replicas per deploy within your service, go to the service settings view and look for the "Regions" field in the "Scale" section. This will create multiple instances of your service and distribute traffic between them.
 
 _Additional regions may be added in the future as Railway continues expanding its infrastructure footprint._
 

@@ -107,7 +107,7 @@ width={1338} height={608} quality={80} />
 
 ### Manual rollback
 
-To rollback manually, modify your service's `Settings -> Deploy -> Regions`
+To rollback manually, modify your service's `Settings -> Scale -> Regions`
 and select regions without the `Metal` tag.
 
 <Image

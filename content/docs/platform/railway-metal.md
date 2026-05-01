@@ -136,7 +136,7 @@ width={1338} height={608} quality={80} />
 
 ### Manual rollback
 
-To rollback manually, modify your service's `Settings -> Deploy -> Regions`
+To rollback manually, modify your service's `Settings -> Scale -> Regions`
 and select regions without the `Metal (New)` tag.
 
 <Image
@@ -181,7 +181,7 @@ Yes.
 
 ### How do I receive the upgrade sooner?
 
-Go to your service's `Settings -> Deploy -> Regions`, and select any region
+Go to your service's `Settings -> Scale -> Regions`, and select any region
 with the `Metal (New)` tag.
 
 <Image
@@ -196,7 +196,7 @@ available for Railway Metal.
 ### How do I know if i'm on Railway metal?
 
 To check if your service is running on Railway Metal, go to your service's
-`Settings -> Deploy -> Regions`. If you are on Railway Metal, you will see a
+`Settings -> Scale -> Regions`. If you are on Railway Metal, you will see a
 `Metal (New)` tag next to the region.
 
 <Image

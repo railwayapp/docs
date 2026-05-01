@@ -108,7 +108,7 @@ To get started:
 
 1. In your Railway project, click on your deployed service
 2. Go to the "Settings" tab
-3. Under "Deploy", go to the "Regions" section and click "+ Add Region"
+3. Under "Scale", go to the "Regions" section and click "+ Add Region"
 
 Railway automatically distributes replicas across available regions and routes traffic to the nearest region.
 
