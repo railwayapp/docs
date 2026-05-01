@@ -138,7 +138,7 @@ When you authenticate with a workspace-scoped `RAILWAY_API_TOKEN`, the CLI opera
 
 ## Known limitations
 
-VS Code Remote-SSH isn't supported. Connecting to a Railway service through the Remote-SSH extension fails because the Railway SSH server doesn't expose the operations Remote-SSH needs to install and run its server inside the container. Use `railway ssh` directly for shell access.
+VS Code Remote-SSH isn't supported. Use `railway ssh` directly for shell access.
 
 ## Use cases
 
