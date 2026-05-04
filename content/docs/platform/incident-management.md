@@ -15,7 +15,7 @@ However, it's important to note that while we strive to stay ahead of incidents,
 
 ## Status page + uptime
 
-Railway's uptime and incident retrospective can be accessed on the Railway Instatus page at https://railway.instatus.com/. On this page, you can view the historical uptime of Railway's systems and services. Additionally, you can find detailed information about past incidents, including retrospectives that provide insights into how incidents were handled and what measures were taken to prevent similar issues in the future.
+Railway's uptime and incident retrospective can be accessed on the Railway status page at https://status.railway.com/. On this page, you can view the historical uptime of Railway's systems and services. Additionally, you can find detailed information about past incidents, including retrospectives that provide insights into how incidents were handled and what measures were taken to prevent similar issues in the future.
 
 For Enterprise customers, we offer SLOs and guarantees of service that may not be represented on the uptime dashboard.
 
