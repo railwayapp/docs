@@ -356,6 +356,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Volumes", undefined, "/volumes"),
         pages: [
           makePage("Backups", "volumes"),
+          makePage("Point-in-Time Recovery", "volumes"),
           makePage("Reference", "volumes"),
         ],
       },
