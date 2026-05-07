@@ -28,13 +28,21 @@ npm i -g @railway/cli
 
 Requires Node.js version 16 or higher.
 
-### Shell script (macOS, Linux, Windows via WSL)
+### CLI installer (macOS, Linux, Windows via WSL)
 
 ```bash
 bash <(curl -fsSL cli.new)
 ```
 
 On Windows, use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) with a Bash shell.
+
+To install the CLI and configure Railway agent support in one step, use `cli.new --agents`:
+
+```bash
+bash <(curl -fsSL cli.new) --agents -y
+```
+
+The `--agents` flag installs or reuses the Railway CLI, then runs `railway setup agent`. If `railway` is already on `PATH`, `cli.new` reuses it and does not change `PATH`. For fresh installs, `cli.new --agents` installs to `${RAILWAY_AGENT_BIN_DIR:-$HOME/.railway/bin}` unless `-b, --bin-dir` or `RAILWAY_BIN_DIR` is provided, updates shell startup files so AI tools can find `railway mcp`, and configures detected agent tools. Use `--no-modify-path` with `--agents` to skip shell startup file updates.
 
 ### Scoop (Windows)
 
@@ -206,9 +214,11 @@ railway functions push          # Push function changes
 railway completion bash         # Generate shell completions
 railway docs                    # Open documentation
 railway upgrade                 # Upgrade CLI
+railway setup agent             # Configure Railway agent tooling
+railway mcp install             # Configure MCP for AI coding tools
 ```
 
-[completion](/cli/completion) · [docs](/cli/docs) · [upgrade](/cli/upgrade) · [starship](/cli/starship)
+[completion](/cli/completion) · [docs](/cli/docs) · [upgrade](/cli/upgrade) · [setup](/cli/setup) · [mcp](/cli/mcp) · [starship](/cli/starship)
 
 ## Global options
 

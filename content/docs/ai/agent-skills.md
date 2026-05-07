@@ -25,6 +25,22 @@ When you ask your AI assistant something like "deploy to Railway" or "check my p
 
 ## Installation
 
+To install the Railway CLI and configure Railway agent support in one step:
+
+```bash
+bash <(curl -fsSL cli.new) --agents -y
+```
+
+This installs or reuses the Railway CLI, installs the `use-railway` skill, configures Railway MCP for detected tools, and checks Railway authentication. If `railway` is already on `PATH`, the installer reuses it without changing `PATH`. If you are not already logged in, run `railway login` after setup.
+
+If the Railway CLI is already installed, you can run the agent setup directly:
+
+```bash
+railway setup agent
+```
+
+To install only the agent skills:
+
 ```bash
 curl -fsSL railway.com/skills.sh | bash
 ```
