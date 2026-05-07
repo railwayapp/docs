@@ -48,7 +48,7 @@ This configures detected coding tools with default settings and skips the intera
 railway setup agent --remote
 ```
 
-This configures supported editors to use Railway's hosted MCP server. Codex is skipped for remote setup because it only supports stdio MCP servers.
+This configures supported editors to use Railway's hosted MCP server. The current Railway CLI setup skips Codex when configuring remote MCP.
 
 ## What it configures
 
