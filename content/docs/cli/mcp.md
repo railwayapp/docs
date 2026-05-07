@@ -32,6 +32,8 @@ Running `railway mcp` with no subcommand starts the local stdio MCP server. This
 |-------|-------|
 | Claude Code | `claude-code` |
 | Cursor | `cursor` |
+| Factory Droid | `factory-droid` |
+| GitHub Copilot | `copilot` |
 | OpenAI Codex | `codex` |
 | OpenCode | `opencode` |
 
@@ -43,6 +45,8 @@ When installing with `--remote`, the Railway CLI configures supported tools with
 |-------|--------------------|---------------|
 | Claude Code | `command: "railway"`, `args: ["mcp"]` | `type: "http"`, `url: "https://mcp.railway.com"` |
 | Cursor | `command: "railway"`, `args: ["mcp"]` | `url: "https://mcp.railway.com"` |
+| Factory Droid | `type: "stdio"`, `command: "railway"`, `args: ["mcp"]`, `disabled: false` | `type: "http"`, `url: "https://mcp.railway.com"`, `disabled: false` |
+| GitHub Copilot | `type: "local"`, `command: "railway"`, `args: ["mcp"]`, `tools: ["*"]` | `type: "http"`, `url: "https://mcp.railway.com"`, `tools: ["*"]` |
 | OpenCode | `type: "local"`, `command: ["railway", "mcp"]`, `enabled: true` | `type: "remote"`, `url: "https://mcp.railway.com"`, `enabled: true` |
 | OpenAI Codex | `command = "railway"`, `args = ["mcp"]` | `url = "https://mcp.railway.com"` |
 
@@ -65,7 +69,7 @@ railway mcp install --agent cursor
 ### Install MCP for multiple tools
 
 ```bash
-railway mcp install --agent claude-code --agent opencode
+railway mcp install --agent claude-code --agent copilot
 ```
 
 ### Install the remote MCP server configuration

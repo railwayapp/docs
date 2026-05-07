@@ -48,7 +48,7 @@ railway setup agent
 
 Use `railway mcp install --remote` to configure supported tools with the hosted MCP server at `https://mcp.railway.com` instead of the local stdio server.
 
-Use `railway mcp install --agent <agent>` to target a specific supported tool. Supported values are `claude-code`, `cursor`, `codex`, and `opencode`.
+Use `railway mcp install --agent <agent>` to target a specific supported tool. Supported values are `claude-code`, `cursor`, `factory-droid`, `copilot`, `codex`, and `opencode`.
 
 ### Cursor
 

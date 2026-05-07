@@ -54,7 +54,7 @@ This configures supported editors to use Railway's hosted MCP server.
 
 `railway setup agent` installs the `use-railway` skill for supported coding tools, configures the Railway MCP server where supported, and checks your Railway authentication.
 
-Supported agent targets include Claude Code, Cursor, OpenAI Codex, OpenCode, and the universal `.agents` skills directory.
+Supported agent targets include Claude Code, Cursor, Factory Droid, GitHub Copilot, OpenAI Codex, OpenCode, and the universal `.agents` skills directory.
 
 The setup is idempotent. Re-running it updates Railway-owned skill directories and merges Railway MCP entries into existing tool configs without removing other MCP servers.
 
