@@ -35,7 +35,7 @@ Running `railway mcp` with no subcommand starts the local stdio MCP server. This
 | OpenAI Codex | `codex` |
 | OpenCode | `opencode` |
 
-The current Railway CLI installer configures Codex with local stdio MCP. Codex is skipped when running `railway mcp install --remote`.
+When installing with `--remote`, the Railway CLI configures supported tools with Railway's hosted MCP server at `https://mcp.railway.com`.
 
 ## Installed MCP entries
 
@@ -44,7 +44,7 @@ The current Railway CLI installer configures Codex with local stdio MCP. Codex i
 | Claude Code | `command: "railway"`, `args: ["mcp"]` | `type: "http"`, `url: "https://mcp.railway.com"` |
 | Cursor | `command: "railway"`, `args: ["mcp"]` | `url: "https://mcp.railway.com"` |
 | OpenCode | `type: "local"`, `command: ["railway", "mcp"]`, `enabled: true` | `type: "remote"`, `url: "https://mcp.railway.com"`, `enabled: true` |
-| OpenAI Codex | `command = "railway"`, `args = ["mcp"]` | Not configured by `railway mcp install --remote` |
+| OpenAI Codex | `command = "railway"`, `args = ["mcp"]` | `url = "https://mcp.railway.com"` |
 
 `railway mcp install` merges the Railway server entry into existing configs without removing other MCP servers.
 
