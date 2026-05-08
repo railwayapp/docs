@@ -41,10 +41,10 @@ If the Railway CLI is already installed, you can run the agent setup directly:
 railway setup agent
 ```
 
-To install only the agent skills:
+To install only the agent skills, use the [`railway skills`](/cli/skills) command:
 
 ```bash
-curl -fsSL railway.com/skills.sh | bash
+railway skills install
 ```
 
 You can also install via <a href="https://skills.sh" target="_blank">skills.sh</a>:

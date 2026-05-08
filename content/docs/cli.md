@@ -115,10 +115,11 @@ railway deploy --template postgres # Deploy a template
 railway redeploy                # Redeploy latest deployment
 railway restart                 # Restart a service
 railway down                    # Remove latest deployment
+railway deployment list         # List deployments
 railway templates search        # Search published templates
 ```
 
-[up](/cli/up) · [deploy](/cli/deploy) · [redeploy](/cli/redeploy) · [restart](/cli/restart) · [down](/cli/down) · [templates](/cli/templates) · [Deploying Guide](/cli/deploying)
+[up](/cli/up) · [deploy](/cli/deploy) · [redeploy](/cli/redeploy) · [restart](/cli/restart) · [down](/cli/down) · [deployment](/cli/deployment) · [templates](/cli/templates) · [Deploying Guide](/cli/deploying)
 
 ### Services
 
@@ -224,9 +225,10 @@ railway agent                   # Chat with the Railway Agent
 railway agent -p "..."          # Send a single prompt
 railway setup agent             # Configure Railway agent tooling
 railway mcp install             # Configure MCP for AI coding tools
+railway skills install          # Install Railway agent skills
 ```
 
-[agent](/cli/agent) · [setup](/cli/setup) · [mcp](/cli/mcp)
+[agent](/cli/agent) · [setup](/cli/setup) · [mcp](/cli/mcp) · [skills](/cli/skills)
 
 ### Utilities
 

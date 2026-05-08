@@ -260,6 +260,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("service"),
       makeCliCommand("setup"),
       makeCliCommand("shell"),
+      makeCliCommand("skills"),
       makeCliCommand("ssh"),
       makeCliCommand("starship"),
       makeCliCommand("status"),
