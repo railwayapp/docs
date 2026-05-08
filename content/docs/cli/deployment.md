@@ -11,12 +11,16 @@ List and manage deployments for your services.
 railway deployment <COMMAND> [OPTIONS]
 ```
 
+## Aliases
+
+- `railway deployments`
+
 ## Subcommands
 
 | Subcommand | Aliases | Description |
 |------------|---------|-------------|
 | `list` | `ls` | List deployments with IDs, statuses, and timestamps |
-| `up` | | Upload and deploy (same as `railway up`) |
+| `up` | `deploy` | Upload and deploy (same as `railway up`) |
 | `redeploy` | | Redeploy latest deployment (same as `railway redeploy`) |
 
 ## Examples

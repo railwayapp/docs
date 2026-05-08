@@ -11,6 +11,10 @@ Manage storage buckets for your project.
 railway bucket <COMMAND> [OPTIONS]
 ```
 
+## Aliases
+
+- `railway buckets`
+
 ### Global options
 
 | Flag | Description |
@@ -29,9 +33,9 @@ railway bucket -b my-bucket -e production info
 | [`list`](#list-buckets) | `ls` | List buckets |
 | [`create`](#create-a-bucket) | `add`, `new` | Create a new bucket |
 | [`delete`](#delete-a-bucket) | `remove`, `rm` | Delete a bucket |
-| [`info`](#show-bucket-info) | | Show bucket details |
-| [`credentials`](#show-or-reset-credentials) | | Show or reset S3-compatible credentials |
-| [`rename`](#rename-a-bucket) | | Rename a bucket |
+| [`info`](#show-bucket-info) | `show`, `get` | Show bucket details |
+| [`credentials`](#show-or-reset-credentials) | `creds` | Show or reset S3-compatible credentials |
+| [`rename`](#rename-a-bucket) | `mv` | Rename a bucket |
 
 ## List buckets
 

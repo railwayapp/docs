@@ -19,12 +19,12 @@ railway dev [COMMAND] [OPTIONS]
 
 ## Subcommands
 
-| Subcommand | Description |
-|------------|-------------|
-| `up` | Start services (default) |
-| `down` | Stop services |
-| `clean` | Stop services and remove volumes/data |
-| `configure` | Configure local code services |
+| Subcommand | Aliases | Description |
+|------------|---------|-------------|
+| `up` | `start` | Start services (default) |
+| `down` | `stop` | Stop services |
+| `clean` | `reset` | Stop services and remove volumes/data |
+| `configure` | `config` | Configure local code services |
 
 ## Examples
 

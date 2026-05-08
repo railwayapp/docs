@@ -11,6 +11,11 @@ Permanently delete a Railway project.
 railway delete [OPTIONS]
 ```
 
+## Aliases
+
+- `railway rm`
+- `railway remove`
+
 ## Options
 
 | Flag | Description |
