@@ -6,6 +6,7 @@ import {
 import { Collapse } from "@/components/collapse";
 import { Pre, CodeBlock, CodeTab } from "@/components/code-block";
 import { GraphQLCodeTabs } from "@/components/graphql-code-tabs";
+import { Card, CardGrid } from "@/components/card";
 import { Frame } from "@/components/frame";
 import { Steps, Step } from "@/components/steps";
 import {
@@ -48,6 +49,8 @@ const components: Record<string, React.ElementType> = {
   CodeBlock,
   CodeTab,
   GraphQLCodeTabs,
+  Card,
+  CardGrid,
   Frame,
   Steps,
   Step,

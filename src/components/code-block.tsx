@@ -34,6 +34,25 @@ function getLanguageIcon(lang: string): string {
   return languageIcons[lang.toLowerCase()] || "File";
 }
 
+// Trigger copy when the user clicks the code body — but never swallow a click
+// that's part of a text selection (would break the normal "drag to select" flow).
+function handleCodeBodyClick(
+  event: React.MouseEvent<HTMLDivElement>,
+  copy: (text: string) => void,
+  cleanCode: string,
+) {
+  if (typeof window === "undefined") return;
+  const selection = window.getSelection();
+  if (selection && selection.toString().length > 0) {
+    return;
+  }
+  // Don't hijack clicks on links/buttons rendered inside the code (e.g. shiki
+  // doesn't add any, but transformers or future plugins might).
+  const target = event.target as HTMLElement;
+  if (target.closest("a, button")) return;
+  copy(cleanCode);
+}
+
 // Extract text content from code for copying
 function extractTextFromCode(code: string): string {
   // Remove Shiki notation comments like [!code ++], [!code --], [!code highlight], etc.
@@ -218,7 +237,15 @@ function TabbedCodeBlock({
   const [activeTab, setActiveTab] = React.useState(0);
   const [htmlCache, setHtmlCache] = React.useState<Record<number, string>>({});
   const [isLoading, setIsLoading] = React.useState(true);
-  const { copied, copy } = useCopyToClipboard();
+  const { copied, copy: copyRaw } = useCopyToClipboard();
+  const [shimmerKey, setShimmerKey] = React.useState(0);
+  const copy = React.useCallback(
+    (text: string) => {
+      copyRaw(text);
+      setShimmerKey(k => k + 1);
+    },
+    [copyRaw],
+  );
 
   const activeTabData = tabs[activeTab];
   const cleanCode = React.useMemo(
@@ -343,7 +370,19 @@ function TabbedCodeBlock({
       </div>
 
       {/* Code content */}
-      <div className="overflow-x-auto text-sm">
+      <div
+        role="button"
+        tabIndex={0}
+        aria-label={copied ? "Copied!" : "Click to copy code"}
+        onClick={e => handleCodeBodyClick(e, copy, cleanCode)}
+        onKeyDown={e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            copy(cleanCode);
+          }
+        }}
+        className="relative overflow-x-auto text-sm transition-colors hover:bg-muted-element/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-solid"
+      >
         {isLoading ? (
           <div className="flex items-center justify-center py-8">
             <Icon
@@ -357,6 +396,7 @@ function TabbedCodeBlock({
             dangerouslySetInnerHTML={{ __html: htmlCache[activeTab] || "" }}
           />
         )}
+        <CopyShimmer shimmerKey={shimmerKey} />
       </div>
     </div>
   );
@@ -421,7 +461,15 @@ function StandardCodeBlock({
   const [isExpanded, setIsExpanded] = React.useState(!collapsible);
   const [contentHeight, setContentHeight] = React.useState<number | null>(null);
   const contentRef = React.useRef<HTMLDivElement>(null);
-  const { copied, copy } = useCopyToClipboard();
+  const { copied, copy: copyRaw } = useCopyToClipboard();
+  const [shimmerKey, setShimmerKey] = React.useState(0);
+  const copy = React.useCallback(
+    (text: string) => {
+      copyRaw(text);
+      setShimmerKey(k => k + 1);
+    },
+    [copyRaw],
+  );
 
   // Measure content height when HTML changes or loading completes
   React.useEffect(() => {
@@ -544,8 +592,18 @@ function StandardCodeBlock({
       {/* Code content */}
       <div
         ref={contentRef}
+        role="button"
+        tabIndex={0}
+        aria-label={copied ? "Copied!" : "Click to copy code"}
+        onClick={e => handleCodeBodyClick(e, copy, cleanCode)}
+        onKeyDown={e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            copy(cleanCode);
+          }
+        }}
         className={cn(
-          "overflow-x-auto text-sm transition-[max-height] duration-300 ease-in-out",
+          "relative overflow-x-auto text-sm transition-[max-height,background-color] duration-300 ease-in-out hover:bg-muted-element/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-solid",
           showLineNumbers && "code-block-line-numbers",
           collapsible && !isExpanded && "overflow-y-hidden",
         )}
@@ -572,6 +630,7 @@ function StandardCodeBlock({
             dangerouslySetInnerHTML={{ __html: html }}
           />
         )}
+        <CopyShimmer shimmerKey={shimmerKey} />
       </div>
 
       {/* Expand overlay when collapsed */}
@@ -587,6 +646,23 @@ function StandardCodeBlock({
           </button>
         </div>
       )}
+    </div>
+  );
+}
+
+// One-shot shimmer that sweeps across the code body when the user copies.
+// Re-keyed every copy so the animation restarts even mid-flight.
+function CopyShimmer({ shimmerKey }: { shimmerKey: number }) {
+  if (shimmerKey === 0) return null;
+  return (
+    <div
+      key={shimmerKey}
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 overflow-hidden"
+    >
+      <div
+        className="absolute inset-y-0 w-1/3 animate-copy-shimmer bg-gradient-to-r from-transparent via-primary-base/30 to-transparent mix-blend-overlay dark:mix-blend-screen"
+      />
     </div>
   );
 }
