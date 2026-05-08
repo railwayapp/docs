@@ -5,22 +5,33 @@ description: Learn how to install and use the Railway CLI to manage your project
 
 The Railway Command Line Interface (CLI) lets you interact with your Railway projects from the command line.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/v1645060494/docs/CLIexample_fiflvb.gif"
-alt="GIF of the CLI in Action"
-layout="intrinsic"
-width={800} height={468} quality={100} />
-
 ## Installing the CLI
 
-The Railway CLI can be installed via Homebrew, npm, Scoop, or directly from the source.
+Install the Railway CLI with agent support configured in one step (macOS, Linux, Windows via WSL):
 
-### Homebrew (macOS)
+```bash
+bash <(curl -fsSL railway.com/install.sh) --agents -y
+```
+
+This installs the CLI to `~/.railway/bin` and runs [`railway setup agent`](/cli/setup) to configure detected agent tools.
+
+To install the CLI without agent configuration:
+
+```bash
+bash <(curl -fsSL railway.com/install.sh)
+```
+
+On Windows, use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) with a Bash shell.
+
+### Other installation methods
+
+#### Homebrew (macOS)
 
 ```bash
 brew install railway
 ```
 
-### npm (macOS, Linux, Windows)
+#### npm (macOS, Linux, Windows)
 
 ```bash
 npm i -g @railway/cli
@@ -28,33 +39,17 @@ npm i -g @railway/cli
 
 Requires Node.js version 16 or higher.
 
-### CLI installer (macOS, Linux, Windows via WSL)
-
-```bash
-bash <(curl -fsSL cli.new)
-```
-
-On Windows, use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) with a Bash shell.
-
-To install the CLI and configure Railway agent support in one step, use `cli.new --agents`:
-
-```bash
-bash <(curl -fsSL cli.new) --agents -y
-```
-
-The `--agents` flag installs or reuses the Railway CLI, then runs `railway setup agent`. If `railway` is already on `PATH`, `cli.new` reuses it and does not change `PATH`. For fresh installs, `cli.new --agents` installs to `${RAILWAY_AGENT_BIN_DIR:-$HOME/.railway/bin}` unless `-b, --bin-dir` or `RAILWAY_BIN_DIR` is provided, updates shell startup files so AI tools can find `railway mcp`, and configures detected agent tools. Use `--no-modify-path` with `--agents` to skip shell startup file updates.
-
-### Scoop (Windows)
+#### Scoop (Windows)
 
 ```ps1
 scoop install railway
 ```
 
-### Pre-built binaries
+#### Pre-built binaries
 
 Download [pre-built binaries](https://github.com/railwayapp/cli/releases/latest) from the [GitHub repository](https://github.com/railwayapp/cli).
 
-### From source
+#### From source
 
 Build from source using the instructions in the [GitHub repository](https://github.com/railwayapp/cli#from-source).
 
@@ -120,9 +115,10 @@ railway deploy --template postgres # Deploy a template
 railway redeploy                # Redeploy latest deployment
 railway restart                 # Restart a service
 railway down                    # Remove latest deployment
+railway templates search        # Search published templates
 ```
 
-[up](/cli/up) · [deploy](/cli/deploy) · [redeploy](/cli/redeploy) · [restart](/cli/restart) · [down](/cli/down) · [Deploying Guide](/cli/deploying)
+[up](/cli/up) · [deploy](/cli/deploy) · [redeploy](/cli/redeploy) · [restart](/cli/restart) · [down](/cli/down) · [templates](/cli/templates) · [Deploying Guide](/cli/deploying)
 
 ### Services
 
@@ -175,9 +171,10 @@ railway logs --build            # View build logs
 railway logs -n 100             # View last 100 lines
 railway ssh                     # SSH into service container
 railway connect                 # Connect to database shell
+railway metrics                 # View resource and HTTP metrics
 ```
 
-[logs](/cli/logs) · [ssh](/cli/ssh) · [connect](/cli/connect)
+[logs](/cli/logs) · [ssh](/cli/ssh) · [connect](/cli/connect) · [metrics](/cli/metrics)
 
 ### Networking
 
@@ -198,6 +195,18 @@ railway volume delete           # Delete a volume
 
 [volume](/cli/volume)
 
+### Buckets
+
+```bash
+railway bucket list             # List buckets
+railway bucket create           # Create a bucket
+railway bucket info             # Show bucket details
+railway bucket credentials      # Show or reset S3-compatible credentials
+railway bucket delete           # Delete a bucket
+```
+
+[bucket](/cli/bucket)
+
 ### Functions
 
 ```bash
@@ -208,17 +217,26 @@ railway functions push          # Push function changes
 
 [functions](/cli/functions)
 
+### AI & agents
+
+```bash
+railway agent                   # Chat with the Railway Agent
+railway agent -p "..."          # Send a single prompt
+railway setup agent             # Configure Railway agent tooling
+railway mcp install             # Configure MCP for AI coding tools
+```
+
+[agent](/cli/agent) · [setup](/cli/setup) · [mcp](/cli/mcp)
+
 ### Utilities
 
 ```bash
 railway completion bash         # Generate shell completions
 railway docs                    # Open documentation
 railway upgrade                 # Upgrade CLI
-railway setup agent             # Configure Railway agent tooling
-railway mcp install             # Configure MCP for AI coding tools
 ```
 
-[completion](/cli/completion) · [docs](/cli/docs) · [upgrade](/cli/upgrade) · [setup](/cli/setup) · [mcp](/cli/mcp) · [starship](/cli/starship)
+[completion](/cli/completion) · [docs](/cli/docs) · [upgrade](/cli/upgrade) · [starship](/cli/starship)
 
 ## Global options
 
