@@ -26,6 +26,30 @@ To get started with the MCP server, you need to have the [Railway CLI](/cli) ins
 
 ## Installation
 
+### CLI installer
+
+To install the Railway CLI and configure Railway agent support, including MCP, in one step:
+
+```bash
+bash <(curl -fsSL cli.new) --agents -y
+```
+
+If the CLI is already installed, configure MCP for detected tools with:
+
+```bash
+railway mcp install
+```
+
+You can also run the full agent setup flow, which installs agent skills, configures MCP, and checks authentication:
+
+```bash
+railway setup agent
+```
+
+Use `railway mcp install --remote` to configure supported tools with the hosted MCP server at `https://mcp.railway.com` instead of the local stdio server.
+
+Use `railway mcp install --agent <agent>` to target a specific supported tool. Supported values are `claude-code`, `cursor`, `factory-droid`, `copilot`, `codex`, and `opencode`.
+
 ### Cursor
 
 You can one-click install the MCP server in Cursor by clicking the "Add to Cursor" button below:

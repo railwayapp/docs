@@ -19,11 +19,29 @@ When you ask your AI assistant something like "deploy to Railway" or "check my p
 ### Supported tools
 
 - <a href="https://claude.ai/code" target="_blank">Claude Code</a>
+- <a href="https://docs.factory.ai/cli" target="_blank">Factory Droid</a>
+- <a href="https://docs.github.com/en/copilot" target="_blank">GitHub Copilot</a>
 - <a href="https://openai.com/codex" target="_blank">OpenAI Codex</a>
 - <a href="https://opencode.ai" target="_blank">OpenCode</a>
 - <a href="https://cursor.com" target="_blank">Cursor</a>
 
 ## Installation
+
+To install the Railway CLI and configure Railway agent support in one step:
+
+```bash
+bash <(curl -fsSL cli.new) --agents -y
+```
+
+This installs or reuses the Railway CLI, installs the `use-railway` skill, configures Railway MCP for detected tools, and checks Railway authentication. If `railway` is already on `PATH`, the installer reuses it without changing `PATH`. If you are not already logged in, run `railway login` after setup.
+
+If the Railway CLI is already installed, you can run the agent setup directly:
+
+```bash
+railway setup agent
+```
+
+To install only the agent skills:
 
 ```bash
 curl -fsSL railway.com/skills.sh | bash
@@ -35,7 +53,7 @@ You can also install via <a href="https://skills.sh" target="_blank">skills.sh</
 npx skills add railwayapp/railway-skills
 ```
 
-Supports Claude Code, OpenAI Codex, OpenCode, and Cursor. Re-run to update.
+Supports Claude Code, Factory Droid, GitHub Copilot, OpenAI Codex, OpenCode, and Cursor. Re-run to update.
 
 **Note:** For Claude Code, you can also install through the [Claude Code plugin marketplace](/ai/claude-code-plugin).
 

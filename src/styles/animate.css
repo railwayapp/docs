@@ -317,6 +317,22 @@
       opacity: 0;
     }
   }
+
+  --animate-copy-shimmer: copy-shimmer 700ms ease-out forwards;
+
+  @keyframes copy-shimmer {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
 }
 
 /* Utility classes */

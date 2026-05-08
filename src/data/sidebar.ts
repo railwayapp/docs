@@ -25,6 +25,7 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Quick start", undefined, "/quick-start"),
       makePage("The basics", "overview"),
+      makePage("Railway for Agents", undefined, "/agents"),
       makePage("Best practices", "overview"),
       makePage("Advanced concepts", "overview"),
       makePage("Production readiness checklist", "overview"),
@@ -248,6 +249,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("login"),
       makeCliCommand("logout"),
       makeCliCommand("logs"),
+      makeCliCommand("mcp"),
       makeCliCommand("open"),
       makeCliCommand("project"),
       makeCliCommand("redeploy"),
@@ -255,6 +257,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("run"),
       makeCliCommand("scale"),
       makeCliCommand("service"),
+      makeCliCommand("setup"),
       makeCliCommand("shell"),
       makeCliCommand("ssh"),
       makeCliCommand("starship"),
