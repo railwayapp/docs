@@ -11,6 +11,10 @@ Manage Railway projects with subcommands for listing, linking, and deleting.
 railway project <COMMAND>
 ```
 
+## Aliases
+
+- `railway projects`
+
 ## Subcommands
 
 | Subcommand | Aliases | Description |

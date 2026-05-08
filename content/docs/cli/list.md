@@ -11,6 +11,10 @@ List all projects across all workspaces in your Railway account.
 railway list [OPTIONS]
 ```
 
+## Aliases
+
+- `railway ls`
+
 ## Options
 
 | Flag | Description |

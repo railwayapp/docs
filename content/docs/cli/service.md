@@ -13,14 +13,16 @@ railway service [SERVICE] [COMMAND]
 
 ## Subcommands
 
-| Subcommand | Description |
-|------------|-------------|
-| `link` | Link a service to the current project |
-| `status` | Show deployment status for services |
-| `logs` | View logs from a service |
-| `redeploy` | Redeploy the latest deployment |
-| `restart` | Restart the latest deployment |
-| `scale` | Scale a service across regions |
+| Subcommand | Aliases | Description |
+|------------|---------|-------------|
+| `list` | `ls` | List services in the current environment |
+| `link` | | Link a service to the current project |
+| `delete` | `remove`, `rm` | Delete a service from an environment |
+| `status` | | Show deployment status for services |
+| `logs` | | View logs from a service |
+| `redeploy` | | Redeploy the latest deployment |
+| `restart` | | Restart the latest deployment |
+| `scale` | | Scale a service across regions |
 
 ## Examples
 
@@ -71,7 +73,7 @@ railway service restart
 ### Scale service
 
 ```bash
-railway service scale --us-west1=2
+railway service scale us-west=2
 ```
 
 ## Options for `status`
@@ -112,9 +114,12 @@ See [railway logs](/cli/logs) for detailed usage and examples.
 
 ## Options for `scale`
 
+| Argument | Description |
+|----------|-------------|
+| `REGION=REPLICAS` | One or more replica assignments by region. |
+
 | Flag | Description |
 |------|-------------|
-| `--<REGION>=<N>` | Set the number of instances for a specific region |
 | `--json` | Output in JSON format |
 
 See [railway scale](/cli/scale) for available regions and detailed usage.

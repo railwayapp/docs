@@ -11,14 +11,18 @@ Manage persistent storage volumes for your services.
 railway volume <COMMAND> [OPTIONS]
 ```
 
+## Aliases
+
+- `railway volumes`
+
 ## Subcommands
 
 | Subcommand | Aliases | Description |
 |------------|---------|-------------|
 | `list` | `ls` | List volumes |
-| `add` | `create` | Add a new volume |
+| `add` | `create`, `new` | Add a new volume |
 | `delete` | `remove`, `rm` | Delete a volume |
-| `update` | `edit` | Update a volume |
+| `update` | `edit`, `rename` | Update a volume |
 | `detach` | | Detach a volume from a service |
 | `attach` | | Attach a volume to a service |
 

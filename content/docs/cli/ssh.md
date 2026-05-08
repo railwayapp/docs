@@ -81,12 +81,12 @@ railway ssh keys [SUBCOMMAND] [OPTIONS]
 
 ### Subcommands
 
-| Subcommand | Description |
-|------------|-------------|
-| `list` | List SSH keys registered with Railway (default when no subcommand is given) |
-| `add` | Register a local SSH key with Railway |
-| `remove` | Remove a registered SSH key |
-| `github` | Import SSH keys from your linked GitHub account |
+| Subcommand | Aliases | Description |
+|------------|---------|-------------|
+| `list` | `ls` | List SSH keys registered with Railway (default when no subcommand is given) |
+| `add` | `create`, `register` | Register a local SSH key with Railway |
+| `remove` | `rm`, `delete` | Remove a registered SSH key |
+| `github` | `import` | Import SSH keys from your linked GitHub account |
 
 ### Options
 

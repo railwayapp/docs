@@ -24,9 +24,9 @@ railway functions <COMMAND> [OPTIONS]
 | Subcommand | Aliases | Description |
 |------------|---------|-------------|
 | `list` | `ls` | List functions |
-| `new` | `create` | Add a new function |
+| `new` | `create`, `add` | Add a new function |
 | `delete` | `remove`, `rm` | Delete a function |
-| `push` | `up` | Push changes to a function |
+| `push` | `up`, `deploy` | Push changes to a function |
 | `pull` | | Pull changes from a linked function |
 | `link` | | Link a function manually |
 

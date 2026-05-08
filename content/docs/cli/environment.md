@@ -17,13 +17,14 @@ railway environment [ENVIRONMENT] [COMMAND]
 
 ## Subcommands
 
-| Subcommand | Description |
-|------------|-------------|
-| `link` | Link an environment to the current project |
-| `new` | Create a new environment |
-| `delete` | Delete an environment |
-| `edit` | Edit an environment's configuration |
-| `config` | Show environment configuration |
+| Subcommand | Aliases | Description |
+|------------|---------|-------------|
+| `list` | `ls` | List all environments in the project |
+| `link` | | Link an environment to the current project |
+| `new` | `create`, `add` | Create a new environment |
+| `delete` | `rm`, `remove` | Delete an environment |
+| `edit` | `update` | Edit an environment's configuration |
+| `config` | `show`, `info` | Show environment configuration |
 
 ## Examples
 
