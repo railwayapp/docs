@@ -56,10 +56,10 @@ The plugin installs the following components:
 
 ## Alternative installation
 
-If you prefer to install the agent skill without the Claude Code plugin system, you can use the general-purpose installer that works across multiple AI coding assistants:
+If you prefer to install the agent skill without the Claude Code plugin system, use the [`railway skills`](/cli/skills) command, which works across multiple AI coding assistants:
 
 ```bash
-curl -fsSL railway.com/skills.sh | bash
+railway skills install
 ```
 
 See [Agent Skills](/ai/agent-skills) for more details.
