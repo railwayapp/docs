@@ -36,7 +36,8 @@ The first request made to a slept service wakes it. It may take a small amount o
 
 ## Caveats
 
-- There will be a small delay in the response time of the first request sent to a slept service (commonly known as "cold boot times"). For this reason, the first request sent to a slept service may return a 502 Bad Gateway response.
+- There will be a small delay in the response time of the first request sent to a slept service (commonly known as "cold boot times").
+- The first request sent to a slept service may return a 502 Bad Gateway response.
 - For Railway to put a service to sleep, a service must not send _outbound_ traffic for at least 10 minutes. Outbound traffic can include telemetry, database connections, NTP, etc. Inbound traffic is excluded from considering when to sleep a service.
 - Enabling Serverless will apply the setting across all [Replicas](/deployments/scaling#horizontal-scaling-with-replicas)
 - Slept services still consume a slot on Railway's infrastructure, enabling Serverless de-prioritizes your workload and in remote cases, may require a rebuild to re-live the service.
