@@ -17,7 +17,8 @@ railway agent [OPTIONS]
 |------|-------------|
 | `-p, --prompt <MESSAGE>` | Send a single prompt (omit for interactive mode) |
 | `--json` | Output response as JSON |
-| `--thread-id <ID>` | Continue an existing chat thread |
+| `--list` | List existing agent threads for the current environment |
+| `--thread-id <ID>` | Continue an existing chat thread (replays recent history) |
 | `-s, --service <SERVICE>` | Service to scope the conversation to (name or ID) |
 | `-e, --environment <ENV>` | Environment to use (defaults to linked environment) |
 
@@ -77,11 +78,21 @@ railway agent -p "what environment variables are set on my project?"
 railway agent -p "list my services and their status" --json
 ```
 
+### List previous conversations
+
+```bash
+railway agent --list
+```
+
+Returns the agent threads tied to the current environment, with their thread IDs, titles, and last-updated timestamps. Add `--json` for a machine-readable list.
+
 ### Continue a previous conversation
 
 ```bash
 railway agent --thread-id <THREAD_ID>
 ```
+
+When you resume a thread, the agent replays the recent message history before dropping you into interactive mode, so you can pick up where you left off. Pair with `--list` to find the thread ID you want.
 
 ## Interactive mode
 
