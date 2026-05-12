@@ -17,9 +17,7 @@ To restore, you pick a target timestamp. Railway provisions a brand-new Postgres
 
 ## Enabling PITR
 
-Open the **Backups** tab on your Postgres service (or on the cluster Backups page for Postgres HA). When PITR isn't yet configured, you'll see a **Point-in-time recovery is off** banner with an **Enable PITR** button.
-
-### Single-node Postgres
+Open the **Backups** tab on your Postgres service. When PITR isn't yet configured, you'll see a **Point-in-time recovery is off** banner with an **Enable PITR** button.
 
 Click Enable, confirm, and Railway:
 
@@ -29,20 +27,7 @@ Click Enable, confirm, and Railway:
 
 When the new container boots, the image detects the archive credentials, writes `archive_mode=on` / `archive_command='pgbackrest --stanza=main archive-push %p'` / `archive_timeout=60` into Postgres config, runs `pgbackrest stanza-create`, and starts pushing WAL on every commit. Once archiving is healthy, an in-container watcher takes the first pgBackRest base backup automatically — no manual snapshot step. After that, the **PITR datetime picker** appears on the Backups tab.
 
-One redeploy.
-
-### Postgres HA
-
-HA enable runs a rolling restart so the cluster never loses Patroni quorum:
-
-1. **Bucket + DCS** — Bucket is created and the cluster's Patroni DCS gains `archive_mode=on`, `archive_command='pgbackrest --stanza=main archive-push %p'`, and `archive_timeout=60`. No restarts at this step.
-2. **Roll replicas** — Each replica gets the `WAL_ARCHIVE_*` env vars one at a time. The variable change triggers a redeploy of just that node; Patroni absorbs the restart and the cluster stays available throughout. Railway waits for each replica to come back as a healthy streaming follower (`state=streaming`, `lag≈0`) before moving to the next.
-3. **Switchover** — Patroni promotes one of the now-configured replicas to leader, demoting the original primary. Brief (~5s) write-unavailability blip absorbed by HAProxy + client reconnect.
-4. **Roll ex-primary** — The demoted node gets the `WAL_ARCHIVE_*` env vars and redeploys cleanly as a replica.
-
-After this completes, every Postgres node carries the archive credentials, so whichever node holds Patroni leadership at any given moment can fire `archive_command`. Failovers preserve archiving with no config change. The leader takes the first base backup once archiving is healthy.
-
-The full HA enable typically takes 2–4 minutes. If it fails partway through, Railway runs a best-effort cleanup automatically: the DCS edit is reverted and any partial env vars are cleared, leaving the cluster in its pre-enable state.
+For Postgres HA clusters, all nodes are redeployed at once when enabling — expect brief downtime while the cluster restarts.
 
 ## Restoring to a point in time
 
@@ -75,11 +60,9 @@ The upper bound of the restore window is the **latest archived WAL**, not the cu
 
 ## Disabling PITR
 
-Click **Disable PITR** on the Backups tab.
+Click **Disable PITR** on the Backups tab. Railway stages a patch that removes the `WAL_ARCHIVE_*` env vars and deletes the Postgres-PITR bucket. Nothing changes on the running service until you review the patch in the **Staged Changes** panel and click Deploy.
 
-For **single-node**, Railway stages a single patch that removes the `WAL_ARCHIVE_*` env vars and deletes the Postgres-PITR bucket — the full inverse of enable. Nothing changes on the running service until you review the patch in the **Staged Changes** panel and click Deploy. If you want to keep the archived WAL around (e.g. to restore from it later before fully cleaning up), edit the patch to drop the bucket-deletion step before deploying.
-
-For **HA**, the rolling-restart pattern from enable runs in reverse: revert the cluster's DCS archive config, roll replicas (clearing their archive vars), switchover, roll the ex-primary. The Railway Bucket holding archived WAL is **not deleted** — you can still restore from it, or remove it manually from the Buckets page once you're sure you no longer need it.
+If you want to keep the archived WAL around (e.g. to restore from it later before fully cleaning up), edit the patch to drop the bucket-deletion step before deploying.
 
 ## Cost
 
