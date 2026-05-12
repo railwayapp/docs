@@ -5,7 +5,7 @@ description: Recover a Railway Postgres service to any moment within the WAL ret
 
 Point-in-Time Recovery (PITR) lets you restore a Postgres service to any timestamp within the archive retention window — not just to the moment of the most recent backup. It's the right tool when something goes wrong between scheduled backups: an accidental `DROP TABLE`, a faulty migration, a runaway script.
 
-PITR works for both single-node Postgres and [Postgres HA](/databases/postgresql-ha) clusters, and it's available on the **Pro** plan.
+PITR works for both single-node Postgres and [Postgres HA](/databases/postgresql-ha) clusters.
 
 ## How it works
 
@@ -67,7 +67,6 @@ Restore egress is free.
 
 ## Limitations
 
-- Available on the **Pro** plan and above.
 - The available restore window starts from the first post-enable base backup, not retroactively. If you enable PITR today, you can't restore to yesterday.
 - Restore creates a new sibling service. Cutting over to the restored database (renaming, swapping connection strings, decommissioning the original) is a manual step.
 - HA restore produces a single-node Postgres fork; convert to HA after restore if you want HA on the restored data.
