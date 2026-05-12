@@ -223,6 +223,8 @@ railway functions push          # Push function changes
 ```bash
 railway agent                   # Chat with the Railway Agent
 railway agent -p "..."          # Send a single prompt
+railway agent --list            # List previous agent threads
+railway agent --thread-id <ID>  # Resume a previous thread
 railway setup agent             # Configure Railway agent tooling
 railway mcp install             # Configure MCP for AI coding tools
 railway skills install          # Install Railway agent skills
