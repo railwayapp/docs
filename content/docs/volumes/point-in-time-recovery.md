@@ -31,7 +31,7 @@ For Postgres HA clusters, all nodes are redeployed at once when enabling — exp
 
 ## Restoring to a point in time
 
-On the Backups tab, the PITR section shows the available restore range — bounded below by the oldest pgBackRest base backup and above by the latest WAL successfully archived to the bucket — and a datetime picker. Pick a moment, click **Restore to this moment**.
+On the Backups tab, the PITR section shows the available restore range and a datetime picker. Pick a moment, click **Restore to this moment**.
 
 Railway:
 
@@ -47,16 +47,6 @@ On first boot, the image runs `pgbackrest restore --type=time --target=<T>`, pop
 The restored fork runs as plain non-archiving Postgres. If you want continued PITR coverage on it, enable PITR on the new service through the same flow — it'll get its own bucket.
 
 For Postgres HA, restore also produces a single-node fork (not a cluster). To restore an HA cluster as HA, restore to a single-node fork, then [convert it to HA](/databases/postgresql-ha) once you're satisfied with the data.
-
-## Coverage and warnings
-
-PITR replay needs both a covering base backup and an unbroken WAL chain to your target. The picker reads pgBackRest's catalog directly to draw a coverage timeline:
-
-- **Green band** — restorable: covered by base backups with continuous WAL.
-- **Red diagonal stripes** — coverage gap. pgBackRest detected a missed cycle (e.g. archiving was paused, the bucket was unreachable for a long stretch, or a base backup failed). The picker won't let you target a time inside a gap, and the API rejects it as well.
-- **No backups yet** — PITR is enabled but the first base backup hasn't completed. The picker is disabled. Wait for the in-container watcher to take it (typically minutes after enable).
-
-The upper bound of the restore window is the **latest archived WAL**, not the current time. Idle databases produce WAL segments slowly, so on a quiet system the head of the window may sit a few minutes behind real time. Targets past the archive head are rejected — there's no covering WAL to replay onto, and Postgres recovery would abort mid-replay.
 
 ## Disabling PITR
 
