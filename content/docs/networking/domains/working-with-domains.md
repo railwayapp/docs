@@ -50,6 +50,8 @@ Custom domains can be added to a Railway service and once setup we will automati
 
    **Important:** If the `TXT` record is missing, requests to your custom domain will return a `404` error even after the `CNAME` resolves. Railway uses the `TXT` record to confirm domain ownership before routing traffic, so your service will not be reachable on the custom domain until both records are in place and verified.
 
+   **Provider-specific record names:** Some DNS providers ask for record names relative to the zone root. For example, if the domain you added in Railway is `www.example.com`, a provider may ask you to enter `www` as the `CNAME` name and `_railway-verify.www` as the `TXT` name, even if another provider's UI would display those same records as `@` and `_railway-verify` within the `www.example.com` host context. Use the copy button in Railway when copying DNS record values so the entire string is copied, and do not change the values Railway provides.
+
 5. Wait for Railway to verify your domain. When verified, you will see a green check mark next to the domain(s) -
 
    <Image
