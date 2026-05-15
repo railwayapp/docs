@@ -22,6 +22,24 @@ href="https://railpack.com/config/environment-variables"
 target="_blank">Railpack docs</a>. You can find a complete list of languages we
 support out of the box [here](/builds/railpack#supported-languages).
 
+### Use a custom Railpack config file
+
+Railway config-as-code files (`railway.toml` or `railway.json`) configure
+Railway service settings. Railpack config files (`railpack.json`) configure how
+Railpack generates the build plan.
+
+Railpack looks for `railpack.json` in the directory being built. To use a
+different Railpack config file for a service, set the `RAILPACK_CONFIG_FILE`
+service variable to a path relative to that build directory:
+
+```plaintext
+RAILPACK_CONFIG_FILE=pdf-extractor.railpack.json
+```
+
+This is separate from the **Railway Config File** setting, which selects a
+`railway.toml` or `railway.json` config-as-code file and does not select the
+Railpack config file.
+
 ## Customize the build command
 
 You can override the detected build command by setting a value in your service

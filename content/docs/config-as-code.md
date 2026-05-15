@@ -78,6 +78,11 @@ width={1200} height={631} quality={100} />
 You can use a custom config file by setting it on the service settings page. You should provide the absolute path to the file in your repository,
 for example: `/backend/railway.toml`
 
+This setting only selects the Railway config-as-code file (`railway.toml` or
+`railway.json`). It does not select a Railpack config file. To use a custom
+Railpack config file such as `railpack.json`, set the
+`RAILPACK_CONFIG_FILE` service variable instead.
+
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1743195631/docs/config-file_f1wf32.png"
 alt="Screenshot of Rollback Menu"
