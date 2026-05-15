@@ -393,6 +393,7 @@ See [Manage Variables](/integrations/api/manage-variables) for more details.
       customDomainCreate(input: $input) {
         id
         status {
+          verificationToken
           dnsRecords {
             hostlabel
             requiredValue
