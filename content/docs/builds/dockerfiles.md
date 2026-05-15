@@ -37,6 +37,11 @@ If your Dockerfile is in another directory, specify it like this:
 RAILWAY_DOCKERFILE_PATH=/build/Dockerfile
 ```
 
+The Dockerfile path only selects which Dockerfile Railway uses. It does not
+change the service's Root Directory or Docker build context. If the Dockerfile
+expects files relative to a subdirectory, set that subdirectory as the service's
+**Root Directory** in the service settings.
+
 ### Use config as Code
 
 You can also set your custom Dockerfile path using [config as code](/config-as-code).

@@ -103,6 +103,11 @@ Location of non-standard Dockerfile.
 
 This field can be set to `null`.
 
+This only selects the Dockerfile. It does not set the service's Root Directory
+or change the Docker build context. If your Dockerfile is written for a
+subdirectory, set the service's **Root Directory** to that subdirectory in the
+service settings.
+
 More about building from a Dockerfile [here](/builds/dockerfiles).
 
 ### Railpack version
