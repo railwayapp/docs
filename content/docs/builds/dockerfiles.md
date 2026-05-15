@@ -62,6 +62,15 @@ FROM node
 ARG RAILWAY_ENVIRONMENT
 ```
 
+<Banner variant="warning">
+Railway does not bind service variables as Docker BuildKit secrets for
+`RUN --mount=type=secret`. Use `ARG` for build-time values in Dockerfile
+builds, and avoid expanding secrets directly in `RUN` commands because the
+expanded command can appear in build logs. Sealed variables hide values in the
+Railway UI and API, but they do not prevent a Docker build step from printing a
+secret after it has been expanded.
+</Banner>
+
 ## Cache mounts
 
 Railway supports cache mounts in your Dockerfile in the following format:
