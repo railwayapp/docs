@@ -35,6 +35,18 @@ Public repositories where no project member has contributor access cannot use au
 
 If you cannot enable autodeploy, see [Troubleshooting](#troubleshooting).
 
+### External contributor approval prompt
+
+Railway may ask you to approve a commit with the prompt **Deploy this commit from an external contributor?** when the commit author is not recognized as a project member who can deploy from the linked GitHub repository.
+
+Repository ownership and GitHub App access are not the only checks. To skip the approval prompt for future commits, make sure that:
+
+1. The Railway project includes a member with the [Deployer role or higher](/projects/workspaces#inviting-members).
+2. That member has connected the GitHub account that authors the commits.
+3. That GitHub account has contributor access to the linked repository.
+
+After changing membership, GitHub permissions, or the linked GitHub account, disconnect and reconnect the repository in the service settings if Railway keeps prompting for approval.
+
 
 ## Wait for CI
 
