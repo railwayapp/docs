@@ -123,6 +123,12 @@ in your service:
 NO_CACHE=1
 ```
 
+This forces Railway to rebuild layers instead of reusing cached build output.
+It does not change which repository, branch, root directory, or Dockerfile is
+used for the deployment. If a build appears to use stale or unexpected files,
+also check the service's linked repository, branch, [root directory](#set-the-root-directory),
+Dockerfile path, and watch paths before redeploying.
+
 ## Why isn't my build using cache?
 
 Since Railway's build system scales up and down in response to demand, cache hit
