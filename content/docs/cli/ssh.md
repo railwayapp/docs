@@ -35,6 +35,11 @@ railway ssh
 
 Opens an interactive shell in the service container.
 
+The SSH target is the selected running service instance. The same command shape
+applies whether the service was deployed from a repository or from a Docker
+image. If the service has no running deployment instance, there is no container
+to attach to.
+
 ### Run a single command
 
 ```bash
@@ -42,6 +47,12 @@ railway ssh -- ls -la
 ```
 
 PTY allocation is autodetected. Interactive tools like `vim` or `htop` work when both stdin and stdout are terminals; piped input runs without a PTY so output stays clean for scripts and CI.
+
+Arguments after `--` are executed inside the remote container. They are not
+passed to your local `ssh` client, so local OpenSSH flags such as `-L`, `-D`,
+or `-N` cannot be used through `railway ssh -- ...` for port forwarding.
+For database connections, use [railway connect](/cli/connect) or enable a
+[TCP proxy](/networking/tcp-proxy).
 
 ### Persistent tmux session
 
