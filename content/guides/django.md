@@ -70,7 +70,7 @@ python -m pip install gunicorn whitenoise psycopg[binary,pool]
 
 [gunicorn](https://gunicorn.org) is a production ready web server.
 
-[pyscog](https://www.psycopg.org/psycopg3/docs) is python package that allows Django work with Postgresql.
+[psycopg](https://www.psycopg.org/psycopg3/docs) is a Python package that allows Django to work with PostgreSQL.
 
 2. Import the `os` module:
 
