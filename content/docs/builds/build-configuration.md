@@ -49,6 +49,22 @@ commands will operate within the defined root directory.
 
 **Note:** The **Railway Config File** does not follow the **Root Directory** path. You have to specify the absolute path for the `railway.json` or `railway.toml` file, for example: `/backend/railway.toml`
 
+## Build context and included files
+
+For GitHub deployments, Railway builds from the files available in the
+selected repository and Root Directory. A tracked file is included in the build
+context even if it matches a `.gitignore` pattern, because `.gitignore` only
+prevents untracked files from being added to Git.
+
+For CLI deployments with `railway up`, the CLI creates and uploads an archive
+from your local files. By default, this archive respects `.gitignore`; use
+`railway up --no-gitignore` when you need to include ignored local files.
+
+To exclude files from a Railpack or Dockerfile build context, add a
+`.dockerignore` file at the relevant source root. This is useful for keeping
+local dependencies, build artifacts, and large generated assets out of the
+image.
+
 ## Configure watch paths
 
 Watch paths are <a href="https://git-scm.com/docs/gitignore#_pattern_format" target="_blank">gitignore-style</a> patterns

@@ -196,11 +196,17 @@ When running `railway up` from a subdirectory without a path argument, Railway s
 
 ## Ignoring files
 
-By default, Railway respects your `.gitignore` file. To include ignored files in your deployment:
+By default, `railway up` respects your `.gitignore` file when it creates the
+local upload archive. To include ignored files in your deployment:
 
 ```bash
 railway up --no-gitignore
 ```
+
+This behavior applies to CLI uploads. GitHub deployments build from the files
+that are present in the selected repository and Root Directory; files already
+tracked by Git are still available to the build even if they match a
+`.gitignore` pattern.
 
 ## Verbose output
 
