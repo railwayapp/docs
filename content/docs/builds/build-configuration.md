@@ -110,7 +110,7 @@ preferred.
 
 ## Specify a custom install command
 
-You can override the install command by setting the `RAILPACK_INSTALL_COMMAND`
+You can override the install command by setting the `RAILPACK_INSTALL_CMD`
 environment variable in your service settings.
 
 ## Disable build layer caching
