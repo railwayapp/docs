@@ -57,6 +57,19 @@ railway ssh --session debug
 
 Railway installs tmux in the container automatically if it isn't already installed.
 
+The tmux session starts its own shell, so it may not inherit every PATH adjustment
+that appears in a direct `railway ssh` shell. For example, commands provided by
+Railpack through `/mise/shims` or by local `node_modules/.bin` may be available in
+`railway ssh` but missing in `railway ssh --session`. If that happens, check the
+PATH inside both shells:
+
+```bash
+echo $PATH
+```
+
+Then run the command with its full path, or add the needed PATH entries to the
+shell startup file used by your image so tmux shells load the same tools.
+
 ### Connect to a specific deployment instance
 
 ```bash
