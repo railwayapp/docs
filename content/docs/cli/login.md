@@ -39,7 +39,24 @@ This displays a pairing code and URL. Visit the URL and enter the code to authen
 
 ## Environment variables
 
-If `RAILWAY_TOKEN` or `RAILWAY_API_TOKEN` is set, the CLI will use that token instead of prompting for login. See [Tokens](/cli#tokens) for more information.
+The CLI supports two environment variables for non-interactive authentication (e.g., CI/CD pipelines):
+
+| Variable | Scope | Use case |
+|----------|-------|----------|
+| `RAILWAY_TOKEN` | Project-scoped | Deploying, managing variables, and other operations within a single project. Generated per-project in the dashboard. |
+| `RAILWAY_API_TOKEN` | Account/workspace-scoped | Account-level operations like creating environments, managing multiple projects, or any action that requires broader access. Generated in Account Settings > Tokens. |
+
+When either variable is set, the CLI skips interactive login and authenticates automatically. Only one may be set at a time — setting both will result in an error.
+
+```bash
+# Project-scoped: deploy within a linked project
+RAILWAY_TOKEN=xxx railway up
+
+# Account-scoped: manage environments across projects
+RAILWAY_API_TOKEN=xxx railway environment new staging
+```
+
+See [Tokens](/cli#tokens) for how to generate each token type.
 
 ## Related
 
