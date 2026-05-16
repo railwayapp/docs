@@ -144,17 +144,23 @@ Connect an existing service to a GitHub repository:
 
 ## Deploy a service
 
-Trigger a new deployment for a service:
+Trigger a new deployment for a service. Returns the deployment ID.
 
 <GraphQLCodeTabs query={`mutation serviceInstanceDeployV2($serviceId: String!, $environmentId: String!) {
   serviceInstanceDeployV2(serviceId: $serviceId, environmentId: $environmentId)
 }`} variables={{ serviceId: "service-id", environmentId: "environment-id" }} />
 
-This returns the deployment ID.
+By default this deploys the commit currently associated with the service (the same commit `serviceInstanceRedeploy` would use). To deploy a specific commit — for example, the latest HEAD of a connected GitHub branch — pass `commitSha`:
+
+<CodeTabs query={`mutation serviceInstanceDeployV2($serviceId: String!, $environmentId: String!, $commitSha: String!) {
+  serviceInstanceDeployV2(serviceId: $serviceId, environmentId: $environmentId, commitSha: $commitSha)
+}`} variables={{ serviceId: "service-id", environmentId: "environment-id", commitSha: "abc123..." }} />
+
+The `commitSha` is validated against the connected GitHub repo; an unknown SHA returns a "Commit not found" error and no deployment is created.
 
 ## Redeploy a service
 
-Redeploy the latest deployment:
+Redeploy the service's latest deployment using its existing commit. This does not check the connected GitHub repo for new commits — use the `commitSha` argument on `serviceInstanceDeployV2` to deploy a specific commit.
 
 <GraphQLCodeTabs query={`mutation serviceInstanceRedeploy($serviceId: String!, $environmentId: String!) {
   serviceInstanceRedeploy(serviceId: $serviceId, environmentId: $environmentId)
