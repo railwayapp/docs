@@ -152,7 +152,7 @@ Trigger a new deployment for a service. Returns the deployment ID.
 
 By default this deploys the commit currently associated with the service (the same commit `serviceInstanceRedeploy` would use). To deploy a specific commit — for example, the latest HEAD of a connected GitHub branch — pass `commitSha`:
 
-<CodeTabs query={`mutation serviceInstanceDeployV2($serviceId: String!, $environmentId: String!, $commitSha: String!) {
+<GraphQLCodeTabs query={`mutation serviceInstanceDeployV2($serviceId: String!, $environmentId: String!, $commitSha: String!) {
   serviceInstanceDeployV2(serviceId: $serviceId, environmentId: $environmentId, commitSha: $commitSha)
 }`} variables={{ serviceId: "service-id", environmentId: "environment-id", commitSha: "abc123..." }} />
 
