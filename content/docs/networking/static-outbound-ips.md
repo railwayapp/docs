@@ -20,7 +20,7 @@ Customers on the Pro plan can enable Static Outbound IPs for any service they wi
 1. Navigate to the Settings tab of your desired service
 2. Toggle `Enable Static IPs` in the Networking section of Settings
 3. You will be presented with IPv4 addresses tied to the region your service is deployed in
-4. The Static IP will be used by your service after the next deploy
+4. The Static IPs will be used by your service after the next deploy
 
 <Image
   src="https://res.cloudinary.com/railway/image/upload/v1779459868/ha-static-ip-endabled_v5mhct.png"
@@ -28,11 +28,13 @@ Customers on the Pro plan can enable Static Outbound IPs for any service they wi
   alt="Static IPs"
   width={1528} height={1132} quality={80} />
 
-## Update: HA Static Outbound IPs
+## Upgrade to HA Static Outbound IPs
 
-Previously a service would be assigned a single IP. For improved throughput and resiliency services will now be assigned 3 IPs with outbound traffic load balanced over them.
+Previously a service would be assigned a single IP. For improved throughput and resiliency, services will now be assigned 3 IPs with outbound traffic load balanced over them.
 
-If you have an existing single IP service, you can upgrade by clicking the `Enable HA Static IP` link under the `Enable Static IPs` toggle. Be aware that you will need to add the additional IPs to downstream services allowlists.
+If you have an existing single IP service, you can upgrade by clicking the `Enable HA Static IP` link under the `Enable Static IPs` toggle. 
+
+You be shown the new Static IPs which will be allocated to your service. Once you have updated your downstream allowlists, click `Deploy` to start using them. 
 
 <Image
   src="https://res.cloudinary.com/railway/image/upload/v1779459868/ha-static-ips-migrate_gyvlmj.png"
