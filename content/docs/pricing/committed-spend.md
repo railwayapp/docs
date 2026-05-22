@@ -11,8 +11,8 @@ Railway offers committed spend tiers for customers with consistent usage needs. 
 | -------------------- | ------------------------------------------------------------------------------------ |
 | $1000                | 90-day log history, HIPAA BAAs                                                       |
 | $2000                | Single Sign-On, Role-based access control, 18 month Audit Logs retention             |
-| $5000                | Slack Connect channels,  Critical level support tickets, Railway owned cloud regions, Enterprise Resource Limits |
-| $10000               | Dedicated instances, Bring your own cloud                                            |
+| $5000                | Slack Connect channels,  Critical level support tickets, Enterprise Resource Limits |
+| $10000               | Dedicated instances                                                                  |
 
 ## How to subscribe
 
@@ -53,14 +53,8 @@ A private channel with the solutions team at Railway on Slack to facilitate bett
 ### Critical level support tickets
 Critical tickets allow you to page our support on-call directly for an immediate response.
 
-### Railway owned cloud regions
-Deploy to AWS and GCP via Railway for better availability zone selection.
-
 ### Dedicated instances
 Custom dedicated infrastructure for enhanced performance and control.
-
-### Bring your own cloud
-Deploy Railway within your VPC for ultimate compliance within your infrastructure.
 
 
 ## FAQs

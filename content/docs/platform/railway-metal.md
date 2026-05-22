@@ -235,7 +235,7 @@ See [Manual rollback](#manual-rollback) for instructions.
 
 ### Will Railway stay on gcp?
 
-No. We are migrating completely onto Railway managed hardware. For customers who would like Railway to deploy into their public cloud, you can contact sales via the [AWS Marketplace listing.](https://aws.amazon.com/marketplace/pp/prodview-cnib4vbrfgs5a)
+No. We are migrating completely onto Railway managed hardware.
 
 ### Help! After migrating, why do I have increased latency?
 

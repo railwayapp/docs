@@ -7,7 +7,7 @@ Railway is available through the AWS Marketplace, allowing you to purchase and m
 
 ## Offering
 
-Railway offers solutions, peering templates and deployment to AWS- while using your AWS vendor relationship. For large Enterprises, Railway can be an option for large engineering teams to significantly reduce operational overhead.
+For large Enterprises, Railway can be an option for large engineering teams to significantly reduce operational overhead.
 
 ## Pricing structure
 
