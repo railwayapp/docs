@@ -48,8 +48,6 @@ Railway can be deployed globally, with availability across the Americas, EMEA, a
 
 **Railway-managed dedicated VMs**: Your workloads run on dedicated Railway hosts for complete resource isolation. Continue to benefit from Railway-managed infrastructure with added security.
 
-**Bring your own cloud**: Deploy Railway within your VPC for ultimate compliance within your infrastructure. By using your existing cloud account, consume credits or use existing commercial commitments and EDP minimums while experiencing Railway's world-class developer experience.
-
 ## Support SLOs
 
 Enterprise support for reliable uptime and and performance, with:
