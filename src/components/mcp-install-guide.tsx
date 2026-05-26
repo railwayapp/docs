@@ -29,7 +29,7 @@ interface EditorSection {
 }
 
 const CURSOR_DEEPLINK_REMOTE =
-  "https://cursor.com/en/install-mcp?name=Railway&config=eyJ1cmwiOiJodHRwczovL21jcC5yYWlsd2F5LmNvbSJ9";
+  "https://cursor.com/en/install-mcp?name=railway&config=eyJ1cmwiOiJodHRwczovL21jcC5yYWlsd2F5LmNvbSJ9";
 
 const EDITORS: EditorSection[] = [
   {
@@ -44,7 +44,7 @@ const EDITORS: EditorSection[] = [
         lang: "json",
         code: `{
   "mcpServers": {
-    "Railway": {
+    "railway": {
       "command": "railway",
       "args": ["mcp"]
     }
@@ -82,7 +82,7 @@ const EDITORS: EditorSection[] = [
         lang: "json",
         code: `{
   "servers": {
-    "Railway": {
+    "railway": {
       "type": "stdio",
       "command": "railway",
       "args": ["mcp"]
@@ -97,7 +97,7 @@ const EDITORS: EditorSection[] = [
         lang: "json",
         code: `{
   "servers": {
-    "Railway": {
+    "railway": {
       "type": "http",
       "url": "https://mcp.railway.com"
     }
@@ -114,7 +114,7 @@ const EDITORS: EditorSection[] = [
         mode: "local",
         description: "Run `railway mcp install --agent claude-code`, or:",
         lang: "bash",
-        code: "claude mcp add Railway railway mcp",
+        code: "claude mcp add railway railway mcp",
       },
       remote: {
         mode: "remote",
@@ -133,7 +133,7 @@ const EDITORS: EditorSection[] = [
         description:
           "Run `railway mcp install --agent codex`, or use the [OpenAI Codex CLI](https://developers.openai.com/codex/cli):",
         lang: "bash",
-        code: "codex mcp add Railway -- railway mcp",
+        code: "codex mcp add railway -- railway mcp",
       },
       remote: {
         mode: "remote",
@@ -146,7 +146,7 @@ url = "https://mcp.railway.com"`,
   },
   {
     id: "copilot",
-    name: "GitHub Copilot",
+    name: "GitHub Copilot CLI",
     configs: {
       local: {
         mode: "local",
@@ -156,7 +156,7 @@ url = "https://mcp.railway.com"`,
         lang: "json",
         code: `{
   "mcpServers": {
-    "Railway": {
+    "railway": {
       "type": "local",
       "command": "railway",
       "args": ["mcp"],
@@ -167,16 +167,16 @@ url = "https://mcp.railway.com"`,
       },
       remote: {
         mode: "remote",
-        description: "Add the following to your VS Code `settings.json`:",
-        filename: "settings.json",
+        description:
+          "Run `railway mcp install --agent copilot --remote`, or add the following to `~/.copilot/mcp-config.json`:",
+        filename: "~/.copilot/mcp-config.json",
         lang: "json",
         code: `{
-  "mcp": {
-    "servers": {
-      "railway": {
-        "type": "http",
-        "url": "https://mcp.railway.com"
-      }
+  "mcpServers": {
+    "railway": {
+      "type": "http",
+      "url": "https://mcp.railway.com",
+      "tools": ["*"]
     }
   }
 }`,
@@ -192,7 +192,7 @@ url = "https://mcp.railway.com"`,
         description:
           "Run `railway mcp install --agent factory-droid`, or install in [Factory](https://docs.factory.ai/cli/configuration/mcp):",
         lang: "bash",
-        code: 'droid mcp add Railway "railway mcp"',
+        code: 'droid mcp add railway "railway mcp"',
       },
       remote: {
         mode: "remote",
