@@ -1,151 +1,41 @@
 ---
 title: Railway MCP Server
-description: Learn about the official Railway MCP (Model Context Protocol) server and how to use it.
+description: Connect AI coding agents to Railway via the Model Context Protocol — either through the Railway CLI locally or the hosted remote MCP endpoint.
 ---
-
 
 The [Railway MCP Server](https://github.com/railwayapp/railway-mcp-server) is a [Model Context Protocol (MCP)](https://modelcontextprotocol.org) server that enables natural language interaction with your Railway projects and infrastructure.
 
-With this server, you can ask your IDE or AI assistant to create projects, deploy templates, create/select environments, or pull environment variables.
+With this server, you can ask your IDE or AI assistant to create projects, deploy templates, create/select environments, pull environment variables, redeploy services, and more.
 
-The Railway MCP Server is open-source and available on [GitHub](https://github.com/railwayapp/railway-mcp-server).
+Railway offers two ways to connect:
 
-## Understanding MCP and Railway MCP server
+* **Local MCP** — runs through the [Railway CLI](/cli) on your machine. Recommended for most coding-agent workflows since it shares the CLI's authentication and project context.
+* **Remote MCP** — a hosted endpoint at `mcp.railway.com`. No local install or CLI required; clients authenticate through OAuth in the browser.
+
+## Understanding MCP
 
 The **Model Context Protocol (MCP)** defines a standard for how AI applications (hosts) can interact with external tools and data sources through a client-server architecture.
 
-* **Hosts**: Applications such as Cursor, VS Code, Claude Desktop, or Windsurf that connect to MCP servers.
+* **Hosts**: Applications such as Cursor, VS Code, Claude Code, or Windsurf that connect to MCP servers.
 * **Clients**: The layer within hosts that maintains one-to-one connections with individual MCP servers.
 * **Servers**: Standalone programs (like the Railway MCP Server) that expose tools and workflows for managing external systems.
 
-The **Railway MCP Server** acts as the server in this architecture, translating natural language requests into CLI workflows powered by the [Railway CLI](/cli).
+The local Railway MCP Server translates natural language requests into CLI workflows powered by the [Railway CLI](/cli). The remote MCP server runs on Railway's infrastructure and authenticates via OAuth.
 
 ## Prerequisites
 
-To get started with the MCP server, you need to have the [Railway CLI](/cli) installed and authenticated.
+* **Local MCP** — install and authenticate the [Railway CLI](/cli).
+* **Remote MCP** — a [Railway account](https://railway.com/login). No local install required.
 
 ## Installation
 
-### CLI installer
+The fastest path is to let the Railway CLI write the configuration for you. Use the toggle to switch between the local and remote setup.
 
-To install the Railway CLI and configure Railway agent support, including MCP, in one step:
+<McpInstallGuide />
 
-```bash
-bash <(curl -fsSL cli.new) --agents -y
-```
+`railway mcp install` merges the Railway server entry into existing configs without removing other MCP servers. Re-run it any time to update.
 
-If the CLI is already installed, configure MCP for detected tools with:
-
-```bash
-railway mcp install
-```
-
-You can also run the full agent setup flow, which installs agent skills, configures MCP, and checks authentication:
-
-```bash
-railway setup agent
-```
-
-Use `railway mcp install --remote` to configure supported tools with the hosted MCP server at `https://mcp.railway.com` instead of the local stdio server.
-
-Use `railway mcp install --agent <agent>` to target a specific supported tool. Supported values are `claude-code`, `cursor`, `factory-droid`, `copilot`, `codex`, and `opencode`.
-
-### Cursor
-
-You can one-click install the MCP server in Cursor by clicking the "Add to Cursor" button below:
-
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=Railway&config=eyJjb21tYW5kIjoibnB4IC15IEByYWlsd2F5L21jcC1zZXJ2ZXIifQ%3D%3D)
-
-Alternatively, you can add the following configuration to your `.cursor/mcp.json` file manually:
-
-```json
-{
-  "mcpServers": {
-    "Railway": {
-      "command": "npx",
-      "args": ["-y", "@railway/mcp-server"]
-    }
-  }
-}
-```
-
-### VS Code
-
-Add the following configuration to your `.vscode/mcp.json` file:
-
-```json
-{
-  "servers": {
-    "Railway": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@railway/mcp-server"]
-    }
-  }
-}
-```
-
-
-### Claude Code
-
-To install the MCP server in Claude Code, you can use the following command:
-
-```bash
-claude mcp add Railway npx @railway/mcp-server
-```
-
-### Codex
-
-To install the MCP server in the [OpenAI Codex CLI](https://developers.openai.com/codex/cli), you can use the following command:
-
-```bash
-codex mcp add Railway -- npx -y @railway/mcp-server
-```
-
-### GitHub Copilot CLI
-
-Add the following configuration to your `~/.copilot/mcp-config.json` file:
-
-```json
-{
-  "mcpServers": {
-    "Railway": {
-      "type": "local",
-      "command": "npx",
-      "args": ["-y", "@railway/mcp-server"],
-      "tools": ["*"]
-    }
-  }
-}
-```
-
-Alternatively, run `/mcp add` from inside an active Copilot CLI session and follow the prompts.
-
-### Factory
-
-To install the MCP server in [Factory](https://docs.factory.ai/cli/configuration/mcp), you can use the following command:
-
-```bash
-droid mcp add Railway "npx -y @railway/mcp-server"
-```
-
-Or run `/mcp` from inside a droid session to manage MCP servers interactively.
-
-### OpenCode
-
-Add the following configuration to your `opencode.json` file:
-
-```json
-{
-  "mcp": {
-    "railway": {
-      "type": "local",
-      "command": ["npx", "-y", "@railway/mcp-server"]
-    }
-  }
-}
-```
-
+To configure the CLI, MCP, and agent skills in one command, see [`railway setup agent`](/cli/setup) or run the [agent install command](/agents).
 
 ## Example usage
 
@@ -162,66 +52,76 @@ Add the following configuration to your `opencode.json` file:
   Deploy a Postgres database
   ```
 
-  ```text
-  Deploy a single node ClickHouse database
-  ```
-
 * **Pull environment variables**
 
   ```text
   Pull environment variables for my project and save them to a .env file
   ```
 
-* **Create a new environment**
+* **Debug a failing deployment** (remote-only `railway-agent` tool)
 
   ```text
-  Create a development environment called `development` 
-  cloned from production and set it as linked
+  Use the railway agent to figure out why my backend service is
+  crashing on deploy
+  ```
+
+* **Redeploy a service**
+
+  ```text
+  Redeploy my api service in the production environment
   ```
 
 ## Available MCP tools
 
-The Railway MCP Server provides a curated set of tools. Your AI assistant will automatically call these tools based on the context of your request.
+The Railway MCP Server provides a curated set of tools. Your AI assistant calls these automatically based on the context of your request.
+
+### Local MCP
+
+The local server runs through the Railway CLI and exposes a broader set of CRUD tools:
 
 * **Status**
+  * `check-railway-status` — verify CLI installation and authentication
+* **Projects & services**
+  * `list-projects`, `create-project-and-link`
+  * `list-services`, `link-service`
+  * `deploy` — deploy a service
+  * `deploy-template` — deploy from the [Railway Template Library](https://railway.com/deploy)
+* **Environments**
+  * `create-environment`, `link-environment`
+* **Configuration**
+  * `list-variables`, `set-variables`
+  * `generate-domain`
+* **Observability**
+  * `get-logs`
 
-  * `check-railway-status` - Verify CLI installation and authentication
+### Remote MCP
 
-* **Project Management**
+The remote server exposes a focused set of tools plus a powerful agent entry point. For anything complex, delegate to `railway-agent`.
 
-  * `list-projects` - List all projects
-  * `create-project-and-link` - Create a project and link it to the current directory
-
-* **Service Management**
-
-  * `list-services` - List project services
-  * `link-service` - Link a service to the current directory
-  * `deploy` - Deploy a service
-  * `deploy-template` - Deploy from the [Railway Template Library](https://railway.com/deploy)
-
-* **Environment Management**
-
-  * `create-environment` - Create a new environment
-  * `link-environment` - Link environment to current directory
-
-* **Configuration & Variables**
-
-  * `list-variables` - List environment variables
-  * `set-variables` - Set environment variables
-  * `generate-domain` - Generate a Railway domain
-
-* **Monitoring & Logs**
-
-  * `get-logs` - Retrieve service logs
+* **Account**
+  * `whoami`
+* **Projects**
+  * `list-projects`, `create-project`, `list-services`
+* **Deployments**
+  * `redeploy`
+  * `accept-deploy` — commit staged changes and deploy (destructive; clients prompt for confirmation)
+* **Agent**
+  * `railway-agent` — hand a natural-language request to Railway's AI agent for multi-step operations like log analysis, debugging, and service configuration
 
 ## Security considerations
 
-Under the hood, the Railway MCP Server runs the [Railway CLI](/cli) commands. While destructive operations are intentionally excluded and not exposed as MCP tools, you should still:
+The Railway MCP Server runs CLI commands or invokes Railway APIs on your behalf. Destructive operations are intentionally excluded from the local server's tool list, but you should still:
 
-* **Review actions** requested by the LLM before running them.
+* **Review actions** requested by the LLM before approving them, especially destructive ones (`redeploy`, `accept-deploy`, `railway-agent`).
 * **Restrict access** to ensure only trusted users can invoke the MCP server.
-* **Avoid production risks** by limiting usage to local development and non-critical environments.
+* **Avoid production risks** by limiting usage to non-critical environments where possible.
+
+For the remote server specifically:
+
+* **OAuth scoping.** When you consent, you choose which workspaces and projects the client can access. Tokens are short-lived and can be revoked from your Railway account settings.
+* **Destructive actions** are marked at the protocol level. Clients that respect these hints will prompt for confirmation.
+* **Project tokens are not accepted.** The remote MCP server requires a user identity for billing and audit trails.
 
 ## Feature requests
 
-The Railway MCP Server is a work in progress. We are actively working on adding more tools and features. If you have a feature request, leave your feedback on this [Central Station](https://station.railway.com/feedback/model-context-protocol-for-railway-railw-c040b796) post.
+The Railway MCP Server is a work in progress. We are actively adding more tools and features. If you have a feature request, leave your feedback on this [Central Station](https://station.railway.com/feedback/model-context-protocol-for-railway-railw-c040b796) post.

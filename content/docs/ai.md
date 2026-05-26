@@ -39,10 +39,10 @@ The [Railway plugin for Claude Code](/ai/claude-code-plugin) provides the `use-r
 
 ### MCP server
 
-The [Railway MCP Server](/ai/mcp-server) implements the Model Context Protocol, enabling direct communication between AI assistants and your Railway infrastructure.
+The [Railway MCP Server](/ai/mcp-server) implements the Model Context Protocol, enabling direct communication between AI assistants and your Railway infrastructure. Choose between the local server (runs through the Railway CLI) or the hosted remote server at `mcp.railway.com` (OAuth, no local install).
 
-- One-click installation for Cursor
-- Create projects, deploy templates, manage environments
-- Pull environment variables directly into your workflow
+- One command to install: `railway mcp install` (add `--remote` for the hosted server)
+- Create projects, deploy templates, manage environments, pull variables
+- Works with Cursor, VS Code, Claude Code, Codex, Copilot, Factory Droid, OpenCode, Windsurf, Cline, and Devin
 
 [Get started with MCP Server →](/ai/mcp-server)

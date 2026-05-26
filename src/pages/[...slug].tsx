@@ -31,6 +31,8 @@ import { Anchor } from "@/components/anchor";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Props as InlineCodeProps } from "@/components/inline-code";
 import { TallyButton } from "@/components/tally-button";
+import { AgentInstallCommand } from "@/components/agent-install-command";
+import { McpInstallGuide } from "@/components/mcp-install-guide";
 
 const components: Record<string, React.ElementType> = {
   Collapse,
@@ -62,6 +64,8 @@ const components: Record<string, React.ElementType> = {
   TreeLabel,
   FileTree,
   Tooltip,
+  AgentInstallCommand,
+  McpInstallGuide,
 };
 
 export default function PostPage({

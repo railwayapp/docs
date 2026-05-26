@@ -280,6 +280,11 @@ const redirects = [
     permanent: true,
   },
   {
+    source: "/ai/remote-mcp-server",
+    destination: "/ai/mcp-server",
+    permanent: true,
+  },
+  {
     source: "/reference/accounts",
     destination: "/access/accounts",
     permanent: true,
