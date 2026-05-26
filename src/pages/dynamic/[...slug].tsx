@@ -30,6 +30,8 @@ import { H2, H3, H4 } from "@/components/header";
 import { Anchor } from "@/components/anchor";
 import { GetServerSidePropsContext } from "next";
 import { TallyButton } from "@/components/tally-button";
+import { AgentInstallCommand } from "@/components/agent-install-command";
+import { McpInstallGuide } from "@/components/mcp-install-guide";
 import { reconstructMarkdownWithFrontmatter } from "@/utils/markdown";
 
 const components: Record<string, React.ElementType> = {
@@ -63,6 +65,8 @@ const components: Record<string, React.ElementType> = {
   TreeLabel,
   FileTree,
   Tooltip,
+  AgentInstallCommand,
+  McpInstallGuide,
 };
 
 export default function PostPage({
