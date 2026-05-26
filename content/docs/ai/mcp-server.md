@@ -3,14 +3,35 @@ title: Railway MCP Server
 description: Connect AI coding agents to Railway via the Model Context Protocol — either through the Railway CLI locally or the hosted remote MCP endpoint.
 ---
 
-The [Railway MCP Server](https://github.com/railwayapp/railway-mcp-server) is a [Model Context Protocol (MCP)](https://modelcontextprotocol.org) server that enables natural language interaction with your Railway projects and infrastructure.
-
-With this server, you can ask your IDE or AI assistant to create projects, deploy templates, create/select environments, pull environment variables, redeploy services, and more.
+The [Railway MCP Server](https://github.com/railwayapp/railway-mcp-server) is a [Model Context Protocol (MCP)](https://modelcontextprotocol.org) server that enables natural language interaction with your Railway projects and infrastructure. Ask your IDE or AI assistant to create projects, deploy templates, manage environments, pull variables, redeploy services, and more.
 
 Railway offers two ways to connect:
 
 * **Local MCP** — runs through the [Railway CLI](/cli) on your machine. Recommended for most coding-agent workflows since it shares the CLI's authentication and project context.
 * **Remote MCP** — a hosted endpoint at `mcp.railway.com`. No local install or CLI required; clients authenticate through OAuth in the browser.
+
+## Quick start
+
+Install the Railway CLI and configure agent support — skills, MCP, and authentication — in one command. Toggle the options to tailor the command to what you want set up:
+
+<AgentInstallCommand />
+
+If the CLI is already installed, skip the bootstrap and run:
+
+```bash
+railway setup agent          # local MCP
+railway setup agent --remote # remote MCP
+```
+
+Read on for per-editor manual configuration, the available tool list, and security considerations.
+
+## Per-editor configuration
+
+If you'd rather wire up an editor by hand — or want to see exactly what `railway mcp install` writes — use the toggle to switch between the local stdio config and the remote HTTP config:
+
+<McpInstallGuide />
+
+`railway mcp install` merges the Railway server entry into existing configs without removing other MCP servers. Re-run it any time to update.
 
 ## Understanding MCP
 
@@ -26,16 +47,6 @@ The local Railway MCP Server translates natural language requests into CLI workf
 
 * **Local MCP** — install and authenticate the [Railway CLI](/cli).
 * **Remote MCP** — a [Railway account](https://railway.com/login). No local install required.
-
-## Installation
-
-The fastest path is to let the Railway CLI write the configuration for you. Use the toggle to switch between the local and remote setup.
-
-<McpInstallGuide />
-
-`railway mcp install` merges the Railway server entry into existing configs without removing other MCP servers. Re-run it any time to update.
-
-To configure the CLI, MCP, and agent skills in one command, see [`railway setup agent`](/cli/setup) or run the [agent install command](/agents).
 
 ## Example usage
 
