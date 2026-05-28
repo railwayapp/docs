@@ -75,9 +75,8 @@ Here are some limitations of which we are currently aware:
   and mounted to the same service. This means that there will be a small amount
   of downtime when re-deploying a service that has a volume attached, even if there is a healthcheck endpoint configured
 - Down-sizing a volume is not currently supported, but increasing size is supported
-- Volume resizing is performed live without downtime - the underlying storage is expanded while your service continues running, and the filesystem automatically extends to utilize the additional space. In certain scenarios, such as when a volume reaches 100% capacity, an offline resize is automatically performed instead to run data integrity checks, which will restart your service
-- There is no file browser, or direct file download. To access your files,
-  you must do so via the attached service's mount point
+- Volume resizing is performed live without downtime. The underlying storage is expanded while your service continues running, and the filesystem automatically extends to utilize the additional space. In certain scenarios, such as when a volume reaches 100% capacity, an offline resize is automatically performed instead to run data integrity checks, which will restart your service
+- Volume files can be managed from the CLI with `railway volume browse` or `railway volume files`
 - Docker images that run as a non-root UID by default will have permissions issues when performing operations within an attached volume. If you are affected by this, you can set `RAILWAY_RUN_UID=0` environment variable in your service.
 
 ## Support

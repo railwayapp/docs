@@ -144,6 +144,28 @@ Every service deployment has access to ephemeral storage, with the limits being 
 
 If your service requires data to persist between deployments, or needs more storage, you should add a [volume](/volumes).
 
+### Manage service files
+
+Use the Railway CLI to inspect and manage files in a running service filesystem.
+
+```bash
+railway service files browse /app
+```
+
+The `browse` subcommand opens an interactive TUI where you can browse, upload, download, edit, rename, and delete files.
+
+For non-interactive workflows, use the other `railway service files` subcommands:
+
+```bash
+railway service files list /app
+railway service files download /app/data.db ./data.db
+railway service files upload ./seed.db /app/seed.db
+```
+
+Files outside a volume are part of the service's ephemeral filesystem and don't persist across deployments. Use a [volume](/volumes) for data that must persist.
+
+See [railway service](/cli/service) for the full command reference.
+
 ## Monitoring
 
 Logs, metrics, and usage information is available for services and projects. Check out the [observability guides](/observability) for information on how to track this data.

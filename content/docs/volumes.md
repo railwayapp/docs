@@ -68,6 +68,26 @@ You must configure the mount path of the volume in your service:
 
 The volume mount point you specify will be available in your service as a directory to which you can read/write. If you mount a volume to `/foobar`, your application will be able to access it at the absolute path `/foobar`.
 
+### Manage volume files
+
+Use the Railway CLI to inspect and manage files stored on a volume.
+
+```bash
+railway volume browse /
+```
+
+The `browse` command opens an interactive TUI where you can browse, upload, download, edit, rename, and delete files.
+
+For non-interactive workflows, use `railway volume files`:
+
+```bash
+railway volume files list /
+railway volume files download /backup.tar ./backup.tar
+railway volume files upload ./backup.tar /backup.tar
+```
+
+See [railway volume](/cli/volume) for the full command reference.
+
 ### Relative paths
 
 Railway's build system puts your application files in an `/app` folder at the root of the container. If your application writes to a directory at a relative path, and you need to persist that data on the volume, your mount path should include the app path.

@@ -128,6 +128,8 @@ railway add                     # Add a service (interactive)
 railway add --database postgres # Add PostgreSQL
 railway add --repo user/repo    # Add from GitHub repo
 railway service                 # Link a service
+railway service files browse /app # Browse service files in a TUI
+railway service files download /app/data.db ./data.db # Download from a service
 railway scale                   # Scale a service
 railway delete                  # Delete a project
 ```
@@ -191,6 +193,8 @@ railway domain example.com      # Add custom domain
 ```bash
 railway volume list             # List volumes
 railway volume add              # Add a volume
+railway volume browse /         # Browse volume files in a TUI
+railway volume files download /backup.tar ./backup.tar # Download from a volume
 railway volume delete           # Delete a volume
 ```
 
