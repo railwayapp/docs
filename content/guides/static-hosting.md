@@ -123,11 +123,11 @@ Total resources = number of replicas × maximum compute allocation per replica
 
 Learn more about [scaling applications](/deployments/scaling) and [multi-region deployments](/platform/compare-to-vps#multi-region-deployment) in Railway.
 
-Alternatively, you can integrate a CDN like Cloudflare for global content delivery and improved performance.
+Alternatively, you can serve your site through a CDN for global content delivery and improved performance. Railway includes a [built-in CDN](/networking/cdn) you can enable in your service settings, or you can use a third-party CDN like Cloudflare.
 
 ## Add Cloudflare as a CDN
 
-While Railway doesn't currently provide a built-in CDN, you can easily integrate a CDN like [Cloudflare](https://www.cloudflare.com/) for global content delivery and improved performance.
+You can also use [Cloudflare](https://www.cloudflare.com/) as a CDN in front of your Railway service.
 
 1. Add your domain to Cloudflare:
    - Sign up for a free Cloudflare account

@@ -428,6 +428,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Outbound networking", "networking"),
       makePage("Static outbound IPs", "networking"),
       makePage("Edge networking", "networking"),
+      makePage("CDN", "networking", "/networking/cdn"),
       {
         subTitle: "Troubleshooting",
         pages: [
