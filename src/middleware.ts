@@ -11,6 +11,14 @@ function prefersMarkdown(acceptHeader: string): boolean {
   return mdIdx !== -1 && (htmlIdx === -1 || mdIdx < htmlIdx);
 }
 
+// Known AI agent / crawler user-agent patterns
+const AI_UA_RE =
+  /claudebot|claude-web|anthropic|gptbot|chatgpt|oai-searchbot|openai|perplexitybot|perplexity|cohere|gemini|googlebot-richsnippets|meta-externalagent|bingbot.*ai|bingpreview|duckassistbot/i;
+
+function isAIAgent(uaHeader: string): boolean {
+  return AI_UA_RE.test(uaHeader);
+}
+
 export function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
@@ -28,7 +36,8 @@ export function middleware(request: NextRequest) {
   const wantsMarkdown =
     hasMdExtension ||
     searchParams.get("format") === "md" ||
-    prefersMarkdown(request.headers.get("accept") || "");
+    prefersMarkdown(request.headers.get("accept") || "") ||
+    isAIAgent(request.headers.get("user-agent") || "");
 
   const url = request.nextUrl.clone();
   url.pathname = "/dynamic" + pagePath;
