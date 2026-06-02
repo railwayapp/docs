@@ -224,6 +224,9 @@ export const SEO: React.FC<Props> = ({
         {/* Last modification date */}
         {lastModified && <meta name="last-modified" content={lastModified} />}
 
+        {/* Markdown alternate for LLM/agent discovery */}
+        <link rel="alternate" type="text/markdown" href={`${url}.md`} />
+
         {/* Structured data schemas */}
         {schemas.map((schema, index) => (
           <script

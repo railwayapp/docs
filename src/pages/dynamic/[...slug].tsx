@@ -117,6 +117,13 @@ export const getServerSideProps = async (
     return { props: {} };
   }
 
+  // Advertise markdown alternate via Link header for HTML responses
+  const markdownUrl = `https://docs.railway.com${page.url}.md`;
+  context.res.setHeader(
+    "Link",
+    `<${markdownUrl}>; rel="alternate"; type="text/markdown"`,
+  );
+
   return {
     props: {
       page,

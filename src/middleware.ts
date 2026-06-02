@@ -44,7 +44,10 @@ export function middleware(request: NextRequest) {
   if (wantsMarkdown) {
     url.searchParams.set("format", "md");
   }
-  return NextResponse.rewrite(url);
+  const response = NextResponse.rewrite(url);
+  // Ensure CDN/proxies cache HTML and markdown separately
+  response.headers.set("Vary", "Accept, User-Agent");
+  return response;
 }
 
 export const config = {
