@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { allPages } from "content-collections";
+import { allPages, allGuides } from "content-collections";
 
-const pageUrlSet = new Set(allPages.map(page => page.url));
+const pageUrlSet = new Set([
+  ...allPages.map(page => page.url),
+  ...allGuides.map(guide => guide.url),
+]);
 
 function prefersMarkdown(acceptHeader: string): boolean {
   const types = acceptHeader.split(",");
