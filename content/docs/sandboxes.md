@@ -184,10 +184,6 @@ Each environment can run a fixed number of sandboxes at once, based on your work
 
 Only sandboxes that are pending or running count toward the cap. Destroyed sandboxes don't. Creating a sandbox past the cap fails with an error.
 
-## Resource limits
-
-Each sandbox runs with 1 vCPU and 768 MB of memory. These are ceilings: the workload uses anywhere from zero up to them on demand, and you're billed for actual usage. A sandbox's resources are fixed for its lifetime. To run with different resources, create a new sandbox.
-
 ## Timeouts and output
 
 A sandbox enforces two timeouts: how long a single command can run, and how long the sandbox can sit idle before Railway destroys it.
@@ -203,12 +199,10 @@ Each command captures up to 16,000 bytes each of `stdout` and `stderr`. Output b
 
 ## Networking
 
-A sandbox has outbound internet access but runs isolated from your project's [private network](/private-networking). It can't reach your project's other services over private networking, and those services can't reach the sandbox. To run commands or move data in and out of a sandbox, use `exec` or SSH.
+A sandbox has outbound internet access but runs isolated from your project's [private network](/private-networking). It can't reach your project's other services over private networking, and those services can't reach the sandbox. 
+
+To run commands or move data in and out of a sandbox, use `exec` or SSH.
 
 ## Pricing
 
 Sandboxes don't have a separate charge. A sandbox consumes the same metered resources as a service (CPU, memory, and network egress), billed at the standard [resource usage rates](/pricing/plans#resource-usage-pricing). You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down.
-
-## Caveats
-
-File access (`sandbox.files.*`), port exposure (`sandbox.expose()`), streaming `exec`, and background processes are not yet available.
