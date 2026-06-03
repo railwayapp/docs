@@ -23,7 +23,7 @@ To add SSH keys to your account, go to [Account Settings -> SSH Keys](https://ra
 
 ## TypeScript SDK
 
-The SDK is the primary interface for working with sandboxes programmatically.
+The SDK is the primary interface for working with sandboxes programmatically. It's <a href="https://github.com/railwayapp/railway-ts-sdk" target="_blank">open source on GitHub</a>.
 
 ### Installation
 
@@ -164,8 +164,6 @@ const sandbox = await Sandbox.create({
 ```
 
 `idleTimeoutMinutes` sets how long a sandbox can sit idle before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the default of 30 minutes. The value can range from 1 to 120 minutes, and the timer resets each time you run a command.
-
-The SDK is safe to import in the browser and edge runtimes. Environment variables are only read where a runtime exposes them. Provide credentials explicitly in those contexts.
 
 ## CLI
 
