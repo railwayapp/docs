@@ -25,6 +25,8 @@ To add SSH keys to your account, go to [Account Settings -> SSH Keys](https://ra
 
 The SDK is the primary interface for working with sandboxes programmatically. It's <a href="https://github.com/railwayapp/railway-ts-sdk" target="_blank">open source on GitHub</a>.
 
+**Note:** The SDK is under active development while sandboxes are in Priority Boarding, and its API may change in breaking ways between releases.
+
 ### Installation
 
 ```bash
@@ -179,6 +181,8 @@ Each environment can run a fixed number of sandboxes at once, based on your work
 | Free | 10 |
 | Hobby | 50 |
 | Pro | 100 |
+
+Enterprise workspaces share the Pro cap of 100 sandboxes per environment.
 
 Only sandboxes that are pending or running count toward the cap. Destroyed sandboxes don't. Creating a sandbox past the cap fails with an error.
 
