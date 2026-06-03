@@ -222,6 +222,18 @@ railway functions push          # Push function changes
 
 [functions](/cli/functions)
 
+### Sandboxes
+
+```bash
+railway sandbox create          # Create a sandbox
+railway sandbox list            # List sandboxes in the environment
+railway sandbox ssh             # SSH into the active sandbox
+railway sandbox exec -- ls -la  # Run a command in the active sandbox
+railway sandbox destroy         # Destroy a sandbox
+```
+
+[sandbox](/cli/sandbox)
+
 ### AI & agents
 
 ```bash
