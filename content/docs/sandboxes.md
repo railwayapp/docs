@@ -167,6 +167,10 @@ const sandbox = await Sandbox.create({
 
 `idleTimeoutMinutes` sets how long a sandbox can sit idle before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the default of 30 minutes. The value can range from 1 to 120 minutes, and the timer resets each time you run a command.
 
+### Examples
+
+For complete, runnable code, see the <a href="https://github.com/railwayapp/railway-ts-sdk/tree/main/examples/sandboxes" target="_blank">sandbox examples</a> in the SDK repository.
+
 ## CLI
 
 The Railway CLI can create, connect to, run commands in, and destroy sandboxes. See [railway sandbox](/cli/sandbox) for all subcommands and options.
