@@ -48,7 +48,7 @@ railway sandbox create
 railway sandbox create --idle-timeout-minutes 30
 ```
 
-Railway auto-destroys the sandbox after it sits idle for the given number of minutes.
+Railway auto-destroys the sandbox after it sits idle for the given number of minutes. The default is 30 minutes, and the value can range from 1 to 120.
 
 ### List sandboxes
 
@@ -104,7 +104,7 @@ railway sandbox destroy sbx_abc123
 
 | Flag | Description |
 |------|-------------|
-| `--idle-timeout-minutes <N>` | Minutes the sandbox can sit idle before it is auto-destroyed |
+| `--idle-timeout-minutes <N>` | Minutes the sandbox can sit idle before it is auto-destroyed (default 30, range 1 to 120) |
 | `--json` | Output the created sandbox as JSON |
 
 ## Options for `list`
@@ -128,7 +128,7 @@ Connecting over SSH requires an SSH key on your Railway account. See [railway ss
 | Argument or flag | Description |
 |------------------|-------------|
 | `--id <ID>` | Sandbox ID to run in. Defaults to the active sandbox |
-| `--timeout <SECONDS>` | Per-command timeout in seconds |
+| `--timeout <SECONDS>` | Per-command timeout in seconds (default 120, maximum 600) |
 | `-- COMMAND` | Command to run, after `--`. Required |
 
 ## Options for `destroy`

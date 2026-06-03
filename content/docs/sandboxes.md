@@ -7,11 +7,11 @@ description: Provision ephemeral, isolated Linux environments on Railway. Create
 
 Sandboxes are short-lived Linux environments you can provision on demand, run commands in, and destroy.
 
-Each sandbox is scoped to a Railway [environment](/environments) and runs on Railway's VM primitive, giving you isolated, on-demand compute for anything you'd run on a VM.
+Each sandbox is scoped to a Railway [environment](/environments) and runs on Railway's virtual machine primitive, giving you isolated, on-demand compute for anything you'd run on a VM.
 
 ## How it works
 
-Each sandbox is a programmatically controllable, fully isolated container. You create one, run commands against it with `exec`, and destroy it when you're done. Sandboxes start from a clean Debian base and are ready to `exec` against once `Sandbox.create()` resolves.
+Each sandbox is a programmatically controllable, fully isolated virtual machine. You create one, run commands against it with `exec`, and destroy it when you're done. Sandboxes start from a clean Debian base and are ready to `exec` against once `Sandbox.create()` resolves.
 
 ## Dashboard
 
@@ -85,6 +85,8 @@ result.stderr;    // string
 result.truncated; // true if output exceeded the capture limit
 result.timedOut;  // true if the command hit timeoutSec
 ```
+
+Without `timeoutSec`, a command times out after 2 minutes, and the maximum is 10 minutes. If `stdout` or `stderr` exceeds the [capture limit](#timeouts-and-output), the result is truncated and `result.truncated` is `true`.
 
 ### Destroying a sandbox
 
@@ -161,13 +163,51 @@ const sandbox = await Sandbox.create({
 });
 ```
 
-`idleTimeoutMinutes` sets how long a sandbox can sit idle before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses Railway's default idle timeout.
+`idleTimeoutMinutes` sets how long a sandbox can sit idle before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the default of 30 minutes. The value can range from 1 to 120 minutes, and the timer resets each time you run a command.
 
 The SDK is safe to import in the browser and edge runtimes. Environment variables are only read where a runtime exposes them. Provide credentials explicitly in those contexts.
 
 ## CLI
 
 The Railway CLI can create, connect to, run commands in, and destroy sandboxes. See [railway sandbox](/cli/sandbox) for all subcommands and options.
+
+## Sandbox limits per environment
+
+Each environment can run a fixed number of sandboxes at once, based on your workspace's [plan](/pricing/plans). The cap applies per environment, not per project or workspace.
+
+| Plan | Sandboxes per environment |
+|------|---------------------------|
+| Trial | 10 |
+| Free | 10 |
+| Hobby | 50 |
+| Pro | 100 |
+
+Only sandboxes that are pending or running count toward the cap. Destroyed sandboxes don't. Creating a sandbox past the cap fails with an error.
+
+## Resource limits
+
+Each sandbox runs with 1 vCPU and 768 MB of memory. These are ceilings: the workload uses anywhere from zero up to them on demand, and you're billed for actual usage. A sandbox's resources are fixed for its lifetime. To run with different resources, create a new sandbox.
+
+## Timeouts and output
+
+A sandbox enforces two timeouts: how long a single command can run, and how long the sandbox can sit idle before Railway destroys it.
+
+| Limit | Default | Maximum |
+|-------|---------|---------|
+| Idle timeout | 30 minutes | 120 minutes |
+| Command timeout | 2 minutes | 10 minutes |
+
+The idle timeout can be set as low as 1 minute and resets each time you run a command. Set it with `idleTimeoutMinutes` in the SDK or `--idle-timeout-minutes` in the CLI. Set the per-command timeout with `timeoutSec` in the SDK or `--timeout` in the CLI.
+
+Each command captures up to 16,000 bytes each of `stdout` and `stderr`. Output beyond that is truncated.
+
+## Networking
+
+A sandbox has outbound internet access but runs isolated from your project's [private network](/private-networking). It can't reach your project's other services over private networking, and those services can't reach the sandbox. To run commands or move data in and out of a sandbox, use `exec` or SSH.
+
+## Pricing
+
+Sandboxes don't have a separate charge. A sandbox consumes the same metered resources as a service (CPU, memory, and network egress), billed at the standard [resource usage rates](/pricing/plans#resource-usage-pricing). You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down.
 
 ## Caveats
 
