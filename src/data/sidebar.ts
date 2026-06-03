@@ -257,6 +257,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("redeploy"),
       makeCliCommand("restart"),
       makeCliCommand("run"),
+      makeCliCommand("sandbox"),
       makeCliCommand("scale"),
       makeCliCommand("service"),
       makeCliCommand("setup"),
@@ -295,6 +296,7 @@ export const sidebarContent: ISidebarContent = [
       },
       makePage("Cron jobs", undefined, "/cron-jobs"),
       makePage("Functions", undefined, "/functions"),
+      makePage("Sandboxes", undefined, "/sandboxes"),
       {
         subTitle: makePage("Config as code", undefined, "/config-as-code"),
         pages: [makePage("Reference", "config-as-code")],
