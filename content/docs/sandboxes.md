@@ -65,7 +65,7 @@ const sandbox = await Sandbox.create();
 const sandbox = await Sandbox.create(template);
 
 // Reattach to an existing sandbox by id
-const sandbox = await Sandbox.connect("sbx_abc123");
+const sandbox = await Sandbox.connect(sandbox.id);
 // throws `SandboxNotFoundError` if the sandbox does not exist in the environment.
 
 // List all sandboxes in the environment
@@ -107,7 +107,7 @@ await sandbox.exec("pytest");
 A sandbox outlives the process that created it. Reattaching by id is useful in serverless and multi-step workflows.
 
 ```ts
-const sandbox = await Sandbox.connect("sbx_abc123");
+const sandbox = await Sandbox.connect(idString);
 await sandbox.exec("cat /tmp/state.json");
 ```
 
@@ -195,11 +195,9 @@ A sandbox enforces two timeouts: how long a single command can run, and how long
 
 The idle timeout can be set as low as 1 minute and resets each time you run a command. Set it with `idleTimeoutMinutes` in the SDK or `--idle-timeout-minutes` in the CLI. Set the per-command timeout with `timeoutSec` in the SDK or `--timeout` in the CLI.
 
-Each command captures up to 16,000 bytes each of `stdout` and `stderr`. Output beyond that is truncated.
-
 ## Networking
 
-A sandbox has outbound internet access but runs isolated from your project's [private network](/private-networking). It can't reach your project's other services over private networking, and those services can't reach the sandbox. 
+A sandbox has outbound internet access but runs isolated from your project's [private network](/private-networking). It can't reach your project's other services over private networking, and those services can't reach the sandbox.
 
 To run commands or move data in and out of a sandbox, use `exec` or SSH.
 
