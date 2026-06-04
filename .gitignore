@@ -47,8 +47,10 @@ public/robots.txt
 /.envrc
 /.direnv/
 .turbo
+<<<<<<< HEAD
 .claude/*
 !.claude/skills
 .cursor/
 .agents/*
 !.agents/skills
+.pnpm-store/*

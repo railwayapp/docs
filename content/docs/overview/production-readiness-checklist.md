@@ -25,7 +25,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
   Railway offers multiple [deployment regions](/deployments/regions) around the globe.
 
-  You may also consider implementing a CDN to cache server responses on an edge network.
+  You may also enable Railway's [built-in CDN](/networking/cdn) to cache responses on its edge network.
 
 **&check; Use private networking between services**
 
