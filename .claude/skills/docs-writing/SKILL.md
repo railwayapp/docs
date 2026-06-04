@@ -182,9 +182,8 @@ editorial (voice, typos, links, formatting) with no technical claims.
 
 When verification applies, follow
 [verifying-against-source.md](verifying-against-source.md). It maps each doc area
-to its public `railwayapp` repository, shows how to clone the repo into `/tmp`
-and check claims against the code, and covers the rules for referencing private
-repositories without leaking anything internal.
+to its public `railwayapp` repository and shows how to clone the repo into
+`/tmp` and check claims against the code.
 
 ## Formatting
 
