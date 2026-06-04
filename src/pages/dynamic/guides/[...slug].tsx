@@ -6,7 +6,6 @@ import {
 import { Collapse } from "@/components/collapse";
 import { Pre, CodeBlock, CodeTab } from "@/components/code-block";
 import { GraphQLCodeTabs } from "@/components/graphql-code-tabs";
-import { Card, CardGrid } from "@/components/card";
 import { Frame } from "@/components/frame";
 import { Steps, Step } from "@/components/steps";
 import {
@@ -20,23 +19,21 @@ import {
 } from "@/components/tree";
 import { FileTree } from "@/components/file-tree";
 import { Tooltip } from "@/components/tooltip";
-import Layout from "@/mdxLayouts/index";
-import { allPages, Page } from "content-collections";
+import { GuidesLayout } from "@/layouts/guides-layout";
+import { allGuides, Guide } from "content-collections";
 import { useMDXComponent } from "@content-collections/mdx/react";
 import Link from "next/link";
 import { Image } from "@/components/image";
-import { InlineCode } from "@/components/inline-code";
 import { H2, H3, H4 } from "@/components/header";
 import { Anchor } from "@/components/anchor";
 import { GetServerSidePropsContext } from "next";
 import { TallyButton } from "@/components/tally-button";
-import { AgentInstallCommand } from "@/components/agent-install-command";
-import { McpInstallGuide } from "@/components/mcp-install-guide";
 import { reconstructMarkdownWithFrontmatter } from "@/utils/markdown";
 
 const components: Record<string, React.ElementType> = {
   Collapse,
   Image,
+  img: Image,
   Banner,
   Link,
   PriorityBoardingBanner,
@@ -47,12 +44,9 @@ const components: Record<string, React.ElementType> = {
   h4: H4,
   TallyButton,
   pre: Pre,
-  code: InlineCode,
   CodeBlock,
   CodeTab,
   GraphQLCodeTabs,
-  Card,
-  CardGrid,
   Frame,
   Steps,
   Step,
@@ -65,31 +59,30 @@ const components: Record<string, React.ElementType> = {
   TreeLabel,
   FileTree,
   Tooltip,
-  AgentInstallCommand,
-  McpInstallGuide,
 };
 
-export default function PostPage({
-  page,
+export default function DynamicGuidePage({
+  guide,
   rawMarkdown,
 }: {
-  page: Page;
+  guide: Guide;
   rawMarkdown: string;
 }) {
-  const MDXContent = useMDXComponent(page.body.code);
+  const MDXContent = useMDXComponent(guide.body.code);
 
   return (
-    <Layout
+    <GuidesLayout
       frontMatter={{
-        title: page.title,
-        description: page.description,
-        url: page.url,
-        lastModified: page.lastModified,
+        title: guide.title,
+        description: guide.description,
+        url: guide.url,
+        author: guide.author,
+        tags: guide.tags,
       }}
       rawMarkdown={rawMarkdown}
     >
       <MDXContent components={components} />
-    </Layout>
+    </GuidesLayout>
   );
 }
 
@@ -97,19 +90,17 @@ export const getServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
   const { slug } = context.params as { slug: string[] };
-  const page = allPages.find(p => p.url === `/${slug.join("/")}`);
+  const guide = allGuides.find(g => g.url === `/guides/${slug.join("/")}`);
 
-  if (!page) {
-    return {
-      notFound: true,
-    };
+  if (!guide) {
+    return { notFound: true };
   }
 
   // Return raw markdown if format=md
   if (context.query.format === "md") {
     const markdown = reconstructMarkdownWithFrontmatter(
-      { title: page.title, description: page.description, url: page.url },
-      page.body.raw,
+      { title: guide.title, description: guide.description, url: guide.url },
+      guide.body.raw,
     );
     context.res.setHeader("Content-Type", "text/markdown; charset=utf-8");
     context.res.write(markdown);
@@ -118,7 +109,7 @@ export const getServerSideProps = async (
   }
 
   // Advertise markdown alternate via Link header for HTML responses
-  const markdownUrl = `https://docs.railway.com${page.url}.md`;
+  const markdownUrl = `https://docs.railway.com${guide.url}.md`;
   context.res.setHeader(
     "Link",
     `<${markdownUrl}>; rel="alternate"; type="text/markdown"`,
@@ -126,8 +117,8 @@ export const getServerSideProps = async (
 
   return {
     props: {
-      page,
-      rawMarkdown: page.body.raw,
+      guide,
+      rawMarkdown: guide.body.raw,
     },
   };
 };
