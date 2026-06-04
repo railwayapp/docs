@@ -231,7 +231,7 @@ railway sandbox create --variable NODE_ENV=production,PORT=8080
 
 A comma splits the value only when every segment is its own `KEY=VALUE` pair, so values that contain commas stay intact.
 
-Load variables from a `.env` file with `--env-file`, which is also repeatable. When the same key is set in both places, `--variable` flags win.
+Load variables from a `.env` file with `--env-file`, which is also repeatable. When the same key is set in both places, `--variable` flags take precedence.
 
 ```bash
 railway sandbox create --env-file .env

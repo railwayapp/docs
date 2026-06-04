@@ -161,7 +161,7 @@ const fork = await base.fork();
 await fork.exec("npm test"); // sees the installed dependencies, isolated from base
 ```
 
-`Sandbox.create(source)` does the same thing as `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment. Pass `idleTimeoutMinutes` or `networkIsolation` to set them on the fork, which doesn't inherit them from the source.
+`Sandbox.create(source)` is equivalent to `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment. Pass `idleTimeoutMinutes` or `networkIsolation` to set them on the fork, which doesn't inherit them from the source.
 
 ### Configuration
 
@@ -250,4 +250,4 @@ To run commands or move data in and out of a sandbox in either mode, use `exec` 
 
 ## Pricing
 
-Sandboxes are billed by resources (CPU, memory, network egress) consumed. You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down. The actual price of sandboxes will be announced soon.
+Sandboxes are billed by resources (CPU, memory, network egress) consumed. You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down. Railway hasn't announced sandbox pricing yet.
