@@ -61,7 +61,7 @@ tags:
 
 ## Writing and style
 
-For the full style guide, component reference, and content type templates, see [`skills/docs-writing/`](skills/docs-writing/SKILL.md).
+For the full style guide, component reference, and content type templates, see [`.claude/skills/docs-writing/`](.claude/skills/docs-writing/SKILL.md).
 
 ## Adding new content
 
