@@ -165,7 +165,7 @@ const sandbox = await Sandbox.create({
 });
 ```
 
-`idleTimeoutMinutes` sets how long a sandbox can sit idle before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the default of 30 minutes. The value can range from 1 to 120 minutes, and the timer resets each time you run a command.
+`idleTimeoutMinutes` sets how long a sandbox can sit [idle](#idle-timeout) before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the default of 30 minutes. The value can range from 1 to 120 minutes.
 
 ### Examples
 
@@ -199,7 +199,15 @@ A sandbox enforces two timeouts: how long a single command can run, and how long
 | Idle timeout | 30 minutes | 120 minutes |
 | Command timeout | 2 minutes | 10 minutes |
 
-The idle timeout can be set as low as 1 minute and resets each time you run a command. Set it with `idleTimeoutMinutes` in the SDK or `--idle-timeout-minutes` in the CLI. Set the per-command timeout with `timeoutSec` in the SDK or `--timeout` in the CLI.
+Set the per-command timeout with `timeoutSec` in the SDK or `--timeout` in the CLI.
+
+### Idle timeout
+
+A sandbox is considered idle when you haven't interacted with it for longer than its idle timeout. Interacting means running a command (`exec`) or sending a command over an SSH session. Every interaction resets the timer, so the countdown always starts from your most recent interaction.
+
+The idle timeout only counts your interactions with the sandbox, not anything running inside it. A process, server, or job running in the sandbox doesn't keep it alive on its own. Once a sandbox stays idle past its timeout, Railway shuts it down automatically.
+
+Set the idle timeout with `idleTimeoutMinutes` in the SDK or `--idle-timeout-minutes` in the CLI. It defaults to 30 minutes and can range from 1 to 120 minutes.
 
 ## Networking
 
@@ -209,4 +217,4 @@ To run commands or move data in and out of a sandbox, use `exec` or SSH.
 
 ## Pricing
 
-Sandboxes don't have a separate charge. A sandbox consumes the same metered resources as a service (CPU, memory, and network egress), billed at the standard [resource usage rates](/pricing/plans#resource-usage-pricing). You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down.
+Sandboxes don't have a separate charge. A sandbox consumes the same metered resources as a service (CPU, memory, and network egress), billed at the standard [resource usage rates](/pricing/plans#resource-usage-pricing). You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short [idle timeout](#idle-timeout), keeps costs down.
