@@ -32,7 +32,7 @@
     "meilisearch": "^0.32.3",
     "motion": "^12.23.26",
     "nanostores": "^0.7.4",
-    "next": "^15.5.9",
+    "next": "^15.5.19",
     "next-seo": "^5.15.0",
     "next-themes": "^0.4.6",
     "posthog-js": "^1.242.0",
@@ -57,7 +57,7 @@
     "@types/react": "^18.3.0",
     "@types/react-dom": "^19.2.3",
     "next-sitemap": "^3.1.54",
-    "postcss": "^8.2.10",
+    "postcss": "^8.5.15",
     "prettier": "^2.2.1",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
@@ -71,5 +71,18 @@
   },
   "engines": {
     "node": "20"
+  },
+  "pnpm": {
+    "overrides": {
+      "defu": "^6.1.7",
+      "js-yaml@3": "^3.14.2",
+      "picomatch@4": "^4.0.4",
+      "postcss": "^8.5.15",
+      "preact": "^10.27.3",
+      "serialize-javascript": "^7.0.5",
+      "tar-fs@2": "^2.1.4",
+      "tar-fs@3": "^3.1.2",
+      "uuid": "^11.1.1"
+    }
   }
 }
