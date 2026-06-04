@@ -58,7 +58,7 @@ Even when a request is eligible, the edge skips caching a response in any of the
 - `Cache-Control: no-store` or `Cache-Control: private` is present.
 - A `Set-Cookie` header is present, which keeps personalized responses from being shared between users.
 - `Vary: *` or `Vary: Cookie` is set. Other `Vary` values (`Accept`, `Accept-Language`, `User-Agent`) don't prevent caching.
-- The response body is larger than 64 MB. The edge reports these as `MISS` without storing them.
+- The response body is larger than 512 MB. The edge reports these as `MISS` without storing them.
 
 ## Static assets
 
