@@ -129,6 +129,9 @@ Follow these four phases for every documentation task.
 - Read the existing page (if editing) and any related pages that link to it.
 - Check `CONTRIBUTING.md` for frontmatter format and repo structure.
 - Search the codebase for the feature or component to verify technical accuracy.
+- Identify the source repository that implements the feature and, if the change
+  makes any technical claim, clone it to verify against the real code (see
+  [Verifying against source code](#verifying-against-source-code)).
 - For new pages, determine the content type (see content types above).
 - Check `src/data/sidebar.ts` if the page needs a navigation entry.
 
@@ -156,7 +159,9 @@ Follow these four phases for every documentation task.
 
 ### Phase 4: Verify
 
-- Confirm technical accuracy against the codebase and product behavior.
+- Confirm technical accuracy against the codebase and product behavior, and
+  against the upstream source repository when one exists (see
+  [Verifying against source code](#verifying-against-source-code)).
 - Verify all internal links resolve (use relative paths like `/variables`).
 - Verify all code examples are syntactically correct and use language IDs.
 - Check that frontmatter matches the format in `CONTRIBUTING.md`.
@@ -165,6 +170,20 @@ Follow these four phases for every documentation task.
 - Run the formatter if one is configured for the project.
 - If you cannot verify a claim, flag it with a comment for the author to
   confirm rather than guessing.
+
+## Verifying against source code
+
+Documentation drifts from the code it describes. For any change that makes a
+technical claim — command names, flags, configuration keys, default values, API
+fields, SDK methods, environment variable names, behavior — verify the docs
+against the real implementation in Railway's source before finishing. Treat this
+as a default step, not an optional one. Skip it only when a change is purely
+editorial (voice, typos, links, formatting) with no technical claims.
+
+When verification applies, follow
+[verifying-against-source.md](verifying-against-source.md). It maps each doc area
+to its public `railwayapp` repository and shows how to clone the repo into
+`/tmp` and check claims against the code.
 
 ## Formatting
 
