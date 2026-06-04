@@ -57,7 +57,7 @@ await sandbox.destroy();
 
 ### Creating a sandbox
 
-Four static methods cover every way to get a `Sandbox`:
+These static methods cover every way to get a `Sandbox`:
 
 ```ts
 // Provision a new sandbox
@@ -65,6 +65,9 @@ const sandbox = await Sandbox.create();
 
 // Provision from a template (see Templates below)
 const sandbox = await Sandbox.create(template);
+
+// Fork a running sandbox (see Forking below)
+const sandbox = await Sandbox.create(source);
 
 // Reattach to an existing sandbox by id
 const sandbox = await Sandbox.connect(sandbox.id);
@@ -146,6 +149,20 @@ The template builder exposes these methods:
 
 `Sandbox.create(template)` builds the template automatically. Call `.build()` explicitly only to pre-warm the cache before the first `create`.
 
+### Forking
+
+Forking clones a running sandbox's filesystem into a new, independent sandbox. The fork boots fresh from a copy of the source's disk, so files are preserved but running processes and memory are not. Use it to branch a sandbox after expensive setup, for example installing dependencies once and forking per task.
+
+```ts
+const base = await Sandbox.create();
+await base.exec("npm install");
+
+const fork = await base.fork();
+await fork.exec("npm test"); // sees the installed dependencies, isolated from base
+```
+
+`Sandbox.create(source)` is equivalent to `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment. Pass `idleTimeoutMinutes` or `networkIsolation` to set them on the fork, which doesn't inherit them from the source.
+
 ### Configuration
 
 `token` and `environmentId` each resolve in order: an explicit option in the configuration object, then an environment variable.
@@ -173,7 +190,7 @@ For complete, runnable code, see the <a href="https://github.com/railwayapp/rail
 
 ## CLI
 
-The Railway CLI can create, connect to, run commands in, and destroy sandboxes. See [railway sandbox](/cli/sandbox) for all subcommands and options.
+The Railway CLI can create, fork, connect to, run commands in, and destroy sandboxes, build templates, and seed variables at create time. See [railway sandbox](/cli/sandbox) for all subcommands and options.
 
 ## Sandbox limits per environment
 
@@ -211,9 +228,25 @@ Set the idle timeout with `idleTimeoutMinutes` in the SDK or `--idle-timeout-min
 
 ## Networking
 
-A sandbox has outbound internet access but runs isolated from your project's [private network](/private-networking). It can't reach your project's other services over private networking, and those services can't reach the sandbox.
+Every sandbox has outbound internet access through a NAT gateway. Whether it can reach the rest of your environment over the [private network](/private-networking) depends on its network isolation mode, set when you create or fork it.
 
-To run commands or move data in and out of a sandbox, use `exec` or SSH.
+| Mode | Behavior |
+|------|----------|
+| `ISOLATED` | Default. Outbound internet access only. The sandbox can't reach other services in the environment over private networking, and they can't reach it. |
+| `PRIVATE` | The sandbox joins the environment's private network and keeps outbound internet access. It can reach other services over private networking, for example `postgres.railway.internal`, and they can reach it. |
+
+A sandbox is `ISOLATED` unless you opt into `PRIVATE`, so existing sandboxes are unaffected.
+
+In the SDK, pass `networkIsolation` when you create or fork a sandbox, and read it back from `sandbox.networkIsolation`:
+
+```ts
+const sandbox = await Sandbox.create({ networkIsolation: "PRIVATE" });
+sandbox.networkIsolation; // "ISOLATED" | "PRIVATE"
+```
+
+In the CLI, pass `--private-network` to `railway sandbox create` or `railway sandbox fork`.
+
+To run commands or move data in and out of a sandbox in either mode, use `exec` or SSH.
 
 ## Pricing
 
