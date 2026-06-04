@@ -33,7 +33,6 @@ The edge adds an `x-cache` response header showing how it handled the request:
 | --------------- | ------- |
 | `HIT` | Served from the edge cache, without reaching your service. |
 | `STALE` | Served from the edge cache while the edge refreshed it from your service in the background (see [Stale-while-revalidate](#stale-while-revalidate)). |
-| `COALESCED` | Served by sharing another request's in-progress fetch, when several requests for the same URL arrive at once, so your service sees a single request. |
 | `MISS` | Not cached yet, so the edge fetched it from your service and stored it for next time. |
 | `DYNAMIC` | Fetched from your service and not cached, because the response isn't cacheable. |
 
@@ -42,8 +41,6 @@ If caching is off for the domain, or the request isn't eligible (see [Cacheable 
 On a cache hit or stale serve, the edge also adds an `age` response header showing how many seconds ago the entry was stored. A rising `age` across requests confirms the same cached copy is being reused.
 
 To confirm caching is working, request a static asset twice and check that the second response returns `x-cache: HIT`. A persistent `DYNAMIC` means the edge reached your service but couldn't cache the response, usually because of the [HTML caching](#html-caching) mode, a missing cache header, or a [skip condition](#when-a-response-isnt-cached).
-
-**Note:** Responses larger than 64 MB can report `MISS` without being stored, so they never become a `HIT`.
 
 ### Cacheable requests
 
@@ -61,7 +58,7 @@ Even when a request is eligible, the edge skips caching a response in any of the
 - `Cache-Control: no-store` or `Cache-Control: private` is present. Your service can send either directive to opt a response out of the cache.
 - A `Set-Cookie` header is present, which keeps personalized responses from being shared between users.
 - `Vary: *` or `Vary: Cookie` is set. Other `Vary` values (`Accept`, `Accept-Language`, `User-Agent`) don't prevent caching.
-- The response body is larger than 64 MB.
+- The response body is larger than 64 MB. These can report `MISS` without being stored, so they never become a `HIT`.
 
 ## Static assets
 
@@ -141,7 +138,7 @@ Your service controls caching through the `Cache-Control` headers it returns. Th
 - To keep a response out of the cache, send `Cache-Control: no-store` or `Cache-Control: private`. Use this for routes like `/api` or `/admin` that should always reach your service.
 - To serve stale content while revalidating, add `stale-while-revalidate` (see [Stale-while-revalidate](#stale-while-revalidate)).
 
-Requests that use a method other than `GET` or `HEAD`, or that carry an `Authorization` header, are never cached, so most dynamic endpoints are excluded without any header changes.
+Non-`GET`/`HEAD` methods and requests with an `Authorization` header (see [Cacheable requests](#cacheable-requests)) are never cached, so most dynamic endpoints are excluded without any header changes.
 
 ## Conditional requests
 
@@ -174,29 +171,7 @@ A response is compressed when all of these hold:
 
 Cached responses are compressed once when stored, so every later hit is served pre-compressed, and each encoding is a separate cache entry. Server-Sent Events (`text/event-stream`) are never compressed, so streamed events aren't held back.
 
-<Collapse title="Which content types the edge compresses">
-
-The edge compresses these content types when the response isn't already compressed:
-
-- `text/*` (HTML, CSS, plain text, and similar)
-- `application/json`
-- `application/javascript`
-- `application/x-javascript`
-- `application/xml`
-- `application/xhtml+xml`
-- `application/manifest+json`
-- `application/rss+xml`
-- `application/atom+xml`
-- `application/wasm`
-- `image/svg+xml`
-- `image/x-icon`
-- `font/ttf`
-- `font/otf`
-- `application/vnd.ms-fontobject`
-
-Already-compressed formats, such as `zip` archives and `woff2` fonts, are skipped. This list can change over time, so treat the running product as the source of truth.
-
-</Collapse>
+The edge compresses text, JSON and XML, JavaScript, SVG, and uncompressed fonts when the response isn't already compressed. Already-compressed formats, such as `zip` archives and `woff2` fonts, are skipped.
 
 ## Metrics and logging
 
