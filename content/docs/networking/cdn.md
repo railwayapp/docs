@@ -39,6 +39,8 @@ The edge adds an `x-cache` response header showing how it handled the request:
 
 If caching is off for the domain, or the request isn't eligible (see [Cacheable requests](#cacheable-requests)), there's no `x-cache` header.
 
+On a cache hit or stale serve, the edge also adds an `age` response header showing how many seconds ago the entry was stored. A rising `age` across requests confirms the same cached copy is being reused.
+
 To confirm caching is working, request a static asset twice and check that the second response returns `x-cache: HIT`. A persistent `DYNAMIC` means the edge reached your service but couldn't cache the response, usually because of the [HTML caching](#html-caching) mode, a missing cache header, or a [skip condition](#when-a-response-isnt-cached).
 
 **Note:** Responses larger than 64 MB can report `MISS` without being stored, so they never become a `HIT`.
@@ -141,6 +143,12 @@ Your service controls caching through the `Cache-Control` headers it returns. Th
 
 Requests that use a method other than `GET` or `HEAD`, or that carry an `Authorization` header, are never cached, so most dynamic endpoints are excluded without any header changes.
 
+## Conditional requests
+
+When your service sends an `ETag`, the edge stores it with the cached response and can answer conditional requests itself. If a client sends an `If-None-Match` header matching the cached `ETag`, the edge returns `304 Not Modified` straight from the cache, without reaching your service, and the client reuses its local copy.
+
+The `304` carries no body, only the validators a client needs to refresh its freshness state: `ETag`, `Cache-Control`, `Vary`, `Expires`, `Last-Modified`, `Date`, and `Content-Location`. `ETag` matching follows the standard weak comparison, so weak (`W/`-prefixed) and strong tags compare equal, a comma-separated list matches if any tag matches, and `*` matches any cached entry.
+
 ## Streaming and WebSockets
 
 Server-Sent Events (`text/event-stream`) are never cached or buffered: each event streams to the client the moment your service produces it. Responses that aren't cacheable also pass through without buffering. Cacheable responses are buffered at the edge so a copy can be stored, including responses your service sends with chunked transfer encoding, which cache normally. WebSocket connections upgrade and pass through normally.
@@ -192,9 +200,13 @@ Already-compressed formats, such as `zip` archives and `woff2` fonts, are skippe
 
 ## Metrics and logging
 
-Railway doesn't report CDN metrics such as cache hit rate or bandwidth saved. To check whether a specific response was cached, use the `x-cache` header described in [How caching works](#how-caching-works).
+Railway doesn't report CDN metrics such as cache hit rate or bandwidth saved. To check whether a specific response was cached, use the `x-cache` and `age` headers described in [How caching works](#how-caching-works).
 
 Cache hits are served from the edge and never reach your service, so your service's request logs and server-side metrics don't record them. Expect those numbers to undercount real traffic once caching is on. Client-side analytics, such as PostHog or Google Analytics, still capture every visitor, because the CDN keeps cookies intact and serves your full page.
+
+### Check which edge location served you
+
+Every domain with the CDN active responds to `/.railway/cdn-trace`, a built-in endpoint that reports the edge location handling your request. It returns the point of presence (POP), edge node, and a timestamp, which is useful for confirming the CDN is in front of your service and seeing which location you're routed to. Add `?json` (request `/.railway/cdn-trace?json`) to get the same details as JSON.
 
 ## Purge the cache
 
