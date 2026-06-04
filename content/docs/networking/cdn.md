@@ -55,10 +55,10 @@ A request `Cookie` header doesn't disable caching. This keeps pages cacheable fo
 
 Even when a request is eligible, the edge skips caching a response in any of these cases:
 
-- `Cache-Control: no-store` or `Cache-Control: private` is present. Your service can send either directive to opt a response out of the cache.
+- `Cache-Control: no-store` or `Cache-Control: private` is present.
 - A `Set-Cookie` header is present, which keeps personalized responses from being shared between users.
 - `Vary: *` or `Vary: Cookie` is set. Other `Vary` values (`Accept`, `Accept-Language`, `User-Agent`) don't prevent caching.
-- The response body is larger than 64 MB. These can report `MISS` without being stored, so they never become a `HIT`.
+- The response body is larger than 64 MB. The edge reports these as `MISS` without storing them.
 
 ## Static assets
 
@@ -142,7 +142,7 @@ Non-`GET`/`HEAD` methods and requests with an `Authorization` header (see [Cache
 
 ## Conditional requests
 
-When your service sends an `ETag`, the edge stores it with the cached response and can answer conditional requests itself. If a client sends an `If-None-Match` header matching the cached `ETag`, the edge returns `304 Not Modified` straight from the cache, without reaching your service, and the client reuses its local copy.
+When your service sends an `ETag`, the edge stores it with the cached response and can answer conditional requests itself. If a client sends an `If-None-Match` header matching the cached `ETag`, the edge returns `304 Not Modified` straight from the cache, without reaching your service.
 
 The `304` carries no body, only the validators a client needs to refresh its freshness state: `ETag`, `Cache-Control`, `Vary`, `Expires`, `Last-Modified`, `Date`, and `Content-Location`. `ETag` matching follows the standard weak comparison, so weak (`W/`-prefixed) and strong tags compare equal, a comma-separated list matches if any tag matches, and `*` matches any cached entry.
 
