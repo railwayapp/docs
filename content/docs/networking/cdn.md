@@ -7,7 +7,7 @@ Railway's CDN serves your service's responses from the edge location nearest eac
 
 <PriorityBoardingBanner />
 
-CDN caching is part of [Priority Boarding](/platform/priority-boarding), Railway's beta program, and is available on all plans at no additional cost. It's off by default, so you turn it on per service.
+CDN caching is part of [Priority Boarding](/platform/priority-boarding), Railway's beta program, and is available on all plans at no additional cost. It's off by default and enabled per service.
 
 **Note:** The CDN is a caching layer. It doesn't include a web application firewall (WAF) or firewall functionality.
 
@@ -25,7 +25,7 @@ Railway routes each request to the nearest edge location automatically. For how 
 
 The CDN sits between your visitors and your service. The first time someone requests a cacheable URL, the edge fetches the response from your service, stores a copy, and returns it. This is a cache miss. Later requests for the same URL are served straight from the edge without reaching your service. This is a cache hit.
 
-A cache hit never reaches your service, so it uses none of your service's compute and doesn't incur [network egress](/pricing/understanding-your-bill#high-network-egress). The more requests the edge serves, the lower your egress costs.
+A cache hit never reaches your service, so it uses none of your service's compute and doesn't incur [network egress](/pricing/understanding-your-bill#high-network-egress).
 
 The edge adds an `x-cache` response header showing how it handled the request:
 
@@ -160,7 +160,7 @@ Railway caches each unique URL separately. The cache key includes the request me
 
 ## Compression
 
-The edge compresses responses for you, so you don't have to compress them at your service. When the client supports it, the edge serves Brotli (preferred) or gzip.
+The edge compresses responses before serving them, so compressing at your service is optional. When the client supports it, the edge serves Brotli (preferred) or gzip.
 
 A response is compressed when all of these hold:
 
@@ -177,7 +177,7 @@ The edge compresses text, JSON and XML, JavaScript, SVG, and uncompressed fonts 
 
 Railway doesn't report CDN metrics such as cache hit rate or bandwidth saved. To check whether a specific response was cached, use the `x-cache` and `age` headers described in [How caching works](#how-caching-works).
 
-Cache hits are served from the edge and never reach your service, so your service's request logs and server-side metrics don't record them. Expect those numbers to undercount real traffic once caching is on. Client-side analytics, such as PostHog or Google Analytics, still capture every visitor, because the CDN keeps cookies intact and serves your full page.
+Cache hits are served from the edge and never reach your service, so your service's request logs and server-side metrics don't record them and will undercount real traffic once caching is on. Client-side analytics, such as PostHog or Google Analytics, still capture every visitor, because the CDN keeps cookies intact and serves your full page.
 
 ### Check which edge location served you
 
