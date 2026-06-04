@@ -49,3 +49,4 @@ public/robots.txt
 .turbo
 .claude/
 .cursor/
+.pnpm-store/*
