@@ -5,19 +5,18 @@ description: Cache static assets and HTML at the edge with Railway's built-in CD
 
 Railway's CDN serves your service's responses from the edge location nearest each visitor, so a cached request returns faster than a round trip to your service. It caches static assets and HTML across a global network of points of presence (POPs), which also lowers load on your service and reduces network egress costs.
 
-<PriorityBoardingBanner />
-
-CDN caching is part of [Priority Boarding](/platform/priority-boarding), Railway's beta program, and is available on all plans at no additional cost. It's off by default and enabled per service.
+CDN caching is available on all plans at no additional cost. It's off by default and enabled per service.
 
 **Note:** The CDN is a caching layer. It doesn't include a web application firewall (WAF) or firewall functionality.
 
 ## Enable CDN caching
 
+<PriorityBoardingBanner />
+
 CDN caching is configured per service and applies to all of that service's domains, including Railway-provided domains and custom domains. Turning it on doesn't change your DNS or SSL setup.
 
-1. Enable the **Edge CDN Config** flag on the <a href="https://railway.com/account/feature-flags" target="_blank">Feature Flags page</a> in your account settings.
-2. Open the service you want to cache and go to its **Settings**.
-3. In the **Edge** section, toggle **Enable CDN Caching** on.
+1. Open the service you want to cache and go to its **Settings**.
+2. In the **Edge** section, toggle **Enable CDN Caching** on.
 
 Railway routes each request to the nearest edge location automatically. For how that routing works, see [Edge networking](/networking/edge-networking).
 
