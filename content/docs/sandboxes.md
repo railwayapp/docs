@@ -209,4 +209,4 @@ To run commands or move data in and out of a sandbox, use `exec` or SSH.
 
 ## Pricing
 
-Sandboxes don't have a separate charge. A sandbox consumes the same metered resources as a service (CPU, memory, and network egress), billed at the standard [resource usage rates](/pricing/plans#resource-usage-pricing). You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down.
+Sandboxes are billed by resources (CPU, memory, network egress) consumed. You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down. The actual price of sandboxes will be announced soon.
