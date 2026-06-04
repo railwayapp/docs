@@ -89,7 +89,7 @@ Railway caches responses whose `Content-Type` matches one of these glob patterns
 - `application/font*`
 - `application/vnd.ms-fontobject*`
 
-**Note:** This list reflects the content types Railway caches and can change over time. Railway makes an effort to keep it current, but the running product is the source of truth.
+**Note:** This list can change over time; the running product is the source of truth.
 
 </Collapse>
 
