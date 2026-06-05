@@ -250,7 +250,7 @@ To run commands or move data in and out of a sandbox in either mode, use `exec` 
 
 ## Pricing
 
-Sandboxes are billed by resources (CPU, memory, network egress) consumed. You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down.
+Sandboxes are billed by resources (CPU, memory, network egress) consumed. You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down. Idle sandboxes still consume resources that we bill for.
 
 Sandbox VM resources are billed at
 
