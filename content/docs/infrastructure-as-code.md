@@ -185,7 +185,7 @@ If you currently use `railway.json` or `railway.toml`, migrate one service at a 
    railway config pull --force
    ```
 
-2. Open the service's `railway.json` or `railway.toml` file and copy the settings you want Railway IaC to own into `.railway/railway.ts`.
+2. Open the service's `railway.json` or `railway.toml` file and translate the settings you want Railway IaC to own into the `.railway/railway.ts` DSL.
 
    For example, this `railway.json`:
 
@@ -211,7 +211,7 @@ If you currently use `railway.json` or `railway.toml`, migrate one service at a 
    });
    ```
 
-3. Remove the old config file from the service's source repository.
+3. Remove the old `railway.json` or `railway.toml` file from the service's source repository.
 
    If the service uses a custom config file path in Railway, open the service's **Settings**, find the config file path field, and clear it. After this step, future deployments for that service should not read `railway.json` or `railway.toml`.
 
