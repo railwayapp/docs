@@ -80,7 +80,6 @@ export default defineRailway(() => {
   });
 
   return project("my-app", {
-    environments: ["production"],
     services: [web],
   });
 });
@@ -169,7 +168,6 @@ export default defineRailway(() => {
   const web = service("web");
 
   return project("my-project", {
-    environments: ["production"],
     services: [web],
   });
 });
@@ -188,7 +186,6 @@ export default defineRailway((ctx) => {
   });
 
   return project("my-project", {
-    environments: ["production", "staging"],
     services: [web],
   });
 });
@@ -397,7 +394,6 @@ const db = postgres("postgres");
 const backend = group("Backend", [api, worker, db]);
 
 return project("my-app", {
-  environments: ["production"],
   services: [backend],
 });
 ```
@@ -463,7 +459,6 @@ export default defineRailway((ctx) => {
   const storage = group("Storage", [uploads]);
 
   return project("acme", {
-    environments: ["production", "staging"],
     services: [backend, storage, web],
   });
 });
