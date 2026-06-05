@@ -250,4 +250,13 @@ To run commands or move data in and out of a sandbox in either mode, use `exec` 
 
 ## Pricing
 
-Sandboxes are billed by resources (CPU, memory, network egress) consumed. You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down. The actual price of sandboxes will be announced soon.
+Sandboxes are billed by resources (CPU, memory, network egress) consumed. You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down.
+
+Sandbox VM resources are billed at
+
+| Resource | price |
+|----------|------------|
+| Memory | $0.00000001929012 MB•second ($50 GB / month) |
+| vCPU | $0.00000001929012 vCPU•second ($50 vCPU / month) |
+| Egress | $0.05 GB |
+
