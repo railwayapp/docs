@@ -279,7 +279,7 @@ const web = service("web", {
 });
 ```
 
-For advanced placement, specify regions:
+For advanced placement, specify [regions](/deployments/regions#region-options):
 
 ```ts
 const web = service("web", {
