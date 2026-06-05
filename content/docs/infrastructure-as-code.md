@@ -3,13 +3,13 @@ title: Infrastructure as Code (IaC)
 description: Define, import, preview, and apply your Railway project configuration with .railway/railway.ts.
 ---
 
-Railway Infrastructure as Code lets you define the desired shape of a Railway project in a TypeScript file:
+Railway Infrastructure as Code lets you define the services and resources in a Railway project with a TypeScript file:
 
 ```txt
 .railway/railway.ts
 ```
 
-Use Railway IaC when you want to manage project-level infrastructure like services, databases, buckets, custom domains, environment variables, replicas, and canvas groups from one editable source file.
+Use Railway IaC when you want one editable file for project-level configuration: services, databases, buckets, custom domains, environment variables, replicas, and canvas groups.
 
 <PriorityBoardingBanner />
 
@@ -24,15 +24,15 @@ Railway has two code-based configuration systems:
 
 [Config as Code](/config-as-code) is read from your service repository during deploy. It overrides dashboard values for that service.
 
-Infrastructure as Code is evaluated by the Railway CLI, previewed as a plan, and applied to your Railway project through Railway's API.
+Infrastructure as Code is evaluated by the Railway CLI. The CLI compares `.railway/railway.ts` with the selected Railway environment, shows the changes it would make, and applies those changes only after confirmation.
 
-A service cannot be managed by both systems at the same time. If a service is already managed by `railway.json` or `railway.toml`, `railway config plan` will ask you to migrate that service before `.railway/railway.ts` can manage it.
+A service cannot be managed by both systems at the same time. If a service is already managed by `railway.json` or `railway.toml`, `railway config plan` stops and tells you which service must be migrated before `.railway/railway.ts` can manage it.
 
 ## Install or upgrade the CLI
 
 Infrastructure as Code is managed through the Railway CLI. See [Installing the CLI](/cli#installing-the-cli) for installation instructions.
 
-Then authenticate and link a project as usual:
+Then authenticate and connect the current directory to the Railway project and environment you want to manage:
 
 ```bash
 railway login
@@ -66,7 +66,7 @@ Railway creates:
 .agents/skills/railway-config/SKILL.md
 ```
 
-The CLI can scan the current directory and generate a starting service from your package manager, scripts, and GitHub remote.
+The CLI can scan the current directory and generate a starting service from your package manager, `package.json` scripts, and GitHub remote.
 
 Example generated file:
 
@@ -93,17 +93,17 @@ Run:
 railway config pull
 ```
 
-This imports the linked Railway project into `.railway/railway.ts`.
+This writes the linked Railway project's current configuration to `.railway/railway.ts`.
 
-The importer generates code intended to be edited by humans. It omits platform defaults, generated Railway domains, internal IDs, and unknown secrets where possible.
+The importer generates code intended to be edited by humans. It keeps user-facing names, omits platform defaults, leaves out generated Railway domains, avoids internal IDs, and usually omits encrypted secrets because the CLI cannot read their values.
 
-After importing, verify the file matches Railway:
+After importing, run a plan to check whether the generated file would change anything in Railway:
 
 ```bash
 railway config plan
 ```
 
-A clean import should show:
+A clean import should show no changes:
 
 ```txt
 Your Railway configuration is already up to date.
@@ -117,7 +117,7 @@ Run:
 railway config plan
 ```
 
-Example output:
+Example output when the file creates one service:
 
 ```txt
 Railway configuration
@@ -131,7 +131,7 @@ Next
   • Run railway config apply to apply these changes.
 ```
 
-`plan` is safe. It does not change Railway.
+`plan` is safe. It only reads Railway state and prints the changes that would be applied.
 
 For machine-readable output:
 
@@ -147,7 +147,7 @@ Run:
 railway config apply
 ```
 
-Railway always previews changes before applying. In an interactive terminal, you will be asked to confirm.
+Railway always runs a plan before applying. In an interactive terminal, you will be asked to confirm the exact changes shown in the plan.
 
 To apply non-interactively:
 
@@ -155,7 +155,7 @@ To apply non-interactively:
 railway config apply --yes
 ```
 
-Destructive changes, such as deleting a service or variable, are marked in the plan before apply.
+Destructive changes, such as deleting a service or variable, are marked before confirmation. Review those lines carefully before continuing.
 
 ## Authoring `.railway/railway.ts`
 
@@ -175,7 +175,7 @@ export default defineRailway(() => {
 
 ### Environment context
 
-`defineRailway` receives a context object. Use it to render different desired state for different Railway environments.
+`defineRailway` receives a context object from the CLI. Use it to render different desired state for the Railway environment you are planning or applying to.
 
 ```ts
 export default defineRailway((ctx) => {
@@ -242,7 +242,7 @@ const worker = service("worker", {
 });
 ```
 
-Omit `source` when the service source is managed outside the configuration file:
+Omit `source` when `.railway/railway.ts` should manage service settings but not declare a GitHub repository or Docker image:
 
 ```ts
 const web = service("web", {
@@ -324,7 +324,7 @@ const web = service("web", {
 });
 ```
 
-`preserve()` is mainly used for imported secrets whose values are not available. It prevents Railway configuration from overwriting the existing value.
+`preserve()` is mainly used for imported secrets whose values are not available to the CLI. It means “keep the value that is already set in Railway.”
 
 ## Databases
 
@@ -360,7 +360,7 @@ const media = bucket("media", {
 });
 ```
 
-Bucket regions cannot be changed after creation. To move a bucket to another region, create a new bucket and migrate the data.
+Bucket regions cannot be changed after creation. If you need a different region, create a new bucket in that region, copy the data, update your services to use the new bucket, and then remove the old bucket when it is no longer needed.
 
 ## Custom domains
 
@@ -398,7 +398,7 @@ return project("my-app", {
 });
 ```
 
-Groups are structural. They help large projects stay readable in both code and the Railway canvas.
+Groups are structural. They make large projects easier to scan in both `.railway/railway.ts` and the Railway canvas.
 
 ## Larger example
 
@@ -466,15 +466,61 @@ export default defineRailway((ctx) => {
 
 ## Migrating from Config as Code
 
-If you currently use `railway.json` or `railway.toml`, migrate one service at a time.
+If you currently use `railway.json` or `railway.toml`, migrate one service at a time. Do not leave the same service managed by both files.
 
-1. Run `railway config pull --force`.
-2. Move the relevant service config from `railway.json` / `railway.toml` into `.railway/railway.ts`.
-3. Remove the old config file or stop pointing the service at it.
-4. Run `railway config plan`.
-5. Apply when the plan is correct.
+1. Import your current Railway project:
 
-Railway blocks plans for services still managed by `railway.json` or `railway.toml` to prevent two sources of truth.
+   ```bash
+   railway config pull --force
+   ```
+
+2. Open the service's `railway.json` or `railway.toml` file and copy the settings you want Railway IaC to own into `.railway/railway.ts`.
+
+   For example, this `railway.json`:
+
+   ```json
+   {
+     "build": {
+       "buildCommand": "pnpm build"
+     },
+     "deploy": {
+       "startCommand": "pnpm start",
+       "healthcheckPath": "/health"
+     }
+   }
+   ```
+
+   becomes:
+
+   ```ts
+   const web = service("web", {
+     build: "pnpm build",
+     start: "pnpm start",
+     healthcheck: "/health",
+   });
+   ```
+
+3. Remove the old config file from the service's source repository.
+
+   If the service uses a custom config file path in Railway, clear that path in the service's settings as well. The goal is that future deployments for that service no longer read `railway.json` or `railway.toml`.
+
+4. Preview the migration:
+
+   ```bash
+   railway config plan
+   ```
+
+5. Review the plan. It is safe to apply when the listed changes are only the settings you intentionally moved into `.railway/railway.ts`.
+
+   For example, a good migration plan might show updates to `build`, `start`, or `healthcheck` for the service you migrated. It should not show unexpected service deletes, variable deletes, bucket deletes, or changes to unrelated services.
+
+6. Apply the migration:
+
+   ```bash
+   railway config apply
+   ```
+
+Railway blocks plans for services still managed by `railway.json` or `railway.toml` to prevent two sources of truth. If you see that error, remove the repo config file for that service and run `railway config plan` again.
 
 ## Generated support files
 
