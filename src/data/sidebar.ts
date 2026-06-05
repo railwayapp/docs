@@ -302,6 +302,10 @@ export const sidebarContent: ISidebarContent = [
         pages: [makePage("Reference", "config-as-code")],
       },
       {
+        subTitle: makePage("Infrastructure as Code (IaC)", undefined, "/infrastructure-as-code"),
+        pages: [makePage("Reference", "infrastructure-as-code")],
+      },
+      {
         subTitle: makePage("Builds", undefined, "/builds"),
         pages: [
           makePage("Build configuration", "builds"),
