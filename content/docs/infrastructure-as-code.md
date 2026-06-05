@@ -49,7 +49,6 @@ The `railway config` commands will prompt you to log in or connect a project whe
 | `railway config pull` | Import the linked Railway project's current configuration into `.railway/railway.ts`. |
 | `railway config plan` | Preview changes without applying them. |
 | `railway config apply` | Preview and apply changes after confirmation. |
-| `railway up` | Preview/apply configuration changes, then deploy the current directory. |
 
 ## Initialize a new configuration
 
@@ -86,8 +85,6 @@ export default defineRailway(() => {
   });
 });
 ```
-
-If no GitHub remote is detected, the generated service has no source. Running `railway up` uploads the current directory to that service.
 
 ## Import an existing project
 
@@ -160,30 +157,6 @@ railway config apply --yes
 ```
 
 Destructive changes, such as deleting a service or variable, are marked in the plan before apply.
-
-## Deploy with `railway up`
-
-`railway up` integrates with Infrastructure as Code.
-
-If `.railway/railway.ts` exists, `railway up` first runs a configuration plan. If changes are found, Railway shows the diff and asks whether to apply those configuration changes before deploying.
-
-```bash
-railway up
-```
-
-To apply configuration changes and deploy without prompts:
-
-```bash
-railway up --yes
-```
-
-To skip configuration and deploy normally:
-
-```bash
-railway up --no-sync
-```
-
-When a service has no GitHub or image source, `railway up` uploads the current directory.
 
 ## Authoring `.railway/railway.ts`
 
@@ -272,7 +245,7 @@ const worker = service("worker", {
 });
 ```
 
-Omit `source` for local uploads with `railway up`:
+Omit `source` when the service source is managed outside the configuration file:
 
 ```ts
 const web = service("web", {
