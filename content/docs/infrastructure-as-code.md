@@ -11,7 +11,7 @@ Railway Infrastructure as Code lets you define the desired shape of a Railway pr
 
 Use Railway IaC when you want to manage project-level infrastructure like services, databases, buckets, custom domains, environment variables, replicas, and canvas groups from one editable source file.
 
-**Note:** Infrastructure as Code is experimental. The API and generated output may change while we refine the developer experience.
+<PriorityBoardingBanner />
 
 ## IaC vs Config as Code
 
