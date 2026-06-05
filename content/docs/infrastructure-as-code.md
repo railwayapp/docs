@@ -30,11 +30,7 @@ A service cannot be managed by both systems at the same time. If a service is al
 
 ## Install or upgrade the CLI
 
-Infrastructure as Code is managed through the Railway CLI.
-
-```bash
-npm i -g @railway/cli
-```
+Infrastructure as Code is managed through the Railway CLI. See [Installing the CLI](/cli#installing-the-cli) for installation instructions.
 
 Then authenticate and link a project as usual:
 
