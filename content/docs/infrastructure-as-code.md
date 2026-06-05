@@ -256,6 +256,7 @@ Infrastructure as Code is experimental. Current limitations include:
 
 ## Related pages
 
+- [Infrastructure as Code reference](/infrastructure-as-code/reference)
 - [Config as Code](/config-as-code)
 - [Config as Code reference](/config-as-code/reference)
 - [CLI](/cli)
