@@ -80,7 +80,7 @@ export default defineRailway(() => {
   });
 
   return project("my-app", {
-    services: [web],
+    resources: [web],
   });
 });
 ```
@@ -168,7 +168,7 @@ export default defineRailway(() => {
   const web = service("web");
 
   return project("my-project", {
-    services: [web],
+    resources: [web],
   });
 });
 ```

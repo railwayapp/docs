@@ -16,7 +16,7 @@ export default defineRailway(() => {
   const web = service("web");
 
   return project("my-project", {
-    services: [web],
+    resources: [web],
   });
 });
 ```
@@ -34,7 +34,7 @@ export default defineRailway((ctx) => {
   });
 
   return project("my-project", {
-    services: [web],
+    resources: [web],
   });
 });
 ```
@@ -242,7 +242,7 @@ const db = postgres("postgres");
 const backend = group("Backend", [api, worker, db]);
 
 return project("my-app", {
-  services: [backend],
+  resources: [backend],
 });
 ```
 
@@ -307,7 +307,7 @@ export default defineRailway((ctx) => {
   const storage = group("Storage", [uploads]);
 
   return project("acme", {
-    services: [backend, storage, web],
+    resources: [backend, storage, web],
   });
 });
 ```
