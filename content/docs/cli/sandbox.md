@@ -50,7 +50,7 @@ railway sandbox create
 railway sandbox create --idle-timeout-minutes 30
 ```
 
-Railway auto-destroys the sandbox after it sits [idle](/sandboxes#idle-timeout) for the given number of minutes. The default is 30 minutes, and the value can range from 1 to 120.
+Railway auto-destroys the sandbox after it sits [idle](/sandboxes#idle-timeout) for the given number of minutes. The default and allowed range depend on your plan, so see [Idle timeout](/sandboxes#idle-timeout) for the per-plan values.
 
 ### Create a sandbox on the private network
 
@@ -126,7 +126,7 @@ railway sandbox destroy sbx_abc123
 
 | Flag | Description |
 |------|-------------|
-| `--idle-timeout-minutes <N>` | Minutes the sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed (default 30, range 1 to 120) |
+| `--idle-timeout-minutes <N>` | Minutes the sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. The default and range depend on your plan |
 | `--variable <KEY=VALUE>` | Set a variable on the sandbox. Repeatable and comma-separable. See [Variables](#variables) |
 | `--env-file <PATH>` | Load variables from a `.env` file. Repeatable. `--variable` overrides matching keys |
 | `--template <NAME_OR_ID>` | Create from a built template, by local name or template ID. See [Templates](#templates) |
@@ -139,7 +139,7 @@ railway sandbox destroy sbx_abc123
 |------------------|-------------|
 | `[ID]` | Source sandbox ID to fork. Defaults to the active sandbox |
 | `--id <ID>` | Source sandbox ID, as an alternative to the positional argument |
-| `--idle-timeout-minutes <N>` | Minutes the new sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed (default 30, range 1 to 120) |
+| `--idle-timeout-minutes <N>` | Minutes the new sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. The default and range depend on your plan |
 | `--variable <KEY=VALUE>` | Set a variable on the fork. Repeatable and comma-separable. The fork doesn't inherit the source's variables |
 | `--env-file <PATH>` | Load variables from a `.env` file. Repeatable. `--variable` overrides matching keys |
 | `--private-network` | Join the environment's private network. The fork doesn't inherit the source's network mode |

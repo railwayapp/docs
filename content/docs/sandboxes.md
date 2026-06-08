@@ -79,19 +79,54 @@ const sandboxes = await Sandbox.list();
 
 ### Running commands
 
-`exec` runs a command to completion and returns its result. It doesn't throw on a non-zero exit code. Inspect `exitCode` instead.
+`exec` starts a command and returns a handle. Await the handle to get the final result. `exec` doesn't throw on a non-zero exit code, so inspect `exitCode` instead.
 
 ```ts
 const result = await sandbox.exec("npm run build", { timeoutSec: 120 });
 
-result.exitCode;  // number
+result.exitCode;  // number | null (null when a signal ended the command)
 result.stdout;    // string
 result.stderr;    // string
-result.truncated; // true if output exceeded the capture limit
+result.truncated; // true if the output was truncated
 result.timedOut;  // true if the command hit timeoutSec
 ```
 
-Without `timeoutSec`, a command times out after 2 minutes, and the maximum is 10 minutes. If `stdout` or `stderr` exceeds the [capture limit](#timeouts-and-output), the result is truncated and `result.truncated` is `true`.
+Pass `timeoutSec` to kill the command after a deadline and resolve with `timedOut: true`. Without it, the command runs until it exits, so you can run long-lived processes like agents, dev servers, and builds. See [Long-running commands](#long-running-commands) to stream their output and detach or reattach the session.
+
+### Long-running commands
+
+A command started with `exec` runs on the sandbox independently of the client that started it. The handle exposes a durable `sessionName`, so you can stop streaming a command and reattach to it later, even from a different process. This suits agents, dev servers, and any job that outlives a single connection.
+
+Stream output as it arrives with the `onStdout` and `onStderr` callbacks:
+
+```ts
+const handle = sandbox.exec("npm run agent", {
+  onStdout: (chunk) => process.stdout.write(chunk),
+  onStderr: (chunk) => process.stderr.write(chunk),
+});
+
+const result = await handle; // resolves when the command exits
+```
+
+To stop following the output without ending the command, call `detach()`. It resolves with the session name, the command keeps running, and you reattach later by passing that name back to `exec`.
+
+```ts
+const handle = sandbox.exec("npm run agent");
+const sessionName = await handle.sessionName;
+
+await handle.detach(); // stop streaming; the command keeps running
+
+// Later, from any process with access to the environment:
+const reattached = await Sandbox.connect(sandbox.id);
+const result = await reattached.exec(
+  { sessionName },
+  { onStdout: (chunk) => process.stdout.write(chunk) },
+);
+```
+
+Reattaching replays the output retained for the session, then follows it live. Pass `resumeFromLastRead: true` to receive only the output produced since the server's last read, instead of replaying from the start.
+
+Call `handle.kill(signal)` to terminate a running command. It sends the signal (`TERM` by default) to the command's process group, and the handle then resolves with the command's exit. Detaching leaves the command running; killing ends it.
 
 ### Destroying a sandbox
 
@@ -182,7 +217,7 @@ const sandbox = await Sandbox.create({
 });
 ```
 
-`idleTimeoutMinutes` sets how long a sandbox can sit [idle](#idle-timeout) before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the default of 30 minutes. The value can range from 1 to 120 minutes.
+`idleTimeoutMinutes` sets how long a sandbox can sit [idle](#idle-timeout) before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the plan default. The default and allowed range depend on your plan, so see [Idle timeout](#idle-timeout) for the per-plan values.
 
 ### Examples
 
@@ -205,18 +240,20 @@ Each environment can run a fixed number of sandboxes at once, based on your work
 
 Enterprise workspaces share the Pro cap of 100 sandboxes per environment.
 
-Only sandboxes that are pending or running count toward the cap. Destroyed sandboxes don't. Creating a sandbox past the cap fails with an error.
+Only sandboxes in the `CREATING` or `RUNNING` state count toward the cap. Destroyed sandboxes don't. Creating a sandbox past the cap fails with an error.
 
 ## Timeouts and output
 
-A sandbox enforces two timeouts: how long a single command can run, and how long the sandbox can sit idle before Railway destroys it.
+A sandbox enforces an idle timeout: how long it can sit idle before Railway destroys it. Commands have a separate timeout that works differently in the CLI and the SDK.
 
 | Limit | Default | Maximum |
 |-------|---------|---------|
-| Idle timeout | 30 minutes | 120 minutes |
-| Command timeout | 2 minutes | 10 minutes |
+| Idle timeout (Hobby and Pro) | 30 minutes | 120 minutes |
+| Idle timeout (Trial and Free) | 5 minutes | 5 minutes |
 
-Set the per-command timeout with `timeoutSec` in the SDK or `--timeout` in the CLI.
+The idle timeout default and maximum depend on your plan, as shown above.
+
+In the CLI, `railway sandbox exec` stops a command after 2 minutes by default, up to a maximum of 10 minutes set with `--timeout`. In the SDK, a command has no timeout unless you set `timeoutSec`, so [long-running commands](#long-running-commands) keep going until they exit. The `truncated` field on an exec result reports when captured output was cut short.
 
 ### Idle timeout
 
@@ -224,7 +261,7 @@ A sandbox is considered idle when you haven't interacted with it for longer than
 
 The idle timeout only counts your interactions with the sandbox, not anything running inside it. A process, server, or job running in the sandbox doesn't keep it alive on its own. Once a sandbox stays idle past its timeout, Railway shuts it down automatically.
 
-Set the idle timeout with `idleTimeoutMinutes` in the SDK or `--idle-timeout-minutes` in the CLI. It defaults to 30 minutes and can range from 1 to 120 minutes.
+Set the idle timeout with `idleTimeoutMinutes` in the SDK or `--idle-timeout-minutes` in the CLI. On the Hobby and Pro plans it defaults to 30 minutes and can be set from 1 to 120 minutes. On the Trial and Free plans it defaults to 5 minutes and can be set from 1 to 5 minutes. Setting a value above your plan's maximum returns an error.
 
 ## Networking
 
