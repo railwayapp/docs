@@ -108,7 +108,7 @@ const handle = sandbox.exec("npm run agent", {
 const result = await handle; // resolves when the command exits
 ```
 
-To stop following the output without ending the command, call `detach()`. It resolves with the session name, the command keeps running, and you reattach later by passing that name back to `exec`.
+To stop following the output without ending the command, call `detach()`. It resolves with the session name. The command keeps running, and you reattach later by passing that name back to `exec`.
 
 ```ts
 const handle = sandbox.exec("npm run agent");
@@ -126,7 +126,7 @@ const result = await reattached.exec(
 
 Reattaching replays the output retained for the session, then follows it live. Pass `resumeFromLastRead: true` to receive only the output produced since the server's last read, instead of replaying from the start.
 
-Call `handle.kill(signal)` to terminate a running command. It sends the signal (`TERM` by default) to the command's process group, and the handle then resolves with the command's exit. Detaching leaves the command running; killing ends it.
+Call `handle.kill(signal)` to terminate a running command. It sends the signal (`TERM` by default) to the command's process group, and the handle then resolves with the command's exit. Detaching leaves the command running. Killing ends it.
 
 ### Destroying a sandbox
 
