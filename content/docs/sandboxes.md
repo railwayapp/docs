@@ -225,7 +225,7 @@ For complete, runnable code, see the <a href="https://github.com/railwayapp/rail
 
 ## CLI
 
-The Railway CLI can create, fork, connect to, run commands in, and destroy sandboxes, build templates, and seed variables at create time. See [railway sandbox](/cli/sandbox) for all subcommands and options.
+The Railway CLI can create, fork, connect to, run commands in, forward ports into, and destroy sandboxes, build templates, and seed variables at create time. See [railway sandbox](/cli/sandbox) for all subcommands and options.
 
 ## Sandbox limits per environment
 
@@ -283,7 +283,7 @@ sandbox.networkIsolation; // "ISOLATED" | "PRIVATE"
 
 In the CLI, pass `--private-network` to `railway sandbox create` or `railway sandbox fork`.
 
-To run commands or move data in and out of a sandbox in either mode, use `exec` or SSH.
+To run commands or move data in and out of a sandbox in either mode, use `exec` or SSH. To reach a server running inside the sandbox from your machine, forward its port with [`railway sandbox forward`](/cli/sandbox).
 
 ## Pricing
 
