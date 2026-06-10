@@ -147,7 +147,7 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 ### Is Railway cheaper than Heroku?
 
-For most workloads with variable traffic, yes. Heroku charges a fixed monthly price per dyno (from $5/mo for Eco dynos that sleep, with Standard-1X at $25/mo for 0.5 GB), so you pay the same whether the dyno is busy or idle. Railway bills per second of actual usage at $20/vCPU-month and $10/GB-month RAM, so you avoid paying for over-provisioned capacity; if you prefer a fixed, predictable monthly bill, Heroku's instance pricing is simpler to forecast.
+For most workloads, yes. Heroku charges a fixed monthly price per dyno per app (from $5/mo for Eco dynos that sleep, with Standard-1X at $25/mo for 0.5 GB), so you pay the same whether the dyno is busy or idle, and every app, worker, and staging environment adds its own dyno fees. Railway bills per second of aggregate actual usage at $20/vCPU-month and $10/GB-month RAM with no per-service charge, so multi-service projects don't multiply fixed costs as you scale; if you prefer a fixed, predictable monthly bill, Heroku's instance pricing is simpler to forecast.
 
 ### What is the Railway equivalent of a Heroku dyno?
 
