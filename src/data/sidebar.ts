@@ -50,6 +50,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Compare to Render", "platform"),
           makePage("Compare to Fly", "platform"),
           makePage("Compare to Vercel", "platform"),
+          makePage("Compare to Northflank", "platform"),
           makePage("Compare to DigitalOcean", "platform"),
           makePage("Compare to Replit", "platform"),
           makePage("Compare to Lovable", "platform"),
