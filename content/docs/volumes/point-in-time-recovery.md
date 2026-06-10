@@ -9,7 +9,7 @@ PITR works for both single-node Postgres and [Postgres HA](/databases/postgresql
 
 ## How it works
 
-When PITR is enabled, your Postgres image archives every WAL segment it produces directly to a Railway [storage bucket](/storage-buckets) using [pgBackRest](https://pgbackrest.org/). pgBackRest also takes its own base backups (full + incremental) on a rolling schedule, so the bucket holds everything Postgres needs to rebuild a database at any point in the archive window.
+When PITR is enabled, your Postgres image archives every WAL segment it produces directly to a Railway [storage bucket](/storage-buckets) using [pgBackRest](https://pgbackrest.org/). pgBackRest also takes its own base backups on a rolling schedule — a full backup every week and an incremental backup every day — so the bucket holds everything Postgres needs to rebuild a database at any point in the archive window. The last 4 full backups are retained, giving you a restore window of roughly 4 weeks.
 
 Pushes are async: pgBackRest's worker batches WAL segments and ships them to S3 in the background, so a stalled bucket can't block writes on Postgres. Under sustained S3 outages, a 5 GiB queue cap on the leader trips and pgBackRest drops WAL to keep the database running — your PITR window truncates, but Postgres stays up.
 
@@ -27,11 +27,13 @@ Click Enable, confirm, and Railway:
 
 When the new container boots, the image detects the archive credentials, writes `archive_mode=on` / `archive_command='pgbackrest --stanza=main archive-push %p'` / `archive_timeout=60` into Postgres config, runs `pgbackrest stanza-create`, and starts pushing WAL on every commit. Once archiving is healthy, an in-container watcher takes the first pgBackRest base backup automatically — no manual snapshot step. After that, the **PITR datetime picker** appears on the Backups tab.
 
-For Postgres HA clusters, all nodes are redeployed at once when enabling — expect brief downtime while the cluster restarts.
+For Postgres HA clusters, enabling rolls through the cluster instead of redeploying it all at once: Railway creates the bucket, sets the `WAL_ARCHIVE_*` vars on every member, then restarts replicas one at a time, performs a switchover, and finally restarts the former leader. Expect about 5 seconds of unavailability during the failover; the Backups tab shows the rollout's progress.
 
 ## Restoring to a point in time
 
 On the Backups tab, the PITR section shows the available restore range and a datetime picker. Pick a moment, click **Restore to this moment**.
+
+If the archive bucket holds more than one WAL history — for example, after restoring a database and re-enabling PITR on it — the picker first asks which cluster lifetime to restore from.
 
 Railway:
 
@@ -50,18 +52,20 @@ For Postgres HA, restore also produces a single-node fork (not a cluster). To re
 
 ## Disabling PITR
 
-Click **Disable PITR** on the Backups tab. Railway stages a patch that removes the `WAL_ARCHIVE_*` env vars and deletes the Postgres-PITR bucket. Nothing changes on the running service until you review the patch in the **Staged Changes** panel and click Deploy.
+Click **Disable PITR** on the Backups tab.
 
-If you want to keep the archived WAL around (e.g. to restore from it later before fully cleaning up), edit the patch to drop the bucket-deletion step before deploying.
+For single-node Postgres, Railway stages a patch that removes the `WAL_ARCHIVE_*` env vars and deletes the Postgres-PITR bucket. Nothing changes on the running service until you review the patch in the **Staged Changes** panel and click Deploy. If you want to keep the archived WAL around (e.g. to restore from it later before fully cleaning up), edit the patch to drop the bucket-deletion step before deploying.
+
+For Postgres HA clusters, disabling rolls through the cluster the same way enabling does — replicas restart one at a time, followed by a switchover — with about 5 seconds of unavailability during the failover. The archive bucket is kept so your backup history stays restorable; delete it yourself once you no longer need it.
 
 ## Cost
 
 PITR storage costs are billed at the standard [Railway storage bucket](/storage-buckets) rate. For most workloads, expect roughly:
 
 - A few GB of compressed WAL per day under steady write load (zstd-compressed; idle databases are nearly free).
-- One base backup per cycle, compressed and de-duplicated by pgBackRest.
+- One base backup per cycle (weekly full, daily incremental), compressed and de-duplicated by pgBackRest.
 
-pgBackRest's `expire` runs after each backup and reclaims old base backups along with their pinned WAL, so the bucket size stabilizes at roughly retention × daily-write-volume.
+pgBackRest's `expire` runs after each backup and reclaims old base backups along with their pinned WAL, so the bucket size stabilizes at roughly 4 weeks of write volume.
 
 Restore egress is free.
 
@@ -70,3 +74,4 @@ Restore egress is free.
 - The available restore window starts from the first post-enable base backup, not retroactively. If you enable PITR today, you can't restore to yesterday.
 - Restore creates a new sibling service. Cutting over to the restored database (renaming, swapping connection strings, decommissioning the original) is a manual step.
 - HA restore produces a single-node Postgres fork; convert to HA after restore if you want HA on the restored data.
+- Minor version pinning is not supported with PITR. Keep the image on a major tag (e.g. `postgres-ssl:16`, not `postgres-ssl:16.10`) so it keeps tracking Railway's Postgres rebuilds and pgBackRest fixes — the Backups tab shows a warning if a minor pin is detected.
