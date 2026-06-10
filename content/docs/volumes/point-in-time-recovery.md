@@ -63,7 +63,7 @@ For Postgres HA clusters, disabling rolls through the cluster the same way enabl
 PITR is billed through two existing meters — there's no separate PITR fee:
 
 - **Bucket storage**, at the standard [Railway storage bucket](/storage-buckets) rate, for the archived WAL and base backups the bucket holds.
-- **Network egress** from the Postgres service for the uploads: every WAL segment and base backup is sent from your service to the bucket, and uploads to a bucket count as service [network egress](/pricing/plans#resource-usage-pricing).
+- **Network egress** from the Postgres service for the uploads: every WAL segment and base backup is sent from your service to the bucket, and uploads to a bucket count as service [network egress](/pricing/plans#resource-usage-pricing). Everything is zstd-compressed before it's sent, so egress is billed on the compressed size, not the raw WAL volume.
 
 For most workloads, expect roughly:
 
