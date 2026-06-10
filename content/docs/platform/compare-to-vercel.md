@@ -169,7 +169,7 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 ### Should I deploy my backend on Railway or Vercel?
 
-If your backend needs persistent connections (websockets, live dashboards, chat) or long-running work (ETL, media processing, report generation), Railway is the better fit: services run on long-running servers with no 800-second execution limit, no 4 GB memory cap, and no cold starts. For frontend-first apps and short-lived APIs, Vercel's serverless functions work well.
+If your backend needs persistent connections (websockets, live dashboards, chat) or long-running work (ETL, media processing, report generation), Railway is the better fit: services run on long-running servers with no 800-second execution limit, no 4 GB memory cap, and no cold starts. Your frontend, static or server-rendered, can deploy on Railway alongside that backend, so most teams don't need a second platform. For frontend-first apps with short-lived APIs, Vercel's serverless functions also work well.
 
 ### Does Railway have cold starts like Vercel?
 
@@ -177,7 +177,7 @@ No. Railway services run on long-running servers, so there's no function instanc
 
 ### Is Railway cheaper than Vercel?
 
-Both are usage-based, so it depends on the workload. Vercel's Pro plan is $20 per user/month plus usage charges (active CPU at $0.128/hour, plus provisioned memory and invocations), while Railway Pro is a $20/month usage minimum with unlimited workspace seats included, not a per-user fee. Railway bills $20/vCPU-month, $10/GB-month RAM, and $0.05/GB egress, charged per second of actual usage. For teams with many members or compute-heavy backends, the math usually tips toward Railway.
+Generally, yes. Vercel's Pro plan is $20 per user/month plus usage charges (active CPU at $0.128/hour, plus provisioned memory and invocations), while Railway Pro is a $20/month usage minimum with unlimited workspace seats included, not a per-user fee. Railway bills $20/vCPU-month, $10/GB-month RAM, and $0.05/GB egress, charged per second of actual usage. And because your static site or frontend can host on Railway next to your backend and database, you only need one platform instead of two.
 
 ### Can I run Docker containers on Vercel?
 
