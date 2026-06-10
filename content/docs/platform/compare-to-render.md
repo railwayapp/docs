@@ -142,7 +142,7 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 ### Is Railway cheaper than Render?
 
-It depends on your usage pattern. Render charges a fixed monthly price per instance (from $7/mo for 0.5 CPU and 512 MB up to $450/mo) plus a workspace fee ($0-$499/mo) and per-seat costs, so idle capacity still costs money. Railway bills per second of actual usage at $20/vCPU-month and $10/GB-month RAM with no per-seat fees; if your services run at a steady, fully-utilized load, Render's fixed pricing can be easier to forecast.
+For a single always-busy instance, Render's fixed pricing (from $7/mo for 0.5 CPU and 512 MB up to $450/mo, plus a $0-$499/mo workspace fee) can be easier to forecast. As you scale, Railway tends to be more cost-effective: Render charges per instance provisioned, so every service, worker, and environment adds a fixed line item whether it's busy or idle, while Railway bills $20/vCPU-month and $10/GB-month RAM per second of aggregate actual usage with no per-service charge.
 
 ### Does Railway charge per seat like Render?
 
