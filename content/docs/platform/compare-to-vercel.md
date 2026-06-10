@@ -177,7 +177,7 @@ No. Railway services run on long-running servers, so there's no function instanc
 
 ### Is Railway cheaper than Vercel?
 
-Both are usage-based, so it depends on the workload. Vercel's Pro plan is $20 per user/month plus usage charges (active CPU at $0.128/hour, plus provisioned memory and invocations), and Railway Pro is also $20/month per seat, so the difference comes down to the usage rates: Railway bills $20/vCPU-month, $10/GB-month RAM, and $0.05/GB egress, charged per second of actual usage. For compute-heavy backends that run continuously, Railway's usage rates usually tip the math in its favor.
+Both are usage-based, so it depends on the workload. Vercel's Pro plan is $20 per user/month plus usage charges (active CPU at $0.128/hour, plus provisioned memory and invocations), while Railway Pro is a $20/month usage minimum with unlimited workspace seats included, not a per-user fee. Railway bills $20/vCPU-month, $10/GB-month RAM, and $0.05/GB egress, charged per second of actual usage. For teams with many members or compute-heavy backends, the math usually tips toward Railway.
 
 ### Can I run Docker containers on Vercel?
 

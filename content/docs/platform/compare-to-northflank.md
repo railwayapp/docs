@@ -46,7 +46,7 @@ Some line items to be aware of: logs and metrics are metered at $0.20/GB after t
 
 ### Railway
 
-Railway meters compute at $20 per vCPU-month and $10 per GB-month of RAM, billed per second of actual usage. Egress is $0.05/GB and volumes are $0.15/GB-month. Logs, metrics, backups, and observability are included. Hobby is $5/month with included usage; Pro is $20 per seat per month for teams.
+Railway meters compute at $20 per vCPU-month and $10 per GB-month of RAM, billed per second of actual usage. Egress is $0.05/GB and volumes are $0.15/GB-month. Logs, metrics, backups, and observability are included. Hobby is $5/month with included usage; Pro is a $20/month usage minimum with unlimited workspace seats included.
 
 Railway also has a [serverless](/deployments/serverless) feature: when a service has no outbound requests for over 10 minutes it can be put to sleep automatically and incurs no compute charges until the next request wakes it.
 
@@ -68,7 +68,7 @@ Railway covers the same databases as one-click templates backed by volumes, with
 | **Compute pricing**    | ≈$12.17/vCPU-month, ≈$6.08/GB-month RAM                               | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage          |
 | **Observability cost** | $0.20/GB for logs & metrics after 10 GB/month                         | Included                                                                     |
 | **Egress**             | $0.06/GB                                                              | $0.05/GB                                                                     |
-| **Free tier**          | 2 services, 1 database, 2 cron jobs                                   | One-time $5 credit trial, no credit card required                            |
+| **Free tier**          | 2 services, 1 database, 2 cron jobs                                   | 30-day free trial with $5 credit, then a free plan with monthly allowance     |
 | **GPUs**               | L4 to H100, hourly, including fractional                              | Not currently offered                                                        |
 | **BYOC**               | Self-serve on AWS/GCP/Azure/Oracle                                    | Enterprise plans                                                             |
 | **Databases**          | Managed addons: Postgres (HA), Redis, MongoDB, MySQL                  | One-click templates with backups and Postgres PITR, plus hundreds more       |

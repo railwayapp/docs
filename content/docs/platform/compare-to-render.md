@@ -133,7 +133,7 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 | **Vertical Scaling**     | Manual upgrade to larger instance sizes.                                                       | Scales to plan limits automatically                                                                                                        |
 | **Horizontal Scaling**   | Manually add/remove instances or autoscaling (based on CPU/memory thresholds); requires tuning | Manually add replicas, traffic is routed automatically across regions and replicas                                                         |
 | **Multi-region Support** | Not supported                                                                                  | Built-in support; traffic routed to nearest region                                                                                         |
-| **Pricing Model**        | Instances from $7/mo (0.5 CPU, 512 MB) to $450/mo, plus workspace fee ($0-$499/mo). Seat-based pricing | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage, plus $20/month per seat on the Pro plan |
+| **Pricing Model**        | Instances from $7/mo (0.5 CPU, 512 MB) to $450/mo, plus workspace fee ($0-$499/mo). Seat-based pricing | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage; unlimited workspace seats included on Pro |
 | **Cost Optimization**    | Requires tuning to avoid over/under-provisioning                                               | Inherently optimized. Pay only for used compute                                                                                            |
 | **Infrastructure**       | Runs on AWS and GCP; feature access and resources cost more                                    | Railway-owned global infrastructure, lower unit costs and features aren't gated                                                            |
 | **Dashboard UX**         | Traditional dashboard to view project resources                                                | Real-time collaborative canvas with visual infra relationships. Template directory for 1-click deployments                                 |
@@ -142,11 +142,11 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 ### Is Railway cheaper than Render?
 
-It depends on your usage pattern. Render charges a fixed monthly price per instance (from $7/mo for 0.5 CPU and 512 MB up to $450/mo) plus a workspace fee ($0-$499/mo) and per-seat costs, so idle capacity still costs money. Railway bills per second of actual usage at $20/vCPU-month and $10/GB-month RAM, plus $20/month per seat on the Pro plan; if your services run at a steady, fully-utilized load, Render's fixed pricing can be easier to forecast.
+It depends on your usage pattern. Render charges a fixed monthly price per instance (from $7/mo for 0.5 CPU and 512 MB up to $450/mo) plus a workspace fee ($0-$499/mo) and per-seat costs, so idle capacity still costs money. Railway bills per second of actual usage at $20/vCPU-month and $10/GB-month RAM with no per-seat fees; if your services run at a steady, fully-utilized load, Render's fixed pricing can be easier to forecast.
 
 ### Does Railway charge per seat like Render?
 
-Yes. Railway Pro is $20/month per seat, and Render also charges a fixed monthly fee for each team member you invite. The difference is in the usage side: Railway bills compute per second of actual usage at $20/vCPU-month and $10/GB-month RAM, so beyond seats you only pay for what your services consume.
+No. Railway Pro is a $20/month usage minimum with unlimited workspace seats included, so adding team members costs nothing. Railway bills compute per second of actual usage at $20/vCPU-month and $10/GB-month RAM, so you only pay for what your services consume.
 
 ### Does Railway support multi-region deployments?
 
