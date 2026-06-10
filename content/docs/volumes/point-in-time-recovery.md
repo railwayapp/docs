@@ -60,14 +60,19 @@ For Postgres HA clusters, disabling rolls through the cluster the same way enabl
 
 ## Cost
 
-PITR storage costs are billed at the standard [Railway storage bucket](/storage-buckets) rate. For most workloads, expect roughly:
+PITR is billed through two existing meters — there's no separate PITR fee:
 
-- A few GB of compressed WAL per day under steady write load (zstd-compressed; idle databases are nearly free).
+- **Bucket storage**, at the standard [Railway storage bucket](/storage-buckets) rate, for the archived WAL and base backups the bucket holds.
+- **Network egress** from the Postgres service for the uploads: every WAL segment and base backup is sent from your service to the bucket, and uploads to a bucket count as service [network egress](/pricing/plans#resource-usage-pricing).
+
+For most workloads, expect roughly:
+
+- A few GB of compressed WAL per day under steady write load (zstd-compressed; idle databases are nearly free). Each segment is billed once as egress when pushed, then as storage while retained.
 - One base backup per cycle (weekly full, daily incremental), compressed and de-duplicated by pgBackRest.
 
 pgBackRest's `expire` runs after each backup and reclaims old base backups along with their pinned WAL, so the bucket size stabilizes at roughly 4 weeks of write volume.
 
-Restore egress is free.
+Restore traffic is free: the restored service downloads from the bucket, and bucket egress isn't charged.
 
 ## Limitations
 
