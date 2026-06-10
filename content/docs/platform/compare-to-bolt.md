@@ -1,7 +1,11 @@
 ---
-title: Railway vs. Bolt
-description: Compare Railway and Bolt on what they do, infrastructure control, and production readiness.
+title: "Railway vs Bolt.new: Technical Comparison and Migration Guide"
+description: Compare Railway and Bolt on what they do, infrastructure control, and production readiness, with a step-by-step migration guide.
 ---
+
+_Last updated: June 2026_
+
+> See how Railway compares to other platforms at [railway.com/compare](https://railway.com/compare).
 
 Bolt (bolt.new) is an AI-powered development tool that generates full-stack web applications from prompts. Railway is an intelligent cloud provider that deploys and hosts your code. While they serve different purposes, there is some overlap:
 
@@ -91,7 +95,7 @@ There are no prompt limits or generation caps. You pay only for the infrastructu
 | **Zero-downtime deploys**  | Not available                                                         | Supported when health checks are configured                                                      |
 | **Rollbacks**              | Not available                                                         | Instant rollback to any previous deployment                                                      |
 | **Observability**          | Limited                                                               | Integrated metrics and logs                                                                      |
-| **Pricing model**          | Subscription-based with prompt limits                                 | Usage-based, pay for compute time and resources consumed                                         |
+| **Pricing model**          | Token-based subscription plans with prompt limits                     | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage                              |
 | **Best for**               | Rapid prototyping and generating application code quickly             | Production hosting with full infrastructure control                                              |
 
 ## When to use each
@@ -99,6 +103,24 @@ There are no prompt limits or generation caps. You pay only for the infrastructu
 - **Use Bolt** when you want AI to generate code quickly for prototyping or getting a project started.
 - **Use Railway** when you need production hosting with full infrastructure control, managed databases, and multi-service architecture.
 - **Use both together**: generate your application with Bolt, export the code to GitHub, and deploy it on Railway for production.
+
+## Frequently asked questions
+
+### Can Bolt.new apps run in production?
+
+Bolt's built-in hosting is designed for getting a generated app online quickly, not for production traffic. It offers limited observability and no health checks, zero-downtime deployments, or rollbacks. For apps that need those guarantees, the usual path is to export the code to GitHub and host it on a platform like Railway.
+
+### How do I deploy a Bolt.new app to Railway?
+
+Export your generated code from Bolt to GitHub (or download it as a zip and push it yourself), then connect that repo to a new Railway project. You can sign up for free and receive $5 in credits, and the [step-by-step migration guide](/platform/migrate-from-bolt) covers the details.
+
+### Does Bolt.new include a database?
+
+No, Bolt has no managed databases, so applications that need one typically rely on an external service. Railway includes managed PostgreSQL, MySQL, Redis, and MongoDB with backups, connected to your services over private networking.
+
+### When is Bolt.new the better choice?
+
+When you want AI to generate a full-stack application from a prompt and get a prototype running quickly, Bolt is built exactly for that. The two tools work well together: generate with Bolt, then deploy on Railway when the project needs production infrastructure.
 
 ## Migrate from Bolt to Railway
 

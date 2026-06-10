@@ -1,7 +1,11 @@
 ---
-title: Railway vs. Fly
-description: Compare Railway and Fly.io on deployment model, scaling, pricing and developer workflow.
+title: "Railway vs Fly.io: Technical Comparison and Migration Guide"
+description: Compare Railway and Fly.io on deployment model, scaling, pricing and developer workflow, with a step-by-step migration guide.
 ---
+
+_Last updated: June 2026_
+
+> Looking for a pricing-focused comparison? See [railway.com/compare/fly](https://railway.com/compare/fly).
 
 At a high level, both Railway and Fly.io can be used to deploy your app. Both platforms share several similarities:
 
@@ -160,12 +164,30 @@ Finally, Railway supports creating webhooks which allow external services to lis
 | Category                 | Railway                                                                            | Fly.io                                                                                                                                       |
 | ------------------------ | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | Scaling                  | Auto-scaling included (no manual config); supports horizontal scaling via replicas | Manual vertical/horizontal scaling or horizontal autoscaling (via `fly-autoscaler`); two autoscaling options (autostop/start, metrics-based) |
-| Compute Pricing          | Usage-based where you’re only billed for active compute time                       | Based on machine uptime (started = full price); unused time still billed unless stopped                                                      |
+| Compute Pricing          | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage                | Machines billed per second while started; performance-1x 2 GB ≈ $32/mo provisioned. Unused uptime still billed unless stopped               |
 | CI/CD Integration        | Built-in GitHub integration with preview environments and instant rollbacks        | No built-in CI/CD; requires third-party tools like GitHub Actions                                                                            |
 | Environments Support     | First-class support for multiple environments (dev, staging, prod, etc.)           | Requires creating separate orgs per environment                                                                                              |
 | Monitoring & Metrics     | Built-in observability dashboard (metrics, logs, data all in one place)            | Prometheus-based metrics + optional Grafana (`fly-metrics.net`) for deep dives                                                               |
 | Webhooks & Extensibility | Webhook support for integrations                                                   | No support for outbound webhooks                                                                                                             |
 | Developer Experience     | Dashboard-first, supports real-time team collaboration, CLI available              | CLI-first (`flyctl`) for all management tasks                                                                                                |
+
+## Frequently asked questions
+
+### Is Railway cheaper than Fly.io?
+
+For workloads that aren't busy around the clock, usually yes. Fly Machines are billed per second for the entire time they're started, even at zero traffic (a performance-1x Machine with 2 GB runs about $32/mo provisioned), while Railway bills $20/vCPU-month and $10/GB-month RAM per second of actual usage, and the serverless feature sleeps idle services so they incur no compute charges. If you keep Machines stopped aggressively or reserve compute blocks upfront, Fly's pricing can also be economical.
+
+### Does Railway have built-in CI/CD like Fly.io?
+
+Railway includes CI/CD out of the box: GitHub integration, isolated preview environments for every pull request, and instant rollbacks. Fly doesn't ship built-in CI/CD, so you'd wire up third-party tools like GitHub Actions to get the same workflow.
+
+### When is Fly.io a better fit than Railway?
+
+If you want a CLI-first workflow with fine-grained control over individual VMs, `flyctl` gives you direct management of Machines, volumes, and networking. Fly's Prometheus-based metrics with managed Grafana also suit teams that want to deep-dive with MetricsQL. Both platforms support multi-region deployments on their own hardware.
+
+### Do both Railway and Fly.io bill per second?
+
+Yes, but they meter different things. Fly charges for the full duration a Machine is in a started state regardless of utilization, while Railway charges for active compute time and resource size, and sleeping services cost nothing. That difference matters most for services that sit idle between bursts of traffic.
 
 ## Migrate from Fly.io to Railway
 

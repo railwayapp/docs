@@ -1,7 +1,11 @@
 ---
-title: Railway vs. DigitalOcean App Platform
-description: Compare Railway and DigitalOcean App Platform on infrastructure, pricing model and deployment experience.
+title: "Railway vs DigitalOcean: Technical Comparison and Migration Guide"
+description: Compare Railway and DigitalOcean App Platform on infrastructure, pricing model and deployment experience, with a step-by-step migration guide.
 ---
+
+_Last updated: June 2026_
+
+> See how Railway compares to other platforms at [railway.com/compare](https://railway.com/compare).
 
 At a high level, both Railway and DigitalOcean App Platform can be used to deploy your app. Both platforms share many similarities:
 
@@ -131,11 +135,29 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 | **Horizontal Scaling**    | Manually add/remove instances or autoscaling (based on CPU/memory thresholds); requires tuning                                        | Deploy multiple replicas; traffic auto-distributed; no thresholds required |
 | **Multi-region Support**  | Manual via separate instances and load balancers                                                                                      | Built-in support; traffic routed to nearest region                         |
 | **Persistent volumes**    | Not supported                                                                                                                         | Supported                                                                  |
-| **Pricing Model**         | Fixed monthly pricing per instance size                                                                                               | Usage-based: active compute time × memory/CPU used                         |
+| **Pricing Model**         | Fixed monthly pricing per instance size; Droplets from $4/mo, App Platform from $5/mo per component                                   | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage        |
 | **Cost Optimization**     | Requires tuning to avoid over/under-provisioning                                                                                      | Inherently optimized. Pay only for used compute                            |
 | **Developer Dashboard**   | Traditional project dashboard                                                                                                         | Real-time collaborative canvas with visual service layout                  |
 | **Environments & CI/CD**  | No native concept of environments, requires manual project setup. Automated preview deployments not supported. Webhooks not supported | Native support for preview environments, CI/CD integrations, and webhooks  |
 | **Templates & Ecosystem** | Limited                                                                                                                               | Extensive template directory; creators can earn from deployed usage        |
+
+## Frequently asked questions
+
+### Is Railway cheaper than DigitalOcean App Platform?
+
+For a single small, fully-utilized instance, DigitalOcean's fixed pricing (App Platform components from $5/mo, Droplets from $4/mo) can be cheaper and easier to forecast. As you scale, Railway tends to be more cost-effective: DigitalOcean charges per component provisioned, so every service, worker, and environment adds a fixed line item whether it's busy or idle, while Railway bills $20/vCPU-month and $10/GB-month RAM per second of aggregate actual usage with no per-service charge. A ten-service project on Railway costs what those services actually consume, not ten instance fees.
+
+### Does DigitalOcean App Platform support persistent storage?
+
+No. Services on App Platform have an ephemeral filesystem, so data written locally is lost on redeploy and you need external storage solutions for durability. Railway supports persistent volumes ($0.15/GB-month) for services that need to keep data on disk.
+
+### Can I get preview environments on DigitalOcean App Platform?
+
+Not natively. App Platform has no concept of environments and no automatic preview environments per pull request, so you'd set up separate projects and third-party CI/CD tools like GitHub Actions. Railway includes environments and isolated preview environments for every pull request out of the box.
+
+### How do I migrate from DigitalOcean App Platform to Railway?
+
+Both platforms deploy from a GitHub repo or Docker image, so migration is mostly connecting your repo, copying environment variables, and configuring a domain; the steps below walk through it. You can sign up for free and receive $5 in credits to try the platform first.
 
 ## Migrate from DigitalOcean app platform to Railway
 

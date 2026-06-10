@@ -1,7 +1,11 @@
 ---
-title: Railway vs. Vercel
-description: Compare Railway and Vercel on infrastructure, pricing model and deployment experience.
+title: "Railway vs Vercel: Technical Comparison and Migration Guide"
+description: Compare Railway and Vercel on infrastructure, pricing model and deployment experience, with a step-by-step migration guide.
 ---
+
+_Last updated: June 2026_
+
+> Looking for a pricing-focused comparison? See [railway.com/compare/vercel](https://railway.com/compare/vercel).
 
 At a high level, both Railway and Vercel enable you to deploy your app without the hassle of managing infrastructure. Both platforms share several similarities:
 
@@ -157,9 +161,27 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 | Execution Time Limit   | Unlimited (as long as the process runs)                             | 800 seconds (13.3 minutes)                             |
 | Databases              | Built-in one-click deployments for major databases                  | Integrated via marketplace (external providers)        |
 | Project Structure      | Unified project: multiple services + databases in one               | One service per project                                |
-| Usage-Based Billing    | Based on compute time and size per replica                          | Based on CPU time, memory provisioned, and invocations |
+| Usage-Based Billing    | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage | $20 per user/month plus usage; active CPU $0.128/hour, plus provisioned memory and invocations |
 | Ideal For              | Fullstack apps, real-time apps, backend servers, long-running tasks | Frontend-first apps, short-lived APIs                  |
 | Support for Docker     | ✅ Yes                                                              | ❌ No (function-based only)                            |
+
+## Frequently asked questions
+
+### Should I deploy my backend on Railway or Vercel?
+
+If your backend needs persistent connections (websockets, live dashboards, chat) or long-running work (ETL, media processing, report generation), Railway is the better fit: services run on long-running servers with no 800-second execution limit, no 4 GB memory cap, and no cold starts. Your frontend, static or server-rendered, can deploy on Railway alongside that backend, so most teams don't need a second platform. For frontend-first apps with short-lived APIs, Vercel's serverless functions also work well.
+
+### Does Railway have cold starts like Vercel?
+
+No. Railway services run on long-running servers, so there's no function instance to spin up per request. Vercel includes optimizations like bytecode caching that reduce cold start frequency, but they can't be completely eliminated.
+
+### Is Railway cheaper than Vercel?
+
+Generally, yes. Vercel's Pro plan is $20 per user/month plus usage charges (active CPU at $0.128/hour, plus provisioned memory and invocations), while Railway Pro is a $20/month usage minimum with unlimited workspace seats included, not a per-user fee. Railway bills $20/vCPU-month, $10/GB-month RAM, and $0.05/GB egress, charged per second of actual usage. And because your static site or frontend can host on Railway next to your backend and database, you only need one platform instead of two.
+
+### Can I run Docker containers on Vercel?
+
+No, Vercel is function-based only; your code is parsed at build time and deployed as serverless functions. Railway can deploy directly from a Docker image or Dockerfile, in addition to building from source.
 
 ## Migrate from Vercel to Railway
 

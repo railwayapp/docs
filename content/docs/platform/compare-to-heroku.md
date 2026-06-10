@@ -1,7 +1,11 @@
 ---
-title: Railway vs. Heroku
-description: Compare Railway and Heroku on infrastructure, pricing model and deployment experience.
+title: "Railway vs Heroku: Technical Comparison and Migration Guide"
+description: Compare Railway and Heroku on infrastructure, pricing model and deployment experience, with a step-by-step migration guide.
 ---
+
+_Last updated: June 2026_
+
+> Looking for a pricing-focused comparison? See [railway.com/compare/heroku](https://railway.com/compare/heroku).
 
 At a high level, both Railway and Heroku can be used to deploy your app. Both platforms share many similarities:
 
@@ -132,12 +136,30 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 | **Multi-region Support**    | Not natively supported; must set up separate apps + external load balancer                       | Built-in; auto-routes traffic to nearest region and balances load across replicas                                |
 | **Persistent Storage**      | Not supported; ephemeral file system only                                                        | Persistent volumes are supported                                                                                 |
 | **Private Networking**      | Available with paid Enterprise add-on                                                            | Included at no extra cost                                                                                        |
-| **Pricing Model**           | Fixed monthly pricing per instance size. Manual tuning required to avoid under/over-provisioning | Usage-based: Charged by active compute time × resource size (CPU & RAM). Inherently optimized by dynamic scaling |
+| **Pricing Model**           | Dynos from $5/mo Eco (sleeps) to $1,500/mo; Standard-1X $25/mo for 0.5 GB. Manual tuning required to avoid under/over-provisioning | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage. Inherently optimized by dynamic scaling |
 | **Infrastructure Provider** | AWS-based; higher base costs                                                                     | Railway-owned global infrastructure; lower costs and no feature gating                                           |
 | **Dashboard UX**            | Traditional app-based dashboard; each app is independent                                         | Visual, collaborative canvas view for full projects with interlinked services                                    |
 | **Project Structure**       | No concept of grouped services/projects                                                          | Groups all infra components visually under a unified project view                                                |
 | **Environment Variables**   | Isolated per app                                                                                 | Isolated per app but can be shared across services within a project                                              |
 | **Wildcard Domains**        | Not supported; manual configuration needed per subdomain                                         | Fully supported; configure at the project level                                                                  |
+
+## Frequently asked questions
+
+### Is Railway cheaper than Heroku?
+
+For most workloads, yes. Heroku charges a fixed monthly price per dyno per app (from $5/mo for Eco dynos that sleep, with Standard-1X at $25/mo for 0.5 GB), so you pay the same whether the dyno is busy or idle, and every app, worker, and staging environment adds its own dyno fees. Railway bills per second of aggregate actual usage at $20/vCPU-month and $10/GB-month RAM with no per-service charge, so multi-service projects don't multiply fixed costs as you scale; if you prefer a fixed, predictable monthly bill, Heroku's instance pricing is simpler to forecast.
+
+### What is the Railway equivalent of a Heroku dyno?
+
+A Railway service. The difference is that you don't pick an instance size: each service automatically scales up to your plan's CPU and memory limits, and you can add replicas for horizontal scaling. You're charged for the active compute time each service and replica actually uses.
+
+### Does Railway have an ephemeral filesystem like Heroku?
+
+No. Heroku's filesystem is ephemeral, so any data written locally is lost on redeploy and requires external storage solutions. Railway supports persistent volumes ($0.15/GB-month), so databases and apps that write to disk can keep their data across deployments.
+
+### How hard is it to migrate from Heroku to Railway?
+
+If your app deploys from a GitHub repo or Docker image, the migration is mostly connecting the repo, copying your environment variables, and configuring a domain; the steps below walk through it. You can sign up for free and receive $5 in credits to try the platform before committing.
 
 ## Migrate from Heroku to Railway
 

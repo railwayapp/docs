@@ -1,7 +1,11 @@
 ---
-title: Railway vs. Lovable
-description: Compare Railway and Lovable on what they do, infrastructure control, and production readiness.
+title: "Railway vs Lovable: Technical Comparison and Migration Guide"
+description: Compare Railway and Lovable on what they do, infrastructure control, and production readiness, with a step-by-step migration guide.
 ---
+
+_Last updated: June 2026_
+
+> See how Railway compares to other platforms at [railway.com/compare](https://railway.com/compare).
 
 Lovable is an AI-powered development platform that generates full-stack web apps from natural language prompts. Railway is an intelligent cloud provider that deploys and hosts your code. They serve very different purposes but overlap in hosting.
 
@@ -95,8 +99,26 @@ Railway uses usage-based pricing. You pay for compute time and the resources you
 | **Rollbacks**               | No                                                                 | Yes                                                                                              |
 | **Health checks**           | No                                                                 | Yes                                                                                              |
 | **Custom domains with TLS** | Limited                                                            | Fully managed, including wildcard domains                                                        |
-| **Pricing model**           | Subscription-based (per plan)                                      | Usage-based (pay for compute time and resources consumed)                                        |
+| **Pricing model**           | Subscription plans with monthly credits                            | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage                              |
 | **Best for**                | Generating and prototyping apps quickly with AI                    | Production hosting with full infrastructure control                                              |
+
+## Frequently asked questions
+
+### Can I host a Lovable app on Railway?
+
+Yes. Lovable can push your generated code to GitHub, and Railway deploys directly from that repo with production hosting: managed databases, private networking, health checks, and rollbacks. See [Deploy a Lovable App on Railway](/guides/lovable) for the workflow.
+
+### Is Lovable a hosting platform?
+
+Hosting is bundled into Lovable, but it's a development tool first; the core value is AI code generation. Its hosting has minimal configuration options, limited observability, and no health checks, zero-downtime deployments, or rollbacks, so apps that need production infrastructure usually move their hosting elsewhere.
+
+### Does Railway generate code like Lovable?
+
+No. Railway deploys and hosts code that already exists, whether from a GitHub repo, the CLI, or a Docker image. The two complement each other: Lovable generates the code, Railway runs it in production.
+
+### When should I keep using Lovable?
+
+When you want AI to generate and iterate on application code quickly, Lovable is the right tool; that's what it's built for. The common pattern is to keep Lovable for code generation while pushing to GitHub and hosting on Railway, so you don't have to choose one or the other.
 
 ## Migrate from Lovable to Railway
 

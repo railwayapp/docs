@@ -1,7 +1,11 @@
 ---
-title: Railway vs. VPS Hosting
-description: Compare Railway and VPS hosting on infrastructure management, security, monitoring, pricing, and operational overhead for modern applications.
+title: "Railway vs a VPS: Technical Comparison and Migration Guide"
+description: Compare Railway and VPS hosting on infrastructure management, security, monitoring, pricing, and operational overhead, with a step-by-step migration guide.
 ---
+
+_Last updated: June 2026_
+
+> See how Railway compares to other platforms at [railway.com/compare](https://railway.com/compare).
 
 At a high level, both Railway and a VPS (Virtual Private Server) can be used to deploy applications. The fundamental difference lies in the level of abstraction and operational overhead you're willing to manage.
 
@@ -18,7 +22,7 @@ Railway provides a fully managed platform that abstracts away infrastructure com
 | **Security & Compliance**  | Manual hardening, audits, SOC 2/ISO require major effort                          | SOC 2 Type II, GDPR, MFA, automatic patches, DDoS protection         |
 | **Monitoring & Logging**   | Must integrate Prometheus/Grafana/ELK manually                                    | Built-in observability, logs, metrics, dashboards, alerting          |
 | **Scaling & Distribution** | Manual vertical/horizontal scaling, DNS/load balancer setup, complex multi-region | Auto vertical/horizontal scaling, multi-region deploy with one click |
-| **Pricing Model**          | Fixed monthly instance cost regardless of usage                                   | Usage-based, serverless sleeping, pay only for active compute        |
+| **Pricing Model**          | Fixed monthly price per server (e.g. $5-$50/mo) plus your operations time         | $20/vCPU-month, $10/GB-month RAM, billed per second of actual usage; serverless sleeping |
 | **Workflow & Deployment**  | Manual CI/CD setup, manual rollbacks, secrets management                          | GitHub integration, preview envs, instant rollback, managed secrets  |
 
 
@@ -330,6 +334,24 @@ To get started, [create an account on Railway](https://railway.com/new). You can
    4. You can either:
       1. Generate a Railway service domain: this will make your app available under a `.up.railway.app` domain.
       2. Add a custom domain: follow the DNS configuration steps.
+
+## Frequently asked questions
+
+### Do I still need a VPS if I use Railway?
+
+For most applications, no. Railway gives you a dedicated environment with deploys, scaling, SSL, monitoring, and backups managed for you, so the work you'd do by hand on a VPS is built in. A VPS still makes sense when you need full control over the operating system and software stack, and you have the DevOps expertise to maintain it.
+
+### Is Railway more expensive than a VPS?
+
+The raw server is often cheaper on a VPS (fixed prices in the $5-$50/mo range), but that price doesn't include the monitoring, backup, and scaling tooling you have to add, or the hours spent on patches, hardening, and outages. Railway bills $20/vCPU-month and $10/GB-month RAM per second of actual usage, plans start at $5/month, and the serverless feature sleeps idle services so they cost nothing while inactive. For workloads that don't run hot 24/7, the usage-based model frequently comes out ahead once operations time is counted.
+
+### Can I get SOC 2 compliance on a VPS?
+
+You can, but it requires significant additional work: access controls, audit logging, incident response plans, penetration testing, and evidence collection are all your responsibility, which typically demands dedicated expertise. Railway is SOC 2 Type II certified and GDPR compliant out of the box, with automatic patching and DDoS protection included.
+
+### When does a VPS make more sense than Railway?
+
+When you need full control over the OS, kernel, and software stack, or your team already has the infrastructure expertise and wants to manage everything directly. The trade-off is that server setup, security hardening, scaling, and monitoring all become your ongoing responsibility.
 
 ## Need help or have questions?
 
