@@ -145,7 +145,7 @@ Check out all templates at [railway.com/deploy](http://railway.com/deploy)
 
 ### Is Railway cheaper than DigitalOcean App Platform?
 
-It depends on utilization. DigitalOcean charges a fixed monthly price per instance (App Platform components start at $5/mo, Droplets at $4/mo), so you pay the same whether the instance is busy or idle. Railway bills $20/vCPU-month and $10/GB-month RAM per second of actual usage; if your service runs at a steady, fully-utilized load, DigitalOcean's fixed pricing can be cheaper and easier to forecast.
+For a single small, fully-utilized instance, DigitalOcean's fixed pricing (App Platform components from $5/mo, Droplets from $4/mo) can be cheaper and easier to forecast. As you scale, Railway tends to be more cost-effective: DigitalOcean charges per component provisioned, so every service, worker, and environment adds a fixed line item whether it's busy or idle, while Railway bills $20/vCPU-month and $10/GB-month RAM per second of aggregate actual usage with no per-service charge. A ten-service project on Railway costs what those services actually consume, not ten instance fees.
 
 ### Does DigitalOcean App Platform support persistent storage?
 
