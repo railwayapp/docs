@@ -7,7 +7,7 @@ Railway's CDN serves your service's responses from the edge location nearest eac
 
 CDN caching is available on all plans at no additional cost. It's off by default and enabled per service.
 
-**Note:** The CDN is a caching layer. It doesn't include a web application firewall (WAF) or firewall functionality.
+**Note:** CDN caching speeds up your site; it isn't a firewall and won't stop an attack on its own. If you're being hit by a DDoS or bot flood, see [Under Attack Mode](/networking/waf).
 
 ## Enable CDN caching
 
@@ -213,6 +213,7 @@ Purges apply across all edge locations. They aren't instant: each location picks
 
 ## Related documentation
 
+- [WAF](/networking/waf) - Defend your service from DDoS attacks and bot floods with Under Attack Mode
 - [Edge networking](/networking/edge-networking) - How Railway routes requests to the nearest edge location
 - [Public networking](/networking/public-networking) - Expose your services to the internet
 - [Domains](/networking/domains) - Configure Railway-provided and custom domains
