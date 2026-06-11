@@ -157,7 +157,7 @@ It is highly recommended that [you eject from the template after deployment](/te
 1. **Install the Railway CLI**:
    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-   - Run the command below in your Vue app directory.
+   - Run the command below in your Astro app directory.
      ```bash
      railway init
      ```
