@@ -7,7 +7,7 @@ Railway's CDN serves your service's responses from the edge location nearest eac
 
 CDN caching is available on all plans at no additional cost. It's off by default and enabled per service.
 
-**Note:** CDN caching speeds up your site; it isn't a firewall and won't stop an attack on its own. If you're being hit by a DDoS or bot flood, see [Under Attack Mode](#under-attack-mode).
+**Note:** CDN caching speeds up your site; it isn't a firewall and won't stop an attack on its own. If you're being hit by a DDoS or bot flood, see [Under Attack Mode](/networking/waf).
 
 ## Enable CDN caching
 
@@ -211,49 +211,9 @@ The **Purge Cache on Deploy** setting clears cached content after each successfu
 
 Purges apply across all edge locations. They aren't instant: each location picks up a purge within a few seconds, typically around 10 seconds, and locations update independently rather than all at once. After a purge, the next request for an affected URL revalidates against your service.
 
-## Under Attack Mode
-
-Under Attack Mode defends a service that's under a DDoS or a flood of bot traffic. While it's on, Railway shows each new visitor a browser check before any request reaches your service. Legitimate visitors pass it once and continue normally; the attack traffic is stopped before it reaches you.
-
-It's built for active incidents rather than always-on protection: every new visitor must pass the check, and non-browser traffic is turned away (see [What it blocks](#what-it-blocks)).
-
-### Enable Under Attack Mode
-
-1. Open the service you want to protect and go to its **Settings**.
-2. In the **Edge** section, find **Under Attack Mode**.
-3. Pick how long it should stay on, then click **Activate**.
-
-It takes effect across Railway's global network within ~20 seconds, and works independently of [CDN caching](#enable-cdn-caching).
-
-Set it to run until you turn it off, or to expire on its own after 1, 3, 12, or 24 hours. While it's on, the **Edge** section shows that it's active, with the time remaining. Click **Deactivate** to turn it off early; visitors who already passed the check aren't affected.
-
-### What it blocks
-
-While Under Attack Mode is on, a CAPTCHA-style browser check guards your service:
-
-- **Web browsers** pass it once, then browse normally.
-- **Non-browser traffic** is blocked, including the bots and scripts driving the attack.
-
-### Protecting a site and its API
-
-To protect a site and the API it calls, enable Under Attack Mode on the site first, then on the API.
-
-Clearance from the browser check is scoped to your whole domain. Once a visitor passes the check on your site, the edge admits that browser across the rest of your domain, so requests to `api.example.com` also pass without a second check.
-
-| Site | API | Clearance shared? |
-| ---- | --- | ----------------- |
-| `example.com` | `api.example.com` | Yes |
-| `web.example.com` | `api.example.com` | Yes |
-| `example.com` | `api.acme.com` | No, different root domains |
-| `app.up.railway.app` | `api.up.railway.app` | No, Railway domains are isolated |
-
-Two other details apply to this setup:
-
-- The check is only shown to browser navigations (a `GET` request whose `Accept` header includes `text/html`). API calls and other non-navigation requests are turned away instead, so protecting a domain that serves only an API blocks all of its traffic.
-- Under Attack Mode is set per service, like the caching settings above.
-
 ## Related documentation
 
+- [WAF](/networking/waf) - Defend your service from DDoS attacks and bot floods with Under Attack Mode
 - [Edge networking](/networking/edge-networking) - How Railway routes requests to the nearest edge location
 - [Public networking](/networking/public-networking) - Expose your services to the internet
 - [Domains](/networking/domains) - Configure Railway-provided and custom domains
