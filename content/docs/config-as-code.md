@@ -29,7 +29,7 @@ preDeployCommand = ["npm run db:migrate"]
 startCommand = "echo starting!"
 healthcheckPath = "/"
 healthcheckTimeout = 100
-restartPolicyType = "never"`}
+restartPolicyType = "NEVER"`}
   </CodeTab>
   <CodeTab label="railway.json" lang="json">
 {`{
