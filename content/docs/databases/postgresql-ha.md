@@ -28,7 +28,7 @@ Click the button to stage the image tag change, then deploy the service. Once th
 
 ## Step 2 — Configure and Convert
 
-Open your Postgres service and navigate to **Settings → High Availability**. You will see options to configure the cluster size before converting:
+Open your Postgres service, navigate to Database, then Config. You will see options to configure the cluster size before converting:
 
 | Setting | Default | Description |
 |---|---|---|
