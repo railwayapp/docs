@@ -198,6 +198,39 @@ await fork.exec("npm test"); // sees the installed dependencies, isolated from b
 
 `Sandbox.create(source)` is equivalent to `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment. Pass `idleTimeoutMinutes` or `networkIsolation` to set them on the fork, which doesn't inherit them from the source.
 
+### Checkpoints
+
+A checkpoint is a named snapshot of a sandbox's disk, stored server-side in the environment. Capture one from a running sandbox after expensive setup, then boot new sandboxes from it by name, from any process with access to the environment.
+
+```ts
+const sandbox = await Sandbox.create();
+await sandbox.exec("npm install");
+
+await sandbox.checkpoint("after-deps");
+await sandbox.destroy();
+
+// Later, from any process with access to the environment:
+const fresh = await Sandbox.create("after-deps");
+await fresh.exec("npm test"); // sees the installed dependencies
+```
+
+`checkpoint(name)` requires a running sandbox, which keeps running during the capture. The call resolves once the checkpoint is bootable, so a sandbox with a lot of changed disk takes longer to capture. Reusing a name replaces that checkpoint with the new capture.
+
+Like a [fork](#forking), a sandbox created from a checkpoint boots fresh from a copy of the disk: files are preserved, running processes are not. Unlike a fork, the source sandbox doesn't need to exist anymore. Use a checkpoint for a base you reuse across sessions, and a fork to branch a live sandbox.
+
+Manage the environment's checkpoints with static methods:
+
+```ts
+const checkpoints = await Sandbox.checkpoints(); // newest first
+
+await Sandbox.renameCheckpoint("after-deps", "node-base");
+await Sandbox.deleteCheckpoint("node-base");
+```
+
+Each entry's `key` field holds the checkpoint name, and `renameCheckpoint` and `deleteCheckpoint` take that name. Deleting a checkpoint also deletes its underlying disk snapshot.
+
+The number of checkpoints an environment can hold matches its plan's sandbox limit, listed in [Sandbox limits](#sandbox-limits-per-environment). Checkpoints are counted separately from running sandboxes, and replacing a checkpoint by reusing its name doesn't increase the count.
+
 ### Configuration
 
 `token` and `environmentId` each resolve in order: an explicit option in the configuration object, then an environment variable.
@@ -225,7 +258,7 @@ For complete, runnable code, see the <a href="https://github.com/railwayapp/rail
 
 ## CLI
 
-The Railway CLI can create, fork, connect to, run commands in, forward ports into, and destroy sandboxes, build templates, and seed variables at create time. See [railway sandbox](/cli/sandbox) for all subcommands and options.
+The Railway CLI can create, fork, connect to, run commands in, forward ports into, and destroy sandboxes, build templates, capture and boot from checkpoints, and seed variables at create time. See [railway sandbox](/cli/sandbox) for all subcommands and options.
 
 ## Sandbox limits per environment
 
