@@ -3,7 +3,7 @@ title: railway sandbox
 description: Manage ephemeral sandboxes.
 ---
 
-Create, connect to, run commands in, and destroy ephemeral [sandboxes](/sandboxes) in a Railway environment.
+Create, connect to, run commands in, forward ports into, and destroy ephemeral [sandboxes](/sandboxes) in a Railway environment.
 
 <Banner variant="info">The `sandbox` command requires sandboxes to be enabled for your account through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. It's under active development, and its commands and flags may change in breaking ways.</Banner>
 
@@ -27,7 +27,7 @@ railway sandbox <COMMAND> [OPTIONS]
 | `template` | | Build and manage sandbox templates |
 | `list` | `ls` | List sandboxes in the environment |
 | `ssh` | `connect` | Connect to a sandbox over SSH |
-| `exec` | | Run a single command inside a sandbox |
+| `exec` | | Run a command inside a sandbox, with live streaming output |
 | `forward` | `port-forward`, `fwd` | Forward local ports into a sandbox |
 | `destroy` | `rm`, `delete` | Destroy a sandbox |
 
@@ -97,10 +97,16 @@ railway sandbox ssh --id sbx_abc123
 railway sandbox ssh -- ls -la
 ```
 
-### Run a single command
+### Run a command
 
 ```bash
 railway sandbox exec -- npm run build
+```
+
+`exec` streams the command's output live and exits with the command's exit code. Piped stdin is forwarded, so input redirection works too.
+
+```bash
+cat seed.sql | railway sandbox exec -- psql
 ```
 
 ### Run a command in a specific sandbox with a timeout
@@ -109,7 +115,23 @@ railway sandbox exec -- npm run build
 railway sandbox exec --id sbx_abc123 --timeout 120 -- npm test
 ```
 
-`exec` writes the command's output to your terminal and exits with the command's exit code.
+`--timeout` sets a client-side deadline in seconds. When it expires, the command receives `SIGTERM` and `exec` exits with code 124. Without it, the command runs until it exits.
+
+### Run a command in the background
+
+```bash
+railway sandbox exec --detach -- npm run build
+```
+
+`--detach` starts the command, prints its durable session name to stdout, and returns immediately. The command keeps running in the sandbox.
+
+### Reattach to a running command
+
+```bash
+railway sandbox exec --session <session-name>
+```
+
+This reattaches to a command started with `--detach` or one that disconnected mid-run. The CLI replays the output retained for the session, then follows it live. Pass `--resume-from-last-read` to receive only the output produced since the server's last read instead of replaying.
 
 ### Forward a port into the active sandbox
 
@@ -177,6 +199,7 @@ The source sandbox must be running. The fork clones its filesystem into a new sa
 | Flag | Description |
 |------|-------------|
 | `--json` | Output in JSON format |
+| `--all` | Include destroyed sandboxes, which are hidden by default |
 
 ## Options for `ssh`
 
@@ -184,6 +207,8 @@ The source sandbox must be running. The fork clones its filesystem into a new sa
 |------------------|-------------|
 | `--id <ID>` | Sandbox ID to connect to. Defaults to the active sandbox |
 | `-i, --identity-file <PATH>` | Path to an identity (private key) file, like `ssh -i` |
+| `--session <NAME>` | Resume a durable session by name. The relay announces the name when you connect |
+| `--resume-from-last-read` | When resuming, continue from the last-read position instead of replaying the retained scrollback. Requires `--session` |
 | `[-- COMMAND]` | Command to run instead of an interactive shell |
 
 Connecting over SSH requires an SSH key on your Railway account. See [railway ssh](/cli/ssh) for key setup, and add keys at [Account Settings -> SSH Keys](https://railway.com/account/ssh-keys).
@@ -193,8 +218,11 @@ Connecting over SSH requires an SSH key on your Railway account. See [railway ss
 | Argument or flag | Description |
 |------------------|-------------|
 | `--id <ID>` | Sandbox ID to run in. Defaults to the active sandbox |
-| `--timeout <SECONDS>` | Per-command timeout in seconds (default 120, maximum 600) |
-| `-- COMMAND` | Command to run, after `--`. Required |
+| `--timeout <SECONDS>` | Client-side deadline in seconds. On expiry the command receives `SIGTERM` and `exec` exits with code 124. Without it, the command runs until it exits |
+| `--detach` | Start the command, print its durable session name, and return while it keeps running. Can't be combined with `--session` |
+| `--session <NAME>` | Reattach to a durable session by name. Can't be combined with `--detach` |
+| `--resume-from-last-read` | When reattaching, receive only output produced since the server's last read instead of replaying. Requires `--session` |
+| `-- COMMAND` | Command to run, after `--`. Required unless `--session` is given. A single argument runs as a shell command, so pipes and redirects work. Multiple arguments run as argv with each argument quoted intact |
 
 ## Options for `destroy`
 
@@ -212,7 +240,7 @@ Connecting over SSH requires an SSH key on your Railway account. See [railway ss
 | `-i, --identity-file <PATH>` | Path to an identity (private key) file, like `ssh -i` |
 | `--strict` | Fail if a requested local port is busy instead of picking a nearby free one |
 
-Forwarding runs over SSH, so it needs an SSH key on your Railway account, the same as [`ssh`](#options-for-ssh). It stays in the foreground until you stop it with `Ctrl+C`.
+Forwarding runs over SSH, so it needs an SSH key on your Railway account, the same as [`ssh`](#options-for-ssh). It stays in the foreground until you stop it with `Ctrl+C`, and while it's up, a heartbeat keeps the sandbox from being destroyed as [idle](/sandboxes#idle-timeout).
 
 ## Templates
 

@@ -244,7 +244,7 @@ Only sandboxes in the `CREATING` or `RUNNING` state count toward the cap. Destro
 
 ## Timeouts and output
 
-A sandbox enforces an idle timeout: how long it can sit idle before Railway destroys it. Commands have a separate timeout that works differently in the CLI and the SDK.
+A sandbox enforces an idle timeout: how long it can sit idle before Railway destroys it. Commands have a separate, optional timeout.
 
 | Limit | Default | Maximum |
 |-------|---------|---------|
@@ -253,7 +253,7 @@ A sandbox enforces an idle timeout: how long it can sit idle before Railway dest
 
 The idle timeout default and maximum depend on your plan, as shown above.
 
-In the CLI, `railway sandbox exec` stops a command after 2 minutes by default, up to a maximum of 10 minutes set with `--timeout`. In the SDK, a command has no timeout unless you set `timeoutSec`, so [long-running commands](#long-running-commands) keep going until they exit. The `truncated` field on an exec result reports when captured output was cut short.
+In the CLI, `railway sandbox exec` streams output live and runs the command until it exits, unless you pass `--timeout <SECONDS>`, a client-side deadline. When the deadline expires, the command receives `SIGTERM` and `exec` exits with code 124. Use `--detach` to start a command in the background and get a session name back, then `--session <name>` to reattach later. In the SDK, a command has no timeout unless you set `timeoutSec`, so [long-running commands](#long-running-commands) keep going until they exit. The `truncated` field on an exec result reports when captured output was cut short.
 
 ### Idle timeout
 
