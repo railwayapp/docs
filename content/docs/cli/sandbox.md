@@ -28,11 +28,12 @@ railway sandbox <COMMAND> [OPTIONS]
 | `list` | `ls` | List sandboxes in the environment |
 | `ssh` | `connect` | Connect to a sandbox over SSH |
 | `exec` | | Run a single command inside a sandbox |
+| `forward` | `port-forward`, `fwd` | Forward local ports into a sandbox |
 | `destroy` | `rm`, `delete` | Destroy a sandbox |
 
 ## Active sandbox
 
-`create` and `fork` set the new sandbox as the active sandbox. The `ssh`, `exec`, `fork`, and `destroy` commands act on the active sandbox when you don't pass an ID, so a typical session needs no IDs at all. Running `ssh` or `exec` against a specific sandbox makes that one active.
+`create` and `fork` set the new sandbox as the active sandbox. The `ssh`, `exec`, `forward`, `fork`, and `destroy` commands act on the active sandbox when you don't pass an ID, so a typical session needs no IDs at all. Running `ssh` or `exec` against a specific sandbox makes that one active.
 
 Pass `--id <ID>` (or a positional ID for `fork` and `destroy`) to target a specific sandbox instead. `list` marks the active sandbox with an asterisk.
 
@@ -110,6 +111,30 @@ railway sandbox exec --id sbx_abc123 --timeout 120 -- npm test
 
 `exec` writes the command's output to your terminal and exits with the command's exit code.
 
+### Forward a port into the active sandbox
+
+```bash
+railway sandbox forward 3000
+```
+
+This maps `localhost:3000` to port 3000 inside the sandbox, so a server running in the sandbox is reachable from your machine. If the local port is already in use, the CLI picks a nearby free port unless you pass `--strict`.
+
+### Forward to a different local port
+
+```bash
+railway sandbox forward 8080:3000
+```
+
+In `LOCAL:REMOTE` form, `localhost:8080` maps to port 3000 in the sandbox.
+
+### Forward several ports at once
+
+```bash
+railway sandbox forward 3000 5432
+```
+
+All requested ports are forwarded over a single connection. Forwarding runs in the foreground and stays open until you stop it with `Ctrl+C`.
+
 ### Destroy the active sandbox
 
 ```bash
@@ -177,6 +202,17 @@ Connecting over SSH requires an SSH key on your Railway account. See [railway ss
 |------------------|-------------|
 | `[ID]` | Sandbox ID to destroy. Defaults to the active sandbox |
 | `--id <ID>` | Sandbox ID to destroy, as an alternative to the positional argument |
+
+## Options for `forward`
+
+| Argument or flag | Description |
+|------------------|-------------|
+| `<[LOCAL:]REMOTE>...` | Ports to forward. `REMOTE` uses the same port locally, or `LOCAL:REMOTE` sets the local port. Repeatable to forward several ports over one connection. Required |
+| `--id <ID>` | Sandbox ID to forward into. Defaults to the active sandbox |
+| `-i, --identity-file <PATH>` | Path to an identity (private key) file, like `ssh -i` |
+| `--strict` | Fail if a requested local port is busy instead of picking a nearby free one |
+
+Forwarding runs over SSH, so it needs an SSH key on your Railway account, the same as [`ssh`](#options-for-ssh). It stays in the foreground until you stop it with `Ctrl+C`.
 
 ## Templates
 
