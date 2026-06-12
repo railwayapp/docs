@@ -25,6 +25,7 @@ railway sandbox <COMMAND> [OPTIONS]
 | `create` | `new` | Create a sandbox and set it as the active sandbox |
 | `fork` | | Fork a sandbox into a new one and set it as the active sandbox |
 | `template` | | Build and manage sandbox templates |
+| `checkpoint` | | Capture and manage sandbox checkpoints |
 | `list` | `ls` | List sandboxes in the environment |
 | `ssh` | `connect` | Connect to a sandbox over SSH |
 | `exec` | | Run a command inside a sandbox, with live streaming output |
@@ -33,7 +34,7 @@ railway sandbox <COMMAND> [OPTIONS]
 
 ## Active sandbox
 
-`create` and `fork` set the new sandbox as the active sandbox. The `ssh`, `exec`, `forward`, `fork`, and `destroy` commands act on the active sandbox when you don't pass an ID, so a typical session needs no IDs at all. Running `ssh` or `exec` against a specific sandbox makes that one active.
+`create` and `fork` set the new sandbox as the active sandbox. The `ssh`, `exec`, `forward`, `fork`, `checkpoint create`, and `destroy` commands act on the active sandbox when you don't pass an ID, so a typical session needs no IDs at all. Running `ssh` or `exec` against a specific sandbox makes that one active.
 
 Pass `--id <ID>` (or a positional ID for `fork` and `destroy`) to target a specific sandbox instead. `list` marks the active sandbox with an asterisk.
 
@@ -176,7 +177,8 @@ railway sandbox destroy sbx_abc123
 | `--idle-timeout-minutes <N>` | Minutes the sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. The default and range depend on your plan |
 | `--variable <KEY=VALUE>` | Set a variable on the sandbox. Repeatable and comma-separable. See [Variables](#variables) |
 | `--env-file <PATH>` | Load variables from a `.env` file. Repeatable. `--variable` overrides matching keys |
-| `--template <NAME_OR_ID>` | Create from a built template, by local name or template ID. See [Templates](#templates) |
+| `--template <NAME_OR_ID>` | Create from a built template, by local name or template ID. Can't be combined with `--checkpoint`. See [Templates](#templates) |
+| `--checkpoint <NAME>` | Create from a named checkpoint. Can't be combined with `--template`. See [Checkpoints](#checkpoints) |
 | `--private-network` | Join the environment's private network instead of the default isolated mode |
 | `--json` | Output the created sandbox as JSON |
 
@@ -281,6 +283,59 @@ Reference the template by the local name you gave it or by its template ID.
 | `--json` | Output as JSON |
 
 `template status <ID_OR_NAME>` and `template list` each accept `--json`.
+
+## Checkpoints
+
+A checkpoint is a named snapshot of a sandbox's disk, captured from a running sandbox. Capture one after expensive setup, then boot new sandboxes from it instead of repeating the setup. Where a [template](#templates) is built from a list of shell instructions and tracked in the CLI's local store, a checkpoint captures the live disk of an existing sandbox and is stored server-side in the environment, so it works from any machine.
+
+| Subcommand | Aliases | Description |
+|------------|---------|-------------|
+| `checkpoint create` | `capture`, `save` | Capture a sandbox's disk into a named checkpoint |
+| `checkpoint list` | `ls` | List checkpoints in the environment |
+| `checkpoint rename` | | Rename a checkpoint |
+| `checkpoint delete` | `rm` | Delete a checkpoint and its disk snapshot |
+
+### Capture a checkpoint
+
+```bash
+railway sandbox checkpoint create after-deps
+```
+
+This captures the active sandbox. Pass `--id` to capture a specific one. The sandbox must be running, and it keeps running during the capture.
+
+Capture is synchronous, so the checkpoint is bootable as soon as the command returns. A sandbox with a lot of changed disk takes longer to capture. Reusing a name replaces that checkpoint with the new capture.
+
+### Create a sandbox from a checkpoint
+
+```bash
+railway sandbox create --checkpoint after-deps
+```
+
+The new sandbox boots fresh from a copy of the checkpointed disk, so files are preserved but running processes are not. You can destroy the source sandbox after capturing and still create from the checkpoint later.
+
+### List, rename, and delete checkpoints
+
+```bash
+railway sandbox checkpoint list
+railway sandbox checkpoint rename after-deps node-base
+railway sandbox checkpoint delete node-base
+```
+
+Renaming fails if a checkpoint with the new name already exists. After a rename, `create --checkpoint` works with the new name only. Deleting a checkpoint also deletes its underlying disk snapshot.
+
+### Options for `checkpoint create`
+
+| Argument or flag | Description |
+|------------------|-------------|
+| `<NAME>` | Name for the checkpoint, usable with `create --checkpoint <NAME>`. 64-character hex names are reserved for template hashes. Required |
+| `--id <ID>` | Source sandbox ID. Defaults to the active sandbox |
+| `--json` | Output as JSON |
+
+`checkpoint list` and `checkpoint rename` each accept `--json`. `checkpoint rename` takes the current name and the new name as positional arguments, and `checkpoint delete` takes the name to delete.
+
+### Checkpoint limits
+
+The number of checkpoints an environment can hold matches its plan's sandbox limit, listed in [Sandbox limits](/sandboxes#sandbox-limits-per-environment). Checkpoints are counted separately from running sandboxes, and replacing a checkpoint by reusing its name doesn't increase the count.
 
 ## Variables
 
