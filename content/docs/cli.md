@@ -10,7 +10,7 @@ The Railway Command Line Interface (CLI) lets you interact with your Railway pro
 Install the Railway CLI with agent support configured in one step (macOS, Linux, Windows via WSL):
 
 ```bash
-bash <(curl -fsSL railway.com/install.sh) --agents -y
+curl -fsSL agents.railway.com | sh
 ```
 
 This installs the CLI to `~/.railway/bin` and runs [`railway setup agent`](/cli/setup) to configure detected agent tools.
