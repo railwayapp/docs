@@ -1,6 +1,6 @@
 ---
 title: Sandboxes
-description: Provision ephemeral, isolated Linux environments on Railway. Create them from the dashboard, CLI, or TypeScript SDK, run commands in them, and tear them down when done.
+description: Provision ephemeral, isolated Linux environments on Railway. Create them from the dashboard, CLI, or TypeScript SDK, run commands in them, read and write their files, and tear them down when done.
 ---
 
 <Banner variant="primary">Sandboxes are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. Breaking changes may occur.</Banner>
@@ -93,6 +93,17 @@ result.timedOut;  // true if the command hit timeoutSec
 
 Pass `timeoutSec` to kill the command after a deadline and resolve with `timedOut: true`. Without it, the command runs until it exits, so you can run long-lived processes like agents, dev servers, and builds. See [Long-running commands](#long-running-commands) to stream their output and detach or reattach the session.
 
+Set `cwd` to run the command in a directory, and `env` to layer extra environment variables over the sandbox's own:
+
+```ts
+const result = await sandbox.exec("pnpm test", {
+  cwd: "/app",
+  env: { CI: "true" },
+});
+```
+
+The command fails if `cwd` doesn't exist. Per-command `env` values travel inside the command string, so they're visible to `ps` inside the sandbox. For secrets, set `env` when you [create the sandbox](#configuration) instead. Both options apply to fresh commands only, and are rejected when you reattach to a session by name.
+
 ### Long-running commands
 
 A command started with `exec` runs on the sandbox independently of the client that started it. The handle exposes a durable `sessionName`, so you can stop streaming a command and reattach to it later, even from a different process. This suits agents, dev servers, and any job that outlives a single connection.
@@ -127,6 +138,98 @@ const result = await reattached.exec(
 Reattaching replays the output retained for the session, then follows it live. Pass `resumeFromLastRead: true` to receive only the output produced since the server's last read, instead of replaying from the start.
 
 Call `handle.kill(signal)` to terminate a running command. It sends the signal (`TERM` by default) to the command's process group, and the handle then resolves with the command's exit. Detaching leaves the command running. Killing ends it.
+
+### Files
+
+`sandbox.files` reads and writes files on a running sandbox's filesystem.
+
+| Method | Description |
+|--------|-------------|
+| `read` | Read a file as text, bytes, or a stream |
+| `write` | Create or overwrite a file, creating parent directories |
+| `list` | List a directory's entries |
+| `stat` | Get metadata for a path |
+| `exists` | Check whether a path exists |
+| `mkdir` | Create a directory, including parents |
+| `rename` | Move or rename a file or directory |
+| `remove` | Delete a file or empty directory |
+
+#### Reading and writing
+
+Write a file and read it back:
+
+```ts
+await sandbox.files.write(
+  "/app/config.json",
+  JSON.stringify({ port: 8080 }),
+);
+
+const text = await sandbox.files.read("/app/config.json"); // string
+const bytes = await sandbox.files.read("/data/model.bin", {
+  format: "bytes",
+}); // Uint8Array
+```
+
+`write` creates the file and creates missing parent directories automatically.
+
+Files are created with mode `0644` by default. Pass `mode` to set permissions, for example to make a script executable:
+
+```ts
+await sandbox.files.write("/app/run.sh", "#!/bin/sh\necho hello\n", {
+  mode: 0o755,
+});
+```
+
+`write` accepts several content types, which differ in how they recover from a dropped connection:
+
+| `write` input | How it uploads |
+|---------------|----------------|
+| `string`, `Uint8Array`, `ArrayBuffer`, `Blob` | Buffered, retried automatically on a dropped connection |
+| `ReadableStream`, `AsyncIterable<Uint8Array>` | Streamed without buffering, one-shot (not retried) |
+| `() => stream` (a factory) | Streamed without buffering, retried by calling the factory again |
+
+Streaming lets you push a file larger than memory. A bare stream isn't retried, so an error mid-transfer fails with `RailwayConnectionError` and can leave a partial file.
+
+Pass a factory so a retry reads a fresh stream:
+
+```ts
+import { createReadStream } from "node:fs";
+
+await sandbox.files.write(
+  "/data/dataset.bin",
+  () => createReadStream("./dataset.bin"),
+);
+```
+
+Read a file as a stream to pull large files without filling memory, or read a byte range. Use `offset` and `length` to read from the start, or `fromEnd` with `length` to tail the end of a file:
+
+```ts
+const stream = await sandbox.files.read("/data/out.bin", {
+  format: "stream",
+});
+for await (const chunk of stream) process.stdout.write(chunk);
+
+const tail = await sandbox.files.read("/var/log/app.log", {
+  length: 4096,
+  fromEnd: true,
+});
+```
+
+#### Listing
+
+List a directory and read each entry's metadata:
+
+```ts
+for (const entry of await sandbox.files.list("/app")) {
+  console.log(entry.name, entry.size, entry.isDir, entry.modTime);
+}
+```
+
+#### Removing
+
+`remove` deletes a single file or empty directory. For recursive deletes, run `sandbox.exec("rm -rf ...")`.
+
+Reading a missing path throws `SandboxFileNotFoundError`. Other failures throw `SandboxFilesError`, which reports the failing `operation` and `path`.
 
 ### Destroying a sandbox
 
@@ -247,10 +350,13 @@ const sandbox = await Sandbox.create({
   token: process.env.MY_TOKEN,
   environmentId: process.env.MY_ENV_ID,
   idleTimeoutMinutes: 30,
+  env: { NODE_ENV: "production" },
 });
 ```
 
 `idleTimeoutMinutes` sets how long a sandbox can sit [idle](#idle-timeout) before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the plan default. The default and allowed range depend on your plan, so see [Idle timeout](#idle-timeout) for the per-plan values.
+
+`env` bakes environment variables into the sandbox, available to every command over both `exec` and SSH for the sandbox's lifetime. Use it for values a command needs at runtime, including secrets. Values can reference other Railway variables, for example `${{shared.NPM_TOKEN}}`, resolved when the sandbox is created. `create` and `fork` both accept `env`, and a fork doesn't inherit the source's variables.
 
 ### Examples
 
@@ -316,7 +422,7 @@ sandbox.networkIsolation; // "ISOLATED" | "PRIVATE"
 
 In the CLI, pass `--private-network` to `railway sandbox create` or `railway sandbox fork`.
 
-To run commands or move data in and out of a sandbox in either mode, use `exec` or SSH. To reach a server running inside the sandbox from your machine, forward its port with [`railway sandbox forward`](/cli/sandbox).
+To run commands in a sandbox in either mode, use `exec` or SSH, and to move files in and out, use the [files API](#files). To reach a server running inside the sandbox from your machine, forward its port with [`railway sandbox forward`](/cli/sandbox).
 
 ## Pricing
 
@@ -329,4 +435,3 @@ Sandbox VM resources are billed at
 | Memory | $0.00000001929012 MB•second ($50 GB / month) |
 | vCPU | $0.00000001929012 vCPU•second ($50 vCPU / month) |
 | Egress | $0.05 GB |
-
