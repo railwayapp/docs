@@ -27,7 +27,8 @@ function buildCommand({ agents, mcp, autoAccept }: CommandInputs): string {
     return "curl -fsSL agents.railway.com | sh -s -- --remote";
   }
 
-  const base = "bash <(curl -fsSL railway.com/install.sh)";
+  // Standard CLI install path (non-agent) stays on cli.new.
+  const base = "bash <(curl -fsSL cli.new)";
   const yesFlag = autoAccept ? " -y" : "";
 
   // Explicit forms for combos the baked one-liner can't express (no auto-accept,
