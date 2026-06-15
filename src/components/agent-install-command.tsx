@@ -17,11 +17,21 @@ interface CommandInputs {
 }
 
 function buildCommand({ agents, mcp, autoAccept }: CommandInputs): string {
-  const base = "bash <(curl -fsSL cli.new)";
+  // agents.railway.com bakes in `--agents -y` (CLI install + `railway setup
+  // agent`, which configures skills + local MCP + login) and forwards extra
+  // args after `-- `. Use it for the canonical full agent setup.
+  if (agents && autoAccept && mcp === "local") {
+    return "curl -fsSL agents.railway.com | sh";
+  }
+  if (agents && autoAccept && mcp === "remote") {
+    return "curl -fsSL agents.railway.com | sh -s -- --remote";
+  }
+
+  const base = "bash <(curl -fsSL railway.com/install.sh)";
   const yesFlag = autoAccept ? " -y" : "";
 
-  // Canonical one-liners: --agents runs `railway setup agent`, which configures
-  // skills + MCP + login. --remote routes that to the hosted MCP server.
+  // Explicit forms for combos the baked one-liner can't express (no auto-accept,
+  // or skills-only without MCP). --agents runs `railway setup agent`.
   if (agents && mcp === "local") {
     return `${base} --agents${yesFlag}`;
   }
