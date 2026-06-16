@@ -42,6 +42,10 @@ You be shown the new Static IPs which will be allocated to your service. Once yo
   alt="Static IPs Upgrade"
   width={1540} height={1052} quality={80} />
 
+<Banner variant="warning">
+Services using Legacy Static IP have been contacted by Railway asking to migrate before July 13 2026. Any service still on a Legacy Static IP after July 13, 2026 will automatically migrated.
+</Banner>
+
 ## Caveats
 
 - There is no guarantee that the IPv4 addresses assigned to your service are dedicated. They may be shared with other customers.
