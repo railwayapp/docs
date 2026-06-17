@@ -358,6 +358,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Build a database service", "databases"),
           makePage("PostgreSQL", "databases"),
+          makePage("PostgreSQL Connection Pooling", "databases", "/databases/postgresql-pgbouncer"),
           makePage("MySQL", "databases"),
           makePage("Redis", "databases"),
           makePage("MongoDB", "databases"),
