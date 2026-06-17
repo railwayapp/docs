@@ -26,6 +26,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Quick start", undefined, "/quick-start"),
       makePage("The basics", "overview"),
       makePage("Railway for Agents", undefined, "/agents"),
+      makePage("Mobile app", undefined, "/mobile-app"),
       makePage("Best practices", "overview"),
       makePage("Advanced concepts", "overview"),
       makePage("Production readiness checklist", "overview"),
