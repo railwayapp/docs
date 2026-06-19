@@ -162,6 +162,22 @@ const web = service("web", {
 });
 ```
 
+Reference a shared variable defined on the environment using the context:
+
+```ts
+export default defineRailway((ctx) => {
+  const web = service("web", {
+    env: {
+      SENTRY_DSN: ctx.shared.SENTRY_DSN,
+    },
+  });
+
+  return project("my-project", { resources: [web] });
+});
+```
+
+`ctx.shared.NAME` compiles to `${{shared.NAME}}`. It points at an existing [shared variable](/variables) on the environment; it does not define or manage the shared variable itself.
+
 Preserve an existing Railway-managed value:
 
 ```ts
