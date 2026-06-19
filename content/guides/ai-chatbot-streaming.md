@@ -114,11 +114,11 @@ export default function Chat() {
 
 Railway auto-detects Next.js via [Railpack](/builds/railpack) and configures the build. The service will be live at your generated domain once the first deploy completes.
 
-## Streaming and Railway's request duration limit
+## Streaming and Railway's request timeouts
 
-Railway has a [maximum HTTP request duration of 15 minutes](/networking/public-networking/specs-and-limits). SSE connections that stay open longer than 15 minutes are terminated.
+Railway caps HTTP requests at a [maximum duration of 15 minutes](/networking/public-networking/specs-and-limits), and closes them earlier if no data is transferred for 5 minutes.
 
-For a chatbot, this is rarely a problem: most LLM responses complete in seconds. If your chatbot runs multi-step agent tasks that could take longer, consider the [async workers pattern](/guides/ai-agent-workers) instead of holding an SSE connection open.
+For a chatbot, this is rarely a problem: most LLM responses complete in seconds. If your chatbot runs multi-step agent tasks that stream for longer or sit silent between steps, consider the [async workers pattern](/guides/ai-agent-workers) instead of holding an SSE connection open.
 
 The AI SDK's `useChat` hook handles reconnection automatically. If a connection drops, the client re-sends the message history on the next request, so the user does not lose context.
 

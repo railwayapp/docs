@@ -65,7 +65,7 @@ Your API should expose at minimum:
 - `GET /tasks/:id` checks task status and retrieves results.
 - `GET /tasks/:id/stream` (optional) streams agent progress via SSE.
 
-If you use SSE for streaming progress, implement client-side reconnection. Railway has a 15-minute maximum HTTP request duration; for tasks that exceed this, the client must reconnect and resume from the last received event.
+If you use SSE for streaming progress, implement client-side reconnection. Railway caps HTTP requests at [15 minutes and closes them after 5 minutes with no data transferred](/networking/public-networking/specs-and-limits). Send a heartbeat event at least every 5 minutes, and for tasks that outlive the 15-minute cap, reconnect and resume from the last received event.
 
 ## 3. Deploy the worker service
 
