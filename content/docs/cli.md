@@ -184,9 +184,12 @@ railway metrics                 # View resource and HTTP metrics
 ```bash
 railway domain                  # Generate Railway domain
 railway domain example.com      # Add custom domain
+railway cdn status              # Show CDN caching settings
+railway cdn enable              # Enable CDN caching
+railway cdn purge html          # Purge cached HTML
 ```
 
-[domain](/cli/domain)
+[domain](/cli/domain) · [cdn](/cli/cdn)
 
 ### Volumes
 
