@@ -29,6 +29,17 @@ railway logs [DEPLOYMENT_ID] [OPTIONS]
 | `-U, --until <TIME>` | Show logs until a specific time (disables streaming) |
 | `--json` | Output logs in JSON format |
 
+### HTTP filters
+
+These flags require `--http` and compose with `--filter`.
+
+| Flag | Description |
+|------|-------------|
+| `--method <METHOD>` | Filter by `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `HEAD`, or `OPTIONS` |
+| `--status <STATUS>` | Filter by status code: exact (`200`), comparison (`>=400`), or range (`500..599`) |
+| `--path <PATH>` | Filter by request path |
+| `--request-id <ID>` | Filter by request ID |
+
 ### Network flow filters
 
 These flags require `--network` and compose with `--filter`.
@@ -109,6 +120,54 @@ railway logs --service backend --environment production
 railway logs 7422c95b-c604-46bc-9de4-b7a43e1fd53d --build
 ```
 
+### Stream HTTP request logs
+
+```bash
+railway logs --http
+```
+
+### Filter HTTP logs by method and status
+
+```bash
+railway logs --http --method GET --status 200
+```
+
+### Filter HTTP logs by method and path
+
+```bash
+railway logs --http --method POST --path /api/users
+```
+
+### Filter HTTP error responses
+
+```bash
+railway logs --http --status ">=400" --lines 50
+```
+
+### Filter HTTP server errors by status range
+
+```bash
+railway logs --http --status 500..599
+```
+
+### Find a specific HTTP request
+
+```bash
+railway logs --http --request-id abc123
+```
+
+### Compose typed and raw HTTP filters
+
+```bash
+railway logs --http --method GET --filter "@totalDuration:>=1000"
+```
+
+### Exclude HTTP requests by method
+
+```bash
+railway logs --http --filter "-@method:OPTIONS"
+```
+
 ### Stream network flow logs
 
 ```bash
@@ -149,6 +208,39 @@ railway logs --network --protocol tcp --filter "@drop_cause:NO_SOCKET"
 
 ```bash
 railway logs --json
+```
+
+### HTTP JSON output
+
+```bash
+railway logs --http --json --lines 1
+```
+
+HTTP JSON is newline-delimited JSON. Each row uses camelCase field names from the public GraphQL API.
+
+```json
+{
+  "timestamp": "2026-06-16T00:15:14.000Z",
+  "method": "GET",
+  "path": "/api/users",
+  "httpStatus": 200,
+  "totalDuration": 42,
+  "requestId": "string",
+  "host": "myapp.up.railway.app",
+  "clientUa": "Mozilla/5.0",
+  "srcIp": "203.0.113.1",
+  "edgeRegion": "us-east-1",
+  "txBytes": 512,
+  "rxBytes": 128,
+  "upstreamRqDuration": 38,
+  "upstreamAddress": "10.202.164.239:8080",
+  "upstreamProto": "HTTP/1.1",
+  "downstreamProto": "HTTP/2",
+  "upstreamErrors": 0,
+  "responseDetails": "",
+  "deploymentId": "string",
+  "deploymentInstanceId": "string"
+}
 ```
 
 ### Network flow JSON output
@@ -198,6 +290,8 @@ Railway uses a query syntax for filtering logs:
 - **Text search**: `"error message"` or `user signup`
 - **Attribute filters**: `@level:error`, `@level:warn`
 - **Operators**: `AND`, `OR`, `-` (not)
+- **Numeric operators**: `>`, `>=`, `<`, `<=`, and `..` for ranges (`@httpStatus:200..299`)
+- **HTTP log fields**: string fields `@method`, `@path`, `@host`, `@requestId`, `@clientUa`, `@srcIp`, `@edgeRegion`, `@upstreamAddress`, `@upstreamProto`, `@downstreamProto`, `@responseDetails`, `@deploymentId`, and `@deploymentInstanceId`; numeric fields `@httpStatus`, `@totalDuration`, `@responseTime`, `@upstreamRqDuration`, `@txBytes`, `@rxBytes`, and `@upstreamErrors`
 - **Network flow filters**: `@protocol:tcp`, `@direction:egress`, `@peer_kind:internet`, `@port:443`, `@drop_cause:NO_SOCKET`
 
 See [Logs](/observability/logs) for full syntax documentation.
@@ -206,6 +300,7 @@ See [Logs](/observability/logs) for full syntax documentation.
 
 - **Stream mode** (default): Connects via WebSocket and streams logs in real-time
 - **Fetch mode**: Retrieves historical logs when using `--lines`, `--since`, or `--until`
+- **HTTP logs**: Human output shows the timestamp, method, path, status code (color-coded by class), total duration in milliseconds, and request ID for each request
 - **Network flow logs**: Human output uses `Time`, `Dir`, `Proto`, `Source`, `Destination`, `Peer`, `Traffic`, `Latency`, and `Status` columns
 - If the latest deployment failed, build logs are shown by default
 
