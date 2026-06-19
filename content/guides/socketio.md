@@ -1,6 +1,6 @@
 ---
 title: Deploy a WebSocket Application with Socket.IO
-description: Deploy a Socket.IO server and client on Railway. Covers CORS configuration, the 15-minute connection limit, reconnection handling, and scaling with a Redis adapter.
+description: Deploy a Socket.IO server and client on Railway. Covers CORS configuration, reconnection handling, and scaling with a Redis adapter.
 date: "2026-04-14"
 tags:
   - deployment
@@ -12,7 +12,7 @@ topic: integrations
 
 [Socket.IO](https://socket.io) is the most widely used library for real-time bidirectional communication in JavaScript applications. It handles WebSocket connections with automatic fallback to HTTP long-polling, built-in reconnection, and room-based message routing.
 
-This guide covers how to deploy a Socket.IO application on Railway, handle the 15-minute connection limit, and scale across multiple instances.
+This guide covers how to deploy a Socket.IO application on Railway, handle reconnections, and scale across multiple instances.
 
 ## What you will deploy
 
@@ -125,11 +125,11 @@ Replace `https://your-socketio-server.railway.app` with your service's [public d
 
 Ensure the server binds to `0.0.0.0` and reads the port from the `PORT` environment variable.
 
-## Handle the 15-minute connection limit
+## Handle reconnections
 
-Railway has a [maximum request duration of 15 minutes](/networking/public-networking/specs-and-limits). WebSocket connections open longer than 15 minutes are terminated.
+WebSocket connections on Railway are [exempt from inactivity timeouts](/networking/public-networking/specs-and-limits) and can stay open indefinitely. Connections can still drop for other reasons, such as deploys or network interruptions.
 
-Socket.IO handles this automatically. When the connection drops, the client reconnects and receives a new `socket.id`. The reconnection settings in the client configuration above ensure this happens with exponential backoff.
+Socket.IO handles reconnection automatically. When the connection drops, the client reconnects and receives a new `socket.id`. The reconnection settings in the client configuration above ensure this happens with exponential backoff.
 
 To preserve state across reconnections:
 

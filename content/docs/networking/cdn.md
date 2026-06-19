@@ -7,7 +7,7 @@ Railway's CDN serves your service's responses from the edge location nearest eac
 
 CDN caching is available on all plans at no additional cost. It's off by default and enabled per service.
 
-**Note:** CDN caching speeds up your site; it isn't a firewall and won't stop an attack on its own. If you're being hit by a DDoS or bot flood, see [Under Attack Mode](/networking/waf).
+**Note:** If you're being hit by a DDoS or bot flood, see [Under Attack Mode](/networking/waf).
 
 ## Enable CDN caching
 

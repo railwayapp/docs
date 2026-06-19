@@ -198,7 +198,7 @@ Ensure your application binds to `0.0.0.0` and reads the port from the `PORT` en
 
 ## Railway constraints
 
-**Maximum request duration is 15 minutes.** Most LLM streaming responses complete in seconds, so this limit rarely applies. For agent workflows that run for minutes, use the async worker pattern instead: the API enqueues the task, returns a job ID, and the client polls for results. See [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers).
+**Maximum request duration is 15 minutes**, and requests are closed earlier after 5 minutes with no data transferred. Most LLM streaming responses complete in seconds, so these limits rarely apply. For agent workflows that run longer or sit silent between outputs, use the async worker pattern instead: the API enqueues the task, returns a job ID, and the client polls for results. See [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers).
 
 ## Common pitfalls
 
@@ -213,6 +213,6 @@ Ensure your application binds to `0.0.0.0` and reads the port from the `PORT` en
 ## Next steps
 
 - [Choose between SSE and WebSockets](/guides/sse-vs-websockets) - When to use SSE vs WebSockets for real-time features.
-- [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers) - Handle long-running AI tasks that exceed the 15-minute limit.
+- [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers) - Handle long-running AI tasks that exceed the 15-minute request limit.
 - [Manage environment variables](/guides/frontend-environment-variables) - Configure API keys and URLs across services.
 - [Private Networking](/networking/private-networking) - Connect frontend and API services internally.
