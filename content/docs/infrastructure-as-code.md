@@ -11,6 +11,8 @@ Railway Infrastructure as Code lets you define the services and resources in a R
 
 Use Railway IaC when you want one editable file for project-level configuration: services, databases, buckets, custom domains, environment variables, replicas, and canvas groups.
 
+> **TypeScript only (for now).** Railway IaC is authored in TypeScript via the [`railway`](https://www.npmjs.com/package/railway) SDK and a `.railway/railway.ts` file. TypeScript is currently the only supported language; other languages may follow.
+
 <PriorityBoardingBanner />
 
 ## IaC vs Config as Code
@@ -124,7 +126,7 @@ Railway configuration
 Using .railway/railway.ts
 Environment production
 
-Changes (1)
+Plan: 1 to add, 0 to change, 0 to destroy
   + Create service web
 
 Next
@@ -133,11 +135,25 @@ Next
 
 `plan` is safe. It only reads Railway state and prints the changes that would be applied.
 
+Variable values are **redacted** in plan output by default (shown as `«hidden»`), so secrets defined in `.railway/railway.ts` don't end up in your terminal or CI logs. The variable and whether it's changing are still shown. To print the actual values — useful when reviewing non-secret config — pass `--show-values`:
+
+```bash
+railway config plan --show-values
+```
+
 For machine-readable output:
 
 ```bash
 railway config plan --json
 ```
+
+To gate CI on drift, use `--detailed-exit-code`. The plan then exits `0` when nothing would change and `2` when changes are pending (errors stay non-zero):
+
+```bash
+railway config plan --detailed-exit-code
+```
+
+`--detailed-exit-code` is opt-in, so the default exit behavior is unchanged.
 
 ## Apply changes
 
@@ -155,7 +171,13 @@ To apply non-interactively:
 railway config apply --yes
 ```
 
-Destructive changes, such as deleting a service or variable, are marked before confirmation. Review those lines carefully before continuing.
+Destructive changes, such as deleting a service or variable, are marked before confirmation. Review those lines carefully before continuing. Non-interactively (with `--yes`, `--json`, or in an agent session), destructive changes additionally require `--confirm-destructive`, so a stray `--yes` cannot remove resources on its own:
+
+```bash
+railway config apply --yes --confirm-destructive
+```
+
+Apply is also protected against acting on a stale plan. Railway runs a fresh plan immediately before applying and commits against the exact environment state it just read. If the environment changed in between — for example a concurrent apply or a dashboard edit — the apply is rejected and you are asked to run `railway config plan` again. This prevents an apply from silently overwriting changes it never saw.
 
 ## Authoring `.railway/railway.ts`
 
