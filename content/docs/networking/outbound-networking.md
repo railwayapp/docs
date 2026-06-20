@@ -11,7 +11,10 @@ SMTP is only available on the Pro plan and above.
 
 Free, Trial, and Hobby plans must use transactional email services with HTTPS APIs. SMTP is disabled on these plans to prevent spam and abuse. However, even when SMTP is available, we recommend transactional email services with HTTPS APIs for all plans due to their enhanced features and analytics.
 
-<Banner variant="info">Upon upgrading to Pro, please re-deploy your service that needs to use SMTP for the changes to take effect.</Banner>
+<Banner variant="info">
+After upgrading to Pro, redeploy the service that needs to use SMTP for the
+changes to take effect.
+</Banner>
 
 ### Email service examples
 
@@ -81,18 +84,34 @@ and share the output of the command for further assistance
 
 ## Static outbound IPs
 
-Railway offers [Static Outbound IPs](/networking/static-outbound-ips) for Pro plan customers who need consistent IP addresses for firewall whitelisting or third-party integrations.
+Railway offers [Static Outbound IPs](/networking/static-outbound-ips) for Pro
+plan customers who need consistent IP addresses for firewall allowlisting or
+third-party integrations.
+
+You can manage Static Outbound IPs from the dashboard or with the
+[`railway outbound-networking static-ip`](/cli/outbound-networking) CLI
+commands. After enabling or disabling Static Outbound IPs, redeploy the service
+before outbound traffic uses the updated IP assignment.
 
 ## Outbound IPv6
 
 Railway supports outbound IPv6 connections on an opt-in basis per service. Enable this when you need to reach IPv6-only destinations or services that perform better over IPv6.
 
-To enable it, open your service's **Settings** tab, scroll to the **Networking** section, and toggle **Enable Outbound IPv6**. Redeploy the service for the change to take effect.
+To enable it, open your service's **Settings** tab, scroll to the **Networking**
+section, and toggle **Enable Outbound IPv6**. This creates a staged change.
+Apply the staged change to redeploy the service.
 
-Outbound IPv6 is disabled by default. Enabling it does not affect your service's existing IPv4 outbound connectivity — both work concurrently when the toggle is on. While this setting is disabled, IPv6 connection attempts will fail with "Network is unreachable" or `ENETUNREACH`.
+You can also stage Outbound IPv6 changes with
+[`railway outbound-networking ipv6`](/cli/outbound-networking).
+
+Outbound IPv6 is disabled by default. Enabling it does not affect your
+service's existing IPv4 outbound connectivity. Both work concurrently when the
+toggle is on. While this setting is disabled, IPv6 connection attempts fail with
+"Network is unreachable" or `ENETUNREACH`.
 
 ## Related features
 
 - [Static Outbound IPs](/networking/static-outbound-ips) - Assign permanent outbound IP addresses
+- [railway outbound-networking](/cli/outbound-networking) - Manage outbound networking from the CLI
 - [Private Networking](/networking/private-networking) - Internal service communication
 - [Public Networking](/networking/public-networking) - Inbound traffic to your services

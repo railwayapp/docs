@@ -255,6 +255,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("mcp"),
       makeCliCommand("metrics"),
       makeCliCommand("open"),
+      makeCliCommand("outbound-networking"),
       makeCliCommand("project"),
       makeCliCommand("redeploy"),
       makeCliCommand("restart"),
