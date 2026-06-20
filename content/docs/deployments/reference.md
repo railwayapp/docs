@@ -126,7 +126,7 @@ Cancels the selected [initializing](#initializing) or [building](#building) depl
 
 Every service deployment has access to 1GB of ephemeral storage on the Free plan and 100GB on a paid plan. If a service deployment exceeds the maximum allowed storage, it can be forcefully stopped and redeployed.
 
-If your service requires data to persist between deployments, or needs more than 10GB of storage, you should add a [volume](/volumes).
+If your service requires data to persist between deployments, or needs more than the maximum allowed storage, you should add a [volume](/volumes).
 
 ## Singleton deploys
 
