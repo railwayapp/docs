@@ -274,6 +274,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("upgrade"),
       makeCliCommand("variable"),
       makeCliCommand("volume"),
+      makeCliCommand("waf"),
       makeCliCommand("whoami"),
     ],
   },
