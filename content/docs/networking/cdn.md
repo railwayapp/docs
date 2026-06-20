@@ -18,6 +18,12 @@ CDN caching is configured per service and applies to all of that service's domai
 1. Open the service you want to cache and go to its **Settings**.
 2. In the **Edge** section, toggle **Enable CDN Caching** on.
 
+You can also enable CDN caching from the CLI:
+
+```bash
+railway cdn enable --service web
+```
+
 Railway routes each request to the nearest edge location automatically. For how that routing works, see [Edge networking](/networking/edge-networking).
 
 ## How caching works
@@ -95,6 +101,8 @@ Railway caches responses whose `Content-Type` matches one of these glob patterns
 ## Configure caching
 
 The **Edge** section of your service settings controls how the CDN caches responses.
+
+You can also configure these settings from the CLI with [`railway cdn update`](/cli/cdn#options-for-update).
 
 ### HTML caching
 
@@ -195,6 +203,13 @@ The **Purge Cache** controls in your service's **Edge** settings let you clear c
 
 Railway shows when each scope was last purged.
 
+You can also purge cached content from the CLI:
+
+```bash
+railway cdn purge html
+railway cdn purge all
+```
+
 Purging applies to the whole service. There's no per-URL purge, so to invalidate a single page, purge HTML or all content, or redeploy the service.
 
 ### Purge on deploy
@@ -207,6 +222,12 @@ The **Purge Cache on Deploy** setting clears cached content after each successfu
 | Purge HTML on each successful deploy (default) | Clears cached HTML so a freshly deployed page can't reference outdated asset URLs, while immutable static assets stay cached. |
 | Purge everything on each successful deploy | Clears all cached content, including static assets. |
 
+Configure purge on deploy from the CLI:
+
+```bash
+railway cdn update --purge-on-deploy html
+```
+
 ### Purge propagation
 
 Purges apply across all edge locations. They aren't instant: each location picks up a purge within a few seconds, typically around 10 seconds, and locations update independently rather than all at once. After a purge, the next request for an affected URL revalidates against your service.
@@ -218,3 +239,4 @@ Purges apply across all edge locations. They aren't instant: each location picks
 - [Public networking](/networking/public-networking) - Expose your services to the internet
 - [Domains](/networking/domains) - Configure Railway-provided and custom domains
 - [Deployment regions](/deployments/regions) - Choose where your service runs
+- [railway cdn](/cli/cdn) - Manage CDN caching from the CLI

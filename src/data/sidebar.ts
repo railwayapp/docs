@@ -234,6 +234,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("add"),
       makeCliCommand("agent"),
       makeCliCommand("bucket"),
+      makeCliCommand("cdn"),
       makeCliCommand("completion"),
       makeCliCommand("connect"),
       makeCliCommand("delete"),
