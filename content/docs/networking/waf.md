@@ -25,6 +25,15 @@ It takes effect across Railway's global network within ~20 seconds.
 
 Set it to run until you turn it off, or to expire on its own after 1, 3, 12, or 24 hours. While it's on, the **Edge** section shows that it's active, with the time remaining. Click **Deactivate** to turn it off early. Visitors who already passed the check aren't affected.
 
+You can also enable Under Attack Mode from the CLI:
+
+```bash
+railway waf under-attack enable --service web
+railway waf under-attack enable --service web --duration 1h
+railway waf under-attack status --service web
+railway waf under-attack disable --service web
+```
+
 ### What it blocks
 
 While Under Attack Mode is on, a CAPTCHA-style browser check guards your service:
@@ -56,3 +65,4 @@ Two other details apply to this setup:
 - [Edge networking](/networking/edge-networking) - How Railway routes requests to the nearest edge location
 - [Public networking](/networking/public-networking) - Expose your services to the internet
 - [Domains](/networking/domains) - Configure Railway-provided and custom domains
+- [railway waf](/cli/waf) - Manage WAF protection from the CLI

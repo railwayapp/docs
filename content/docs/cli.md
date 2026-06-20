@@ -187,9 +187,11 @@ railway domain example.com      # Add custom domain
 railway cdn status              # Show CDN caching settings
 railway cdn enable              # Enable CDN caching
 railway cdn purge html          # Purge cached HTML
+railway waf under-attack status # Show WAF protection status
+railway waf under-attack enable # Enable Under Attack Mode
 ```
 
-[domain](/cli/domain) · [cdn](/cli/cdn)
+[domain](/cli/domain) · [cdn](/cli/cdn) · [waf](/cli/waf)
 
 ### Volumes
 
