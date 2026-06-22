@@ -89,7 +89,7 @@ plan customers who need consistent IP addresses for firewall allowlisting or
 third-party integrations.
 
 You can manage Static Outbound IPs from the dashboard or with the
-[`railway outbound-networking static-ip`](/cli/outbound-networking) CLI
+[`railway outbound-network static-ip`](/cli/outbound-network) CLI
 commands. After enabling or disabling Static Outbound IPs, redeploy the service
 before outbound traffic uses the updated IP assignment.
 
@@ -102,7 +102,7 @@ section, and toggle **Enable Outbound IPv6**. This creates a staged change.
 Apply the staged change to redeploy the service.
 
 You can also stage Outbound IPv6 changes with
-[`railway outbound-networking ipv6`](/cli/outbound-networking).
+[`railway outbound-network ipv6`](/cli/outbound-network).
 
 Outbound IPv6 is disabled by default. Enabling it does not affect your
 service's existing IPv4 outbound connectivity. Both work concurrently when the
@@ -112,6 +112,6 @@ toggle is on. While this setting is disabled, IPv6 connection attempts fail with
 ## Related features
 
 - [Static Outbound IPs](/networking/static-outbound-ips) - Assign permanent outbound IP addresses
-- [railway outbound-networking](/cli/outbound-networking) - Manage outbound networking from the CLI
+- [railway outbound-network](/cli/outbound-network) - Manage outbound networking from the CLI
 - [Private Networking](/networking/private-networking) - Internal service communication
 - [Public Networking](/networking/public-networking) - Inbound traffic to your services

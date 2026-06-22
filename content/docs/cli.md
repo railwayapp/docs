@@ -189,12 +189,12 @@ railway cdn enable              # Enable CDN caching
 railway cdn purge html          # Purge cached HTML
 railway waf under-attack status # Show WAF protection status
 railway waf under-attack enable # Enable Under Attack Mode
-railway outbound-networking status # Show outbound networking status
-railway outbound-networking static-ip enable # Enable Static Outbound IPs
-railway outbound-networking ipv6 enable # Stage Outbound IPv6
+railway outbound-network status # Show outbound networking status
+railway outbound-network static-ip enable # Enable Static Outbound IPs
+railway outbound-network ipv6 enable # Stage Outbound IPv6
 ```
 
-[domain](/cli/domain) · [cdn](/cli/cdn) · [waf](/cli/waf) · [outbound-networking](/cli/outbound-networking)
+[domain](/cli/domain) · [cdn](/cli/cdn) · [waf](/cli/waf) · [outbound-network](/cli/outbound-network)
 
 ### Volumes
 

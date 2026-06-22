@@ -1,5 +1,5 @@
 ---
-title: railway outbound-networking
+title: railway outbound-network
 description: Manage outbound networking settings for a service.
 ---
 
@@ -15,7 +15,7 @@ staged changes to trigger a redeploy.
 ## Usage
 
 ```bash
-railway outbound-networking <COMMAND> [OPTIONS]
+railway outbound-network <COMMAND> [OPTIONS]
 ```
 
 ## Subcommands
@@ -44,7 +44,7 @@ railway outbound-networking <COMMAND> [OPTIONS]
 ### Show outbound networking status
 
 ```bash
-railway outbound-networking status --service api
+railway outbound-network status --service api
 ```
 
 Shows Static Outbound IP and Outbound IPv6 status for the selected service.
@@ -52,7 +52,7 @@ Shows Static Outbound IP and Outbound IPv6 status for the selected service.
 ### Enable Static Outbound IPs
 
 ```bash
-railway outbound-networking static-ip enable --service api
+railway outbound-network static-ip enable --service api
 ```
 
 Enables Static Outbound IPs and prints the assigned IPv4 addresses. Redeploy the
@@ -61,7 +61,7 @@ service before outbound traffic uses these IP addresses.
 ### Disable Static Outbound IPs
 
 ```bash
-railway outbound-networking static-ip disable --service api
+railway outbound-network static-ip disable --service api
 ```
 
 Disables Static Outbound IPs. Redeploy the service before outbound traffic
@@ -70,7 +70,7 @@ stops using the removed IP addresses.
 ### Stage Outbound IPv6
 
 ```bash
-railway outbound-networking ipv6 enable --service api
+railway outbound-network ipv6 enable --service api
 ```
 
 Stages an environment config change for Outbound IPv6. Apply staged changes to
@@ -79,7 +79,7 @@ trigger a redeploy.
 ### Clear or stage disabling Outbound IPv6
 
 ```bash
-railway outbound-networking ipv6 disable --service api
+railway outbound-network ipv6 disable --service api
 ```
 
 If Outbound IPv6 is enabled, this stages disabling it. If enabling Outbound IPv6
@@ -88,7 +88,7 @@ is staged but not applied, this clears the staged change.
 ### Output JSON
 
 ```bash
-railway outbound-networking static-ip status --service api --json
+railway outbound-network static-ip status --service api --json
 ```
 
 Use `--json` to inspect lifecycle fields for automation. Static Outbound IP

@@ -34,13 +34,13 @@ Customers on the Pro plan can enable Static Outbound IPs for any service they wi
 
 ### Enable static outbound IPs from the CLI
 
-Use the [`railway outbound-networking`](/cli/outbound-networking) command group
+Use the [`railway outbound-network`](/cli/outbound-network) command group
 to manage Static Outbound IPs from the CLI:
 
 ```bash
-railway outbound-networking static-ip enable --service api
-railway outbound-networking static-ip status --service api
-railway outbound-networking static-ip disable --service api
+railway outbound-network static-ip enable --service api
+railway outbound-network static-ip status --service api
+railway outbound-network static-ip disable --service api
 ```
 
 Enabling or disabling Static Outbound IPs from the CLI commits the IP assignment
