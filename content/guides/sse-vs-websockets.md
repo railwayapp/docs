@@ -57,7 +57,7 @@ Use WebSockets when the client and server both need to send messages. Common cas
 Railway supports both protocols:
 
 - **WebSocket connections** work via HTTP/1.1 upgrade. They are exempt from request timeouts and can stay open indefinitely, even while idle.
-- **SSE connections** work via standard HTTP responses, so [Railway's request limits apply](/networking/public-networking/specs-and-limits): a maximum duration of 15 minutes, closed earlier after 5 minutes with no data transferred. Send a heartbeat (such as an SSE comment line) at least every 5 minutes, and reconnect when a stream outlives the 15-minute cap.
+- **SSE connections** work via standard HTTP responses, so [Railway's request limits apply](/networking/public-networking/specs-and-limits): up to 15 minutes with keep-alive heartbeats, closed after 5 minutes with no data transferred. Send a heartbeat (such as an SSE comment line) at least every 5 minutes, and reconnect when a stream outlives the 15-minute cap.
 
 WebSocket connections can still drop for other reasons, such as deploys or network interruptions, so implement reconnection logic on the client side for both protocols.
 
