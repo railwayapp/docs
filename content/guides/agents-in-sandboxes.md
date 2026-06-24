@@ -301,5 +301,3 @@ Explore these resources to go deeper on sandboxes and agents:
 - [Railway for Agents](/agents): the broader agent setup with the CLI, MCP, and skills.
 - [Agent Skills](/ai/agent-skills): teach your local agent to drive Railway.
 - [Running Agents on Railway](/guides/running-agents-on-railway): deploy an always-on, autonomous agent as a service.
-</content>
-</invoke>
