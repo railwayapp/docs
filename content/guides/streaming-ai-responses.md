@@ -198,7 +198,7 @@ Ensure your application binds to `0.0.0.0` and reads the port from the `PORT` en
 
 ## Railway constraints
 
-**Maximum request duration is 15 minutes**, and requests are closed earlier after 5 minutes with no data transferred. Most LLM streaming responses complete in seconds, so these limits rarely apply. For agent workflows that run longer or sit silent between outputs, use the async worker pattern instead: the API enqueues the task, returns a job ID, and the client polls for results. See [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers).
+**Requests can run for up to 15 minutes with keep-alive heartbeats**, and are closed after 5 minutes with no data transferred. Most LLM streaming responses complete in seconds, so these limits rarely apply. For agent workflows that run longer or sit silent between outputs, use the async worker pattern instead: the API enqueues the task, returns a job ID, and the client polls for results. See [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers).
 
 ## Common pitfalls
 
