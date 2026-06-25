@@ -212,7 +212,42 @@ const api = service("api", {
 });
 ```
 
-Database provisioning is handled by Railway product workflows. The configuration file describes the database intent; it does not author volume internals directly.
+Database provisioning is handled by Railway product workflows. The configuration file describes the database intent; you do not need to attach a volume to managed database helpers yourself.
+
+## Volumes
+
+Create a persistent volume with `volume(name, config)` and attach it to a service with `volumeMounts`:
+
+```ts
+const data = volume("backend-data", {
+  region: "us-west2",
+  sizeMB: 1024,
+});
+
+const backend = service("backend", {
+  start: "node server.js",
+  volumeMounts: {
+    "/data": data,
+  },
+});
+
+return project("my-project", {
+  resources: [backend, data],
+});
+```
+
+A volume can be attached to one service. The object key in `volumeMounts` is the mount path inside the service container, and the value is the `volume(...)` resource to mount there.
+
+Volume config supports:
+
+| Field | Description |
+|-------|-------------|
+| `region` | Region where the volume is provisioned. |
+| `sizeMB` | Requested volume size in megabytes. |
+
+Increasing `sizeMB` is planned as a non-destructive resize. Decreasing `sizeMB`, deleting a volume, detaching a mounted volume, or changing placement can affect persisted data and is treated as destructive.
+
+`railway config pull` imports existing volumes and service mounts. Managed database volumes may appear in imported configuration so Railway can preserve the existing volume resource, but database helpers such as `postgres("postgres")` still own the database product intent.
 
 ## Buckets
 
@@ -277,6 +312,7 @@ import {
   project,
   redis,
   service,
+  volume,
 } from "railway/iac";
 
 export default defineRailway((ctx) => {
@@ -285,6 +321,10 @@ export default defineRailway((ctx) => {
   const db = postgres("postgres");
   const cache = redis("redis");
   const uploads = bucket("uploads", { region: "iad" });
+  const workerData = volume("worker-data", {
+    region: "us-west2",
+    sizeMB: 1024,
+  });
 
   const api = service("api", {
     source: github("acme/monorepo", { rootDirectory: "apps/api" }),
@@ -313,6 +353,9 @@ export default defineRailway((ctx) => {
     source: github("acme/monorepo", { rootDirectory: "apps/worker" }),
     build: "pnpm --filter worker build",
     start: "pnpm --filter worker start",
+    volumeMounts: {
+      "/data": workerData,
+    },
     env: {
       DATABASE_URL: db.env.DATABASE_URL,
       REDIS_URL: cache.env.REDIS_URL,
@@ -320,7 +363,7 @@ export default defineRailway((ctx) => {
   });
 
   const backend = group("Backend", [db, cache, api, worker]);
-  const storage = group("Storage", [uploads]);
+  const storage = group("Storage", [uploads, workerData]);
 
   return project("acme", {
     resources: [backend, storage, web],
