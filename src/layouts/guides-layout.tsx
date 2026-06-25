@@ -25,9 +25,9 @@ export interface GuidesLayoutProps {
   rawMarkdown?: string;
 }
 
-const getOGImage = (title: string) =>
-  `https://og.railway.com/api/image?fileType=png&layoutName=Docs&Theme=Dark&URL=&Page=${encodeURIComponent(
-    title,
+const getOGImage = (category: string) =>
+  `https://og.railway.com/api/image?fileType=png&layoutName=Docs&Theme=Night&URL=&Page=Documentation&Eyebrow=${encodeURIComponent(
+    category,
   )}`;
 
 const domainUrl = "https://docs.railway.com";
@@ -83,7 +83,7 @@ export const GuidesLayout: React.FC<PropsWithChildren<GuidesLayoutProps>> = ({
         twitterTitle={`${frontMatter.title}`}
         description={`${frontMatter.description || fallbackDescription}`}
         url={`${domainUrl}${frontMatter.url}`}
-        image={getOGImage(frontMatter.title)}
+        image={getOGImage("Guides")}
         headers={headers}
         headline={frontMatter.title}
         breadcrumbs={[

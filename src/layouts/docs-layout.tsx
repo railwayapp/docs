@@ -25,9 +25,9 @@ export interface Props extends PageProps {
   rawMarkdown?: string;
 }
 
-const getOGImage = (title: string) =>
-  `https://og.railway.com/api/image?fileType=png&layoutName=Docs&Theme=Dark&URL=&Page=${encodeURIComponent(
-    title,
+const getOGImage = (category: string) =>
+  `https://og.railway.com/api/image?fileType=png&layoutName=Docs&Theme=Night&URL=&Page=Documentation&Eyebrow=${encodeURIComponent(
+    category,
   )}`;
 
 const domainUrl = "https://docs.railway.com";
@@ -134,7 +134,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
         twitterTitle={`${frontMatter.title}`}
         description={`${frontMatter.description || fallbackDescription}`}
         url={`${domainUrl}${frontMatter.url}`}
-        image={getOGImage(frontMatter.title)}
+        image={getOGImage(breadcrumbs[1]?.name ?? "Docs")}
         headers={headers}
         breadcrumbs={breadcrumbs}
         lastModified={lastModified}
