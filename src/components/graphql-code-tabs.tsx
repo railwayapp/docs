@@ -283,7 +283,7 @@ export function GraphQLCodeTabs({
             </div>
           ) : (
             <div
-              className="shiki-wrapper"
+              className="shiki-wrapper graphql-tabs-wrap"
               dangerouslySetInnerHTML={{ __html: htmlCache[cacheKey] || "" }}
             />
           )}
@@ -401,7 +401,7 @@ function VariablesSection({
             </div>
           ) : (
             <div
-              className="shiki-wrapper"
+              className="shiki-wrapper graphql-tabs-wrap"
               dangerouslySetInnerHTML={{ __html: html }}
             />
           )}
