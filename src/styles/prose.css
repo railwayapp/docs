@@ -235,9 +235,13 @@
 
 /* Tables */
 .prose table {
-  @apply my-6 w-full caption-bottom overflow-hidden rounded-lg border border-muted text-sm;
+  @apply w-full caption-bottom overflow-hidden rounded-lg border border-muted text-sm;
   border-collapse: separate;
   border-spacing: 0;
+}
+
+.prose .table-scroll {
+  @apply my-6 overflow-x-auto;
 }
 
 .prose thead {
@@ -341,6 +345,8 @@
   @apply rounded-none font-mono text-xs leading-relaxed sm:text-sm;
   margin: 0 !important;
   overflow: visible;
+  width: fit-content;
+  min-width: 100%;
 }
 
 .shiki-wrapper .shiki code {

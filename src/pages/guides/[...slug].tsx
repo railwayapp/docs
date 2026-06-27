@@ -5,6 +5,7 @@ import {
 } from "@/components/banner";
 import { Collapse } from "@/components/collapse";
 import { Pre, CodeBlock, CodeTab } from "@/components/code-block";
+import { Table } from "@/components/table";
 import { GraphQLCodeTabs } from "@/components/graphql-code-tabs";
 import { Frame } from "@/components/frame";
 import { Steps, Step } from "@/components/steps";
@@ -44,6 +45,7 @@ const components: Record<string, React.ElementType> = {
   TallyButton,
   CodeBlock,
   CodeTab,
+  table: Table,
   GraphQLCodeTabs,
   Frame,
   Steps,
