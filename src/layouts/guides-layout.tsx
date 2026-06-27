@@ -93,7 +93,7 @@ export const GuidesLayout: React.FC<PropsWithChildren<GuidesLayoutProps>> = ({
         lastModified={lastModified}
       />
       <TOCProvider items={tocItems}>
-        <div className="flex flex-col min-h-[calc(100vh-53px)]">
+        <div className="flex flex-col min-w-0 min-h-[calc(100vh-53px)]">
           {/* Two-column layout */}
           <div className="max-w-full flex flex-row flex-1">
             <div className="flex-auto min-w-0 prose dark:prose-invert">
