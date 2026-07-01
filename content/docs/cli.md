@@ -61,7 +61,7 @@ Before using the CLI, authenticate with your Railway account:
 railway login
 ```
 
-For environments without a browser (e.g., SSH sessions), use browserless login:
+For environments without a browser, such as SSH sessions, use browserless login:
 
 ```bash
 railway login --browserless
@@ -184,6 +184,8 @@ railway metrics                 # View resource and HTTP metrics
 ```bash
 railway domain                  # Generate Railway domain
 railway domain example.com      # Add custom domain
+railway domain list             # List service domains
+railway domain status example.com # Show DNS details
 railway cdn status              # Show CDN caching settings
 railway cdn enable              # Enable CDN caching
 railway cdn purge html          # Purge cached HTML
@@ -192,9 +194,13 @@ railway waf under-attack enable # Enable Under Attack Mode
 railway outbound-network status # Show outbound networking status
 railway outbound-network static-ip enable # Enable Static Outbound IPs
 railway outbound-network ipv6 enable # Stage Outbound IPv6
+railway private-network status  # Show private networking status
+railway tcp-proxy create --port 5432 # Create a public TCP proxy
 ```
 
-[domain](/cli/domain) · [cdn](/cli/cdn) · [waf](/cli/waf) · [outbound-network](/cli/outbound-network)
+[domain](/cli/domain) · [cdn](/cli/cdn) · [waf](/cli/waf) ·
+[outbound-network](/cli/outbound-network) ·
+[private-network](/cli/private-network) · [tcp-proxy](/cli/tcp-proxy)
 
 ### Volumes
 
@@ -262,9 +268,12 @@ railway skills install          # Install Railway agent skills
 railway completion bash         # Generate shell completions
 railway docs                    # Open documentation
 railway upgrade                 # Upgrade CLI
+railway autoupdate status       # Show auto-update status
 ```
 
-[completion](/cli/completion) · [docs](/cli/docs) · [upgrade](/cli/upgrade) · [starship](/cli/starship)
+[completion](/cli/completion) · [docs](/cli/docs) ·
+[upgrade](/cli/upgrade) · [autoupdate](/cli/autoupdate) ·
+[starship](/cli/starship)
 
 ## Global options
 

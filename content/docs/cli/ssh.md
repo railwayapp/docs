@@ -11,6 +11,7 @@ Railway uses your system `ssh` client to connect to `ssh.railway.com`. You must 
 
 ```bash
 railway ssh [OPTIONS] [COMMAND...]
+railway ssh config [OPTIONS] [COMMAND]
 railway ssh keys [SUBCOMMAND] [OPTIONS]
 ```
 
@@ -70,6 +71,74 @@ railway ssh -i ~/.ssh/railway_ed25519
 ```
 
 When set, the CLI skips its local `~/.ssh` scan and forwards the key directly to `ssh`.
+
+## Manage SSH config
+
+Use the `config` subcommand to add, preview, or remove a Railway OpenSSH config
+block for a service.
+
+```bash
+railway ssh config [OPTIONS] [COMMAND]
+```
+
+### Subcommands
+
+| Subcommand | Aliases | Description |
+|------------|---------|-------------|
+| `remove` | `rm` | Remove the Railway block from the SSH config file |
+
+### Add or update SSH config
+
+```bash
+railway ssh config --service api
+```
+
+Adds or updates the Railway block in `~/.ssh/config` for the selected service.
+
+### Preview SSH config
+
+```bash
+railway ssh config --service api --dry-run
+```
+
+Prints the generated block without writing the SSH config file.
+
+### Use a custom host alias
+
+```bash
+railway ssh config --service api --alias railway-api
+```
+
+Sets the `Host` alias in the generated OpenSSH config block.
+
+### Remove SSH config
+
+```bash
+railway ssh config remove --service api
+```
+
+Removes the Railway block for the selected service from the SSH config file.
+
+### Options for `config`
+
+| Flag | Description |
+|------|-------------|
+| `-p, --project <PROJECT>` | Project to use |
+| `-s, --service <SERVICE>` | Service to use |
+| `-e, --environment <ENVIRONMENT>` | Environment to use |
+| `--path <PATH>` | SSH config file to update or remove from. Defaults to `~/.ssh/config` |
+| `--alias <ALIAS>` | Host alias to use in the SSH config |
+| `-i, --identity-file <PATH>` | Emit an `IdentityFile` directive for this private key path |
+| `--dry-run` | Print the generated block without writing the SSH config file |
+
+### Options for `config remove`
+
+| Flag | Description |
+|------|-------------|
+| `-p, --project <PROJECT>` | Project to use |
+| `-s, --service <SERVICE>` | Service to use |
+| `-e, --environment <ENVIRONMENT>` | Environment to use |
+| `--path <PATH>` | SSH config file to remove from. Defaults to `~/.ssh/config` |
 
 ## Manage SSH keys
 
