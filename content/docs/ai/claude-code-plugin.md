@@ -47,22 +47,18 @@ To update to the latest version, refresh the marketplace and reinstall:
 
 You can also enable auto-updates for the marketplace through the `/plugin` interface under the **Marketplaces** tab.
 
-## What's included
+## What is included
 
 The plugin installs the following components:
 
 - **`use-railway` skill** - A route-first agent skill that covers project setup, deployments, troubleshooting, environment configuration, networking, observability, and more. See [Agent Skills](/ai/agent-skills) for the full list of capabilities. The skill includes action-oriented reference documents and a GraphQL API helper script for authenticated Railway API requests.
 - **Auto-approve hook** - A `PreToolUse` hook that automatically approves Railway CLI commands and Railway API script calls, so Claude Code doesn't prompt for permission on every Railway operation.
 
-## Alternative installation
+## Use Claude Code without the plugin
 
-If you prefer to install the agent skill without the Claude Code plugin system, use the [`railway skills`](/cli/skills) command, which works across multiple AI coding assistants:
+Plugins are optional. If you prefer CLI-managed setup, use [Railway for Agents](/agents) to configure Claude Code with Railway skills and MCP.
 
-```bash
-railway skills install
-```
-
-See [Agent Skills](/ai/agent-skills) for more details.
+Use one setup path for Claude Code at a time. Plugin installs and CLI-managed setup can both write Railway skill or MCP configuration.
 
 ## Source
 
