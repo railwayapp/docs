@@ -767,7 +767,7 @@ const Home: NextPage = () => {
                 href="https://github.com/railwayapp/docs"
                 className="text-muted-base hover:text-muted-high-contrast transition-colors"
               >
-                <Icon name="Github" className="size-4" />
+                <Icon name="GitHub" className="size-4" />
               </Link>
             </div>
             <ThemeSwitcher />
