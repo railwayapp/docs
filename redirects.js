@@ -165,6 +165,13 @@ const redirects = [
     permanent: true,
   },
   {
+    // Never a real page — but a plausible guess from the legacy /reference/*
+    // IA that LLMs and old links keep producing. Send it to the pricing hub.
+    source: "/reference/billing",
+    destination: "/pricing",
+    permanent: true,
+  },
+  {
     source: "/guides/fixing-common-errors",
     destination: "/networking/troubleshooting/application-failed-to-respond",
     permanent: true,
