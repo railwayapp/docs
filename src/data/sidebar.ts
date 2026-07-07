@@ -98,6 +98,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Audit logs", "enterprise"),
       makePage("SAML SSO", "enterprise", "/enterprise/saml"),
       makePage("Environment RBAC", "enterprise"),
+      makePage("Guardrails", "enterprise"),
     ],
   },
   {
