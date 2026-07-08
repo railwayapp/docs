@@ -36,6 +36,13 @@ railway setup agent
     tone="blue"
   />
   <Card
+    title="Plugins"
+    description="Plugin packages install Railway skills and MCP configuration together for tools with plugin marketplaces."
+    href="/ai/plugins"
+    icon="Folder"
+    tone="yellow"
+  />
+  <Card
     title="Agent Skills"
     description="The use-railway skill teaches AI coding agents how to operate Railway. Works with Claude Code, Cursor, Codex, OpenCode, Copilot, and Factory Droid."
     href="/ai/agent-skills"
@@ -49,4 +56,5 @@ railway setup agent
 - **Railway MCP (Local)** — preferred for agent-native operations on a logged-in machine: project and service discovery, deployment status, bounded logs, variables, domains, templates, metrics, and scoped mutations.
 - **Railway MCP (Remote)** — preferred when the user wants hosted OAuth MCP, or when local CLI configuration is unavailable. Also exposes the powerful `railway-agent` tool for multi-step operations.
 - **Railway CLI** — preferred when the task depends on local machine state: current-directory deploys, `railway up`, `railway run`, SSH, and local linking.
+- **Plugins** — preferred when your coding tool supports plugin marketplaces and you want host-managed installation for Railway skills and MCP configuration.
 - **Agent Skills** — install alongside any of the above so agents arrive with Railway-specific procedural knowledge instead of guessing.
