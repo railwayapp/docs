@@ -76,7 +76,7 @@ Your code will either be in some, or all steps depending on the amount of Railwa
 
 ### Operational procedures
 
-Railway uses a suite of alerting vendors, additional internal tools, and PagerDuty to ensure uptime of Railway's services described above. You can see Railway's uptime on the [Instatus page](https://railway.instatus.com/). Operational incident management reports and RCAs are available by request for those on an Enterprise plan.
+Railway uses a suite of alerting vendors, additional internal tools, and PagerDuty to ensure uptime of Railway's services described above. You can see Railway's uptime on our in-house [status page](https://status.railway.com/). Operational incident management reports and RCAs are available by request for those on an Enterprise plan.
 
 ### Do I have to change how I write Code?
 

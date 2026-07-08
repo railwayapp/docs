@@ -9,7 +9,7 @@ Railway Infrastructure as Code lets you define the services and resources in a R
 .railway/railway.ts
 ```
 
-Use Railway IaC when you want one editable file for project-level configuration: services, databases, buckets, custom domains, environment variables, replicas, and canvas groups.
+Use Railway IaC when you want one editable file for project-level configuration: services, databases, volumes, buckets, custom domains, environment variables, replicas, and canvas groups.
 
 > **TypeScript only (for now).** Railway IaC is authored in TypeScript via the [`railway`](https://www.npmjs.com/package/railway) SDK and a `.railway/railway.ts` file. TypeScript is currently the only supported language; other languages may follow.
 
@@ -195,7 +195,7 @@ export default defineRailway(() => {
 });
 ```
 
-For the full TypeScript DSL, including services, sources, replicas, variables, databases, buckets, domains, groups, and environment context, see the [Infrastructure as Code reference](/infrastructure-as-code/reference).
+For the full TypeScript DSL, including services, sources, replicas, variables, databases, volumes, buckets, domains, groups, and environment context, see the [Infrastructure as Code reference](/infrastructure-as-code/reference).
 
 ## Migrating from Config as Code
 

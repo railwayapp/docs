@@ -235,9 +235,13 @@
 
 /* Tables */
 .prose table {
-  @apply my-6 w-full caption-bottom overflow-hidden rounded-lg border border-muted text-sm;
+  @apply w-full caption-bottom overflow-hidden rounded-lg border border-muted text-sm;
   border-collapse: separate;
   border-spacing: 0;
+}
+
+.prose .table-scroll {
+  @apply my-6 overflow-x-auto;
 }
 
 .prose thead {
@@ -341,6 +345,8 @@
   @apply rounded-none font-mono text-xs leading-relaxed sm:text-sm;
   margin: 0 !important;
   overflow: visible;
+  width: fit-content;
+  min-width: 100%;
 }
 
 .shiki-wrapper .shiki code {
@@ -455,5 +461,46 @@
 
 .shiki .line.highlighted.warning {
   @apply border-l-warning bg-warning-element/30;
+}
+
+/* ===== GraphQLCodeTabs: wrap long lines instead of horizontal scroll =====
+   The API examples (GraphQL / cURL / JavaScript / Python + the Variables JSON)
+   render in a fixed ~648px content column. A modest 80-char mutation, and the
+   far longer generated cURL `-d '{...}'` body, overflow it and force horizontal
+   scrolling that hides the start of the line. We let these wrap instead.
+
+   Scoped via the `graphql-tabs-wrap` marker class, added ONLY on the
+   GraphQLCodeTabs code body and its VariablesSection wrappers
+   (graphql-code-tabs.tsx). Regular code blocks (code-block.tsx) use the bare
+   `.shiki-wrapper` and never match this compound selector, so they keep
+   `white-space: pre` + horizontal scroll, which suits shell/config snippets.
+
+   No `overflow-x` override is needed: once content wraps it never exceeds the
+   column, so the inherited `overflow-x: auto` simply never shows a scrollbar.
+   Leaving it `auto` keeps a graceful fallback instead of silently clipping. */
+
+/* The base rule gives <code> `w-fit min-w-full` (width: fit-content), which
+   would grow to the longest line and defeat wrapping. Pin it to the container
+   so the wrap has an edge. This selector is (0,3,1) vs the base (0,2,1) and
+   both carry `!important`, so the higher specificity wins. */
+.shiki-wrapper.graphql-tabs-wrap .shiki code {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  white-space: pre-wrap !important; /* beat base `white-space: pre !important` */
+  /* `pre-wrap` only breaks at existing whitespace, so the cURL `-d '{...}'`
+     JSON one-liner (a long run with no spaces) would still overflow.
+     `overflow-wrap: anywhere` breaks inside such a run only when it would
+     otherwise overflow, so GraphQL/JS/Python keep wrapping at token
+     boundaries and stay readable. */
+  overflow-wrap: anywhere;
+}
+
+/* Each line also carries `white-space: pre !important`, so override it too.
+   Padding/margin/width are untouched here, so the diff / highlighted / focused
+   full-bleed lines (-mx-4 px-4 + colored border) keep rendering correctly. */
+.shiki-wrapper.graphql-tabs-wrap .shiki .line {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere;
 }
 

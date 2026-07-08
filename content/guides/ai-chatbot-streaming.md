@@ -116,7 +116,7 @@ Railway auto-detects Next.js via [Railpack](/builds/railpack) and configures the
 
 ## Streaming and Railway's request timeouts
 
-Railway caps HTTP requests at a [maximum duration of 15 minutes](/networking/public-networking/specs-and-limits), and closes them earlier if no data is transferred for 5 minutes.
+Railway lets HTTP requests run for [up to 15 minutes with keep-alive heartbeats](/networking/public-networking/specs-and-limits), and closes them after 5 minutes with no data transferred.
 
 For a chatbot, this is rarely a problem: most LLM responses complete in seconds. If your chatbot runs multi-step agent tasks that stream for longer or sit silent between steps, consider the [async workers pattern](/guides/ai-agent-workers) instead of holding an SSE connection open.
 

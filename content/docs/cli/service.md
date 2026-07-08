@@ -23,6 +23,7 @@ railway service [SERVICE] [COMMAND]
 | `redeploy` | | Redeploy the latest deployment |
 | `restart` | | Restart the latest deployment |
 | `scale` | | Scale a service across regions |
+| `source` | | Connect or disconnect a service source |
 | `files` | `file` | Manage files in a service filesystem |
 
 ## Examples
@@ -76,6 +77,32 @@ railway service restart
 ```bash
 railway service scale us-west=2
 ```
+
+### Connect a GitHub source
+
+```bash
+railway service source connect --repo owner/repo --branch main --service web
+```
+
+Connects the service to a GitHub repository. Use `--branch` to set the branch
+that deploys.
+
+### Connect a Docker image source
+
+```bash
+railway service source connect --image nginx:latest --service web
+```
+
+Connects the service to a Docker image.
+
+### Disconnect a source
+
+```bash
+railway service source disconnect --service web
+```
+
+Disconnects the service from its current GitHub repository or Docker image
+source.
 
 ### Browse service files
 
@@ -162,6 +189,39 @@ See [railway logs](/cli/logs) for detailed usage and examples.
 | `--json` | Output in JSON format |
 
 See [railway scale](/cli/scale) for available regions and detailed usage.
+
+## Manage service sources
+
+Use `railway service source` to connect a service to a GitHub repository or
+Docker image, or to disconnect the service from its current source.
+
+| Subcommand | Description |
+|------------|-------------|
+| `source connect` | Connect a service to a GitHub repository or Docker image |
+| `source disconnect` | Disconnect the service from its current source |
+
+### Options for `source connect`
+
+| Flag | Description |
+|------|-------------|
+| `-s, --service <SERVICE>` | Service name or ID |
+| `-e, --environment <ENVIRONMENT>` | Environment to use |
+| `-p, --project <PROJECT_ID>` | Project ID to use |
+| `--repo <REPO>` | GitHub repository in `owner/repo` format |
+| `--branch <BRANCH>` | Branch to deploy from when connecting a GitHub repository |
+| `--image <IMAGE>` | Docker image to connect |
+| `--json` | Output in JSON format |
+
+Pass either `--repo` or `--image`. These source options are mutually exclusive.
+
+### Options for `source disconnect`
+
+| Flag | Description |
+|------|-------------|
+| `-s, --service <SERVICE>` | Service name or ID |
+| `-e, --environment <ENVIRONMENT>` | Environment to use |
+| `-p, --project <PROJECT_ID>` | Project ID to use |
+| `--json` | Output in JSON format |
 
 ## Manage files
 

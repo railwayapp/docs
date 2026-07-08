@@ -17,6 +17,13 @@ However, it's important to note that while we strive to stay ahead of incidents,
 
 Railway's uptime and incident retrospective can be accessed on the Railway status page at https://status.railway.com/. On this page, you can view the historical uptime of Railway's systems and services. Additionally, you can find detailed information about past incidents, including retrospectives that provide insights into how incidents were handled and what measures were taken to prevent similar issues in the future.
 
+The status page is built and hosted in-house. If you'd like to consume its data programmatically, it's backed by two simple JSON endpoints:
+
+- `https://api.railwaystatus.com/status` — current status of Railway's systems and services. Its response schema is published at `https://api.railwaystatus.com/status/schema.json`.
+- `https://railway.com/.railway/pops` — Railway's CDN points of presence (POPs) and their status. These are edge POPs, not [deployment regions](/deployments/regions).
+
+These endpoints are provided as-is, without any support, and their response format may change without notice.
+
 For Enterprise customers, we offer SLOs and guarantees of service that may not be represented on the uptime dashboard.
 
 ## Incident severity

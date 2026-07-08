@@ -21,7 +21,7 @@ The key insight is that **"nearest" is determined by network topology, not geogr
 
 Railway's network has two distinct layers:
 
-- **Edge POPs** are the entry points where user traffic first reaches Railway. Each request is terminated at the nearest POP and tagged with that POP's ID in the `X-Railway-Edge` header. Railway operates POPs in [dozens of cities worldwide](https://status.railway.com/locations).
+- **Edge POPs** are the entry points where user traffic first reaches Railway. Each request is terminated at the nearest POP and tagged with that POP's ID in the `X-Railway-Edge` header. Railway operates POPs in [dozens of cities worldwide](https://status.railway.com/locations); the current list is also available as JSON at `https://railway.com/.railway/pops` (provided as-is, without any support, and the response format may change without notice).
 - **Deployment regions** are where your applications actually run. Railway offers four: **US West**, **US East**, **Europe West**, and **Asia Southeast**.
 
 You choose which regions to deploy your app to, but all edge POPs are available automatically. Your users always enter Railway at the POP nearest to them, regardless of where your app is deployed.
