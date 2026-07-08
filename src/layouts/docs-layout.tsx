@@ -26,7 +26,7 @@ export interface Props extends PageProps {
 }
 
 const getOGImage = (title: string) =>
-  `https://og.railway.com/api/image?fileType=png&layoutName=Docs&Theme=Dark&URL=&Page=${encodeURIComponent(
+  `https://og.railway.com/api/image?fileType=png&layoutName=Docs&Theme=Night&URL=&Page=Documentation&Eyebrow=${encodeURIComponent(
     title,
   )}`;
 
