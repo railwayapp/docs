@@ -17,6 +17,16 @@ The [Railway Agent](/ai/railway-agent) is a chat-based assistant built directly 
 
 [Get started with the Railway Agent →](/ai/railway-agent)
 
+### Slack and Discord
+
+The [Slack and Discord integrations](/ai/slack-and-discord) bring the Railway Agent into your team chat. Mention **@Railway** to inspect deployments, read logs, and make changes without leaving the conversation.
+
+- Install from your account settings with one click per platform
+- Each teammate acts with their own Railway access; usage bills to the linked workspace
+- Available through Priority Boarding
+
+[Get started with Slack and Discord →](/ai/slack-and-discord)
+
 ### Agent skills
 
 [Agent Skills](/ai/agent-skills) are an open format for extending AI coding assistants with specialized knowledge about Railway. The `use-railway` skill guides AI agents to perform tasks like deploying services, managing environments, and querying metrics.
