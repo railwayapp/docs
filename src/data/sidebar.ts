@@ -314,6 +314,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Variables", undefined, "/variables"),
         pages: [makePage("Reference", "variables")],
       },
+      makePage("Feature flags", undefined, "/feature-flags"),
       makePage("Cron jobs", undefined, "/cron-jobs"),
       makePage("Functions", undefined, "/functions"),
       makePage("Sandboxes", undefined, "/sandboxes"),

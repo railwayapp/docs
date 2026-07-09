@@ -1,46 +1,37 @@
 ---
 title: Feature Flags
-description: Define typed feature flags with targeting rules for your Railway projects and workspaces.
+description: Define typed feature flags with targeting rules for your Railway projects.
 ---
 
-Feature flags (internally **Signals**) are a typed configuration registry scoped to a **project** or **workspace**. Each flag has a default value and optional targeting rules evaluated at read time.
+Feature flags are a typed configuration registry scoped to your project. Each flag has a default value and optional targeting rules evaluated at read time.
 
-Use feature flags when you need:
+Use feature flags to:
 
-- Typed defaults (`bool`, `string`, `number`, `json`)
-- Targeting by attributes (for example `plan = enterprise`)
-- Percentage rollouts keyed on stable attributes (for example `workspace_id`)
-- A central registry that apps poll at runtime (via the SDK or GraphQL)
+- Ship a risky rewrite dark and flip it on for your own team before anyone else sees it
+- Roll a new pricing model or algorithm out to 10% of users, watch metrics, then go wide
+- Gate enterprise-only capabilities by plan without maintaining separate builds
+- Kill switch an expensive endpoint or flip on `maintenance-mode` mid-incident without a deploy
+- Tune runtime knobs — rate limits, batch sizes, model parameters — as `number` or `json` values that change without redeploying
 
-Feature flags are **not** environment variables. For static per-environment secrets and config, use [Variables](/docs/variables).
-
-## Scopes
-
-| Scope | Owner string | Managed from |
-|---|---|---|
-| Project | `project:<projectId>` | Project **Settings → Feature Flags** |
-| Workspace | `workspace:<workspaceId>` | Workspace settings (read-only in project settings) |
-
-Runtime apps read **one scope** at a time. Project and workspace registries are separate namespaces.
+Feature flags are not environment variables. For static per-environment secrets and config, use [Variables](/variables).
 
 ## Dashboard
 
 1. Open a project → **Settings → Feature Flags**
-2. Create a flag: name, type, default, optional targeting rules
-3. Project admins can create, edit, and delete project-scoped flags
-4. Workspace-scoped flags appear in a read-only section when they exist
+2. Create a flag: name, type (`bool`, `string`, `number`, `json`), default, and optional targeting rules
+3. Project admins can create, edit, and delete flags
 
 ### Targeting rules
 
 Each rule has:
 
 - **Attribute** — compare a context attribute (for example `plan`)
-- **Rollout %** — bucket on a key attribute with a percentage threshold (0–100 in the UI; stored as 0–1)
+- **Rollout %** — bucket on a key attribute with a percentage threshold
 - **Serve** — value returned when the rule matches
 
 All matching rules must agree on the served value; otherwise the default wins.
 
-## Runtime SDK
+## Railway TypeScript SDK
 
 Install the [Railway TypeScript SDK](https://github.com/railwayapp/railway-ts-sdk) and set a [project token](/integrations/api#project-token) as the `RAILWAY_TOKEN` variable on your service. Initialization is then zero-config — the project token authenticates the SDK and pins the flag scope to its project:
 
@@ -49,27 +40,17 @@ import { flags } from "railway";
 
 await flags.init();
 
-const enabled = flags.getBoolean("checkout-v2", {
-  targetingKey: userId,
-  attributes: { plan: "enterprise" },
-});
+// Context is a flat bag of attributes; `key` is the stable identity
+// used for percentage rollouts.
+const enabled = flags.getBoolean("checkout-v2", { key: userId, plan: "enterprise" }, false);
+
+// evaluate* variants also return the resolution reason and rule trace.
+const limit = flags.evaluateNumber("api-rate-limit", { key: userId }, 100);
 ```
 
-The SDK polls the registry and evaluates flags in-process using the same resolver as the API.
+The SDK polls the registry in the background and evaluates flags in-process, so reads are synchronous and never block a request.
 
-Token resolution order: explicit `token` option → `RAILWAY_TOKEN` (project token, recommended) → `RAILWAY_API_TOKEN` (account/workspace bearer token, last resort). With a bearer token the scope is not inferred, so pass it explicitly:
-
-```typescript
-await flags.init({
-  scope: { projectId: process.env.RAILWAY_PROJECT_ID! },
-});
-```
-
-## GraphQL API
-
-Public GraphQL operations include `signals`, `signal`, `signalCreate`, `signalDefaultSet`, `signalRuleSet`, `signalRuleUnset`, and `signalDelete`. Pass an explicit `owner` (`project:<id>` or `workspace:<id>`).
-
-See the [GraphQL overview](/docs/integrations/api/graphql-overview) for authentication.
+Token resolution order: explicit `token` option → `RAILWAY_TOKEN` (project token, recommended) → `RAILWAY_API_TOKEN` (account bearer token, last resort).
 
 ## AI agents and MCP
 
@@ -77,10 +58,10 @@ Remote MCP (`https://mcp.railway.com`) exposes feature flag tools:
 
 | Tool | Role | Description |
 |---|---|---|
-| `list-feature-flags` | viewer | List project flags; includes workspace flags when present |
+| `list-feature-flags` | viewer | List a project's flags |
 | `get-feature-flag` | viewer | Inspect one flag |
 | `set-feature-flag` | admin | Create a flag or update its default |
-| `delete-feature-flag` | admin | Delete a project-scoped flag |
+| `delete-feature-flag` | admin | Delete a flag |
 
 Example prompts:
 
@@ -92,20 +73,24 @@ List feature flags for my Railway project
 Set the checkout-v2 feature flag default to true on project <projectId>
 ```
 
-Install agent tooling with `railway setup agent --remote`. See [Railway MCP Server](/docs/ai/mcp-server) and [Agent Skills](/docs/ai/agent-skills).
+Install agent tooling with `railway setup agent --remote`. See [Railway MCP Server](/ai/mcp-server) and [Agent Skills](/ai/agent-skills).
 
 ## CLI
 
-When available in your CLI version:
+Manage flags with `railway flag`:
 
 ```bash
-railway flag list --project <project-id> --json
-railway flag checkout-v2 true --project <project-id>
+railway flag list
+railway flag set checkout.v2 true
+railway flag set theme "blue"
+railway flag set checkout.v2 true --when 'plan == "enterprise"'
+railway flag set checkout.v2 true --when "bucket(user_id) < 0.25"
+railway flag unset checkout.v2 --rule-id enterprise-on
+railway flag delete checkout.v2
 ```
 
-Upgrade with `railway upgrade --yes` if `railway flag` is not found.
+`--when` attaches a targeting rule instead of changing the default. Use `--json` for machine-readable output.
 
 ## Related
 
-- [Variables](/docs/variables) — environment-scoped configuration
-- [Priority Boarding](/docs/platform/priority-boarding) — account beta program (unrelated to project feature flags)
+- [Variables](/variables) — environment-scoped configuration
