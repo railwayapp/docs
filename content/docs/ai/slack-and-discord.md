@@ -3,7 +3,7 @@ title: Slack and Discord
 description: Add the Railway agent to your Slack workspace or Discord server and work with your projects from chat.
 ---
 
-<Banner variant="primary">The Slack and Discord integrations are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. Breaking changes may occur.</Banner>
+<Banner variant="primary">The Slack and Discord integrations are in beta. Breaking changes may occur.</Banner>
 
 The Railway agent can join your team chat. Once installed, mention **@Railway** in Slack or Discord to ask about your projects, inspect deployments, read logs, and make changes — the same [Railway Agent](/ai/railway-agent) that runs in the dashboard, answering where your team already works.
 
@@ -18,21 +18,19 @@ Both are checked on every message. If you leave the Railway workspace, the agent
 
 ## Set up Slack
 
-1. Enable **Railway Agent for Bots** on [Feature Flags](https://railway.com/account/feature-flags) — it's included automatically if you're in Priority Boarding.
-2. Go to [Account Settings](https://railway.com/account) → **Railway Agent Integrations** and click **Add to Slack**. Approve the install for your Slack workspace.
-3. Mention **@Railway** in any channel. The first time, it replies with a link to connect your Slack identity to your Railway account — follow it.
-4. A Railway workspace admin runs `/railway-link` in a channel (not a thread) and picks the Railway workspace to connect.
-5. That's it — mention **@Railway** with a question, or run `/railway-link` again at any time to point the server at a different workspace.
+1. Go to [Account Settings](https://railway.com/account) → **Railway Agent Integrations** and click **Add to Slack**. Approve the install for your Slack workspace.
+2. Mention **@Railway** in any channel. The first time, it replies with a link to connect your Slack identity to your Railway account — follow it.
+3. A Railway workspace admin runs `/railway-link` in a channel (not a thread) and picks the Railway workspace to connect.
+4. That's it — mention **@Railway** with a question, or run `/railway-link` again at any time to point the server at a different workspace.
 
 The agent can reply in any public channel. For private channels, invite it first with `/invite @Railway`.
 
 ## Set up Discord
 
-1. Enable **Railway Agent for Bots** on [Feature Flags](https://railway.com/account/feature-flags) — included automatically with Priority Boarding.
-2. Go to [Account Settings](https://railway.com/account) → **Railway Agent Integrations** and click **Add to Discord**. Authorize the app into your server.
-3. Connect your Discord account to Railway under **Account Integrations** on the same page. If you skip this, the agent will prompt you the first time you mention it.
-4. A Railway workspace admin runs `/link workspace` in the server and picks the Railway workspace to connect.
-5. Mention **@Railway** with a question.
+1. Go to [Account Settings](https://railway.com/account) → **Railway Agent Integrations** and click **Add to Discord**. Authorize the app into your server.
+2. Connect your Discord account to Railway under **Account Integrations** on the same page. If you skip this, the agent will prompt you the first time you mention it.
+3. A Railway workspace admin runs `/link workspace` in the server and picks the Railway workspace to connect.
+4. Mention **@Railway** with a question.
 
 ## Managing connections
 

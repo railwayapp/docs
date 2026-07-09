@@ -23,7 +23,7 @@ The [Slack and Discord integrations](/ai/slack-and-discord) bring the Railway Ag
 
 - Install from your account settings with one click per platform
 - Each teammate acts with their own Railway access; usage bills to the linked workspace
-- Available through Priority Boarding
+- Currently in beta
 
 [Get started with Slack and Discord →](/ai/slack-and-discord)
 
