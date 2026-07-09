@@ -42,14 +42,12 @@ All matching rules must agree on the served value; otherwise the default wins.
 
 ## Runtime SDK
 
-Install the [Railway TypeScript SDK](https://github.com/railwayapp/railway-ts-sdk) and initialize flags for your scope:
+Install the [Railway TypeScript SDK](https://github.com/railwayapp/railway-ts-sdk) and set a [project token](/integrations/api#project-token) as the `RAILWAY_TOKEN` variable on your service. Initialization is then zero-config — the project token authenticates the SDK and pins the flag scope to its project:
 
 ```typescript
 import { flags } from "railway";
 
-await flags.init({
-  scope: { projectId: process.env.RAILWAY_PROJECT_ID! },
-});
+await flags.init();
 
 const enabled = flags.getBoolean("checkout-v2", {
   targetingKey: userId,
@@ -58,6 +56,14 @@ const enabled = flags.getBoolean("checkout-v2", {
 ```
 
 The SDK polls the registry and evaluates flags in-process using the same resolver as the API.
+
+Token resolution order: explicit `token` option → `RAILWAY_TOKEN` (project token, recommended) → `RAILWAY_API_TOKEN` (account/workspace bearer token, last resort). With a bearer token the scope is not inferred, so pass it explicitly:
+
+```typescript
+await flags.init({
+  scope: { projectId: process.env.RAILWAY_PROJECT_ID! },
+});
+```
 
 ## GraphQL API
 
