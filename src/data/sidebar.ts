@@ -104,7 +104,19 @@ export const sidebarContent: ISidebarContent = [
   {
     title: "AI",
     slug: "/ai",
-    content: [makePage("Railway Agent", "ai"), makePage("Agent skills", "ai"), makePage("Claude Code plugin", "ai"), makePage("MCP server", "ai")],
+    content: [
+      makePage("Railway Agent", "ai"),
+      {
+        subTitle: makePage("Agent integrations", undefined, "/ai/agent-integrations"),
+        pages: [
+          makePage("Slack", "ai/agent-integrations"),
+          makePage("Discord", "ai/agent-integrations"),
+        ],
+      },
+      makePage("Agent skills", "ai"),
+      makePage("Claude Code plugin", "ai"),
+      makePage("MCP server", "ai"),
+    ],
   },
   {
     title: "Templates & open source",
