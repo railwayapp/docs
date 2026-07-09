@@ -82,6 +82,16 @@ The local Railway MCP Server translates natural language requests into CLI workf
   Redeploy my api service in the production environment
   ```
 
+* **Manage feature flags**
+
+  ```text
+  List feature flags for project <projectId>
+  ```
+
+  ```text
+  Set the checkout-v2 feature flag to true on project <projectId>
+  ```
+
 ## Available MCP tools
 
 The Railway MCP Server provides a curated set of tools. Your AI assistant calls these automatically based on the context of your request.
@@ -113,6 +123,9 @@ The remote server exposes a focused set of tools plus a powerful agent entry poi
   * `whoami`
 * **Projects**
   * `list-projects`, `create-project`, `list-services`
+* **Feature flags**
+  * `list-feature-flags`, `get-feature-flag`
+  * `set-feature-flag`, `delete-feature-flag` (admin; destructive delete is marked at the protocol level)
 * **Deployments**
   * `redeploy`
   * `accept-deploy` — commit staged changes and deploy (destructive; clients prompt for confirmation)
