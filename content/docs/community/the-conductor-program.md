@@ -9,11 +9,11 @@ This program aims to foster collaboration and help Railway's Conductors grow.
 
 ## What do conductors do?
 
-Railway's Conductors spend time in Discord and the Central Station answering questions, sharing tips, and making sure everyone can use Railway successfully.
+Railway's Conductors spend time in the Central Station answering questions, sharing tips, and making sure everyone can use Railway successfully.
 
 Here are a few key ways they contribute -
 
-- Providing community support through [Discord](https://discord.gg/railway) and the [Central Station](https://station.railway.com/).
+- Providing community support through the [Central Station](https://station.railway.com/).
 
 - Maintaining a healthy and welcoming community atmosphere while moderating the Railway channels and templates.
 
@@ -35,7 +35,7 @@ Here's what we look for in potential Conductors -
 
 - Maintain professional and friendly communication.
 
-- Are active participants in the Discord and Central Station.
+- Are active participants in the Central Station.
 
 - Demonstrate strong technical problem-solving abilities.
 
@@ -59,7 +59,7 @@ As part of the program, conductors will receive -
 
 - Letters of recommendation for educational institutions and employer references.
 
-- Moderation status on [Discord](https://discord.gg/railway) and the [Central Station](https://station.railway.com/).
+- Moderation status on the [Central Station](https://station.railway.com/).
 
 - Access to a team workspace shared with other Conductors.
 
@@ -87,7 +87,7 @@ As a Conductor, you'll contribute regularly in these key areas -
 
 - Support Activities
 
-  - Helping others in [Discord](https://discord.gg/railway) and the [Central Station](https://station.railway.com/).
+  - Helping others in the [Central Station](https://station.railway.com/).
 
   - Showing consistent engagement by regularly contributing to meaningful solutions across all Railway platforms.
 

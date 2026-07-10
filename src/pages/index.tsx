@@ -752,12 +752,6 @@ const Home: NextPage = () => {
                 <Icon name="XIcon" className="size-4" />
               </Link>
               <Link
-                href="https://discord.gg/railway"
-                className="text-muted-base hover:text-muted-high-contrast transition-colors"
-              >
-                <Icon name="Discord" className="size-4" />
-              </Link>
-              <Link
                 href="https://youtube.com/@railwayapp"
                 className="text-muted-base hover:text-muted-high-contrast transition-colors"
               >

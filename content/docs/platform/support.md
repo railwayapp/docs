@@ -12,7 +12,7 @@ your plan level.
 ### Trial, free, hobby
 
 Users on Trial, Free, and Hobby plans receive community support through 
-[Central Station](#central-station) or [Discord](#discord). While Railway 
+[Central Station](#central-station). While Railway 
 employees may participate in community discussions, responses are not 
 guaranteed for these tiers.
 
@@ -47,13 +47,12 @@ case-by-case basis for [Business Class](#business-class) or Enterprise
 customers.
 
 For application-level support, connect with the Railway community on 
-[Central Station](https://station.railway.com) or 
-[Discord](https://discord.gg/railway).
+[Central Station](https://station.railway.com).
 
 ## Email support
 
 Railway does not provide support via email. All support requests should be 
-directed to [Central Station](#central-station) or [Discord](#discord). Email 
+directed to [Central Station](#central-station). Email 
 communication is reserved for the following specific purposes:
 
 - Sales inquiries: [team@railway.com](mailto:team@railway.com)
@@ -101,15 +100,6 @@ see them.
 Railway may make the thread public for community involvement if we determine 
 that there is no sensitive information in your thread, or if you are asking
 for [application-level support](#application-level-support).
-
-## Discord
-
-We have a vibrant Discord community of over 28,000+ users and developers. You 
-can find the Railway Discord at [https://discord.gg/railway](https://discord.gg/railway).
-
-Please ask your questions in the 
-<a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">✋ ｜ help</a> 
-channel, and refrain from pinging anyone with the `Team` or `Conductor` roles.
 
 ## Slack
 

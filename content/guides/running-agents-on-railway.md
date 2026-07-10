@@ -179,4 +179,4 @@ Every agent in that list swaps the same three things: where it listens for input
 
 ## Conclusion
 
-You now have a project that automatically opens PRs in response to new issues, and a general framework for deploying agents on Railway. If you have any questions or feedback, reach out on <a href="https://discord.gg/railway" target="_blank">Discord</a>, [Slack](/platform/support#slack), or the <a href="https://station.railway.com/" target="_blank">Central Station</a>.
+You now have a project that automatically opens PRs in response to new issues, and a general framework for deploying agents on Railway. If you have any questions or feedback, reach out on [Slack](/platform/support#slack) or the <a href="https://station.railway.com/" target="_blank">Central Station</a>.

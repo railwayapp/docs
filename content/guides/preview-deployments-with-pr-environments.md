@@ -136,4 +136,4 @@ While any infrastructure created via a PR Environment is automatically destroyed
 
 ## Conclusion
 
-You now have a project that automatically previews every PR in an isolated environment, with Focused PR Environments to keep builds fast in a monorepo and Bot PR Environments to control how bot-opened PRs are handled. If you have any questions or feedback, reach out on <a href="https://discord.gg/railway" target="_blank">Discord</a>, [Slack](/platform/support#slack), or the <a href="https://station.railway.com/" target="_blank">Central Station</a>.
+You now have a project that automatically previews every PR in an isolated environment, with Focused PR Environments to keep builds fast in a monorepo and Bot PR Environments to control how bot-opened PRs are handled. If you have any questions or feedback, reach out on [Slack](/platform/support#slack) or the <a href="https://station.railway.com/" target="_blank">Central Station</a>.

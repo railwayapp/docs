@@ -82,7 +82,7 @@
       "Why can't I connect to my plugin?",
       "I can't seem to connect to Postgres?"
     ],
-    "answer": "Ensure that you are using the correct connection URL. If you can't load the data panel on your plugin's dashboard - it could be an issue on our end, be sure to reach out to the team on Discord if that is the case.",
+    "answer": "Ensure that you are using the correct connection URL. If you can't load the data panel on your plugin's dashboard - it could be an issue on our end, be sure to reach out to the team on Central Station if that is the case.",
     "link": ""
   },
   "feature-requests": {

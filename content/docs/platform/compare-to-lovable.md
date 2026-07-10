@@ -122,6 +122,6 @@ If you're ready to move your Lovable app to Railway, just connect your GitHub re
 
 ## Need help or have questions?
 
-If you need help along the way, the [Railway Discord](http://discord.gg/railway) and [Help Station](https://station.railway.com/) are great resources to get support from the team and community.
+If you need help along the way, the [Help Station](https://station.railway.com/) is a great resource to get support from the team and community.
 
 Working with a larger workload or have specific requirements? [Book a call with the Railway team](https://cal.com/team/railway/work-with-railway) to explore how we can best support your project.

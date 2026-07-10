@@ -314,4 +314,4 @@ For complete information on configuring services for private networking, see the
 
 ## Troubleshooting
 
-Having trouble with your domain configuration? Check out the [Troubleshooting guide](/troubleshooting) or reach out on the <a href="https://discord.gg/railway" target="_blank">Railway Discord</a>.
+Having trouble with your domain configuration? Check out the [Troubleshooting guide](/troubleshooting) or reach out on [Central Station](https://station.railway.com).

@@ -237,4 +237,4 @@ Happy Building!
 
 ### Join the community
 
-Chat with Railway members, ask questions, and hang out in the <a href="https://discord.gg/railway" target="_blank">Railway Discord community</a> with fellow builders! We'd love to have you!
+Chat with Railway members, ask questions, and get help on [Central Station](https://station.railway.com)! We'd love to have you!
