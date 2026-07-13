@@ -76,10 +76,6 @@ Within Account settings, link a Discord account with a Railway account to gain a
 
 If the Discord user has not joined the Railway Discord server, linking the account will automatically invite the user to the server.
 
-### Discord support
-
-Discord users can access the <a href="https://discord.gg/railway" target="_blank">Railway Discord server</a> to get help from the Railway team and other users.
-
 ### Priority boarding enrollment
 
 For the most adventurous, we offer a beta program called Priority Boarding. You can join by flipping the "Priority Boarding" switch on the <a href="https://railway.com/account/feature-flags" target="_blank">Feature Flags page</a>. To learn more, visit [Priority Boarding](/platform/priority-boarding).

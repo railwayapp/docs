@@ -153,4 +153,4 @@ Being prepared for major and unexpected issues helps minimize downtime and data 
 
 Using a mix of native features and external tools, we hope you can feel confident that your applications on Railway meet the highest standards of performance, reliability, and security.
 
-Remember, the Railway team is always here to assist you with solutions. Reach out in <a href="https://discord.com/channels/713503345364697088/1006629907067064482" target="_blank">Discord</a> or over email at [team@railway.com](mailto:team@railway.com) for assistance.
+Remember, the Railway team is always here to assist you with solutions. Reach out on [Central Station](https://station.railway.com) or over email at [team@railway.com](mailto:team@railway.com) for assistance.

@@ -90,6 +90,6 @@ Unfortunately, the Railway platform isn't yet well-equipped to handle the follow
 
 ## General recommendations
 
-A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.com](mailto:team@railway.com), or via the [Railway Discord server](https://discord.gg/railway). You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/work-with-railway?duration=30).
+A document like this can only go so far. We have a standing invitation for any team who needs an extended scale use-case to reach out to us directly by e-mailing [team@railway.com](mailto:team@railway.com), or on [Central Station](https://station.railway.com). You can also schedule some time with us directly by clicking [here](https://cal.com/team/railway/work-with-railway?duration=30).
 
 We would be happy to answer any additional questions you may have.

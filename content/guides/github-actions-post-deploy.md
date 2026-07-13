@@ -49,4 +49,4 @@ It's that simple! You can now customize the final run step to execute any comman
 
 ## Conclusion
 
-We hope this tutorial has been helpful and that you'll find it useful for your own projects. If you have any questions or feedback, please feel free to reach out to us on [Discord](https://discord.gg/railway), [Slack](/platform/support#slack) or the [Central Station](https://station.railway.com). Happy coding!
+We hope this tutorial has been helpful and that you'll find it useful for your own projects. If you have any questions or feedback, please feel free to reach out to us on [Slack](/platform/support#slack) or [Central Station](https://station.railway.com). Happy coding!

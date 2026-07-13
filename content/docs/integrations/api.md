@@ -179,4 +179,4 @@ To help you get started, we have provided example queries and mutations organize
 
 ## Support
 
-If you run into problems using the API or have any suggestions, feel free to join the [Railway Discord server](https://discord.gg/railway) where you can interact with the engineers working on the API directly.
+If you run into problems using the API or have any suggestions, feel free to reach out on [Central Station](https://station.railway.com) where the team can help you directly.

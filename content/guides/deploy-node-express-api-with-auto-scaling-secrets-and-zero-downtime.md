@@ -487,4 +487,4 @@ Now that you've deployed your Node.js applications, explore these resources:
 
 ## Need help?
 
-If you have any questions or run into issues, you can reach out in the [Railway Discord](http://discord.gg/railway) community or on [Central Station](https://station.railway.com/).
+If you have any questions or run into issues, you can reach out on [Central Station](https://station.railway.com/).
