@@ -4,7 +4,7 @@ description: Railway Metal is Railway’s own cloud infrastructure, built for hi
 ---
 
 Railway Metal is the next generation of Railway's underlying infrastructure.
-It is built on hardware that we own and operate in datacenters around the world.
+It is built on <a href="https://blog.railway.com/p/railway-metal-gen-2" target="_blank">hardware that we own and operate in datacenters around the world</a>.
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1736893474/docs/m0_homdt8.png"

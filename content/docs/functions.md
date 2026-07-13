@@ -4,7 +4,7 @@ description: Write and deploy code from the Railway canvas without managing infr
 ---
 
 Write and deploy code from the Railway canvas without managing infrastructure or creating a git repository.
-Functions are [Services](/services) that run a single file of TypeScript code using the [Bun](https://bun.sh/) runtime.
+Functions are [Services](/services) that <a href="https://blog.railway.com/p/introducing-railway-functions" target="_blank">run a single file of TypeScript code</a> using the [Bun](https://bun.sh/) runtime.
 Use them like any other Service, but without the overhead of a repository.
 
 They are ideal for small tasks like handling webhooks, cron jobs, or simple APIs.

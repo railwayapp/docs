@@ -3,7 +3,7 @@ title: CDN
 description: Cache static assets and HTML at the edge with Railway's built-in CDN to reduce latency and origin load.
 ---
 
-Railway's CDN serves your service's responses from the edge location nearest each visitor, so a cached request returns faster than a round trip to your service. It caches static assets and HTML across a global network of points of presence (POPs), which also lowers load on your service and reduces network egress costs.
+Railway's CDN serves your service's responses from the edge location nearest each visitor, so a cached request returns faster than a round trip to your service. It caches static assets and HTML across a <a href="https://blog.railway.com/p/railway-cdn" target="_blank">global network of points of presence (POPs)</a>, which also lowers load on your service and reduces network egress costs.
 
 CDN caching is available on all plans at no additional cost. It's off by default and enabled per service.
 

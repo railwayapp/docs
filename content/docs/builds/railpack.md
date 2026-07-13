@@ -24,7 +24,7 @@ Currently, we support the following languages out of the box:
 
 ## How it works
 
-Railpack automatically analyzes your code and turns it into a container image.
+Railpack automatically <a href="https://blog.railway.com/p/introducing-railpack" target="_blank">analyzes your code and turns it into a container image</a>.
 It detects your programming language, installs dependencies, and configures
 build and start commands without any manual configuration required.
 
