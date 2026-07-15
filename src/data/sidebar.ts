@@ -259,6 +259,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("domain"),
       makeCliCommand("down"),
       makeCliCommand("environment"),
+      makeCliCommand("flag"),
       makeCliCommand("functions"),
       makeCliCommand("init"),
       makeCliCommand("link"),
