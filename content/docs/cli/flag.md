@@ -3,7 +3,7 @@ title: railway flag
 description: Manage feature flags from the command line.
 ---
 
-Create, inspect, and target [feature flags](/feature-flags) for a project or workspace.
+Create, inspect, and target [feature flags](/feature-flags) for a project.
 
 <Banner variant="info">The `flag` command manages [feature flags](/feature-flags), which are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. It's under active development, and its commands and flags may change in breaking ways.</Banner>
 
@@ -17,20 +17,24 @@ railway flag <COMMAND> [OPTIONS]
 
 | Subcommand | Aliases | Description |
 |------------|---------|-------------|
-| `list` | `ls` | List feature flags for a scope |
+| `list` | `ls` | List feature flags for a project |
 | `set` | | Set a flag's default value, or attach a targeting rule with `--when` |
 | `unset` | | Remove a targeting rule from a flag |
 | `delete` | `rm`, `remove` | Delete a feature flag |
 
-## Scope
+## Target a project
 
-By default, `railway flag` targets the linked project's **workspace** scope. To manage the project-scoped flags your app reads through the SDK, pass `--scope project:<projectId>`:
+Feature flags belong to a project. Pass the project as a global option, so it works on every subcommand:
 
 ```bash
-railway flag list --scope project:<projectId>
+railway flag list --scope project:<project-id>
 ```
 
-`--scope` accepts `project:<id>` or `workspace:<id>` and is a global option, so it works on every subcommand. You can also set the `RAILWAY_FLAGS_SCOPE` variable.
+To avoid repeating the option, set `RAILWAY_FLAGS_SCOPE`. The examples below assume this variable is set:
+
+```bash
+export RAILWAY_FLAGS_SCOPE=project:<project-id>
+```
 
 ## Examples
 
@@ -106,7 +110,7 @@ Comparison operators are `==`, `!=`, `<`, `<=`, `>`, `>=`, `contains`, and `matc
 
 | Flag | Description |
 |------|-------------|
-| `--scope <SCOPE>` | Flag scope, `project:<id>` or `workspace:<id>`. Defaults to the linked project's workspace |
+| `--scope <SCOPE>` | Project target in the format `project:<id>` |
 | `--json` | Output in JSON format |
 
 ### Options for `set`

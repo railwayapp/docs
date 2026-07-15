@@ -1,11 +1,11 @@
 ---
 title: Feature Flags
-description: Define typed feature flags with targeting rules for a Railway project or workspace, and read them at runtime with the TypeScript SDK, CLI, or MCP.
+description: Define typed feature flags with targeting rules for a Railway project, and read them at runtime with the TypeScript SDK, CLI, or MCP.
 ---
 
 <Banner variant="primary">Feature Flags are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. Breaking changes may occur.</Banner>
 
-Feature flags are a typed configuration registry scoped to a project or workspace. Each flag has a default value and optional targeting rules evaluated at read time.
+Feature flags are a typed configuration registry scoped to a project. Each flag has a default value and optional targeting rules evaluated at read time.
 
 Use feature flags to:
 
@@ -33,13 +33,6 @@ const on = flags.getBoolean("checkout-v2", {
 Railway checks the flag's rules against that context. A rule like "serve `true` when plan is enterprise" matches, so `on` is `true`. For a user on the free plan, no rule matches, so `on` falls back to the flag's default.
 
 A read always returns a value: the matching rules' value when they agree, otherwise the default. Your app doesn't call Railway on every read either. The SDK keeps a copy of your flags in memory and refreshes it in the background, so reads are instant.
-
-## Flag scopes
-
-A flag belongs to one of two scopes:
-
-- **Project**: owned by a single project. Your app reads project flags through the SDK with a [project token](/integrations/api#project-token), and you manage them in the project's **Feature Flags** settings, the CLI, or MCP.
-- **Workspace**: shared across every project in a workspace. They appear read-only in a project's **Feature Flags** settings and are managed at the workspace level.
 
 ## Flag types
 
@@ -79,11 +72,11 @@ bun add railway
 
 **Note:** The SDK is under active development while feature flags are in Priority Boarding, and its API may change in breaking ways between releases.
 
-### Authentication and scope
+### Authentication
 
-The SDK needs a token and a flag scope. The recommended setup is a project token, which supplies both.
+The recommended setup uses a [project token](/integrations/api#project-token), which authenticates the SDK and identifies the project that owns the flags.
 
-Set a [project token](/integrations/api#project-token) as the `RAILWAY_TOKEN` variable on your service. The SDK reads it automatically, and Railway infers the project scope from the token, so initialization takes no arguments and no project ID:
+Set the project token as the `RAILWAY_TOKEN` variable on your service. The SDK reads it automatically and infers the project from the token:
 
 ```typescript
 import { flags } from "railway";
@@ -91,23 +84,27 @@ import { flags } from "railway";
 await flags.init();
 ```
 
-For other setups, pass options to `init()`:
+You don't need to set `RAILWAY_PROJECT_ID` or pass a project ID when you use a project token.
+
+When you pass a project token directly, set `authType` to `"project-token"`. The SDK still infers the project from the token:
 
 ```typescript
-// Pass a token explicitly instead of reading it from the environment.
-await flags.init({ token: myToken });
-
-// An explicit project token must set authType so the SDK infers its scope.
-await flags.init({ token: myProjectToken, authType: "project-token" });
-
-// Scope to a project explicitly (needed with an account token off Railway).
-await flags.init({ scope: { projectId: "<project-id>" } });
-
-// Scope to a workspace instead of a project.
-await flags.init({ scope: { workspaceId: "<workspace-id>" } });
+await flags.init({
+  token: myProjectToken,
+  authType: "project-token",
+});
 ```
 
-Token resolution order is the explicit `token` option, then `RAILWAY_TOKEN` (project token, recommended), then `RAILWAY_API_TOKEN` (account or workspace bearer token). On Railway, `RAILWAY_PROJECT_ID` is injected and used as the scope when you authenticate with an account token. Without a resolvable scope, `init()` throws.
+An account token doesn't identify a project. If you use one instead, pass the project explicitly or rely on the `RAILWAY_PROJECT_ID` variable injected into Railway deployments:
+
+```typescript
+await flags.init({
+  token: myAccountToken,
+  scope: { projectId: "<project-id>" },
+});
+```
+
+Token resolution order is the explicit `token` option, then `RAILWAY_TOKEN` (project token, recommended), then `RAILWAY_API_TOKEN` (account token). Without a project token or an explicit or injected project ID, `init()` throws.
 
 ### Read a flag
 
@@ -155,7 +152,7 @@ const { value, reason, trace } = flags.evaluateBoolean(
 Combine attribute targeting with a percentage rollout to ship progressively. Create a rule that serves `true` to 25% of enterprise users with the [CLI](/cli/flag):
 
 ```bash
-railway flag set checkout-v2 true --scope project:<projectId> \
+railway flag set checkout-v2 true --scope project:<project-id> \
   --when 'plan == "enterprise" && bucket(key) < 0.25'
 ```
 
@@ -178,16 +175,19 @@ A rule that buckets on `key` needs a `key` in the read context. Without one, the
 Manage flags with `railway flag`. See the [full command reference](/cli/flag) for every subcommand and option.
 
 ```bash
-railway flag list
-railway flag set checkout.v2 true
-railway flag set theme "blue"
-railway flag set checkout.v2 true --when 'plan == "enterprise"'
-railway flag set checkout.v2 true --when "bucket(key) < 0.25"
-railway flag unset checkout.v2 --rule-id enterprise-on
-railway flag delete checkout.v2
+railway flag list --scope project:<project-id>
+railway flag set checkout.v2 true --scope project:<project-id>
+railway flag set theme "blue" --scope project:<project-id>
+railway flag set checkout.v2 true --scope project:<project-id> \
+  --when 'plan == "enterprise"'
+railway flag set checkout.v2 true --scope project:<project-id> \
+  --when "bucket(key) < 0.25"
+railway flag unset checkout.v2 --scope project:<project-id> \
+  --rule-id enterprise-on
+railway flag delete checkout.v2 --scope project:<project-id>
 ```
 
-`railway flag` defaults to the linked project's **workspace** scope. To manage the project-scoped flags your app reads through the SDK, pass `--scope project:<projectId>`. Use `--json` for machine-readable output.
+Pass `--scope project:<project-id>` to target the project that owns the flags. You can set `RAILWAY_FLAGS_SCOPE=project:<project-id>` to avoid repeating the option. Use `--json` for machine-readable output.
 
 ## AI agents and MCP
 
