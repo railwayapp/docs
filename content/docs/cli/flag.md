@@ -24,17 +24,18 @@ railway flag <COMMAND> [OPTIONS]
 
 ## Target a project
 
-Feature flags belong to a project. Pass the project as a global option, so it works on every subcommand:
+Create a [project token](/integrations/api#project-token) from the tokens page in your project settings, then set it as `RAILWAY_TOKEN`:
 
 ```bash
-railway flag list --scope project:<project-id>
+export RAILWAY_TOKEN=<project-token>
+railway flag list
 ```
 
-To avoid repeating the option, set `RAILWAY_FLAGS_SCOPE`. The examples below assume this variable is set:
+The CLI automatically uses the project that owns the token. You don't need to run `railway link`, set `RAILWAY_PROJECT_ID`, or pass `--scope`.
 
-```bash
-export RAILWAY_FLAGS_SCOPE=project:<project-id>
-```
+When you authenticate through `railway login` instead, run `railway link` once. The CLI uses the linked project for subsequent `railway flag` commands.
+
+With user authentication, pass `--scope project:<project-id>` only to override the locally linked project. You can also set the override with `RAILWAY_FLAGS_SCOPE=project:<project-id>`. A project token remains limited to the project that owns it.
 
 ## Examples
 
@@ -110,7 +111,7 @@ Comparison operators are `==`, `!=`, `<`, `<=`, `>`, `>=`, `contains`, and `matc
 
 | Flag | Description |
 |------|-------------|
-| `--scope <SCOPE>` | Project target in the format `project:<id>` |
+| `--scope <SCOPE>` | Override the linked project in the format `project:<id>` |
 | `--json` | Output in JSON format |
 
 ### Options for `set`

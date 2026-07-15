@@ -152,7 +152,7 @@ const { value, reason, trace } = flags.evaluateBoolean(
 Combine attribute targeting with a percentage rollout to ship progressively. Create a rule that serves `true` to 25% of enterprise users with the [CLI](/cli/flag):
 
 ```bash
-railway flag set checkout-v2 true --scope project:<project-id> \
+railway flag set checkout-v2 true \
   --when 'plan == "enterprise" && bucket(key) < 0.25'
 ```
 
@@ -174,20 +174,21 @@ A rule that buckets on `key` needs a `key` in the read context. Without one, the
 
 Manage flags with `railway flag`. See the [full command reference](/cli/flag) for every subcommand and option.
 
+Create a [project token](/integrations/api#project-token) and set it as `RAILWAY_TOKEN`. The CLI identifies the project from the token, so you don't need to run `railway link`, set `RAILWAY_PROJECT_ID`, or pass a project ID:
+
 ```bash
-railway flag list --scope project:<project-id>
-railway flag set checkout.v2 true --scope project:<project-id>
-railway flag set theme "blue" --scope project:<project-id>
-railway flag set checkout.v2 true --scope project:<project-id> \
-  --when 'plan == "enterprise"'
-railway flag set checkout.v2 true --scope project:<project-id> \
-  --when "bucket(key) < 0.25"
-railway flag unset checkout.v2 --scope project:<project-id> \
-  --rule-id enterprise-on
-railway flag delete checkout.v2 --scope project:<project-id>
+export RAILWAY_TOKEN=<project-token>
+
+railway flag list
+railway flag set checkout.v2 true
+railway flag set theme "blue"
+railway flag set checkout.v2 true --when 'plan == "enterprise"'
+railway flag set checkout.v2 true --when "bucket(key) < 0.25"
+railway flag unset checkout.v2 --rule-id enterprise-on
+railway flag delete checkout.v2
 ```
 
-Pass `--scope project:<project-id>` to target the project that owns the flags. You can set `RAILWAY_FLAGS_SCOPE=project:<project-id>` to avoid repeating the option. Use `--json` for machine-readable output.
+When you authenticate through `railway login` instead, the CLI uses the project linked with `railway link`. Use `--json` for machine-readable output.
 
 ## AI agents and MCP
 
