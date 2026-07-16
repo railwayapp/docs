@@ -1,6 +1,6 @@
 ---
 title: Deploy an AI API Gateway
-description: Deploy LiteLLM Proxy on Railway as a unified gateway for multiple LLM providers. Covers model routing, cost tracking, API key management, caching with Redis, and private networking.
+description: Deploy AI Proxy on Railway as a unified gateway for multiple LLM providers. Covers model routing, cost tracking, API key management, caching with Redis, and private networking.
 date: "2026-04-14"
 tags:
   - gateway
@@ -15,6 +15,8 @@ As AI applications scale, managing multiple LLM providers becomes complex. Diffe
 An AI API gateway sits between your services and LLM providers. It provides a single endpoint with a unified API, model routing, cost tracking, rate limiting, and provider failover.
 
 [LiteLLM Proxy](https://docs.litellm.ai/docs/simple_proxy) is the most widely used open-source option. It exposes an OpenAI-compatible API that routes requests to 100+ LLM providers.
+
+If supply-chain surface is a concern — LiteLLM's PyPI distribution was affected by a supply-chain compromise in March 2026 - consider a statically compiled alternative such as [GoModel](https://github.com/ENTERPILOT/GoModel), a lightweight gateway with ~17MB docker image. Note that this tutorial is LiteLLM-specific from this point on.
 
 ## Architecture
 
