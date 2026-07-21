@@ -41,7 +41,7 @@ For services that require TCP traffic, like databases, we also have [TCP Proxy](
 
 ## SSL certificates
 
-We provide LetsEncrypt SSL certificates using RSA 2048bit keys. Certificates are valid for 90 days and are automatically renewed 2 months into their life.
+We provide Let's Encrypt SSL certificates using ECDSA keys. Certificates are valid for 90 days and are automatically renewed 2 months into their life.
 
 Certificate issuance should happen within an hour of your DNS being updated with the values we provide.
 

@@ -219,7 +219,7 @@ If you want to add your root domain (e.g., `mydomain.com`) and the `www.` subdom
 
 Once a custom domain has been correctly configured, Railway will automatically generate and apply a Let's Encrypt certificate. This means that any custom domain on Railway will automatically be accessible via `https://`.
 
-We provide LetsEncrypt SSL certificates using RSA 2048bit keys. Certificates are valid for 90 days and are automatically renewed when 30 days of validity remain.
+We provide Let's Encrypt SSL certificates using ECDSA keys. Certificates are valid for 90 days and are automatically renewed when 30 days of validity remain.
 
 Certificate issuance should happen within an hour of your DNS being updated with the values we provide.
 
