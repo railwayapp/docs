@@ -33,7 +33,7 @@ There are three roles for Workspace members:
 | Creating variables           |  ✔️   |   ✔️   |    ❌    |
 | Modifying variables          |  ✔️   |   ✔️   |    ❌    |
 | Deleting variables           |  ✔️   |   ✔️   |    ❌    |
-| Modifying service settings   |  ✔️   |   ❌   |    ❌    |
+| Modifying service settings   |  ✔️   |   ✔️   |    ❌    |
 | Creating services            |  ✔️   |   ✔️   |    ❌    |
 | Deleting services            |  ✔️   |   ❌   |    ❌    |
 | Viewing logs                 |  ✔️   |   ✔️   |    ❌    |
