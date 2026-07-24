@@ -112,9 +112,9 @@ HTTP logs use the same filter syntax, but have a specific set of attributes for 
 
 #### DNS logs
 
-DNS logs record every DNS lookup a service makes, including lookups over the [private network](/networking/private-networking). To view them, open a deployment, click the **Network** tab, and select the **DNS** view. Logging is enabled by default and requires no configuration.
+DNS logs record every DNS lookup a service makes, including lookups over the [private network](/networking/private-networking). To view them, open a deployment, click the **Network** tab, and select the **DNS** view. Railway logs DNS queries by default, with no configuration required.
 
-Each log captures the name that was looked up, the record type, the response code, and whether the lookup targeted the private network or the public internet. DNS logs use the same filter syntax with these attributes:
+Each log captures the queried name, the record type, the response code, and whether the lookup targeted the private network or the public internet. DNS logs use the same filter syntax with these attributes:
 
 - `@qname:<name>` → Filter by the exact name looked up
 - `@domain:<domain>` → Filter by domain, including its subdomains
