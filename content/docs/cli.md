@@ -262,6 +262,17 @@ railway skills install          # Install Railway agent skills
 
 [agent](/cli/agent) · [setup](/cli/setup) · [mcp](/cli/mcp) · [skills](/cli/skills)
 
+### Public API
+
+```bash
+railway api 'query { me { id } }'   # Execute a GraphQL query
+railway api search deployment       # Search the API schema
+railway api describe Deployment     # Describe a type or field
+railway api schema                  # Print the full schema
+```
+
+[api](/cli/api)
+
 ### Utilities
 
 ```bash

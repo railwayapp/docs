@@ -247,6 +247,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Telemetry", "cli"),
       makeCliCommand("add"),
       makeCliCommand("agent"),
+      makeCliCommand("api"),
       makeCliCommand("autoupdate"),
       makeCliCommand("bucket"),
       makeCliCommand("cdn"),
