@@ -1,7 +1,7 @@
 import type { NextApiHandler } from "next";
 import { allPages, allGuides } from "content-collections";
 import { sidebarContent } from "@/data/sidebar";
-import { IPage, ISidebarSection, ISubSection } from "@/types";
+import { ISidebarSection, ISubSection } from "@/types";
 
 const BASE_URL = "https://docs.railway.com";
 
@@ -11,20 +11,32 @@ const SUMMARY =
   "These docs cover deploying applications, configuring services, managing " +
   "data, networking, observability, the CLI, and integrating with Railway's API.";
 
-function buildDescriptionMap(): Map<string, string> {
-  const map = new Map<string, string>();
-  for (const page of allPages) {
-    if (page.description) map.set(page.url, page.description);
-  }
-  for (const guide of allGuides) {
-    if (guide.description) map.set(guide.url, guide.description);
-  }
+type SourceDoc = {
+  url: string;
+  title: string;
+  description?: string;
+};
+
+type LinkTarget = {
+  title: string;
+  slug: string;
+};
+
+function buildSourceMap(): Map<string, SourceDoc> {
+  const map = new Map<string, SourceDoc>();
+  for (const page of allPages) map.set(page.url, page);
+  for (const guide of allGuides) map.set(guide.url, guide);
   return map;
 }
 
-function formatLink(page: IPage, descriptions: Map<string, string>): string {
+function formatLink(
+  page: LinkTarget,
+  sources: Map<string, SourceDoc>,
+  emitted: Set<string>,
+): string {
+  emitted.add(page.slug);
   const url = `${BASE_URL}${page.slug}.md`;
-  const description = descriptions.get(page.slug);
+  const description = sources.get(page.slug)?.description;
   return description
     ? `- [${page.title}](${url}): ${description}`
     : `- [${page.title}](${url})`;
@@ -32,7 +44,8 @@ function formatLink(page: IPage, descriptions: Map<string, string>): string {
 
 function renderSection(
   section: ISidebarSection,
-  descriptions: Map<string, string>,
+  sources: Map<string, SourceDoc>,
+  emitted: Set<string>,
 ): string[] {
   const lines: string[] = [];
   const subsections: ISubSection[] = [];
@@ -42,7 +55,7 @@ function renderSection(
     if ("subTitle" in item) {
       subsections.push(item);
     } else {
-      lines.push(formatLink(item, descriptions));
+      lines.push(formatLink(item, sources, emitted));
     }
   }
 
@@ -53,16 +66,19 @@ function renderSection(
     lines.push(`### ${subTitle}`);
     lines.push("");
     if (typeof sub.subTitle !== "string") {
-      lines.push(formatLink(sub.subTitle, descriptions));
+      lines.push(formatLink(sub.subTitle, sources, emitted));
     }
     for (const page of sub.pages) {
       if ("url" in page) continue;
-      lines.push(formatLink(page, descriptions));
+      lines.push(formatLink(page, sources, emitted));
     }
   }
 
   return lines;
 }
+
+const topicLabel = (topic: string) =>
+  topic === "ai" ? "AI" : topic.charAt(0).toUpperCase() + topic.slice(1);
 
 const handler: NextApiHandler = (_req, res) => {
   res.setHeader("Content-Type", "text/plain; charset=utf-8");
@@ -71,7 +87,8 @@ const handler: NextApiHandler = (_req, res) => {
     "public, s-maxage=3600, stale-while-revalidate=3600",
   );
 
-  const descriptions = buildDescriptionMap();
+  const sources = buildSourceMap();
+  const emitted = new Set<string>();
   const parts: string[] = [];
 
   parts.push("# Railway Documentation");
@@ -89,12 +106,59 @@ const handler: NextApiHandler = (_req, res) => {
     if (section.title) {
       parts.push(`## ${section.title}`);
       parts.push("");
-      parts.push(...renderSection(section, descriptions));
+      // Section hubs (e.g. /platform) are real pages, but the sidebar only
+      // carries them as a section `slug`, so link them explicitly.
+      const hub = section.slug ? sources.get(section.slug) : undefined;
+      if (hub) {
+        parts.push(formatLink({ title: hub.title, slug: hub.url }, sources, emitted));
+      }
+      parts.push(...renderSection(section, sources, emitted));
       parts.push("");
     } else {
-      parts.push(...renderSection(section, descriptions));
+      parts.push(...renderSection(section, sources, emitted));
       parts.push("");
     }
+  }
+
+  // The sidebar is a curated subset; anything it does not surface would
+  // otherwise silently vanish from this index (49 of 85 guides at the time
+  // of writing). Emit the remainder so coverage never depends on curation.
+  const missedGuides = allGuides.filter((guide) => !emitted.has(guide.url));
+  const missedPages = allPages.filter((page) => !emitted.has(page.url));
+
+  if (missedGuides.length > 0) {
+    parts.push("## More guides");
+    parts.push("");
+    const byTopic = new Map<string, typeof missedGuides>();
+    for (const guide of missedGuides) {
+      const topic = guide.topic || "other";
+      byTopic.set(topic, [...(byTopic.get(topic) ?? []), guide]);
+    }
+    for (const topic of Array.from(byTopic.keys()).sort()) {
+      parts.push(`### ${topicLabel(topic)}`);
+      parts.push("");
+      const guides = [...byTopic.get(topic)!].sort((a, b) =>
+        a.title.localeCompare(b.title),
+      );
+      for (const guide of guides) {
+        parts.push(
+          formatLink({ title: guide.title, slug: guide.url }, sources, emitted),
+        );
+      }
+      parts.push("");
+    }
+  }
+
+  if (missedPages.length > 0) {
+    parts.push("## More pages");
+    parts.push("");
+    const pages = [...missedPages].sort((a, b) => a.url.localeCompare(b.url));
+    for (const page of pages) {
+      parts.push(
+        formatLink({ title: page.title, slug: page.url }, sources, emitted),
+      );
+    }
+    parts.push("");
   }
 
   res.status(200).send(parts.join("\n"));

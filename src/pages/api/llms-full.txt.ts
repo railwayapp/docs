@@ -1,7 +1,7 @@
 import type { NextApiHandler } from "next";
 import { allPages, allGuides } from "content-collections";
 import { sidebarContent } from "@/data/sidebar";
-import { IPage, ISidebarSection } from "@/types";
+import { ISidebarSection } from "@/types";
 
 const BASE_URL = "https://docs.railway.com";
 
@@ -13,8 +13,14 @@ const SUMMARY =
 
 type SourcePage = {
   url: string;
+  title: string;
   description?: string;
   body: { raw: string };
+};
+
+type PageRef = {
+  title: string;
+  slug: string;
 };
 
 function buildSourceMap(): Map<string, SourcePage> {
@@ -48,9 +54,11 @@ function demoteHeadings(markdown: string, levels: number): string {
 }
 
 function renderPage(
-  page: IPage,
+  page: PageRef,
   sources: Map<string, SourcePage>,
+  emitted: Set<string>,
 ): string[] {
+  emitted.add(page.slug);
   const lines: string[] = [];
   const source = sources.get(page.slug);
   const url = `${BASE_URL}${page.slug}.md`;
@@ -78,6 +86,7 @@ function renderPage(
 function renderSection(
   section: ISidebarSection,
   sources: Map<string, SourcePage>,
+  emitted: Set<string>,
 ): string[] {
   const lines: string[] = [];
   for (const item of section.content) {
@@ -89,14 +98,14 @@ function renderSection(
           : item.subTitle.title;
       lines.push(`---`, `<!-- ${label} -->`, "");
       if (typeof item.subTitle !== "string") {
-        lines.push(...renderPage(item.subTitle, sources));
+        lines.push(...renderPage(item.subTitle, sources, emitted));
       }
       for (const page of item.pages) {
         if ("url" in page) continue;
-        lines.push(...renderPage(page, sources));
+        lines.push(...renderPage(page, sources, emitted));
       }
     } else {
-      lines.push(...renderPage(item, sources));
+      lines.push(...renderPage(item, sources, emitted));
     }
   }
   return lines;
@@ -110,6 +119,7 @@ const handler: NextApiHandler = (_req, res) => {
   );
 
   const sources = buildSourceMap();
+  const emitted = new Set<string>();
   const parts: string[] = [];
 
   parts.push("# Railway Documentation");
@@ -121,8 +131,44 @@ const handler: NextApiHandler = (_req, res) => {
     if (section.title) {
       parts.push(`## ${section.title}`);
       parts.push("");
+      // Section hubs (e.g. /platform) are real pages, but the sidebar only
+      // carries them as a section `slug`, so render them explicitly.
+      const hub = section.slug ? sources.get(section.slug) : undefined;
+      if (hub) {
+        parts.push(...renderPage({ title: hub.title, slug: hub.url }, sources, emitted));
+      }
     }
-    parts.push(...renderSection(section, sources));
+    parts.push(...renderSection(section, sources, emitted));
+  }
+
+  // The sidebar is a curated subset; anything it does not surface would
+  // otherwise silently vanish from this file (49 of 85 guides at the time
+  // of writing). Emit the remainder so coverage never depends on curation.
+  const missedGuides = allGuides.filter((guide) => !emitted.has(guide.url));
+  const missedPages = allPages.filter((page) => !emitted.has(page.url));
+
+  if (missedGuides.length > 0) {
+    parts.push("## More guides");
+    parts.push("");
+    const guides = [...missedGuides].sort((a, b) =>
+      a.title.localeCompare(b.title),
+    );
+    for (const guide of guides) {
+      parts.push(
+        ...renderPage({ title: guide.title, slug: guide.url }, sources, emitted),
+      );
+    }
+  }
+
+  if (missedPages.length > 0) {
+    parts.push("## More pages");
+    parts.push("");
+    const pages = [...missedPages].sort((a, b) => a.url.localeCompare(b.url));
+    for (const page of pages) {
+      parts.push(
+        ...renderPage({ title: page.title, slug: page.url }, sources, emitted),
+      );
+    }
   }
 
   res.status(200).send(parts.join("\n"));
