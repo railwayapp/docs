@@ -1,6 +1,6 @@
 ---
 title: Logs
-description: Learn how to view, filter, and search build, deployment, environment, and HTTP logs on Railway.
+description: Learn how to view, filter, and search build, deployment, environment, HTTP, and DNS logs on Railway.
 ---
 
 Any build or deployment logs emitted to standard output or standard error (e.g. `console.log(...)`) are captured by Railway to be viewed or searched later.
@@ -109,6 +109,19 @@ HTTP logs use the same filter syntax, but have a specific set of attributes for 
 - `@clientUa:<user_agent>` → Filter by a specific client's user agent
 - `@srcIp:<ip>` → Filter by source IP (The client's IP address that made the request)
 - `@edgeRegion:<region>` → Filter by edge region (The region of the edge node that handled the request)
+
+#### DNS logs
+
+DNS logs record every DNS lookup a service makes, including lookups over the [private network](/networking/private-networking). To view them, open a deployment, click the **Network** tab, and select the **DNS** view. Railway logs DNS queries by default, with no configuration required.
+
+Each log captures the queried name, the record type, the response code, and whether the lookup targeted the private network or the public internet. DNS logs use the same filter syntax with these attributes:
+
+- `@qname:<name>` → Filter by the exact name looked up
+- `@domain:<domain>` → Filter by domain, including its subdomains
+- `@qtype:<type>` → Filter by record type (`A`, `AAAA`, `CNAME`, `TXT`, `MX`, `SRV`, `NS`)
+- `@rcode:<code>` → Filter by response code (`NOERROR`, `NXDOMAIN`, `SERVFAIL`, `REFUSED`, `TIMEOUT`, `ERROR`)
+- `@zone:<zone>` → Filter by lookup zone: `internal` for private network lookups (`*.internal`), `external` for public internet lookups
+- `@status:<status>` → Filter by resolution status: `ok` for successful lookups, `failed` for any failed resolution
 
 ### Examples
 
@@ -296,6 +309,44 @@ Find slow, large responses.
 
 ```text
 @responseTime:>1000 @txBytes:>100000
+```
+
+#### DNS logs
+
+Find all failed lookups.
+
+```text
+@status:failed
+```
+
+Find lookups for domains that don't exist.
+
+```text
+@rcode:NXDOMAIN
+```
+
+Find private network lookups.
+
+```text
+@zone:internal
+```
+
+Find lookups for a domain and all of its subdomains.
+
+```text
+@domain:example.com
+```
+
+Find failed lookups on the private network.
+
+```text
+@zone:internal AND @status:failed
+```
+
+Find IPv6 address lookups that failed.
+
+```text
+@qtype:AAAA AND @status:failed
 ```
 
 ## View in context
