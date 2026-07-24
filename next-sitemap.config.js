@@ -6,9 +6,12 @@ module.exports = {
     policies: [
       { userAgent: "*", allow: "/" },
     ],
-    additionalPaths: async () => [
-      { route: "/llms.txt", changefreq: "daily", priority: 0.9 },
-      { route: "/llms-full.txt", changefreq: "daily", priority: 0.9 },
-    ],
   },
+  // additionalPaths is a top-level next-sitemap option taking sitemap fields
+  // ({ loc, ... }); nested inside robotsTxtOptions (with `route` keys) it was
+  // silently ignored and llms.txt never reached the sitemap.
+  additionalPaths: async () => [
+    { loc: "/llms.txt", changefreq: "daily", priority: 0.9 },
+    { loc: "/llms-full.txt", changefreq: "daily", priority: 0.9 },
+  ],
 };
