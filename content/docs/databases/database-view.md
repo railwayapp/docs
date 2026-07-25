@@ -31,7 +31,7 @@ For each column a user wants to add to the database, the interface accepts a `na
 
 When a table is clicked, the interface navigates into the Entries View.
 
-Under the Entries View, selecting an existing entry exposes the ability to edit the entry. When button that allows one to add entries to the table.
+Under the Entries View, selecting an existing entry lets you edit it. The view also includes a button for adding new entries to the table.
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1636426105/docs/edit_row_tobmdh.png"
 alt="Screenshot of Expanded Project Usage Pane"
@@ -68,24 +68,28 @@ width={552} height={516} quality={80} />
 
 Within the Collections View, clicking the plus icon next to the top dropdown allows you to create a new Database.
 
-## Credentials tab
+## Config tab
 
-The Credentials tab allows you to safely regenerate your database password while keeping the database and environment variables synchronized, avoiding manual variable edits that can cause authentication mismatches.
+The Config tab holds the settings for a database service, grouped into Connection, High Availability, Connection Pooling, and Extensions sections. Use **Filter Settings** to search for a setting by name, or jump between sections using the list on the right.
 
-It's important to manually redeploy any service that depends on the updated password variable (or the derived database URL).
+### Connection
 
-<Image src="https://res.cloudinary.com/railway/image/upload/t_crop/v1756840714/Database_Credentials_ctbwqb.png"
-alt="Screenshot of Credentials Data UI Tab"
+The Connection section shows the username and password for the database, and allows you to safely regenerate the password while keeping the database and environment variables synchronized, avoiding manual variable edits that can cause authentication mismatches.
+
+Regenerating breaks existing connections until they use the new password, so it's important to manually redeploy any service that depends on the updated password variable (or the derived database URL).
+
+<Image src="/images/database-config-connection.png"
+alt="Screenshot of the Connection section in the database Config tab"
 layout="intrinsic"
-width={542} height={422} quality={80} />
+width={1205} height={840} quality={100} />
 
-## Extensions tab for Postgres
+### Extensions
 
-The Extensions tab enables postgres extensions management. You can view, install and uninstall extensions that are available in the official Railway Postgres image.
+For Postgres databases, the Extensions section enables extension management. You can view, install, and uninstall extensions that are available in the official Railway Postgres image.
 
 Extensions that aren't available need to be deployed from templates, since they require additional features in the database's image, like pgvector.
 
-<Image src="https://res.cloudinary.com/railway/image/upload/t_crop/v1756840713/Database_Extensions_flszw9.png"
-alt="Screenshot of Extensions Data UI Tab"
+<Image src="/images/database-config-extensions.png"
+alt="Screenshot of the Extensions section in the database Config tab"
 layout="intrinsic"
-width={540} height={422} quality={80} />
+width={1205} height={840} quality={100} />
