@@ -54,3 +54,4 @@ public/robots.txt
 .agents/*
 !.agents/skills
 .pnpm-store/*
+tsconfig.tsbuildinfo

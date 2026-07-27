@@ -2,7 +2,7 @@ import * as React from "react";
 import { DefaultSeo, NextSeo, NextSeoProps, DefaultSeoProps } from "next-seo";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Header } from "@/utils/seo";
+import { Header, FAQItem } from "@/utils/seo";
 
 export interface Props extends NextSeoProps {
   title?: string;
@@ -11,6 +11,7 @@ export interface Props extends NextSeoProps {
   image?: string;
   url?: string;
   headers?: Header[];
+  faqItems?: FAQItem[];
   breadcrumbs?: Array<{ name: string; url?: string }>;
   lastModified?: string;
   author?: string;
@@ -44,6 +45,7 @@ const config: DefaultSeoProps = {
 export const SEO: React.FC<Props> = ({
   image,
   headers = [],
+  faqItems = [],
   breadcrumbs = [],
   lastModified,
   author = "Railway",
@@ -57,10 +59,6 @@ export const SEO: React.FC<Props> = ({
   const twitterTitle = props.twitterTitle;
   const description = props.description;
   const url = props.url || `${baseUrl}${router.asPath.split("?")[0].split("#")[0]}`;
-
-  // Check if any headers are questions (for FAQPage schema)
-  const hasQuestions = headers.some(h => h.title.trim().endsWith("?"));
-  const questionHeaders = headers.filter(h => h.title.trim().endsWith("?"));
 
   // Build structured data schemas
   const schemas: Record<string, any>[] = [];
@@ -139,17 +137,17 @@ export const SEO: React.FC<Props> = ({
     schemas.push(articleSchema);
   }
 
-  // FAQPage schema (if questions exist)
-  if (hasQuestions && questionHeaders.length > 0) {
+  // FAQPage schema — only when real answer text is available
+  if (faqItems.length > 0) {
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: questionHeaders.map(header => ({
+      mainEntity: faqItems.map(faq => ({
         "@type": "Question",
-        name: header.title,
+        name: faq.question,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `See the answer in the documentation at ${url}#${header.id}`,
+          text: faq.answer,
         },
       })),
     };

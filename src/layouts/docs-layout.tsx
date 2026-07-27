@@ -17,7 +17,7 @@ import { TOC, TOCProvider, type TOCItemType } from "../components/toc";
 import { sidebarContent } from "../data/sidebar";
 import { FrontMatter, ISidebarContent, IPage } from "../types";
 import { Props as PageProps } from "./page";
-import { extractHeadersFromMarkdown, buildBreadcrumbs } from "../utils/seo";
+import { extractHeadersFromMarkdown, extractFAQsFromMarkdown, buildBreadcrumbs } from "../utils/seo";
 import { CopyableCodeProvider } from "../contexts/copyable-code-context";
 
 export interface Props extends PageProps {
@@ -99,6 +99,12 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     return extractHeadersFromMarkdown(rawMarkdown);
   }, [rawMarkdown]);
 
+  // Extract FAQ pairs for FAQPage schema
+  const faqItems = useMemo(() => {
+    if (!rawMarkdown) return [];
+    return extractFAQsFromMarkdown(rawMarkdown);
+  }, [rawMarkdown]);
+
   // Convert headers to TOC items format
   const tocItems: TOCItemType[] = useMemo(() => {
     return headers
@@ -136,6 +142,7 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
         url={`${domainUrl}${frontMatter.url}`}
         image={getOGImage(frontMatter.title)}
         headers={headers}
+        faqItems={faqItems}
         breadcrumbs={breadcrumbs}
         lastModified={lastModified}
       />
