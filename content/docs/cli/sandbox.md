@@ -350,6 +350,12 @@ railway sandbox create --variable NODE_ENV=production,PORT=8080
 
 A comma splits the value only when every segment is its own `KEY=VALUE` pair, so values that contain commas stay intact.
 
+Your shell expands values before the CLI sees them, so you can seed a credential from a local command. This passes your GitHub token into the sandbox, where `gh repo clone` can use it against your private repositories:
+
+```bash
+railway sandbox create --variable GH_TOKEN=$(gh auth token)
+```
+
 Load variables from a `.env` file with `--env-file`, which is also repeatable. When the same key is set in both places, `--variable` flags take precedence.
 
 ```bash

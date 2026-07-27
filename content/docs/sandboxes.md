@@ -281,9 +281,11 @@ The template builder exposes these methods:
 |--------|--------|
 | `.run(command)` | Add a raw build step |
 | `.withPackages(...names)` | Install Debian packages via `apt-get` |
-| `.withEnv({ KEY: "value" })` | Set environment variables for subsequent steps |
+| `.withEnv({ KEY: "value" })` | Set build-time environment variables for subsequent steps |
 | `.workdir(dir)` | Set the working directory for subsequent steps |
 | `.build(options?)` | Build and cache the template ahead of time |
+
+`.withEnv` values apply to the build steps only, and aren't baked into sandboxes created from the template. For variables a command needs at runtime, pass `env` when you [create the sandbox](#configuration). Build-time values are part of the template's content hash, so changing one forces a rebuild.
 
 `Sandbox.create(template)` builds the template automatically. Call `.build()` explicitly only to pre-warm the cache before the first `create`.
 
@@ -350,9 +352,12 @@ const sandbox = await Sandbox.create({
   token: process.env.MY_TOKEN,
   environmentId: process.env.MY_ENV_ID,
   idleTimeoutMinutes: 30,
+  region: "us-east4-eqdc4a",
   env: { NODE_ENV: "production" },
 });
 ```
+
+`region` places the sandbox in one of Railway's [regions](/deployments/regions), using the region identifier listed there, for example `us-east4-eqdc4a`. Without it, the sandbox runs in US West (`us-west2`), regardless of your account's preferred region. Read the placement back from `sandbox.region`. `create` and `fork` both accept `region`. A fork doesn't inherit the source's region, so pass `region` explicitly to place a fork alongside its source. The CLI has no region flag, so use the SDK or the API to choose a region.
 
 `idleTimeoutMinutes` sets how long a sandbox can sit [idle](#idle-timeout) before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the plan default. The default and allowed range depend on your plan, so see [Idle timeout](#idle-timeout) for the per-plan values.
 
@@ -422,7 +427,21 @@ sandbox.networkIsolation; // "ISOLATED" | "PRIVATE"
 
 In the CLI, pass `--private-network` to `railway sandbox create` or `railway sandbox fork`.
 
-To run commands in a sandbox in either mode, use `exec` or SSH, and to move files in and out, use the [files API](#files). To reach a server running inside the sandbox from your machine, forward its port with [`railway sandbox forward`](/cli/sandbox).
+Neither mode changes how you drive a sandbox. To run commands, use `exec` or SSH, and to move files in and out, use the [files API](#files).
+
+### Reaching a port in a sandbox
+
+A sandbox has no public endpoint. Railway doesn't assign it a domain or a TCP proxy, so a server inside a sandbox isn't reachable from the internet.
+
+To reach that server from your machine, forward its port with [`railway sandbox forward`](/cli/sandbox#forward-a-port-into-the-active-sandbox), which maps `localhost:3000` to port 3000 in the sandbox:
+
+```bash
+railway sandbox forward 3000
+```
+
+Forwarding runs over SSH, so it needs an SSH key on your Railway account. Add one at [Account Settings -> SSH Keys](https://railway.com/account/ssh-keys).
+
+To serve traffic on a public URL, deploy a [service](/services) and give it a [public domain](/public-networking).
 
 ## Pricing
 
