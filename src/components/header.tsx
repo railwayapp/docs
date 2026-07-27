@@ -7,8 +7,11 @@ function getTextContent(children: React.ReactNode): string {
   if (typeof children === "string") return children;
   if (typeof children === "number") return String(children);
   if (Array.isArray(children)) return children.map(getTextContent).join("");
-  if (React.isValidElement(children) && children.props.children) {
-    return getTextContent(children.props.children as React.ReactNode);
+  if (
+    React.isValidElement<{ children?: React.ReactNode }>(children) &&
+    children.props.children
+  ) {
+    return getTextContent(children.props.children);
   }
   return "";
 }
@@ -42,7 +45,7 @@ function AutolinkedHeading({
 
   // Extract actual content - if children is an array from MDX, get the text content
   const displayContent = Array.isArray(children)
-    ? children[1] ?? children
+    ? (children[1] ?? children)
     : children;
 
   const handleCopyLink = (e: React.MouseEvent) => {

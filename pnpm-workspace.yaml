@@ -1,0 +1,20 @@
+allowBuilds:
+  core-js: false
+  esbuild: true
+minimumReleaseAgeExclude:
+  - "@posthog/browser-common@0.2.2"
+  - posthog-js@1.407.3
+overrides:
+  defu: ^6.1.7
+  diff: ^4.0.4
+  esbuild: ^0.28.1
+  js-yaml@3: ^3.15.0
+  picomatch@4: ^4.0.4
+  postcss: ^8.5.23
+  preact: ^10.27.3
+  serialize-javascript: ^7.0.5
+  sharp: ^0.35.3
+  tar-fs@2: ^2.1.4
+  tar-fs@3: ^3.1.2
+  uuid: ^11.1.1
+  yaml: ^2.9.0

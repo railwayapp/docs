@@ -10,13 +10,13 @@
     "postbuild": "next-sitemap",
     "start": "next start --port ${PORT-3001}",
     "clean": "rm -rf .next",
-    "tsc": "tsc -p .",
+    "tsc": "next typegen && tsc -p .",
     "search:start": "docker-compose up -d meilisearch",
     "search:stop": "docker-compose down",
     "search:build": "docker-compose run --rm docs-scraper",
     "search:setup": "docker-compose up -d meilisearch && sleep 3 && docker-compose run --rm docs-scraper"
   },
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@11.17.0",
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@nanostores/react": "^1.1.0",
@@ -32,17 +32,17 @@
     "meilisearch": "^0.60.0",
     "motion": "^12.42.2",
     "nanostores": "^1.4.1",
-    "next": "^15.5.22",
+    "next": "^16.2.12",
     "next-seo": "^7.2.0",
     "next-themes": "^0.4.6",
     "posthog-js": "^1.407.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-is": "^18.3.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-is": "^19.2.8",
     "sharp": "^0.35.3",
     "shiki": "^4.3.1",
     "tailwind-merge": "^3.6.0",
-    "tinykeys": "3.1.0",
+    "tinykeys": "4.0.0",
     "unist-util-visit": "^5.0.0",
     "use-local-storage-state": "^20.0.0"
   },
@@ -53,9 +53,9 @@
     "@content-collections/next": "^0.2.11",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/hast": "^3.0.5",
-    "@types/node": "^22.0.0",
-    "@types/react": "^18.3.31",
-    "@types/react-dom": "^18.3.7",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "next-sitemap": "^4.2.3",
     "postcss": "^8.5.23",
     "prettier": "^3.9.6",
@@ -66,27 +66,10 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.23.1",
-    "typescript": "^5.8.0",
+    "typescript": "^7.0.2",
     "zod": "^4.4.3"
   },
   "engines": {
-    "node": ">=20.19 <21"
-  },
-  "pnpm": {
-    "overrides": {
-      "defu": "^6.1.7",
-      "diff": "^4.0.4",
-      "esbuild": "^0.28.1",
-      "js-yaml@3": "^3.15.0",
-      "picomatch@4": "^4.0.4",
-      "postcss": "^8.5.23",
-      "preact": "^10.27.3",
-      "serialize-javascript": "^7.0.5",
-      "sharp": "^0.35.3",
-      "tar-fs@2": "^2.1.4",
-      "tar-fs@3": "^3.1.2",
-      "uuid": "^11.1.1",
-      "yaml": "^2.9.0"
-    }
+    "node": ">=24 <25"
   }
 }

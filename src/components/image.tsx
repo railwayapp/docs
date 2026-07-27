@@ -64,7 +64,7 @@ export const Image: React.FC<ImageProps> = ({
   }
 
   // Wrap in Frame for zoom functionality (unless excluded)
-  if (shouldWrapInFrame(src)) {
+  if (typeof src === "string" && shouldWrapInFrame(src)) {
     return <Frame>{imgElement}</Frame>;
   }
 
