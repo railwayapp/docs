@@ -3,7 +3,7 @@ import { Footer } from "../components/footer";
 import { InlineTOC } from "../components/inline-toc";
 import { SEO } from "../components/seo";
 import { TOC, TOCProvider, type TOCItemType } from "../components/toc";
-import { extractHeadersFromMarkdown } from "../utils/seo";
+import { extractHeadersFromMarkdown, extractFAQsFromMarkdown } from "../utils/seo";
 
 export interface GuideAuthor {
   name: string;
@@ -53,6 +53,12 @@ export const GuidesLayout: React.FC<PropsWithChildren<GuidesLayoutProps>> = ({
     return extractHeadersFromMarkdown(rawMarkdown);
   }, [rawMarkdown]);
 
+  // Extract FAQ pairs for FAQPage schema
+  const faqItems = useMemo(() => {
+    if (!rawMarkdown) return [];
+    return extractFAQsFromMarkdown(rawMarkdown);
+  }, [rawMarkdown]);
+
   // Convert headers to TOC items format
   const tocItems: TOCItemType[] = useMemo(() => {
     return headers
@@ -85,6 +91,7 @@ export const GuidesLayout: React.FC<PropsWithChildren<GuidesLayoutProps>> = ({
         url={`${domainUrl}${frontMatter.url}`}
         image={getOGImage(frontMatter.title)}
         headers={headers}
+        faqItems={faqItems}
         headline={frontMatter.title}
         breadcrumbs={[
           { name: "Guides", url: "/guides" },
