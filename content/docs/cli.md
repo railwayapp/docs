@@ -171,6 +171,7 @@ railway dev                     # Run services locally with Docker
 ```bash
 railway logs                    # Stream deployment logs
 railway logs --build            # View build logs
+railway logs --dns              # Stream DNS query logs
 railway logs -n 100             # View last 100 lines
 railway ssh                     # SSH into service container
 railway connect                 # Connect to database shell

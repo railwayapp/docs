@@ -1,9 +1,9 @@
 ---
 title: railway logs
-description: View build, deploy, HTTP, or network flow logs.
+description: View build, deploy, HTTP, network flow, or DNS query logs.
 ---
 
-View build, deploy, HTTP, or network flow logs for a service. `railway logs` streams logs in real time by default, or fetches historical logs when you pass `--lines`, `--since`, or `--until`.
+View build, deploy, HTTP, network flow, or DNS query logs for a service. `railway logs` streams logs in real time by default, or fetches historical logs when you pass `--lines`, `--since`, or `--until`.
 
 ## Usage
 
@@ -11,7 +11,7 @@ View build, deploy, HTTP, or network flow logs for a service. `railway logs` str
 railway logs [DEPLOYMENT_ID] [OPTIONS]
 ```
 
-With no log type flag, the command shows deploy logs from the most recent successful deployment. Pass `--build`, `--http`, or `--network` to view a different log type. These flags are mutually exclusive. For deploy, build, and HTTP logs, you can pass a `DEPLOYMENT_ID` to target a specific deployment.
+With no log type flag, the command shows deploy logs from the most recent successful deployment. Pass `--build`, `--http`, `--network`, or `--dns` to view a different log type. These flags are mutually exclusive. For deploy, build, and HTTP logs, you can pass a `DEPLOYMENT_ID` to target a specific deployment.
 
 ## Options
 
@@ -331,6 +331,101 @@ Network flow JSON is newline-delimited JSON. Each row uses camelCase field names
 }
 ```
 
+## DNS logs
+
+DNS query logs record name resolution attempts made by a service. Each log includes the queried name and record type, lookup zone, response code, and returned answers. Pass `--dns` to view them.
+
+Human-readable output uses `Time`, `Zone`, `Type`, `Rcode`, `Name`, and `Answers` columns. DNS query logs don't accept a `DEPLOYMENT_ID` argument or the `--latest` flag because queries are scoped to the service and environment.
+
+### DNS filters
+
+These flags require `--dns` and compose with `--filter`:
+
+| Flag | Description |
+|------|-------------|
+| `--domain <DOMAIN>` | Filter by a domain, including its subdomains |
+| `--qname <NAME>` | Filter by the exact name looked up |
+| `--qtype <TYPE>` | Filter by record type, such as `A`, `AAAA`, `CNAME`, `PTR`, or `TXT` |
+| `--rcode <RCODE>` | Filter by response code, such as `NOERROR`, `NXDOMAIN`, `SERVFAIL`, `TIMEOUT`, or `ERROR` |
+| `--zone <ZONE>` | Filter by `internal` or `external` lookup zone |
+| `--status <STATUS>` | Filter by `ok` or `failed` resolution status |
+
+The CLI normalizes `--qtype` and `--rcode` values to uppercase. To filter with the query syntax, use the `@qname`, `@domain`, `@qtype`, `@rcode`, `@zone`, and `@status` fields.
+
+### Stream DNS queries
+
+Run the command without filters to stream live DNS queries:
+
+```bash
+railway logs --dns
+```
+
+### Show failed lookups
+
+Pass `--status failed` to show queries that didn't resolve:
+
+```bash
+railway logs --dns --status failed
+```
+
+### Filter by response code
+
+Use `--rcode` to find a specific DNS response code:
+
+```bash
+railway logs --dns --rcode NXDOMAIN
+```
+
+### Show private network lookups
+
+Set `--zone internal` to show queries for the private network:
+
+```bash
+railway logs --dns --zone internal
+```
+
+### Filter by domain and record type
+
+Combine `--domain` and `--qtype` to narrow queries by domain and record type:
+
+```bash
+railway logs --dns --domain example.com --qtype AAAA
+```
+
+### Fetch history for an exact name
+
+Add `--lines` to fetch history for an exact name instead of streaming:
+
+```bash
+railway logs --dns --qname backend.railway.internal --lines 50
+```
+
+### DNS JSON output
+
+Pass `--json` to return newline-delimited JSON:
+
+```bash
+railway logs --dns --json --lines 1
+```
+
+DNS query log JSON is newline-delimited JSON. Each row uses camelCase field names from the public GraphQL API and includes `timestamp` as an alias of `queriedAt`.
+
+```json
+{
+  "timestamp": "2026-07-27T10:30:00.000Z",
+  "queriedAt": "2026-07-27T10:30:00.000Z",
+  "qname": "api.example.com",
+  "qtype": "A",
+  "rcode": "NOERROR",
+  "queryZone": "external",
+  "answers": ["203.0.113.10"],
+  "cnameChain": [],
+  "serviceId": "string",
+  "deploymentId": "string",
+  "deploymentInstanceId": "string"
+}
+```
+
 ## Time formats
 
 The `--since` and `--until` flags accept:
@@ -347,7 +442,7 @@ Railway uses a query syntax for the `--filter` flag across all log types:
 - **Operators**: `AND`, `OR`, `-` (not)
 - **Numeric operators**: `>`, `>=`, `<`, `<=`, and `..` for ranges (`@httpStatus:200..299`)
 
-The fields available depend on the log type. See the filter fields listed under [HTTP logs](#http-logs) and [Network flow logs](#network-flow-logs). See [Logs](/observability/logs) for full syntax documentation.
+The fields available depend on the log type. See the filter fields listed under [HTTP logs](#http-logs), [Network flow logs](#network-flow-logs), and [DNS logs](#dns-logs). See [Logs](/observability/logs) for full syntax documentation.
 
 ## Related
 
