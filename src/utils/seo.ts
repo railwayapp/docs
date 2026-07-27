@@ -83,17 +83,25 @@ export function extractFAQsFromMarkdown(markdown: string): FAQItem[] {
  * to produce plain text suitable for JSON-LD schema.
  */
 function stripMarkdownForSchema(text: string): string {
+  let result = text
+    // Remove JSX/MDX component blocks (self-closing and paired)
+    .replace(/<[A-Z][\s\S]*?\/>/g, "")
+    .replace(/<[A-Z][^>]*>[\s\S]*?<\/[A-Z][^>]*>/g, "")
+    // Remove markdown images ![alt](url)
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    // Convert markdown links [text](url) to just text
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1");
+
+  // Remove HTML tags — loop until stable to handle nested/split tags
+  // (e.g. "<scr<script>ipt>" reassembles after a single pass)
+  let previous: string;
+  do {
+    previous = result;
+    result = result.replace(/<[^>]+>/g, "");
+  } while (result !== previous);
+
   return (
-    text
-      // Remove JSX/MDX component blocks (self-closing and paired)
-      .replace(/<[A-Z][\s\S]*?\/>/g, "")
-      .replace(/<[A-Z][^>]*>[\s\S]*?<\/[A-Z][^>]*>/g, "")
-      // Remove markdown images ![alt](url)
-      .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
-      // Convert markdown links [text](url) to just text
-      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
-      // Remove HTML tags
-      .replace(/<[^>]+>/g, "")
+    result
       // Remove bold/italic markers
       .replace(/\*{1,3}([^*]+)\*{1,3}/g, "$1")
       .replace(/_{1,3}([^_]+)_{1,3}/g, "$1")
