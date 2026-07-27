@@ -42,14 +42,24 @@ export function middleware(request: NextRequest) {
     prefersMarkdown(request.headers.get("accept") || "") ||
     isAIAgent(request.headers.get("user-agent") || "");
 
-  const url = request.nextUrl.clone();
-  url.pathname = "/dynamic" + pagePath;
+  // Only rewrite to /dynamic (SSR) when markdown is actually needed;
+  // otherwise let the request fall through to SSG pages for CDN caching.
   if (wantsMarkdown) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/dynamic" + pagePath;
     url.searchParams.set("format", "md");
+    const response = NextResponse.rewrite(url);
+    response.headers.set("Vary", "Accept, User-Agent");
+    return response;
   }
-  const response = NextResponse.rewrite(url);
-  // Ensure CDN/proxies cache HTML and markdown separately
+
+  // HTML path: pass through to SSG with CDN-friendly cache headers
+  const response = NextResponse.next();
   response.headers.set("Vary", "Accept, User-Agent");
+  response.headers.set(
+    "Link",
+    `<https://docs.railway.com${pagePath}.md>; rel="alternate"; type="text/markdown"`,
+  );
   return response;
 }
 
