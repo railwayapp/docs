@@ -21,7 +21,7 @@ export const iconNames = [
   "FileText",
   "File",
   "Folder",
-  "GitHub",
+  "Github",
   "Home",
   "InfoCircle",
   "LinkSquare",

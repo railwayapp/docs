@@ -1,5 +1,10 @@
 import * as React from "react";
-import { DefaultSeo, NextSeo, NextSeoProps, DefaultSeoProps } from "next-seo";
+import {
+  generateDefaultSeo,
+  generateNextSeo,
+  NextSeoProps,
+  DefaultSeoProps,
+} from "next-seo/pages";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Header, FAQItem } from "@/utils/seo";
@@ -58,7 +63,25 @@ export const SEO: React.FC<Props> = ({
   const title = props.title ?? config.title;
   const twitterTitle = props.twitterTitle;
   const description = props.description;
-  const url = props.url || `${baseUrl}${router.asPath.split("?")[0].split("#")[0]}`;
+  const url =
+    props.url || `${baseUrl}${router.asPath.split("?")[0].split("#")[0]}`;
+  const nextSeo = {
+    ...props,
+    canonical: url,
+    ...(image == null
+      ? {}
+      : {
+          openGraph: {
+            url,
+            description,
+            site_name: title,
+            images: [{ url: image }],
+            type: "article",
+            ...(publishedTime && { publishedTime }),
+            ...(lastModified && { modifiedTime: lastModified }),
+          },
+        }),
+  };
 
   // Build structured data schemas
   const schemas: Record<string, any>[] = [];
@@ -189,27 +212,9 @@ export const SEO: React.FC<Props> = ({
 
   return (
     <>
-      <DefaultSeo {...config} />
-
-      <NextSeo
-        {...props}
-        canonical={url}
-        {...(image == null
-          ? {}
-          : {
-              openGraph: {
-                url,
-                description,
-                site_name: title,
-                images: [{ url: image }],
-                type: "article",
-                ...(publishedTime && { publishedTime }),
-                ...(lastModified && { modifiedTime: lastModified }),
-              },
-            })}
-      />
-
       <Head>
+        {generateDefaultSeo(config)}
+        {generateNextSeo(nextSeo)}
         <title>{title}</title>
         <meta name="twitter:title" content={twitterTitle} />
         <meta name="twitter:description" content={description} />
