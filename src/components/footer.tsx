@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({
               href={gitHubEditLink}
               className="inline-flex items-center gap-2 text-sm text-muted-base hover:text-muted-high-contrast transition-colors"
             >
-              <Icon name="Github" className="size-4" />
+              <Icon name="GitHub" className="size-4" />
               <span>Edit this page on GitHub</span>
               <Icon name="LinkSquare" className="size-4" />
             </Link>
