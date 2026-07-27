@@ -1,12 +1,11 @@
 import React from "react";
-import "twin.macro";
-import { Link } from "../components/Link";
-import { SEO } from "../components/SEO";
+import { Link } from "../components/link";
+import { SEO } from "../components/seo";
 
 const NotFoundPage: React.FC = () => (
   <>
     <SEO title="Not Found" />
-    <div tw="prose dark:prose-invert">
+    <div className="prose dark:prose-invert">
       <h1>Page not found</h1>
 
       <p>Maybe you were looking for one of the following</p>

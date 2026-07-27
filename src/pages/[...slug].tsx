@@ -1,22 +1,44 @@
-import { Banner, PriorityBoardingBanner, DeprecationBanner } from "@/components/Banner";
-import { Collapse } from "@/components/Collapse";
-import { CodeBlock } from "@/components/CodeBlock";
+import {
+  Banner,
+  PriorityBoardingBanner,
+  DeprecationBanner,
+} from "@/components/banner";
+import { Collapse } from "@/components/collapse";
+import { Pre, CodeBlock, CodeTab } from "@/components/code-block";
+import { Table } from "@/components/table";
+import { GraphQLCodeTabs } from "@/components/graphql-code-tabs";
+import { Card, CardGrid } from "@/components/card";
+import { Frame } from "@/components/frame";
+import { Steps, Step } from "@/components/steps";
+import {
+  Tree,
+  TreeNode,
+  TreeNodeTrigger,
+  TreeNodeContent,
+  TreeExpander,
+  TreeIcon,
+  TreeLabel,
+} from "@/components/tree";
+import { FileTree } from "@/components/file-tree";
+import { Tooltip } from "@/components/tooltip";
 import Layout from "@/mdxLayouts/index";
-import { allPages, Page } from "contentlayer/generated";
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { allPages, Page } from "content-collections";
+import { useMDXComponent } from "@content-collections/mdx/react";
 import Link from "next/link";
-import { Image } from "@/components/Image";
-import { InlineCode } from "@/components/InlineCode";
-import { H2, H3, H4 } from "@/components/Header";
-import { Anchor } from "@/components/Anchor";
+import { Image } from "@/components/image";
+import { InlineCode } from "@/components/inline-code";
+import { H2, H3, H4 } from "@/components/header";
+import { Anchor } from "@/components/anchor";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Props as CodeBlockProps } from "@/components/CodeBlock";
-import { Props as InlineCodeProps } from "@/components/InlineCode";
-import { TallyButton } from "@/components/TallyButton";
+import { Props as InlineCodeProps } from "@/components/inline-code";
+import { TallyButton } from "@/components/tally-button";
+import { AgentInstallCommand } from "@/components/agent-install-command";
+import { McpInstallGuide } from "@/components/mcp-install-guide";
 
 const components: Record<string, React.ElementType> = {
   Collapse,
   Image,
+  img: Image, // Standard markdown images ![](url) also use Image component
   Banner,
   Link,
   PriorityBoardingBanner,
@@ -26,28 +48,43 @@ const components: Record<string, React.ElementType> = {
   h3: H3,
   h4: H4,
   TallyButton,
+  CodeBlock,
+  CodeTab,
+  table: Table,
+  GraphQLCodeTabs,
+  Card,
+  CardGrid,
+  Frame,
+  Steps,
+  Step,
+  Tree,
+  TreeNode,
+  TreeNodeTrigger,
+  TreeNodeContent,
+  TreeExpander,
+  TreeIcon,
+  TreeLabel,
+  FileTree,
+  Tooltip,
+  AgentInstallCommand,
+  McpInstallGuide,
 };
 
 export default function PostPage({
   page,
-  colorModeSSR,
   rawMarkdown,
 }: {
   page: Page;
-  colorModeSSR: string | null;
   rawMarkdown: string;
 }) {
   const MDXContent = useMDXComponent(page.body.code);
 
   // Create a new components object with the extra props
+  // Note: Don't override `code` globally - it breaks code blocks inside `pre`
+  // Inline code styling is handled by prose.css via .prose code:not(pre code)
   const componentsWithProps = {
     ...components,
-    pre: (props: CodeBlockProps) => (
-      <CodeBlock {...props} colorModeSSR={colorModeSSR} />
-    ),
-    code: (props: InlineCodeProps) => (
-      <InlineCode {...props} colorModeSSR={colorModeSSR} />
-    ),
+    pre: Pre,
   };
 
   return (
@@ -56,6 +93,7 @@ export default function PostPage({
         title: page.title,
         description: page.description,
         url: page.url,
+        lastModified: page.lastModified,
       }}
       rawMarkdown={rawMarkdown}
     >
@@ -70,6 +108,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       page._raw.flattenedPath ===
       (params?.slug as string[] | undefined)?.join("/"),
   );
+
+  if (!page) {
+    return { notFound: true };
+  }
 
   return {
     props: {

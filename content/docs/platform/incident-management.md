@@ -1,0 +1,41 @@
+---
+title: Incident Management
+description: Learn how Railway handles incident management.
+---
+
+## Introduction
+
+Railway understands the importance of effective incident management procedures. We do what we can to minimize downtime, mitigate the impact of incidents, and ensure the smooth operation of Railway's systems. In the interest of transparency, we publish as much of Railway's procedure to keep Railway's customers in the know on how we handle and learn from incidents.
+
+## Monitoring + reporting
+
+Railway has a robust monitoring system in place to proactively detect and address any potential incidents. We continuously monitor Railway's infrastructure, including servers, networks, and applications, to ensure their smooth operation. By monitoring key metrics and performance indicators, we can identify any anomalies or potential issues before they escalate into full-blown incidents.
+
+However, it's important to note that while we strive to stay ahead of incidents, there may be situations where unforeseen issues arise. In such cases, we rely on qualitative customer feedback to help us identify and address any issues promptly. We encourage Railway's customers to report any problems they encounter through the [Railway Help Station](https://station.railway.com) or [Slack](/platform/support#slack).
+
+## Status page + uptime
+
+Railway's uptime and incident retrospective can be accessed on the Railway status page at https://status.railway.com/. On this page, you can view the historical uptime of Railway's systems and services. Additionally, you can find detailed information about past incidents, including retrospectives that provide insights into how incidents were handled and what measures were taken to prevent similar issues in the future.
+
+The status page is built and hosted in-house. If you'd like to consume its data programmatically, it's backed by two simple JSON endpoints:
+
+- `https://api.railwaystatus.com/status` — current status of Railway's systems and services. Its response schema is published at `https://api.railwaystatus.com/status/schema.json`.
+- `https://railway.com/.railway/pops` — Railway's CDN points of presence (POPs) and their status. These are edge POPs, not [deployment regions](/deployments/regions).
+
+These endpoints are provided as-is, without any support, and their response format may change without notice.
+
+For Enterprise customers, we offer SLOs and guarantees of service that may not be represented on the uptime dashboard.
+
+## Incident severity
+
+Railway catalogues incident's in the following buckets.
+
+- **High**: the incident is potentially catastrophic to Railway Corporation and/or disrupts
+  Railway Corporation’s day-to-day operations; violation of contractual requirements is likely. Ex. Any business level impact to 25 percent of Railway's customers for one hour or more. All incidents within this severity get public communications.
+- **Medium**: the incident will cause harm to one or more business units within Railway
+  Corporation and/or will cause delays to a customer business unit’s activities.
+- **Low**: the incident is a clear failure of a component, but will not substantively impact the business. Railway still performs retrospectives within this severity.
+
+### Responsible disclosure
+
+Enterprise customers get Root Cause Analysis, and we attempt to publish event retrospectives on [https://blog.railway.com/engineering](https://blog.railway.com/engineering)

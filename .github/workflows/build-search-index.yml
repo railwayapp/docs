@@ -5,6 +5,9 @@ on:
   deployment_status:
     states: [success]
 
+permissions:
+  contents: read
+
 jobs:
   build-index:
     runs-on: ubuntu-latest

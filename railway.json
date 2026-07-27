@@ -18,16 +18,16 @@
       "deploy": {
         "multiRegionConfig": {
           "us-west2": {
-            "numReplicas": 1
+            "numReplicas": 2
           },
           "us-east4-eqdc4a": {
-            "numReplicas": 1
+            "numReplicas": 2
           },
           "europe-west4-drams3a": {
-            "numReplicas": 1
+            "numReplicas": 2
           },
           "asia-southeast1-eqsg3a": {
-            "numReplicas": 1
+            "numReplicas": 2
           }
         }
       }
