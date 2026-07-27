@@ -413,6 +413,11 @@ export const sidebarContent: ISidebarContent = [
         subTitle: "Troubleshooting",
         pages: [
           makePage(
+            "Recover PostgreSQL from corrupted WAL",
+            "databases/troubleshooting",
+            "/databases/troubleshooting/postgres-corrupted-wal",
+          ),
+          makePage(
             "ENOTFOUND redis.railway.internal",
             "databases/troubleshooting",
           ),

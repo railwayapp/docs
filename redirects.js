@@ -592,6 +592,11 @@ const redirects = [
     permanent: true,
   },
   {
+    source: "/reference/errors/postgres-corrupted-wal",
+    destination: "/databases/troubleshooting/postgres-corrupted-wal",
+    permanent: true,
+  },
+  {
     source: "/guides/nodejs-sigterm",
     destination: "/deployments/troubleshooting/nodejs-sigterm-handling",
     permanent: true,
