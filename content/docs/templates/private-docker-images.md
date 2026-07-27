@@ -15,7 +15,7 @@ This is useful for:
 To add a private Docker image to your template:
 
 1. In the template editor, add a service with a Docker image source
-2. Enter your registry credentials in the service settings (username and password for Dockerhub, username and access token for Github registry)
+2. Enter your registry credentials in the service settings (username and password for Dockerhub, username and access token for GitHub registry)
 3. Railway encrypts and stores the credentials securely
 
 When users deploy your template, Railway authenticates with your registry to pull the image. Users see that the service uses hidden registry credentials, but cannot access the credentials themselves.
