@@ -169,7 +169,8 @@ function extractCodeFromTabChildren(children: React.ReactNode): string {
       );
       if (codeChild && React.isValidElement(codeChild)) {
         return extractTextFromChildren(
-          (codeChild as React.ReactElement).props.children,
+          (codeChild as React.ReactElement<{ children?: React.ReactNode }>)
+            .props.children,
         );
       }
       return extractTextFromChildren(props.children);
@@ -611,7 +612,7 @@ function StandardCodeBlock({
           collapsible
             ? {
                 maxHeight: isExpanded
-                  ? contentHeight ?? undefined
+                  ? (contentHeight ?? undefined)
                   : COLLAPSED_HEIGHT,
               }
             : undefined
@@ -660,9 +661,7 @@ function CopyShimmer({ shimmerKey }: { shimmerKey: number }) {
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 overflow-hidden"
     >
-      <div
-        className="absolute inset-y-0 w-1/3 animate-copy-shimmer bg-gradient-to-r from-transparent via-primary-base/30 to-transparent mix-blend-overlay dark:mix-blend-screen"
-      />
+      <div className="absolute inset-y-0 w-1/3 animate-copy-shimmer bg-gradient-to-r from-transparent via-primary-base/30 to-transparent mix-blend-overlay dark:mix-blend-screen" />
     </div>
   );
 }

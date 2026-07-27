@@ -9,7 +9,9 @@ const pageUrlSet = new Set([
 
 function prefersMarkdown(acceptHeader: string): boolean {
   const types = acceptHeader.split(",");
-  const mdIdx = types.findIndex(t => t.includes("text/markdown") || t.includes("text/plain"));
+  const mdIdx = types.findIndex(
+    t => t.includes("text/markdown") || t.includes("text/plain"),
+  );
   const htmlIdx = types.findIndex(t => t.includes("text/html"));
   return mdIdx !== -1 && (htmlIdx === -1 || mdIdx < htmlIdx);
 }
@@ -22,7 +24,7 @@ function isAIAgent(uaHeader: string): boolean {
   return AI_UA_RE.test(uaHeader);
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
   if (pathname.startsWith("/api/")) {

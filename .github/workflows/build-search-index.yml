@@ -16,7 +16,7 @@ jobs:
       (github.event.deployment_status.state == 'success' &&
        contains(github.event.deployment.environment, 'production'))
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v7
       - name: Scrape and index docs
         env:
           HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
