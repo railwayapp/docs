@@ -20,8 +20,10 @@ const ScrollAreaContext = React.createContext<ScrollAreaContextProps>({
   type: "hover",
 });
 
-interface ScrollAreaProps
-  extends Omit<ScrollAreaPrimitive.Root.Props, "children"> {
+interface ScrollAreaProps extends Omit<
+  ScrollAreaPrimitive.Root.Props,
+  "children"
+> {
   children?: React.ReactNode;
   type?: "auto" | "always" | "scroll" | "hover";
   viewportClassName?: string;
@@ -37,6 +39,7 @@ interface ScrollAreaProps
 function ScrollArea({
   className,
   children,
+  style,
   type = "hover",
   maskHeight = 30,
   maskClassName,
@@ -102,6 +105,7 @@ function ScrollArea({
       {isTouch ? (
         <div
           {...props}
+          style={typeof style === "function" ? undefined : style}
           role="group"
           data-slot="scroll-area"
           aria-roledescription="scroll area"
@@ -126,6 +130,7 @@ function ScrollArea({
         <ScrollAreaPrimitive.Root
           data-slot="scroll-area"
           className={cn("relative overflow-hidden", className)}
+          style={style}
           {...props}
         >
           <ScrollAreaPrimitive.Viewport

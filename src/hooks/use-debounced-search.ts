@@ -1,5 +1,5 @@
 import { Search } from "@/types";
-import { MeiliSearch, SearchParams, SearchResponse } from "meilisearch";
+import { Meilisearch, SearchParams, SearchResponse } from "meilisearch";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 type Transformer<Source, Result extends any> = (
@@ -96,7 +96,7 @@ export const useDebouncedSearch = <
     if (!host) {
       return null;
     }
-    const meilisearch = new MeiliSearch({
+    const meilisearch = new Meilisearch({
       host,
       apiKey,
     });

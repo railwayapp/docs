@@ -112,5 +112,5 @@ const guides = defineCollection({
 });
 
 export default defineConfig({
-  collections: [pages, guides],
+  content: [pages, guides],
 });
