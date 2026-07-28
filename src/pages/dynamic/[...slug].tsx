@@ -113,7 +113,9 @@ export const getServerSideProps = async (
       { title: page.title, description: page.description, url: page.url },
       page.body.raw,
     );
+    const htmlUrl = `https://docs.railway.com${page.url}`;
     context.res.setHeader("Content-Type", "text/markdown; charset=utf-8");
+    context.res.setHeader("Link", `<${htmlUrl}>; rel="canonical"`);
     context.res.write(markdown);
     context.res.end();
     return { props: {} };

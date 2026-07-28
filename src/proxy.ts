@@ -1,11 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { allPages, allGuides } from "content-collections";
-
-const pageUrlSet = new Set([
-  ...allPages.map(page => page.url),
-  ...allGuides.map(guide => guide.url),
-]);
+import { pageUrlSet } from "@/utils/page-url-set";
 
 function prefersMarkdown(acceptHeader: string): boolean {
   const types = acceptHeader.split(",");
@@ -18,7 +13,7 @@ function prefersMarkdown(acceptHeader: string): boolean {
 
 // Known AI agent / crawler user-agent patterns
 const AI_UA_RE =
-  /claudebot|claude-web|anthropic|gptbot|chatgpt|oai-searchbot|openai|perplexitybot|perplexity|cohere|gemini|googlebot-richsnippets|meta-externalagent|bingbot.*ai|bingpreview|duckassistbot/i;
+  /claudebot|claude-web|anthropic|gptbot|chatgpt|oai-searchbot|openai|perplexitybot|perplexity|cohere|gemini|googlebot-richsnippets|meta-externalagent|duckassistbot/i;
 
 function isAIAgent(uaHeader: string): boolean {
   return AI_UA_RE.test(uaHeader);
