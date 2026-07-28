@@ -92,7 +92,7 @@ export const SEO: React.FC<Props> = ({
     "@type": "Organization",
     name: "Railway",
     url: "https://railway.com",
-    logo: "https://docs.railway.com/railway.svg",
+    logo: "https://railway.com/brand/logo-dark.png",
     sameAs: ["https://twitter.com/Railway", "https://github.com/railwayapp"],
   };
   schemas.push(organizationSchema);
@@ -145,7 +145,7 @@ export const SEO: React.FC<Props> = ({
         name: "Railway",
         logo: {
           "@type": "ImageObject",
-          url: "https://docs.railway.com/railway.svg",
+          url: "https://railway.com/brand/logo-dark.png",
         },
       },
       ...(publishedTime && { datePublished: publishedTime }),
