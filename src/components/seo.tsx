@@ -8,6 +8,7 @@ import {
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Header, FAQItem } from "@/utils/seo";
+import { pageUrlSet } from "@/utils/page-url-set";
 
 export interface Props extends NextSeoProps {
   title?: string;
@@ -227,8 +228,10 @@ export const SEO: React.FC<Props> = ({
         {/* Last modification date */}
         {lastModified && <meta name="last-modified" content={lastModified} />}
 
-        {/* Markdown alternate for LLM/agent discovery */}
-        <link rel="alternate" type="text/markdown" href={`${url}.md`} />
+        {/* Markdown alternate for LLM/agent discovery — only when the .md exists */}
+        {pageUrlSet.has(router.asPath.split("?")[0].split("#")[0]) && (
+          <link rel="alternate" type="text/markdown" href={`${url}.md`} />
+        )}
 
         {/* Structured data schemas */}
         {schemas.map((schema, index) => (
