@@ -18,13 +18,13 @@ const NotFoundPage: React.FC = () => (
           <Link href="/quick-start">Quick Start</Link>
         </li>
         <li>
-          <Link href="/tutorials/getting-started">Tutorials</Link>
+          <Link href="/overview/the-basics">Getting Started</Link>
         </li>
         <li>
-          <Link href="/guides/cli">CLI Quick Start</Link>
+          <Link href="/cli">CLI</Link>
         </li>
         <li>
-          <Link href="/guides/cli#deploy">Railway Up</Link>
+          <Link href="/cli#deploy">Deploy from CLI</Link>
         </li>
       </ul>
     </div>
