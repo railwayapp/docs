@@ -1,6 +1,16 @@
+const { redirects } = require("./redirects");
+
+// Auto-exclude every redirect source from the sitemap so search engines only
+// index the canonical destination. Wildcard patterns (containing ":") are
+// skipped because they don't map to concrete pages.
+const redirectSources = redirects
+  .map((r) => r.source)
+  .filter((s) => !s.includes(":"));
+
 module.exports = {
   siteUrl: process.env.NEXT_PUBLIC_RAILWAY_DOCS_URL || "https://docs.railway.com",
   generateRobotsTxt: true,
+  exclude: redirectSources,
   robotsTxtOptions: {
     additionalSitemaps: [],
     policies: [

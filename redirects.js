@@ -96,27 +96,27 @@ const redirects = [
   },
   {
     source: "/deploy/logging",
-    destination: "/guides/logs",
+    destination: "/observability/logs",
     permanent: true,
   },
   {
     source: "/deploy/deploy-on-railway-button",
-    destination: "/guides/templates",
+    destination: "/templates",
     permanent: true,
   },
   {
     source: "/deploy/healthchecks",
-    destination: "/reference/healthchecks",
+    destination: "/deployments/healthchecks",
     permanent: true,
   },
   {
     source: "/deploy/integrations",
-    destination: "/reference/integrations",
+    destination: "/integrations/api",
     permanent: true,
   },
   {
     source: "/deploy/railway-up",
-    destination: "/guides/services",
+    destination: "/services",
     permanent: true,
   },
   {
@@ -126,12 +126,12 @@ const redirects = [
   },
   {
     source: "/databases/bring-your-own-database",
-    destination: "/guides/build-a-database-service",
+    destination: "/databases/build-a-database-service",
     permanent: true,
   },
   {
     source: "/diagnose/project-usage",
-    destination: "/reference/project-usage",
+    destination: "/projects/project-usage",
     permanent: true,
   },
   {
@@ -146,22 +146,22 @@ const redirects = [
   },
   {
     source: "/reference/compare-to-heroku",
-    destination: "/maturity/compare-to-heroku",
+    destination: "/platform/compare-to-heroku",
     permanent: true,
   },
   {
     source: "/troubleshoot/fixing-common-errors",
-    destination: "/guides/fixing-common-errors",
+    destination: "/networking/troubleshooting/application-failed-to-respond",
     permanent: true,
   },
   {
     source: "/reference/guides",
-    destination: "/tutorials/getting-started",
+    destination: "/quick-start",
     permanent: true,
   },
   {
     source: "/reference/pricing",
-    destination: "/reference/pricing/plans",
+    destination: "/pricing/plans",
     permanent: true,
   },
   {
@@ -393,7 +393,7 @@ const redirects = [
   },
   {
     source: "/reference/app-sleeping",
-    destination: "/deployments/app-sleeping",
+    destination: "/deployments/serverless",
     permanent: true,
   },
   {
@@ -623,7 +623,7 @@ const redirects = [
   },
   {
     source: "/tutorials/getting-started",
-    destination: "/guides/getting-started",
+    destination: "/quick-start",
     permanent: true,
   },
   {
@@ -909,6 +909,17 @@ const redirects = [
   {
     source: "/guides/variables",
     destination: "/variables",
+    permanent: true,
+  },
+  // Legacy root-level pages superseded by /networking/* hierarchy
+  {
+    source: "/private-networking",
+    destination: "/networking/private-networking",
+    permanent: true,
+  },
+  {
+    source: "/public-networking",
+    destination: "/networking/public-networking",
     permanent: true,
   },
   // Serverless redirect (previously app-sleeping)
