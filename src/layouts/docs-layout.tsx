@@ -121,10 +121,11 @@ export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
     return buildBreadcrumbs(frontMatter.url, sidebarContent);
   }, [frontMatter.url]);
 
-  // Get last modified date from git history
-  const lastModified = frontMatter.lastModified ?? new Date().toISOString();
+  // Get last modified date from git history — omit if unavailable
+  const lastModified = frontMatter.lastModified;
 
   const formattedLastModified = useMemo(() => {
+    if (!lastModified) return undefined;
     const date = new Date(lastModified);
     return date.toLocaleDateString("en-US", {
       year: "numeric",
