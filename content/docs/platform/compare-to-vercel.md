@@ -5,8 +5,6 @@ description: Compare Railway and Vercel on infrastructure, pricing model and dep
 
 _Last updated: June 2026_
 
-> Looking for a pricing-focused comparison? See [railway.com/compare/vercel](https://railway.com/compare/vercel).
-
 At a high level, both Railway and Vercel enable you to deploy your app without the hassle of managing infrastructure. Both platforms share several similarities:
 
 - Git-based automated deployments with support for instant rollbacks.
