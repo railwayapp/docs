@@ -26,14 +26,14 @@ const pages = defineCollection({
       ],
     });
     const filePath = `content/docs/${doc._meta.filePath}`;
-    let lastModified: string;
+    let lastModified: string | undefined;
     try {
       const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
         encoding: "utf-8",
       }).trim();
-      lastModified = result || new Date().toISOString();
+      lastModified = result || undefined;
     } catch {
-      lastModified = new Date().toISOString();
+      lastModified = undefined;
     }
 
     return {
@@ -83,14 +83,14 @@ const guides = defineCollection({
       ],
     });
     const filePath = `content/guides/${doc._meta.filePath}`;
-    let lastModified: string;
+    let lastModified: string | undefined;
     try {
       const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
         encoding: "utf-8",
       }).trim();
-      lastModified = result || new Date().toISOString();
+      lastModified = result || undefined;
     } catch {
-      lastModified = new Date().toISOString();
+      lastModified = undefined;
     }
 
     return {
