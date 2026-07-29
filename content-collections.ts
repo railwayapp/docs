@@ -26,15 +26,15 @@ const pages = defineCollection({
       ],
     });
     const filePath = `content/docs/${doc._meta.filePath}`;
-    let lastModified: string | undefined;
+    let lastModified: string | null = null;
     try {
       const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
         encoding: "utf-8",
         stdio: ["pipe", "pipe", "ignore"],
       }).trim();
-      lastModified = result || undefined;
+      lastModified = result || null;
     } catch {
-      lastModified = undefined;
+      lastModified = null;
     }
 
     return {
@@ -84,15 +84,15 @@ const guides = defineCollection({
       ],
     });
     const filePath = `content/guides/${doc._meta.filePath}`;
-    let lastModified: string | undefined;
+    let lastModified: string | null = null;
     try {
       const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
         encoding: "utf-8",
         stdio: ["pipe", "pipe", "ignore"],
       }).trim();
-      lastModified = result || undefined;
+      lastModified = result || null;
     } catch {
-      lastModified = undefined;
+      lastModified = null;
     }
 
     return {
