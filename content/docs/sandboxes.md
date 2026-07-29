@@ -409,7 +409,7 @@ Set the idle timeout with `idleTimeoutMinutes` in the SDK or `--idle-timeout-min
 
 ## Networking
 
-Every sandbox has outbound internet access through a NAT gateway. Whether it can reach the rest of your environment over the [private network](/private-networking) depends on its network isolation mode, set when you create or fork it.
+Every sandbox has outbound internet access through a NAT gateway. Whether it can reach the rest of your environment over the [private network](/networking/private-networking) depends on its network isolation mode, set when you create or fork it.
 
 | Mode | Behavior |
 |------|----------|
@@ -441,7 +441,7 @@ railway sandbox forward 3000
 
 Forwarding runs over SSH, so it needs an SSH key on your Railway account. Add one at [Account Settings -> SSH Keys](https://railway.com/account/ssh-keys).
 
-To serve traffic on a public URL, deploy a [service](/services) and give it a [public domain](/public-networking).
+To serve traffic on a public URL, deploy a [service](/services) and give it a [public domain](/networking/public-networking).
 
 ## Pricing
 

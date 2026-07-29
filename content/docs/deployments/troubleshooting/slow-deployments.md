@@ -187,7 +187,7 @@ If your application is in one region but your database is in another, every quer
 
 ### Not using private networking
 
-If services within the same project communicate over the public internet instead of [private networking](/private-networking), you add unnecessary latency and incur [egress costs](/pricing/plans#resource-usage-pricing). Private networking is for **server-to-server communication only**. It won't work for requests originating from a user's browser.
+If services within the same project communicate over the public internet instead of [private networking](/networking/private-networking), you add unnecessary latency and incur [egress costs](/pricing/plans#resource-usage-pricing). Private networking is for **server-to-server communication only**. It won't work for requests originating from a user's browser.
 
 **Symptoms:**
 - Using public URLs (e.g., `your-app.up.railway.app`) for inter-service communication

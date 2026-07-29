@@ -1,5 +1,5 @@
 ---
-title: Databases
+title: Databases reference
 description: Database services on Railway.
 ---
 

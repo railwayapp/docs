@@ -1,5 +1,5 @@
 ---
-title: Deployments
+title: Deployments reference
 description: Deployments are attempts to build and deliver your service. Learn how they work on Railway.
 ---
 
