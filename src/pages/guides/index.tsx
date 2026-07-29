@@ -429,6 +429,12 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
         ]}
       />
       <Head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Railway Guides"
+          href="https://docs.railway.com/guides/rss.xml"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
