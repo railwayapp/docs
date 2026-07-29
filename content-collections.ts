@@ -30,6 +30,7 @@ const pages = defineCollection({
     try {
       const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
         encoding: "utf-8",
+        stdio: ["pipe", "pipe", "ignore"],
       }).trim();
       lastModified = result || undefined;
     } catch {
@@ -87,6 +88,7 @@ const guides = defineCollection({
     try {
       const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
         encoding: "utf-8",
+        stdio: ["pipe", "pipe", "ignore"],
       }).trim();
       lastModified = result || undefined;
     } catch {
