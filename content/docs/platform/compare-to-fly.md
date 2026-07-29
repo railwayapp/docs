@@ -5,8 +5,6 @@ description: Compare Railway and Fly.io on deployment model, scaling, pricing an
 
 _Last updated: June 2026_
 
-> Looking for a pricing-focused comparison? See [railway.com/compare/fly](https://railway.com/compare/fly).
-
 At a high level, both Railway and Fly.io can be used to deploy your app. Both platforms share several similarities:
 
 - You can deploy your app from a Docker image or by importing your app’s source code from GitHub.

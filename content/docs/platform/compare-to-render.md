@@ -5,8 +5,6 @@ description: Compare Railway and Render on infrastructure, pricing model and das
 
 _Last updated: June 2026_
 
-> Looking for a pricing-focused comparison? See [railway.com/compare/render](https://railway.com/compare/render).
-
 At a high level, both Railway and Render can be used to deploy your app. Both platforms share many similarities:
 
 - You can deploy your app from a Docker image or by importing your app’s source code from GitHub.

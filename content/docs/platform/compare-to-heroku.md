@@ -5,8 +5,6 @@ description: Compare Railway and Heroku on infrastructure, pricing model and dep
 
 _Last updated: June 2026_
 
-> Looking for a pricing-focused comparison? See [railway.com/compare/heroku](https://railway.com/compare/heroku).
-
 At a high level, both Railway and Heroku can be used to deploy your app. Both platforms share many similarities:
 
 - You can deploy your app from a Docker image or by importing your app’s source code from GitHub.
