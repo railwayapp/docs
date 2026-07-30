@@ -352,6 +352,7 @@ A template is built from instructions and rebuilds cheaply, but the Repo Review 
 
 Explore these resources to go deeper on sandboxes and agents:
 
+- [Run Code-Execution Sandboxes for AI Agents](/guides/code-execution-sandboxes): why agents need sandboxes and the minimal execution loop.
 - [Sandboxes](/sandboxes): concepts, the SDK reference, networking, and limits.
 - [`railway sandbox` CLI reference](/cli/sandbox): templates, checkpoints, forks, exec, and port forwarding.
 - [Railway for Agents](/agents): the broader agent setup with the CLI, MCP, and skills.
