@@ -1,7 +1,7 @@
 ---
 title: Choose Between Cron Jobs, Background Workers, and Queues
 description: When to use cron jobs, always-on workers, and message queues for background processing. Covers tradeoffs, failure modes, and how to run each pattern on Railway.
-date: "2026-03-30"
+date: "2026-07-29"
 tags:
   - architecture
   - cron
@@ -100,6 +100,16 @@ The worker runs continuously. It does not need a public domain unless you want t
 3. In your API service, enqueue jobs to Redis using your chosen queue library.
 4. In your worker service, dequeue and process jobs from Redis.
 5. Configure retry behavior and dead-letter handling in your queue library.
+
+## Which pattern fits an AI agent
+
+Agent workloads map onto the same three patterns:
+
+- **A scheduled agent** (nightly report writer, periodic summarizer) is a cron job. One constraint matters more for agents than for most tasks: if a run has not finished when the next is scheduled, the next run is skipped, and Railway does not terminate the previous one. An agent that hangs on an LLM call can silently block every future run. Set a hard timeout in the task code.
+- **An on-demand agent** (a user submits a task, the agent takes minutes to finish) is a queue plus a worker. HTTP requests are capped at 15 minutes even when data keeps flowing, so the request that triggers the agent cannot also wait for it. Enqueue, return a task id, and let the client poll or subscribe.
+- **An always-listening agent** (reacts to webhooks, watches a feed, processes a stream) is a background worker.
+
+For the full on-demand architecture, an API, a Redis queue, workers, and Postgres for state, see [Deploy an AI Agent with Async Workers](/guides/ai-agent-workers).
 
 ## Combining patterns
 

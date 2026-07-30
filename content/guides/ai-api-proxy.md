@@ -1,7 +1,7 @@
 ---
-title: Deploy an AI API Gateway
-description: Deploy LiteLLM Proxy on Railway as a unified gateway for multiple LLM providers. Covers model routing, cost tracking, API key management, caching with Redis, and private networking.
-date: "2026-04-14"
+title: Deploy an LLM Gateway with LiteLLM
+description: Deploy LiteLLM Proxy on Railway as an LLM gateway for multiple providers. Covers model routing, cost tracking, API key management, caching with Redis, and private networking.
+date: "2026-07-29"
 tags:
   - gateway
   - api
@@ -12,7 +12,7 @@ topic: ai
 
 As AI applications scale, managing multiple LLM providers becomes complex. Different services may use different providers, API keys rotate, costs are hard to track, and a single provider outage can take down your entire application.
 
-An AI API gateway sits between your services and LLM providers. It provides a single endpoint with a unified API, model routing, cost tracking, rate limiting, and provider failover.
+An LLM gateway (sometimes called an AI API gateway) sits between your services and LLM providers. It provides a single endpoint with a unified API, model routing, cost tracking, rate limiting, and provider failover.
 
 [LiteLLM Proxy](https://docs.litellm.ai/docs/simple_proxy) is the most widely used open-source option. It exposes an OpenAI-compatible API that routes requests to 100+ LLM providers.
 
@@ -44,7 +44,7 @@ model_list:
 
   - model_name: claude-sonnet
     litellm_params:
-      model: anthropic/claude-sonnet-4-20250514
+      model: anthropic/claude-opus-4-8
       api_key: os.environ/ANTHROPIC_API_KEY
 
   - model_name: gpt-4o-mini
@@ -139,6 +139,7 @@ LiteLLM automatically creates its logging tables on first connection. Access cos
 
 ## Next steps
 
+- [Build an LLM Gateway in TypeScript](/guides/llm-gateway): the build-your-own route, when the logic you need is small and specific.
 - [Deploy an AI-Powered SaaS App](/guides/deploy-ai-saas): Build a product that uses the gateway.
 - [Private Networking](/networking/private-networking): How services communicate within a project.
 - [Redis on Railway](/databases/redis): Persistence settings and memory management.

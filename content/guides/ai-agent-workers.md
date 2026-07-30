@@ -54,7 +54,7 @@ Both databases will be available to all services in the project via [reference v
    - [Reference](/variables#referencing-another-services-variable) `DATABASE_URL` from Postgres.
    - [Reference](/variables#referencing-another-services-variable) `REDIS_URL` from Redis.
    - Add your LLM API key (e.g., `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`).
-3. Generate a [public domain](/networking/public-networking#railway-provided-domain) under **Settings → Networking → Public Networking**.
+3. Generate a [public domain](/networking/domains) under **Settings → Networking → Public Networking**.
 4. Run database migrations via a [pre-deploy command](/deployments/pre-deploy-command).
 
 ### API endpoints
@@ -117,3 +117,4 @@ Railway does not currently offer GPU instances. This architecture assumes your a
 - [PostgreSQL on Railway](/databases/postgresql) - Connection pooling, backups, and configuration.
 - [Redis on Railway](/databases/redis) - Persistence settings and memory management.
 - [Choose Between SSE and WebSockets](/guides/sse-vs-websockets) - Options for streaming agent progress to clients.
+- [Build and Deploy Your Own MCP Server](/guides/mcp-server) - Expose your agent's capabilities as tools other AI assistants can call.

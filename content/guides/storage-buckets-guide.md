@@ -1,7 +1,7 @@
 ---
 title: Use Storage Buckets for Uploads, Exports, and Assets
 description: Set up Railway storage buckets for file uploads via presigned URLs, background export generation, and asset serving through a backend proxy.
-date: "2026-03-30"
+date: "2026-07-29"
 tags:
   - architecture
   - storage
@@ -162,5 +162,6 @@ For high-traffic asset serving, consider using presigned GET URLs instead to avo
 ## Next steps
 
 - [Storage Buckets](/storage-buckets) - Full reference for bucket configuration, CORS, and credential injection
+- [Use Object Storage for AI Agent Outputs](/guides/object-storage-for-ai-agents) - The same patterns applied to agent artifacts, transcripts, and reports
 - [Running a Cron Job](/cron-jobs) - Schedule report generation
 - [Private Networking](/networking/private-networking) - Connect services over the internal network

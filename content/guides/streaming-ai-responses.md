@@ -1,7 +1,7 @@
 ---
 title: Stream AI Responses to a Frontend with Server-Sent Events
 description: Stream LLM tokens from an API service to a frontend using Server-Sent Events on Railway. Covers Express and Hono server implementations, client-side consumption, and reconnection handling.
-date: "2026-04-14"
+date: "2026-07-29"
 tags:
   - frontend
   - ai
@@ -28,6 +28,10 @@ The frontend displays tokens as they arrive, giving the user immediate feedback 
 
 ### Express
 
+```bash
+npm install express @anthropic-ai/sdk
+```
+
 ```javascript
 import express from 'express';
 import Anthropic from '@anthropic-ai/sdk';
@@ -48,7 +52,7 @@ app.post('/api/chat', async (req, res) => {
   });
 
   const stream = client.messages.stream({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-opus-4-8',
     max_tokens: 1024,
     messages,
   });
@@ -75,6 +79,10 @@ app.listen(port, '0.0.0.0', () => {
 
 ### Hono
 
+```bash
+npm install hono @hono/node-server @anthropic-ai/sdk
+```
+
 ```typescript
 import { Hono } from 'hono';
 import { streamSSE } from 'hono/streaming';
@@ -89,10 +97,13 @@ app.post('/api/chat', async (c) => {
 
   return streamSSE(c, async (stream) => {
     const response = client.messages.stream({
-      model: 'claude-sonnet-4-20250514',
+      model: 'claude-opus-4-8',
       max_tokens: 1024,
       messages,
     });
+
+    // Stop paying for tokens the client will never see
+    stream.onAbort(() => response.abort());
 
     response.on('text', async (text) => {
       await stream.writeSSE({ data: JSON.stringify({ text }) });
@@ -166,7 +177,7 @@ await streamChat(
 The <a href="https://sdk.vercel.ai/" target="_blank">Vercel AI SDK</a> provides higher-level React hooks for streaming. It works with any hosting provider, not just Vercel:
 
 ```jsx
-import { useChat } from 'ai/react';
+import { useChat } from '@ai-sdk/react';
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
@@ -192,7 +203,7 @@ SSE streaming works on Railway without special configuration.
 
 1. Deploy your API service from [GitHub](/deployments/github-autodeploys) or the [CLI](/cli).
 2. Set the `ANTHROPIC_API_KEY` (or `OPENAI_API_KEY`) as a [service variable](/variables).
-3. [Generate a domain](/networking/public-networking#railway-provided-domain) for your service.
+3. [Generate a domain](/networking/domains) for your service.
 
 Ensure your application binds to `0.0.0.0` and reads the port from the `PORT` environment variable.
 
