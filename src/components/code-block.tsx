@@ -1,14 +1,8 @@
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import { highlightWithShiki } from "@/utils/highlight";
 import { cn } from "@/lib/cn";
-import {
-  transformerNotationDiff,
-  transformerNotationHighlight,
-  transformerNotationWordHighlight,
-  transformerRemoveLineBreak,
-} from "@shikijs/transformers";
 import * as React from "react";
 import { Icon } from "./icon";
-import { codeToHtml, bundledLanguages, type BundledLanguage } from "shiki";
 
 
 // Same markup shape as shiki's output (pre.shiki > code > span.line), so the
@@ -24,11 +18,6 @@ function plainCodeHtml(code: string): string {
     .map(line => `<span class="line">${line}</span>`)
     .join("\n");
   return `<pre class="shiki"><code>${lines}</code></pre>`;
-}
-
-// Check if a language is supported by shiki
-function isSupportedLanguage(lang: string): lang is BundledLanguage {
-  return lang in bundledLanguages;
 }
 
 // Language to icon mapping
@@ -285,25 +274,9 @@ function TabbedCodeBlock({
 
     async function highlight() {
       try {
-        // Normalize and validate language
-        const normalizedLang = activeTabData.lang.toLowerCase();
-        const effectiveLang = isSupportedLanguage(normalizedLang)
-          ? normalizedLang
-          : "plaintext";
-
-        const result = await codeToHtml(activeTabData.code, {
-          lang: effectiveLang,
-          themes: {
-            light: "one-light",
-            dark: "one-dark-pro",
-          },
-          defaultColor: false,
-          transformers: [
-            transformerNotationDiff(),
-            transformerNotationHighlight(),
-            transformerNotationWordHighlight(),
-            transformerRemoveLineBreak(),
-          ],
+        const result = await highlightWithShiki(activeTabData.code, activeTabData.lang, {
+          light: "one-light",
+          dark: "one-dark-pro",
         });
 
         if (!cancelled) {
@@ -494,25 +467,9 @@ function StandardCodeBlock({
 
     async function highlight() {
       try {
-        // Normalize and validate language
-        const normalizedLang = lang.toLowerCase();
-        const effectiveLang = isSupportedLanguage(normalizedLang)
-          ? normalizedLang
-          : "plaintext";
-
-        const result = await codeToHtml(code.trim(), {
-          lang: effectiveLang,
-          themes: {
-            light: "one-light",
-            dark: "github-dark-default",
-          },
-          defaultColor: false,
-          transformers: [
-            transformerNotationDiff(),
-            transformerNotationHighlight(),
-            transformerNotationWordHighlight(),
-            transformerRemoveLineBreak(),
-          ],
+        const result = await highlightWithShiki(code.trim(), lang, {
+          light: "one-light",
+          dark: "github-dark-default",
         });
 
         if (!cancelled) {
