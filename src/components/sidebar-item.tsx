@@ -112,28 +112,26 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       );
       const isParentHighlighted = isSubTitleActive || hasActiveChild;
 
-      return (
-        <button
-          onClick={e => {
-            e.stopPropagation();
-            onToggleSubSection();
-          }}
-          className={cn(
-            "group flex w-full items-center justify-between gap-2 rounded-md px-3 py-1.5 -ml-3 text-left text-sm transition-colors hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app cursor-pointer min-w-0",
-            isSubTitleActive
-              ? "bg-primary-element-active text-muted-high-contrast font-medium"
-              : isParentHighlighted
-              ? "text-muted-high-contrast font-medium"
-              : "text-muted-base",
-          )}
-        >
-          {hasLanding ? (
+      const rowClassName = cn(
+        "group flex w-full items-center justify-between gap-2 rounded-md px-3 py-1.5 -ml-3 text-left text-sm transition-colors hover:text-muted-high-contrast min-w-0",
+        isSubTitleActive
+          ? "bg-primary-element-active text-muted-high-contrast font-medium"
+          : isParentHighlighted
+          ? "text-muted-high-contrast font-medium"
+          : "text-muted-base",
+      );
+
+      // A link must not nest inside a button (invalid interactive nesting and
+      // an undersized touch target), so rows with a landing page render a
+      // plain row with the link and the expand toggle as siblings.
+      if (hasLanding) {
+        return (
+          <div className={rowClassName}>
             <Link
               href={(subTitle as IPage).slug}
-              className="flex-1 truncate min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-inset rounded"
+              className="flex-1 truncate min-w-0 -my-1.5 py-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-inset rounded"
               ref={isSubTitleActive ? activeLinkRef : undefined}
               onClick={e => {
-                e.stopPropagation();
                 if (isSubTitleActive) {
                   // Already on this page, toggle collapse/expand
                   e.preventDefault();
@@ -147,11 +145,40 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             >
               {(subTitle as IPage).title}
             </Link>
-          ) : (
-            <span className="flex-1 truncate min-w-0" title={subTitle}>
-              {subTitle}
-            </span>
+            <button
+              type="button"
+              onClick={onToggleSubSection}
+              aria-label={
+                isExpanded
+                  ? `Collapse ${(subTitle as IPage).title} section`
+                  : `Expand ${(subTitle as IPage).title} section`
+              }
+              className="flex size-7 -my-1 shrink-0 cursor-pointer items-center justify-center rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid"
+            >
+              <Arrow
+                isExpanded={isExpanded}
+                className={cn(
+                  "shrink-0 group-hover:text-muted-high-contrast",
+                  isParentHighlighted && "text-muted-high-contrast",
+                )}
+              />
+            </button>
+          </div>
+        );
+      }
+
+      return (
+        <button
+          type="button"
+          onClick={onToggleSubSection}
+          className={cn(
+            rowClassName,
+            "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app cursor-pointer",
           )}
+        >
+          <span className="flex-1 truncate min-w-0" title={subTitle as string}>
+            {subTitle as string}
+          </span>
           <Arrow
             isExpanded={isExpanded}
             className={cn(
