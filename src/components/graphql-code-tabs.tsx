@@ -5,18 +5,7 @@ import { cn } from "@/lib/cn";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { Icon } from "./icon";
 import { useCopyableCode } from "@/contexts/copyable-code-context";
-import { codeToHtml, bundledLanguages, type BundledLanguage } from "shiki";
-import {
-  transformerNotationDiff,
-  transformerNotationHighlight,
-  transformerNotationWordHighlight,
-  transformerRemoveLineBreak,
-} from "@shikijs/transformers";
-
-// Check if a language is supported by shiki
-function isSupportedLanguage(lang: string): lang is BundledLanguage {
-  return lang in bundledLanguages;
-}
+import { highlightWithShiki } from "@/utils/highlight";
 
 interface RequiredField {
   name: string; // Display name
@@ -152,24 +141,9 @@ export function GraphQLCodeTabs({
 
     async function highlight() {
       try {
-        const normalizedLang = activeLang.toLowerCase();
-        const effectiveLang = isSupportedLanguage(normalizedLang)
-          ? normalizedLang
-          : "plaintext";
-
-        const result = await codeToHtml(activeCode, {
-          lang: effectiveLang,
-          themes: {
-            light: "one-light",
-            dark: "one-dark-pro",
-          },
-          defaultColor: false,
-          transformers: [
-            transformerNotationDiff(),
-            transformerNotationHighlight(),
-            transformerNotationWordHighlight(),
-            transformerRemoveLineBreak(),
-          ],
+        const result = await highlightWithShiki(activeCode, activeLang, {
+          light: "one-light",
+          dark: "one-dark-pro",
         });
 
         if (!cancelled) {
@@ -355,14 +329,9 @@ function VariablesSection({
 
     async function highlight() {
       try {
-        const result = await codeToHtml(code, {
-          lang: "json",
-          themes: {
-            light: "one-light",
-            dark: "one-dark-pro",
-          },
-          defaultColor: false,
-          transformers: [transformerRemoveLineBreak()],
+        const result = await highlightWithShiki(code, "json", {
+          light: "one-light",
+          dark: "one-dark-pro",
         });
 
         if (!cancelled) {
