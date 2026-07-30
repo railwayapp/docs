@@ -276,37 +276,29 @@ const SidebarContent: React.FC = () => {
                 ) : (
                   /* Section with content - collapsible accordion */
                   <>
-                    <button
-                      onClick={() => toggleSection(section.title!)}
-                      className={cn(
-                        "group flex w-full items-center justify-between gap-2 py-1.5 px-3 -ml-3 rounded-md cursor-pointer min-w-0",
-                        "text-sm text-muted-base",
-                        "hover:text-muted-high-contrast transition-colors",
-                        "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
-                        isCurrentSection(section) &&
-                          "text-muted-high-contrast font-medium current-section",
-                        section.slug &&
+                    {section.slug ? (
+                      /* A link must not nest inside a button; render the row
+                         with the link and the expand toggle as siblings. */
+                      <div
+                        className={cn(
+                          "group flex w-full items-center justify-between gap-2 py-1.5 px-3 -ml-3 rounded-md min-w-0",
+                          "text-sm text-muted-base",
+                          "hover:text-muted-high-contrast transition-colors",
+                          isCurrentSection(section) &&
+                            "text-muted-high-contrast font-medium current-section",
                           isCurrentPage(section.slug) &&
-                          "bg-primary-element-active text-muted-high-contrast font-medium",
-                      )}
-                      aria-expanded={expandedSections.includes(section.title)}
-                      aria-label={
-                        expandedSections.includes(section.title)
-                          ? `Collapse ${section.title} section`
-                          : `Expand ${section.title} section`
-                      }
-                    >
-                      {section.slug ? (
+                            "bg-primary-element-active text-muted-high-contrast font-medium",
+                        )}
+                      >
                         <Link
                           href={section.slug}
                           className={cn(
-                            "flex-1 text-left truncate min-w-0",
+                            "flex-1 text-left truncate min-w-0 -my-1.5 py-1.5",
                             "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-inset rounded",
                             isCurrentPage(section.slug) &&
                               "text-muted-high-contrast font-medium",
                           )}
                           onClick={e => {
-                            e.stopPropagation();
                             if (isCurrentPage(section.slug!)) {
                               // Already on this page, toggle collapse/expand
                               e.preventDefault();
@@ -325,19 +317,58 @@ const SidebarContent: React.FC = () => {
                         >
                           {section.title}
                         </Link>
-                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => toggleSection(section.title!)}
+                          aria-expanded={expandedSections.includes(
+                            section.title,
+                          )}
+                          aria-label={
+                            expandedSections.includes(section.title)
+                              ? `Collapse ${section.title} section`
+                              : `Expand ${section.title} section`
+                          }
+                          className="flex size-7 -my-1 shrink-0 cursor-pointer items-center justify-center rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid"
+                        >
+                          <Arrow
+                            isExpanded={expandedSections.includes(
+                              section.title,
+                            )}
+                            className="shrink-0 group-hover:text-muted-high-contrast"
+                          />
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => toggleSection(section.title!)}
+                        className={cn(
+                          "group flex w-full items-center justify-between gap-2 py-1.5 px-3 -ml-3 rounded-md cursor-pointer min-w-0",
+                          "text-sm text-muted-base",
+                          "hover:text-muted-high-contrast transition-colors",
+                          "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
+                          isCurrentSection(section) &&
+                            "text-muted-high-contrast font-medium current-section",
+                        )}
+                        aria-expanded={expandedSections.includes(section.title)}
+                        aria-label={
+                          expandedSections.includes(section.title)
+                            ? `Collapse ${section.title} section`
+                            : `Expand ${section.title} section`
+                        }
+                      >
                         <span
                           className="flex-1 text-left truncate min-w-0"
                           title={section.title}
                         >
                           {section.title}
                         </span>
-                      )}
-                      <Arrow
-                        isExpanded={expandedSections.includes(section.title)}
-                        className="shrink-0 group-hover:text-muted-high-contrast"
-                      />
-                    </button>
+                        <Arrow
+                          isExpanded={expandedSections.includes(section.title)}
+                          className="shrink-0 group-hover:text-muted-high-contrast"
+                        />
+                      </button>
+                    )}
 
                     <div
                       className={cn(

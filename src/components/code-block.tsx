@@ -10,6 +10,22 @@ import * as React from "react";
 import { Icon } from "./icon";
 import { codeToHtml, bundledLanguages, type BundledLanguage } from "shiki";
 
+
+// Same markup shape as shiki's output (pre.shiki > code > span.line), so the
+// unhighlighted placeholder occupies exactly the height of the final block
+// and the highlight swap causes no layout shift.
+function plainCodeHtml(code: string): string {
+  const escaped = code
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  const lines = escaped
+    .split("\n")
+    .map(line => `<span class="line">${line}</span>`)
+    .join("\n");
+  return `<pre class="shiki"><code>${lines}</code></pre>`;
+}
+
 // Check if a language is supported by shiki
 function isSupportedLanguage(lang: string): lang is BundledLanguage {
   return lang in bundledLanguages;
@@ -372,25 +388,14 @@ function TabbedCodeBlock({
 
       {/* Code content */}
       <div
-        role="button"
-        tabIndex={0}
-        aria-label={copied ? "Copied!" : "Click to copy code"}
         onClick={e => handleCodeBodyClick(e, copy, cleanCode)}
-        onKeyDown={e => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            copy(cleanCode);
-          }
-        }}
-        className="relative overflow-x-auto text-sm transition-colors hover:bg-muted-element/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-solid"
+        className="relative overflow-x-auto text-sm transition-colors hover:bg-muted-element/30"
       >
         {isLoading ? (
-          <div className="flex items-center justify-center py-8">
-            <Icon
-              name="Spinner"
-              className="size-5 animate-spin text-muted-base"
-            />
-          </div>
+          <div
+            className="shiki-wrapper"
+            dangerouslySetInnerHTML={{ __html: plainCodeHtml(cleanCode) }}
+          />
         ) : (
           <div
             className="shiki-wrapper"
@@ -593,18 +598,9 @@ function StandardCodeBlock({
       {/* Code content */}
       <div
         ref={contentRef}
-        role="button"
-        tabIndex={0}
-        aria-label={copied ? "Copied!" : "Click to copy code"}
         onClick={e => handleCodeBodyClick(e, copy, cleanCode)}
-        onKeyDown={e => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            copy(cleanCode);
-          }
-        }}
         className={cn(
-          "relative overflow-x-auto text-sm transition-[max-height,background-color] duration-300 ease-in-out hover:bg-muted-element/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-solid",
+          "relative overflow-x-auto text-sm transition-[max-height,background-color] duration-300 ease-in-out hover:bg-muted-element/30",
           showLineNumbers && "code-block-line-numbers",
           collapsible && !isExpanded && "overflow-y-hidden",
         )}
@@ -619,12 +615,10 @@ function StandardCodeBlock({
         }
       >
         {isLoading ? (
-          <div className="flex items-center justify-center py-8">
-            <Icon
-              name="Spinner"
-              className="size-5 animate-spin text-muted-base"
-            />
-          </div>
+          <div
+            className="shiki-wrapper"
+            dangerouslySetInnerHTML={{ __html: plainCodeHtml(cleanCode) }}
+          />
         ) : (
           <div
             className="shiki-wrapper"
