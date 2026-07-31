@@ -24,7 +24,7 @@ Flowise runs on Railway as a CPU-based service. The LLM chains you build in Flow
 
 Railway has a Flowise template that provisions the full setup in one step.
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/flowise)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/flowise)
 
 After deploying, skip to [Configure authentication](#configure-authentication) to secure your instance.
 

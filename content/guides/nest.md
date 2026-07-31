@@ -25,7 +25,7 @@ Now, let's go ahead and create a Nest app!
 
 **Note:** If you already have a Nest app locally or on GitHub, you can skip this step and go straight to the [Deploy Nest App to Railway](#deploy-the-nest-app-to-railway).
 
-To create a new Nest app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) and [NestJS](https://docs.nestjs.com/#installation) installed on your machine.
+To create a new Nest app, ensure that you have [Node](https://nodejs.org/en/download) and [NestJS](https://docs.nestjs.com/#installation) installed on your machine.
 
 Run the following command in your terminal to create a new Nest app:
 

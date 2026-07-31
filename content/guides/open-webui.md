@@ -24,7 +24,7 @@ Open WebUI is commonly paired with Ollama for local model inference, but Railway
 
 Railway has an Open WebUI template that provisions the setup in one step.
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/open-webui)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/open-webui)
 
 After deploying, skip to [Configure LLM providers](#configure-llm-providers).
 

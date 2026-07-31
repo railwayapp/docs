@@ -21,7 +21,7 @@ This guide covers how to deploy a Gatsby app to Railway in three ways:
 
 **Note:** If you already have a Gatsby app locally or on GitHub, skip to [Deploy the Gatsby app to Railway](#deploy-the-gatsby-app-to-railway).
 
-Ensure [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) is installed, then create a new Gatsby site:
+Ensure [Node](https://nodejs.org/en/download) is installed, then create a new Gatsby site:
 
 ```bash
 npm init gatsby my-gatsby-site
@@ -152,7 +152,7 @@ Railway automatically detects the `Dockerfile`, [and uses it to build and deploy
 
 ## Client-side routes
 
-Gatsby supports [client-only routes](https://www.gatsbyjs.com/docs/how-to/routing/client-only-routes-in-gatsby/) for pages that handle routing in the browser. The `try_files {path} /index.html` directive in the Caddyfile ensures these routes work correctly on refresh. For more details on configuring this, see [Configure SPA Routing](/guides/spa-routing-configuration).
+Gatsby supports [client-only routes](https://www.gatsbyjs.com/docs/how-to/routing/client-only-routes-and-user-authentication/) for pages that handle routing in the browser. The `try_files {path} /index.html` directive in the Caddyfile ensures these routes work correctly on refresh. For more details on configuring this, see [Configure SPA Routing](/guides/spa-routing-configuration).
 
 ## Build memory
 

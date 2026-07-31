@@ -29,7 +29,7 @@ To successfully complete this guide, you'll need:
 - A [GitHub](https://github.com/) account with [git](https://git-scm.com/) configured
 - Node.js installed locally - you can use [nvm](https://github.com/nvm-sh/nvm) to manage your Node.js versions
 
-You can find the final code on [GitHub](https://github.com/railway/nodejs-express-tutorial).
+
 
 ## Project setup
 

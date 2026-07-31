@@ -27,7 +27,7 @@ Now, let's create a Nuxt app!
 
 **Note:** If you already have a Nuxt app locally or on GitHub, you can skip this step and go straight to the [Deploy Nuxt App on Railway](#deploy-the-nuxt-app-to-railway).
 
-To create a new Nuxt app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) installed on your machine.
+To create a new Nuxt app, ensure that you have [Node](https://nodejs.org/en/download) installed on your machine.
 
 Run the following command in your terminal to create a new Nuxt app:
 

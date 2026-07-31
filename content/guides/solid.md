@@ -26,7 +26,7 @@ Now, let's create a Solid app!
 
 **Note:** If you already have a Solid app locally or on GitHub, you can skip this step and go straight to the [Deploy Solid App on Railway](#deploy-the-solid-app-to-railway).
 
-To create a new Solid app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) installed on your machine.
+To create a new Solid app, ensure that you have [Node](https://nodejs.org/en/download) installed on your machine.
 
 Run the following command in your terminal to create a new Solid app from a template:
 

@@ -22,7 +22,7 @@ This guide covers how to deploy a TanStack Start app to Railway in three ways:
 
 **Note:** If you already have a TanStack Start app locally or on GitHub, skip to [Deploy the TanStack Start app to Railway](#deploy-the-tanstack-start-app-to-railway).
 
-Ensure [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) is installed, then create a new project:
+Ensure [Node](https://nodejs.org/en/download) is installed, then create a new project:
 
 ```bash
 npx @tanstack/create-start@latest my-app
