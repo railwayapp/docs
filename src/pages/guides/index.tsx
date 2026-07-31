@@ -632,6 +632,17 @@ const GuidesPage: NextPage<GuidesPageProps> = ({ guides }) => {
           </button>
         )}
 
+        {/* All guide links for search engines (visually hidden) */}
+        <nav className="sr-only" aria-label="All guides">
+          <ul>
+            {guides.map(guide => (
+              <li key={guide.url}>
+                <Link href={guide.url}>{guide.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
         {/* Deploy an app in minutes */}
           <div className="mt-20">
             <h2
