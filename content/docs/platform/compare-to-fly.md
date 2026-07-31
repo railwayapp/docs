@@ -114,7 +114,7 @@ Similarly, Fly doesn't include native environment support for development, stagi
 
 For monitoring, Fly automatically collects metrics from every application using a fully-managed Prometheus service based on VictoriaMetrics. The system scrapes metrics from all application instances and provides data on HTTP responses, TCP connections, memory usage, CPU performance, disk I/O, network traffic, and filesystem utilization.
 
-The Fly dashboard includes a basic Metrics tab displaying this automatically collected data. Beyond the basic dashboard, Fly offers a managed Grafana instance at [fly-metrics.net](http://fly-metrics.net) with detailed dashboards and query capabilities using MetricsQL as the querying language. You can also connect external tools through the Prometheus API.
+The Fly dashboard includes a basic Metrics tab displaying this automatically collected data. Beyond the basic dashboard, Fly offers a managed Grafana instance at [fly-metrics.net](https://fly-metrics.net) with detailed dashboards and query capabilities using MetricsQL as the querying language. You can also connect external tools through the Prometheus API.
 
 ![fly-metrics.net](https://res.cloudinary.com/railway/image/upload/v1753083710/docs/fly-metrics.net_d6r3cs.png)
 
@@ -130,7 +130,7 @@ Railway follows a dashboard-first experience, while [also providing a CLI](/cli)
 
 Additionally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 25% kickback of their usage costs.
 
-Check out all templates at [railway.com/deploy](http://railway.com/deploy)
+Check out all templates at [railway.com/deploy](https://railway.com/deploy)
 
 <video
 src="https://res.cloudinary.com/railway/video/upload/v1753083712/docs/railway.com_templates_zcydjb.mp4"

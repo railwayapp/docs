@@ -5,8 +5,6 @@ description: Compare Railway and VPS hosting on infrastructure management, secur
 
 _Last updated: June 2026_
 
-> See how Railway compares to other platforms at [railway.com/compare](https://railway.com/compare).
-
 At a high level, both Railway and a VPS (Virtual Private Server) can be used to deploy applications. The fundamental difference lies in the level of abstraction and operational overhead you're willing to manage.
 
 VPS hosting providers like [AWS EC2](https://aws.amazon.com/ec2/), [DigitalOcean Droplets](https://www.digitalocean.com/products/droplets), [Hetzner Cloud](https://www.hetzner.com/cloud), [Linode](https://www.linode.com/), or [Vultr](https://www.vultr.com/) give you a virtual machine where you have full control over the operating system, software stack, and configuration. This offers maximum flexibility but requires significant DevOps expertise and ongoing maintenance.

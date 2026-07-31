@@ -5,8 +5,6 @@ description: Compare Railway and DigitalOcean App Platform on infrastructure, pr
 
 _Last updated: June 2026_
 
-> See how Railway compares to other platforms at [railway.com/compare](https://railway.com/compare).
-
 At a high level, both Railway and DigitalOcean App Platform can be used to deploy your app. Both platforms share many similarities:
 
 - You can deploy your app from a Docker image or by importing your app’s source code from GitHub.
@@ -122,7 +120,7 @@ Railway’s dashboard offers a real-time collaborative canvas where you can view
 
 Additionally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 25% kickback of their usage costs.
 
-Check out all templates at [railway.com/deploy](http://railway.com/deploy)
+Check out all templates at [railway.com/deploy](https://railway.com/deploy)
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 
