@@ -24,7 +24,7 @@ This guide covers how to deploy a Next.js app to Railway and connect it to a Pos
 
 **Note:** If you already have a Next.js app locally or on GitHub, you can skip this step and go straight to [Deploy the Next.js App to Railway](#deploy-the-nextjs-app-to-railway).
 
-To create a new Next.js app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) installed on your machine.
+To create a new Next.js app, ensure that you have [Node](https://nodejs.org/en/download) installed on your machine.
 
 Run the following command in your terminal to create a new Next.js app:
 

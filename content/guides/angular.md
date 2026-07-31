@@ -24,7 +24,7 @@ Now, let's create an Angular app!
 
 **Note:** If you already have an Angular app locally or on GitHub, you can skip this step and go straight to the [Deploy Angular App on Railway](#deploy-the-angular-app-to-railway).
 
-To create a new Angular app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) and [Angular CLI](https://angular.dev/installation#install-angular-cli) installed on your machine.
+To create a new Angular app, ensure that you have [Node](https://nodejs.org/en/download) and [Angular CLI](https://angular.dev/installation#install-angular-cli) installed on your machine.
 
 Run the following command in your terminal to create a new Angular app:
 

@@ -25,7 +25,7 @@ Now, let's create an Express app!
 
 **Note:** If you already have an Express app locally or on GitHub, you can skip this step and go straight to the [Deploy Express App to Railway](#deploy-the-express-app-to-railway).
 
-To create a new Express app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) installed on your machine.
+To create a new Express app, ensure that you have [Node](https://nodejs.org/en/download) installed on your machine.
 
 Create a directory, `helloworld`, and `cd` into it.
 

@@ -18,7 +18,7 @@ Sails makes it easy to build custom, enterprise-grade Node.js apps.
 
 **Note:** If you already have a Sails app locally or on GitHub, you can skip this step and go straight to the [Deploy Sails App on Railway](#deploy-sails-app-on-railway).
 
-To create a new Sails app, ensure that you have [Node](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) installed on your machine.
+To create a new Sails app, ensure that you have [Node](https://nodejs.org/en/download) installed on your machine.
 
 Run the following command in your terminal to install Sails:
 

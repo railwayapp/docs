@@ -27,7 +27,7 @@ Railway has an n8n template that provisions the full setup in one step.
 
 Click the button below to deploy:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/n8n)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/n8n)
 
 After deploying, you can skip ahead to [Set up the webhook URL](#set-up-the-webhook-url) to configure webhooks for your instance.
 
