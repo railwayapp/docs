@@ -5,8 +5,6 @@ description: Compare Railway and Bolt on what they do, infrastructure control, a
 
 _Last updated: June 2026_
 
-> See how Railway compares to other platforms at [railway.com/compare](https://railway.com/compare).
-
 Bolt (bolt.new) is an AI-powered development tool that generates full-stack web applications from prompts. Railway is an intelligent cloud provider that deploys and hosts your code. While they serve different purposes, there is some overlap:
 
 - Deploy web applications

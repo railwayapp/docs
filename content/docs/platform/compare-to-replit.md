@@ -5,8 +5,6 @@ description: Compare Railway and Replit on development workflow, infrastructure 
 
 _Last updated: June 2026_
 
-> See how Railway compares to other platforms at [railway.com/compare](https://railway.com/compare).
-
 At a high level, both Railway and Replit can be used to deploy web applications. Both platforms share some similarities:
 
 - Deploy web applications from code with public URLs.

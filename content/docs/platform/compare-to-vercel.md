@@ -63,7 +63,7 @@ Railway uses a [custom builder](/builds) that takes your source code or Dockerfi
 
 Your code runs on a long-running server, making it ideal for apps that need to stay running or maintain a persistent connection.
 
-All deployments come with smart defaults out of the box, but you can tweak things as needed. This makes Railway flexible across [different runtimes and programming languages](http://railway.com/deploy).
+All deployments come with smart defaults out of the box, but you can tweak things as needed. This makes Railway flexible across [different runtimes and programming languages](https://railway.com/deploy).
 
 Each service you deploy can automatically scale up vertically to handle incoming workload. You also get the option to horizontally scale a service by spinning up replicas. Replicas can be deployed in multiple regions simultaneously.
 
@@ -143,7 +143,7 @@ Template directory
 
 Finally, Railway offers a template directory that makes it easy to self-host open-source projects with just a few clicks. If you publish a template and others deploy it in their projects, you’ll earn a 25% kickback of their usage costs.
 
-Check out all templates at [railway.com/deploy](http://railway.com/deploy)
+Check out all templates at [railway.com/deploy](https://railway.com/deploy)
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 

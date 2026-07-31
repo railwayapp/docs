@@ -5,8 +5,6 @@ description: Compare Railway and Lovable on what they do, infrastructure control
 
 _Last updated: June 2026_
 
-> See how Railway compares to other platforms at [railway.com/compare](https://railway.com/compare).
-
 Lovable and Railway are both fantastic products, and they share some similarities: both can deploy a web application to the internet, connect to a database to store your data, handle environment variables and configuration, and set up a custom domain. But they're ultimately different tools for solving different problems.
 
 Lovable is built to take you from zero to one. You describe what you want, and it writes the code and hosts the result. The value is in the high-quality code that Lovable generates from human language. Railway takes over from there: you bring the code, and Railway handles everything you need to run and scale that application reliably as it grows, including packaging, infrastructure, deployment, and observability.
