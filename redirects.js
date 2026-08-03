@@ -648,7 +648,12 @@ const redirects = [
   },
   {
     source: "/tutorials/set-up-a-tailscale-subnet-router",
-    destination: "/guides/set-up-a-tailscale-subnet-router",
+    destination: "/guides/set-up-a-tailscale-forwarder",
+    permanent: true,
+  },
+  {
+    source: "/guides/set-up-a-tailscale-subnet-router",
+    destination: "/guides/set-up-a-tailscale-forwarder",
     permanent: true,
   },
   {
