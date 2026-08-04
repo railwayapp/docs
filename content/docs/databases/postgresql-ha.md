@@ -55,7 +55,7 @@ Railway automatically migrates all variable references within your project as pa
 
 The only case that requires manual action is if you have hardcoded connection strings anywhere — in application code, Railway variables set to a literal URL (rather than a reference), other Railway projects, external tools, or CI pipelines. After deploying the cluster, update those to use the connection details from the **Postgres HA** service.
 
-For external connections (from outside Railway), use `DATABASE_PUBLIC_URL` from the **Postgres HA** service. This routes through the [TCP Proxy](/networking/tcp-proxy).
+For external connections (from outside Railway), use `DATABASE_PUBLIC_URL` from the **Postgres HA** service. This routes through the [TCP Proxy](/networking/tcp-proxy). If your standalone Postgres was publicly exposed, the conversion carries the public endpoint over to **Postgres HA** automatically; otherwise the cluster is private by default — click **Connect** on the cluster view and add **Public Access** to create the proxy and the variable.
 
 ## Step 4 — Wait for Cluster Warm-Up
 

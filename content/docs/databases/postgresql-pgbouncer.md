@@ -25,7 +25,7 @@ After confirming, Railway stages the changes. Deploy to complete the setup.
 
 ## Connection strings
 
-Once PgBouncer is deployed, four connection variables are available:
+Once PgBouncer is deployed, these connection variables are available:
 
 | Variable | Points to | Use for |
 |---|---|---|
@@ -33,6 +33,8 @@ Once PgBouncer is deployed, four connection variables are available:
 | `DATABASE_PUBLIC_URL` | PgBouncer — TCP proxy | Connecting from outside Railway |
 | `DATABASE_UNPOOLED_URL` | Postgres or HAProxy — private network | Operations that require a dedicated session |
 | `DATABASE_PUBLIC_UNPOOLED_URL` | Postgres or HAProxy — TCP proxy | Unpooled connections from outside Railway |
+
+The two public variables exist only while public access is enabled — if your Postgres was publicly exposed before adding PgBouncer, the public endpoint carries over to the pooler automatically; otherwise click **Connect** on the cluster view and add **Public Access**. `DATABASE_PUBLIC_UNPOOLED_URL` bypasses the pooler, so it additionally requires the database behind PgBouncer to be publicly exposed itself.
 
 Railway automatically migrates any service within your project that references your Postgres variables to point to PgBouncer. Hardcoded connection strings outside of Railway must be updated manually.
 

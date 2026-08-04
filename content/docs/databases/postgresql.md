@@ -36,7 +36,7 @@ it to connect to PostgreSQL but you can use these variables in whatever way work
 
 #### Connecting externally
 
-It is possible to connect to PostgreSQL externally (from outside of the [project](/projects) in which it is deployed), by using the [TCP Proxy](/networking/tcp-proxy) which is enabled by default.
+It is possible to connect to PostgreSQL externally (from outside of the [project](/projects) in which it is deployed). Databases are deployed private by default — to expose one, open the service's **Settings → Networking** and add **Public Access**. This creates a [TCP Proxy](/networking/tcp-proxy) and populates a `DATABASE_PUBLIC_URL` variable with the external connection string.
 
 _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resource-usage-pricing) when using the TCP Proxy._
 
