@@ -9,6 +9,7 @@
   "/ai/agent-integrations/discord",
   "/ai/agent-integrations/slack",
   "/ai/agent-skills",
+  "/ai/claude-code-plugin",
   "/ai/mcp-server",
   "/ai/plugins-and-connectors",
   "/ai/railway-agent",

@@ -292,11 +292,6 @@ const redirects = [
     permanent: true,
   },
   {
-    source: "/ai/claude-code-plugin",
-    destination: "/ai/plugins-and-connectors",
-    permanent: true,
-  },
-  {
     source: "/reference/accounts",
     destination: "/access/accounts",
     permanent: true,

@@ -26,7 +26,7 @@ Use the Claude Code plugin when you work from the terminal and want the `use-rai
 
 ## Install the Claude Code plugin
 
-The Railway plugin for <a href="https://claude.ai/code" target="_blank">Claude Code</a> includes the `use-railway` skill, the hosted Railway MCP server, supporting scripts, and an auto-approve hook for Railway CLI and API operations.
+The Railway plugin for <a href="https://claude.ai/code" target="_blank">Claude Code</a> includes the `use-railway` skill, the hosted Railway MCP server, supporting scripts, and a safety-checked auto-approve hook for single Railway CLI and API helper invocations.
 
 Install the published plugin from Anthropic's official marketplace:
 
@@ -43,6 +43,8 @@ To install the version from the Railway source repository instead, add its marke
 ```
 
 After installation, ask Claude Code to deploy a service, check project status, manage an environment, or perform another task covered by the [`use-railway` skill](/ai/agent-skills#the-use-railway-skill).
+
+See the [Claude Code plugin guide](/ai/claude-code-plugin) for prerequisites, source marketplace installation, updates, and the full list of included components.
 
 ## Install the Grok Build plugin
 
