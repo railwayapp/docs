@@ -1,69 +1,75 @@
 ---
-title: Claude Code Plugin
+title: Claude Code plugin
 description: Install the Railway plugin for Claude Code to manage your infrastructure with natural language.
 ---
 
-The Railway plugin for <a href="https://claude.ai/code" target="_blank">Claude Code</a> provides skills, hooks, and tooling for managing Railway projects and deployments directly from your terminal.
+The Railway plugin for <a href="https://claude.ai/code" target="_blank">Claude Code</a> packages the [`use-railway` skill](/ai/agent-skills#the-use-railway-skill), Railway's hosted MCP server, supporting scripts, and hooks for managing Railway projects and deployments from your terminal.
 
-The plugin is distributed through Claude Code's plugin marketplace system and installs the [`use-railway`](/ai/agent-skills#the-use-railway-skill) agent skill along with supporting scripts and hooks.
+Install the plugin from Anthropic's official marketplace, or install the version from the Railway source repository when you want to test repository changes directly.
 
 ## Prerequisites
 
-- <a href="https://claude.ai/code" target="_blank">Claude Code</a> installed (version 1.0.33 or later)
-- The [Railway CLI](/cli) installed and authenticated
+Before installing the plugin, set up these requirements:
 
-## Installation
+- <a href="https://claude.ai/code" target="_blank">Claude Code</a>
+- A <a href="https://railway.com/login" target="_blank">Railway account</a>
 
-<Steps>
-  <Step title="Add the Railway marketplace">
-    From within Claude Code, add the Railway plugin marketplace:
+The hosted MCP connection doesn't require the Railway CLI. Install and authenticate the [Railway CLI](/cli) when you want Claude Code to use local project context or CLI workflows.
 
-    ```bash
-    /plugin marketplace add railwayapp/railway-skills
-    ```
+## Install from the official marketplace
 
-    This registers the Railway marketplace and makes the plugin available to install.
-  </Step>
-  <Step title="Install the plugin">
-    Install the Railway plugin from the marketplace:
+Install the published Railway plugin from Anthropic's official Claude Code marketplace:
 
-    ```bash
-    /plugin install railway@railway-skills
-    ```
+```plaintext
+/plugin install railway@claude-plugins-official
+```
 
-    You can also browse and install through the interactive plugin manager by running `/plugin` and navigating to the **Discover** tab.
-  </Step>
-</Steps>
+After installation, ask Claude Code to deploy a service, check project status, manage an environment, or perform another task covered by the [`use-railway` skill](/ai/agent-skills#the-use-railway-skill).
 
-After installation, the plugin's skills are available in your Claude Code session. Ask your assistant to deploy services, check project status, manage environments, or perform any of the tasks covered by the [`use-railway` skill](/ai/agent-skills#the-use-railway-skill).
+## Install from the source repository
 
-## Update the plugin
+Add the Railway marketplace and install its plugin to use the version published directly from the source repository:
 
-To update to the latest version, refresh the marketplace and reinstall:
+```plaintext
+/plugin marketplace add railwayapp/railway-skills
+/plugin install railway@railway-skills
+/reload-plugins
+```
 
-```bash
+You can also browse the marketplace through `/plugin` and select the **Discover** tab.
+
+## Update a source installation
+
+Refresh the Railway marketplace to update an installation from the source repository:
+
+```plaintext
 /plugin marketplace update railway-skills
 ```
 
-You can also enable auto-updates for the marketplace through the `/plugin` interface under the **Marketplaces** tab.
+You can also enable auto-updates for the marketplace through `/plugin` under the **Marketplaces** tab.
 
 ## What's included
 
-The plugin installs the following components:
+The Claude Code plugin installs these components:
 
-- **`use-railway` skill** - A route-first agent skill that covers project setup, deployments, troubleshooting, environment configuration, networking, observability, and more. See [Agent Skills](/ai/agent-skills) for the full list of capabilities. The skill includes action-oriented reference documents and a GraphQL API helper script for authenticated Railway API requests.
-- **Auto-approve hook** - A `PreToolUse` hook that automatically approves Railway CLI commands and Railway API script calls, so Claude Code doesn't prompt for permission on every Railway operation.
+- The `use-railway` skill provides workflows for project setup, deployments, troubleshooting, environment configuration, networking, observability, and more.
+- The hosted Railway MCP server connects Claude Code to Railway through OAuth without depending on local CLI state.
+- The auto-approve hook approves single Railway CLI and Railway API helper invocations that pass its shell safety checks.
 
-## Alternative installation
+## Install only the agent skill
 
-If you prefer to install the agent skill without the Claude Code plugin system, use the [`railway skills`](/cli/skills) command, which works across multiple AI coding assistants:
+Install the agent skill without the Claude Code plugin when you don't need the hosted MCP configuration or hooks:
 
 ```bash
 railway skills install
 ```
 
-See [Agent Skills](/ai/agent-skills) for more details.
+See [Agent Skills](/ai/agent-skills) for installation options and the full list of capabilities.
 
-## Source
+## Use the Claude connector
 
-The Railway Claude Code plugin is open-source and available on <a href="https://github.com/railwayapp/railway-skills" target="_blank">GitHub</a>.
+Use the [Railway connector for Claude](/ai/claude-connector) when you want direct access to Railway's hosted MCP tools without the Claude Code plugin's terminal workflows, skill, or hooks.
+
+## View the source
+
+The Railway Claude Code plugin is open-source in the <a href="https://github.com/railwayapp/railway-skills" target="_blank">Railway skills repository</a>.
