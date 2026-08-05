@@ -115,8 +115,21 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       makePage("Agent skills", "ai"),
-      makePage("Plugins and connectors", "ai"),
-      makePage("Claude Code plugin", "ai"),
+      {
+        subTitle: makePage(
+          "Plugins and connectors",
+          undefined,
+          "/ai/plugins-and-connectors",
+        ),
+        pages: [
+          makePage("ChatGPT plugin", "ai"),
+          makePage("Codex plugin", "ai"),
+          makePage("Claude connector", "ai"),
+          makePage("Claude Code plugin", "ai"),
+          makePage("Grok Build plugin", "ai"),
+          makePage("Cursor plugin", "ai"),
+        ],
+      },
       makePage("MCP server", "ai"),
     ],
   },

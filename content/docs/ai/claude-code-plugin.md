@@ -66,6 +66,10 @@ railway skills install
 
 See [Agent Skills](/ai/agent-skills) for installation options and the full list of capabilities.
 
+## Use the Claude connector
+
+Use the [Railway connector for Claude](/ai/claude-connector) when you want direct access to Railway's hosted MCP tools without the Claude Code plugin's terminal workflows, skill, or hooks.
+
 ## View the source
 
 The Railway Claude Code plugin is open-source in the <a href="https://github.com/railwayapp/railway-skills" target="_blank">Railway skills repository</a>.
