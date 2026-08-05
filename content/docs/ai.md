@@ -1,6 +1,6 @@
 ---
 title: AI
-description: Integrate Railway with your AI coding assistants using Agent Skills, the Claude Code plugin, and the MCP Server.
+description: Integrate Railway with AI assistants using plugins, connectors, Agent Skills, and the Railway MCP Server.
 ---
 
 Railway provides tools for integrating with AI coding assistants, letting you manage your infrastructure through natural language.
@@ -37,15 +37,15 @@ The [Railway Agent](/ai/railway-agent) is a chat-based assistant built directly 
 
 [Get started with Agent Skills →](/ai/agent-skills)
 
-### Claude Code plugin
+### Plugins and connectors
 
-The [Railway plugin for Claude Code](/ai/claude-code-plugin) provides the `use-railway` agent skill, hooks, and supporting scripts through Claude Code's plugin marketplace.
+Railway provides [official plugins and connectors](/ai/plugins-and-connectors) for ChatGPT, Codex, Claude, Claude Code, Grok Build, and Cursor. These integrations package Railway workflows for each assistant and connect to the hosted Railway MCP server.
 
-- Install through the Claude Code plugin manager
-- Includes hooks and scripts alongside the agent skill
-- Auto-update support through the marketplace
+- Install from the plugin or connector directory built into your assistant
+- Use the `use-railway` skill and hosted Railway MCP server from supported plugin hosts
+- Connect Claude directly through Railway OAuth without a local CLI installation
 
-[Get started with the Claude Code plugin →](/ai/claude-code-plugin)
+[Get started with plugins and connectors →](/ai/plugins-and-connectors)
 
 ### MCP server
 

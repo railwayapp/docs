@@ -115,7 +115,7 @@ export const sidebarContent: ISidebarContent = [
         ],
       },
       makePage("Agent skills", "ai"),
-      makePage("Claude Code plugin", "ai"),
+      makePage("Plugins and connectors", "ai"),
       makePage("MCP server", "ai"),
     ],
   },
