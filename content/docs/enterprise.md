@@ -28,7 +28,7 @@ You can view Railway's audit, compliance, security, and regulatory documents on 
 
 - Single Sign-On (SSO)
 - [SAML authentication](/enterprise/saml)
-- Granular access control
+- [Access groups](/enterprise/access-groups) for project-level access control
 - [Audit logs](/enterprise/audit-logs), including change tracking
 - [Environment-based RBAC](/environments)
 

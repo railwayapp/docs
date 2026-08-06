@@ -121,6 +121,7 @@
   "/deployments/troubleshooting/nodejs-sigterm-handling",
   "/deployments/troubleshooting/slow-deployments",
   "/enterprise",
+  "/enterprise/access-groups",
   "/enterprise/audit-logs",
   "/enterprise/compliance",
   "/enterprise/environment-rbac",
