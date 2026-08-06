@@ -39,15 +39,6 @@ Projects created by workspace admins also start without a group. Only workspace 
 
 Only workspace admins can create and manage access groups. You can create groups while enforcement is off without changing existing project access.
 
-<Image
-  src="/access-groups/access-groups-tab.png"
-  alt="Access Groups tab in workspace People settings showing groups, roles, projects, and members"
-  layout="responsive"
-  width={2212}
-  height={1160}
-  quality={100}
-/>
-
 1. Navigate to your workspace **People** settings.
 2. Select the **Groups** tab.
 3. Click **New group**.
@@ -65,6 +56,15 @@ Only workspace admins can create and manage access groups. You can create groups
 />
 
 Members and projects can belong to more than one group. The group editor shows the people and projects that receive the selected role.
+
+<Image
+  src="/access-groups/access-groups-tab.png"
+  alt="Access Groups tab in workspace People settings showing groups, roles, projects, and members"
+  layout="responsive"
+  width={2212}
+  height={1160}
+  quality={100}
+/>
 
 ### Edit or delete a group
 
