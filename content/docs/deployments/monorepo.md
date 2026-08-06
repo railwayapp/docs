@@ -31,6 +31,12 @@ To deploy this type of monorepo on Railway, define a root directory for the serv
 2. Click on the Settings tab.
 3. Set the root directory option. Setting this means that Railway will only pull down files from that directory when creating new deployments.
 
+Alternatively, set the root directory from the CLI:
+
+```bash
+railway environment edit --service-config backend source.rootDirectory /backend
+```
+
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798659/docs/root-directory_achzga.png"
 alt="Screenshot of root directory configuration"
@@ -63,6 +69,15 @@ codebase.
 1. Select the service within the project canvas to open the service view.
 2. Click on the Settings tab.
 3. Set the start command, e.g. `npm run start:backend` and `npm run start:frontend`
+
+If you prefer, you can set custom build and start commands from the CLI:
+
+```bash
+railway environment edit \
+  --service-config backend build.buildCommand "pnpm --filter backend build"
+railway environment edit \
+  --service-config backend deploy.startCommand "pnpm --filter backend start"
+```
 
 <Image
 src="https://res.cloudinary.com/railway/image/upload/v1637798815/docs/custom-start-command_a8vcxs.png"
@@ -112,6 +127,6 @@ A monorepo might want to only trigger builds if files are changed in the `/packa
 
 ## Using the CLI
 
-When interacting with your services deployed from a monorepo using the CLI, always ensure you are "linked" to the appropriate service when executing commands.
+The Railway CLI lets you configure a service's root directory, build command, and start command with [`railway environment edit`](/cli/environment). Use the `--service-config` flag with the corresponding dot-path.
 
-To link to a specific service from the CLI, use `railway link` and follow the prompts.
+Before running the command, use `railway link` and follow the prompts to link the CLI to the correct project and environment. The `--service-config` flag selects the target service by name or ID.

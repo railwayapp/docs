@@ -109,11 +109,16 @@ The `--service-config` flag uses dot-path notation to specify nested configurati
 # Set a variable value
 railway environment edit --service-config backend variables.API_KEY.value "secret"
 
-# Set a service configuration
-railway environment edit --service-config api buildCommand "npm run build"
+# Set a build command
+railway environment edit --service-config api build.buildCommand "npm run build"
+
+# Set a monorepo root directory
+railway environment edit --service-config api source.rootDirectory /packages/api
 ```
 
 The format is: `--service-config <SERVICE_NAME> <DOT.PATH.TO.PROPERTY> <VALUE>`
+
+For more information about configuring monorepo services, see [Deploying a monorepo](/deployments/monorepo).
 
 ## Options for `config`
 
