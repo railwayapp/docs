@@ -39,6 +39,15 @@ Projects created by workspace admins also start without a group. Only workspace 
 
 Only workspace admins can create and manage access groups. You can create groups while enforcement is off without changing existing project access.
 
+<Image
+  src="/access-groups/access-groups-tab.png"
+  alt="Access Groups tab in workspace People settings showing groups, roles, projects, and members"
+  layout="responsive"
+  width={2212}
+  height={1160}
+  quality={100}
+/>
+
 1. Navigate to your workspace **People** settings.
 2. Select the **Groups** tab.
 3. Click **New group**.
@@ -58,6 +67,15 @@ To delete a group, open its actions menu and click **Delete group**. Deleting a 
 
 The **Members** page under project settings shows who can access the project and how they received access. Workspace admins can also attach the project to a group from this page.
 
+<Image
+  src="/access-groups/project-members-access.png"
+  alt="Project Members page showing people with access roles and the source of their access"
+  layout="responsive"
+  width={2218}
+  height={1433}
+  quality={100}
+/>
+
 1. Navigate to the project **Settings** page.
 2. Open **Members**, then select **Groups**.
 3. Click **Add to group**.
@@ -68,6 +86,15 @@ The **People** tab shows everyone who can access the project, either via access 
 ## Enable access groups
 
 Enable access groups after you configure and review the groups for your workspace. Enabling the setting changes project visibility for every non-admin workspace member.
+
+<Image
+  src="/access-groups/access-groups-security-toggle.png"
+  alt="Security tab in workspace People settings with the Enable access groups toggle turned off"
+  layout="responsive"
+  width={2196}
+  height={750}
+  quality={100}
+/>
 
 1. Navigate to your workspace **People** settings.
 2. Select the **Security** tab.
