@@ -55,6 +55,15 @@ Only workspace admins can create and manage access groups. You can create groups
 5. Add people and projects to the group.
 6. Click **Create group**.
 
+<Image
+  src="/access-groups/create-access-group.png"
+  alt="New access group drawer with a name, default role, people, and projects selected"
+  layout="responsive"
+  width={2272}
+  height={1932}
+  quality={100}
+/>
+
 Members and projects can belong to more than one group. The group editor shows the people and projects that receive the selected role.
 
 ### Edit or delete a group
