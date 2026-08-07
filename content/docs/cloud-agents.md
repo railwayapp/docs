@@ -74,6 +74,10 @@ railway code --claude --new
 
 Cloud agents have no idle timeout, so nothing stops one on its own. Disconnecting puts the agent to sleep, which stops billing for compute and keeps the disk. The next launch wakes it with your work in place.
 
+<Banner variant="info">
+Cloud agents run on Railway's virtual machine primitive and bill at [VM rates](/pricing/plans#vm-pricing-beta): $50 per vCPU and $50 per GB of memory per month, prorated to the minute, plus $0.05 per GB of network egress.
+</Banner>
+
 | Action | How |
 |--------|-----|
 | Sleep on disconnect | Default behavior |
