@@ -13,6 +13,7 @@
   "/ai/claude-code-plugin",
   "/ai/claude-connector",
   "/ai/codex-plugin",
+  "/ai/context-sources",
   "/ai/cursor-plugin",
   "/ai/grok-build-plugin",
   "/ai/mcp-server",
