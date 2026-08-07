@@ -27,7 +27,6 @@ railway code [OPTIONS] [-- <AGENT_ARGS>...]
 | `--rm` | Destroy this environment's agent and exit |
 | `--refresh-auth` | Re-mint the Claude credential on an agent that already has one |
 | `--name <NAME>` | Name a newly created agent |
-| `--gh` | Include your GitHub token, read with `gh auth token` |
 | `--variable <KEY=VALUE>` | Set a variable on a newly created agent (repeatable) |
 | `--env-file <PATH>` | Load variables from a `.env` file (repeatable) |
 | `-p`, `--project <PROJECT>` | Project ID |
@@ -84,12 +83,6 @@ railway code --codex
 
 ```bash
 railway code --codex --new
-```
-
-### Include your GitHub authentication
-
-```bash
-railway code --claude --gh
 ```
 
 ### Create an agent with variables

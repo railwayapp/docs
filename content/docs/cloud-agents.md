@@ -1,53 +1,172 @@
 ---
 title: Cloud agents
-description: Run Claude Code, Codex, or Grok CLI on a persistent Railway virtual machine using your own credentials. Launch from the CLI, keep several sessions open at once, and pick up where you left off.
+description: Run Claude Code, Codex, or Grok CLI on a persistent Railway virtual machine. Hand off tasks, manage sessions from the terminal or dashboard, and reconnect with your work still in place.
 ---
 
 <Banner variant="primary">Cloud agents are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. Breaking changes may occur.</Banner>
 
-A cloud agent is a persistent Linux virtual machine that runs a coding agent signed in as you.
+Cloud agents are persistent virtual machines on Railway, built for running coding agents. Launch Claude Code, Codex, or Grok CLI on Railway infrastructure, hand it a task, and close your laptop. The agent keeps its disk between runs, so the work is still there when you come back.
 
-Each cloud agent is scoped to a Railway [environment](/environments) and keeps its disk between runs, so the work an agent did yesterday is still there when you reconnect.
+Each agent runs signed in as you, using the subscriptions and credentials you already have. The VM ships with a full development toolchain, a pre-authenticated Railway CLI and GitHub CLI, and a public URL, so an agent can build, run, and demo work with no setup.
 
-Railway supports three coding agents: Claude Code, Codex, and Grok CLI.
+## Quick start
 
-## How it works
+Four steps take you from nothing to a running agent you can hand work to.
 
-Every supported coding agent is already installed on the machine image, and Railway configures them on each boot. Launching installs nothing, so an agent is ready to work as soon as the machine is running.
-
-Railway reads your credentials on your own machine and writes them to the VM over SSH. It doesn't store them: they never become a Railway variable, part of an image, or an argument on a command line.
-
-Work happens in durable sessions. A session survives the SSH connection that started it, so closing your terminal doesn't stop the agent, and reconnecting attaches to the same screen rather than starting over.
-
-## Launch an agent
-
-Two commands launch a cloud agent, and both accept the same flags.
-
-Use [`railway code`](/cli/code) to launch one agent and hand your terminal to it:
+### 1. Install the Railway CLI
 
 ```bash
-railway code --claude
+curl -fsSL agents.railway.com | sh
 ```
 
-Use [`railway ca`](/cli/ca) to browse your projects, agents, and sessions in a terminal interface first:
+Sign in with `railway login`. Other install methods are covered in the [CLI docs](/cli#installing-the-cli).
 
-```bash
-railway ca
-```
-
-Both read the same preferences, so the choice between them is whether you want to browse before you launch.
-
-## Choose where agents run
-
-Cloud agents live in a project environment. Set a default once, and every launch uses it:
+### 2. Configure cloud agents
 
 ```bash
 railway ca setup
 ```
 
-The setup flow can create a project named "Cloud Agents" for you, or point at one you already have. You can change the default later in setup, or with `^t` in `railway ca`.
+Setup asks four questions and saves the answers, so later launches need no flags:
 
-Railway resolves the target in this order:
+- **Default project**: where your agents live. Let Railway create a "Cloud Agents" project, or pick an existing one.
+- **Default coding agent**: Claude Code, Codex, or Grok CLI.
+- **Skills**: whether to bring your local [agent skills](/ai/agent-skills) to every agent.
+- **Theme**: the colors `railway ca` draws with.
+
+### 3. Launch an agent
+
+Pick the path that fits how you work:
+
+**Terminal interface.** Run `railway ca`, type a task into the prompt, and press `enter`. Railway creates the agent and hands it your task:
+
+```bash
+railway ca
+```
+
+<Image
+  src="/cloud-agents/ca-menu.png"
+  alt="The railway ca menu with a prompt box, New Session, New Cloud Agent, and Manage Cloud Agents actions, and a target project indicator"
+  layout="responsive"
+  width={2672}
+  height={1521}
+  quality={100}
+/>
+
+**Direct launch.** Run `railway code` to launch your default coding agent and hand your terminal to it:
+
+```bash
+railway code
+```
+
+**Dashboard.** Navigate to the **Agents** tab in your project, pick a coding agent, describe the task, and launch. The agent runs in an embedded console you can watch and type into.
+
+### 4. Return to your work
+
+Sessions keep running after you disconnect. Come back with any of:
+
+- `railway ca`, which shows your agents and the sessions still running on them. Press `enter` on a session to reconnect.
+- `railway code`, which wakes your agent and drops you back into the coding agent.
+- SSH, for a plain shell on the machine: press `c` on a session in `railway ca`, or click **Copy SSH** in the dashboard, and paste the command.
+
+The rest of this page unpacks how agents behave and every way to drive them.
+
+## How cloud agents work
+
+A cloud agent is one virtual machine, scoped to a Railway [environment](/environments) and owned by you. Every supported coding agent is installed on the machine image and configured on each boot, so launching installs nothing.
+
+The disk persists for the life of the agent. Disconnecting puts the agent to sleep, which stops compute billing and keeps the disk, and the next launch wakes it with your files in place.
+
+Agents are personal. They hold your credentials, so Railway never attaches you to a teammate's agent, and teammates never see yours in the CLI.
+
+### What's on the machine
+
+Agents start from an Ubuntu image built for development work:
+
+- Claude Code, Codex, and Grok CLI, preinstalled and configured on boot
+- git and the GitHub CLI, authenticated with your GitHub token so `git` and `gh` reach your repositories
+- The Railway CLI, pre-authenticated against your account
+- Node.js LTS with pnpm and yarn, Python with uv, and `mise` for other toolchains on demand
+- Common tools: ripgrep, jq, `psql`, sqlite3, build-essential, and a Chromium browser the agents can drive
+
+### Serve traffic from an agent
+
+Each agent gets a public domain that serves port 8080 and stays the same across sleep and wake. The domain is available inside the VM as `RAILWAY_PUBLIC_DOMAIN`, so an agent can start a dev server and hand you a live URL to review its work.
+
+For production traffic, deploy a [service](/services) with a [public domain](/networking/public-networking) instead.
+
+## Manage agents in the dashboard
+
+The **Agents** tab in your project lists every agent with a live status: working, needs input, or ready. Create one by picking a coding agent and optionally describing a goal.
+
+Opening an agent shows an embedded console with a tab per session, so you can watch an agent work, answer its questions, and start new sessions from the browser. The agent's page also links its public domain, copies an SSH command, and destroys the agent when you're done.
+
+## Manage agents in the terminal
+
+Select **Manage Cloud Agents** in `railway ca` to open a tree of your projects, environments, agents, and sessions, with the connected session rendered beside it:
+
+<Image
+  src="/cloud-agents/ca-manage.png"
+  alt="The railway ca manage view with a project tree on the left and a connected Claude Code session running a task on the right"
+  layout="responsive"
+  width={2672}
+  height={1521}
+  quality={100}
+/>
+
+The keys you'll use most:
+
+| Key | Does |
+|-----|------|
+| `enter` | Connects to a session and types in it |
+| `shift+esc` or `^]` | Returns the keyboard to the tree |
+| `n` | Starts another session on the agent |
+| `s` / `w` / `d` | Sleeps, wakes, or deletes the agent |
+| `c` | Copies an SSH command for the session |
+| `^t` | Changes the target project |
+
+Press `?` for the full list, or see the [`railway ca` reference](/cli/ca).
+
+Give a session the whole screen with `⌥f`, which restores the tree when pressed again. `shift+enter` leaves the interface entirely and connects full screen:
+
+<Image
+  src="/cloud-agents/ca-full-screen.png"
+  alt="A full screen Claude Code session in railway ca, with keys to restore the tree, stop typing, and switch sessions"
+  layout="responsive"
+  width={2672}
+  height={1521}
+  quality={100}
+/>
+
+## Launch with railway code
+
+`railway code` is the launcher without the interface: one command that wakes or creates your agent, delivers your credential, and hands your terminal to the coding agent.
+
+```bash
+railway code --claude
+```
+
+With no agent flag it launches the default saved by `railway ca setup`. Arguments after `--` pass through to the coding agent, and Railway exits when the agent finishes:
+
+```bash
+railway code --codex -- exec "explain this codebase"
+```
+
+All flags are covered in the [`railway code` reference](/cli/code).
+
+## Work in sessions
+
+Work happens in durable sessions. A session survives the connection that started it, so closing your terminal doesn't stop the agent, and reconnecting attaches to the same session rather than starting over.
+
+An agent can run several sessions at once. Press `n` on an agent in `railway ca`, or start one from the dashboard, and each session gets its own terminal. Sessions share the agent's one disk, so two agents editing the same files will conflict, the same as two terminals would.
+
+Sleeping an agent stops its processes, including running sessions. The coding agent's conversation history lives on the disk, so the next launch picks up where it left off.
+
+Sessions start in `/app`, which is where the coding agents are configured to work.
+
+## Choose where agents run
+
+Cloud agents live in a project environment. Railway resolves the target in this order:
 
 | Order | Source |
 |-------|--------|
@@ -56,27 +175,21 @@ Railway resolves the target in this order:
 | 3 | The [linked project](/cli/link) in the working directory |
 | 4 | `railway ca setup`, which Railway opens when nothing above applies |
 
-The saved default takes precedence over a linked directory. Linking describes what you deploy, so running `railway code` inside a service's checkout doesn't put an agent in that project.
+Change the default in setup, or with `^t` in `railway ca`.
 
 ## Reuse and create agents
 
-Railway remembers one agent per environment. Running `railway code` again reuses it, which keeps your disk and avoids paying for a second machine.
+Railway remembers one agent per environment. Running `railway code` again reuses it, which keeps your disk and avoids paying for a second machine. When there's no local record, such as on a second computer, Railway adopts the agent you own in that environment. If you own several and Railway can't tell which one you mean, it asks you to pick one with `railway ca`.
 
-When there's no local record of which agent to use, such as on a second computer, Railway adopts your existing agent in that environment. It only considers agents you own, so it can't attach your credentials to a teammate's machine. If you own several and Railway can't tell which one you mean, it lists them and asks you to pick one with `railway ca`.
-
-Pass `--new` to create a fresh agent instead of reusing one:
+Pass `--new` to create a fresh agent, and `--name` to name it:
 
 ```bash
-railway code --claude --new
+railway code --claude --new --name reviews
 ```
 
 ## Manage the agent lifecycle
 
-Cloud agents have no idle timeout, so nothing stops one on its own. Disconnecting puts the agent to sleep, which stops billing for compute and keeps the disk. The next launch wakes it with your work in place.
-
-<Banner variant="info">
-Cloud agents run on Railway's virtual machine primitive and bill at [VM rates](/pricing/plans#vm-pricing-beta): $50 per vCPU and $50 per GB of memory per month, prorated to the minute, plus $0.05 per GB of network egress.
-</Banner>
+Cloud agents have no idle timeout, so nothing stops one on its own. Disconnecting puts the agent to sleep. The next launch wakes it with your work in place.
 
 | Action | How |
 |--------|-----|
@@ -89,11 +202,28 @@ Cloud agents run on Railway's virtual machine primitive and bill at [VM rates](/
 A running agent bills for compute even when nothing is connected to it. Use `--keep-awake` when you want a task to continue after you disconnect, and expect the cost.
 </Banner>
 
-Waking a machine takes longer than resuming a session. Railway reports the agent as waking until the VM is up, then as running.
+An agent reports one of six statuses: starting, running, sleeping, crashed, failed, or deleting. A crashed or failed agent can't be woken. Create a new one with `--new`.
+
+### Pricing
+
+Cloud agents run on Railway's virtual machine primitive and bill at [VM rates](/pricing/plans#vm-pricing-beta): $50 per vCPU and $50 per GB of memory per month, prorated to the minute, plus $0.05 per GB of network egress. A sleeping agent doesn't bill for compute.
+
+### Specs and limits
+
+VM size follows your workspace [plan](/pricing/plans) and isn't configurable:
+
+| Plan | vCPU | Memory |
+|------|------|--------|
+| Trial | 2 | 1 GB |
+| Free | 2 | 1 GB |
+| Hobby | 2 | 2 GB |
+| Pro | 4 | 4 GB |
+
+Enterprise workspaces use the Pro sizing. Creation is limited to 25 agents per user per day.
 
 ## Deliver credentials
 
-Each coding agent signs in differently, so each one carries its credential differently.
+Railway reads your coding agent's credential on your own machine and writes it to the VM over SSH. It doesn't store the credential: it never becomes a Railway variable, part of an image, or an argument on a command line.
 
 | Agent | Flag | Credential |
 |-------|------|------------|
@@ -101,19 +231,11 @@ Each coding agent signs in differently, so each one carries its credential diffe
 | Codex | `--codex` | Your local `~/.codex/auth.json` |
 | Grok CLI | `--grok` | Your local `~/.grok/auth.json` |
 
-Claude Code's local sign-in uses a rotating refresh token, which is why Railway mints a separate token for the VM instead of copying it. Minting opens your browser once. To mint a replacement after revoking a token, or when authentication fails on an agent you already have, run:
+Claude Code's local sign-in uses a rotating refresh token, which is why Railway mints a separate token for the VM instead of copying it. Minting runs the `claude` binary on your machine and opens your browser once. If minting fails, Railway asks you to run `claude setup-token` yourself and paste the result. To mint a replacement after revoking a token, or when authentication fails on an agent you already have, run:
 
 ```bash
 railway code --claude --refresh-auth
 ```
-
-Add `--gh` to include your GitHub token, read with `gh auth token`, so `git` and `gh` can reach your repositories over HTTPS from inside the agent:
-
-```bash
-railway code --claude --gh
-```
-
-Minting runs the `claude` binary on your machine, so Claude Code must be installed locally even though the VM is what uses the token.
 
 Running `railway logout` deletes the cached token from your machine. Revoking it upstream is separate.
 
@@ -126,7 +248,7 @@ Cloud agents can bring the [agent skills](/ai/agent-skills) you use locally. Tur
 - `~/.grok/skills`
 - `~/.agents/skills`
 
-Railway packs that directory on each launch and unpacks it into `~/.railway-skills` on the VM, then links each skill into `~/.claude/skills`, `~/.codex/skills`, and `~/.grok/skills`. Syncing is add-only: it links a skill only when nothing already holds that name, so Railway's own skills stay the versions baked into the image.
+Railway packs that directory on each launch, unpacks it on the VM, and links each skill into the skills directory of all three coding agents. Syncing is add-only: it links a skill only when nothing already holds that name, so Railway's own skills stay the versions baked into the image.
 
 Two limits apply. A packed directory over 2 MB warns, and one over 10 MB fails before Railway creates a machine. Railway skips the upload when the contents haven't changed since the last launch.
 
@@ -148,27 +270,12 @@ Load variables from a file with `--env-file`. Any `--variable` flag overrides a 
 railway code --codex --new --env-file .env
 ```
 
-## Store preferences
+## Connect over SSH
 
-`railway ca setup` writes your answers to `~/.railway/agent-prefs.json` with owner-only permissions.
-
-| Field | Holds |
-|-------|-------|
-| `agent` | The coding agent to launch when no flag is passed |
-| `default_project` | The project and environment agents run in |
-| `skills` | Whether to sync skills, and which directory to read |
-| `theme` | The color theme `railway ca` draws with |
-
-A flag always beats the file. `RAILWAY_CA_AGENT` overrides the saved agent for a single run.
-
-To read the file back without opening it:
+Every agent accepts SSH, which gives you a plain shell alongside whatever the coding agent is doing:
 
 ```bash
-railway ca setup --show
+ssh agent:<environment-id>:<agent-id>@ssh.railway.com
 ```
 
-## Work in the VM
-
-Sessions start in `/app`, which is where the coding agent is configured to work. Files written anywhere on the disk persist between runs.
-
-Every session runs on the same machine, so several agents working at once share one disk. Two agents editing the same files will conflict, the same as two terminals would.
+Copy a ready-made command with `c` on a session in `railway ca`, or with **Copy SSH** on the agent's dashboard page. The agent must be awake to accept a connection.
