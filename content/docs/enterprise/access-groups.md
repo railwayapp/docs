@@ -31,7 +31,6 @@ Treat a workspace token as equivalent to workspace admin access:
 
 - Share one only with people you would make workspace admins.
 - Use a [project token](/integrations/api#project-token) when an integration needs a single project. Project tokens stay scoped to the project they were created for.
-- Rotate or delete tokens from the [tokens page](https://railway.com/account/tokens) when someone's group membership changes.
 
 ### New project creation
 
