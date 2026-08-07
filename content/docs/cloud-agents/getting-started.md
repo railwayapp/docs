@@ -7,7 +7,7 @@ description: Configure cloud agents with railway ca setup, launch your first age
 
 This page takes you from an unconfigured machine to a running [cloud agent](/cloud-agents) you can reconnect to.
 
-Setup asks four questions once and saves the answers, so later launches need no flags.
+Setup asks where agents run, which coding agent to launch, whether to bring your skills, and which theme to use. It saves the answers, so later launches need no flags.
 
 ## Before you start
 
@@ -15,9 +15,9 @@ You need three things in place:
 
 - The [Railway CLI](/cli) installed and signed in with `railway login`
 - Cloud agents enabled for your account through [Priority Boarding](/platform/priority-boarding)
-- A local sign-in for at least one supported coding agent: Claude Code, Codex, or Grok CLI
+- Claude Code, Codex, or Grok CLI installed on your machine
 
-Railway carries your local credential to the agent, so sign in to the coding agent on your own machine first.
+Railway reads the coding agent's credential from your machine. Codex and Grok CLI need a completed local sign-in. Claude Code mints a token in your browser the first time you launch, so it doesn't.
 
 ## Set up cloud agents
 
@@ -27,28 +27,28 @@ Start the configuration flow:
 railway ca setup
 ```
 
-Running `railway ca` on a machine with no preferences opens the same flow, so you can start there instead. Setup asks four questions:
+Running `railway ca` on a machine with no preferences opens the same flow, so you can start there instead.
 
 <Steps>
   <Step title="Choose where agents run">
-    Select **Create a project** to have Railway make a project named "Cloud Agents", or select **Use an existing project** to pick one you already have.
+    Select **Create a default project** to have Railway make a project named "Cloud Agents", or **Use an existing project** to pick one you already have. Select **Skip** to choose a target on each launch instead.
 
     This becomes your default project. Every launch creates and finds agents there unless you pass `--project` and `--environment`.
   </Step>
   <Step title="Choose a coding agent">
-    Select Claude Code, Codex, or Grok CLI. Setup marks the agents it detects a local sign-in for.
+    Select Claude Code, Codex, or Grok CLI. Setup marks the agents it finds a local configuration directory for.
 
     This is the agent that runs when you launch without `--claude`, `--codex`, or `--grok`.
   </Step>
   <Step title="Decide about skills">
-    Select **Bring my skills** to copy your local [agent skills](/ai/agent-skills) to each agent, or **Do not sync skills** to run with the skills baked into the image.
+    Answer whether to bring your own [agent skills](/ai/agent-skills) to cloud agents. Setup counts what it found and asks which directory to read when more than one holds skills.
 
-    Syncing is add-only, so it never replaces a skill the agent already has.
+    Syncing is add-only, so it never replaces a skill the agent already has. Setup skips this question when it finds no skills of yours to send.
   </Step>
   <Step title="Pick a theme">
-    Select a color theme for `railway ca`. The preview updates as you move through the options.
+    Select a color theme for `railway ca`.
 
-    Setup writes everything to `~/.railway/agent-prefs.json`. Run `railway ca setup --show` to read it back.
+    Setup then prints what it saved and the path it wrote to, `~/.railway/agent-prefs.json`. Run `railway ca setup --show` to read it back later.
   </Step>
 </Steps>
 

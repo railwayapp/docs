@@ -93,7 +93,7 @@ Each coding agent signs in differently, so each one carries its credential diffe
 
 | Agent | Flag | Credential |
 |-------|------|------------|
-| Claude Code | `--claude` | A token minted by `claude setup-token`, cached locally and reused. Set `CLAUDE_CODE_OAUTH_TOKEN` or `ANTHROPIC_API_KEY` to skip minting |
+| Claude Code | `--claude` | A token minted by `claude setup-token`, cached in `~/.railway/claude-code-token` and reused. Set `CLAUDE_CODE_OAUTH_TOKEN` or `ANTHROPIC_API_KEY` to skip minting |
 | Codex | `--codex` | Your local `~/.codex/auth.json` |
 | Grok CLI | `--grok` | Your local `~/.grok/auth.json` |
 
@@ -109,7 +109,9 @@ Add `--gh` to include your GitHub token, read with `gh auth token`, so `git` and
 railway code --claude --gh
 ```
 
-Running `railway logout` deletes the cached Claude token from your machine. Revoking the token upstream is separate.
+Minting runs the `claude` binary on your machine, so Claude Code must be installed locally even though the VM is what uses the token.
+
+Running `railway logout` deletes the cached token from your machine. Revoking it upstream is separate.
 
 ## Sync your skills
 
@@ -120,9 +122,11 @@ Cloud agents can bring the [agent skills](/ai/agent-skills) you use locally. Tur
 - `~/.grok/skills`
 - `~/.agents/skills`
 
-Railway packs that directory on each launch and unpacks it into `~/.railway-skills` on the VM, then links each skill into every coding agent's skills directory. Syncing is add-only: it never replaces a skill name the agent already has, so Railway's own skills stay the versions baked into the image.
+Railway packs that directory on each launch and unpacks it into `~/.railway-skills` on the VM, then links each skill into `~/.claude/skills`, `~/.codex/skills`, and `~/.grok/skills`. Syncing is add-only: it links a skill only when nothing already holds that name, so Railway's own skills stay the versions baked into the image.
 
-Two limits apply. A packed directory over 2 MB warns, and one over 10 MB fails before a machine is created. Railway skips the upload when the contents haven't changed since the last launch.
+Two limits apply. A packed directory over 2 MB warns, and one over 10 MB fails before Railway creates a machine. Railway skips the upload when the contents haven't changed since the last launch.
+
+Turning skills sync off later leaves whatever is already on an agent.
 
 ## Set variables
 
@@ -161,6 +165,6 @@ railway ca setup --show
 
 ## Work in the VM
 
-Sessions start in `/app`, which is where the agent's configuration grants it permission to work. Files you write outside `/app` persist on the disk, but the coding agent may prompt before touching them.
+Sessions start in `/app`, which is where the coding agent is configured to work. Files written anywhere on the disk persist between runs.
 
 Every session runs on the same machine, so several agents working at once share one disk. Two agents editing the same files will conflict, the same as two terminals would.

@@ -13,7 +13,7 @@ Browse your projects, launch [cloud agents](/cloud-agents), and connect to the s
 railway ca [COMMAND] [OPTIONS]
 ```
 
-Running `railway ca` with no arguments opens the terminal interface. Passing any launch option skips it and launches directly, the same as [`railway code`](/cli/code).
+Running `railway ca` with no arguments opens the terminal interface. Passing any launch option skips it and launches directly, the same as [`railway code`](/cli/code). Railway also skips the interface when stdout isn't a terminal, so scripts get the launcher.
 
 ## Subcommands
 
@@ -46,11 +46,11 @@ With no agent option, `railway ca` launches the coding agent saved by `railway c
 
 ## Configure cloud agents
 
-`railway ca setup` asks four questions and writes the answers to `~/.railway/agent-prefs.json`: where agents run, which coding agent to launch, whether to sync your skills, and which theme to draw with. See [Getting started](/cloud-agents/getting-started) for a walkthrough.
+`railway ca setup` asks where agents run, which coding agent to launch, whether to sync your skills, and which theme to draw with, then writes the answers to `~/.railway/agent-prefs.json`. See [Getting started](/cloud-agents/getting-started) for a walkthrough.
 
 | Option | Description |
 |--------|-------------|
-| `-y`, `--yes` | Skip the prompts, keeping existing preferences |
+| `-y`, `--yes` | Skip the prompts. Keeps existing preferences, and otherwise picks the first detected agent with skills sync off. Railway engages this when stdout isn't a terminal |
 | `--show` | Print the saved preferences and exit |
 
 Running `railway ca` on a machine with no preferences opens the same flow.
@@ -100,7 +100,7 @@ Click a menu card to open it, or the prompt box to type in it. In the tree, clic
 
 In a connected session, the wheel scrolls the agent's output and clicking a link opens it in your browser. Drag to select text, which copies it when you release.
 
-When the coding agent handles the mouse itself, clicks reach the agent so its own clickable output works. Hold `shift` while dragging to select text instead.
+When the coding agent handles the mouse itself, clicks reach the agent so its own clickable output works. This starts once the pane has the keyboard, so the click that focuses a pane stays with the interface. Hold `shift` while dragging to select text instead.
 
 ## Examples
 
@@ -137,5 +137,7 @@ railway ca start --codex --new
 ### Launch into a specific environment
 
 ```bash
-railway ca start --claude --project my-project --environment production
+railway ca start --claude --project 5a4b3c2d-1e0f-4a5b-8c7d-6e5f4a3b2c1d --environment production
 ```
+
+`--project` takes a project ID. `--environment` takes a name or an ID.
