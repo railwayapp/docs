@@ -36,7 +36,6 @@ These options apply to `railway ca` and `railway ca start`, and are the same one
 | `--rm` | Destroy this environment's agent and exit |
 | `--refresh-auth` | Re-mint the Claude credential on an agent that already has one |
 | `--name <NAME>` | Name a newly created agent |
-| `--gh` | Include your GitHub token, read with `gh auth token` |
 | `--variable <KEY=VALUE>` | Set a variable on a newly created agent (repeatable) |
 | `--env-file <PATH>` | Load variables from a `.env` file (repeatable) |
 | `-p`, `--project <PROJECT>` | Project ID |
@@ -46,7 +45,7 @@ With no agent option, `railway ca` launches the coding agent saved by `railway c
 
 ## Configure cloud agents
 
-`railway ca setup` asks where agents run, which coding agent to launch, whether to sync your skills, and which theme to draw with, then writes the answers to `~/.railway/agent-prefs.json`. See [Getting started](/cloud-agents/getting-started) for a walkthrough.
+`railway ca setup` asks where agents run, which coding agent to launch, whether to sync your skills, and which theme to draw with, then writes the answers to `~/.railway/agent-prefs.json`. See the [cloud agents quick start](/cloud-agents#quick-start) for a walkthrough.
 
 | Option | Description |
 |--------|-------------|

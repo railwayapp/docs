@@ -25,7 +25,7 @@ The [Railway Agent](/ai/railway-agent) is a chat-based assistant built directly 
 - Keeps its disk between runs, and sleeps when you disconnect
 - Manages agents and sessions from `railway ca`
 
-[Get started with cloud agents →](/cloud-agents/getting-started)
+[Get started with cloud agents →](/cloud-agents)
 
 ### Agent integrations
 

@@ -1053,6 +1053,11 @@ const hashRedirects = [
     destination: "/guides/healthchecks#continuous-healthchecks",
     permanent: true,
   },
+  {
+    source: "/cloud-agents/getting-started",
+    destination: "/cloud-agents",
+    permanent: true,
+  },
 ];
 
 module.exports = {
