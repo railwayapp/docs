@@ -21,7 +21,17 @@ When access groups are enabled, Railway determines project access from workspace
 - If one person is granted access to a single project via different permission grants, Railway applies the highest role.
 - A group-granted Admin role applies only to the group's projects. It can access [restricted environments](/enterprise/environment-rbac) in those projects, but it doesn't grant workspace administration or bypass workspace [Guardrails](/enterprise/guardrails).
 
-Railway applies access group visibility across project entry points, including the dashboard, API, CLI, MCP server, and Railway Agent tools.
+Railway applies access group visibility to everything a person signs in to, including the dashboard, API, CLI, MCP server, and Railway Agent tools.
+
+### Workspace API tokens
+
+A [workspace token](/integrations/api#account-tokens-and-workspace-tokens) authenticates as the workspace itself rather than as a person, so it has no group membership for Railway to evaluate. Workspace tokens can reach every project in the workspace, including projects that belong to no group, whether or not access groups are enabled.
+
+Treat a workspace token as equivalent to workspace admin access:
+
+- Share one only with people you would make workspace admins.
+- Use a [project token](/integrations/api#project-token) when an integration needs a single project. Project tokens stay scoped to the project they were created for.
+- Rotate or delete tokens from the [tokens page](https://railway.com/account/tokens) when someone's group membership changes.
 
 ### New project creation
 
@@ -112,6 +122,8 @@ Enable access groups after you configure and review the groups for your workspac
 5. Click **Turn on**.
 
 The preview accounts for group grants, direct project permissions, and personal projects. The visibility change takes effect after you confirm it.
+
+Enabling access groups does not change what a workspace token can reach. Review any tokens your workspace has issued alongside this change — see [Workspace API tokens](#workspace-api-tokens).
 
 ### Disable access groups
 
