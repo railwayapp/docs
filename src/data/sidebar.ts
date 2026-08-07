@@ -109,6 +109,10 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Railway Agent", "ai"),
       {
+        subTitle: makePage("Cloud agents", undefined, "/cloud-agents"),
+        pages: [makePage("Getting started", "cloud-agents")],
+      },
+      {
         subTitle: makePage("Agent integrations", undefined, "/ai/agent-integrations"),
         pages: [
           makePage("Slack", "ai/agent-integrations"),
@@ -265,7 +269,9 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("api"),
       makeCliCommand("autoupdate"),
       makeCliCommand("bucket"),
+      makeCliCommand("ca"),
       makeCliCommand("cdn"),
+      makeCliCommand("code"),
       makeCliCommand("completion"),
       makeCliCommand("connect"),
       makeCliCommand("delete"),
