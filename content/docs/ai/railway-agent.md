@@ -20,6 +20,10 @@ When a deployment fails, the agent can automatically investigate. It reads the b
 
 If the fix is in your code, the agent can open a pull request with the change so you can review and merge it.
 
+## Context Sources
+
+Connect Notion, Linear, Sentry, or your own MCP servers, then attach them to a chat from the Context picker so the agent can use their tools while it works. See [Context Sources](/ai/context-sources) for setup and details.
+
 ## Pricing
 
 Usage of the Railway Agent is billed based on the underlying LLM tokens consumed, at the exact per-token rates published on <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a>, with no markup. See [Pricing](/pricing#railway-agent) for details.

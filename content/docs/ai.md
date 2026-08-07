@@ -17,6 +17,16 @@ The [Railway Agent](/ai/railway-agent) is a chat-based assistant built directly 
 
 [Get started with the Railway Agent →](/ai/railway-agent)
 
+### Context Sources
+
+[Context Sources](/ai/context-sources) connect Notion, Linear, Sentry, and your own MCP servers to Railway's agents. Attach a source to a chat from the Context picker, and the agent can use its tools while it works.
+
+- One-click connections for Notion, Linear, and Sentry, plus support for any custom MCP server
+- Works in both the Railway Agent and dev.new
+- Each connection is personal: it runs with the credentials of whichever member connected it
+
+[Get started with Context Sources →](/ai/context-sources)
+
 ### Agent integrations
 
 [Agent integrations](/ai/agent-integrations) bring the Railway Agent into your team chat on Slack and Discord. Mention **@Railway** to inspect deployments, read logs, and make changes without leaving the conversation.
