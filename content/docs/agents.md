@@ -42,6 +42,13 @@ railway setup agent
     icon="Star"
     tone="green"
   />
+  <Card
+    title="Cloud agents"
+    description="Run Claude Code, Codex, or Grok CLI on a persistent Railway VM with your own credentials. Launch from the terminal and reconnect to sessions later."
+    href="/cloud-agents"
+    icon="Bash"
+    tone="purple"
+  />
 </CardGrid>
 
 ## When to use each
@@ -50,3 +57,4 @@ railway setup agent
 - **Railway MCP (Remote)** — preferred when the user wants hosted OAuth MCP, or when local CLI configuration is unavailable. Also exposes the powerful `railway-agent` tool for multi-step operations.
 - **Railway CLI** — preferred when the task depends on local machine state: current-directory deploys, `railway up`, `railway run`, SSH, and local linking.
 - **Agent Skills** — install alongside any of the above so agents arrive with Railway-specific procedural knowledge instead of guessing.
+- **Cloud agents** are preferred when the work should outlive the local terminal: a persistent VM running the coding agent, with sessions you can leave and reattach to.

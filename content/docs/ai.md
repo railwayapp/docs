@@ -17,6 +17,16 @@ The [Railway Agent](/ai/railway-agent) is a chat-based assistant built directly 
 
 [Get started with the Railway Agent →](/ai/railway-agent)
 
+### Cloud agents
+
+[Cloud agents](/cloud-agents) run Claude Code, Codex, or Grok CLI on a persistent Railway virtual machine, signed in as you. Launch one from the terminal and reconnect to it later with your work still in place.
+
+- Runs the coding agent you already use, with your own credentials
+- Keeps its disk between runs, and sleeps when you disconnect
+- Manages agents and sessions from `railway ca`
+
+[Get started with cloud agents →](/cloud-agents/getting-started)
+
 ### Agent integrations
 
 [Agent integrations](/ai/agent-integrations) bring the Railway Agent into your team chat on Slack and Discord. Mention **@Railway** to inspect deployments, read logs, and make changes without leaving the conversation.
