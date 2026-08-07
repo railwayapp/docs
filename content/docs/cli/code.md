@@ -1,6 +1,6 @@
 ---
 title: railway code
-description: Launch a coding agent on a cloud agent VM using your local sign-in.
+description: Launch a coding agent on a cloud agent VM with your own credentials.
 ---
 
 Launch Claude Code, Codex, or Grok CLI on a [cloud agent](/cloud-agents) and hand your terminal to it.
@@ -42,13 +42,13 @@ Railway resolves the target project and environment in this order:
 1. The `--project` and `--environment` options.
 2. The default project saved by `railway ca setup`.
 3. The [linked project](/cli/link) in the working directory.
-4. The setup flow, which saves your answer for later launches.
+4. `railway ca setup`, which Railway opens for you. Setup saves the answer, so later launches skip this step.
 
 Within that environment, Railway reuses the agent it remembers, adopts your existing agent when there's no local record, and creates one when you have none. See [Reuse and create agents](/cloud-agents#reuse-and-create-agents).
 
 ## Credentials
 
-Railway reads your local credential, tells you which one it's using, and writes it to the agent over SSH. Credentials never reach a machine specification, an image, a command line, or Railway's servers.
+Railway reads your local credential, tells you which one it's using, and writes it to the agent over SSH. It doesn't store the credential: it never becomes a Railway variable, part of an image, or an argument on a command line.
 
 Claude Code needs a token minted for the VM, because its local sign-in uses a rotating refresh token. Railway runs `claude setup-token` for you, caches the result, and reuses it on later launches. Set `CLAUDE_CODE_OAUTH_TOKEN` or `ANTHROPIC_API_KEY` to supply your own instead.
 

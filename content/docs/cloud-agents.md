@@ -13,9 +13,9 @@ Railway supports three coding agents: Claude Code, Codex, and Grok CLI.
 
 ## How it works
 
-The `cloud-agent-base` image ships every supported coding agent, and the VM configures them on each boot. Launching doesn't install or configure anything, so an agent is ready to work as soon as the machine is running.
+Every supported coding agent is already installed on the machine image, and Railway configures them on each boot. Launching installs nothing, so an agent is ready to work as soon as the machine is running.
 
-Your credentials are read on your machine and written to the VM over SSH. They never reach a machine specification, an image, a command line, or Railway's servers.
+Railway reads your credentials on your own machine and writes them to the VM over SSH. It doesn't store them: they never become a Railway variable, part of an image, or an argument on a command line.
 
 Work happens in durable sessions. A session survives the SSH connection that started it, so closing your terminal doesn't stop the agent, and reconnecting attaches to the same screen rather than starting over.
 
@@ -54,7 +54,7 @@ Railway resolves the target in this order:
 | 1 | The `--project` and `--environment` flags |
 | 2 | The default project saved by `railway ca setup` |
 | 3 | The [linked project](/cli/link) in the working directory |
-| 4 | The setup flow, which saves your answer for later launches |
+| 4 | `railway ca setup`, which Railway opens when nothing above applies |
 
 The saved default takes precedence over a linked directory. Linking describes what you deploy, so running `railway code` inside a service's checkout doesn't put an agent in that project.
 
