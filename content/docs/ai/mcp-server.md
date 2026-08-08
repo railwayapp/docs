@@ -8,7 +8,7 @@ The [Railway MCP Server](https://github.com/railwayapp/railway-mcp-server) is a 
 Railway offers two ways to connect:
 
 * **Local MCP** — runs through the [Railway CLI](/cli) on your machine. Recommended for most coding-agent workflows since it shares the CLI's authentication and project context.
-* **Remote MCP** — a hosted endpoint at `mcp.railway.com`. No local install or CLI required; clients authenticate through OAuth in the browser.
+* **Remote MCP** — a hosted endpoint at `mcp.railway.com`. With the Railway CLI, `railway mcp install --remote` connects through the CLI proxy using your existing `railway login`, so there is no browser step. Without the CLI, clients connect to the URL directly and authenticate through OAuth in the browser.
 
 ## Quick start
 
@@ -20,7 +20,7 @@ If the CLI is already installed, skip the bootstrap and run:
 
 ```bash
 railway setup agent          # local MCP
-railway setup agent --remote # remote MCP
+railway setup agent --remote # remote MCP (via the CLI proxy, no browser step)
 ```
 
 Read on for per-editor manual configuration, the available tool list, and security considerations.
@@ -119,18 +119,30 @@ The local server runs through the Railway CLI and exposes a broader set of CRUD 
 
 The remote server exposes a focused set of tools plus a powerful agent entry point. For anything complex, delegate to `railway-agent`.
 
-* **Account**
+* **Account & workspaces**
   * `whoami`
-* **Projects**
-  * `list-projects`, `create-project`, `list-services`
+  * `list-workspaces`
+* **Projects & services**
+  * `list-projects`, `create-project`
+  * `list-services`, `create-service`, `update-service`
+  * `create-deployment` — create a service from a GitHub repo and trigger its first deploy
+  * `get-service-config`, `get-service-metrics`
+* **Configuration**
+  * `list-variables`, `set-variables`
+  * `list-domains`, `generate-domain`
+* **Deployments & logs**
+  * `list-deployments`, `get-status`, `get-logs`
+  * `redeploy`
+  * `accept-deploy` — commit staged changes and deploy (destructive; clients prompt for confirmation)
 * **Feature flags**
   * `list-feature-flags`, `get-feature-flag`
   * `set-feature-flag`, `delete-feature-flag` (admin; destructive delete is marked at the protocol level)
-* **Deployments**
-  * `redeploy`
-  * `accept-deploy` — commit staged changes and deploy (destructive; clients prompt for confirmation)
+* **Documentation**
+  * `search-docs`, `fetch-docs` — search and read Railway documentation
 * **Agent**
   * `railway-agent` — hand a natural-language request to Railway's AI agent for multi-step operations like log analysis, debugging, and service configuration
+
+Write and create tools require the same workspace or project access you hold in the dashboard, and actions in a restricted environment require the admin role.
 
 ## Security considerations
 
@@ -142,7 +154,8 @@ The Railway MCP Server runs CLI commands or invokes Railway APIs on your behalf.
 
 For the remote server specifically:
 
-* **OAuth scoping.** When you consent, you choose which workspaces and projects the client can access. Tokens are short-lived and can be revoked from your Railway account settings.
+* **OAuth scoping.** When you consent through the browser flow, you choose which workspaces and projects the client can access. Tokens are short-lived and can be revoked from your Railway account settings.
+* **CLI proxy credentials.** When you connect through `railway mcp install --remote`, the proxy uses your existing CLI login and refreshes the token for each request. No token is written into the editor's config file, and the proxy only ever sends it to `mcp.railway.com`.
 * **Destructive actions** are marked at the protocol level. Clients that respect these hints will prompt for confirmation.
 * **Project tokens are not accepted.** The remote MCP server requires a user identity for billing and audit trails.
 

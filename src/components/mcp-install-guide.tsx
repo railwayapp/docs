@@ -383,7 +383,7 @@ function QuickInstall({
       <p className="border-t border-muted bg-muted-element/30 px-4 py-2 text-xs text-muted-base">
         {mode === "local"
           ? "Configures detected tools to run the Railway MCP server through the local Railway CLI."
-          : "Configures detected tools to use Railway's hosted MCP server at mcp.railway.com via OAuth."}
+          : "Configures detected tools to reach Railway's hosted MCP server at mcp.railway.com through the CLI proxy, using your railway login (no browser step). The per-editor configs below show the direct-URL setup, which authenticates via OAuth — the same as railway mcp install --remote --oauth."}
       </p>
     </div>
   );
