@@ -1005,6 +1005,11 @@ const redirects = [
     destination: "/builds/railpack",
     permanent: true,
   },
+  {
+    source: "/cloud-agents/getting-started",
+    destination: "/cloud-agents",
+    permanent: true,
+  },
 ];
 
 const hashRedirects = [
@@ -1051,11 +1056,6 @@ const hashRedirects = [
   {
     source: "/guides/healthchecks-and-restarts#continuous-healthchecks",
     destination: "/guides/healthchecks#continuous-healthchecks",
-    permanent: true,
-  },
-  {
-    source: "/cloud-agents/getting-started",
-    destination: "/cloud-agents",
     permanent: true,
   },
 ];
