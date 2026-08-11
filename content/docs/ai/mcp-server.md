@@ -1,33 +1,37 @@
 ---
 title: Railway MCP Server
-description: Connect AI coding agents to Railway via the Model Context Protocol — either through the Railway CLI locally or the hosted remote MCP endpoint.
+description: Connect AI coding agents to Railway through Local MCP or Remote MCP.
 ---
 
-The [Railway MCP Server](https://github.com/railwayapp/railway-mcp-server) is a [Model Context Protocol (MCP)](https://modelcontextprotocol.org) server that enables natural language interaction with your Railway projects and infrastructure. Ask your IDE or AI assistant to create projects, deploy templates, manage environments, pull variables, redeploy services, and more.
+The Railway MCP Server implements the <a href="https://modelcontextprotocol.org" target="_blank">Model Context Protocol (MCP)</a>. It lets AI assistants create projects, deploy templates, manage environments, pull variables, and redeploy services.
 
-Railway offers two ways to connect:
+Railway offers two MCP servers:
 
-* **Local MCP** — runs through the [Railway CLI](/cli) on your machine. Recommended for most coding-agent workflows since it shares the CLI's authentication and project context.
-* **Remote MCP** — a hosted endpoint at `mcp.railway.com`. No local install or CLI required; clients authenticate through OAuth in the browser.
+* **Local MCP** runs through the [Railway CLI](/cli) on your machine and uses local CLI context.
+* **Remote MCP** runs at `mcp.railway.com`. Connect directly using OAuth, or run `railway mcp proxy` to reuse credentials from your `railway login` session.
 
 ## Quick start
 
-Install the Railway CLI and configure agent support — skills, MCP, and authentication — in one command. Toggle the options to tailor the command to what you want set up:
+Install the Railway CLI and configure agent skills, MCP, and authentication in
+one command. Select the options to generate the setup command:
 
 <AgentInstallCommand />
 
 If the CLI is already installed, skip the bootstrap and run:
 
 ```bash
-railway setup agent          # local MCP
-railway setup agent --remote # remote MCP
+railway setup agent                  # Local MCP
+railway setup agent --remote         # Remote MCP through the CLI proxy
+railway setup agent --remote --oauth # Remote MCP with OAuth
 ```
 
 Read on for per-editor manual configuration, the available tool list, and security considerations.
 
 ## Per-editor configuration
 
-If you'd rather wire up an editor by hand — or want to see exactly what `railway mcp install` writes — use the toggle to switch between the local stdio config and the remote HTTP config:
+If you'd rather configure an editor manually, or want to inspect what
+`railway mcp install` writes, use the selector to switch between local stdio,
+Remote MCP through the CLI proxy, and Remote MCP with OAuth:
 
 <McpInstallGuide />
 
@@ -41,14 +45,18 @@ The **Model Context Protocol (MCP)** defines a standard for how AI applications 
 * **Clients**: The layer within hosts that maintains one-to-one connections with individual MCP servers.
 * **Servers**: Standalone programs (like the Railway MCP Server) that expose tools and workflows for managing external systems.
 
-The local Railway MCP Server translates natural language requests into CLI workflows powered by the [Railway CLI](/cli). The remote MCP server runs on Railway's infrastructure and authenticates via OAuth.
+The Local MCP server translates natural language requests into CLI workflows powered by the [Railway CLI](/cli). Remote MCP runs on Railway's infrastructure and supports OAuth. The CLI proxy provides another connection path by passing credentials from your `railway login` session to Remote MCP.
 
 ## Prerequisites
 
-* **Local MCP** — install and authenticate the [Railway CLI](/cli).
-* **Remote MCP** — a [Railway account](https://railway.com/login). No local install required.
+The server and authentication method determine which local tools and credentials you need.
+
+* **Local MCP** requires an installed and authenticated [Railway CLI](/cli).
+* **Remote MCP** requires a <a href="https://railway.com/login" target="_blank">Railway account</a>. Direct OAuth doesn't require the CLI. The CLI proxy requires an installed CLI and a `railway login` session so it can reuse those credentials.
 
 ## Example usage
+
+Use prompts that describe the Railway outcome you want the agent to produce.
 
 * **Create and deploy a new app**
 
@@ -94,19 +102,19 @@ The local Railway MCP Server translates natural language requests into CLI workf
 
 ## Available MCP tools
 
-The Railway MCP Server provides a curated set of tools. Your AI assistant calls these automatically based on the context of your request.
+The Railway MCP Server exposes the following tools. Your AI assistant selects tools based on your request.
 
 ### Local MCP
 
-The local server runs through the Railway CLI and exposes a broader set of CRUD tools:
+Local MCP runs through the Railway CLI and exposes these tools:
 
 * **Status**
-  * `check-railway-status` — verify CLI installation and authentication
+  * `check-railway-status`: verify CLI installation and authentication
 * **Projects & services**
   * `list-projects`, `create-project-and-link`
   * `list-services`, `link-service`
-  * `deploy` — deploy a service
-  * `deploy-template` — deploy from the [Railway Template Library](https://railway.com/deploy)
+  * `deploy`: deploy a service
+  * `deploy-template`: deploy from the <a href="https://railway.com/deploy" target="_blank">Railway Template Library</a>
 * **Environments**
   * `create-environment`, `link-environment`
 * **Configuration**
@@ -117,7 +125,8 @@ The local server runs through the Railway CLI and exposes a broader set of CRUD 
 
 ### Remote MCP
 
-The remote server exposes a focused set of tools plus a powerful agent entry point. For anything complex, delegate to `railway-agent`.
+Remote MCP exposes the following tools. Use `railway-agent` for multi-step
+operations.
 
 * **Account**
   * `whoami`
@@ -128,9 +137,9 @@ The remote server exposes a focused set of tools plus a powerful agent entry poi
   * `set-feature-flag`, `delete-feature-flag` (admin; destructive delete is marked at the protocol level)
 * **Deployments**
   * `redeploy`
-  * `accept-deploy` — commit staged changes and deploy (destructive; clients prompt for confirmation)
+  * `accept-deploy`: commit staged changes and deploy (destructive; clients prompt for confirmation)
 * **Agent**
-  * `railway-agent` — hand a natural-language request to Railway's AI agent for multi-step operations like log analysis, debugging, and service configuration
+  * `railway-agent`: hand a natural-language request to Railway's AI agent for multi-step operations like log analysis, debugging, and service configuration
 
 ## Security considerations
 
@@ -140,12 +149,13 @@ The Railway MCP Server runs CLI commands or invokes Railway APIs on your behalf.
 * **Restrict access** to ensure only trusted users can invoke the MCP server.
 * **Avoid production risks** by limiting usage to non-critical environments where possible.
 
-For the remote server specifically:
+For Remote MCP:
 
-* **OAuth scoping.** When you consent, you choose which workspaces and projects the client can access. Tokens are short-lived and can be revoked from your Railway account settings.
+* **CLI proxy authentication.** The proxy reads and refreshes your `railway login` credentials. Editor configuration doesn't contain a long-lived Railway credential.
+* **OAuth scoping.** With direct OAuth, you choose which workspaces and projects the client can access. Tokens are short-lived and can be revoked from your Railway account settings.
 * **Destructive actions** are marked at the protocol level. Clients that respect these hints will prompt for confirmation.
-* **Project tokens are not accepted.** The remote MCP server requires a user identity for billing and audit trails.
+* **Project tokens are not accepted.** Remote MCP requires a user identity for billing and audit trails.
 
 ## Feature requests
 
-The Railway MCP Server is a work in progress. We are actively adding more tools and features. If you have a feature request, leave your feedback on this [Central Station](https://station.railway.com/feedback/model-context-protocol-for-railway-railw-c040b796) post.
+Share feature requests on the <a href="https://station.railway.com/feedback/model-context-protocol-for-railway-railw-c040b796" target="_blank">Railway MCP Server Central Station post</a>.

@@ -121,6 +121,17 @@ railway templates search        # Search published templates
 
 [up](/cli/up) · [deploy](/cli/deploy) · [redeploy](/cli/redeploy) · [restart](/cli/restart) · [down](/cli/down) · [deployment](/cli/deployment) · [templates](/cli/templates) · [Deploying Guide](/cli/deploying)
 
+### Infrastructure as Code
+
+```bash
+railway config init             # Create .railway/railway.ts
+railway config pull             # Import Railway state
+railway config plan             # Preview configuration changes
+railway config apply            # Apply configuration changes
+```
+
+[config](/cli/config) · [Infrastructure as Code](/infrastructure-as-code)
+
 ### Services
 
 ```bash
@@ -136,6 +147,17 @@ railway delete                  # Delete a project
 
 [add](/cli/add) · [service](/cli/service) · [scale](/cli/scale) · [delete](/cli/delete)
 
+### PostgreSQL
+
+```bash
+railway postgres pitr status    # Show PITR and archiver health
+railway postgres ha status      # Show HA cluster health
+railway postgres pgbouncer status # Show pool configuration and usage
+railway postgres history        # Show the local operation trail
+```
+
+[postgres](/cli/postgres) · [PostgreSQL](/databases/postgresql)
+
 ### Variables
 
 ```bash
@@ -145,6 +167,17 @@ railway variable delete KEY     # Delete a variable
 ```
 
 [variable](/cli/variable)
+
+### Usage and cost control
+
+```bash
+railway usage                   # Show workspace usage
+railway usage projects          # Rank projects by cost
+railway usage limit status      # Show compute and agent limits
+```
+
+[usage](/cli/usage) · [Project usage](/projects/project-usage) ·
+[Cost control](/pricing/cost-control)
 
 ### Environments
 

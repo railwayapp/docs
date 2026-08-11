@@ -23,3 +23,17 @@ In addition to the current usage, the user can see their estimated resource usag
 The chart shows the cumulative usage for the billing period. If you delete a project, Railway will still count the usage towards your total.
 
 The Current and Estimated cost metrics show the current resource usage and the estimated usage by the end of the billing period.
+
+## Inspect usage from the CLI
+
+Use `railway usage` to inspect a workspace summary, rank projects by cost, or
+show a service-level breakdown for one project:
+
+```bash
+railway usage
+railway usage projects --limit 10
+railway usage projects --project api --period previous
+```
+
+See the [`railway usage` reference](/cli/usage) for billing period selection,
+workspace resolution, usage limits, and JSON output.

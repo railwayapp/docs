@@ -4,7 +4,7 @@ import { Icon } from "./icon";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { cn } from "@/lib/cn";
 
-type McpChoice = "local" | "remote" | null;
+type McpChoice = "local" | "proxy" | "oauth" | null;
 
 interface AgentInstallCommandProps {
   className?: string;
@@ -23,10 +23,9 @@ function buildCommand({ agents, mcp, autoAccept }: CommandInputs): string {
   if (agents && autoAccept && mcp === "local") {
     return "curl -fsSL agents.railway.com | sh";
   }
-  if (agents && autoAccept && mcp === "remote") {
+  if (agents && autoAccept && mcp === "proxy") {
     return "curl -fsSL agents.railway.com | sh -s -- --remote";
   }
-
   // Standard CLI install path (non-agent) stays on cli.new.
   const base = "bash <(curl -fsSL cli.new)";
   const yesFlag = autoAccept ? " -y" : "";
@@ -36,15 +35,19 @@ function buildCommand({ agents, mcp, autoAccept }: CommandInputs): string {
   if (agents && mcp === "local") {
     return `${base} --agents${yesFlag}`;
   }
-  if (agents && mcp === "remote") {
+  if (agents && mcp === "proxy") {
     return `${base} --agents --remote${yesFlag}`;
+  }
+  if (agents && mcp === "oauth") {
+    return `${base}${yesFlag} && railway setup agent --remote --oauth${yesFlag}`;
   }
 
   // Compose CLI install + targeted follow-ups when only one of skills/MCP is wanted.
   const parts = [`${base}${yesFlag}`];
   if (agents) parts.push("railway skills install");
   if (mcp === "local") parts.push("railway mcp install");
-  if (mcp === "remote") parts.push("railway mcp install --remote");
+  if (mcp === "proxy") parts.push("railway mcp install --remote");
+  if (mcp === "oauth") parts.push("railway mcp install --remote --oauth");
 
   return parts.join(" && ");
 }
@@ -100,9 +103,14 @@ export function AgentInstallCommand({ className }: AgentInstallCommandProps) {
           onCheckedChange={next => setMcp(next ? "local" : null)}
         />
         <OptionToggle
-          label="Remote MCP"
-          checked={mcp === "remote"}
-          onCheckedChange={next => setMcp(next ? "remote" : null)}
+          label="Remote MCP (CLI proxy)"
+          checked={mcp === "proxy"}
+          onCheckedChange={next => setMcp(next ? "proxy" : null)}
+        />
+        <OptionToggle
+          label="Remote MCP (OAuth)"
+          checked={mcp === "oauth"}
+          onCheckedChange={next => setMcp(next ? "oauth" : null)}
         />
         <OptionToggle
           label="Auto-accept"

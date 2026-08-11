@@ -17,6 +17,17 @@ Visit the <a href="https://railway.com/workspace/usage" target="_blank">Workspac
 
 <Banner variant="info">The link above takes you to the usage page for your personal account. If you want to set a usage limit for your workspace, you can use the account switcher in the top left corner of your dashboard to access the workspace's usage page. You must be a workspace admin to configure usage limits.</Banner>
 
+You can also inspect and manage limits from the Railway CLI:
+
+```bash
+railway usage limit status
+railway usage limit set --target workspace --soft 75 --hard 125
+railway usage limit set --target agent --soft 7.50 --hard 20
+```
+
+See the [`railway usage` reference](/cli/usage) for workspace selection,
+validation rules, JSON output, and non-interactive usage.
+
 ### Compute vs. Agent usage limits
 
 Compute and Agent usage are tracked and limited independently:

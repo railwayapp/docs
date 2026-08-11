@@ -74,3 +74,20 @@ Reverting will:
 **The Revert button is only available when the original Postgres service (Postgres-1) is currently the cluster leader.** If it is not the leader, use the **Make Leader** button in the cluster overview to promote it first.
 
 Railway will automatically migrate all variable references within your project back to the original Postgres service as part of the staged revert. As with conversion, any hardcoded connection strings outside of Railway will need to be updated manually.
+
+## Manage HA from the CLI
+
+Use `railway postgres ha` to inspect cluster health, convert or revert a
+database, scale cluster members, and perform a switchover:
+
+```bash
+railway postgres ha status --service postgres
+railway postgres ha convert --service postgres --replicas 2
+railway postgres ha scale --service postgres --replicas 3
+railway postgres ha switchover \
+  --service postgres \
+  --to postgres-replica-1
+```
+
+See the [`railway postgres` reference](/cli/postgres) for every HA command,
+selector, confirmation flag, and deployment option.
