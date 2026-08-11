@@ -70,7 +70,10 @@ railway config pull
 | `--json` | Print the imported graph as JSON instead of writing files |
 | `--runner <PATH>` | Use a specific TypeScript configuration runner |
 | `--omit-preserved-variables` | Omit unknown variables instead of rendering `preserve()` |
-| `--agent` | Ask an agent to turn imported state into idiomatic TypeScript |
+| `--agent` | Print a suggestion to ask an agent to turn imported state into idiomatic TypeScript |
+
+`--agent` doesn't invoke an agent or change the generated file. The flag has
+no effect with `--json`, which prints only the imported graph.
 
 Review an imported configuration with `railway config plan` before applying
 it.
@@ -100,7 +103,8 @@ Plan output redacts variable values by default. Treat output from
 
 ## Apply changes
 
-Use `apply` to run a fresh plan and apply it after confirmation.
+Use `apply` to run a fresh plan and apply its changes. Without a
+non-interactive flag, the CLI asks for confirmation.
 
 ```bash
 railway config apply
@@ -111,13 +115,27 @@ accepts these confirmation flags:
 
 | Flag | Description |
 |------|-------------|
-| `--yes` | Confirm non-destructive changes without prompting |
-| `--confirm-destructive` | Permit destructive changes in non-interactive or agent sessions |
+| `--yes` | Skip the confirmation prompt and run non-interactively |
+| `--confirm-destructive` | Permit destructive changes in non-interactive, JSON, or agent sessions |
 
-For a destructive non-interactive apply, pass both flags:
+<Banner variant="warning">
+`railway config apply --json` applies non-destructive changes without
+prompting. Use `railway config plan --json` when you only need a
+machine-readable preview.
+</Banner>
+
+For a destructive non-interactive apply with human-readable output, pass both
+confirmation flags:
 
 ```bash
 railway config apply --yes --confirm-destructive
+```
+
+In JSON mode, pass `--confirm-destructive` to apply destructive changes. The
+`--json` flag already skips the confirmation prompt, so `--yes` isn't required:
+
+```bash
+railway config apply --json --confirm-destructive
 ```
 
 ## Related
