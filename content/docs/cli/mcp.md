@@ -3,8 +3,8 @@ title: railway mcp
 description: Start, proxy, or install the Railway MCP server for AI coding tools.
 ---
 
-Start a local Railway MCP server, proxy Railway's remote MCP server through your
-CLI login, or install either configuration into supported AI coding tools.
+Start Local MCP, connect to Remote MCP, or install either configuration into
+supported AI coding tools.
 
 ## Usage
 
@@ -19,8 +19,8 @@ Running `railway mcp` with no subcommand starts the local stdio MCP server. This
 
 ## Subcommands
 
-Use a subcommand to write editor configuration or connect the remote server to
-an editor over stdio.
+Use a subcommand to write editor configuration or connect Remote MCP to an
+editor over stdio.
 
 | Subcommand | Description |
 |------------|-------------|
@@ -29,24 +29,25 @@ an editor over stdio.
 
 ## Options for `install`
 
-The install command can target specific tools and select a remote transport.
+The install command can target specific tools and select how Remote MCP
+authenticates.
 
 | Flag | Description |
 |------|-------------|
 | `--agent <AGENT>` | Target a specific tool instead of all detected tools. Can be used more than once |
 | `--remote` | Configure `mcp.railway.com` through `railway mcp proxy`, authenticated by your CLI login |
-| `--oauth` | With `--remote`, configure the direct HTTP endpoint so the editor handles OAuth |
+| `--oauth` | With `--remote`, configure the direct HTTP endpoint so the MCP client handles OAuth |
 
-## Choose a transport
+## Choose a server
 
-Railway supports three MCP transports. Choose based on where you want the
-server to run and how you want to authenticate.
+Railway provides Local MCP and Remote MCP. Remote MCP supports CLI credential
+reuse through a local proxy or direct OAuth through the MCP client.
 
-| Transport | Install command | Authentication |
-|-----------|-----------------|----------------|
-| Local stdio | `railway mcp install` | Railway credentials available to the local CLI |
-| Remote through CLI proxy | `railway mcp install --remote` | Your existing `railway login` session |
-| Remote with editor OAuth | `railway mcp install --remote --oauth` | OAuth managed by the editor |
+| Server | Install command | Authentication |
+|--------|-----------------|----------------|
+| Local MCP | `railway mcp install` | Railway credentials available to the local CLI |
+| Remote MCP | `railway mcp install --remote` | Reuses your `railway login` credentials through the CLI proxy |
+| Remote MCP | `railway mcp install --remote --oauth` | OAuth managed by the MCP client |
 
 The CLI proxy keeps credentials out of editor configuration. It refreshes your
 Railway access token when needed and forwards requests to `mcp.railway.com`.
@@ -71,8 +72,8 @@ Pass one or more of these values to `--agent`.
 
 The installed entry depends on the target tool and transport.
 
-| Agent | Local stdio | Remote through CLI proxy | Remote with editor OAuth |
-|-------|-------------|--------------------------|-----------------------------|
+| Agent | Local MCP | Remote MCP through CLI proxy | Remote MCP with OAuth |
+|-------|-----------|------------------------------|-----------------------|
 | Claude Code | `command: "railway"`, `args: ["mcp"]` | `command: "railway"`, `args: ["mcp", "proxy"]` | `type: "http"`, `url: "https://mcp.railway.com"` |
 | Cursor | `command: "railway"`, `args: ["mcp"]` | `command: "railway"`, `args: ["mcp", "proxy"]` | `url: "https://mcp.railway.com"` |
 | Factory Droid | `type: "stdio"`, `command: "railway"`, `args: ["mcp"]`, `disabled: false` | `type: "stdio"`, `command: "railway"`, `args: ["mcp", "proxy"]`, `disabled: false` | `type: "http"`, `url: "https://mcp.railway.com"`, `disabled: false` |
@@ -84,7 +85,8 @@ The installed entry depends on the target tool and transport.
 
 ## Examples
 
-These examples cover detected tools, targeted installs, and remote transports.
+These examples cover detected tools, targeted installs, Local MCP, and Remote
+MCP.
 
 ### Install MCP for detected tools
 
@@ -110,15 +112,16 @@ Repeat `--agent` to update more than one tool in the same command.
 railway mcp install --agent claude-code --agent copilot
 ```
 
-### Install the remote server through the CLI proxy
+### Install Remote MCP through the CLI proxy
 
-Use the proxy when you want the remote server to use your CLI login.
+Use `--remote` to install the CLI proxy configuration. The proxy reuses your
+`railway login` credentials when it connects to Remote MCP.
 
 ```bash
 railway mcp install --remote
 ```
 
-### Install the remote server with editor OAuth
+### Install Remote MCP with OAuth
 
 Use direct OAuth when your editor can authenticate an HTTP MCP server.
 
@@ -126,7 +129,7 @@ Use direct OAuth when your editor can authenticate an HTTP MCP server.
 railway mcp install --remote --oauth
 ```
 
-## Local server
+## Run Local MCP
 
 MCP clients that use a local stdio server should run:
 
@@ -136,9 +139,9 @@ railway mcp
 
 The `railway mcp install` command writes this configuration for supported tools automatically.
 
-## Remote server through the CLI proxy
+## Connect to Remote MCP through the CLI proxy
 
-MCP clients that use Railway's remote server through your CLI login run:
+To reuse Railway CLI credentials when connecting to Remote MCP, run:
 
 ```bash
 railway mcp proxy
@@ -146,6 +149,13 @@ railway mcp proxy
 
 The process communicates with the editor over stdio and forwards requests to
 `mcp.railway.com` over HTTPS.
+
+## Connect directly to Remote MCP
+
+MCP clients that support OAuth can connect directly to Remote MCP at
+`https://mcp.railway.com`. The client manages OAuth without using the Railway
+CLI proxy. Run `railway mcp install --remote --oauth` to write this
+configuration for supported tools.
 
 ## Related
 

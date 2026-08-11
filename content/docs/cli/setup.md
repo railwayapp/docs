@@ -23,13 +23,13 @@ The setup command provides one agent-focused workflow.
 
 ## Options for `agent`
 
-Use these flags to skip prompts or select a remote MCP transport.
+Use these flags to skip prompts or select how Remote MCP authenticates.
 
 | Flag | Description |
 |------|-------------|
 | `-y, --yes` | Skip prompts and accept defaults. Also used automatically when stdout is not a terminal |
 | `--remote` | Configure `mcp.railway.com` through the CLI proxy using your `railway login` session |
-| `--oauth` | With `--remote`, configure the direct HTTP endpoint so the editor handles OAuth |
+| `--oauth` | With `--remote`, configure the direct HTTP endpoint so the MCP client handles OAuth |
 
 ## Examples
 
@@ -44,8 +44,8 @@ railway setup agent
 ```
 
 This prompts for which supported coding tools to configure and lets you choose
-local MCP, remote MCP through the CLI proxy, remote MCP with editor OAuth,
-or no MCP configuration. It starts the Railway login flow when needed.
+Local MCP, Remote MCP through the CLI proxy, Remote MCP with OAuth, or no
+MCP configuration. It starts the Railway login flow when needed.
 
 ### Non-interactive setup
 
@@ -57,27 +57,28 @@ railway setup agent -y
 
 This configures detected coding tools with default settings and skips the interactive login flow. If you are not already authenticated, run `railway login` after setup.
 
-### Use the remote server through the CLI proxy
+### Use Remote MCP through the CLI proxy
 
-Pass `--remote` to use Railway's remote server with your CLI login.
+Pass `--remote` to connect to Remote MCP through the CLI proxy and reuse your
+Railway CLI credentials.
 
 ```bash
 railway setup agent --remote
 ```
 
-This configures supported editors to run `railway mcp proxy`. The proxy
-connects to Railway's remote MCP server using your CLI login.
+This configures supported editors to run `railway mcp proxy`. The proxy reuses
+your `railway login` credentials when it connects to Remote MCP.
 
-### Use the remote server with editor OAuth
+### Use Remote MCP with OAuth
 
-Add `--oauth` when the editor must manage the remote server's authentication.
+Add `--oauth` when the MCP client must connect directly and manage OAuth.
 
 ```bash
 railway setup agent --remote --oauth
 ```
 
 This writes `https://mcp.railway.com` directly into supported editor
-configurations. The editor manages the OAuth flow.
+configurations. The MCP client manages the OAuth flow.
 
 ## What it configures
 
