@@ -103,12 +103,12 @@ export function AgentInstallCommand({ className }: AgentInstallCommandProps) {
           onCheckedChange={next => setMcp(next ? "local" : null)}
         />
         <OptionToggle
-          label="CLI proxy"
+          label="Remote (CLI)"
           checked={mcp === "proxy"}
           onCheckedChange={next => setMcp(next ? "proxy" : null)}
         />
         <OptionToggle
-          label="Editor OAuth"
+          label="Remote (OAuth)"
           checked={mcp === "oauth"}
           onCheckedChange={next => setMcp(next ? "oauth" : null)}
         />

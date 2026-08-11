@@ -192,7 +192,7 @@ When you authenticate through `railway login` instead, the CLI uses the project 
 
 ## AI agents and MCP
 
-Hosted MCP (`https://mcp.railway.com`) exposes feature flag tools:
+Remote MCP (`https://mcp.railway.com`) exposes feature flag tools:
 
 | Tool | Role | Description |
 |---|---|---|

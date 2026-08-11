@@ -473,8 +473,8 @@ function QuickInstall({
         {mode === "local"
           ? "Runs the Railway MCP server locally through the Railway CLI."
           : mode === "proxy"
-            ? "Connects to mcp.railway.com through the proxy and your Railway CLI login."
-            : "Connects directly to mcp.railway.com with editor-managed OAuth."}
+            ? "Connects to remote MCP through the CLI proxy and your Railway CLI login."
+            : "Connects directly to remote MCP with editor-managed OAuth."}
       </p>
     </div>
   );
@@ -501,12 +501,12 @@ function ModeToggle({
       <ToggleOption
         active={mode === "proxy"}
         onClick={() => onModeChange("proxy")}
-        label="CLI proxy"
+        label="Remote (CLI)"
       />
       <ToggleOption
         active={mode === "oauth"}
         onClick={() => onModeChange("oauth")}
-        label="Editor OAuth"
+        label="Remote (OAuth)"
       />
     </div>
   );
@@ -616,12 +616,18 @@ function UnsupportedNotice({
     supportedMode === "local"
       ? "Local"
       : supportedMode === "proxy"
-        ? "CLI proxy"
-        : "Editor OAuth";
+        ? "Remote (CLI)"
+        : "Remote (OAuth)";
+  const supportedDescription =
+    supportedMode === "local"
+      ? "local MCP"
+      : supportedMode === "proxy"
+        ? "remote MCP through the CLI proxy"
+        : "remote MCP with editor OAuth";
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-md border border-dashed border-muted bg-muted-element/20 px-4 py-3 text-sm text-muted-base">
       <span>
-        {editorName} only supports <strong>{supportedLabel}</strong> MCP.
+        {editorName} only supports <strong>{supportedDescription}</strong>.
       </span>
       <button
         type="button"
