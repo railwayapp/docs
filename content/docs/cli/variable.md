@@ -57,6 +57,17 @@ railway variable set API_KEY=secret123
 railway variable set API_KEY=secret123 DEBUG=true
 ```
 
+### Set an empty value
+
+Use an empty assignment to set a variable to the empty string:
+
+```bash
+railway variable set OPTIONAL_TOKEN=
+```
+
+This keeps `OPTIONAL_TOKEN` defined. Use `railway variable delete` when you
+want to remove the variable instead.
+
 ### Set variable from stdin
 
 ```bash
@@ -87,6 +98,9 @@ railway variable delete API_KEY
 | `--stdin` | Read value from stdin (use with single KEY) |
 | `--skip-deploys` | Skip triggering deploys |
 | `--json` | Output in JSON format |
+
+Successful non-interactive `set` commands print the keys that were updated,
+even when a terminal spinner isn't available.
 
 ## Options for `delete`
 

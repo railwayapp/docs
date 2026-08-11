@@ -90,6 +90,22 @@ const worker = service("worker", {
 });
 ```
 
+Configure automatic image updates with `autoUpdates`:
+
+```ts
+const worker = service("worker", {
+  source: image("ghcr.io/acme/worker:1.2.3", {
+    autoUpdates: { type: "patch" },
+  }),
+});
+```
+
+The `type` value can be `disabled`, `patch`, or `minor`. Automatic updates are
+supported only for Docker Hub and GitHub Container Registry (GHCR) image
+sources. They aren't supported for GitHub repository sources or images from
+other registries. `railway config pull` omits stale update policies from those
+unsupported sources.
+
 Omit `source` when `.railway/railway.ts` should manage service settings but not declare a GitHub repository or Docker image:
 
 ```ts

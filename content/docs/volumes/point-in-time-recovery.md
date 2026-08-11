@@ -58,6 +58,25 @@ For single-node Postgres, Railway stages a patch that removes the `WAL_ARCHIVE_*
 
 For Postgres HA clusters, disabling rolls through the cluster the same way enabling does — replicas restart one at a time, followed by a switchover — with about 5 seconds of unavailability during the failover. The archive bucket is kept so your backup history stays restorable; delete it yourself once you no longer need it.
 
+## Manage PITR from the CLI
+
+Use `railway postgres pitr` to inspect archiver health, enable or disable PITR,
+restore to a timestamp, and manage volume backups and schedules:
+
+```bash
+railway postgres pitr status --service postgres
+railway postgres pitr enable --service postgres
+railway postgres pitr restore \
+  --service postgres \
+  --at 2026-07-20T12:00:00Z
+railway postgres pitr backup create \
+  --service postgres \
+  --name pre-migration
+```
+
+See the [`railway postgres` reference](/cli/postgres) for every PITR command,
+restore format, and backup option.
+
 ## Cost
 
 PITR is billed through two existing meters — there's no separate PITR fee:

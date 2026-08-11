@@ -79,3 +79,21 @@ Removing PgBouncer will:
 - Remove the `DATABASE_UNPOOLED_URL` variable
 
 Railway automatically migrates variable references within your project back to the original endpoint. Hardcoded connection strings outside of Railway must be updated manually.
+
+## Manage PgBouncer from the CLI
+
+Use `railway postgres pgbouncer` to inspect, add, configure, scale, or remove
+PgBouncer:
+
+```bash
+railway postgres pgbouncer status --service postgres
+railway postgres pgbouncer add \
+  --service postgres \
+  --pool-mode transaction
+railway postgres pgbouncer configure \
+  --service postgres \
+  --default-pool-size 30
+```
+
+See the [`railway postgres` reference](/cli/postgres) for every PgBouncer
+command and option.

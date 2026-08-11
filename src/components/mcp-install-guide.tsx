@@ -4,7 +4,7 @@ import { CodeBlock } from "./code-block";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { cn } from "@/lib/cn";
 
-type Mode = "local" | "remote";
+type Mode = "local" | "proxy" | "oauth";
 
 interface EditorConfig {
   mode: Mode;
@@ -22,13 +22,13 @@ interface EditorSection {
   id: string;
   name: string;
   // If the editor only supports one mode, list the supported modes here.
-  // Omit to mean "supports both".
+  // Omit to mean "supports every mode".
   supports?: Mode[];
   // Per-mode configurations. Each supported mode must have an entry.
   configs: Partial<Record<Mode, EditorConfig>>;
 }
 
-const CURSOR_DEEPLINK_REMOTE =
+const CURSOR_DEEPLINK_OAUTH =
   "https://cursor.com/en/install-mcp?name=railway&config=eyJ1cmwiOiJodHRwczovL21jcC5yYWlsd2F5LmNvbSJ9";
 
 const EDITORS: EditorSection[] = [
@@ -51,8 +51,23 @@ const EDITORS: EditorSection[] = [
   }
 }`,
       },
-      remote: {
-        mode: "remote",
+      proxy: {
+        mode: "proxy",
+        description:
+          "Run `railway mcp install --agent cursor --remote`, or add the following to `.cursor/mcp.json`:",
+        filename: ".cursor/mcp.json",
+        lang: "json",
+        code: `{
+  "mcpServers": {
+    "railway": {
+      "command": "railway",
+      "args": ["mcp", "proxy"]
+    }
+  }
+}`,
+      },
+      oauth: {
+        mode: "oauth",
         description:
           "Use the one-click installer, or add the following to `.cursor/mcp.json`:",
         filename: ".cursor/mcp.json",
@@ -65,7 +80,7 @@ const EDITORS: EditorSection[] = [
   }
 }`,
         button: {
-          href: CURSOR_DEEPLINK_REMOTE,
+          href: CURSOR_DEEPLINK_OAUTH,
           label: "Add to Cursor",
         },
       },
@@ -90,8 +105,24 @@ const EDITORS: EditorSection[] = [
   }
 }`,
       },
-      remote: {
-        mode: "remote",
+      proxy: {
+        mode: "proxy",
+        description:
+          "Add the following to `.vscode/mcp.json` and authenticate with `railway login`:",
+        filename: ".vscode/mcp.json",
+        lang: "json",
+        code: `{
+  "servers": {
+    "railway": {
+      "type": "stdio",
+      "command": "railway",
+      "args": ["mcp", "proxy"]
+    }
+  }
+}`,
+      },
+      oauth: {
+        mode: "oauth",
         description: "Add the following to `.vscode/mcp.json`:",
         filename: ".vscode/mcp.json",
         lang: "json",
@@ -116,9 +147,17 @@ const EDITORS: EditorSection[] = [
         lang: "bash",
         code: "claude mcp add railway railway mcp",
       },
-      remote: {
-        mode: "remote",
-        description: "Run the following — the first tool call prompts you to authenticate:",
+      proxy: {
+        mode: "proxy",
+        description:
+          "Run `railway mcp install --agent claude-code --remote`, or:",
+        lang: "bash",
+        code: "claude mcp add railway -- railway mcp proxy",
+      },
+      oauth: {
+        mode: "oauth",
+        description:
+          "Run the following. The first tool call prompts you to authenticate:",
         lang: "bash",
         code: "claude mcp add railway --transport http https://mcp.railway.com",
       },
@@ -135,8 +174,15 @@ const EDITORS: EditorSection[] = [
         lang: "bash",
         code: "codex mcp add railway -- railway mcp",
       },
-      remote: {
-        mode: "remote",
+      proxy: {
+        mode: "proxy",
+        description:
+          "Run `railway mcp install --agent codex --remote`, or use the OpenAI Codex CLI:",
+        lang: "bash",
+        code: "codex mcp add railway -- railway mcp proxy",
+      },
+      oauth: {
+        mode: "oauth",
         description: "Add the following to your Codex config:",
         lang: "toml",
         code: `[mcp_servers.railway]
@@ -165,10 +211,27 @@ url = "https://mcp.railway.com"`,
   }
 }`,
       },
-      remote: {
-        mode: "remote",
+      proxy: {
+        mode: "proxy",
         description:
           "Run `railway mcp install --agent copilot --remote`, or add the following to `~/.copilot/mcp-config.json`:",
+        filename: "~/.copilot/mcp-config.json",
+        lang: "json",
+        code: `{
+  "mcpServers": {
+    "railway": {
+      "type": "local",
+      "command": "railway",
+      "args": ["mcp", "proxy"],
+      "tools": ["*"]
+    }
+  }
+}`,
+      },
+      oauth: {
+        mode: "oauth",
+        description:
+          "Run `railway mcp install --agent copilot --remote --oauth`, or add the following to `~/.copilot/mcp-config.json`:",
         filename: "~/.copilot/mcp-config.json",
         lang: "json",
         code: `{
@@ -194,8 +257,15 @@ url = "https://mcp.railway.com"`,
         lang: "bash",
         code: 'droid mcp add railway "railway mcp"',
       },
-      remote: {
-        mode: "remote",
+      proxy: {
+        mode: "proxy",
+        description:
+          "Run `railway mcp install --agent factory-droid --remote`, or install in Factory:",
+        lang: "bash",
+        code: 'droid mcp add railway "railway mcp proxy"',
+      },
+      oauth: {
+        mode: "oauth",
         description: "Install in Factory with the remote URL:",
         lang: "bash",
         code: "droid mcp add railway https://mcp.railway.com",
@@ -221,8 +291,23 @@ url = "https://mcp.railway.com"`,
   }
 }`,
       },
-      remote: {
-        mode: "remote",
+      proxy: {
+        mode: "proxy",
+        description:
+          "Run `railway mcp install --agent opencode --remote`, or add the following to `opencode.json`:",
+        filename: "opencode.json",
+        lang: "json",
+        code: `{
+  "mcp": {
+    "railway": {
+      "type": "local",
+      "command": ["railway", "mcp", "proxy"]
+    }
+  }
+}`,
+      },
+      oauth: {
+        mode: "oauth",
         description: "Add the following to `opencode.json`:",
         filename: "opencode.json",
         lang: "json",
@@ -240,10 +325,10 @@ url = "https://mcp.railway.com"`,
   {
     id: "windsurf",
     name: "Windsurf",
-    supports: ["remote"],
+    supports: ["oauth"],
     configs: {
-      remote: {
-        mode: "remote",
+      oauth: {
+        mode: "oauth",
         description:
           "Add the following to `~/.codeium/windsurf/mcp_config.json` and reload Windsurf:",
         filename: "~/.codeium/windsurf/mcp_config.json",
@@ -261,10 +346,10 @@ url = "https://mcp.railway.com"`,
   {
     id: "cline",
     name: "Cline",
-    supports: ["remote"],
+    supports: ["oauth"],
     configs: {
-      remote: {
-        mode: "remote",
+      oauth: {
+        mode: "oauth",
         description:
           "Open the Cline extension in VS Code, choose **MCP Servers → Configure MCP Servers**, and add:",
         lang: "json",
@@ -282,10 +367,10 @@ url = "https://mcp.railway.com"`,
   {
     id: "devin",
     name: "Devin",
-    supports: ["remote"],
+    supports: ["oauth"],
     configs: {
-      remote: {
-        mode: "remote",
+      oauth: {
+        mode: "oauth",
         description:
           "Devin configures remote MCP servers through its web UI. In your Devin workspace, go to **Settings → Integrations → MCP** and add a new server with the URL:",
         lang: "text",
@@ -323,7 +408,11 @@ function QuickInstall({
   onModeChange: (next: Mode) => void;
 }) {
   const command =
-    mode === "local" ? "railway mcp install" : "railway mcp install --remote";
+    mode === "local"
+      ? "railway mcp install"
+      : mode === "proxy"
+        ? "railway mcp install --remote"
+        : "railway mcp install --remote --oauth";
 
   const { copied, copy: copyRaw } = useCopyToClipboard();
   const [shimmerKey, setShimmerKey] = React.useState(0);
@@ -382,8 +471,10 @@ function QuickInstall({
       </div>
       <p className="border-t border-muted bg-muted-element/30 px-4 py-2 text-xs text-muted-base">
         {mode === "local"
-          ? "Configures detected tools to run the Railway MCP server through the local Railway CLI."
-          : "Configures detected tools to use Railway's hosted MCP server at mcp.railway.com via OAuth."}
+          ? "Runs the Railway MCP server locally through the Railway CLI."
+          : mode === "proxy"
+            ? "Connects to mcp.railway.com through the proxy and your Railway CLI login."
+            : "Connects directly to mcp.railway.com with editor-managed OAuth."}
       </p>
     </div>
   );
@@ -408,9 +499,14 @@ function ModeToggle({
         label="Local"
       />
       <ToggleOption
-        active={mode === "remote"}
-        onClick={() => onModeChange("remote")}
-        label="Remote"
+        active={mode === "proxy"}
+        onClick={() => onModeChange("proxy")}
+        label="CLI proxy"
+      />
+      <ToggleOption
+        active={mode === "oauth"}
+        onClick={() => onModeChange("oauth")}
+        label="Editor OAuth"
       />
     </div>
   );
@@ -452,7 +548,7 @@ function EditorBlock({
   mode: Mode;
   onSwitchMode: (next: Mode) => void;
 }) {
-  const supports = editor.supports ?? ["local", "remote"];
+  const supports = editor.supports ?? ["local", "proxy", "oauth"];
   const config = editor.configs[mode];
 
   return (
@@ -479,7 +575,9 @@ function EditorConfigView({ config }: { config: EditorConfig }) {
       {config.description ? (
         <p
           className="text-sm text-muted-base"
-          dangerouslySetInnerHTML={{ __html: renderInlineMarkup(config.description) }}
+          dangerouslySetInnerHTML={{
+            __html: renderInlineMarkup(config.description),
+          }}
         />
       ) : null}
       {config.button ? (
@@ -514,7 +612,12 @@ function UnsupportedNotice({
   supportedMode: Mode;
   onSwitchMode: (next: Mode) => void;
 }) {
-  const supportedLabel = supportedMode === "local" ? "Local" : "Remote";
+  const supportedLabel =
+    supportedMode === "local"
+      ? "Local"
+      : supportedMode === "proxy"
+        ? "CLI proxy"
+        : "Editor OAuth";
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-md border border-dashed border-muted bg-muted-element/20 px-4 py-3 text-sm text-muted-base">
       <span>

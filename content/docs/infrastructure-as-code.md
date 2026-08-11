@@ -43,6 +43,12 @@ railway link
 
 If the current directory is not linked, `railway config plan`, `railway config apply`, and `railway config pull` prompt you to choose the Railway project and environment to use.
 
+For `plan` and `apply`, the CLI finds the nearest `.railway/railway.ts` by
+checking the current directory and then walking up through parent directories.
+This lets you run either command from the project root, the `.railway`
+directory, or a nested monorepo directory. Pass `--file` to use a different
+configuration file.
+
 ## Commands
 
 | Command | Description |
@@ -279,6 +285,7 @@ Infrastructure as Code is experimental. Current limitations include:
 ## Related pages
 
 - [Infrastructure as Code reference](/infrastructure-as-code/reference)
+- [railway config](/cli/config)
 - [Config as Code](/config-as-code)
 - [Config as Code reference](/config-as-code/reference)
 - [CLI](/cli)
