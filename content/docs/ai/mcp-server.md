@@ -3,7 +3,7 @@ title: Railway MCP Server
 description: Connect AI coding agents to Railway through a local server, the CLI-authenticated proxy, or hosted OAuth.
 ---
 
-The <a href="https://github.com/railwayapp/railway-mcp-server" target="_blank">Railway MCP Server</a> implements the <a href="https://modelcontextprotocol.org" target="_blank">Model Context Protocol (MCP)</a> and enables natural language interaction with your Railway projects and infrastructure. Ask your IDE or AI assistant to create projects, deploy templates, manage environments, pull variables, redeploy services, and more.
+The Railway MCP Server implements the <a href="https://modelcontextprotocol.org" target="_blank">Model Context Protocol (MCP)</a> and enables natural language interaction with your Railway projects and infrastructure. Ask your IDE or AI assistant to create projects, deploy templates, manage environments, pull variables, redeploy services, and more.
 
 Railway offers three ways to connect:
 
