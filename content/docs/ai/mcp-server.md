@@ -3,7 +3,7 @@ title: Railway MCP Server
 description: Connect AI coding agents to Railway through Local MCP or Remote MCP.
 ---
 
-The Railway MCP Server implements the <a href="https://modelcontextprotocol.org" target="_blank">Model Context Protocol (MCP)</a> and enables natural language interaction with your Railway projects and infrastructure. Ask your IDE or AI assistant to create projects, deploy templates, manage environments, pull variables, redeploy services, and more.
+The Railway MCP Server implements the <a href="https://modelcontextprotocol.org" target="_blank">Model Context Protocol (MCP)</a>. It lets AI assistants create projects, deploy templates, manage environments, pull variables, and redeploy services.
 
 Railway offers two MCP servers:
 
@@ -13,7 +13,7 @@ Railway offers two MCP servers:
 ## Quick start
 
 Install the Railway CLI and configure agent skills, MCP, and authentication in
-one command. Toggle the options to tailor the command to what you want set up:
+one command. Select the options to generate the setup command:
 
 <AgentInstallCommand />
 
@@ -102,11 +102,11 @@ Use prompts that describe the Railway outcome you want the agent to produce.
 
 ## Available MCP tools
 
-The Railway MCP Server provides a curated set of tools. Your AI assistant calls these automatically based on the context of your request.
+The Railway MCP Server exposes the following tools. Your AI assistant selects tools based on your request.
 
 ### Local MCP
 
-The local server runs through the Railway CLI and exposes a broader set of CRUD tools:
+Local MCP runs through the Railway CLI and exposes these tools:
 
 * **Status**
   * `check-railway-status`: verify CLI installation and authentication
@@ -125,8 +125,8 @@ The local server runs through the Railway CLI and exposes a broader set of CRUD 
 
 ### Remote MCP
 
-The remote server exposes a focused set of tools plus a powerful agent entry
-point. For multi-step work, delegate to `railway-agent`.
+Remote MCP exposes the following tools. Use `railway-agent` for multi-step
+operations.
 
 * **Account**
   * `whoami`

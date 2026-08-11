@@ -15,7 +15,7 @@ railway setup agent [OPTIONS]
 
 ## Subcommands
 
-The setup command provides one agent-focused workflow.
+The setup command includes the `agent` subcommand.
 
 | Subcommand | Description |
 |------------|-------------|
