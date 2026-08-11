@@ -84,7 +84,12 @@ configurations. The MCP client manages the OAuth flow.
 
 `railway setup agent` installs the `use-railway` skill for supported coding tools, configures the Railway MCP server where supported, and checks your Railway authentication.
 
-Skills are installed for Claude Code, Cursor, OpenAI Codex, OpenCode, and the universal `.agents` skills directory. MCP is additionally configured for Factory Droid and GitHub Copilot. See [`railway skills`](/cli/skills) and [`railway mcp`](/cli/mcp) for the per-command target lists.
+The command can install skills for Claude Code, Cursor, OpenAI Codex, OpenCode,
+Factory Droid, GitHub Copilot, and the universal `.agents` skills directory. It
+configures MCP for each selected named coding tool. The universal directory
+doesn't have an MCP configuration convention. See
+[`railway skills`](/cli/skills) and [`railway mcp`](/cli/mcp) for the
+per-command target lists.
 
 The setup is idempotent. Re-running it updates Railway-owned skill directories and merges Railway MCP entries into existing tool configs without removing other MCP servers.
 

@@ -3,7 +3,9 @@ title: railway skills
 description: Install or remove Railway agent skills for AI coding tools.
 ---
 
-Install or remove the Railway [agent skills](/ai/agent-skills) for AI coding tools such as Claude Code, Cursor, OpenAI Codex, and OpenCode.
+Install or remove the Railway [agent skills](/ai/agent-skills) for AI coding
+tools such as Claude Code, Cursor, OpenAI Codex, OpenCode, Factory Droid, and
+GitHub Copilot.
 
 Skills are always installed to `~/.agents/skills` (the universal `.agents` directory). They are also installed to any detected tool directories (for example `~/.claude/skills`, `~/.cursor/skills`). Use `--agent` to target specific tools instead of auto-detection.
 
@@ -37,6 +39,8 @@ Running `railway skills` with no subcommand is equivalent to `railway skills ins
 | Cursor | `cursor` | `~/.cursor/skills` |
 | OpenAI Codex | `codex` | `~/.codex/skills` |
 | OpenCode | `opencode` | `~/.config/opencode/skills` |
+| Factory Droid | `factory-droid` | `~/.factory/skills` |
+| GitHub Copilot | `copilot` | `~/.copilot/skills` |
 
 When run without `--agent`, the universal `.agents` directory is always included, and other tools are added when their config directory exists on disk.
 

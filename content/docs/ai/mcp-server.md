@@ -108,20 +108,25 @@ The Railway MCP Server exposes the following tools. Your AI assistant selects to
 
 Local MCP runs through the Railway CLI and exposes these tools:
 
-* **Status**
-  * `check-railway-status`: verify CLI installation and authentication
-* **Projects & services**
-  * `list-projects`, `create-project-and-link`
-  * `list-services`, `link-service`
-  * `deploy`: deploy a service
-  * `deploy-template`: deploy from the <a href="https://railway.com/deploy" target="_blank">Railway Template Library</a>
-* **Environments**
-  * `create-environment`, `link-environment`
-* **Configuration**
-  * `list-variables`, `set-variables`
-  * `generate-domain`
-* **Observability**
-  * `get-logs`
+* **Account:** `whoami`
+* **Projects and services:** `list_workspaces`, `list_projects`,
+  `create_project`, `list_services`, `create_service`, `remove_service`,
+  `connect_service_source`, `disconnect_service_source`, `link_service`,
+  `get_service_config`, `update_service`, and `scale_service`
+* **Environments and deployments:** `create_environment`, `link_environment`,
+  `environment_status`, `list_deployments`, and `deploy`
+* **Variables:** `list_variables`, `set_variables`, and
+  `add_reference_variable`
+* **Domains:** `generate_domain`, `list_domains`, `domain_status`,
+  `update_domain`, `delete_domain`, and `retry_domain_certificate`
+* **Networking:** `list_tcp_proxies`, `get_tcp_proxy`, `create_tcp_proxy`,
+  `remove_tcp_proxy`, `private_network_status`, and `private_network_update`
+* **Templates:** `search_templates` and `deploy_template`
+* **Storage:** `create_bucket`, `remove_bucket`, `create_volume`,
+  `update_volume`, and `remove_volume`
+* **Observability:** `get_logs`, `service_metrics`, `http_requests`,
+  `http_error_rate`, and `http_response_time`
+* **Documentation:** `docs_search` and `docs_fetch`
 
 ### Remote MCP
 
@@ -143,9 +148,14 @@ operations.
 
 ## Security considerations
 
-The Railway MCP Server runs CLI commands or invokes Railway APIs on your behalf. Destructive operations are intentionally excluded from the local server's tool list, but you should still:
+The Railway MCP Server runs CLI commands or invokes Railway APIs on your
+behalf. Local MCP marks destructive tools with protocol-level hints and returns
+a preview before requiring `confirm: true`. You should still:
 
-* **Review actions** requested by the LLM before approving them, especially destructive ones (`redeploy`, `accept-deploy`, `railway-agent`).
+* **Review actions** requested by the LLM before approving them, especially
+  destructive ones (`remove_service`, `delete_domain`, `remove_tcp_proxy`,
+  `remove_bucket`, `remove_volume`, `redeploy`, `accept-deploy`, and
+  `railway-agent`).
 * **Restrict access** to ensure only trusted users can invoke the MCP server.
 * **Avoid production risks** by limiting usage to non-critical environments where possible.
 
