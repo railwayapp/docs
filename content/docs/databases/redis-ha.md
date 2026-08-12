@@ -34,7 +34,7 @@ As part of the conversion, Railway pins the data nodes to your service's exact `
 
 Open your Redis service and navigate to **Database → Config → High Availability**.
 
-<Image src="/images/redis-ha-config.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1786575275/feb83543-28dc-446d-a12e-ea8af16b7c9d.png"
 alt="High Availability section in the Redis Config tab, showing the Redis Replicas and Reverse Proxies selectors and the Convert to HA button"
 layout="intrinsic"
 width={685} height={513} quality={100} />
@@ -55,7 +55,7 @@ Click **Convert to HA**. A confirmation dialog will appear warning that:
 - **Active connections will be dropped** during the conversion
 - **Connection endpoints will change** — any hardcoded connection strings will need to be updated after conversion
 
-<Image src="/images/redis-ha-convert.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1786575307/d4194715-0fcb-4979-9db3-9bdef34b638f.png"
 alt="Convert to High Availability confirmation dialog for Redis"
 layout="intrinsic"
 width={642} height={398} quality={100} />
@@ -87,7 +87,7 @@ The only case that requires manual action is if you have hardcoded connection st
 
 After all deployments reach a running state, allow a minute or two for Sentinel to establish the primary and for the replicas to complete their initial sync. The cluster overview in the Railway dashboard shows each node's role — the current primary carries a **Primary** badge — along with per-node health.
 
-<Image src="/images/redis-ha-overview.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1786575304/567f4c1e-4061-430f-9f8e-b87f9c191f12.png"
 alt="Healthy Redis HA cluster overview showing the primary and replica nodes"
 layout="intrinsic"
 width={1012} height={777} quality={100} />

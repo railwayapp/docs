@@ -46,7 +46,7 @@ Open your Postgres service and navigate to **Database → Config → High Availa
 | **Coordinator Nodes** | 3 | etcd nodes. Must be an odd number for quorum — a 3-node cluster tolerates 1 failure; 5-node tolerates 2. Options: 3, 5, 7, or 9. |
 | **Reverse Proxy** | 3 | Number of HAProxy instances routing connections to the primary. Options: 2–5. Trial workspaces are limited to 2. |
 
-<Image src="/images/postgresql-ha-config.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1786572577/1a844484-3dac-4914-8600-db7c045da1dd.png"
 alt="High Availability section in the Postgres Config tab, showing the Replicas, Coordinator Nodes, and Reverse Proxy selectors and the Convert to HA button"
 layout="intrinsic"
 width={1020} height={638} quality={100} />
@@ -56,7 +56,7 @@ Click **Convert to HA**. A confirmation dialog will appear warning that:
 - **Active connections will be dropped** during the conversion
 - **Connection endpoints will change** — any hardcoded connection strings will need to be updated after conversion
 
-<Image src="/images/postgresql-ha-convert.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1786572627/f92637f5-6cd5-436f-9833-40824c1982b3.png"
 alt="Convert to High Availability confirmation dialog for Postgres"
 layout="intrinsic"
 width={916} height={542} quality={100} />
@@ -69,7 +69,7 @@ After confirming, Railway will:
 
 Review the staged changes and click **Deploy** to complete the conversion.
 
-<Image src="/images/postgresql-ha-staged.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1786575254/8f08dead-cd14-4984-855c-f61cbadda027.png"
 alt="Cluster overview showing the staged HA services with a Deploy to enable HA banner"
 layout="intrinsic"
 width={1576} height={859} quality={100} />
@@ -95,7 +95,7 @@ If you need connection pooling in front of the cluster, [PgBouncer](/databases/p
 
 After all deployments reach a running state, allow approximately 2 minutes for Patroni, etcd, and HAProxy to initialize and elect a leader. The cluster overview in the Railway dashboard shows each node's role — the current primary carries a **Primary** badge — along with per-node health.
 
-<Image src="/images/postgresql-ha-overview.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1786575207/e875e05f-9859-40b0-8031-3e14230bb93a.png"
 alt="Healthy Postgres HA cluster overview showing the primary and replica nodes"
 layout="intrinsic"
 width={1014} height={787} quality={100} />
@@ -116,7 +116,7 @@ Reverting will:
 - Restore the TCP Proxy directly on the original Postgres service, if the cluster was publicly exposed
 - Migrate variable references back to the root service
 
-<Image src="/images/postgresql-ha-revert.png"
+<Image src="https://res.cloudinary.com/railway/image/upload/v1786575238/7a71e44f-9f2e-4775-9f48-293326c3dee0.png"
 alt="Revert to Standalone confirmation dialog for a Postgres HA cluster"
 layout="intrinsic"
 width={916} height={542} quality={100} />
