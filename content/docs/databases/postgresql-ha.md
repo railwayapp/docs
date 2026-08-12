@@ -98,7 +98,7 @@ After all deployments reach a running state, allow approximately 2 minutes for P
 <Image src="/images/postgresql-ha-overview.png"
 alt="Healthy Postgres HA cluster overview showing the primary and replica nodes"
 layout="intrinsic"
-width={1314} height={795} quality={100} />
+width={1014} height={787} quality={100} />
 
 ## Failover
 
