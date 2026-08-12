@@ -34,6 +34,11 @@ As part of the conversion, Railway pins the data nodes to your service's exact `
 
 Open your Redis service and navigate to **Database → Config → High Availability**.
 
+<Image src="/images/redis-ha-config.png"
+alt="High Availability section in the Redis Config tab, showing the Redis Replicas and Reverse Proxies selectors and the Convert to HA button"
+layout="intrinsic"
+width={621} height={449} quality={100} />
+
 ## Step 2 — Configure and Convert
 
 You will see options to configure the cluster size before converting:
@@ -50,13 +55,18 @@ Click **Convert to HA**. A confirmation dialog will appear warning that:
 - **Active connections will be dropped** during the conversion
 - **Connection endpoints will change** — any hardcoded connection strings will need to be updated after conversion
 
+<Image src="/images/redis-ha-convert.png"
+alt="Convert to High Availability confirmation dialog for Redis"
+layout="intrinsic"
+width={1512} height={795} quality={100} />
+
 After confirming, Railway will:
 
 1. Create a backup of your database volume (expires in 21 days)
 2. Provision all cluster services (replicas and HAProxy) as staged changes
 3. Redirect you to the cluster overview
 
-Review the staged changes and deploy to complete the conversion.
+Review the staged changes and click **Deploy** to complete the conversion.
 
 ## Step 3 — Connection Strings
 
@@ -76,6 +86,11 @@ The only case that requires manual action is if you have hardcoded connection st
 ## Step 4 — Verify Cluster Health
 
 After all deployments reach a running state, allow a minute or two for Sentinel to establish the primary and for the replicas to complete their initial sync. The cluster overview in the Railway dashboard shows each node's role — the current primary carries a **Primary** badge — along with per-node health.
+
+<Image src="/images/redis-ha-overview.png"
+alt="Healthy Redis HA cluster overview showing the primary and replica nodes"
+layout="intrinsic"
+width={960} height={771} quality={100} />
 
 ## Failover
 

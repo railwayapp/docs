@@ -46,10 +46,20 @@ Open your Postgres service and navigate to **Database → Config → High Availa
 | **Coordinator Nodes** | 3 | etcd nodes. Must be an odd number for quorum — a 3-node cluster tolerates 1 failure; 5-node tolerates 2. Options: 3, 5, 7, or 9. |
 | **Reverse Proxy** | 3 | Number of HAProxy instances routing connections to the primary. Options: 2–5. Trial workspaces are limited to 2. |
 
+<Image src="/images/postgresql-ha-config.png"
+alt="High Availability section in the Postgres Config tab, showing the Replicas, Coordinator Nodes, and Reverse Proxy selectors and the Convert to HA button"
+layout="intrinsic"
+width={1384} height={541} quality={100} />
+
 Click **Convert to HA**. A confirmation dialog will appear warning that:
 
 - **Active connections will be dropped** during the conversion
 - **Connection endpoints will change** — any hardcoded connection strings will need to be updated after conversion
+
+<Image src="/images/postgresql-ha-convert.png"
+alt="Convert to High Availability confirmation dialog for Postgres"
+layout="intrinsic"
+width={1400} height={866} quality={100} />
 
 After confirming, Railway will:
 
@@ -57,7 +67,12 @@ After confirming, Railway will:
 2. Provision all cluster services (replicas, etcd nodes, HAProxy) as staged changes
 3. Redirect you to the cluster overview
 
-Review the staged changes and deploy to complete the conversion.
+Review the staged changes and click **Deploy** to complete the conversion.
+
+<Image src="/images/postgresql-ha-staged.png"
+alt="Cluster overview showing the staged HA services with a Deploy to enable HA banner"
+layout="intrinsic"
+width={1376} height={831} quality={100} />
 
 ## Step 3 — Connection Strings
 
@@ -80,6 +95,11 @@ If you need connection pooling in front of the cluster, [PgBouncer](/databases/p
 
 After all deployments reach a running state, allow approximately 2 minutes for Patroni, etcd, and HAProxy to initialize and elect a leader. The cluster overview in the Railway dashboard shows each node's role — the current primary carries a **Primary** badge — along with per-node health.
 
+<Image src="/images/postgresql-ha-overview.png"
+alt="Healthy Postgres HA cluster overview showing the primary and replica nodes"
+layout="intrinsic"
+width={1376} height={831} quality={100} />
+
 ## Failover
 
 Failover is automatic. When the primary becomes unreachable, Patroni holds a leader election through etcd, promotes a replica, and HAProxy reroutes connections to it. In-flight connections to the old primary are dropped; clients that reconnect resume against the new primary without any configuration change, because they connect through HAProxy.
@@ -95,6 +115,11 @@ Reverting will:
 - Delete all HA services (replicas, etcd nodes, HAProxy)
 - Restore the TCP Proxy directly on the original Postgres service, if the cluster was publicly exposed
 - Migrate variable references back to the root service
+
+<Image src="/images/postgresql-ha-revert.png"
+alt="Revert to Standalone confirmation dialog for a Postgres HA cluster"
+layout="intrinsic"
+width={1400} height={866} quality={100} />
 
 **Reverting is only available while the original Postgres service is the cluster leader.** Reverting keeps that service and deletes every other node — if the leader role has moved after a failover, reverting would delete the node holding the latest data. If the original service is not the leader, use **Make Leader** to promote it first; the revert flow offers this when it applies.
 
