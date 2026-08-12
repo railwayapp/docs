@@ -49,7 +49,7 @@ Open your Postgres service and navigate to **Database → Config → High Availa
 <Image src="/images/postgresql-ha-config.png"
 alt="High Availability section in the Postgres Config tab, showing the Replicas, Coordinator Nodes, and Reverse Proxy selectors and the Convert to HA button"
 layout="intrinsic"
-width={1384} height={541} quality={100} />
+width={956} height={574} quality={100} />
 
 Click **Convert to HA**. A confirmation dialog will appear warning that:
 
@@ -72,7 +72,7 @@ Review the staged changes and click **Deploy** to complete the conversion.
 <Image src="/images/postgresql-ha-staged.png"
 alt="Cluster overview showing the staged HA services with a Deploy to enable HA banner"
 layout="intrinsic"
-width={1376} height={831} quality={100} />
+width={1512} height={795} quality={100} />
 
 ## Step 3 — Connection Strings
 
