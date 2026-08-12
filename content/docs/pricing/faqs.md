@@ -125,6 +125,12 @@ Create a Pro plan on Railway and add the client to the workspace. If you run int
 
 You may receive an invoice containing charges for Resource Usage after you cancel your subscription. These are resource usages you have consumed in that billing cycle that we reserve the right to charge you for.
 
+### Why was I charged after deleting my account?
+
+Railway bills Resource Usage in arrears, so deleting your account cancels your subscription immediately and issues a final invoice for the usage accrued since your last billing date. It is charged to the payment method on file at the time of deletion, rather than on your usual billing date.
+
+This final invoice covers the portion of the cycle you used, and the plan fee for the current period is not prorated. Invoices for a deleted account are not refundable.
+
 ### How do I request a refund?
 
 Please refer to [Pricing -> Refunds](/pricing/refunds).

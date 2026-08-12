@@ -28,6 +28,12 @@ After a successful confirmation, Railway deletes all account information, projec
 
 We aim to be compliant with EU GDPR’s data removal provisions.
 
+#### Billing on a deleted account
+
+Railway bills resource usage in arrears, so there is usually a balance outstanding when an account is deleted. Deleting an account cancels its subscription immediately and issues a final invoice for the usage accrued since your last billing date, charged to the payment method on file rather than on your usual billing date.
+
+This final invoice covers the portion of the cycle you used, and the plan fee for the current period is not prorated. Invoices for a deleted account are not refundable. See [Pricing -> Refunds](/pricing/refunds).
+
 ## Account security
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1631917786/docs/sessions_qo0lhw.png"
