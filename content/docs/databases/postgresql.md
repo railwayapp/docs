@@ -46,6 +46,10 @@ Since the deployed container is based on an image built from the official [Postg
 
 We also encourage you to fork the [Railway postgres-ssl repository](https://github.com/railwayapp-templates/postgres-ssl) to customize it to your needs, or feel free to open a PR in the repo!
 
+## High availability
+
+An existing PostgreSQL service can be converted into a high-availability cluster with automatic failover, backed by Patroni, etcd, and HAProxy. See [Upgrading PostgreSQL to High Availability](/databases/postgresql-ha) for the full guide.
+
 ## Backups and observability
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:

@@ -403,9 +403,11 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Build a database service", "databases"),
           makePage("PostgreSQL", "databases"),
+          makePage("PostgreSQL High Availability", "databases", "/databases/postgresql-ha"),
           makePage("PostgreSQL Connection Pooling", "databases", "/databases/postgresql-pgbouncer"),
           makePage("MySQL", "databases"),
           makePage("Redis", "databases"),
+          makePage("Redis High Availability", "databases", "/databases/redis-ha"),
           makePage("MongoDB", "databases"),
           makePage("Database view", "databases"),
           makePage("Reference", "databases"),
