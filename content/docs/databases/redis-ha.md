@@ -37,7 +37,7 @@ Open your Redis service and navigate to **Database → Config → High Availabil
 <Image src="/images/redis-ha-config.png"
 alt="High Availability section in the Redis Config tab, showing the Redis Replicas and Reverse Proxies selectors and the Convert to HA button"
 layout="intrinsic"
-width={621} height={449} quality={100} />
+width={685} height={513} quality={100} />
 
 ## Step 2 — Configure and Convert
 
@@ -58,7 +58,7 @@ Click **Convert to HA**. A confirmation dialog will appear warning that:
 <Image src="/images/redis-ha-convert.png"
 alt="Convert to High Availability confirmation dialog for Redis"
 layout="intrinsic"
-width={1512} height={795} quality={100} />
+width={642} height={398} quality={100} />
 
 After confirming, Railway will:
 
@@ -90,7 +90,7 @@ After all deployments reach a running state, allow a minute or two for Sentinel 
 <Image src="/images/redis-ha-overview.png"
 alt="Healthy Redis HA cluster overview showing the primary and replica nodes"
 layout="intrinsic"
-width={960} height={771} quality={100} />
+width={1012} height={777} quality={100} />
 
 ## Failover
 
