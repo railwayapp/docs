@@ -36,3 +36,7 @@ Refunds are issued at Railway's sole discretion. If your refund request was deni
 - You have received a refund from Railway in the past
 
 - You have violated Railway's [Fair Use Policy](https://railway.com/legal/fair-use) and/or [Terms of Service](https://railway.com/legal/terms)
+
+### Can I get a refund for an invoice on an account I deleted?
+
+Deleting an account cancels its subscription immediately and issues a final invoice for the resource usage accrued up to that point, charged to the payment method on file. That invoice covers the portion of the cycle you used, and invoices for a deleted account are not refundable.
