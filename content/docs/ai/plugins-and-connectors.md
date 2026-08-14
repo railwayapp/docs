@@ -16,6 +16,8 @@ Each integration has a dedicated setup guide:
 - [Grok Build plugin](/ai/grok-build-plugin) for using Railway from xAI's coding agent.
 - [Cursor plugin](/ai/cursor-plugin) for using Railway from Cursor.
 
+**Note:** These integrations give an outside assistant access to Railway. For the reverse, giving Railway's own agent access to tools like Notion, Linear, or Sentry, see [Agent Connectors](/ai/agent-connectors).
+
 ## View the source
 
 The Railway plugins, skill, hooks, and marketplace manifests are open-source in the <a href="https://github.com/railwayapp/railway-skills" target="_blank">Railway skills repository</a>.

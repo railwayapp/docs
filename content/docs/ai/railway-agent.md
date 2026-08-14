@@ -14,6 +14,10 @@ The agent has access to the same primitives you do, so it can act across your en
 - Walk through a failing deployment, read build and runtime logs, and explain what went wrong.
 - Identify the cause of a failed deployment and open a pull request against your repository with a proposed fix.
 
+## Reach beyond Railway
+
+[Agent Connectors](/ai/agent-connectors) extend the agent past your Railway resources. Connect Notion, Linear, Sentry, or your own MCP server, and the agent can read from them while it works on your projects.
+
 ## Automatic deployment diagnosis
 
 When a deployment fails, the agent can automatically investigate. It reads the build and runtime logs, correlates them with your service configuration and recent code changes, and produces a short explanation of the failure.

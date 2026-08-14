@@ -108,6 +108,7 @@ export const sidebarContent: ISidebarContent = [
     slug: "/ai",
     content: [
       makePage("Railway Agent", "ai"),
+      makePage("Agent Connectors", "ai"),
       makePage("Cloud agents", undefined, "/cloud-agents"),
       {
         subTitle: makePage("Agent integrations", undefined, "/ai/agent-integrations"),
