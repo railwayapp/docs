@@ -66,7 +66,7 @@ Open up the `package.json` file and add the start script. Set it to `node build`
 ```json
 {
 	"name": "svelteapp",
-	"private": "true",
+	"private": true,
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
