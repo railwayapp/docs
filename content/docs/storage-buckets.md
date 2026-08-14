@@ -130,8 +130,6 @@ Not yet supported:
 
 You can delete your bucket by clicking on it in your canvas, going to Settings, and selecting Delete Bucket. Download anything you want to keep before you delete it.
 
-To prevent being billed for the storage, remove all files from the bucket before deleting it.
-
 ## FAQ
 
 <Collapse title="How can I view my bucket files in a project?">
