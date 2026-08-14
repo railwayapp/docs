@@ -126,9 +126,21 @@ Not yet supported:
 
 ## Deleting a bucket
 
-<Banner variant="danger">Deleting a bucket destroys every object in it. This cannot be undone, and the objects cannot be restored afterwards.</Banner>
+You can delete your bucket by clicking on it in your canvas, going to Settings, and selecting Delete Bucket. This stages the deletion, and nothing happens until you deploy the staged change.
 
-You can delete your bucket by clicking on it in your canvas, going to Settings, and selecting Delete Bucket. Download anything you want to keep before you delete it.
+Once deployed, the bucket disappears from your project, but it is not permanently deleted yet. It stays restorable for two days, after which every object in it is destroyed.
+
+<Banner variant="danger">After two days, deletion is permanent and the objects cannot be restored. Download anything you want to keep before the window closes.</Banner>
+
+### Restoring a deleted bucket
+
+While a deleted bucket is still within its two day window, you can put it back:
+
+1. Open the Activity feed for your project.
+2. Select the change that deleted the bucket.
+3. Find the bucket in the changeset and click Restore.
+
+The bucket returns to your project with its objects intact.
 
 ## FAQ
 
