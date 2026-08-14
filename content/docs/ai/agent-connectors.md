@@ -31,17 +31,19 @@ Open the **Contexts** picker beside the model picker in chat. A connector you ju
 
 Railway offers three connectors that need nothing beyond signing in:
 
-| Connector | What the agent can do |
-|-----------|-----------------------|
-| Notion | Search pages and databases |
-| Linear | Read issues, projects, and cycles |
-| Sentry | Pull issues and stack traces |
+| Connector | What the agent can do | Vendor documentation |
+|-----------|-----------------------|----------------------|
+| <a href="https://www.notion.com" target="_blank">Notion</a> | Search pages and databases | <a href="https://developers.notion.com/docs/mcp" target="_blank">Notion MCP</a> |
+| <a href="https://linear.app" target="_blank">Linear</a> | Read issues, projects, and cycles | <a href="https://linear.app/docs/mcp" target="_blank">Linear MCP server</a> |
+| <a href="https://sentry.io" target="_blank">Sentry</a> | Pull issues and stack traces | <a href="https://mcp.sentry.dev" target="_blank">Sentry MCP</a> |
 
-Each is a hosted MCP server run by the vendor, so what the agent can do with one is whatever that vendor's server exposes. Connecting registers the same server you could have added by hand and runs the authentication for you. For anything else, add a custom MCP server.
+Each is a hosted MCP server run by the vendor, so the tools your agent gets are the ones that vendor chose to expose, and they change when the vendor changes them. The vendor documentation above is the authoritative list.
+
+Connecting registers the same server you could have added by hand and runs the authentication for you. For anything else, add a custom MCP server.
 
 ## Connect a custom MCP server
 
-Any remote MCP server can be a connector. Railway dials it from its own infrastructure, which sets the requirements:
+Any remote server that speaks the <a href="https://modelcontextprotocol.io" target="_blank">Model Context Protocol</a> can be a connector. Railway dials it from its own infrastructure, which sets the requirements:
 
 - A public `https` address reachable from the internet
 - Streamable HTTP transport, though an SSE endpoint also works
