@@ -1,12 +1,13 @@
 ---
 title: Deploy a SvelteKit App
 description: Learn how to deploy a Sveltekit app to Railway with this step-by-step guide. It covers quick setup, adapter configuration, one-click deploys and other deployment strategies.
-date: "2026-01-30"
+date: "2026-08-14"
 tags:
   - deployment
   - frontend
   - sveltekit
   - fullstack
+  - svelte
 topic: frameworks
 ---
 
@@ -30,16 +31,15 @@ To create a new SvelteKit app, ensure that you have [Node](https://nodejs.org/en
 Run the following command in your terminal to create a new SvelteKit app using [Vite](https://vite.dev/guide/#scaffolding-your-first-vite-project):
 
 ```bash
-npx sv create svelteapp
+npx sv create svelteapp --add sveltekit-adapter="adapter:node" --install npm
 ```
 
 Follow the prompts:
 
 1. Select the `SvelteKit demo` template.
-2. Add typechecking with Typescript.
+2. Add type checking with TypeScript syntax.
 3. Add prettier, eslint, and tailwindcss.
 4. No tailwindcss plugins. Hit enter and move on.
-5. Select `npm` as the package manager to install dependencies.
 
 A new SvelteKit app will be provisioned for you in the `svelteapp` directory.
 
@@ -55,86 +55,22 @@ Open your browser and go to `http://localhost:5173` to see the app. You can play
 
 ### Prepare SvelteKit app for deployment
 
-First, enable the SvelteKit Node adapter.
-
-[SvelteKit adapters](https://svelte.dev/docs/kit/adapters) are plugins that take the built app as input and generate output for deployment. These adapters are used to run your project on deployment platforms.
-
-Let's add the Node adapter to the app. Run the command below in your terminal:
-
-```bash
-npm i -D @sveltejs/adapter-node
-```
-
-Once it is installed, add the adapter to the app's `svelte.config.js` file.
-
-The `svelte.config.js` file should look like this:
-
-```js
-import adapter from "@sveltejs/adapter-node";
-import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-  // Consult https://svelte.dev/docs/kit/integrations
-  // for more information about preprocessors
-  preprocess: vitePreprocess(),
-
-  kit: {
-    // adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-    // If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-    // See https://svelte.dev/docs/kit/adapters for more information about adapters.
-    adapter: adapter(),
-  },
-};
-
-export default config;
-```
+Your app has been configured to use the [SvelteKit Node adapter](https://svelte.dev/docs/kit/adapter-node#Deploying). It takes your app's build output and generates a standalone Node server.
 
 Next, add the start script to the `package.json` file.
 
 Svelte builds your project into a `build` directory. The server starts when the server entry point is executed, which is by default located at `build/index.js`.
 
-Open up the `package.json` file and add the start script. Set it to `node build/index.js` like so:
+Open up the `package.json` file and add the start script. Set it to `node build` like so:
 
-```js
+```json
 {
 	"name": "svelteapp",
+	"private": true,
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"start": "node build/index.js",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
-	},
-	"devDependencies": {
-		"@fontsource/fira-mono": "^5.0.0",
-		"@neoconfetti/svelte": "^2.0.0",
-		"@sveltejs/adapter-auto": "^3.0.0",
-		"@sveltejs/adapter-node": "^5.2.9",
-		"@sveltejs/kit": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^4.0.0",
-		"@types/eslint": "^9.6.0",
-		"autoprefixer": "^10.4.20",
-		"eslint": "^9.7.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.36.0",
-		"globals": "^15.0.0",
-		"prettier": "^3.3.2",
-		"prettier-plugin-svelte": "^3.2.6",
-		"prettier-plugin-tailwindcss": "^0.6.5",
-		"svelte": "^5.0.0",
-		"svelte-check": "^4.0.0",
-		"tailwindcss": "^3.4.9",
-		"typescript": "^5.0.0",
-		"typescript-eslint": "^8.0.0",
-		"vite": "^5.0.3"
-	}
-}
+		"start": "node build",
 ```
 
 _package.json_
