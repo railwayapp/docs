@@ -130,7 +130,7 @@ Not yet supported:
 
 You can delete your bucket by clicking on it in your canvas, going to Settings, and selecting Delete Bucket. Download anything you want to keep before you delete it.
 
-You will continue to be billed for your accumulated storage size for up to two days after deletion. To prevent being billed for the storage, remove all files from the bucket before deleting it.
+To prevent being billed for the storage, remove all files from the bucket before deleting it.
 
 ## FAQ
 
