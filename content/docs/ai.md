@@ -17,6 +17,16 @@ The [Railway Agent](/ai/railway-agent) is a chat-based assistant built directly 
 
 [Get started with the Railway Agent →](/ai/railway-agent)
 
+### Agent Connectors
+
+[Agent Connectors](/ai/agent-connectors) give the Railway Agent access to the tools you already use. Connect Notion, Linear, or Sentry, or point Railway at your own remote MCP server, then attach a connector as context in dashboard chat or dev.new.
+
+- Connect once in workspace settings, attach per conversation
+- Bring your own MCP server over OAuth or a static header
+- Connectors are personal, so credentials are never shared with the workspace
+
+[Get started with Agent Connectors →](/ai/agent-connectors)
+
 ### Cloud agents
 
 [Cloud agents](/cloud-agents) run Claude Code, Codex, or Grok CLI on a persistent Railway virtual machine, signed in as you. Launch one from the terminal and reconnect to it later with your work still in place.
