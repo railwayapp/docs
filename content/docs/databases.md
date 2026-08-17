@@ -15,6 +15,7 @@ The fastest way to deploy a database is through Railway's database templates:
 | [**PostgreSQL HA**](/databases/postgresql-ha) | High-availability PostgreSQL cluster with automatic failover |
 | [**PostgreSQL Connection Pooling**](/databases/postgresql-pgbouncer) | PgBouncer connection pooler for Postgres and HA clusters |
 | [**MySQL**](/databases/mysql) | Popular open source relational database |
+| [**MySQL HA**](/databases/mysql-ha) | High-availability MySQL cluster with Group Replication failover |
 | [**Redis**](/databases/redis) | In-memory data store for caching and real-time data |
 | [**Redis HA**](/databases/redis-ha) | High-availability Redis cluster with Sentinel failover |
 | [**MongoDB**](/databases/mongodb) | Document-oriented NoSQL database |
