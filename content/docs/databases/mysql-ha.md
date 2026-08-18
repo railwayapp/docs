@@ -26,13 +26,18 @@ Before converting, confirm the following:
 
 **Supported version** — The image must be tagged with a supported major version: **8 or 9**. The `:latest` tag and named tags are not supported — Railway needs a detectable version to pin the cluster's images to. If your service uses `:latest`, change the image to a versioned tag (e.g. `mysql:8.4`) in the service settings and redeploy before converting.
 
-As part of the conversion, Railway pins the data nodes to your service's exact `major.minor` series. A MySQL data directory is only guaranteed readable by the same series that wrote it — pinning guarantees every node in the cluster, and every node added later, runs the series your data is on.
+As part of the conversion, Railway pins the data nodes to your service's exact `major.minor` series. The cluster image is only published at exact minor tags (`8.4`, `9.4`, and so on), never a bare major, so pinning to the version already running is what makes a real image available to pull.
 
 **No custom start command** — The cluster image manages its own startup, so a service with a customer-set start command can't be converted. If your service has one, the High Availability section shows a warning with a one-click **Reset to template default** button — MySQL reads its credentials from environment variables (`MYSQL_ROOT_PASSWORD`), not from the start command, so resetting never affects authentication.
 
 ## Step 1 — Open the High Availability section
 
 Open your MySQL service and navigate to **Database → Config → High Availability**.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1787041575/FINAL-step1-config-ha-section_uk71pe.png"
+alt="High Availability section in the MySQL Config tab, showing the MySQL Replicas and Reverse Proxies selectors and the Convert to HA button"
+layout="intrinsic"
+width={928} height={872} quality={100} />
 
 ## Step 2 — Configure and Convert
 
@@ -50,6 +55,11 @@ Click **Convert to HA**. A confirmation dialog will appear warning that:
 - **Active connections will be dropped** during the conversion
 - **Connection endpoints will change** — any hardcoded connection strings will need to be updated after conversion
 
+<Image src="https://res.cloudinary.com/railway/image/upload/v1787041576/FINAL-step2-convert-dialog_e0hrnn.png"
+alt="Convert to High Availability confirmation dialog for MySQL"
+layout="intrinsic"
+width={612} height={378} quality={100} />
+
 After confirming, Railway will:
 
 1. Create a backup of your database volume
@@ -57,6 +67,11 @@ After confirming, Railway will:
 3. Redirect you to the cluster overview
 
 Review the staged changes and click **Deploy** to complete the conversion. The conversion adopts your existing volume and its data — the replicas clone from your original node when they first join the group.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1787041576/FINAL-step2b-staged-changes_uxps3c.png"
+alt="Cluster overview showing the staged MySQL HA services with an Apply changes and Deploy banner"
+layout="intrinsic"
+width={704} height={521} quality={100} />
 
 ## Step 3 — Connection Strings
 
@@ -78,6 +93,11 @@ The only case that requires manual action is if you have hardcoded connection st
 ## Step 4 — Verify Cluster Health
 
 After all deployments reach a running state, allow a minute or two for the group to form and for the replicas to complete their initial clone from your original node. The cluster overview in the Railway dashboard shows each node's role — the current primary carries a **Primary** badge — along with per-node health.
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1787041575/FINAL-step4-healthy-cluster_c4pgib.png"
+alt="Healthy MySQL HA cluster overview showing the primary and replica nodes"
+layout="intrinsic"
+width={928} height={746} quality={100} />
 
 ## Failover
 
@@ -102,6 +122,11 @@ Reverting will:
 - Delete all HA services (replicas and HAProxy)
 - Restore the TCP Proxy directly on the original MySQL service, if the cluster was publicly exposed
 - Migrate variable references back to the root service
+
+<Image src="https://res.cloudinary.com/railway/image/upload/v1787041575/FINAL-revert-dialog_tktzls.png"
+alt="Revert to Standalone confirmation dialog for a MySQL HA cluster"
+layout="intrinsic"
+width={612} height={378} quality={100} />
 
 The reverted service keeps the cluster image (`mysql-ha/mysql-wrapper`), which detects that it has no cluster peers and runs plain standalone `mysqld` with authentication intact. Don't swap the image back to a bare `mysql` tag by hand — the cluster image runs standalone perfectly well, and it is what keeps a later re-conversion possible without another image change.
 
