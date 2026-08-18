@@ -22,7 +22,13 @@ Persistence is managed for you: the cluster always runs with AOF (append-only fi
 
 Before converting, confirm the following:
 
-**Official Redis image** — Only services running the official [redis](https://hub.docker.com/_/redis) Docker image (what Railway's Redis template deploys) are supported, along with services already on the `ghcr.io/railwayapp-templates/redis-ha/redis-sentinel` image but running standalone. Forks and bundles (e.g. Valkey, Redis Stack) are not compatible. If your service qualifies, the **High Availability** section appears in its Config tab.
+**Supported Redis image** — Services running any of the following images can be converted:
+
+- The official [redis](https://hub.docker.com/_/redis) Docker image (what Railway's Redis template deploys)
+- The `ghcr.io/railwayapp-templates/redis-ha/redis-sentinel` image, when already deployed but running standalone
+- The legacy Bitnami Redis template lineage — the `railwayapp/redis` Docker Hub mirror and the `bitnami/redis` image it mirrors
+
+Forks and bundles (e.g. Valkey, Redis Stack) are not compatible. If your service qualifies, the **High Availability** section appears in its Config tab.
 
 **Supported version** — The image must be tagged with a supported major version: **7 or 8**. The `:latest` tag and named tags are not supported — Railway needs a detectable version to pin the cluster's images to. If your service uses `:latest`, change the image to a versioned tag (e.g. `redis:8`) in the service settings and redeploy before converting.
 
@@ -111,6 +117,8 @@ Reverting will:
 - Delete all HA services (replicas and HAProxy)
 - Restore the TCP Proxy directly on the original Redis service, if the cluster was publicly exposed
 - Migrate variable references back to the root service
+
+The reverted service stays on the cluster's `redis-sentinel` image rather than returning to `redis:X`. Running standalone, it behaves like a plain Redis with authentication intact — leave the image as is. Swapping it back to `redis:X` by hand drops the `--requirepass` startup wiring the sentinel image provides, so clients that send your password start failing to authenticate.
 
 **Reverting is only available while the original Redis service is the cluster primary.** Reverting keeps that service and deletes every other node — if the primary role has moved after a failover, reverting would delete the node holding the latest data. If the original service is not the primary, use **Make Leader** to promote it first; the revert flow offers this when it applies.
 
