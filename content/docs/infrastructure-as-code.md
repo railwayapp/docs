@@ -11,20 +11,20 @@ Railway Infrastructure as Code lets you define the services and resources in a R
 
 Use Railway IaC when you want one editable file for project-level configuration: services, databases, volumes, buckets, custom domains, environment variables, replicas, and canvas groups.
 
-> **TypeScript only (for now).** Railway IaC is authored in TypeScript via the [`railway`](https://www.npmjs.com/package/railway) SDK and a `.railway/railway.ts` file. TypeScript is currently the only supported language; other languages may follow.
+> **TypeScript, Python, and Go.** Railway IaC is authored via `.railway/railway.ts`, `.railway/railway.py`, or `.railway/railway.go`. TypeScript is the most mature surface; Python and Go mirrors share the same graph contract. Other languages may follow on demand.
 
 <PriorityBoardingBanner />
 
 ## IaC vs Config as Code
 
-Railway has two code-based configuration systems:
+[Config as Code](/config-as-code) (`railway.json` / `railway.toml`) is **deprecated**. Infrastructure as Code (`.railway/railway.ts`) is the replacement.
 
-| Feature | Scope | File |
-|---------|-------|------|
-| Config as Code | One service deployment | `railway.json` or `railway.toml` |
-| Infrastructure as Code | A Railway project/environment | `.railway/railway.ts` |
+| Feature | Scope | File | Status |
+|---------|-------|------|--------|
+| Config as Code | One service deployment | `railway.json` or `railway.toml` | Deprecated |
+| Infrastructure as Code | A Railway project/environment | `.railway/railway.ts` | Current |
 
-[Config as Code](/config-as-code) is read from your service repository during deploy. It overrides dashboard values for that service.
+Config as Code is still read from your service repository during deploy for existing (legacy) services, and it overrides dashboard values for that service. New services cannot opt into Config as Code. Existing Config as Code files stop being read on **2028-03-01** (hard cutoff).
 
 Infrastructure as Code is evaluated by the Railway CLI. The CLI compares `.railway/railway.ts` with the selected Railway environment, shows the changes it would make, and applies those changes only after confirmation.
 
@@ -205,7 +205,27 @@ For the full TypeScript DSL, including services, sources, replicas, variables, d
 
 ## Migrating from Config as Code
 
-If you currently use `railway.json` or `railway.toml`, migrate one service at a time. Do not leave the same service managed by both files.
+If you currently use `railway.json` or `railway.toml`, migrate with the CLI:
+
+```bash
+# Preview the generated .railway/railway.ts
+railway config migrate
+
+# Write the file and clear the service's Railway Config File setting
+railway config migrate --apply
+
+# Optionally delete the old CaC file
+railway config migrate --apply --delete-files
+```
+
+Then review and apply:
+
+```bash
+railway config plan
+railway config apply
+```
+
+You can also migrate manually:
 
 1. Import your current Railway project:
 
