@@ -24,7 +24,7 @@ Use Railway IaC when you want one editable file for project-level configuration:
 | Config as Code | One service deployment | `railway.json` or `railway.toml` | Deprecated |
 | Infrastructure as Code | A Railway project/environment | `.railway/railway.ts` | Current |
 
-Config as Code is still read from your service repository during deploy for existing (legacy) services, and it overrides dashboard values for that service. New services cannot opt into Config as Code. Existing Config as Code files stop being read on **2028-03-01** (hard cutoff).
+Config as Code is still read from your service repository during deploy for existing (legacy) services, and it overrides dashboard values for that service. New services cannot opt into Config as Code. Existing Config as Code files stop being read on **2026-12-01** (hard cutoff).
 
 Infrastructure as Code is evaluated by the Railway CLI. The CLI compares `.railway/railway.ts` with the selected Railway environment, shows the changes it would make, and applies those changes only after confirmation.
 
