@@ -407,6 +407,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("PostgreSQL High Availability", "databases", "/databases/postgresql-ha"),
           makePage("PostgreSQL Connection Pooling", "databases", "/databases/postgresql-pgbouncer"),
           makePage("MySQL", "databases"),
+          makePage("MySQL High Availability", "databases", "/databases/mysql-ha"),
           makePage("Redis", "databases"),
           makePage("Redis High Availability", "databases", "/databases/redis-ha"),
           makePage("MongoDB", "databases"),
