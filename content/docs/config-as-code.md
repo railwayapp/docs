@@ -4,7 +4,7 @@ description: Learn how to manage and deploy apps on Railway using config as code
 ---
 
 <Banner variant="warning">
-**Config as Code is deprecated.** Prefer [Infrastructure as Code](/infrastructure-as-code) (`.railway/railway.ts`) for project configuration. Existing `railway.json` / `railway.toml` files continue to work for services that already use them until **2026-12-01** (hard cutoff). New services cannot opt into Config as Code. See [Migrating from Config as Code](/infrastructure-as-code#migrating-from-config-as-code).
+**Config as Code is deprecated.** Prefer [Infrastructure as Code](/infrastructure-as-code) (`.railway/railway.ts`) for project configuration. Existing `railway.json` / `railway.toml` files continue to work for services that already use them until **2026-12-01** (hard cutoff). Starting **2026-08-28**, services that have never used Config as Code cannot opt in. See [Migrating from Config as Code](/infrastructure-as-code#migrating-from-config-as-code).
 </Banner>
 
 Railway supports defining the configuration for a single deployment in a file
