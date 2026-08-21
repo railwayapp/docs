@@ -174,6 +174,7 @@ If you need to report a routing issue, include:
 
 ## Related documentation
 
+- [Edge rules](/networking/edge-rules) - Match and handle requests at the edge
 - [Deployment Regions](/deployments/regions) - Configure where your services run
 - [Public Networking](/networking/public-networking) - Overview of public networking features
 - [Network Diagnostics](/networking/troubleshooting/network-diagnostics) - Tools for troubleshooting network issues

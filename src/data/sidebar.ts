@@ -491,6 +491,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Edge networking", "networking"),
       makePage("CDN", "networking", "/networking/cdn"),
       makePage("WAF", "networking", "/networking/waf"),
+      makePage("Edge rules", "networking"),
       {
         subTitle: "Troubleshooting",
         pages: [

@@ -234,6 +234,7 @@ Purges apply across all edge locations. They aren't instant: each location picks
 
 ## Related documentation
 
+- [Edge rules](/networking/edge-rules) - Override caching for matching requests
 - [WAF](/networking/waf) - Defend your service from DDoS attacks and bot floods with Under Attack Mode
 - [Edge networking](/networking/edge-networking) - How Railway routes requests to the nearest edge location
 - [Public networking](/networking/public-networking) - Expose your services to the internet

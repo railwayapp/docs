@@ -297,6 +297,7 @@
   "/networking/domains/railway-domains",
   "/networking/domains/working-with-domains",
   "/networking/edge-networking",
+  "/networking/edge-rules",
   "/networking/outbound-networking",
   "/networking/private-networking",
   "/networking/private-networking/how-it-works",
