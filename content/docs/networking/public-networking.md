@@ -17,6 +17,7 @@ Public networking allows you to expose your Railway services to the internet via
 | Topic | Description |
 | ----- | ----------- |
 | [**Domains**](/networking/domains) | Configure Railway-provided domains and custom domains for your services. Learn about DNS setup, SSL certificates, and domain management. |
+| [**Edge rules**](/networking/edge-rules) | Match and handle requests at Railway's edge before they reach your service. |
 | [**Specs & Limits**](/networking/public-networking/specs-and-limits) | Understand request limits, timeouts, and other specifications for public networking. |
 
 ## Quick start

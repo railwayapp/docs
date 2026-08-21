@@ -61,6 +61,7 @@ Two other details apply to this setup:
 
 ## Related documentation
 
+- [Edge rules](/networking/edge-rules) - Match and handle requests before they reach your service
 - [CDN](/networking/cdn) - Cache static assets and HTML at the edge
 - [Edge networking](/networking/edge-networking) - How Railway routes requests to the nearest edge location
 - [Public networking](/networking/public-networking) - Expose your services to the internet
