@@ -71,7 +71,6 @@ Railway creates:
 ```txt
 .railway/railway.ts
 .railway/README.md
-.agents/skills/railway-config/SKILL.md
 ```
 
 The CLI can scan the current directory and generate a starting service from your package manager, `package.json` scripts, and GitHub remote.
@@ -203,6 +202,25 @@ export default defineRailway(() => {
 
 For the full TypeScript DSL, including services, sources, replicas, variables, databases, volumes, buckets, domains, groups, and environment context, see the [Infrastructure as Code reference](/infrastructure-as-code/reference).
 
+## One file per project
+
+Keep every service for a Railway environment in a single `.railway/railway.ts` (or `.py` / `.go`) file. That is the supported shape: one project definition, one apply, omit means delete.
+
+A named partial is a last resort when separate repositories cannot share that file. Export a stable name from each file so omit=delete only applies to resources that file already owns:
+
+```ts
+export const partial = "api";
+
+export default defineRailway(() => {
+  const api = service("api");
+  return project("acme", { resources: [api] });
+});
+```
+
+Python uses `PARTIAL = "api"`. Go uses `const Partial = "api"`.
+
+Do not add a partial export to a monorepo or a file that already describes the whole environment. Do not rename a partial after you apply it. `railway config migrate` writes a named partial because Config as Code was per-service. Drop that export if you later combine those services into one file.
+
 ## Migrating from Config as Code
 
 If you currently use `railway.json` or `railway.toml`, migrate with the CLI:
@@ -287,10 +305,9 @@ Railway blocks plans for services still managed by `railway.json` or `railway.to
 
 ```txt
 .railway/README.md
-.agents/skills/railway-config/SKILL.md
 ```
 
-These files help teammates and agents understand how to edit the Railway configuration safely.
+The README explains how to plan and apply the configuration. Prefer one file for the project. A named partial is documented there only as a last resort for split repositories.
 
 ## Limitations
 
