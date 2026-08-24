@@ -21,6 +21,8 @@ export default defineRailway(() => {
 });
 ```
 
+Keep this file as the single source for the environment. A sibling `export const partial = "api"` (Python `PARTIAL`, Go `const Partial`) is a last resort for separate repositories that cannot share one file. See [One file per project](/infrastructure-as-code#one-file-per-project).
+
 ### Environment context
 
 `defineRailway` receives a context object from the CLI. Use it to render different desired state for the Railway environment you are planning or applying to.

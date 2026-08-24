@@ -24,7 +24,8 @@ railway config <COMMAND> [OPTIONS]
 
 See [Infrastructure as Code](/infrastructure-as-code) for the complete workflow
 and [the IaC reference](/infrastructure-as-code/reference) for the TypeScript
-DSL.
+DSL. Prefer one configuration file per project. Named partials are a last
+resort for split repositories, not the default.
 
 ## Find the configuration file
 
