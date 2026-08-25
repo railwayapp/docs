@@ -13,6 +13,19 @@ Use Railway IaC when you want one editable file for project-level configuration:
 
 > **TypeScript, Python, and Go.** Railway IaC is authored via `.railway/railway.ts`, `.railway/railway.py`, or `.railway/railway.go`. TypeScript is the most mature surface; Python and Go mirrors share the same graph contract. Other languages may follow on demand.
 
+Install the matching authoring package, then keep **one** of those files:
+
+```bash
+# TypeScript (default)
+npm install railway
+
+# Python
+pip install railway-sdk
+
+# Go — put go.mod next to .railway/railway.go
+go get github.com/railwayapp/railway-go-sdk@v0.2.0
+```
+
 <PriorityBoardingBanner />
 
 ## IaC vs Config as Code
