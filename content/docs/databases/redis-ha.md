@@ -5,10 +5,6 @@ description: Convert an existing Railway Redis service to a high-availability cl
 
 Railway can convert an existing Redis service into a high-availability cluster backed by [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) and [HAProxy](https://www.haproxy.org/). Every Redis node runs a colocated Sentinel process — Sentinel handles primary election and failover, and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down, Sentinel promotes a replica and HAProxy begins routing to it within seconds.
 
-<Banner variant="info">
-Redis High Availability is in beta and available through [Priority Boarding](/platform/priority-boarding).
-</Banner>
-
 ## How the cluster is shaped
 
 A converted cluster consists of:
