@@ -17,7 +17,7 @@ width={1494} height={644} quality={80} />
 For pre-deploy commands to work correctly, ensure that:
 
 - It exits with a status code of `0` to indicate success or non-zero to indicate failure.
-- It runs in a reasonable amount of time. It will occupy a slot in your build queue. See [Pre-deploy timeout](#pre-deploy-timeout) to cap how long it can run.
+- It runs in a reasonable amount of time — it occupies a slot in your build queue, and you can [cap how long it runs](#pre-deploy-timeout).
 - It does not rely on the application running.
 - It has the dependencies it needs to run installed in the application image.
 - It does not attempt to read or write data to the volume or filesystem, that should instead be done as part of the start command.
@@ -30,7 +30,7 @@ Set **Pre-deploy Timeout** on the service settings page to cap how long the comm
 
 <Banner variant="info">Leaving the timeout empty keeps the default behavior: the command runs without a time limit.</Banner>
 
-If the command is still running when the timeout expires, its container is removed and the deployment fails with:
+If the command is still running when the timeout expires, its container is removed and the deployment fails. With a 300-second timeout, that looks like:
 
 ```
 Pre-deploy command timed out after 300 seconds
