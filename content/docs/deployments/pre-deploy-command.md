@@ -22,6 +22,8 @@ For pre-deploy commands to work correctly, ensure that:
 - It has the dependencies it needs to run installed in the application image.
 - It does not attempt to read or write data to the volume or filesystem, that should instead be done as part of the start command.
 
+<Banner variant="warning">Pre-deploy commands execute in a separate container from your application. Changes to the filesystem are not persisted and [volumes](/volumes) are not mounted.</Banner>
+
 ## Pre-deploy timeout
 
 By default a pre-deploy command has no time limit. It runs until it exits, so a command that hangs — waiting on a lock, or on input that never arrives — will hold your deployment in progress rather than failing it.
@@ -39,5 +41,3 @@ Pre-deploy command timed out after 300 seconds
 Choose a value with room to spare over your command's normal runtime — a migration that usually takes 30 seconds may take considerably longer against a larger database.
 
 Clearing the pre-deploy command also clears its timeout.
-
-<Banner variant="warning">Pre-deploy commands execute in a separate container from your application. Changes to the filesystem are not persisted and [volumes](/volumes) are not mounted.</Banner>
