@@ -5,10 +5,6 @@ description: Convert an existing Railway MySQL service to a high-availability Gr
 
 Railway can convert an existing MySQL service into a high-availability cluster backed by [MySQL Group Replication](https://dev.mysql.com/doc/refman/8.4/en/group-replication.html) and [HAProxy](https://www.haproxy.org/). The data nodes form a single-primary Group Replication group — consensus runs inside MySQL itself, so there is no separate coordinator tier — and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down, the group elects a new one and HAProxy begins routing to it within seconds.
 
-<Banner variant="info">
-MySQL High Availability is in beta and available through [Priority Boarding](/platform/priority-boarding).
-</Banner>
-
 ## How the cluster is shaped
 
 A converted cluster consists of:
