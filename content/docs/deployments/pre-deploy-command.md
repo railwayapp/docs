@@ -26,20 +26,9 @@ For pre-deploy commands to work correctly, ensure that:
 
 By default a pre-deploy command has no time limit. It runs until it exits, so a command that hangs — waiting on a lock, or on input that never arrives — will hold your deployment in progress rather than failing it.
 
-Set a **Pre-deploy Timeout** to bound it. The field accepts 1 to 3600 seconds (1 hour) and appears on the service settings page once a pre-deploy command is set.
+To bound it, set **Pre-deploy Timeout** on the service settings page. The field appears once a pre-deploy command is set and accepts 1 to 3600 seconds (1 hour).
 
 <Banner variant="info">Leaving the timeout empty keeps the default behavior: the command runs without a time limit.</Banner>
-
-You can also set it in your [config file](/config-as-code):
-
-```json
-{
-  "deploy": {
-    "preDeployCommand": ["npm run migrate"],
-    "preDeployTimeoutSeconds": 300
-  }
-}
-```
 
 If the command is still running when the timeout expires, its container is removed and the deployment fails with:
 
