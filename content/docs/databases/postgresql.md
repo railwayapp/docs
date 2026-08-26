@@ -50,6 +50,10 @@ We also encourage you to fork the [Railway postgres-ssl repository](https://gith
 
 An existing PostgreSQL service can be converted into a high-availability cluster with automatic failover, backed by Patroni, etcd, and HAProxy. See [Upgrading PostgreSQL to High Availability](/databases/postgresql-ha) for the full guide.
 
+## Major version upgrades
+
+Move a PostgreSQL service to a newer major version in place, with a preflight check, automatic backups, and one-click revert. See [Upgrading PostgreSQL Major Versions](/databases/postgresql-major-upgrade) for the full guide.
+
 ## Backups and observability
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:

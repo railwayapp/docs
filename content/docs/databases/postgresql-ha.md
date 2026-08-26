@@ -141,3 +141,10 @@ railway postgres ha switchover \
 
 See the [`railway postgres` reference](/cli/postgres) for every HA command,
 selector, confirmation flag, and deployment option.
+
+## Major version upgrades
+
+Postgres HA clusters support in-place major version upgrades — the primary
+upgrades first, then every replica rebuilds from it on the new major before
+failover resumes. See [Upgrading PostgreSQL Major Versions](/databases/postgresql-major-upgrade)
+for the full guide.
