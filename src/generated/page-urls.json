@@ -101,6 +101,7 @@
   "/databases/database-view",
   "/databases/mongodb",
   "/databases/mysql",
+  "/databases/mysql-ha",
   "/databases/postgresql",
   "/databases/postgresql-ha",
   "/databases/postgresql-pgbouncer",

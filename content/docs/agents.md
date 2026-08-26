@@ -3,7 +3,7 @@ title: Railway for Agents
 description: Set up Railway for AI coding agents — install the CLI, configure MCP, and add agent skills in one step.
 ---
 
-Railway exposes a CLI, a local MCP server, a hosted remote MCP server, and an open agent skills format. AI coding agents can use any of them to deploy services, manage environments, and operate Railway on behalf of a user.
+Railway exposes a CLI, a hosted MCP server, and an open agent skills format. AI coding agents can use any of them to deploy services, manage environments, and operate Railway on behalf of a user.
 
 ## Get set up
 
@@ -30,7 +30,7 @@ railway setup agent
   />
   <Card
     title="Railway MCP"
-    description="Remote MCP through the CLI or OAuth, with a local option. Works with Cursor, Claude Code, VS Code, Codex, Copilot, Droid, OpenCode, Windsurf, and more."
+    description="Connect through the CLI or OAuth. Works with Cursor, Claude Code, VS Code, Codex, Copilot, Droid, OpenCode, Windsurf, and more."
     href="/ai/mcp-server"
     icon="Monitor"
     tone="blue"
@@ -53,8 +53,7 @@ railway setup agent
 
 ## When to use each
 
-- **Railway MCP (Remote)** — the default. The `railway mcp` command connects to `mcp.railway.com` and reuses your `railway login` credentials, and editors that support OAuth can connect directly without the CLI. Exposes the powerful `railway-agent` tool for multi-step operations.
-- **Railway MCP (Local)** — runs in-process through the CLI (`railway mcp local`) for machines that can't reach `mcp.railway.com`: project and service discovery, deployment status, bounded logs, variables, domains, templates, metrics, and scoped mutations.
+- **Railway MCP** — preferred for agent-native operations. The `railway mcp` command connects to `mcp.railway.com` and reuses your `railway login` credentials, and editors that support OAuth can connect directly without the CLI. Exposes the powerful `railway-agent` tool for multi-step operations. (An in-process local server, `railway mcp local`, exists for machines that can't reach `mcp.railway.com`.)
 - **Railway CLI** — preferred when the task depends on local machine state: current-directory deploys, `railway up`, `railway run`, SSH, and local linking.
 - **Agent Skills** — install alongside any of the above so agents arrive with Railway-specific procedural knowledge instead of guessing.
 - **Cloud agents** are preferred when the work should outlive the local terminal: a persistent VM running the coding agent, with sessions you can leave and reattach to.

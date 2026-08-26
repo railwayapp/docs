@@ -1,17 +1,16 @@
 ---
 title: Railway MCP Server
-description: Connect AI coding agents to Railway through Remote MCP or Local MCP.
+description: Connect AI coding agents to the Railway MCP server.
 ---
 
 The Railway MCP Server implements the <a href="https://modelcontextprotocol.org" target="_blank">Model Context Protocol (MCP)</a>. It lets AI assistants create projects, deploy templates, manage environments, pull variables, and redeploy services.
 
-Railway offers two MCP servers:
+The server runs at `mcp.railway.com`. Connect to it in one of two ways:
 
-* **Remote MCP** runs at `mcp.railway.com` and is the default. The `railway mcp` command connects your editor to it through the [Railway CLI](/cli), reusing your `railway login` credentials so no second authentication is required. Editors that support OAuth can also connect directly.
-* **Local MCP** runs in-process through the Railway CLI on your machine. Start it with `railway mcp local` when your machine can't reach `mcp.railway.com`.
+* **Through the CLI** (default). The `railway mcp` command connects your editor to `mcp.railway.com` through the [Railway CLI](/cli), reusing your `railway login` credentials so no second authentication is required.
+* **With OAuth.** Editors that support OAuth connect directly to `https://mcp.railway.com` without the CLI.
 
-**Note:** Connecting to Remote MCP by default and the `railway mcp local`
-command require CLI version 5.44.0 or later.
+**Note:** Connecting through the CLI requires CLI version 5.44.0 or later.
 
 ## Quick start
 
@@ -23,9 +22,8 @@ one command. Select the options to generate the setup command:
 If the CLI is already installed, skip the bootstrap and run:
 
 ```bash
-railway setup agent          # Remote MCP through the CLI proxy (default)
-railway setup agent --oauth  # Remote MCP with OAuth
-railway setup agent --local  # Local MCP
+railway setup agent          # connect through the CLI (default)
+railway setup agent --oauth  # connect with OAuth
 ```
 
 Read on for per-editor manual configuration, the available tool list, and security considerations.
@@ -33,8 +31,8 @@ Read on for per-editor manual configuration, the available tool list, and securi
 ## Per-editor configuration
 
 If you'd rather configure an editor manually, or want to inspect what
-`railway mcp install` writes, use the selector to switch between Remote MCP
-through the CLI proxy, Remote MCP with OAuth, and local stdio:
+`railway mcp install` writes, use the selector to switch between the CLI
+connection, OAuth, and [running the server locally](#run-the-server-locally):
 
 <McpInstallGuide />
 
@@ -48,14 +46,11 @@ The **Model Context Protocol (MCP)** defines a standard for how AI applications 
 * **Clients**: The layer within hosts that maintains one-to-one connections with individual MCP servers.
 * **Servers**: Standalone programs (like the Railway MCP Server) that expose tools and workflows for managing external systems.
 
-Remote MCP runs on Railway's infrastructure. The `railway mcp` command connects to it over stdio and attaches credentials from your `railway login` session to each request, and editors that support OAuth can connect directly instead. The Local MCP server (`railway mcp local`) translates natural language requests into CLI workflows powered by the [Railway CLI](/cli) without reaching `mcp.railway.com`.
+The Railway MCP server runs on Railway's infrastructure. The `railway mcp` command connects to it over stdio and attaches credentials from your `railway login` session to each request. Editors that support OAuth connect directly instead.
 
 ## Prerequisites
 
-The server and authentication method determine which local tools and credentials you need.
-
-* **Remote MCP** requires a <a href="https://railway.com/login" target="_blank">Railway account</a>. The default `railway mcp` connection requires an installed CLI and a `railway login` session so it can reuse those credentials. Direct OAuth doesn't require the CLI.
-* **Local MCP** requires an installed and authenticated [Railway CLI](/cli).
+Connecting to the Railway MCP server requires a <a href="https://railway.com/login" target="_blank">Railway account</a>. The default CLI connection also requires an installed [Railway CLI](/cli) and a `railway login` session so it can reuse those credentials. OAuth doesn't require the CLI.
 
 ## Example usage
 
@@ -80,7 +75,7 @@ Use prompts that describe the Railway outcome you want the agent to produce.
   Pull environment variables for my project and save them to a .env file
   ```
 
-* **Debug a failing deployment** (remote-only `railway-agent` tool)
+* **Debug a failing deployment** (uses the `railway-agent` tool)
 
   ```text
   Use the railway agent to figure out why my backend service is
@@ -105,12 +100,8 @@ Use prompts that describe the Railway outcome you want the agent to produce.
 
 ## Available MCP tools
 
-The Railway MCP Server exposes the following tools. Your AI assistant selects tools based on your request.
-
-### Remote MCP
-
-Remote MCP exposes the following tools. Use `railway-agent` for multi-step
-operations.
+The Railway MCP Server exposes the following tools. Your AI assistant selects
+tools based on your request. Use `railway-agent` for multi-step operations.
 
 * **Account**
   * `whoami`
@@ -125,9 +116,18 @@ operations.
 * **Agent**
   * `railway-agent`: hand a natural-language request to Railway's AI agent for multi-step operations like log analysis, debugging, and service configuration
 
-### Local MCP
+## Run the server locally
 
-Local MCP runs through the Railway CLI and exposes these tools:
+The CLI also ships an in-process MCP server for machines that can't reach
+`mcp.railway.com`, for example on egress-restricted networks. Start it with
+`railway mcp local`, or write the configuration for supported editors with
+`railway mcp install --local`. It talks directly to the Railway API using your
+CLI credentials, marks destructive tools with protocol-level hints, and
+returns a preview before requiring `confirm: true`.
+
+The local server exposes a different tool set from `mcp.railway.com`:
+
+<Collapse title="Local server tools">
 
 * **Account:** `whoami`
 * **Projects and services:** `list_workspaces`, `list_projects`,
@@ -149,25 +149,26 @@ Local MCP runs through the Railway CLI and exposes these tools:
   `http_error_rate`, and `http_response_time`
 * **Documentation:** `docs_search` and `docs_fetch`
 
+</Collapse>
+
 ## Security considerations
 
-The Railway MCP Server runs CLI commands or invokes Railway APIs on your
-behalf. Local MCP marks destructive tools with protocol-level hints and returns
-a preview before requiring `confirm: true`. You should still:
+The Railway MCP Server invokes Railway APIs on your behalf. Keep these points
+in mind:
+
+* **CLI authentication.** The `railway mcp` command reads and refreshes your `railway login` credentials. Editor configuration doesn't contain a long-lived Railway credential.
+* **OAuth scoping.** With OAuth, you choose which workspaces and projects the client can access. Tokens are short-lived and can be revoked from your Railway account settings.
+* **Destructive actions** are marked at the protocol level. Clients that respect these hints will prompt for confirmation.
+* **Project tokens are not accepted.** The server requires a user identity for billing and audit trails.
+
+You should still:
 
 * **Review actions** requested by the LLM before approving them, especially
-  destructive ones (`remove_service`, `delete_domain`, `remove_tcp_proxy`,
-  `remove_bucket`, `remove_volume`, `redeploy`, `accept-deploy`, and
-  `railway-agent`).
+  destructive ones (`redeploy`, `accept-deploy`, `railway-agent`, and the
+  local server's `remove_service`, `delete_domain`, `remove_tcp_proxy`,
+  `remove_bucket`, and `remove_volume`).
 * **Restrict access** to ensure only trusted users can invoke the MCP server.
 * **Avoid production risks** by limiting usage to non-critical environments where possible.
-
-For Remote MCP:
-
-* **CLI proxy authentication.** The proxy reads and refreshes your `railway login` credentials. Editor configuration doesn't contain a long-lived Railway credential.
-* **OAuth scoping.** With direct OAuth, you choose which workspaces and projects the client can access. Tokens are short-lived and can be revoked from your Railway account settings.
-* **Destructive actions** are marked at the protocol level. Clients that respect these hints will prompt for confirmation.
-* **Project tokens are not accepted.** Remote MCP requires a user identity for billing and audit trails.
 
 ## Feature requests
 

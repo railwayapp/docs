@@ -192,7 +192,7 @@ When you authenticate through `railway login` instead, the CLI uses the project 
 
 ## AI agents and MCP
 
-Remote MCP (`https://mcp.railway.com`) exposes feature flag tools:
+The Railway MCP server (`mcp.railway.com`) exposes feature flag tools:
 
 | Tool | Role | Description |
 |---|---|---|
@@ -211,8 +211,8 @@ List feature flags for my Railway project
 Set the checkout-v2 feature flag default to true on project <projectId>
 ```
 
-Install agent tooling with `railway setup agent`, which connects to Remote MCP
-through the CLI-authenticated proxy by default. For direct editor OAuth, add
+Install agent tooling with `railway setup agent`, which connects to the
+Railway MCP server through the CLI by default. For direct editor OAuth, add
 `--oauth`. See
 [Railway MCP Server](/ai/mcp-server) and [Agent Skills](/ai/agent-skills).
 

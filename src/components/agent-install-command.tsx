@@ -18,7 +18,7 @@ interface CommandInputs {
 
 function buildCommand({ agents, mcp, autoAccept }: CommandInputs): string {
   // agents.railway.com bakes in `--agents -y` (CLI install + `railway setup
-  // agent`, which configures skills + Remote MCP through the CLI proxy +
+  // agent`, which configures skills + the MCP connection through the CLI +
   // login) and forwards extra args after `-- `. Use it for the canonical
   // full agent setup.
   if (agents && autoAccept && mcp === "proxy") {
@@ -99,17 +99,17 @@ export function AgentInstallCommand({ className }: AgentInstallCommandProps) {
           onCheckedChange={setAgents}
         />
         <OptionToggle
-          label="Remote MCP (CLI proxy)"
+          label="MCP (CLI)"
           checked={mcp === "proxy"}
           onCheckedChange={next => setMcp(next ? "proxy" : null)}
         />
         <OptionToggle
-          label="Remote MCP (OAuth)"
+          label="MCP (OAuth)"
           checked={mcp === "oauth"}
           onCheckedChange={next => setMcp(next ? "oauth" : null)}
         />
         <OptionToggle
-          label="Local MCP"
+          label="MCP (local server)"
           checked={mcp === "local"}
           onCheckedChange={next => setMcp(next ? "local" : null)}
         />

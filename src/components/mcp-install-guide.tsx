@@ -471,10 +471,10 @@ function QuickInstall({
       </div>
       <p className="border-t border-muted bg-muted-element/30 px-4 py-2 text-xs text-muted-base">
         {mode === "proxy"
-          ? "Connects to Remote MCP through the CLI, reusing your Railway CLI login. This is the default."
+          ? "Connects to the Railway MCP server through the CLI, reusing your Railway CLI login. This is the default."
           : mode === "oauth"
-            ? "Connects directly to Remote MCP using OAuth."
-            : "Runs the Railway MCP server locally through the Railway CLI, without reaching mcp.railway.com."}
+            ? "Connects directly to mcp.railway.com using OAuth."
+            : "Runs an in-process MCP server through the Railway CLI, without reaching mcp.railway.com."}
       </p>
     </div>
   );
@@ -487,44 +487,27 @@ function ModeToggle({
   mode: Mode;
   onModeChange: (next: Mode) => void;
 }) {
-  const isRemote = mode !== "local";
-
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <div
-        role="radiogroup"
-        aria-label="MCP server"
-        className="inline-flex items-center rounded-md border border-muted bg-muted-element/40 p-0.5"
-      >
-        <ToggleOption
-          active={isRemote}
-          onClick={() => onModeChange(isRemote ? mode : "proxy")}
-          label="Remote MCP"
-        />
-        <ToggleOption
-          active={!isRemote}
-          onClick={() => onModeChange("local")}
-          label="Local MCP"
-        />
-      </div>
-      {isRemote ? (
-        <div
-          role="radiogroup"
-          aria-label="Remote MCP authentication"
-          className="inline-flex items-center rounded-md border border-muted bg-muted-element/40 p-0.5"
-        >
-          <ToggleOption
-            active={mode === "proxy"}
-            onClick={() => onModeChange("proxy")}
-            label="CLI credentials"
-          />
-          <ToggleOption
-            active={mode === "oauth"}
-            onClick={() => onModeChange("oauth")}
-            label="OAuth"
-          />
-        </div>
-      ) : null}
+    <div
+      role="radiogroup"
+      aria-label="MCP connection"
+      className="inline-flex items-center rounded-md border border-muted bg-muted-element/40 p-0.5"
+    >
+      <ToggleOption
+        active={mode === "proxy"}
+        onClick={() => onModeChange("proxy")}
+        label="CLI"
+      />
+      <ToggleOption
+        active={mode === "oauth"}
+        onClick={() => onModeChange("oauth")}
+        label="OAuth"
+      />
+      <ToggleOption
+        active={mode === "local"}
+        onClick={() => onModeChange("local")}
+        label="Local server"
+      />
     </div>
   );
 }
@@ -631,16 +614,16 @@ function UnsupportedNotice({
 }) {
   const supportedLabel =
     supportedMode === "local"
-      ? "Local"
+      ? "Local server"
       : supportedMode === "proxy"
-        ? "Remote MCP (CLI proxy)"
-        : "Remote MCP (OAuth)";
+        ? "CLI"
+        : "OAuth";
   const supportedDescription =
     supportedMode === "local"
-      ? "local MCP"
+      ? "the local in-process server"
       : supportedMode === "proxy"
-        ? "Remote MCP through the CLI proxy"
-        : "Remote MCP with OAuth";
+        ? "connecting through the CLI"
+        : "connecting with OAuth";
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-md border border-dashed border-muted bg-muted-element/20 px-4 py-3 text-sm text-muted-base">
       <span>

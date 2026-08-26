@@ -199,8 +199,7 @@ The [Railway MCP server](/ai/mcp-server) connects your agent to your Railway pro
 If you have the [Railway CLI](/cli) installed, one command configures your detected clients:
 
 ```bash
-railway setup agent         # remote MCP through the CLI (default)
-railway setup agent --local # local MCP
+railway setup agent
 ```
 
 Or wire it manually. The remote endpoint authenticates via OAuth:
@@ -219,7 +218,7 @@ claude mcp add --transport http railway https://mcp.railway.com
 }
 ```
 
-The default CLI configuration (`command: "railway"`, `args: ["mcp"]`) connects to the remote server while sharing the CLI's authentication and linked-project context, which is convenient when your agent works inside a repo already linked to a Railway project. A fully local variant (`args: ["mcp", "local"]`) runs the server in-process without reaching `mcp.railway.com`. The OAuth endpoint, by contrast, needs no local install. Both remote paths include the `railway-agent` tool for multi-step operations like log analysis and failure diagnosis. Full tool lists and per-editor tables are in the [MCP server docs](/ai/mcp-server).
+The default CLI configuration (`command: "railway"`, `args: ["mcp"]`) shares the CLI's authentication and linked-project context, which is convenient when your agent works inside a repo already linked to a Railway project. The OAuth endpoint, by contrast, needs no local install. Both paths include the `railway-agent` tool for multi-step operations like log analysis and failure diagnosis. Full tool lists and per-editor tables are in the [MCP server docs](/ai/mcp-server).
 
 ## 7. Context7
 
