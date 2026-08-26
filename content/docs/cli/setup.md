@@ -28,8 +28,9 @@ Use these flags to skip prompts or select how Remote MCP authenticates.
 | Flag | Description |
 |------|-------------|
 | `-y, --yes` | Skip prompts and accept defaults. Also used automatically when stdout is not a terminal |
-| `--remote` | Configure `mcp.railway.com` through the CLI proxy using your `railway login` session |
-| `--oauth` | With `--remote`, configure the direct HTTP endpoint so the MCP client handles OAuth |
+| `--oauth` | Configure the direct `https://mcp.railway.com` endpoint so the MCP client handles OAuth. Takes precedence over `--remote` |
+| `--local` | Configure Local MCP (`railway mcp local`) instead of the Remote MCP default |
+| `--remote` | Configure `mcp.railway.com` through the CLI proxy using your `railway login` session. This is the default, and the flag is kept as a compatibility alias |
 
 ## Examples
 
@@ -44,8 +45,8 @@ railway setup agent
 ```
 
 This prompts for which supported coding tools to configure and lets you choose
-Local MCP, Remote MCP through the CLI proxy, Remote MCP with OAuth, or no
-MCP configuration. It starts the Railway login flow when needed.
+Remote MCP through the CLI proxy (the default), Local MCP, Remote MCP with
+OAuth, or no MCP configuration. It starts the Railway login flow when needed.
 
 ### Non-interactive setup
 
@@ -55,26 +56,25 @@ Pass `--yes` to accept the detected defaults.
 railway setup agent -y
 ```
 
-This configures detected coding tools with default settings and skips the interactive login flow. If you are not already authenticated, run `railway login` after setup.
+This configures detected coding tools with Remote MCP through the CLI proxy and skips the interactive login flow. The editors run `railway mcp`, which reuses your `railway login` credentials when it connects to Remote MCP. If you are not already authenticated, run `railway login` after setup.
 
-### Use Remote MCP through the CLI proxy
+### Use Local MCP
 
-Pass `--remote` to connect to Remote MCP through the CLI proxy and reuse your
-Railway CLI credentials.
+Pass `--local` to configure the local stdio server instead of Remote MCP.
 
 ```bash
-railway setup agent --remote
+railway setup agent --local
 ```
 
-This configures supported editors to run `railway mcp proxy`. The proxy reuses
-your `railway login` credentials when it connects to Remote MCP.
+This configures supported editors to run `railway mcp local`, which talks
+directly to the Railway API without reaching `mcp.railway.com`.
 
 ### Use Remote MCP with OAuth
 
-Add `--oauth` when the MCP client must connect directly and manage OAuth.
+Pass `--oauth` when the MCP client must connect directly and manage OAuth.
 
 ```bash
-railway setup agent --remote --oauth
+railway setup agent --oauth
 ```
 
 This writes `https://mcp.railway.com` directly into supported editor

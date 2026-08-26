@@ -211,8 +211,9 @@ List feature flags for my Railway project
 Set the checkout-v2 feature flag default to true on project <projectId>
 ```
 
-Install agent tooling through the CLI-authenticated proxy with
-`railway setup agent --remote`. For direct editor OAuth, add `--oauth`. See
+Install agent tooling with `railway setup agent`, which connects to Remote MCP
+through the CLI-authenticated proxy by default. For direct editor OAuth, add
+`--oauth`. See
 [Railway MCP Server](/ai/mcp-server) and [Agent Skills](/ai/agent-skills).
 
 ## Related

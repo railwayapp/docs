@@ -1,14 +1,17 @@
 ---
 title: Railway MCP Server
-description: Connect AI coding agents to Railway through Local MCP or Remote MCP.
+description: Connect AI coding agents to Railway through Remote MCP or Local MCP.
 ---
 
 The Railway MCP Server implements the <a href="https://modelcontextprotocol.org" target="_blank">Model Context Protocol (MCP)</a>. It lets AI assistants create projects, deploy templates, manage environments, pull variables, and redeploy services.
 
 Railway offers two MCP servers:
 
-* **Local MCP** runs through the [Railway CLI](/cli) on your machine and uses local CLI context.
-* **Remote MCP** runs at `mcp.railway.com`. Connect directly using OAuth, or run `railway mcp proxy` to reuse credentials from your `railway login` session.
+* **Remote MCP** runs at `mcp.railway.com` and is the default. The `railway mcp` command connects your editor to it through the [Railway CLI](/cli), reusing your `railway login` credentials so no second authentication is required. Editors that support OAuth can also connect directly.
+* **Local MCP** runs in-process through the Railway CLI on your machine. Start it with `railway mcp local` when your machine can't reach `mcp.railway.com`.
+
+**Note:** Connecting to Remote MCP by default and the `railway mcp local`
+command require CLI version 5.44.0 or later.
 
 ## Quick start
 
@@ -20,9 +23,9 @@ one command. Select the options to generate the setup command:
 If the CLI is already installed, skip the bootstrap and run:
 
 ```bash
-railway setup agent                  # Local MCP
-railway setup agent --remote         # Remote MCP through the CLI proxy
-railway setup agent --remote --oauth # Remote MCP with OAuth
+railway setup agent          # Remote MCP through the CLI proxy (default)
+railway setup agent --oauth  # Remote MCP with OAuth
+railway setup agent --local  # Local MCP
 ```
 
 Read on for per-editor manual configuration, the available tool list, and security considerations.
@@ -30,8 +33,8 @@ Read on for per-editor manual configuration, the available tool list, and securi
 ## Per-editor configuration
 
 If you'd rather configure an editor manually, or want to inspect what
-`railway mcp install` writes, use the selector to switch between local stdio,
-Remote MCP through the CLI proxy, and Remote MCP with OAuth:
+`railway mcp install` writes, use the selector to switch between Remote MCP
+through the CLI proxy, Remote MCP with OAuth, and local stdio:
 
 <McpInstallGuide />
 
@@ -45,14 +48,14 @@ The **Model Context Protocol (MCP)** defines a standard for how AI applications 
 * **Clients**: The layer within hosts that maintains one-to-one connections with individual MCP servers.
 * **Servers**: Standalone programs (like the Railway MCP Server) that expose tools and workflows for managing external systems.
 
-The Local MCP server translates natural language requests into CLI workflows powered by the [Railway CLI](/cli). Remote MCP runs on Railway's infrastructure and supports OAuth. The CLI proxy provides another connection path by passing credentials from your `railway login` session to Remote MCP.
+Remote MCP runs on Railway's infrastructure. The `railway mcp` command connects to it over stdio and attaches credentials from your `railway login` session to each request, and editors that support OAuth can connect directly instead. The Local MCP server (`railway mcp local`) translates natural language requests into CLI workflows powered by the [Railway CLI](/cli) without reaching `mcp.railway.com`.
 
 ## Prerequisites
 
 The server and authentication method determine which local tools and credentials you need.
 
+* **Remote MCP** requires a <a href="https://railway.com/login" target="_blank">Railway account</a>. The default `railway mcp` connection requires an installed CLI and a `railway login` session so it can reuse those credentials. Direct OAuth doesn't require the CLI.
 * **Local MCP** requires an installed and authenticated [Railway CLI](/cli).
-* **Remote MCP** requires a <a href="https://railway.com/login" target="_blank">Railway account</a>. Direct OAuth doesn't require the CLI. The CLI proxy requires an installed CLI and a `railway login` session so it can reuse those credentials.
 
 ## Example usage
 
@@ -104,6 +107,24 @@ Use prompts that describe the Railway outcome you want the agent to produce.
 
 The Railway MCP Server exposes the following tools. Your AI assistant selects tools based on your request.
 
+### Remote MCP
+
+Remote MCP exposes the following tools. Use `railway-agent` for multi-step
+operations.
+
+* **Account**
+  * `whoami`
+* **Projects**
+  * `list-projects`, `create-project`, `list-services`
+* **Feature flags**
+  * `list-feature-flags`, `get-feature-flag`
+  * `set-feature-flag`, `delete-feature-flag` (admin; destructive delete is marked at the protocol level)
+* **Deployments**
+  * `redeploy`
+  * `accept-deploy`: commit staged changes and deploy (destructive; clients prompt for confirmation)
+* **Agent**
+  * `railway-agent`: hand a natural-language request to Railway's AI agent for multi-step operations like log analysis, debugging, and service configuration
+
 ### Local MCP
 
 Local MCP runs through the Railway CLI and exposes these tools:
@@ -127,24 +148,6 @@ Local MCP runs through the Railway CLI and exposes these tools:
 * **Observability:** `get_logs`, `service_metrics`, `http_requests`,
   `http_error_rate`, and `http_response_time`
 * **Documentation:** `docs_search` and `docs_fetch`
-
-### Remote MCP
-
-Remote MCP exposes the following tools. Use `railway-agent` for multi-step
-operations.
-
-* **Account**
-  * `whoami`
-* **Projects**
-  * `list-projects`, `create-project`, `list-services`
-* **Feature flags**
-  * `list-feature-flags`, `get-feature-flag`
-  * `set-feature-flag`, `delete-feature-flag` (admin; destructive delete is marked at the protocol level)
-* **Deployments**
-  * `redeploy`
-  * `accept-deploy`: commit staged changes and deploy (destructive; clients prompt for confirmation)
-* **Agent**
-  * `railway-agent`: hand a natural-language request to Railway's AI agent for multi-step operations like log analysis, debugging, and service configuration
 
 ## Security considerations
 

@@ -18,13 +18,14 @@ interface CommandInputs {
 
 function buildCommand({ agents, mcp, autoAccept }: CommandInputs): string {
   // agents.railway.com bakes in `--agents -y` (CLI install + `railway setup
-  // agent`, which configures skills + local MCP + login) and forwards extra
-  // args after `-- `. Use it for the canonical full agent setup.
-  if (agents && autoAccept && mcp === "local") {
+  // agent`, which configures skills + Remote MCP through the CLI proxy +
+  // login) and forwards extra args after `-- `. Use it for the canonical
+  // full agent setup.
+  if (agents && autoAccept && mcp === "proxy") {
     return "curl -fsSL agents.railway.com | sh";
   }
-  if (agents && autoAccept && mcp === "proxy") {
-    return "curl -fsSL agents.railway.com | sh -s -- --remote";
+  if (agents && autoAccept && mcp === "local") {
+    return "curl -fsSL agents.railway.com | sh -s -- --local";
   }
   // Standard CLI install path (non-agent) stays on cli.new.
   const base = "bash <(curl -fsSL cli.new)";
@@ -32,29 +33,29 @@ function buildCommand({ agents, mcp, autoAccept }: CommandInputs): string {
 
   // Explicit forms for combos the baked one-liner can't express (no auto-accept,
   // or skills-only without MCP). --agents runs `railway setup agent`.
-  if (agents && mcp === "local") {
+  if (agents && mcp === "proxy") {
     return `${base} --agents${yesFlag}`;
   }
-  if (agents && mcp === "proxy") {
-    return `${base} --agents --remote${yesFlag}`;
+  if (agents && mcp === "local") {
+    return `${base} --agents --local${yesFlag}`;
   }
   if (agents && mcp === "oauth") {
-    return `${base}${yesFlag} && railway setup agent --remote --oauth${yesFlag}`;
+    return `${base}${yesFlag} && railway setup agent --oauth${yesFlag}`;
   }
 
   // Compose CLI install + targeted follow-ups when only one of skills/MCP is wanted.
   const parts = [`${base}${yesFlag}`];
   if (agents) parts.push("railway skills install");
-  if (mcp === "local") parts.push("railway mcp install");
-  if (mcp === "proxy") parts.push("railway mcp install --remote");
-  if (mcp === "oauth") parts.push("railway mcp install --remote --oauth");
+  if (mcp === "proxy") parts.push("railway mcp install");
+  if (mcp === "local") parts.push("railway mcp install --local");
+  if (mcp === "oauth") parts.push("railway mcp install --oauth");
 
   return parts.join(" && ");
 }
 
 export function AgentInstallCommand({ className }: AgentInstallCommandProps) {
   const [agents, setAgents] = React.useState(true);
-  const [mcp, setMcp] = React.useState<McpChoice>("local");
+  const [mcp, setMcp] = React.useState<McpChoice>("proxy");
   const [autoAccept, setAutoAccept] = React.useState(true);
 
   const command = React.useMemo(
@@ -98,11 +99,6 @@ export function AgentInstallCommand({ className }: AgentInstallCommandProps) {
           onCheckedChange={setAgents}
         />
         <OptionToggle
-          label="Local MCP"
-          checked={mcp === "local"}
-          onCheckedChange={next => setMcp(next ? "local" : null)}
-        />
-        <OptionToggle
           label="Remote MCP (CLI proxy)"
           checked={mcp === "proxy"}
           onCheckedChange={next => setMcp(next ? "proxy" : null)}
@@ -111,6 +107,11 @@ export function AgentInstallCommand({ className }: AgentInstallCommandProps) {
           label="Remote MCP (OAuth)"
           checked={mcp === "oauth"}
           onCheckedChange={next => setMcp(next ? "oauth" : null)}
+        />
+        <OptionToggle
+          label="Local MCP"
+          checked={mcp === "local"}
+          onCheckedChange={next => setMcp(next ? "local" : null)}
         />
         <OptionToggle
           label="Auto-accept"
