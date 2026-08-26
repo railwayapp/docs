@@ -162,6 +162,24 @@ This field can be omitted.
 
 Read more about the pre-deploy command [here](/deployments/pre-deploy-command).
 
+### Pre-deploy timeout
+
+How long the pre-deploy command may run, in seconds, before the deployment is failed. Accepts 1 to 3600.
+
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "preDeployCommand": ["npm run db:migrate"],
+    "preDeployTimeoutSeconds": 300
+  }
+}
+```
+
+This field can be omitted, in which case the pre-deploy command runs without a time limit.
+
+Read more about the pre-deploy timeout [here](/deployments/pre-deploy-command#pre-deploy-timeout).
+
 ### Multi-region configuration
 
 Horizontal scaling across multiple regions, with two replicas in each region.
