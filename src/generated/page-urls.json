@@ -15,6 +15,7 @@
   "/ai/claude-connector",
   "/ai/codex-plugin",
   "/ai/cursor-plugin",
+  "/ai/grok-bot-plugin",
   "/ai/grok-build-plugin",
   "/ai/mcp-server",
   "/ai/plugins-and-connectors",
