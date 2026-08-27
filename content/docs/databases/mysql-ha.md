@@ -18,7 +18,7 @@ There is no read endpoint over the secondaries in this version — all connectio
 
 Before converting, confirm the following:
 
-**Official MySQL image** — Only services running the official [mysql](https://hub.docker.com/_/mysql) Docker image (what Railway's MySQL template deploys) are supported, along with services already on the `ghcr.io/railwayapp-templates/mysql-ha/mysql-wrapper` image but running standalone. Forks and variants (e.g. MariaDB, Percona) are not compatible. If your service qualifies, the **High Availability** section appears in its Config tab.
+**Official MySQL image** — Only services running the official [mysql](https://hub.docker.com/_/mysql) Docker image (what Railway's MySQL template deploys) are supported, along with services already on Railway's cluster data-node image (`ghcr.io/railwayapp-templates/mysql-ha/mysql`) but running standalone. Forks and variants (e.g. MariaDB, Percona) are not compatible. If your service qualifies, the **High Availability** section appears in its Config tab.
 
 **Supported version** — The image must be tagged with a supported major version: **8 or 9**. The `:latest` tag and named tags are not supported — Railway needs a detectable version to pin the cluster's images to. If your service uses `:latest`, change the image to a versioned tag (e.g. `mysql:8.4`) in the service settings and redeploy before converting.
 
@@ -124,7 +124,7 @@ alt="Revert to Standalone confirmation dialog for a MySQL HA cluster"
 layout="intrinsic"
 width={612} height={378} quality={100} />
 
-The reverted service keeps the cluster image (`mysql-ha/mysql-wrapper`), which detects that it has no cluster peers and runs plain standalone `mysqld` with authentication intact. Don't swap the image back to a bare `mysql` tag by hand — the cluster image runs standalone perfectly well, and it is what keeps a later re-conversion possible without another image change.
+The reverted service keeps the cluster image (`mysql-ha/mysql`), which detects that it has no cluster peers and runs plain standalone `mysqld` with authentication intact. Don't swap the image back to a bare `mysql` tag by hand — the cluster image runs standalone perfectly well, and it is what keeps a later re-conversion possible without another image change.
 
 **Reverting is only available while the original MySQL service is the cluster primary.** Reverting keeps that service and deletes every other node — if the primary role has moved after a failover, reverting would delete the node holding the latest data. If the original service is not the primary, use **Make Leader** to promote it first; the revert flow offers this when it applies.
 
