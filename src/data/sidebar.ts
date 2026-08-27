@@ -130,6 +130,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Claude connector", "ai"),
           makePage("Claude Code plugin", "ai"),
           makePage("Grok Build plugin", "ai"),
+          makePage("Grok Bot plugin", "ai"),
           makePage("Cursor plugin", "ai"),
         ],
       },
