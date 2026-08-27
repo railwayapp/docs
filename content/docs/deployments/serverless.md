@@ -19,7 +19,7 @@ This applies to the API too. `serviceInstanceUpdate` writes the value and reads 
 
 #### Inactive service detection
 
-Inactivity is based on the detection of any outbound packets, which could include network requests, database connections, or even NTP. If no packets are sent from the service for more than 5 minutes, the service is considered inactive. Inactivity is checked on an interval, so a service may take somewhat longer than that to actually sleep.
+Inactivity is based on the detection of any outbound packets, which could include network requests, database connections, or even NTP. Once a service stops sending packets it is considered inactive after 5 minutes. Inactivity is sampled on an interval rather than measured continuously, so in practice a service sleeps somewhere between 5 and 10 minutes after its last outbound traffic.
 
 Some things that can prevent a service from being put to sleep -
 
