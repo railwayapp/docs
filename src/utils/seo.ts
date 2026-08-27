@@ -8,6 +8,34 @@ export interface Header {
   id: string;
 }
 
+/**
+ * Serialises a JSON-LD schema for embedding in a <script> tag.
+ *
+ * Plain JSON.stringify is unsafe here: schema values carry page content —
+ * titles, headings, and (since FAQPage started using real extracted prose)
+ * whole paragraphs of documentation. A literal "</script>" anywhere in that
+ * text closes the JSON-LD block early, so the rest of the schema spills into
+ * the document as markup. That both corrupts the structured data an answer
+ * engine reads and turns page content into executable markup.
+ *
+ * Escaping <, > and & as unicode escapes keeps the JSON semantically identical
+ * (JSON.parse returns the same string) while making an early close impossible.
+ * U+2028/U+2029 are escaped too: both are literal line terminators in JS but
+ * legal raw inside a JSON string, so they can break the surrounding script.
+ *
+ * Mirrors safeJsonLdStringify in the mono repo's @railway/seo package; the two
+ * sites are separate repos and cannot share the module, so the name is kept
+ * identical to make the shared origin obvious.
+ */
+export function safeJsonLdStringify(schema: unknown): string {
+  return JSON.stringify(schema)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
+
 export function extractHeadersFromMarkdown(markdown: string): Header[] {
   // Remove both triple-backtick and tilde-fenced code blocks
   const codeBlockRegex = /```[\s\S]*?```|~~~[\s\S]*?~~~/g;
