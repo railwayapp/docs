@@ -50,7 +50,7 @@ Railway can be deployed globally, with availability across the Americas, EMEA, a
 
 ## Support SLOs
 
-Enterprise support for reliable uptime and and performance, with:
+Enterprise support for reliable uptime and performance, with:
 
 - 24/7 support coverage
 - +80 NPS enterprise support rating
