@@ -3,8 +3,9 @@ title: railway config
 description: Define, import, preview, and apply Railway Infrastructure as Code.
 ---
 
-Manage a Railway project and environment from a TypeScript Infrastructure as
-Code file at `.railway/railway.ts`.
+Manage a Railway project and environment from an Infrastructure as Code file at
+`.railway/railway.ts` (generally available), `.railway/railway.py`, or
+`.railway/railway.go` (Python and Go authoring are in beta).
 
 ## Usage
 
@@ -17,10 +18,11 @@ railway config <COMMAND> [OPTIONS]
 
 | Command | Description |
 |---------|-------------|
-| `init` | Create `.railway/railway.ts` |
-| `pull` | Import the selected Railway environment into `.railway/railway.ts` |
+| `init` | Create `.railway/railway.ts` by default |
+| `pull` | Import the selected Railway environment into the authoring file |
 | `plan` | Preview changes without applying them |
 | `apply` | Preview, confirm, and apply changes |
+| `migrate` | Convert Config as Code into IaC (`--lang ts` \| `py` \| `go`) |
 
 See [Infrastructure as Code](/infrastructure-as-code) for the complete workflow
 and [the IaC reference](/infrastructure-as-code/reference) for the TypeScript
@@ -30,9 +32,9 @@ resort for split repositories, not the default.
 ## Find the configuration file
 
 `railway config plan` and `railway config apply` use the nearest
-`.railway/railway.ts`. The CLI checks the current directory and then walks up
-through its parent directories. You can run either command from the project
-root, from the `.railway` directory, or from a nested monorepo directory.
+`.railway/railway.ts`, `.railway/railway.py`, or `.railway/railway.go`. The CLI
+checks the current directory and then walks up through its parent directories.
+Keep only one of those files.
 
 Override discovery with an explicit file:
 
@@ -51,7 +53,7 @@ railway config init
 
 | Flag | Description |
 |------|-------------|
-| `--force` | Overwrite an existing `.railway/railway.ts` |
+| `--force` | Overwrite an existing authoring file |
 
 The interactive flow can scan the repository, import a Railway project, or
 create a minimal file.
@@ -59,7 +61,8 @@ create a minimal file.
 ## Import Railway state
 
 Use `pull` to render the selected Railway project and environment as
-TypeScript.
+authoring code (TypeScript unless `.railway/railway.py` or `.railway/railway.go`
+already exists).
 
 ```bash
 railway config pull
@@ -67,7 +70,7 @@ railway config pull
 
 | Flag | Description |
 |------|-------------|
-| `--force` | Overwrite an existing `.railway/railway.ts` |
+| `--force` | Overwrite an existing authoring file |
 | `--json` | Print the imported graph as JSON instead of writing files |
 | `--runner <PATH>` | Use a specific TypeScript configuration runner |
 | `--omit-preserved-variables` | Omit unknown variables instead of rendering `preserve()` |
@@ -81,7 +84,7 @@ it.
 
 ## Preview changes
 
-Use `plan` to compare `.railway/railway.ts` with the selected Railway
+Use `plan` to compare the authoring file with the selected Railway
 environment without changing resources.
 
 ```bash

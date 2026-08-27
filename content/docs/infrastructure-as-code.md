@@ -1,45 +1,46 @@
 ---
 title: Infrastructure as Code (IaC)
-description: Define, import, preview, and apply your Railway project configuration with .railway/railway.ts.
+description: Define, import, preview, and apply your Railway project configuration with .railway/railway.ts, railway.py, or railway.go.
 ---
 
-Railway Infrastructure as Code lets you define the services and resources in a Railway project with a TypeScript file:
+Railway Infrastructure as Code lets you define the services and resources in a Railway project in one file. TypeScript is generally available. Python and Go authoring are in beta.
 
 ```txt
-.railway/railway.ts
+.railway/railway.ts   # generally available
+.railway/railway.py   # beta
+.railway/railway.go   # beta
 ```
 
 Use Railway IaC when you want one editable file for project-level configuration: services, databases, volumes, buckets, custom domains, environment variables, replicas, and canvas groups.
 
-> **TypeScript, Python, and Go.** Railway IaC is authored via `.railway/railway.ts`, `.railway/railway.py`, or `.railway/railway.go`. TypeScript is the most mature surface; Python and Go mirrors share the same graph contract. Other languages may follow on demand.
+Keep **one** authoring file. Install the matching package:
 
-Install the matching authoring package, then keep **one** of those files:
-
-```bash
-# TypeScript (default)
-npm install railway
-
-# Python
-pip install railway-sdk
-
-# Go — put go.mod next to .railway/railway.go
-go get github.com/railwayapp/railway-go-sdk@v0.2.0
-```
-
-<PriorityBoardingBanner />
+<CodeBlock>
+  <CodeTab label="TypeScript" lang="bash">
+{`npm install railway`}
+  </CodeTab>
+  <CodeTab label="Python (beta)" lang="bash">
+{`pip install railway-sdk`}
+  </CodeTab>
+  <CodeTab label="Go (beta)" lang="bash">
+{`# put go.mod next to .railway/railway.go
+go get github.com/railwayapp/railway-go-sdk@v0.2.0`}
+  </CodeTab>
+</CodeBlock>
 
 ## IaC vs Config as Code
 
-[Config as Code](/config-as-code) (`railway.json` / `railway.toml`) is **deprecated**. Infrastructure as Code (`.railway/railway.ts`) is the replacement.
+[Config as Code](/config-as-code) (`railway.json` / `railway.toml`) is **deprecated**. Infrastructure as Code is the replacement.
 
 | Feature | Scope | File | Status |
 |---------|-------|------|--------|
 | Config as Code | One service deployment | `railway.json` or `railway.toml` | Deprecated |
-| Infrastructure as Code | A Railway project/environment | `.railway/railway.ts` | Current |
+| Infrastructure as Code | A Railway project/environment | `.railway/railway.ts` | Generally available |
+| Infrastructure as Code | Same graph, Python or Go authoring | `.railway/railway.py` or `.railway/railway.go` | Beta |
 
 Config as Code is still read from your service repository during deploy for existing (legacy) services, and it overrides dashboard values for that service. New services cannot opt into Config as Code. Existing Config as Code files stop being read on **2026-12-01** (hard cutoff).
 
-Infrastructure as Code is evaluated by the Railway CLI. The CLI compares `.railway/railway.ts` with the selected Railway environment, shows the changes it would make, and applies those changes only after confirmation.
+Infrastructure as Code is evaluated by the Railway CLI. The CLI compares the authoring file with the selected Railway environment, shows the changes it would make, and applies those changes only after confirmation.
 
 A service cannot be managed by both systems at the same time. If a service is already managed by `railway.json` or `railway.toml`, `railway config plan` stops and tells you which service must be migrated before `.railway/railway.ts` can manage it.
 
@@ -56,18 +57,19 @@ railway link
 
 If the current directory is not linked, `railway config plan`, `railway config apply`, and `railway config pull` prompt you to choose the Railway project and environment to use.
 
-For `plan` and `apply`, the CLI finds the nearest `.railway/railway.ts` by
-checking the current directory and then walking up through parent directories.
-This lets you run either command from the project root, the `.railway`
-directory, or a nested monorepo directory. Pass `--file` to use a different
-configuration file.
+For `plan` and `apply`, the CLI finds the nearest `.railway/railway.ts`,
+`.railway/railway.py`, or `.railway/railway.go` by checking the current
+directory and then walking up through parent directories. Keep only one of
+those files. This lets you run either command from the project root, the
+`.railway` directory, or a nested monorepo directory. Pass `--file` to use a
+different configuration file.
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `railway config init` | Create Railway configuration files for the current directory. |
-| `railway config pull` | Import the linked Railway project's current configuration into `.railway/railway.ts`. |
+| `railway config init` | Create Railway configuration files for the current directory (TypeScript by default). |
+| `railway config pull` | Import the linked Railway project's current configuration into the authoring file. |
 | `railway config plan` | Preview changes without applying them. |
 | `railway config apply` | Preview and apply changes after confirmation. |
 
@@ -79,19 +81,15 @@ Run:
 railway config init
 ```
 
-Railway creates:
-
-```txt
-.railway/railway.ts
-.railway/README.md
-```
+Railway creates `.railway/README.md` and, by default, `.railway/railway.ts`. To author Python or Go, write `.railway/railway.py` or `.railway/railway.go` (or migrate with `--lang py` / `--lang go`) and keep only that file.
 
 The CLI can scan the current directory and generate a starting service from your package manager, `package.json` scripts, and GitHub remote.
 
 Example generated file:
 
-```ts
-import { defineRailway, project, service } from "railway/iac";
+<CodeBlock>
+  <CodeTab label="TypeScript" lang="ts">
+{`import { defineRailway, project, service } from "railway/iac";
 
 export default defineRailway(() => {
   const web = service("web", {
@@ -102,8 +100,34 @@ export default defineRailway(() => {
   return project("my-app", {
     resources: [web],
   });
-});
-```
+});`}
+  </CodeTab>
+  <CodeTab label="Python (beta)" lang="python">
+{`from railway_sdk import define_railway, project, service
+
+@define_railway
+def main(ctx=None):
+    web = service(
+        "web",
+        build="pnpm build",
+        start="pnpm start",
+    )
+    return project("my-app", resources=[web])`}
+  </CodeTab>
+  <CodeTab label="Go (beta)" lang="go">
+{`package main
+
+import "github.com/railwayapp/railway-go-sdk"
+
+func Railway() railway.Project {
+  web := railway.ServiceNamed("web", railway.ServiceConfig{
+    "build": "pnpm build",
+    "start": "pnpm start",
+  })
+  return railway.ProjectNamed("my-app", []any{web})
+}`}
+  </CodeTab>
+</CodeBlock>
 
 ## Import an existing project
 
@@ -113,7 +137,7 @@ Run:
 railway config pull
 ```
 
-This writes the linked Railway project's current configuration to `.railway/railway.ts`.
+This writes the linked Railway project's current configuration to the existing authoring file, or to `.railway/railway.ts` if none exists.
 
 The importer generates code intended to be edited by humans. It keeps user-facing names, omits platform defaults, leaves out generated Railway domains, avoids internal IDs, and omits encrypted secrets unless it must include `preserve()` to avoid overwriting an existing value.
 
@@ -197,12 +221,13 @@ railway config apply --yes --confirm-destructive
 
 Apply is also protected against acting on a stale plan. Railway runs a fresh plan immediately before applying and commits against the exact environment state it just read. If the environment changed in between — for example a concurrent apply or a dashboard edit — the apply is rejected and you are asked to run `railway config plan` again. This prevents an apply from silently overwriting changes it never saw.
 
-## Authoring `.railway/railway.ts`
+## Authoring
 
-A Railway configuration file exports `defineRailway` and returns a `project`.
+A Railway configuration file defines a project and its resources. TypeScript is the documented DSL. Python and Go expose the same helpers and graph; those surfaces are in beta and may change.
 
-```ts
-import { defineRailway, project, service } from "railway/iac";
+<CodeBlock>
+  <CodeTab label="TypeScript" lang="ts">
+{`import { defineRailway, project, service } from "railway/iac";
 
 export default defineRailway(() => {
   const web = service("web");
@@ -210,14 +235,33 @@ export default defineRailway(() => {
   return project("my-project", {
     resources: [web],
   });
-});
-```
+});`}
+  </CodeTab>
+  <CodeTab label="Python (beta)" lang="python">
+{`from railway_sdk import define_railway, project, service
+
+@define_railway
+def main(ctx=None):
+    web = service("web")
+    return project("my-project", resources=[web])`}
+  </CodeTab>
+  <CodeTab label="Go (beta)" lang="go">
+{`package main
+
+import "github.com/railwayapp/railway-go-sdk"
+
+func Railway() railway.Project {
+  web := railway.ServiceNamed("web", nil)
+  return railway.ProjectNamed("my-project", []any{web})
+}`}
+  </CodeTab>
+</CodeBlock>
 
 For the full TypeScript DSL, including services, sources, replicas, variables, databases, volumes, buckets, domains, groups, and environment context, see the [Infrastructure as Code reference](/infrastructure-as-code/reference).
 
 ## One file per project
 
-Keep every service for a Railway environment in a single `.railway/railway.ts` (or `.py` / `.go`) file. That is the supported shape: one project definition, one apply, omit means delete.
+Keep every service for a Railway environment in a single `.railway/railway.ts` (or `.py` / `.go`) file. That is the supported shape: one project definition, one apply, omit means delete. Do not keep more than one language file in `.railway/`.
 
 A named partial is a last resort when separate repositories cannot share that file. Export a stable name from each file so omit=delete only applies to resources that file already owns:
 
@@ -239,11 +283,15 @@ Do not add a partial export to a monorepo or a file that already describes the w
 If you currently use `railway.json` or `railway.toml`, migrate with the CLI:
 
 ```bash
-# Preview the generated .railway/railway.ts
+# Preview the generated authoring file (TypeScript by default)
 railway config migrate
 
 # Write the file and clear the service's Railway Config File setting
 railway config migrate --apply
+
+# Python or Go (beta)
+railway config migrate --lang py --apply
+railway config migrate --lang go --apply
 
 # Optionally delete the old CaC file
 railway config migrate --apply --delete-files
@@ -324,13 +372,12 @@ The README explains how to plan and apply the configuration. Prefer one file for
 
 ## Limitations
 
-Infrastructure as Code is experimental. Current limitations include:
-
 - Services managed by `railway.json` or `railway.toml` must be migrated before IaC can manage them.
 - Volume lifecycle is intentionally conservative to avoid accidental unmounts.
 - Bucket regions are immutable after creation.
 - Persisted ChangeSet history and apply-later workflows are not part of v0.
-- Generated `.railway/railway.ts` formatting may change while the DSL is experimental.
+- Python and Go authoring are in beta. Helper names and generated formatting may change.
+- Generated TypeScript formatting may still change in small ways between CLI versions.
 
 ## Related pages
 
