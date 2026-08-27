@@ -182,7 +182,16 @@ Destructive changes, such as deleting a service or variable, are marked before c
 railway config apply --yes --confirm-destructive
 ```
 
-Apply is also protected against acting on a stale plan. Railway runs a fresh plan immediately before applying and commits against the exact environment state it just read. If the environment changed in between — for example a concurrent apply or a dashboard edit — the apply is rejected and you are asked to run `railway config plan` again. This prevents an apply from silently overwriting changes it never saw.
+Apply is also protected against acting on a stale plan. A live `railway config apply` runs a fresh plan immediately before applying and commits against the exact environment state it just read. If the environment changed in between — for example a concurrent apply or a dashboard edit — the apply is rejected and you are asked to run `railway config plan` again.
+
+CI should pin that review instead of planning again on merge:
+
+```bash
+railway config plan --out railway-plan.json
+railway config apply --plan railway-plan.json --yes --confirm-destructive
+```
+
+`--plan` applies the saved change set as-is. It fails if the live `configEtag` drifted or the checked-out `.railway/` tree is not the planned tree. See [`railway config`](/cli/config) and the [example GitHub workflow](https://github.com/railwayapp/cli/blob/master/examples/github/railway-config.yml).
 
 ## Authoring `.railway/railway.ts`
 

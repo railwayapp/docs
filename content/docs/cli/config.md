@@ -98,9 +98,22 @@ railway config plan
 | `--verbose`, `--full` | Show full change details |
 | `--detailed-exit-code` | Exit `2` when changes are pending and `0` when none are pending |
 | `--show-values` | Print variable values instead of redacting them |
+| `--out <PATH>` | Write a pinned plan artifact (change set, `configEtag`, `.railway/` tree) |
+| `--source-tree <SHA>` | Override the tree written into `--out` (defaults to `git rev-parse HEAD:.railway`) |
 
 Plan output redacts variable values by default. Treat output from
 `--show-values` or `--decrypt-variables` as sensitive.
+
+`--out` is the CI pin. Merge should apply that file, not re-plan:
+
+```bash
+railway config plan --out railway-plan.json
+railway config apply --plan railway-plan.json --yes --confirm-destructive
+```
+
+Apply fails if the live environment etag no longer matches, or if the
+checked-out `.railway/` tree is not the planned tree. See the
+[example workflow](https://github.com/railwayapp/cli/blob/master/examples/github/railway-config.yml).
 
 ## Apply changes
 
@@ -118,6 +131,7 @@ accepts these confirmation flags:
 |------|-------------|
 | `--yes` | Skip the confirmation prompt and run non-interactively |
 | `--confirm-destructive` | Permit destructive changes in non-interactive, JSON, or agent sessions |
+| `--plan <PATH>` | Apply a pinned `--out` artifact without re-evaluating the authoring file |
 
 <Banner variant="warning">
 `railway config apply --json` applies non-destructive changes without
