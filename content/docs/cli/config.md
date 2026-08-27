@@ -113,10 +113,9 @@ railway config apply --plan railway-plan.json --yes --confirm-destructive
 
 Apply fails if the live environment etag no longer matches, or if the
 checked-out `.railway/` tree is not the planned tree. In GitHub Actions, use
-[`railwayapp/config-action`](https://github.com/railwayapp/config-action),
-which wraps both commands and comments the plan on the pull request; the
-[example workflow](https://github.com/railwayapp/cli/blob/master/examples/github/railway-config.yml)
-shows the two-job setup.
+[`railwayapp/config`](https://github.com/railwayapp/config), which wraps both
+commands, comments the plan on the pull request, and documents the two-job
+workflow.
 
 ## Apply changes
 

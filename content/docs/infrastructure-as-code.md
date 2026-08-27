@@ -191,7 +191,7 @@ railway config plan --out railway-plan.json
 railway config apply --plan railway-plan.json --yes --confirm-destructive
 ```
 
-`--plan` applies the saved change set as-is. It fails if the live `configEtag` drifted or the checked-out `.railway/` tree is not the planned tree. In GitHub Actions, [`railwayapp/config-action`](https://github.com/railwayapp/config-action) wraps both commands and comments the plan on the pull request. See [`railway config`](/cli/config) and the [example workflow](https://github.com/railwayapp/cli/blob/master/examples/github/railway-config.yml).
+`--plan` applies the saved change set as-is. It fails if the live `configEtag` drifted or the checked-out `.railway/` tree is not the planned tree. In GitHub Actions, [`railwayapp/config`](https://github.com/railwayapp/config) wraps both commands, comments the plan on the pull request, and documents the two-job workflow. See [`railway config`](/cli/config).
 
 ## Authoring `.railway/railway.ts`
 
