@@ -28,7 +28,9 @@ For pre-deploy commands to work correctly, ensure that:
 
 By default a pre-deploy command has no time limit. It runs until it exits, so a command that hangs — waiting on a lock, or on input that never arrives — will hold your deployment in progress rather than failing it.
 
-Set **Pre-deploy Timeout** on the service settings page to cap how long the command can run. The field appears once a pre-deploy command is set and accepts 1 to 3600 seconds (1 hour).
+Set **Pre-deploy Timeout** on the service settings page to cap how long the command can run. It accepts 1 to 3600 seconds (1 hour).
+
+**The Pre-deploy Timeout field only appears once you have entered a pre-deploy command.** Adding an empty pre-deploy step is not enough — type the command first, and the timeout field appears beneath it. A timeout with no command does nothing, so it is not offered.
 
 <Banner variant="info">Leaving the timeout empty keeps the default behavior: the command runs without a time limit.</Banner>
 
