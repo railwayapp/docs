@@ -11,9 +11,15 @@ Serverless allows you to increase the efficiency of resource utilization on Rail
 
 When Serverless is enabled for a service, Railway automatically detects inactivity based on outbound traffic.
 
+#### Applying the setting
+
+Serverless is applied to a container when that container is created. Enabling it on a running service does not affect the container already running; the service must be deployed before it takes effect.
+
+This applies to the API too. `serviceInstanceUpdate` writes the value and reads it back as set, but the running container keeps the value it was created with until the next deployment.
+
 #### Inactive service detection
 
-Inactivity is based on the detection of any outbound packets, which could include network requests, database connections, or even NTP. If no packets are sent from the service for over 10 minutes, the service is considered inactive.
+Inactivity is based on the detection of any outbound packets, which could include network requests, database connections, or even NTP. If no packets are sent from the service for more than 5 minutes, the service is considered inactive. Inactivity is checked on an interval, so a service may take somewhat longer than that to actually sleep.
 
 Some things that can prevent a service from being put to sleep -
 
@@ -38,7 +44,7 @@ The first request made to a slept service wakes it. It may take a small amount o
 
 - There will be a small delay in the response time of the first request sent to a slept service (commonly known as "cold boot times").
 - The first request sent to a slept service may return a 502 Bad Gateway response.
-- For Railway to put a service to sleep, a service must not send _outbound_ traffic for at least 10 minutes. Outbound traffic can include telemetry, database connections, NTP, etc. Inbound traffic is excluded from considering when to sleep a service.
+- For Railway to put a service to sleep, a service must not send _outbound_ traffic for at least 5 minutes. Outbound traffic can include telemetry, database connections, NTP, etc. Inbound requests are not measured directly, but anything your service sends in response to them is, so traffic that reaches your service will keep it awake.
 - Enabling Serverless will apply the setting across all [Replicas](/deployments/scaling#horizontal-scaling-with-replicas)
 - Slept services still consume a slot on Railway's infrastructure, enabling Serverless de-prioritizes your workload and in remote cases, may require a rebuild to re-live the service.
 
