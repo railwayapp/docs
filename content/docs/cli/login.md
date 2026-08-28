@@ -66,7 +66,7 @@ See [Tokens](/cli#tokens) for how to generate each token type.
 
 ## Related
 
-- [railway up](/cli/up) — deploy and sign up/in in one step
+- [railway up](/cli/up) — deploy and sign up or sign in, all in one step
 - [railway logout](/cli/logout)
 - [railway whoami](/cli/whoami)
 - [Global Options](/cli/global-options)

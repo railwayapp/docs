@@ -69,10 +69,10 @@ Railway provides [official plugins and connectors](/ai/plugins-and-connectors) f
 
 ### MCP server
 
-The [Railway MCP Server](/ai/mcp-server) implements the Model Context Protocol, enabling direct communication between AI assistants and your Railway infrastructure. Run Local MCP on your machine, or connect to Remote MCP using your Railway CLI credentials or OAuth.
+The [Railway MCP Server](/ai/mcp-server) implements the Model Context Protocol, enabling direct communication between AI assistants and your Railway infrastructure. Connect to the server at `mcp.railway.com` through the CLI, which reuses your `railway login` credentials without a second authentication.
 
 - One command to install: `railway mcp install`
-- Add `--remote` to reuse Railway CLI credentials through the proxy, or add `--remote --oauth` for direct OAuth
+- Add `--oauth` for direct OAuth
 - Create projects, deploy templates, manage environments, pull variables
 - Works with Cursor, VS Code, Claude Code, Codex, Copilot, Factory Droid, OpenCode, Windsurf, Cline, and Devin
 

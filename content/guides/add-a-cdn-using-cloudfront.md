@@ -326,7 +326,7 @@ First generate an SSL certificate -
 
 Now, add the certificate in the CloudFront distribution settings and finish setting up the custom domain -
 
-- Return the the CloudFront distribution settings
+- Return the CloudFront distribution settings
 - Under _Custom SSL certificate_, choose the certificate you just created from the drop down menu
 - Under _Alternate domain name (CNAME)_, add your custom domain.
   - If you want both www and apex domain, be sure to add both

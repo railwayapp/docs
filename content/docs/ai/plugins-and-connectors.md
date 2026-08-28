@@ -1,6 +1,6 @@
 ---
 title: Plugins and connectors
-description: Choose a Railway integration for ChatGPT, Codex, Claude, Claude Code, Grok Build, or Cursor.
+description: Choose a Railway integration for ChatGPT, Codex, Claude, Claude Code, Grok Build, Grok Bot, or Cursor.
 ---
 
 Railway provides official plugins and connectors that give AI assistants access to Railway workflows and infrastructure. Plugins can package the [`use-railway` skill](/ai/agent-skills#the-use-railway-skill) with the [hosted Railway MCP server](/ai/mcp-server), while connectors expose the hosted server directly.
@@ -14,6 +14,7 @@ Each integration has a dedicated setup guide:
 - [Claude connector](/ai/claude-connector) for connecting Claude directly to Railway through OAuth.
 - [Claude Code plugin](/ai/claude-code-plugin) for terminal workflows with the Railway skill and hooks.
 - [Grok Build plugin](/ai/grok-build-plugin) for using Railway from xAI's coding agent.
+- [Grok Bot plugin](/ai/grok-bot-plugin) for using Railway from bots in Grok Bot.
 - [Cursor plugin](/ai/cursor-plugin) for using Railway from Cursor.
 
 **Note:** These integrations give an outside assistant access to Railway. For the reverse, giving Railway's own agent access to tools like Notion, Linear, or Sentry, see [Agent Connectors](/ai/agent-connectors).

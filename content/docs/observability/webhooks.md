@@ -61,6 +61,19 @@ When an event occurs, Railway sends a JSON payload to your configured webhook UR
 }
 ```
 
+## Delivery
+
+Railway delivers each event as an HTTP `POST` to your webhook URL:
+
+- **Timeout** - each delivery attempt has a 30-second timeout.
+- **Retries** - a failed delivery is retried up to 3 times with exponential backoff. A delivery counts as successful on any `2xx` or `3xx` response; any other status, a timeout, or a connection error is treated as a failure.
+- **Best-effort** - delivery is not guaranteed and events are not ordered. Treat a webhook as a prompt to act, not a source of truth. When you need certainty, reconcile against the [public API](/integrations/api).
+- **Persistent failures** - if a URL fails repeatedly (currently 100 failures within a 6-hour window), Railway temporarily stops sending to it for 24 hours to avoid wasting retries on a dead endpoint.
+
+### Verifying the sender
+
+Webhook payloads are **not** cryptographically signed. To confirm a request came from Railway, include a secret in the webhook URL you configure — for example a hard-to-guess path segment or query parameter — and reject any request that does not carry it.
+
 ## Testing webhooks
 
 The `Test Webhook` button will send a test payload to the specified webhook URL.

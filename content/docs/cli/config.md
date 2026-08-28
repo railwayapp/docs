@@ -74,13 +74,42 @@ railway config pull
 | `--json` | Print the imported graph as JSON instead of writing files |
 | `--runner <PATH>` | Use a specific TypeScript configuration runner |
 | `--omit-preserved-variables` | Omit unknown variables instead of rendering `preserve()` |
+| `--include-variables` | Decrypt and inline non-sealed variable values into the file |
 | `--agent` | Print a suggestion to ask an agent to turn imported state into idiomatic TypeScript |
+
+`--include-variables` writes non-sealed values, including secrets that were never sealed, into `.railway/railway.ts`. The CLI prints a warning when you use it. Sealed variables stay as `preserve()`.
+
+The TypeScript file imports `railway/iac`. Install the SDK from the repository root (`npm install railway`, or the equivalent `pnpm` / `yarn` / `bun` command) before `plan` or `apply`.
 
 `--agent` doesn't invoke an agent or change the generated file. The flag has
 no effect with `--json`, which prints only the imported graph.
 
 Review an imported configuration with `railway config plan` before applying
 it.
+
+## Migrate Config as Code
+
+`railway config migrate` finds every `railway.json` and `railway.toml` in the
+repository — including files in monorepo packages — and emits one
+`.railway/railway.ts`. Linked services whose Railway Config File points at
+those paths keep their Railway service names.
+
+```bash
+railway config migrate
+railway config migrate --apply
+railway config migrate --apply --delete-files
+```
+
+| Flag | Description |
+|------|-------------|
+| `--apply` | Write the file and clear Railway Config File settings |
+| `--force` | Overwrite an existing `.railway/railway.ts` |
+| `--delete-files` | Delete the discovered CaC files after a successful apply |
+| `--service <name>` | Migrate only this service |
+| `--lang ts\|py\|go` | Authoring language (default `ts`) |
+
+A single-service migrate still writes a named `partial` export. A merged
+migrate does not.
 
 ## Preview changes
 
@@ -101,9 +130,24 @@ railway config plan
 | `--verbose`, `--full` | Show full change details |
 | `--detailed-exit-code` | Exit `2` when changes are pending and `0` when none are pending |
 | `--show-values` | Print variable values instead of redacting them |
+| `--out <PATH>` | Write a pinned plan artifact (change set, `configEtag`, `.railway/` tree) |
+| `--source-tree <SHA>` | Override the tree written into `--out` (defaults to `git rev-parse HEAD:.railway`) |
 
 Plan output redacts variable values by default. Treat output from
 `--show-values` or `--decrypt-variables` as sensitive.
+
+`--out` is the CI pin. Merge should apply that file, not re-plan:
+
+```bash
+railway config plan --out railway-plan.json
+railway config apply --plan railway-plan.json --yes --confirm-destructive
+```
+
+Apply fails if the live environment etag no longer matches, or if the
+checked-out `.railway/` tree is not the planned tree. In GitHub Actions, use
+[`railwayapp/config`](https://github.com/railwayapp/config), which wraps both
+commands, comments the plan on the pull request, and documents the two-job
+workflow.
 
 ## Apply changes
 
@@ -121,6 +165,7 @@ accepts these confirmation flags:
 |------|-------------|
 | `--yes` | Skip the confirmation prompt and run non-interactively |
 | `--confirm-destructive` | Permit destructive changes in non-interactive, JSON, or agent sessions |
+| `--plan <PATH>` | Apply a pinned `--out` artifact without re-evaluating the authoring file |
 
 <Banner variant="warning">
 `railway config apply --json` applies non-destructive changes without

@@ -159,7 +159,7 @@ Railway also includes sandboxes for running untrusted code at scale, and it uses
 
 The Railway agent is a chat-based assistant that lives inside your project, with all the context and tools it needs to diagnose errors, fix bugs, build new features, and ship them to users.
 
-The same underlying agent powers Railway's Slack and Discord notifications, where you can tag `@railway` and have it get to work without switching contexts. Railway's local and remote MCP servers also bring Railway context and tools into the agent harnesses you already use.
+The same underlying agent powers Railway's Slack and Discord notifications, where you can tag `@railway` and have it get to work without switching contexts. Railway's MCP server also brings Railway context and tools into the agent harnesses you already use.
 
 ## When to pick each
 

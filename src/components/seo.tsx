@@ -7,7 +7,7 @@ import {
 } from "next-seo/pages";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Header, FAQItem } from "@/utils/seo";
+import { Header, FAQItem, safeJsonLdStringify } from "@/utils/seo";
 import { pageUrlSet } from "@/utils/page-url-set";
 
 export interface Props extends NextSeoProps {
@@ -94,7 +94,15 @@ export const SEO: React.FC<Props> = ({
     name: "Railway",
     url: "https://railway.com",
     logo: "https://railway.com/brand/logo-dark.png",
-    sameAs: ["https://twitter.com/Railway", "https://github.com/railwayapp"],
+    // Kept in step with ORGANIZATION_SCHEMA on railway.com: two different
+    // machine-readable claims about one entity weaken the entity consolidation
+    // that answer engines rely on to resolve "Railway".
+    sameAs: [
+      "https://twitter.com/railway",
+      "https://github.com/railwayapp",
+      "https://discord.gg/railway",
+      "https://www.youtube.com/@railwayapp",
+    ],
   };
   schemas.push(organizationSchema);
 
@@ -238,7 +246,7 @@ export const SEO: React.FC<Props> = ({
           <script
             key={`schema-${index}`}
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(schema) }}
           />
         ))}
       </Head>

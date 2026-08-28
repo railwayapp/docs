@@ -816,6 +816,32 @@ const redirects = [
     destination: "/integrations/api",
     permanent: true,
   },
+  // Bare /api — a common guess for the Public API reference (agents, links)
+  {
+    source: "/api",
+    destination: "/integrations/api",
+    permanent: true,
+  },
+  {
+    source: "/api.md",
+    destination: "/integrations/api.md",
+    permanent: true,
+  },
+  {
+    source: "/api-reference",
+    destination: "/integrations/api",
+    permanent: true,
+  },
+  {
+    source: "/public-api",
+    destination: "/integrations/api",
+    permanent: true,
+  },
+  {
+    source: "/reference/api",
+    destination: "/integrations/api",
+    permanent: true,
+  },
   {
     source: "/guides/templates",
     destination: "/templates",
