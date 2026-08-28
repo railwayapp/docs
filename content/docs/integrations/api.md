@@ -142,10 +142,74 @@ To help you keep track of your usage, Railway sends a few headers with the respo
 
 | Header                | Description                                                                                                                                        |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| X-RateLimit-Limit     | The maximum number of API requests allowed per day.                                                                                                |
+| RateLimit-Policy      | The limit and window that apply, advertised on every API response — e.g. `"default";q=1000;w=3600` — so you can read the limit before authenticating. |
+| X-RateLimit-Limit     | The maximum number of API requests allowed in the current window.                                                                                  |
 | X-RateLimit-Remaining | The number of API requests your token can make in the current window.                                                                              |
 | X-RateLimit-Reset     | The time at which the current window ends and your remaining requests reset.                                                                       |
 | Retry-After           | The amount of time after which you can make another request. This header is only sent once you've used up all your requests in the current window. |
+
+When you exceed the limit the API responds with **HTTP 429**; wait for the `Retry-After` interval before retrying rather than retrying immediately.
+
+## Errors
+
+The API is GraphQL, so it follows the GraphQL error convention rather than HTTP status alone. **Always inspect the `errors` array, not just the status code.**
+
+- **HTTP 200 with an `errors` array** — the request executed but something in it failed, including authorization failures. A query that runs but is denied returns `200`; the failure is in `errors`.
+- **HTTP 400** — the request could not be parsed or validated (malformed JSON, an unknown field, a bad variable). `extensions.code` carries the reason.
+- **HTTP 429** — you have exceeded the [rate limit](#rate-limits).
+
+Every error object carries a `message`, an `extensions.code`, and a `traceId`. Include the `traceId` when you contact support — it is how we locate the exact request.
+
+```json
+{
+  "errors": [
+    {
+      "message": "Cannot query field \"nope\" on type \"Query\".",
+      "extensions": {
+        "code": "GRAPHQL_VALIDATION_FAILED",
+        "traceId": "7992771584715554281"
+      }
+    }
+  ],
+  "data": null
+}
+```
+
+Common `extensions.code` values:
+
+| Code                       | Meaning                                                             | HTTP |
+| -------------------------- | ------------------------------------------------------------------- | ---- |
+| `GRAPHQL_PARSE_FAILED`     | The query is not valid GraphQL syntax                               | 400  |
+| `GRAPHQL_VALIDATION_FAILED`| The query references fields or types that don't exist               | 400  |
+| `BAD_USER_INPUT`           | A field or variable failed validation                               | 400  |
+| `INTERNAL_SERVER_ERROR`    | An unexpected error, or an authorization denial (message `Not Authorized`) | 200  |
+
+## Retries
+
+- **Reads (queries) are safe to retry** — they have no side effects.
+- **Writes (mutations):** retry only on a network error, or a `429`/`5xx` where you did **not** receive a response. If you received a `200`, the mutation ran — retrying may duplicate it. Most Railway mutations are keyed on the resource they act on, so a retry with identical arguments generally converges, but do not assume exactly-once semantics.
+- **Back off exponentially**, and honor `Retry-After` on a `429`.
+- Carry the `traceId` from a failed response into any support request.
+
+## Versioning and deprecation
+
+Railway's public API is GraphQL, so **the schema is the contract**. New fields and types are added without a version bump — additive changes never break an existing query, so you do not need to pin a version.
+
+Fields being retired are marked `@deprecated` in the schema, with a reason. Introspect with `includeDeprecated: true` to find them:
+
+```graphql
+{
+  __type(name: "Project") {
+    fields(includeDeprecated: true) {
+      name
+      isDeprecated
+      deprecationReason
+    }
+  }
+}
+```
+
+Prefer non-deprecated fields. A deprecated field keeps working through its sunset window and is removed only after it has been marked for a meaningful period.
 
 ## Tips and tricks
 
