@@ -58,7 +58,7 @@ Especially for production environments, performing regular backups and monitorin
 
 - **Observability**: Implement monitoring for insights into performance and health of your databases. If you're not already running an observability stack, check out these templates to help you get started building one:
   - [Prometheus](https://railway.com/deploy/KmJatA)
-  - [Grafana](https://railway.com/deploy/anURAt)
+  - [Grafana](https://railway.com/deploy/grafana-open-source-observability-platform--grafana-monitoring-dashboard)
   - [PostgreSQL Exporter](https://railway.com/deploy/gDzHrM)
 
 ## Extensions

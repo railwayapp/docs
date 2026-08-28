@@ -53,7 +53,7 @@ npm install -D typescript @types/node @types/express tsx
 - [Express](https://expressjs.com/) - Web framework for Node.js
 - [dotenv](https://www.npmjs.com/package/dotenv) - Loads environment variables from `.env` files
 - [TypeScript](https://www.typescriptlang.org/) - Typed superset of JavaScript
-- [tsx](https://tsx.is/) - TypeScript execution engine
+- [tsx](https://tsx.hirok.io/) - TypeScript execution engine
 
 ### Configure TypeScript
 
@@ -172,7 +172,7 @@ Update your `package.json` to include the necessary scripts. Learn more about [n
 
 ### Run the development server
 
-Now you can run your TypeScript application using [tsx](https://tsx.is/), which provides seamless TypeScript execution without worrying about configuration:
+Now you can run your TypeScript application using [tsx](https://tsx.hirok.io/), which provides seamless TypeScript execution without worrying about configuration:
 
 ```bash
 npm run dev
