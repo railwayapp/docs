@@ -1,9 +1,9 @@
 ---
 title: Infrastructure as Code Reference
-description: Reference for the .railway/railway.ts TypeScript DSL.
+description: Reference for the TypeScript IaC DSL. Python and Go authoring are in beta.
 ---
 
-This page documents the TypeScript authoring API for Railway Infrastructure as Code. For the workflow and CLI commands, see [Infrastructure as Code](/infrastructure-as-code).
+This page documents the TypeScript authoring API for Railway Infrastructure as Code. TypeScript is generally available. Python (`railway_sdk`) and Go (`github.com/railwayapp/railway-go-sdk`) are beta mirrors of the same graph. For the workflow, CLI commands, and Python/Go examples, see [Infrastructure as Code](/infrastructure-as-code).
 
 ## Authoring `.railway/railway.ts`
 
