@@ -325,7 +325,7 @@ Infrastructure as Code is experimental. Current limitations include:
 - Services managed by `railway.json` or `railway.toml` must be migrated before IaC can manage them.
 - Volume lifecycle is intentionally conservative to avoid accidental unmounts.
 - Bucket regions are immutable after creation.
-- Persisted ChangeSet history and apply-later workflows are not part of v0.
+- Railway does not store plan history. A saved plan (`railway config plan --out`) is a file you keep yourself, for example as a CI artifact.
 - Generated `.railway/railway.ts` formatting may change while the DSL is experimental.
 
 ## Related pages
