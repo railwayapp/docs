@@ -241,6 +241,12 @@ To help you get started, we have provided example queries and mutations organize
 - [Manage Domains](/integrations/api/manage-domains) - Add custom domains, configure DNS
 - [Manage Volumes](/integrations/api/manage-volumes) - Create volumes, manage backups
 
+## Status and incidents
+
+Current platform status and incident history are published at [status.railway.com](https://status.railway.com), where you can also subscribe to incident notifications.
+
+For how the API behaves under failure in one place — error format, rate-limit headers, retry guidance, and the deprecation policy — see the [Rate limits](#rate-limits), [Errors](#errors), [Retries](#retries), and [Versioning and deprecation](#versioning-and-deprecation) sections above, or the machine-readable summary at [railway.com/api-reliability.md](https://railway.com/api-reliability.md).
+
 ## Support
 
 If you run into problems using the API or have any suggestions, feel free to reach out on [Central Station](https://station.railway.com) where the team can help you directly.
