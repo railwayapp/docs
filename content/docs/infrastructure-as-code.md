@@ -102,7 +102,9 @@ railway config pull
 
 This writes the linked Railway project's current configuration to `.railway/railway.ts`.
 
-The importer generates code intended to be edited by humans. It keeps user-facing names, omits platform defaults, leaves out generated Railway domains, avoids internal IDs, and omits encrypted secrets unless it must include `preserve()` to avoid overwriting an existing value.
+The importer generates code intended to be edited by humans. It keeps user-facing names, omits platform defaults, leaves out generated Railway domains, avoids internal IDs, and renders existing variable values as `preserve()` so they stay on Railway instead of being written into source.
+
+To inline non-sealed variable values into the file, pass `--include-variables`. The CLI warns that non-sealed variables, including secrets, will be decrypted and included in the spec. Sealed variables stay as `preserve()`.
 
 After importing, run a plan to check whether the generated file would change anything in Railway:
 
@@ -182,9 +184,26 @@ Destructive changes, such as deleting a service or variable, are marked before c
 railway config apply --yes --confirm-destructive
 ```
 
-Apply is also protected against acting on a stale plan. Railway runs a fresh plan immediately before applying and commits against the exact environment state it just read. If the environment changed in between — for example a concurrent apply or a dashboard edit — the apply is rejected and you are asked to run `railway config plan` again. This prevents an apply from silently overwriting changes it never saw.
+Apply is also protected against acting on a stale plan. A live `railway config apply` runs a fresh plan immediately before applying and commits against the exact environment state it just read. If the environment changed in between — for example a concurrent apply or a dashboard edit — the apply is rejected and you are asked to run `railway config plan` again.
+
+CI should pin that review instead of planning again on merge:
+
+```bash
+railway config plan --out railway-plan.json
+railway config apply --plan railway-plan.json --yes --confirm-destructive
+```
+
+`--plan` applies the saved change set as-is. It fails if the live `configEtag` drifted or the checked-out `.railway/` tree is not the planned tree. In GitHub Actions, [`railwayapp/config`](https://github.com/railwayapp/config) wraps both commands, comments the plan on the pull request, and documents the two-job workflow. See [`railway config`](/cli/config).
 
 ## Authoring `.railway/railway.ts`
+
+The file imports `railway/iac`. Install the Railway TypeScript SDK from the repository root before you plan or apply:
+
+```bash
+npm install railway
+```
+
+`pnpm add railway`, `yarn add railway`, and `bun add railway` work the same way.
 
 A Railway configuration file exports `defineRailway` and returns a `project`.
 
@@ -219,22 +238,24 @@ export default defineRailway(() => {
 
 Python uses `PARTIAL = "api"`. Go uses `const Partial = "api"`.
 
-Do not add a partial export to a monorepo or a file that already describes the whole environment. Do not rename a partial after you apply it. `railway config migrate` writes a named partial because Config as Code was per-service. Drop that export if you later combine those services into one file.
+Do not add a partial export to a monorepo or a file that already describes the whole environment. Do not rename a partial after you apply it. `railway config migrate` writes a named partial only when it migrates a single service. A merged monorepo migrate does not.
 
 ## Migrating from Config as Code
 
-If you currently use `railway.json` or `railway.toml`, migrate with the CLI:
+If you currently use `railway.json` or `railway.toml`, migrate with the CLI. In a monorepo, `migrate` finds every CaC file in the repository and writes them into a single `.railway/railway.ts`.
 
 ```bash
 # Preview the generated .railway/railway.ts
 railway config migrate
 
-# Write the file and clear the service's Railway Config File setting
+# Write the file and clear Railway Config File settings
 railway config migrate --apply
 
-# Optionally delete the old CaC file
+# Optionally delete the old CaC files
 railway config migrate --apply --delete-files
 ```
+
+`--service <name>` migrates only that service. A single-service migrate still writes a named `partial` export because Config as Code was per-service. A merged migrate does not.
 
 Then review and apply:
 
@@ -316,7 +337,6 @@ Infrastructure as Code is experimental. Current limitations include:
 - Services managed by `railway.json` or `railway.toml` must be migrated before IaC can manage them.
 - Volume lifecycle is intentionally conservative to avoid accidental unmounts.
 - Bucket regions are immutable after creation.
-- Persisted ChangeSet history and apply-later workflows are not part of v0.
 - Generated `.railway/railway.ts` formatting may change while the DSL is experimental.
 
 ## Related pages
