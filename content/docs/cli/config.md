@@ -21,6 +21,7 @@ railway config <COMMAND> [OPTIONS]
 | `pull` | Import the selected Railway environment into `.railway/railway.ts` |
 | `plan` | Preview changes without applying them |
 | `apply` | Preview, confirm, and apply changes |
+| `migrate` | Translate `railway.json` / `railway.toml` into `.railway/railway.ts` |
 
 See [Infrastructure as Code](/infrastructure-as-code) for the complete workflow
 and [the IaC reference](/infrastructure-as-code/reference) for the TypeScript
@@ -71,13 +72,42 @@ railway config pull
 | `--json` | Print the imported graph as JSON instead of writing files |
 | `--runner <PATH>` | Use a specific TypeScript configuration runner |
 | `--omit-preserved-variables` | Omit unknown variables instead of rendering `preserve()` |
+| `--include-variables` | Decrypt and inline non-sealed variable values into the file |
 | `--agent` | Print a suggestion to ask an agent to turn imported state into idiomatic TypeScript |
+
+`--include-variables` writes non-sealed values, including secrets that were never sealed, into `.railway/railway.ts`. The CLI prints a warning when you use it. Sealed variables stay as `preserve()`.
+
+The TypeScript file imports `railway/iac`. Install the SDK from the repository root (`npm install railway`, or the equivalent `pnpm` / `yarn` / `bun` command) before `plan` or `apply`.
 
 `--agent` doesn't invoke an agent or change the generated file. The flag has
 no effect with `--json`, which prints only the imported graph.
 
 Review an imported configuration with `railway config plan` before applying
 it.
+
+## Migrate Config as Code
+
+`railway config migrate` finds every `railway.json` and `railway.toml` in the
+repository — including files in monorepo packages — and emits one
+`.railway/railway.ts`. Linked services whose Railway Config File points at
+those paths keep their Railway service names.
+
+```bash
+railway config migrate
+railway config migrate --apply
+railway config migrate --apply --delete-files
+```
+
+| Flag | Description |
+|------|-------------|
+| `--apply` | Write the file and clear Railway Config File settings |
+| `--force` | Overwrite an existing `.railway/railway.ts` |
+| `--delete-files` | Delete the discovered CaC files after a successful apply |
+| `--service <name>` | Migrate only this service |
+| `--lang ts\|py\|go` | Authoring language (default `ts`) |
+
+A single-service migrate still writes a named `partial` export. A merged
+migrate does not.
 
 ## Preview changes
 

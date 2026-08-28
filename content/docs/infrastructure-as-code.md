@@ -102,7 +102,9 @@ railway config pull
 
 This writes the linked Railway project's current configuration to `.railway/railway.ts`.
 
-The importer generates code intended to be edited by humans. It keeps user-facing names, omits platform defaults, leaves out generated Railway domains, avoids internal IDs, and omits encrypted secrets unless it must include `preserve()` to avoid overwriting an existing value.
+The importer generates code intended to be edited by humans. It keeps user-facing names, omits platform defaults, leaves out generated Railway domains, avoids internal IDs, and renders existing variable values as `preserve()` so they stay on Railway instead of being written into source.
+
+To inline non-sealed variable values into the file, pass `--include-variables`. The CLI warns that non-sealed variables, including secrets, will be decrypted and included in the spec. Sealed variables stay as `preserve()`.
 
 After importing, run a plan to check whether the generated file would change anything in Railway:
 
@@ -195,6 +197,14 @@ railway config apply --plan railway-plan.json --yes --confirm-destructive
 
 ## Authoring `.railway/railway.ts`
 
+The file imports `railway/iac`. Install the Railway TypeScript SDK from the repository root before you plan or apply:
+
+```bash
+npm install railway
+```
+
+`pnpm add railway`, `yarn add railway`, and `bun add railway` work the same way.
+
 A Railway configuration file exports `defineRailway` and returns a `project`.
 
 ```ts
@@ -228,22 +238,24 @@ export default defineRailway(() => {
 
 Python uses `PARTIAL = "api"`. Go uses `const Partial = "api"`.
 
-Do not add a partial export to a monorepo or a file that already describes the whole environment. Do not rename a partial after you apply it. `railway config migrate` writes a named partial because Config as Code was per-service. Drop that export if you later combine those services into one file.
+Do not add a partial export to a monorepo or a file that already describes the whole environment. Do not rename a partial after you apply it. `railway config migrate` writes a named partial only when it migrates a single service. A merged monorepo migrate does not.
 
 ## Migrating from Config as Code
 
-If you currently use `railway.json` or `railway.toml`, migrate with the CLI:
+If you currently use `railway.json` or `railway.toml`, migrate with the CLI. In a monorepo, `migrate` finds every CaC file in the repository and writes them into a single `.railway/railway.ts`.
 
 ```bash
 # Preview the generated .railway/railway.ts
 railway config migrate
 
-# Write the file and clear the service's Railway Config File setting
+# Write the file and clear Railway Config File settings
 railway config migrate --apply
 
-# Optionally delete the old CaC file
+# Optionally delete the old CaC files
 railway config migrate --apply --delete-files
 ```
+
+`--service <name>` migrates only that service. A single-service migrate still writes a named `partial` export because Config as Code was per-service. A merged migrate does not.
 
 Then review and apply:
 
