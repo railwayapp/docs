@@ -126,6 +126,8 @@ width={612} height={378} quality={100} />
 
 The reverted service keeps the cluster image (`mysql-ha/mysql`), which detects that it has no cluster peers and runs plain standalone `mysqld` with authentication intact. Don't swap the image back to a bare `mysql` tag by hand — the cluster image runs standalone perfectly well, and it is what keeps a later re-conversion possible without another image change.
 
+**Reverting keeps every deleted node's volume.** Deleting the cluster services does not delete their volumes: the replicas' volumes stay in your project, unattached, and continue to count toward storage billing. This is deliberate — a revert never destroys data. Once you've confirmed the standalone MySQL service is healthy, it is safe to delete the leftover volumes from the project canvas. If you convert to HA again later, the new cluster provisions fresh volumes (with suffixed names, since the kept ones still hold the original names) — it does not reuse them.
+
 **Reverting is only available while the original MySQL service is the cluster primary.** Reverting keeps that service and deletes every other node — if the primary role has moved after a failover, reverting would delete the node holding the latest data. If the original service is not the primary, use **Make Leader** to promote it first; the revert flow offers this when it applies.
 
 Railway will automatically migrate all variable references within your project back to the original MySQL service as part of the staged revert. As with conversion, any hardcoded connection strings outside of Railway will need to be updated manually.

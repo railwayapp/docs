@@ -121,6 +121,8 @@ alt="Revert to Standalone confirmation dialog for a Postgres HA cluster"
 layout="intrinsic"
 width={916} height={542} quality={100} />
 
+**Reverting keeps every deleted node's volume.** Deleting the cluster services does not delete their volumes: the replicas' and etcd nodes' volumes stay in your project, unattached, and continue to count toward storage billing. This is deliberate — a revert never destroys data. Once you've confirmed the standalone Postgres service is healthy, it is safe to delete the leftover volumes from the project canvas. If you convert to HA again later, the new cluster provisions fresh volumes (with suffixed names, since the kept ones still hold the original names) — it does not reuse them.
+
 **Reverting is only available while the original Postgres service is the cluster leader.** Reverting keeps that service and deletes every other node — if the leader role has moved after a failover, reverting would delete the node holding the latest data. If the original service is not the leader, use **Make Leader** to promote it first; the revert flow offers this when it applies.
 
 Railway will automatically migrate all variable references within your project back to the original Postgres service as part of the staged revert. As with conversion, any hardcoded connection strings outside of Railway will need to be updated manually.
