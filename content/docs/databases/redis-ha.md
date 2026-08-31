@@ -116,6 +116,8 @@ Reverting will:
 
 The reverted service stays on the cluster's `redis-sentinel` image rather than returning to `redis:X`. Running standalone, it behaves like a plain Redis with authentication intact — leave the image as is. Swapping it back to `redis:X` by hand drops the `--requirepass` startup wiring the sentinel image provides, so clients that send your password start failing to authenticate.
 
+**Reverting keeps every deleted node's volume.** Deleting the cluster services does not delete their volumes: the replicas' volumes stay in your project, unattached, and continue to count toward storage billing. This is deliberate — a revert never destroys data. Once you've confirmed the standalone Redis service is healthy, it is safe to delete the leftover volumes from the project canvas. If you convert to HA again later, the new cluster provisions fresh volumes (with suffixed names, since the kept ones still hold the original names) — it does not reuse them.
+
 **Reverting is only available while the original Redis service is the cluster primary.** Reverting keeps that service and deletes every other node — if the primary role has moved after a failover, reverting would delete the node holding the latest data. If the original service is not the primary, use **Make Leader** to promote it first; the revert flow offers this when it applies.
 
 Railway will automatically migrate all variable references within your project back to the original Redis service as part of the staged revert. As with conversion, any hardcoded connection strings outside of Railway will need to be updated manually.
