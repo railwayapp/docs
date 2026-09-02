@@ -94,15 +94,15 @@ After you start a transfer:
 
 ## Email forwarding
 
-Forward mail sent to an address on your Railway-purchased domain to an inbox you already use. Railway doesn't create a mailbox and doesn't store your mail. It relays each message to the destination you choose.
+Forward mail sent to an address on your Railway-purchased domain to an inbox you already use. Railway doesn't create a mailbox or store your mail. Each message is relayed to the destination you choose.
 
 Open a domain from [railway.com/workspace/domains](https://railway.com/workspace/domains) and find the **Email Forwarding** section, next to **DNS records**. Only workspace admins can add, edit, and remove addresses.
 
 1. Click **Add Address**.
 2. Enter the address to forward, such as `hello`, and the destination inbox it should reach.
-3. Click **Send Test Email** on the address to confirm it arrives.
+3. Open the actions menu for the address, then click **Send test email** to confirm it arrives.
 
-Enabling forwarding adds seven DNS records to the domain apex, six mail exchange records and one sender policy record, which appear alongside your other [DNS records](#dns-records). Forwarding delivers only while those records are in place, so Railway warns you before a DNS change that would break it: a mail exchange record for another provider is refused while forwarding addresses exist, deleting the mail exchange records stops forwarding, and delegating the domain to [custom nameservers](#nameservers) stops delivery.
+Enabling forwarding adds seven DNS records to the domain apex, six mail exchange records and one sender policy record, which appear alongside your other [DNS records](#dns-records). Forwarding depends on the mail exchange records. While forwarding addresses exist, Railway refuses both a mail exchange record for another provider at the domain apex and delegation to [custom nameservers](#nameservers). If you delete the final forwarding mail exchange record, Railway warns you that the forwarding addresses will also be deleted.
 
 ### Before you rely on forwarding
 
@@ -112,7 +112,7 @@ Forwarding hands each message to an inbox you already own, which shapes what it 
 - Spam isn't filtered on the way through. The destination inbox applies its own filtering, so check its spam folder.
 - Messages with attachments over 10 MB may fail to arrive.
 - Each address forwards to one destination. Catch-all and wildcard addresses aren't supported.
-- Mail sent from the destination inbox to the forwarded address isn't forwarded back, so test with **Send Test Email** rather than emailing yourself.
+- Mail sent from the destination inbox to the forwarded address isn't forwarded back, so test with **Send test email** rather than emailing yourself.
 
 ### Address limits
 
