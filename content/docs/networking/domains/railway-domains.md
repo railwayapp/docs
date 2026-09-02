@@ -102,7 +102,7 @@ Open a domain from [railway.com/workspace/domains](https://railway.com/workspace
 2. Enter the address to forward, such as `hello`, and the destination inbox it should reach.
 3. Open the actions menu for the address, then click **Send test email** to confirm it arrives.
 
-Enabling forwarding adds seven DNS records to the domain apex, six mail exchange records and one sender policy record, which appear alongside your other [DNS records](#dns-records). Forwarding depends on the mail exchange records. While forwarding addresses exist, Railway refuses both a mail exchange record for another provider at the domain apex and delegation to [custom nameservers](#nameservers). If you delete the final forwarding mail exchange record, Railway warns you that the forwarding addresses will also be deleted.
+Enabling forwarding adds seven DNS records to the domain apex, several mail exchange records and one sender policy record, which appear alongside your other [DNS records](#dns-records). Forwarding depends on the mail exchange records. While forwarding addresses exist, Railway refuses both a mail exchange record for another provider at the domain apex and delegation to [custom nameservers](#nameservers).
 
 ### Before you rely on forwarding
 
@@ -122,7 +122,7 @@ Each domain can have a limited number of forwarding addresses, set by your works
 | --- | --- | --- | --- | --- |
 | 1 | 1 | 5 | 25 | 25 |
 
-The limit counts per domain and applies when you add an address. A domain that's over its limit keeps forwarding every address it has, and you can still edit and remove them, but Railway refuses new ones. Enterprise limits can be raised on request.
+The limit counts per domain and applies when you add an address.
 
 ### When forwarding isn't available
 
