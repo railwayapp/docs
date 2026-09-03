@@ -135,6 +135,21 @@ const api = service("api", {
 });
 ```
 
+### Pre-deploy command
+
+Run a command, such as a database migration, between the build and the deploy:
+
+```ts
+const web = service("web", {
+  start: "node .output/server/index.mjs",
+  preDeploy: "npx drizzle-kit migrate",
+});
+```
+
+The command runs with access to your service variables and the private network, and a failing command stops the deployment. See [Pre-deploy command](/deployments/pre-deploy-command) for the runtime behavior.
+
+`railway config pull` renders this field as `deploy: { preDeployCommand: ["..."] }`, which is equivalent.
+
 ### Replicas
 
 Use `replicas` for scaling intent:
