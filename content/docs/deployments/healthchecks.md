@@ -7,7 +7,7 @@ Healthchecks can be used to guarantee zero-downtime [deployments](/deployments/r
 
 ## How it works
 
-When a new deployment is triggered for a service, if a healthcheck endpoint is configured, Railway will query the endpoint until it receives an HTTP `200` response. Only then will the new deployment be made active and the previous deployment inactive.
+When a new deployment is triggered for a service, if a healthcheck endpoint is configured, Railway will query the endpoint until it receives a successful response (any `2xx` status code). Only then will the new deployment be made active and the previous deployment inactive.
 
 **Note:** Railway does not monitor the healthcheck endpoint after the deployment has gone live.
 
@@ -15,9 +15,9 @@ When a new deployment is triggered for a service, if a healthcheck endpoint is c
 
 To configure a healthcheck:
 
-1. Ensure your webserver has an endpoint (e.g. `/health`) that will return an HTTP status code of 200 when the application is live and ready.
+1. Ensure your webserver has an endpoint (for example, `/health`) that returns a `2xx` status code when the application is live and ready.
 
-2. Under your service settings, input your health endpoint. Railway will wait for this endpoint to serve a `200` status code before switching traffic to your new endpoint.
+2. Under your service settings, input your health endpoint. Railway will wait for this endpoint to serve a `2xx` status code before switching traffic to your new endpoint.
 
 ## Configure the healthcheck port
 
@@ -37,7 +37,7 @@ Not listening on the `PORT` variable or omitting it when using target ports can 
 
 ## Healthcheck timeout
 
-The default timeout on healthchecks is 300 seconds (5 minutes). If your application fails to serve a `200` status code during this allotted time, the deploy will be marked as failed.
+The default timeout on healthchecks is 300 seconds (5 minutes). If your application fails to serve a `2xx` status code during this allotted time, the deploy will be marked as failed.
 
 <Image 
 src="https://res.cloudinary.com/railway/image/upload/v1664564544/docs/healthcheck-timeout_lozkiv.png"

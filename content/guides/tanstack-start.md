@@ -157,6 +157,8 @@ CMD ["node", ".output/server/index.mjs"]
 
 The Nitro build bundles its own dependencies into `.output`, so the runtime stage does not need `node_modules` or your `package.json`.
 
+**Note:** With a Dockerfile, service variables aren't available during the build unless you [declare them as build arguments](/builds/dockerfiles#using-variables-at-build-time). To bake a `VITE_` variable into the client bundle, add `ARG VITE_MY_VAR` to the build stage before `RUN npm run build`. Committing a Dockerfile also switches your service to the Dockerfile builder on the next deploy, even if it previously built with Railpack.
+
 Deploy via the CLI or from GitHub. Railway automatically detects the `Dockerfile` and [uses it to build and deploy the app](/builds/dockerfiles).
 
 ## Port configuration
