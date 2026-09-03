@@ -32,7 +32,7 @@ npx @tanstack/cli@latest create my-app --deployment railway
 
 The `--deployment railway` flag adds a Nitro server and a `start` script, which is everything Railway needs to build and run your app. Follow the prompts to choose your remaining options.
 
-If you run the command without the `--deployment` flag, select `Railway` at the **Deploy** prompt. Don't accept the default `Nitro (agnostic)` choice for an app headed to Railway: it adds the Nitro server but not the `start` script, and that combination fails at runtime. See [Choose a production server](#choose-a-production-server).
+If you run the command without the `--deployment` flag, select `Railway` at the **Deploy** prompt. The default `Nitro (agnostic)` choice also deploys on Railway, but it adds the Nitro server without a `start` script, so Railway chooses the server command for you. Picking `Railway` keeps that decision explicit. See [Choose a production server](#choose-a-production-server).
 
 ### Run the app locally
 
@@ -49,14 +49,15 @@ Open `http://localhost:3000` to see your app.
 
 | Setup | Build output | Start command |
 | --- | --- | --- |
-| Nitro (recommended) | `.output/server/index.mjs` | `node .output/server/index.mjs` |
-| No server runtime | `dist/server/` and `dist/client/` | `npx srvx --prod -s ../client dist/server/server.js` |
+| Nitro with a `start` script (recommended) | `.output/server/index.mjs` | `node .output/server/index.mjs` |
+| Nitro, no `start` script | `.output/server/index.mjs` | `node .output/server/index.mjs`, chosen by Railway |
+| No server runtime | `dist/server/` and `dist/client/` | `npx srvx --prod -s ../client dist/server/server.js`, chosen by Railway |
 
-**Use Nitro with a `start` script.** It is what the Railway option in the scaffolder sets up, it produces a self-contained server bundle, and it is the configuration this guide documents from here on.
+Use Nitro with a `start` script. That's what the Railway option in the scaffolder sets up, it produces a self-contained server bundle, and it's the configuration this guide documents from here on.
 
-If your app has no server runtime at all, Railway's builder ([Railpack](/builds) v0.36 and later) detects TanStack Start and serves the default Vite build with [srvx](https://srvx.h3.dev), so that layout deploys without configuration too. The build logs recommend Nitro when this fallback is used.
+All three layouts deploy on Railway without configuration. When there is no `start` script, Railway's builder ([Railpack](/builds) v0.39 and later) picks the right server for your build output: `node .output/server/index.mjs` for Nitro apps, and [srvx](https://srvx.h3.dev) for the default Vite build. The build logs say which command Railway picked and suggest adding a `start` script.
 
-The combination to avoid is Nitro without a `start` script, which is what the scaffolder's default `Nitro (agnostic)` deploy option produces. Railway falls back to srvx pointed at `dist/`, but Nitro builds to `.output/`, so the server crashes on startup and the domain returns a 502. If you have the `nitro()` plugin in `vite.config.ts`, the `start` script is required.
+Adding the `start` script is still recommended: it keeps the production server your decision, and it makes the app portable to hosts that only run `npm start`.
 
 To add Nitro to an existing app, install it and register its Vite plugin:
 
@@ -199,13 +200,13 @@ export const Route = createFileRoute('/api/hello')({
 
 TanStack Start apps use two kinds of variables, and they behave differently on Railway.
 
-**Server variables** are read at runtime with `process.env` in server functions, server routes, and loaders. They are available on the next deploy after you change them, and they never reach the browser. Use them for secrets.
+**Server variables** are read at runtime with `process.env` in server functions, server routes, and loaders. They're available on the next deploy after you change them, and they never reach the browser. Use them for secrets.
 
 **Client variables** must be prefixed with `VITE_`, are read with `import.meta.env.VITE_*`, and are baked into the JavaScript bundle when `npm run build` runs. Never put secrets in a `VITE_` variable, since anyone can read them in the shipped bundle.
 
 Set both kinds as [service variables](/variables) on your Railway service. Variables are available during the build and at runtime, so `VITE_` values are baked in correctly.
 
-Changing a `VITE_` variable takes effect on the next build. Updating a variable in the dashboard prompts a redeploy, and a redeploy of a Railpack-built service rebuilds it, so the new value is picked up. A plain container restart does not rebuild, so it keeps the old value. See [Manage environment variables in frontend builds](/guides/frontend-environment-variables) for details.
+Changing a `VITE_` variable takes effect on the next build. Updating a variable in the dashboard prompts a redeploy, and a redeploy of a Railpack-built service rebuilds it with the new value. A plain container restart doesn't rebuild, so it keeps the old value. See [Manage environment variables in frontend builds](/guides/frontend-environment-variables) for details.
 
 ## Add a Postgres database
 
@@ -241,19 +242,19 @@ Run schema migrations in a [pre-deploy command](/deployments/pre-deploy-command)
    npx drizzle-kit migrate
    ```
 
-Keep the migration tool in `dependencies` rather than `devDependencies` so it is present in the deployed image, and generate migration files locally (`npx drizzle-kit generate` for Drizzle) so the pre-deploy step only applies them. The deploy logs show the migration output, and a failed migration stops the deploy before your app starts.
+Keep the migration tool in `dependencies` rather than `devDependencies` so it's present in the deployed image. Generate migration files locally (`npx drizzle-kit generate` for Drizzle) so the pre-deploy step only applies them. The deploy logs show the migration output, and a failed migration stops the deploy before your app starts.
 
 ## Use Bun instead of Node
 
-Railpack detects a `bun.lock` file and switches the whole pipeline to Bun: it installs with `bun install`, builds with `bun run build`, and runs the production server with Bun. Scaffold with `npx @tanstack/cli@latest create my-app --package-manager bun` and deploy the same way as a Node app. No extra configuration is needed.
+Railpack detects a `bun.lock` file and switches the whole pipeline to Bun: it installs with `bun install`, builds with `bun run build`, and runs the production server with Bun. Scaffold with `npx @tanstack/cli@latest create my-app --package-manager bun` and deploy the same way as a Node app.
 
 ## Troubleshooting
 
 **The build succeeds, but the domain returns a 502 and the deployment flips to `CRASHED`.**
-Your app uses the `nitro()` plugin but has no `start` script, so Railway's srvx fallback looks for `dist/server/server.js` while Nitro built `.output/`. The runtime logs show srvx exiting with `ENOENT ... dist/server/server.js`. Add the `start` script from [Choose a production server](#choose-a-production-server). This is what the scaffolder's default `Nitro (agnostic)` deploy option produces, so freshly scaffolded apps hit it unless they picked `Railway`.
+Check the runtime logs for srvx exiting with `ENOENT ... dist/server/server.js`. On Railpack versions before v0.39, an app with the `nitro()` plugin but no `start` script hit this on every deploy: the srvx fallback looked for `dist/` while Nitro built `.output/`. Redeploy to pick up the current Railpack version, or add the `start` script from [Choose a production server](#choose-a-production-server).
 
 **The app deploys as a static site, and every page 404s.**
-`@tanstack/react-start` is in `devDependencies`, so Railway's TanStack Start detection misses it and the build logs show `Deploying as vite static site`. Move it to `dependencies` and redeploy.
+`@tanstack/react-start` is in `devDependencies`, so Railway's TanStack Start detection misses it. The build logs show `Deploying as vite static site` with a suggestion to move `@tanstack/react-start` to `dependencies`. Do that and redeploy.
 
 **A `VITE_` variable is undefined in the browser, or shows a stale value.**
 Check the prefix first, since only `VITE_`-prefixed variables reach client code. If the variable is set and still shows an old value, it was baked in by an earlier build. Trigger a redeploy so the app rebuilds with the current value.
@@ -268,14 +269,14 @@ Your app has no server runtime, so Railway is serving the default Vite build wit
 Your server isn't serving the client build. With Nitro this is handled for you. Without it, check that a [custom start command](/deployments/start-command) points srvx's `-s` flag at the client output directory.
 
 **The deploy works but the app serves the dev server.**
-Never use `vite dev` as a production start command. It is not a production server, and it will not behave correctly behind Railway's edge. Build the app and run the built server instead.
+Never use `vite dev` as a production start command. It's not a production server and won't behave correctly behind Railway's edge. Build the app and run the built server instead.
 
 **A custom server entry or start command isn't detected.**
 Autodetection covers the standard layouts. If you run a custom server file, set a [custom start command](/deployments/start-command) in your service settings, or use a [Dockerfile](#use-a-dockerfile) for full control.
 
 ## Next steps
 
-Explore these resources to learn how you can maximize your experience with Railway:
+Once your app is deployed, these guides cover what usually comes next:
 
 - [Manage environment variables](/guides/frontend-environment-variables) - Handle `VITE_` prefixed variables in TanStack Start.
 - [Choose between SSR, SSG, and ISR](/guides/ssr-ssg-isr) - Understand rendering strategies.
