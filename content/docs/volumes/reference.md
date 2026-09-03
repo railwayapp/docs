@@ -62,7 +62,7 @@ Services with volumes support manual and automated backups, backups are covered 
 
 When a volume is deleted, it is queued for deletion and can be restored for 48 hours using the restoration link sent via email.
 
-After 48 hours the volume can no longer be restored.
+After 48 hours the volume is deleted and the restoration link stops working.
 
 ## Caveats
 
