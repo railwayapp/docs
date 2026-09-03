@@ -30,7 +30,9 @@ Ensure [Node](https://nodejs.org/en/download) is installed, then create a new pr
 npx @tanstack/cli@latest create
 ```
 
-Follow the prompts to choose your preferred options. When you reach the deployment options, **select `railway`**. This adds a Nitro server, a `start` script, and everything else Railway needs to build and run your app — see [Choose a production server](#choose-a-production-server) below for what it does and why it matters.
+Follow the prompts to choose your preferred options. At the **Deploy** prompt, **select `Railway`**. This adds a Nitro server, a `start` script, and everything else Railway needs to build and run your app.
+
+Don't accept the Deploy prompt's default `Nitro (agnostic)` choice for an app headed to Railway. It adds the Nitro server but not the `start` script, and that combination crashes on deploy. See [Choose a production server](#choose-a-production-server) for why.
 
 ### Run the app locally
 
@@ -83,7 +85,12 @@ Then add a `start` script, which Railway uses to run your app:
 }
 ```
 
-That `start` script matters more than it looks. A freshly scaffolded TanStack Start app has **no `start` script at all** unless you add one or pick a deployment option that adds it for you. Without one, Railway has no obvious way to run your app after the build — it will fall back to serving the build with [`srvx`](https://srvx.h3.dev), which works but is not what most production apps want. If your build succeeds and the container exits immediately or serves a 502, a missing `start` script is the first thing to check.
+That `start` script matters more than it looks. A freshly scaffolded TanStack Start app has **no `start` script at all** unless you add one or pick a deployment option that adds it for you. Without one, Railway falls back to serving the build with [`srvx`](https://srvx.h3.dev), and what happens next depends on your Vite config:
+
+- With no server runtime at all, the srvx fallback serves the `dist/` build correctly. Your app works, and the build logs recommend setting up Nitro.
+- With the `nitro()` plugin and no `start` script, the fallback breaks: srvx looks for `dist/server/server.js`, but Nitro built `.output/`, so the server crashes on startup with `ENOENT`, the domain returns a 502, and the deployment flips to `CRASHED`. This is exactly what the scaffolder's default `Nitro (agnostic)` deploy option produces.
+
+If you have `nitro()` in `vite.config.ts`, the `start` script is required.
 
 ## Deploy the TanStack Start app to Railway
 
@@ -208,8 +215,11 @@ Use an ORM like Prisma or Drizzle to query the database from server functions an
 
 ## Troubleshooting
 
-**The build succeeds, but the container exits right away or the domain returns a 502.**
-Your app most likely has no `start` script and no server runtime. See [Choose a production server](#choose-a-production-server).
+**The build succeeds, but the domain returns a 502 and the deployment flips to `CRASHED`.**
+Your app uses the `nitro()` plugin but has no `start` script, so Railway's srvx fallback looks for `dist/server/server.js` while Nitro built `.output/`. The runtime logs show srvx exiting with `ENOENT ... dist/server/server.js`. Add the `start` script from [Choose a production server](#choose-a-production-server). The scaffolder's default `Nitro (agnostic)` deploy option produces this combination, so freshly scaffolded apps hit it unless they picked `Railway`.
+
+**The app deploys as a static site, and every page 404s.**
+`@tanstack/react-start` is in `devDependencies`, so Railway's TanStack Start detection misses it and the build logs show `Deploying as vite static site`. Move it to `dependencies` and redeploy.
 
 **Pages render, but CSS and JavaScript assets 404.**
 Your server isn't serving the client build. With Nitro this is handled for you. Without it, check that the `-s` path in your srvx command points at the client output directory.
