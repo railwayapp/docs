@@ -1,6 +1,6 @@
 ---
-title: Deploy a TanStack Start App
-description: Deploy a TanStack Start full-stack React application to Railway. Covers scaffolding with the Railway option, GitHub and CLI deploys, environment variables, database migrations, and troubleshooting.
+title: Build a TanStack App
+description: Deploy a TanStack app to Railway. Covers scaffolding with the Railway option, GitHub and CLI deploys, environment variables, database migrations, and troubleshooting.
 date: "2026-09-03"
 tags:
   - deployment
@@ -12,17 +12,17 @@ topic: frameworks
 
 [TanStack Start](https://tanstack.com/start) is a full-stack React framework built on TanStack Router. It provides file-based routing, server functions, server routes, SSR, and streaming out of the box. TanStack Start is a Vite plugin, so a TanStack Start app builds and deploys as a standard Node service on Railway.
 
-Railway is an <a href="https://tanstack.com/start/latest/docs/framework/react/guide/hosting" target="_blank">official TanStack Start hosting partner</a>, and the TanStack scaffolder ships a Railway deployment option that configures your app to deploy here with no extra setup.
+Railway is an <a href="https://tanstack.com/start/latest/docs/framework/react/guide/hosting" target="_blank">official TanStack hosting partner</a>, and the TanStack scaffolder ships a Railway deployment option that configures your app to deploy here with no extra setup.
 
-This guide covers how to deploy a TanStack Start app to Railway in three ways:
+This guide covers how to deploy a TanStack app to Railway in three ways:
 
 1. [Using the CLI](#deploy-from-the-cli).
 2. [From a GitHub repository](#deploy-from-a-github-repo).
 3. [Using a Dockerfile](#use-a-dockerfile).
 
-## Create a TanStack Start app
+## Create a TanStack app
 
-**Note:** If you already have a TanStack Start app locally or on GitHub, skip to [Choose a production server](#choose-a-production-server).
+**Note:** If you already have a TanStack app locally or on GitHub, skip to [Choose a production server](#choose-a-production-server).
 
 Ensure [Node](https://nodejs.org/en/download) is installed, then create a new project with the Railway deployment option:
 
@@ -30,7 +30,7 @@ Ensure [Node](https://nodejs.org/en/download) is installed, then create a new pr
 npx @tanstack/cli@latest create my-app --deployment railway
 ```
 
-Follow the prompts to choose your remaining options. The `railway` option adds a Nitro server and a `start` script, which is everything Railway needs to build and run your app.
+The `--deployment railway` flag adds a Nitro server and a `start` script, which is everything Railway needs to build and run your app. Follow the prompts to choose your remaining options.
 
 If you run the command without the `--deployment` flag, select `Railway` at the **Deploy** prompt. Don't accept the default `Nitro (agnostic)` choice for an app headed to Railway: it adds the Nitro server but not the `start` script, and that combination fails at runtime. See [Choose a production server](#choose-a-production-server).
 
@@ -86,7 +86,7 @@ Then add a `start` script, which Railway uses to run your app:
 }
 ```
 
-## Deploy the TanStack Start app to Railway
+## Deploy the TanStack app to Railway
 
 TanStack Start builds a Node.js server that handles SSR, server functions, server routes, and static asset serving. It deploys as a standard Node service on Railway.
 
@@ -95,7 +95,7 @@ TanStack Start builds a Node.js server that handles SSR, server functions, serve
 1. **Install the Railway CLI**:
    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-   - Run the command below in your TanStack Start app directory.
+   - Run the command below in your TanStack app directory.
      ```bash
      railway init
      ```
@@ -210,7 +210,7 @@ Changing a `VITE_` variable takes effect on the next build. Updating a variable 
 ## Add a Postgres database
 
 1. In your Railway project, click **+ New**, then **Database**, then **PostgreSQL**.
-2. Add the connection string to your TanStack Start service as a [reference variable](/variables#reference-variables):
+2. Add the connection string to your TanStack app's service as a [reference variable](/variables#reference-variables):
 
 ```plaintext
 DATABASE_URL=${{Postgres.DATABASE_URL}}
@@ -279,5 +279,5 @@ Explore these resources to learn how you can maximize your experience with Railw
 
 - [Manage environment variables](/guides/frontend-environment-variables) - Handle `VITE_` prefixed variables in TanStack Start.
 - [Choose between SSR, SSG, and ISR](/guides/ssr-ssg-isr) - Understand rendering strategies.
-- [Add a Database Service](/databases/build-a-database-service)
-- [Monitor your app](/observability)
+- [Add a Database Service](/databases/build-a-database-service) - Connect Postgres, MySQL, Redis, and more.
+- [Monitor your app](/observability) - Track logs, metrics, and deployment health.
