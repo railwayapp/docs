@@ -422,11 +422,13 @@ In order to ensure a consistent query format across Railway services, incoming l
 
 Depending on your plan, logs are retained for a certain amount of time.
 
-| Plan          | Retention\*   |
-| ------------- | ------------- |
-| Hobby / Trial | 7 days        |
-| Pro           | 30 days       |
-| Enterprise    | Up to 90 days |
+| Plan       | Retention\*   |
+| ---------- | ------------- |
+| Free       | 3 days        |
+| Trial      | 7 days        |
+| Hobby      | 7 days        |
+| Pro        | 30 days       |
+| Enterprise | Up to 90 days |
 
 _\* Upgrading plans will immediately restore logs that were previously outside of the retention period._
 
