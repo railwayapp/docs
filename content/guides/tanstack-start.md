@@ -1,6 +1,6 @@
 ---
-title: Deploy a TanStack Start App
-description: Deploy a TanStack Start full-stack React application to Railway. Covers GitHub deploys, CLI deploys, Dockerfile setup, and choosing a production server.
+title: Build a TanStack App
+description: Deploy a TanStack app to Railway. Covers GitHub deploys, CLI deploys, Dockerfile setup, and choosing a production server.
 date: "2026-09-03"
 tags:
   - deployment
@@ -12,25 +12,25 @@ topic: frameworks
 
 [TanStack Start](https://tanstack.com/start) is a full-stack React framework built on TanStack Router. It provides file-based routing, server functions, server routes, SSR, and streaming out of the box. TanStack Start is a Vite plugin, so a TanStack Start app builds and deploys as a standard Node service on Railway.
 
-Railway is an [official TanStack Start hosting partner](https://tanstack.com/start/latest/docs/framework/react/guide/hosting), and the TanStack scaffolder ships a Railway option that configures your app to deploy here with no extra setup.
+Railway is an [official TanStack hosting partner](https://tanstack.com/start/latest/docs/framework/react/guide/hosting), and the TanStack scaffolder ships a Railway option that configures your app to deploy here with no extra setup.
 
-This guide covers how to deploy a TanStack Start app to Railway in three ways:
+This guide covers how to deploy a TanStack app to Railway in three ways:
 
 1. [From a GitHub repository](#deploy-from-a-github-repo).
 2. [Using the CLI](#deploy-from-the-cli).
 3. [Using a Dockerfile](#use-a-dockerfile).
 
-## Create a TanStack Start app
+## Create a TanStack app
 
-**Note:** If you already have a TanStack Start app locally or on GitHub, skip to [Choose a production server](#choose-a-production-server).
+**Note:** If you already have a TanStack app locally or on GitHub, skip to [Choose a production server](#choose-a-production-server).
 
 Ensure [Node](https://nodejs.org/en/download) is installed, then create a new project:
 
 ```bash
-npx @tanstack/cli@latest create
+npx @tanstack/cli@latest create my-app --deployment railway
 ```
 
-Follow the prompts to choose your preferred options. When you reach the deployment options, **select `railway`**. This adds a Nitro server, a `start` script, and everything else Railway needs to build and run your app — see [Choose a production server](#choose-a-production-server) below for what it does and why it matters.
+The `--deployment railway` flag adds a Nitro server, a `start` script, and everything else Railway needs to build and run your app — see [Choose a production server](#choose-a-production-server) below for what it does and why it matters. You can also omit the flag and pick `railway` from the deployment prompts instead.
 
 ### Run the app locally
 
@@ -83,9 +83,9 @@ Then add a `start` script, which Railway uses to run your app:
 }
 ```
 
-That `start` script matters more than it looks. A freshly scaffolded TanStack Start app has **no `start` script at all** unless you add one or pick a deployment option that adds it for you. Without one, Railway has no obvious way to run your app after the build — it will fall back to serving the build with [`srvx`](https://srvx.h3.dev), which works but is not what most production apps want. If your build succeeds and the container exits immediately or serves a 502, a missing `start` script is the first thing to check.
+A freshly scaffolded TanStack Start app has **no `start` script at all** unless you add one or pick a deployment option that adds it for you. If Railway doesn't find one, it falls back to serving your build with [`srvx`](https://srvx.h3.dev). That does work, so a missing `start` script won't necessarily break your deploy — but it means the server you run in production is chosen for you rather than by you. Adding the script keeps that decision explicit.
 
-## Deploy the TanStack Start app to Railway
+## Deploy the TanStack app to Railway
 
 TanStack Start builds a Node.js server that handles SSR, server functions, server routes, and static asset serving. It deploys as a standard Node service on Railway.
 
@@ -94,7 +94,7 @@ TanStack Start builds a Node.js server that handles SSR, server functions, serve
 1. **Install the Railway CLI**:
    - <a href="/guides/cli#installing-the-cli" target="_blank">Install the CLI</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate it</a> using your Railway account.
 2. **Initialize a Railway Project**:
-   - Run the command below in your TanStack Start app directory.
+   - Run the command below in your TanStack app directory.
      ```bash
      railway init
      ```
@@ -198,7 +198,7 @@ Both server functions and server routes have access to all Railway [service vari
 ## Add a Postgres database
 
 1. In your Railway project, click **+ New**, then **Database**, then **PostgreSQL**.
-2. Add the connection string to your TanStack Start service:
+2. Add the connection string to your TanStack app's service:
 
 ```
 DATABASE_URL=${{Postgres.DATABASE_URL}}
@@ -209,7 +209,7 @@ Use an ORM like Prisma or Drizzle to query the database from server functions an
 ## Troubleshooting
 
 **The build succeeds, but the container exits right away or the domain returns a 502.**
-Your app most likely has no `start` script and no server runtime. See [Choose a production server](#choose-a-production-server).
+Check the deploy logs for the command Railway actually ran. If your app has no `start` script, Railway starts it with `srvx` against `dist/`, which fails if your build produced something else. See [Choose a production server](#choose-a-production-server).
 
 **Pages render, but CSS and JavaScript assets 404.**
 Your server isn't serving the client build. With Nitro this is handled for you. Without it, check that the `-s` path in your srvx command points at the client output directory.
@@ -224,5 +224,5 @@ Railway's healthcheck does not follow redirects, so a healthcheck path that answ
 
 - [Manage environment variables](/guides/frontend-environment-variables) - Handle `VITE_` prefixed variables in TanStack Start.
 - [Choose between SSR, SSG, and ISR](/guides/ssr-ssg-isr) - Understand rendering strategies.
-- [Add a Database Service](/databases/build-a-database-service)
-- [Monitor your app](/observability)
+- [Add a Database Service](/databases/build-a-database-service) - Connect Postgres, MySQL, Redis, and more.
+- [Monitor your app](/observability) - Track logs, metrics, and deployment health.
