@@ -32,7 +32,7 @@ npx @tanstack/cli@latest create my-app --deployment railway
 
 The `--deployment railway` flag adds a Nitro server and a `start` script, which is everything Railway needs to build and run your app. Follow the prompts to choose your remaining options.
 
-If you run the command without the `--deployment` flag, select `Railway` at the **Deploy** prompt. Don't accept the default `Nitro (agnostic)` choice for an app headed to Railway: it adds the Nitro server but not the `start` script, and that combination fails at runtime. See [Choose a production server](#choose-a-production-server).
+If you run the command without the `--deployment` flag, select `Railway` at the **Deploy** prompt. The default `Nitro (agnostic)` choice also deploys on Railway, but it adds the Nitro server without a `start` script, so Railway chooses the server command for you. Picking `Railway` keeps that decision explicit. See [Choose a production server](#choose-a-production-server).
 
 ### Run the app locally
 
@@ -49,14 +49,15 @@ Open `http://localhost:3000` to see your app.
 
 | Setup | Build output | Start command |
 | --- | --- | --- |
-| Nitro (recommended) | `.output/server/index.mjs` | `node .output/server/index.mjs` |
-| No server runtime | `dist/server/` and `dist/client/` | `npx srvx --prod -s ../client dist/server/server.js` |
+| Nitro with a `start` script (recommended) | `.output/server/index.mjs` | `node .output/server/index.mjs` |
+| Nitro, no `start` script | `.output/server/index.mjs` | `node .output/server/index.mjs`, chosen by Railway |
+| No server runtime | `dist/server/` and `dist/client/` | `npx srvx --prod -s ../client dist/server/server.js`, chosen by Railway |
 
 **Use Nitro with a `start` script.** It is what the Railway option in the scaffolder sets up, it produces a self-contained server bundle, and it is the configuration this guide documents from here on.
 
-If your app has no server runtime at all, Railway's builder ([Railpack](/builds) v0.36 and later) detects TanStack Start and serves the default Vite build with [srvx](https://srvx.h3.dev), so that layout deploys without configuration too. The build logs recommend Nitro when this fallback is used.
+All three layouts deploy on Railway without configuration. When there is no `start` script, Railway's builder ([Railpack](/builds) v0.39 and later) picks the right server for your build output: `node .output/server/index.mjs` for Nitro apps, and [srvx](https://srvx.h3.dev) for the default Vite build. The build logs state which command was chosen and suggest adding a `start` script to make it explicit.
 
-The combination to avoid is Nitro without a `start` script, which is what the scaffolder's default `Nitro (agnostic)` deploy option produces. Railway falls back to srvx pointed at `dist/`, but Nitro builds to `.output/`, so the server crashes on startup and the domain returns a 502. If you have the `nitro()` plugin in `vite.config.ts`, the `start` script is required.
+Adding the `start` script is still recommended: it keeps the production server your decision, and it makes the app portable to hosts that only run `npm start`.
 
 To add Nitro to an existing app, install it and register its Vite plugin:
 
@@ -250,10 +251,10 @@ Railpack detects a `bun.lock` file and switches the whole pipeline to Bun: it in
 ## Troubleshooting
 
 **The build succeeds, but the domain returns a 502 and the deployment flips to `CRASHED`.**
-Your app uses the `nitro()` plugin but has no `start` script, so Railway's srvx fallback looks for `dist/server/server.js` while Nitro built `.output/`. The runtime logs show srvx exiting with `ENOENT ... dist/server/server.js`. Add the `start` script from [Choose a production server](#choose-a-production-server). This is what the scaffolder's default `Nitro (agnostic)` deploy option produces, so freshly scaffolded apps hit it unless they picked `Railway`.
+Check the runtime logs for srvx exiting with `ENOENT ... dist/server/server.js`. On Railpack versions before v0.39, an app with the `nitro()` plugin but no `start` script hit this on every deploy: the srvx fallback looked for `dist/` while Nitro built `.output/`. Redeploy to pick up the current Railpack version, or add the `start` script from [Choose a production server](#choose-a-production-server).
 
 **The app deploys as a static site, and every page 404s.**
-`@tanstack/react-start` is in `devDependencies`, so Railway's TanStack Start detection misses it and the build logs show `Deploying as vite static site`. Move it to `dependencies` and redeploy.
+`@tanstack/react-start` is in `devDependencies`, so Railway's TanStack Start detection misses it. The build logs show `Deploying as vite static site` with a suggestion to move `@tanstack/react-start` to `dependencies`. Do that and redeploy.
 
 **A `VITE_` variable is undefined in the browser, or shows a stale value.**
 Check the prefix first, since only `VITE_`-prefixed variables reach client code. If the variable is set and still shows an old value, it was baked in by an earlier build. Trigger a redeploy so the app rebuilds with the current value.
