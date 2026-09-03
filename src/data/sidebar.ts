@@ -148,6 +148,11 @@ export const sidebarContent: ISidebarContent = [
           makePage("Create", "templates"),
           makePage("Updates", "templates"),
           makePage("Best practices", "templates", "/templates/best-practices"),
+          makePage(
+            "High availability",
+            "templates",
+            "/templates/high-availability",
+          ),
           makePage("Publish and share", "templates"),
         ],
       },
