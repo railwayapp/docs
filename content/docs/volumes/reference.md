@@ -60,9 +60,9 @@ Services with volumes support manual and automated backups, backups are covered 
 
 ## Deletion and Restoration
 
-When a volume is deleted, it is queued for deletion and will be permanently deleted within 48 hours. You can restore the volume during this period using the restoration link sent via email.
+When a volume is deleted, it is queued for deletion and can be restored for 48 hours using the restoration link sent via email.
 
-After 48 hours, deletion becomes permanent and the volume cannot be restored.
+After 48 hours the volume can no longer be restored.
 
 ## Caveats
 
