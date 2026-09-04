@@ -92,6 +92,45 @@ After you start a transfer:
 - **If you lose the code**, return to this section and click **Get Transfer Code** again — it returns the same code.
 - **Make sure before you start — transfers are final.** Once started, a transfer won't be undone; the domain moves to your new registrar, where you'll manage it from then on.
 
+## Email forwarding
+
+Forward mail sent to an address on your Railway-purchased domain to an inbox you already use. Railway doesn't create a mailbox or store your mail. Each message is relayed to the destination you choose.
+
+Open a domain from [railway.com/workspace/domains](https://railway.com/workspace/domains) and find the **Email Forwarding** section, next to **DNS records**. Only workspace admins can add, edit, and remove addresses.
+
+1. Click **Add Address**.
+2. Enter the address to forward, such as `hello`, and the destination inbox it should reach.
+3. Open the actions menu for the address, then click **Send test email** to confirm it arrives.
+
+Enabling forwarding adds seven DNS records to the domain apex, several mail exchange records and one sender policy record, which appear alongside your other [DNS records](#dns-records). Forwarding depends on the mail exchange records. While forwarding addresses exist, Railway refuses both a mail exchange record for another provider at the domain apex and delegation to [custom nameservers](#nameservers).
+
+### Before you rely on forwarding
+
+Forwarding hands each message to an inbox you already own, which shapes what it can do:
+
+- Replies come from the destination inbox and show that address, not the address the mail was sent to.
+- Spam isn't filtered on the way through. The destination inbox applies its own filtering, so check its spam folder.
+- Messages with attachments over 10 MB may fail to arrive.
+- Each address forwards to one destination. Catch-all and wildcard addresses aren't supported.
+- Mail sent from the destination inbox to the forwarded address isn't forwarded back, so test with **Send test email** rather than emailing yourself.
+
+### Address limits
+
+Each domain can have a limited number of forwarding addresses, set by your workspace plan:
+
+| Trial | Free | Hobby | Pro | Enterprise |
+| --- | --- | --- | --- | --- |
+| 1 | 1 | 5 | 25 | 25 |
+
+The limit counts per domain and applies when you add an address.
+
+### When forwarding isn't available
+
+Railway offers forwarding only on domains whose mail records it can manage. The **Email Forwarding** section shows guidance instead of a form when:
+
+- The domain already sends or receives mail through another provider. Set forwarding up with that provider, because adding it in Railway would break your existing setup.
+- DNS is delegated to [custom nameservers](#nameservers). Set forwarding up at that provider, or reset to Railway's nameservers first.
+
 ## Billing
 
 Domain subscriptions are separate from your workspace subscription.
@@ -120,6 +159,10 @@ No. Railway doesn't support transferring in a domain registered with another reg
 
 <Collapse title="Can I use Cloudflare or another DNS provider with my domain?">
 Yes. Workspace admins can point a Railway-purchased domain at an external DNS provider with [custom nameservers](#nameservers), without transferring the domain out. While custom nameservers are in use, the one-click custom domain flow is disabled and DNS records are managed at your external provider instead of in Railway.
+</Collapse>
+
+<Collapse title="Can I get email on my domain?">
+Railway can forward mail sent to an address on your domain to an inbox you already use. It doesn't host mailboxes, so you can't read mail in Railway or send from the forwarded address. See [Email forwarding](#email-forwarding).
 </Collapse>
 
 <Collapse title="Which TLDs are available?">
