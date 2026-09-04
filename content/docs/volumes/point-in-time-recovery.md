@@ -9,7 +9,7 @@ PITR works for both single-node Postgres and [Postgres HA](/databases/postgresql
 
 ## How it works
 
-When PITR is enabled, your Postgres image archives every WAL segment it produces directly to a Railway [storage bucket](/storage-buckets) using [pgBackRest](https://pgbackrest.org/). pgBackRest also takes its own base backups on a rolling schedule — a full backup every week and an incremental backup every day — so the bucket holds everything Postgres needs to rebuild a database at any point in the archive window. The last 4 full backups are retained, giving you a restore window of roughly 4 weeks.
+When PITR is enabled, your Postgres image archives every WAL segment it produces directly to a Railway [storage bucket](/storage-buckets) using [pgBackRest](https://pgbackrest.org/). pgBackRest also takes its own base backups on a rolling schedule — a full backup every week and a differential backup every day — so the bucket holds everything Postgres needs to rebuild a database at any point in the archive window. The last 4 full backups are retained, giving you a restore window of roughly 4 weeks.
 
 Pushes are async: pgBackRest's worker batches WAL segments and ships them to S3 in the background, so a stalled bucket can't block writes on Postgres. Under sustained S3 outages, a 5 GiB queue cap on the leader trips and pgBackRest drops WAL to keep the database running — your PITR window truncates, but Postgres stays up.
 
@@ -89,7 +89,7 @@ Everything is zstd-compressed before it leaves the service, so both egress and s
 For most workloads, expect roughly:
 
 - A few GB of compressed WAL per day under steady write load (idle databases are nearly free). Each segment is billed once as egress when pushed, then as storage while retained.
-- One base backup per cycle (weekly full, daily incremental), compressed and de-duplicated by pgBackRest.
+- One base backup per cycle (weekly full, daily differential), compressed and de-duplicated by pgBackRest.
 
 pgBackRest's `expire` runs after each backup and reclaims old base backups along with their pinned WAL, so the bucket size stabilizes at roughly 4 weeks of write volume.
 

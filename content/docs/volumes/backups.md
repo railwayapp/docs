@@ -16,8 +16,8 @@ Backups can be scheduled to run on a daily, weekly or monthly basis. They will b
 You can set the schedule in the service settings panel, under the Backups tab.
 
 - **Daily** - Backed up every 24 hours, kept for 6 days
-- **Weekly** - Backed up every 7 days, kept for 1 month
-- **Monthly** - Backed up every 30 days, kept for 3 months
+- **Weekly** - Backed up every 7 days, kept for 27 days
+- **Monthly** - Backed up every 30 days, kept for 89 days
 
 You can select multiple backup schedules for a single volume. These schedules can be modified at any time, and you can also manually trigger backups as needed.
 
@@ -40,7 +40,7 @@ During this process, you will see a new [volume](/overview/the-basics#volumes) m
 
 The previous volume will be retained but has been unmounted from the service, it will have the original volume name such as `silk-volume`.
 
-**Note:** Restoring a backup will remove any newer backups you may have created after the backup you are restoring, you will still have access to backups older than the one you are restoring.
+**Note:** The restored volume carries copies of the backups up to and including the one you restored. Backups newer than that point are not copied to it, but they are not deleted either — they stay on the previous volume, which remains in your project unmounted from the service.
 
 If everything looks good and you're ready to proceed, click the `Deploy` button to complete the restore.
 
