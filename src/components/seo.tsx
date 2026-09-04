@@ -30,7 +30,7 @@ const title = "Railway Docs";
 const description = "Documentation for Railway";
 
 export const baseUrl = "https://docs.railway.com";
-const image = baseUrl + "/og.png";
+const defaultImage = baseUrl + "/og-docs.png";
 
 const config: DefaultSeoProps = {
   title,
@@ -39,7 +39,9 @@ const config: DefaultSeoProps = {
     type: "website",
     url: baseUrl,
     site_name: title,
-    images: [{ url: image }],
+    images: [
+      { url: defaultImage, width: 1200, height: 630, type: "image/png" },
+    ],
   },
   twitter: {
     site: "@Railway",
@@ -227,7 +229,7 @@ export const SEO: React.FC<Props> = ({
         <title>{title}</title>
         <meta name="twitter:title" content={twitterTitle} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
+        <meta name="twitter:image" content={image ?? defaultImage} />
         <meta name="twitter:image:alt" content={twitterTitle} />
 
         {/* Enhanced meta tags from section hierarchy */}
