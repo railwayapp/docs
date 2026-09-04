@@ -78,6 +78,15 @@ The Connection section shows the username and password for the database, and all
 
 Regenerating breaks existing connections until they use the new password, so it's important to manually redeploy any service that depends on the updated password variable (or the derived database URL).
 
+Regenerate is the supported way to change a database password. Use it instead of the two manual routes, which change only one side each:
+
+- Editing the password variable does not change the password inside the database. A database keeps its credentials in its data directory, and only reads the variable when it initializes an empty one — so a running database with a volume ignores the edit, and every redeploy after it keeps ignoring it.
+- Running `ALTER USER` (or its equivalent) against the database does not change the variable, so Railway and everything reading the variable keep presenting the old password.
+
+Either one on its own leaves the database and the variable out of sync, and every connection fails with an authentication error — from your app, the CLI, and this Data tab alike.
+
+<Banner variant="info">If you have already changed one side, set the variable back to the password the database actually holds and redeploy the services that use it. Both sides match again, and Regenerate works from there.</Banner>
+
 <Image src="/images/database-config-connection.png"
 alt="Screenshot of the Connection section in the database Config tab"
 layout="intrinsic"
