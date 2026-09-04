@@ -146,6 +146,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Deploy", "templates"),
           makePage("Create", "templates"),
+          makePage("Staged changes", "templates"),
           makePage("Updates", "templates"),
           makePage("Best practices", "templates", "/templates/best-practices"),
           makePage(

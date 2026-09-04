@@ -135,9 +135,9 @@ Since the author is publicly visible and shown with the template to the users, i
 
 The overview is the first thing users will see when they click on the template, so it is important to make it count.
 
-The overview should include the following:
+Publishing requires the section structure below. In the template editor, click **Fill Required Structure** on the overview field to insert it with placeholders to replace.
 
-- **H1: Deploy and Host [X] with Railway**
+- **H1: Deploy and Host [X] on Railway**
 
   What is X? Your description in roughly ~ 50 words.
 
@@ -153,15 +153,11 @@ The overview should include the following:
 
   In bullet form, what other technologies are incorporated in using this template besides [X]?
 
-- **H3: Deployment Dependencies**
-
-  Include any external links relevant to the template.
-
 - **H3: Implementation Details (Optional)**
 
   Include any code snippets or implementation details. This section is optional. Exclude if nothing to add.
 
-- **H3: Why Deploy [X] on Railway?**
+- **H2: Why Deploy [X] on Railway?**
 
   Railway is a singular platform to deploy your infrastructure stack. Railway will host your infrastructure so you don't have to deal with configuration, while allowing you to vertically and horizontally scale it.
 
