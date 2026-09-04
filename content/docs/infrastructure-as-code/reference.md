@@ -247,6 +247,23 @@ const api = service("api", {
 
 Database provisioning is handled by Railway product workflows. The configuration file describes the database intent; you do not need to attach a volume to managed database helpers yourself.
 
+### Public TCP proxies
+
+Database helpers take no networking options. Author public exposure on the helper result. `railway config pull` writes this line for a database that already has a TCP proxy:
+
+```ts
+const db = postgres("postgres");
+db.networking = { tcpProxies: { "5432": {} } };
+```
+
+To assert that a database has no public proxy, declare an empty map. The plan stays clean while none exists and shows `Update postgres networking` when a proxy is added outside the file:
+
+```ts
+db.networking = { tcpProxies: {} };
+```
+
+A database without a `networking` block keeps whatever proxies it has.
+
 ## Volumes
 
 Create a persistent volume with `volume(name, config)` and attach it to a service with `volumeMounts`:
