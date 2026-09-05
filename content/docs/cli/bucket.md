@@ -212,7 +212,7 @@ railway bucket credentials --reset --yes
 Default output:
 
 ```plaintext
-AWS_ENDPOINT_URL=https://storage.railway.app
+AWS_ENDPOINT_URL=https://t3.storageapi.dev
 AWS_ACCESS_KEY_ID=your-access-key
 AWS_SECRET_ACCESS_KEY=your-secret-key
 AWS_S3_BUCKET_NAME=my-bucket-abc123
@@ -232,7 +232,7 @@ With `--json` (both with and without `--reset`):
 
 ```json
 {
-  "endpoint": "https://storage.railway.app",
+  "endpoint": "https://t3.storageapi.dev",
   "accessKeyId": "your-access-key",
   "secretAccessKey": "your-secret-key",
   "bucketName": "my-bucket-abc123",
