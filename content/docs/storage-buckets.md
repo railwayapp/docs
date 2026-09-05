@@ -36,7 +36,7 @@ width={2554} height={1970} quality={80} />
 ### URL style
 
 
-Railway Buckets use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#virtual-hosted–style-access">virtual-hosted–style URLs</a>, where the bucket name appears as the subdomain of the S3 endpoint. This is the standard S3 URL format, and most libraries support it out of the box. In most cases you only need to provide the base endpoint (`https://storage.railway.app`) and the client builds the full virtual-hosted URL automatically.
+Railway Buckets use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#virtual-hosted–style-access">virtual-hosted–style URLs</a>, where the bucket name appears as the subdomain of the S3 endpoint. This is the standard S3 URL format, and most libraries support it out of the box. In most cases you only need to provide the base endpoint shown in your bucket's Credentials tab (`https://t3.storageapi.dev`) and the client builds the full virtual-hosted URL automatically.
 
 Buckets that were created before this change might require you to use <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#path-style-access">path-style URLs</a> instead. The Credentials tab of your bucket will tell you which style you should use.
 
@@ -68,7 +68,7 @@ Railway provides the following variables which can be used as [Variable Referenc
 | `SECRET_ACCESS_KEY`        | The secret key for the S3 API.                                                                   |
 | `ACCESS_KEY_ID`            | The key id for the S3 API.                                                                       |
 | `REGION`                   | The region for the S3 API. Example: `auto`                                                       |
-| `ENDPOINT`                 | The S3 API endpoint. Example: `https://storage.railway.app`                                      |
+| `ENDPOINT`                 | The S3 API endpoint. Example: `https://t3.storageapi.dev`                                        |
 | `RAILWAY_PROJECT_NAME`     | The project name the bucket belongs to.                                                          |
 | `RAILWAY_PROJECT_ID`       | The project id the bucket belongs to.                                                            |
 | `RAILWAY_ENVIRONMENT_NAME` | The environment name of the bucket instance.                                                     |
