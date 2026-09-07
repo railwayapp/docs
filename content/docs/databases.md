@@ -19,6 +19,7 @@ The fastest way to deploy a database is through Railway's database templates:
 | [**Redis**](/databases/redis) | In-memory data store for caching and real-time data |
 | [**Redis HA**](/databases/redis-ha) | High-availability Redis cluster with Sentinel failover |
 | [**MongoDB**](/databases/mongodb) | Document-oriented NoSQL database |
+| [**MongoDB HA**](/databases/mongo-ha) | High-availability MongoDB replica set with automatic failover |
 
 These templates are maintained by Railway and come pre-configured with sensible defaults.
 
