@@ -145,9 +145,9 @@ railway config apply --plan railway-plan.json --yes --confirm-destructive
 
 Apply fails if the live environment etag no longer matches, or if the
 checked-out `.railway/` tree is not the planned tree. In GitHub Actions, use
-[`railwayapp/config`](https://github.com/railwayapp/config), which wraps both
-commands, comments the plan on the pull request, and documents the two-job
-workflow.
+[`railwayapp/config`](https://github.com/railwayapp/config) so pull requests
+get a plan comment and merge applies that pinned artifact. See
+[Apply from GitHub Actions](/infrastructure-as-code#apply-from-github-actions).
 
 ## Apply changes
 

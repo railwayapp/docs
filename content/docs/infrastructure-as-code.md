@@ -230,7 +230,64 @@ railway config plan --out railway-plan.json
 railway config apply --plan railway-plan.json --yes --confirm-destructive
 ```
 
-`--plan` applies the saved change set as-is. It fails if the live `configEtag` drifted or the checked-out `.railway/` tree is not the planned tree. In GitHub Actions, [`railwayapp/config`](https://github.com/railwayapp/config) wraps both commands, comments the plan on the pull request, and documents the two-job workflow. See [`railway config`](/cli/config).
+`--plan` applies the saved change set as-is. It fails if the live `configEtag` drifted or the checked-out `.railway/` tree is not the planned tree. See [`railway config`](/cli/config) for the flags.
+
+## Apply from GitHub Actions
+
+[`railwayapp/config`](https://github.com/railwayapp/config) plans Infrastructure as Code on pull requests and applies the reviewed plan when the pull request merges.
+
+The plan job pins the change set, the environment's `configEtag`, and the `.railway/` git tree. The apply job applies that artifact. It does not re-evaluate the authoring file. If the environment changed after the plan, or the merged `.railway/` tree is not the planned tree, apply fails and you re-plan.
+
+Create a [project token](/integrations/api#project-token) for the target environment and store it as the `RAILWAY_TOKEN` repository secret. A project token is scoped to one environment, so the workflow applies to that environment only.
+
+Add `.github/workflows/railway-config.yml`:
+
+```yaml
+name: Railway config
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - ".railway/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+  actions: read
+  id-token: write
+
+jobs:
+  plan:
+    if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: railwayapp/config@v1
+        with:
+          command: plan
+          railway-token: ${{ secrets.RAILWAY_TOKEN }}
+
+  apply:
+    if: github.event.action == 'closed' && github.event.pull_request.merged && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+      - uses: railwayapp/config@v1
+        with:
+          command: apply
+          railway-token: ${{ secrets.RAILWAY_TOKEN }}
+```
+
+Every pull request that touches `.railway/` gets a plan comment with the diff. Destructive changes are marked in that comment. Merging is the approval.
+
+Install the TypeScript SDK (`npm install railway`) in the repository so the plan job can evaluate `.railway/railway.ts`. Fork pull requests are skipped. They don't receive repository secrets.
+
+`id-token: write` plus the [Railway GitHub App](https://github.com/apps/railway-app) posts the plan comment as the Railway bot (the same identity as preview-environment comments). Without those, the comment is posted as github-actions.
+
+To run apply as a separately named job on your default branch, split plan and apply into two workflows. See the [action README](https://github.com/railwayapp/config).
 
 ## Authoring
 
@@ -402,3 +459,4 @@ The README explains how to plan and apply the configuration. Prefer one file for
 - [CLI](/cli)
 - [Environments](/environments)
 - [Variables](/variables)
+- [railwayapp/config](https://github.com/railwayapp/config)
