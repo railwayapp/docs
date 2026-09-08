@@ -70,13 +70,12 @@ Here are some limitations of which we are currently aware:
 
 - Each service can only have a single volume
 - Replicas cannot be used with volumes
-- There is no built-in S/FTP support
 - To prevent data corruption, we prevent multiple deployments from being active
   and mounted to the same service. This means that there will be a small amount
   of downtime when re-deploying a service that has a volume attached, even if there is a healthcheck endpoint configured
 - Down-sizing a volume is not currently supported, but increasing size is supported
 - Volume resizing is performed live without downtime. The underlying storage is expanded while your service continues running, and the filesystem automatically extends to utilize the additional space. In certain scenarios, such as when a volume reaches 100% capacity, an offline resize is automatically performed instead to run data integrity checks, which will restart your service
-- Volume files can be managed from the CLI with `railway volume browse` or `railway volume files`
+- Volume files can be managed from the CLI with `railway volume browse` or `railway volume files`, and over `sftp` or `scp` through a service the volume is attached to (see [railway ssh](/cli/ssh))
 - Docker images that run as a non-root UID by default will have permissions issues when performing operations within an attached volume. If you are affected by this, you can set `RAILWAY_RUN_UID=0` environment variable in your service.
 
 ## Support
