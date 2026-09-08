@@ -72,11 +72,30 @@ railway ssh -i ~/.ssh/railway_ed25519
 
 When set, the CLI skips its local `~/.ssh` scan and forwards the key directly to `ssh`.
 
+## Connect to a service without a public domain
+
+The SSH username is the service's domain, so a service that has no domain needs
+a different target. Use its service instance ID instead.
+
+1. Open the service in the dashboard.
+2. Open the **command palette** with `CMD + K` (Mac) or `Ctrl + K` (Windows).
+3. Choose **Copy Service Instance ID**.
+
+That ID works as the username anywhere a domain does:
+
+```bash
+ssh <service-instance-id>@ssh.railway.com
+scp <service-instance-id>@ssh.railway.com:/app/data.json ./data.json
+```
+
+The palette also offers **Copy Service ID**, which is a different value and is
+not a valid SSH target.
+
 ## Copy files with scp and sftp
 
 Railway SSH supports the SFTP subsystem, so your system `scp` and `sftp` clients
 work against `ssh.railway.com` using the same registered key. Use the service's
-domain as the username.
+domain as the username, or its service instance ID if it has no domain.
 
 ```bash
 # Copy a file out of the container
