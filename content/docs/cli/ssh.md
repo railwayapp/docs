@@ -108,6 +108,23 @@ Transfers reach the running container's filesystem, including any mounted
 volume. For volume files specifically, [`railway volume browse`](/cli/volume)
 gives you an interactive browser without setting up SSH.
 
+## Forward a port with ssh -L
+
+Railway SSH supports local port forwarding, so you can open an SSH tunnel from
+your own machine to a port inside your container.
+
+```bash
+ssh -N -L 8080:127.0.0.1:8080 myapp.up.railway.app@ssh.railway.com
+```
+
+The connection is dialed from inside the container, so `127.0.0.1` is the
+container's own loopback. `-N` skips the shell, so the command does nothing but
+hold the tunnel open. Keep the session running while you use the tunnel.
+
+Forwarding is limited to the container's loopback and your project's private
+network. Public destinations are refused, so an SSH tunnel can't be used as a
+general internet proxy.
+
 ## Manage SSH config
 
 Use the `config` subcommand to add, preview, or remove a Railway OpenSSH config
