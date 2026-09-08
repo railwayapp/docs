@@ -72,6 +72,42 @@ railway ssh -i ~/.ssh/railway_ed25519
 
 When set, the CLI skips its local `~/.ssh` scan and forwards the key directly to `ssh`.
 
+## Copy files with scp and sftp
+
+Railway SSH supports the SFTP subsystem, so your system `scp` and `sftp` clients
+work against `ssh.railway.com` using the same registered key. Use the service's
+domain as the username.
+
+```bash
+# Copy a file out of the container
+scp myapp.up.railway.app@ssh.railway.com:/app/data.json ./data.json
+
+# Copy a file into the container
+scp ./data.json myapp.up.railway.app@ssh.railway.com:/app/data.json
+
+# Copy a directory
+scp -r myapp.up.railway.app@ssh.railway.com:/app/logs ./logs
+
+# Open an interactive SFTP session
+sftp myapp.up.railway.app@ssh.railway.com
+```
+
+A deployment instance ID works as the username too, in place of the domain.
+
+`scp` uses the SFTP protocol on OpenSSH 9.0 and newer. On older clients, pass
+`-s` to select it.
+
+If you added a host alias with [`railway ssh config`](#manage-ssh-config), use
+the alias instead:
+
+```bash
+scp railway-api:/app/data.json ./data.json
+```
+
+Transfers reach the running container's filesystem, including any mounted
+volume. For volume files specifically, [`railway volume browse`](/cli/volume)
+gives you an interactive browser without setting up SSH.
+
 ## Manage SSH config
 
 Use the `config` subcommand to add, preview, or remove a Railway OpenSSH config
