@@ -51,6 +51,8 @@ As part of the program, conductors will receive -
 
 - 100% off discount for the Pro plan's subscription and resource costs.
 
+- A Claude Max 20x subscription, covered by Railway.
+
 - Cash payouts for solving complex issues for users.
 
 - The opportunity to earn payouts for OSS contributions ([CLI](https://github.com/railwayapp/cli), [Railpack](https://github.com/railwayapp/railpack), [Docs](https://github.com/railwayapp/docs), etc).
