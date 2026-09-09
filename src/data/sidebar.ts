@@ -107,9 +107,34 @@ export const sidebarContent: ISidebarContent = [
     title: "AI",
     slug: "/ai",
     content: [
+      {
+        subTitle: makePage("Cloud agents", undefined, "/cloud-agents"),
+        pages: [
+          makePage("Quickstart", undefined, "/cloud-agents/quickstart"),
+          makePage("Terminal sessions", undefined, "/cloud-agents/terminal"),
+          makePage("Claude Desktop", undefined, "/cloud-agents/claude"),
+          makePage("Codex Desktop", undefined, "/cloud-agents/codex"),
+          {
+            subTitle: makePage("OpenCode", undefined, "/cloud-agents/opencode"),
+            pages: [
+              makePage("OpenCode2 Beta", undefined, "/cloud-agents/opencode/beta"),
+            ],
+          },
+          makePage("Agents and sessions", undefined, "/cloud-agents/manage"),
+          makePage(
+            "Credentials and configuration",
+            undefined,
+            "/cloud-agents/configuration",
+          ),
+          makePage(
+            "Troubleshooting",
+            undefined,
+            "/cloud-agents/troubleshooting",
+          ),
+        ],
+      },
       makePage("Railway Agent", "ai"),
       makePage("Agent Connectors", "ai"),
-      makePage("Cloud agents", undefined, "/cloud-agents"),
       {
         subTitle: makePage("Agent integrations", undefined, "/ai/agent-integrations"),
         pages: [

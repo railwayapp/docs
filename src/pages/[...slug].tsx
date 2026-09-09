@@ -32,6 +32,12 @@ import { Anchor } from "@/components/anchor";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Props as InlineCodeProps } from "@/components/inline-code";
 import { TallyButton } from "@/components/tally-button";
+import {
+  CloudAgentClients,
+  CloudAgentTools,
+  CloudAgentLauncher,
+  CloudAgentConnection,
+} from "@/components/cloud-agent-launcher";
 import { AgentInstallCommand } from "@/components/agent-install-command";
 import { McpInstallGuide } from "@/components/mcp-install-guide";
 
@@ -67,6 +73,10 @@ const components: Record<string, React.ElementType> = {
   FileTree,
   Tooltip,
   AgentInstallCommand,
+  CloudAgentClients,
+  CloudAgentTools,
+  CloudAgentLauncher,
+  CloudAgentConnection,
   McpInstallGuide,
 };
 

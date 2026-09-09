@@ -29,6 +29,8 @@ export const iconNames = [
   "Menu",
   "Monitor",
   "Moon",
+  "OpenCodeDark",
+  "OpenCode",
   "Plus",
   "Railway",
   "React",

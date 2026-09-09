@@ -4,12 +4,17 @@ import { cn } from "@/lib/cn";
 import { Link } from "./link";
 import { IPage, ISubSection, IExternalLink } from "../types";
 import { Arrow } from "@/components/arrow";
+import { sidebarItemContainsPage, sidebarItemSlug } from "@/utils/sidebar";
 import { Icon } from "./icon";
 
 interface SidebarItemProps {
   item: IPage | ISubSection | IExternalLink;
   isCurrentPage: (pageSlug: string) => boolean;
   isExpanded: boolean;
+  expandedSubSections: string[];
+  onToggleNestedSection: (slug: string) => void;
+  nested?: boolean;
+  currentSlug: string;
   onToggleSubSection: () => void;
   activeLinkRef?: React.MutableRefObject<HTMLAnchorElement | null>;
 }
@@ -20,6 +25,10 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   isExpanded,
   onToggleSubSection,
   activeLinkRef,
+  expandedSubSections,
+  onToggleNestedSection,
+  nested = false,
+  currentSlug,
 }) => {
   const externalLinkSvg = (
     <svg
@@ -107,8 +116,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       const hasLanding = typeof subTitle !== "string";
       const isSubTitleActive =
         hasLanding && isCurrentPage((subTitle as IPage).slug);
-      const hasActiveChild = item.pages.some(
-        page => "slug" in page && isCurrentPage(page.slug),
+      const hasActiveChild = item.pages.some(page =>
+        sidebarItemContainsPage(page, currentSlug),
       );
       const isParentHighlighted = isSubTitleActive || hasActiveChild;
 
@@ -148,6 +157,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             <button
               type="button"
               onClick={onToggleSubSection}
+              aria-expanded={isExpanded}
               aria-label={
                 isExpanded
                   ? `Collapse ${(subTitle as IPage).title} section`
@@ -171,6 +181,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         <button
           type="button"
           onClick={onToggleSubSection}
+          aria-expanded={isExpanded}
           className={cn(
             rowClassName,
             "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app cursor-pointer",
@@ -197,10 +208,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             ? item.subTitle
             : item.subTitle.title
         }
-        className="min-w-0"
+        className={cn("min-w-0", nested && "ml-3")}
       >
         {renderSubtitle(item.subTitle)}
         <div
+          inert={!isExpanded}
           className={cn(
             "grid transition-[grid-template-rows] duration-200 ease-out",
             isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
@@ -215,6 +227,22 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             {item.pages.map(page => {
               if ("url" in page) {
                 return renderExternalLink(page, true);
+              } else if ("subTitle" in page) {
+                const slug = sidebarItemSlug(page);
+                return (
+                  <SidebarItem
+                    key={slug}
+                    item={page}
+                    nested
+                    currentSlug={currentSlug}
+                    isCurrentPage={isCurrentPage}
+                    activeLinkRef={activeLinkRef}
+                    isExpanded={expandedSubSections.includes(slug)}
+                    expandedSubSections={expandedSubSections}
+                    onToggleSubSection={() => onToggleNestedSection(slug)}
+                    onToggleNestedSection={onToggleNestedSection}
+                  />
+                );
               } else {
                 return renderPageLink(page, true);
               }

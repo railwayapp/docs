@@ -1,5 +1,10 @@
 const redirects = [
   {
+    source: "/cloud-agents/opencode2",
+    destination: "/cloud-agents/opencode/beta",
+    permanent: true,
+  },
+  {
     source: "/api/llms-docs.md",
     destination: "/llms-full.txt",
     permanent: true,

@@ -31,6 +31,12 @@ import { H2, H3, H4 } from "@/components/header";
 import { Anchor } from "@/components/anchor";
 import { GetServerSidePropsContext } from "next";
 import { TallyButton } from "@/components/tally-button";
+import {
+  CloudAgentClients,
+  CloudAgentTools,
+  CloudAgentLauncher,
+  CloudAgentConnection,
+} from "@/components/cloud-agent-launcher";
 import { AgentInstallCommand } from "@/components/agent-install-command";
 import { McpInstallGuide } from "@/components/mcp-install-guide";
 import { reconstructMarkdownWithFrontmatter } from "@/utils/markdown";
@@ -68,6 +74,10 @@ const components: Record<string, React.ElementType> = {
   FileTree,
   Tooltip,
   AgentInstallCommand,
+  CloudAgentClients,
+  CloudAgentTools,
+  CloudAgentLauncher,
+  CloudAgentConnection,
   McpInstallGuide,
 };
 

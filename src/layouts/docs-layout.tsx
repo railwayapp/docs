@@ -18,6 +18,7 @@ import { sidebarContent } from "../data/sidebar";
 import { FrontMatter, ISidebarContent, IPage } from "../types";
 import { Props as PageProps } from "./page";
 import { extractHeadersFromMarkdown, extractFAQsFromMarkdown, buildBreadcrumbs } from "../utils/seo";
+import { flattenSidebarItems } from "../utils/sidebar";
 import { CopyableCodeProvider } from "../contexts/copyable-code-context";
 
 export interface Props extends PageProps {
@@ -36,30 +37,7 @@ const fallbackDescription = "Documentation for Railway";
 export const flattenSidebarContent = (
   sidebarContent: ISidebarContent,
 ): IPage[] => {
-  let flatPages: IPage[] = [];
-  sidebarContent.forEach(section => {
-    section.content.forEach(item => {
-      if ("url" in item) {
-        // Skip external links
-        return;
-      } else if ("subTitle" in item) {
-        // this is the subTitle page
-        if (typeof item.subTitle !== "string") {
-          flatPages.push(item.subTitle);
-        }
-        // also used for skipping external links
-        item.pages.forEach(page => {
-          if (!("url" in page)) {
-            flatPages.push(page);
-          }
-        });
-      } else {
-        // This is a page
-        flatPages.push(item);
-      }
-    });
-  });
-  return flatPages;
+  return sidebarContent.flatMap(section => flattenSidebarItems(section.content));
 };
 
 export const DocsLayout: React.FC<PropsWithChildren<Props>> = ({
