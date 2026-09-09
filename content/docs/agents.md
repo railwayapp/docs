@@ -44,12 +44,14 @@ railway setup agent
   />
   <Card
     title="Cloud agents"
-    description="Run Claude Code, Codex, or Grok CLI on a persistent Railway VM with your own credentials. Launch from the terminal and reconnect to sessions later."
+    description="Run coding agents in Railway or connect your local app to a persistent development environment."
     href="/cloud-agents"
     icon="Bash"
     tone="purple"
   />
 </CardGrid>
+
+For a remote development workspace, [connect your local app](/cloud-agents#connect-your-local-app) or follow the [cloud agents quickstart](/cloud-agents/quickstart).
 
 ## When to use each
 

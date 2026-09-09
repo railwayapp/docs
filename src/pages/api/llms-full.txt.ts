@@ -100,10 +100,7 @@ function renderSection(
       if (typeof item.subTitle !== "string") {
         lines.push(...renderPage(item.subTitle, sources, emitted));
       }
-      for (const page of item.pages) {
-        if ("url" in page) continue;
-        lines.push(...renderPage(page, sources, emitted));
-      }
+      lines.push(...renderSection({ content: item.pages }, sources, emitted));
     } else {
       lines.push(...renderPage(item, sources, emitted));
     }

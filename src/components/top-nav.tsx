@@ -9,6 +9,7 @@ import OpenModalButton from "./search/open-modal-button";
 import { sidebarContent } from "../data/sidebar";
 import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
 import SidebarItem from "./sidebar-item";
+import { containingSubsectionSlugs, sidebarItemContainsPage } from "@/utils/sidebar";
 import { Arrow } from "@/components/arrow";
 
 const navLinks = [
@@ -201,18 +202,7 @@ const MobileSidebarContent: React.FC = () => {
     const containingSection = sidebarContent.find(
       section =>
         section.title &&
-        section.content.some(item => {
-          if ("slug" in item && item.slug === currentSlug) return true;
-          if ("subTitle" in item) {
-            const subTitleSlug =
-              typeof item.subTitle === "string"
-                ? item.subTitle
-                : item.subTitle.slug;
-            if (subTitleSlug === currentSlug) return true;
-            return item.pages.some(p => "slug" in p && p.slug === currentSlug);
-          }
-          return false;
-        }),
+        section.content.some(item => sidebarItemContainsPage(item, currentSlug)),
     );
 
     if (containingSection?.title) {
@@ -226,22 +216,15 @@ const MobileSidebarContent: React.FC = () => {
 
   const isCurrentPage = (pageSlug: string) => currentSlug === pageSlug;
 
-  const isCurrentSection = (section: ISidebarSection) => {
-    return section.content.some(item => {
-      if ("slug" in item && isCurrentPage(item.slug)) return true;
-      if ("subTitle" in item) {
-        const subTitleSlug =
-          typeof item.subTitle === "string"
-            ? item.subTitle
-            : item.subTitle.slug;
-        if (isCurrentPage(subTitleSlug)) return true;
-        return item.pages.some(
-          page => "slug" in page && isCurrentPage(page.slug),
-        );
-      }
-      return false;
-    });
-  };
+  const isCurrentSection = (section: ISidebarSection) =>
+    section.content.some(item => sidebarItemContainsPage(item, currentSlug));
+
+  useEffect(() => {
+    const ancestors = sidebarContent.flatMap(section =>
+      containingSubsectionSlugs(section.content, currentSlug),
+    );
+    setExpandedSubSections(prev => Array.from(new Set([...prev, ...ancestors])));
+  }, [currentSlug]);
 
   const toggleSubSection = (subTitleSlug: string) => {
     setExpandedSubSections(prev =>
@@ -274,6 +257,9 @@ const MobileSidebarContent: React.FC = () => {
       <SidebarItem
         key={itemSlug}
         item={item}
+        currentSlug={currentSlug}
+        expandedSubSections={expandedSubSections}
+        onToggleNestedSection={toggleSubSection}
         isCurrentPage={isCurrentPage}
         isExpanded={expandedSubSections.includes(itemSlug)}
         onToggleSubSection={() => toggleSubSection(itemSlug)}

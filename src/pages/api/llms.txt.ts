@@ -46,6 +46,7 @@ function renderSection(
   section: ISidebarSection,
   sources: Map<string, SourceDoc>,
   emitted: Set<string>,
+  level = 3,
 ): string[] {
   const lines: string[] = [];
   const subsections: ISubSection[] = [];
@@ -63,15 +64,14 @@ function renderSection(
     const subTitle =
       typeof sub.subTitle === "string" ? sub.subTitle : sub.subTitle.title;
     lines.push("");
-    lines.push(`### ${subTitle}`);
+    lines.push(`${"#".repeat(level)} ${subTitle}`);
     lines.push("");
     if (typeof sub.subTitle !== "string") {
       lines.push(formatLink(sub.subTitle, sources, emitted));
     }
-    for (const page of sub.pages) {
-      if ("url" in page) continue;
-      lines.push(formatLink(page, sources, emitted));
-    }
+    lines.push(
+      ...renderSection({ content: sub.pages }, sources, emitted, level + 1),
+    );
   }
 
   return lines;

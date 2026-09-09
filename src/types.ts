@@ -32,9 +32,11 @@ export interface ISidebarSection {
   defaultExpanded?: boolean;
 }
 
+export type ISidebarItem = IPage | ISubSection | IExternalLink;
+
 export interface ISubSection {
   subTitle: string | IPage;
-  pages: (IPage | IExternalLink)[];
+  pages: ISidebarItem[];
 }
 
 export namespace Search {

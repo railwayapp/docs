@@ -5,6 +5,7 @@ import { sidebarContent } from "../data/sidebar";
 import { Link } from "./link";
 import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
 import SidebarItem from "./sidebar-item";
+import { containingSubsectionSlugs, sidebarItemContainsPage } from "@/utils/sidebar";
 import { Arrow } from "@/components/arrow";
 
 export const Sidebar: React.FC = ({ ...props }) => {
@@ -101,18 +102,7 @@ const SidebarContent: React.FC = () => {
     const containingSection = sidebarContent.find(
       section =>
         section.title &&
-        section.content.some(item => {
-          if ("slug" in item && item.slug === currentSlug) return true;
-          if ("subTitle" in item) {
-            const subTitleSlug =
-              typeof item.subTitle === "string"
-                ? item.subTitle
-                : item.subTitle.slug;
-            if (subTitleSlug === currentSlug) return true;
-            return item.pages.some(p => "slug" in p && p.slug === currentSlug);
-          }
-          return false;
-        }),
+        section.content.some(item => sidebarItemContainsPage(item, currentSlug)),
     );
 
     if (containingSection?.title) {
@@ -125,9 +115,8 @@ const SidebarContent: React.FC = () => {
   }, [currentSlug]);
 
   useEffect(() => {
-    const newExpandedSubSections = findContainingSubSectionSlugs(
-      sidebarContent,
-      currentSlug,
+    const newExpandedSubSections = sidebarContent.flatMap(section =>
+      containingSubsectionSlugs(section.content, currentSlug),
     );
     setExpandedSubSections(prevExpandedSubSections =>
       Array.from(
@@ -145,59 +134,11 @@ const SidebarContent: React.FC = () => {
     }
   }, [prefixedSlug]);
 
-  const findContainingSubSectionSlugs = (
-    sections: ISidebarSection[],
-    currentPageSlug: string,
-  ): string[] => {
-    let slugs: string[] = [];
-    for (const section of sections) {
-      for (const item of section.content) {
-        if ("subTitle" in item) {
-          const subTitleSlug =
-            typeof item.subTitle === "string"
-              ? item.subTitle
-              : item.subTitle.slug;
-          const hasMatchingChild = item.pages.some(
-            p => "slug" in p && p.slug === currentPageSlug,
-          );
-          if (hasMatchingChild || subTitleSlug === currentPageSlug) {
-            slugs.push(subTitleSlug);
-          }
-        }
-      }
-    }
-    return slugs;
-  };
-
   const isCurrentPage = (pageSlug: string) =>
     (prefixedSlug ?? pathname) === pageSlug;
 
-  const isCurrentSection = (section: ISidebarSection) => {
-    const isDirectPageCurrent = section.content.some(
-      item => "slug" in item && isCurrentPage(item.slug),
-    );
-
-    const isSubTitlePageCurrent = section.content.some(item => {
-      if ("subTitle" in item) {
-        const subTitleSlug =
-          typeof item.subTitle === "string"
-            ? item.subTitle
-            : item.subTitle.slug;
-        return isCurrentPage(subTitleSlug);
-      }
-      return false;
-    });
-
-    const isSubSectionPageCurrent = section.content.some(
-      item =>
-        "subTitle" in item &&
-        item.pages.some(page => "slug" in page && isCurrentPage(page.slug)),
-    );
-
-    return (
-      isDirectPageCurrent || isSubTitlePageCurrent || isSubSectionPageCurrent
-    );
-  };
+  const isCurrentSection = (section: ISidebarSection) =>
+    section.content.some(item => sidebarItemContainsPage(item, currentSlug));
 
   const toggleSubSection = (subTitleSlug: string) => {
     setExpandedSubSections(prevState =>
@@ -227,15 +168,17 @@ const SidebarContent: React.FC = () => {
       itemSlug = item.url;
     }
 
-    const isActive = isCurrentPage(itemSlug);
     return (
       <SidebarItem
         key={itemSlug}
         item={item}
+        currentSlug={currentSlug}
         isCurrentPage={isCurrentPage}
         isExpanded={expandedSubSections.includes(itemSlug)}
         onToggleSubSection={() => toggleSubSection(itemSlug)}
-        activeLinkRef={isActive ? activeLinkRef : undefined}
+        activeLinkRef={activeLinkRef}
+        expandedSubSections={expandedSubSections}
+        onToggleNestedSection={toggleSubSection}
       />
     );
   };

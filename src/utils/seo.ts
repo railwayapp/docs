@@ -1,4 +1,4 @@
-import { ISidebarContent, IPage, ISubSection } from "@/types";
+import { ISidebarContent, ISidebarItem } from "@/types";
 import { sidebarContent } from "@/data/sidebar";
 import { Slugger } from "./slugger";
 
@@ -155,7 +155,7 @@ export function buildBreadcrumbs(
 
   // Helper to get the first page slug from content array
   function getFirstPageSlug(
-    content: (IPage | ISubSection | { title: string; url: string })[],
+    content: ISidebarItem[],
   ): string {
     for (const item of content) {
       if ("url" in item) {
@@ -165,24 +165,8 @@ export function buildBreadcrumbs(
         // This is an IPage
         return item.slug;
       } else if ("subTitle" in item) {
-        // This is a subsection, check its pages
-        for (const page of item.pages) {
-          if (!("url" in page)) {
-            return page.slug;
-          }
-        }
-      }
-    }
-    return "";
-  }
-
-  // Helper to get the first page slug from a subsection's pages
-  function getFirstSubsectionPageSlug(
-    pages: (IPage | { title: string; url: string })[],
-  ): string {
-    for (const page of pages) {
-      if (!("url" in page)) {
-        return page.slug;
+        const slug = getFirstPageSlug(item.pages);
+        if (slug) return slug;
       }
     }
     return "";
@@ -209,7 +193,7 @@ export function buildBreadcrumbs(
   }
 
   function findPathInContent(
-    content: (IPage | ISubSection | { title: string; url: string })[],
+    content: ISidebarItem[],
     path: Array<{ name: string; url: string }>,
   ): Array<{ name: string; url: string }> | null {
     for (const item of content) {
@@ -227,7 +211,7 @@ export function buildBreadcrumbs(
         // Use subTitle.slug if it's an IPage, otherwise fall back to first page's slug
         const subTitleSlug =
           typeof item.subTitle === "string"
-            ? getFirstSubsectionPageSlug(item.pages)
+            ? getFirstPageSlug(item.pages)
             : item.subTitle.slug;
 
         const newPath = [...path, { name: subTitleName, url: subTitleSlug }];
@@ -239,14 +223,8 @@ export function buildBreadcrumbs(
           return newPath;
         }
 
-        for (const page of item.pages) {
-          if ("url" in page) {
-            continue;
-          }
-          if (page.slug === normalizedUrl) {
-            return [...newPath, { name: page.title, url: page.slug }];
-          }
-        }
+        const result = findPathInContent(item.pages, newPath);
+        if (result) return result;
       }
     }
     return null;

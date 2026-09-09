@@ -54,36 +54,41 @@ export const Card: React.FC<CardProps> = ({
       data-slot="link"
       {...externalProps}
       className={cn(
-        "group relative block h-40 md:h-56 overflow-hidden rounded-lg no-underline transition-all duration-200 cursor-pointer",
-        "shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-none dark:border dark:border-muted",
+        "group flex h-full flex-col overflow-hidden rounded-lg border border-muted no-underline transition-colors duration-200 hover:border-muted-hover",
+        description && "min-h-52",
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app",
         toneStyles[tone],
         className,
       )}
     >
-      {icon && (
-        <Icon
-          name={icon}
-          aria-hidden="true"
-          className={cn(
-            "pointer-events-none absolute bottom-4 right-4 size-6 opacity-50 transition-all duration-200 group-hover:opacity-90 group-hover:translate-x-0.5",
-            toneIconColors[tone],
-          )}
-        />
-      )}
-      <div className="relative z-10 flex h-full flex-col p-6">
+      <div
+        data-slot="card-header"
+        className={cn(
+          "flex min-h-24 items-center gap-3 px-5 py-5",
+          description && "border-b border-muted",
+        )}
+      >
+        {icon && (
+          <Icon
+            name={icon}
+            className={cn("size-6 shrink-0", toneIconColors[tone])}
+          />
+        )}
         <div
-          className="mb-1 text-lg font-medium text-foreground"
-          style={{ letterSpacing: "-0.25px" }}
+          data-slot="card-title"
+          className="min-w-0 text-xl font-semibold leading-7 tracking-tight text-muted-high-contrast"
         >
           {title}
         </div>
-        {description && (
-          <div className="max-w-[20rem] text-base font-normal text-muted-base md:max-w-[16rem]">
-            {description}
-          </div>
-        )}
       </div>
+      {description && (
+        <div
+          data-slot="card-description"
+          className="px-5 pb-5 pt-4 text-sm font-normal leading-6 text-muted-base"
+        >
+          {description}
+        </div>
+      )}
     </Wrapper>
   );
 };
@@ -109,7 +114,7 @@ export const CardGrid: React.FC<CardGridProps> = ({
     <div
       data-slot="card-grid"
       className={cn(
-        "my-6 grid gap-4 [&_a]:no-underline",
+        "my-6 grid auto-rows-fr gap-4 [&_a]:no-underline",
         columnClasses[columns],
         className,
       )}
