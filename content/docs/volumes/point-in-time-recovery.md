@@ -19,7 +19,7 @@ To restore, you pick a target timestamp. Railway provisions a brand-new Postgres
 
 ### MySQL
 
-When PITR is enabled, Railway's MySQL image turns on the binary log and ships every closed binlog file to a Railway [storage bucket](/storage-buckets), alongside a full logical backup (`mysqldump`) taken when archiving starts and then once a day. Binlogs rotate every minute even when the database is idle, so the newest restorable point trails real time by about a minute.
+When PITR is enabled, Railway's MySQL image turns on the binary log and ships every closed binlog file to a Railway [storage bucket](/storage-buckets), alongside a full logical backup (`mysqldump`) taken when archiving starts and then once a day. Binlogs rotate every minute even when the database is idle, so the newest restorable point trails real time by about a minute. Binlog events carry whole-second timestamps, so a MySQL restore target has one-second granularity: the restored service holds the state as of the **start** of the chosen second — nothing that ran inside that second is included, and nothing from before it is lost.
 
 The archive is kept for 7 days: fulls and binlogs older than the horizon are expired by the image, and the last full backup a restore could still need is never removed. A binlog is deleted from the service's volume only after its upload is confirmed — if the bucket is unreachable, the volume grows until it isn't, rather than leaving a hole in the archive.
 
@@ -115,4 +115,4 @@ Restore traffic is free: the restored service downloads from the bucket, and buc
 - HA restore produces a single-node fork; convert to HA after restore if you want HA on the restored data.
 - **Postgres:** minor version pinning is not supported with PITR. Keep the image on a major tag (e.g. `postgres-ssl:16`, not `postgres-ssl:16.10`) so it keeps tracking Railway's Postgres rebuilds and pgBackRest fixes — the Backups tab shows a warning if a minor pin is detected.
 - **MySQL:** pinning the image to a single build (e.g. `mysql-ha/mysql:8.4-a1b2c3d`) is not supported with PITR. Keep the `major.minor` tag (`mysql-ha/mysql:8.4`) so the service keeps tracking Railway's MySQL rebuilds — archiver, retention and HA fixes ship on that tag.
-- **MySQL:** the newest restorable point trails real time by about one binlog rotation (a minute). A target newer than the archive is refused up front, with the newest restorable point named.
+- **MySQL:** the newest restorable point trails real time by about one binlog rotation (a minute), and targets resolve to the start of their second (binlog events are whole-second). A target newer than the archive is refused up front, with the newest restorable point named.
