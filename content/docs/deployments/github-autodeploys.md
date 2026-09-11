@@ -64,13 +64,16 @@ If your workflow satisfies the requirements above, you will see the `Wait for CI
 
 <Image src="https://res.cloudinary.com/railway/image/upload/v1730324753/docs/deployments/waitforci_dkfsxy.png" alt="Check Suites Configuration" layout="responsive" width={1340} height={392} quality={80} />
 
-Toggle this on to ensure Railway waits for your GitHub Actions to run successfully before triggering a new deployment.
+Toggle this on to make Railway wait for your GitHub Actions workflows before deploying a commit.
 
-When enabled, deployments will be moved to a `WAITING` state while your workflows are running.
+When enabled, new deployments sit in a `WAITING` state until every GitHub Actions check suite on the commit has finished. Railway looks at the conclusion of each workflow run, not at individual jobs. Checks from other GitHub apps are ignored.
 
-If any workflow fails, the deployments will be `SKIPPED`.
+- A workflow that **fails** skips the deployment immediately.
+- A workflow that is **skipped** or reports **neutral** never blocks.
+- A workflow that is **cancelled** blocks the deployment only if no other workflow on the same commit succeeded. If at least one other workflow passed, the cancelled run is ignored and the deployment proceeds.
+- If the workflows have not all finished after two hours, the deployment is skipped.
 
-When all workflows are successful, deployments will proceed as usual.
+If a workflow must run before every deploy, such as a database migration, don't rely on Wait for CI alone. Keep that workflow out of any concurrency group that cancels queued runs, or run the step as a [pre-deploy command](/deployments/pre-deploy-command) so the deployment cannot proceed without it.
 
 ## Troubleshooting
 
