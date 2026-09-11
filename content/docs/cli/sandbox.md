@@ -5,8 +5,6 @@ description: Manage ephemeral sandboxes.
 
 Create, connect to, run commands in, forward ports into, and destroy ephemeral [sandboxes](/sandboxes) in a Railway environment.
 
-<Banner variant="info">The `sandbox` command requires sandboxes to be enabled for your account through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. It's under active development, and its commands and flags may change in breaking ways.</Banner>
-
 ## Usage
 
 ```bash
