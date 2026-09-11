@@ -471,7 +471,16 @@ You can request up to 10 domains per sandbox. Ports must be integers from 1 to 6
 
 `sandbox.domains` contains `{ prefix, port, domain }` for each published route, or an empty array when there are none. `Sandbox.connect()`, `Sandbox.list()`, and `sandbox.refresh()` read back this metadata. The dashboard also shows the domains on the sandbox's detail page. Destroying a sandbox removes its routes.
 
-In the GraphQL API, pass the same domain entries as `SandboxCreateInput.publicDomains`, and select `domains { prefix port domain }` on the result. The CLI has no sandbox domain creation flag, so use the SDK or API to publish routes.
+In the CLI, pass `--domain [PREFIX:]PORT` with `--private-network` when creating or forking a sandbox:
+
+```bash
+railway sandbox create --private-network --domain 8080 --domain api:3000
+railway sandbox list
+```
+
+Creation can return before routes are published. Use `railway sandbox list` to read the URLs once ready. See [CLI public domains](/cli/sandbox#public-domains) for flags, output, and fork examples.
+
+In the GraphQL API, pass the same domain entries as `SandboxCreateInput.publicDomains`, and select `domains { prefix port domain }` on the result.
 
 For a long-running public server, also [disable the idle timeout](#disable-the-idle-timeout) on a supported plan. Public domains require private networking, so the sandbox can also reach your environment's internal services.
 

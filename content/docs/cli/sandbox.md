@@ -192,6 +192,7 @@ railway sandbox destroy sbx_abc123
 | `--template <NAME_OR_ID>` | Create from a built template, by local name or template ID. Can't be combined with `--checkpoint`. See [Templates](#templates) |
 | `--checkpoint <NAME>` | Create from a named checkpoint. Can't be combined with `--template`. See [Checkpoints](#checkpoints) |
 | `--private-network` | Join the environment's private network instead of the default isolated mode |
+| `--domain [PREFIX:]PORT` | Publish an HTTP domain on a port, with an optional prefix. Repeatable. Requires `--private-network`. See [Public domains](#public-domains) |
 | `--json` | Output the created sandbox as JSON |
 
 ## Options for `fork`
@@ -204,6 +205,7 @@ railway sandbox destroy sbx_abc123
 | `--variable <KEY=VALUE>` | Set a variable on the fork. Repeatable and comma-separable. The fork doesn't inherit the source's variables |
 | `--env-file <PATH>` | Load variables from a `.env` file. Repeatable. `--variable` overrides matching keys |
 | `--private-network` | Join the environment's private network. The fork doesn't inherit the source's network mode |
+| `--domain [PREFIX:]PORT` | Publish an HTTP domain on a port, with an optional prefix. Repeatable. Requires `--private-network`. See [Public domains](#public-domains) |
 | `--json` | Output the created sandbox as JSON |
 
 The source sandbox must be running. The fork clones its filesystem into a new sandbox in the same environment and boots fresh, so files are preserved but running processes are not.
@@ -390,7 +392,39 @@ By default a sandbox is isolated: it has outbound internet access but can't reac
 
 ## Public domains
 
-Use the [TypeScript SDK or GraphQL API](/sandboxes#public-domains) to publish a sandbox's HTTP servers on Railway-provided HTTPS domains. The CLI has no sandbox domain creation flag. `--private-network` enables private networking but doesn't publish a public domain by itself.
+Pass `--domain [PREFIX:]PORT` when creating a sandbox to publish an HTTP server on a Railway-provided HTTPS domain. Domains require `--private-network`; that flag alone doesn't publish a domain.
+
+```bash
+railway sandbox create --private-network --domain app:8080
+railway sandbox list
+```
+
+Start your HTTP server in the sandbox, listening on `0.0.0.0` and the requested port. Publishing a domain doesn't start a server. Railway generates the hostname and handles HTTPS.
+
+Omit the prefix to generate one from the project name. Repeat the flag to publish multiple ports:
+
+```bash
+railway sandbox create --private-network --domain 8080 --domain api:3000
+```
+
+You can request up to 10 domains. Each port and explicit prefix must be unique. Ports range from 1 to 65535. Explicit prefixes contain 1 to 46 lowercase letters, digits, or hyphens, with no leading or trailing hyphen.
+
+Creation can return `CREATING` while routes are still publishing. The command prints available URLs or a publishing message. Run `railway sandbox list` to see the URLs once ready. The `--json` output of `create`, `fork`, and `list` includes `domains` entries with `prefix`, `port`, and `domain` fields; the array can be empty until routes are published.
+
+Domains are configured only at creation. The flag also works with `create --template` and `create --checkpoint`. Forks don't inherit source domains; request routes for the fork explicitly:
+
+```bash
+railway sandbox fork --private-network --domain preview:8080
+```
+
+For a public server that must not idle out, also disable the idle timeout on Hobby or Pro:
+
+```bash
+railway sandbox create \
+  --private-network --domain app:8080 --idle-timeout-minutes 0
+```
+
+The sandbox consumes billable resources until you destroy it with `railway sandbox destroy`, which also removes its routes. See [Public domains](/sandboxes#public-domains) for SDK and API usage.
 
 To reach a sandbox's port from your own machine, use [`railway sandbox forward`](#forward-a-port-into-the-active-sandbox).
 
