@@ -3,7 +3,7 @@ title: Sandboxes
 description: Provision ephemeral, isolated Linux environments on Railway. Create them from the dashboard, CLI, or TypeScript SDK, run commands in them, read and write their files, and tear them down when done.
 ---
 
-<Banner variant="primary">Sandboxes are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. Breaking changes may occur.</Banner>
+Sandboxes are generally available. No Priority Boarding opt-in is required.
 
 Sandboxes are short-lived Linux environments you can provision on demand, run commands in, and destroy.
 
@@ -24,8 +24,6 @@ To add SSH keys to your account, go to [Account Settings -> SSH Keys](https://ra
 ## TypeScript SDK
 
 The SDK is the primary interface for working with sandboxes programmatically. It's <a href="https://github.com/railwayapp/railway-ts-sdk" target="_blank">open source on GitHub</a>.
-
-**Note:** The SDK is under active development while sandboxes are in Priority Boarding, and its API may change in breaking ways between releases.
 
 ### Installation
 

@@ -10,8 +10,6 @@ tags:
 topic: ai
 ---
 
-<Banner variant="primary">Sandboxes are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. Breaking changes may occur.</Banner>
-
 A code-execution sandbox is an isolated, short-lived environment where an AI agent can run code without putting anything else at risk. The agent writes code, the sandbox executes it, the results come back, and the environment is destroyed. Nothing the code does inside the sandbox touches your machine, your production services, or the next task's sandbox.
 
 In this guide we cover why agents need sandboxes, what a sandbox has to provide, and how to run one on Railway.

@@ -10,8 +10,6 @@ tags:
 topic: ai
 ---
 
-<Banner variant="primary">Sandboxes are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. Breaking changes may occur.</Banner>
-
 A [sandbox](/sandboxes) is a short-lived, isolated Linux environment you provision on demand, run commands in, and destroy. This guide covers how to fold sandboxes into your development loop and let agents do real work inside them.
 
 Two layers of agents come together here. Your local agent, like Claude Code or Codex running on your laptop, drives sandboxes through the [Railway CLI](/cli) or the [TypeScript SDK](/sandboxes#typescript-sdk). Inside the sandbox, the same agent harnesses ship in the default image, so the environment can run untrusted code, test against your real infrastructure, and do the work without you bootstrapping a toolchain each time.
@@ -47,7 +45,7 @@ The point of the loop is that an agent doesn't rebuild the world every time. It 
 
 ## Prerequisites
 
-- A Railway account with [Sandboxes](/sandboxes) enabled through [Priority Boarding](/platform/priority-boarding).
+- A Railway account with access to the project and environment where you will create [sandboxes](/sandboxes).
 - The [Railway CLI](/cli) installed and logged in with `railway login`.
 - A project linked with `railway link`.
 - Node.js 22+ if you plan to use the [TypeScript SDK](/sandboxes#typescript-sdk).
