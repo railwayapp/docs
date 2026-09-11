@@ -52,6 +52,16 @@ railway sandbox create --idle-timeout-minutes 30
 
 Railway auto-destroys the sandbox after it sits [idle](/sandboxes#idle-timeout) for the given number of minutes. The default and allowed range depend on your plan, so see [Idle timeout](/sandboxes#idle-timeout) for the per-plan values.
 
+### Create a sandbox without an idle timeout
+
+On Hobby and Pro, pass `0` to disable idle destruction:
+
+```bash
+railway sandbox create --idle-timeout-minutes 0
+```
+
+The sandbox remains billable until you run `railway sandbox destroy`. Pass `0` again when forking; forks don't inherit the source's timeout. See [Idle timeout](/sandboxes#idle-timeout) for plan defaults and limits.
+
 ### Create a sandbox on the private network
 
 ```bash
@@ -172,12 +182,13 @@ railway sandbox destroy sbx_abc123
 
 | Flag | Description |
 |------|-------------|
-| `--idle-timeout-minutes <N>` | Minutes the sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. The default and range depend on your plan |
+| `--idle-timeout-minutes <N>` | Minutes the sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. `0` disables idle destruction on Hobby and Pro. Omit for the plan default |
 | `--variable <KEY=VALUE>` | Set a variable on the sandbox. Repeatable and comma-separable. See [Variables](#variables) |
 | `--env-file <PATH>` | Load variables from a `.env` file. Repeatable. `--variable` overrides matching keys |
 | `--template <NAME_OR_ID>` | Create from a built template, by local name or template ID. Can't be combined with `--checkpoint`. See [Templates](#templates) |
 | `--checkpoint <NAME>` | Create from a named checkpoint. Can't be combined with `--template`. See [Checkpoints](#checkpoints) |
 | `--private-network` | Join the environment's private network instead of the default isolated mode |
+| `--domain [PREFIX:]PORT` | Publish an HTTP domain on a port, with an optional prefix. Repeatable. Requires `--private-network`. See [Public domains](#public-domains) |
 | `--json` | Output the created sandbox as JSON |
 
 ## Options for `fork`
@@ -186,10 +197,11 @@ railway sandbox destroy sbx_abc123
 |------------------|-------------|
 | `[ID]` | Source sandbox ID to fork. Defaults to the active sandbox |
 | `--id <ID>` | Source sandbox ID, as an alternative to the positional argument |
-| `--idle-timeout-minutes <N>` | Minutes the new sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. The default and range depend on your plan |
+| `--idle-timeout-minutes <N>` | Minutes the fork can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. `0` disables idle destruction on Hobby and Pro. Omit for the plan default, not the source's setting |
 | `--variable <KEY=VALUE>` | Set a variable on the fork. Repeatable and comma-separable. The fork doesn't inherit the source's variables |
 | `--env-file <PATH>` | Load variables from a `.env` file. Repeatable. `--variable` overrides matching keys |
 | `--private-network` | Join the environment's private network. The fork doesn't inherit the source's network mode |
+| `--domain [PREFIX:]PORT` | Publish an HTTP domain on a port, with an optional prefix. Repeatable. Requires `--private-network`. See [Public domains](#public-domains) |
 | `--json` | Output the created sandbox as JSON |
 
 The source sandbox must be running. The fork clones its filesystem into a new sandbox in the same environment and boots fresh, so files are preserved but running processes are not.
@@ -373,6 +385,21 @@ Resolving a reference to a service's internal address requires the private netwo
 ## Private networking
 
 By default a sandbox is isolated: it has outbound internet access but can't reach other services in your environment over private networking. Pass `--private-network` to `create` or `fork` to place the sandbox on the environment's private network, so it can reach services like `postgres.railway.internal` and they can reach it. See [Networking](/sandboxes#networking) for the full description of both modes.
+
+## Public domains
+
+Pass `--domain [PREFIX:]PORT` with `--private-network` to publish an HTTP server on a Railway-provided HTTPS domain. Omit the prefix to generate one from the project name, or repeat the flag for multiple ports:
+
+```bash
+railway sandbox create --private-network --domain 8080 --domain api:3000
+railway sandbox list
+```
+
+Start your server on `0.0.0.0` and the requested port. Creation can return before routes are published; `list` shows the URLs once ready. With `--json`, `create`, `fork`, and `list` include `domains` entries with `prefix`, `port`, and `domain` fields.
+
+The flag also works with `create --template`, `create --checkpoint`, and `fork`. Domains can't be changed after creation, and forks don't inherit them, so pass `--domain` and `--private-network` again.
+
+See [Public domains](/sandboxes#public-domains) for limits. For a long-running server, add [`--idle-timeout-minutes 0`](#create-a-sandbox-without-an-idle-timeout). To access a port locally without publishing a domain, use [`railway sandbox forward`](#forward-a-port-into-the-active-sandbox).
 
 ## Common options
 

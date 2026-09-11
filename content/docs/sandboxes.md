@@ -3,7 +3,7 @@ title: Sandboxes
 description: Provision ephemeral, isolated Linux environments on Railway. Create them from the dashboard, CLI, or TypeScript SDK, run commands in them, read and write their files, and tear them down when done.
 ---
 
-Sandboxes are short-lived Linux environments you can provision on demand, run commands in, and destroy.
+Sandboxes are isolated Linux environments you can provision on demand, run commands in, and destroy. Use an idle timeout for short-lived work, or disable it for a [long-running sandbox](#disable-the-idle-timeout).
 
 Each sandbox is scoped to a Railway [environment](/environments) and runs on Railway's virtual machine primitive, giving you isolated, on-demand compute for anything you'd run on a VM.
 
@@ -13,7 +13,7 @@ Each sandbox is a programmatically controllable, fully isolated virtual machine.
 
 ## Dashboard
 
-Navigate to the **Sandboxes** tab in your project to view, create, and destroy sandboxes.
+Navigate to the **Sandboxes** tab in your project to view, create, and destroy sandboxes. A sandbox's detail page shows its [public domains](#public-domains), with a link and target port for each published route.
 
 You can SSH into a running sandbox directly without leaving the dashboard. If you have SSH keys configured in your Railway account, you can also copy the SSH command from the dashboard to use in your terminal of choice.
 
@@ -297,7 +297,7 @@ const fork = await base.fork();
 await fork.exec("npm test"); // sees the installed dependencies, isolated from base
 ```
 
-`Sandbox.create(source)` is equivalent to `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment. Pass `idleTimeoutMinutes` or `networkIsolation` to set them on the fork, which doesn't inherit them from the source.
+`Sandbox.create(source)` is equivalent to `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment. Pass `idleTimeoutMinutes`, `networkIsolation`, or `domains` to configure the fork. It doesn't inherit these settings from the source, including a disabled idle timeout or published domains.
 
 ### Checkpoints
 
@@ -355,7 +355,7 @@ const sandbox = await Sandbox.create({
 
 `region` places the sandbox in one of Railway's [regions](/deployments/regions), using the region identifier listed there, for example `us-east4-eqdc4a`. Without it, the sandbox runs in US West (`us-west2`), regardless of your account's preferred region. Read the placement back from `sandbox.region`. `create` and `fork` both accept `region`. A fork doesn't inherit the source's region, so pass `region` explicitly to place a fork alongside its source. The CLI has no region flag, so use the SDK or the API to choose a region.
 
-`idleTimeoutMinutes` sets how long a sandbox can sit [idle](#idle-timeout) before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the plan default. The default and allowed range depend on your plan, so see [Idle timeout](#idle-timeout) for the per-plan values.
+`idleTimeoutMinutes` sets how long a sandbox can sit [idle](#idle-timeout) before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the plan default. Set it to `0` to [disable idle destruction](#disable-the-idle-timeout) on Hobby and Pro. See [Idle timeout](#idle-timeout) for the per-plan defaults and finite ranges.
 
 `env` bakes environment variables into the sandbox, available to every command over both `exec` and SSH for the sandbox's lifetime. Use it for values a command needs at runtime, including secrets. Values can reference other Railway variables, for example `${{shared.NPM_TOKEN}}`, resolved when the sandbox is created. `create` and `fork` both accept `env`, and a fork doesn't inherit the source's variables.
 
@@ -384,14 +384,12 @@ Only sandboxes in the `CREATING` or `RUNNING` state count toward the cap. Destro
 
 ## Timeouts and output
 
-A sandbox enforces an idle timeout: how long it can sit idle before Railway destroys it. Commands have a separate, optional timeout.
+By default, Railway destroys a sandbox after its idle timeout expires. Hobby and Pro workspaces can disable this timeout. Commands have a separate, optional timeout.
 
-| Limit | Default | Maximum |
-|-------|---------|---------|
-| Idle timeout (Hobby and Pro) | 30 minutes | 120 minutes |
-| Idle timeout (Trial and Free) | 5 minutes | 5 minutes |
-
-The idle timeout default and maximum depend on your plan, as shown above.
+| Plan           | Default idle timeout | Finite idle timeout range | Disable idle timeout        |
+| -------------- | -------------------- | ------------------------- | --------------------------- |
+| Hobby and Pro  | 30 minutes           | 1 to 120 minutes          | Set `idleTimeoutMinutes: 0` |
+| Trial and Free | 5 minutes            | 1 to 5 minutes            | Not available               |
 
 In the CLI, `railway sandbox exec` streams output live and runs the command until it exits, unless you pass `--timeout <SECONDS>`, a client-side deadline. When the deadline expires, the command receives `SIGTERM` and `exec` exits with code 124. Use `--detach` to start a command in the background and get a session name back, then `--session <name>` to reattach later. In the SDK, a command has no timeout unless you set `timeoutSec`, so [long-running commands](#long-running-commands) keep going until they exit. The `truncated` field on an exec result reports when captured output was cut short.
 
@@ -399,9 +397,21 @@ In the CLI, `railway sandbox exec` streams output live and runs the command unti
 
 A sandbox is considered idle when you haven't interacted with it for longer than its idle timeout. Interacting means running a command (`exec`) or sending a command over an SSH session. Every interaction resets the timer, so the countdown always starts from your most recent interaction.
 
-The idle timeout only counts your interactions with the sandbox, not anything running inside it. A process, server, or job running in the sandbox doesn't keep it alive on its own. Once a sandbox stays idle past its timeout, Railway shuts it down automatically.
+With a finite idle timeout, a process, server, or job running in the sandbox doesn't keep it alive on its own. Once a sandbox stays idle past its timeout, Railway destroys it automatically. Publishing a domain doesn't disable the idle timeout.
 
 Set the idle timeout with `idleTimeoutMinutes` in the SDK or `--idle-timeout-minutes` in the CLI. On the Hobby and Pro plans it defaults to 30 minutes and can be set from 1 to 120 minutes. On the Trial and Free plans it defaults to 5 minutes and can be set from 1 to 5 minutes. Setting a value above your plan's maximum returns an error.
+
+### Disable the idle timeout
+
+On Hobby and Pro, set `idleTimeoutMinutes: 0` for an infinite TTL:
+
+```ts
+const sandbox = await Sandbox.create({ idleTimeoutMinutes: 0 });
+```
+
+In the CLI, pass `--idle-timeout-minutes 0` to `create` or `fork`. This also works with templates and checkpoints. Forks and checkpoint restores don't inherit the source's timeout, so pass `0` again when needed.
+
+The sandbox remains billable until you destroy it with `destroy()`, `await using`, or `railway sandbox destroy`. Exec timeouts remain separate. Omit the idle timeout to use your plan's default.
 
 ## Networking
 
@@ -425,9 +435,32 @@ In the CLI, pass `--private-network` to `railway sandbox create` or `railway san
 
 Neither mode changes how you drive a sandbox. To run commands, use `exec` or SSH, and to move files in and out, use the [files API](#files).
 
+### Public domains
+
+Pass `domains` with `networkIsolation: "PRIVATE"` when creating a sandbox to publish its HTTP servers on Railway-provided HTTPS domains:
+
+```ts
+const sandbox = await Sandbox.create({
+  networkIsolation: "PRIVATE",
+  domains: [{ port: 8080 }, { prefix: "api", port: 3000 }],
+});
+
+console.log(sandbox.domains); // [{ prefix, port, domain }, ...]
+```
+
+Start each server on `0.0.0.0` and its requested port. Railway handles HTTPS; publishing a domain doesn't start a server or disable the [idle timeout](#disable-the-idle-timeout). Destroying the sandbox removes its routes.
+
+You can request up to 10 domains, with unique ports from 1 to 65535. Omitted prefixes are generated from the project name. Explicit prefixes must be unique and contain 1 to 46 lowercase letters, digits, or hyphens, with no leading or trailing hyphen.
+
+Domains are set only at creation, including templates, checkpoints, and forks. Forks don't inherit them; pass `domains` and `networkIsolation: "PRIVATE"` again. You can't change domains on an existing sandbox.
+
+`sandbox.domains` contains `{ prefix, port, domain }` for each published route. Read it through `Sandbox.connect()`, `Sandbox.list()`, or `sandbox.refresh()`, or view the URLs in the dashboard.
+
+In the CLI, use [`--domain [PREFIX:]PORT` with `--private-network`](/cli/sandbox#public-domains). In GraphQL, pass `SandboxCreateInput.publicDomains` and select `domains { prefix port domain }`. The array is empty until routes are published.
+
 ### Reaching a port in a sandbox
 
-A sandbox has no public endpoint. Railway doesn't assign it a domain or a TCP proxy, so a server inside a sandbox isn't reachable from the internet.
+Use SSH port forwarding to reach a sandbox from your machine without publishing a domain. It works with either network mode.
 
 To reach that server from your machine, forward its port with [`railway sandbox forward`](/cli/sandbox#forward-a-port-into-the-active-sandbox), which maps `localhost:3000` to port 3000 in the sandbox:
 
@@ -437,7 +470,7 @@ railway sandbox forward 3000
 
 Forwarding runs over SSH, so it needs an SSH key on your Railway account. Add one at [Account Settings -> SSH Keys](https://railway.com/account/ssh-keys).
 
-To serve traffic on a public URL, deploy a [service](/services) and give it a [public domain](/networking/public-networking).
+For a public HTTP URL, configure [public domains](#public-domains) when you create the sandbox.
 
 ## Pricing
 
