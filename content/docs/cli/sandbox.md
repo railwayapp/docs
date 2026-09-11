@@ -62,9 +62,7 @@ On Hobby and Pro, pass `0` to disable idle destruction:
 railway sandbox create --idle-timeout-minutes 0
 ```
 
-The sandbox continues consuming billable resources until you destroy it with `railway sandbox destroy`. Trial and Free plans reject this option. Omit the flag to use your plan's default timeout.
-
-`fork` also accepts `--idle-timeout-minutes 0`. A fork doesn't inherit the source's idle timeout, so pass the flag again to keep it from idling out. See [Disable the idle timeout](/sandboxes#disable-the-idle-timeout) for the SDK and API behavior.
+The sandbox remains billable until you run `railway sandbox destroy`. Pass `0` again when forking; forks don't inherit the source's timeout. See [Idle timeout](/sandboxes#idle-timeout) for plan defaults and limits.
 
 ### Create a sandbox on the private network
 
@@ -392,41 +390,18 @@ By default a sandbox is isolated: it has outbound internet access but can't reac
 
 ## Public domains
 
-Pass `--domain [PREFIX:]PORT` when creating a sandbox to publish an HTTP server on a Railway-provided HTTPS domain. Domains require `--private-network`; that flag alone doesn't publish a domain.
-
-```bash
-railway sandbox create --private-network --domain app:8080
-railway sandbox list
-```
-
-Start your HTTP server in the sandbox, listening on `0.0.0.0` and the requested port. Publishing a domain doesn't start a server. Railway generates the hostname and handles HTTPS.
-
-Omit the prefix to generate one from the project name. Repeat the flag to publish multiple ports:
+Pass `--domain [PREFIX:]PORT` with `--private-network` to publish an HTTP server on a Railway-provided HTTPS domain. Omit the prefix to generate one from the project name, or repeat the flag for multiple ports:
 
 ```bash
 railway sandbox create --private-network --domain 8080 --domain api:3000
+railway sandbox list
 ```
 
-You can request up to 10 domains. Each port and explicit prefix must be unique. Ports range from 1 to 65535. Explicit prefixes contain 1 to 46 lowercase letters, digits, or hyphens, with no leading or trailing hyphen.
+Start your server on `0.0.0.0` and the requested port. Creation can return before routes are published; `list` shows the URLs once ready. With `--json`, `create`, `fork`, and `list` include `domains` entries with `prefix`, `port`, and `domain` fields.
 
-Creation can return `CREATING` while routes are still publishing. The command prints available URLs or a publishing message. Run `railway sandbox list` to see the URLs once ready. The `--json` output of `create`, `fork`, and `list` includes `domains` entries with `prefix`, `port`, and `domain` fields; the array can be empty until routes are published.
+The flag also works with `create --template`, `create --checkpoint`, and `fork`. Domains can't be changed after creation, and forks don't inherit them, so pass `--domain` and `--private-network` again.
 
-Domains are configured only at creation. The flag also works with `create --template` and `create --checkpoint`. Forks don't inherit source domains; request routes for the fork explicitly:
-
-```bash
-railway sandbox fork --private-network --domain preview:8080
-```
-
-For a public server that must not idle out, also disable the idle timeout on Hobby or Pro:
-
-```bash
-railway sandbox create \
-  --private-network --domain app:8080 --idle-timeout-minutes 0
-```
-
-The sandbox consumes billable resources until you destroy it with `railway sandbox destroy`, which also removes its routes. See [Public domains](/sandboxes#public-domains) for SDK and API usage.
-
-To reach a sandbox's port from your own machine, use [`railway sandbox forward`](#forward-a-port-into-the-active-sandbox).
+See [Public domains](/sandboxes#public-domains) for limits. For a long-running server, add [`--idle-timeout-minutes 0`](#create-a-sandbox-without-an-idle-timeout). To access a port locally without publishing a domain, use [`railway sandbox forward`](#forward-a-port-into-the-active-sandbox).
 
 ## Common options
 

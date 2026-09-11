@@ -407,22 +407,15 @@ Set the idle timeout with `idleTimeoutMinutes` in the SDK or `--idle-timeout-min
 
 ### Disable the idle timeout
 
-On Hobby and Pro, set `idleTimeoutMinutes: 0` to disable automatic destruction due to inactivity. This is the infinite TTL option. Omit the value to use the plan default instead.
+On Hobby and Pro, set `idleTimeoutMinutes: 0` for an infinite TTL:
 
 ```ts
 const sandbox = await Sandbox.create({ idleTimeoutMinutes: 0 });
-
-// Later, when the sandbox is no longer needed:
-await sandbox.destroy();
 ```
 
-In the CLI, use `railway sandbox create --idle-timeout-minutes 0`. You can also pass this option when forking or creating from a template or checkpoint. Forks and checkpoint restores don't inherit the source's idle timeout, so pass `0` again if they must not idle out.
+In the CLI, pass `--idle-timeout-minutes 0` to `create` or `fork`. This also works with templates and checkpoints. Forks and checkpoint restores don't inherit the source's timeout, so pass `0` again when needed.
 
-The API accepts any `idleTimeoutMinutes` value less than or equal to `0` and normalizes it to `0`. Trial and Free plans reject these values. Positive values must stay within your plan's finite range.
-
-Read the setting from `sandbox.idleTimeoutMinutes`. A value of `0` means idle destruction is disabled. `null` means the setting is unknown, including for a destroyed sandbox.
-
-A sandbox with idle destruction disabled continues consuming billable resources until you destroy it. `destroy()` and `await using` still tear it down, and `timeoutSec` deadlines on exec commands remain separate from the sandbox's lifetime.
+The sandbox remains billable until you destroy it with `destroy()`, `await using`, or `railway sandbox destroy`. Exec timeouts remain separate. Omit the idle timeout to use your plan's default.
 
 ## Networking
 
@@ -448,7 +441,7 @@ Neither mode changes how you drive a sandbox. To run commands, use `exec` or SSH
 
 ### Public domains
 
-Publish Railway-provided HTTP domains when you create a sandbox to make its servers reachable over HTTPS. You must explicitly set `networkIsolation: "PRIVATE"`. Omitting the network mode or selecting `ISOLATED` rejects a request with domains.
+Pass `domains` with `networkIsolation: "PRIVATE"` when creating a sandbox to publish its HTTP servers on Railway-provided HTTPS domains:
 
 ```ts
 const sandbox = await Sandbox.create({
@@ -456,33 +449,18 @@ const sandbox = await Sandbox.create({
   domains: [{ port: 8080 }, { prefix: "api", port: 3000 }],
 });
 
-for (const { prefix, port, domain } of sandbox.domains) {
-  console.log(`${prefix}: https://${domain} -> port ${port}`);
-}
+console.log(sandbox.domains); // [{ prefix, port, domain }, ...]
 ```
 
-Configure each HTTP server to listen on `0.0.0.0` and its requested port. Publishing a route doesn't start a server for you. Railway generates the hostname and handles HTTPS at the public endpoint.
+Start each server on `0.0.0.0` and its requested port. Railway handles HTTPS; publishing a domain doesn't start a server or disable the [idle timeout](#disable-the-idle-timeout). Destroying the sandbox removes its routes.
 
-Each domain needs a target `port`. If you omit `prefix`, Railway generates a DNS-safe prefix from the project name and makes it unique within the request. Explicit prefixes must contain 1 to 46 lowercase letters, digits, or hyphens, with no leading or trailing hyphen.
+You can request up to 10 domains, with unique ports from 1 to 65535. Omitted prefixes are generated from the project name. Explicit prefixes must be unique and contain 1 to 46 lowercase letters, digits, or hyphens, with no leading or trailing hyphen.
 
-You can request up to 10 domains per sandbox. Ports must be integers from 1 to 65535, and both ports and prefixes must be unique within a sandbox's request.
+Domains are set only at creation, including templates, checkpoints, and forks. Forks don't inherit them; pass `domains` and `networkIsolation: "PRIVATE"` again. You can't change domains on an existing sandbox.
 
-`domains` is a creation-time option for `Sandbox.create()`, including template and checkpoint creation, and `fork()`. Forks don't inherit the source's domains. Pass `domains` and `networkIsolation: "PRIVATE"` again to publish routes on a fork. You can't add or change domains on an existing sandbox.
+`sandbox.domains` contains `{ prefix, port, domain }` for each published route. Read it through `Sandbox.connect()`, `Sandbox.list()`, or `sandbox.refresh()`, or view the URLs in the dashboard.
 
-`sandbox.domains` contains `{ prefix, port, domain }` for each published route, or an empty array when there are none. `Sandbox.connect()`, `Sandbox.list()`, and `sandbox.refresh()` read back this metadata. The dashboard also shows the domains on the sandbox's detail page. Destroying a sandbox removes its routes.
-
-In the CLI, pass `--domain [PREFIX:]PORT` with `--private-network` when creating or forking a sandbox:
-
-```bash
-railway sandbox create --private-network --domain 8080 --domain api:3000
-railway sandbox list
-```
-
-Creation can return before routes are published. Use `railway sandbox list` to read the URLs once ready. See [CLI public domains](/cli/sandbox#public-domains) for flags, output, and fork examples.
-
-In the GraphQL API, pass the same domain entries as `SandboxCreateInput.publicDomains`, and select `domains { prefix port domain }` on the result.
-
-For a long-running public server, also [disable the idle timeout](#disable-the-idle-timeout) on a supported plan. Public domains require private networking, so the sandbox can also reach your environment's internal services.
+In the CLI, use [`--domain [PREFIX:]PORT` with `--private-network`](/cli/sandbox#public-domains). In GraphQL, pass `SandboxCreateInput.publicDomains` and select `domains { prefix port domain }`. The array is empty until routes are published.
 
 ### Reaching a port in a sandbox
 
