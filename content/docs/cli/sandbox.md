@@ -54,6 +54,18 @@ railway sandbox create --idle-timeout-minutes 30
 
 Railway auto-destroys the sandbox after it sits [idle](/sandboxes#idle-timeout) for the given number of minutes. The default and allowed range depend on your plan, so see [Idle timeout](/sandboxes#idle-timeout) for the per-plan values.
 
+### Create a sandbox without an idle timeout
+
+On Hobby and Pro, pass `0` to disable idle destruction:
+
+```bash
+railway sandbox create --idle-timeout-minutes 0
+```
+
+The sandbox continues consuming billable resources until you destroy it with `railway sandbox destroy`. Trial and Free plans reject this option. Omit the flag to use your plan's default timeout.
+
+`fork` also accepts `--idle-timeout-minutes 0`. A fork doesn't inherit the source's idle timeout, so pass the flag again to keep it from idling out. See [Disable the idle timeout](/sandboxes#disable-the-idle-timeout) for the SDK and API behavior.
+
 ### Create a sandbox on the private network
 
 ```bash
@@ -174,7 +186,7 @@ railway sandbox destroy sbx_abc123
 
 | Flag | Description |
 |------|-------------|
-| `--idle-timeout-minutes <N>` | Minutes the sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. The default and range depend on your plan |
+| `--idle-timeout-minutes <N>` | Minutes the sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. `0` disables idle destruction on Hobby and Pro. Omit for the plan default |
 | `--variable <KEY=VALUE>` | Set a variable on the sandbox. Repeatable and comma-separable. See [Variables](#variables) |
 | `--env-file <PATH>` | Load variables from a `.env` file. Repeatable. `--variable` overrides matching keys |
 | `--template <NAME_OR_ID>` | Create from a built template, by local name or template ID. Can't be combined with `--checkpoint`. See [Templates](#templates) |
@@ -188,7 +200,7 @@ railway sandbox destroy sbx_abc123
 |------------------|-------------|
 | `[ID]` | Source sandbox ID to fork. Defaults to the active sandbox |
 | `--id <ID>` | Source sandbox ID, as an alternative to the positional argument |
-| `--idle-timeout-minutes <N>` | Minutes the new sandbox can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. The default and range depend on your plan |
+| `--idle-timeout-minutes <N>` | Minutes the fork can sit [idle](/sandboxes#idle-timeout) before it is auto-destroyed. `0` disables idle destruction on Hobby and Pro. Omit for the plan default, not the source's setting |
 | `--variable <KEY=VALUE>` | Set a variable on the fork. Repeatable and comma-separable. The fork doesn't inherit the source's variables |
 | `--env-file <PATH>` | Load variables from a `.env` file. Repeatable. `--variable` overrides matching keys |
 | `--private-network` | Join the environment's private network. The fork doesn't inherit the source's network mode |
@@ -375,6 +387,12 @@ Resolving a reference to a service's internal address requires the private netwo
 ## Private networking
 
 By default a sandbox is isolated: it has outbound internet access but can't reach other services in your environment over private networking. Pass `--private-network` to `create` or `fork` to place the sandbox on the environment's private network, so it can reach services like `postgres.railway.internal` and they can reach it. See [Networking](/sandboxes#networking) for the full description of both modes.
+
+## Public domains
+
+Use the [TypeScript SDK or GraphQL API](/sandboxes#public-domains) to publish a sandbox's HTTP servers on Railway-provided HTTPS domains. The CLI has no sandbox domain creation flag. `--private-network` enables private networking but doesn't publish a public domain by itself.
+
+To reach a sandbox's port from your own machine, use [`railway sandbox forward`](#forward-a-port-into-the-active-sandbox).
 
 ## Common options
 
