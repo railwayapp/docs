@@ -3,8 +3,6 @@ title: Sandboxes
 description: Provision ephemeral, isolated Linux environments on Railway. Create them from the dashboard, CLI, or TypeScript SDK, run commands in them, read and write their files, and tear them down when done.
 ---
 
-Sandboxes are generally available. No Priority Boarding opt-in is required.
-
 Sandboxes are short-lived Linux environments you can provision on demand, run commands in, and destroy.
 
 Each sandbox is scoped to a Railway [environment](/environments) and runs on Railway's virtual machine primitive, giving you isolated, on-demand compute for anything you'd run on a VM.

@@ -74,8 +74,6 @@ Workloads that run on Railway's virtual machine primitive, such as [sandboxes](/
 | **CPU**            | $50 / vCPU / month ($0.001157 / vCPU / minute) |
 | **Network Egress** | $0.05 / GB                                     |
 
-[Sandboxes](/sandboxes) are generally available. No Priority Boarding opt-in is required.
-
 ## Included usage
 
 The Hobby plan includes $5 of resource usage per month.
