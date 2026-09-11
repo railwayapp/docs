@@ -88,7 +88,7 @@ Deploy a [Railway service](/services) for production traffic.
 
 A running agent bills for compute while it is awake, including when no client is connected. Sleeping stops compute billing and keeps the disk. Coding-provider usage follows your provider's account or API billing separately.
 
-See [VM pricing](/pricing/plans#vm-pricing-beta) for current rates, and [manage agents](/cloud-agents/manage#sleep-wake-and-delete) for lifecycle commands.
+See [VM pricing](/pricing/plans#vm-pricing) for current rates, and [manage agents](/cloud-agents/manage#sleep-wake-and-delete) for lifecycle commands.
 
 ## Specs and limits
 
