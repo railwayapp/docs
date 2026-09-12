@@ -121,7 +121,7 @@ To deploy a Gatsby app to Railway directly from GitHub:
            format json
        }
        servers {
-           trusted_proxies static private_ranges 100.0.0.0/8
+           trusted_proxies static 0.0.0.0/0 ::/0
        }
    }
 

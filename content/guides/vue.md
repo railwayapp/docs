@@ -180,7 +180,7 @@ To deploy a Vue app to Railway directly from GitHub, follow the steps below:
        }
        # server options
        servers {
-           trusted_proxies static private_ranges 100.0.0.0/8 # trust railway's proxy
+           trusted_proxies static 0.0.0.0/0 ::/0
        }
    }
 
