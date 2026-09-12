@@ -3,7 +3,6 @@ import { useCopyableCode } from "@/contexts/copyable-code-context";
 import { reconstructMarkdownWithFrontmatter } from "@/utils/markdown";
 import { cn } from "@/lib/cn";
 import * as React from "react";
-import posthog from "posthog-js";
 import { Icon } from "./icon";
 import type { FrontMatter } from "@/types";
 
@@ -119,22 +118,6 @@ export function PageActions({
           />
         </span>
       </button>
-
-      {/* Deploy with Railway */}
-      <a
-        href={`https://railway.com/new?doc=${encodeURIComponent(slug)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => {
-          posthog.capture("docs_deploy_button_clicked", {
-            page: slug,
-          });
-        }}
-        className="inline-flex items-center justify-center gap-1.5 h-9 px-2.5 mt-4 rounded-lg text-sm font-medium text-white bg-primary-solid hover:bg-primary-solid-hover active:bg-primary-solid-active transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
-      >
-        Deploy with Railway
-        <Icon name="ArrowUpRight" className="size-4" />
-      </a>
     </div>
   );
 }
