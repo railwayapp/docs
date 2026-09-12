@@ -109,6 +109,8 @@ You can change the number of replicas after conversion from the cluster overview
 
 Each data node's volume carries the same backup schedules your standalone service had. Restoring a backup from the cluster view restores the same snapshot to **every** data node — the group reforms from the restored data with each node minting a fresh identity, so the restore never collides with the group's previous membership records.
 
+The cluster also supports [Point-in-Time Recovery](/volumes/point-in-time-recovery): enabling it from the cluster's **Backups** tab rolls the archive contract through the members (replicas first, then a switchover, then the former primary), the current primary archives binlogs continuously, and a restore forks a standalone MySQL at the chosen moment — stitching the members' histories together across any primary handoffs.
+
 ## Reverting to Standalone
 
 You can revert a cluster back to a single standalone MySQL service from the cluster overview, or from **Database → Config → High Availability**. Click **Revert to Standalone** to stage the changes.
