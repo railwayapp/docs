@@ -14,6 +14,8 @@ The agent has access to the same primitives you do, so it can act across your en
 - Walk through a failing deployment, read build and runtime logs, and explain what went wrong.
 - Identify the cause of a failed deployment and open a pull request against your repository with a proposed fix.
 
+The agent is also available in the template editor, where it builds and edits templates. Changes it makes there are staged for your review before they apply. See [Staged changes](/templates/staged-changes#chat-with-the-agent).
+
 ## Reach beyond Railway
 
 [Agent Connectors](/ai/agent-connectors) extend the agent past your Railway resources. Connect Notion, Linear, Sentry, or your own MCP server, and the agent can read from them while it works on your projects.
