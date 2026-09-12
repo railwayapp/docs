@@ -47,7 +47,7 @@ Create a `Caddyfile` in your project root:
         format json
     }
     servers {
-        trusted_proxies static private_ranges 100.0.0.0/8
+        trusted_proxies static 0.0.0.0/0 ::/0
     }
 }
 
@@ -74,7 +74,6 @@ Key lines:
 - `try_files {path} /index.html` serves the file if it exists, otherwise falls back to `index.html`.
 - `encode gzip` enables compression for faster delivery.
 - `auto_https off` is required because Railway handles TLS termination.
-- `trusted_proxies static private_ranges 100.0.0.0/8` ensures Railway's proxy headers are trusted.
 
 ### Build output directories by framework
 
