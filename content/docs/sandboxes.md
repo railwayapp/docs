@@ -3,13 +3,29 @@ title: Sandboxes
 description: Provision ephemeral, isolated Linux environments on Railway. Create them from the dashboard, CLI, or TypeScript SDK, run commands in them, read and write their files, and tear them down when done.
 ---
 
-Sandboxes are isolated Linux environments you can provision on demand, run commands in, and destroy. Use an idle timeout for short-lived work, or disable it for a [long-running sandbox](#disable-the-idle-timeout).
+Sandboxes are isolated Linux VMs you create on demand, run commands in, and destroy. Use them for coding agents, dependency installs, test runs, builds, and isolated code execution in development or production.
 
-Each sandbox is scoped to a Railway [environment](/environments) and runs on Railway's virtual machine primitive, giving you isolated, on-demand compute for anything you'd run on a VM.
+Each sandbox is scoped to a Railway [environment](/environments), so it can join the same [private network](/networking/private-networking) as your services and databases. Sandboxes are available on every plan.
+
+Follow the [sandbox quickstart](/sandboxes/quickstart) to create your first sandbox.
 
 ## How it works
 
-Each sandbox is a programmatically controllable, fully isolated virtual machine. You create one, run commands against it with `exec`, and destroy it when you're done. Sandboxes start from a clean Debian base and are ready to `exec` against once `Sandbox.create()` resolves.
+Each sandbox is a programmatically controllable, fully isolated virtual machine. You create one, run commands against it with `exec`, and destroy it when you're done. Sandboxes start from a Debian base with git, Node, and common coding agents preinstalled, and are ready to `exec` against once `Sandbox.create()` resolves.
+
+A typical loop looks like this:
+
+```txt
+create -> configure -> checkpoint -> create/fork -> verify -> destroy
+```
+
+Prepare an environment once, [checkpoint](#checkpoints) it, then boot or [fork](#forking) as many copies as you need. Each attempt is isolated, and you throw away the ones you don't keep.
+
+You can drive sandboxes three ways:
+
+- The [TypeScript SDK](#typescript-sdk), for building sandboxes into your own product or agent.
+- The [CLI](#cli), for your terminal and for local coding agents.
+- The [dashboard](#dashboard), for browsing, SSH, and cleanup.
 
 ## Dashboard
 
@@ -21,19 +37,21 @@ To add SSH keys to your account, go to [Account Settings -> SSH Keys](https://ra
 
 ## TypeScript SDK
 
-The SDK is the primary interface for working with sandboxes programmatically. It's <a href="https://github.com/railwayapp/railway-ts-sdk" target="_blank">open source on GitHub</a>.
+The SDK is the primary interface for working with sandboxes programmatically. It's <a href="https://github.com/railwayapp/railway-ts-sdk" target="_blank">open source on GitHub</a>. It requires Node.js 22 or later.
 
 ### Installation
 
 ```bash
-bun add railway
+npm install railway
 ```
 
 Or scaffold a new project with the SDK preconfigured:
 
 ```bash
-bun create railway@latest
+npm create railway@latest
 ```
+
+`bun add railway` and `bun create railway@latest` work too.
 
 ### Quick start
 
@@ -297,7 +315,7 @@ const fork = await base.fork();
 await fork.exec("npm test"); // sees the installed dependencies, isolated from base
 ```
 
-`Sandbox.create(source)` is equivalent to `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment. Pass `idleTimeoutMinutes`, `networkIsolation`, or `domains` to configure the fork. It doesn't inherit these settings from the source, including a disabled idle timeout or published domains.
+`Sandbox.create(source)` is equivalent to `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment and region. Pass `idleTimeoutMinutes`, `networkIsolation`, or `domains` to configure the fork. It doesn't inherit these settings from the source, including a disabled idle timeout or published domains.
 
 ### Checkpoints
 
@@ -330,7 +348,7 @@ await Sandbox.deleteCheckpoint("node-base");
 
 Each entry's `key` field holds the checkpoint name, and `renameCheckpoint` and `deleteCheckpoint` take that name. Deleting a checkpoint also deletes its underlying disk snapshot.
 
-The number of checkpoints an environment can hold matches its plan's sandbox limit, listed in [Sandbox limits](#sandbox-limits-per-environment). Checkpoints are counted separately from running sandboxes, and replacing a checkpoint by reusing its name doesn't increase the count.
+The number of checkpoints an environment can hold matches its plan's sandbox limit, listed in [Sandbox limits](#sandboxes-per-environment). Checkpoints are counted separately from running sandboxes, and replacing a checkpoint by reusing its name doesn't increase the count.
 
 ### Configuration
 
@@ -349,13 +367,17 @@ const sandbox = await Sandbox.create({
   environmentId: process.env.MY_ENV_ID,
   idleTimeoutMinutes: 30,
   region: "us-east4-eqdc4a",
+  networkIsolation: "PRIVATE",
+  domains: [{ port: 3000 }],
   env: { NODE_ENV: "production" },
 });
 ```
 
-`region` places the sandbox in one of Railway's [regions](/deployments/regions), using the region identifier listed there, for example `us-east4-eqdc4a`. Without it, the sandbox runs in US West (`us-west2`), regardless of your account's preferred region. Read the placement back from `sandbox.region`. `create` and `fork` both accept `region`. A fork doesn't inherit the source's region, so pass `region` explicitly to place a fork alongside its source. The CLI has no region flag, so use the SDK or the API to choose a region.
+`region` places a fresh sandbox in one of Railway's [regions](/deployments/regions), using the region identifier listed there, for example `us-east4-eqdc4a`. Without it, a fresh sandbox runs in US West (`us-west2`), regardless of your account's preferred region. Forks inherit the source's region, and sandboxes created from checkpoints or templates boot in the region where that snapshot was captured. Requesting a different region returns an error. Read the placement back from `sandbox.region`. The CLI has no region flag, so use the SDK or the API to choose a region for a fresh sandbox.
 
 `idleTimeoutMinutes` sets how long a sandbox can sit [idle](#idle-timeout) before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the plan default. Set it to `0` to [disable idle destruction](#disable-the-idle-timeout) on Hobby and Pro. See [Idle timeout](#idle-timeout) for the per-plan defaults and finite ranges.
+
+`networkIsolation` and `domains` control whether the sandbox joins the environment's private network and whether it gets a public URL. See [Networking](#networking).
 
 `env` bakes environment variables into the sandbox, available to every command over both `exec` and SSH for the sandbox's lifetime. Use it for values a command needs at runtime, including secrets. Values can reference other Railway variables, for example `${{shared.NPM_TOKEN}}`, resolved when the sandbox is created. `create` and `fork` both accept `env`, and a fork doesn't inherit the source's variables.
 
@@ -367,7 +389,11 @@ For complete, runnable code, see the <a href="https://github.com/railwayapp/rail
 
 The Railway CLI can create, fork, connect to, run commands in, forward ports into, and destroy sandboxes, build templates, capture and boot from checkpoints, and seed variables at create time. See [railway sandbox](/cli/sandbox) for all subcommands and options.
 
-## Sandbox limits per environment
+## Limits
+
+<span id="sandbox-limits-per-environment" />
+
+### Sandboxes per environment
 
 Each environment can run a fixed number of sandboxes at once, based on your workspace's [plan](/pricing/plans). The cap applies per environment, not per project or workspace.
 
@@ -378,9 +404,22 @@ Each environment can run a fixed number of sandboxes at once, based on your work
 | Hobby | 50 |
 | Pro | 100 |
 
-Enterprise workspaces share the Pro cap of 100 sandboxes per environment.
+Enterprise workspaces start at the Pro cap of 100 sandboxes per environment, and it can be raised on request.
 
 Only sandboxes in the `CREATING` or `RUNNING` state count toward the cap. Destroyed sandboxes don't. Creating a sandbox past the cap fails with an error.
+
+### Sandbox size
+
+Each sandbox gets a VM size at creation. Without a request, it uses your plan's default. You can ask for a different size, up to your plan's maximum, with the `resources` field on the `sandboxCreate` API mutation (`cpu` and `memoryGB`, fractional vCPU allowed). The size is the ceiling a sandbox can use, not what you're billed for. See [Pricing](#pricing).
+
+| Plan | Default | Maximum |
+|------|---------|---------|
+| Trial | 2 vCPU / 2 GB | 2 vCPU / 2 GB |
+| Free | 2 vCPU / 2 GB | 2 vCPU / 2 GB |
+| Hobby | 4 vCPU / 4 GB | 8 vCPU / 8 GB |
+| Pro | 8 vCPU / 8 GB | 32 vCPU / 32 GB |
+
+Enterprise maxima are set per agreement.
 
 ## Timeouts and output
 
@@ -395,9 +434,9 @@ In the CLI, `railway sandbox exec` streams output live and runs the command unti
 
 ### Idle timeout
 
-A sandbox is considered idle when you haven't interacted with it for longer than its idle timeout. Interacting means running a command (`exec`) or sending a command over an SSH session. Every interaction resets the timer, so the countdown always starts from your most recent interaction.
+A sandbox's idle timer resets when you run commands or send keepalive heartbeats. Railway also defers idle teardown while an `exec` command is running, including a detached command, while an SSH shell has foreground work, or when a command finished within the idle timeout window.
 
-With a finite idle timeout, a process, server, or job running in the sandbox doesn't keep it alive on its own. Once a sandbox stays idle past its timeout, Railway destroys it automatically. Publishing a domain doesn't disable the idle timeout.
+The CLI sends keepalive heartbeats while `railway sandbox ssh` or `railway sandbox forward` remains connected, even without commands or traffic. A background process outside an active session doesn't keep the sandbox alive on its own. Once the sandbox has no activity keeping it alive and its idle timeout expires, Railway destroys it.
 
 Set the idle timeout with `idleTimeoutMinutes` in the SDK or `--idle-timeout-minutes` in the CLI. On the Hobby and Pro plans it defaults to 30 minutes and can be set from 1 to 120 minutes. On the Trial and Free plans it defaults to 5 minutes and can be set from 1 to 5 minutes. Setting a value above your plan's maximum returns an error.
 
@@ -472,14 +511,27 @@ Forwarding runs over SSH, so it needs an SSH key on your Railway account. Add on
 
 For a public HTTP URL, configure [public domains](#public-domains) when you create the sandbox.
 
+Sandbox domains suit previews, demos, and webhooks. For production traffic, deploy a [service](/services) with a [public domain](/networking/public-networking).
+
 ## Pricing
 
-Sandboxes are billed by resources (CPU, memory, network egress) consumed. You pay only for what a sandbox uses while it runs, so destroying sandboxes when you're done, or setting a short idle timeout, keeps costs down. Idle sandboxes still consume resources that we bill for.
+Sandboxes bill at [VM rates](/pricing/plans#vm-pricing), metered per second, for CPU used, memory in use, and outbound traffic. Memory includes the operating system and filesystem cache. Waiting on a model or user may reduce CPU use, but memory, background CPU use, and outbound traffic remain billable. Once destroyed, a sandbox incurs no further compute usage.
 
-Sandbox VM resources are billed at
+| Resource | Price |
+|----------|-------|
+| Memory | $50 per GB per month (about $0.00000001929 per MB-second), for memory in use while running |
+| vCPU | $50 per vCPU per month (about $0.00001929 per vCPU-second), for CPU actually used |
+| Egress | $0.05 per GB |
 
-| Resource | price |
-|----------|------------|
-| Memory | $0.00000001929012 MB•second ($50 GB / month) |
-| vCPU | $0.00000001929012 vCPU•second ($50 vCPU / month) |
-| Egress | $0.05 GB |
+The monthly figures assume continuous use of 1 GB of memory or one vCPU for a 30-day month. Actual charges depend on usage over the sandbox's lifetime.
+
+A worked example: a sandbox that runs a 20-minute agent task, averaging 1 GB of memory in use and 30% of one vCPU, costs about 3 cents in compute. Running 50 such tasks costs about $1.50 in compute. These estimates exclude egress.
+
+Sandbox usage draws from the same [included usage](/pricing/plans#included-usage) as the rest of your plan, and counts toward your [usage limits](/pricing/cost-control).
+
+To keep costs down:
+
+- Destroy sandboxes when the work is done. `await using` in the SDK does this for you.
+- Keep the [idle timeout](#idle-timeout) short unless a workflow needs the gap.
+- Use [checkpoints](#checkpoints) for state you reuse instead of keeping a sandbox alive between runs.
+- Close unused CLI SSH and port-forwarding sessions, which keep a sandbox alive.

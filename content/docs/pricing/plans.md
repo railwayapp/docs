@@ -66,13 +66,17 @@ To learn more about controlling your resource usage costs, read the FAQ on [How 
 
 ### VM pricing
 
-Workloads that run on Railway's virtual machine primitive, such as [sandboxes](/sandboxes), are billed at VM rates. You are only charged for the resources a VM consumes while it runs.
+Workloads that run on Railway's virtual machine primitive, such as [sandboxes](/sandboxes) and [cloud agents](/cloud-agents), are billed at VM rates instead of the container rates above. Charges follow measured CPU use, memory in use (including the operating system and filesystem cache), and outbound traffic. Memory remains billable while a VM waits for work, along with any background CPU use or outbound traffic. Once destroyed, the VM incurs no further compute usage.
 
 | Resource           | Resource Price                                 |
 | ------------------ | ---------------------------------------------- |
 | **RAM**            | $50 / GB / month ($0.001157 / GB / minute)     |
 | **CPU**            | $50 / vCPU / month ($0.001157 / vCPU / minute) |
 | **Network Egress** | $0.05 / GB                                     |
+
+The monthly figures are what a VM would cost if it held a full GB or kept a full vCPU busy for the entire month. VM usage is metered per second and draws from the same [included usage](#included-usage) as the rest of your plan.
+
+To keep sandbox costs down, destroy sandboxes when you're done or rely on the [idle timeout](/sandboxes#idle-timeout), and prefer [checkpoints](/sandboxes#checkpoints) over long-lived sandboxes for state you reuse.
 
 ## Included usage
 
