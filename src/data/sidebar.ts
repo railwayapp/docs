@@ -373,7 +373,10 @@ export const sidebarContent: ISidebarContent = [
       makePage("Feature flags", undefined, "/feature-flags"),
       makePage("Cron jobs", undefined, "/cron-jobs"),
       makePage("Functions", undefined, "/functions"),
-      makePage("Sandboxes", undefined, "/sandboxes"),
+      {
+        subTitle: makePage("Sandboxes", undefined, "/sandboxes"),
+        pages: [makePage("Quickstart", undefined, "/sandboxes/quickstart")],
+      },
       {
         subTitle: makePage("Config as code", undefined, "/config-as-code"),
         pages: [makePage("Reference", "config-as-code")],

@@ -345,7 +345,7 @@ Renaming fails if a checkpoint with the new name already exists. After a rename,
 
 ### Checkpoint limits
 
-The number of checkpoints an environment can hold matches its plan's sandbox limit, listed in [Sandbox limits](/sandboxes#sandbox-limits-per-environment). Checkpoints are counted separately from running sandboxes, and replacing a checkpoint by reusing its name doesn't increase the count.
+The number of checkpoints an environment can hold matches its plan's sandbox limit, listed in [Sandbox limits](/sandboxes#sandboxes-per-environment). Checkpoints are counted separately from running sandboxes, and replacing a checkpoint by reusing its name doesn't increase the count.
 
 ## Variables
 

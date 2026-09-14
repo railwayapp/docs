@@ -45,7 +45,7 @@ The point of the loop is that an agent doesn't rebuild the world every time. It 
 
 ## Prerequisites
 
-- A Railway account with access to the project and environment where you will create [sandboxes](/sandboxes).
+- A Railway account with access to the project and environment where you will create [sandboxes](/sandboxes). Sandboxes are available on every plan, including the Free plan and the Trial.
 - The [Railway CLI](/cli) installed and logged in with `railway login`.
 - A project linked with `railway link`.
 - Node.js 22+ if you plan to use the [TypeScript SDK](/sandboxes#typescript-sdk).
@@ -258,7 +258,7 @@ Each harness runs with the flags that make it non-interactive: `--print` and `--
 
 ### Clean up the base and the checkpoint
 
-When all reviews finish, destroy the base sandbox and delete the temporary checkpoint so neither counts against your [environment's sandbox limit](/sandboxes#sandbox-limits-per-environment):
+When all reviews finish, destroy the base sandbox and delete the temporary checkpoint so neither counts against your [environment's sandbox limit](/sandboxes#sandboxes-per-environment):
 
 ```ts
 await base.destroy().catch(() => {});
