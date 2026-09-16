@@ -354,7 +354,8 @@ As with a single file, `railway config plan` and `railway config apply` run wher
 
 An `api` repository owns the API service and its database:
 
-```ts filename="api/.railway/railway.ts"
+```ts
+// api/.railway/railway.ts
 import { defineRailway, postgres, project, service } from "railway/iac";
 
 export const partial = "api";
@@ -373,7 +374,8 @@ export default defineRailway(() => {
 
 A `web` repository owns the frontend service:
 
-```ts filename="web/.railway/railway.ts"
+```ts
+// web/.railway/railway.ts
 import { defineRailway, project, service } from "railway/iac";
 
 export const partial = "web";
