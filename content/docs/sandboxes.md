@@ -11,7 +11,7 @@ Follow the [sandbox quickstart](/sandboxes/quickstart) to create your first sand
 
 ## How it works
 
-Each sandbox is a programmatically controllable, fully isolated virtual machine. You create one, run commands against it with `exec`, and destroy it when you're done. Sandboxes start from a Debian base with git, Node, and common coding agents preinstalled, and are ready to `exec` against once `Sandbox.create()` resolves.
+Each sandbox is a programmatically controllable, fully isolated virtual machine. You create one, run commands against it with `exec`, and destroy it when you're done. The standard sandbox image uses an Ubuntu base with git, Node, and common coding agents preinstalled. Sandboxes are ready to `exec` against once `Sandbox.create()` resolves.
 
 A typical loop looks like this:
 
@@ -294,7 +294,7 @@ The template builder exposes these methods:
 | Method | Effect |
 |--------|--------|
 | `.run(command)` | Add a raw build step |
-| `.withPackages(...names)` | Install Debian packages via `apt-get` |
+| `.withPackages(...names)` | Install system packages via `apt-get` |
 | `.withEnv({ KEY: "value" })` | Set build-time environment variables for subsequent steps |
 | `.workdir(dir)` | Set the working directory for subsequent steps |
 | `.build(options?)` | Build and cache the template ahead of time |
