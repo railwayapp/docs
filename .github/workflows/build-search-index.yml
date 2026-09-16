@@ -17,6 +17,13 @@ jobs:
        contains(github.event.deployment.environment, 'production'))
     steps:
       - uses: actions/checkout@v7
+      # The deploy-success event can precede edge caches serving the new
+      # build; scraping immediately indexes stale pages (this dropped most
+      # of a 38-guide batch from the index on 2026-07-30). Let the rollout
+      # settle before crawling.
+      - name: Wait for rollout to settle
+        if: github.event_name == 'deployment_status'
+        run: sleep 180
       - name: Scrape and index docs
         env:
           HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
