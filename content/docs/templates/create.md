@@ -173,6 +173,8 @@ You can see all of your templates on your <a href="https://railway.com/workspace
 
 You can edit, publish/unpublish and delete templates.
 
+When you edit a template, your changes are staged for review before they apply, and every applied change shows up in the editor's activity panel where you can roll it back. See [Staged changes](/templates/staged-changes).
+
 <Image src="https://res.cloudinary.com/railway/image/upload/v1743199089/docs/templates_xyphou.png"
  alt="Account templates page"
  layout="intrinsic"
