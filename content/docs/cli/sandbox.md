@@ -11,8 +11,6 @@ Create, connect to, run commands in, forward ports into, and destroy ephemeral [
 railway sandbox <COMMAND> [OPTIONS]
 ```
 
-If a documented command or flag is unavailable, upgrade the CLI with `railway upgrade --yes`. Check the relevant command's help, for example `railway sandbox create --help`, then retry. Try upgrading before switching to the SDK or GraphQL to work around a missing flag. If upgrading is unavailable or the command or flag is still missing, consult the [sandbox documentation](/sandboxes) for another way to perform the operation.
-
 ## Aliases
 
 - `railway sandboxes`

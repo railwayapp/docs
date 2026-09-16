@@ -13,14 +13,6 @@ Follow the [sandbox quickstart](/sandboxes/quickstart) to create your first sand
 
 Each sandbox is a programmatically controllable, fully isolated virtual machine. You create one, run commands against it with `exec`, and destroy it when you're done. The standard sandbox image uses an Ubuntu base with git, Node, and common coding agents preinstalled. Sandboxes are ready to `exec` against once `Sandbox.create()` resolves.
 
-To check a running sandbox's distribution and version, read `/etc/os-release`:
-
-```bash
-railway sandbox exec --id <sandbox-id> -- cat /etc/os-release
-```
-
-Older checkpoints can preserve an older base image, so check the running sandbox when you need its exact version.
-
 A typical loop looks like this:
 
 ```txt
