@@ -51,6 +51,8 @@ Especially for production environments, performing regular backups and monitorin
 
 - **Backups**: Automate regular backups to ensure data recovery in case of failure. We suggest checking out the native [Backups](/volumes/backups) feature.
 
+- **Point-in-time recovery**: Restore to any moment in the last 7 days, not just to a backup, by turning on continuous binlog archiving from the **Backups** tab. Works on single-node MySQL and on MySQL HA clusters. See [Point-in-Time Recovery](/volumes/point-in-time-recovery).
+
 - **Observability**: Implement monitoring for insights into performance and health of your databases. If you're not already running an observability stack, check out these templates to help you get started building one:
   - [Prometheus](https://railway.com/deploy/KmJatA)
   - [Grafana](https://railway.com/deploy/anURAt)
