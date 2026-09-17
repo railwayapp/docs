@@ -21,7 +21,13 @@ export default defineRailway(() => {
 });
 ```
 
-Keep this file as the single source for the environment. A sibling `export const partial = "api"` (Python `PARTIAL`, Go `const Partial`) is a last resort for separate repositories that cannot share one file. See [One file per project](/infrastructure-as-code#one-file-per-project).
+When one repository holds every service, this file is the single source for the environment. When services live in separate repositories, each repository's file exports a partial name (Python `PARTIAL`, Go `const Partial`) and manages only the resources it declares:
+
+```ts
+export const partial = "api";
+```
+
+The CLI records which partial owns each resource and rejects a file that declares a resource owned by another partial. See [Multi-repo projects](/infrastructure-as-code#multi-repo-projects).
 
 ### Environment context
 

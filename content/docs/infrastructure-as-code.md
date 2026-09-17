@@ -331,26 +331,84 @@ For the full TypeScript DSL, including services, sources, replicas, variables, d
 
 ## One file per project
 
-Keep every service for a Railway environment in a single `.railway/railway.ts` (or `.py` / `.go`) file. That is the supported shape: one project definition, one apply, omit means delete. Do not keep more than one language file in `.railway/`.
+When one repository (or monorepo) holds the code for every service in an environment, keep every service in a single `.railway/railway.ts` (or `.py` / `.go`) file. One project definition, one apply, and omitting a resource means deleting it. Do not keep more than one language file in `.railway/`.
 
-A named partial is a last resort when separate repositories cannot share that file. Export a stable name from each file so omit=delete only applies to resources that file already owns:
+When the services in an environment live in separate repositories, use one file per repository with a named partial. See [Multi-repo projects](#multi-repo-projects).
+
+## Multi-repo projects
+
+A named partial lets each repository manage its own slice of a Railway environment. Every file exports a stable partial name, and the CLI records which partial owns each resource. Omitting a resource then only deletes it if your partial owns it.
+
+Choose the shape that matches where the code lives:
+
+| Repositories | File layout | Partial export |
+|--------------|-------------|----------------|
+| One repository or monorepo for the whole environment | One `.railway/railway.ts` describing every resource | None |
+| One repository per service (or group of services) | One `.railway/railway.ts` per repository, each describing only that repository's resources | Required in every file |
+
+Don't mix the two. Once any partial in an environment has a name, every file that targets that environment must export one.
+
+As with a single file, `railway config plan` and `railway config apply` run wherever you run them: locally or in your CI. Railway doesn't read `.railway/` during deploys. To apply from each repository's pipeline, use the [GitHub Actions recipe](#apply-from-github-actions) in every repository, each with a project token for the target environment.
+
+### Example: two repositories
+
+An `api` repository owns the API service and its database:
 
 ```ts
+// api/.railway/railway.ts
+import { defineRailway, postgres, project, service } from "railway/iac";
+
 export const partial = "api";
 
 export default defineRailway(() => {
-  const api = service("api");
-  return project("acme", { resources: [api] });
+  const db = postgres("postgres");
+  const api = service("api", {
+    env: {
+      DATABASE_URL: db.env.DATABASE_URL,
+    },
+  });
+
+  return project("acme", { resources: [api, db] });
 });
 ```
 
-Python uses `PARTIAL = "api"`. Go uses `const Partial = "api"`.
+A `web` repository owns the frontend service:
 
-Do not add a partial export to a monorepo or a file that already describes the whole environment. Do not rename a partial after you apply it. `railway config migrate` writes a named partial only when it migrates a single service. A merged monorepo migrate does not.
+```ts
+// web/.railway/railway.ts
+import { defineRailway, project, service } from "railway/iac";
+
+export const partial = "web";
+
+export default defineRailway(() => {
+  const web = service("web");
+
+  return project("acme", { resources: [web] });
+});
+```
+
+After both repositories apply, partial `api` owns `service.api` and `database.postgres`, and partial `web` owns `service.web`. Removing `db` from the `api` file deletes the database on the next `api` apply. Nothing the `web` file does can touch it.
+
+Python uses `PARTIAL = "api"`. Go uses `const Partial = "api"`. A partial name is 1 to 64 characters from `a-z`, `A-Z`, `0-9`, `.`, `_`, and `-`.
+
+### Ownership rules
+
+The CLI enforces ownership on every plan and apply:
+
+- A resource declared in a file whose partial doesn't own it fails with `Cannot manage service "api": already managed by partial "web".` Move the declaration to the owning repository, or remove it from the owner first.
+- A file without a partial export fails in an environment that already has named partials: `This environment already has named IaC partials. Export const partial = "<name>" from this file instead of managing the whole project.`
+- A named partial only deletes resources it owns. Resources owned by other partials, or not yet owned by any partial, are left alone when they're missing from your file.
+- The first `railway config apply` from a partial claims ownership of every resource the file declares. The apply runs even when the plan shows no configuration changes, so that the claim is recorded.
+
+Don't rename a partial after you apply it. The resources stay owned by the old name, and the renamed file fails the foreign-resource check.
+
+### Migrating per-repo Config as Code
+
+If each repository has its own `railway.json` or `railway.toml`, run `railway config migrate` in each repository. When it finds a single service, it writes a `.railway/railway.ts` with `export const partial = "<service name>"`. Review with `railway config plan` and apply from that repository. Each repository ends up as one partial, which matches how Config as Code was applied per service. See [Migrating from Config as Code](#migrating-from-config-as-code) for the commands.
 
 ## Migrating from Config as Code
 
-If you currently use `railway.json` or `railway.toml`, migrate with the CLI. In a monorepo, `migrate` finds every CaC file in the repository and writes them into a single `.railway/railway.ts`.
+If you currently use `railway.json` or `railway.toml`, migrate with the CLI. In a monorepo, `migrate` finds every CaC file in the repository and writes them into a single `.railway/railway.ts`. In a multi-repo project, run it in each repository. See [Multi-repo projects](#multi-repo-projects).
 
 ```bash
 # Preview the generated authoring file (TypeScript by default)
@@ -367,7 +425,7 @@ railway config migrate --lang go --apply
 railway config migrate --apply --delete-files
 ```
 
-`--service <name>` migrates only that service. A single-service migrate still writes a named `partial` export because Config as Code was per-service. A merged migrate does not.
+`--service <name>` migrates only that service. A single-service migrate writes a named `partial` export because Config as Code was per-service. A merged migrate does not.
 
 Then review and apply:
 
@@ -440,7 +498,7 @@ Railway blocks plans for services still managed by `railway.json` or `railway.to
 .railway/README.md
 ```
 
-The README explains how to plan and apply the configuration. Prefer one file for the project. A named partial is documented there only as a last resort for split repositories.
+The README explains how to plan and apply the configuration, and when to add a named partial for a [multi-repo project](#multi-repo-projects).
 
 ## Limitations
 
