@@ -30,13 +30,13 @@ Enable automatic instrumentation on a service or run an SDK in it, not both. Two
 
 ## Enable automatic instrumentation
 
-Automatic instrumentation is a per-service switch, and it only works while tracing is on for the service.
+Automatic instrumentation is a per-service switch in the **Tracing setup** panel, and it only appears while tracing is on for the service.
 
-1. [Enable tracing](/observability/tracing#enable-tracing) for the service, either through the project default or a service override.
-2. Open the service and navigate to **Settings**.
-3. In the **Networking** section, under **Tracing**, toggle **Best-effort automatic tracing** on.
+1. Navigate to the **Traces** tab in your project and click **Tracing setup**.
+2. [Enable tracing](/observability/tracing#enable-tracing) for the service, either through the project default or the service's own selector.
+3. In the service's entry under **Services**, toggle **Best-effort automatic tracing** on.
 
-Railway instruments the service's running processes within a minute. No redeploy is needed. The switch is also available per service in the **Tracing setup** panel on the Traces page.
+Railway instruments the service's running processes within a minute. No redeploy is needed.
 
 Turning the switch off stops instrumenting the service's processes. Turning tracing off for the service disables automatic instrumentation with it.
 

@@ -25,23 +25,20 @@ The receiver accepts traces only, over OTLP/HTTP and OTLP/gRPC. It doesn't accep
 
 ## Enable tracing
 
-Tracing is configured per project, with an optional override per service. A service follows the project default unless you pin it on or off.
+Tracing is configured from the **Tracing setup** panel on the Traces page. The panel holds the project default, the sample rate, and a per-service override, and it shows for each service when the edge and the app last exported a span, so you can watch the first spans arrive.
 
-### Set the project default
-
-1. Open your project and navigate to **Settings**.
-2. In the **Tracing** section, toggle **Enable Tracing by Default** on.
-3. Optional: enter a **Sample Rate**. Leave it empty to use Railway's default.
+1. Navigate to the **Traces** tab in your project's top navigation.
+2. Click **Tracing setup** to open the panel. It opens on its own while the environment has no traces yet.
+3. Under **Project**, toggle **Trace requests by default** on.
+4. Optional: enter a **Sample rate**. Leave it empty to use Railway's default.
 
 Once the project default is on, every service without an override is traced.
 
 ### Override a service
 
-1. Open the service and navigate to **Settings**.
-2. In the **Networking** section, find **Tracing**.
-3. Select **Project default**, **On**, or **Off**.
+Each service in the **Services** section of the panel has a selector with three choices. **Project default** follows the project setting, and **On** or **Off** pins tracing for that service regardless of it. Use an override to trace one service while the project default is off, or to leave a noisy service out.
 
-You can also change the project default and every service's override from the **Tracing setup** panel on the Traces page. The panel shows, per service, when the edge and the app last exported a span, so you can watch the first spans arrive.
+The panel lists the environment's HTTP services. Databases and other services that don't take HTTP requests are not listed.
 
 ### What happens when you enable tracing
 
@@ -49,13 +46,11 @@ You can also change the project default and every service's override from the **
 - On the next deploy, Railway adds the OpenTelemetry [variables](#provided-variables) to the service. An app that runs an OpenTelemetry SDK exports spans from that deploy on.
 - A service without a public domain never receives requests from the edge, so it has no edge spans. Its own spans still appear in traces that other services propagate to it over the [private network](/networking/private-networking).
 
-Databases and other services that don't take HTTP requests are not listed in the setup panel.
-
 ## Configure the sample rate
 
 The sample rate is the percentage of client-facing requests the edge traces. It's set once per project and applies to every traced service in it.
 
-- Enter a value from 0 to 100 in **Sample Rate** in the project settings. Decimals are allowed, so `0.5` traces one request in 200.
+- Enter a value from 0 to 100 in **Sample rate** under **Project** in the Tracing setup panel. Decimals are allowed, so `0.5` traces one request in 200.
 - Leave the field empty to use Railway's default, which traces 100% of requests. Lower the rate for a service with heavy traffic to stay within the span limits below and keep the Traces page focused.
 
 The edge makes the sampling decision once per request and passes it along in the `traceparent` header. Requests the edge doesn't sample carry a header with the sampled flag cleared, so an SDK with the default parent-based sampler records nothing for them. Your service doesn't need its own sampling configuration.
