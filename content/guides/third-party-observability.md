@@ -9,7 +9,7 @@ tags:
 topic: integrations
 ---
 
-Railway's built-in Observability dashboard, logs, and metrics cover container-level health. A third-party observability tool can be useful for those that require longer retention or custom application-level insight. This guide covers two approaches to shipping telemetry off a Railway service, with tradeoffs for each.
+Railway's built-in Observability dashboard, logs, metrics, and [tracing](/observability/tracing) cover container-level health and request traces. A third-party observability tool can be useful for those that require longer retention or custom application-level insight. This guide covers two approaches to shipping telemetry off a Railway service, with tradeoffs for each.
 
 ## Choosing an approach
 

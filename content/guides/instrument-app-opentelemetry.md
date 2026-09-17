@@ -14,6 +14,8 @@ Instrumentation is the code that makes your application emit telemetry: traces t
 
 This guide covers the application side. For the infrastructure side, deploying the collector and a tracing backend, see [Deploy an OpenTelemetry Collector and Backend on Railway](/guides/deploy-an-otel-collector-stack).
 
+**Note:** If you only need traces, you don't need a collector. Railway's built-in [tracing](/observability/tracing) receives spans from your services and starts traces at the edge. Enable it for the service, and Railway sets the `OTEL_*` variables for you. Follow this guide when you also want metrics, or want to send telemetry to your own backend.
+
 ## Prerequisites
 
 - A Railway project with a service you want to instrument.

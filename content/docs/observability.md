@@ -135,5 +135,6 @@ To edit an existing monitor, navigate to any widget that has monitoring configur
 
 - [Logs](/observability/logs) - view, filter, and export build, deploy, and runtime logs.
 - [Metrics](/observability/metrics) - inspect CPU, memory, disk, and network usage per service.
+- [Tracing](/observability/tracing) - follow a request from the edge through your services, and search traces by span attributes.
 - [Webhooks](/observability/webhooks) - receive platform events (deploy succeeded/failed, crashes) at an external URL.
 - [Connect a Third-Party Observability Tool](/guides/third-party-observability) - ship traces, metrics, and logs to third-party providers for longer retention and application-level insight.
