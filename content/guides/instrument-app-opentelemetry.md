@@ -1,7 +1,7 @@
 ---
 title: Instrument an App with OpenTelemetry
 description: Add OpenTelemetry traces and metrics to a Node.js or Python app on Railway, and send them to a collector over the private network.
-date: "2026-07-29"
+date: "2026-09-18"
 tags:
   - opentelemetry
   - observability
@@ -14,7 +14,7 @@ Instrumentation is the code that makes your application emit telemetry: traces t
 
 This guide covers the application side. For the infrastructure side, deploying the collector and a tracing backend, see [Deploy an OpenTelemetry Collector and Backend on Railway](/guides/deploy-an-otel-collector-stack).
 
-**Note:** If you only need traces, you don't need a collector. Railway's built-in [tracing](/observability/tracing) receives spans from your services and starts traces at the edge. Enable it for the service, and Railway sets the `OTEL_*` variables for you. Follow this guide when you also want metrics, or want to send telemetry to your own backend.
+**Note:** If you only need traces, you don't need a collector. Railway's built-in [tracing](/observability/tracing) starts traces at the edge and receives spans from your services. Enable it for the service, and Railway sets the `OTEL_*` variables for you; the [per-language pages](/observability/tracing#instrument-your-service) cover the SDK setup, and [automatic instrumentation](/observability/tracing/automatic-instrumentation) traces supported runtimes without an SDK. Railway's receiver accepts traces only, so follow this guide when you also want metrics or logs, or want to send telemetry to your own backend.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ OTEL_RESOURCE_ATTRIBUTES=service.version=${{RAILWAY_GIT_COMMIT_SHA}},deployment.
 
 What each line does:
 
-- `OTEL_EXPORTER_OTLP_ENDPOINT` points the exporter at the collector. `${{OpenTelemetry Collector.RAILWAY_PRIVATE_DOMAIN}}` is a [reference variable](/variables/reference) that resolves to the collector service's `<service>.railway.internal` hostname. Adjust the service name to match yours. Use `http`, not `https`: private network traffic is already encrypted in transit by Railway.
+- `OTEL_EXPORTER_OTLP_ENDPOINT` points the exporter at the collector. `${{OpenTelemetry Collector.RAILWAY_PRIVATE_DOMAIN}}` is a [reference variable](/variables/reference) that resolves to the collector service's `<service>.railway.internal` hostname. Adjust the service name to match yours. Use `http`, not `https`: private network traffic is already encrypted in transit by Railway. Setting this variable yourself also means Railway adds none of its own [tracing variables](/observability/tracing#provided-variables) to the service, so the app's spans go to your collector and not to the Traces page.
 - `OTEL_SERVICE_NAME` names the service in your traces. Referencing `RAILWAY_SERVICE_NAME` keeps it in sync with the service name in Railway.
 - `OTEL_RESOURCE_ATTRIBUTES` attaches key-value pairs to every span and metric. `RAILWAY_GIT_COMMIT_SHA` and `RAILWAY_ENVIRONMENT_NAME` are [Railway-provided variables](/variables/reference), so each trace records exactly which commit and environment produced it.
 
@@ -234,10 +234,15 @@ If nothing arrives, check three things: the reference variable resolves to the r
 
 ## Where OpenTelemetry fits with Railway observability
 
-Railway already collects [logs](/observability/logs) and resource-level [metrics](/observability/metrics) (CPU, memory, network) for every service with no instrumentation. OpenTelemetry adds what Railway cannot see from outside the container: request-level traces, cross-service context propagation, and application-specific metrics. Use both: Railway metrics tell you a service is using 80% of its memory, and a trace tells you which endpoint and query is responsible.
+Railway collects [logs](/observability/logs) and resource-level [metrics](/observability/metrics) (CPU, memory, network) for every service with no instrumentation, and [tracing](/observability/tracing) records the edge's part of every sampled request once you enable it. Spans your service exports with an SDK, or that [automatic instrumentation](/observability/tracing/automatic-instrumentation) captures, join those traces on the Traces page.
+
+A collector adds what built-in tracing doesn't cover. Railway's receiver accepts traces only, so application metrics and logs need another destination. A collector also lets you keep traces beyond your plan's [retention](/observability/logs#log-retention), fan out to several backends, and query them with your own tooling. The trade-off is that a service exporting to its own collector doesn't send spans to Railway, because your `OTEL_EXPORTER_OTLP_ENDPOINT` takes precedence over the variables Railway would add. The edge still traces requests to the service, so Railway's Traces page shows the edge and proxy spans while your backend shows the rest.
+
+When tracing is enabled for the service, the edge also decides sampling. It draws against the project's [sample rate](/observability/tracing#configure-the-sample-rate) (every request by default) and forwards the decision in the `traceparent` header. An SDK with the default parent-based sampler follows that flag, so your backend sees the same sample the edge chose. To sample independently, set `OTEL_TRACES_SAMPLER` on the service to a sampler that ignores the parent, such as `always_on` or `traceidratio`.
 
 ## Next steps
 
+- [Tracing](/observability/tracing): trace requests from the edge through your services without a collector.
 - [Deploy an OpenTelemetry Collector and Backend on Railway](/guides/deploy-an-otel-collector-stack): the infrastructure this guide sends telemetry to.
 - [Private Networking](/networking/private-networking): how `<service>.railway.internal` hostnames work.
 - [Variables Reference](/variables/reference): every Railway-provided variable you can attach as a resource attribute.
