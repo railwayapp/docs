@@ -380,7 +380,7 @@ OTEL_LOG_LEVEL=debug
 Railway's docs cover the pieces around this stack:
 
 - [Tracing](/observability/tracing): Railway's built-in tracing, for traces without running a collector. It also explains the `OTEL_*` variables Railway provides and how a collector endpoint you set yourself interacts with them.
-- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry): configure the Node.js or Python SDK from environment variables and send traces and metrics to this collector.
+- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry): a step-by-step walkthrough of built-in tracing, from enabling it to adding spans from your code.
 - [Connect a Third-Party Observability Tool](/guides/third-party-observability): point the collector, or the SDK directly, at a hosted backend.
 
 The OpenTelemetry Documentation is complete and easy to follow. Spend time getting familiar with the docs. Here are some sections that are especially helpful -

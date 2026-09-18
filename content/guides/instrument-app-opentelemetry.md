@@ -1,6 +1,6 @@
 ---
 title: Instrument an App with OpenTelemetry
-description: Add OpenTelemetry traces and metrics to a Node.js or Python app on Railway, and send them to a collector over the private network.
+description: Enable Railway's built-in tracing, follow requests from the edge into your service, and add OpenTelemetry spans from your code with automatic instrumentation or an SDK.
 date: "2026-09-18"
 tags:
   - opentelemetry
@@ -10,240 +10,181 @@ tags:
 topic: infrastructure
 ---
 
-Instrumentation is the code that makes your application emit telemetry: traces that follow a request across functions and services, metrics that count and measure what the app does, and logs with trace context attached. OpenTelemetry (OTel) is the vendor-neutral standard for producing that data, so you instrument once and point the output at any backend. This guide adds the OTel SDK to a Node.js or Python service on Railway, configures it with environment variables, and exports telemetry to an OpenTelemetry Collector over [private networking](/networking/private-networking).
+A trace follows one request from Railway's edge, through your service, and into the services it calls. Railway's built-in [tracing](/observability/tracing) starts the trace at the edge and receives OpenTelemetry spans from your services, so there is nothing to deploy and no backend to run. This guide enables tracing for a project, adds spans from inside a service with automatic instrumentation or an OpenTelemetry SDK, tunes the sample rate, and finds the trace behind a request a user reports.
 
-This guide covers the application side. For the infrastructure side, deploying the collector and a tracing backend, see [Deploy an OpenTelemetry Collector and Backend on Railway](/guides/deploy-an-otel-collector-stack).
-
-**Note:** If you only need traces, you don't need a collector. Railway's built-in [tracing](/observability/tracing) starts traces at the edge and receives spans from your services. Enable it for the service, and Railway sets the `OTEL_*` variables for you; the [per-language pages](/observability/tracing#instrument-your-service) cover the SDK setup, and [automatic instrumentation](/observability/tracing/automatic-instrumentation) traces supported runtimes without an SDK. Railway's receiver accepts traces only, so follow this guide when you also want metrics or logs, or want to send telemetry to your own backend.
+**Note:** Tracing is a preview feature under active development.
 
 ## Prerequisites
 
-- A Railway project with a service you want to instrument.
-- An OTLP endpoint to send telemetry to. The examples assume an OpenTelemetry Collector running as a service in the same project and environment, listening on port 4318 (OTLP over HTTP). The [collector guide](/guides/deploy-an-otel-collector-stack) sets this up, including a one-click template.
+- A Railway project with a service you want to trace.
+- A public domain on that service. Railway's edge starts traces for requests it routes, so a service without a public domain only contributes the spans it exports itself.
 
-You can also skip the collector and export directly to a vendor's OTLP endpoint over the public internet. A collector is still the better default: it batches, retries, and fans out to multiple backends without app changes, and app-to-collector traffic on the private network avoids [network egress charges](/pricing/cost-control).
+## 1. Enable tracing
 
-## Configure the SDK with environment variables
+Tracing is configured from the **Tracing setup** panel on the Traces page.
 
-Every OpenTelemetry SDK reads the same standard environment variables. Set them on the instrumented service in Railway, under the **Variables** tab, instead of hardcoding endpoints in code:
+1. Navigate to the **Traces** tab in your project's top navigation.
+2. Click **Tracing setup**. The panel opens on its own while the environment has no traces yet.
+3. Under **Project**, toggle **Trace requests by default** on.
+4. Leave **Sample rate** empty for now. Railway traces every request by default, which is what you want while setting up.
 
-```plaintext
-OTEL_EXPORTER_OTLP_ENDPOINT=http://${{OpenTelemetry Collector.RAILWAY_PRIVATE_DOMAIN}}:4318
-OTEL_SERVICE_NAME=${{RAILWAY_SERVICE_NAME}}
-OTEL_RESOURCE_ATTRIBUTES=service.version=${{RAILWAY_GIT_COMMIT_SHA}},deployment.environment.name=${{RAILWAY_ENVIRONMENT_NAME}}
-```
+Every service without an override is now traced. To trace one service only, leave the project default off and turn the service's **Traced** switch on in the panel's service table. The same setting is on the service under **Settings → Tracing**, as a selector with **Project default**, **On**, and **Off**. See [Enable tracing](/observability/tracing#enable-tracing) for how overrides resolve.
 
-What each line does:
+## 2. Look at the first traces
 
-- `OTEL_EXPORTER_OTLP_ENDPOINT` points the exporter at the collector. `${{OpenTelemetry Collector.RAILWAY_PRIVATE_DOMAIN}}` is a [reference variable](/variables/reference) that resolves to the collector service's `<service>.railway.internal` hostname. Adjust the service name to match yours. Use `http`, not `https`: private network traffic is already encrypted in transit by Railway. Setting this variable yourself also means Railway adds none of its own [tracing variables](/observability/tracing#provided-variables) to the service, so the app's spans go to your collector and not to the Traces page.
-- `OTEL_SERVICE_NAME` names the service in your traces. Referencing `RAILWAY_SERVICE_NAME` keeps it in sync with the service name in Railway.
-- `OTEL_RESOURCE_ATTRIBUTES` attaches key-value pairs to every span and metric. `RAILWAY_GIT_COMMIT_SHA` and `RAILWAY_ENVIRONMENT_NAME` are [Railway-provided variables](/variables/reference), so each trace records exactly which commit and environment produced it.
+The edge starts tracing requests to the service's domains right away, before any change to your code.
 
-Private networking is scoped per environment, so the app and the collector must run in the same project and environment for the internal hostname to resolve.
+1. Send a few requests to the service's public domain.
+2. Back on the **Traces** page, each request appears as a row with the time it started, the root span's name, the service, the duration, and the span count. Toggle live updates on to watch new traces arrive.
+3. Click a trace. The waterfall shows an edge span with the method, path, status, and cache result, and a proxy span for the hop into your service's region.
 
-## Instrument a Node.js app
-
-Install the SDK, the auto-instrumentation bundle, and the OTLP exporters:
+Each traced response also carries an `x-railway-trace-id` header:
 
 ```bash
-npm install @opentelemetry/api @opentelemetry/sdk-node \
-  @opentelemetry/auto-instrumentations-node \
-  @opentelemetry/exporter-trace-otlp-http \
-  @opentelemetry/exporter-metrics-otlp-http \
-  @opentelemetry/sdk-metrics express
+curl -sI https://your-app.up.railway.app/ | grep -i x-railway-trace-id
 ```
 
-Of these, `express` is only for the example app; the auto-instrumentation bundle detects popular libraries (Express, Fastify, `http`, `pg`, `ioredis`, and others) and creates spans for them automatically.
+Paste that ID into the **Trace ID** field at the top of the Traces page to open the trace directly.
 
-### Create the SDK setup file
+At this point a trace ends at the proxy. The next step adds what happens inside your service.
 
-Create `instrumentation.js` at the project root:
+## 3. Add spans from inside your service
 
-```javascript
-// instrumentation.js
-const { NodeSDK } = require("@opentelemetry/sdk-node");
-const {
-  getNodeAutoInstrumentations,
-} = require("@opentelemetry/auto-instrumentations-node");
-const {
-  OTLPTraceExporter,
-} = require("@opentelemetry/exporter-trace-otlp-http");
-const {
-  OTLPMetricExporter,
-} = require("@opentelemetry/exporter-metrics-otlp-http");
-const { PeriodicExportingMetricReader } = require("@opentelemetry/sdk-metrics");
+Two options: automatic instrumentation traces the process from the outside with no code changes, and an OpenTelemetry SDK gives complete traces with your own spans. Pick one per service; running both produces duplicate spans for every request.
 
-// Endpoint and service name come from OTEL_EXPORTER_OTLP_ENDPOINT
-// and OTEL_SERVICE_NAME, so nothing is hardcoded here.
-const sdk = new NodeSDK({
-  traceExporter: new OTLPTraceExporter(),
-  metricReader: new PeriodicExportingMetricReader({
-    exporter: new OTLPMetricExporter(),
-  }),
-  instrumentations: [getNodeAutoInstrumentations()],
-});
+### Option A: Automatic instrumentation
 
-sdk.start();
+[Automatic instrumentation](/observability/tracing/automatic-instrumentation) attaches eBPF probes to your service's processes on the host and exports a server span for each incoming HTTP or gRPC request, a client span for each outgoing plaintext call, and client spans for database and cache calls on protocols it decodes. It supports Node.js, Go, Python, Ruby, and Java processes on a best-effort basis.
 
-// Flush telemetry before the container stops.
-process.on("SIGTERM", () => {
-  sdk
-    .shutdown()
-    .catch((err) => console.error("Error shutting down OpenTelemetry", err))
-    .finally(() => process.exit(0));
-});
-```
+1. In the **Tracing setup** panel, find the service's row and pick **Automatic instrumentation**, then confirm.
+2. Send a few more requests. Railway instruments the running processes within a minute, with no redeploy.
+3. Open a new trace. The service's spans appear under the edge and proxy spans.
 
-The exporters are constructed with no arguments. They read `OTEL_EXPORTER_OTLP_ENDPOINT` and append the correct signal path (`/v1/traces`, `/v1/metrics`) themselves. That `SIGTERM` handler matters on Railway: deployments are replaced on every deploy, and flushing on shutdown prevents losing the last batch of spans.
+Automatic instrumentation can't see custom work inside a function, attach business attributes, or follow a request into an outbound TLS call. When you want those, move to an SDK and switch the service back to **Manual instrumentation** once the SDK's spans arrive.
 
-### Add a custom span
+### Option B: An OpenTelemetry SDK
 
-Auto-instrumentation gives you one span per HTTP request and per database call. Add custom spans around the work you care about:
+When tracing is on for a service, Railway adds the standard `OTEL_*` variables on the next deploy: the exporter endpoint, protocol, and headers for Railway's receiver, `OTEL_SERVICE_NAME` set to the service's name, and `OTEL_SERVICE_VERSION` set to the commit SHA. They show up in the service's **Variables** tab with the other variables Railway provides, and every OpenTelemetry SDK reads them. Leave the exporter endpoint alone: an `OTEL_EXPORTER_OTLP_ENDPOINT` you set yourself takes precedence, and the spans then go wherever it points instead of to the Traces page. See [Provided variables](/observability/tracing#provided-variables) for the full list.
 
-```javascript
-// server.js
-const express = require("express");
-const { trace, SpanStatusCode } = require("@opentelemetry/api");
-
-const tracer = trace.getTracer("checkout");
-const app = express();
-const port = process.env.PORT || 3000;
-
-app.get("/checkout", async (req, res) => {
-  // Create a child span inside the auto-created HTTP span.
-  const total = await tracer.startActiveSpan(
-    "calculate-total",
-    async (span) => {
-      try {
-        span.setAttribute("cart.items", 3);
-        const total = await calculateTotal();
-        return total;
-      } catch (err) {
-        span.setStatus({ code: SpanStatusCode.ERROR });
-        throw err;
-      } finally {
-        span.end();
-      }
-    }
-  );
-
-  res.json({ total });
-});
-
-async function calculateTotal() {
-  // Stand-in for real work: a database query, an API call.
-  return 3 * 999;
-}
-
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
-```
-
-### Load the SDK before the app
-
-The SDK must load before any library it instruments. Set a custom [start command](/builds/build-and-start-commands) on the service in Railway:
+Railway's receiver accepts traces only, so also set these two variables on the service to keep the SDK from exporting metrics and logs to it:
 
 ```plaintext
-node --require ./instrumentation.js server.js
+OTEL_METRICS_EXPORTER=none
+OTEL_LOGS_EXPORTER=none
 ```
 
-The `--require` flag loads `instrumentation.js` before `server.js` and everything it imports.
-
-### Zero-code alternative
-
-If you do not need custom spans, skip the setup file entirely. Install two packages:
+For a Node.js app, install the auto-instrumentation bundle and load it before your code with the [start command](/builds/build-and-start-commands):
 
 ```bash
 npm install @opentelemetry/api @opentelemetry/auto-instrumentations-node
 ```
 
-Then use this start command:
-
 ```plaintext
 node --require @opentelemetry/auto-instrumentations-node/register server.js
 ```
 
-The register module builds the SDK from environment variables alone. The same `OTEL_EXPORTER_OTLP_ENDPOINT` and `OTEL_SERVICE_NAME` variables apply.
+The bundle instruments the `http` module, Express, Fastify, Koa, NestJS, `pg`, `ioredis`, `mongodb`, and more, and the register module configures the SDK from the variables alone.
 
-## Instrument a Python app
-
-Install the distro, the OTLP exporter, and Flask for the example:
+For a Python app, install the distribution and prefix the start command with `opentelemetry-instrument`:
 
 ```bash
-pip install opentelemetry-distro opentelemetry-exporter-otlp flask
+pip install opentelemetry-distro opentelemetry-exporter-otlp
 opentelemetry-bootstrap -a install
 ```
 
-`opentelemetry-bootstrap` scans your installed packages and installs matching instrumentation libraries. Run it after adding dependencies, or add its output to `requirements.txt` so it runs during the Railway build.
-
-The Python OTLP exporter defaults to gRPC on port 4317. To use the HTTP endpoint on 4318 like the Node example, add one more variable to the service:
-
 ```plaintext
-OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+opentelemetry-instrument gunicorn app:app --bind 0.0.0.0:$PORT
 ```
+
+Redeploy the service and send a few requests. In the **Tracing setup** panel, the **App** indicator for the service turns green when its first span arrives, and new traces show the request's server span and the library calls under it.
+
+The per-language pages cover ESM and Next.js on [Node.js](/observability/tracing/nodejs), framework notes for [Python](/observability/tracing/python), and the setup for [Deno](/observability/tracing/deno), [Go](/observability/tracing/go), [Java](/observability/tracing/java), [Ruby](/observability/tracing/ruby), [.NET](/observability/tracing/dotnet), [Rust](/observability/tracing/rust), and [PHP](/observability/tracing/php).
 
 ### Add a custom span
 
-```python
-import os
+Auto-instrumentation gives you one span per request and per library call. Wrap the work you care about in your own span with the OpenTelemetry API. In Node.js:
 
-from flask import Flask, jsonify
-from opentelemetry import trace
+```javascript
+import { trace, SpanStatusCode } from "@opentelemetry/api";
 
-tracer = trace.get_tracer("checkout")
-app = Flask(__name__)
+const tracer = trace.getTracer("checkout");
 
-
-@app.route("/checkout")
-def checkout():
-    # Create a child span inside the auto-created request span.
-    with tracer.start_as_current_span("calculate-total") as span:
-        span.set_attribute("cart.items", 3)
-        total = 3 * 999
-    return jsonify(total=total)
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 3000)))
+async function calculateTotal(cart) {
+  return tracer.startActiveSpan("calculate-total", async (span) => {
+    try {
+      span.setAttribute("cart.items", cart.items.length);
+      return await priceItems(cart);
+    } catch (err) {
+      span.setStatus({ code: SpanStatusCode.ERROR, message: err.message });
+      throw err;
+    } finally {
+      span.end();
+    }
+  });
+}
 ```
 
-### Wrap the start command
+The span nests under the request span that's active when the function runs. Attributes you set are searchable on the Traces page, for example with `@cart.items:>10`. The per-language pages show the same span in each language.
 
-Prefix the normal start command with `opentelemetry-instrument`:
+## 4. Follow a request across services
 
-```plaintext
-opentelemetry-instrument python main.py
+A request that your service makes to another service over the [private network](/networking/private-networking) carries the trace along. An SDK adds the W3C `traceparent` header to outgoing requests, and automatic instrumentation injects it into plaintext HTTP and gRPC calls. When the callee is traced as well, its spans join the same trace, and the waterfall shows the caller's client span with the callee's server span nested under it.
+
+Enable tracing on every service that takes part in the request. A service without a public domain has no edge spans, but its own spans still appear in traces that other services propagate to it.
+
+To find traces in which one service called another, filter on the caller's client spans:
+
+```text
+@service:api AND @kind:client
 ```
 
-For a production server, wrap that instead:
+## 5. Tune the sample rate
 
-```plaintext
-opentelemetry-instrument gunicorn main:app --bind 0.0.0.0:$PORT
+Once traces flow, decide how many requests to keep. The sample rate is the percentage of client-facing requests the edge traces, set once per project.
+
+1. Open **Tracing setup** and enter a **Sample rate** under **Project**. Decimals are allowed, so `0.5` traces one request in 200.
+2. Leave it empty to keep tracing every request. Lower it for a busy service to stay within the [span limits](/observability/tracing#retention-and-limits) and keep the Traces page focused.
+
+The edge makes the decision once per request and passes it along in the `traceparent` header, so an SDK with its default parent-based sampler records exactly the requests the edge sampled. Traces your service starts on its own, such as a cron job or a queue consumer, follow the same rate: when the project sets one, Railway adds `OTEL_TRACES_SAMPLER=parentbased_traceidratio` and `OTEL_TRACES_SAMPLER_ARG` with the rate as a fraction to the service's variables on the next deploy. See [Configure the sample rate](/observability/tracing#configure-the-sample-rate) for the details.
+
+To trace one specific request regardless of the rate, send a `traceparent` header with the sampled flag set:
+
+```bash
+curl -H "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" \
+  https://your-app.up.railway.app/
 ```
 
-`opentelemetry-instrument` configures the SDK from the same `OTEL_*` environment variables and activates every instrumentation library that `opentelemetry-bootstrap` installed.
+Generate a new random trace ID (the second field) for each request you force.
 
-## Verify telemetry is flowing
+## 6. Find the trace behind a problem
 
-1. Deploy the service and send it a few requests.
-2. Check the collector received the data. The collector from the [stack guide](/guides/deploy-an-otel-collector-stack) exposes a debugging UI (the zpages extension) where you can see incoming spans, or you can add the `debug` exporter to the collector config to print each received span to the service [logs](/observability/logs).
-3. Open your tracing backend (Jaeger in the [collector stack guide](/guides/deploy-an-otel-collector-stack)) and search for the service name you set in `OTEL_SERVICE_NAME`. You should see one trace per request, with your custom span nested inside the HTTP span.
+When a user reports a slow or failed request, ask for the `x-railway-trace-id` header from the response, or return it from your frontend's error handling, and paste it into the **Trace ID** field. Without an ID, search. The filter on the Traces page uses the same syntax as [logs](/observability/logs#filter-syntax) and matches spans anywhere in the trace:
 
-If nothing arrives, check three things: the reference variable resolves to the right collector service name, both services are in the same environment, and the endpoint uses `http://` with port 4318 (or 4317 for gRPC).
+```text
+@status:error
+```
 
-## Where OpenTelemetry fits with Railway observability
+```text
+@component:edge AND @duration:>1000
+```
 
-Railway collects [logs](/observability/logs) and resource-level [metrics](/observability/metrics) (CPU, memory, network) for every service with no instrumentation, and [tracing](/observability/tracing) records the edge's part of every sampled request once you enable it. Spans your service exports with an SDK, or that [automatic instrumentation](/observability/tracing/automatic-instrumentation) captures, join those traces on the Traces page.
+```text
+@http.route:/checkout AND @http.response.status_code:500
+```
 
-A collector adds what built-in tracing doesn't cover. Railway's receiver accepts traces only, so application metrics and logs need another destination. A collector also lets you keep traces beyond your plan's [retention](/observability/logs#log-retention), fan out to several backends, and query them with your own tooling. The trade-off is that a service exporting to its own collector doesn't send spans to Railway, because your `OTEL_EXPORTER_OTLP_ENDPOINT` takes precedence over the variables Railway would add. The edge still traces requests to the service, so Railway's Traces page shows the edge and proxy spans while your backend shows the rest.
+Any attribute your instrumentation emits is a filter key, and the input suggests the keys present in the selected time range. See [Search traces](/observability/tracing#search-traces) for the built-in fields.
 
-When tracing is enabled for the service, the edge also decides sampling. It draws against the project's [sample rate](/observability/tracing#configure-the-sample-rate) (every request by default) and forwards the decision in the `traceparent` header. An SDK with the default parent-based sampler follows that flag, so your backend sees the same sample the edge chose. To sample independently, set `OTEL_TRACES_SAMPLER` on the service to a sampler that ignores the parent, such as `always_on` or `traceidratio`.
+## If spans are missing
+
+- **No traces at all.** Check that tracing is on for the service in **Tracing setup** and that the service has a public domain. With a low sample rate and little traffic, force a request with the `traceparent` header above.
+- **Edge spans only.** Railway adds the `OTEL_*` variables on the first deploy after you enable tracing, so redeploy. Check that the SDK loads before the app starts serving and that the service doesn't set its own exporter endpoint.
+- **The app's spans form their own traces.** The SDK isn't reading `traceparent`. Most SDKs enable the W3C Trace Context propagator by default; the Go SDK needs it set explicitly. Allow the header through any proxy or framework in front of your handlers.
+
+More cases are in [Troubleshooting](/observability/tracing#troubleshooting).
 
 ## Next steps
 
-- [Tracing](/observability/tracing): trace requests from the edge through your services without a collector.
-- [Deploy an OpenTelemetry Collector and Backend on Railway](/guides/deploy-an-otel-collector-stack): the infrastructure this guide sends telemetry to.
-- [Private Networking](/networking/private-networking): how `<service>.railway.internal` hostnames work.
-- [Variables Reference](/variables/reference): every Railway-provided variable you can attach as a resource attribute.
-- [Third-Party Observability Tools](/guides/third-party-observability): send the same telemetry to hosted backends.
+- [Tracing](/observability/tracing): the full reference for enabling tracing, the provided variables, search fields, retention, and limits.
+- [Automatic instrumentation](/observability/tracing/automatic-instrumentation): what the eBPF instrumentation captures and where it stops.
+- [Debug a Production Incident with Logs, Metrics, and Traces](/guides/debug-production-incident): use traces alongside HTTP logs and metrics during an incident.
+- [Connect a Third-Party Observability Tool](/guides/third-party-observability): keep traces beyond your plan's retention in a hosted backend.
