@@ -19,6 +19,8 @@ There is an overwhelming number of options for applying OpenTelemetry in your so
 
 OpenTelemetry is commonly referred to simply as "Otel". You will see both terms used throughout this tutorial.
 
+If traces are all you need, Railway's built-in [tracing](/observability/tracing) receives OpenTelemetry spans from your services without a collector. Deploy this stack when you also want metrics or logs, or want your telemetry in a backend you run yourself.
+
 **Objectives**
 
 In this tutorial you will learn how to -
@@ -374,6 +376,12 @@ OTEL_LOG_LEVEL=debug
 ```
 
 ## Helpful resources
+
+Railway's docs cover the pieces around this stack:
+
+- [Tracing](/observability/tracing): Railway's built-in tracing, for traces without running a collector. It also explains the `OTEL_*` variables Railway provides and how a collector endpoint you set yourself interacts with them.
+- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry): a step-by-step walkthrough of built-in tracing, from enabling it to adding spans from your code.
+- [Connect a Third-Party Observability Tool](/guides/third-party-observability): point the collector, or the SDK directly, at a hosted backend.
 
 The OpenTelemetry Documentation is complete and easy to follow. Spend time getting familiar with the docs. Here are some sections that are especially helpful -
 
