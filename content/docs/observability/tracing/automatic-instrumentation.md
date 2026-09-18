@@ -30,15 +30,17 @@ Enable automatic instrumentation on a service or run an SDK in it, not both. Two
 
 ## Enable automatic instrumentation
 
-Automatic instrumentation is a per-service switch in the **Tracing setup** panel, and it only appears while tracing is on for the service.
+Automatic instrumentation is a per-service setting. It only takes effect while tracing is on for the service.
 
 1. Navigate to the **Traces** tab in your project and click **Tracing setup**.
-2. [Enable tracing](/observability/tracing#enable-tracing) for the service, either through the project default or the service's own selector.
-3. In the service's entry under **Services**, toggle **Best-effort automatic tracing** on.
+2. [Enable tracing](/observability/tracing#enable-tracing) for the service, either through the project default or the service's **Traced** switch.
+3. In the service's row, pick **Automatic instrumentation** and confirm. **Manual instrumentation**, the other choice, means the service exports its own spans with an SDK.
+
+The same setting is on the service under **Settings → Tracing** as the **Best-effort automatic tracing** switch.
 
 Railway instruments the service's running processes within a minute. No redeploy is needed.
 
-Turning the switch off stops instrumenting the service's processes. Turning tracing off for the service disables automatic instrumentation with it.
+Switching back to manual instrumentation stops instrumenting the service's processes. Turning tracing off for the service disables automatic instrumentation with it.
 
 ## Verify
 
@@ -48,4 +50,4 @@ If no spans arrive after a minute of traffic, check that the process is one of t
 
 ## Move to an SDK
 
-Automatic instrumentation is a quick way to see inside a service. When you want more, add an OpenTelemetry SDK following the guide for your language, redeploy, and turn **Best-effort automatic tracing** off once the SDK's spans appear in the Tracing setup panel.
+Automatic instrumentation is a quick way to see inside a service. When you want more, add an OpenTelemetry SDK following the guide for your language, redeploy, and switch the service to **Manual instrumentation** once the SDK's spans appear in the Tracing setup panel.
