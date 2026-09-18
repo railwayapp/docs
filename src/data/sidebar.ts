@@ -546,6 +546,21 @@ export const sidebarContent: ISidebarContent = [
     content: [
       makePage("Logs", "observability"),
       makePage("Metrics", "observability"),
+      {
+        subTitle: makePage("Tracing", undefined, "/observability/tracing"),
+        pages: [
+          makePage("Automatic instrumentation", "observability/tracing"),
+          makePage("Node.js", "observability/tracing", "/observability/tracing/nodejs"),
+          makePage("Deno", "observability/tracing"),
+          makePage("Python", "observability/tracing"),
+          makePage("Go", "observability/tracing"),
+          makePage("Java", "observability/tracing"),
+          makePage("Ruby", "observability/tracing"),
+          makePage(".NET", "observability/tracing", "/observability/tracing/dotnet"),
+          makePage("Rust", "observability/tracing"),
+          makePage("PHP", "observability/tracing"),
+        ],
+      },
       makePage("Webhooks", "observability"),
     ],
   },

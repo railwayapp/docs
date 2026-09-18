@@ -17,9 +17,10 @@ Railway gives you several built-in surfaces for this work:
 - **Metrics**: CPU, memory, disk, and network per service, with deployment markers on every graph.
 - **Logs**: build, deployment, environment-wide, HTTP, and DNS logs, all queryable with the same filter syntax.
 - **Observability dashboard**: a per-environment view that combines metrics and logs, with configurable monitors.
+- **Traces**: requests followed from the edge through your services, once [tracing](/observability/tracing) is enabled.
 - **Deployment actions**: rollback and restart, your fastest mitigations.
 
-Railway does not collect distributed traces natively. The last section covers what you get instead: request-level HTTP logs, log correlation with request IDs, and how to add real tracing with OpenTelemetry.
+The last section covers how to get request-level detail during an incident: HTTP logs, log correlation with request IDs, and traces.
 
 ## Step 1: Confirm the scope
 
@@ -174,7 +175,7 @@ For future incidents, configure a [health check](/deployments/healthchecks) on y
 
 ## Tracing options
 
-Railway does not run a tracing backend, and container metrics do not include application-level data like per-endpoint latency histograms. You have three options, in increasing order of effort:
+Container metrics do not include application-level data like per-endpoint latency. You have three options, in increasing order of effort:
 
 **1. Use HTTP logs as request-level traces.** Every HTTP log line carries `@requestId`, `@totalDuration`, `@responseTime` (time to first byte), and `@upstreamRqDuration`. For a single service, this answers most "where did the time go" questions: a large gap between `@responseTime` and `@totalDuration` means the response body streamed slowly, while a high `@upstreamRqDuration` means your process was slow to answer.
 
@@ -208,7 +209,9 @@ This uses only the Node.js standard library, so there is nothing to install. Dur
 @requestId:3f8a2c1e-9b4d-4f6a-8c2d-1e5b7a9c3d2f
 ```
 
-**3. Add real distributed tracing.** For multi-service request flows, deploy an OpenTelemetry collector as a Railway service and instrument your apps with OTel SDKs, or use a vendor SDK directly. See [Deploy an OpenTelemetry Collector Stack](/guides/deploy-an-otel-collector-stack) and [Connect a Third-Party Observability Tool](/guides/third-party-observability). This is also the answer for log retention beyond your plan's window (7 days on Hobby, 30 on Pro, up to 90 on Enterprise).
+**3. Turn on tracing.** Enable [tracing](/observability/tracing) for the project. Railway's edge traces a sample of requests with no code changes, and each traced response carries an `x-railway-trace-id` header, so a user who reports a slow or failed request can hand you the exact trace. Instrument your services with an OpenTelemetry SDK or [automatic instrumentation](/observability/tracing/automatic-instrumentation) to see the work inside each service, across every service the request touched. During an incident, `@status:error` on the Traces page lists the failing requests, and `@duration:>1000` the slow ones.
+
+For retention beyond your plan's window (7 days on Hobby, 30 on Pro, up to 90 on Enterprise), ship traces to a hosted backend as well. See [Connect a Third-Party Observability Tool](/guides/third-party-observability).
 
 ## Prepare for the next incident
 
@@ -223,5 +226,5 @@ Ten minutes of setup makes the next incident shorter:
 
 - [Logs](/observability/logs): the full filter syntax reference for deployment, HTTP, and DNS logs.
 - [Metrics](/observability/metrics): reading service metrics, including per-replica views.
-- [Deploy an OpenTelemetry Collector Stack](/guides/deploy-an-otel-collector-stack): add distributed tracing across services.
+- [Tracing](/observability/tracing): enable tracing, search traces, and instrument your services.
 - [Connect a Third-Party Observability Tool](/guides/third-party-observability): longer retention and application-level metrics.
