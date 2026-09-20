@@ -180,7 +180,6 @@
   "/guides/cut-idle-costs-serverless",
   "/guides/debug-production-incident",
   "/guides/deploy-ai-saas",
-  "/guides/deploy-an-otel-collector-stack",
   "/guides/deploy-node-express-api-with-auto-scaling-secrets-and-zero-downtime",
   "/guides/deploying-a-monorepo",
   "/guides/dify",

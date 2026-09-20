@@ -197,5 +197,5 @@ That restart policy means a single transient crash often self-heals before anyon
 
 - [Webhooks reference](/observability/webhooks): payload details, Muxers, and troubleshooting.
 - [Connect a Third-Party Observability Tool](/guides/third-party-observability): ship logs and metrics to Datadog, Grafana, or similar for alerting with longer retention.
-- [Deploy an OpenTelemetry Collector and Backend on Railway](/guides/deploy-an-otel-collector-stack): application-level traces and metrics beyond platform events.
+- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry): request-level traces beyond platform events.
 - [GitHub Actions Post-Deploy](/guides/github-actions-post-deploy): run checks and notifications from CI after a deployment.
