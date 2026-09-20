@@ -445,6 +445,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Redis", "databases"),
           makePage("Redis High Availability", "databases", "/databases/redis-ha"),
           makePage("MongoDB", "databases"),
+          makePage("Security Patching", "databases"),
           makePage("Database view", "databases"),
           makePage("Reference", "databases"),
         ],
