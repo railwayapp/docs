@@ -38,7 +38,7 @@ The edge adds an `x-cache` response header showing how it handled the request:
 | --------------- | ------- |
 | `HIT` | Served from the edge cache, without reaching your service. |
 | `STALE` | Served from the edge cache while the edge refreshed it from your service in the background (see [Stale-while-revalidate](#stale-while-revalidate)). |
-| `MISS` | Fetched from your service because no fresh cached response was available. This doesn't guarantee the response was stored. |
+| `MISS` | Fetched from your service because no fresh cached response was available. |
 | `DYNAMIC` | Fetched from your service and not cached, because the response isn't cacheable. |
 
 If caching is off for the domain, or the request isn't eligible (see [Cacheable requests](#cacheable-requests)), there's no `x-cache` header.
