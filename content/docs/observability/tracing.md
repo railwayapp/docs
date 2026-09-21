@@ -222,5 +222,5 @@ The edge traces a request on its own, but a trace only shows what happens inside
 ## See also
 
 - [Logs](/observability/logs) - HTTP logs record every request, sampled or not
-- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry) - send telemetry to your own collector instead
+- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry) - a step-by-step walkthrough from enabling tracing to custom spans
 - [Connect a Third-Party Observability Tool](/guides/third-party-observability) - ship traces to hosted backends for longer retention

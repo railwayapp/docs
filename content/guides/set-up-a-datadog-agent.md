@@ -31,7 +31,7 @@ To be successful, you should already have -
 
 **Caveats**
 
-Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost. If this is a concern, you may be interested in exploring self-hosted solutions, check out the [OpenTelemetry Tutorial](/guides/deploy-an-otel-collector-stack).
+Keep in mind that the Datadog agent sends data to Datadog over the Internet, meaning you will see an increase in egress cost. If this is a concern, Railway's built-in [metrics](/observability/metrics), [logs](/observability/logs), and [tracing](/observability/tracing) stay on the platform.
 
 ## 1. Create the project structure
 

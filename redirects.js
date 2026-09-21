@@ -638,7 +638,12 @@ const redirects = [
   },
   {
     source: "/tutorials/deploy-an-otel-collector-stack",
-    destination: "/guides/deploy-an-otel-collector-stack",
+    destination: "/guides/instrument-app-opentelemetry",
+    permanent: true,
+  },
+  {
+    source: "/guides/deploy-an-otel-collector-stack",
+    destination: "/guides/instrument-app-opentelemetry",
     permanent: true,
   },
   {

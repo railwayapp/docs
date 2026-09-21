@@ -244,6 +244,6 @@ If events show up in Railway logs but not the aggregator, read the Vector servic
 ## Next steps
 
 - [Connect a Third-Party Observability Tool](/guides/third-party-observability) for the SDK and OpenTelemetry approaches to metrics and traces.
-- [Deploy an OpenTelemetry Collector Stack](/guides/deploy-an-otel-collector-stack) for a self-hosted collector with Grafana dashboards.
+- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry) for request traces with Railway's built-in tracing.
 - [Set Up a Datadog Agent in Railway](/guides/set-up-a-datadog-agent) if you are all-in on Datadog and want traces and metrics too.
 - [Logs](/observability/logs) for structured logging, retention, and the log explorer.

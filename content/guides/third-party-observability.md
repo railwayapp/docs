@@ -113,6 +113,6 @@ Vendor SDKs flush on shutdown automatically and do not require this step.
 ## See also
 
 - [Set up a Datadog Agent on Railway](/guides/set-up-a-datadog-agent) - run the Datadog Agent as a service and ship app telemetry to it.
-- [Deploy an OpenTelemetry Collector stack](/guides/deploy-an-otel-collector-stack) - run the OTel Collector alongside Jaeger, Zipkin, and Prometheus.
+- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry) - trace requests with Railway's built-in tracing, with no backend to run.
 - [Variables reference](/variables/reference#railway-provided-variables) - full list of Railway-provided system variables.
 - [Private Networking](/networking/private-networking) - connect services over IPv6.
