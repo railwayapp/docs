@@ -150,10 +150,6 @@ We perform these migrations when implementing security patches or platform upgra
 
 These Railway-initiated deployments will display with a banner above the Active deployment to clearly identify them.
 
-## Free and Trial deployments
-
-Free and Trial plans can deploy at any time of day in all regions. There are no peak-hour deployment restrictions.
-
 ## Deployments paused - limited access
 
 Railway's core offering is dynamic, allowing you to vertically or horizontally scale with little-to-no-notice. To offer this flexibility to customers, Railway takes the stance that Pro/Enterprise tiers may, in rare occasions, be prioritized above Free/Hobby tiers.
