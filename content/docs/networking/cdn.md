@@ -38,7 +38,7 @@ The edge adds an `x-cache` response header showing how it handled the request:
 | --------------- | ------- |
 | `HIT` | Served from the edge cache, without reaching your service. |
 | `STALE` | Served from the edge cache while the edge refreshed it from your service in the background (see [Stale-while-revalidate](#stale-while-revalidate)). |
-| `MISS` | Not cached yet, so the edge fetched it from your service and stored it for next time. |
+| `MISS` | Fetched from your service because no fresh cached response was available. This doesn't guarantee the response was stored. |
 | `DYNAMIC` | Fetched from your service and not cached, because the response isn't cacheable. |
 
 If caching is off for the domain, or the request isn't eligible (see [Cacheable requests](#cacheable-requests)), there's no `x-cache` header.
@@ -63,7 +63,10 @@ Even when a request is eligible, the edge skips caching a response in any of the
 - `Cache-Control: no-store` or `Cache-Control: private` is present.
 - A `Set-Cookie` header is present, which keeps personalized responses from being shared between users.
 - `Vary: *` or `Vary: Cookie` is set. Other `Vary` values (`Accept`, `Accept-Language`, `User-Agent`) don't prevent caching.
+- A redirect has `Content-Length` set to `0`. The edge can report these responses as `MISS` without storing them.
 - The response body is larger than 512 MB. The edge reports these as `MISS` without storing them.
+
+To cache a redirect, include a small response body, such as `Redirecting`, alongside the `Location` header and an explicit `Cache-Control` freshness directive.
 
 ## Static assets
 
