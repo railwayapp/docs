@@ -150,27 +150,9 @@ We perform these migrations when implementing security patches or platform upgra
 
 These Railway-initiated deployments will display with a banner above the Active deployment to clearly identify them.
 
-## Free tier peak hours restriction
+## Free and Trial deployments
 
-To ensure platform reliability during high-demand periods, free-tier deployments are restricted during peak hours in each region's local timezone.
-
-### Peak hours by region
-
-| Region              | Timezone             | Peak Hours        |
-| ------------------- | -------------------- | ----------------- |
-| **US West**         | America/Los_Angeles  | 8 AM – 8 PM PT   |
-| **US East**         | America/New_York     | 8 AM – 8 PM ET   |
-| **EU West**         | Europe/Amsterdam     | 8 AM – 8 PM CET  |
-| **Southeast Asia**  | Asia/Singapore       | 8 AM – 8 PM SGT  |
-
-During these windows, deploys from free-tier users to the affected region will be rejected. You will see an error message indicating the restriction and the region's timezone.
-
-Hobby, Pro, and Enterprise plans are not affected by this restriction and can deploy at any time.
-
-### Options during peak hours
-
-- **Wait** — deploy outside of peak hours for your target region.
-- **Upgrade** — upgrade to the Hobby plan or above to remove the restriction entirely.
+Free and Trial plans can deploy at any time of day in all regions. There are no peak-hour deployment restrictions.
 
 ## Deployments paused - limited access
 
