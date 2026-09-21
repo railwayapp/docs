@@ -1,13 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { sidebarContent } from "../data/sidebar";
+import { sidebarContent } from "@/data/sidebar";
 import { buildBreadcrumbs } from "./seo";
 import {
   containingSubsectionSlugs,
   flattenSidebarItems,
   sidebarItemContainsPage,
 } from "./sidebar";
-import type { ISidebarItem } from "../types";
+import type { ISidebarItem } from "@/types";
 
 const ai = sidebarContent.find(section => section.slug === "/ai")!;
 const beta = "/cloud-agents/opencode/beta";

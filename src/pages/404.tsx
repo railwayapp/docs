@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "../components/link";
-import { SEO } from "../components/seo";
+import { Link } from "@/components/link";
+import { SEO } from "@/components/seo";
 
 const NotFoundPage: React.FC = () => (
   <>

@@ -1,9 +1,9 @@
 import React, { PropsWithChildren, useMemo } from "react";
-import { Footer } from "../components/footer";
-import { InlineTOC } from "../components/inline-toc";
-import { SEO } from "../components/seo";
-import { TOC, TOCProvider, type TOCItemType } from "../components/toc";
-import { extractHeadersFromMarkdown, extractFAQsFromMarkdown } from "../utils/seo";
+import { Footer } from "@/components/footer";
+import { InlineTOC } from "@/components/inline-toc";
+import { SEO } from "@/components/seo";
+import { TOC, TOCProvider, type TOCItemType } from "@/components/toc";
+import { extractHeadersFromMarkdown, extractFAQsFromMarkdown } from "@/utils/seo";
 
 export interface GuideAuthor {
   name: string;
