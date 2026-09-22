@@ -139,7 +139,7 @@ You can mix strategies within a single app. Next.js, Nuxt, Astro, and SvelteKit 
 
 **ISR** falls between SSG and SSR. The server runs continuously but renders pages less frequently than pure SSR. Cache hits serve static files without rendering.
 
-For all strategies, build-time resource usage (CPU and memory during `npm run build`) is charged separately from runtime. Large SSG builds with thousands of pages consume more build resources.
+Railway does not charge for builds, including the CPU and memory used during `npm run build`.
 
 ## Next steps
 
