@@ -51,6 +51,8 @@ Note that these are maximum values and include replica multiplication.
 
 On top of the base subscription fee above, Railway charges for the resources that you consume.
 
+Service builds are free. Railway does not charge for build CPU, memory, base-image downloads, image exports, or image storage.
+
 You are only charged for the resources you actually use, which helps prevent runaway cloud costs and provides assurances that you're always getting the best deal possible on your cloud spend.
 
 | Resource                                 | Resource Price                                        |
