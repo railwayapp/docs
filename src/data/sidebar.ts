@@ -548,6 +548,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Automatic instrumentation", "observability/tracing"),
           makePage("Node.js", "observability/tracing", "/observability/tracing/nodejs"),
           makePage("Deno", "observability/tracing"),
+          makePage("Functions", "observability/tracing"),
           makePage("Python", "observability/tracing"),
           makePage("Go", "observability/tracing"),
           makePage("Java", "observability/tracing"),

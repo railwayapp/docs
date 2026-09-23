@@ -222,6 +222,7 @@ The edge traces a request on its own, but a trace only shows what happens inside
 - An OpenTelemetry SDK gives complete traces with custom spans. See the guide for your language:
   - [Node.js](/observability/tracing/nodejs)
   - [Deno](/observability/tracing/deno)
+  - [Functions](/observability/tracing/functions)
   - [Python](/observability/tracing/python)
   - [Go](/observability/tracing/go)
   - [Java](/observability/tracing/java)
