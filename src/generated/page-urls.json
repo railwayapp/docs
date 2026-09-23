@@ -329,6 +329,7 @@
   "/observability/tracing/automatic-instrumentation",
   "/observability/tracing/deno",
   "/observability/tracing/dotnet",
+  "/observability/tracing/functions",
   "/observability/tracing/go",
   "/observability/tracing/java",
   "/observability/tracing/nodejs",
