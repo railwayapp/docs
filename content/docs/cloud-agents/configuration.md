@@ -24,7 +24,7 @@ Railway reads available provider credentials locally and transfers them over SSH
 | Claude Code | A token minted with `claude setup-token`, cached in `~/.railway/claude-code-token`; `CLAUDE_CODE_OAUTH_TOKEN` or `ANTHROPIC_API_KEY` can supply one directly |
 | Codex | `~/.codex/auth.json` |
 | Grok CLI | `~/.grok/auth.json` |
-| OpenCode | Active provider accounts in its credential database, normally `~/.local/share/opencode/opencode.db` |
+| OpenCode | Provider sign-ins from your local OpenCode installation |
 | Railway Agent | Railway credentials already configured on the VM |
 
 With no local credential to copy or mint, the agent can still start. Complete the coding tool's sign-in on the remote machine. The CLI prints which local source it uses when one is available.
@@ -43,9 +43,7 @@ This clears the cached local and selected remote credential and runs the minting
 
 ### OpenCode accounts
 
-OpenCode 2 stores provider accounts in a credential database rather than the `auth.json` file used by OpenCode 1.x. Railway transfers the active account for each provider, including the metadata it needs, and excludes local chats, sessions, and MCP credentials. Temporary transfer files are removed after import.
-
-The CLI respects XDG data paths and `OPENCODE_DB`. An `auth.json` from OpenCode 1.x is considered only when no credential database exists. An initialized but empty database does not cause an old JSON sign-in to be restored.
+The CLI copies your local OpenCode provider sign-ins to the agent. It transfers provider credentials only, not your local chats, sessions, or MCP credentials, and preserves credentials already configured on the agent.
 
 To sign in directly, open a shell with `railway ca ssh <agent-name> -- bash`, then run `opencode auth login`. You can also connect a provider from the remote project in OpenCode.
 

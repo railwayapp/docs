@@ -7,7 +7,7 @@ Keep OpenCode on your computer and give it a development environment on Railway.
 
 <CloudAgentConnection app="OpenCode Desktop or terminal" transport="HTTPS" />
 
-Cloud agents ship OpenCode 2. Every flow in this guide uses the `--opencode` flag, whether you connect Desktop, connect a local terminal client, or run OpenCode inside Railway CA.
+Cloud agents ship OpenCode 2. Every flow in this guide uses the `--opencode` flag, whether you connect Desktop, connect a local terminal client, or run OpenCode inside Railway CA. Agents created before the OpenCode 2 image rollout must be [recreated](/cloud-agents/troubleshooting#an-existing-agent-still-runs-opencode-1x).
 
 ## Install OpenCode on your computer
 
@@ -121,7 +121,7 @@ Desktop setup accepts the same option. Clone or create your project on the agent
 
 ## Provider sign-in
 
-Railway imports your active OpenCode provider accounts from your computer when it prepares the server, and preserves credentials already configured on the agent. It transfers provider credentials, not your local chats or sessions.
+The CLI copies your local OpenCode provider sign-ins to the agent when it prepares the server, and preserves credentials already configured on the agent. It transfers provider credentials, not your local chats or sessions.
 
 If no provider is available to copy, connect one from the remote session, or open a shell with `railway ca ssh <agent-name> -- bash` and run `opencode auth login`. Provider login is separate from the server username and password printed by Railway. See [credentials and configuration](/cloud-agents/configuration#opencode-accounts).
 
