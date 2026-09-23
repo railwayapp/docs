@@ -34,6 +34,8 @@ For a Desktop connection, install and open the app at least once before configur
 
 ## Choose your connection
 
+If you use Herdr, follow [Set up Herdr](/cloud-agents/herdr#set-up-herdr) to add Railway machines to its sidebar.
+
 First choose **Run agents in Railway** or **Connect your local app**, then select the coding agent or app. Both workflows execute coding tools and work with files on the cloud agent. Run the generated command on your computer:
 
 <CloudAgentLauncher />

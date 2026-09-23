@@ -93,6 +93,7 @@
   "/cloud-agents/claude",
   "/cloud-agents/codex",
   "/cloud-agents/configuration",
+  "/cloud-agents/herdr",
   "/cloud-agents/manage",
   "/cloud-agents/opencode",
   "/cloud-agents/quickstart",

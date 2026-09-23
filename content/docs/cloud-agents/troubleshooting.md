@@ -21,6 +21,12 @@ railway upgrade
 
 Then check `railway code --help` or `railway ca desktop --help`. Cloud agents require the **Cloud Agents** feature in [Priority Boarding](/platform/priority-boarding).
 
+## Herdr commands launch a coding tool instead
+
+The Herdr integration requires Railway CLI 5.62.0 or later. Earlier versions can treat `herdr new` as arguments for your default coding tool, producing errors such as Codex's `unexpected argument 'new'`.
+
+Run `railway upgrade`, then check `railway --version` and confirm that `railway ca --help` lists `herdr`. If the version is still old, use `which -a railway` to find other installations on your PATH. Return to [Herdr setup](/cloud-agents/herdr#set-up-herdr) once the command is available.
+
 ## Claude or Codex cannot connect
 
 Make sure the VM is awake, then check shell access:

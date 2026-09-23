@@ -7,6 +7,8 @@ Launch a coding agent directly on a Railway cloud agent and work with it through
 
 The coding agent and its terminal interface run on the Railway machine. Your computer connects over SSH; your code, tools, and session processes stay on the cloud agent.
 
+To manage these machines in Herdr, use the [Herdr setup guide](/cloud-agents/herdr).
+
 ## Start a session
 
 Follow the [quickstart prerequisites](/cloud-agents/quickstart#prepare-your-computer) to enable Cloud Agents, install the Railway CLI, and sign in. Then choose a coding agent:

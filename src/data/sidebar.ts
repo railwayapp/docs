@@ -112,6 +112,7 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Quickstart", undefined, "/cloud-agents/quickstart"),
           makePage("Terminal sessions", undefined, "/cloud-agents/terminal"),
+          makePage("Herdr", undefined, "/cloud-agents/herdr"),
           makePage("Claude Desktop", undefined, "/cloud-agents/claude"),
           makePage("Codex Desktop", undefined, "/cloud-agents/codex"),
           makePage("OpenCode", undefined, "/cloud-agents/opencode"),

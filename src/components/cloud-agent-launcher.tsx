@@ -52,7 +52,7 @@ export function CloudAgentTools() {
 
 export function CloudAgentClients() {
   return (
-    <CardGrid columns={3}>
+    <CardGrid columns={2}>
       {cloudAgentClients.map(client => (
         <Card
           key={client.id}
@@ -62,6 +62,12 @@ export function CloudAgentClients() {
           icon={client.icon}
         />
       ))}
+      <Card
+        title="Herdr"
+        description="Switch between coding sessions on your Railway machines in one terminal."
+        href="/cloud-agents/herdr"
+        icon="Bash"
+      />
     </CardGrid>
   );
 }

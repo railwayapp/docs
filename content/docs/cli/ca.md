@@ -22,6 +22,7 @@ With no arguments, `railway ca` opens the terminal interface. Launch flags open 
 | `setup` | Configure the default project, coding agent, skills, and theme |
 | `start` | Launch a coding agent without the Railway CA interface |
 | `desktop` | Prepare a cloud agent and configure a local desktop app |
+| `herdr` | Create and manage cloud agents as Herdr machines |
 | `list` | List your agents across projects, or within an explicit scope |
 | `create [NAME]` | Create a VM without attaching a coding client |
 | `ssh [AGENT] [-- COMMAND...]` | Attach to an existing agent's terminal session or run a command |
@@ -77,6 +78,48 @@ On macOS, OpenCode setup restarts the running OpenCode app. Quit it before setup
 `--remove` leaves the VM and disk intact and does not wake a sleeping agent. It removes the shared managed SSH entry, so other apps using that alias are affected. `--remove` conflicts with `--dry-run` and `--dir`.
 
 App walkthroughs: [Claude Desktop](/cloud-agents/claude), [Codex Desktop](/cloud-agents/codex), and [OpenCode](/cloud-agents/opencode).
+
+## Herdr
+
+Use `railway ca herdr` to add cloud agents to Herdr and manage their lifecycle. Requires Railway CLI 5.62.0 or later and Herdr 0.9 or later on macOS or Linux. For setup, see [Herdr](/cloud-agents/herdr).
+
+In Herdr's **Local** terminal, run `railway ca herdr install` once to link the plugin. Then choose one:
+
+```bash
+# Create a fresh VM for Codex
+railway ca herdr new --codex
+
+# Connect an existing VM, or manage sleep, wake, and deletion
+railway ca herdr agents
+```
+
+| Subcommand | Description |
+|------------|-------------|
+| `install` | Link the plugin and add shortcuts. `--print` previews its manifest. `--remove` unlinks it and stops the session's watcher. `--no-keys` leaves keybindings unchanged. |
+| `new [NAME]` | Always create a fresh VM, add its Herdr machine, and prepare a coding workspace. Prompts for the target and coding tool. |
+| `agents` | Pick an agent to connect, sleep, wake, or delete. `--wake` filters to sleeping agents and wakes directly when only one matches. |
+| `sync` | Update saved machines to match agent status and remove entries for deleted agents. Supports `--dry-run` and `--json`. |
+| `bootstrap [AGENT]` | Retry workspace setup on an awake VM that already has Herdr. Does not create or wake a VM, or add it to the sidebar. |
+| `watch` | Follow agent status for the current Herdr session. `--foreground` prints every event. |
+
+`new` and `agents` handle workspace setup; `bootstrap` and `watch` are not additional setup steps. `new` and `bootstrap` accept `--claude`, `--codex`, `--grok`, or `--railway`. Without a flag, `new` asks you to choose a tool and `bootstrap` uses your saved default.
+
+To select the creation target without project or environment prompts:
+
+```bash
+railway ca herdr new code-review --codex \
+  --project <project-id> --environment <environment-id>
+```
+
+Add `--dry-run` to `new` to preview the selection without creating a VM. To retry setup on an awake agent:
+
+```bash
+railway ca herdr bootstrap code-review --codex
+```
+
+The plugin starts its watcher automatically with the Herdr session. `sync --spawn-watch` also ensures it is running. Sync updates machines already added to Herdr. Use `agents` to add an existing VM.
+
+Removing the plugin keeps your VMs, disks, and saved Herdr machines. Use the [Local picker for sleep and wake](/cloud-agents/herdr#sleep-and-return).
 
 ## Configure cloud agents
 
