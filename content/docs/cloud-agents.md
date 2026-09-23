@@ -25,7 +25,7 @@ Use `railway ca` to choose an agent interactively or return to a session. OpenCo
 
 ## Connect your local app
 
-Keep using an app on your computer, with Railway as its remote environment. Claude Desktop, Codex Desktop, and OpenCode have dedicated setup flows for connecting to the cloud agent.
+Keep using an app on your computer, with Railway as its remote environment. Connect through Claude Desktop, Codex Desktop, OpenCode, or Herdr.
 
 <CloudAgentClients />
 
@@ -39,7 +39,7 @@ Each cloud agent is a personal virtual machine in a Railway project environment.
 
 <CloudAgentConnection app="Your terminal or desktop app" transport="SSH or HTTPS" />
 
-Railway CA terminal sessions and Claude and Codex Desktop connections use SSH. OpenCode Desktop and local terminal clients connect to an authenticated HTTPS server on the agent.
+Railway CA terminal sessions, Herdr, and Claude and Codex Desktop connections use SSH. OpenCode Desktop and local terminal clients connect to an authenticated HTTPS server on the agent.
 
 The disk lasts for the life of the agent. Closing a connection keeps the VM running. Sleeping stops its processes and compute billing while retaining files; deleting the agent removes its disk. See [manage agents and sessions](/cloud-agents/manage).
 
@@ -107,6 +107,7 @@ Enterprise workspaces use Pro sizing. Creation is limited to 25 agents per user 
 
 - [Quickstart](/cloud-agents/quickstart): choose your workflow, connect, and do your first task.
 - [Terminal sessions](/cloud-agents/terminal): launch coding agents in Railway CA and return to running work.
+- [Herdr](/cloud-agents/herdr): create and connect to cloud agents from Herdr's sidebar.
 - [Manage agents and sessions](/cloud-agents/manage): select projects, create agents, reconnect, sleep, and delete.
 - [Credentials and configuration](/cloud-agents/configuration): carry sign-ins, skills, MCP configuration, and variables.
 - [Troubleshooting](/cloud-agents/troubleshooting): diagnose connection, startup, and provider sign-in issues.
