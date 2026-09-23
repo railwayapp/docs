@@ -38,6 +38,8 @@ Automatic instrumentation is a per-service setting. It only takes effect while t
 
 The same setting is on the service under **Settings → Tracing** as the **Best-effort automatic tracing** switch.
 
+From the command line, `railway trace enable --auto-instrument` turns on tracing and automatic instrumentation for the linked service in one step. See [railway trace](/cli/trace).
+
 Railway instruments the service's running processes within a minute. No redeploy is needed.
 
 Switching back to manual instrumentation stops instrumenting the service's processes. Turning tracing off for the service disables automatic instrumentation with it.

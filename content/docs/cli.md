@@ -213,6 +213,18 @@ railway metrics                 # View resource and HTTP metrics
 
 [logs](/cli/logs) · [ssh](/cli/ssh) · [connect](/cli/connect) · [metrics](/cli/metrics)
 
+### Tracing
+
+```bash
+railway trace status            # Show tracing settings and last spans
+railway trace enable            # Turn tracing on for a service
+railway trace enable --project-default # Turn on the project default
+railway trace list --errors     # List recent traces with errors
+railway trace get <TRACE_ID>    # Show a trace as a span tree
+```
+
+[trace](/cli/trace) · [Tracing](/observability/tracing)
+
 ### Networking
 
 ```bash
