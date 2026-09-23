@@ -336,6 +336,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("status"),
       makeCliCommand("templates"),
       makeCliCommand("tcp-proxy"),
+      makeCliCommand("trace"),
       makeCliCommand("unlink"),
       makeCliCommand("up"),
       makeCliCommand("upgrade"),

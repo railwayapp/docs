@@ -80,6 +80,7 @@
   "/cli/tcp-proxy",
   "/cli/telemetry",
   "/cli/templates",
+  "/cli/trace",
   "/cli/unlink",
   "/cli/up",
   "/cli/upgrade",
