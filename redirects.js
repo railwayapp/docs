@@ -1,7 +1,12 @@
 const redirects = [
   {
     source: "/cloud-agents/opencode2",
-    destination: "/cloud-agents/opencode/beta",
+    destination: "/cloud-agents/opencode",
+    permanent: true,
+  },
+  {
+    source: "/cloud-agents/opencode/beta",
+    destination: "/cloud-agents/opencode",
     permanent: true,
   },
   {

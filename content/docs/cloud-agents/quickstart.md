@@ -38,7 +38,7 @@ First choose **Run agents in Railway** or **Connect your local app**, then selec
 
 <CloudAgentLauncher />
 
-For terminal controls and reconnecting, see [terminal sessions](/cloud-agents/terminal). For local app setup, use [Claude Desktop](/cloud-agents/claude), [Codex Desktop](/cloud-agents/codex), [OpenCode](/cloud-agents/opencode), or [OpenCode2 Beta](/cloud-agents/opencode/beta).
+For terminal controls and reconnecting, see [terminal sessions](/cloud-agents/terminal). For local app setup, use [Claude Desktop](/cloud-agents/claude), [Codex Desktop](/cloud-agents/codex), or [OpenCode](/cloud-agents/opencode).
 
 ## Give it a project
 
@@ -59,7 +59,7 @@ gh repo clone OWNER/REPOSITORY
 
 Open `/app/REPOSITORY` in the connected desktop app, or change to it in your terminal session. You can also ask the coding agent to clone the repository for you.
 
-For OpenCode2, the server uses the directory selected at startup. You can begin at `/app` and ask it to work in the cloned repository; see [Beta project directories](/cloud-agents/opencode/beta#project-directory) before changing the server's directory.
+For OpenCode, the server uses the directory selected at startup. You can begin at `/app` and ask it to work in the cloned repository; see [OpenCode project directories](/cloud-agents/opencode#project-directory) before changing the server's directory.
 
 ## Start a task
 
@@ -76,10 +76,9 @@ You are working on the Railway machine's filesystem. To confirm the connection, 
 
 Closing a client keeps the cloud agent running. Reopen the remote project in your desktop app, use `railway ca` to reconnect to a running terminal session, or reconnect an OpenCode terminal client:
 
-<CodeBlock>
-  <CodeTab label="OpenCode" lang="bash">{"railway code --opencode connect <agent-name>"}</CodeTab>
-  <CodeTab label="OpenCode2 Beta" lang="bash">{"railway code --opencode2 connect <agent-name>"}</CodeTab>
-</CodeBlock>
+```bash
+railway code --opencode connect <agent-name>
+```
 
 ## Stop compute when you're finished
 

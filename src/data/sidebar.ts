@@ -114,12 +114,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Terminal sessions", undefined, "/cloud-agents/terminal"),
           makePage("Claude Desktop", undefined, "/cloud-agents/claude"),
           makePage("Codex Desktop", undefined, "/cloud-agents/codex"),
-          {
-            subTitle: makePage("OpenCode", undefined, "/cloud-agents/opencode"),
-            pages: [
-              makePage("OpenCode2 Beta", undefined, "/cloud-agents/opencode/beta"),
-            ],
-          },
+          makePage("OpenCode", undefined, "/cloud-agents/opencode"),
           makePage("Agents and sessions", undefined, "/cloud-agents/manage"),
           makePage(
             "Credentials and configuration",

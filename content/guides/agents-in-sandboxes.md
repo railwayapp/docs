@@ -323,7 +323,7 @@ A fork copies the workbench, not the half-running experiment, which is usually w
 
 ## Agents bundled in the default image
 
-The default sandbox image includes [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), <a href="https://developers.openai.com/codex/cli/" target="_blank">Codex</a>, <a href="https://opencode.ai/docs/" target="_blank">OpenCode</a>, and <a href="https://pi.dev/" target="_blank">Pi</a>. You don't spend the first minutes of every session reinstalling a harness you've set up many times before.
+The default sandbox image includes [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), <a href="https://developers.openai.com/codex/cli/" target="_blank">Codex</a>, <a href="https://opencode.ai/v2/docs/" target="_blank">OpenCode</a>, and <a href="https://pi.dev/" target="_blank">Pi</a>. You don't spend the first minutes of every session reinstalling a harness you've set up many times before.
 
 For now, you pass each agent its configuration or API key. There are two ways to get credentials into a sandbox:
 
