@@ -24,8 +24,7 @@ Railway reads available provider credentials locally and transfers them over SSH
 | Claude Code | A token minted with `claude setup-token`, cached in `~/.railway/claude-code-token`; `CLAUDE_CODE_OAUTH_TOKEN` or `ANTHROPIC_API_KEY` can supply one directly |
 | Codex | `~/.codex/auth.json` |
 | Grok CLI | `~/.grok/auth.json` |
-| OpenCode | Its data directory's `auth.json`, normally `~/.local/share/opencode/auth.json` |
-| OpenCode2 Beta | Active provider accounts in its credential database, normally `~/.local/share/opencode/opencode.db` |
+| OpenCode | Active provider accounts in its credential database, normally `~/.local/share/opencode/opencode.db` |
 | Railway Agent | Railway credentials already configured on the VM |
 
 With no local credential to copy or mint, the agent can still start. Complete the coding tool's sign-in on the remote machine. The CLI prints which local source it uses when one is available.
@@ -42,13 +41,13 @@ railway code --claude --refresh-auth
 
 This clears the cached local and selected remote credential and runs the minting flow again. `railway logout` removes the cached local Claude token; upstream revocation is separate.
 
-### OpenCode2 Beta accounts
+### OpenCode accounts
 
-Beta's credential database stores provider accounts separately from the legacy JSON file. Railway transfers the active account for each provider, including the metadata it needs, and excludes local chats, sessions, and MCP credentials. Temporary transfer files are removed after import.
+OpenCode 2 stores provider accounts in a credential database rather than the `auth.json` file used by OpenCode 1.x. Railway transfers the active account for each provider, including the metadata it needs, and excludes local chats, sessions, and MCP credentials. Temporary transfer files are removed after import.
 
-The CLI respects XDG data paths and `OPENCODE_DB`. Legacy `auth.json` is considered only when no Beta credential store exists. An initialized but empty Beta store does not cause an old JSON sign-in to be restored.
+The CLI respects XDG data paths and `OPENCODE_DB`. An `auth.json` from OpenCode 1.x is considered only when no credential database exists. An initialized but empty database does not cause an old JSON sign-in to be restored.
 
-To sign in directly, open a shell with `railway ca ssh <agent-name> -- bash`, then run `opencode2 auth login`. You can also connect a provider through Beta while using the remote project.
+To sign in directly, open a shell with `railway ca ssh <agent-name> -- bash`, then run `opencode auth login`. You can also connect a provider from the remote project in OpenCode.
 
 ## OpenCode server authentication
 
@@ -91,14 +90,14 @@ Values can reference other services in the same environment. See [Variables](/va
 Load variables from a file:
 
 ```bash
-railway code --opencode2 --new --env-file .env.agent
+railway code --opencode --new --env-file .env.agent
 ```
 
 Repeated `--env-file` inputs are supported; `--variable` overrides matching file entries. These options do not update an already running agent's environment.
 
 ## Local Desktop configuration
 
-`railway ca desktop` adds a managed entry to `~/.ssh/config`. Claude also receives an entry in `~/.claude/settings.json`. Codex discovers the SSH alias itself. OpenCode receives a server connection and remote project in its own Desktop store, with standard and Beta handled independently.
+`railway ca desktop` adds a managed entry to `~/.ssh/config`. Claude also receives an entry in `~/.claude/settings.json`. Codex discovers the SSH alias itself. OpenCode receives a server connection and remote project in its own Desktop store.
 
 Use `--dry-run` to preview configuration, `--ssh-config <path>` to select a different SSH file, and `--alias <name>` to choose the host alias. Apps that read the default SSH file need access to the alternate configuration if you change it.
 

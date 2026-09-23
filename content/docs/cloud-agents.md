@@ -19,7 +19,7 @@ Launch a coding agent directly on the Railway machine and work with it through y
 railway code --claude
 ```
 
-Use `railway ca` to choose an agent interactively or return to a session. OpenCode and OpenCode2 use `railway code --opencode remote` and `railway code --opencode2 remote` to run both client and server on the machine.
+Use `railway ca` to choose an agent interactively or return to a session. OpenCode uses `railway code --opencode remote` to run both client and server on the machine.
 
 [Start a terminal session →](/cloud-agents/terminal)
 
@@ -29,7 +29,7 @@ Keep using an app on your computer, with Railway as its remote environment. Clau
 
 <CloudAgentClients />
 
-OpenCode supports both Desktop and local terminal clients, including [OpenCode2 Beta](/cloud-agents/opencode/beta).
+OpenCode supports both Desktop and local terminal clients.
 
 [Choose your connection →](/cloud-agents/quickstart#choose-your-connection)
 
@@ -49,7 +49,7 @@ Agents hold your credentials and are owned by you. Normal CLI discovery and conn
 
 Agents use an Ubuntu development image with coding tools, an authenticated Railway CLI and GitHub CLI, and a full development toolchain:
 
-- Claude Code, Codex, Grok CLI, Railway Agent, and OpenCode; [OpenCode2 Beta](/cloud-agents/opencode/beta) downloads its runtime when first started.
+- Claude Code, Codex, Grok CLI, Railway Agent, and OpenCode 2.
 - Git and GitHub CLI access using the GitHub credential available to the agent.
 - Node.js with pnpm and yarn, Python with uv, and `mise` for additional toolchains.
 - Utilities including ripgrep, jq, PostgreSQL tools, SQLite, build tools, and Chromium.

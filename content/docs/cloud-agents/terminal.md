@@ -1,6 +1,6 @@
 ---
 title: Terminal sessions
-description: Run Claude Code, Codex, Grok, Railway Agent, OpenCode, or OpenCode2 Beta inside a Railway cloud agent and manage sessions from your terminal.
+description: Run Claude Code, Codex, Grok, Railway Agent, or OpenCode inside a Railway cloud agent and manage sessions from your terminal.
 ---
 
 Launch a coding agent directly on a Railway cloud agent and work with it through your terminal. Railway CA gives you one place to browse your machines, start sessions, and return to work that's still running.
@@ -20,7 +20,6 @@ Follow the [quickstart prerequisites](/cloud-agents/quickstart#prepare-your-comp
 | Grok | `railway code --grok` |
 | Railway Agent | `railway code --railway` |
 | OpenCode | `railway code --opencode remote` |
-| OpenCode2 Beta | `railway code --opencode2 remote` |
 
 Railway creates or reuses a cloud agent, carries available credentials, and opens the session in Railway CA. Add `--new` to start with a fresh machine and disk:
 
@@ -30,7 +29,7 @@ railway code --claude --new
 
 Railway Agent uses the Railway credentials already on the machine. Other coding agents can use eligible sign-ins from your computer or ask you to authenticate on the agent. See [credentials and configuration](/cloud-agents/configuration).
 
-OpenCode's `remote` action runs both its client and server on the cloud agent. Without `remote`, the command prepares a server and offers to connect a client on your computer. [OpenCode2 Beta](/cloud-agents/opencode/beta) downloads its runtime on first startup, which can take several minutes.
+OpenCode's `remote` action runs both its client and server on the cloud agent. Without `remote`, the command prepares a server and offers to connect a client on your computer.
 
 ## Choose an agent interactively
 
@@ -40,7 +39,7 @@ Open the Railway CA menu to browse machines and sessions or start a new one:
 railway ca
 ```
 
-The launch picker includes the coding agents above and a shell. On the OpenCode option, press **Tab** to switch between standard OpenCode and OpenCode2 Beta.
+The launch picker includes the coding agents above and a shell.
 
 Save your default coding agent, project, and skills preferences with:
 
@@ -48,7 +47,7 @@ Save your default coding agent, project, and skills preferences with:
 railway ca setup
 ```
 
-Running `railway code` without an agent flag uses that preference. If OpenCode is your default, it offers the local-client flow; use an explicit `--opencode remote` or `--opencode2 remote` command for a session inside Railway CA.
+Running `railway code` without an agent flag uses that preference. If OpenCode is your default, it offers the local-client flow; use an explicit `--opencode remote` command for a session inside Railway CA.
 
 ## Work with a repository
 
