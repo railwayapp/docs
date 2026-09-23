@@ -30,8 +30,6 @@ Choose one coding agent:
 
 With no coding-agent flag, the default saved by `railway ca setup` is used. `RAILWAY_CA_AGENT` overrides that preference for one invocation.
 
-Cloud agents run OpenCode 2. The earlier `--opencode2` flag remains as a hidden, deprecated alias for `--opencode`; update scripts that use it.
-
 ## Options
 
 | Option | Description |
@@ -99,7 +97,7 @@ Railway reuses an existing agent where possible. `--new` creates a separate disk
 
 Launch carries available local provider credentials over SSH and preserves working credentials already on the VM. Missing local authentication allows the agent to start and the coding tool to request sign-in remotely.
 
-OpenCode imports active provider accounts from your local OpenCode credential store. See [OpenCode provider sign-in](/cloud-agents/opencode#provider-sign-in) and [credentials and configuration](/cloud-agents/configuration).
+For OpenCode, the CLI copies your local OpenCode provider sign-ins to the agent. See [OpenCode provider sign-in](/cloud-agents/opencode#provider-sign-in) and [credentials and configuration](/cloud-agents/configuration).
 
 ## Agent arguments
 

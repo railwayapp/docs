@@ -66,13 +66,9 @@ Review logs before sharing them; they can include details from your configuratio
 
 ## An existing agent still runs OpenCode 1.x
 
-Cloud agents ship OpenCode 2. An agent created before Railway moved to OpenCode 2 can still have OpenCode 1.x installed on its disk, which does not match the OpenCode 2 client on your computer. Check the version on the agent:
+Agents created before the OpenCode 2 image rollout run OpenCode 1.x. The CLI refuses to launch OpenCode on those agents and asks you to recreate the agent. Existing agents are not upgraded in place.
 
-```bash
-railway ca ssh <agent-name> -- opencode --version
-```
-
-To get OpenCode 2, recreate the agent. The CLI can also prompt you to recreate an agent when it finds an older installation:
+Create a replacement agent:
 
 ```bash
 railway code --opencode --new
@@ -82,11 +78,9 @@ A new agent has a separate disk, so [clone your repository](/cloud-agents/quicks
 
 ## OpenCode asks me to sign in again
 
-OpenCode 2 stores provider accounts in its credential database. Update the Railway CLI so it can import those accounts, then rerun OpenCode setup against the existing agent.
+The CLI copies your local OpenCode provider sign-ins to the agent when it prepares the server. Update the Railway CLI, sign in to the provider in OpenCode on your computer, then rerun OpenCode setup against the existing agent.
 
-Check the credential source printed by the CLI. The default is `~/.local/share/opencode/opencode.db`, with XDG and `OPENCODE_DB` overrides supported. If the database exists but is empty, an `auth.json` left by OpenCode 1.x is deliberately not substituted.
-
-If there is no active provider account to copy, connect one in the remote project or run `opencode auth login` on the agent. See [provider sign-in](/cloud-agents/configuration#provider-sign-in).
+If there is no provider sign-in to copy, connect one in the remote project or run `opencode auth login` on the agent. See [provider sign-in](/cloud-agents/configuration#provider-sign-in).
 
 ## The public app port is occupied
 
