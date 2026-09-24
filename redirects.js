@@ -1,7 +1,12 @@
 const redirects = [
   {
     source: "/cloud-agents/opencode2",
-    destination: "/cloud-agents/opencode/beta",
+    destination: "/cloud-agents/opencode",
+    permanent: true,
+  },
+  {
+    source: "/cloud-agents/opencode/beta",
+    destination: "/cloud-agents/opencode",
     permanent: true,
   },
   {
@@ -638,7 +643,12 @@ const redirects = [
   },
   {
     source: "/tutorials/deploy-an-otel-collector-stack",
-    destination: "/guides/deploy-an-otel-collector-stack",
+    destination: "/guides/instrument-app-opentelemetry",
+    permanent: true,
+  },
+  {
+    source: "/guides/deploy-an-otel-collector-stack",
+    destination: "/guides/instrument-app-opentelemetry",
     permanent: true,
   },
   {

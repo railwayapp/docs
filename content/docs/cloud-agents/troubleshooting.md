@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot cloud agents
-description: Resolve cloud-agent access, SSH failures, local versus remote OpenCode chats, Beta startup, provider authentication, and desktop configuration issues.
+description: Resolve cloud-agent access, SSH failures, local versus remote OpenCode chats, OpenCode versions, provider authentication, and desktop configuration issues.
 ---
 
 Start by finding the existing agent:
@@ -19,7 +19,13 @@ Update the Railway CLI:
 railway upgrade
 ```
 
-Then check `railway code --help` or `railway ca desktop --help`. OpenCode2 uses the separate `--opencode2` flag. Cloud agents require the **Cloud Agents** feature in [Priority Boarding](/platform/priority-boarding).
+Then check `railway code --help` or `railway ca desktop --help`. Cloud agents require the **Cloud Agents** feature in [Priority Boarding](/platform/priority-boarding).
+
+## Herdr commands launch a coding tool instead
+
+The Herdr integration requires Railway CLI 5.62.0 or later. Earlier versions can treat `herdr new` as arguments for your default coding tool, producing errors such as Codex's `unexpected argument 'new'`.
+
+Run `railway upgrade`, then check `railway --version` and confirm that `railway ca --help` lists `herdr`. If the version is still old, use `which -a railway` to find other installations on your PATH. Return to [Herdr setup](/cloud-agents/herdr#set-up-herdr) once the command is available.
 
 ## Claude or Codex cannot connect
 
@@ -36,18 +42,18 @@ If you used a custom `--ssh-config`, confirm the desktop app can read that confi
 
 ## OpenCode connects to your computer
 
-A default server change does not move an existing chat. Open **Home → Projects → Railway: &lt;agent-name&gt; → /app → New session**, using the matching OpenCode edition.
+A default server change does not move an existing chat. Open **Home → Projects → Railway: &lt;agent-name&gt; → /app → New session**.
 
 Ask the session to execute `hostname` and `pwd` with its terminal tool. A model's answer about its hostname without executing a command does not verify the connection.
 
-Use `railway ca desktop --opencode --agent <agent-name>` for standard Desktop or `--opencode2` for Beta. `railway code --opencode` prints manual Desktop settings and offers a local terminal connection; it does not automatically update Desktop settings.
+Use `railway ca desktop --opencode --agent <agent-name>` to write Desktop settings. `railway code --opencode` prints manual Desktop settings and offers a local terminal connection; it does not automatically update Desktop settings.
 
 ## OpenCode has a server but gives no response
 
 Check these independently:
 
-1. The selected project belongs to the Railway server and the client edition matches it.
-2. The agent is awake and its server is running. Rerun the matching Desktop setup or named `connect` command to start and verify it.
+1. The selected project belongs to the Railway server.
+2. The agent is awake and its server is running. Rerun Desktop setup or the named `connect` command to start and verify it.
 3. The remote OpenCode server has a signed-in provider and a selected model. The server connection password is separate from provider authentication.
 
 To inspect startup output, open a shell on the agent and read the managed server log:
@@ -64,25 +70,23 @@ tail -n 100 ~/.railway/desktop/opencode/server.log
 
 Review logs before sharing them; they can include details from your configuration.
 
-## Beta startup is taking a long time
+## An existing agent still runs OpenCode 1.x
 
-The first OpenCode2 process downloads and verifies the current Beta runtime. This can take several minutes. Wait for Railway's HTTPS readiness check to complete.
+Agents created before the OpenCode 2 image rollout run OpenCode 1.x. The CLI refuses to launch OpenCode on those agents and asks you to recreate the agent. Existing agents are not upgraded in place.
 
-A failed download reports an error and preserves the previous cached runtime. Rerun setup against the agent already created:
+Create a replacement agent:
 
 ```bash
-railway ca desktop --opencode2 --agent <agent-name>
+railway code --opencode --new
 ```
 
-An already running server is reused. A new process checks for a newer Beta release.
+A new agent has a separate disk, so [clone your repository](/cloud-agents/quickstart#give-it-a-project) again on the new machine. Sleep or delete the old agent when you no longer need its files.
 
-## Beta asks me to sign in again
+## OpenCode asks me to sign in again
 
-Current Beta provider accounts are in its credential database. Update the Railway CLI so it can import those accounts, then rerun Beta setup against the existing agent.
+The CLI copies your local OpenCode provider sign-ins to the agent when it prepares the server. Update the Railway CLI, sign in to the provider in OpenCode on your computer, then rerun OpenCode setup against the existing agent.
 
-Check the credential source printed by the CLI. The default is `~/.local/share/opencode/opencode.db`, with XDG and `OPENCODE_DB` overrides supported. If the Beta store exists but is empty, an old standard `auth.json` is deliberately not substituted.
-
-If there is no active provider account to copy, connect one in the remote Beta project or run `opencode2 auth login` on the agent. See [provider sign-in](/cloud-agents/configuration#provider-sign-in).
+If there is no provider sign-in to copy, connect one in the remote project or run `opencode auth login` on the agent. See [provider sign-in](/cloud-agents/configuration#provider-sign-in).
 
 ## The public app port is occupied
 
@@ -92,16 +96,16 @@ OpenCode serves through the agent's port `8080`. Setup refuses to stop an unrela
 
 Open the selected app manually. On macOS, a LaunchServices restart failure can occur after configuration has already been saved. The CLI reports this as a manual-reopen notice.
 
-If settings still appear stale, quit the app, rerun setup for the same agent and edition, and reopen it. Quit OpenCode before configuration on Windows and Linux.
+If settings still appear stale, quit the app, rerun setup for the same agent, and reopen it. Quit OpenCode before configuration on Windows and Linux.
 
 ## SSH fails during creation
 
 Errors such as `mm_send_fd: sendmsg(0): Message too long` or `mux_client_request_session: send fds failed` can occur with older CLI provisioning through an OpenSSH multiplexed connection. Update Railway, then retry against the existing agent instead of creating another one.
 
-For an OpenCode2 server and local client:
+For an OpenCode server and local client:
 
 ```bash
-railway code --opencode2 --agent <agent-name>
+railway code --opencode --agent <agent-name>
 ```
 
 The current CLI streams the provisioning script over SSH input. If the error persists, check `railway ca ssh <agent-name> -- bash` and the agent's status to separate a transport problem from server startup.

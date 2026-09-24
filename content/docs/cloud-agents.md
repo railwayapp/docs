@@ -19,17 +19,17 @@ Launch a coding agent directly on the Railway machine and work with it through y
 railway code --claude
 ```
 
-Use `railway ca` to choose an agent interactively or return to a session. OpenCode and OpenCode2 use `railway code --opencode remote` and `railway code --opencode2 remote` to run both client and server on the machine.
+Use `railway ca` to choose an agent interactively or return to a session. OpenCode uses `railway code --opencode remote` to run both client and server on the machine.
 
 [Start a terminal session →](/cloud-agents/terminal)
 
 ## Connect your local app
 
-Keep using an app on your computer, with Railway as its remote environment. Claude Desktop, Codex Desktop, and OpenCode have dedicated setup flows for connecting to the cloud agent.
+Keep using an app on your computer, with Railway as its remote environment. Connect through Claude Desktop, Codex Desktop, OpenCode, or Herdr.
 
 <CloudAgentClients />
 
-OpenCode supports both Desktop and local terminal clients, including [OpenCode2 Beta](/cloud-agents/opencode/beta).
+OpenCode supports both Desktop and local terminal clients.
 
 [Choose your connection →](/cloud-agents/quickstart#choose-your-connection)
 
@@ -39,7 +39,7 @@ Each cloud agent is a personal virtual machine in a Railway project environment.
 
 <CloudAgentConnection app="Your terminal or desktop app" transport="SSH or HTTPS" />
 
-Railway CA terminal sessions and Claude and Codex Desktop connections use SSH. OpenCode Desktop and local terminal clients connect to an authenticated HTTPS server on the agent.
+Railway CA terminal sessions, Herdr, and Claude and Codex Desktop connections use SSH. OpenCode Desktop and local terminal clients connect to an authenticated HTTPS server on the agent.
 
 The disk lasts for the life of the agent. Closing a connection keeps the VM running. Sleeping stops its processes and compute billing while retaining files; deleting the agent removes its disk. See [manage agents and sessions](/cloud-agents/manage).
 
@@ -49,7 +49,7 @@ Agents hold your credentials and are owned by you. Normal CLI discovery and conn
 
 Agents use an Ubuntu development image with coding tools, an authenticated Railway CLI and GitHub CLI, and a full development toolchain:
 
-- Claude Code, Codex, Grok CLI, Railway Agent, and OpenCode; [OpenCode2 Beta](/cloud-agents/opencode/beta) downloads its runtime when first started.
+- Claude Code, Codex, Grok CLI, Railway Agent, and OpenCode 2.
 - Git and GitHub CLI access using the GitHub credential available to the agent.
 - Node.js with pnpm and yarn, Python with uv, and `mise` for additional toolchains.
 - Utilities including ripgrep, jq, PostgreSQL tools, SQLite, build tools, and Chromium.
@@ -107,6 +107,7 @@ Enterprise workspaces use Pro sizing. Creation is limited to 25 agents per user 
 
 - [Quickstart](/cloud-agents/quickstart): choose your workflow, connect, and do your first task.
 - [Terminal sessions](/cloud-agents/terminal): launch coding agents in Railway CA and return to running work.
+- [Herdr](/cloud-agents/herdr): create and connect to cloud agents from Herdr's sidebar.
 - [Manage agents and sessions](/cloud-agents/manage): select projects, create agents, reconnect, sleep, and delete.
 - [Credentials and configuration](/cloud-agents/configuration): carry sign-ins, skills, MCP configuration, and variables.
 - [Troubleshooting](/cloud-agents/troubleshooting): diagnose connection, startup, and provider sign-in issues.

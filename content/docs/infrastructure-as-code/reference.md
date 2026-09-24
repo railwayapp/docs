@@ -29,6 +29,11 @@ export const partial = "api";
 
 The CLI records which partial owns each resource and rejects a file that declares a resource owned by another partial. See [Multi-repo projects](/infrastructure-as-code#multi-repo-projects).
 
+Use [`railway config partials`](/cli/config#manage-partial-ownership) to list,
+release, or transfer ownership without changing the resources. Renaming the
+partial export alone doesn't transfer ownership. After changing ownership,
+update the authoring configuration and create a fresh plan.
+
 ### Environment context
 
 `defineRailway` receives a context object from the CLI. Use it to render different desired state for the Railway environment you are planning or applying to.

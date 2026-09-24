@@ -267,5 +267,5 @@ Right-click any matched line and select **View in Context** to see the surroundi
 
 - [Logs reference](/observability/logs) for the full filter syntax, HTTP log attributes, and DNS log attributes
 - [Connect a Third-Party Observability Tool](/guides/third-party-observability) for retention beyond your plan's window
-- [Deploy an OpenTelemetry Collector Stack](/guides/deploy-an-otel-collector-stack) for metrics and traces alongside logs
+- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry) for request traces alongside logs
 - [Metrics](/observability/metrics) for built-in CPU, memory, and network graphs

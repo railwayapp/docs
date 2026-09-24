@@ -14,6 +14,14 @@ module.exports = {
   exclude: redirectSources,
   robotsTxtOptions: {
     additionalSitemaps: [],
+    // Content Signals (https://contentsignals.org): one AI policy across every
+    // Railway property — index us, retrieve us at answer time, train on us.
+    // Injected inside the single `User-agent: *` group next-sitemap emits.
+    transformRobotsTxt: async (_config, robotsTxt) =>
+      robotsTxt.replace(
+        "User-agent: *\n",
+        "User-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\n",
+      ),
     policies: [
       { userAgent: "*", allow: "/" },
     ],

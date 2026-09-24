@@ -52,18 +52,22 @@ export function CloudAgentTools() {
 
 export function CloudAgentClients() {
   return (
-    <CardGrid columns={3}>
-      {cloudAgentClients
-        .filter(client => client.id !== "opencode2")
-        .map(client => (
-          <Card
-            key={client.id}
-            title={client.name}
-            description={client.description}
-            href={client.href}
-            icon={client.icon}
-          />
-        ))}
+    <CardGrid columns={2}>
+      {cloudAgentClients.map(client => (
+        <Card
+          key={client.id}
+          title={client.name}
+          description={client.description}
+          href={client.href}
+          icon={client.icon}
+        />
+      ))}
+      <Card
+        title="Herdr"
+        description="Switch between coding sessions on your Railway machines in one terminal."
+        href="/cloud-agents/herdr"
+        icon="Bash"
+      />
     </CardGrid>
   );
 }
@@ -86,7 +90,7 @@ export function CloudAgentLauncher() {
         ? "Restart Claude Desktop. In Code, choose Railway · <agent-name> from the environment dropdown and open /app."
         : selected === "codex"
           ? "Restart Codex. Open Settings → Connections → SSH, select railway-agent-<agent-name>, and add /app as a remote project."
-          : `Open ${selected === "opencode2" ? "OpenCode Beta" : "OpenCode Desktop"}. From Home → Projects, open Railway: <agent-name> → /app and start a new session.`
+          : "Open OpenCode Desktop. From Home → Projects, open Railway: <agent-name> → /app and start a new session."
       : mode === "local"
         ? "Railway starts the cloud server and prints its connection settings. Press Enter to connect with your local client; Railway offers to install it if missing."
         : "Your terminal opens a session in Railway CA. The coding agent runs on the cloud agent. Press Option+F to show the agent tree, or use railway ca to return to running sessions.";
@@ -212,12 +216,6 @@ export function CloudAgentLauncher() {
       >
         <CodeBlock code={command} lang="bash" />
         <p className="text-sm leading-6">{next}</p>
-        {selected === "opencode2" && (
-          <p className="text-sm text-muted-base">
-            The first Beta startup downloads its runtime and can take several
-            minutes.
-          </p>
-        )}
         <Link
           href={mode === "remote" ? "/cloud-agents/terminal" : client!.href}
           className="text-sm"

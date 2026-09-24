@@ -3,7 +3,7 @@ title: railway ca
 description: Browse and manage cloud agents, configure desktop app connections, and launch persistent coding sessions from the terminal.
 ---
 
-Browse your projects, launch [cloud agents](/cloud-agents), and connect to their terminal sessions. Set up Claude Desktop, Codex Desktop, OpenCode, or OpenCode2 Beta with `railway ca desktop`.
+Browse your projects, launch [cloud agents](/cloud-agents), and connect to their terminal sessions. Set up Claude Desktop, Codex Desktop, or OpenCode with `railway ca desktop`.
 
 <Banner variant="info">Cloud agents require access through <a href="/platform/priority-boarding">Priority Boarding</a>. Update the CLI with <code>railway upgrade</code> for the latest client integrations.</Banner>
 
@@ -13,7 +13,7 @@ Browse your projects, launch [cloud agents](/cloud-agents), and connect to their
 railway ca [COMMAND] [OPTIONS]
 ```
 
-With no arguments, `railway ca` opens the terminal interface. Launch flags open the coding session in Railway CA; `railway ca start` skips the interface. OpenCode flags on `ca` run the coding client on the cloud agent. Use [`railway code --opencode` or `--opencode2`](/cli/code#opencode-local-clients) for local terminal clients.
+With no arguments, `railway ca` opens the terminal interface. Launch flags open the coding session in Railway CA; `railway ca start` skips the interface. OpenCode flags on `ca` run the coding client on the cloud agent. Use [`railway code --opencode`](/cli/code#opencode-local-clients) for local terminal clients.
 
 ## Subcommands
 
@@ -22,6 +22,7 @@ With no arguments, `railway ca` opens the terminal interface. Launch flags open 
 | `setup` | Configure the default project, coding agent, skills, and theme |
 | `start` | Launch a coding agent without the Railway CA interface |
 | `desktop` | Prepare a cloud agent and configure a local desktop app |
+| `herdr` | Create and manage cloud agents as Herdr machines |
 | `list` | List your agents across projects, or within an explicit scope |
 | `create [NAME]` | Create a VM without attaching a coding client |
 | `ssh [AGENT] [-- COMMAND...]` | Attach to an existing agent's terminal session or run a command |
@@ -33,10 +34,10 @@ With no arguments, `railway ca` opens the terminal interface. Launch flags open 
 
 ## Launch options
 
-`railway ca` and `railway ca start` share the launch options in the [`railway code` reference](/cli/code#options). Choose `--claude`, `--codex`, `--grok`, `--railway`, `--opencode`, or `--opencode2`. With no flag, the saved default applies, overridden by `RAILWAY_CA_AGENT` when set.
+`railway ca` and `railway ca start` share the launch options in the [`railway code` reference](/cli/code#options). Choose `--claude`, `--codex`, `--grok`, `--railway`, or `--opencode`. With no flag, the saved default applies, overridden by `RAILWAY_CA_AGENT` when set.
 
 ```bash
-railway ca --opencode2
+railway ca --opencode
 railway ca start --codex --new
 ```
 
@@ -50,15 +51,13 @@ Prepare the remote tool and its local app connection:
   <CodeTab label="Claude Desktop" lang="bash">{"railway ca desktop --claude"}</CodeTab>
   <CodeTab label="Codex Desktop" lang="bash">{"railway ca desktop --codex"}</CodeTab>
   <CodeTab label="OpenCode" lang="bash">{"railway ca desktop --opencode"}</CodeTab>
-  <CodeTab label="OpenCode2 Beta" lang="bash">{"railway ca desktop --opencode2"}</CodeTab>
 </CodeBlock>
 
 | Option | Description |
 |--------|-------------|
 | `--claude` | Write SSH configuration and Claude Desktop's named environment |
 | `--codex` | Write the SSH alias discovered by Codex Desktop |
-| `--opencode` | Start the standard OpenCode server and save its Desktop connection and project |
-| `--opencode2` | Prepare the Beta runtime and server and save its Beta Desktop connection and project |
+| `--opencode` | Start the OpenCode server and save its Desktop connection and project |
 | `--agent <NAME_OR_ID>` | Use an existing agent |
 | `--new` | Always create a fresh VM; conflicts with `--agent` and `--remove` |
 | `--dir <PATH>` | Remote starting directory, default `/app`; choose the remote folder in Codex itself |
@@ -70,17 +69,57 @@ Prepare the remote tool and its local app connection:
 | `-p`, `--project <PROJECT>` | Project ID |
 | `-e`, `--environment <ENVIRONMENT>` | Environment name or ID |
 
-App flags can be combined for the same VM, such as `--claude --codex`. Standard and Beta OpenCode flags cannot be combined. Without `--new`, setup reuses and wakes an agent where possible, creating one if needed.
+App flags can be combined for the same VM, such as `--claude --codex`. Without `--new`, setup reuses and wakes an agent where possible, creating one if needed.
 
-Claude and Codex connect over SSH. Restart the app after setup and select the remote environment or project. OpenCode starts a server on the agent's HTTPS app endpoint, using port `8080`, and saves its generated username/password and project in the selected Desktop edition. An occupied port fails without stopping the other process.
+Claude and Codex connect over SSH. Restart the app after setup and select the remote environment or project. OpenCode starts a server on the agent's HTTPS app endpoint, using port `8080`, and saves its generated username/password and project in OpenCode Desktop. An occupied port fails without stopping the other process.
 
-On macOS, OpenCode setup restarts the selected running app. Quit it before setup on Windows/Linux. Select **Home → Projects → Railway: &lt;agent-name&gt; → /app → New session**. Existing chats retain their server.
-
-The Beta runtime downloads on first startup, which can take several minutes. See [OpenCode2 Beta](/cloud-agents/opencode/beta) for updates and provider-account import.
+On macOS, OpenCode setup restarts the running OpenCode app. Quit it before setup on Windows/Linux. Select **Home → Projects → Railway: &lt;agent-name&gt; → /app → New session**. Existing chats retain their server.
 
 `--remove` leaves the VM and disk intact and does not wake a sleeping agent. It removes the shared managed SSH entry, so other apps using that alias are affected. `--remove` conflicts with `--dry-run` and `--dir`.
 
-App walkthroughs: [Claude Desktop](/cloud-agents/claude), [Codex Desktop](/cloud-agents/codex), [OpenCode](/cloud-agents/opencode), and [OpenCode2 Beta](/cloud-agents/opencode/beta).
+App walkthroughs: [Claude Desktop](/cloud-agents/claude), [Codex Desktop](/cloud-agents/codex), and [OpenCode](/cloud-agents/opencode).
+
+## Herdr
+
+Use `railway ca herdr` to add cloud agents to Herdr and manage their lifecycle. Requires Railway CLI 5.62.0 or later and Herdr 0.9 or later on macOS or Linux. For setup, see [Herdr](/cloud-agents/herdr).
+
+In Herdr's **Local** terminal, run `railway ca herdr install` once to link the plugin. Then choose one:
+
+```bash
+# Create a fresh VM for Codex
+railway ca herdr new --codex
+
+# Connect an existing VM, or manage sleep, wake, and deletion
+railway ca herdr agents
+```
+
+| Subcommand | Description |
+|------------|-------------|
+| `install` | Link the plugin and add shortcuts. `--print` previews its manifest. `--remove` unlinks it and stops the session's watcher. `--no-keys` leaves keybindings unchanged. |
+| `new [NAME]` | Always create a fresh VM, add its Herdr machine, and prepare a coding workspace. Prompts for the target and coding tool. |
+| `agents` | Pick an agent to connect, sleep, wake, or delete. `--wake` filters to sleeping agents and wakes directly when only one matches. |
+| `sync` | Update saved machines to match agent status and remove entries for deleted agents. Supports `--dry-run` and `--json`. |
+| `bootstrap [AGENT]` | Retry workspace setup on an awake VM that already has Herdr. Does not create or wake a VM, or add it to the sidebar. |
+| `watch` | Follow agent status for the current Herdr session. `--foreground` prints every event. |
+
+`new` and `agents` handle workspace setup; `bootstrap` and `watch` are not additional setup steps. `new` and `bootstrap` accept `--claude`, `--codex`, `--grok`, or `--railway`. Without a flag, `new` asks you to choose a tool and `bootstrap` uses your saved default.
+
+To select the creation target without project or environment prompts:
+
+```bash
+railway ca herdr new code-review --codex \
+  --project <project-id> --environment <environment-id>
+```
+
+Add `--dry-run` to `new` to preview the selection without creating a VM. To retry setup on an awake agent:
+
+```bash
+railway ca herdr bootstrap code-review --codex
+```
+
+The plugin starts its watcher automatically with the Herdr session. `sync --spawn-watch` also ensures it is running. Sync updates machines already added to Herdr. Use `agents` to add an existing VM.
+
+Removing the plugin keeps your VMs, disks, and saved Herdr machines. Use the [Local picker for sleep and wake](/cloud-agents/herdr#sleep-and-return).
 
 ## Configure cloud agents
 
@@ -146,7 +185,7 @@ The menu offers **New Session**, **New Cloud Agent**, and **Manage Cloud Agents*
 | `esc` | Return to the menu |
 | `^c` | Quit |
 
-In the coding-agent picker and prompt footer, **Tab** switches OpenCode to **OpenCode2 [Beta]** and back. **Shift+Tab** cycles coding agents. Press `?` for the full key reference in the active view.
+In the coding-agent picker and prompt footer, **Shift+Tab** cycles coding agents. Press `?` for the full key reference in the active view.
 
 ### Mouse
 
