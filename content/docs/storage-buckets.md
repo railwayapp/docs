@@ -146,9 +146,9 @@ The bucket returns to your project with its objects intact.
 
 <Collapse title="How can I view my bucket files in a project?">
 
-Railway doesn't currently have a built-in file explorer. To view, upload, or download files, you'll need to use an S3 file explorer app.
+Railway has a built-in file explorer. Simply open the bucket in your project view and click Files. Here you can view, upload or download files.
 
-Interested in a native file explorer? Show your support by upvoting [this feature request](https://station.railway.com/feedback/railway-storage-buckets-native-file-expl-e0bc1a5a).
+You can also use an S3 file explorer app or connect to the bucket in code using the credentials in the Credentials tab and call ListObjects.
 
 </Collapse>
 

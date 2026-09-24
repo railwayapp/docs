@@ -204,4 +204,4 @@ Deploy this as a separate service in the same project. Because both services sha
 - [Using volumes](/volumes) for mount paths, resizing, and backup details
 - [Private networking](/networking/private-networking) for how internal DNS and environment isolation work
 - [Right-size CPU and memory from real metrics](/guides/right-size-cpu-memory) to set limits that fit your query load
-- [Deploy an OpenTelemetry collector stack](/guides/deploy-an-otel-collector-stack) to feed telemetry into your analytics pipeline
+- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry) to trace requests across the services that feed your pipeline

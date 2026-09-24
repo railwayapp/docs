@@ -395,12 +395,84 @@ Python uses `PARTIAL = "api"`. Go uses `const Partial = "api"`. A partial name i
 
 The CLI enforces ownership on every plan and apply:
 
-- A resource declared in a file whose partial doesn't own it fails with `Cannot manage service "api": already managed by partial "web".` Move the declaration to the owning repository, or remove it from the owner first.
+- A resource declared in a file whose partial doesn't own it fails with `Cannot manage service "api": already managed by partial "web".` Move the declaration to the owning repository, or [transfer its ownership](#transfer-partial-ownership) before applying it from another partial.
 - A file without a partial export fails in an environment that already has named partials: `This environment already has named IaC partials. Export const partial = "<name>" from this file instead of managing the whole project.`
 - A named partial only deletes resources it owns. Resources owned by other partials, or not yet owned by any partial, are left alone when they're missing from your file.
 - The first `railway config apply` from a partial claims ownership of every resource the file declares. The apply runs even when the plan shows no configuration changes, so that the claim is recorded.
 
-Don't rename a partial after you apply it. The resources stay owned by the old name, and the renamed file fails the foreign-resource check.
+Renaming a partial export doesn't transfer ownership. Resources stay owned by the old name. Transfer ownership to the new name, update the export, and re-plan before applying it.
+
+### Inspect partial ownership
+
+Ownership is stored on the Railway environment. You can inspect or change it
+even when the original authoring file no longer exists:
+
+```bash
+railway config partials list
+```
+
+The command lists partial names and every address they own. Add `--json` for
+the complete address-to-owner map and the environment's configuration etag.
+Commands use the linked project and environment, including an environment-scoped
+project token when `RAILWAY_TOKEN` is set.
+
+### Transfer partial ownership
+
+Transfer resources when moving them to another repository or replacing an
+orphaned partial. Release and transfer require environment `ADMIN` access and
+change only ownership metadata. They don't change, delete, or redeploy
+resources, and they don't edit authoring files.
+
+Preview moving two services from `legacy-ops` to `operations`:
+
+```bash
+railway config partials transfer legacy-ops operations \
+  --resource service.api --resource service.admin --dry-run
+```
+
+Run the same command without `--dry-run` to review the addresses and confirm.
+Every selected address must belong to `legacy-ops`. The destination can be a
+new or existing partial. To move every resource from the source, omit all
+`--resource` options.
+
+After the transfer, update the source configuration to stop declaring the moved
+resources and add them to the destination configuration. Re-plan before applying
+either file. To rename an entire partial, transfer all its ownership to the
+new name, then update the partial export and re-plan.
+
+### Return to one file per project
+
+Release named ownership before removing partial exports and managing the whole
+environment from one file. First, list ownership and preview the release of a
+partial:
+
+```bash
+railway config partials list
+railway config partials release operations --dry-run
+```
+
+Run `railway config partials release operations` to review and confirm. Omit
+`--resource` to release the entire partial, or repeat `--resource ADDRESS` to
+release selected addresses. Releasing ownership leaves the resources running.
+
+Whole-project planning requires all named ownership to be cleared. Releasing one
+partial isn't enough if another still owns resources. Repeat for the other named
+partials, then verify with `railway config partials list`.
+
+Once no named ownership remains, combine the resources you want to keep into
+one authoring file, remove the named partial export (`partial`, `PARTIAL`, or
+`Partial`), and run a fresh `railway config plan`. Review the plan before applying,
+since a whole-project apply can delete resources omitted from that file.
+
+Applying an old named-partial configuration can reclaim released ownership.
+Update each authoring configuration and its CI workflow before applying again.
+To restore named ownership later, declare the resources in a named partial and
+use the ordinary plan/apply workflow.
+
+Ownership operations reject a preview if configuration or ownership changes
+before execution. Ownership changes also make saved configuration plans stale.
+See the [ownership command reference](/cli/config#manage-partial-ownership) for
+confirmation flags, JSON output, and pinning a preview in CI.
 
 ### Migrating per-repo Config as Code
 

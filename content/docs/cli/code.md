@@ -3,7 +3,7 @@ title: railway code
 description: Launch a coding agent on Railway, connect a local OpenCode client to a cloud server, or reconnect to an existing server.
 ---
 
-Launch a coding tool on a [cloud agent](/cloud-agents) with your available credentials. Claude Code, Codex, Grok CLI, and Railway Agent open inside Railway CA. OpenCode and OpenCode2 prepare a cloud server and offer to connect your local terminal client.
+Launch a coding tool on a [cloud agent](/cloud-agents) with your available credentials. Claude Code, Codex, Grok CLI, and Railway Agent open inside Railway CA. OpenCode prepares a cloud server and offers to connect your local terminal client.
 
 <Banner variant="info">Cloud agents require access through <a href="/platform/priority-boarding">Priority Boarding</a>. Update the CLI with <code>railway upgrade</code> for the latest client integrations.</Banner>
 
@@ -12,7 +12,6 @@ Launch a coding tool on a [cloud agent](/cloud-agents) with your available crede
 ```bash
 railway code [OPTIONS] [-- <AGENT_ARGS>...]
 railway code --opencode [remote | connect [AGENT]] [OPTIONS]
-railway code --opencode2 [remote | connect [AGENT]] [OPTIONS]
 ```
 
 For automatic desktop app configuration, use [`railway ca desktop`](/cli/ca#desktop).
@@ -27,10 +26,9 @@ Choose one coding agent:
 | `--codex` | Launch Codex inside Railway CA |
 | `--grok` | Launch Grok CLI inside Railway CA |
 | `--railway` | Launch Railway Agent with credentials already on the VM |
-| `--opencode` | Start or reuse a standard OpenCode server and offer to connect locally |
-| `--opencode2` | Start or reuse an OpenCode2 Beta server and offer to connect locally |
+| `--opencode` | Start or reuse an OpenCode server and offer to connect locally |
 
-With no coding-agent flag, the default saved by `railway ca setup` is used. `RAILWAY_CA_AGENT` overrides that preference for one invocation. OpenCode editions use separate clients and server configurations.
+With no coding-agent flag, the default saved by `railway ca setup` is used. `RAILWAY_CA_AGENT` overrides that preference for one invocation.
 
 ## Options
 
@@ -53,16 +51,15 @@ Agents stay running when you disconnect. `--keep-awake` is accepted for compatib
 
 ```bash
 railway code --opencode
-railway code --opencode2
 ```
 
-Choose the command matching your edition. Railway creates or wakes an agent, prepares available credentials and configuration, starts its authenticated HTTPS server, and prints:
+Railway creates or wakes an agent, prepares available credentials and configuration, starts its authenticated HTTPS server, and prints:
 
 - Server URL, username, password, and directory for manual Desktop setup.
 - A command to connect directly from your computer.
 - A Railway command to reconnect later.
 
-Press **Enter** to launch the local terminal client. The CLI checks for the matching client, offers installation if it is missing, and connects after installation. Canceling either prompt keeps the server running and prints the details again.
+Press **Enter** to launch the local terminal client. The CLI checks for the OpenCode 2 client, offers installation if it is missing, and connects after installation. Canceling either prompt keeps the server running and prints the details again.
 
 This flow does not write Desktop settings. Use [`railway ca desktop`](/cli/ca#desktop) for automatic app configuration.
 
@@ -70,7 +67,7 @@ This flow does not write Desktop settings. Use [`railway ca desktop`](/cli/ca#de
 
 ```bash
 railway code --opencode remote
-railway code --opencode2 remote --new
+railway code --opencode remote --new
 ```
 
 `remote` runs both client and server inside the cloud agent and opens the session in Railway CA. It does not launch a local OpenCode client. `--dir` is for local-client server setup and cannot be used with `remote`.
@@ -79,10 +76,10 @@ railway code --opencode2 remote --new
 
 ```bash
 railway code --opencode connect
-railway code --opencode2 connect <agent-name-or-id>
+railway code --opencode connect <agent-name-or-id>
 ```
 
-`connect` uses your local client. Without a selector, it discovers compatible running servers on agents you own. One match connects directly; multiple matches show a **workspace/project/cloud-agent name** picker. It filters standard and Beta servers separately.
+`connect` uses your local client. Without a selector, it discovers compatible running servers on agents you own. One match connects directly; multiple matches show a **workspace/project/cloud-agent name** picker.
 
 An explicit name or ID connects to that agent and can wake a saved server. If names are ambiguous, select by ID. This command does not create a new agent or install a server on an unrelated machine.
 
@@ -94,13 +91,13 @@ In noninteractive terminals, local-client flows print connection details without
 
 Explicit project/environment flags take priority, followed by the directory's linked context, then your saved default. When none is available, interactive setup resolves the target. A stale link to a deleted project can fall back to the default.
 
-Railway reuses an existing agent where possible. `--new` creates a separate disk. New OpenCode names use `oc-<label>-<suffix>` or `oc2-<label>-<suffix>`; `--name` overrides them. See [agent selection and naming](/cloud-agents/manage).
+Railway reuses an existing agent where possible. `--new` creates a separate disk. New OpenCode names use `oc-<label>-<suffix>`; `--name` overrides them. See [agent selection and naming](/cloud-agents/manage).
 
 ## Credentials
 
 Launch carries available local provider credentials over SSH and preserves working credentials already on the VM. Missing local authentication allows the agent to start and the coding tool to request sign-in remotely.
 
-OpenCode2 imports active provider accounts from its Beta credential database and downloads its latest official runtime on startup. The first start may take several minutes. See [OpenCode2 Beta](/cloud-agents/opencode/beta) and [credentials and configuration](/cloud-agents/configuration).
+For OpenCode, the CLI copies your local OpenCode provider sign-ins to the agent. See [OpenCode provider sign-in](/cloud-agents/opencode#provider-sign-in) and [credentials and configuration](/cloud-agents/configuration).
 
 ## Agent arguments
 
@@ -110,10 +107,10 @@ Put coding-agent arguments after `--`. This runs the requested command directly 
 railway code --codex -- exec "explain this codebase"
 ```
 
-For a Beta standalone task:
+For an OpenCode task without the interactive interface:
 
 ```bash
-railway code --opencode2 -- run --standalone "explain this project"
+railway code --opencode -- run --standalone "explain this project"
 ```
 
 ## Examples
@@ -124,10 +121,10 @@ Create an OpenCode server on a fresh named agent:
 railway code --opencode --new --name reviews
 ```
 
-Create a Beta agent with variables:
+Create an OpenCode agent with variables:
 
 ```bash
-railway code --opencode2 --new --env-file .env.agent
+railway code --opencode --new --env-file .env.agent
 ```
 
 Run Codex with a service-variable reference:

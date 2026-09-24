@@ -112,14 +112,10 @@ export const sidebarContent: ISidebarContent = [
         pages: [
           makePage("Quickstart", undefined, "/cloud-agents/quickstart"),
           makePage("Terminal sessions", undefined, "/cloud-agents/terminal"),
+          makePage("Herdr", undefined, "/cloud-agents/herdr"),
           makePage("Claude Desktop", undefined, "/cloud-agents/claude"),
           makePage("Codex Desktop", undefined, "/cloud-agents/codex"),
-          {
-            subTitle: makePage("OpenCode", undefined, "/cloud-agents/opencode"),
-            pages: [
-              makePage("OpenCode2 Beta", undefined, "/cloud-agents/opencode/beta"),
-            ],
-          },
+          makePage("OpenCode", undefined, "/cloud-agents/opencode"),
           makePage("Agents and sessions", undefined, "/cloud-agents/manage"),
           makePage(
             "Credentials and configuration",
@@ -341,6 +337,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("status"),
       makeCliCommand("templates"),
       makeCliCommand("tcp-proxy"),
+      makeCliCommand("trace"),
       makeCliCommand("unlink"),
       makeCliCommand("up"),
       makeCliCommand("upgrade"),
@@ -552,6 +549,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Automatic instrumentation", "observability/tracing"),
           makePage("Node.js", "observability/tracing", "/observability/tracing/nodejs"),
           makePage("Deno", "observability/tracing"),
+          makePage("Functions", "observability/tracing"),
           makePage("Python", "observability/tracing"),
           makePage("Go", "observability/tracing"),
           makePage("Java", "observability/tracing"),

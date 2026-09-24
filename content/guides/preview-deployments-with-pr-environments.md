@@ -96,7 +96,7 @@ When this PR is merged into main, its infrastructure is deleted and the environm
 
 The example app is a monorepo, meaning the code for multiple services is colocated in one GitHub repository. This is a popular pattern for its simplicity, but it has a drawback for previews.
 
-By default, PR Environments in Railway detect when PRs are opened and deploy a full copy of your base environment for your deploy preview. While this is great for a full-stack PR, if you want to make a change to only your frontend, deploying your backend is unnecessary and slows your build time while incurring costs. To avoid the waste of a full-copy deploy preview, use Focused PR Environments.
+By default, PR Environments in Railway detect when PRs are opened and deploy a full copy of your base environment for your deploy preview. For a frontend-only change, building an unchanged backend adds deployment time, and running the extra backend service incurs usage charges. Builds themselves are not billed. Use Focused PR Environments to avoid deploying unnecessary services.
 
 Focused PR Environments only deploy services that have changed. Railway uses watch paths to determine, for each service, which code files should trigger a redeploy of that service during PR Environment spin-up.
 

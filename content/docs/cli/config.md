@@ -1,6 +1,6 @@
 ---
 title: railway config
-description: Define, import, preview, and apply Railway Infrastructure as Code.
+description: Define, import, preview, and apply Railway Infrastructure as Code, and manage named partial ownership.
 ---
 
 Manage a Railway project and environment from an Infrastructure as Code file at
@@ -23,6 +23,7 @@ railway config <COMMAND> [OPTIONS]
 | `plan` | Preview changes without applying them |
 | `apply` | Preview, confirm, and apply changes |
 | `migrate` | Convert Config as Code into IaC (`--lang ts` \| `py` \| `go`) |
+| `partials` | List, release, or transfer named partial ownership |
 
 See [Infrastructure as Code](/infrastructure-as-code) for the complete workflow
 and [the IaC reference](/infrastructure-as-code/reference) for the TypeScript
@@ -186,6 +187,134 @@ In JSON mode, pass `--confirm-destructive` to apply destructive changes. The
 ```bash
 railway config apply --json --confirm-destructive
 ```
+
+## Manage partial ownership
+
+Use `railway config partials` to inspect ownership, release resources from a
+named partial, or transfer them to another partial. These commands use the
+linked project and environment. They work without an authoring file, including
+when the file that originally claimed ownership no longer exists.
+
+Release and transfer require environment `ADMIN` access. Authentication uses
+your CLI login, `RAILWAY_API_TOKEN`, or an environment-scoped `RAILWAY_TOKEN`.
+Both operations change ownership metadata only. They don't delete resources,
+change resource configuration, redeploy anything, or edit local files.
+
+### List ownership
+
+List every partial and its owned resource addresses:
+
+```bash
+railway config partials list
+railway config partials list --json
+```
+
+JSON output includes `environmentId`, `environmentName`, `configEtag`, the
+complete address-to-owner map in `iacPartials`, and `wholeProjectAvailable`.
+The last field is `true` when no named ownership remains. The owner `*`, if
+present in the map, represents whole-project ownership and isn't a named
+partial you can release or transfer.
+
+### Release ownership
+
+Release all ownership held by a named partial:
+
+```bash
+railway config partials release operations --dry-run
+railway config partials release operations
+```
+
+To release selected resources, repeat `--resource` with exact addresses from
+`partials list`:
+
+```bash
+railway config partials release operations \
+  --resource service.api --resource service.admin --dry-run
+```
+
+Omitting `--resource` selects the entire partial. Every selected address must
+belong to the source partial. An unknown partial, an empty selection, or an
+address owned by another partial fails without changing ownership.
+
+### Transfer ownership
+
+Move selected resources from one named partial to another:
+
+```bash
+railway config partials transfer legacy-ops operations \
+  --resource service.api --resource service.admin --dry-run
+```
+
+Remove `--dry-run` to review the addresses and confirm the transfer. Omit
+`--resource` to transfer the entire source partial. The destination can be a
+new or existing partial, but it must differ from the source. Both names use
+the [named partial format](/infrastructure-as-code#multi-repo-projects).
+
+### Confirm ownership changes
+
+Release and transfer accept these options:
+
+| Flag | Description |
+|------|-------------|
+| `--resource <ADDRESS>` | Select one owned address. Repeat to select several, or omit for the entire source partial |
+| `--dry-run` | Preview exact affected addresses without changing ownership |
+| `--yes` | Confirm the change and proceed without prompting |
+| `--json` | Output JSON and execute without prompting, unless `--dry-run` is also set |
+| `--base-config-etag <ETAG>` | Require the `configEtag` from `list` or the `baseConfigEtag` from a previous dry run |
+
+Interactive execution previews every affected address and asks for confirmation,
+defaulting to no. Non-interactive execution requires `--yes` or `--json`.
+You can't combine `--dry-run` with `--yes`.
+
+<Banner variant="warning">
+`release --json` and `transfer --json` change ownership without prompting.
+Add `--dry-run` when you only need a machine-readable preview.
+</Banner>
+
+JSON output includes `affectedResources`, the complete resulting `iacPartials`
+map, `wholeProjectAvailable`, and `dryRun`. For a dry run, the map and
+availability describe the predicted result. Execution returns the result
+reported by Railway.
+
+### Pin an ownership preview in CI
+
+Each operation sends the exact reviewed addresses and the preview's
+`Environment.configEtag`. If configuration or ownership changes between review
+and execution, the operation fails. Run a fresh dry run and review the result
+before retrying.
+
+For separate review and execution steps, capture the JSON preview and pass its
+`baseConfigEtag` when executing the same command. This example uses `jq` to
+read the token:
+
+```bash
+railway config partials release operations --dry-run --json \
+  > ownership-preview.json
+
+# After reviewing ownership-preview.json:
+railway config partials release operations \
+  --base-config-etag "$(jq -r .baseConfigEtag ownership-preview.json)" --json
+```
+
+Ownership operations reuse the configuration plan's etag, but don't create a
+resource change set. They don't use `config plan --out` or `config apply --plan`
+artifacts and don't require a `.railway/` source tree. Changing ownership makes
+previously saved configuration plans stale. Create a fresh configuration plan
+before your next apply.
+
+### Update the authoring configuration
+
+After a transfer, update the source and destination configurations to match the
+new ownership, then re-plan. Applying an old named-partial configuration can
+reclaim released resources. To restore ownership later, declare the resources
+in a named partial and use the ordinary `railway config plan` and
+`railway config apply` workflow.
+
+Whole-project planning becomes available only after all named ownership is
+cleared. Remove the named partial export and create a fresh whole-project plan.
+Include every resource you want to keep, since an ordinary whole-project apply
+can delete resources omitted from the file. See
+[Return to one file per project](/infrastructure-as-code#return-to-one-file-per-project).
 
 ## Related
 

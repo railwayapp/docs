@@ -15,13 +15,10 @@ const commands: [CloudAgentTool, CloudAgentMode, string][] = [
   ["grok", "remote", "railway code --grok"],
   ["railway", "remote", "railway code --railway"],
   ["opencode", "remote", "railway code --opencode remote"],
-  ["opencode2", "remote", "railway code --opencode2 remote"],
   ["claude", "desktop", "railway ca desktop --claude"],
   ["codex", "desktop", "railway ca desktop --codex"],
   ["opencode", "desktop", "railway ca desktop --opencode"],
-  ["opencode2", "desktop", "railway ca desktop --opencode2"],
   ["opencode", "local", "railway code --opencode"],
-  ["opencode2", "local", "railway code --opencode2"],
 ];
 
 for (const [tool, mode, command] of commands) {
@@ -44,8 +41,20 @@ test("terminal-only agents are excluded from local app setup", () => {
   }
 });
 
-test("local terminal connections are offered only for the two OpenCode editions", () => {
+test("local terminal connections are offered only for OpenCode", () => {
   for (const tool of ["claude", "codex", "grok", "railway"] as const) {
     assert.throws(() => cloudAgentCommand(tool, "local"));
   }
+});
+
+test("there is a single OpenCode entry and no separate Beta edition", () => {
+  assert.equal(
+    cloudAgentTools.filter(tool => tool.id.startsWith("opencode")).length,
+    1,
+  );
+  assert.equal(
+    cloudAgentClients.filter(client => client.id.startsWith("opencode"))
+      .length,
+    1,
+  );
 });

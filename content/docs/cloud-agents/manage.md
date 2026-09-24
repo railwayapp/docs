@@ -56,20 +56,19 @@ railway ca create my-agent --project <project-id> --environment production
 
 New OpenCode agents have recognizable lowercase names:
 
-| Edition | Example | Pattern |
-|---------|---------|---------|
+| Coding agent | Example | Pattern |
+|--------------|---------|---------|
 | OpenCode | `oc-railg-3ed` | `oc-` + project label + three random letters/digits |
-| OpenCode2 Beta | `oc2-railg-3ed` | `oc2-` + project label + three random letters/digits |
 
 The label uses up to five letters or digits from the project name. When launching into your saved default Cloud Agents project, it comes from your local repository or directory name. Spaces and punctuation are removed. Existing agents keep their names.
 
 Override the generated name when creating through `railway code`:
 
 ```bash
-railway code --opencode2 --new --name beta-review
+railway code --opencode --new --name reviews
 ```
 
-The naming pattern also applies to new OpenCode agents created through Desktop setup or Railway CA. A name helps you recognize an agent; server discovery checks its configuration and edition rather than relying on the prefix.
+The naming pattern also applies to new OpenCode agents created through Desktop setup or Railway CA. A name helps you recognize an agent; server discovery checks its configuration rather than relying on the prefix.
 
 ## Work in terminal sessions
 
@@ -93,9 +92,9 @@ All sessions on an agent share its disk. Use separate working directories or Git
 
 ## Connect from a desktop app
 
-Use the guides for [Claude Desktop](/cloud-agents/claude), [Codex Desktop](/cloud-agents/codex), [OpenCode](/cloud-agents/opencode), and [OpenCode2 Beta](/cloud-agents/opencode/beta). Desktop chats and OpenCode server sessions are managed by those apps; the Railway CA tree lists its terminal sessions.
+Use the guides for [Claude Desktop](/cloud-agents/claude), [Codex Desktop](/cloud-agents/codex), and [OpenCode](/cloud-agents/opencode). Desktop chats and OpenCode server sessions are managed by those apps; the Railway CA tree lists its terminal sessions.
 
-For OpenCode terminal clients, `railway code --opencode connect` and `railway code --opencode2 connect` discover compatible running servers across your projects. A named connection can wake a saved server. See each client guide for details.
+For OpenCode terminal clients, `railway code --opencode connect` discovers compatible running servers across your projects. A named connection can wake a saved server. See each client guide for details.
 
 ## Sleep, wake, and delete
 

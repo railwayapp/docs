@@ -4,7 +4,6 @@ export const cloudAgentTools = [
   { id: "grok", name: "Grok" },
   { id: "railway", name: "Railway Agent" },
   { id: "opencode", name: "OpenCode" },
-  { id: "opencode2", name: "OpenCode2 Beta" },
 ] as const;
 
 export type CloudAgentTool = (typeof cloudAgentTools)[number]["id"];
@@ -32,21 +31,13 @@ export const cloudAgentClients = [
     name: "OpenCode",
     icon: "OpenCode",
     description:
-      "Connect Desktop or your local terminal to a Railway server. Includes OpenCode2 Beta.",
+      "Connect OpenCode Desktop or your local terminal client to a Railway server.",
     href: "/cloud-agents/opencode",
-  },
-  {
-    id: "opencode2",
-    name: "OpenCode2 Beta",
-    icon: "OpenCode",
-    description:
-      "Connect Beta Desktop or its local terminal client to a Railway server.",
-    href: "/cloud-agents/opencode/beta",
   },
 ] as const;
 
 export function isOpenCode(tool: CloudAgentTool) {
-  return tool === "opencode" || tool === "opencode2";
+  return tool === "opencode";
 }
 
 export function supportsLocalApp(tool: CloudAgentTool) {

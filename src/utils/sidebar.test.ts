@@ -10,14 +10,13 @@ import {
 import type { ISidebarItem } from "@/types";
 
 const ai = sidebarContent.find(section => section.slug === "/ai")!;
-const beta = "/cloud-agents/opencode/beta";
+const opencode = "/cloud-agents/opencode";
 
-test("a direct Beta link expands both Cloud agents and OpenCode", () => {
-  assert.deepEqual(containingSubsectionSlugs(ai.content, beta), [
+test("a direct OpenCode link expands Cloud agents", () => {
+  assert.deepEqual(containingSubsectionSlugs(ai.content, opencode), [
     "/cloud-agents",
-    "/cloud-agents/opencode",
   ]);
-  assert.ok(ai.content.some(item => sidebarItemContainsPage(item, beta)));
+  assert.ok(ai.content.some(item => sidebarItemContainsPage(item, opencode)));
   assert.deepEqual(
     containingSubsectionSlugs(ai.content, "/cloud-agents/claude"),
     ["/cloud-agents"],
@@ -28,10 +27,10 @@ test("a direct Beta link expands both Cloud agents and OpenCode", () => {
   );
 });
 
-test("Beta breadcrumbs include OpenCode and existing breadcrumbs retain their hierarchy", () => {
+test("OpenCode breadcrumbs follow the Cloud agents hierarchy and existing breadcrumbs retain theirs", () => {
   assert.deepEqual(
-    buildBreadcrumbs(beta).map(item => item.url),
-    ["/", "/ai", "/cloud-agents", "/cloud-agents/opencode", beta],
+    buildBreadcrumbs(opencode).map(item => item.url),
+    ["/", "/ai", "/cloud-agents", opencode],
   );
   assert.deepEqual(
     buildBreadcrumbs("/ai/codex-plugin").map(item => item.url),
@@ -39,13 +38,14 @@ test("Beta breadcrumbs include OpenCode and existing breadcrumbs retain their hi
   );
 });
 
-test("previous and next page order includes the nested Beta page once", () => {
+test("previous and next page order includes the OpenCode page once", () => {
   const pages = flattenSidebarItems(ai.content).map(page => page.slug);
-  const position = pages.indexOf(beta);
+  const position = pages.indexOf(opencode);
   assert.ok(position > 0);
-  assert.equal(pages[position - 1], "/cloud-agents/opencode");
+  assert.equal(pages[position - 1], "/cloud-agents/codex");
   assert.equal(pages[position + 1], "/cloud-agents/manage");
-  assert.equal(pages.filter(slug => slug === beta).length, 1);
+  assert.equal(pages.filter(slug => slug === opencode).length, 1);
+  assert.equal(pages.includes("/cloud-agents/opencode/beta"), false);
 });
 
 test("nested named sections and external links do not become internal pages", () => {

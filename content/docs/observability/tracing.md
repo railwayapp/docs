@@ -181,6 +181,29 @@ Find traces from one deployment that took longer than half a second.
 @deployment:<deployment_id> AND @duration:>500
 ```
 
+## Command line
+
+The [`railway trace`](/cli/trace) command changes the same settings as the Tracing setup panel and lists the same traces. Link a project first, or pass `--project` and `--environment`.
+
+```bash
+railway trace status --all                            # Project default, per-service state, last spans
+railway trace enable --service api                    # Pin tracing on for a service
+railway trace enable --auto-instrument                # Tracing plus automatic instrumentation
+railway trace enable --project-default --sample-rate 0.25
+railway trace disable                                 # Pin tracing off for the linked service
+railway trace inherit                                 # Follow the project default again
+```
+
+The sample rate is a fraction from 0 to 1 on the command line, where the dashboard shows a percentage. Tracing is a service-wide setting, so `--environment` only scopes the commands that read spans.
+
+```bash
+railway trace list --since 30m --errors               # Recent traces with an error span
+railway trace list --all --filter '@http.route:/checkout @duration:>500'
+railway trace get 4bf92f3577b34da6a3ce929d0e0e4736     # One trace as a span tree
+```
+
+`list` takes the same [filter syntax](#search-traces) as the Traces page. Pass `--json` to get one trace or span per line for scripts and agents. See the [command reference](/cli/trace) for every option.
+
 ## Retention and limits
 
 Traces are retained for the same period as logs on your plan. See [log retention](/observability/logs#log-retention).
@@ -199,6 +222,7 @@ The edge traces a request on its own, but a trace only shows what happens inside
 - An OpenTelemetry SDK gives complete traces with custom spans. See the guide for your language:
   - [Node.js](/observability/tracing/nodejs)
   - [Deno](/observability/tracing/deno)
+  - [Functions](/observability/tracing/functions)
   - [Python](/observability/tracing/python)
   - [Go](/observability/tracing/go)
   - [Java](/observability/tracing/java)
@@ -209,7 +233,7 @@ The edge traces a request on its own, but a trace only shows what happens inside
 
 ## Troubleshooting
 
-**No traces appear.** Check that tracing is on for the service in the **Tracing setup** panel, and that the service has a public domain. If you set a low sample rate on a service with little traffic, it can take a while for a request to be sampled. Force one with a `traceparent` header as shown in [Configure the sample rate](#configure-the-sample-rate).
+**No traces appear.** Check that tracing is on for the service in the **Tracing setup** panel or with `railway trace status`, and that the service has a public domain. If you set a low sample rate on a service with little traffic, it can take a while for a request to be sampled. Force one with a `traceparent` header as shown in [Configure the sample rate](#configure-the-sample-rate).
 
 **Edge spans appear, but the app's spans don't.** Railway adds the `OTEL_*` variables on the first deploy after you enable tracing, so redeploy the service. Check that the app loads the SDK before it starts serving requests, and that the service doesn't set its own `OTEL_EXPORTER_OTLP_ENDPOINT`. The **App** indicator in the Tracing setup panel turns green as soon as the first span from the app arrives.
 
@@ -221,6 +245,7 @@ The edge traces a request on its own, but a trace only shows what happens inside
 
 ## See also
 
+- [railway trace](/cli/trace) - enable tracing and read traces from the CLI
 - [Logs](/observability/logs) - HTTP logs record every request, sampled or not
-- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry) - send telemetry to your own collector instead
+- [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry) - a step-by-step walkthrough from enabling tracing to custom spans
 - [Connect a Third-Party Observability Tool](/guides/third-party-observability) - ship traces to hosted backends for longer retention
