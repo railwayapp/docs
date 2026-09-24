@@ -39,6 +39,23 @@ include as much information as you can, including but not limited to:
 - Logs (build and/or deploy)
 - Link to GitHub repo/code or template you're using, if applicable
 
+### Using an AI assistant
+
+If an assistant is helping you write your request, give it our
+[instructions for preparing a support request](https://station.railway.com/support-agent-instructions.md).
+They help it explain the problem in plain language, include relevant evidence,
+and describe why you need support. Review the draft before posting, check that
+its claims match what happened, and remove secrets or unrelated personal details.
+
+Already have a thread? Share the latest support response with your assistant and
+use the [reply instructions](https://station.railway.com/support-agent-reply-instructions.md).
+A useful reply answers the outstanding questions, explains what you tried and
+what happened, and says what is still unresolved. There is no need to repeat the
+original request. If the problem is fixed, a short confirmation is enough.
+
+Assistants can discover both resources through
+[Central Station's agent index](https://station.railway.com/llms.txt).
+
 ## Application-level support
 
 Railway does not provide application-level support. We are unable to debug
