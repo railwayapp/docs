@@ -7,6 +7,21 @@ New users can take the platform for a spin by starting a free trial. The trial g
 
 After 30 days passes or $5 is spent, the free trial reverts to the [Free](/pricing/plans#plans) plan, which provides $1 of free credit per month. The credit does not roll over month to month.
 
+## Try without an account
+
+You can try Railway before signing up. Run `ssh railway.new` to get a free Linux VM with coding agents preinstalled and a preview URL, with no account or credit card. Railway identifies you by your SSH key.
+
+| Limit        | Value                        |
+| ------------ | ---------------------------- |
+| VM size      | 2 vCPU, 2 GB RAM             |
+| Build time   | 60 minutes                   |
+| Claim window | 24 hours                     |
+| Boxes        | 3 per IP address per day     |
+
+Compute for an unclaimed box is free. To keep it, open the claim link from the welcome message and sign up; the box moves into your account with the same VM, files, and URL. Unclaimed boxes are deleted with their files. See [railway.com/free-vm](https://railway.com/free-vm) for more.
+
+When demand is high, Railway caps how many free VMs run at once in each region. If you hit the cap, you'll see "Anonymous trials are temporarily disabled. Try again shortly, or sign up to keep building." That attempt doesn't count against your daily limit.
+
 ## Full VS limited trial
 
 Your trial experience depends on whether Railway can verify your account.
