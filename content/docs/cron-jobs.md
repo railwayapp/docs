@@ -69,10 +69,13 @@ Note that schedules are based on UTC (Coordinated Universal Time).
 
 ## Frequency
 
-Scheduled runs must be at least 5 minutes apart in UTC. For example,
-`*/7 * * * *` is invalid because 00:56 and 01:00 are only 4 minutes apart.
+Scheduled runs must be at least 5 minutes apart in UTC. This applies to every
+pair of runs, including when the hour changes.
 
-This check also includes the gap across midnight, even for schedules that skip days.
+- `*/5 * * * *` is valid: it runs every 5 minutes, including from 10:55 to 11:00.
+- `*/7 * * * *` is not valid: it runs at 10:00, 10:07, 10:14, and so on through
+  10:56. The pattern starts over at 11:00, leaving only 4 minutes between those
+  last two runs.
 
 ## Examples
 
