@@ -7,19 +7,19 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "../components/breadcrumb";
-import { Footer } from "../components/footer";
-import { InlineTOC } from "../components/inline-toc";
-import { Link } from "../components/link";
-import { PageActions } from "../components/page-actions";
-import { SEO } from "../components/seo";
-import { TOC, TOCProvider, type TOCItemType } from "../components/toc";
-import { sidebarContent } from "../data/sidebar";
-import { FrontMatter, ISidebarContent, IPage } from "../types";
+} from "@/components/breadcrumb";
+import { Footer } from "@/components/footer";
+import { InlineTOC } from "@/components/inline-toc";
+import { Link } from "@/components/link";
+import { PageActions } from "@/components/page-actions";
+import { SEO } from "@/components/seo";
+import { TOC, TOCProvider, type TOCItemType } from "@/components/toc";
+import { sidebarContent } from "@/data/sidebar";
+import { FrontMatter, ISidebarContent, IPage } from "@/types";
 import { Props as PageProps } from "./page";
-import { extractHeadersFromMarkdown, extractFAQsFromMarkdown, buildBreadcrumbs } from "../utils/seo";
-import { flattenSidebarItems } from "../utils/sidebar";
-import { CopyableCodeProvider } from "../contexts/copyable-code-context";
+import { extractHeadersFromMarkdown, extractFAQsFromMarkdown, buildBreadcrumbs } from "@/utils/seo";
+import { flattenSidebarItems } from "@/utils/sidebar";
+import { CopyableCodeProvider } from "@/contexts/copyable-code-context";
 
 export interface Props extends PageProps {
   frontMatter: FrontMatter;
