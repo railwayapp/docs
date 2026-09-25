@@ -69,7 +69,20 @@ Note that schedules are based on UTC (Coordinated Universal Time).
 
 ## Frequency
 
-The shortest time between successive executions of a cron job cannot be less than 5 minutes.
+Every pair of consecutive scheduled runs must be at least 5 minutes apart in UTC.
+This includes runs across hour and midnight boundaries. For example, `*/7 * * * *`
+is rejected because its runs at 00:56 and 01:00 UTC are only 4 minutes apart.
+Use a schedule such as `*/5 * * * *` or `*/15 * * * *` instead.
+
+Validation also checks the gap from the last run of the day to the first run of
+the next day, even if your schedule doesn't run on consecutive days. For example,
+`0,59 0,23 * * 1` is rejected because of the 23:59 to 00:00 gap.
+
+Existing active schedules that don't meet these rules keep running and show a warning
+in the dashboard. You can redeploy with the same schedule, but a new or changed
+schedule must pass validation. A new or changed schedule that runs too frequently
+in `railway.json` or `railway.toml` fails the deployment with an error identifying
+the runs that are too close together.
 
 ## Examples
 
