@@ -69,7 +69,13 @@ Note that schedules are based on UTC (Coordinated Universal Time).
 
 ## Frequency
 
-The shortest time between successive executions of a cron job cannot be less than 5 minutes.
+Scheduled runs must be at least 5 minutes apart in UTC. This applies to every
+pair of runs, including when the hour changes.
+
+- `*/5 * * * *` is valid: it runs every 5 minutes, including from 10:55 to 11:00.
+- `*/7 * * * *` is not valid: it runs at 10:00, 10:07, 10:14, and so on through
+  10:56. The pattern starts over at 11:00, leaving only 4 minutes between those
+  last two runs.
 
 ## Examples
 
