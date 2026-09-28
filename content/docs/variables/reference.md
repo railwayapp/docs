@@ -66,7 +66,7 @@ These variables are provided if the deploy originated from a GitHub trigger.
 
 ### Tracing variables
 
-These variables are provided to deployments of a service with [tracing](/observability/tracing) enabled. They configure an OpenTelemetry SDK to export spans to Railway; a value you set yourself takes precedence.
+These variables are provided to deployments of a service with [tracing](/observability/tracing) enabled in the deployment's environment. They configure an OpenTelemetry SDK to export spans to Railway; a value you set yourself takes precedence.
 
 | Name                          | Description                                                                                                              |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -75,8 +75,6 @@ These variables are provided to deployments of a service with [tracing](/observa
 | `OTEL_EXPORTER_OTLP_HEADERS`  | A header the receiver requires on every export                                                                           |
 | `OTEL_SERVICE_NAME`           | The name of the service in Railway                                                                                       |
 | `OTEL_SERVICE_VERSION`        | The commit SHA of the deployment, or the deployment ID for image and CLI deployments                                     |
-| `OTEL_TRACES_SAMPLER`         | `parentbased_traceidratio`. Only when the project sets its own sample rate                                               |
-| `OTEL_TRACES_SAMPLER_ARG`     | The project's sample rate as a fraction. Only when the project sets its own sample rate                                  |
 
 See [Provided variables](/observability/tracing#provided-variables) for how the SDK picks them up and how to keep exporting to your own collector.
 

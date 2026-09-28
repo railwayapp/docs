@@ -7,7 +7,7 @@ Tracing follows a single request from Railway's edge, through your service, and 
 
 **Note:** This is a preview feature under active development.
 
-Railway records the edge's part of every sampled request without changes to your code. To see what happens inside your service, instrument it with an OpenTelemetry SDK or turn on [automatic instrumentation](/observability/tracing/automatic-instrumentation).
+Railway records the edge's part of every request to a traced service without changes to your code. To see what happens inside your service, instrument it with an OpenTelemetry SDK or turn on [automatic instrumentation](/observability/tracing/automatic-instrumentation).
 
 ## How it works
 
@@ -15,7 +15,7 @@ A trace is a tree of spans. Each span records one unit of work with a start time
 
 On Railway, a traced request passes through three components:
 
-1. **Edge.** When a request for a traced service arrives at Railway's edge, the edge decides whether to sample it. For a sampled request, the edge records a server span with the method, path, response status, cache result, and upstream, and forwards a W3C `traceparent` header to your service.
+1. **Edge.** When a request for a traced service arrives at Railway's edge, the edge records a server span with the method, path, response status, cache result, and upstream, and forwards a W3C `traceparent` header to your service.
 2. **Proxy.** The ingress proxy in your service's region routes the request to one of its replicas and adds a span for that hop.
 3. **Service.** If your app runs an OpenTelemetry SDK, the SDK reads the `traceparent` header, continues the trace, and exports its spans to Railway's collector. Requests your service makes to other services carry the same header, so their spans join the trace as well.
 
@@ -25,41 +25,30 @@ The receiver accepts traces only, over OTLP/HTTP and OTLP/gRPC. It doesn't accep
 
 ## Enable tracing
 
-Tracing is configured from the **Tracing setup** panel on the Traces page. The panel holds the project default, the sample rate, and a per-service override, and it shows for each service when the edge and the app last exported a span, so you can watch the first spans arrive.
+Tracing is set per service and per environment. Each service has two switches in every environment: **Traced**, which makes the edge trace requests to the service and adds the OpenTelemetry [variables](#provided-variables) on its next deploy, and **Automatic instrumentation**, which instruments the service's processes without code changes and only takes effect while the service is traced. Every request to a traced service is traced. There is no project-wide setting and no sample rate.
 
-1. Navigate to the **Traces** tab in your project's top navigation.
-2. Click **Tracing setup** to open the panel. It opens on its own while the environment has no traces yet.
-3. Under **Project**, toggle **Trace requests by default** on.
-4. Optional: enter a **Sample rate**. Leave it empty to trace every request, Railway's default.
+1. Navigate to the **Traces** tab in your project's top navigation. The Traces page follows the environment selected in the dashboard.
+2. Click **Tracing setup** to open the panel. It opens on its own while the environment has no traces yet, and its subtitle names the environment the settings apply to.
+3. Turn on the **Traced** switch in the row of each service you want traced.
+4. Pick **Automatic instrumentation** or **Manual instrumentation** in the same row to say how the service exports its own spans. See [Instrument your service](#instrument-your-service).
 
-Once the project default is on, every service without an override is traced.
+The panel lists every service in the environment except databases, and shows for each when the edge and the app last exported a span, so you can watch the first spans arrive. A service without a public domain is marked as such: the edge never sees its requests, so only the spans it exports itself appear.
 
-### Override a service
-
-Each service in the panel's service table has a **Traced** switch. Moving it away from what the project default gives the service stores an override for that service; moving it back clears the override again. Use an override to trace one service while the project default is off, or to leave a noisy service out.
-
-The same setting is on the service itself under **Settings → Tracing**, as a selector with three choices: **Project default**, **On** and **Off**. The selector shows the effective state and sample rate underneath.
-
-The panel lists every service in the environment except databases. A service without a public domain is marked as such: the edge never sees its requests, so only the spans it exports itself appear.
+The switches belong to the environment you are looking at. Tracing a service in `production` doesn't trace it in `staging`; switch environment and turn it on there as well. The service's **Settings → Tracing** section links to the same panel.
 
 ### What happens when you enable tracing
 
-- The edge starts tracing requests to the service's domains right away.
-- On the next deploy, Railway adds the OpenTelemetry [variables](#provided-variables) to the service. An app that runs an OpenTelemetry SDK exports spans from that deploy on.
+- The edge starts tracing requests to the service's domains in that environment right away.
+- On the next deploy in that environment, Railway adds the OpenTelemetry [variables](#provided-variables) to the service. An app that runs an OpenTelemetry SDK exports spans from that deploy on.
 - A service without a public domain never receives requests from the edge, so it has no edge spans. Its own spans still appear in traces that other services propagate to it over the [private network](/networking/private-networking).
 
-## Configure the sample rate
+### Infrastructure as Code
 
-The sample rate is the percentage of client-facing requests the edge traces. It's set once per project and applies to every traced service in it.
+In [Infrastructure as Code](/infrastructure-as-code/reference#tracing) the same two switches are the service's `tracing` block, and `railway config pull` renders `tracing: { enabled: true, autoInstrumentation: true }` for a traced service. The SDKs don't accept the field in `service()` yet; see the reference for what that means for `railway config plan`.
 
-- Enter a value from 0 to 100 in **Sample rate** under **Project** in the Tracing setup panel. Decimals are allowed, so `0.5` traces one request in 200.
-- Leave the field empty to use Railway's default, which traces 100% of requests. Lower the rate for a service with heavy traffic to stay within the span limits below and keep the Traces page focused.
+## Force or suppress a trace
 
-The edge makes the sampling decision once per request and passes it along in the `traceparent` header. Requests the edge doesn't sample carry a header with the sampled flag cleared, so an SDK with the default parent-based sampler records nothing for them. Your service doesn't need its own sampling configuration.
-
-The rate also applies to traces your service starts on its own: a cron job, a queue consumer, or a request over the private network that arrives without a `traceparent` header. When the project sets a rate, Railway adds `OTEL_TRACES_SAMPLER=parentbased_traceidratio` and `OTEL_TRACES_SAMPLER_ARG` with the rate as a fraction to the service's [variables](#provided-variables) on its next deploy, so the SDK samples those root spans at the same rate while still following the edge's decision for everything the edge saw. With the default rate, Railway adds neither variable, and the SDK's own default records every root span.
-
-If a client sends its own `traceparent` header, the edge follows that header's sampled flag instead of drawing against the sample rate. A request whose header has the sampled flag set is always traced, and one whose flag is clear never is. This lets an instrumented client start a trace that continues into Railway, and lets you force a trace for a single request while debugging:
+The edge writes its decision into the `traceparent` header it forwards, and an SDK with the default parent-based sampler follows it. If a client sends its own `traceparent` header, the edge follows that header's sampled flag instead: a request whose flag is set is traced, and one whose flag is clear is not. This lets an instrumented client start a trace that continues into Railway, lets a caller keep a request out of tracing, and lets you check a single request while debugging:
 
 ```bash
 curl -H "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" \
@@ -70,7 +59,7 @@ Generate a new random trace ID (the second field) for each request you force. Re
 
 ## Provided variables
 
-When tracing is enabled for a service, Railway adds these variables on the next deploy. They appear in the service's **Variables** tab with the other variables Railway provides.
+When tracing is enabled for a service in an environment, Railway adds these variables on its next deploy there. They appear in the service's **Variables** tab with the other variables Railway provides.
 
 | Variable | Value |
 |---|---|
@@ -79,12 +68,10 @@ When tracing is enabled for a service, Railway adds these variables on the next 
 | `OTEL_EXPORTER_OTLP_HEADERS` | A header the receiver requires on every export |
 | `OTEL_SERVICE_NAME` | The name of the service in Railway |
 | `OTEL_SERVICE_VERSION` | The commit SHA of the deployment, or the deployment ID for image and CLI deployments |
-| `OTEL_TRACES_SAMPLER` | `parentbased_traceidratio`. Only when the project sets its own [sample rate](#configure-the-sample-rate) |
-| `OTEL_TRACES_SAMPLER_ARG` | The project's sample rate as a fraction, for example `0.25`. Only when the project sets its own sample rate |
 
 Every OpenTelemetry SDK reads these variables, so an SDK configured without an explicit endpoint exports to Railway. Don't hardcode the endpoint or the header in your code, and don't set a different `OTEL_SERVICE_NAME` unless you want spans attributed under another name.
 
-A variable you set yourself takes precedence. If you set `OTEL_EXPORTER_OTLP_ENDPOINT` or `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` on the service, for example to keep exporting to your own collector, Railway adds none of the tracing variables, and your app's spans don't reach the Traces page. The edge still traces requests to the service. If you set either `OTEL_TRACES_SAMPLER` or `OTEL_TRACES_SAMPLER_ARG`, Railway leaves both alone, so your sampler is never combined with Railway's rate.
+A variable you set yourself takes precedence. If you set `OTEL_EXPORTER_OTLP_ENDPOINT` or `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` on the service, for example to keep exporting to your own collector, Railway adds none of the tracing variables, and your app's spans don't reach the Traces page. The edge still traces requests to the service. Railway sets no sampler variables; the edge traces every request, and the SDK's default parent-based sampler follows it.
 
 Many SDKs export metrics and logs to the same endpoint by default. Railway's receiver doesn't accept them, so set these variables on the service to keep the SDK from trying:
 
@@ -186,15 +173,14 @@ Find traces from one deployment that took longer than half a second.
 The [`railway trace`](/cli/trace) command changes the same settings as the Tracing setup panel and lists the same traces. Link a project first, or pass `--project` and `--environment`.
 
 ```bash
-railway trace status --all                            # Project default, per-service state, last spans
-railway trace enable --service api                    # Pin tracing on for a service
+railway trace status --all                            # Every service in the environment, last spans
+railway trace enable --service api                    # Trace a service in the linked environment
 railway trace enable --auto-instrument                # Tracing plus automatic instrumentation
-railway trace enable --project-default --sample-rate 0.25
-railway trace disable                                 # Pin tracing off for the linked service
-railway trace inherit                                 # Follow the project default again
+railway trace enable --all --environment staging      # Every service in staging
+railway trace disable                                 # Stop tracing the linked service
 ```
 
-The sample rate is a fraction from 0 to 1 on the command line, where the dashboard shows a percentage. Tracing is a service-wide setting, so `--environment` only scopes the commands that read spans.
+Tracing is set per service and environment, so every subcommand works in the linked environment or the one you pass with `--environment`.
 
 ```bash
 railway trace list --since 30m --errors               # Recent traces with an error span
@@ -233,7 +219,7 @@ The edge traces a request on its own, but a trace only shows what happens inside
 
 ## Troubleshooting
 
-**No traces appear.** Check that tracing is on for the service in the **Tracing setup** panel or with `railway trace status`, and that the service has a public domain. If you set a low sample rate on a service with little traffic, it can take a while for a request to be sampled. Force one with a `traceparent` header as shown in [Configure the sample rate](#configure-the-sample-rate).
+**No traces appear.** Check that tracing is on for the service in the environment you're looking at, in the **Tracing setup** panel or with `railway trace status`, and that the service has a public domain. Tracing is set per environment, so a service traced in `production` shows no traces in `staging` until you turn it on there too. Send a request and look for the `x-railway-trace-id` response header, as shown in [Find the trace ID of a request](#find-the-trace-id-of-a-request).
 
 **Edge spans appear, but the app's spans don't.** Railway adds the `OTEL_*` variables on the first deploy after you enable tracing, so redeploy the service. Check that the app loads the SDK before it starts serving requests, and that the service doesn't set its own `OTEL_EXPORTER_OTLP_ENDPOINT`. The **App** indicator in the Tracing setup panel turns green as soon as the first span from the app arrives.
 
@@ -241,11 +227,11 @@ The edge traces a request on its own, but a trace only shows what happens inside
 
 **The SDK logs export errors for metrics or logs.** Set `OTEL_METRICS_EXPORTER=none` and `OTEL_LOGS_EXPORTER=none`. The receiver accepts traces only.
 
-**Spans are missing from a busy service.** The service is exporting more than 1,000 spans per 10 seconds per replica. Reduce the span volume by disabling noisy instrumentations, or lower the sample rate.
+**Spans are missing from a busy service.** The service is exporting more than 1,000 spans per 10 seconds per replica. Reduce the span volume by disabling noisy instrumentations, or configure a sampler in the SDK: `OTEL_TRACES_SAMPLER=traceidratio` with `OTEL_TRACES_SAMPLER_ARG` set to a fraction keeps that share of requests. A parent-based sampler follows the edge, which traces every request, so it wouldn't reduce anything.
 
 ## See also
 
 - [railway trace](/cli/trace) - enable tracing and read traces from the CLI
-- [Logs](/observability/logs) - HTTP logs record every request, sampled or not
+- [Logs](/observability/logs) - HTTP logs record every request, traced or not
 - [Instrument an App with OpenTelemetry](/guides/instrument-app-opentelemetry) - a step-by-step walkthrough from enabling tracing to custom spans
 - [Connect a Third-Party Observability Tool](/guides/third-party-observability) - ship traces to hosted backends for longer retention
