@@ -2,8 +2,8 @@ import React from "react";
 import type { IconName } from "@/assets/icons/types";
 import { Icon } from "./icon";
 import { cn } from "@/lib/cn";
-import { useIsMounted } from "../hooks/use-is-mounted";
-import { ThemePreference, useTheme } from "../styles/theme";
+import { useIsMounted } from "@/hooks/use-is-mounted";
+import { ThemePreference, useTheme } from "@/styles/theme";
 
 const themeOptions: {
   value: ThemePreference;

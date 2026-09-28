@@ -2,7 +2,7 @@
 import React from "react";
 import { cn } from "@/lib/cn";
 import { Link } from "./link";
-import { IPage, ISubSection, IExternalLink } from "../types";
+import { IPage, ISubSection, IExternalLink } from "@/types";
 import { Arrow } from "@/components/arrow";
 import { sidebarItemContainsPage, sidebarItemSlug } from "@/utils/sidebar";
 import { Icon } from "./icon";

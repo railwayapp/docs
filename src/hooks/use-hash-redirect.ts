@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+// redirects.ts must remain at the repository root.
+// oxlint-disable-next-line import/no-relative-parent-imports
 import { hashRedirects } from "../../redirects";
 
 export function useHashRedirect() {

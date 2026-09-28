@@ -2,9 +2,9 @@ import { NextPage, GetStaticProps } from "next";
 import { useState, useMemo } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { Link } from "../../components/link";
-import { SEO, baseUrl } from "../../components/seo";
-import { Footer } from "../../components/footer";
+import { Link } from "@/components/link";
+import { SEO, baseUrl } from "@/components/seo";
+import { Footer } from "@/components/footer";
 import { allGuides, Guide } from "content-collections";
 import { cn } from "@/lib/cn";
 

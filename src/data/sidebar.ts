@@ -1,4 +1,4 @@
-import { IPage, ISidebarContent } from "../types";
+import { IPage, ISidebarContent } from "@/types";
 import { slugify } from "@/utils/slugify";
 
 const makePage = (title: string, category?: string, slug?: string): IPage => ({

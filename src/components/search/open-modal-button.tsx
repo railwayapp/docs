@@ -1,6 +1,6 @@
 import { searchStore } from "@/store";
 import React from "react";
-import { Icon } from "../icon";
+import { Icon } from "@/components/icon";
 
 interface OpenModalButtonProps {
   iconOnly?: boolean;
