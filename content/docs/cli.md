@@ -1,4 +1,17 @@
----
+Al YouTube Automation Process
+
+Al YouTube Automation Process
+
+1. n8n Workflow Creation: Create a workflow in n8n.
+
+2. OpenAl Node: Connect and train an OpenAl node with the topic to generate the script (hook, body, CTA).
+
+3. ElevenLabs Node: Connect an ElevenLabs node to generate high-quality voice.
+
+4. Pika Labs or Runway Node: Connect to generate high-quality visuals with character consistency and audio sync.
+
+5. YouTube Data v3 API Node: Connect to auto-post the generated video to YouTube.
+6. ---
 title: CLI
 description: Learn how to install and use the Railway CLI to manage your projects.
 ---
