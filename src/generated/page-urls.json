@@ -110,6 +110,7 @@
   "/databases",
   "/databases/build-a-database-service",
   "/databases/database-view",
+  "/databases/mongo-ha",
   "/databases/mongodb",
   "/databases/mysql",
   "/databases/mysql-ha",

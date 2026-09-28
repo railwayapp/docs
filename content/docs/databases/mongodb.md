@@ -44,6 +44,10 @@ _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resour
 
 Since the deployed container is pulled from the official [MongoDB](https://hub.docker.com/_/mongo) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/mongo).
 
+## High availability
+
+A MongoDB service can be converted into a high-availability replica set with automatic failover from its **Database → Config → High Availability** section. See [Upgrading MongoDB to High Availability](/databases/mongo-ha).
+
 ## Backup and monitoring
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
