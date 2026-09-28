@@ -79,7 +79,9 @@ After all deployments reach a running state, wait for the set to form and for th
 
 ## Failover
 
-Failover is automatic. When the primary becomes unreachable, the remaining members hold an election. Once a majority agrees, the set elects a new primary and HAProxy routes connections to it after its health checks detect the change. Recovery time depends on election and health-check timing. If the set loses its majority, writes remain unavailable until a majority is restored. In-flight connections to the old primary are dropped; clients that reconnect resume against the new primary without any configuration change, because they connect through HAProxy. When the old primary comes back, it rejoins the set as a secondary and catches up automatically.
+Failover is automatic. When the primary becomes unreachable, the remaining members hold an election. Once a majority agrees, the set elects a new primary and HAProxy routes connections to it after its health checks detect the change. Recovery time depends on election and health-check timing. If the set loses its majority, writes remain unavailable until a majority is restored. In-flight connections to the old primary are dropped; clients that reconnect resume against the new primary without any configuration change, because they connect through HAProxy. When the old primary comes back, it rejoins the set as a secondary and catches up while the required history is still available in the oplog. A member that falls behind beyond that history needs a full resynchronization; the cluster reports this condition but does not automatically rebuild the member.
+
+Use `w: "majority"` and journaling for writes that need durable majority acknowledgement. HA does not eliminate timeouts: slow storage or an unavailable majority can delay acknowledgement even while the nodes are running. A write-concern timeout does not undo a write that has already reached the database, so applications must handle an uncertain outcome and use idempotent retries. See [MongoDB write concern](https://www.mongodb.com/docs/v8.0/reference/write-concern/).
 
 To move the primary role back onto your original node deliberately (for example, after a failover, or before reverting), open the cluster overview and use **Make Leader**. This performs a coordinated step-down with the same brief connection drop as a failover.
 
@@ -89,7 +91,7 @@ You can change the number of replicas after conversion from the cluster overview
 
 ## Backups and restore
 
-Each data node's volume carries the same backup schedules your standalone service had. Restoring a backup from the cluster view restores the same snapshot to every data node. The set reforms from the restored data, and any members the snapshot no longer accounts for are re-added automatically.
+Each data node's volume carries the same backup schedules your standalone service had. Restoring a backup from the cluster view restores the same snapshot to every data node. The set reforms from the restored data, and any members the snapshot no longer accounts for are re-added automatically. This is snapshot restore; MongoDB HA does not provide continuous backup or point-in-time recovery.
 
 ## Revert to standalone
 
