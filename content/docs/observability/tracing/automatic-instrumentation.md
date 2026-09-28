@@ -33,7 +33,7 @@ Enable automatic instrumentation on a service or run an SDK in it, not both. Two
 Automatic instrumentation is a per-service setting. It only takes effect while tracing is on for the service.
 
 1. Navigate to the **Traces** tab in your project and click **Tracing setup**.
-2. [Enable tracing](/observability/tracing#enable-tracing) for the service, either through the project default or the service's **Traced** switch.
+2. [Enable tracing](/observability/tracing#enable-tracing) for the service with its **Traced** switch, in the environment you're configuring.
 3. In the service's row, pick **Automatic instrumentation** and confirm. **Manual instrumentation**, the other choice, means the service exports its own spans with an SDK.
 
 The same setting is on the service under **Settings → Tracing** as the **Best-effort automatic tracing** switch.

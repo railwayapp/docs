@@ -10,7 +10,7 @@ tags:
 topic: infrastructure
 ---
 
-A trace follows one request from Railway's edge, through your service, and into the services it calls. Railway's built-in [tracing](/observability/tracing) starts the trace at the edge and receives OpenTelemetry spans from your services, so there is nothing to deploy and no backend to run. This guide enables tracing for a project, adds spans from inside a service with automatic instrumentation or an OpenTelemetry SDK, tunes the sample rate, and finds the trace behind a request a user reports.
+A trace follows one request from Railway's edge, through your service, and into the services it calls. Railway's built-in [tracing](/observability/tracing) starts the trace at the edge and receives OpenTelemetry spans from your services, so there is nothing to deploy and no backend to run. This guide enables tracing for a service in an environment, adds spans from inside it with automatic instrumentation or an OpenTelemetry SDK, forces a trace for one request, and finds the trace behind a request a user reports.
 
 **Note:** Tracing is a preview feature under active development.
 
@@ -21,14 +21,13 @@ A trace follows one request from Railway's edge, through your service, and into 
 
 ## 1. Enable tracing
 
-Tracing is configured from the **Tracing setup** panel on the Traces page.
+Tracing is configured per service and per environment from the **Tracing setup** panel on the Traces page.
 
-1. Navigate to the **Traces** tab in your project's top navigation.
-2. Click **Tracing setup**. The panel opens on its own while the environment has no traces yet.
-3. Under **Project**, toggle **Trace requests by default** on.
-4. Leave **Sample rate** empty for now. Railway traces every request by default, which is what you want while setting up.
+1. Navigate to the **Traces** tab in your project's top navigation. The page follows the environment selected in the dashboard, so pick the one you're instrumenting first.
+2. Click **Tracing setup**. The panel opens on its own while the environment has no traces yet; its subtitle names the environment.
+3. Turn on the **Traced** switch in the row of the service you're instrumenting. Leave **Manual instrumentation** selected, since the SDK you add below exports the spans.
 
-Every service without an override is now traced. To trace one service only, leave the project default off and turn the service's **Traced** switch on in the panel's service table. The same setting is on the service under **Settings → Tracing**, as a selector with **Project default**, **On**, and **Off**. See [Enable tracing](/observability/tracing#enable-tracing) for how overrides resolve.
+Every request to the service in that environment is now traced. The switch is per environment: when the app later goes to `production`, turn it on there too. See [Enable tracing](/observability/tracing#enable-tracing) for the details.
 
 ## 2. Look at the first traces
 
@@ -138,23 +137,18 @@ To find traces in which one service called another, filter on the caller's clien
 @service:api AND @kind:client
 ```
 
-## 5. Tune the sample rate
+## 5. Trace a specific request
 
-Once traces flow, decide how many requests to keep. The sample rate is the percentage of client-facing requests the edge traces, set once per project.
+The edge traces every request to a traced service and passes its decision along in the `traceparent` header, so an SDK with its default parent-based sampler records exactly what the edge did. There is no sample rate to tune.
 
-1. Open **Tracing setup** and enter a **Sample rate** under **Project**. Decimals are allowed, so `0.5` traces one request in 200.
-2. Leave it empty to keep tracing every request. Lower it for a busy service to stay within the [span limits](/observability/tracing#retention-and-limits) and keep the Traces page focused.
-
-The edge makes the decision once per request and passes it along in the `traceparent` header, so an SDK with its default parent-based sampler records exactly the requests the edge sampled. Traces your service starts on its own, such as a cron job or a queue consumer, follow the same rate: when the project sets one, Railway adds `OTEL_TRACES_SAMPLER=parentbased_traceidratio` and `OTEL_TRACES_SAMPLER_ARG` with the rate as a fraction to the service's variables on the next deploy. See [Configure the sample rate](/observability/tracing#configure-the-sample-rate) for the details.
-
-To trace one specific request regardless of the rate, send a `traceparent` header with the sampled flag set:
+To follow one request end to end, or to start a trace from an instrumented client outside Railway, send a `traceparent` header of your own. The edge follows its sampled flag: set means traced, clear means not.
 
 ```bash
 curl -H "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" \
   https://your-app.up.railway.app/
 ```
 
-Generate a new random trace ID (the second field) for each request you force.
+Generate a new random trace ID (the second field) for each request you force. If a busy service exports more than the [span limits](/observability/tracing#retention-and-limits) allow, disable noisy instrumentations first, or configure a `traceidratio` sampler in the SDK; a parent-based one follows the edge and wouldn't reduce anything.
 
 ## 6. Find the trace behind a problem
 
@@ -176,7 +170,7 @@ Any attribute your instrumentation emits is a filter key, and the input suggests
 
 ## If spans are missing
 
-- **No traces at all.** Check that tracing is on for the service in **Tracing setup** and that the service has a public domain. With a low sample rate and little traffic, force a request with the `traceparent` header above.
+- **No traces at all.** Check that tracing is on for the service in **Tracing setup** for the environment you're looking at, and that the service has a public domain. Send a request and look for the `x-railway-trace-id` response header.
 - **Edge spans only.** Railway adds the `OTEL_*` variables on the first deploy after you enable tracing, so redeploy. Check that the SDK loads before the app starts serving and that the service doesn't set its own exporter endpoint.
 - **The app's spans form their own traces.** The SDK isn't reading `traceparent`. Most SDKs enable the W3C Trace Context propagator by default; the Go SDK needs it set explicitly. Allow the header through any proxy or framework in front of your handlers.
 

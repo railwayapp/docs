@@ -1,9 +1,9 @@
 ---
 title: railway trace
-description: Turn tracing on or off for a service or project, check its status, and read traces from the CLI.
+description: Turn tracing on or off for a service in an environment, check its status, and read traces from the CLI.
 ---
 
-Manage [tracing](/observability/tracing) for a service or project and inspect its traces. `railway trace` changes the same settings as the **Tracing setup** panel on the Traces page and lists the same traces.
+Manage [tracing](/observability/tracing) for the services of an environment and inspect their traces. `railway trace` changes the same settings as the **Tracing setup** panel on the Traces page and lists the same traces.
 
 **Note:** Tracing is a preview feature under active development.
 
@@ -22,9 +22,8 @@ railway trace <COMMAND> [OPTIONS]
 
 | Subcommand | Aliases | Description |
 |------------|---------|-------------|
-| `enable` | | Turn tracing on for a service, or for the project default with `--project-default` |
-| `disable` | | Turn tracing off for a service, or for the project default with `--project-default` |
-| `inherit` | | Clear a service's tracing override so it follows the project default again |
+| `enable` | | Turn tracing on for a service in the environment, or for every service with `--all` |
+| `disable` | | Turn tracing off for a service in the environment, or for every service with `--all` |
 | `status` | | Show tracing settings and when spans were last exported |
 | `list` | `ls` | List traces, newest first |
 | `get` | `show` | Show the spans of one trace as a tree |
@@ -40,9 +39,9 @@ These options apply to every subcommand:
 | `-p, --project <PROJECT_ID>` | Project to use (defaults to the linked project) |
 | `--json` | Output in JSON format |
 
-Tracing is a service-wide setting, not a per-environment one, so `enable`, `disable`, and `inherit` ignore `--environment`. `status`, `list`, and `get` read spans, which belong to an environment, so they use the linked environment or the one you pass. When you pass `--project`, pass `--environment` as well.
+Tracing is set per service and environment, so every subcommand works in one environment: the linked one, or the one you pass with `--environment`. When you pass `--project`, pass `--environment` as well.
 
-Changing tracing needs a user or workspace token. A [project token](/integrations/api#project-token) set as `RAILWAY_TOKEN` can run `status`, `list`, and `get`, but not `enable`, `disable`, or `inherit`.
+Changing tracing needs a user or workspace token. A [project token](/integrations/api#project-token) set as `RAILWAY_TOKEN` can run `status`, `list`, and `get`, but not `enable` or `disable`.
 
 ## Examples
 
@@ -52,7 +51,7 @@ Changing tracing needs a user or workspace token. A [project token](/integration
 railway trace status
 ```
 
-Prints the project default (tracing on or off, and the sample rate) and, for the linked service, whether it's traced, whether the setting is pinned or follows the project, whether automatic instrumentation is on, and when the edge and the app last exported a span.
+Prints, for the linked service in the linked environment, whether it's traced, whether automatic instrumentation is on and active, and when the edge and the app last exported a span.
 
 ### Show status for every service
 
@@ -66,7 +65,7 @@ railway trace status --all
 railway trace enable --service api
 ```
 
-Pins tracing on for the service regardless of the project default. The edge starts tracing requests to the service's domains within seconds. An app that runs an OpenTelemetry SDK gets the [provided variables](/observability/tracing#provided-variables) on its next deploy.
+Turns tracing on for the service in the linked environment. The edge starts tracing requests to the service's domains within seconds. An app that runs an OpenTelemetry SDK gets the [provided variables](/observability/tracing#provided-variables) on its next deploy.
 
 ### Enable tracing with automatic instrumentation
 
@@ -76,13 +75,13 @@ railway trace enable --auto-instrument
 
 Turns on tracing and [automatic instrumentation](/observability/tracing/automatic-instrumentation) for the service in one step. Railway instruments the running processes within about a minute, with no redeploy.
 
-### Enable tracing for the whole project
+### Enable tracing for every service in an environment
 
 ```bash
-railway trace enable --project-default --sample-rate 0.25
+railway trace enable --all --environment staging
 ```
 
-Turns on the project default, so every service without an override is traced, and sets the sample rate to 25% of client-facing requests. Omit `--sample-rate` to keep the current rate. The rate is a fraction from 0 to 1 on the command line and a percentage in the dashboard.
+Turns tracing on for every service in `staging`. Add `--auto-instrument` to switch automatic instrumentation on for all of them as well.
 
 ### Disable tracing for a service
 
@@ -90,15 +89,7 @@ Turns on the project default, so every service without an override is traced, an
 railway trace disable
 ```
 
-Pins tracing off for the linked service. Add `--auto-instrument` to turn automatic instrumentation off with it, or `--project-default` to turn off the project default instead.
-
-### Follow the project default again
-
-```bash
-railway trace inherit
-```
-
-Clears the service's override. The service is traced when the project default is on and not traced when it's off.
+Turns tracing off for the linked service in the linked environment. Add `--auto-instrument` to turn automatic instrumentation off with it, or `--all` to turn tracing off for every service in the environment.
 
 ### List recent traces
 
@@ -131,28 +122,27 @@ railway trace list --json
 railway trace get 4bf92f3577b34da6a3ce929d0e0e4736 --json
 ```
 
-`list --json` prints one trace summary per line and `get --json` one span per line, as newline-delimited JSON like `railway logs --json`. Each span includes its attributes, resource attributes, events, and links. `status`, `enable`, `disable`, and `inherit` print a single JSON document.
+`list --json` prints one trace summary per line and `get --json` one span per line, as newline-delimited JSON like `railway logs --json`. Each span includes its attributes, resource attributes, events, and links. `status`, `enable`, and `disable` print a single JSON document with the environment and the state of each service.
 
 ## Options for `enable`
 
 | Flag | Description |
 |------|-------------|
-| `--auto-instrument` | Also turn on automatic instrumentation for the service. Conflicts with `--project-default` |
-| `--project-default` | Change the project default instead of one service |
-| `--sample-rate <RATE>` | Fraction of client-facing requests the edge traces, from 0 to 1. Requires `--project-default` |
+| `--auto-instrument` | Also turn on automatic instrumentation for the service |
+| `-a, --all` | Change every service in the environment instead of one. Conflicts with `--service` |
 
 ## Options for `disable`
 
 | Flag | Description |
 |------|-------------|
-| `--auto-instrument` | Also turn off automatic instrumentation for the service. Conflicts with `--project-default` |
-| `--project-default` | Change the project default instead of one service |
+| `--auto-instrument` | Also turn off automatic instrumentation for the service |
+| `-a, --all` | Change every service in the environment instead of one. Conflicts with `--service` |
 
 ## Options for `status`
 
 | Flag | Description |
 |------|-------------|
-| `-a, --all` | Show every service in the project. Conflicts with `--service` |
+| `-a, --all` | Show every service in the environment. Conflicts with `--service` |
 
 ## Options for `list`
 
