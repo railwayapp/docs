@@ -18,6 +18,7 @@ Complete the following steps to setup a webhook:
 1. Click on the `Settings` button in the top right-hand corner.
 1. Navigate to the Webhooks tab.
 1. Input your desired webhook URL.
+1. Optional: add custom headers (a name and a value per row) that Railway sends with every request, for example an `Authorization` token. See [Custom headers](#custom-headers).
 1. Optional: specify which events to receive notifications for.
 1. Click `Save Webhook`.
 
@@ -72,13 +73,21 @@ Railway delivers each event as an HTTP `POST` to your webhook URL:
 
 ### Verifying the sender
 
-Webhook payloads are **not** cryptographically signed. To confirm a request came from Railway, include a secret in the webhook URL you configure — for example a hard-to-guess path segment or query parameter — and reject any request that does not carry it.
+Webhook payloads are **not** cryptographically signed. To confirm a request came from Railway, add a [custom header](#custom-headers) with a secret value — for example `Authorization: Bearer <token>` or an `X-Webhook-Secret` header — and reject any request that does not carry it. If your receiver cannot read headers, a hard-to-guess path segment or query parameter in the webhook URL works too, but URLs tend to end up in access logs.
+
+## Custom headers
+
+A webhook can carry up to 20 custom HTTP headers. Railway sends them with every delivery and with `Test Webhook`. Use them for whatever your receiver needs to trust or route the request: a bearer token, an API key, a shared secret, or a header your gateway routes on.
+
+Add them in the **Custom headers** section of the webhook form, one name and one value per row. Header values are stored encrypted and are never shown again: after you save, a row shows its name with an `Unchanged` placeholder in the value field. Leaving that field empty keeps the stored value on the next save; typing a new value replaces it. Remove a row to stop sending that header. The list of webhooks shows header names only.
+
+Header names use the usual HTTP token characters (letters, digits, `-` and `_`) and can be up to 128 characters; values can be up to 4096 characters and cannot contain line breaks. A few names are refused because Railway sets them itself: `Host`, `Content-Type`, `Content-Length`, the hop-by-hop headers (`Transfer-Encoding`, `Connection`, `Keep-Alive`, `Upgrade`, `TE`, `Trailer`, `Expect`), and anything starting with `Proxy-` or `X-Railway-`. Two names that differ only in case count as a duplicate. The form flags a bad row as you type and keeps `Save` and `Test Webhook` disabled until it is fixed.
+
+The same headers can be set through the [MCP server](/ai/mcp-server) with the `create-webhook`, `update-webhook` and `test-webhook` tools, and through the [public API](/integrations/api) on the webhook channel config of `notificationRuleCreate` and `notificationRuleUpdate`. Header values are write-only there as well: reads return the names, and passing `null` as a value on update keeps the stored one.
 
 ## Testing webhooks
 
-The `Test Webhook` button will send a test payload to the specified webhook URL.
-
-Note: For security reasons, test webhooks are sent from the frontend client, which may result in Cross-Origin Resource Sharing (CORS) restrictions. This typically presents as a delivery failure when using the test webhook functionality.
+The `Test Webhook` button sends a sample payload to the URL in the form and shows the HTTP status your endpoint answered with. The request is sent by Railway, not from your browser, and includes the custom headers in the form: rows you typed a value into use that value, and rows left unchanged use the stored value. The test times out after 10 seconds, and a connection error or timeout shows up as a failed test.
 
 ## Muxers: provider-specific webhooks
 
