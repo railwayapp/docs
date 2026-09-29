@@ -10,7 +10,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "railway.com" },
-      { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "res.cloudinary.com", pathname: "/railway/**" },
       { protocol: "https", hostname: "devicons.railway.com" },
     ],
   },
