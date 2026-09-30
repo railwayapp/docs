@@ -5,7 +5,7 @@ description: Export OpenTelemetry traces from a Railway function, a single-file 
 
 [Functions](/functions) run one file of TypeScript on the Bun runtime. Bun doesn't have OpenTelemetry built in, and [automatic instrumentation](/observability/tracing/automatic-instrumentation) doesn't support Bun, so a function exports spans with the OpenTelemetry JavaScript SDK from inside its single file. The SDK reads the variables Railway provides, and a few lines wrap the requests the function handles and makes.
 
-Before you start, [enable tracing](/observability/tracing#enable-tracing) for the function. Railway adds the `OTEL_*` variables on the next deploy, and the SDK reads them.
+Before you start, [enable tracing](/observability/tracing#enable-tracing) for the function in the environment it runs in. Railway adds the `OTEL_*` variables on the next deploy, and the SDK reads them.
 
 ## How a function differs from a service
 
@@ -28,7 +28,7 @@ sdk.start();
 process.on("SIGTERM", () => sdk.shutdown().finally(() => process.exit(0)));
 ```
 
-`NodeSDK` reads `OTEL_EXPORTER_OTLP_ENDPOINT`, `OTEL_EXPORTER_OTLP_PROTOCOL`, `OTEL_EXPORTER_OTLP_HEADERS`, `OTEL_SERVICE_NAME`, and the sampler variables from the variables Railway provides, and exports over OTLP/HTTP. Don't pass an endpoint or a service name in code. The `SIGTERM` handler exports the last batch of spans when Railway replaces the deployment.
+`NodeSDK` reads `OTEL_EXPORTER_OTLP_ENDPOINT`, `OTEL_EXPORTER_OTLP_PROTOCOL`, `OTEL_EXPORTER_OTLP_HEADERS`, and `OTEL_SERVICE_NAME` from the variables Railway provides, and exports over OTLP/HTTP. Don't pass an endpoint or a service name in code. The `SIGTERM` handler exports the last batch of spans when Railway replaces the deployment.
 
 The SDK also exports metrics and logs to the same endpoint by default, and Railway's receiver accepts traces only. Set these two variables on the function:
 
@@ -196,7 +196,7 @@ async function calculateTotal(cart: Cart) {
 
 ## Cron and script functions
 
-A function with a [cron schedule](/cron-jobs), or one that runs to completion without serving requests, receives no request from the edge. Its spans start a new trace on each run. When the project sets a sample rate, the sampler variables make the SDK record these traces at that rate. Without one, every run is recorded.
+A function with a [cron schedule](/cron-jobs), or one that runs to completion without serving requests, receives no request from the edge. Its spans start a new trace on each run. Every run is recorded.
 
 The process exits as soon as the script finishes, before the SDK's batch processor exports on its own. Shut the SDK down at the end so the spans leave the process:
 
