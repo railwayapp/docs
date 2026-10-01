@@ -5,7 +5,16 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 import { rehypeCodeBlock } from "./src/plugins/rehype-code-block";
-import { execSync } from "child_process";
+import { createRequire } from "module";
+import path from "path";
+
+// Loaded at runtime (not bundled into the config) because the helper is
+// CommonJS shared with next-sitemap.config.js and shells out to git. The
+// config is compiled into .content-collections/cache, so resolve from the
+// project root rather than import.meta.url.
+const { lastModifiedForFile } = createRequire(import.meta.url)(
+  path.join(process.cwd(), "git-last-modified.js"),
+) as { lastModifiedForFile: (filePath: string) => string | null };
 
 const pages = defineCollection({
   name: "pages",
@@ -26,16 +35,7 @@ const pages = defineCollection({
       ],
     });
     const filePath = `content/docs/${doc._meta.filePath}`;
-    let lastModified: string | null = null;
-    try {
-      const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
-        encoding: "utf-8",
-        stdio: ["pipe", "pipe", "ignore"],
-      }).trim();
-      lastModified = result || null;
-    } catch {
-      lastModified = null;
-    }
+    const lastModified: string | null = lastModifiedForFile(filePath);
 
     return {
       ...doc,
@@ -84,16 +84,7 @@ const guides = defineCollection({
       ],
     });
     const filePath = `content/guides/${doc._meta.filePath}`;
-    let lastModified: string | null = null;
-    try {
-      const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
-        encoding: "utf-8",
-        stdio: ["pipe", "pipe", "ignore"],
-      }).trim();
-      lastModified = result || null;
-    } catch {
-      lastModified = null;
-    }
+    const lastModified: string | null = lastModifiedForFile(filePath);
 
     return {
       ...doc,

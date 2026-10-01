@@ -1,4 +1,5 @@
 const { redirects } = require("./redirects");
+const { lastModifiedForUrl } = require("./git-last-modified");
 
 // Auto-exclude every redirect source from the sitemap so search engines only
 // index the canonical destination. Wildcard patterns (containing ":") are
@@ -12,6 +13,17 @@ module.exports = {
   generateRobotsTxt: true,
   autoLastmod: false,
   exclude: redirectSources,
+  // Per-page <lastmod> from git history (autoLastmod would stamp every URL
+  // with the build time, which tells crawlers nothing).
+  transform: async (config, path) => {
+    const lastmod = lastModifiedForUrl(path);
+    return {
+      loc: path,
+      changefreq: config.changefreq,
+      priority: config.priority,
+      ...(lastmod && { lastmod }),
+    };
+  },
   robotsTxtOptions: {
     additionalSitemaps: [],
     // Content Signals (https://contentsignals.org): one AI policy across every
