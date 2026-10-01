@@ -88,6 +88,7 @@ export function AgentInstallCommand({ className }: AgentInstallCommandProps) {
   return (
     <div
       data-do11y-code-block
+      data-language="bash"
       className={cn(
         "group/install-command relative my-6 overflow-hidden rounded-lg border border-muted bg-muted-app-subtle",
         className,

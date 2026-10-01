@@ -439,6 +439,7 @@ function QuickInstall({
   return (
     <div
       data-do11y-code-block
+      data-language="bash"
       className="relative overflow-hidden rounded-lg border border-muted bg-muted-app-subtle"
     >
       <div className="flex flex-wrap items-center gap-x-2 gap-y-2 border-b border-muted bg-muted-element/50 px-3 py-2 sm:px-4">

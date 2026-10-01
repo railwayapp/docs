@@ -315,6 +315,7 @@ function TabbedCodeBlock({
   return (
     <div
       data-do11y-code-block
+      data-language={activeTabData?.lang}
       className={cn(
         "group/code-block relative my-6 overflow-hidden rounded-lg border border-muted bg-muted-app-subtle",
         className,
@@ -511,6 +512,7 @@ function StandardCodeBlock({
   return (
     <div
       data-do11y-code-block
+      data-language={lang}
       className={cn(
         "group/code-block relative my-6 overflow-hidden rounded-lg border border-muted bg-muted-app-subtle",
         className,

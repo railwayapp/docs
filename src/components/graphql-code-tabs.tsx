@@ -214,6 +214,7 @@ export function GraphQLCodeTabs({
       {/* Code block with tabs */}
       <div
         data-do11y-code-block
+        data-language={activeLang}
         className="overflow-hidden rounded-lg border border-muted bg-muted-app-subtle"
       >
         {/* Header with tabs and copy button */}
