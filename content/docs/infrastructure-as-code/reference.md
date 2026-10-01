@@ -194,7 +194,9 @@ const api = service("api", {
 
 In a plan, a change to `enabled` redeploys the service so the variables land. A change to `autoInstrumentation` alone reaches the running containers without a deploy.
 
-**Not yet supported by the SDKs.** `service()` in the TypeScript SDK, and its Python and Go mirrors, don't accept `tracing` yet, so a `tracing` block you write is dropped before the CLI sees it. The compiled config then has no block, so `railway config plan` against a traced service proposes to remove `tracing`, and `railway config apply` would turn tracing off. Until the SDKs add the field, set tracing from the Traces page or with [`railway trace`](/cli/trace), and don't apply a plan that removes a `tracing` block you didn't remove yourself.
+`service()` passes `tracing` through to the CLI in the TypeScript SDK from `railway` 3.12.0. The CLI compiles, diffs, and pulls the block from version 5.63.0. The published Python and Go SDKs, `railway-sdk` 0.2.0 on PyPI and `railway-go-sdk` v0.2.0 on the Go module proxy, predate the field, so for those languages set tracing from the Traces page or with [`railway trace`](/cli/trace) until a release that carries it ships.
+
+An SDK that doesn't know `tracing` drops the block before the CLI sees it, so the compiled config has none. On a CLI older than 5.63.0 the setting silently doesn't apply, and nothing proposes removing it either. On CLI 5.63.0 or newer, `railway config plan` against a traced service proposes to remove `tracing`, and `railway config apply` turns tracing off and redeploys the service. Check the installed SDK version before you add `tracing` to a config file, and don't apply a plan that removes a `tracing` block you didn't remove yourself. Upgrade the SDK and plan again instead.
 
 ## Environment variables
 
