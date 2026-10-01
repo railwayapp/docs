@@ -3,8 +3,6 @@ title: Feature Flags
 description: Define typed feature flags with targeting rules for a Railway project, and read them at runtime with the TypeScript SDK, CLI, or MCP.
 ---
 
-<Banner variant="primary">Feature Flags are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. Breaking changes may occur.</Banner>
-
 Feature flags are a typed configuration registry scoped to a project. Each flag has a default value and optional targeting rules evaluated at read time.
 
 Use feature flags to:
@@ -69,8 +67,6 @@ Read flags at runtime with the [Railway TypeScript SDK](https://github.com/railw
 ```bash
 bun add railway
 ```
-
-**Note:** The SDK is under active development while feature flags are in Priority Boarding, and its API may change in breaking ways between releases.
 
 ### Authentication
 

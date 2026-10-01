@@ -5,8 +5,6 @@ description: Manage feature flags from the command line.
 
 Create, inspect, and target [feature flags](/feature-flags) for a project.
 
-<Banner variant="info">The `flag` command manages [feature flags](/feature-flags), which are available through <a href="/platform/priority-boarding" target="_blank">Priority Boarding</a>. It's under active development, and its commands and flags may change in breaking ways.</Banner>
-
 ## Usage
 
 ```bash
