@@ -44,7 +44,7 @@ The switches belong to the environment you are looking at. Tracing a service in 
 
 ### Infrastructure as Code
 
-In [Infrastructure as Code](/infrastructure-as-code/reference#tracing) the same two switches are the service's `tracing` block, and `railway config pull` renders `tracing: { enabled: true, autoInstrumentation: true }` for a traced service. The SDKs don't accept the field in `service()` yet; see the reference for what that means for `railway config plan`.
+In [Infrastructure as Code](/infrastructure-as-code/reference#tracing) the same two switches are the service's `tracing` block, and `railway config pull` renders `tracing: { enabled: true, autoInstrumentation: true }` for a traced service. Setting it in `service()` requires CLI 5.63.0 or newer and the TypeScript SDK, `railway` 3.12.0 or newer; see the reference for the Python and Go SDKs and for what an older SDK means for `railway config plan`.
 
 ## Force or suppress a trace
 
