@@ -57,8 +57,6 @@ export const isDo11yEnabled = (): boolean =>
     process.env.NEXT_PUBLIC_DO11Y_SUPABASE_KEY,
   );
 
-/**
- */
 export const getDo11yConfig = (): Do11yClientConfig | null => {
   const supabaseUrl = process.env.NEXT_PUBLIC_DO11Y_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_DO11Y_SUPABASE_KEY;
