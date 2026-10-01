@@ -25,7 +25,7 @@ With Railway Metal, you can expect the following benefits:
 
 - **Regions for Trial & Hobby plan users**: Railway Metal will be available to
   all users, including Trial & Hobby Plan users. Trial & Hobby plan users will
-  be able to deploy services on all fRailway Metal regions in the US,
+  be able to deploy services on all Railway Metal regions in the US,
   Europe, and Southeast Asia.
 
 - **Cheaper Pricing**: Running Railway's own hardware lets us reduce prices. Once
