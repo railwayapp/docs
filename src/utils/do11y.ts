@@ -50,7 +50,6 @@ const parseAllowedDomains = (raw: string | undefined): string[] | null => {
   return domains.length > 0 ? domains : null;
 };
 
-/**
 export const isDo11yEnabled = (): boolean =>
   process.env.NEXT_PUBLIC_DO11Y_ENABLED !== "false" &&
   Boolean(
@@ -59,9 +58,6 @@ export const isDo11yEnabled = (): boolean =>
   );
 
 /**
- *
- * Credentials are read at build time: the docs pages are statically generated,
- * so these values must be present in the build environment.
  */
 export const getDo11yConfig = (): Do11yClientConfig | null => {
   const supabaseUrl = process.env.NEXT_PUBLIC_DO11Y_SUPABASE_URL;
