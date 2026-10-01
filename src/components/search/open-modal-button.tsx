@@ -11,6 +11,7 @@ const OpenModalButton: React.FC<OpenModalButtonProps> = ({ iconOnly }) => {
     return (
       <button
         onClick={() => searchStore.set(true)}
+        data-do11y-search
         className="p-1.5 rounded-md text-muted-base hover:bg-muted-element hover:text-muted-high-contrast transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid"
         aria-label="Search"
       >
@@ -22,6 +23,7 @@ const OpenModalButton: React.FC<OpenModalButtonProps> = ({ iconOnly }) => {
   return (
     <button
       onClick={() => searchStore.set(true)}
+      data-do11y-search
       className="group flex w-full items-center justify-between gap-3 rounded-lg border border-muted bg-muted-app px-3 py-2 text-left text-sm text-muted-base shadow-xs transition-all duration-150 hover:border-muted-hover hover:bg-muted-element hover:text-muted-high-contrast focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid focus-visible:ring-offset-2 focus-visible:ring-offset-muted-app"
     >
       <div className="flex items-center gap-2">
