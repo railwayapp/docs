@@ -51,20 +51,23 @@ const parseAllowedDomains = (raw: string | undefined): string[] | null => {
 };
 
 /**
- * Resolves the Do11y config for this build, or `null` when instrumentation
- * should not be emitted at all (explicitly disabled or missing credentials).
+export const isDo11yEnabled = (): boolean =>
+  process.env.NEXT_PUBLIC_DO11Y_ENABLED !== "false" &&
+  Boolean(
+    process.env.NEXT_PUBLIC_DO11Y_SUPABASE_URL &&
+    process.env.NEXT_PUBLIC_DO11Y_SUPABASE_KEY,
+  );
+
+/**
  *
  * Credentials are read at build time: the docs pages are statically generated,
- * so `_document` is rendered during `next build` and these `NEXT_PUBLIC_*`
- * values must be present in the build environment.
+ * so these values must be present in the build environment.
  */
 export const getDo11yConfig = (): Do11yClientConfig | null => {
-  if (process.env.NEXT_PUBLIC_DO11Y_ENABLED === "false") return null;
-
   const supabaseUrl = process.env.NEXT_PUBLIC_DO11Y_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_DO11Y_SUPABASE_KEY;
 
-  if (!supabaseUrl || !supabaseKey) return null;
+  if (!isDo11yEnabled() || !supabaseUrl || !supabaseKey) return null;
 
   return {
     destination: "supabase",
@@ -95,7 +98,8 @@ export const getDo11yConfig = (): Do11yClientConfig | null => {
   };
 };
 
-/** Pinned CDN bundle. `@latest` is intentional — see CONTRIBUTING notes. */
+export const DO11Y_CONFIG_SCRIPT_ID = "do11y-config";
+
 export const DO11Y_SCRIPT_SRC =
   "https://cdn.jsdelivr.net/npm/@manototh/do11y@latest/dist/do11y.min.js";
 
