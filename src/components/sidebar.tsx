@@ -41,6 +41,7 @@ export const Sidebar: React.FC = ({ ...props }) => {
 
   return (
     <div
+      data-do11y-nav
       className="sidebar hidden md:flex md:flex-col md:sticky md:top-[53px] md:h-[calc(100vh-53px)] md:overflow-hidden md:w-sidebar md:shrink-0 md:border-r md:border-muted bg-muted-app"
       {...props}
     >

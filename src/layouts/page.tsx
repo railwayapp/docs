@@ -62,6 +62,7 @@ export const Page: React.FC<PropsWithChildren<Props>> = props => {
             <Background />
 
             <main
+              data-do11y-content
               className={cn(
                 "flex justify-between px-4 w-full mx-auto md:px-12 lg:px-16 pt-24 pb-12 md:pb-24",
                 hideSidebar ? "max-w-5xl" : "max-w-6xl",
