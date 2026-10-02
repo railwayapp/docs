@@ -54,13 +54,19 @@ Railway provides essential features for running production databases:
 
 Need to run a database that isn't in the templates marketplace? Check out the guide on [building a database service](/databases/build-a-database-service) to learn how to configure volumes, networking, and persistence for any database.
 
-## Important notes
+## What Railway manages
 
-Railway-provided database templates are **unmanaged services** - you're responsible for:
+Railway maintains the database templates above and keeps them running. The table lists which operations Railway handles and which stay with you.
 
-- Configuring backups and disaster recovery
-- Tuning performance for your workload
-- Managing security and access control
-- Monitoring and maintenance
+| Operation | Who |
+| --- | --- |
+| Provisioning, storage and networking | Railway |
+| Security patches to the database image | Railway |
+| Major version upgrades | You, [one click for PostgreSQL](/databases/postgresql-major-upgrade) |
+| [Backups](/volumes/backups) and [point-in-time recovery](/volumes/point-in-time-recovery) | You turn them on |
+| High availability and failover ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha)) | You turn it on; failover is then automatic |
+| [Connection pooling](/databases/postgresql-pgbouncer) | You turn it on |
+| Disk size | You [resize the volume](/volumes) |
+| Schema, queries, indexes and data | You |
 
-For managed database requirements or compliance needs, consider [Enterprise](/enterprise) or connecting to external managed database providers.
+Railway supports these templates as shipped. If you change a database service's image, start command, variables or volume, that configuration is yours to maintain, and support can help with the platform but not with the database itself.
