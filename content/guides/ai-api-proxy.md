@@ -29,6 +29,16 @@ Your application services send requests to the proxy's internal URL instead of d
 - A Railway account
 - API keys for one or more LLM providers
 
+## One-click deploy from a template
+
+Railway has a LiteLLM template that provisions the proxy with Postgres and Redis in one step.
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/Lm9gxI)
+
+After deploying, skip to [Keep the proxy internal](#3-keep-the-proxy-internal).
+
+If you prefer manual setup, continue below.
+
 ## 1. Create the proxy repository
 
 Create a new repository with two files:
