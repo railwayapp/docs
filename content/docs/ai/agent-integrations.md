@@ -3,8 +3,6 @@ title: Agent Integrations
 description: Bring the Railway Agent into your team chat — mention @Railway in Slack or Discord to work with your projects from the conversation.
 ---
 
-<Banner variant="primary">Agent integrations are in beta. Breaking changes may occur.</Banner>
-
 The Railway Agent can join your team chat. Once installed, mention **@Railway** in Slack or Discord to ask about your projects, inspect deployments, read logs, and make changes — the same [Railway Agent](/ai/railway-agent) that runs in the dashboard, answering where your team already works.
 
 ## Available integrations
