@@ -48,16 +48,15 @@ Open `http://localhost:3000` to see your app.
 
 ## Upgrade an existing app to 1.0
 
-If your app was created before 1.0, bring it up to date before you deploy:
+1.0 is a stability release with no API changes from the release candidates, so for most apps the upgrade is a dependency bump:
 
-1. **Update the TanStack packages.** Install the latest `@tanstack/react-start` and `@tanstack/react-router`:
-   ```bash
-   npm install @tanstack/react-start@latest @tanstack/react-router@latest
-   ```
-   Releases from `@tanstack/react-start` 1.168.60 onward include the fix for <a href="https://tanstack.com/blog/tanstack-start-security-update-cve-2026-102989" target="_blank">CVE-2026-102989</a>, a reflected XSS in server-function responses. Check that your lockfile resolves `@tanstack/start-server-core` to 1.169.39 or later.
-2. **Remove Vinxi-era files.** If the app still has an `app.config.ts`, delete it. It belonged to the Vinxi-based setup that TanStack Start no longer uses, and it has no effect on current versions. TanStack Start is configured as a Vite plugin in `vite.config.ts` instead. Source now lives in `src/` by default; move it there, or pass `srcDirectory` to the `tanstackStart()` plugin to keep your existing layout. TanStack's <a href="https://tanstack.com/start/latest/docs/framework/react/guide/hosting" target="_blank">hosting guide</a> shows the current setup.
-3. **Confirm the production server.** Make sure `vite.config.ts` registers `nitro()` alongside `tanstackStart()` and `package.json` has a `start` script. See [Choose a production server](#choose-a-production-server).
-4. **Redeploy.** Push the changes or run `railway up`. Railway rebuilds the app with the new versions.
+```bash
+npm install @tanstack/react-start@latest @tanstack/react-router@latest
+```
+
+Then push or run `railway up`, and Railway rebuilds with the new versions. Releases from `@tanstack/react-start` 1.168.60 onward also include the fix for <a href="https://tanstack.com/blog/tanstack-start-security-update-cve-2026-102989" target="_blank">CVE-2026-102989</a>.
+
+If your app still has an `app.config.ts`, it predates the Vite plugin setup. Delete that file, register `tanstackStart()` in `vite.config.ts` as shown in TanStack's <a href="https://tanstack.com/start/latest/docs/framework/react/guide/hosting" target="_blank">hosting guide</a>, and follow [Choose a production server](#choose-a-production-server) to add Nitro and a `start` script.
 
 ## Choose a production server
 
