@@ -1,7 +1,7 @@
 ---
 title: Build a TanStack App
-description: Deploy a TanStack app to Railway. Covers scaffolding with the Railway option, GitHub and CLI deploys, environment variables, database migrations, and troubleshooting.
-date: "2026-09-03"
+description: Deploy a TanStack Start 1.0 app to Railway. Covers scaffolding with the Railway option, upgrading older apps, one-click, GitHub, and CLI deploys, environment variables, database migrations, and troubleshooting.
+date: "2026-10-13"
 tags:
   - deployment
   - frontend
@@ -12,13 +12,16 @@ topic: frameworks
 
 [TanStack Start](https://tanstack.com/start) is a full-stack React framework built on TanStack Router. It provides file-based routing, server functions, server routes, SSR, and streaming out of the box. TanStack Start is a Vite plugin, so a TanStack Start app builds and deploys as a standard Node service on Railway.
 
+TanStack Start reached 1.0 in October 2026. This guide targets 1.0 and later. If your app was created on an earlier release, see [Upgrade an existing app to 1.0](#upgrade-an-existing-app-to-10).
+
 Railway is an <a href="https://tanstack.com/start/latest/docs/framework/react/guide/hosting" target="_blank">official TanStack hosting partner</a>, and the TanStack scaffolder ships a Railway deployment option that configures your app to deploy here with no extra setup.
 
-This guide covers how to deploy a TanStack app to Railway in three ways:
+This guide covers how to deploy a TanStack app to Railway in four ways:
 
-1. [Using the CLI](#deploy-from-the-cli).
-2. [From a GitHub repository](#deploy-from-a-github-repo).
-3. [Using a Dockerfile](#use-a-dockerfile).
+1. [One-click deploy from a template](#one-click-deploy-from-a-template).
+2. [Using the CLI](#deploy-from-the-cli).
+3. [From a GitHub repository](#deploy-from-a-github-repo).
+4. [Using a Dockerfile](#use-a-dockerfile).
 
 ## Create a TanStack app
 
@@ -43,6 +46,18 @@ npm run dev
 
 Open `http://localhost:3000` to see your app.
 
+## Upgrade an existing app to 1.0
+
+1.0 is a stability release with no API changes from the release candidates, so for most apps the upgrade is a dependency bump:
+
+```bash
+npm install @tanstack/react-start@latest @tanstack/react-router@latest
+```
+
+Then push or run `railway up`, and Railway rebuilds with the new versions. Releases from `@tanstack/react-start` 1.168.60 onward also include the fix for <a href="https://tanstack.com/blog/tanstack-start-security-update-cve-2026-102989" target="_blank">CVE-2026-102989</a>.
+
+If your app still has an `app.config.ts`, it predates the Vite plugin setup. Delete that file, register `tanstackStart()` in `vite.config.ts` as shown in TanStack's <a href="https://tanstack.com/start/latest/docs/framework/react/guide/hosting" target="_blank">hosting guide</a>, and follow [Choose a production server](#choose-a-production-server) to add Nitro and a `start` script.
+
 ## Choose a production server
 
 `vite build` compiles your app, but TanStack Start needs a server runtime on top of the build. Which one you use changes both the build output and the command that starts it:
@@ -58,6 +73,8 @@ Use Nitro with a `start` script. That's what the Railway option in the scaffolde
 All three layouts deploy on Railway without configuration. When there is no `start` script, Railway's builder ([Railpack](/builds) v0.39 and later) picks the right server for your build output: `node .output/server/index.mjs` for Nitro apps, and [srvx](https://srvx.h3.dev) for the default Vite build. The build logs say which command Railway picked and suggest adding a `start` script.
 
 Adding the `start` script is still recommended: it keeps the production server your decision, and it makes the app portable to hosts that only run `npm start`.
+
+This guide covers the Vite build tool. TanStack Start also supports Rsbuild, which emits `dist/server/index.js` and `dist/client/`. Railway's fallback targets the Vite layout, so give an Rsbuild app an explicit `start` script, such as `srvx --prod -s ../client dist/server/index.js`, following TanStack's <a href="https://tanstack.com/start/latest/docs/framework/react/guide/hosting" target="_blank">hosting guide</a>.
 
 To add Nitro to an existing app, install it and register its Vite plugin:
 
@@ -90,6 +107,18 @@ Then add a `start` script, which Railway uses to run your app:
 ## Deploy the TanStack app to Railway
 
 TanStack Start builds a Node.js server that handles SSR, server functions, server routes, and static asset serving. It deploys as a standard Node service on Railway.
+
+### One-click deploy from a template
+
+If you're looking for the fastest way to get started, the one-click deploy option is ideal.
+
+Click the button below to begin:
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/TODO-tanstack-template-code)
+
+It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+
+**Note:** You can also choose from a <a href="https://railway.com/templates?q=tanstack" target="_blank">variety of TanStack app templates</a> created by the community.
 
 ### Deploy from the CLI
 
@@ -165,7 +194,7 @@ Deploy via the CLI or from GitHub. Railway automatically detects the `Dockerfile
 
 You don't need any. Both Nitro and srvx read the `PORT` environment variable that Railway sets, and both bind all interfaces by default, so your app is reachable as soon as it starts.
 
-If you have an older app with an `app.config.ts` that sets a port, you can delete that file. It was part of the Vinxi-based setup that TanStack Start no longer uses, and it has no effect on current versions.
+If you have an older app with an `app.config.ts` that sets a port, that file no longer does anything. See [Upgrade an existing app to 1.0](#upgrade-an-existing-app-to-10).
 
 ## Server functions and server routes
 
@@ -253,7 +282,7 @@ Railpack detects a `bun.lock` file and switches the whole pipeline to Bun: it in
 ## Troubleshooting
 
 **The build succeeds, but the domain returns a 502 and the deployment flips to `CRASHED`.**
-Check the runtime logs for srvx exiting with `ENOENT ... dist/server/server.js`. On Railpack versions before v0.39, an app with the `nitro()` plugin but no `start` script hit this on every deploy: the srvx fallback looked for `dist/` while Nitro built `.output/`. Redeploy to pick up the current Railpack version, or add the `start` script from [Choose a production server](#choose-a-production-server).
+Check the runtime logs for srvx exiting with `ENOENT ... dist/server/server.js`. On Railpack versions before v0.39, an app with the `nitro()` plugin but no `start` script hit this on every deploy: the srvx fallback looked for `dist/` while Nitro built `.output/`. Railpack v0.39 and later pick the Nitro server instead, so redeploy to pick up the current Railpack version, or add the `start` script from [Choose a production server](#choose-a-production-server).
 
 **The app deploys as a static site, and every page 404s.**
 `@tanstack/react-start` is in `devDependencies`, so Railway's TanStack Start detection misses it. The build logs show `Deploying as vite static site` with a suggestion to move `@tanstack/react-start` to `dependencies`. Do that and redeploy.
@@ -284,3 +313,4 @@ Once your app is deployed, these guides cover what usually comes next:
 - [Choose between SSR, SSG, and ISR](/guides/ssr-ssg-isr) - Understand rendering strategies.
 - [Add a Database Service](/databases/build-a-database-service) - Connect Postgres, MySQL, Redis, and more.
 - [Monitor your app](/observability) - Track logs, metrics, and deployment health.
+- <a href="https://tanstack.com/start/latest/docs/framework/react/guide/production-checklist" target="_blank">TanStack's production checklist</a> - Verify secrets, cache headers, status codes, and your deployed entry point before launch.

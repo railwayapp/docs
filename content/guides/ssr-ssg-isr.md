@@ -1,7 +1,7 @@
 ---
 title: Choose Between SSR, SSG, and ISR for Your Frontend
 description: When to use server-side rendering, static site generation, or incremental static regeneration. Covers Railway deployment implications, cost tradeoffs, and framework support.
-date: "2026-04-14"
+date: "2026-10-05"
 tags:
   - frontend
   - ssr
@@ -129,7 +129,7 @@ You can mix strategies within a single app. Next.js, Nuxt, Astro, and SvelteKit 
 | Remix | No | Yes | No | Yes (`defer`) |
 | Astro | Yes | Yes (hybrid/server) | No | No |
 | Gatsby | Yes | No | No | No |
-| TanStack Start | No | Yes | No | Yes |
+| TanStack Start | Yes (`prerender`) | Yes | No | Yes |
 
 ## Cost implications on Railway
 
