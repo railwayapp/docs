@@ -1,7 +1,7 @@
 ---
 title: Manage Environment Variables in Frontend Builds
 description: Understand build-time vs runtime environment variables in frontend frameworks. Covers Vite, Next.js, Nuxt, SvelteKit, Astro, and Angular prefix conventions and how Railway handles each.
-date: "2026-04-14"
+date: "2026-10-05"
 tags:
   - frontend
   - environment-variables
@@ -27,6 +27,7 @@ On Railway, all [service variables](/variables) are available during both the bu
 | Framework | Client-side prefix | Server-only | How to access in client code |
 |---|---|---|---|
 | Vite (React, Vue, Solid) | `VITE_` | No prefix | `import.meta.env.VITE_API_URL` |
+| TanStack Start | `VITE_` | No prefix (`process.env` in server functions) | `import.meta.env.VITE_API_URL` |
 | Next.js | `NEXT_PUBLIC_` | No prefix | `process.env.NEXT_PUBLIC_API_URL` |
 | Nuxt | `NUXT_PUBLIC_` in `runtimeConfig.public` | `runtimeConfig` (no prefix) | `useRuntimeConfig().public.apiUrl` |
 | SvelteKit | `PUBLIC_` | No prefix | `import { env } from '$env/static/public'` |
@@ -57,7 +58,7 @@ This keeps the value in sync when domains change.
 
 ## Server-side variables in SSR frameworks
 
-SSR frameworks (Next.js, Nuxt, SvelteKit, Remix, Astro in SSR mode) run server code that can access all environment variables, not just prefixed ones.
+SSR frameworks (Next.js, Nuxt, SvelteKit, Remix, TanStack Start, Astro in SSR mode) run server code that can access all environment variables, not just prefixed ones.
 
 In Next.js, Server Components and Route Handlers can read `process.env.DATABASE_URL` directly. This value is never sent to the browser. Only variables with the `NEXT_PUBLIC_` prefix are included in the client bundle.
 
