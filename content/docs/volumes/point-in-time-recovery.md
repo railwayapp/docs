@@ -52,8 +52,8 @@ If a Postgres archive bucket holds more than one WAL history — for example, af
 Railway:
 
 1. Creates a brand-new service in the project, named `<source>-restored-YYYYMMDD-HHMM` (you can override the name).
-2. Provisions an empty volume for it, the same size as the source.
-3. Stages a patch wiring up the new service: same image as the source, the source's env vars (minus the archive credentials), the recovery variables pointing read-only at the source's bucket (`WAL_RECOVER_FROM_*` + `POSTGRES_RECOVERY_TARGET_TIME`, or `BINLOG_RECOVER_FROM_*` + `MYSQL_RECOVERY_TARGET_TIME`) set to your target.
+2. Provisions an empty volume for it, sized to the larger of the source's volume and your plan's default volume size.
+3. Stages a patch wiring up the new service: same image as the source, the source's env vars, and the recovery variables (`WAL_RECOVER_FROM_*` + `POSTGRES_RECOVERY_TARGET_TIME`, or `BINLOG_RECOVER_FROM_*` + `MYSQL_RECOVERY_TARGET_TIME`) set to your target. The source's archive variables are carried over under the recovery prefix instead of the archive prefix, so the new service reads the source's archive but never archives into it.
 4. Deploys the new service.
 
 On first boot, the image populates the empty volume from the bucket — base backup first, then the archive replayed forward until your target.
@@ -113,6 +113,7 @@ Restore traffic is free: the restored service downloads from the bucket, and buc
 - The available restore window starts from the first post-enable base backup, not retroactively. If you enable PITR today, you can't restore to yesterday.
 - Restore creates a new sibling service. Cutting over to the restored database (renaming, swapping connection strings, decommissioning the original) is a manual step.
 - HA restore produces a single-node fork; convert to HA after restore if you want HA on the restored data.
+- The recovery variables reference the archive bucket's credential, the same one the source archives with. A bucket's credential has read and write access, and there is no read-only variant: the restore only reads from the archive, but anyone who can see the restored service's variables can also write to the source's archive.
 - **Postgres:** minor version pinning is not supported with PITR. Keep the image on a major tag (e.g. `postgres-ssl:16`, not `postgres-ssl:16.10`) so it keeps tracking Railway's Postgres rebuilds and pgBackRest fixes — the Backups tab shows a warning if a minor pin is detected.
 - **MySQL:** pinning the image to a single build (e.g. `mysql-ha/mysql:8.4-a1b2c3d`) is not supported with PITR. Keep the `major.minor` tag (`mysql-ha/mysql:8.4`) so the service keeps tracking Railway's MySQL rebuilds — archiver, retention and HA fixes ship on that tag.
 - **MySQL:** the newest restorable point trails real time by about one binlog rotation (a minute), and targets resolve to the start of their second (binlog events are whole-second). A target newer than the archive is refused up front, with the newest restorable point named.
