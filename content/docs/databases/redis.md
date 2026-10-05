@@ -54,7 +54,7 @@ Especially for production environments, performing backups and monitoring the he
 
 ## Additional resources
 
-Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. You keep full control over the configuration, and changes you make to the image, start command or variables are yours to maintain.
+The official Redis template is maintained by Redis; Railway runs it and handles the platform side, and [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. You keep full control over the configuration, and changes you make to the image, start command or variables are yours to maintain.
 
 We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 
