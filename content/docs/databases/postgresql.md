@@ -46,6 +46,8 @@ Since the deployed container is based on an image built from the official [Postg
 
 We also encourage you to fork the [Railway postgres-ssl repository](https://github.com/railwayapp-templates/postgres-ssl) to customize it to your needs, or feel free to open a PR in the repo!
 
+A modified or forked image is yours to run; see [database support scope](/databases#database-support-scope). High availability and major upgrades require the official image.
+
 ## High availability
 
 An existing PostgreSQL service can be converted into a high-availability cluster with automatic failover, backed by Patroni, etcd, and HAProxy. See [Upgrading PostgreSQL to High Availability](/databases/postgresql-ha) for the full guide.
@@ -97,6 +99,8 @@ After running the SQL, you will need to restart the deployment for the changes t
 
 You can restart the deployment by clicking the `Restart` button in the deployment's 3-dot menu.
 
+Settings changed this way are yours to maintain; see [database support scope](/databases#database-support-scope).
+
 ## Increasing the SHM size
 
 The SHM Size is the maximum amount of shared memory available to the container.
@@ -117,7 +121,7 @@ For example, to increase the SHM Size to 500MB, you would set the variable to `5
 
 ## Additional resources
 
-Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. You keep full control over the configuration, and changes you make to the image, start command or variables are yours to maintain.
+Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changes outside Railway's dashboard and CLI, such as to the image, start command or the template's variables, make the database yours to run; see [database support scope](/databases#database-support-scope).
 
 We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 

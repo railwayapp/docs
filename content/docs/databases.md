@@ -21,7 +21,7 @@ The fastest way to deploy a database is through Railway's database templates:
 | [**MongoDB**](/databases/mongodb) | Document-oriented NoSQL database |
 | [**MongoDB HA**](/databases/mongo-ha) | High-availability MongoDB replica set with automatic failover |
 
-These templates are maintained by Railway and come pre-configured with sensible defaults.
+Railway maintains these templates (the Redis template is owned by Redis) and they come pre-configured with sensible defaults.
 
 ## Deploy any database
 
@@ -48,7 +48,7 @@ Railway provides essential features for running production databases:
 | [**Volumes**](/volumes) | Persistent storage that survives deployments and restarts |
 | [**TCP Proxy**](/networking/tcp-proxy) | Connect to your database from outside Railway's network |
 | [**Private Networking**](/networking/private-networking) | Secure, low-latency connections between services |
-| [**Backups**](/volumes/backups) | Point-in-time recovery for your data |
+| [**Backups**](/volumes/backups) | Scheduled and on-demand volume backups; [point-in-time recovery](/volumes/point-in-time-recovery) for PostgreSQL and MySQL |
 
 ## Building custom database services
 
@@ -63,10 +63,10 @@ Railway maintains the database templates above (the Redis template is owned by R
 | Provisioning, storage and networking | Railway |
 | Security patches to the database image | Railway |
 | Major version upgrades | User, [one click for PostgreSQL](/databases/postgresql-major-upgrade) |
-| [Backups](/volumes/backups) and [point-in-time recovery](/volumes/point-in-time-recovery) | User turns them on |
+| [Backups](/volumes/backups) and [point-in-time recovery](/volumes/point-in-time-recovery) (PostgreSQL, MySQL) | User turns them on |
 | High availability and failover ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha), [MongoDB](/databases/mongo-ha)) | User turns it on; failover is then automatic |
-| [Connection pooling](/databases/postgresql-pgbouncer) | User turns it on |
-| Disk size | User [resizes the volume](/volumes) |
+| [Connection pooling](/databases/postgresql-pgbouncer) (PostgreSQL) | User turns it on |
+| Disk size | User [resizes the volume](/volumes#live-resizing-the-volume) |
 | Schema, queries, indexes and data | User |
 
 ## Database support scope
@@ -75,13 +75,13 @@ Support covers the template as Railway ships it and the platform it runs on:
 
 - provisioning, volumes and networking;
 - security updates to the database image;
-- the dashboard flows for backups, point-in-time recovery, high availability, connection pooling and major upgrades.
+- the dashboard and CLI flows for backups, point-in-time recovery, high availability, connection pooling and major upgrades.
 
 A database leaves this scope when the user changes:
 
-- the service's image, source, start command or variables;
+- the service's image, source, start command or the template's own variables;
 - its volume: the mount path, detaching or swapping it, or restoring a backup into it by hand;
-- the members of an HA cluster (replicas, proxies, consensus nodes) outside the dashboard flows;
+- the members of an HA cluster (replicas, proxies, consensus nodes) outside the dashboard and CLI flows;
 - files inside the container through SSH or a shell, such as the engine's config files or the data directory;
 - the database's own configuration through SQL rather than through Railway's dashboard or CLI: roles, settings, extensions, `ALTER SYSTEM`.
 

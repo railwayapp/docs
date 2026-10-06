@@ -40,6 +40,8 @@ _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resour
 
 Since the deployed container is pulled from the [redis](https://hub.docker.com/_/redis) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/redis).
 
+A modified or forked image is yours to run; see [database support scope](/databases#database-support-scope).
+
 ## High availability
 
 An existing Redis service can be converted into a high-availability cluster with automatic failover, backed by Redis Sentinel and HAProxy. See [Upgrading Redis to High Availability](/databases/redis-ha) for the full guide.
@@ -54,7 +56,7 @@ Especially for production environments, performing backups and monitoring the he
 
 ## Additional resources
 
-The official Redis template is owned by Redis; Railway runs it and handles the platform side, and [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. You keep full control over the configuration, and changes you make to the image, start command or variables are yours to maintain.
+The official Redis template is owned by Redis; Railway runs it and handles the platform side, and [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changes outside Railway's dashboard and CLI, such as to the image, start command or the template's variables, make the database yours to run; see [database support scope](/databases#database-support-scope).
 
 We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 

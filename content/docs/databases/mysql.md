@@ -41,6 +41,8 @@ _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resour
 
 Since the deployed container is pulled from the official MySQL image in Docker hub, you can modify the deployment based on the [instructions in Docker hub](https://hub.docker.com/_/mysql).
 
+A modified or forked image is yours to run; see [database support scope](/databases#database-support-scope).
+
 ## High availability
 
 An existing MySQL service can be converted into a high-availability cluster with automatic failover, backed by Group Replication and HAProxy. See [Upgrading MySQL to High Availability](/databases/mysql-ha) for the full guide.
@@ -59,7 +61,7 @@ Especially for production environments, performing regular backups and monitorin
 
 ## Additional resources
 
-Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. You keep full control over the configuration, and changes you make to the image, start command or variables are yours to maintain.
+Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changes outside Railway's dashboard and CLI, such as to the image, start command or the template's variables, make the database yours to run; see [database support scope](/databases#database-support-scope).
 
 We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 
