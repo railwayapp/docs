@@ -71,7 +71,11 @@ Railway maintains the database templates above (the Redis template is owned by R
 
 ## Database support scope
 
-Railway supports the templates as shipped and the platform around them: provisioning, volumes, networking, image security updates, and the dashboard flows for backups, point-in-time recovery, high availability, connection pooling and major upgrades.
+Support covers the template as Railway ships it and the platform it runs on:
+
+- provisioning, volumes and networking;
+- security updates to the database image;
+- the dashboard flows for backups, point-in-time recovery, high availability, connection pooling and major upgrades.
 
 Support stops covering a database once it is changed away from the template:
 
