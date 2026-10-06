@@ -64,7 +64,7 @@ Railway maintains the database templates above (the Redis template is owned by R
 | Security patches to the database image | Railway |
 | Major version upgrades | User, [one click for PostgreSQL](/databases/postgresql-major-upgrade) |
 | [Backups](/volumes/backups) and [point-in-time recovery](/volumes/point-in-time-recovery) | User turns them on |
-| High availability and failover ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha)) | User turns it on; failover is then automatic |
+| High availability and failover ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha), [MongoDB](/databases/mongo-ha)) | User turns it on; failover is then automatic |
 | [Connection pooling](/databases/postgresql-pgbouncer) | User turns it on |
 | Disk size | User [resizes the volume](/volumes) |
 | Schema, queries, indexes and data | User |
