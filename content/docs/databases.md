@@ -56,17 +56,27 @@ Need to run a database that isn't in the templates marketplace? Check out the gu
 
 ## What Railway manages
 
-Railway maintains the database templates above (the Redis template is maintained by Redis) and keeps them running. The table lists which operations Railway handles and which stay with you.
+Railway maintains the database templates above (the Redis template is maintained by Redis) and keeps them running. The table lists which operations Railway handles and which stay with the user.
 
 | Operation | Who |
 | --- | --- |
 | Provisioning, storage and networking | Railway |
 | Security patches to the database image | Railway |
-| Major version upgrades | You, [one click for PostgreSQL](/databases/postgresql-major-upgrade) |
-| [Backups](/volumes/backups) and [point-in-time recovery](/volumes/point-in-time-recovery) | You turn them on |
-| High availability and failover ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha)) | You turn it on; failover is then automatic |
-| [Connection pooling](/databases/postgresql-pgbouncer) | You turn it on |
-| Disk size | You [resize the volume](/volumes) |
-| Schema, queries, indexes and data | You |
+| Major version upgrades | User, [one click for PostgreSQL](/databases/postgresql-major-upgrade) |
+| [Backups](/volumes/backups) and [point-in-time recovery](/volumes/point-in-time-recovery) | User turns them on |
+| High availability and failover ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha)) | User turns it on; failover is then automatic |
+| [Connection pooling](/databases/postgresql-pgbouncer) | User turns it on |
+| Disk size | User [resizes the volume](/volumes) |
+| Schema, queries, indexes and data | User |
 
-Railway supports these templates as shipped. If you change a database service's image, start command, variables or volume, that configuration is yours to maintain, and support can help with the platform but not with the database itself.
+## Database support scope
+
+Railway support covers the platform around a database and the templates as shipped: provisioning, volumes, networking, image security updates, and the dashboard flows for backups, point-in-time recovery, high availability, connection pooling and major upgrades.
+
+What stays with the user:
+
+- Changes to a database service's image, start command, variables or volume. The database is then the user's to maintain.
+- Configuration changes made through SQL, such as roles, settings, extensions or `ALTER SYSTEM`. The database is then the user's to maintain.
+- Schema, queries, indexes and the data itself.
+
+Support does not configure a database for the user and does not make tuning, schema or query recommendations. The engine's own documentation, linked from each database page, is the reference for those.
