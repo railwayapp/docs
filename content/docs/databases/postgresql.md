@@ -46,7 +46,7 @@ Since the deployed container is based on an image built from the official [Postg
 
 We also encourage you to fork the [Railway postgres-ssl repository](https://github.com/railwayapp-templates/postgres-ssl) to customize it to your needs, or feel free to open a PR in the repo!
 
-A modified or forked image is yours to run; see [database support scope](/databases#database-support-scope). High availability and major upgrades require the official image.
+High availability and major upgrades require the official image.
 
 ## High availability
 

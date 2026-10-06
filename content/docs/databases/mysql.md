@@ -41,8 +41,6 @@ _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resour
 
 Since the deployed container is pulled from the official MySQL image in Docker hub, you can modify the deployment based on the [instructions in Docker hub](https://hub.docker.com/_/mysql).
 
-A modified or forked image is yours to run; see [database support scope](/databases#database-support-scope).
-
 ## High availability
 
 An existing MySQL service can be converted into a high-availability cluster with automatic failover, backed by Group Replication and HAProxy. See [Upgrading MySQL to High Availability](/databases/mysql-ha) for the full guide.

@@ -40,8 +40,6 @@ _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resour
 
 Since the deployed container is pulled from the [redis](https://hub.docker.com/_/redis) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/redis).
 
-A modified or forked image is yours to run; see [database support scope](/databases#database-support-scope).
-
 ## High availability
 
 An existing Redis service can be converted into a high-availability cluster with automatic failover, backed by Redis Sentinel and HAProxy. See [Upgrading Redis to High Availability](/databases/redis-ha) for the full guide.
