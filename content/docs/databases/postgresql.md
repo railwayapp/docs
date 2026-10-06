@@ -80,10 +80,6 @@ For some of the most popular extensions, like PostGIS and Timescale, there are s
 
 You can modify the Postgres configuration by using the [`ALTER SYSTEM`](https://www.postgresql.org/docs/current/sql-altersystem.html) command.
 
-<Banner variant="warning">
-Tuning Postgres this way takes database troubleshooting outside [support's scope](/databases#database-support-scope). Railway keeps the service running; problems caused by the settings are yours to diagnose.
-</Banner>
-
 ```txt
 ALTER SYSTEM SET shared_buffers = '2GB';
 ALTER SYSTEM SET effective_cache_size = '6GB';
