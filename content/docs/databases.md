@@ -71,12 +71,13 @@ Railway maintains the database templates above (the Redis template is maintained
 
 ## Database support scope
 
-Railway support covers the platform around a database and the templates as shipped: provisioning, volumes, networking, image security updates, and the dashboard flows for backups, point-in-time recovery, high availability, connection pooling and major upgrades.
+Railway supports the templates as shipped and the platform around them: provisioning, volumes, networking, image security updates, and the dashboard flows for backups, point-in-time recovery, high availability, connection pooling and major upgrades.
 
-What stays with the user:
+Support stops covering a database once it is changed away from the template:
 
-- Changes to a database service's image, start command, variables or volume. The database is then the user's to maintain.
-- Configuration changes made through SQL, such as roles, settings, extensions or `ALTER SYSTEM`. The database is then the user's to maintain.
-- Schema, queries, indexes and the data itself.
+- editing the service's image, start command, variables or volume mount;
+- changing the database's own configuration through SQL (roles, settings, extensions, `ALTER SYSTEM`).
 
-Support does not configure a database for the user and does not make tuning, schema or query recommendations. The engine's own documentation, linked from each database page, is the reference for those.
+After such a change the database is the user's to run. Support still helps with the platform.
+
+Schema, queries, indexes and the data are always the user's. Support does not configure a database for the user and does not make tuning, schema or query recommendations; the engine's own documentation, linked from each database page, is the reference.
