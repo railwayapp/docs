@@ -80,6 +80,10 @@ For some of the most popular extensions, like PostGIS and Timescale, there are s
 
 You can modify the Postgres configuration by using the [`ALTER SYSTEM`](https://www.postgresql.org/docs/current/sql-altersystem.html) command.
 
+<Banner variant="warning">
+Tuning Postgres this way takes database troubleshooting outside [support's scope](/databases#database-support-scope). Railway keeps the service running; problems caused by the settings are yours to diagnose.
+</Banner>
+
 ```txt
 ALTER SYSTEM SET shared_buffers = '2GB';
 ALTER SYSTEM SET effective_cache_size = '6GB';
@@ -117,7 +121,7 @@ For example, to increase the SHM Size to 500MB, you would set the variable to `5
 
 ## Additional resources
 
-Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changes outside Railway's dashboard and CLI, such as to the image, start command or the template's variables, make the database yours to manage; see [database support scope](/databases#database-support-scope).
+Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changing the template as shipped, such as its image, start command or variables, makes the database yours to manage; see [database support scope](/databases#database-support-scope).
 
 We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 
