@@ -56,7 +56,7 @@ Need to run a database that isn't in the templates marketplace? Check out the gu
 
 ## What Railway manages
 
-Railway maintains the database templates above (the Redis template is maintained by Redis) and keeps them running. The table lists which operations Railway handles and which stay with the user.
+Railway maintains the database templates above (the Redis template is owned by Redis) and keeps them running. The table lists which operations Railway handles and which stay with the user.
 
 | Operation | Who |
 | --- | --- |
