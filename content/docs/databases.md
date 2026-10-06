@@ -83,7 +83,7 @@ A database leaves this scope when the user changes:
 - its volume: the mount path, detaching or swapping it, or restoring a backup into it by hand;
 - the members of an HA cluster (replicas, proxies, consensus nodes) outside the dashboard flows;
 - files inside the container through SSH or a shell, such as the engine's config files or the data directory;
-- the database's own configuration through SQL (roles, settings, extensions, `ALTER SYSTEM`).
+- the database's own configuration through SQL rather than through Railway's dashboard or CLI: roles, settings, extensions, `ALTER SYSTEM`.
 
 From then on the database is the user's to run. Support still helps with the platform.
 
