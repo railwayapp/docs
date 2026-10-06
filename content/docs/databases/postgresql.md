@@ -80,6 +80,8 @@ For some of the most popular extensions, like PostGIS and Timescale, there are s
 
 You can modify the Postgres configuration by using the [`ALTER SYSTEM`](https://www.postgresql.org/docs/current/sql-altersystem.html) command.
 
+_Keep in mind that following these instructions puts database troubleshooting outside the [database support scope](/databases#database-support-scope)._
+
 ```txt
 ALTER SYSTEM SET shared_buffers = '2GB';
 ALTER SYSTEM SET effective_cache_size = '6GB';
