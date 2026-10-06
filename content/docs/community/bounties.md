@@ -152,7 +152,7 @@ You may use AI to help prepare bounty answers, provided you follow these guideli
 - **Keep it concise and useful.** Focus on the user's problem and provide a clear solution without unnecessary detail.
 - **Readability matters.** Avoid long, dense responses. Trim repetition and unnecessary background.
 
-You are responsible for the accuracy and usefulness of your answer. Do not submit unreviewed AI output or low-effort answers.
+You are responsible for the accuracy and usefulness of your answer. Submitting unreviewed AI output or low-effort answers will result in a ban from bounty participation.
 
 ## Top contributors
 
