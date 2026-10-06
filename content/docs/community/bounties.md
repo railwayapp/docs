@@ -143,6 +143,17 @@ Here are some ways to increase your chances of having your answer accepted:
 - **Test your solution:** If possible, verify your answer works before posting.
 - **Be respectful:** Remember there's a person on the other end who needs help.
 
+### Using AI in your answers
+
+You may use AI to help prepare bounty answers, provided you follow these guidelines.
+
+- **Disclose AI use** in your reply.
+- **Fully review and verify your answer** before posting. Check the claims, links, and any code or commands you include.
+- **Keep it concise and useful.** Focus on the user's problem and provide a clear solution without unnecessary detail.
+- **Readability matters.** Avoid long, dense responses. Trim repetition and unnecessary background.
+
+You are responsible for the accuracy and usefulness of your answer. Do not submit unreviewed AI output or low-effort answers.
+
 ## Top contributors
 
 Central Station recognizes top bounty contributors based on activity over the last 30 days. Active participants earn contributor badges (Top 1%, Top 5%, Top 10%) that appear next to their name throughout Central Station.
