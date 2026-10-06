@@ -58,7 +58,7 @@ Especially for production environments, performing regular backups and monitorin
 
 ## Additional resources
 
-Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changes outside Railway's dashboard and CLI, such as to the image, start command or the template's variables, make the database yours to run; see [database support scope](/databases#database-support-scope).
+Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changes outside Railway's dashboard and CLI, such as to the image, start command or the template's variables, make the database yours to manage; see [database support scope](/databases#database-support-scope).
 
 We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 

@@ -85,6 +85,6 @@ A database leaves this scope when the user changes:
 - files inside the container through SSH or a shell, such as the engine's config files or the data directory;
 - the database's own configuration through SQL rather than through Railway's dashboard or CLI: roles, settings, extensions, `ALTER SYSTEM`.
 
-From then on the database is the user's to run. Support still helps with the platform.
+From then on the database is the user's to manage. Support still helps with the platform.
 
 Schema, queries, indexes and the data are always the user's. Support does not configure a database for the user and does not make tuning, schema or query recommendations; the engine's own documentation, linked from each database page, is the reference.
