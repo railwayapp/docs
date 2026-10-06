@@ -97,8 +97,6 @@ After running the SQL, you will need to restart the deployment for the changes t
 
 You can restart the deployment by clicking the `Restart` button in the deployment's 3-dot menu.
 
-Settings changed this way are yours to maintain; see [database support scope](/databases#database-support-scope).
-
 ## Increasing the SHM size
 
 The SHM Size is the maximum amount of shared memory available to the container.
