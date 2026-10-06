@@ -33,15 +33,13 @@ Railway will gladly bump up your service limits within your tier of service to m
 
 ### Databases
 
-We have customers using Railway's databases for their production environment with no issue. Railway's databases are optimized for a batteries included development experience. They are good for applications that are prioritizing velocity and iteration speed over scale.
+We have customers using Railway's databases for their production environment with no issue. Railway maintains the official database templates; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours.
 
-Railway's databases are provided with no SLAs, are not highly available, and scale only to the limits of your plan. We don't think they are suitable for anything mission-critical, like if you wanted to start a bank.
+Railway's databases are provided with no SLAs and scale to the limits of your plan. For production, we advise developers to:
 
-We advise developers to:
-
-- [Configure backups](/volumes/backups)
+- [Configure backups](/volumes/backups) and, on PostgreSQL and MySQL, [point-in-time recovery](/volumes/point-in-time-recovery)
 - Run-book and restore their backups
-- Configure secondaries to connect to in-case of a disaster situation
+- Convert the database to [high availability](/databases#what-railway-manages) so failover is automatic
 
 As mentioned before: we don't believe in vendor lock-in here at Railway, if your needs outpace us, consider other vendors like PlanetScale (for MySQL) or Cockroach (for Postgres).
 
