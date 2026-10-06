@@ -105,7 +105,7 @@ result.truncated; // true if the output was truncated
 result.timedOut;  // true if the command hit timeoutSec
 ```
 
-Pass `timeoutSec` to kill the command after a deadline and resolve with `timedOut: true`. Without it, the command runs until it exits, so you can run long-lived processes like agents, dev servers, and builds. See [Long-running commands](#long-running-commands) to stream their output and detach or reattach the session.
+Pass `timeoutSec` to stop the command after a deadline and resolve with `timedOut: true`. Without it, the command runs until it exits, so you can run long-lived processes like agents, dev servers, and builds. See [Long-running commands](#long-running-commands) to stream their output and detach or reattach the session, and [Cancelling a command](#cancelling-a-command) for how termination works.
 
 Set `cwd` to run the command in a directory, and `env` to layer extra environment variables over the sandbox's own:
 
@@ -116,7 +116,7 @@ const result = await sandbox.exec("pnpm test", {
 });
 ```
 
-The command fails if `cwd` doesn't exist. Per-command `env` values travel inside the command string, so they're visible to `ps` inside the sandbox. For secrets, set `env` when you [create the sandbox](#configuration) instead. Both options apply to fresh commands only, and are rejected when you reattach to a session by name.
+Both options are applied to the command directly rather than wrapped into the command string. The command fails if `cwd` doesn't exist. Per-command `env` values take precedence over the sandbox's own variables and last for that command only. For variables every command needs, set `env` when you [create the sandbox](#configuration) instead. Both options apply to fresh commands only, and are rejected when you reattach to a session by name.
 
 ### Long-running commands
 
@@ -152,6 +152,98 @@ const result = await reattached.exec(
 Reattaching replays the output retained for the session, then follows it live. Pass `resumeFromLastRead: true` to receive only the output produced since the server's last read, instead of replaying from the start.
 
 Call `handle.kill(signal)` to terminate a running command. It sends the signal (`TERM` by default) to the command's process group, and the handle then resolves with the command's exit. Detaching leaves the command running. Killing ends it.
+
+To find sessions you can reattach to, call `sandbox.sessions()`. It lists the sandbox's shell and `exec` sessions, running or recently exited, and resolves to `null` when the sandbox can't report them:
+
+```ts
+const sessions = await sandbox.sessions();
+const running = sessions?.filter((s) => s.kind === "EXEC" && s.running);
+```
+
+Each entry includes `name` (pass it as `sessionName` to reattach), `kind` (`SHELL` or `EXEC`), `running`, `exitCode`, `exitedAt`, `attached` (whether a client is connected right now), and `command`.
+
+### Writing to stdin
+
+By default, a command's stdin is closed as soon as it starts. Pass `stdin: true` to keep it open and write to it through `handle.stdin`. Use this to drive interactive programs, or agent CLIs that speak JSON-RPC over stdio.
+
+```ts
+const handle = sandbox.exec("my-agent --stdio", {
+  stdin: true,
+  onStdout: (chunk) => process.stdout.write(chunk),
+});
+
+const request = JSON.stringify({ jsonrpc: "2.0", id: 1, method: "ping" });
+await handle.stdin.write(request + "\n");
+await handle.stdin.end(); // send EOF
+
+const result = await handle;
+```
+
+`write` accepts a string or a `Uint8Array`. Writes are flow-controlled, so a large write waits until the sandbox is ready for more data instead of buffering without limit. Await each write before sending the next, and call `end()` to signal the end of input. Cancellation still works while a write is waiting, so a command that stops reading its input doesn't block your program.
+
+### Cancelling a command
+
+Three controls end a running command: `timeoutSec`, an `AbortSignal` passed as `signal`, and `handle.kill()`. The first two take the same path. They send `TERM` to the command's process group, escalate to `KILL` if it hasn't exited after five seconds, and settle only once the sandbox confirms the exit.
+
+```ts
+const controller = new AbortController();
+setTimeout(() => controller.abort(new Error("deadline reached")), 60_000);
+
+try {
+  const result = await sandbox.exec("npm run e2e", {
+    signal: controller.signal,
+    onStdout: (chunk) => process.stdout.write(chunk),
+  });
+  console.log(result.exitCode);
+} catch (error) {
+  if (error === controller.signal.reason) {
+    // the abort ended the command
+  }
+}
+```
+
+The two differ in how they settle. A timeout always resolves with `timedOut: true`, so you can read the output captured before the deadline: `exitCode` is `-1` once the sandbox confirms the command stopped, or `null` if it doesn't confirm within 10 seconds. The deadline starts once the command has been sent. An abort rejects with the signal's `reason`. Aborting before the command starts cancels setup, and no command runs.
+
+A command's outcome is unknown in two cases. If an abort's termination isn't confirmed within 10 seconds, the handle rejects with `RailwayConnectionError`. If the connection drops before the command reports an exit, it rejects with `ExecInterruptedError`, which carries the `stdout` and `stderr` captured so far. In both cases the command may still be running, or the sandbox may have been destroyed. For a durable command, reattach by [session name](#long-running-commands) or call `sessions()` to find out.
+
+### Capturing output
+
+An exec result captures all of stdout and stderr by default. To bound memory, set `maxOutputBytes`: each stream keeps up to that many bytes and the result sets `truncated: true` when one was cut. The `onStdout` and `onStderr` callbacks always receive the full stream, including output beyond the cap.
+
+For long-lived commands you only stream, pass `captureOutput: false`. Callbacks still run, but the result's `stdout` and `stderr` come back empty, so memory stays flat no matter how much the command prints.
+
+```ts
+const result = await sandbox.exec("npm run dev", {
+  captureOutput: false,
+  onStdout: (chunk) => process.stdout.write(chunk),
+});
+```
+
+### Ephemeral commands
+
+Every `exec` creates a durable session by default, which is what lets you detach and reattach. For short commands that don't need one, pass `ephemeral: true`. An ephemeral command has no session: `sessionName` and `detach()` reject, and if the connection drops, its processes are cleaned up instead of left running.
+
+```ts
+const status = await sandbox.exec("git status --short", { ephemeral: true });
+```
+
+Ephemeral commands still support streaming, stdin, and cancellation. The option applies to fresh commands only.
+
+A durable session keeps about the last 8 MiB of output so you can reattach. If a durable command writes more than that faster than your program reads it, output from the middle of the stream can be lost without `truncated` being set. For commands with large output, such as builds, test runs, or data dumps, use `ephemeral: true`, or have the command write to a file and read the file back.
+
+**Note:** Writable stdin and ephemeral commands depend on process controls in the sandbox host. If the sandbox you're connected to doesn't support them, a plain `exec` still works, but `stdin: true` and `ephemeral: true` reject with `ExecControlUnsupportedError` and no command runs. This is rare and limited to older sandbox hosts.
+
+### Running a command without a WebSocket
+
+`exec` streams over a WebSocket. Where your runtime can't open one, `execHttp` sends the command in a single HTTPS request and returns `exitCode`, `stdout`, `stderr`, `truncated`, and `timedOut`:
+
+```ts
+const { exitCode, stdout } = await sandbox.execHttp("node --version", {
+  timeoutSec: 30,
+});
+```
+
+`execHttp` has no streaming, stdin, or cancellation. Each stream is cut at 16,000 bytes, which sets `truncated: true`. Its `timeoutSec` is a whole number of seconds, enforced by the server: 2 minutes by default, 10 at most. A timed-out command reports `timedOut: true` and `exitCode: -1`. Use `exec` everywhere else.
 
 ### Files
 
@@ -270,6 +362,20 @@ await sandbox.exec("cat /tmp/state.json");
 
 Call `sandbox.refresh()` to re-read the sandbox and update its `status` and other fields in place.
 
+Call `sandbox.heartbeat()` to reset the sandbox's [idle timer](#idle-timeout) without running a command. It also refreshes the handle's fields. Schedule it at an interval shorter than `idleTimeoutMinutes` while your application needs the sandbox but isn't running commands in it, for example while an agent waits on a model or a user.
+
+```ts
+const keepAlive = setInterval(() => {
+  sandbox.heartbeat().catch(console.error);
+}, 5 * 60_000);
+
+// When the sandbox is no longer needed:
+clearInterval(keepAlive);
+await sandbox.destroy();
+```
+
+A heartbeat doesn't change the configured timeout, and it throws `SandboxNotFoundError` once the sandbox has been destroyed.
+
 ### Templates
 
 A template is a reusable base: an ordered list of build steps that Railway builds once, content-addresses, and caches. Creating a sandbox from a template forks that cached build instead of starting from scratch.
@@ -315,7 +421,7 @@ const fork = await base.fork();
 await fork.exec("npm test"); // sees the installed dependencies, isolated from base
 ```
 
-`Sandbox.create(source)` is equivalent to `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment and region. Pass `idleTimeoutMinutes`, `networkIsolation`, or `domains` to configure the fork. It doesn't inherit these settings from the source, including a disabled idle timeout or published domains.
+`Sandbox.create(source)` is equivalent to `source.fork()`. The source must be `RUNNING`, and the fork is created in the same environment and region. Requesting a different `region` returns an error. Pass `idleTimeoutMinutes`, `resources`, `networkIsolation`, `domains`, or `env` to configure the fork. It doesn't inherit these settings from the source, including a disabled idle timeout, a custom size, or published domains.
 
 ### Checkpoints
 
@@ -366,6 +472,7 @@ const sandbox = await Sandbox.create({
   token: process.env.MY_TOKEN,
   environmentId: process.env.MY_ENV_ID,
   idleTimeoutMinutes: 30,
+  resources: { cpu: 2, memoryGB: 4 },
   region: "us-east4-eqdc4a",
   networkIsolation: "PRIVATE",
   domains: [{ port: 3000 }],
@@ -373,7 +480,9 @@ const sandbox = await Sandbox.create({
 });
 ```
 
-`region` places a fresh sandbox in one of Railway's [regions](/deployments/regions), using the region identifier listed there, for example `us-east4-eqdc4a`. Without it, a fresh sandbox runs in US West (`us-west2`), regardless of your account's preferred region. Forks inherit the source's region, and sandboxes created from checkpoints or templates boot in the region where that snapshot was captured. Requesting a different region returns an error. Read the placement back from `sandbox.region`. The CLI has no region flag, so use the SDK or the API to choose a region for a fresh sandbox.
+`resources` sets the sandbox's size. `cpu` is in vCPUs and accepts fractions such as `0.5`, and `memoryGB` is in decimal gigabytes. Omitted fields use your workspace's default, and values above your plan's maximum return an error. See [Sandbox size](#sandbox-size) for the per-plan defaults and maximums. The option works the same on `create`, templates, checkpoints, and `fork`, and a fork doesn't inherit the source's size.
+
+`region` places a fresh sandbox in one of Railway's [regions](/deployments/regions), using the region identifier listed there, for example `us-east4-eqdc4a`. Without it, a fresh sandbox runs in US West (`us-west2`), regardless of your account's preferred region. Forks, checkpoint restores, and templates boot where their data lives: a fork runs in its source sandbox's region, and a sandbox created from a checkpoint or template runs in the region where that snapshot was captured or built. Omit `region` for those and it's chosen automatically. Requesting a different region returns an error. Read the placement back from `sandbox.region`. The CLI has no region flag, so use the SDK or the API to choose a region for a fresh sandbox.
 
 `idleTimeoutMinutes` sets how long a sandbox can sit [idle](#idle-timeout) before Railway automatically destroys it. Set it high enough to cover the gaps between steps in reconnect workflows, and low enough to avoid paying for idle compute. Without it, the sandbox uses the plan default. Set it to `0` to [disable idle destruction](#disable-the-idle-timeout) on Hobby and Pro. See [Idle timeout](#idle-timeout) for the per-plan defaults and finite ranges.
 
@@ -410,7 +519,7 @@ Only sandboxes in the `CREATING` or `RUNNING` state count toward the cap. Destro
 
 ### Sandbox size
 
-Each sandbox gets a VM size at creation. Without a request, it uses your plan's default. You can ask for a different size, up to your plan's maximum, with the `resources` field on the `sandboxCreate` API mutation (`cpu` and `memoryGB`, fractional vCPU allowed). The size is the ceiling a sandbox can use, not what you're billed for. See [Pricing](#pricing).
+Each sandbox gets a VM size at creation. Without a request, it uses your plan's default. You can ask for a different size, up to your plan's maximum, with the [`resources` option](#configuration) in the SDK or the `resources` field on the `sandboxCreate` API mutation (`cpu` and `memoryGB`, fractional vCPU allowed). Requests above the maximum return an error. The size is the ceiling a sandbox can use, not what you're billed for. See [Pricing](#pricing).
 
 | Plan | Default | Maximum |
 |------|---------|---------|
@@ -430,13 +539,13 @@ By default, Railway destroys a sandbox after its idle timeout expires. Hobby and
 | Hobby and Pro  | 30 minutes           | 1 to 120 minutes          | Set `idleTimeoutMinutes: 0` |
 | Trial and Free | 5 minutes            | 1 to 5 minutes            | Not available               |
 
-In the CLI, `railway sandbox exec` streams output live and runs the command until it exits, unless you pass `--timeout <SECONDS>`, a client-side deadline. When the deadline expires, the command receives `SIGTERM` and `exec` exits with code 124. Use `--detach` to start a command in the background and get a session name back, then `--session <name>` to reattach later. In the SDK, a command has no timeout unless you set `timeoutSec`, so [long-running commands](#long-running-commands) keep going until they exit. The `truncated` field on an exec result reports when captured output was cut short.
+In the CLI, `railway sandbox exec` streams output live and runs the command until it exits, unless you pass `--timeout <SECONDS>`, a client-side deadline. When the deadline expires, the command receives `SIGTERM` and `exec` exits with code 124. Use `--detach` to start a command in the background and get a session name back, then `--session <name>` to reattach later. In the SDK, a command has no timeout unless you set `timeoutSec`, so [long-running commands](#long-running-commands) keep going until they exit. The `truncated` field on an exec result reports when captured output was cut short by `maxOutputBytes`. See [Capturing output](#capturing-output).
 
 ### Idle timeout
 
 A sandbox's idle timer resets when you run commands or send keepalive heartbeats. Railway also defers idle teardown while an `exec` command is running, including a detached command, while an SSH shell has foreground work, or when a command finished within the idle timeout window.
 
-The CLI sends keepalive heartbeats while `railway sandbox ssh` or `railway sandbox forward` remains connected, even without commands or traffic. A background process outside an active session doesn't keep the sandbox alive on its own. Once the sandbox has no activity keeping it alive and its idle timeout expires, Railway destroys it.
+The CLI sends keepalive heartbeats while `railway sandbox ssh` or `railway sandbox forward` remains connected, even without commands or traffic. In the SDK, call [`sandbox.heartbeat()`](#reconnecting) to reset the timer yourself. A background process outside an active session doesn't keep the sandbox alive on its own. Once the sandbox has no activity keeping it alive and its idle timeout expires, Railway destroys it.
 
 Set the idle timeout with `idleTimeoutMinutes` in the SDK or `--idle-timeout-minutes` in the CLI. On the Hobby and Pro plans it defaults to 30 minutes and can be set from 1 to 120 minutes. On the Trial and Free plans it defaults to 5 minutes and can be set from 1 to 5 minutes. Setting a value above your plan's maximum returns an error.
 
@@ -447,6 +556,8 @@ On Hobby and Pro, set `idleTimeoutMinutes: 0` for an infinite TTL:
 ```ts
 const sandbox = await Sandbox.create({ idleTimeoutMinutes: 0 });
 ```
+
+Any value of `0` or lower disables the timeout. On the Trial and Free plans, creating a sandbox this way fails with an error that names the allowed range.
 
 In the CLI, pass `--idle-timeout-minutes 0` to `create` or `fork`. This also works with templates and checkpoints. Forks and checkpoint restores don't inherit the source's timeout, so pass `0` again when needed.
 
