@@ -77,11 +77,11 @@ Support covers the template as Railway ships it and the platform it runs on:
 - security updates to the database image;
 - the dashboard flows for backups, point-in-time recovery, high availability, connection pooling and major upgrades.
 
-Support stops covering a database once it is changed away from the template:
+A database leaves this scope when the user changes:
 
-- editing the service's image, start command, variables or volume mount;
-- changing the database's own configuration through SQL (roles, settings, extensions, `ALTER SYSTEM`).
+- the service's image, start command, variables or volume mount;
+- the database's own configuration through SQL (roles, settings, extensions, `ALTER SYSTEM`).
 
-After such a change the database is the user's to run. Support still helps with the platform.
+From then on the database is the user's to run. Support still helps with the platform.
 
 Schema, queries, indexes and the data are always the user's. Support does not configure a database for the user and does not make tuning, schema or query recommendations; the engine's own documentation, linked from each database page, is the reference.
