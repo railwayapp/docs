@@ -79,7 +79,10 @@ Support covers the template as Railway ships it and the platform it runs on:
 
 A database leaves this scope when the user changes:
 
-- the service's image, start command, variables or volume mount;
+- the service's image, source, start command or variables;
+- its volume: the mount path, detaching or swapping it, or restoring a backup into it by hand;
+- the members of an HA cluster (replicas, proxies, consensus nodes) outside the dashboard flows;
+- files inside the container through SSH or a shell, such as the engine's config files or the data directory;
 - the database's own configuration through SQL (roles, settings, extensions, `ALTER SYSTEM`).
 
 From then on the database is the user's to run. Support still helps with the platform.
