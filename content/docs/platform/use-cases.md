@@ -33,13 +33,14 @@ Railway will gladly bump up your service limits within your tier of service to m
 
 ### Databases
 
-Railway's databases are [managed](/databases#what-railway-manages): Railway maintains the official templates, patches their images and keeps them running, and customers run them in production. They scale to the limits of your plan. They are not covered by an SLA; for one, [contact sales](/enterprise).
+Railway's databases are [managed](/databases#what-railway-manages): Railway maintains the official templates, patches their images and keeps them running, and customers run them in production. They scale to the limits of your plan and are provided without an SLA; [contact sales](/enterprise) for one.
 
 For production, we advise developers to:
 
 - [Configure backups](/volumes/backups) and, on PostgreSQL and MySQL, [point-in-time recovery](/volumes/point-in-time-recovery)
 - Rehearse restoring their backups
 - Convert the database to high availability ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha), [MongoDB](/databases/mongo-ha)) so failover is automatic
+- Add [connection pooling](/databases/postgresql-pgbouncer) on PostgreSQL
 
 ### Metrics
 
