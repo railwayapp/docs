@@ -104,7 +104,7 @@ See the [Railpack docs](https://railpack.com/config/environment-variables) for m
 
 Railpack automatically detects commands defined in
 [Procfiles](https://railpack.com/config/procfile). Although this is not
-recommended and specifing the start command directly in your service settings is
+recommended and specifying the start command directly in your service settings is
 preferred.
 
 
