@@ -117,7 +117,7 @@ For example, to increase the SHM Size to 500MB, you would set the variable to `5
 
 ## Additional resources
 
-While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.
+Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changing the template as shipped, such as its image, start command or variables, makes the database yours to manage; see [database support scope](/databases#database-support-scope).
 
 We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 
