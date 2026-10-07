@@ -24,7 +24,7 @@ Keep **one** authoring file. Install the matching package:
   </CodeTab>
   <CodeTab label="Go (beta)" lang="bash">
 {`# put go.mod next to .railway/railway.go
-go get github.com/railwayapp/railway-go-sdk@v0.2.0`}
+go get github.com/railwayapp/railway-go-sdk@v0.3.0`}
   </CodeTab>
 </CodeBlock>
 
@@ -293,7 +293,7 @@ To run apply as a separately named job on your default branch, split plan and ap
 
 A Railway configuration file defines a project and its resources. TypeScript is the documented DSL (`import { defineRailway, project, service } from "railway/iac"`). Python and Go expose the same helpers and graph; those surfaces are in beta and may change.
 
-Install the matching package before you plan or apply — `npm install railway` for TypeScript (or `pnpm` / `yarn` / `bun`), `pip install railway-sdk` for Python, or `go get github.com/railwayapp/railway-go-sdk@v0.2.0` for Go.
+Install the matching package before you plan or apply — `npm install railway` for TypeScript (or `pnpm` / `yarn` / `bun`), `pip install railway-sdk` for Python, or `go get github.com/railwayapp/railway-go-sdk@v0.3.0` for Go.
 
 <CodeBlock>
   <CodeTab label="TypeScript" lang="ts">

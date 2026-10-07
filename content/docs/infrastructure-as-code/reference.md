@@ -194,7 +194,7 @@ const api = service("api", {
 
 In a plan, a change to `enabled` redeploys the service so the variables land. A change to `autoInstrumentation` alone reaches the running containers without a deploy.
 
-**Not yet supported by the SDKs.** `service()` in the TypeScript SDK, and its Python and Go mirrors, don't accept `tracing` yet, so a `tracing` block you write is dropped before the CLI sees it. The compiled config then has no block, so `railway config plan` against a traced service proposes to remove `tracing`, and `railway config apply` would turn tracing off. Until the SDKs add the field, set tracing from the Traces page or with [`railway trace`](/cli/trace), and don't apply a plan that removes a `tracing` block you didn't remove yourself.
+Setting `tracing` in a config file requires CLI 5.63.0 or newer and an SDK that accepts the field: `railway` 3.12.0 or newer for TypeScript, `railway-sdk` 0.4.0 or newer for Python, or `railway-go-sdk` v0.3.0 or newer for Go.
 
 ## Environment variables
 
