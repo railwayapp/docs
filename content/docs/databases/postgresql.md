@@ -76,27 +76,6 @@ For some of the most popular extensions, like PostGIS and Timescale, there are s
 - <a href="https://railway.com/deploy/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
 - <a href="https://railway.com/deploy/3jJFCA" target="_blank">pgvector</a>
 
-## Modifying the Postgres configuration
-
-You can modify the Postgres configuration by using the [`ALTER SYSTEM`](https://www.postgresql.org/docs/current/sql-altersystem.html) command.
-
-```txt
-ALTER SYSTEM SET shared_buffers = '2GB';
-ALTER SYSTEM SET effective_cache_size = '6GB';
-ALTER SYSTEM SET maintenance_work_mem = '512MB';
-ALTER SYSTEM SET work_mem = '32MB';
-ALTER SYSTEM SET max_worker_processes = '8';
-ALTER SYSTEM SET max_parallel_workers_per_gather = '4';
-ALTER SYSTEM SET max_parallel_workers = '8';
-
--- Reload the configuration to save the changes
-SELECT pg_reload_conf();
-```
-
-After running the SQL, you will need to restart the deployment for the changes to take effect.
-
-You can restart the deployment by clicking the `Restart` button in the deployment's 3-dot menu.
-
 ## Increasing the SHM size
 
 The SHM Size is the maximum amount of shared memory available to the container.
