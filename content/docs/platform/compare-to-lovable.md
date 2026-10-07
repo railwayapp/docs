@@ -47,7 +47,7 @@ Lovable includes a built-in backend option called Lovable Cloud, which handles y
 
 ### Railway
 
-Railway includes multiple native database options depending on the needs of your application, including PostgreSQL, MySQL, Redis, and MongoDB. You can add one to your project in a few clicks, and it will live on the same private network as your application, with automatic backups and a query view in the dashboard so you can browse your data without leaving Railway.
+Railway includes multiple native database options depending on the needs of your application, including PostgreSQL, MySQL, Redis, and MongoDB. You can add one to your project in a few clicks, and it will live on the same private network as your application, with [backups](/volumes/backups) you can schedule and a query view in the dashboard so you can browse your data without leaving Railway.
 
 ![Database query view in the Railway dashboard](https://res.cloudinary.com/railway/image/upload/v1701904581/docs/databases/dataTab_vtj7me.png)
 
