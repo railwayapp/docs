@@ -194,7 +194,7 @@ const api = service("api", {
 
 In a plan, a change to `enabled` redeploys the service so the variables land. A change to `autoInstrumentation` alone reaches the running containers without a deploy.
 
-Setting `tracing` in a config file requires CLI 5.63.0 or newer and an SDK that accepts the field: the TypeScript SDK, `railway` 3.12.0 or newer. The published Python and Go SDKs, `railway-sdk` 0.2.0 on PyPI and `railway-go-sdk` v0.2.0 on the Go module proxy, don't accept it, so for those languages set tracing from the Traces page or with [`railway trace`](/cli/trace).
+Setting `tracing` in a config file requires CLI 5.63.0 or newer and an SDK that accepts the field: `railway` 3.12.0 or newer for TypeScript, `railway-sdk` 0.4.0 or newer for Python, or `railway-go-sdk` v0.3.0 or newer for Go.
 
 An SDK that doesn't accept `tracing` drops the block before the CLI sees it, so the compiled config has none. On a CLI older than 5.63.0 the setting doesn't apply, and nothing proposes removing it either. On CLI 5.63.0 or newer, `railway config plan` against a traced service proposes to remove `tracing`, and `railway config apply` turns tracing off and redeploys the service. Check the installed SDK version before you add `tracing` to a config file, and don't apply a plan that removes a `tracing` block you didn't remove yourself. Upgrade the SDK and plan again instead.
 
