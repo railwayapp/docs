@@ -85,6 +85,7 @@ export function InlineTOC({
     <InlineTOCContext.Provider value={{ showLines, indent, animateExpand }}>
       <div
         data-slot="inline-toc"
+        data-do11y-toc
         className={cn(
           "w-full select-none rounded-lg border border-muted bg-muted-element/50 font-mono text-sm",
           className,

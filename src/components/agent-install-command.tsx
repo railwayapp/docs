@@ -87,6 +87,8 @@ export function AgentInstallCommand({ className }: AgentInstallCommandProps) {
 
   return (
     <div
+      data-do11y-code-block
+      data-language="bash"
       className={cn(
         "group/install-command relative my-6 overflow-hidden rounded-lg border border-muted bg-muted-app-subtle",
         className,
@@ -120,6 +122,7 @@ export function AgentInstallCommand({ className }: AgentInstallCommandProps) {
         />
         <button
           type="button"
+          data-do11y-copy
           onClick={() => copy(command)}
           className="ml-auto flex size-7 flex-shrink-0 items-center justify-center rounded-md text-muted-base transition-all hover:bg-muted-element hover:text-muted-high-contrast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid"
           aria-label={copied ? "Copied!" : "Copy command"}

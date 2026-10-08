@@ -13,7 +13,10 @@ export const Footer: React.FC<FooterProps> = ({
   lastModified,
 }) => {
   return (
-    <footer className="not-prose mt-32 border-t border-muted/70 pt-8 pb-16">
+    <footer
+      data-do11y-footer
+      className="not-prose mt-32 border-t border-muted/70 pt-8 pb-16"
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-6">
           {gitHubEditLink && (

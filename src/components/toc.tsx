@@ -731,7 +731,7 @@ export function TOC({ items, className }: TOCProps) {
   }
 
   const tocContent = (
-    <div className={cn("w-full", className)} data-slot="toc">
+    <div data-slot="toc" data-do11y-toc className={cn("w-full", className)}>
       <h3 className="text-muted-base mb-4 text-sm font-medium">On this page</h3>
       <ThumbPositionUpdater
         containerRef={containerRef}

@@ -212,10 +212,17 @@ export function GraphQLCodeTabs({
       )}
 
       {/* Code block with tabs */}
-      <div className="overflow-hidden rounded-lg border border-muted bg-muted-app-subtle">
+      <div
+        data-do11y-code-block
+        data-language={activeLang}
+        className="overflow-hidden rounded-lg border border-muted bg-muted-app-subtle"
+      >
         {/* Header with tabs and copy button */}
         <div className="flex items-center justify-between border-b border-muted bg-muted-element/50 px-3 py-2 sm:px-4">
-          <div className="flex items-center gap-1 overflow-x-auto">
+          <div
+            data-do11y-tabs
+            className="flex items-center gap-1 overflow-x-auto"
+          >
             {TABS.map(tab => (
               <button
                 key={tab.id}
@@ -234,6 +241,7 @@ export function GraphQLCodeTabs({
           </div>
           <button
             type="button"
+            data-do11y-copy
             onClick={() => copy(activeCode)}
             className="flex size-7 shrink-0 items-center justify-center rounded-md text-muted-base transition-all hover:bg-muted-element hover:text-muted-high-contrast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid"
             aria-label={copied ? "Copied!" : "Copy code"}
