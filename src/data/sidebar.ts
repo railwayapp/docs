@@ -131,6 +131,7 @@ export const sidebarContent: ISidebarContent = [
       },
       makePage("Railway Agent", "ai"),
       makePage("Agent Connectors", "ai"),
+      makePage("Bring Your Own Models", "ai"),
       {
         subTitle: makePage("Agent integrations", undefined, "/ai/agent-integrations"),
         pages: [

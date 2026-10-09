@@ -10,6 +10,7 @@
   "/ai/agent-integrations/discord",
   "/ai/agent-integrations/slack",
   "/ai/agent-skills",
+  "/ai/bring-your-own-models",
   "/ai/chatgpt-plugin",
   "/ai/claude-code-plugin",
   "/ai/claude-connector",
