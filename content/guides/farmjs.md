@@ -39,15 +39,17 @@ npm run dev
 
 Open `http://localhost:3000` to see your app.
 
-Apps created with `@farm.js/create-app` 0.1.2 or later include a `start` script, which Railway uses to run the production server. If your app is older, add it to `package.json`:
+Railway uses the `start` script in `package.json` to run the production server. Make sure it runs the server that `farm build` creates:
 
 ```json
 {
   "scripts": {
-    "start": "farm start"
+    "start": "node .farm/.output/server/index.mjs"
   }
 }
 ```
+
+If your app uses `"start": "farm start"`, that also works on Railway, because Railpack keeps devDependencies installed.
 
 If `farm.config.ts` sets `deploy.target` to another platform, such as `vercel`, remove it or set it to `node`. A platform target builds output that only that platform can serve. Without one, `farm build` creates a Node.js server.
 
