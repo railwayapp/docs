@@ -116,10 +116,12 @@ railway redeploy                # Redeploy latest deployment
 railway restart                 # Restart a service
 railway down                    # Remove latest deployment
 railway deployment list         # List deployments
+railway cron list               # List recent runs of a cron service
+railway cron run                # Trigger an off-schedule cron run
 railway templates search        # Search published templates
 ```
 
-[up](/cli/up) · [deploy](/cli/deploy) · [redeploy](/cli/redeploy) · [restart](/cli/restart) · [down](/cli/down) · [deployment](/cli/deployment) · [templates](/cli/templates) · [Deploying Guide](/cli/deploying)
+[up](/cli/up) · [deploy](/cli/deploy) · [redeploy](/cli/redeploy) · [restart](/cli/restart) · [down](/cli/down) · [deployment](/cli/deployment) · [cron](/cli/cron) · [templates](/cli/templates) · [Deploying Guide](/cli/deploying)
 
 ### Infrastructure as Code
 
