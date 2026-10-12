@@ -27,7 +27,7 @@ Tracing is configured per service and per environment from the **Tracing setup**
 2. Click **Tracing setup**. The panel opens on its own while the environment has no traces yet; its subtitle names the environment.
 3. Turn on the **Traced** switch in the row of the service you're instrumenting. Leave **Manual instrumentation** selected, since the SDK you add below exports the spans.
 
-Every request to the service in that environment is now traced. The switch is per environment: when the app later goes to `production`, turn it on there too. See [Enable tracing](/observability/tracing#enable-tracing) for the details.
+Requests to the service in that environment are now traced. The switch is per environment: when the app later goes to `production`, turn it on there too. See [Enable tracing](/observability/tracing#enable-tracing) for the details.
 
 ## 2. Look at the first traces
 
@@ -139,7 +139,7 @@ To find traces in which one service called another, filter on the caller's clien
 
 ## 5. Trace a specific request
 
-The edge traces every request to a traced service and passes its decision along in the `traceparent` header, so an SDK with its default parent-based sampler records exactly what the edge did. There is no sample rate to tune.
+The edge decides per request whether to trace it and passes its decision along in the `traceparent` header, so an SDK with its default parent-based sampler records exactly what the edge did. There is no sample rate to tune. Under high load the edge may leave some requests untraced, and it keeps tracing requests to your app over requests for static assets.
 
 To follow one request end to end, or to start a trace from an instrumented client outside Railway, send a `traceparent` header of your own. The edge follows its sampled flag: set means traced, clear means not.
 
