@@ -7,7 +7,7 @@ Tracing follows a single request from Railway's edge, through your service, and 
 
 **Note:** This is a preview feature under active development.
 
-Railway records the edge's part of every request to a traced service without changes to your code. To see what happens inside your service, instrument it with an OpenTelemetry SDK or turn on [automatic instrumentation](/observability/tracing/automatic-instrumentation).
+Railway records the edge's part of requests to a traced service without changes to your code. To see what happens inside your service, instrument it with an OpenTelemetry SDK or turn on [automatic instrumentation](/observability/tracing/automatic-instrumentation).
 
 ## How it works
 
@@ -25,7 +25,7 @@ The receiver accepts traces only, over OTLP/HTTP and OTLP/gRPC. It doesn't accep
 
 ## Enable tracing
 
-Tracing is set per service and per environment. Each service has two switches in every environment: **Traced**, which makes the edge trace requests to the service and adds the OpenTelemetry [variables](#provided-variables) on its next deploy, and **Automatic instrumentation**, which instruments the service's processes without code changes and only takes effect while the service is traced. Every request to a traced service is traced. There is no project-wide setting and no sample rate.
+Tracing is set per service and per environment. Each service has two switches in every environment: **Traced**, which makes the edge trace requests to the service and adds the OpenTelemetry [variables](#provided-variables) on its next deploy, and **Automatic instrumentation**, which instruments the service's processes without code changes and only takes effect while the service is traced. There is no project-wide setting and no sample rate to configure. Under high load the edge may leave some requests untraced, and it keeps tracing requests to your app over requests for static assets.
 
 1. Navigate to the **Traces** tab in your project's top navigation. The Traces page follows the environment selected in the dashboard.
 2. Click **Tracing setup** to open the panel. It opens on its own while the environment has no traces yet, and its subtitle names the environment the settings apply to.
@@ -71,7 +71,7 @@ When tracing is enabled for a service in an environment, Railway adds these vari
 
 Every OpenTelemetry SDK reads these variables, so an SDK configured without an explicit endpoint exports to Railway. Don't hardcode the endpoint or the header in your code, and don't set a different `OTEL_SERVICE_NAME` unless you want spans attributed under another name.
 
-A variable you set yourself takes precedence. If you set `OTEL_EXPORTER_OTLP_ENDPOINT` or `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` on the service, for example to keep exporting to your own collector, Railway adds none of the tracing variables, and your app's spans don't reach the Traces page. The edge still traces requests to the service. Railway sets no sampler variables; the edge traces every request, and the SDK's default parent-based sampler follows it.
+A variable you set yourself takes precedence. If you set `OTEL_EXPORTER_OTLP_ENDPOINT` or `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` on the service, for example to keep exporting to your own collector, Railway adds none of the tracing variables, and your app's spans don't reach the Traces page. The edge still traces requests to the service. Railway sets no sampler variables; the edge decides per request, and the SDK's default parent-based sampler follows it.
 
 Many SDKs export metrics and logs to the same endpoint by default. Railway's receiver doesn't accept them, so set these variables on the service to keep the SDK from trying:
 
@@ -199,6 +199,7 @@ Railway applies these limits to incoming spans:
 - Each replica can export 1,000 spans per 10 seconds. Spans over the limit are rejected, and the SDK sees the rejection as an OTLP partial success.
 - A span can carry 128 attributes, 128 events, and 128 links, each with 128 attributes. Attribute values are cut at 16 KiB. Excess is dropped and counted on the span rather than rejected.
 - A search returns up to 500 traces. Narrow the filter or the time range to see the rest.
+- Under high load the edge may not trace every request. Requests for static assets are the first to go untraced, so traces for requests to your app are kept.
 
 ## Instrument your service
 
@@ -227,7 +228,7 @@ The edge traces a request on its own, but a trace only shows what happens inside
 
 **The SDK logs export errors for metrics or logs.** Set `OTEL_METRICS_EXPORTER=none` and `OTEL_LOGS_EXPORTER=none`. The receiver accepts traces only.
 
-**Spans are missing from a busy service.** The service is exporting more than 1,000 spans per 10 seconds per replica. Reduce the span volume by disabling noisy instrumentations, or configure a sampler in the SDK: `OTEL_TRACES_SAMPLER=traceidratio` with `OTEL_TRACES_SAMPLER_ARG` set to a fraction keeps that share of requests. A parent-based sampler follows the edge, which traces every request, so it wouldn't reduce anything.
+**Spans are missing from a busy service.** The service is exporting more than 1,000 spans per 10 seconds per replica. Reduce the span volume by disabling noisy instrumentations, or configure a sampler in the SDK: `OTEL_TRACES_SAMPLER=traceidratio` with `OTEL_TRACES_SAMPLER_ARG` set to a fraction keeps that share of requests. A parent-based sampler follows the edge's decision, so it wouldn't reduce the service's volume on its own.
 
 ## See also
 
