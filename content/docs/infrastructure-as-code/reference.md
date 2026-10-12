@@ -182,6 +182,20 @@ const web = service("web", {
 });
 ```
 
+### Tracing
+
+`tracing` holds the service's [tracing](/observability/tracing) switches for the environment. `enabled` makes the edge trace requests to the service and adds the `OTEL_*` variables on its next deploy; `autoInstrumentation` turns on [automatic instrumentation](/observability/tracing/automatic-instrumentation), which only takes effect while `enabled` is true. Railway stores only the switches that are on, so an untraced service has no `tracing` block and `enabled: false` is the same as leaving it out. `railway config pull` renders the block for a traced service:
+
+```ts
+const api = service("api", {
+  tracing: { enabled: true, autoInstrumentation: true },
+});
+```
+
+In a plan, a change to `enabled` redeploys the service so the variables land. A change to `autoInstrumentation` alone reaches the running containers without a deploy.
+
+Setting `tracing` in a config file requires CLI 5.63.0 or newer and an SDK that accepts the field: `railway` 3.12.0 or newer for TypeScript, `railway-sdk` 0.4.0 or newer for Python, or `railway-go-sdk` v0.3.0 or newer for Go.
+
 ## Environment variables
 
 Set literal variables:

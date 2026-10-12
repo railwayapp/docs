@@ -7,7 +7,7 @@ General common Questions & Answers related to Railway's pricing.
 
 ### Can I try Railway without a credit-card?
 
-Yes. As a new Railway user, you can sign up for a [Free Trial](/pricing/free-trial). You will receive a one-time grant of $5 to use on resources.
+Yes. As a new Railway user, you can sign up for a [Free Trial](/pricing/free-trial). You will receive a one-time grant of $5 to use on resources. You can also try a free VM without an account by running `ssh railway.new`; see [Try without an account](/pricing/free-trial#try-without-an-account).
 
 ### What payment methods are accepted?
 

@@ -76,27 +76,6 @@ For some of the most popular extensions, like PostGIS and Timescale, there are s
 - <a href="https://railway.com/deploy/timescaledb-postgis" target="_blank">TimescaleDB + PostGIS</a>
 - <a href="https://railway.com/deploy/3jJFCA" target="_blank">pgvector</a>
 
-## Modifying the Postgres configuration
-
-You can modify the Postgres configuration by using the [`ALTER SYSTEM`](https://www.postgresql.org/docs/current/sql-altersystem.html) command.
-
-```txt
-ALTER SYSTEM SET shared_buffers = '2GB';
-ALTER SYSTEM SET effective_cache_size = '6GB';
-ALTER SYSTEM SET maintenance_work_mem = '512MB';
-ALTER SYSTEM SET work_mem = '32MB';
-ALTER SYSTEM SET max_worker_processes = '8';
-ALTER SYSTEM SET max_parallel_workers_per_gather = '4';
-ALTER SYSTEM SET max_parallel_workers = '8';
-
--- Reload the configuration to save the changes
-SELECT pg_reload_conf();
-```
-
-After running the SQL, you will need to restart the deployment for the changes to take effect.
-
-You can restart the deployment by clicking the `Restart` button in the deployment's 3-dot menu.
-
 ## Increasing the SHM size
 
 The SHM Size is the maximum amount of shared memory available to the container.
@@ -117,7 +96,7 @@ For example, to increase the SHM Size to 500MB, you would set the variable to `5
 
 ## Additional resources
 
-While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.
+Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changing the template as shipped, such as its image, start command or variables, makes the database yours to manage; see [database support scope](/databases#database-support-scope).
 
 We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 

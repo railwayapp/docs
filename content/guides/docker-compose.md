@@ -59,7 +59,7 @@ If a Compose service uses `image:` (for example, `image: redis:7-alpine`), deplo
 
 ### Database services
 
-For common databases like Postgres, MySQL, Redis, and MongoDB, use Railway's managed database services instead of raw Docker images. Managed databases include automatic backups, connection pooling, and a dashboard.
+For common databases like Postgres, MySQL, Redis, and MongoDB, use Railway's managed database services instead of raw Docker images. Managed databases come with a dashboard, and you can turn on [backups](/volumes/backups) and, for PostgreSQL, [connection pooling](/databases/postgresql-pgbouncer) from it.
 
 1. In your Railway project, click **+ New** and select **Database**.
 2. Choose the database type (Postgres, MySQL, Redis, or MongoDB).

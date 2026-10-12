@@ -3,8 +3,6 @@ title: Discord
 description: Install the Railway Agent in your Discord server and work with your projects from chat.
 ---
 
-<Banner variant="primary">Agent integrations are in beta. Breaking changes may occur.</Banner>
-
 Mention **@Railway** in Discord to ask the [Railway Agent](/ai/railway-agent) about your projects, inspect deployments, read logs, and make changes without leaving the conversation.
 
 ## Set up

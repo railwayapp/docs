@@ -58,7 +58,7 @@ Bolt projects often rely on environment variables for API keys, database connect
 If your Bolt project uses a database:
 
 - **External database (e.g., Supabase, PlanetScale)**: Add the connection string as an environment variable in Railway. No other changes are needed.
-- **Railway-managed database**: Right-click the Project Canvas and add a Postgres, MySQL, or Redis service. Railway provides connection variables automatically when you link the database to your service.
+- **Railway-managed database**: Right-click the Project Canvas and add a Postgres, MySQL, Redis, or MongoDB service. Railway provides connection variables automatically when you link the database to your service.
 
 See [Databases on Railway](/databases) for setup details.
 

@@ -105,7 +105,7 @@ Replit offers Replit Database (a simple key-value store) and Replit PostgreSQL. 
 
 Railway provides managed PostgreSQL, MySQL, Redis, and MongoDB. Each database includes:
 
-- Point-in-time backups.
+- Scheduled and on-demand backups, plus point-in-time recovery for PostgreSQL and MySQL.
 - Connection pooling (for PostgreSQL).
 - Database metrics and monitoring.
 - Private networking to your application services.

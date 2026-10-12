@@ -11,7 +11,7 @@ Railway offers committed spend tiers for customers with consistent usage needs. 
 | -------------------- | ------------------------------------------------------------------------------------ |
 | $1000                | 90-day log history, HIPAA BAAs                                                       |
 | $2000                | Single Sign-On, Role-based access control, 18 month Audit Logs retention             |
-| $5000                | Slack Connect channels,  Critical level support tickets, Enterprise Resource Limits |
+| $5000                | Slack Connect channels, Critical level support tickets, Enterprise Resource Limits, Railway Authentication |
 | $10000               | Dedicated instances                                                                  |
 
 ## How to subscribe
@@ -52,6 +52,9 @@ A private channel with the solutions team at Railway on Slack to facilitate bett
 
 ### Critical level support tickets
 Critical tickets allow you to page our support on-call directly for an immediate response.
+
+### Railway Authentication
+An identity-aware proxy that requires visitors to sign in with Railway and be a member of the project before they can reach a service over HTTP. Workspace admins can turn it on for a whole environment or for individual services. See [Railway Authentication](/enterprise/guardrails#railway-authentication).
 
 ### Dedicated instances
 Custom dedicated infrastructure for enhanced performance and control.

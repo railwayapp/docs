@@ -31,6 +31,7 @@ You can view Railway's audit, compliance, security, and regulatory documents on 
 - [Access groups](/enterprise/access-groups) for project-level access control
 - [Audit logs](/enterprise/audit-logs), including change tracking
 - [Environment-based RBAC](/environments)
+- [Railway Authentication](/enterprise/guardrails#railway-authentication), an identity-aware proxy that requires visitors to sign in with Railway before they can reach a service
 
 ## Zero-trust networking
 

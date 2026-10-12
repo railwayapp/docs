@@ -44,6 +44,10 @@ _Keep in mind that you will be billed for [Network Egress](/pricing/plans#resour
 
 Since the deployed container is pulled from the official [MongoDB](https://hub.docker.com/_/mongo) image in Docker Hub, you can modify the deployment based on the [instructions in Docker Hub](https://hub.docker.com/_/mongo).
 
+## High availability
+
+A MongoDB service can be converted into a high-availability replica set with automatic failover from its **Database → Config → High Availability** section. See [Upgrading MongoDB to High Availability](/databases/mongo-ha).
+
 ## Backup and monitoring
 
 Especially for production environments, performing regular backups and monitoring the health of your database is essential. Consider adding:
@@ -54,7 +58,7 @@ Especially for production environments, performing regular backups and monitorin
 
 ## Additional resources
 
-While these templates are available for your convenience, they are considered unmanaged, meaning you have total control over their configuration and maintenance.
+Railway maintains this template; [what Railway manages](/databases#what-railway-manages) lists which operations Railway handles and which are yours. Changing the template as shipped, such as its image, start command or variables, makes the database yours to manage; see [database support scope](/databases#database-support-scope).
 
 We _strongly encourage you_ to refer to the source documentation to gain deeper understanding of their functionality and how to use them effectively. Here are some links to help you get started:
 

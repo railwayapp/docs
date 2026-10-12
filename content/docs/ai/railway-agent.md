@@ -18,6 +18,10 @@ The agent has access to the same primitives you do, so it can act across your en
 
 [Agent Connectors](/ai/agent-connectors) extend the agent past your Railway resources. Connect Notion, Linear, Sentry, or your own MCP server, and the agent can read from them while it works on your projects.
 
+## Use your own model account
+
+[Bring Your Own Models](/ai/bring-your-own-models) lets you sign in with ChatGPT or OpenRouter and run the agent on that account instead of a Railway model.
+
 ## Automatic deployment diagnosis
 
 When a deployment fails, the agent can automatically investigate. It reads the build and runtime logs, correlates them with your service configuration and recent code changes, and produces a short explanation of the failure.
@@ -26,4 +30,4 @@ If the fix is in your code, the agent can open a pull request with the change so
 
 ## Pricing
 
-Usage of the Railway Agent is billed based on the underlying LLM tokens consumed, at the exact per-token rates published on <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a>, with no markup. See [Pricing](/pricing#railway-agent) for details.
+Usage of the Railway Agent is billed based on the underlying LLM tokens consumed, at the exact per-token rates published on <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a>, with no markup. See [Pricing](/pricing#railway-agent) for details. Requests on a model from [your own account](/ai/bring-your-own-models) are billed by that provider instead.
