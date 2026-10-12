@@ -23,6 +23,9 @@ To configure a cron job:
 2. Within "Cron Schedule", input a [crontab expression](#crontab-expressions).
 3. Once the setting is saved, the service will run according to the cron schedule.
 
+To view recent runs or trigger one outside the schedule from the terminal, use
+[`railway cron list` and `railway cron run`](/cli/cron).
+
 ## Service execution requirements
 
 Scheduled services should exit as soon as they are done with the task they are responsible to perform. Thus, the process should close any connections, such as database connections, to exit properly.
