@@ -154,6 +154,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Grok Build plugin", "ai"),
           makePage("Grok Bot plugin", "ai"),
           makePage("Cursor plugin", "ai"),
+          makePage("Antigravity plugin", "ai"),
         ],
       },
       makePage("MCP server", "ai"),
