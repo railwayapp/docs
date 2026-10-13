@@ -184,6 +184,35 @@ Common `extensions.code` values:
 | `BAD_USER_INPUT`           | A field or variable failed validation                               | 400  |
 | `INTERNAL_SERVER_ERROR`    | An unexpected error, or an authorization denial (message `Not Authorized`) | 200  |
 
+### HTTP 403 with Cloudflare error 1010
+
+An HTTP `403` response containing Cloudflare error `1010` indicates that Cloudflare rejected your client's signature before the request reached the GraphQL API. It doesn't establish whether your Railway token is valid. Cloudflare documents this behavior in its <a href="https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/" target="_blank">error 1010 reference</a>.
+
+If your Python or CI client receives this response, set an explicit `User-Agent` that identifies your application. Some default client headers can trigger this rejection. Keep the [authentication header](#execute-a-test-query) appropriate for your token type. For example, a Python `urllib.request` project-token request can use:
+
+```python
+import json
+import os
+from urllib.request import Request
+
+request = Request(
+    "https://backboard.railway.com/graphql/v2",
+    data=json.dumps({
+        "query": "query { projectToken { projectId environmentId } }"
+    }).encode("utf-8"),
+    headers={
+        "Content-Type": "application/json",
+        "User-Agent": "my-railway-integration/1.0",
+        "Project-Access-Token": os.environ["RAILWAY_PROJECT_TOKEN"],
+    },
+    method="POST",
+)
+```
+
+Replace `my-railway-integration/1.0` with your application's name and version, then send the request using your existing client code. Reaching the API can still return HTTP `200` with GraphQL `errors`, so check those before treating the request as successful.
+
+If error `1010` persists, stop retrying and contact [Railway support](#support) with the UTC request time, endpoint, client library/version, `User-Agent`, HTTP status, and response `CF-Ray` header. Don't include tokens, request authentication headers, or full environment dumps. A Cloudflare rejection may have no GraphQL `traceId`; the `CF-Ray` header helps identify the edge request.
+
 ## Retries
 
 - **Reads (queries) are safe to retry** — they have no side effects.
