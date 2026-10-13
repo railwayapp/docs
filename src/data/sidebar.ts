@@ -301,6 +301,7 @@ export const sidebarContent: ISidebarContent = [
       makeCliCommand("completion"),
       makeCliCommand("config"),
       makeCliCommand("connect"),
+      makeCliCommand("cron"),
       makeCliCommand("delete"),
       makeCliCommand("deploy"),
       makeCliCommand("deployment"),
