@@ -73,6 +73,8 @@ Pass one or more of these values to `--agent`.
 | GitHub Copilot | `copilot` |
 | OpenAI Codex | `codex` |
 | OpenCode | `opencode` |
+| Pi | `pi` |
+| Google Antigravity | `antigravity` |
 
 ## Installed MCP entries
 
@@ -86,8 +88,10 @@ The installed entry depends on the target tool and connection.
 | GitHub Copilot | `type: "local"`, `command: "railway"`, `args: ["mcp"]`, `tools: ["*"]` | `type: "http"`, `url: "https://mcp.railway.com"`, `tools: ["*"]` | `type: "local"`, `command: "railway"`, `args: ["mcp", "local"]`, `tools: ["*"]` |
 | OpenCode | `type: "local"`, `command: ["railway", "mcp"]`, `enabled: true` | `type: "remote"`, `url: "https://mcp.railway.com"`, `enabled: true` | `type: "local"`, `command: ["railway", "mcp", "local"]`, `enabled: true` |
 | OpenAI Codex | `command = "railway"`, `args = ["mcp"]` | `url = "https://mcp.railway.com"` | `command = "railway"`, `args = ["mcp", "local"]` |
+| Pi | `command: "railway"`, `args: ["mcp"]` | `url: "https://mcp.railway.com"` | `command: "railway"`, `args: ["mcp", "local"]` |
+| Google Antigravity | `command: "railway"`, `args: ["mcp"]` | `url: "https://mcp.railway.com"` | `command: "railway"`, `args: ["mcp", "local"]` |
 
-`railway mcp install` merges the Railway server entry into existing configs without removing other MCP servers.
+`railway mcp install` merges the Railway server entry into existing configs without removing other MCP servers. For Google Antigravity, it writes the entry to `~/.gemini/config/mcp_config.json`. To install the Railway skill and MCP server together in Antigravity, use the [Antigravity plugin](/ai/antigravity-plugin).
 
 **Note:** Configurations that run `railway mcp proxy` continue to work and
 connect to `mcp.railway.com`. Re-run `railway mcp install` to update them to
