@@ -46,6 +46,34 @@ Since the deployed container is based on an image built from the official [Postg
 
 We also encourage you to fork the [Railway postgres-ssl repository](https://github.com/railwayapp-templates/postgres-ssl) to customize it to your needs, or feel free to open a PR in the repo!
 
+## Set up a managed database in one click
+
+The **Managed setup** section turns on high availability, connection pooling, point-in-time recovery, and scheduled backups for a PostgreSQL service in one step. It appears in the **Database → Config** tab of PostgreSQL services that run Railway's Postgres image, which is what the PostgreSQL template deploys.
+
+The section lists each part of the setup and whether it's **On**, **Staged**, or **Off**. The button stages only the parts that are off, and nothing changes until you deploy the staged changes.
+
+1. Open your PostgreSQL service and navigate to **Database → Config → Managed setup**.
+2. Click **Stage managed setup**.
+3. Review the changes listed in the confirmation dialog and click **Stage**.
+4. Review the staged changes on the service and click **Deploy**.
+
+Each part stages the same changes as its own flow:
+
+| Part | What's staged |
+| --- | --- |
+| [Point-in-time recovery](/volumes/point-in-time-recovery) | A storage bucket and WAL archiving |
+| [High availability](/databases/postgresql-ha) | A conversion to an HA cluster with replicas, consensus nodes, and a reverse proxy, with automatic failover. A backup of the volume is taken first. |
+| [Connection pooling](/databases/postgresql-pgbouncer) | PgBouncer in transaction mode in front of the reverse proxy. Connection strings move to PgBouncer. |
+| [Backups](/volumes/backups#backup-schedules) | Daily, weekly, and monthly backup schedules on the database's volume |
+
+When the setup includes high availability, deploying restarts the database once to move it onto the HA image.
+
+On a service that's already an HA cluster, the button stages only connection pooling and backups. Point-in-time recovery on a cluster rolls out across the nodes right away instead of being staged, so turn it on from the **Backups** tab.
+
+If an HA conversion is already staged on the service, the section can't stage anything else. Deploy or discard the staged conversion first.
+
+**Note:** Staging the managed setup requires write access to the project.
+
 ## High availability
 
 An existing PostgreSQL service can be converted into a high-availability cluster with automatic failover, backed by Patroni, etcd, and HAProxy. See [Upgrading PostgreSQL to High Availability](/databases/postgresql-ha) for the full guide.
