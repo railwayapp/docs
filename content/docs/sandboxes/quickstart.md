@@ -162,6 +162,7 @@ This verifies both that the fork received the original file and that changing it
 ## Choose your next step
 
 - [Run a coding agent](/guides/agents-in-sandboxes) with provider credentials and a repository
+- [Deploy a TanStack AI app](/guides/tanstack-start#build-an-ai-agent-app-with-tanstack-ai) that runs Claude Code in a sandbox for each task, from a one-click template
 - [Save a checkpoint](/sandboxes#checkpoints) to reuse prepared files after the source sandbox is destroyed
 - [Connect to a database](/sandboxes#networking) with `PRIVATE` networking and connection variables
 - [Expose a preview](/sandboxes#public-domains) on a Railway-provided URL, or forward a port to your machine
