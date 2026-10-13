@@ -69,7 +69,7 @@ Railway maintains the database templates above (the Redis template is owned by R
 | Disk size | User [resizes the volume](/volumes#live-resizing-the-volume) |
 | Schema, queries, indexes and data | User |
 
-For PostgreSQL, [managed setup](/databases/postgresql#set-up-a-managed-database-in-one-click) turns on high availability, connection pooling, point-in-time recovery, and backups in one step.
+For PostgreSQL, the [managed setup](/databases/postgresql#turn-on-the-managed-setup) turns on high availability, connection pooling, point-in-time recovery, and backups together, in one deploy.
 
 ## Database support scope
 
@@ -89,7 +89,7 @@ A database leaves this scope when the user changes:
 
 From then on the database is the user's to manage. Support still helps with the platform.
 
-The dashboard warns you before a hand edit takes a database out of this scope. When you stage a change to a database deployed from one of these templates, a confirmation names the database and what the change touches, such as its image, start command, variables, or volume. Click **Stage anyway** to go ahead. Each database asks once until the staged changes are deployed or discarded. If the change was staged somewhere else, such as from the CLI, the same warning appears when you deploy, with a **Deploy anyway** button.
+The dashboard warns you before a change takes a database out of this scope. When you stage such a change, a confirmation says the database will lose Railway support and names what the change touches. Click **Stage anyway** to go ahead, or cancel to keep the database in scope. For changes staged outside the dashboard, such as from the CLI, the confirmation appears when you deploy, with a **Deploy anyway** button.
 
 Moving the database to another region, changing its backup schedules, and Railway's own flows for high availability, connection pooling, and point-in-time recovery don't trigger the warning.
 
