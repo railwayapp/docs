@@ -127,15 +127,15 @@ It is highly recommended that [you eject from the template after deployment](/te
 
 #### Build an AI agent app with TanStack AI
 
-The [TanStack Start + AI + Railway Sandboxes template](https://railway.com/deploy/tanstack-start-ai-railway-sandboxes) deploys Dispatch, a work tracker where each task has a **Run** button. Running a task boots a [Railway sandbox](/sandboxes), runs Claude Code inside it, and records each step in the task's activity feed.
+The [TanStack Start + AI + Railway Sandboxes template](https://railway.com/deploy/tanstack-start-ai-railway-sandboxes) deploys Handoff, a work tracker where each task has a **Run** button. Running a task boots a [Railway sandbox](/sandboxes), runs Claude Code inside it, and records each step in the task's activity feed.
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/tanstack-start-ai-railway-sandboxes)
 
-Dispatch uses <a href="https://tanstack.com/ai" target="_blank">TanStack AI</a> to drive the sandbox: the `@tanstack/ai-sandbox-railway` provider creates the sandbox in your project's environment, and the `@tanstack/ai-claude-code` harness runs the agent. The template provisions the app and a Postgres database, and generates an access password in the `DISPATCH_PASSWORD` variable. To finish setup:
+Handoff uses <a href="https://tanstack.com/ai" target="_blank">TanStack AI</a> to drive the sandbox: the `@tanstack/ai-sandbox-railway` provider creates the sandbox in your project's environment, and the `@tanstack/ai-claude-code` harness runs the agent. The template provisions the app and a Postgres database, and generates an access password in the `HANDOFF_PASSWORD` variable. To finish setup:
 
 1. Enter an `ANTHROPIC_API_KEY` from the <a href="https://console.anthropic.com" target="_blank">Anthropic Console</a> when you deploy.
 2. In the new project, open **Settings → Tokens** and create a [project token](/integrations/api#project-token) for the `production` environment.
-3. Add the token to the `Dispatch-Web` service as a variable named `RAILWAY_TOKEN`, and deploy the change.
+3. Add the token to the `Handoff-Web` service as a variable named `RAILWAY_TOKEN`, and deploy the change.
 
 The source is in the <a href="https://github.com/railwayapp/railway-tanstack-start-sandbox-template" target="_blank">railwayapp/railway-tanstack-start-sandbox-template</a> repository.
 
