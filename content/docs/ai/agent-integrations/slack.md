@@ -5,8 +5,6 @@ description: Install the Railway Agent in your Slack workspace and work with you
 
 Mention **@Railway Agent** in Slack to ask the [Railway Agent](/ai/railway-agent) about your projects, inspect deployments, read logs, and make changes without leaving the conversation.
 
-**AI disclaimer:** Railway Agent uses AI and may generate inaccurate or incomplete responses. Verify its recommendations before acting on them, especially when making changes to production environments.
-
 ## Set up
 
 1. Go to [Account Settings](https://railway.com/account) → **Railway Agent Integrations** and click **Add to Slack**. Approve the install for your Slack workspace.
@@ -23,6 +21,10 @@ The agent can reply in any public channel. For private channels, invite it first
 ## Removing the integration
 
 Workspace admins can remove the workspace connection from [Account Settings](https://railway.com/account) — see [Managing connections](/ai/agent-integrations#managing-connections). The agent stops responding in that Slack workspace immediately; uninstall the app itself from Slack's own admin settings.
+
+## Disclaimer
+
+Railway Agent uses AI and may generate inaccurate or incomplete responses. Verify its recommendations before acting on them, especially when making changes to production environments.
 
 ## Privacy
 
