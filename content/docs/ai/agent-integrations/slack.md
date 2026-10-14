@@ -22,6 +22,10 @@ The agent can reply in any public channel. For private channels, invite it first
 
 Workspace admins can remove the workspace connection from [Account Settings](https://railway.com/account) — see [Managing connections](/ai/agent-integrations#managing-connections). The agent stops responding in that Slack workspace immediately; uninstall the app itself from Slack's own admin settings.
 
+## Disclaimer
+
+Railway Agent uses AI and may generate inaccurate or incomplete responses. Verify its recommendations before acting on them, especially when making changes to production environments.
+
 ## Privacy
 
 Read Railway's <a href="https://railway.com/legal/privacy" target="_blank">Privacy Policy</a>.
