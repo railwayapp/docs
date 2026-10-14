@@ -24,7 +24,7 @@ Workspace admins can remove the workspace connection from [Account Settings](htt
 
 ## Support
 
-For help with Railway Agent's Slack integration, email [support@railway.com](mailto:support@railway.com). You don't need to create a Railway account or sign in to request help.
+For help with Railway Agent's Slack integration, email [support@railway.com](mailto:support@railway.com).
 
 ## Disclaimer
 
