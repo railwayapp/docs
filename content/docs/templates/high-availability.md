@@ -1,5 +1,5 @@
 ---
-title: High Availability Templates
+title: High availability templates
 description: Declare a high availability companion for your database template so users can convert a single service into a replicated cluster.
 ---
 
@@ -40,10 +40,10 @@ platform what the service is for:
 
 | Role | Purpose |
 | --- | --- |
-| `root` | The primary data node, and the service users connect to and manage |
-| `replica` | Additional data nodes replicating from the root |
+| `root` | The original data node. It starts as the primary, but any data node can hold that role after a failover. It is the service users connect to and manage. |
+| `replica` | Additional data nodes replicating from the primary |
 | `internal` | Coordination services that are not data nodes, such as a consensus store |
-| `edge` | The entry point in front of the data nodes, such as a proxy or load balancer |
+| `edge` | The entry point in front of the data nodes, such as a reverse proxy |
 
 The root is special: it is the service that already exists when a user converts,
 so the conversion adopts it in place rather than creating a new one. Its data,
@@ -75,12 +75,12 @@ volume, connection string, and service ID survive the conversion.
 
 Each role selector accepts:
 
-- `label` — the heading for the selector, usually plural
-- `nodeLabel` — the singular noun for one node of this role, used as the per-node
+- `label`: the heading for the selector, usually plural
+- `nodeLabel`: the singular noun for one node of this role, used as the per-node
   type label in cluster views
-- `description` — optional helper text under the selector
-- `options` — the node counts a user may pick for this role
-- `defaultValue` — the initial selection, defaulting to the first entry in
+- `description`: optional helper text under the selector
+- `options`: the node counts a user may pick for this role
+- `defaultValue`: the initial selection, defaulting to the first entry in
   `options`
 
 Omit a role's selector entirely to hide it. A cluster whose coordination node
@@ -129,7 +129,7 @@ images read rather than having the platform hardcode them:
 | `dataNodesVariable` | The variable on the edge service holding the data-node endpoint list |
 
 Entry formats accept two substitutions: `{host}` becomes the node's private
-domain reference, and `{rootName}` becomes the cluster root's actual service
+domain reference, and `{rootName}` becomes the root service's actual service
 name.
 
 <Banner variant="warning">
