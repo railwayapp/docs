@@ -132,13 +132,13 @@ DigitalOcean Managed Databases cover PostgreSQL, MySQL, Valkey, MongoDB, Kafka a
 
 ### Railway
 
-Railway provides managed PostgreSQL, MySQL, Redis and MongoDB. Railway provisions each database and ships security patches for its image; [what Railway manages](/databases#what-railway-manages) lists each operation and who handles it. The database runs in the same project and private network as the application, not as a separate product. Each database includes:
+Railway provides managed PostgreSQL, MySQL, Redis and MongoDB. Railway provisions each database and ships security patches for its image; [what Railway manages](/databases#what-railway-manages) lists each operation and who handles it. The database runs in the same project and private network as the application, not as a separate product. You can enable:
 
 - High availability with automatic failover, converted from the existing database in the dashboard and billed as the replicas it adds.
 - Scheduled and on-demand backups, plus point-in-time recovery for PostgreSQL and MySQL.
-- Connection pooling with PgBouncer and one-click major version upgrades for PostgreSQL.
-- Connection, query and vacuum statistics in the database view.
-- Private networking to your application services.
+- Connection pooling with PgBouncer for PostgreSQL.
+
+PostgreSQL major version upgrades run in one click. Connection, query and vacuum statistics in the database view and private networking to your application services are included.
 
 Railway does not publish a database uptime SLA. [Contact sales](/enterprise) if you need one.
 
