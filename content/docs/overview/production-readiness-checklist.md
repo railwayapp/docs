@@ -53,7 +53,7 @@ Ensuring your application is performant and reliable under changing conditions l
 
 **&check; Use a managed database**
 
-- Railway's PostgreSQL, MySQL, Redis and MongoDB templates become [managed databases](/databases#what-railway-manages) once you convert them to high availability ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha), [MongoDB](/databases/mongo-ha)) and turn on [backups](/volumes/backups). Railway does not monitor your database for you.
+- Railway's PostgreSQL, MySQL, Redis and MongoDB templates become [managed databases](/databases#what-railway-manages) once you convert them to high availability ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha), [MongoDB](/databases/mongo-ha)) and turn on [backups](/volumes/backups). Alerting on database metrics is yours to set up.
 
 ---
 
