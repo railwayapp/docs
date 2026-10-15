@@ -15,10 +15,16 @@ In practical terms, you must not use Railway for:
 - Spam, including unsolicited bulk email or messages
 - Phishing, impersonation, payment fraud, or other scams
 - Malware, botnets, DDoS attacks, or unauthorized access to systems
+- Content or activity that exploits or harms minors
+- Non-consensual intimate imagery
+- Harassment, threats, or intimidation
 - Cryptocurrency mining
 - Torrenting or distributing unauthorized copies of software or media
+- Multi-accounting or ban evasion, such as opening new accounts to reuse the
+  Trial plan or return after a ban
+- Illegitimate chargebacks or disputes over Railway charges for services you've
+  used
 - Any illegal activity
-- Issuing illegitimate chargebacks or disputing Railway payments for rendered services
 
 The Acceptable Use Policy also prohibits operating proxies or anonymization
 services, reselling compute resources, evading usage or billing limits, and
@@ -46,15 +52,6 @@ unnecessary disruption to legitimate workloads. For example, action against a
 compromised service can be limited to that service rather than the entire
 workspace.
 
-### Report abuse or infringement
-
-Report suspected abuse or trademark infringement to
-[abuse@railway.com](mailto:abuse@railway.com). Include the affected URLs and a
-description of the issue.
-
-If you own copyrighted material or represent its owner, you can
-<a href="https://railway.com/abuse/dmca" target="_blank">submit a DMCA takedown notice</a>.
-
 ## How restrictions affect your workspace
 
 A restriction can affect an individual service or domain, a particular feature,
@@ -74,13 +71,17 @@ Review the <a href="https://railway.com/workspace/restrictions" target="_blank">
 to understand the recorded reason, affected resources, and consequences.
 Available next steps depend on the restriction.
 
+If your account is banned, you only see the **Account suspended** page when you
+sign in. That page shows the recorded reason and, when available, the option
+to appeal.
+
 Some restrictions require an approved appeal before they can be lifted. Others
 have a specific resolution, such as upgrading to a paid plan.
 
 After a restriction is lifted, you may need to redeploy any services that were
 stopped.
 
-### Submitting an appeal
+### Submit an appeal
 
 If you believe a restriction was applied in error, use the appeal option in your
 dashboard when it's available. Restrictions remain in effect while an appeal is
@@ -96,3 +97,12 @@ before submitting.
 You can generally appeal a restriction once, and the appeal decision is final.
 Not every restriction can be appealed. Follow the resolution instructions shown
 in your dashboard.
+
+## Report abuse or infringement
+
+Report suspected abuse or trademark infringement to
+[abuse@railway.com](mailto:abuse@railway.com). Include the affected URLs and a
+description of the issue.
+
+If you own copyrighted material or represent its owner, you can
+<a href="https://railway.com/abuse/dmca" target="_blank">submit a DMCA takedown notice</a>.
