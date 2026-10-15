@@ -41,6 +41,7 @@ export const sidebarContent: ISidebarContent = [
       makePage("Philosophy", "platform"),
       makePage("Use cases", "platform"),
       makePage("Support", "platform"),
+      makePage("Trust and safety", "platform"),
       makePage("Incident management", "platform"),
       makePage("Railway Metal", "platform"),
       makePage("Priority boarding", "platform"),
