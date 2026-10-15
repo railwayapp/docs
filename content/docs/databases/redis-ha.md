@@ -1,9 +1,11 @@
 ---
-title: Upgrading Redis to High Availability
-description: Convert an existing Railway Redis service to a high-availability cluster with automatic failover.
+title: Redis High Availability
+description: Convert a Railway Redis service into a managed high-availability cluster with Sentinel failover.
 ---
 
-Railway can convert an existing Redis service into a high-availability cluster backed by [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) and [HAProxy](https://www.haproxy.org/). Every Redis node runs a colocated Sentinel process — Sentinel handles primary election and failover, and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down, Sentinel promotes a replica and HAProxy begins routing to it within seconds.
+Railway can convert an existing Redis service into a managed high-availability cluster backed by [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) and [HAProxy](https://www.haproxy.org/). Every Redis node runs a colocated Sentinel process — Sentinel handles primary election and failover, and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down, Sentinel promotes a replica and HAProxy begins routing to it within seconds.
+
+Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. Railway does not monitor your database for you and does not publish an uptime SLA today. Schema, queries and data stay yours, and the cluster leaves [support scope](/databases#database-support-scope) if you change its nodes, image or configuration outside the dashboard and CLI.
 
 ## How the cluster is shaped
 

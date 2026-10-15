@@ -123,6 +123,24 @@ Check out all templates at [railway.com/deploy](https://railway.com/deploy)
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 
+## Databases
+
+### Heroku
+
+Heroku Postgres and Key-Value Store are sold in tiers. Essential tiers run a single node with no high availability; Standard tiers add rollback (point-in-time recovery) and follower databases; high availability is a Premium-tier feature. Dataclips let you share saved queries from the dashboard.
+
+### Railway
+
+Railway provides managed PostgreSQL, MySQL, Redis and MongoDB. Railway provisions each database and ships security patches for its image; [what Railway manages](/databases#what-railway-manages) lists each operation and who handles it. High availability and point-in-time recovery are not tied to a plan tier; both are turned on from the dashboard on any database. Each database includes:
+
+- High availability with automatic failover, converted from the existing database in the dashboard and billed as the replicas it adds.
+- Scheduled and on-demand backups, plus point-in-time recovery for PostgreSQL and MySQL.
+- Connection pooling with PgBouncer and one-click major version upgrades for PostgreSQL.
+- Connection, query and vacuum statistics in the database view.
+- Private networking to your application services.
+
+Railway does not publish a database uptime SLA. [Contact sales](/enterprise) if you need one.
+
 ## Summary
 
 | **Category**                | **Heroku**                                                                                       | **Railway**                                                                                                      |
@@ -140,6 +158,7 @@ Check out all templates at [railway.com/deploy](https://railway.com/deploy)
 | **Project Structure**       | No concept of grouped services/projects                                                          | Groups all infra components visually under a unified project view                                                |
 | **Environment Variables**   | Isolated per app                                                                                 | Isolated per app but can be shared across services within a project                                              |
 | **Wildcard Domains**        | Not supported; manual configuration needed per subdomain                                         | Fully supported; configure at the project level                                                                  |
+| **Databases** | Heroku Postgres and Key-Value Store in tiers; HA on Premium tiers only; followers and dataclips | [Managed](/databases#what-railway-manages) PostgreSQL, MySQL, Redis, MongoDB; HA, backups, PITR and pooling turned on from the dashboard; no published SLA today |
 
 ## Frequently asked questions
 

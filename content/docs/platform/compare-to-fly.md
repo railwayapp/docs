@@ -157,6 +157,24 @@ Finally, Railway supports creating webhooks which allow external services to lis
 
 ![Webhooks](https://res.cloudinary.com/railway/image/upload/v1753083711/docs/railway-webhooks_r4ervy.png)
 
+## Databases
+
+### Fly
+
+Fly Managed Postgres runs high availability and PgBouncer on every plan, with ten days of point-in-time recovery, and does not publish an SLA. Redis on Fly is provided by Upstash rather than run by Fly.
+
+### Railway
+
+Railway provides managed PostgreSQL, MySQL, Redis and MongoDB. Railway provisions each database and ships security patches for its image; [what Railway manages](/databases#what-railway-manages) lists each operation and who handles it. MySQL, Redis and MongoDB run on Railway with the same high-availability conversion as PostgreSQL, rather than through a third party. Each database includes:
+
+- High availability with automatic failover, converted from the existing database in the dashboard and billed as the replicas it adds.
+- Scheduled and on-demand backups, plus point-in-time recovery for PostgreSQL and MySQL.
+- Connection pooling with PgBouncer and one-click major version upgrades for PostgreSQL.
+- Connection, query and vacuum statistics in the database view.
+- Private networking to your application services.
+
+Railway does not publish a database uptime SLA. [Contact sales](/enterprise) if you need one.
+
 ## Summary
 
 | Category                 | Railway                                                                            | Fly.io                                                                                                                                       |
@@ -168,6 +186,7 @@ Finally, Railway supports creating webhooks which allow external services to lis
 | Monitoring & Metrics     | Built-in observability dashboard (metrics, logs, data all in one place)            | Prometheus-based metrics + optional Grafana (`fly-metrics.net`) for deep dives                                                               |
 | Webhooks & Extensibility | Webhook support for integrations                                                   | No support for outbound webhooks                                                                                                             |
 | Developer Experience     | Dashboard-first, supports real-time team collaboration, CLI available              | CLI-first (`flyctl`) for all management tasks                                                                                                |
+| **Databases** | Managed Postgres with HA and PgBouncer on every plan, 10-day PITR, no SLA; Redis via Upstash | [Managed](/databases#what-railway-manages) PostgreSQL, MySQL, Redis, MongoDB; HA, backups, PITR and pooling turned on from the dashboard; no published SLA today |
 
 ## Frequently asked questions
 

@@ -1,9 +1,11 @@
 ---
-title: Upgrading MongoDB to high availability
-description: Convert an existing Railway MongoDB service to a high-availability replica set with automatic failover.
+title: MongoDB High Availability
+description: Convert a Railway MongoDB service into a managed high-availability replica set with automatic failover.
 ---
 
-Railway can convert an existing MongoDB service into a high-availability cluster backed by a [MongoDB replica set](https://www.mongodb.com/docs/manual/replication/) and [HAProxy](https://www.haproxy.org/). The data nodes form a single-primary replica set. Elections run inside MongoDB itself, so there is no separate coordinator tier, and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down and a majority of voting members remains available, the set can elect a new primary and HAProxy routes new connections to it.
+Railway can convert an existing MongoDB service into a managed high-availability cluster backed by a [MongoDB replica set](https://www.mongodb.com/docs/manual/replication/) and [HAProxy](https://www.haproxy.org/). The data nodes form a single-primary replica set. Elections run inside MongoDB itself, so there is no separate coordinator tier, and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down and a majority of voting members remains available, the set can elect a new primary and HAProxy routes new connections to it.
+
+Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. Railway does not monitor your database for you and does not publish an uptime SLA today. Schema, queries and data stay yours, and the cluster leaves [support scope](/databases#database-support-scope) if you change its nodes, image or configuration outside the dashboard and CLI.
 
 ## How the cluster is shaped
 

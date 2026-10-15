@@ -1,9 +1,11 @@
 ---
-title: Upgrading MySQL to High Availability
-description: Convert an existing Railway MySQL service to a high-availability Group Replication cluster with automatic failover.
+title: MySQL High Availability
+description: Convert a Railway MySQL service into a managed high-availability Group Replication cluster with automatic failover.
 ---
 
-Railway can convert an existing MySQL service into a high-availability cluster backed by [MySQL Group Replication](https://dev.mysql.com/doc/refman/8.4/en/group-replication.html) and [HAProxy](https://www.haproxy.org/). The data nodes form a single-primary Group Replication group — consensus runs inside MySQL itself, so there is no separate coordinator tier — and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down, the group elects a new one and HAProxy begins routing to it within seconds.
+Railway can convert an existing MySQL service into a managed high-availability cluster backed by [MySQL Group Replication](https://dev.mysql.com/doc/refman/8.4/en/group-replication.html) and [HAProxy](https://www.haproxy.org/). The data nodes form a single-primary Group Replication group — consensus runs inside MySQL itself, so there is no separate coordinator tier — and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down, the group elects a new one and HAProxy begins routing to it within seconds.
+
+Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. Railway does not monitor your database for you and does not publish an uptime SLA today. Schema, queries and data stay yours, and the cluster leaves [support scope](/databases#database-support-scope) if you change its nodes, image or configuration outside the dashboard and CLI.
 
 ## How the cluster is shaped
 

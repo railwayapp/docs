@@ -1,9 +1,11 @@
 ---
-title: Upgrading PostgreSQL to High Availability
-description: Convert an existing Railway PostgreSQL service to a high-availability cluster with automatic failover.
+title: PostgreSQL High Availability
+description: Convert a Railway PostgreSQL service into a managed high-availability cluster with automatic failover.
 ---
 
-Railway can convert an existing PostgreSQL service into a high-availability cluster backed by [Patroni](https://patroni.readthedocs.io/), [etcd](https://etcd.io/), and [HAProxy](https://www.haproxy.org/). The cluster handles automatic leader election and failover — if the primary node goes down, Patroni promotes a replica and HAProxy begins routing connections to it within seconds.
+Railway can convert an existing PostgreSQL service into a managed high-availability cluster backed by [Patroni](https://patroni.readthedocs.io/), [etcd](https://etcd.io/), and [HAProxy](https://www.haproxy.org/). The cluster handles automatic leader election and failover — if the primary node goes down, Patroni promotes a replica and HAProxy begins routing connections to it within seconds.
+
+Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. Railway does not monitor your database for you and does not publish an uptime SLA today. Schema, queries and data stay yours, and the cluster leaves [support scope](/databases#database-support-scope) if you change its nodes, image or configuration outside the dashboard and CLI.
 
 ## How the cluster is shaped
 

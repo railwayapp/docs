@@ -33,7 +33,7 @@ Railway will gladly bump up your service limits within your tier of service to m
 
 ### Databases
 
-Railway's databases are [managed](/databases#what-railway-manages): Railway maintains the official templates, patches their images and keeps them running, and customers run them in production. They scale to the limits of your plan and are provided without an SLA; [contact sales](/enterprise) for one.
+Railway's databases are managed in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway maintains the official templates and ships security patches for their images; customers run them in production and turn on high availability, backups and point-in-time recovery from the dashboard. Railway does not monitor your database for you. They scale to the limits of your plan and are provided without an SLA; [contact sales](/enterprise) for one.
 
 For production, we advise developers to:
 

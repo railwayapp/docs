@@ -124,6 +124,24 @@ Check out all templates at [railway.com/deploy](https://railway.com/deploy)
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 
+## Databases
+
+### DigitalOcean
+
+DigitalOcean Managed Databases cover PostgreSQL, MySQL, Valkey, MongoDB, Kafka and OpenSearch, with daily backups, point-in-time recovery, standby nodes for failover and read replicas. DigitalOcean publishes an uptime SLA for clusters that run a standby node.
+
+### Railway
+
+Railway provides managed PostgreSQL, MySQL, Redis and MongoDB. Railway provisions each database and ships security patches for its image; [what Railway manages](/databases#what-railway-manages) lists each operation and who handles it. The database runs in the same project and private network as the application, not as a separate product. Each database includes:
+
+- High availability with automatic failover, converted from the existing database in the dashboard and billed as the replicas it adds.
+- Scheduled and on-demand backups, plus point-in-time recovery for PostgreSQL and MySQL.
+- Connection pooling with PgBouncer and one-click major version upgrades for PostgreSQL.
+- Connection, query and vacuum statistics in the database view.
+- Private networking to your application services.
+
+Railway does not publish a database uptime SLA. [Contact sales](/enterprise) if you need one.
+
 ## Summary
 
 | **Category**              | **DigitalOcean App Platform**                                                                                                         | **Railway**                                                                |
@@ -138,6 +156,7 @@ Check out all templates at [railway.com/deploy](https://railway.com/deploy)
 | **Developer Dashboard**   | Traditional project dashboard                                                                                                         | Real-time collaborative canvas with visual service layout                  |
 | **Environments & CI/CD**  | No native concept of environments, requires manual project setup. Automated preview deployments not supported. Webhooks not supported | Native support for preview environments, CI/CD integrations, and webhooks  |
 | **Templates & Ecosystem** | Limited                                                                                                                               | Extensive template directory; creators can earn from deployed usage        |
+| **Databases** | Managed PostgreSQL, MySQL, Valkey, MongoDB, Kafka, OpenSearch; standby nodes and read replicas; published SLA with standby | [Managed](/databases#what-railway-manages) PostgreSQL, MySQL, Redis, MongoDB; HA, backups, PITR and pooling turned on from the dashboard; no published SLA today |
 
 ## Frequently asked questions
 

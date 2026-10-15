@@ -51,11 +51,9 @@ Ensuring your application is performant and reliable under changing conditions l
 
   The compute allocation for your services is handled automatically by Railway, and the limits are determined by your chosen subscription [plan](/pricing/plans#plans). You should review your plan limits and consider if upgrading is necessary to achieve the desired compute.
 
-**&check; Consider deploying a database cluster or replica set**
+**&check; Use a managed database**
 
-- Data is critical to most applications, and you should ensure that the data layer in your stack is highly available and fault tolerant.
-
-  Consider implementing a cluster or replica set, similar to the <a href="https://railway.com/deploy/ha-redis" target="_blank">Redis HA with Sentinel</a> template, to ensure that your data remains available even if one node becomes unstable.
+- Railway's PostgreSQL, MySQL, Redis and MongoDB templates become [managed databases](/databases#what-railway-manages) once you convert them to high availability ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha), [MongoDB](/databases/mongo-ha)) and turn on [backups](/volumes/backups). Railway does not monitor your database for you.
 
 ---
 
