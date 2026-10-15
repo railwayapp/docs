@@ -5,7 +5,7 @@ description: Convert a Railway MySQL service into a managed high-availability Gr
 
 Railway can convert an existing MySQL service into a managed high-availability cluster backed by [MySQL Group Replication](https://dev.mysql.com/doc/refman/8.4/en/group-replication.html) and [HAProxy](https://www.haproxy.org/). The data nodes form a single-primary Group Replication group — consensus runs inside MySQL itself, so there is no separate coordinator tier — and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down, the group elects a new one and HAProxy begins routing to it within seconds.
 
-Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. Railway does not monitor your database for you and does not publish an uptime SLA today. Schema, queries and data stay yours. Changing the template as shipped, such as its image, start command or variables, or changing the cluster's members outside Railway's high availability flows, makes the database yours to manage; see [database support scope](/databases#database-support-scope).
+Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. The cluster overview shows each node's role and health; alerting on it is yours to set up, and Railway does not publish an uptime SLA today. Schema, queries and data stay yours.
 
 ## How the cluster is shaped
 
@@ -135,3 +135,7 @@ The reverted service keeps the cluster image (`mysql-ha/mysql`), which detects t
 **Reverting is only available while the original MySQL service is the cluster primary.** Reverting keeps that service and deletes every other node — if the primary role has moved after a failover, reverting would delete the node holding the latest data. If the original service is not the primary, use **Make Leader** to promote it first; the revert flow offers this when it applies.
 
 Railway will automatically migrate all variable references within your project back to the original MySQL service as part of the staged revert. As with conversion, any hardcoded connection strings outside of Railway will need to be updated manually.
+
+## Support scope
+
+Changing the template as shipped, such as its image, start command or variables, or changing the cluster's members outside Railway's high availability flows, makes the database yours to manage; see [database support scope](/databases#database-support-scope).

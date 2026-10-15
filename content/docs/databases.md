@@ -3,7 +3,7 @@ title: Databases
 description: Managed PostgreSQL, MySQL, Redis and MongoDB on Railway: what Railway handles, what you handle, and how to turn on high availability, backups, point-in-time recovery and pooling.
 ---
 
-Railway maintains its PostgreSQL, MySQL, Redis and MongoDB templates: it provisions them and ships security patches for their images. Converting one to high availability and turning on backups, point-in-time recovery (PostgreSQL, MySQL) and connection pooling (PostgreSQL) from the dashboard gives you a managed database in the sense [what Railway manages](#what-railway-manages) describes. Railway does not monitor your database for you and does not publish an uptime SLA today. Schema, queries and data stay yours. Changing the template as shipped, such as its image, start command or variables, makes the database yours to manage; see [database support scope](#database-support-scope). You can also run any other database from a Docker image.
+Railway maintains its PostgreSQL, MySQL, Redis and MongoDB templates: it provisions them and ships security patches for their images. Converting one to high availability and turning on backups, point-in-time recovery (PostgreSQL, MySQL) and connection pooling (PostgreSQL) from the dashboard gives you a managed database in the sense [what Railway manages](#what-railway-manages) describes. Railway shows database metrics and query statistics in the [database view](/databases/database-view); alerting on them is yours to set up, and Railway does not publish an uptime SLA today. Schema, queries and data stay yours; [database support scope](#database-support-scope) says where support stops. You can also run any other database from a Docker image.
 
 ## Getting started
 

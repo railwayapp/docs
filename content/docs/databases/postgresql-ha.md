@@ -5,7 +5,7 @@ description: Convert a Railway PostgreSQL service into a managed high-availabili
 
 Railway can convert an existing PostgreSQL service into a managed high-availability cluster backed by [Patroni](https://patroni.readthedocs.io/), [etcd](https://etcd.io/), and [HAProxy](https://www.haproxy.org/). The cluster handles automatic leader election and failover — if the primary node goes down, Patroni promotes a replica and HAProxy begins routing connections to it within seconds.
 
-Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. Railway does not monitor your database for you and does not publish an uptime SLA today. Schema, queries and data stay yours. Changing the template as shipped, such as its image, start command or variables, or changing the cluster's members outside Railway's high availability flows, makes the database yours to manage; see [database support scope](/databases#database-support-scope).
+Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. The cluster overview shows each node's role and health; alerting on it is yours to set up, and Railway does not publish an uptime SLA today. Schema, queries and data stay yours.
 
 ## How the cluster is shaped
 
@@ -152,3 +152,7 @@ Postgres HA clusters support in-place major version upgrades — the primary
 upgrades first, then every replica rebuilds from it on the new major before
 failover resumes. See [Upgrading PostgreSQL Major Versions](/databases/postgresql-major-upgrade)
 for the full guide.
+
+## Support scope
+
+Changing the template as shipped, such as its image, start command or variables, or changing the cluster's members outside Railway's high availability flows, makes the database yours to manage; see [database support scope](/databases#database-support-scope).
