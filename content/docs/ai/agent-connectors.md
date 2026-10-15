@@ -141,9 +141,19 @@ Expired authentication and unreachable servers are handled the same way: the age
 
 A connector in this state still appears in the picker and still attaches. You find out it's broken when the agent tells you, or from the status on its row in settings.
 
+A server that keeps failing is retried less often, so a dead connector doesn't slow down every run:
+
+- The first two failures in a row are retried on the next run.
+- After that, runs skip the server without connecting to it. The wait starts at 5 minutes and doubles after each failure, up to 6 hours.
+- A connector you added that is still failing after 8 attempts spread over at least 3 days is switched off and leaves the **Contexts** picker. Its row in settings says when it started failing and why.
+
+To check the connection right away instead of waiting, click **Retry** on a Notion, Linear, or Sentry card or on a workspace server. For a custom server, open **Edit** and save, which runs the same check. A successful check ends the wait.
+
+To bring back a connector that was switched off, click **Reconnect** on its card. For a custom server, open **Edit**, select **Enabled**, and save. Connections to a workspace server wait between retries but are never switched off.
+
 ## Limits
 
-Railway caps what a person can register and how many tools reach a single run:
+Railway caps what a person can register:
 
 | Limit | Value |
 |-------|-------|
@@ -151,11 +161,11 @@ Railway caps what a person can register and how many tools reach a single run:
 | Headers per server | 10 |
 | Header value length | 4,096 characters |
 | Server name length | 32 characters |
-| Tools per server | 40 |
-| Tools across all attached servers | 100 |
 | Connection timeout | 30 seconds |
 
-Both tool caps cut silently. A server offering more than 40 tools keeps the first 40 by alphabetical order, and once the attached servers reach 100 tools between them, the servers after that contribute nothing. Attaching a couple of tool-heavy connectors is enough to reach the ceiling, so attach what a conversation needs rather than everything you've connected.
+Connections to workspace servers don't count toward the 20.
+
+Railway doesn't cap how many tools a server offers or how many reach a run. Every tool an attached server lists reaches the agent. Each tool's name and description takes up space in the agent's context, so attaching several tool-heavy connectors leaves less room for the conversation itself. Attach what a conversation needs rather than everything you've connected.
 
 ## Troubleshooting
 
@@ -172,7 +182,7 @@ If OAuth reports that the server doesn't support automatic client registration, 
 </Collapse>
 
 <Collapse title="What happens when a token expires?">
-Railway refreshes tokens in the background, provided the server issued a refresh token when you first authenticated. Servers that issue no refresh token stop working once the access token expires, and the row reports it. Either way, **Re-authenticate** on the row restores the connection.
+Railway refreshes tokens in the background, provided the server issued a refresh token when you first authenticated. Servers that issue no refresh token stop working once the access token expires, and the row reports it. Either way, **Reconnect** on the row restores the connection.
 </Collapse>
 
 <Collapse title="Why can't Railway reach my server?">
