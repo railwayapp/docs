@@ -193,7 +193,7 @@ Railway is further along on AI-assisted operation. Railway Agent diagnoses faile
 | Multi-region | Region configuration per service or cluster | Built-in; traffic routed to nearest region |
 | GPU support | Yes (fractional up to H100/B200) | No |
 | BYOC | Yes, self-serve | No |
-| Databases | Managed addons: PostgreSQL, MySQL, MongoDB, Redis, MinIO, RabbitMQ, Memcached | One-click: PostgreSQL, MySQL, Redis, MongoDB; more engines via the template directory |
+| Databases | Managed addons: PostgreSQL, MySQL, MongoDB, Redis, MinIO, RabbitMQ, Memcached | [Managed](/databases#what-railway-manages) PostgreSQL, MySQL, Redis, MongoDB: high availability, backups, point-in-time recovery (PostgreSQL, MySQL) and connection pooling (PostgreSQL) you turn on from the dashboard; more engines via the template directory |
 | Background workers | Dedicated worker service type | Any service without a public domain |
 | Sandboxes | MicroVM-backed (Kata, Firecracker, gVisor), built for untrusted/multi-tenant code execution | Isolated VMs with exec, fork, checkpoints, and network isolation modes; built for agent and dev workflows |
 | Observability | Logs and metrics retained 60 days; native log sinks to Datadog, Better Stack, Honeycomb, S3, and custom HTTP; audit logs | Metrics retained 30 days; configurable Observability Dashboard with log/metric widgets and monitors; forward logs via Vector, Fluent Bit, or OpenTelemetry |

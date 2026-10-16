@@ -129,7 +129,7 @@ In Railway, a project is a collection of services and databases. This can includ
 
 **Databases**
 
-Additionally, Railway has first-class support for Databases. You can one-click deploy any open-source database:
+Additionally, Railway has [managed databases](/databases#what-railway-manages) with high availability, backups and point-in-time recovery you turn on from the dashboard, and you can one-click deploy any open-source database:
 
 - Relational: Postgres, MySQL
 - Analytical: ClickHouse, ParadeDB, Timescale

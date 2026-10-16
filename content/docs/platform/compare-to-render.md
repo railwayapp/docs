@@ -123,6 +123,24 @@ Check out all templates at [railway.com/deploy](https://railway.com/deploy)
 
 <video src="https://res.cloudinary.com/railway/video/upload/v1753470547/docs/comparison-docs/railway-templates-marketplace_v0svnv.mp4" controls autoplay loop muted></video>
 
+## Databases
+
+### Render
+
+Render offers managed Postgres and Key Value (Valkey). Postgres instances include daily snapshots and storage that grows automatically; point-in-time recovery and high availability are available on larger paid instances, and read replicas are supported. Render publishes an uptime SLA on its Enterprise plan.
+
+### Railway
+
+Railway provides managed PostgreSQL, MySQL, Redis and MongoDB. Railway provisions each database and ships security patches for its image; [what Railway manages](/databases#what-railway-manages) lists each operation and who handles it. High availability is a conversion of the existing database, not a larger instance tier. You can enable:
+
+- High availability with automatic failover, converted from the existing database in the dashboard and billed as the replicas it adds.
+- Scheduled and on-demand backups, plus point-in-time recovery for PostgreSQL and MySQL.
+- Connection pooling with PgBouncer for PostgreSQL.
+
+PostgreSQL major version upgrades run in one click. Connection, query and vacuum statistics in the database view and private networking to your application services are included.
+
+Railway does not publish a database uptime SLA. [Contact sales](/enterprise) if you need one.
+
 ## Summary
 
 | **Category**             | **Render**                                                                                     | **Railway**                                                                                                                                |
@@ -135,6 +153,7 @@ Check out all templates at [railway.com/deploy](https://railway.com/deploy)
 | **Cost Optimization**    | Requires tuning to avoid over/under-provisioning                                               | Inherently optimized. Pay only for used compute                                                                                            |
 | **Infrastructure**       | Runs on AWS and GCP; feature access and resources cost more                                    | Railway-owned global infrastructure, lower unit costs and features aren't gated                                                            |
 | **Dashboard UX**         | Traditional dashboard to view project resources                                                | Real-time collaborative canvas with visual infra relationships. Template directory for 1-click deployments                                 |
+| **Databases** | Managed Postgres and Key Value; HA and PITR on larger paid instances; storage autoscaling | [Managed](/databases#what-railway-manages) PostgreSQL, MySQL, Redis, MongoDB; HA, backups, PITR and pooling turned on from the dashboard; no published SLA today |
 
 ## Frequently asked questions
 

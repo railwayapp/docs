@@ -1,9 +1,11 @@
 ---
-title: Upgrading Redis to High Availability
-description: Convert an existing Railway Redis service to a high-availability cluster with automatic failover.
+title: Redis High Availability
+description: Convert a Railway Redis service into a managed high-availability cluster with Sentinel failover.
 ---
 
-Railway can convert an existing Redis service into a high-availability cluster backed by [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) and [HAProxy](https://www.haproxy.org/). Every Redis node runs a colocated Sentinel process — Sentinel handles primary election and failover, and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down, Sentinel promotes a replica and HAProxy begins routing to it within seconds.
+Railway can convert an existing Redis service into a managed high-availability cluster backed by [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) and [HAProxy](https://www.haproxy.org/). Every Redis node runs a colocated Sentinel process — Sentinel handles primary election and failover, and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down, Sentinel promotes a replica and HAProxy begins routing to it within seconds.
+
+Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. The cluster overview shows each node's role and health; alerting on it is yours to set up, and Railway does not publish an uptime SLA today. Schema, queries and data stay yours.
 
 ## How the cluster is shaped
 
@@ -121,3 +123,7 @@ The reverted service stays on the cluster's `redis-sentinel` image rather than r
 **Reverting is only available while the original Redis service is the cluster primary.** Reverting keeps that service and deletes every other node — if the primary role has moved after a failover, reverting would delete the node holding the latest data. If the original service is not the primary, use **Make Leader** to promote it first; the revert flow offers this when it applies.
 
 Railway will automatically migrate all variable references within your project back to the original Redis service as part of the staged revert. As with conversion, any hardcoded connection strings outside of Railway will need to be updated manually.
+
+## Support scope
+
+Changing the template as shipped, such as its image, start command or variables, or changing the cluster's members outside Railway's high availability flows, makes the database yours to manage; see [database support scope](/databases#database-support-scope).
