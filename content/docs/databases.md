@@ -69,6 +69,8 @@ Railway maintains the database templates above (the Redis template is owned by R
 | Disk size | User [resizes the volume](/volumes#live-resizing-the-volume) |
 | Schema, queries, indexes and data | User |
 
+For PostgreSQL, the [managed setup](/databases/postgresql#turn-on-the-managed-setup) turns on high availability, connection pooling, point-in-time recovery, and backups together, in one deploy.
+
 ## Database support scope
 
 Support covers the template as Railway ships it and the platform it runs on:
@@ -86,5 +88,9 @@ A database leaves this scope when the user changes:
 - the database's own configuration through SQL rather than through Railway's dashboard or CLI: roles, settings, extensions, `ALTER SYSTEM`.
 
 From then on the database is the user's to manage. Support still helps with the platform.
+
+The dashboard warns you before a change takes a database out of this scope. When you stage such a change, a confirmation says the database will lose Railway support and names what the change touches. Click **Stage anyway** to go ahead, or cancel to keep the database in scope. For changes staged outside the dashboard, such as from the CLI, the confirmation appears when you deploy, with a **Deploy anyway** button.
+
+Moving the database to another region, adding or removing public access, changing its backup schedules, and Railway's own flows for high availability, connection pooling, and point-in-time recovery don't trigger the warning.
 
 Schema, queries, indexes and the data are always the user's. Support does not configure a database for the user and does not make tuning, schema or query recommendations; the engine's own documentation, linked from each database page, is the reference.

@@ -46,6 +46,34 @@ Since the deployed container is based on an image built from the official [Postg
 
 We also encourage you to fork the [Railway postgres-ssl repository](https://github.com/railwayapp-templates/postgres-ssl) to customize it to your needs, or feel free to open a PR in the repo!
 
+## Turn on the managed setup
+
+The managed setup turns on high availability, connection pooling, point-in-time recovery, and scheduled backups for a PostgreSQL service together. Railway stages every part as one set of changes, and you deploy them once.
+
+The section appears under **Database → Config → Managed setup** on PostgreSQL services that run Railway's Postgres image, which the PostgreSQL template deploys. It lists each part with its state, **On**, **Staged**, or **Off**, and stages only the parts that are off. Nothing changes until you deploy.
+
+1. Open your PostgreSQL service and navigate to **Database → Config → Managed setup**.
+2. Click **Stage managed setup**.
+3. Review the parts listed in the confirmation and click **Stage**.
+4. Review the staged changes on the service and click **Deploy**.
+
+Each part stages the same changes as turning it on from its own section:
+
+| Part | What Railway stages |
+| --- | --- |
+| [High availability](/databases/postgresql-ha) | Replicas, consensus nodes, and a reverse proxy, with automatic failover. Railway backs up the volume first. |
+| [Connection pooling](/databases/postgresql-pgbouncer) | PgBouncer in transaction mode in front of the reverse proxy. Services in the project that reference the database's variables are pointed at PgBouncer. |
+| [Point-in-time recovery](/volumes/point-in-time-recovery) | A storage bucket and the variables that make the database archive its WAL to it. |
+| [Backups](/volumes/backups#backup-schedules) | Daily, weekly, and monthly backup schedules on the database's volume. |
+
+When the setup includes high availability, the deploy restarts the database once to move it onto the HA image, and active connections drop during the restart. Connection endpoints change too: Railway updates the services in the project that reference the database's variables, and connection strings hardcoded outside Railway must be updated by hand.
+
+Each part adds usage, billed the same as when you turn it on separately.
+
+On a service that is already an HA cluster, the button stages connection pooling and backups. Point-in-time recovery on a cluster rolls out node by node as soon as you turn it on, so it can't be staged. [Turn it on from the Backups tab](/volumes/point-in-time-recovery#enabling-pitr) instead.
+
+While an HA conversion is staged on the service, the button is unavailable. Deploy or discard the staged conversion first.
+
 ## High availability
 
 An existing PostgreSQL service can be converted into a high-availability cluster with automatic failover, backed by Patroni, etcd, and HAProxy. See [Upgrading PostgreSQL to High Availability](/databases/postgresql-ha) for the full guide.
