@@ -92,14 +92,14 @@ Example generated file:
 {`import { defineRailway, project, service } from "railway/iac";
 
 export default defineRailway(() => {
-  const web = service("web", {
-    build: "pnpm build",
-    start: "pnpm start",
-  });
+    const web = service("web", {
+      build: "pnpm build",
+      start: "pnpm start",
+    });
 
-  return project("my-app", {
-    resources: [web],
-  });
+    return project("my-app", {
+      resources: [web],
+    });
 });`}
   </CodeTab>
   <CodeTab label="Python (beta)" lang="python">
@@ -107,12 +107,12 @@ export default defineRailway(() => {
 
 @define_railway
 def main(ctx=None):
-    web = service(
-        "web",
-        build="pnpm build",
-        start="pnpm start",
-    )
-    return project("my-app", resources=[web])`}
+      web = service(
+          "web",
+          build="pnpm build",
+          start="pnpm start",
+      )
+      return project("my-app", resources=[web])`}
   </CodeTab>
   <CodeTab label="Go (beta)" lang="go">
 {`package main
@@ -120,11 +120,11 @@ def main(ctx=None):
 import "github.com/railwayapp/railway-go-sdk"
 
 func Railway() railway.Project {
-  web := railway.ServiceNamed("web", railway.ServiceConfig{
-    "build": "pnpm build",
-    "start": "pnpm start",
-  })
-  return railway.ProjectNamed("my-app", []any{web})
+    web := railway.ServiceNamed("web", railway.ServiceConfig{
+      "build": "pnpm build",
+      "start": "pnpm start",
+    })
+    return railway.ProjectNamed("my-app", []any{web})
 }`}
   </CodeTab>
 </CodeBlock>
@@ -300,11 +300,11 @@ Install the matching package before you plan or apply — `npm install railway` 
 {`import { defineRailway, project, service } from "railway/iac";
 
 export default defineRailway(() => {
-  const web = service("web");
+    const web = service("web");
 
-  return project("my-project", {
-    resources: [web],
-  });
+    return project("my-project", {
+      resources: [web],
+    });
 });`}
   </CodeTab>
   <CodeTab label="Python (beta)" lang="python">
@@ -312,8 +312,8 @@ export default defineRailway(() => {
 
 @define_railway
 def main(ctx=None):
-    web = service("web")
-    return project("my-project", resources=[web])`}
+      web = service("web")
+      return project("my-project", resources=[web])`}
   </CodeTab>
   <CodeTab label="Go (beta)" lang="go">
 {`package main
@@ -321,8 +321,8 @@ def main(ctx=None):
 import "github.com/railwayapp/railway-go-sdk"
 
 func Railway() railway.Project {
-  web := railway.ServiceNamed("web", nil)
-  return railway.ProjectNamed("my-project", []any{web})
+    web := railway.ServiceNamed("web", nil)
+    return railway.ProjectNamed("my-project", []any{web})
 }`}
   </CodeTab>
 </CodeBlock>
