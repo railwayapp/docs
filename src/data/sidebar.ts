@@ -215,6 +215,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Sails", "guides", "/guides/sails"),
           makePage("Gatsby", "guides", "/guides/gatsby"),
           makePage("TanStack Start", "guides", "/guides/tanstack-start"),
+          makePage("Farm.js", "guides", "/guides/farmjs"),
         ],
       },
       {
