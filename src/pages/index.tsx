@@ -1,7 +1,7 @@
 import { NextPage } from "next";
-import { Link } from "../components/link";
-import { Icon } from "../components/icon";
-import { ThemeSwitcher } from "../components/theme-switcher";
+import { Link } from "@/components/link";
+import { Icon } from "@/components/icon";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 
 const Home: NextPage = () => {
   return (
