@@ -31,10 +31,40 @@ A remote MCP server gives AI assistants like Claude Code and Cursor access to to
 ## Deploying to a public HTTPS endpoint
 
 1. **Create a new project in Railway.** Select **Deploy from GitHub repo** and paste the URL of the MCP server's repository. For this example, we'll deploy a remote Playwright MCP server that lets an AI assistant control a web browser, saving screenshots and screen recordings as it goes. The repository URL is [github.com/jamesmurdza/playwright-mcp-server](https://github.com/jamesmurdza/playwright-mcp-server/). Alternatively, you can use the Railway CLI to deploy an MCP server from a local directory.
-2. **Add additional services.** The Playwright MCP server supports connecting a file storage bucket to automatically store screenshots and screen recordings. To add one, click **Add** and select **Bucket**, then click **Deploy**. In the **Credentials** tab of the bucket settings, click **Add to Service** and select the MCP server, which copies the bucket's connection details into the server as environment variables.
+
+   <Image src="https://res.cloudinary.com/e99qzlgk/image/upload/v1792425535/deploy-github-repo_ljqxeg.png"
+   alt="Dialog to deploy the jamesmurdza/playwright-mcp-server GitHub repository to a new Railway project"
+   layout="responsive"
+   width={496} height={314} quality={100} />
+
+2. **Add additional services.** The Playwright MCP server supports connecting a file storage bucket to automatically store screenshots and screen recordings. To add one, click **Add** and select **Bucket**, then click **Deploy**.
+
+   <Image src="https://res.cloudinary.com/e99qzlgk/image/upload/v1792425535/add-bucket-service_bqwrnj.png"
+   alt="Service picker with Bucket selected after typing bucket into the search field"
+   layout="responsive"
+   width={499} height={197} quality={100} />
+
+   In the **Credentials** tab of the bucket settings, click **Add to Service** and select the MCP server, which copies the bucket's connection details into the server as environment variables.
+
+   <Image src="https://res.cloudinary.com/e99qzlgk/image/upload/v1792425535/bucket-credentials-add-to-service_xztvt5.png"
+   alt="Bucket Credentials tab showing the Add to Service button and S3-compatible credentials"
+   layout="responsive"
+   width={884} height={456} quality={100} />
+
 3. **Configure variables and secrets.** Depending on the server, there may be environment variables to set. The bucket's connection URLs were added in the previous step, but this server needs one more by hand. `MCP_API_KEY` is the bearer token the server requires on every request to `/mcp`. Without it, anyone with the public URL can drive the browser. Generate a random string and set it under **Variables**. Keep a copy to give to the client in the last step.
 4. **Deploy the server.** Clicking **Deploy** applies the above changes and deploys the MCP server.
+
+   <Image src="https://res.cloudinary.com/e99qzlgk/image/upload/v1792425535/apply-deploy-changes_njq4zt.png"
+   alt="Apply 2 changes toolbar with the Deploy button"
+   layout="responsive"
+   width={528} height={152} quality={100} />
+
 5. **Generate a public domain.** In **Settings**, select the **Networking** tab and click **Generate Domain**. Railway assigns a `*.up.railway.app` subdomain, handles HTTPS, and routes traffic to the service.
+
+   <Image src="https://res.cloudinary.com/e99qzlgk/image/upload/v1792425535/generate-public-domain_rbmiep.png"
+   alt="Service Settings Networking tab with the Generate Domain, Custom Domain, and TCP Proxy buttons"
+   layout="responsive"
+   width={911} height={526} quality={100} />
 
 ## Streamable HTTP
 
