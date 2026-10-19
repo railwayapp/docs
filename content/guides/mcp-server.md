@@ -255,6 +255,7 @@ The in-memory `Map` keeps the example self-contained, but it is per-replica and 
 
 ## Next steps
 
+- [Deploy a Remote MCP Server Over HTTPS](/guides/deploy-remote-mcp-server): deploy an existing MCP server with storage attached, and compare hosting options.
 - [Choose Between Local and Remote MCP Servers](/guides/local-vs-remote-mcp-servers): when a server should be remote at all.
 - [Railway MCP Server](/ai/mcp-server): Railway's own MCP server for managing infrastructure.
 - [Agent Skills](/ai/agent-skills): Open format for extending AI coding assistants with Railway knowledge.

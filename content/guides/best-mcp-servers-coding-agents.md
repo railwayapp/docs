@@ -297,6 +297,7 @@ Two other habits worth keeping:
 ## Next steps
 
 - [Build and deploy your own MCP server](/guides/mcp-server) when no existing server covers your app's data.
+- [Deploy a remote MCP server over HTTPS](/guides/deploy-remote-mcp-server) to host an existing server like Playwright MCP, with storage attached.
 - [Choose between local and remote MCP servers](/guides/local-vs-remote-mcp-servers) for the transport tradeoffs in depth.
 - [Railway MCP server reference](/ai/mcp-server) for the full tool list and per-editor config tables.
 - [Running agents on Railway](/guides/running-agents-on-railway) to host the agent itself, not just its tools.
