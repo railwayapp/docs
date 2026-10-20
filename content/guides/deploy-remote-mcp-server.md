@@ -30,9 +30,13 @@ A remote MCP server gives AI assistants like Claude Code and Cursor access to to
 
 ## Deploying to a public HTTPS endpoint
 
-1. **Create a new project in Railway.** Select **Deploy from GitHub repo** and paste the URL of the MCP server's repository. For this example, we'll deploy a remote Playwright MCP server that lets an AI assistant control a web browser, saving screenshots and screen recordings as it goes. The repository URL is [github.com/jamesmurdza/playwright-mcp-server](https://github.com/jamesmurdza/playwright-mcp-server/). Alternatively, you can use the Railway CLI to deploy an MCP server from a local directory.
+1. **Create a new project in Railway.** Select **Deploy from GitHub repo** and paste the URL of the MCP server's repository. For this example, we'll deploy a remote Playwright MCP server that lets an AI assistant control a web browser, saving screenshots and screen recordings as it goes. The repository URL is:
 
-   <Image src="https://res.cloudinary.com/e99qzlgk/image/upload/v1792425535/deploy-github-repo_ljqxeg.png"
+   > [github.com/jamesmurdza/playwright-mcp-server](https://github.com/jamesmurdza/playwright-mcp-server/)
+
+   Alternatively, you can use the Railway CLI to deploy an MCP server from a local directory.
+
+   <Image src="https://res.cloudinary.com/e99qzlgk/image/upload/v1792485840/deploy-github-repo_g0igha.png"
    alt="Dialog to deploy the jamesmurdza/playwright-mcp-server GitHub repository to a new Railway project"
    layout="responsive"
    width={496} height={314} quality={100} />
@@ -78,7 +82,9 @@ Railway closes a request after 5 minutes if no data has been transferred in eith
 
 In our Playwright example, the MCP server waits on browser actions like page loads and navigation, so streaming allows the client to show progress during those waits.
 
-**Note:** Streamable HTTP has been MCP's HTTP transport since the 2025-03-26 revision, replacing the older HTTP+SSE transport, which is now deprecated. The 2026-07-28 revision made the protocol stateless, so each request stands alone and servers are easier to run with multiple replicas.
+<Banner variant="info">
+Streamable HTTP has been MCP's HTTP transport since the [2025-03-26 revision](https://modelcontextprotocol.io/specification/2025-03-26), replacing the older HTTP+SSE transport, which is now deprecated. The [2026-07-28 revision](https://blog.modelcontextprotocol.io/posts/2026-07-28/) made the protocol stateless, so each request stands alone and servers are easier to run with multiple replicas.
+</Banner>
 
 ## Authentication
 
@@ -123,6 +129,8 @@ After adding the new server to the configuration, restart the client and test th
 
 ## Where should you host a remote MCP server?
 
+_Last updated: October 2026_
+
 Since a remote MCP server is just a web application with a public endpoint, there are many hosting platforms that can run one. However, they vary in how much setup they require, how long they'll hold a streaming request open, and the built-in options for storage and databases.
 
 | | Render | Fly.io | Cloudflare | AWS | Railway |
@@ -132,7 +140,7 @@ Since a remote MCP server is just a web application with a public endpoint, ther
 | Connecting storage | Environment variables | CLI command | Config file | Set up IAM | One click |
 | Databases available | Postgres | Postgres | D1 (SQLite) | RDS, Aurora | Postgres, MySQL, MongoDB |
 | Object storage | No | Yes | Yes | Yes | Yes |
-| Pricing model | Fixed per service | Per second running | Per request and CPU time | Varies* | Usage-based |
+| Pricing model | Fixed per service | Per second running | Per request and CPU time | Varies | Usage-based |
 | Best for | Long-running streams | Region-specific servers | Edge deployment | Existing AWS setups | Shipping quickly |
 
 ### Render
