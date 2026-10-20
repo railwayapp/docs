@@ -437,11 +437,16 @@ function QuickInstall({
   );
 
   return (
-    <div className="relative overflow-hidden rounded-lg border border-muted bg-muted-app-subtle">
+    <div
+      data-do11y-code-block
+      data-language="bash"
+      className="relative overflow-hidden rounded-lg border border-muted bg-muted-app-subtle"
+    >
       <div className="flex flex-wrap items-center gap-x-2 gap-y-2 border-b border-muted bg-muted-element/50 px-3 py-2 sm:px-4">
         <ModeToggle mode={mode} onModeChange={onModeChange} />
         <button
           type="button"
+          data-do11y-copy
           onClick={() => copy(command)}
           className="ml-auto flex size-7 flex-shrink-0 items-center justify-center rounded-md text-muted-base transition-all hover:bg-muted-element hover:text-muted-high-contrast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid"
           aria-label={copied ? "Copied!" : "Copy command"}

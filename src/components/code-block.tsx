@@ -314,6 +314,8 @@ function TabbedCodeBlock({
 
   return (
     <div
+      data-do11y-code-block
+      data-language={activeTabData?.lang}
       className={cn(
         "group/code-block relative my-6 overflow-hidden rounded-lg border border-muted bg-muted-app-subtle",
         className,
@@ -327,7 +329,10 @@ function TabbedCodeBlock({
             className="size-4 flex-shrink-0 text-muted-base sm:size-5"
           />
           {/* Tab buttons */}
-          <div className="flex items-center rounded-md bg-muted-element p-0.5">
+          <div
+            data-do11y-tabs
+            className="flex items-center rounded-md bg-muted-element p-0.5"
+          >
             {tabs.map((tab, index) => (
               <button
                 key={tab.label}
@@ -347,6 +352,7 @@ function TabbedCodeBlock({
         </div>
         <button
           type="button"
+          data-do11y-copy
           onClick={() => copy(cleanCode)}
           className="flex size-7 flex-shrink-0 items-center justify-center rounded-md text-muted-base transition-all hover:bg-muted-element hover:text-muted-high-contrast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid"
           aria-label={copied ? "Copied!" : "Copy code"}
@@ -505,6 +511,8 @@ function StandardCodeBlock({
 
   return (
     <div
+      data-do11y-code-block
+      data-language={lang}
       className={cn(
         "group/code-block relative my-6 overflow-hidden rounded-lg border border-muted bg-muted-app-subtle",
         className,
@@ -539,6 +547,7 @@ function StandardCodeBlock({
           )}
           <button
             type="button"
+            data-do11y-copy
             onClick={() => copy(cleanCode)}
             className="flex size-7 items-center justify-center rounded-md text-muted-base transition-all hover:bg-muted-element hover:text-muted-high-contrast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-solid"
             aria-label={copied ? "Copied!" : "Copy code"}
