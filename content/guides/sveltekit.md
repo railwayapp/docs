@@ -1,7 +1,7 @@
 ---
 title: Deploy a SvelteKit App
 description: Learn how to deploy a Sveltekit app to Railway with this step-by-step guide. It covers quick setup, adapter configuration, one-click deploys and other deployment strategies.
-date: "2026-08-14"
+date: "2026-09-19"
 tags:
   - deployment
   - frontend
@@ -11,7 +11,7 @@ tags:
 topic: frameworks
 ---
 
-[SvelteKit](https://svelte.dev/docs/kit/introduction) is a framework for rapidly developing robust, performant web applications using Svelte.
+[SvelteKit](https://svelte.dev/docs/kit) is a framework for rapidly developing robust, performant web applications using Svelte.
 
 This guide covers how to deploy a SvelteKit app to Railway in four ways:
 
@@ -31,15 +31,14 @@ To create a new SvelteKit app, ensure that you have [Node](https://nodejs.org/en
 Run the following command in your terminal to create a new SvelteKit app using [Vite](https://vite.dev/guide/#scaffolding-your-first-vite-project):
 
 ```bash
-npx sv create svelteapp --add sveltekit-adapter="adapter:node" --install npm
+npx sv create svelteapp --add sv-addon-railway --install npm
 ```
 
 Follow the prompts:
 
 1. Select the `SvelteKit demo` template.
 2. Add type checking with TypeScript syntax.
-3. Add prettier, eslint, and tailwindcss.
-4. No tailwindcss plugins. Hit enter and move on.
+3. Add `prettier` and `eslint`.
 
 A new SvelteKit app will be provisioned for you in the `svelteapp` directory.
 
@@ -53,31 +52,9 @@ npm run dev
 
 Open your browser and go to `http://localhost:5173` to see the app. You can play the demo game by visiting the `/sverdle` route.
 
-### Prepare SvelteKit app for deployment
+## Deploy the SvelteKit app to Railway
 
 Your app has been configured to use the [SvelteKit Node adapter](https://svelte.dev/docs/kit/adapter-node#Deploying). It takes your app's build output and generates a standalone Node server.
-
-Next, add the start script to the `package.json` file.
-
-Svelte builds your project into a `build` directory. The server starts when the server entry point is executed, which is by default located at `build/index.js`.
-
-Open up the `package.json` file and add the start script. Set it to `node build` like so:
-
-```json
-{
-	"name": "svelteapp",
-	"private": true,
-	"version": "0.0.1",
-	"type": "module",
-	"scripts": {
-		"start": "node build",
-```
-
-_package.json_
-
-Now you're ready to deploy!
-
-## Deploy the SvelteKit app to Railway
 
 Railway offers multiple ways to deploy your SvelteKit app, depending on your setup and preference.
 
@@ -146,9 +123,9 @@ To deploy a SvelteKit app to Railway directly from GitHub, follow the steps belo
    ```bash
    # Use the Node alpine official image
    # https://hub.docker.com/_/node
-   FROM node:lts-alpine
+   FROM node:lts-alpine as build
 
-   # Create and change to the app directory.
+   # Create and change to the app directory
    WORKDIR /app
 
    # Copy the files to the container image
@@ -157,12 +134,20 @@ To deploy a SvelteKit app to Railway directly from GitHub, follow the steps belo
    # Install packages
    RUN npm ci
 
-   # Copy local code to the container image.
+   # Copy local code to the container image
    COPY . ./
 
-   # Build the app.
+   # Build the app
    RUN npm run build
 
+   # Only include the build output and production dependencies
+   FROM node:lts-alpine as production
+
+   WORKDIR /app
+   COPY package*.json ./
+   RUN npm ci --omit=dev && rm -f package-lock.json
+   COPY --from=build /app/build ./build
+   
    # Serve the app
    CMD ["npm", "run", "start"]
    ```
