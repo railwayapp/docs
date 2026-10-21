@@ -107,7 +107,6 @@ name: Post-Deployment Actions
 
 on:
   deployment_status:
-    states: [success]
 
 jobs:
   post-deploy:
