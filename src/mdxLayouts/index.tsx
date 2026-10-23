@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
-import { DocsLayout } from "../layouts/docs-layout";
-import { FrontMatter } from "../types";
+import { DocsLayout } from "@/layouts/docs-layout";
+import { FrontMatter } from "@/types";
 
 const Layout: React.FC<
   PropsWithChildren<{ frontMatter: FrontMatter; rawMarkdown?: string }>

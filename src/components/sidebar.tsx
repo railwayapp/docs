@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import React, { useMemo, useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/cn";
-import { sidebarContent } from "../data/sidebar";
+import { sidebarContent } from "@/data/sidebar";
 import { Link } from "./link";
-import { IPage, ISubSection, IExternalLink, ISidebarSection } from "../types";
+import { IPage, ISubSection, IExternalLink, ISidebarSection } from "@/types";
 import SidebarItem from "./sidebar-item";
 import { containingSubsectionSlugs, sidebarItemContainsPage } from "@/utils/sidebar";
 import { Arrow } from "@/components/arrow";

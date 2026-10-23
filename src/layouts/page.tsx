@@ -11,10 +11,10 @@ import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { useStore } from "@nanostores/react";
 import React, { PropsWithChildren, useEffect } from "react";
 import { tinykeys } from "tinykeys";
-import { TopNav, MobileTopNav } from "../components/top-nav";
-import { Props as SEOProps, SEO } from "../components/seo";
-import { Sidebar } from "../components/sidebar";
-import { Background } from "../pages";
+import { TopNav, MobileTopNav } from "@/components/top-nav";
+import { Props as SEOProps, SEO } from "@/components/seo";
+import { Sidebar } from "@/components/sidebar";
+import { Background } from "@/pages";
 import { GlobalBanners } from "@/components/global-banner";
 
 export interface Props {
