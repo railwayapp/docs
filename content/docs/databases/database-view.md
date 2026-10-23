@@ -76,7 +76,11 @@ The Config tab holds the settings for a database service, grouped into Connectio
 
 The Connection section shows the username and password for the database, and allows you to safely regenerate the password while keeping the database and environment variables synchronized, avoiding manual variable edits that can cause authentication mismatches.
 
-Regenerating breaks existing connections until they use the new password, so it's important to manually redeploy any service that depends on the updated password variable (or the derived database URL).
+Regenerate changes the password inside the database, updates the password variable and everything that references it (such as the database URL), redeploys the database so it starts with the new password, and then redeploys every running service in the environment that references the password through Railway variables, one at a time, with the services others connect through (a connection pooler, for example) first. Expect a few minutes, and a short interruption on each of those services; a service with a volume is briefly unavailable while it restarts.
+
+A service that could not be restarted keeps the previous password until you redeploy it. The completion message lists these services, and so does the password event in the project's activity feed. This happens when a service is asleep, is in the middle of a deployment, has no successful deployment to restart from, or does not come back healthy after the restart.
+
+Services that hold a copy of the password instead of a reference, services in other projects, and applications outside Railway are not updated: give them the new password yourself.
 
 Regenerate is the supported way to change a database password. Use it instead of the two manual routes, which change only one side each:
 
