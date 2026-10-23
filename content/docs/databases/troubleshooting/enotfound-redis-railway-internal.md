@@ -81,7 +81,7 @@ If you are using a package that uses `ioredis` as a dependency, you can try to f
 
 Create a [new Redis database](/databases/redis) in the same [project](/overview/the-basics#project--project-canvas) as your application, and connect it to the Redis database using the private network as shown in the examples above.
 
-Read about best pracices to get the most out of the platform [here](/overview/best-practices).
+Read about best practices to get the most out of the platform [here](/overview/best-practices).
 
 ### Connecting to a Redis database locally
 

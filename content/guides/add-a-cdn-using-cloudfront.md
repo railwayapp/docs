@@ -12,7 +12,7 @@ topic: integrations
 
 ## What is the purpose of a CDN?
 
-> A CDN improves efficiency [of web applications] by introducing intermedeiary servers between the client and the server. [These CDN servers] decrease web traffic to the web server, reduce bandwidth consumption, and improve the user experience of your applications.
+> A CDN improves efficiency [of web applications] by introducing intermediary servers between the client and the server. [These CDN servers] decrease web traffic to the web server, reduce bandwidth consumption, and improve the user experience of your applications.
 
 _Source: [What is a CDN?](https://aws.amazon.com/what-is/cdn/)_
 
