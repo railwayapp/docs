@@ -17,6 +17,7 @@ Currently, we support the following languages out of the box:
 - [HTML/Staticfile](https://railpack.com/languages/staticfile)
 - [Java](https://railpack.com/languages/java)
 - [Ruby](https://railpack.com/languages/ruby)
+- [.NET/C#](https://railpack.com/languages/dotnet)
 - [Deno](https://railpack.com/languages/deno)
 - [Rust](https://railpack.com/languages/rust)
 - [Elixir](https://railpack.com/languages/elixir)
