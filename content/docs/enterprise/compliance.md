@@ -17,7 +17,7 @@ Additionally, the Railway enterprise plan is the most secure and compliant optio
 
 We know that your businesses need to develop strong and lasting relationships with your vendors to build confidence that we can be trusted to deliver your workloads. Part of that is through certifications, audits, and continual refinement of Railway's practices. Railway aims to comply with all the distributions of workloads and privacy procedures.
 
-### SOC 2 type ii and SOC 3
+### SOC 2 Type II and SOC 3
 
 Railway is SOC 2 Type II certified and SOC 3 certified.
 
@@ -37,7 +37,7 @@ Railway is committed to protecting the privacy of Railway's users. We understand
 
 [Click here to see Railway's Privacy Policy.](https://railway.com/legal/privacy)
 
-## GDPR compliance - data processing agreement (DPA)
+## GDPR compliance - Data Processing Agreement (DPA)
 
 Railway provides a Data Processing Agreement (DPA) to help customers comply with GDPR requirements when processing personal data through the Railway platform. If you operate a business in the EU or process personal data of EU residents, you may need to execute a DPA with Railway to ensure compliance with GDPR Article 28 requirements for data processor relationships.
 
@@ -45,7 +45,7 @@ You can access and execute Railway's standard DPA through the self-service link:
 
 You can also review Railway's standard DPA terms at [railway.com/legal/dpa](https://railway.com/legal/dpa).
 
-## VAT tax ID and address
+## VAT Tax ID and address
 
 Customers in the EU may need to add their VAT Tax ID to their invoices for compliance and reporting purposes.
 
@@ -57,7 +57,7 @@ After adding your information, it will appear on your future invoices.
 
 ## EU DORA
 
-For European organizations in finance that need to comply with [EU Dora](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en) - Railway is willing to provide documents after a click through NDA that describe disaster recovery procedures, uptime statistics, and IT controls for organizations to who need to submit compliance documents to local regulators. You can get information on the [Trust Page](https://trust.railway.com)
+For European organizations in finance that need to comply with [EU DORA](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en) - Railway is willing to provide documents after a click through NDA that describe disaster recovery procedures, uptime statistics, and IT controls for organizations to who need to submit compliance documents to local regulators. You can get information on the [Trust Page](https://trust.railway.com)
 
 ## Deploy securely on Railway
 
