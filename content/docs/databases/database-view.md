@@ -76,7 +76,9 @@ The Config tab holds the settings for a database service, grouped into Connectio
 
 The Connection section shows the username and password for the database, and allows you to safely regenerate the password while keeping the database and environment variables synchronized, avoiding manual variable edits that can cause authentication mismatches.
 
-Regenerating breaks existing connections until they use the new password, so it's important to manually redeploy any service that depends on the updated password variable (or the derived database URL).
+Regenerate changes the password inside the database and updates the password variable and everything that references it (such as the database URL). A standalone database is redeployed so it starts with the new password. By default, every running service in the environment that references the password through Railway variables is then redeployed, one at a time, so your services pick up the new password without a manual redeploy. Uncheck **Redeploy services that use this database** in the Regenerate dialog to skip that step: the database still gets the new password, and your services keep the previous one until you redeploy them.
+
+Services that hold a copy of the password instead of a reference, services in other projects, and applications outside Railway are not updated. Give them the new password yourself, or their connections fail with an authentication error.
 
 Regenerate is the supported way to change a database password. Use it instead of the two manual routes, which change only one side each:
 
@@ -91,6 +93,22 @@ Either one on its own leaves the database and the variable out of sync, and ever
 alt="Screenshot of the Connection section in the database Config tab"
 layout="intrinsic"
 width={1205} height={840} quality={100} />
+
+#### Regenerate on a high availability cluster
+
+On a high availability cluster ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha), or [MongoDB](/databases/mongo-ha)), Regenerate rotates the password on every member of the cluster in a coordinated way. Members adopt the new password without restarting, so the cluster keeps serving connections while the rotation runs. It takes a few minutes, and the dialog shows the current phase and the member it is working on until it finishes.
+
+The rotation runs in this order:
+
+1. The primary and every replica are asked whether they accept the current password and can take a new one. If any member refuses, nothing is changed and the previous password stays in place.
+2. The password changes on the live primary, then on each replica, one at a time (on PostgreSQL, on the etcd nodes as well).
+3. The password variable is committed, and the cluster's etcd and proxy nodes are redeployed one at a time so they connect with the new password.
+4. Running services that reference the password are redeployed one at a time, unless you unchecked **Redeploy services that use this database**.
+5. Every member is checked to confirm it rejects the previous password.
+
+If anything fails before the variable is committed, the rotation restores the previous password on every member and nothing changes for your services. After the commit, the new password is in effect, and the dialog names anything that still has to be redeployed.
+
+A member running an older build of its image is redeployed before the rotation starts. If that member is the primary, leadership moves to a replica first, with the same brief write interruption as a [failover](/databases/postgresql-ha#failover). This is the only interruption a rotation causes.
 
 ### Extensions
 
