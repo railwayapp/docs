@@ -114,9 +114,30 @@ If you're looking for the fastest way to get started, the one-click deploy optio
 
 Click the button below to begin:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/TODO-tanstack-template-code)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/tanstack-start)
+
+The [TanStack Start template](https://railway.com/deploy/tanstack-start) deploys Departures, a full-stack sample app that uses the core features of Start 1.0: server functions, server routes, streaming and selective SSR, middleware, sessions, and TanStack Query. It provisions two services:
+
+- A TanStack Start service, built with Railpack and served by Nitro, that runs its Drizzle migrations in a [pre-deploy command](/deployments/pre-deploy-command) and gates each deploy on a `/api/health` [healthcheck](/deployments/healthchecks).
+- A Postgres database, connected over the [private network](/networking/private-networking) through `DATABASE_URL`.
+
+The template generates the `SESSION_SECRET` variable for you, so the deploy needs no input. The source is in the <a href="https://github.com/railwayapp/railway-tanstack-start" target="_blank">railwayapp/railway-tanstack-start</a> repository, and its README maps each Start feature to the file that uses it.
 
 It is highly recommended that [you eject from the template after deployment](/templates/deploy#eject-from-template-repository) to create a copy of the repo on your GitHub account.
+
+#### Build an AI agent app with TanStack AI
+
+The [TanStack Start + AI + Railway Sandboxes template](https://railway.com/deploy/tanstack-start-ai-railway-sandboxes) deploys Dispatch, a work tracker where each task has a **Run** button. Running a task boots a [Railway sandbox](/sandboxes), runs Claude Code inside it, and records each step in the task's activity feed.
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/tanstack-start-ai-railway-sandboxes)
+
+Dispatch uses <a href="https://tanstack.com/ai" target="_blank">TanStack AI</a> to drive the sandbox: the `@tanstack/ai-sandbox-railway` provider creates the sandbox in your project's environment, and the `@tanstack/ai-claude-code` harness runs the agent. The template provisions the app and a Postgres database, and generates an access password in the `DISPATCH_PASSWORD` variable. To finish setup:
+
+1. Enter an `ANTHROPIC_API_KEY` from the <a href="https://console.anthropic.com" target="_blank">Anthropic Console</a> when you deploy.
+2. In the new project, open **Settings → Tokens** and create a [project token](/integrations/api#project-token) for the `production` environment.
+3. Add the token to the `Dispatch-Web` service as a variable named `RAILWAY_TOKEN`, and deploy the change.
+
+The source is in the <a href="https://github.com/railwayapp/railway-tanstack-start-sandbox-template" target="_blank">railwayapp/railway-tanstack-start-sandbox-template</a> repository.
 
 **Note:** You can also choose from a <a href="https://railway.com/templates?q=tanstack" target="_blank">variety of TanStack app templates</a> created by the community.
 

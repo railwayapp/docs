@@ -1,9 +1,11 @@
 ---
-title: Convert MongoDB to high availability
-description: Convert an existing Railway MongoDB service to a high-availability replica set with automatic failover.
+title: MongoDB High Availability
+description: Convert a Railway MongoDB service into a managed high-availability replica set with automatic failover.
 ---
 
-Railway can convert an existing MongoDB service into a high-availability (HA) cluster backed by a [MongoDB replica set](https://www.mongodb.com/docs/manual/replication/) and [HAProxy](https://www.haproxy.org/). The data nodes form a single-primary replica set. Elections run inside MongoDB itself, so there is no separate coordinator tier, and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down and a majority of voting nodes remains available, the set elects a new primary and HAProxy routes new connections to it.
+Railway can convert an existing MongoDB service into a managed high-availability cluster backed by a [MongoDB replica set](https://www.mongodb.com/docs/manual/replication/) and [HAProxy](https://www.haproxy.org/). The data nodes form a single-primary replica set. Elections run inside MongoDB itself, so there is no separate coordinator tier, and HAProxy routes client connections to whichever node is currently the primary. If the primary goes down and a majority of voting members remains available, the set can elect a new primary and HAProxy routes new connections to it.
+
+Converting to high availability is what makes this a managed database in the sense [what Railway manages](/databases#what-railway-manages) describes: Railway provisions the cluster and ships security patches for its image, and failover happens automatically inside the cluster. The cluster overview shows each node's role and health; alerting on it is yours to set up, and Railway does not publish an uptime SLA today. Schema, queries and data stay yours.
 
 A converted cluster has two kinds of nodes:
 
@@ -97,4 +99,8 @@ The reverted service keeps the cluster image (`mongo-ha/mongo`), which detects t
 
 **Reverting is only available while the original MongoDB service is the primary.** Reverting keeps that service and deletes every other node. If the primary role has moved after a failover, reverting would delete the node holding the latest data. If the original service is not the primary, use **Make primary** to switch over to it first. The revert flow offers this when it applies.
 
-Railway migrates every variable reference within your project back to the original MongoDB service as part of the staged revert. As with conversion, hardcoded connection strings outside of Railway need updating by hand.
+Railway will automatically migrate all variable references within your project back to the original MongoDB service as part of the staged revert. As with conversion, any hardcoded connection strings outside of Railway will need to be updated manually.
+
+## Support scope
+
+Changing the template as shipped, such as its image, start command or variables, or changing the cluster's members outside Railway's high availability flows, makes the database yours to manage; see [database support scope](/databases#database-support-scope).

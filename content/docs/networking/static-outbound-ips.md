@@ -73,6 +73,7 @@ automatically migrated.
 
 ## Caveats
 
+- Static Outbound IPs can prevent [Serverless (App Sleep)](/deployments/serverless) from putting an idle service to sleep.
 - There is no guarantee that the IPv4 addresses assigned to your service are dedicated. They may be shared with other customers.
 - The IP addresses cannot be used for inbound traffic.
 - If you wish to move your service to a different region, the IP addresses will change.

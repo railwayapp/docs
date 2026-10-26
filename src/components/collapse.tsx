@@ -82,7 +82,7 @@ export const Collapse = ({
       >
         <Icon
           name="ChevronRight"
-          className="size-4 text-muted-base transition-transform duration-150 group-data-open/collapse:rotate-90"
+          className="size-4 text-muted-base transition-transform duration-150 group-data-panel-open/collapse:rotate-90"
         />
         {title}
       </CollapsiblePrimitive.Trigger>

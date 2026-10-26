@@ -352,6 +352,7 @@ Explore these resources to go deeper on sandboxes and agents:
 
 - [Run Code-Execution Sandboxes for AI Agents](/guides/code-execution-sandboxes): why agents need sandboxes and the minimal execution loop.
 - [Sandboxes](/sandboxes): concepts, the SDK reference, networking, and limits.
+- [TanStack Start + AI + Railway Sandboxes template](https://railway.com/deploy/tanstack-start-ai-railway-sandboxes): a deployable work tracker that runs Claude Code in a fresh sandbox for each task through TanStack AI.
 - [`railway sandbox` CLI reference](/cli/sandbox): templates, checkpoints, forks, exec, and port forwarding.
 - [Railway for Agents](/agents): the broader agent setup with the CLI, MCP, and skills.
 - [Agent Skills](/ai/agent-skills): teach your local agent to drive Railway.
