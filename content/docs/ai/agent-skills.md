@@ -53,7 +53,7 @@ npx skills add railwayapp/railway-skills
 
 Supports Claude Code, OpenAI Codex, OpenCode, and Cursor. Re-run to update.
 
-**Note:** You can also install Railway through an official [plugin or connector](/ai/plugins-and-connectors) for ChatGPT, Codex, Claude, Claude Code, Grok Build, or Cursor.
+**Note:** You can also install Railway through an official [plugin or connector](/ai/plugins-and-connectors) for ChatGPT, Codex, Claude, Claude Code, Grok Build, Cursor, or Antigravity.
 
 ## The use-railway skill
 

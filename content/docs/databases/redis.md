@@ -1,9 +1,11 @@
 ---
 title: Redis
-description: Learn how to deploy a Redis database on Railway.
+description: Deploy Redis on Railway and convert it to a managed high-availability cluster with Sentinel failover and backups.
 ---
 
 The Railway Redis database template allows you to provision and connect to a Redis database with zero configuration.
+
+This deploys a single node that Railway runs. For a managed database with automatic failover, convert it to [high availability](/databases/redis-ha) and turn on [backups](/volumes/backups). [What Railway manages](/databases#what-railway-manages) lists who handles each operation.
 
 ## Deploy
 

@@ -1,9 +1,9 @@
 ---
 title: Databases
-description: Deploy and manage databases on Railway - PostgreSQL, MySQL, Redis, MongoDB, and any open source database you need.
+description: Managed PostgreSQL, MySQL, Redis and MongoDB on Railway: what Railway handles, what you handle, and how to turn on high availability, backups, point-in-time recovery and pooling.
 ---
 
-Railway enables you to deploy and manage databases alongside your applications. Whether you need a quick PostgreSQL instance or want to run a specialized database, Railway's platform primitives allow you to build any database service your system requires.
+Railway maintains its PostgreSQL, MySQL, Redis and MongoDB templates: it provisions them and ships security patches for their images. Converting one to high availability and turning on backups, point-in-time recovery (PostgreSQL, MySQL) and connection pooling (PostgreSQL) from the dashboard gives you a managed database in the sense [what Railway manages](#what-railway-manages) describes. Railway shows database metrics and query statistics in the [database view](/databases/database-view); alerting on them is yours to set up, and Railway does not publish an uptime SLA today. Schema, queries and data stay yours; [database support scope](#database-support-scope) says where support stops. You can also run any other database from a Docker image.
 
 ## Getting started
 
@@ -23,45 +23,14 @@ The fastest way to deploy a database is through Railway's database templates:
 
 Railway maintains these templates (the Redis template is owned by Redis) and they come pre-configured with sensible defaults.
 
-## Deploy any database
-
-Railway isn't limited to the databases above. You can deploy **any open source database** by using:
-
-- **Docker Images**: Deploy any database available as a Docker image
-- **Templates**: Browse the <a href="https://railway.com/templates?category=Storage" target="_blank">database and storage templates</a> for pre-configured options
-- **Custom Builds**: Build your own database service from source code
-
-### Popular database templates
-
-Explore these community and official templates in the marketplace:
-
-- <a href="https://railway.com/deploy?category=Storage" target="_blank">**All Storage Templates**</a> - Browse databases, caches, and storage solutions
-- ClickHouse, CockroachDB, Cassandra, ParadeDB, and more
-- Specialized databases like TimescaleDB, InfluxDB, and Neo4j
-
-## Platform features
-
-Railway provides essential features for running production databases:
-
-| Feature | Description |
-| --- | --- |
-| [**Volumes**](/volumes) | Persistent storage that survives deployments and restarts |
-| [**TCP Proxy**](/networking/tcp-proxy) | Connect to your database from outside Railway's network |
-| [**Private Networking**](/networking/private-networking) | Secure, low-latency connections between services |
-| [**Backups**](/volumes/backups) | Scheduled and on-demand volume backups; [point-in-time recovery](/volumes/point-in-time-recovery) for PostgreSQL and MySQL |
-
-## Building custom database services
-
-Need to run a database that isn't in the templates marketplace? Check out the guide on [building a database service](/databases/build-a-database-service) to learn how to configure volumes, networking, and persistence for any database.
-
 ## What Railway manages
 
-Railway maintains the database templates above (the Redis template is owned by Redis) and keeps them running. The table lists which operations Railway handles and which stay with the user.
+Railway maintains the database templates above (the Redis template is owned by Redis) and ships security patches for their images. The table lists which operations Railway handles and which stay with the user.
 
 | Operation | Who |
 | --- | --- |
 | Provisioning, storage and networking | Railway |
-| Security patches to the database image | Railway |
+| [Security patches](/deployments/image-auto-updates) to the database image | Railway |
 | Major version upgrades | User, [one click for PostgreSQL](/databases/postgresql-major-upgrade) |
 | [Backups](/volumes/backups) and [point-in-time recovery](/volumes/point-in-time-recovery) (PostgreSQL, MySQL) | User turns them on |
 | High availability and failover ([PostgreSQL](/databases/postgresql-ha), [MySQL](/databases/mysql-ha), [Redis](/databases/redis-ha), [MongoDB](/databases/mongo-ha)) | User turns it on; failover is then automatic |
@@ -94,3 +63,34 @@ The dashboard warns you before a change takes a database out of this scope. When
 Moving the database to another region, adding or removing public access, changing its backup schedules, and Railway's own flows for high availability, connection pooling, and point-in-time recovery don't trigger the warning.
 
 Schema, queries, indexes and the data are always the user's. Support does not configure a database for the user and does not make tuning, schema or query recommendations; the engine's own documentation, linked from each database page, is the reference.
+
+## Deploy any database
+
+Railway isn't limited to the databases above. You can deploy **any open source database** by using:
+
+- **Docker Images**: Deploy any database available as a Docker image
+- **Templates**: Browse the <a href="https://railway.com/templates?category=Storage" target="_blank">database and storage templates</a> for pre-configured options
+- **Custom Builds**: Build your own database service from source code
+
+### Popular database templates
+
+Explore these community and official templates in the marketplace:
+
+- <a href="https://railway.com/deploy?category=Storage" target="_blank">**All Storage Templates**</a> - Browse databases, caches, and storage solutions
+- ClickHouse, CockroachDB, Cassandra, ParadeDB, and more
+- Specialized databases like TimescaleDB, InfluxDB, and Neo4j
+
+## Platform features
+
+Railway provides essential features for running production databases:
+
+| Feature | Description |
+| --- | --- |
+| [**Volumes**](/volumes) | Persistent storage that survives deployments and restarts |
+| [**TCP Proxy**](/networking/tcp-proxy) | Connect to your database from outside Railway's network |
+| [**Private Networking**](/networking/private-networking) | Secure, low-latency connections between services |
+| [**Backups**](/volumes/backups) | Scheduled and on-demand volume backups; [point-in-time recovery](/volumes/point-in-time-recovery) for PostgreSQL and MySQL |
+
+## Building custom database services
+
+Need to run a database that isn't in the templates marketplace? Check out the guide on [building a database service](/databases/build-a-database-service) to learn how to configure volumes, networking, and persistence for any database.

@@ -1,9 +1,11 @@
 ---
 title: PostgreSQL
-description: Learn how to deploy a PostgreSQL database on Railway.
+description: Deploy PostgreSQL on Railway and convert it to a managed high-availability cluster with backups, point-in-time recovery and connection pooling.
 ---
 
 The Railway PostgreSQL database template allows you to provision and connect to a PostgreSQL database with zero configuration.
+
+This deploys a single node that Railway maintains. For a managed database with automatic failover, convert it to [high availability](/databases/postgresql-ha), then turn on [backups](/volumes/backups) or [point-in-time recovery](/volumes/point-in-time-recovery) and add [connection pooling](/databases/postgresql-pgbouncer). [What Railway manages](/databases#what-railway-manages) lists who handles each operation.
 
 ## Deploy
 

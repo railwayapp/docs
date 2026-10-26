@@ -1,9 +1,11 @@
 ---
 title: MySQL
-description: Learn how to deploy a MySQL database on Railway.
+description: Deploy MySQL on Railway and convert it to a managed high-availability cluster with backups and point-in-time recovery.
 ---
 
 The Railway MySQL database template allows you to provision and connect to a MySQL database with zero configuration.
+
+This deploys a single node that Railway maintains. For a managed database with automatic failover, convert it to [high availability](/databases/mysql-ha), then turn on [backups](/volumes/backups) or [point-in-time recovery](/volumes/point-in-time-recovery). [What Railway manages](/databases#what-railway-manages) lists who handles each operation.
 
 ### Deploy
 

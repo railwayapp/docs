@@ -42,6 +42,7 @@ The first request made to a slept service wakes it. It may take a small amount o
 
 ## Caveats
 
+- Services with [Static Outbound IPs](/networking/static-outbound-ips) enabled may remain awake even when idle.
 - There will be a small delay in the response time of the first request sent to a slept service (commonly known as "cold boot times").
 - The first request sent to a slept service may return a 502 Bad Gateway response.
 - For Railway to put a service to sleep, a service must not send _outbound_ traffic for at least 5 minutes. Outbound traffic can include telemetry, database connections, NTP, etc. Inbound requests are not measured directly, but anything your service sends in response to them is, so traffic that reaches your service will keep it awake.
