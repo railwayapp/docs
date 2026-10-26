@@ -76,7 +76,7 @@ The Config tab holds the settings for a database service, grouped into Connectio
 
 The Connection section shows the username and password for the database, and allows you to safely regenerate the password while keeping the database and environment variables synchronized, avoiding manual variable edits that can cause authentication mismatches.
 
-Regenerate changes the password inside the database and updates the password variable and everything that references it (such as the database URL). A standalone database is redeployed so it starts with the new password. By default, every running service in the environment that references the password through Railway variables is then redeployed, one at a time, so your services pick up the new password without a manual redeploy. Uncheck **Redeploy services that use this database** in the Regenerate dialog to skip that step: the database still gets the new password, and your services keep the previous one until you redeploy them.
+Regenerate changes the password inside the database and updates the password variable and everything that references it (such as the database URL). A standalone database is redeployed so it starts with the new password. Every running service in the environment that references the password through Railway variables is then redeployed, one at a time, so your services pick up the new password without a manual redeploy.
 
 Services that hold a copy of the password instead of a reference, services in other projects, and applications outside Railway are not updated. Give them the new password yourself, or their connections fail with an authentication error.
 
@@ -103,7 +103,7 @@ The rotation runs in this order:
 1. The primary and every replica are asked whether they accept the current password and can take a new one. If any member refuses, nothing is changed and the previous password stays in place.
 2. The password changes on the live primary, then on each replica, one at a time (on PostgreSQL, on the etcd nodes as well).
 3. The password variable is committed, and the cluster's etcd and proxy nodes are redeployed one at a time so they connect with the new password.
-4. Running services that reference the password are redeployed one at a time, unless you unchecked **Redeploy services that use this database**.
+4. Running services that reference the password are redeployed one at a time.
 5. Every member is checked to confirm it rejects the previous password.
 
 If anything fails before the variable is committed, the rotation restores the previous password on every member and nothing changes for your services. After the commit, the new password is in effect, and the dialog names anything that still has to be redeployed.
