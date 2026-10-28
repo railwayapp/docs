@@ -37,6 +37,12 @@ Each build runs in its own single-tenant environment on Railway's builders, and 
 
 Railway staff don't modify your application unless you ask them to through a support channel, and when a HIPAA BAA is in effect, they lose direct access to your running workloads. The exception is workloads that violate the [acceptable use policy](/platform/trust-and-safety), which Railway removes.
 
+## Network protection and rate limits
+
+Railway Metal mitigates attacks at network layer 4 and below, and the edge enforces limits on every public domain: 10,000 concurrent connections, around 11,000 HTTP requests per second, and 10,000 requests per connection ([rate limits](/networking/public-networking/specs-and-limits#rate-limits)). Those limits blunt a layer 7 flood but won't always stop one. When a service is being hammered, turn on [Under Attack Mode](/networking/waf). It runs at the edge, in front of your service, and shows each new visitor a browser check before any request reaches you. Legitimate visitors pass it once. It's set per service, so protect a site first and then the API it calls.
+
+Databases and other internal services don't need a public endpoint at all. Reach them over the private network, and use a [TCP proxy](/networking/tcp-proxy) only when something outside Railway has to connect. [Lock down a production project](/guides/lock-down-production-project) walks through removing public exposure, scoping tokens, sealing secrets, and restricting who can change production.
+
 ## Access control
 
 Sign-in is through email, OAuth providers, or SAML on Enterprise. [Multi-factor authentication](/access/multi-factor-authentication) with an authenticator app or a passkey is available on every account, and on Pro and above, workspace admins can [require it for every member](/access/two-factor-enforcement). The controls below decide who can reach what once they're in.
@@ -50,6 +56,21 @@ Sign-in is through email, OAuth providers, or SAML on Enterprise. [Multi-factor 
 | [Project tokens](/integrations/api#creating-a-token) | Binds a token to one project and one environment | All plans |
 
 [Audit logs](/enterprise/audit-logs) record who changed what in a workspace, with the actor and a timestamp on each entry, and the [`auditLogs` GraphQL query](/enterprise/audit-logs#exporting-audit-logs-via-the-api) pulls them into your own tooling. They cover activity by people and tokens in your workspace, not access by Railway's internal systems.
+
+## Backups and retention
+
+[Volume backups](/volumes/backups) are manual or scheduled. A daily schedule keeps each backup for 6 days, weekly for 27 days, and monthly for 89 days. Restoring a backup creates a fresh volume and leaves the previous one in your project, unmounted, and wiping a volume deletes its backups with it. [Point-in-time recovery](/volumes/point-in-time-recovery) for PostgreSQL and MySQL archives continuously to a storage bucket and restores to a timestamp as a brand-new service, with a window of about 4 weeks for PostgreSQL and 7 days for MySQL. Backups and the archive are encrypted at rest like everything else.
+
+Railway keeps deployment images after a deployment is removed so you can roll back, and keeps logs for a period that depends on your plan.
+
+| Plan | Image retention | Log retention |
+| --- | --- | --- |
+| Free and Trial | 24 hours | 3 days (Free), 7 days (Trial) |
+| Hobby | 72 hours | 7 days |
+| Pro | 120 hours | 30 days |
+| Enterprise | 360 hours | Up to 90 days |
+
+For longer log retention, forward logs to your own tooling ([third-party observability](/guides/third-party-observability)). When you delete your account, Railway purges or anonymizes your data.
 
 ## Railway's own security practices
 
@@ -76,7 +97,7 @@ On Enterprise, Railway signs a BAA for HIPAA workloads and covers the infrastruc
 
 ## Data residency
 
-Pick a region when you create a service and it runs there, volumes included. EU West Metal is in Amsterdam, and the rest are on the [regions](/deployments/regions) page. Railway's own processing happens in the United States, which includes the systems that hold your project configuration and environment variables, whatever region your services run in. The DPA sets out the transfer terms for personal data that crosses over. When you delete your account, Railway purges or anonymizes your data. For anything else, see the <a href="https://railway.com/legal/privacy" target="_blank">Privacy Policy</a> or write to <a href="mailto:privacy@railway.com">privacy@railway.com</a>.
+Pick a region when you create a service and it runs there, volumes included. EU West Metal is in Amsterdam, and the rest are on the [regions](/deployments/regions) page. Railway's own processing happens in the United States, which includes the systems that hold your project configuration and environment variables, whatever region your services run in. The DPA sets out the transfer terms for personal data that crosses over. Card payments are processed by Stripe. For anything else, see the <a href="https://railway.com/legal/privacy" target="_blank">Privacy Policy</a> or write to <a href="mailto:privacy@railway.com">privacy@railway.com</a>.
 
 ## Incident response and breach notification
 
@@ -85,6 +106,38 @@ Railway classifies incidents by severity, and [Incident management](/platform/in
 Availability incidents are posted on the <a href="https://status.railway.com" target="_blank">status page</a> while they're in progress. Security incidents that affect you are disclosed on the <a href="https://blog.railway.com/engineering" target="_blank">engineering blog</a> and the <a href="https://railway.com/changelog" target="_blank">changelog</a>, and affected customers get an email. For a personal data breach, the DPA commits Railway to tell you without undue delay and to help with your own notifications to regulators and users. For questions about your own workspace, use the [Help Station](/platform/support).
 
 Security incidents that affect customers get a written report on the engineering blog, with a UTC timeline, the scope of impact, what you need to do, and the actions Railway took. When the investigation is still running, the report is published as preliminary and updated with dated entries until the final version replaces it.
+
+## Who's responsible for what
+
+Railway runs the infrastructure. You run what's on it. The line falls like this.
+
+| Railway | You |
+| --- | --- |
+| Hardware, hosts, and the operating system under your containers | Your image, its dependencies, and your application code |
+| The private network, TLS termination, and the edge | Which services get a public domain or a TCP proxy |
+| The build system and the dashboard, API, and CLI | Who's in your workspace, their roles, and the tokens you hand to CI |
+| Security patches for the managed database images | Major database version upgrades, and turning on backups, point-in-time recovery, and high availability |
+| Encrypting stored data and managing the keys | The secrets you store, how often you rotate them, and sealing the ones that should never be read back |
+| Detecting and disclosing platform incidents | The data you store and your legal basis for processing it |
+
+Four guides cover your side of the table:
+
+- [Lock down a production project](/guides/lock-down-production-project)
+- [Production readiness checklist](/overview/production-readiness-checklist)
+- [Isolate staging and production](/guides/isolate-staging-production)
+- [Rotate credentials with zero downtime](/guides/rotate-credentials-zero-downtime)
+
+## Contacts
+
+Support runs through the [Help Station](/platform/support), not email. These addresses are for the specific cases below.
+
+| For | Contact |
+| --- | --- |
+| A vulnerability in Railway | <a href="https://railway.com/bug-bounty" target="_blank">Bug bounty program</a> or <a href="mailto:bugbounty@railway.com">bugbounty@railway.com</a> |
+| Abuse hosted on Railway | <a href="mailto:abuse@railway.com">abuse@railway.com</a> |
+| Privacy and data requests | <a href="mailto:privacy@railway.com">privacy@railway.com</a> |
+| Audit evidence | <a href="https://trust.railway.com" target="_blank">Trust Center</a> |
+| Live incidents | <a href="https://status.railway.com" target="_blank">status.railway.com</a> |
 
 ## Frequently asked questions
 
