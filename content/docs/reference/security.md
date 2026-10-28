@@ -19,7 +19,7 @@ Encryption and key management happen on Railway-operated infrastructure, below t
 
 ### Environment variables
 
-Stored variables are envelope encrypted, which means each value is protected by its own data key instead of one platform-wide key. Railway decrypts a variable when it provides it to a build or a running container. In the dashboard and the API, project Viewers can't see variable values, and other roles can, unless the variable is sealed.
+Stored variables are envelope encrypted: the keys that encrypt them are themselves encrypted under a key Railway holds separately, rather than one platform-wide key protecting everything. Railway decrypts a variable when it provides it to a build or a running container. Project Viewers can't see variable values in the dashboard or the API. Admins and Members can, unless the variable is sealed.
 
 ### In transit
 
@@ -94,18 +94,18 @@ Your services and their volumes run in the [region](/deployments/regions) you pi
 
 Availability incidents go on the <a href="https://status.railway.com" target="_blank">status page</a> as soon as Railway is aware of them. For a personal data breach, the DPA commits Railway to inform you without undue delay and to help you meet your own obligations to regulators and data subjects.
 
-Workspace admins are notified by email. The <a href="https://blog.railway.com/engineering" target="_blank">engineering blog</a> and the <a href="https://railway.com/changelog" target="_blank">changelog</a> carry the public disclosure, and Enterprise customers get their root cause analysis through their shared Slack channel. For questions about your own workspace, use the [Help Station](/platform/support).
+Affected customers are notified by email. The <a href="https://blog.railway.com/engineering" target="_blank">engineering blog</a> and the <a href="https://railway.com/changelog" target="_blank">changelog</a> carry the public disclosure, and Enterprise customers get their root cause analysis through their shared Slack channel. For questions about your own workspace, use the [Help Station](/platform/support).
 
-When stored credentials may have been exposed, Railway notifies the upstream providers of those credentials so they can revoke affected keys. That notification can reach you through the provider before Railway's own disclosure does.
+In the October 2026 incident, Railway notified the upstream providers of exposed credentials so they could revoke affected keys. That notice went out before the public disclosure, which is why some customers heard from a provider before they heard from Railway.
 
 ### Published incident reports
 
-A security incident with customer impact gets a published report with a UTC timeline, the measured scope, what was accessed, and the actions for you and for Railway. A preliminary report goes out during the investigation and is updated until the final report replaces it.
+Railway attempts to publish a report for each security incident with customer impact, and both incidents to date have one. A report carries a UTC timeline, the scope of impact, and the actions Railway took. The October 2026 report is a preliminary report with dated updates until the final report replaces it, and it also sets out what was and wasn't accessed, the actions you need to take, and an FAQ.
 
 - <a href="https://blog.railway.com/p/incident-report-march-30-2026-authenticated-user-data-cached" target="_blank">March 30, 2026: authenticated user data cached by the CDN</a>
 - <a href="https://blog.railway.com/p/preliminary-report-october-security-incident" target="_blank">October 21, 2026: unauthorized access to internal systems and decryption of environment variables</a>
 
-If your workspace predates October 21, 2026, and you haven't rotated the credentials stored on Railway since, follow the <a href="https://railway.com/changelog/2026-10-23-october-21-security-incident" target="_blank">changelog entry</a> for that incident.
+If you stored credentials on Railway before October 21, 2026, and haven't rotated them since, follow the <a href="https://railway.com/changelog/2026-10-23-october-21-security-incident" target="_blank">changelog entry</a> for that incident.
 
 ## Frequently asked questions
 
@@ -117,8 +117,8 @@ Railway has a SOC 2 Type II report and a SOC 3 report, both on the Trust Center,
 
 ### Does Railway encrypt environment variables?
 
-Yes, at rest under the AES-256 control above, and with envelope encryption so that each stored value has its own data key. Railway decrypts a variable when it provides it to your build or container.
+Yes, at rest under the AES-256 control above, with envelope encryption on top. Railway decrypts a variable when it provides it to your build or container.
 
 ### Can Railway staff read my variables?
 
-Staff don't access your workloads or change your application without your permission through an approved support channel, and under a HIPAA BAA they can't access running workloads at all. A sealed value can't be read back through the dashboard or the API by you or by Railway support, so if you lose one, set a new value.
+Staff don't change your application without your permission through an approved support channel, and under a HIPAA BAA they can't access running workloads at all. A sealed value can't be read back through the dashboard or the API by you or by Railway support, so if you lose one, set a new value.
