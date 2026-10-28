@@ -1,200 +1,134 @@
 ---
 title: Security
-description: How Railway protects your code, data, and credentials, which certifications it holds, and how it responds to and reports security incidents.
+description: How Railway encrypts and isolates customer data, which audit reports it publishes, and how it discloses security incidents.
 ---
 
-This page is the reference for Railway's security posture. It covers how your data and credentials are encrypted, how workloads are isolated, which access controls you can turn on, which audit reports you can retain as evidence, and what happens when Railway has a security incident.
+Railway runs customer workloads on its own hardware, Railway Metal, in [four regions](/deployments/regions). This page describes the controls that protect code, data, and credentials on that infrastructure, where to find the audit evidence behind them, and what Railway does when something goes wrong.
 
-Audit reports, policies, and control descriptions live on the <a href="https://trust.railway.com" target="_blank">Trust Center</a>. Certification details, the HIPAA BAA, and the DPA are on the [Compliance](/enterprise/compliance) page. Incident history is on the <a href="https://status.railway.com" target="_blank">status page</a>.
-
-## At a glance
-
-- All data Railway stores at rest is encrypted with AES-256. All traffic in transit uses TLS, and traffic between your services uses WireGuard.
-- Environment variables are envelope encrypted at rest. You can seal any variable so its value is never readable from the dashboard or the API.
-- Private networks are isolated per project and per environment. Builds run on single-tenant builder infrastructure.
-- Railway is SOC 2 Type II and SOC 3 audited, offers a HIPAA BAA on Enterprise, provides a GDPR DPA, and is certified under the EU-US and Swiss-US Data Privacy Frameworks.
-- Security incidents are disclosed on the status page, the blog, the changelog, and by email, with a written incident report that is updated until the investigation closes.
+The audit reports and policies referenced here are on the <a href="https://trust.railway.com" target="_blank">Trust Center</a>. The HIPAA BAA, the DPA, and EU DORA documents are covered on the [Compliance](/enterprise/compliance) page.
 
 ## Encryption
 
-Railway encrypts customer data at rest and in transit, and manages the keys on your behalf.
+Data is encrypted at rest with AES-256 and in transit with TLS. Railway manages the keys.
 
-### Data at rest
+### At rest
 
-All customer data Railway stores at rest is encrypted. This covers [volumes](/volumes), [volume backups](/volumes/backups), [point-in-time recovery archives](/volumes/point-in-time-recovery), [storage buckets](/storage-buckets), and environment variables. The Trust Center publishes this as the Encryption-at-rest control:
+The Trust Center publishes the Encryption-at-rest control. It isn't scoped to a product or plan, so it covers [volumes](/volumes), [volume backups](/volumes/backups), [point-in-time recovery archives](/volumes/point-in-time-recovery), [storage buckets](/storage-buckets), and environment variables alike. Quote it directly when a questionnaire asks:
 
 > All data at rest within Railway's systems is encrypted using AES 256, providing robust protection against unauthorized access and ensuring data confidentiality.
 
-The control is not scoped to a product, feature, or plan. Encryption and key management are handled by Railway on Railway-operated infrastructure, and neither is exposed to or configurable from your workload. Railway doesn't offer customer-managed keys, bring-your-own-key, or per-workspace key isolation.
+Encryption and key management happen on Railway-operated infrastructure. Neither is visible to, or configurable from, your workload.
 
 ### Environment variables
 
-Environment variables are stored encrypted and are decrypted only to provide them to your builds and deployments. Values are envelope encrypted, so each stored secret is protected by its own data key, and a single compromised key doesn't expose every variable on the platform.
+Variables are stored encrypted and envelope encrypted, so each stored value has its own data key rather than sharing one platform-wide key. Railway decrypts a variable to provide it to a build or a running container. In the dashboard and the API, project Viewers can't see variable values; other roles can, unless the variable is sealed.
 
-For values you never want to read back, use [sealed variables](#sealed-variables).
+### In transit
 
-### Data in transit
+Public endpoints require HTTPS and support TLS 1.2 and TLS 1.3. Plain HTTP requests are redirected, and certificates are issued and renewed for you. See [public networking specs and limits](/networking/public-networking/specs-and-limits).
 
-All inbound traffic to your public endpoints must use TLS. Plain HTTP requests are redirected to HTTPS, and certificates are issued and renewed automatically. See [public networking specs and limits](/networking/public-networking/specs-and-limits).
+Traffic between services in the same environment travels over the [private network](/networking/private-networking), which is encrypted with WireGuard and never leaves Railway's infrastructure. A database that only your own services talk to doesn't need a public endpoint.
 
-Traffic between services on the [private network](/networking/private-networking) is encrypted with WireGuard and never leaves Railway's infrastructure. The Trust Center publishes this as the Encryption-in-transit control.
+## Sealed variables
 
-## Secrets and variables
+Sealing a variable makes it write-only. A sealed value is provided to builds and deployments but is never shown in the dashboard and can't be retrieved through the API. It can't be unsealed, isn't returned by `railway variables` or `railway run`, isn't copied into PR environments or duplicated environments and services, and isn't synced to external integrations. See [sealed variables](/variables#sealed-variables) for how to seal and update one.
 
-Railway gives you several ways to keep credentials out of source code and out of sight.
+A sealed value still reaches the running container, because your application needs it there. [Environment RBAC](/enterprise/environment-rbac) limits who can open a shell on, or deploy to, a restricted environment.
 
-### Sealed variables
+Rotating a credential means changing the variable and redeploying. [Rotate credentials with zero downtime](/guides/rotate-credentials-zero-downtime) covers the dual-key overlap. If your secrets already live in Doppler, Infisical, or Vault, [sync them in](/guides/external-secrets-manager) instead of maintaining two copies. [Managing secrets on Railway](/guides/managing-secrets-on-railway) walks through the full set of variable types.
 
-Sealing a variable makes its value write-only. A sealed value is provided to builds and deployments but is never shown in the dashboard and can't be retrieved through the API or the CLI. Sealed variables can't be unsealed, aren't copied into PR environments or duplicated environments and services, and aren't synced to external integrations. See [sealed variables](/variables#sealed-variables) for how to seal and update them.
+## Isolation
 
-### Rotation
+Projects and environments are isolated from each other. Each environment gets its own network namespace. Services in different projects, or in different environments of the same project, can't reach each other over the private network, and the infrastructure enforces that boundary rather than your application config. See [how private networking works](/networking/private-networking/how-it-works).
 
-A changed variable takes effect on the next deployment, so rotation is a redeploy, not a restart. For a dual-key overlap that avoids downtime, follow [Rotate credentials with zero downtime](/guides/rotate-credentials-zero-downtime). We recommend rotating provider keys on a schedule and immediately after any suspected exposure.
+Builds run on Railway's fourth-generation builder infrastructure, where each build gets a single-tenant environment. Build-time secrets are handled separately from runtime secrets; [Build-time vs runtime secrets](/guides/build-time-vs-runtime-secrets) explains the difference.
 
-### External secrets managers
+Enterprise workspaces can run on [Railway-managed dedicated hosts](/enterprise#hosting-options) when shared compute isn't acceptable.
 
-If your organization already runs Doppler, Infisical, or Vault, you can sync secrets into Railway instead of storing them twice. See [Use an external secrets manager](/guides/external-secrets-manager).
+Railway staff don't modify your application without your permission through an approved support channel. Railway can remove a workload that violates the [acceptable use policy](/platform/trust-and-safety). When a HIPAA BAA is in effect, staff lose direct access to your running workloads.
 
-### Tokens for automation
+## Access to your workspace
 
-[Project tokens](/integrations/api#creating-a-token) are scoped to one project and environment, so a leaked CI token can't reach the rest of your workspace. Account and workspace tokens are broader and belong only where a project token won't work. For the full set of controls, see [Managing secrets on Railway](/guides/managing-secrets-on-railway).
+Sign-in is through email, OAuth providers, or SAML on Enterprise. [Multi-factor authentication](/access/multi-factor-authentication) with an authenticator app or a passkey is available on every account, and workspace admins can [require it for every member](/access/two-factor-enforcement).
 
-## Isolation and tenancy
+Controls you can turn on:
 
-Railway runs workloads on Railway Metal, its own bare-metal fleet, with cloud regions available for burst capacity.
+- [SAML SSO](/enterprise/saml) routes sign-in through your identity provider (Enterprise)
+- [Access groups](/enterprise/access-groups) scope members to specific projects
+- [Environment RBAC](/enterprise/environment-rbac) restricts a sensitive environment to Admins (Enterprise)
+- [Guardrails](/enterprise/guardrails) add approval rules and an approved-source list for deployments
+- [Project tokens](/integrations/api#creating-a-token) are bound to one project and one environment, so a leaked CI token can't reach the rest of the workspace
 
-### Network isolation
+[Audit logs](/enterprise/audit-logs) record who changed what in a workspace, with the actor and a timestamp on each entry. They cover your workspace's activity on Railway, not activity inside Railway's own systems. Pull entries through the [`auditLogs` GraphQL query](/enterprise/audit-logs#exporting-audit-logs-via-the-api) to keep a copy in your own systems.
 
-Each environment has its own isolated network namespace. Services in different projects can't communicate over the private network, and neither can services in different environments of the same project, such as production and staging. Network isolation is enforced at the infrastructure level, not by your application. See [how private networking works](/networking/private-networking/how-it-works).
+## How Railway secures its own operations
 
-### Build isolation
+The technical and organizational measures Railway commits to are published in Exhibit C of the <a href="https://railway.com/legal/dpa" target="_blank">DPA</a>. In short: connections to production systems are encrypted, strong authentication including 2FA and a password manager are mandated, and employees sign NDAs, pass background checks, and complete security awareness training every year. Policies, procedures, and controls are reviewed at least annually, and Railway uses Drata to test controls continuously. Platform components use secure default configurations and are patched regularly. Event logging covers all components of the platform. Railway maintains an incident response plan, a business continuity plan, and a disaster recovery plan, and tests backups and restores on an ongoing basis.
 
-Builds run on Railway's fourth-generation builder infrastructure, where each build runs in a single-tenant environment. Build-time secrets are handled separately from runtime secrets; see [Build-time vs runtime secrets](/guides/build-time-vs-runtime-secrets).
+An independent firm performs penetration tests of the platform. The report is on the Trust Center. Vulnerabilities in Railway itself go to the <a href="https://railway.com/bug-bounty" target="_blank">bug bounty program</a> or <a href="mailto:bugbounty@railway.com">bugbounty@railway.com</a>.
 
-### Dedicated hosts
+For the managed database images Railway maintains, Railway ships security patches for the image.
 
-Enterprise customers can run workloads on Railway-managed dedicated hosts for complete resource isolation. See [Enterprise hosting options](/enterprise#hosting-options).
+## Certifications and audit evidence
 
-### Staff access to your workloads
+Everything in this table is on the <a href="https://trust.railway.com" target="_blank">Trust Center</a>. The control descriptions and the SOC 3 report are public. The rest opens after you sign in with your Railway account email.
 
-Railway may remove a workload that violates the [acceptable use policy](/platform/trust-and-safety), but a Railway team member never modifies your application without your permission through an approved support channel. When a HIPAA BAA is in effect, Railway staff can no longer directly access your running workloads.
-
-## Access control
-
-Workspace admins can enforce the following controls.
-
-- [Two-factor authentication enforcement](/access/two-factor-enforcement) requires every workspace member to enable 2FA.
-- [SAML SSO](/enterprise/saml) lets members sign in through your identity provider. Enterprise only.
-- [Access groups](/enterprise/access-groups) scope members to the projects they need.
-- [Environment RBAC](/enterprise/environment-rbac) restricts who can change sensitive environments such as production. Enterprise only.
-- [Guardrails](/enterprise/guardrails) add approval and protection rules on top of RBAC.
-- Workspace roles (Admin, Member, Viewer) apply on every plan.
-
-### Audit logs
-
-[Audit logs](/enterprise/audit-logs) record who changed what in a workspace: projects, services, deployments, variables, integrations, and workspace settings, each with an actor and a timestamp. Workspace admins can review them from workspace settings. Audit logs record activity in your Railway account; they don't record activity inside Railway's internal systems.
-
-## Platform protection
-
-Railway Metal mitigates network-layer attacks, and the edge applies layer 7 limits on every public endpoint. You can turn on [Under Attack Mode](/networking/waf) when a service is being targeted. Expose databases only on the private network, and use [TCP proxying](/networking/tcp-proxy) only when a database must be reachable from outside Railway.
-
-Railway redeploys managed database services onto a patched image when a vulnerability in the database image is confirmed, after taking a pre-patch volume snapshot.
-
-### Testing your own services
-
-You can run penetration tests and security assessments against the applications and services you own on Railway, including through a third-party tester, without pre-approval or advance notice. Keep testing scoped to your own services. Standard rate limits and DDoS protections still apply, so aggressive traffic can trigger automated mitigation. Testing Railway's shared infrastructure, dashboard, API, or other customers' workloads is out of scope.
-
-### Reporting a vulnerability
-
-Report vulnerabilities in Railway itself through the <a href="https://railway.com/bug-bounty" target="_blank">bug bounty program</a> or by email to <a href="mailto:bugbounty@railway.com">bugbounty@railway.com</a>.
-
-## Certifications and audit reports
-
-Railway's certifications and the documents behind them are available on the <a href="https://trust.railway.com" target="_blank">Trust Center</a>. The control descriptions and the SOC 3 report are public with no sign-in. The remaining reports are available after signing in with your Railway account email.
-
-| Framework | Status | Evidence on the Trust Center |
-| --- | --- | --- |
-| SOC 2 Type II | Audited | SOC 2 Type II report (sign-in required) |
-| SOC 3 | Audited | SOC 3 report (public download) |
-| HIPAA | BAA available on Enterprise | HIPAA report (sign-in required) |
-| GDPR | DPA available to all customers | DPA at <a href="https://railway.com/legal/dpa" target="_blank">railway.com/legal/dpa</a> |
-| EU-US and Swiss-US Data Privacy Frameworks | Certified | Listed on the Trust Center |
-| Penetration testing | Performed by an independent firm | Pentest report (sign-in required) |
-
-Policy documents, including the Encryption Policy and Backup Policy, are listed in the Trust Center document section. For the HIPAA BAA terms, EU DORA documentation, and VAT details, see [Compliance](/enterprise/compliance).
-
-## Data processing and privacy
-
-- **Data Processing Agreement.** Railway's standard DPA covers GDPR Article 28 processor obligations, including breach notification. You can sign it self-service from the [Compliance](/enterprise/compliance#gdpr-compliance---data-processing-agreement-dpa) page or read it at <a href="https://railway.com/legal/dpa" target="_blank">railway.com/legal/dpa</a>.
-- **Subprocessors.** The list of subprocessors is published at <a href="https://trust.railway.com/item/subprocessors" target="_blank">trust.railway.com/item/subprocessors</a>.
-- **Data location.** The [deploy region](/deployments/regions) you pick controls where a service and its attached volumes run.
-- **Privacy.** Railway's <a href="https://railway.com/legal/privacy" target="_blank">Privacy Policy</a> describes how Railway handles personal data. Privacy questions go to <a href="mailto:privacy@railway.com">privacy@railway.com</a>.
-
-## Incident response and breach notification
-
-Railway monitors its infrastructure around the clock and classifies every incident by severity. The [Incident management](/platform/incident-management) page describes the severity levels and the retrospective process. This section covers what you can expect from Railway when an incident affects you.
-
-### What triggers a notice
-
-- Any incident that affects platform availability is posted on the <a href="https://status.railway.com" target="_blank">status page</a> while it's in progress.
-- Any incident in which customer data or stored credentials may have been accessed is disclosed publicly and communicated directly to the workspaces involved, in addition to the status page.
-- When Railway determines that credentials stored on the platform may have been exposed, it notifies the upstream providers of those credentials so they can revoke affected keys, and does so before public disclosure if that limits harm.
-- Incidents involving personal data are handled under the notification terms of the DPA.
-
-### Where Railway communicates
-
-| Channel | What it carries |
+| Framework | Evidence |
 | --- | --- |
-| <a href="https://status.railway.com" target="_blank">status.railway.com</a> | Live incident status and historical uptime |
-| <a href="https://blog.railway.com/engineering" target="_blank">Engineering blog</a> | Security disclosures, incident reports, and remediation guides |
-| [Changelog](https://railway.com/changelog) | A dated entry linking the report and listing required customer actions |
-| Email | Direct notice to affected workspace admins and, for platform-wide incidents, to all users |
-| [Help Station](/platform/support) | Questions about your own workspace |
-| Shared Slack channels | Enterprise customers receive updates and a root cause analysis directly |
+| SOC 2 Type II | Full report, sign-in required |
+| SOC 3 | Public download |
+| HIPAA | HIPAA report, sign-in required. BAA available on Enterprise |
+| GDPR | DPA at <a href="https://railway.com/legal/dpa" target="_blank">railway.com/legal/dpa</a> |
+| EU-US and Swiss-US Data Privacy Frameworks | Listed on the Trust Center and on the <a href="https://www.dataprivacyframework.gov/list" target="_blank">DPF participant list</a> |
+| Penetration test | Third-party report, sign-in required |
 
-### What an incident report contains
+The Trust Center also carries Railway's policy documents, including the Encryption Policy and Backup Policy.
 
-Railway publishes a preliminary report while the investigation is in progress, updates it with dated entries, and follows it with a final report when forensics conclude. A report contains:
+## Data processing
 
-- A timeline of detection, containment, and recovery in UTC.
-- The scope of impact, including how many workspaces were affected and how that number was determined.
-- What was and was not accessed, stated separately for accounts, source code, environment variables, and running workloads.
-- The actions you need to take, with step-by-step guides for each affected provider.
-- The actions Railway took to contain the incident and to prevent recurrence.
-- An FAQ answering the questions customers raised during the incident.
+Railway's standard [Data Processing Agreement](https://railway.com/legal/dpa) covers GDPR Article 28 obligations, including breach notification, and can be signed self-service from the [Compliance](/enterprise/compliance#gdpr-compliance---data-processing-agreement-dpa) page. Subprocessors are listed at <a href="https://railway.com/legal/subprocessors" target="_blank">railway.com/legal/subprocessors</a>.
 
-### October 2026 security incident
+Your services and their volumes run in the [region](/deployments/regions) you pick. Railway's primary processing operations take place in the United States, and the DPA sets out the transfer mechanisms for personal data that moves there. Deleting your account purges or anonymizes your customer data and content. The <a href="https://railway.com/legal/privacy" target="_blank">Privacy Policy</a> covers the rest, and privacy questions go to <a href="mailto:privacy@railway.com">privacy@railway.com</a>.
 
-On October 21, 2026, Railway disclosed that an attacker had gained access to a subset of internal systems between October 20 at 13:58 UTC and October 22 at 03:32 UTC, and had decrypted environment variables for at most 1.85% of workspaces. Running deployments stayed online throughout. Builds and deployments were paused during containment. User accounts were not accessed. Railway notified upstream providers, revoked all API tokens and sessions, rolled every internal credential and all storage bucket credentials, and moved builds to single-tenant builder infrastructure.
+## Incident response
 
-If you signed up before October 21, 2026, and haven't rotated credentials stored on Railway since, do so now and redeploy the services that use them. The full account, including the timeline and the provider-specific rotation guides, is in the <a href="https://blog.railway.com/p/preliminary-report-october-security-incident" target="_blank">preliminary incident report</a> and the <a href="https://railway.com/changelog/2026-10-23-october-21-security-incident" target="_blank">changelog entry</a>.
+[Incident management](/platform/incident-management) describes how Railway monitors for incidents, how it classifies them, and how retrospectives work. Every High severity incident gets public communications. Enterprise customers receive a root cause analysis.
+
+### How you hear about it
+
+Availability incidents go on the <a href="https://status.railway.com" target="_blank">status page</a> as soon as Railway is aware of them. Where personal data is involved, the DPA commits Railway to inform you of a personal data breach without undue delay and to help you meet your own obligations to regulators and data subjects.
+
+Direct notice goes by email to workspace admins. Public disclosure goes on the <a href="https://blog.railway.com/engineering" target="_blank">engineering blog</a> and the <a href="https://railway.com/changelog" target="_blank">changelog</a>. Questions about your own workspace go through the [Help Station](/platform/support).
+
+When stored credentials may have been exposed, Railway also notifies the upstream providers of those credentials so they can revoke affected keys. In October 2026 that notice went out before the public disclosure, which is why some customers heard from a provider before they heard from Railway.
+
+### Published incident reports
+
+Railway publishes a report for a security incident with customer impact. A report carries a UTC timeline, the scope of impact, what was and wasn't accessed, the actions you need to take, the actions Railway took, and an FAQ. A preliminary report goes out while the investigation is still running and gets dated updates until the final report replaces it.
+
+- <a href="https://blog.railway.com/p/incident-report-march-30-2026-authenticated-user-data-cached" target="_blank">March 30, 2026: authenticated user data cached by the CDN</a>
+- <a href="https://blog.railway.com/p/preliminary-report-october-security-incident" target="_blank">October 21, 2026: unauthorized access to internal systems and decryption of environment variables</a>
+
+In the October 2026 incident, an attacker had access to a subset of Railway's internal systems from October 20 at 13:58 UTC until October 22 at 03:32 UTC and decrypted environment variables for at most 1.85% of workspaces. User accounts weren't accessed. Running deployments stayed up; builds and deployments were paused during containment. Railway revoked every API token and session, rolled all internal credentials and all storage bucket credentials, and moved builds onto the single-tenant builder generation. If you created your workspace before October 21, 2026, and haven't rotated the credentials stored on Railway since, rotate them and redeploy the services that use them. The report links a rotation guide for each affected provider, and the <a href="https://railway.com/changelog/2026-10-23-october-21-security-incident" target="_blank">changelog entry</a> lists the four customer actions.
 
 ## Frequently asked questions
 
 ### Is Railway SOC 2 compliant?
 
-Yes. Railway is SOC 2 Type II and SOC 3 audited. The SOC 3 report is a public download on the Trust Center, and the SOC 2 Type II report is available after signing in with your Railway account email.
+Railway has a SOC 2 Type II report and a SOC 3 report, both on the Trust Center. The SOC 3 is a public download.
 
 ### Does Railway encrypt environment variables?
 
-Yes. Variables are envelope encrypted at rest and decrypted only to provide them to builds and deployments. To keep a value from ever being readable in the dashboard or the API, seal it.
+Variables are encrypted at rest under the AES-256 control above, and envelope encrypted so each value has its own data key. Railway decrypts a variable to provide it to your build or container, and shows it in the dashboard to roles other than Viewer unless it's sealed.
 
-### Can I use my own encryption keys?
+### Can Railway staff read my variables?
 
-No. Railway manages encryption and key management on its own infrastructure. Customer-managed keys and per-workspace key isolation aren't offered.
+Staff don't access your workloads or modify your application without your permission through an approved support channel, and under a HIPAA BAA they can't access running workloads at all. A sealed variable is never shown in the dashboard and can't be retrieved through the API, which is also why support can't recover a sealed value you've lost.
 
-### Where is my data stored?
+### Where does my data live?
 
-A service and its volumes run in the [deploy region](/deployments/regions) you choose. Railway Metal is the primary infrastructure, with cloud regions available for burst capacity. The subprocessor list on the Trust Center names the providers involved.
+Services and volumes run in the region you choose: US West, US East, EU West, or Southeast Asia on Railway Metal. Railway's primary processing operations are in the United States.
 
-### Can I run a penetration test against my application?
+### How will I hear about a breach?
 
-Yes. You can test services you own on Railway without pre-approval or advance notice. Keep tests scoped to your own services, and expect standard rate limits and DDoS protections to apply.
-
-### How will I find out about a security incident?
-
-Availability incidents appear on the status page. Incidents involving customer data or credentials are also disclosed on the engineering blog and the changelog, and affected workspace admins are emailed directly. Enterprise customers receive a root cause analysis.
-
-### What should I prepare for a customer security review?
-
-Point your reviewer at the Trust Center for the SOC 2 Type II report, the SOC 3 report, the pentest report, and the Encryption and Backup policies. Use this page for how encryption, isolation, and access control work, and the [Compliance](/enterprise/compliance) page for the BAA and DPA. The [Production readiness checklist](/overview/production-readiness-checklist) and [Lock down a production project](/guides/lock-down-production-project) cover the controls to turn on in your own project.
+Availability incidents are on the status page as soon as Railway knows about them. For a personal data breach, the DPA commits Railway to inform you without undue delay. Security incidents with customer impact are also disclosed on the engineering blog and the changelog, with email to affected workspace admins.
