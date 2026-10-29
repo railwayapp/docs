@@ -31,11 +31,11 @@ It is highly recommended that [you eject from the template after deployment](/te
 
 To deploy a Fiber app on Railway directly from GitHub, follow the steps below:
 
-1. Fork the basic <a href="https://github.com/railwayapp-templates/go-fiber" target="_blank">Go Fiber GitHub repo</a>.
+1. Fork the basic <a href="https://github.com/railwayapp-templates/fiber" target="_blank">Go Fiber GitHub repo</a>.
    - If you already have a GitHub repo you want to deploy, you can skip this step.
 2. Create a <a href="https://railway.com/new" target="_blank">New Project.</a>
 3. Click **Deploy from GitHub repo**.
-4. Select the `go-fiber` or your own GitHub repo.
+4. Select the `fiber` or your own GitHub repo.
    - Railway requires a valid GitHub account to be linked. If your Railway account isn't associated with one, you will be prompted to link it.
 5. Click **Deploy Now**.
 
@@ -46,7 +46,7 @@ To set up a publicly accessible URL for the service, navigate to the **Networkin
 ## Deploy from the CLI
 
 1. <a href="/guides/cli#installing-the-cli" target="_blank">Install</a> and <a href="/guides/cli#authenticating-with-the-cli" target="_blank">authenticate with the CLI.</a>
-2. Clone the forked <a href="https://github.com/railwayapp-templates/go-fiber" target="_blank">Go Fiber GitHub repo</a> and `cd` into the directory.
+2. Clone the forked <a href="https://github.com/railwayapp-templates/fiber" target="_blank">Go Fiber GitHub repo</a> and `cd` into the directory.
    - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
 3. Run `railway init` within the app directory to create a new project.
 4. Run `railway up` to deploy.
@@ -54,9 +54,9 @@ To set up a publicly accessible URL for the service, navigate to the **Networkin
 
 ## Use a Dockerfile
 
-1. Clone the forked `go-fiber` repo and `cd` into the directory.
+1. Clone the forked `fiber` repo and `cd` into the directory.
    - You can skip this step if you already have an app directory or repo on your machine that you want to deploy.
-2. Create a `Dockerfile` in the `go-fiber` or app's root directory.
+2. Create a `Dockerfile` in the `fiber` or app's root directory.
 3. Add the content below to the `Dockerfile`:
 
    ```docker
