@@ -38,6 +38,20 @@ TCP Proxy is commonly used for:
 - **Custom protocols** - Any service using a non-HTTP protocol
 - **IoT devices** - Connect devices that communicate over raw TCP
 
+## Unused database proxies
+
+Railway removed the TCP proxy from databases that received no public traffic other than automated port scans for 30 days. An unused public port on a database is still a target for attackers, and the dashboard no longer needs one to connect.
+
+If one of your databases was affected, every member of its workspace received an email and a dashboard notification naming the database and its old address. Nothing was redeployed and private networking was not changed. The database's public URL variable (for example `DATABASE_PUBLIC_URL`) was removed along with the proxy, since it no longer resolved.
+
+To connect without a public port:
+
+- Run `railway connect` from the [CLI](/cli). Without a TCP proxy it opens a tunnel over SSH.
+- Run `railway connect <service> --tunnel-only` to point a client such as TablePlus or DBeaver at the tunnel.
+- Connect from another service in the same environment over [Private Networking](/networking/private-networking).
+
+To restore public access, open the database service's Settings, find Public Networking, add a TCP proxy on the database's port, and deploy the staged change. Railway assigns a new domain and port and recreates the public URL variable. Update any client that had the old address saved.
+
 ## Using a custom domain for TCP proxying
 
 You can use your own domain instead of Railway's provided TCP proxy domain.
