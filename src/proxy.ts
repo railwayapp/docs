@@ -11,9 +11,11 @@ function prefersMarkdown(acceptHeader: string): boolean {
   return mdIdx !== -1 && (htmlIdx === -1 || mdIdx < htmlIdx);
 }
 
-// Known AI agent / crawler user-agent patterns
+// Known AI agent / crawler user-agent patterns. `claude-` covers
+// Claude-User (live fetches during a conversation) and Claude-SearchBot
+// (search index), which `claudebot|claude-web` missed.
 const AI_UA_RE =
-  /claudebot|claude-web|anthropic|gptbot|chatgpt|oai-searchbot|openai|perplexitybot|perplexity|cohere|gemini|googlebot-richsnippets|meta-externalagent|duckassistbot/i;
+  /claudebot|claude-web|claude-user|claude-searchbot|anthropic|gptbot|chatgpt|oai-searchbot|openai|perplexitybot|perplexity|cohere|gemini|googlebot-richsnippets|meta-externalagent|duckassistbot|mistralai-user|youbot|amazonbot|applebot-extended/i;
 
 function isAIAgent(uaHeader: string): boolean {
   return AI_UA_RE.test(uaHeader);
