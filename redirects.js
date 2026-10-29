@@ -1,3 +1,5 @@
+const movedGuides = require("./moved-guides.json");
+
 const redirects = [
   {
     source: "/cloud-agents/opencode2",
@@ -1101,7 +1103,40 @@ const hashRedirects = [
   },
 ];
 
+// Guides moved to railway.com/guides. Each one, its .md version and the
+// /guides index redirect there permanently; the sitemap leaves them out
+// because it skips every redirect source.
+const guideRedirects = [
+  { source: "/guides", destination: movedGuides.destination, permanent: true },
+  ...Object.entries(movedGuides.guides).flatMap(([from, to]) => [
+    {
+      source: `/guides/${from}`,
+      destination: `${movedGuides.destination}/${to}`,
+      permanent: true,
+    },
+    {
+      source: `/guides/${from}.md`,
+      destination: `${movedGuides.destination}/${to}.md`,
+      permanent: true,
+    },
+  ]),
+];
+
+// Point older redirects that land on a moved guide straight at its new home,
+// so they don't chain through a second redirect.
+const toMovedGuide = (destination) => {
+  const slug = destination.match(/^\/guides\/([^/#?:]+)$/)?.[1];
+  const moved = slug && movedGuides.guides[slug];
+  return moved ? `${movedGuides.destination}/${moved}` : destination;
+};
+
 module.exports = {
-  redirects,
+  redirects: [
+    ...guideRedirects,
+    ...redirects.map((redirect) => ({
+      ...redirect,
+      destination: toMovedGuide(redirect.destination),
+    })),
+  ],
   hashRedirects,
 };
