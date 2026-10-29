@@ -96,8 +96,8 @@ export const sidebarContent: ISidebarContent = [
     title: "Enterprise",
     slug: "/enterprise",
     content: [
-      makePage("Compliance", "enterprise"),
       makePage("Security", "enterprise"),
+      makePage("Compliance", "enterprise"),
       makePage("Audit logs", "enterprise"),
       makePage("SAML SSO", "enterprise", "/enterprise/saml"),
       makePage("Access groups", "enterprise"),
