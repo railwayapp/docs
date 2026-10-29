@@ -35,7 +35,7 @@ Constructing efficient networking setups yourself can be tricky and time-consumi
 
 [Private Networking](/networking/private-networking) is a feature that lets your services communicate to other running services within your project simply by its service name. Under Settings > Networking, you can configure the specific domain that is given to your service. You can provide this private networking domain name to your services with [Reference Variables](/variables#reference-variables).
 
-Private Networking domains are available with [Railway-provided Variables](/variables#railway-provided-variables) that you can [provide to your other services](/variables#referencing-a-shared-variable), elimiating the need to hard-code their values.
+Private Networking domains are available with [Railway-provided Variables](/variables#railway-provided-variables) that you can [provide to your other services](/variables#referencing-a-shared-variable), eliminating the need to hard-code their values.
 
 Under the hood, Railway connects your services together with a WireGuard mesh and a DNS resolver that is scoped to your project and environment. Services running inside of one project or environment aren't able to reach the services running in a different project. This also applies to environments within a project being unable to reach other environments.
 
