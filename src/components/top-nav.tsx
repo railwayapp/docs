@@ -20,7 +20,10 @@ const navLinks = [
 // Desktop Top Navigation
 export const TopNav: React.FC = () => {
   return (
-    <header className="hidden md:grid grid-cols-[var(--width-sidebar)_1fr_auto] items-center gap-4 pr-6 py-3 fixed top-0 left-0 right-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted">
+    <header
+      data-do11y-nav
+      className="hidden md:grid grid-cols-[var(--width-sidebar)_1fr_auto] items-center gap-4 pr-6 py-3 fixed top-0 left-0 right-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted"
+    >
       {/* Left - Logo */}
       <div className="px-6">
         <Link
@@ -91,7 +94,10 @@ export const MobileTopNav: React.FC = () => {
 
   return (
     <>
-      <header className="flex md:hidden items-center justify-between gap-4 px-4 py-3 fixed top-0 left-0 right-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted">
+      <header
+        data-do11y-nav
+        className="flex md:hidden items-center justify-between gap-4 px-4 py-3 fixed top-0 left-0 right-0 z-40 bg-muted-app/95 backdrop-blur-sm border-b border-muted"
+      >
         {/* Left - Logo */}
         <Link
           href="/"
@@ -125,7 +131,10 @@ export const MobileTopNav: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 top-[57px] z-30 md:hidden bg-muted-app overflow-y-auto">
+        <div
+          data-do11y-nav
+          className="fixed inset-0 top-[57px] z-30 md:hidden bg-muted-app overflow-y-auto"
+        >
           <div className="px-4 py-4">
             {/* Search */}
             <div className="mb-4">
