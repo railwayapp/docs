@@ -40,7 +40,7 @@ An independent firm performs a penetration test of the platform every quarter, w
 
 ### Data residency
 
-A service and its volumes run in the [region](/deployments/regions) you select when you create it. Railway's own processing primarily happens in the United States, except for EU customers where data stays within EU regions. The DPA sets out more detailed transfer mechanisms. For anything else, see the <a href="https://railway.com/legal/privacy" target="_blank">Privacy Policy</a> or write to <a href="mailto:privacy@railway.com">privacy@railway.com</a>.
+A service and its volumes run in the [region](/deployments/regions) you select when you create it. All application data stays within that region; Railway's own processing primarily happens in the United States. The DPA sets out more detailed transfer mechanisms. For anything else, see the <a href="https://railway.com/legal/privacy" target="_blank">Privacy Policy</a> or write to <a href="mailto:privacy@railway.com">privacy@railway.com</a>.
 
 ### Image and log retention
 
