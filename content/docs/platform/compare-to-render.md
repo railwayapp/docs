@@ -3,7 +3,7 @@ title: "Railway vs Render: Technical Comparison and Migration Guide"
 description: Compare Railway and Render on infrastructure, pricing model and dashboard experience, with a step-by-step migration guide.
 ---
 
-_Last updated: October 28, 2026_
+_Last updated: October 30, 2026_
 
 ## How do Railway and Render compare?
 
@@ -15,11 +15,13 @@ Railway combines usage-based compute billing with PostgreSQL, MySQL, Redis, and 
 | SOC 3 | Yes; report listed in the Trust Center | Yes; report available to all workspaces in the Document Center |
 | HIPAA BAA | Available as an add-on with a paid monthly spend threshold; contact the solutions team | Available for Scale and Enterprise HIPAA-enabled workspaces; an additional 20% fee applies to usage |
 | DPA available | Yes; standard DPA available through a self-service signing link | Yes; GDPR DPA available to all workspaces in the Document Center |
+| Private networking | Yes; [WireGuard-encrypted traffic within an environment](/enterprise/security#encryption-at-rest-and-in-transit), with [network isolation between environments](/enterprise/security#isolation-of-environments-and-builds) | Yes; services in the same workspace and region share a private network; free web services can send requests but cannot receive them |
 | Managed databases | PostgreSQL, MySQL, Redis, and MongoDB; see [what Railway manages](/databases#what-railway-manages) for responsibilities | Managed Postgres and Redis-compatible Key Value (Valkey); MySQL and MongoDB can be self-hosted as private services |
-| Audit logs | Audit logging listed in the Trust Center | Workspace audit log exports on Pro and higher; organization exports on Scale and Enterprise |
+| Sealed / secret variables | [Write-only sealed variables](/enterprise/security#sealed-variables); values are supplied to builds and deployments but hidden from the dashboard, API, and CLI | Environment variables, secret files, and shared environment groups |
+| Audit logs | [Records workspace changes with actor and timestamp; exportable through GraphQL](/enterprise/security#access-control) | Workspace audit log exports on Pro and higher; organization exports on Scale and Enterprise |
 | Pricing model | Usage-based CPU and memory billing, plus storage and network usage; plan minimums apply | Instance-based compute tiers, plus workspace plans and applicable storage and bandwidth charges |
 
-Sources: [Railway compliance](/enterprise/compliance), [Railway Trust Center](https://trust.railway.com), [Railway database management](/databases#what-railway-manages), [Railway pricing](/pricing/plans), [Render security and trust](https://render.com/security), [Render compliance and reports](https://render.com/docs/certifications-compliance), [Render HIPAA](https://render.com/docs/hipaa-compliance), [Render Postgres](https://render.com/docs/postgresql-creating-connecting), [Render Key Value](https://render.com/docs/key-value), [Render MySQL](https://render.com/docs/deploy-mysql), [Render MongoDB](https://render.com/docs/deploy-mongodb), [Render audit logs](https://render.com/docs/audit-logs), and [Render pricing](https://render.com/pricing).
+Sources: [Railway security](/enterprise/security), [Railway compliance](/enterprise/compliance), [Railway Trust Center](https://trust.railway.com), [Railway database management](/databases#what-railway-manages), [Railway pricing](/pricing/plans), [Render security and trust](https://render.com/security), [Render compliance and reports](https://render.com/docs/certifications-compliance), [Render HIPAA](https://render.com/docs/hipaa-compliance), [Render Postgres](https://render.com/docs/postgresql-creating-connecting), [Render Key Value](https://render.com/docs/key-value), [Render MySQL](https://render.com/docs/deploy-mysql), [Render MongoDB](https://render.com/docs/deploy-mongodb), [Render audit logs](https://render.com/docs/audit-logs), [Render pricing](https://render.com/pricing), [Render private networking](https://render.com/docs/private-network), and [Render environment variables and secrets](https://render.com/docs/configure-environment-variables).
 
 > Best for Railway: Teams that want usage-based compute billing and PostgreSQL, MySQL, Redis, or MongoDB services in one project.
 >
@@ -239,6 +241,10 @@ Yes. Railway’s [compliance page](/enterprise/compliance#soc-2-type-ii-and-soc-
 ### Does Render offer a HIPAA BAA?
 
 Yes. Render offers a BAA for HIPAA-enabled workspaces on Scale and Enterprise plans. Its [HIPAA documentation](https://render.com/docs/hipaa-compliance) describes the signing and enablement process and the additional 20% usage fee. Railway also offers a [HIPAA BAA add-on](/enterprise/compliance#hipaa-baa) with a paid monthly spend threshold.
+
+### Which one has private networking?
+
+Both platforms have private networking. [Railway’s private network](/enterprise/security#encryption-at-rest-and-in-transit) encrypts traffic with WireGuard within an environment, and [separate environments have isolated networks](/enterprise/security#isolation-of-environments-and-builds). [Render’s private network](https://render.com/docs/private-network) connects services in the same workspace and region. Free Render web services can send private requests but cannot receive them.
 
 ### Can I migrate from Render to Railway?
 
