@@ -189,7 +189,9 @@ The main differences are compute billing, scaling controls, database options, an
 
 ## How do I migrate from Render to Railway?
 
-To get started, [create an account on Railway](https://railway.com/new). You can sign up for free and receive $5 in credits to try out the platform.
+Since both platforms deploy from a GitHub repo or Docker image, migration is mostly connecting your repo, copying environment variables, and configuring a domain; the steps below walk through it. You can sign up for free and receive $5 in credits to try the platform first.
+
+To get started, [create an account on Railway](https://railway.com/new). For database transfer and the full migration workflow, follow the [Render-to-Railway migration guide](/platform/migrate-from-render).
 
 ### Deploying your app
 
@@ -218,9 +220,7 @@ If you need help along the way, the [Help Station](https://station.railway.com/)
 
 Working with a larger workload or have specific requirements? [Book a call with the Railway team](https://cal.com/team/railway/work-with-railway) to explore how we can best support your project.
 
-## What else should I know about Railway vs Render?
-
-These answers cover common pricing, compliance, and migration questions.
+## Frequently asked questions
 
 ### Is Railway cheaper than Render?
 
@@ -245,7 +245,3 @@ Yes. Render offers a BAA for HIPAA-enabled workspaces on Scale and Enterprise pl
 ### Which one has private networking?
 
 Both platforms have private networking. [Railway’s private network](/enterprise/security#encryption-at-rest-and-in-transit) encrypts traffic with WireGuard within an environment, and [separate environments have isolated networks](/enterprise/security#isolation-of-environments-and-builds). [Render’s private network](https://render.com/docs/private-network) connects services in the same workspace and region. Free Render web services can send private requests but cannot receive them.
-
-### Can I migrate from Render to Railway?
-
-Yes. Follow the [Render-to-Railway migration guide](/platform/migrate-from-render) to move your application, transfer database data, configure environment variables, and switch your domain.
