@@ -42,7 +42,7 @@ TCP Proxy is commonly used for:
 
 Railway removed the TCP proxy from databases that received no public traffic other than automated port scans for 30 days. An unused public port on a database is still a target for attackers, and the dashboard no longer needs one to connect.
 
-If one of your databases was affected, every member of its workspace received an email and a dashboard notification naming the database and its old address. Nothing was redeployed and private networking was not changed. The database's public URL variable (for example `DATABASE_PUBLIC_URL`) was removed along with the proxy, since it no longer resolved.
+Nothing was redeployed and private networking was not changed. The database's public URL variable (for example `DATABASE_PUBLIC_URL`) was removed along with the proxy, since it no longer resolved.
 
 To connect without a public port:
 
