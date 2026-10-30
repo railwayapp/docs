@@ -15,7 +15,7 @@ At Railway, we've set up GitHub triggers for automatic deployments when you push
 
 ## The action
 
-Since Railway makes the deployment status available to GitHub, you'll be using the `deployment_status` event to trigger your action. This event is triggered when a deployment status changes, and you'll be using the `success` state to trigger your action.
+Since Railway makes the deployment status available to GitHub, you'll be using the `deployment_status` event to trigger your action. This event is triggered when a deployment status changes, and the job's `if` condition runs your action only for the `success` state.
 
 Make a new file in your repository called `.github/workflows/post-deploy.yml` and add the following -
 
@@ -24,7 +24,6 @@ name: Post-Deployment Actions
 
 on:
   deployment_status:
-    states: [success]
 
 jobs:
   post-deploy:
