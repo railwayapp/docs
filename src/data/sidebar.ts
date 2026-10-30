@@ -441,7 +441,7 @@ export const sidebarContent: ISidebarContent = [
           makePage("Build a database service", "databases"),
           makePage("PostgreSQL", "databases"),
           makePage("PostgreSQL High Availability", "databases", "/databases/postgresql-ha"),
-          makePage("PostgreSQL Connection Pooling", "databases", "/databases/postgresql-pgbouncer"),
+          makePage("Add connection pooling to PostgreSQL", "databases", "/databases/postgresql-pgbouncer"),
           makePage("MySQL", "databases"),
           makePage("MySQL High Availability", "databases", "/databases/mysql-ha"),
           makePage("Redis", "databases"),
@@ -456,7 +456,7 @@ export const sidebarContent: ISidebarContent = [
         subTitle: makePage("Volumes", undefined, "/volumes"),
         pages: [
           makePage("Backups", "volumes"),
-          makePage("Point-in-Time Recovery", "volumes"),
+          makePage("Point-in-time recovery", "volumes"),
           makePage("Reference", "volumes"),
         ],
       },
