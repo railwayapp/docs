@@ -7,21 +7,17 @@ _Last updated: October 30, 2026_
 
 ## How do Railway and Render compare?
 
-Railway combines usage-based compute billing with PostgreSQL, MySQL, Redis, and MongoDB services. Render combines instance-based compute tiers with managed Postgres and Redis-compatible Key Value. Both publish compliance documentation for security reviews.
+Railway combines usage-based compute billing with PostgreSQL, MySQL, Redis, and MongoDB services. Render combines instance-based compute tiers with managed Postgres and Redis-compatible Key Value.
 
 | Capability | Railway | Render |
 | --- | --- | --- |
-| SOC 2 Type II | Yes; report available through the Trust Center | Yes; report available to Pro workspaces and higher under NDA |
-| SOC 3 | Yes; report listed in the Trust Center | Yes; report available to all workspaces in the Document Center |
-| HIPAA BAA | Available as an add-on with a paid monthly spend threshold; contact the solutions team | Available for Scale and Enterprise HIPAA-enabled workspaces; an additional 20% fee applies to usage |
-| DPA available | Yes; standard DPA available through a self-service signing link | Yes; GDPR DPA available to all workspaces in the Document Center |
-| Private networking | Yes; [WireGuard-encrypted traffic within an environment](/enterprise/security#encryption-at-rest-and-in-transit), with [network isolation between environments](/enterprise/security#isolation-of-environments-and-builds) | Yes; services in the same workspace and region share a private network; free web services can send requests but cannot receive them |
-| Managed databases | PostgreSQL, MySQL, Redis, and MongoDB; see [what Railway manages](/databases#what-railway-manages) for responsibilities | Managed Postgres and Redis-compatible Key Value (Valkey); MySQL and MongoDB can be self-hosted as private services |
-| Sealed / secret variables | [Write-only sealed variables](/enterprise/security#sealed-variables); values are supplied to builds and deployments but hidden from the dashboard, API, and CLI | Environment variables, secret files, and shared environment groups |
-| Audit logs | [Records workspace changes with actor and timestamp; exportable through GraphQL](/enterprise/security#access-control) | Workspace audit log exports on Pro and higher; organization exports on Scale and Enterprise |
-| Pricing model | Usage-based CPU and memory billing, plus storage and network usage; plan minimums apply | Instance-based compute tiers, plus workspace plans and applicable storage and bandwidth charges |
-
-Sources: [Railway security](/enterprise/security), [Railway compliance](/enterprise/compliance), [Railway Trust Center](https://trust.railway.com), [Railway database management](/databases#what-railway-manages), [Railway pricing](/pricing/plans), [Render security and trust](https://render.com/security), [Render compliance and reports](https://render.com/docs/certifications-compliance), [Render HIPAA](https://render.com/docs/hipaa-compliance), [Render Postgres](https://render.com/docs/postgresql-creating-connecting), [Render Key Value](https://render.com/docs/key-value), [Render MySQL](https://render.com/docs/deploy-mysql), [Render MongoDB](https://render.com/docs/deploy-mongodb), [Render audit logs](https://render.com/docs/audit-logs), [Render pricing](https://render.com/pricing), [Render private networking](https://render.com/docs/private-network), and [Render environment variables and secrets](https://render.com/docs/configure-environment-variables).
+| Deployment options | GitHub repositories and Docker images | GitHub repositories and Docker images |
+| Scaling | CPU and memory scale within plan limits; manually configured replicas | Fixed instance sizes; manual replicas or CPU- and memory-based horizontal autoscaling |
+| Managed databases | PostgreSQL, MySQL, Redis, and MongoDB; see [what Railway manages](/databases#what-railway-manages) | Postgres and Redis-compatible Key Value (Valkey); self-hosted MySQL and MongoDB |
+| Pricing model | Usage-based compute, storage, and networking; plan minimums apply | Instance-based compute tiers, workspace plans, and applicable usage charges |
+| Dashboard | Collaborative canvas showing services and their relationships | Traditional dashboard listing project resources |
+| Security controls | [Private networking, write-only sealed variables, and audit logs](/enterprise/security) | Private networking, environment variables and secret files; audit logs on Pro and higher |
+| Compliance | [SOC 2 Type II, SOC 3, and DPA; HIPAA BAA available as a paid add-on](/enterprise/compliance) | SOC 2 Type II, SOC 3, and DPA; HIPAA BAA on Scale and Enterprise with an additional usage fee |
 
 > Best for Railway: Teams that want usage-based compute billing and PostgreSQL, MySQL, Redis, or MongoDB services in one project.
 >
